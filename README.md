@@ -12,6 +12,12 @@ A structured workspace for **hypothesis-driven science**: methods, evidence, and
 | [docs/COLLABORATION_AND_REVIEWS.md](docs/COLLABORATION_AND_REVIEWS.md) | Reviews, labels, communication |
 | [docs/DOC_MAP.md](docs/DOC_MAP.md) | **Guiding doc → concrete behaviors** (traceability) |
 | [docs/OPERATING_RHYTHM.md](docs/OPERATING_RHYTHM.md) | Cadence, versioning, branch protection, CI |
+| [docs/ONBOARDING.md](docs/ONBOARDING.md) | First-time contributor path (~30 min) |
+| [docs/REPOSITORY_MANIFEST.md](docs/REPOSITORY_MANIFEST.md) | Every path: purpose and governing doc |
+| [docs/LABELS_AND_MILESTONES.md](docs/LABELS_AND_MILESTONES.md) | Issue labels and optional milestones |
+| [docs/LICENSING_NOTES.md](docs/LICENSING_NOTES.md) | License exceptions and per-artifact notes |
+| [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) | Community expectations |
+| [SECURITY.md](SECURITY.md) | Reporting security issues and secrets |
 
 ## Repository layout
 
@@ -22,6 +28,7 @@ A structured workspace for **hypothesis-driven science**: methods, evidence, and
 | [data/](data/) | Allowed non-sensitive data; `raw/` is gitignored |
 | [artifacts/](artifacts/) | Committed generated outputs with provenance |
 | [scripts/](scripts/) | Reproducible automation |
+| [notebooks/](notebooks/) | Exploratory analysis (reproducibility expectations in folder README) |
 | [AGENTS.md](AGENTS.md) | Agent instructions (Cursor and other assistants) |
 
 ## Contributing

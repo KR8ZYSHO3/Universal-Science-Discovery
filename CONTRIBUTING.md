@@ -1,6 +1,8 @@
 # Contributing
 
-Thank you for helping improve Universal Science Discovery. This project is governed by the documents in [docs/](docs/); read [docs/VISION_AND_SCOPE.md](docs/VISION_AND_SCOPE.md) and [docs/METHODOLOGY.md](docs/METHODOLOGY.md) before substantive contributions.
+Thank you for helping improve Universal Science Discovery. This project is governed by the documents in [docs/](docs/); read [docs/ONBOARDING.md](docs/ONBOARDING.md) for a structured first pass, then [docs/VISION_AND_SCOPE.md](docs/VISION_AND_SCOPE.md) and [docs/METHODOLOGY.md](docs/METHODOLOGY.md) before substantive contributions.
+
+By participating, you agree to follow the [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md). Report security-sensitive matters per [SECURITY.md](SECURITY.md), not via public issues.
 
 ## Workflow
 
@@ -26,4 +28,4 @@ If substantial prose or code was produced with an assistant, note that in the PR
 
 ## Code of conduct
 
-Participate respectfully; assume good faith; prioritize clarity and reproducibility over rhetorical wins.
+See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md). Prioritize clarity and reproducibility in technical discussion.

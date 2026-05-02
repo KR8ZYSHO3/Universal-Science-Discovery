@@ -10,6 +10,7 @@
 ## CI and merges
 
 - Pull requests should pass [Markdown link check](../.github/workflows/markdown-link-check.yml) before merge to `main`.
+- [Dependabot](../.github/dependabot.yml) opens weekly PRs to update GitHub Actions; review and merge to reduce supply-chain drift.
 - Expand CI (lint, tests) when code under [scripts/](../scripts/) grows.
 
 ## Versioning and tags

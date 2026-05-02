@@ -20,6 +20,7 @@ What does this PR change?
 - [ ] **Data** handling follows [docs/ETHICS_REPRODUCIBILITY_AND_DATA.md](../docs/ETHICS_REPRODUCIBILITY_AND_DATA.md); no secrets or restricted raw data committed.
 - [ ] **Provenance:** for new artifacts, paths or steps to reproduce are documented.
 - [ ] **Policy sync:** if guiding docs changed, [docs/DOC_MAP.md](../docs/DOC_MAP.md) and agent surfaces were updated if needed.
+- [ ] **Structure sync:** if paths were added/removed/renamed, [docs/REPOSITORY_MANIFEST.md](../docs/REPOSITORY_MANIFEST.md) was updated in this PR.
 
 ## AI assistance
 

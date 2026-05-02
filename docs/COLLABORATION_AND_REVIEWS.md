@@ -17,4 +17,4 @@ See [CONTRIBUTING.md](../CONTRIBUTING.md) for mechanics (fork, branch, PR, check
 
 ## Labels (suggested)
 
-Maintain GitHub labels aligned to methodology: `hypothesis`, `methods`, `finding`, `docs`, `tooling`, `blocked`, `needs-evidence`.
+Maintain GitHub labels aligned to methodology. Full palette, colors, and milestone ideas: [LABELS_AND_MILESTONES.md](LABELS_AND_MILESTONES.md). Core set: `hypothesis`, `methods`, `finding`, `docs`, `tooling`, `blocked`, `needs-evidence`.

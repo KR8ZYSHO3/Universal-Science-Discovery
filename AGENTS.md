@@ -10,6 +10,8 @@ Before proposing **findings**, changing **methods**, or advising on **data handl
 
 For collaboration norms and review expectations: [docs/COLLABORATION_AND_REVIEWS.md](docs/COLLABORATION_AND_REVIEWS.md).  
 For how docs map to repo mechanics: [docs/DOC_MAP.md](docs/DOC_MAP.md).  
+For every path’s role and governing policy: [docs/REPOSITORY_MANIFEST.md](docs/REPOSITORY_MANIFEST.md).  
+For human onboarding order: [docs/ONBOARDING.md](docs/ONBOARDING.md).  
 For cadence and versioning: [docs/OPERATING_RHYTHM.md](docs/OPERATING_RHYTHM.md).
 
 ## Operating rules
