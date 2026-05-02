@@ -1,0 +1,79 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: https://usdr.local/schemas/hypothesis.schema.json
+title: USDR Hypothesis entry
+description: >
+  Structured hypothesis record. Store instances under hypotheses/active|validated|archived/
+  as YAML or JSON. Use metadata and links only—no full-text copyrighted papers (see LEGAL.md).
+type: object
+additionalProperties: false
+required:
+  - id
+  - title
+  - status
+  - created
+properties:
+  id:
+    type: string
+    pattern: "^h-[a-z0-9.-]+$"
+    description: Stable id, e.g. h-example-topic-001
+  title:
+    type: string
+    minLength: 8
+    maxLength: 500
+  status:
+    type: string
+    enum: [draft, active, validated, refuted, archived]
+  priority:
+    type: string
+    enum: [low, medium, high, critical]
+  impact_score:
+    type: number
+    minimum: 0
+    maximum: 1
+  created:
+    type: string
+    format: date
+  last_updated:
+    type: string
+    format: date
+  author:
+    type: string
+    description: GitHub handle or attribution string
+  evidence_links:
+    type: array
+    items:
+      type: object
+      additionalProperties: false
+      required: [type]
+      properties:
+        doi:
+          type: string
+        arxiv:
+          type: string
+        url:
+          type: string
+          format: uri
+        type:
+          type: string
+          enum: [supporting, related, contradicting]
+        confidence:
+          type: number
+          minimum: 0
+          maximum: 1
+        note:
+          type: string
+  unknowns_addressed:
+    type: array
+    items:
+      type: string
+  proposed_tests:
+    type: array
+    items:
+      type: object
+      additionalProperties: true
+  bounty:
+    type: string
+  related_disciplines:
+    type: array
+    items:
+      type: string

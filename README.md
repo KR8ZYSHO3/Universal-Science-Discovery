@@ -39,6 +39,20 @@ Open-source, Git-based knowledge infrastructure for **discovery-first** science:
 
 See [CONTRIBUTING.md](CONTRIBUTING.md).
 
+## Content layout (MVP skeleton)
+
+| Path | Role |
+|------|------|
+| [schemas/](schemas/) | JSON Schemas (YAML): hypothesis, unknown, dataset |
+| [templates/](templates/) | PR / issue boilerplate for new records |
+| [disciplines/](disciplines/) | Per-field trees (grow over time) |
+| [unknowns-catalog/](unknowns-catalog/) | Global research gaps (`u-...`) |
+| [hypotheses/](hypotheses/) | Hypothesis registry (`h-...`; `active` / `validated` / `archived`) |
+| [cross-domain/](cross-domain/) | Interdisciplinary bridge folders |
+| [code/](code/) | Automation and tooling |
+
+Older generic layout (`docs/`, `methods/`, `data/`, …) still applies for governance and prompts.
+
 ## AI-assisted work in this repo
 
 Project-specific Cursor guidance is in [cursorrules](cursorrules) (import or symlink into `.cursor/rules/` per your editor setup).
