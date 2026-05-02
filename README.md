@@ -53,6 +53,17 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 Older generic layout (`docs/`, `methods/`, `data/`, …) still applies for governance and prompts.
 
+### Documentation site (preview)
+
+Governance pages under `docs/` can be browsed locally as a static site (see [INTERFACE.md](INTERFACE.md) Phase 1):
+
+```bash
+pip install -r requirements-docs.txt
+mkdocs serve
+```
+
+CI builds the site on every PR to `main` (`.github/workflows/mkdocs-build.yml`). Publishing to GitHub Pages can be enabled later; the artifact is uploaded for now.
+
 ## AI-assisted work in this repo
 
 Project-specific Cursor guidance is in [cursorrules](cursorrules) (import or symlink into `.cursor/rules/` per your editor setup).
