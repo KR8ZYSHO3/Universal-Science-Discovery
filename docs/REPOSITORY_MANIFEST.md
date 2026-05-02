@@ -15,6 +15,7 @@ Exhaustive index of **tracked** paths (excluding `.git`), what each is for, and 
 | [.cursor/rules/science-discovery-core.mdc](../.cursor/rules/science-discovery-core.mdc) | Config | Cursor always-on rules | [AGENTS.md](../AGENTS.md), [DOC_MAP.md](DOC_MAP.md) |
 | [.github/dependabot.yml](../.github/dependabot.yml) | Config | Dependency update PRs (Actions) | [OPERATING_RHYTHM.md](OPERATING_RHYTHM.md) |
 | [.github/workflows/markdown-link-check.yml](../.github/workflows/markdown-link-check.yml) | CI | Validates Markdown links | [CONTRIBUTING.md](../CONTRIBUTING.md), [OPERATING_RHYTHM.md](OPERATING_RHYTHM.md) |
+| [.github/workflows/validate-schemas.yml](../.github/workflows/validate-schemas.yml) | CI | Validates hypothesis / unknown YAML against `schemas/` | [schemas/README.md](../schemas/README.md), [OPERATING_RHYTHM.md](OPERATING_RHYTHM.md) |
 | [.github/pull_request_template.md](../.github/pull_request_template.md) | Template | PR checklist | [METHODOLOGY.md](METHODOLOGY.md), [ETHICS_REPRODUCIBILITY_AND_DATA.md](ETHICS_REPRODUCIBILITY_AND_DATA.md) |
 | [.github/ISSUE_TEMPLATE/config.yml](../.github/ISSUE_TEMPLATE/config.yml) | Template | Issue chooser config | — |
 | [.github/ISSUE_TEMPLATE/bug_report.md](../.github/ISSUE_TEMPLATE/bug_report.md) | Template | Bugs / inaccuracies | [METHODOLOGY.md](METHODOLOGY.md) |
@@ -40,6 +41,12 @@ Exhaustive index of **tracked** paths (excluding `.git`), what each is for, and 
 | [data/raw/.gitkeep](../data/raw/.gitkeep) | Placeholder | Preserve `raw/` in git | [data/README.md](../data/README.md) |
 | [artifacts/README.md](../artifacts/README.md) | Guide | Outputs contract | [METHODOLOGY.md](METHODOLOGY.md) |
 | [scripts/README.md](../scripts/README.md) | Guide | Automation contract | [METHODOLOGY.md](METHODOLOGY.md), [ETHICS_REPRODUCIBILITY_AND_DATA.md](ETHICS_REPRODUCIBILITY_AND_DATA.md) |
+| [scripts/validate_schemas.py](../scripts/validate_schemas.py) | Tool | CI + local YAML validation | [schemas/README.md](../schemas/README.md) |
+| [scripts/requirements-validate.txt](../scripts/requirements-validate.txt) | Config | Deps for `validate_schemas.py` | [scripts/README.md](../scripts/README.md) |
+| [disciplines/README.md](../disciplines/README.md) | Guide | Discipline tree contract | [VISION_AND_SCOPE.md](VISION_AND_SCOPE.md) |
+| [disciplines/physics/README.md](../disciplines/physics/README.md) | Guide | Physics seed + catalog pointers | [METHODOLOGY.md](METHODOLOGY.md), [LEGAL.md](../LEGAL.md) |
+| [unknowns-catalog/high-priority/u-dark-matter-microphysics.yaml](../unknowns-catalog/high-priority/u-dark-matter-microphysics.yaml) | Content | Phase 0 example unknown | [schemas/unknown.yaml](../schemas/unknown.yaml) |
+| [hypotheses/active/h-radio-axion-like-dm-constraints.yaml](../hypotheses/active/h-radio-axion-like-dm-constraints.yaml) | Content | Phase 0 example hypothesis | [schemas/hypothesis.yaml](../schemas/hypothesis.yaml) |
 | [notebooks/README.md](../notebooks/README.md) | Guide | Exploratory analysis contract | [METHODOLOGY.md](METHODOLOGY.md) |
 
 ## Maintenance rule

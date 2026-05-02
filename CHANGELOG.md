@@ -10,6 +10,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Phase 0 **seed content**: example unknown and linked active hypothesis (dark matter microphysics / radio–axion-like constraints) under `unknowns-catalog/high-priority/` and `hypotheses/active/`
+- **Physics discipline stub** [`disciplines/physics/README.md`](disciplines/physics/README.md) linking to the seed records
+- **Schema validation CI** ([`.github/workflows/validate-schemas.yml`](.github/workflows/validate-schemas.yml)) and [`scripts/validate_schemas.py`](scripts/validate_schemas.py) with [`scripts/requirements-validate.txt`](scripts/requirements-validate.txt)
+- README content-layout row for the physics seed
 - Blueprint MVP slice: `schemas/` (hypothesis, unknown, dataset), `templates/`, `disciplines/`, `unknowns-catalog/`, `hypotheses/` (subfolders), `cross-domain/`, `code/` with READMEs
 - README + DOC_MAP updates for content layout
 - `CONTRIBUTING.md` contributor path aligned with blueprint and outreach docs

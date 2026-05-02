@@ -49,6 +49,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 | [unknowns-catalog/](unknowns-catalog/) | Global research gaps (`u-...`) |
 | [hypotheses/](hypotheses/) | Hypothesis registry (`h-...`; `active` / `validated` / `archived`) |
 | [cross-domain/](cross-domain/) | Interdisciplinary bridge folders |
+| [disciplines/physics/](disciplines/physics/) | Phase 0 physics seed + links to catalog entries |
 | [code/](code/) | Automation and tooling |
 
 Older generic layout (`docs/`, `methods/`, `data/`, …) still applies for governance and prompts.
