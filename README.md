@@ -1,44 +1,44 @@
-# Universal Science Discovery
+# Universal Science Discovery Repository (USDR)
 
-A structured workspace for **hypothesis-driven science**: methods, evidence, and reproducible artifacts live together with explicit separation between hypotheses, findings, and speculation.
+Open-source, Git-based knowledge infrastructure for **discovery-first** science: explicit unknowns, testable hypotheses, cross-domain links, and reproducible workflows.
+
+## Why this exists
+
+- **Mobilize contributors:** [WHY_CONTRIBUTE.md](WHY_CONTRIBUTE.md)
+- **Pitch without unnecessary resistance:** [VISION_COMMUNICATION.md](VISION_COMMUNICATION.md)
+- **Full build plan & repo shape:** [universal-science-discovery-repo-blueprint.md](universal-science-discovery-repo-blueprint.md)
 
 ## Start here
 
 | Document | Purpose |
 |----------|---------|
-| [docs/VISION_AND_SCOPE.md](docs/VISION_AND_SCOPE.md) | Mission, in/out of scope, terminology |
-| [docs/METHODOLOGY.md](docs/METHODOLOGY.md) | Evidence bar, claims discipline, outputs |
-| [docs/ETHICS_REPRODUCIBILITY_AND_DATA.md](docs/ETHICS_REPRODUCIBILITY_AND_DATA.md) | Data classes, reproducibility, integrity |
-| [docs/COLLABORATION_AND_REVIEWS.md](docs/COLLABORATION_AND_REVIEWS.md) | Reviews, labels, communication |
-| [docs/DOC_MAP.md](docs/DOC_MAP.md) | **Guiding doc → concrete behaviors** (traceability) |
-| [docs/OPERATING_RHYTHM.md](docs/OPERATING_RHYTHM.md) | Cadence, versioning, branch protection, CI |
-| [docs/ONBOARDING.md](docs/ONBOARDING.md) | First-time contributor path (~30 min) |
-| [docs/REPOSITORY_MANIFEST.md](docs/REPOSITORY_MANIFEST.md) | Every path: purpose and governing doc |
-| [docs/LABELS_AND_MILESTONES.md](docs/LABELS_AND_MILESTONES.md) | Issue labels and optional milestones |
-| [docs/LICENSING_NOTES.md](docs/LICENSING_NOTES.md) | License exceptions and per-artifact notes |
-| [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) | Community expectations |
-| [SECURITY.md](SECURITY.md) | Reporting security issues and secrets |
+| [WHY_CONTRIBUTE.md](WHY_CONTRIBUTE.md) | Case for contributing early and at planetary scale |
+| [VISION_COMMUNICATION.md](VISION_COMMUNICATION.md) | Elevator pitches and audience-specific framing |
+| [universal-science-discovery-repo-blueprint.md](universal-science-discovery-repo-blueprint.md) | Blueprint: vision, structure, MVP, tooling |
+| [INTERFACE.md](INTERFACE.md) | User/system interfaces to USDR (full plan; delivery phased per [ROADMAP.md](ROADMAP.md)) |
+| [ARCHITECTURE.md](ARCHITECTURE.md) | Technical / system architecture |
+| [ROADMAP.md](ROADMAP.md) | Planned phases and priorities |
 
-## Repository layout
+## Governance, ethics, and legal
 
-| Path | Role |
-|------|------|
-| [docs/](docs/) | Guiding documents, doc map, operating rhythm, [prompts/](docs/prompts/) |
-| [methods/](methods/) | Protocols and study designs |
-| [data/](data/) | Allowed non-sensitive data; `raw/` is gitignored |
-| [artifacts/](artifacts/) | Committed generated outputs with provenance |
-| [scripts/](scripts/) | Reproducible automation |
-| [notebooks/](notebooks/) | Exploratory analysis (reproducibility expectations in folder README) |
-| [AGENTS.md](AGENTS.md) | Agent instructions (Cursor and other assistants) |
+| Document | Purpose |
+|----------|---------|
+| [GOVERNANCE.md](GOVERNANCE.md) | Roles, decisions, maintainer expectations |
+| [ETHICS.md](ETHICS.md) | Ethical guardrails for content and collaboration |
+| [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) | Community behavior |
+| [LEGAL.md](LEGAL.md) | Copyright, licensing posture, DMCA-style policy |
+| [DISCLAIMER.md](DISCLAIMER.md) | Limitation of liability, not medical/legal advice |
+| [SECURITY.md](SECURITY.md) | Reporting vulnerabilities or leaked secrets |
+| [LICENSE](LICENSE) | Default license for this repository |
+
+## Traceability
+
+[DOC_MAP.md](DOC_MAP.md) lists every top-level doc and what it governs.
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md). Pull requests should pass Markdown link check on `main`.
+See [CONTRIBUTING.md](CONTRIBUTING.md).
 
-## License
+## AI-assisted work in this repo
 
-This repository is licensed under the [MIT License](LICENSE) unless noted otherwise in specific files or future `docs/LICENSING_NOTES.md`.
-
-## Citation
-
-If you reference a snapshot of this repository, cite the URL and the **commit hash** or **release tag** you used.
+Project-specific Cursor guidance is in [cursorrules](cursorrules) (import or symlink into `.cursor/rules/` per your editor setup).

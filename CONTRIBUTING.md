@@ -1,31 +1,20 @@
-# Contributing
+# Contributing to USDR
 
-Thank you for helping improve Universal Science Discovery. This project is governed by the documents in [docs/](docs/); read [docs/ONBOARDING.md](docs/ONBOARDING.md) for a structured first pass, then [docs/VISION_AND_SCOPE.md](docs/VISION_AND_SCOPE.md) and [docs/METHODOLOGY.md](docs/METHODOLOGY.md) before substantive contributions.
+## Orientation
 
-By participating, you agree to follow the [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md). Report security-sensitive matters per [SECURITY.md](SECURITY.md), not via public issues.
+1. **Motivation and impact:** Read [WHY_CONTRIBUTE.md](WHY_CONTRIBUTE.md).
+2. **How to talk about the project:** Read [VISION_COMMUNICATION.md](VISION_COMMUNICATION.md) before external outreach so messaging stays accurate and low-friction.
+3. **What we are building:** Follow [universal-science-discovery-repo-blueprint.md](universal-science-discovery-repo-blueprint.md) for structure, quality bar, and legal boundaries (e.g. no full copyrighted papers in-repo).
+4. **Rules of the road:** [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md), [GOVERNANCE.md](GOVERNANCE.md), [ETHICS.md](ETHICS.md), [LEGAL.md](LEGAL.md).
 
-## Workflow
+## What to contribute first
 
-1. **Fork** the repository (or open a branch if you are a maintainer).
-2. Create a branch: `topic/your-slug`, `docs/…`, `fix/…`, per [docs/METHODOLOGY.md](docs/METHODOLOGY.md).
-3. Make focused changes; keep unrelated refactors out of the same PR.
-4. Open a **pull request** using the template; link related issues.
-5. Ensure **Markdown link check** passes (see [.github/workflows/markdown-link-check.yml](.github/workflows/markdown-link-check.yml)).
+Per the blueprint, prioritize **unknowns**, **hypotheses**, **cross-domain bridges**, and **reproducible stubs** over bulk text. When in doubt, open a small PR or issue and reference the relevant blueprint section.
 
-## What belongs in a pull request
+## AI use
 
-- Clear description of intent and scope.
-- Links to issues, hypotheses, or protocols when relevant.
-- For **findings** or methods changes: checklist items from the PR template filled honestly.
+If you use AI tools, follow [cursorrules](cursorrules) and human-validate citations, legal posture, and factual claims before merging.
 
-## Data and ethics
+## Questions
 
-Do not commit raw restricted, identifiable, or unlicensed third-party data. See [docs/ETHICS_REPRODUCIBILITY_AND_DATA.md](docs/ETHICS_REPRODUCIBILITY_AND_DATA.md).
-
-## AI-assisted work
-
-If substantial prose or code was produced with an assistant, note that in the PR. Verify citations against primary sources; assistants can hallucinate references.
-
-## Code of conduct
-
-See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md). Prioritize clarity and reproducibility in technical discussion.
+Use repository issues once GitHub hosting is set up; until then, coordinate with maintainers per [GOVERNANCE.md](GOVERNANCE.md).
