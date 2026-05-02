@@ -1,0 +1,23 @@
+name: validate-schemas
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate-schemas:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install validators
+        run: pip install pyyaml "jsonschema>=4.20"
+
+      - name: Validate record YAML
+        run: python scripts/validate_schemas.py

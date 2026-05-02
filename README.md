@@ -45,7 +45,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 |------|------|
 | [schemas/](schemas/) | JSON Schemas (YAML): hypothesis, unknown, dataset |
 | [templates/](templates/) | PR / issue boilerplate for new records |
-| [disciplines/](disciplines/) | Per-field trees (grow over time) |
+| [disciplines/](disciplines/) | Per-field trees; Phase 0 anchors: [physics](disciplines/physics/), [biology](disciplines/biology/), [computer-science](disciplines/computer-science/) |
 | [unknowns-catalog/](unknowns-catalog/) | Global research gaps (`u-...`) |
 | [hypotheses/](hypotheses/) | Hypothesis registry (`h-...`; `active` / `validated` / `archived`) |
 | [cross-domain/](cross-domain/) | Interdisciplinary bridge folders |
