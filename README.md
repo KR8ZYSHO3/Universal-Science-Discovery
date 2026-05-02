@@ -56,3 +56,5 @@ Older generic layout (`docs/`, `methods/`, `data/`, …) still applies for gover
 ## AI-assisted work in this repo
 
 Project-specific Cursor guidance is in [cursorrules](cursorrules) (import or symlink into `.cursor/rules/` per your editor setup).
+
+For **optional** spec-driven milestones (plan → discuss → execute → verify) with [get-shit-done / GSD](https://github.com/gsd-build/get-shit-done), see [docs/GSD_INTEGRATION.md](docs/GSD_INTEGRATION.md). GSD outputs must stay consistent with [AGENTS.md](AGENTS.md) and [docs/METHODOLOGY.md](docs/METHODOLOGY.md).

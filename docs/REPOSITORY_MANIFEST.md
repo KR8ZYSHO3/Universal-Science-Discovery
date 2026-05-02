@@ -24,6 +24,7 @@ Exhaustive index of **tracked** paths (excluding `.git`), what each is for, and 
 | [.github/ISSUE_TEMPLATE/hypothesis_thread.md](../.github/ISSUE_TEMPLATE/hypothesis_thread.md) | Template | New or revised hypotheses | [VISION_AND_SCOPE.md](VISION_AND_SCOPE.md), [METHODOLOGY.md](METHODOLOGY.md) |
 | [docs/DOC_MAP.md](DOC_MAP.md) | Policy | Doc → behavior traceability | All guiding docs |
 | [docs/ONBOARDING.md](ONBOARDING.md) | Guide | First-hour navigation | — |
+| [docs/GSD_INTEGRATION.md](GSD_INTEGRATION.md) | Guide | Optional GSD / get-shit-done workflow in Cursor | [AGENTS.md](../AGENTS.md), [METHODOLOGY.md](METHODOLOGY.md), [DOC_MAP.md](DOC_MAP.md) |
 | [docs/REPOSITORY_MANIFEST.md](REPOSITORY_MANIFEST.md) | Index | This file | — |
 | [docs/LABELS_AND_MILESTONES.md](LABELS_AND_MILESTONES.md) | Guide | GitHub labels / milestones | [COLLABORATION_AND_REVIEWS.md](COLLABORATION_AND_REVIEWS.md) |
 | [docs/LICENSING_NOTES.md](LICENSING_NOTES.md) | Policy | Exceptions to default LICENSE | [LICENSE](../LICENSE) |

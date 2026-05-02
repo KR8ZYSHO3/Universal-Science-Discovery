@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- [docs/GSD_INTEGRATION.md](docs/GSD_INTEGRATION.md): optional integration with [get-shit-done](https://github.com/gsd-build/get-shit-done) for spec-driven Cursor milestones, aligned with AGENTS and methodology
 - Blueprint MVP slice: `schemas/` (hypothesis, unknown, dataset), `templates/`, `disciplines/`, `unknowns-catalog/`, `hypotheses/` (subfolders), `cross-domain/`, `code/` with READMEs
 - README + DOC_MAP updates for content layout
 - `CONTRIBUTING.md` contributor path aligned with blueprint and outreach docs

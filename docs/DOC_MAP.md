@@ -11,6 +11,7 @@ This map is the Phase 0 traceability layer. When you change a guiding document, 
 | [OPERATING_RHYTHM.md](OPERATING_RHYTHM.md) | Cadence, versioning, when to sync rules/CI | Doc/CI updates; release/tag policy |
 | [REPOSITORY_MANIFEST.md](REPOSITORY_MANIFEST.md) | Per-path roles and governing docs | Keeping structure auditable; updates when paths change |
 | [ONBOARDING.md](ONBOARDING.md) | First-hour navigation | Points to all core policies and work directories |
+| [GSD_INTEGRATION.md](GSD_INTEGRATION.md) | Optional tooling | Spec-driven milestones in Cursor via [get-shit-done](https://github.com/gsd-build/get-shit-done); must stay consistent with METHODOLOGY and AGENTS |
 | [LABELS_AND_MILESTONES.md](LABELS_AND_MILESTONES.md) | GitHub triage vocabulary | Aligns with [COLLABORATION_AND_REVIEWS.md](COLLABORATION_AND_REVIEWS.md); issue templates |
 | [LICENSING_NOTES.md](LICENSING_NOTES.md) | Exceptions to default MIT | Per-file or per-artifact license metadata |
 | [CODE_OF_CONDUCT.md](../CODE_OF_CONDUCT.md) | Community behavior | [CONTRIBUTING.md](../CONTRIBUTING.md); enforcement expectations |
