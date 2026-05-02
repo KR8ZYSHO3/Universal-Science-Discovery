@@ -54,4 +54,4 @@ This is the initial planning and documentation release. The repository is not ye
 - `Fixed` for any bug fixes
 - `Security` for vulnerability fixes
 
-For older versions, see the [Git history](https://github.com/usdr/usdr/commits/main).
+For older versions, see the [Git history](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/commits/main).
