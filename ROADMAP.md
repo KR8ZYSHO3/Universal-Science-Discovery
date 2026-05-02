@@ -31,6 +31,7 @@ This is the **global brain of science** — open, versioned, and built for disco
 - First 50 contributors (including domain experts)
 - Basic knowledge graph + search working
 - First “Unknowns Hackathon” (virtual)
+- Optional maintainer tooling: spec-driven execution in Cursor via [docs/GSD_INTEGRATION.md](docs/GSD_INTEGRATION.md) (aligned with methodology and ethics docs)
 
 **Success Metric:**  
 The project is recognized as “the most ambitious open science infrastructure project since the Human Genome Project.”

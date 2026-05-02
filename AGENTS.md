@@ -26,6 +26,10 @@ For cadence and versioning: [docs/OPERATING_RHYTHM.md](docs/OPERATING_RHYTHM.md)
 
 See [docs/prompts/](docs/prompts/) for literature synthesis, hypothesis comparison, and falsification passes.
 
+## Spec-driven execution (optional)
+
+For **multi-step builds** (tooling, site generation, validation pipelines), the maintainers may use [GSD](https://github.com/gsd-build/get-shit-done) inside Cursor. If the user has GSD installed, prefer its phased workflow **only when** each phase still obeys this file and [docs/METHODOLOGY.md](docs/METHODOLOGY.md). See [docs/GSD_INTEGRATION.md](docs/GSD_INTEGRATION.md) for how `.planning/` relates to USDR docs and PRs.
+
 ## Project rules
 
 This repository includes Cursor rules under [.cursor/rules/](.cursor/rules/) that mirror the above; keep them in sync when policy changes.
