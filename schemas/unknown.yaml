@@ -1,0 +1,56 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: https://usdr.local/schemas/unknown.schema.json
+title: USDR Unknown (research gap) entry
+description: >
+  Explicit research gap / known unknown. Store under unknowns-catalog/ per discipline or priority.
+type: object
+additionalProperties: false
+required:
+  - id
+  - title
+  - status
+properties:
+  id:
+    type: string
+    pattern: "^u-[a-z0-9.-]+$"
+  title:
+    type: string
+    minLength: 8
+    maxLength: 500
+  status:
+    type: string
+    enum: [open, partial, resolved, stale]
+  priority:
+    type: string
+    enum: [low, medium, high, critical]
+  last_reviewed:
+    type: string
+    format: date
+  systematic_gaps:
+    type: array
+    items:
+      type: string
+  suggested_hypotheses:
+    type: array
+    items:
+      type: string
+  references:
+    type: array
+    description: DOIs, arXiv ids, or open URLs (metadata only)
+    items:
+      type: object
+      additionalProperties: false
+      properties:
+        doi:
+          type: string
+        arxiv:
+          type: string
+        url:
+          type: string
+          format: uri
+        note:
+          type: string
+  disciplines:
+    type: array
+    items:
+      type: string

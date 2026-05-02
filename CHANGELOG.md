@@ -10,17 +10,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- `README.md` as project hub (blueprint, outreach, governance index)
+- Blueprint MVP slice: `schemas/` (hypothesis, unknown, dataset), `templates/`, `disciplines/`, `unknowns-catalog/`, `hypotheses/` (subfolders), `cross-domain/`, `code/` with READMEs
+- README + DOC_MAP updates for content layout
 - `CONTRIBUTING.md` contributor path aligned with blueprint and outreach docs
 - `DOC_MAP.md` traceability for all root-level policy and communication documents
 - Cross-links between `WHY_CONTRIBUTE.md` and `VISION_COMMUNICATION.md`
 - [ROADMAP.md](ROADMAP.md): “Interface development” section linking phased delivery to [INTERFACE.md](INTERFACE.md)
-- Initial project blueprint and core documentation
-- Repository structure with `disciplines/`, `unknowns-catalog/`, `hypotheses/`, and `code/` directories
-- YAML schemas for hypotheses, unknowns, and datasets
-- Legal framework (LEGAL.md) emphasizing metadata-only policy
-- Governance model and Code of Conduct
-- Security policy and responsible disclosure process
 
 ### Changed
 - N/A (initial release)

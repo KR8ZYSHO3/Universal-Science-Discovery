@@ -1,0 +1,40 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: https://usdr.local/schemas/dataset.schema.json
+title: USDR Dataset manifest
+description: >
+  Small-file manifest or DVC pointer metadata. Do not commit restricted or unlicensed bulk dumps.
+type: object
+additionalProperties: false
+required:
+  - id
+  - title
+  - access
+properties:
+  id:
+    type: string
+    pattern: "^d-[a-z0-9.-]+$"
+  title:
+    type: string
+  access:
+    type: string
+    enum: [public, restricted, private_metadata_only]
+  license:
+    type: string
+    description: SPDX id or short name, e.g. CC0-1.0
+  provenance:
+    type: string
+    description: How the data was produced or obtained
+  dvc_remote:
+    type: string
+    description: Optional DVC remote path or stage name
+  uri:
+    type: string
+    format: uri
+    description: Public download or landing page
+  size_bytes:
+    type: integer
+    minimum: 0
+  format:
+    type: string
+  contact:
+    type: string
