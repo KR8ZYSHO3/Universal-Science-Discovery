@@ -117,6 +117,8 @@ Optional stretch (not required to call Phase A “done”): a **small exemplar J
 
 **Implementation note:** [`packages/ingest`](../packages/ingest) implements Phase B harvest toward this envelope; unit tests validate harvest output against [`schemas/ingestion-envelope-1.0.0.json`](../schemas/ingestion-envelope-1.0.0.json). Keep this page aligned when the CLI or manifest schema changes.
 
+**Manual QA:** [UAT_INGEST.md](UAT_INGEST.md) — smoke steps and optional live OAI dry-run.
+
 ---
 
 ## Revision history

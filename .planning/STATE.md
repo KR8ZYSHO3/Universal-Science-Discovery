@@ -4,6 +4,7 @@ Authoritative checklist for humans and agents. The Cursor Canvas [`canvases/Prog
 
 ## Last updated
 
+- 2026-05-03 — **UAT_INGEST.md** for `usdr-ingest`; hub + MkDocs + DATA_PLAN links.
 - 2026-05-03 — Contributor **hub** links **docs/GSD_INTEGRATION.md**; manifest row added. **docs/index** Meta link.
 - 2026-05-03 — Added **docs/GSD_INTEGRATION.md** (optional GSD maintainer boundaries); MkDocs nav + DOC_MAP + onboarding cross-links.
 - 2026-05-03 — Checked in **ingestion envelope** JSON Schema + ingest tests that validate harvest output against it.
@@ -38,6 +39,6 @@ Authoritative checklist for humans and agents. The Cursor Canvas [`canvases/Prog
 
 - Open **one integration PR** from `feat/dev-dashboard` → `main` (hub + docs rules + ingest + mkdocs/Pages) when ready.
 - Confirm GitHub Pages branch/env matches `site_url` in `mkdocs.yml`.
-- Add or refresh UAT notes for ingest when the CLI surface stabilizes.
+- Follow **[UAT_INGEST.md](../docs/UAT_INGEST.md)** when exercising `usdr-ingest` manually (pytest is still the merge gate).
 - Keep [LEGAL.md](../LEGAL.md) and science-integrity docs in mind before any new data paths or claims.
 - Apply **documentation-and-dashboard** rule on each merge: update CHANGELOG Unreleased, sync Canvas from `STATE.md` when using `canvases/Progress.canvas.tsx`, re-check contributor hub if links changed.

@@ -21,7 +21,7 @@ import {
 
 // @sync-dashboard-begin
 const dashboardSnapshot = {
-  lastUpdated: "2026-05-03 — Contributor **hub** links **docs/GSD_INTEGRATION.md**; manifest row added. **docs/index** Meta link.",
+  lastUpdated: "2026-05-03 — **UAT_INGEST.md** for `usdr-ingest`; hub + MkDocs + DATA_PLAN links.",
   currentFocus: [
     "Docs + **dashboard** discipline: milestones and ongoing work update `README`, `CHANGELOG` (Unreleased), `docs/` as needed, `dashboard/index.html`, and spot-check **`http://localhost:8765/dashboard/`** (see `.cursor/rules/documentation-and-dashboard.mdc`).",
     "**usdr-ingest** (`packages/ingest`): arXiv OAI-PMH metadata only — extend CLI/manifest as needed per [DATA_PLAN.md](../docs/DATA_PLAN.md).",
@@ -47,7 +47,7 @@ const dashboardSnapshot = {
   nextActions: [
     "Open **one integration PR** from `feat/dev-dashboard` → `main` (hub + docs rules + ingest + mkdocs/Pages) when ready.",
     "Confirm GitHub Pages branch/env matches `site_url` in `mkdocs.yml`.",
-    "Add or refresh UAT notes for ingest when the CLI surface stabilizes.",
+    "Follow **[UAT_INGEST.md](../docs/UAT_INGEST.md)** when exercising `usdr-ingest` manually (pytest is still the merge gate).",
     "Keep [LEGAL.md](../LEGAL.md) and science-integrity docs in mind before any new data paths or claims.",
     "Apply **documentation-and-dashboard** rule on each merge: update CHANGELOG Unreleased, sync Canvas from `STATE.md` when using `canvases/Progress.canvas.tsx`, re-check contributor hub if links changed."
   ],
