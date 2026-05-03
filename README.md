@@ -58,6 +58,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 | [hypotheses/](hypotheses/) | Hypothesis registry (`h-...`; `active` / `validated` / `archived`) |
 | [cross-domain/](cross-domain/) | Interdisciplinary bridge folders |
 | [code/](code/) | Automation and tooling |
+| [packages/ingest/](packages/ingest/) | `usdr-ingest` — arXiv OAI metadata pilot (see [README](packages/ingest/README.md)) |
 
 Older generic layout (`docs/`, `methods/`, `data/`, …) still applies for governance and prompts.
 
@@ -74,7 +75,7 @@ CI runs `mkdocs build --strict` on every PR and push to `main` (see `.github/wor
 
 ### arXiv metadata ingest (Phase B starter)
 
-Compliance-oriented **metadata-only** harvest from arXiv OAI-PMH (no PDFs; see [LEGAL.md](LEGAL.md) and [docs/DATA_PLAN.md](docs/DATA_PLAN.md)):
+Package overview: [`packages/ingest/README.md`](packages/ingest/README.md). Compliance-oriented **metadata-only** harvest from arXiv OAI-PMH (no PDFs; see [LEGAL.md](LEGAL.md) and [docs/DATA_PLAN.md](docs/DATA_PLAN.md)):
 
 ```bash
 pip install -r requirements-ingest.txt

@@ -58,6 +58,7 @@ Exhaustive index of **tracked** paths (excluding `.git`), what each is for, and 
 | [scripts/validate_schemas.py](../scripts/validate_schemas.py) | Tool | CI + local YAML validation | [schemas/README.md](../schemas/README.md) |
 | [scripts/requirements-validate.txt](../scripts/requirements-validate.txt) | Config | Deps for `validate_schemas.py` | [scripts/README.md](../scripts/README.md) |
 | [scripts/sync-dashboard-from-state.py](../scripts/sync-dashboard-from-state.py) | Tool | Rewrites Canvas snapshot from `.planning/STATE.md` | [docs/DEV_DASHBOARD.md](DEV_DASHBOARD.md) |
+| [packages/ingest/README.md](../packages/ingest/README.md) | Guide | `usdr-ingest` quickstart (install, CLI, tests) | [docs/DATA_PLAN.md](DATA_PLAN.md), [docs/UAT_INGEST.md](UAT_INGEST.md), [LEGAL.md](../LEGAL.md) |
 | [packages/ingest/pyproject.toml](../packages/ingest/pyproject.toml) | Code | `usdr-ingest` — arXiv OAI-PMH metadata harvest (see `src/usdr_ingest/`; **no PDFs**) | [docs/DATA_PLAN.md](DATA_PLAN.md), [LEGAL.md](../LEGAL.md) |
 | [disciplines/README.md](../disciplines/README.md) | Guide | Discipline tree contract | [VISION_AND_SCOPE.md](VISION_AND_SCOPE.md) |
 | [disciplines/physics/README.md](../disciplines/physics/README.md) | Guide | Physics seed + catalog pointers | [METHODOLOGY.md](METHODOLOGY.md), [LEGAL.md](../LEGAL.md) |
