@@ -11,6 +11,7 @@
 ## CI and merges
 
 - Pull requests should pass [Markdown link check](../.github/workflows/markdown-link-check.yml) before merge to `main`.
+- **GitHub Pages:** Until the published site at `https://kr8zysho3.github.io/Universal-Science-Discovery/` returns HTTP **200**, do not use that URL as a markdown **hyperlink** in tracked docs (the checker treats 404 as failure). Use backticks, or add/adjust an entry in [.markdown-link-check.json](../.markdown-link-check.json) `ignorePatterns` if you intentionally link before go-live.
 - [Dependabot](../.github/dependabot.yml) opens weekly PRs to update GitHub Actions; review and merge to reduce supply-chain drift.
 - Expand CI (lint, tests) when code under [scripts/](../scripts/) grows.
 
