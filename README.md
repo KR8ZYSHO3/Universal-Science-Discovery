@@ -51,7 +51,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 | Path | Role |
 |------|------|
-| [schemas/](schemas/) | JSON Schemas (YAML): hypothesis, unknown, dataset |
+| [schemas/](schemas/) | JSON Schemas: hypothesis, unknown, dataset (YAML); ingestion envelope v1 (`ingestion-envelope-1.0.0.json`) for metadata JSONL |
 | [templates/](templates/) | PR / issue boilerplate for new records |
 | [disciplines/](disciplines/) | Per-field trees; Phase 0 anchors: [physics](disciplines/physics/), [biology](disciplines/biology/), [computer-science](disciplines/computer-science/) |
 | [unknowns-catalog/](unknowns-catalog/) | Global research gaps (`u-...`) |

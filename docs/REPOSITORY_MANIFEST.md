@@ -32,9 +32,10 @@ Exhaustive index of **tracked** paths (excluding `.git`), what each is for, and 
 | [.github/ISSUE_TEMPLATE/finding_review.md](../.github/ISSUE_TEMPLATE/finding_review.md) | Template | Finding proposals / reviews | [METHODOLOGY.md](METHODOLOGY.md) |
 | [.github/ISSUE_TEMPLATE/methods_change.md](../.github/ISSUE_TEMPLATE/methods_change.md) | Template | Protocol / analysis changes | [METHODOLOGY.md](METHODOLOGY.md) |
 | [.github/ISSUE_TEMPLATE/hypothesis_thread.md](../.github/ISSUE_TEMPLATE/hypothesis_thread.md) | Template | New or revised hypotheses | [VISION_AND_SCOPE.md](VISION_AND_SCOPE.md), [METHODOLOGY.md](METHODOLOGY.md) |
+| [schemas/hypothesis.yaml](../schemas/hypothesis.yaml) | Schema | Hypothesis record shape | [schemas/README.md](../schemas/README.md) |
+| [schemas/ingestion-envelope-1.0.0.json](../schemas/ingestion-envelope-1.0.0.json) | Schema | Metadata ingest JSONL envelope v1.0.0 | [docs/DATA_PLAN.md](DATA_PLAN.md), [packages/ingest/pyproject.toml](../packages/ingest/pyproject.toml) |
 | [docs/DOC_MAP.md](DOC_MAP.md) | Policy | Doc → behavior traceability | All guiding docs |
-| [docs/index.md](index.md) | Guide | MkDocs homepage for the `docs/` tree | [README.md](../README.md), [INTERFACE.md](../INTERFACE.md) |
-| [docs/index.md](index.md) | Guide | MkDocs landing; links to repo root on GitHub | [mkdocs.yml](../mkdocs.yml) |
+| [docs/index.md](index.md) | Guide | MkDocs homepage for the `docs/` tree; links to repo root on GitHub | [README.md](../README.md), [INTERFACE.md](../INTERFACE.md), [mkdocs.yml](../mkdocs.yml) |
 | [docs/ONBOARDING.md](ONBOARDING.md) | Guide | First-hour navigation | — |
 | [docs/REPOSITORY_MANIFEST.md](REPOSITORY_MANIFEST.md) | Index | This file | — |
 | [docs/LABELS_AND_MILESTONES.md](LABELS_AND_MILESTONES.md) | Guide | GitHub labels / milestones | [COLLABORATION_AND_REVIEWS.md](COLLABORATION_AND_REVIEWS.md) |

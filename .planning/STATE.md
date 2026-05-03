@@ -4,7 +4,7 @@ Authoritative checklist for humans and agents. The Cursor Canvas [`canvases/Prog
 
 ## Last updated
 
-- 2026-05-03 — Merged **Phase B ingest** (`feat/phase-b-ingest`) into **dev dashboard** branch: `packages/ingest`, ingest CI, Pages/mkdocs wiring; manifest + DATA_PLAN + CHANGELOG reconciled.
+- 2026-05-03 — Checked in **ingestion envelope** JSON Schema + ingest tests that validate harvest output against it.
 
 ## Current focus
 
@@ -25,9 +25,8 @@ Authoritative checklist for humans and agents. The Cursor Canvas [`canvases/Prog
 - Contributor **HTML hub** (`dashboard/index.html`) and README onboarding path.
 - Cursor **documentation-and-dashboard** rule (milestones + ongoing docs + `http://localhost:8765/dashboard/` verification).
 - MkDocs Material site with doc map, methodology, and ethics pages.
-- **usdr-ingest** package, **ingest-ci** workflow, and **merge** of `feat/phase-b-ingest` into this branch (see CHANGELOG Unreleased).
-
-## Blocked / needs human
+- **JSON Schema** for ingest: `schemas/ingestion-envelope-1.0.0.json` + pytest validation of harvest JSONL rows.
+- Repository manifest and Phase A data plan documentation.
 
 - None — replace this bullet when something requires credentials, legal review, or maintainer decision outside the repo.
 

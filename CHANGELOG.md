@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- **`schemas/ingestion-envelope-1.0.0.json`** — JSON Schema for metadata ingest JSONL (`DATA_PLAN` v1.0.0); `packages/ingest` tests validate harvest fixtures against it (`jsonschema` dev dep)
 - Cursor rule **documentation-and-dashboard** (`.cursor/rules/documentation-and-dashboard.mdc`): keep docs, CHANGELOG, `.planning/STATE.md`, and `dashboard/` contributor hub current at milestones and ongoing; verify `http://localhost:8765/dashboard/` when hub links change
 - AGENTS + OPERATING_RHYTHM alignment with the same expectations
 - **GitHub Pages deploy** workflow (`.github/workflows/mkdocs-gh-pages.yml`) + `site_url` in `mkdocs.yml` for `https://kr8zysho3.github.io/Universal-Science-Discovery/`

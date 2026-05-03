@@ -56,7 +56,7 @@ Every normalized record ingested toward the future knowledge graph MUST carry pr
 
 ### JSON Schema (informative)
 
-Implementations SHOULD validate payloads against a machine schema; until one is checked in under `schemas/`, this fragment is authoritative text.
+Machine-validatable copy (use in CI and clients): [`schemas/ingestion-envelope-1.0.0.json`](../schemas/ingestion-envelope-1.0.0.json). The fragment below mirrors it for readers who prefer inline reference.
 
 ```json
 {
@@ -115,7 +115,7 @@ Implementations SHOULD validate payloads against a machine schema; until one is 
 
 Optional stretch (not required to call Phase A “done”): a **small exemplar JSONL** (e.g. ≤20 synthetic or hand-redacted rows) checked in under `docs/examples/` — only if maintainers want a concrete fixture without live harvest.
 
-**Implementation note:** [`packages/ingest`](../packages/ingest) implements Phase B harvest toward this envelope; keep this page aligned when the CLI or manifest schema changes.
+**Implementation note:** [`packages/ingest`](../packages/ingest) implements Phase B harvest toward this envelope; unit tests validate harvest output against [`schemas/ingestion-envelope-1.0.0.json`](../schemas/ingestion-envelope-1.0.0.json). Keep this page aligned when the CLI or manifest schema changes.
 
 ---
 
