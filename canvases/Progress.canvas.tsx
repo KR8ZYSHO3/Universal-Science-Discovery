@@ -21,7 +21,7 @@ import {
 
 // @sync-dashboard-begin
 const dashboardSnapshot = {
-  lastUpdated: "2026-05-03 — **DEV_DASHBOARD** + hub README: document theme/CDN behavior and privacy/offline notes.",
+  lastUpdated: "2026-05-03 — Cursor rule **documentation-and-dashboard**: hub CDN/privacy + UX sync with README/DEV_DASHBOARD.",
   currentFocus: [
     "Docs + **dashboard** discipline: milestones and ongoing work update `README`, `CHANGELOG` (Unreleased), `docs/` as needed, `dashboard/index.html`, and spot-check **`http://localhost:8765/dashboard/`** (see `.cursor/rules/documentation-and-dashboard.mdc`).",
     "**usdr-ingest** (`packages/ingest`): arXiv OAI-PMH metadata only — extend CLI/manifest as needed per [DATA_PLAN.md](../docs/DATA_PLAN.md).",

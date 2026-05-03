@@ -4,6 +4,7 @@ Authoritative checklist for humans and agents. The Cursor Canvas [`canvases/Prog
 
 ## Last updated
 
+- 2026-05-03 — Cursor rule **documentation-and-dashboard**: hub CDN/privacy + UX sync with README/DEV_DASHBOARD.
 - 2026-05-03 — **DEV_DASHBOARD** + hub README: document theme/CDN behavior and privacy/offline notes.
 - 2026-05-03 — **Contributor hub** visual refresh (hero, theme toggle, scroll-spy nav, fonts).
 - 2026-05-03 — **OPERATING_RHYTHM:** branch-protection status check names + ingest path-filter note.

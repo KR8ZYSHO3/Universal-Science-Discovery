@@ -20,11 +20,11 @@ Treat **up-to-date documentation as continuous work**, not an afterthought. When
 
 ## Contributor hub (`dashboard/`)
 
-The HTML **contributor hub** is `dashboard/index.html`. It is the guided entry for new contributors (`http://localhost:8765/dashboard/` after `python -m http.server 8765` from repo root).
+The HTML **contributor hub** is `dashboard/index.html`. It is the guided entry for new contributors (`http://localhost:8765/dashboard/` after `python -m http.server 8765` from repo root). It may load **Google Fonts** and **`marked`** from CDNs when online; **`dashboard/README.md`** describes privacy/offline behavior.
 
-- If **onboarding paths**, **section order**, or **key links** change, update **`dashboard/index.html`** so the hub stays accurate.
+- If **onboarding paths**, **section order**, **key links**, or **major hub UX** (layout, theme, nav) change, update **`dashboard/index.html`** and, when maintainers need the story, **`dashboard/README.md`** / **`docs/DEV_DASHBOARD.md`**.
 - After editing **`.planning/STATE.md`**, refresh the Cursor Canvas snapshot in `canvases/Progress.canvas.tsx` when that file exists; run **`python scripts/sync-dashboard-from-state.py`** (Canvas embeds constants; the HTML hub loads STATE live only over HTTP).
-- Before considering work **done**, sanity-check the hub: start **`python -m http.server 8765`** from the repo root, open **`http://localhost:8765/dashboard/`**, confirm sections load and links are not broken for the paths you changed.
+- Before considering work **done**, sanity-check the hub: start **`python -m http.server 8765`** from the repo root, open **`http://localhost:8765/dashboard/`**, confirm sections load, theme/nav if you touched them, and links are not broken for the paths you changed.
 
 ## MkDocs
 

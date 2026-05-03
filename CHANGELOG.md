@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
+- **[`.cursor/rules/documentation-and-dashboard.mdc`](.cursor/rules/documentation-and-dashboard.mdc)** — hub CDN/offline notes; sync **README** / **DEV_DASHBOARD** when hub UX changes
 - **[docs/DEV_DASHBOARD.md](docs/DEV_DASHBOARD.md)** and **[dashboard/README.md](dashboard/README.md)** — hub UX (theme, nav) and CDN / offline notes
 - **Contributor hub** [`dashboard/index.html`](dashboard/index.html): richer hero, sticky “glass” nav + scroll-spy, light/dark toggle, stat deck and motion (respects `prefers-reduced-motion`); [`dashboard/README.md`](dashboard/README.md) updated
 - **[docs/OPERATING_RHYTHM.md](docs/OPERATING_RHYTHM.md)** — branch protection: table of status check names + ingest workflow path-filter caveat
