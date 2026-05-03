@@ -4,6 +4,7 @@ Authoritative checklist for humans and agents. The Cursor Canvas [`canvases/Prog
 
 ## Last updated
 
+- 2026-05-03 — **OPERATING_RHYTHM:** branch-protection status check names + ingest path-filter note.
 - 2026-05-03 — **markdown-link-check CI:** gh.io URL as plain text; **OPERATING_RHYTHM** records “no Page hyperlink until 200”.
 - 2026-05-03 — PR template ingest checkbox; CONTRIBUTING ingest section; hub **compare to main** link for integration work.
 - 2026-05-03 — **`packages/ingest/README.md`** + `readme` in `pyproject.toml`; root README points at package readme for ingest.

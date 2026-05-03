@@ -29,10 +29,23 @@
 Recommended for `main` once collaborators join:
 
 - Require pull request before merge.
-- Require status checks to pass (at minimum: `markdown-link-check`).
+- Require status checks to pass — see **Status check names** below (pick what matches how strictly you want to gate merges).
 - Optionally require an approving review.
 
 These options are configured under **Settings → Branches → Branch protection rules** in the GitHub UI; they are not stored in this repository.
+
+### Status check names (as GitHub lists them)
+
+Use **Actions → … → workflow run** to copy exact names into branch protection. Typical identifiers:
+
+| Workflow file | Often appears as |
+|---------------|------------------|
+| [markdown-link-check.yml](../.github/workflows/markdown-link-check.yml) | `markdown-link-check` (job: `markdown-link-check`) |
+| [mkdocs-build.yml](../.github/workflows/mkdocs-build.yml) | `mkdocs-build / mkdocs` |
+| [validate-schemas.yml](../.github/workflows/validate-schemas.yml) | `validate-schemas / validate-schemas` |
+| [ingest-ci.yml](../.github/workflows/ingest-ci.yml) | `ingest tests / pytest-ingest` |
+
+**Ingest caveat:** [ingest-ci.yml](../.github/workflows/ingest-ci.yml) runs only when PRs touch ingest-related paths (`packages/ingest/`, `requirements-ingest.txt`, envelope schema, etc.). If you mark **`ingest tests / pytest-ingest`** as **required**, GitHub may block merges on docs-only PRs where that workflow did not run. Options: omit it from required checks, use a ruleset that allows skipped optional checks, or touch an ingest path when you need the check to appear.
 
 ## Cadence
 
