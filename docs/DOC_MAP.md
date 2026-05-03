@@ -17,6 +17,7 @@ This map is the Phase 0 traceability layer. When you change a guiding document, 
 | [SECURITY.md](../SECURITY.md) | Private vulnerability / sensitive data reports | Automation and secrets; not scientific debate |
 | [DATA_PLAN.md](DATA_PLAN.md) | Phase A external metadata pilot; envelope schema | Must stay consistent with [ARCHITECTURE.md](../ARCHITECTURE.md) ingestion section and [LEGAL.md](../LEGAL.md) before Phase B jobs land |
 | [DEV_DASHBOARD.md](DEV_DASHBOARD.md) | Meta checklist: active branches, shipped items, blockers | Edits [.planning/STATE.md](../.planning/STATE.md); optional sync to Canvas via `scripts/sync-dashboard-from-state.py`; [HTML dashboard](../dashboard/index.html) + [dashboard/README.md](../dashboard/README.md) for browser use |
+| [GSD_INTEGRATION.md](GSD_INTEGRATION.md) | Optional get-shit-done / spec-driven workflows in Cursor | Boundaries vs [METHODOLOGY.md](METHODOLOGY.md), [DATA_PLAN.md](DATA_PLAN.md), [LEGAL.md](../LEGAL.md); does not replace contributor onboarding |
 
 ## Supporting files (see manifest)
 

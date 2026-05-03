@@ -33,7 +33,7 @@ Open [DOC_MAP.md](DOC_MAP.md) and scan [REPOSITORY_MANIFEST.md](REPOSITORY_MANIF
 - **CI:** [.github/workflows/markdown-link-check.yml](../.github/workflows/markdown-link-check.yml) — link validation on PRs to `main`.
 - **Dependabot:** [.github/dependabot.yml](../.github/dependabot.yml) — keeps GitHub Actions references current.
 - **Agents:** If you use Cursor or other assistants, read [AGENTS.md](../AGENTS.md) and [.cursor/rules/science-discovery-core.mdc](../.cursor/rules/science-discovery-core.mdc).
-- **Spec-driven milestones (optional):** [GSD / get-shit-done](https://github.com/gsd-build/get-shit-done) for phased plan → execute → verify loops that respect USDR policy (no separate integration doc in-repo yet).
+- **Spec-driven milestones (optional):** [GSD / get-shit-done](https://github.com/gsd-build/get-shit-done) — see [GSD_INTEGRATION.md](GSD_INTEGRATION.md) for how optional GSD use fits USDR policy and `STATE.md`.
 
 ## 6. Cadence (5 min)
 

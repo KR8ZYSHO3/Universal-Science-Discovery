@@ -21,32 +21,35 @@ import {
 
 // @sync-dashboard-begin
 const dashboardSnapshot = {
-  lastUpdated: "2026-05-03 — Dev dashboard scaffolding (`feat/dev-dashboard`); MkDocs strict build gate.",
+  lastUpdated: "2026-05-03 — Added **docs/GSD_INTEGRATION.md** (optional GSD maintainer boundaries); MkDocs nav + DOC_MAP + onboarding cross-links.",
   currentFocus: [
-    "Phase B ingestion package (`packages/ingest`): CLI ergonomics, manifest validation, and docs alignment with [DATA_PLAN.md](../docs/DATA_PLAN.md).",
+    "Docs + **dashboard** discipline: milestones and ongoing work update `README`, `CHANGELOG` (Unreleased), `docs/` as needed, `dashboard/index.html`, and spot-check **`http://localhost:8765/dashboard/`** (see `.cursor/rules/documentation-and-dashboard.mdc`).",
+    "**usdr-ingest** (`packages/ingest`): arXiv OAI-PMH metadata only — extend CLI/manifest as needed per [DATA_PLAN.md](../docs/DATA_PLAN.md).",
     "Keeping [mkdocs.yml](../mkdocs.yml) + GitHub Pages (`site_url` / `edit_uri`) consistent with the default branch and fork workflow.",
     "Phase A plan artifacts under `.planning/` and cross-links to methodology docs (no new scientific claims in meta files)."
   ],
   activeBranches: [
     "`main` — default; policy and docs source of truth.",
-    "`feat/phase-b-ingest` — [compare to `main`](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/compare/main...feat/phase-b-ingest) — ingest CLI and tests.",
+    "`feat/dev-dashboard` — [compare to `main`](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/compare/main...feat/dev-dashboard) — contributor HTML hub, doc rules, **usdr-ingest**, mkdocs/Pages CI.",
     "`feat/mkdocs-gh-pages` — [compare to `main`](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/compare/main...feat/mkdocs-gh-pages) — site publishing and nav (when active).",
     "Open PRs: use GitHub **Pull requests** tab; add compare links here when reviewing."
   ],
   shippedRecently: [
-    "Agent execution rule (`.cursor/rules/agent-execution.mdc`) — run installs, tests, and git in-environment.",
+    "Contributor **HTML hub** (`dashboard/index.html`) and README onboarding path.",
+    "Cursor **documentation-and-dashboard** rule (milestones + ongoing docs + `http://localhost:8765/dashboard/` verification).",
     "MkDocs Material site with doc map, methodology, and ethics pages.",
+    "**JSON Schema** for ingest: `schemas/ingestion-envelope-1.0.0.json` + pytest validation of harvest JSONL rows.",
     "Repository manifest and Phase A data plan documentation."
   ],
   blocked: [
     "None — replace this bullet when something requires credentials, legal review, or maintainer decision outside the repo."
   ],
   nextActions: [
-    "Land Phase B ingest MVP with tests and `mkdocs build --strict` clean.",
+    "Open **one integration PR** from `feat/dev-dashboard` → `main` (hub + docs rules + ingest + mkdocs/Pages) when ready.",
     "Confirm GitHub Pages branch/env matches `site_url` in `mkdocs.yml`.",
     "Add or refresh UAT notes for ingest when the CLI surface stabilizes.",
     "Keep [LEGAL.md](../LEGAL.md) and science-integrity docs in mind before any new data paths or claims.",
-    "After merging this dashboard PR, run the sync script once so canvas constants match this file."
+    "Apply **documentation-and-dashboard** rule on each merge: update CHANGELOG Unreleased, sync Canvas from `STATE.md` when using `canvases/Progress.canvas.tsx`, re-check contributor hub if links changed."
   ],
 } as const;
 // @sync-dashboard-end

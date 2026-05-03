@@ -4,6 +4,7 @@ Authoritative checklist for humans and agents. The Cursor Canvas [`canvases/Prog
 
 ## Last updated
 
+- 2026-05-03 — Added **docs/GSD_INTEGRATION.md** (optional GSD maintainer boundaries); MkDocs nav + DOC_MAP + onboarding cross-links.
 - 2026-05-03 — Checked in **ingestion envelope** JSON Schema + ingest tests that validate harvest output against it.
 
 ## Current focus
@@ -27,6 +28,8 @@ Authoritative checklist for humans and agents. The Cursor Canvas [`canvases/Prog
 - MkDocs Material site with doc map, methodology, and ethics pages.
 - **JSON Schema** for ingest: `schemas/ingestion-envelope-1.0.0.json` + pytest validation of harvest JSONL rows.
 - Repository manifest and Phase A data plan documentation.
+
+## Blocked / needs human
 
 - None — replace this bullet when something requires credentials, legal review, or maintainer decision outside the repo.
 

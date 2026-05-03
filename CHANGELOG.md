@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- **[docs/GSD_INTEGRATION.md](docs/GSD_INTEGRATION.md)** — optional get-shit-done (GSD) boundaries for maintainers; linked from [ROADMAP.md](ROADMAP.md), onboarding, doc map, and MkDocs **Operations** nav
 - **`schemas/ingestion-envelope-1.0.0.json`** — JSON Schema for metadata ingest JSONL (`DATA_PLAN` v1.0.0); `packages/ingest` tests validate harvest fixtures against it (`jsonschema` dev dep)
 - Cursor rule **documentation-and-dashboard** (`.cursor/rules/documentation-and-dashboard.mdc`): keep docs, CHANGELOG, `.planning/STATE.md`, and `dashboard/` contributor hub current at milestones and ongoing; verify `http://localhost:8765/dashboard/` when hub links change
 - AGENTS + OPERATING_RHYTHM alignment with the same expectations
