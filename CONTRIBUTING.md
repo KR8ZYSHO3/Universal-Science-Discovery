@@ -17,6 +17,10 @@ If you only have the GitHub website, follow the steps in this file and [docs/ONB
 
 Per the blueprint, prioritize **unknowns**, **hypotheses**, **cross-domain bridges**, and **reproducible stubs** over bulk text. When in doubt, open a small PR or issue and reference the relevant blueprint section.
 
+## Metadata ingest (tooling)
+
+The **arXiv OAI-PMH metadata** pilot lives under [`packages/ingest`](packages/ingest) (`usdr-ingest`). Read [`packages/ingest/README.md`](packages/ingest/README.md), [docs/DATA_PLAN.md](docs/DATA_PLAN.md), and [docs/UAT_INGEST.md](docs/UAT_INGEST.md) before changing harvest behavior, envelopes, or CI. **No PDFs** — [LEGAL.md](LEGAL.md).
+
 ## AI use
 
 If you use AI tools, follow [cursorrules](cursorrules) and human-validate citations, legal posture, and factual claims before merging.

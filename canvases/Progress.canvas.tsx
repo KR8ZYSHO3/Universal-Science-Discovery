@@ -21,7 +21,7 @@ import {
 
 // @sync-dashboard-begin
 const dashboardSnapshot = {
-  lastUpdated: "2026-05-03 — **`packages/ingest/README.md`** + `readme` in `pyproject.toml`; root README points at package readme for ingest.",
+  lastUpdated: "2026-05-03 — PR template ingest checkbox; CONTRIBUTING ingest section; hub **compare to main** link for integration work.",
   currentFocus: [
     "Docs + **dashboard** discipline: milestones and ongoing work update `README`, `CHANGELOG` (Unreleased), `docs/` as needed, `dashboard/index.html`, and spot-check **`http://localhost:8765/dashboard/`** (see `.cursor/rules/documentation-and-dashboard.mdc`).",
     "**usdr-ingest** (`packages/ingest`): arXiv OAI-PMH metadata only — extend CLI/manifest as needed per [DATA_PLAN.md](../docs/DATA_PLAN.md).",

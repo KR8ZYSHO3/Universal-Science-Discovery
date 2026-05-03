@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- **PR template** ingest/envelope checkbox; **CONTRIBUTING** tooling section for `packages/ingest`; contributor **hub** maintainer bar links **compare** `main...feat/dev-dashboard` for integration PRs
 - **[packages/ingest/README.md](packages/ingest/README.md)** — package quickstart; `pyproject` **`readme`** field for metadata; root README ingest section links here
 - **[docs/UAT_INGEST.md](docs/UAT_INGEST.md)** — manual acceptance steps for `usdr-ingest` (pytest + CLI smoke + optional live OAI dry-run); linked from [DATA_PLAN.md](docs/DATA_PLAN.md), MkDocs **Operations**, hub, DOC_MAP, manifest
 - **[docs/GSD_INTEGRATION.md](docs/GSD_INTEGRATION.md)** — optional GSD boundaries for maintainers; linked from [ROADMAP.md](ROADMAP.md), onboarding, doc map, MkDocs **Operations**, **docs/index**, **REPOSITORY_MANIFEST**, and contributor hub (`dashboard/index.html` Cadence + Reference)

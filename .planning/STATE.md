@@ -4,6 +4,7 @@ Authoritative checklist for humans and agents. The Cursor Canvas [`canvases/Prog
 
 ## Last updated
 
+- 2026-05-03 — PR template ingest checkbox; CONTRIBUTING ingest section; hub **compare to main** link for integration work.
 - 2026-05-03 — **`packages/ingest/README.md`** + `readme` in `pyproject.toml`; root README points at package readme for ingest.
 - 2026-05-03 — **UAT_INGEST.md** for `usdr-ingest`; hub + MkDocs + DATA_PLAN links.
 - 2026-05-03 — Contributor **hub** links **docs/GSD_INTEGRATION.md**; manifest row added. **docs/index** Meta link.

@@ -21,6 +21,7 @@ What does this PR change?
 - [ ] **Provenance:** for new artifacts, paths or steps to reproduce are documented.
 - [ ] **Policy sync:** if guiding docs changed, [docs/DOC_MAP.md](../docs/DOC_MAP.md) and agent surfaces were updated if needed.
 - [ ] **Structure sync:** if paths were added/removed/renamed, [docs/REPOSITORY_MANIFEST.md](../docs/REPOSITORY_MANIFEST.md) was updated in this PR.
+- [ ] **Ingest / envelope:** if changing [`packages/ingest`](../packages/ingest) or [`schemas/ingestion-envelope-1.0.0.json`](../schemas/ingestion-envelope-1.0.0.json), ran `python -m pytest packages/ingest/tests` and skimmed [docs/UAT_INGEST.md](../docs/UAT_INGEST.md) (N/A otherwise).
 
 ## AI assistance
 
