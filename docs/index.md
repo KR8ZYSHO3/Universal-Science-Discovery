@@ -15,6 +15,7 @@ For the full project overview and repository layout, see the [README on GitHub](
 ## Meta
 
 - [Developer dashboard](DEV_DASHBOARD.md) — operational checklist (source: `.planning/STATE.md`)
+- [GSD integration (optional maintainers)](GSD_INTEGRATION.md) — spec-driven tooling boundaries
 
 ## Record examples (YAML)
 

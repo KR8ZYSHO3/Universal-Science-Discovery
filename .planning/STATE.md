@@ -4,6 +4,7 @@ Authoritative checklist for humans and agents. The Cursor Canvas [`canvases/Prog
 
 ## Last updated
 
+- 2026-05-03 — Contributor **hub** links **docs/GSD_INTEGRATION.md**; manifest row added. **docs/index** Meta link.
 - 2026-05-03 — Added **docs/GSD_INTEGRATION.md** (optional GSD maintainer boundaries); MkDocs nav + DOC_MAP + onboarding cross-links.
 - 2026-05-03 — Checked in **ingestion envelope** JSON Schema + ingest tests that validate harvest output against it.
 

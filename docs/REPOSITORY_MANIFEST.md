@@ -37,6 +37,7 @@ Exhaustive index of **tracked** paths (excluding `.git`), what each is for, and 
 | [docs/DOC_MAP.md](DOC_MAP.md) | Policy | Doc → behavior traceability | All guiding docs |
 | [docs/index.md](index.md) | Guide | MkDocs homepage for the `docs/` tree; links to repo root on GitHub | [README.md](../README.md), [INTERFACE.md](../INTERFACE.md), [mkdocs.yml](../mkdocs.yml) |
 | [docs/ONBOARDING.md](ONBOARDING.md) | Guide | First-hour navigation | — |
+| [docs/GSD_INTEGRATION.md](GSD_INTEGRATION.md) | Guide | Optional GSD (get-shit-done / spec-driven) boundaries for maintainers | [METHODOLOGY.md](METHODOLOGY.md), [DATA_PLAN.md](DATA_PLAN.md), [LEGAL.md](../LEGAL.md), [DEV_DASHBOARD.md](DEV_DASHBOARD.md) |
 | [docs/REPOSITORY_MANIFEST.md](REPOSITORY_MANIFEST.md) | Index | This file | — |
 | [docs/LABELS_AND_MILESTONES.md](LABELS_AND_MILESTONES.md) | Guide | GitHub labels / milestones | [COLLABORATION_AND_REVIEWS.md](COLLABORATION_AND_REVIEWS.md) |
 | [docs/LICENSING_NOTES.md](LICENSING_NOTES.md) | Policy | Exceptions to default LICENSE | [LICENSE](../LICENSE) |
