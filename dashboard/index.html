@@ -971,7 +971,8 @@
       /* Scroll-spy for nav (reliable vs intersection overlap) */
       var navH = document.querySelector(".hub-nav-wrap");
       function updateNavActive() {
-        var y = window.scrollY + (navH ? navH.offsetHeight + 32 : 100);
+        var scrollTop = window.scrollY || document.documentElement.scrollTop || 0;
+        var y = scrollTop + (navH ? navH.offsetHeight + 32 : 100);
         var currentId = sections[0] ? sections[0].id : "";
         for (var i = sections.length - 1; i >= 0; i--) {
           if (sections[i].offsetTop <= y) {

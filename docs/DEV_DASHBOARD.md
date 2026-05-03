@@ -4,7 +4,7 @@ Human- and agent-editable checklist for **repository operations** — not scient
 
 ## HTML dashboard (browser)
 
-For a **single web page** for **contributors**: ordered “start here” path, links to policies and to **`unknowns-catalog/`** / **`hypotheses/`**, plus maintainer **live** `STATE` + `ROADMAP` when served locally — use [`dashboard/index.html`](../dashboard/index.html). Instructions: [`dashboard/README.md`](../dashboard/README.md) — from the repo root run `python -m http.server 8765`, then open `http://localhost:8765/dashboard/`.
+For a **single web page** for **contributors**: ordered “start here” path, links to policies and to **`unknowns-catalog/`** / **`hypotheses/`**, plus maintainer **live** `STATE` + `ROADMAP` when served locally — use [`dashboard/index.html`](../dashboard/index.html). The page includes optional **light/dark** theme, sticky section nav with scroll highlight, and loads **DM Sans** / **JetBrains Mono** (and `marked` for MD panels) from CDNs when online — see [`dashboard/README.md`](../dashboard/README.md). From the repo root run `python -m http.server 8765`, then open `http://localhost:8765/dashboard/`.
 
 The Cursor Canvas at [`canvases/Progress.canvas.tsx`](../canvases/Progress.canvas.tsx) is optional; the HTML hub is the main browser entry for people exploring the repo. **Agents:** `.cursor/rules/documentation-and-dashboard.mdc` (always on) requires keeping docs, CHANGELOG, STATE, and this hub aligned—especially at milestones—and spot-checking `http://localhost:8765/dashboard/` after hub-affecting edits.
 

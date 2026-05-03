@@ -24,6 +24,8 @@ Double-clicking `index.html` works for **static links**, but the **roadmap/state
 
 The [README](../README.md) and [CONTRIBUTING](../CONTRIBUTING.md) point newcomers here. Open **[index.html](index.html)** from a clone (or view raw on GitHub under `dashboard/` once that path exists on the default branch); for a guided read, use [docs/ONBOARDING.md](../docs/ONBOARDING.md).
 
-## Publishing
+## Publishing & privacy notes
 
 This is **not** automatically the public project website unless you add hosting (e.g. copy `dashboard/` to static hosting or wire GitHub Pages). The main **policy docs site** may be built with MkDocs separately; this hub is for **developers who have the repo**.
+
+When online, `index.html` loads **Google Fonts** and **`marked`** from `unpkg` for typography and markdown rendering. Air‑gapped or privacy‑strict environments can still use the hub: text and layout work with system fonts if those requests fail; panels fall back if `marked` does not load.

@@ -21,7 +21,7 @@ import {
 
 // @sync-dashboard-begin
 const dashboardSnapshot = {
-  lastUpdated: "2026-05-03 — **Contributor hub** visual refresh (hero, theme toggle, scroll-spy nav, fonts).",
+  lastUpdated: "2026-05-03 — **DEV_DASHBOARD** + hub README: document theme/CDN behavior and privacy/offline notes.",
   currentFocus: [
     "Docs + **dashboard** discipline: milestones and ongoing work update `README`, `CHANGELOG` (Unreleased), `docs/` as needed, `dashboard/index.html`, and spot-check **`http://localhost:8765/dashboard/`** (see `.cursor/rules/documentation-and-dashboard.mdc`).",
     "**usdr-ingest** (`packages/ingest`): arXiv OAI-PMH metadata only — extend CLI/manifest as needed per [DATA_PLAN.md](../docs/DATA_PLAN.md).",
@@ -35,6 +35,7 @@ const dashboardSnapshot = {
     "Open PRs: use GitHub **Pull requests** tab; add compare links here when reviewing."
   ],
   shippedRecently: [
+    "**Contributor hub** visual refresh: hero, theme toggle, scroll-spy nav, card motion (`dashboard/index.html`).",
     "Contributor **HTML hub** (`dashboard/index.html`) and README onboarding path.",
     "Cursor **documentation-and-dashboard** rule (milestones + ongoing docs + `http://localhost:8765/dashboard/` verification).",
     "MkDocs Material site with doc map, methodology, and ethics pages.",

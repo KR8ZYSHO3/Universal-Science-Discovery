@@ -4,6 +4,7 @@ Authoritative checklist for humans and agents. The Cursor Canvas [`canvases/Prog
 
 ## Last updated
 
+- 2026-05-03 — **DEV_DASHBOARD** + hub README: document theme/CDN behavior and privacy/offline notes.
 - 2026-05-03 — **Contributor hub** visual refresh (hero, theme toggle, scroll-spy nav, fonts).
 - 2026-05-03 — **OPERATING_RHYTHM:** branch-protection status check names + ingest path-filter note.
 - 2026-05-03 — **markdown-link-check CI:** gh.io URL as plain text; **OPERATING_RHYTHM** records “no Page hyperlink until 200”.
@@ -30,6 +31,7 @@ Authoritative checklist for humans and agents. The Cursor Canvas [`canvases/Prog
 
 ## Shipped recently
 
+- **Contributor hub** visual refresh: hero, theme toggle, scroll-spy nav, card motion (`dashboard/index.html`).
 - Contributor **HTML hub** (`dashboard/index.html`) and README onboarding path.
 - Cursor **documentation-and-dashboard** rule (milestones + ongoing docs + `http://localhost:8765/dashboard/` verification).
 - MkDocs Material site with doc map, methodology, and ethics pages.
