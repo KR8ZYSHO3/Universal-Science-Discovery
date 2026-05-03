@@ -8,6 +8,7 @@ For the full project overview and repository layout, see the [README on GitHub](
 
 - [Onboarding](ONBOARDING.md)
 - **[Happy path — first unknown & hypothesis (Stream A)](HAPPY_PATH_FIRST_RECORDS.md)**
+- **[Quality bar — avoid sloppy structure & reviews](QUALITY_BAR.md)**
 - [Vision & scope](VISION_AND_SCOPE.md) and [Methodology](METHODOLOGY.md)
 - [Documentation map](DOC_MAP.md)
 - [Contributing (repository root)](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/CONTRIBUTING.md) — full contributor path

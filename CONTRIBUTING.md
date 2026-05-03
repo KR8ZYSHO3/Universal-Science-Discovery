@@ -19,6 +19,8 @@ Per the blueprint, prioritize **unknowns**, **hypotheses**, **cross-domain bridg
 
 **Stream A (happy path):** step-by-step first unknown + hypothesis → [docs/HAPPY_PATH_FIRST_RECORDS.md](docs/HAPPY_PATH_FIRST_RECORDS.md).
 
+**Quality / anti-sloppiness:** [docs/QUALITY_BAR.md](docs/QUALITY_BAR.md) — CI + review lanes + definition of done.
+
 ## Metadata ingest (tooling)
 
 The **arXiv OAI-PMH metadata** pilot lives under [`packages/ingest`](packages/ingest) (`usdr-ingest`). Read [`packages/ingest/README.md`](packages/ingest/README.md), [docs/DATA_PLAN.md](docs/DATA_PLAN.md), and [docs/UAT_INGEST.md](docs/UAT_INGEST.md) before changing harvest behavior, envelopes, or CI. **No PDFs** — [LEGAL.md](LEGAL.md).

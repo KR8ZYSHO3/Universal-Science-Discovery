@@ -61,9 +61,9 @@ Maintainers focus **shape** (schema, IDs, legal-safe links) first, then **scienc
 | `evidence_links` errors | Every link object needs `type:`; see schema. |
 | Unknown `id` / `title` rejected | Pattern and length constraints in [schemas/unknown.yaml](../schemas/unknown.yaml). |
 | Validator not installed | `pip install -r scripts/requirements-validate.txt` |
-
 ## Where this fits
 
+- **Quality bar:** [QUALITY_BAR.md](QUALITY_BAR.md) — CI + review lanes + definition of done (mitigate sloppy merges).
 - **Contributor hub:** [dashboard/index.html](../dashboard/index.html) (same policies; run via local server).
 - **Templates index:** [templates/README.md](../templates/README.md).
 - **Schemas:** [schemas/README.md](../schemas/README.md).

@@ -43,6 +43,8 @@ Read [OPERATING_RHYTHM.md](OPERATING_RHYTHM.md) for weekly/monthly habits, tags,
 
 After orientation, if you want a **single concrete path** (unknown YAML → hypothesis YAML → PR), follow [HAPPY_PATH_FIRST_RECORDS.md](HAPPY_PATH_FIRST_RECORDS.md).
 
+**Quality:** [QUALITY_BAR.md](QUALITY_BAR.md) — how we keep structure, reviews, and CI from sliding into sloppiness.
+
 ## Optional: prompts
 
 Try [prompts/literature_synthesis.md](prompts/literature_synthesis.md) or [prompts/falsification_pass.md](prompts/falsification_pass.md) with your assistant when reviewing literature or a draft claim.
