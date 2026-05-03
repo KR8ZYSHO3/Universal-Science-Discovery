@@ -11,6 +11,7 @@ This map is the Phase 0 traceability layer. When you change a guiding document, 
 | [OPERATING_RHYTHM.md](OPERATING_RHYTHM.md) | Cadence, versioning, when to sync rules/CI; milestone doc + contributor hub | Doc/CI updates; release/tag policy; CHANGELOG, `dashboard/index.html`, `http://localhost:8765/dashboard/` check per `.cursor/rules/documentation-and-dashboard.mdc` |
 | [REPOSITORY_MANIFEST.md](REPOSITORY_MANIFEST.md) | Per-path roles and governing docs | Keeping structure auditable; updates when paths change |
 | [ONBOARDING.md](ONBOARDING.md) | First-hour navigation | Points to all core policies and work directories |
+| [HAPPY_PATH_FIRST_RECORDS.md](HAPPY_PATH_FIRST_RECORDS.md) | Stream A: first unknown + hypothesis YAML → PR | [CONTRIBUTING.md](../CONTRIBUTING.md); [schemas/README.md](../schemas/README.md); [templates/README.md](../templates/README.md); CI validates via `scripts/validate_schemas.py` |
 | [LABELS_AND_MILESTONES.md](LABELS_AND_MILESTONES.md) | GitHub triage vocabulary | Aligns with [COLLABORATION_AND_REVIEWS.md](COLLABORATION_AND_REVIEWS.md); issue templates |
 | [LICENSING_NOTES.md](LICENSING_NOTES.md) | Exceptions to default MIT | Per-file or per-artifact license metadata |
 | [CODE_OF_CONDUCT.md](../CODE_OF_CONDUCT.md) | Community behavior | [CONTRIBUTING.md](../CONTRIBUTING.md); enforcement expectations |

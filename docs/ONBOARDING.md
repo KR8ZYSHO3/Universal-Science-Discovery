@@ -39,6 +39,10 @@ Open [DOC_MAP.md](DOC_MAP.md) and scan [REPOSITORY_MANIFEST.md](REPOSITORY_MANIF
 
 Read [OPERATING_RHYTHM.md](OPERATING_RHYTHM.md) for weekly/monthly habits, tags, and branch protection expectations.
 
+## Stream A — ship your first records (optional, 30–60 min)
+
+After orientation, if you want a **single concrete path** (unknown YAML → hypothesis YAML → PR), follow [HAPPY_PATH_FIRST_RECORDS.md](HAPPY_PATH_FIRST_RECORDS.md).
+
 ## Optional: prompts
 
 Try [prompts/literature_synthesis.md](prompts/literature_synthesis.md) or [prompts/falsification_pass.md](prompts/falsification_pass.md) with your assistant when reviewing literature or a draft claim.

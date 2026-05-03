@@ -11,4 +11,6 @@ Machine-readable shapes for USDR records. Each file is a **[JSON Schema](https:/
 
 **Legal:** Entries should reference **metadata, DOIs, open URLs**—not full paywalled PDFs. See [LEGAL.md](../LEGAL.md).
 
+**New contributors:** step-by-step first unknown + hypothesis → [docs/HAPPY_PATH_FIRST_RECORDS.md](../docs/HAPPY_PATH_FIRST_RECORDS.md).
+
 Validation (when wired in CI) can use `check-jsonschema` or equivalent against instance files.
