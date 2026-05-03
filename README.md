@@ -64,6 +64,18 @@ mkdocs serve
 
 CI runs `mkdocs build --strict` on every PR and push to `main` (see `.github/workflows/mkdocs-build.yml`).
 
+### arXiv metadata ingest (Phase B starter)
+
+Compliance-oriented **metadata-only** harvest from arXiv OAI-PMH (no PDFs; see [LEGAL.md](LEGAL.md) and [docs/DATA_PLAN.md](docs/DATA_PLAN.md)):
+
+```bash
+pip install -r requirements-ingest.txt
+pip install -e ./packages/ingest
+usdr-ingest harvest --output records.jsonl --max-records 10 --manifest manifest.json
+```
+
+Add `--dry-run` to summarize requests without writing files. Tests use recorded XML fixtures (no live HTTP in default CI — see `.github/workflows/ingest-ci.yml`).
+
 ### Published documentation (GitHub Pages)
 
 **Live URL:** [https://kr8zysho3.github.io/Universal-Science-Discovery/](https://kr8zysho3.github.io/Universal-Science-Discovery/)

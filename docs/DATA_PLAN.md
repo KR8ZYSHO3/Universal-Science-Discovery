@@ -12,7 +12,8 @@ This document fixes **one** pilot external source, **non-goals**, a versioned **
 **Primary recommendation: [arXiv](https://arxiv.org/) via [OAI-PMH](https://arxiv.org/help/oa), metadata records only.**
 
 - **Harvest base URL (verify before implementation):** OAI endpoint documented in arXiv help (e.g. `http://export.arxiv.org/oai` — follow current arXiv documentation for HTTPS and any redirects).
-- **Scope:** `ListRecords` / incremental `from`–`until` (or small **SetSpec** slice if used) — **XML metadata payloads only.** No PDFs, no LaTeX source downloads, no web scraping outside OAI.
+- **Run ingest (Phase B starter, metadata only — no PDFs):** `pip install -r requirements-ingest.txt && pip install -e ./packages/ingest && usdr-ingest harvest --help`
+- **Scope:** Incremental OAI `from`–`until` (or **SetSpec** slice) implemented via **`ListIdentifiers` + `GetRecord`** (`oai_dc` metadata) — **XML metadata payloads only.** No PDFs, no LaTeX source downloads, no web scraping outside OAI.
 - **Why this pilot (one sentence):** A single authoritative preprint OAI stream gives **bounded, metadata-first** ingestion with explicit alignment to [LEGAL.md](../LEGAL.md) (metadata / OA posture, no mirrored publisher full text) while exercising the envelope and provenance fields described in ARCHITECTURE.
 
 **Contrast (not chosen for v1 pilot):** An **OpenAlex** API or snapshot subset is also low-friction (CC0 data) but adds aggregation semantics and citation-graph breadth better suited immediately after this pilot once the envelope is proven on one OAI-shaped pipeline.
