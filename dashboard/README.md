@@ -6,6 +6,7 @@ This folder is part of the **git repository**. Anyone who **clones** USDR gets a
 - Links to **founding and policy** documents (local + GitHub)
 - Points to **folders** where work happens (`unknowns-catalog/`, `hypotheses/`, …)
 - For **maintainers**, can **live-load** [`.planning/STATE.md`](../.planning/STATE.md) and [`ROADMAP.md`](../ROADMAP.md) when served over HTTP
+- **Presentation:** glassmorphism sticky nav with section highlight, **light/dark theme** (saved in `localStorage`), gradient hero, and card hover depth — uses **Google Fonts** (DM Sans, JetBrains Mono) when online; `prefers-reduced-motion` tones down animation
 
 ## Run it locally
 
