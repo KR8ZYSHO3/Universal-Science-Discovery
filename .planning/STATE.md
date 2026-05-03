@@ -4,19 +4,19 @@ Authoritative checklist for humans and agents. The Cursor Canvas [`canvases/Prog
 
 ## Last updated
 
-- 2026-05-03 — Documentation + contributor-hub rule (`.cursor/rules/documentation-and-dashboard.mdc`); AGENTS / OPERATING_RHYTHM aligned.
+- 2026-05-03 — Merged **Phase B ingest** (`feat/phase-b-ingest`) into **dev dashboard** branch: `packages/ingest`, ingest CI, Pages/mkdocs wiring; manifest + DATA_PLAN + CHANGELOG reconciled.
 
 ## Current focus
 
 - Docs + **dashboard** discipline: milestones and ongoing work update `README`, `CHANGELOG` (Unreleased), `docs/` as needed, `dashboard/index.html`, and spot-check **`http://localhost:8765/dashboard/`** (see `.cursor/rules/documentation-and-dashboard.mdc`).
-- Phase B ingestion package (`packages/ingest` when present): CLI ergonomics, manifest validation, and docs alignment with [DATA_PLAN.md](../docs/DATA_PLAN.md).
+- **usdr-ingest** (`packages/ingest`): arXiv OAI-PMH metadata only — extend CLI/manifest as needed per [DATA_PLAN.md](../docs/DATA_PLAN.md).
 - Keeping [mkdocs.yml](../mkdocs.yml) + GitHub Pages (`site_url` / `edit_uri`) consistent with the default branch and fork workflow.
 - Phase A plan artifacts under `.planning/` and cross-links to methodology docs (no new scientific claims in meta files).
 
 ## Active git branches / PRs
 
 - `main` — default; policy and docs source of truth.
-- `feat/phase-b-ingest` — [compare to `main`](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/compare/main...feat/phase-b-ingest) — ingest CLI and tests.
+- `feat/dev-dashboard` — [compare to `main`](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/compare/main...feat/dev-dashboard) — contributor HTML hub, doc rules, **usdr-ingest**, mkdocs/Pages CI.
 - `feat/mkdocs-gh-pages` — [compare to `main`](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/compare/main...feat/mkdocs-gh-pages) — site publishing and nav (when active).
 - Open PRs: use GitHub **Pull requests** tab; add compare links here when reviewing.
 
@@ -25,7 +25,7 @@ Authoritative checklist for humans and agents. The Cursor Canvas [`canvases/Prog
 - Contributor **HTML hub** (`dashboard/index.html`) and README onboarding path.
 - Cursor **documentation-and-dashboard** rule (milestones + ongoing docs + `http://localhost:8765/dashboard/` verification).
 - MkDocs Material site with doc map, methodology, and ethics pages.
-- Repository manifest and Phase A data plan documentation.
+- **usdr-ingest** package, **ingest-ci** workflow, and **merge** of `feat/phase-b-ingest` into this branch (see CHANGELOG Unreleased).
 
 ## Blocked / needs human
 
@@ -33,7 +33,7 @@ Authoritative checklist for humans and agents. The Cursor Canvas [`canvases/Prog
 
 ## Next actions (max 5)
 
-- Land Phase B ingest MVP with tests and `mkdocs build --strict` clean.
+- Open **one integration PR** from `feat/dev-dashboard` → `main` (hub + docs rules + ingest + mkdocs/Pages) when ready.
 - Confirm GitHub Pages branch/env matches `site_url` in `mkdocs.yml`.
 - Add or refresh UAT notes for ingest when the CLI surface stabilizes.
 - Keep [LEGAL.md](../LEGAL.md) and science-integrity docs in mind before any new data paths or claims.

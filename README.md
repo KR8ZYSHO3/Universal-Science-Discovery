@@ -61,6 +61,35 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 Older generic layout (`docs/`, `methods/`, `data/`, …) still applies for governance and prompts.
 
+### Documentation site (preview)
+
+Governance pages under `docs/` can be browsed locally as a static site (see [INTERFACE.md](INTERFACE.md) Phase 1):
+
+```bash
+pip install -r requirements-docs.txt
+mkdocs serve
+```
+
+CI runs `mkdocs build --strict` on every PR and push to `main` (see `.github/workflows/mkdocs-build.yml`).
+
+### arXiv metadata ingest (Phase B starter)
+
+Compliance-oriented **metadata-only** harvest from arXiv OAI-PMH (no PDFs; see [LEGAL.md](LEGAL.md) and [docs/DATA_PLAN.md](docs/DATA_PLAN.md)):
+
+```bash
+pip install -r requirements-ingest.txt
+pip install -e ./packages/ingest
+usdr-ingest harvest --output records.jsonl --max-records 10 --manifest manifest.json
+```
+
+Add `--dry-run` to summarize requests without writing files. Tests use recorded XML fixtures (no live HTTP in default CI — see `.github/workflows/ingest-ci.yml`).
+
+### Published documentation (GitHub Pages)
+
+**Live URL:** [https://kr8zysho3.github.io/Universal-Science-Discovery/](https://kr8zysho3.github.io/Universal-Science-Discovery/)
+
+After the first successful run of [`.github/workflows/mkdocs-gh-pages.yml`](.github/workflows/mkdocs-gh-pages.yml) on `main`, configure **Settings → Pages → Build and deployment → Deploy from a branch**: branch **`gh-pages`**, folder **`/` (root)**. Later pushes to `main` rebuild and update that branch via [peaceiris/actions-gh-pages](https://github.com/peaceiris/actions-gh-pages).
+
 ## AI-assisted work in this repo
 
 Project-specific Cursor guidance is in [cursorrules](cursorrules) (import or symlink into `.cursor/rules/` per your editor setup).

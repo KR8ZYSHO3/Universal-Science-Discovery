@@ -1,0 +1,34 @@
+name: ingest tests
+
+on:
+  push:
+    paths:
+      - "packages/ingest/**"
+      - "requirements-ingest.txt"
+      - "pyproject.toml"
+      - ".github/workflows/ingest-ci.yml"
+  pull_request:
+    paths:
+      - "packages/ingest/**"
+      - "requirements-ingest.txt"
+      - "pyproject.toml"
+      - ".github/workflows/ingest-ci.yml"
+
+jobs:
+  pytest-ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install ingest dependencies
+        run: pip install -r requirements-ingest.txt
+
+      - name: Install package (editable) + pytest
+        run: pip install -e "./packages/ingest[dev]"
+
+      - name: Unit tests (fixtures only; no live OAI)
+        run: pytest packages/ingest/tests
