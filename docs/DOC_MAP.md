@@ -15,6 +15,8 @@ This map is the Phase 0 traceability layer. When you change a guiding document, 
 | [LICENSING_NOTES.md](LICENSING_NOTES.md) | Exceptions to default MIT | Per-file or per-artifact license metadata |
 | [CODE_OF_CONDUCT.md](../CODE_OF_CONDUCT.md) | Community behavior | [CONTRIBUTING.md](../CONTRIBUTING.md); enforcement expectations |
 | [SECURITY.md](../SECURITY.md) | Private vulnerability / sensitive data reports | Automation and secrets; not scientific debate |
+| [DATA_PLAN.md](DATA_PLAN.md) | Phase A external metadata pilot; envelope schema | Must stay consistent with [ARCHITECTURE.md](../ARCHITECTURE.md) ingestion section and [LEGAL.md](../LEGAL.md) before Phase B jobs land |
+| [DEV_DASHBOARD.md](DEV_DASHBOARD.md) | Meta checklist: active branches, shipped items, blockers | Edits [.planning/STATE.md](../.planning/STATE.md); optional sync to Canvas via `scripts/sync-dashboard-from-state.py` |
 
 ## Supporting files (see manifest)
 
