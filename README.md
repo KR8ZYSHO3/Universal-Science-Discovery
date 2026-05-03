@@ -87,7 +87,7 @@ Add `--dry-run` to summarize requests without writing files. Tests use recorded 
 
 ### Published documentation (GitHub Pages)
 
-**Live URL:** [https://kr8zysho3.github.io/Universal-Science-Discovery/](https://kr8zysho3.github.io/Universal-Science-Discovery/)
+**Live URL** (after GitHub Pages is enabled): `https://kr8zysho3.github.io/Universal-Science-Discovery/`
 
 After the first successful run of [`.github/workflows/mkdocs-gh-pages.yml`](.github/workflows/mkdocs-gh-pages.yml) on `main`, configure **Settings → Pages → Build and deployment → Deploy from a branch**: branch **`gh-pages`**, folder **`/` (root)**. Later pushes to `main` rebuild and update that branch via [peaceiris/actions-gh-pages](https://github.com/peaceiris/actions-gh-pages).
 
