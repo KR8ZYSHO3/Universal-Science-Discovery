@@ -11,3 +11,10 @@ def test_help_exits_zero() -> None:
     assert r.exit_code == 0
     assert "--from" in r.output
     assert "--max-records" in r.output
+
+
+def test_top_level_lists_subcommands() -> None:
+    runner = CliRunner()
+    r = runner.invoke(app, ["--help"])
+    assert r.exit_code == 0
+    assert "harvest" in r.output.lower()

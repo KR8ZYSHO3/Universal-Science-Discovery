@@ -17,10 +17,22 @@ from usdr_ingest.constants import (
 )
 from usdr_ingest.constants import ENVELOPE_VERSION as DOC_ENVELOPE_VER
 from usdr_ingest.constants import SOURCE_SYSTEM as DOC_SOURCE
+from usdr_ingest import __version__ as PKG_VERSION
 from usdr_ingest.harvest import HarvestStats, harvest_envelope_rows
 
 
-app = typer.Typer(no_args_is_help=True, add_completion=False)
+app = typer.Typer(
+    help="USDR arXiv OAI-PMH metadata ingest (metadata only; see docs/DATA_PLAN.md).",
+    invoke_without_command=False,
+    no_args_is_help=True,
+    add_completion=False,
+)
+
+
+@app.command("version")
+def version_cmd() -> None:
+    """Print installed usdr-ingest version."""
+    typer.echo(PKG_VERSION)
 
 
 @app.command("harvest")
