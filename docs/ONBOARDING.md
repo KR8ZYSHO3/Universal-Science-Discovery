@@ -33,7 +33,7 @@ Open [DOC_MAP.md](DOC_MAP.md) and scan [REPOSITORY_MANIFEST.md](REPOSITORY_MANIF
 - **CI:** [.github/workflows/markdown-link-check.yml](../.github/workflows/markdown-link-check.yml) — link validation on PRs to `main`.
 - **Dependabot:** [.github/dependabot.yml](../.github/dependabot.yml) — keeps GitHub Actions references current.
 - **Agents:** If you use Cursor or other assistants, read [AGENTS.md](../AGENTS.md) and [.cursor/rules/science-discovery-core.mdc](../.cursor/rules/science-discovery-core.mdc).
-- **Spec-driven milestones (optional):** [GSD_INTEGRATION.md](GSD_INTEGRATION.md) — [GSD / get-shit-done](https://github.com/gsd-build/get-shit-done) for phased plan → execute → verify loops that respect USDR policy.
+- **Spec-driven milestones (optional):** [GSD / get-shit-done](https://github.com/gsd-build/get-shit-done) for phased plan → execute → verify loops that respect USDR policy (no separate integration doc in-repo yet).
 
 ## 6. Cadence (5 min)
 
@@ -43,7 +43,7 @@ Read [OPERATING_RHYTHM.md](OPERATING_RHYTHM.md) for weekly/monthly habits, tags,
 
 Try [prompts/literature_synthesis.md](prompts/literature_synthesis.md) or [prompts/falsification_pass.md](prompts/falsification_pass.md) with your assistant when reviewing literature or a draft claim.
 
-- **AI Collaborator Briefing**: See [docs/prompts/collaborator_briefing.md](prompts/collaborator_briefing.md) for the prompt used with Grok and Cursor.
+- **Custom assistant prompts**: Keep project-specific briefings under [`docs/prompts/`](prompts/) next to the templates above when you add them.
 
 ## Where to put work
 
