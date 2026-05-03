@@ -1,5 +1,11 @@
 # Contributing to USDR
 
+## Contributor hub (map of the repo)
+
+After you **clone** this repository, open the **contributor hub**: [`dashboard/index.html`](dashboard/index.html). From the repo root run `python -m http.server 8765`, then visit [http://localhost:8765/dashboard/](http://localhost:8765/dashboard/) (see [`dashboard/README.md`](dashboard/README.md)). It lists the same orientation steps below in order, plus links to **unknowns**, **hypotheses**, and policies — easier than hunting through folders on first visit.
+
+If you only have the GitHub website, follow the steps in this file and [docs/ONBOARDING.md](docs/ONBOARDING.md); use the hub’s **GitHub** links when viewing [`dashboard/index.html` on the repository](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/dashboard/index.html) for a read-only outline (live roadmap panels need a local clone + server).
+
 ## Orientation
 
 1. **Motivation and impact:** Read [WHY_CONTRIBUTE.md](WHY_CONTRIBUTE.md).

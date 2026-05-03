@@ -2,6 +2,10 @@
 
 Path through the repository in **~30 minutes** for a new collaborator or maintainer.
 
+## 0. Optional — visual map (2 min)
+
+If you have a **local clone**, open the **contributor hub** at [`dashboard/index.html`](../dashboard/index.html) (see [`dashboard/README.md`](../dashboard/README.md): run `python -m http.server 8765` from the repo root, then `/dashboard/`). It mirrors this onboarding path with links to every step; use this document as the authoritative checklist.
+
 ## 1. Orientation (5 min)
 
 Read [VISION_AND_SCOPE.md](VISION_AND_SCOPE.md) and [METHODOLOGY.md](METHODOLOGY.md). You should be able to answer:
@@ -29,6 +33,7 @@ Open [DOC_MAP.md](DOC_MAP.md) and scan [REPOSITORY_MANIFEST.md](REPOSITORY_MANIF
 - **CI:** [.github/workflows/markdown-link-check.yml](../.github/workflows/markdown-link-check.yml) — link validation on PRs to `main`.
 - **Dependabot:** [.github/dependabot.yml](../.github/dependabot.yml) — keeps GitHub Actions references current.
 - **Agents:** If you use Cursor or other assistants, read [AGENTS.md](../AGENTS.md) and [.cursor/rules/science-discovery-core.mdc](../.cursor/rules/science-discovery-core.mdc).
+- **Spec-driven milestones (optional):** [GSD_INTEGRATION.md](GSD_INTEGRATION.md) — [GSD / get-shit-done](https://github.com/gsd-build/get-shit-done) for phased plan → execute → verify loops that respect USDR policy.
 
 ## 6. Cadence (5 min)
 
@@ -37,6 +42,8 @@ Read [OPERATING_RHYTHM.md](OPERATING_RHYTHM.md) for weekly/monthly habits, tags,
 ## Optional: prompts
 
 Try [prompts/literature_synthesis.md](prompts/literature_synthesis.md) or [prompts/falsification_pass.md](prompts/falsification_pass.md) with your assistant when reviewing literature or a draft claim.
+
+- **AI Collaborator Briefing**: See [docs/prompts/collaborator_briefing.md](prompts/collaborator_briefing.md) for the prompt used with Grok and Cursor.
 
 ## Where to put work
 

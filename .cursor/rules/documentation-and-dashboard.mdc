@@ -1,0 +1,35 @@
+---
+description: Keep docs, changelog, and contributor hub current—especially at milestones
+alwaysApply: true
+---
+
+# Documentation & contributor hub
+
+## Default posture
+
+Treat **up-to-date documentation as continuous work**, not an afterthought. When you finish a **milestone**, **feature**, or **merge-worthy change**, documentation should move in the same effort (same PR or immediate follow-up), not later.
+
+## What to update (match the change)
+
+| Change type | Typical updates |
+|-------------|-----------------|
+| User-visible behavior, structure, or workflows | `README.md`, relevant `docs/*.md`, `docs/DOC_MAP.md` if behaviors traceability shifts, `docs/REPOSITORY_MANIFEST.md` for new/renamed policy paths |
+| Release or notable batch of work | `CHANGELOG.md` **Unreleased** section |
+| Agent or Cursor expectations | `AGENTS.md` and `.cursor/rules/` together with policy docs |
+| Maintainer status, branches, next actions | `.planning/STATE.md` |
+
+## Contributor hub (`dashboard/`)
+
+The HTML **contributor hub** is `dashboard/index.html`. It is the guided entry for new contributors (`http://localhost:8765/dashboard/` after `python -m http.server 8765` from repo root).
+
+- If **onboarding paths**, **section order**, or **key links** change, update **`dashboard/index.html`** so the hub stays accurate.
+- After editing **`.planning/STATE.md`**, refresh the Cursor Canvas snapshot in `canvases/Progress.canvas.tsx` when that file exists; run **`python scripts/sync-dashboard-from-state.py`** (Canvas embeds constants; the HTML hub loads STATE live only over HTTP).
+- Before considering work **done**, sanity-check the hub: start **`python -m http.server 8765`** from the repo root, open **`http://localhost:8765/dashboard/`**, confirm sections load and links are not broken for the paths you changed.
+
+## MkDocs
+
+If **`docs/`** or **`mkdocs.yml`** changed, run **`mkdocs build --strict`** and fix warnings before merge.
+
+## Scope
+
+This rule governs **meta** documentation and navigation. It does not relax scientific rigor from `science-discovery-core.mdc`: no new scientific claims in checklist or hub text without following methodology and evidence docs.

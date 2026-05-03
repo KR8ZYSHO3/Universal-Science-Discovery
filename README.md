@@ -2,6 +2,14 @@
 
 Open-source, Git-based knowledge infrastructure for **discovery-first** science: explicit unknowns, testable hypotheses, cross-domain links, and reproducible workflows.
 
+## New here? (contributors)
+
+1. **Skim this README** (5 min), then **[CONTRIBUTING.md](CONTRIBUTING.md)** — how to participate and what to contribute first.
+2. **Contributor hub (recommended after clone):** open **[dashboard/index.html](dashboard/index.html)** locally — contributor path, policies, **where to edit unknowns/hypotheses**, and (with a local server) live **STATE** + **ROADMAP** for maintainers. Run from the repo root: `python -m http.server 8765` → [http://localhost:8765/dashboard/](http://localhost:8765/dashboard/) — details in **[dashboard/README.md](dashboard/README.md)**.
+3. **Browsing only on GitHub (no clone):** use **[docs/ONBOARDING.md](docs/ONBOARDING.md)** and the links in CONTRIBUTING; the dashboard’s **GitHub** links next to each doc open the files in the browser.
+
+Everything under **`dashboard/`** is **tracked in git** so anyone who clones the repo gets the same hub; it is not a separate website unless you host it yourself.
+
 ## Why this exists
 
 - **Mobilize contributors:** [WHY_CONTRIBUTE.md](WHY_CONTRIBUTE.md)

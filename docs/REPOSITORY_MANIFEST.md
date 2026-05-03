@@ -13,6 +13,7 @@ Exhaustive index of **tracked** paths (excluding `.git`), what each is for, and 
 | [.gitignore](../.gitignore) | Config | Files never committed | [ETHICS_REPRODUCIBILITY_AND_DATA.md](ETHICS_REPRODUCIBILITY_AND_DATA.md) |
 | [.markdown-link-check.json](../.markdown-link-check.json) | Config | Link checker rules for CI/local | [OPERATING_RHYTHM.md](OPERATING_RHYTHM.md) |
 | [.cursor/rules/science-discovery-core.mdc](../.cursor/rules/science-discovery-core.mdc) | Config | Cursor always-on rules | [AGENTS.md](../AGENTS.md), [DOC_MAP.md](DOC_MAP.md) |
+| [.cursor/rules/documentation-and-dashboard.mdc](../.cursor/rules/documentation-and-dashboard.mdc) | Config | Cursor: keep docs, CHANGELOG, STATE, `dashboard/` hub current; verify `http://localhost:8765/dashboard/` when hub changes | [AGENTS.md](../AGENTS.md), [docs/OPERATING_RHYTHM.md](OPERATING_RHYTHM.md), [docs/DEV_DASHBOARD.md](DEV_DASHBOARD.md) |
 | [.github/dependabot.yml](../.github/dependabot.yml) | Config | Dependency update PRs (Actions) | [OPERATING_RHYTHM.md](OPERATING_RHYTHM.md) |
 | [.github/workflows/markdown-link-check.yml](../.github/workflows/markdown-link-check.yml) | CI | Validates Markdown links | [CONTRIBUTING.md](../CONTRIBUTING.md), [OPERATING_RHYTHM.md](OPERATING_RHYTHM.md) |
 | [.github/workflows/validate-schemas.yml](../.github/workflows/validate-schemas.yml) | CI | Validates hypothesis / unknown YAML against `schemas/` | [schemas/README.md](../schemas/README.md), [OPERATING_RHYTHM.md](OPERATING_RHYTHM.md) |
@@ -52,6 +53,8 @@ Exhaustive index of **tracked** paths (excluding `.git`), what each is for, and 
 | [hypotheses/active/h-radio-axion-like-dm-constraints.yaml](../hypotheses/active/h-radio-axion-like-dm-constraints.yaml) | Content | Phase 0 example hypothesis | [schemas/hypothesis.yaml](../schemas/hypothesis.yaml) |
 | [hypotheses/active/h-conserved-metabolic-bottlenecks-longevity.yaml](../hypotheses/active/h-conserved-metabolic-bottlenecks-longevity.yaml) | Content | Phase 0 example hypothesis | [schemas/hypothesis.yaml](../schemas/hypothesis.yaml) |
 | [notebooks/README.md](../notebooks/README.md) | Guide | Exploratory analysis contract | [METHODOLOGY.md](METHODOLOGY.md) |
+| [dashboard/index.html](../dashboard/index.html) | UI | Browser dashboard: founding-doc links + live `STATE`/`ROADMAP` via local server | [DEV_DASHBOARD.md](DEV_DASHBOARD.md), [DOC_MAP.md](DOC_MAP.md) |
+| [dashboard/README.md](../dashboard/README.md) | Guide | How to run the HTML dashboard | [DEV_DASHBOARD.md](DEV_DASHBOARD.md) |
 
 ## Maintenance rule
 

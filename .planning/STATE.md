@@ -4,11 +4,12 @@ Authoritative checklist for humans and agents. The Cursor Canvas [`canvases/Prog
 
 ## Last updated
 
-- 2026-05-03 — Dev dashboard scaffolding (`feat/dev-dashboard`); MkDocs strict build gate.
+- 2026-05-03 — Documentation + contributor-hub rule (`.cursor/rules/documentation-and-dashboard.mdc`); AGENTS / OPERATING_RHYTHM aligned.
 
 ## Current focus
 
-- Phase B ingestion package (`packages/ingest`): CLI ergonomics, manifest validation, and docs alignment with [DATA_PLAN.md](../docs/DATA_PLAN.md).
+- Docs + **dashboard** discipline: milestones and ongoing work update `README`, `CHANGELOG` (Unreleased), `docs/` as needed, `dashboard/index.html`, and spot-check **`http://localhost:8765/dashboard/`** (see `.cursor/rules/documentation-and-dashboard.mdc`).
+- Phase B ingestion package (`packages/ingest` when present): CLI ergonomics, manifest validation, and docs alignment with [DATA_PLAN.md](../docs/DATA_PLAN.md).
 - Keeping [mkdocs.yml](../mkdocs.yml) + GitHub Pages (`site_url` / `edit_uri`) consistent with the default branch and fork workflow.
 - Phase A plan artifacts under `.planning/` and cross-links to methodology docs (no new scientific claims in meta files).
 
@@ -21,7 +22,8 @@ Authoritative checklist for humans and agents. The Cursor Canvas [`canvases/Prog
 
 ## Shipped recently
 
-- Agent execution rule (`.cursor/rules/agent-execution.mdc`) — run installs, tests, and git in-environment.
+- Contributor **HTML hub** (`dashboard/index.html`) and README onboarding path.
+- Cursor **documentation-and-dashboard** rule (milestones + ongoing docs + `http://localhost:8765/dashboard/` verification).
 - MkDocs Material site with doc map, methodology, and ethics pages.
 - Repository manifest and Phase A data plan documentation.
 
@@ -35,4 +37,4 @@ Authoritative checklist for humans and agents. The Cursor Canvas [`canvases/Prog
 - Confirm GitHub Pages branch/env matches `site_url` in `mkdocs.yml`.
 - Add or refresh UAT notes for ingest when the CLI surface stabilizes.
 - Keep [LEGAL.md](../LEGAL.md) and science-integrity docs in mind before any new data paths or claims.
-- After merging this dashboard PR, run the sync script once so canvas constants match this file.
+- Apply **documentation-and-dashboard** rule on each merge: update CHANGELOG Unreleased, sync Canvas from `STATE.md` when using `canvases/Progress.canvas.tsx`, re-check contributor hub if links changed.

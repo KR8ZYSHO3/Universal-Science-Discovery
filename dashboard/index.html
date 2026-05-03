@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>USDR — Contributor hub (start here)</title>
+  <script src="https://unpkg.com/marked@12.0.2/marked.min.js"></script>
+  <style>
+    :root {
+      --bg: #0f1419;
+      --surface: #1a2332;
+      --border: #2d3a4d;
+      --text: #e8eef4;
+      --muted: #8b9cb3;
+      --accent: #5b9cf6;
+      --accent-dim: #3d7dd6;
+      --ok: #3ecf8e;
+      --warn: #e6b35c;
+      --step: #4a9eff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      font-size: 15px;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; color: #8cc4ff; }
+    .skip { position: absolute; left: -999px; }
+    .skip:focus { left: 1rem; top: 1rem; z-index: 99; background: var(--surface); padding: 0.5rem; }
+    header {
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+    }
+    header h1 { margin: 0 0 0.35rem; font-size: 1.45rem; font-weight: 650; }
+    header .lead { margin: 0; color: var(--muted); max-width: 54rem; }
+    .banner {
+      margin: 1rem 2rem 0;
+      padding: 0.85rem 1rem;
+      background: rgba(230, 179, 92, 0.12);
+      border: 1px solid rgba(230, 179, 92, 0.35);
+      border-radius: 8px;
+      color: #f0d9a8;
+      display: none;
+    }
+    .banner.show { display: block; }
+    .hub-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .hub-nav a {
+      font-size: 0.82rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+    .hub-nav a:hover { border-color: var(--accent); background: rgba(91, 156, 246, 0.12); }
+    main { padding: 2rem; max-width: 1200px; margin: 0 auto; }
+    section { margin-bottom: 2.75rem; scroll-margin-top: 4rem; }
+    section > h2 {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin: 0 0 1rem;
+      font-weight: 600;
+    }
+    .section-intro { color: var(--muted); margin: 0 0 1.25rem; max-width: 48rem; }
+    .steps {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      counter-reset: step;
+    }
+    .steps li {
+      position: relative;
+      padding: 1rem 1rem 1rem 3.25rem;
+      margin-bottom: 0.75rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      counter-increment: step;
+    }
+    .steps li::before {
+      content: counter(step);
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+      width: 1.65rem;
+      height: 1.65rem;
+      line-height: 1.65rem;
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--bg);
+      background: var(--step);
+      border-radius: 50%;
+    }
+    .steps li strong { display: block; margin-bottom: 0.35rem; }
+    .steps .sub { font-size: 0.9rem; color: var(--muted); margin: 0; }
+    .steps .sub a { margin-right: 0.75rem; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.15rem;
+    }
+    .card h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    .card p { margin: 0 0 0.75rem; color: var(--muted); font-size: 0.9rem; }
+    .links { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; font-size: 0.88rem; }
+    .links a.local { color: var(--ok); }
+    .links a.gh { color: var(--accent-dim); }
+    .dev-panels {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+    @media (max-width: 900px) { .dev-panels { grid-template-columns: 1fr; } }
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      min-height: 200px;
+    }
+    .panel h3 { margin: 0 0 0.75rem; font-size: 1rem; }
+    .md-body { font-size: 0.92rem; }
+    .md-body h1 { font-size: 1.25rem; margin-top: 0; }
+    .md-body h2 { font-size: 1.05rem; text-transform: none; letter-spacing: normal; color: var(--text); margin: 1.25rem 0 0.5rem; }
+    .md-body ul { padding-left: 1.25rem; margin: 0.5rem 0; }
+    .md-body pre {
+      background: var(--bg);
+      padding: 0.75rem;
+      border-radius: 6px;
+      overflow: auto;
+      font-size: 0.82rem;
+    }
+    .loading { color: var(--muted); }
+    .err { color: #f09090; }
+    code { background: var(--bg); padding: 0.12rem 0.35rem; border-radius: 4px; font-size: 0.88em; }
+    footer {
+      padding: 2rem;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.88rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#start">Skip to start here</a>
+  <header>
+    <h1>Universal Science Discovery Repository</h1>
+    <p class="lead">
+      <strong>Contributor hub</strong> — one page to learn what USDR is, how to contribute safely, and where the rules live.
+      This file ships in the git repo under <code>dashboard/</code>; most links work best after you <strong>clone</strong> the repository locally.
+    </p>
+    <div id="server-banner" class="banner" role="status">
+      <strong>To see live roadmap &amp; maintainer checklist:</strong> from the repo root run
+      <code style="display:block;margin-top:0.5rem;">python -m http.server 8765</code>
+      then open <a href="http://localhost:8765/dashboard/">http://localhost:8765/dashboard/</a>
+      (browsers block loading those files from <code>file://</code>).
+    </div>
+  </header>
+
+  <nav class="hub-nav" aria-label="Page sections">
+    <a href="#start">Start here</a>
+    <a href="#project">Understand project</a>
+    <a href="#contribute">Contribute</a>
+    <a href="#policies">Policies &amp; trust</a>
+    <a href="#reference">Reference</a>
+    <a href="#maintainers">Maintainers</a>
+  </nav>
+
+  <main>
+    <section id="start" aria-labelledby="start-heading">
+      <h2 id="start-heading">New here? Follow this order</h2>
+      <p class="section-intro">
+        Same path as <a class="local" href="../CONTRIBUTING.md">CONTRIBUTING.md</a> and <a class="local" href="../docs/ONBOARDING.md">docs/ONBOARDING.md</a>, laid out as steps. On GitHub without a clone, use the <strong>GitHub</strong> links to read markdown in the browser.
+      </p>
+      <ol class="steps">
+        <li>
+          <strong>Know what you’re joining</strong>
+          <p class="sub">
+            <a class="local" href="../WHY_CONTRIBUTE.md">WHY_CONTRIBUTE</a>
+            <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/WHY_CONTRIBUTE.md">GitHub</a>
+            · Motivation and impact
+          </p>
+        </li>
+        <li>
+          <strong>Scope and quality bar</strong>
+          <p class="sub">
+            <a class="local" href="../docs/VISION_AND_SCOPE.md">VISION_AND_SCOPE</a>
+            <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/docs/VISION_AND_SCOPE.md">GitHub</a>
+            ·
+            <a class="local" href="../universal-science-discovery-repo-blueprint.md">Blueprint</a>
+            <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/universal-science-discovery-repo-blueprint.md">GitHub</a>
+          </p>
+        </li>
+        <li>
+          <strong>Rigor: hypotheses vs evidence</strong>
+          <p class="sub">
+            <a class="local" href="../docs/METHODOLOGY.md">METHODOLOGY</a>
+            <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/docs/METHODOLOGY.md">GitHub</a>
+            · Read before proposing scientific claims
+          </p>
+        </li>
+        <li>
+          <strong>Integrity, data, and conduct</strong>
+          <p class="sub">
+            <a class="local" href="../docs/ETHICS_REPRODUCIBILITY_AND_DATA.md">Ethics &amp; data</a>
+            ·
+            <a class="local" href="../CODE_OF_CONDUCT.md">Code of Conduct</a>
+            ·
+            <a class="local" href="../LEGAL.md">LEGAL</a>
+          </p>
+        </li>
+        <li>
+          <strong>Open a PR or issue</strong>
+          <p class="sub">
+            <a class="local" href="../CONTRIBUTING.md">CONTRIBUTING</a>
+            · Use <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/issues">GitHub issues</a> and
+            <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/pulls">pull requests</a>
+            · Prefer small changes: unknowns, hypotheses, bridges, reproducible stubs (see CONTRIBUTING)
+          </p>
+        </li>
+      </ol>
+      <p class="section-intro" style="margin-top:1rem;">
+        <strong>Typo in onboarding link above?</strong> Use <a class="local" href="../docs/ONBOARDING.md">docs/ONBOARDING.md</a> — full ~30 min path.
+      </p>
+    </section>
+
+    <section id="project" aria-labelledby="project-heading">
+      <h2 id="project-heading">Understand the project</h2>
+      <p class="section-intro">What we’re building and how it’s structured.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Repo entry &amp; narrative</h3>
+          <p>Default landing when someone clones or views the project.</p>
+          <div class="links">
+            <a class="local" href="../README.md">README.md</a>
+            <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/README.md">GitHub</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Roadmap &amp; phases</h3>
+          <p>North star, phases, and priorities (also shown live below for maintainers).</p>
+          <div class="links">
+            <a class="local" href="../ROADMAP.md">ROADMAP.md</a>
+            <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/ROADMAP.md">GitHub</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Interfaces &amp; architecture</h3>
+          <p>How humans and systems attach to USDR over time.</p>
+          <div class="links">
+            <a class="local" href="../INTERFACE.md">INTERFACE.md</a>
+            <a class="local" href="../ARCHITECTURE.md">ARCHITECTURE.md</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Outreach framing</h3>
+          <p>Accurate language for external conversations.</p>
+          <div class="links">
+            <a class="local" href="../VISION_COMMUNICATION.md">VISION_COMMUNICATION</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contribute" aria-labelledby="contribute-heading">
+      <h2 id="contribute-heading">Where contribution happens</h2>
+      <p class="section-intro">Concrete folders and templates for new content.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Contribution guide</h3>
+          <p>Rules of the road and AI use.</p>
+          <div class="links">
+            <a class="local" href="../CONTRIBUTING.md">CONTRIBUTING.md</a>
+            <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/CONTRIBUTING.md">GitHub</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Unknowns catalog</h3>
+          <p>Research gaps (<code>u-…</code> YAML under <code>unknowns-catalog/</code>).</p>
+          <div class="links">
+            <a class="local" href="../unknowns-catalog/">Open folder</a>
+            <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/tree/main/unknowns-catalog">GitHub</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Hypotheses</h3>
+          <p>Testable proposals (<code>h-…</code> YAML).</p>
+          <div class="links">
+            <a class="local" href="../hypotheses/">Open folder</a>
+            <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/tree/main/hypotheses">GitHub</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Disciplines &amp; schemas</h3>
+          <p>Domain trees and validation schemas for YAML.</p>
+          <div class="links">
+            <a class="local" href="../disciplines/">disciplines/</a>
+            <a class="local" href="../schemas/">schemas/</a>
+            <a class="local" href="../templates/">templates/</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>AI assistants</h3>
+          <p>If you use Cursor or other tools in this repo.</p>
+          <div class="links">
+            <a class="local" href="../AGENTS.md">AGENTS.md</a>
+            <a class="local" href="../.cursor/rules/science-discovery-core.mdc">Cursor rules</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="policies" aria-labelledby="policies-heading">
+      <h2 id="policies-heading">Policies &amp; governance</h2>
+      <p class="section-intro">Trust, licensing, and how we run the project.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Legal &amp; trust</h3>
+          <p>What the repo may host; third-party attribution.</p>
+          <div class="links">
+            <a class="local" href="../LEGAL.md">LEGAL.md</a>
+            <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/LEGAL.md">GitHub</a>
+            <a class="local" href="../LICENSE">LICENSE</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Governance &amp; safety</h3>
+          <div class="links">
+            <a class="local" href="../GOVERNANCE.md">GOVERNANCE</a>
+            <a class="local" href="../ETHICS.md">ETHICS</a>
+            <a class="local" href="../DISCLAIMER.md">DISCLAIMER</a>
+            <a class="local" href="../SECURITY.md">SECURITY</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Collaboration &amp; reviews</h3>
+          <div class="links">
+            <a class="local" href="../docs/COLLABORATION_AND_REVIEWS.md">COLLABORATION</a>
+            <a class="local" href="../docs/LABELS_AND_MILESTONES.md">Labels</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Cadence &amp; operations</h3>
+          <div class="links">
+            <a class="local" href="../docs/OPERATING_RHYTHM.md">OPERATING_RHYTHM</a>
+            <a class="local" href="../docs/LICENSING_NOTES.md">LICENSING_NOTES</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reference" aria-labelledby="reference-heading">
+      <h2 id="reference-heading">Reference &amp; traceability</h2>
+      <p class="section-intro">Maps from “this file” to “what policy it enforces.”</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Doc map</h3>
+          <p>Guiding document → behaviors.</p>
+          <div class="links">
+            <a class="local" href="../docs/DOC_MAP.md">DOC_MAP.md</a>
+            <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/docs/DOC_MAP.md">GitHub</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Repository manifest</h3>
+          <p>Path index for audits.</p>
+          <div class="links">
+            <a class="local" href="../docs/REPOSITORY_MANIFEST.md">MANIFEST</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Full onboarding path</h3>
+          <p>~30 minute walkthrough.</p>
+          <div class="links">
+            <a class="local" href="../docs/ONBOARDING.md">ONBOARDING.md</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Data &amp; ingestion (technical)</h3>
+          <p>Phase A/B metadata plans (not required for first content PRs).</p>
+          <div class="links">
+            <a class="local" href="../docs/DATA_PLAN.md">DATA_PLAN</a>
+            <a class="local" href="../docs/DEV_DASHBOARD.md">DEV_DASHBOARD (meta)</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="maintainers" aria-labelledby="maintainers-heading">
+      <h2 id="maintainers-heading">Maintainers: live checklist &amp; CI</h2>
+      <p class="section-intro">
+        <strong>Doc discipline:</strong> at each milestone or feature merge, update <code>README</code>, <code>CHANGELOG</code> (Unreleased), relevant <code>docs/</code>, and this hub if links/sections change — then re-open <code>http://localhost:8765/dashboard/</code> to verify. Cursor agents follow <a class="local" href="../.cursor/rules/documentation-and-dashboard.mdc"><code>documentation-and-dashboard.mdc</code></a>.
+      </p>
+      <p class="section-intro">
+        <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/pulls">Pull requests</a> ·
+        <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/actions">Actions</a> ·
+        <a class="local" href="../CHANGELOG.md">CHANGELOG.md</a>
+        — edit <code>.planning/STATE.md</code> to change the checklist (refresh browser after).
+      </p>
+      <div class="dev-panels">
+        <div class="panel">
+          <h3>.planning / STATE.md</h3>
+          <div id="state-md" class="md-body loading">Loading…</div>
+        </div>
+        <div class="panel">
+          <h3>ROADMAP.md</h3>
+          <div id="roadmap-md" class="md-body loading">Loading…</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Files in <code>dashboard/</code> are part of the git repository — commit changes with the rest of the project.
+    Scientific claims belong in catalog YAML and reviewed content, not in this hub page.
+  </footer>
+
+  <script>
+    (function () {
+      var banner = document.getElementById("server-banner");
+      if (location.protocol === "file:") {
+        banner.classList.add("show");
+      }
+
+      function render(id, path) {
+        var el = document.getElementById(id);
+        fetch(path)
+          .then(function (r) {
+            if (!r.ok) throw new Error("HTTP " + r.status);
+            return r.text();
+          })
+          .then(function (text) {
+            if (typeof marked !== "undefined" && marked.parse) {
+              el.innerHTML = marked.parse(text);
+            } else {
+              el.innerHTML = "<pre>" + text.replace(/</g, "&lt;") + "</pre>";
+            }
+            el.classList.remove("loading");
+          })
+          .catch(function (e) {
+            el.innerHTML =
+              '<p class="err">Could not load <code>' +
+              path +
+              "</code>. " +
+              (location.protocol === "file:"
+                ? "Use <code>python -m http.server 8765</code> from the repo root, then open <code>http://localhost:8765/dashboard/</code>."
+                : e.message) +
+              "</p>";
+            el.classList.remove("loading");
+          });
+      }
+
+      if (location.protocol !== "file:") {
+        render("state-md", "../.planning/STATE.md");
+        render("roadmap-md", "../ROADMAP.md");
+      } else {
+        var msg =
+          '<p class="err">Live panels need a local server (see yellow banner).</p>';
+        document.getElementById("state-md").innerHTML = msg;
+        document.getElementById("roadmap-md").innerHTML = msg;
+      }
+    })();
+  </script>
+</body>
+</html>

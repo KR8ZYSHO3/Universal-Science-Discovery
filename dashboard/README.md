@@ -1,0 +1,28 @@
+# Contributor hub (`dashboard/`)
+
+This folder is part of the **git repository**. Anyone who **clones** USDR gets an HTML **contributor hub** (`index.html`) that:
+
+- Orders **how to contribute** (same flow as [CONTRIBUTING.md](../CONTRIBUTING.md) and [docs/ONBOARDING.md](../docs/ONBOARDING.md))
+- Links to **founding and policy** documents (local + GitHub)
+- Points to **folders** where work happens (`unknowns-catalog/`, `hypotheses/`, …)
+- For **maintainers**, can **live-load** [`.planning/STATE.md`](../.planning/STATE.md) and [`ROADMAP.md`](../ROADMAP.md) when served over HTTP
+
+## Run it locally
+
+From the **repository root** (parent of `dashboard/`):
+
+```bash
+python -m http.server 8765
+```
+
+Open: [http://localhost:8765/dashboard/](http://localhost:8765/dashboard/)
+
+Double-clicking `index.html` works for **static links**, but the **roadmap/state panels** need the server (browser security).
+
+## GitHub only (no clone)
+
+The [README](../README.md) and [CONTRIBUTING](../CONTRIBUTING.md) point newcomers here. On GitHub you can open [`index.html` in the browser](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/dashboard/index.html) as **source**; for a guided read, use [docs/ONBOARDING.md](../docs/ONBOARDING.md) or follow the **GitHub** links inside the hub file after viewing raw/rendered copy.
+
+## Publishing
+
+This is **not** automatically the public project website unless you add hosting (e.g. copy `dashboard/` to static hosting or wire GitHub Pages). The main **policy docs site** may be built with MkDocs separately; this hub is for **developers who have the repo**.
