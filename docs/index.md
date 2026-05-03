@@ -10,7 +10,7 @@ For the full project overview and repository layout, see the [README on GitHub](
 - [Vision & scope](VISION_AND_SCOPE.md) and [Methodology](METHODOLOGY.md)
 - [Documentation map](DOC_MAP.md)
 - [Contributing (repository root)](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/CONTRIBUTING.md) — full contributor path
-- **[Contributor hub](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/dashboard/index.html)** (HTML in repo; run locally per [dashboard README](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/dashboard/README.md))
+- **[Contributor hub](../dashboard/index.html)** (HTML in repo; run locally per [dashboard README](../dashboard/README.md))
 
 ## Meta
 

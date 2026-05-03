@@ -21,7 +21,7 @@ Double-clicking `index.html` works for **static links**, but the **roadmap/state
 
 ## GitHub only (no clone)
 
-The [README](../README.md) and [CONTRIBUTING](../CONTRIBUTING.md) point newcomers here. On GitHub you can open [`index.html` in the browser](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/dashboard/index.html) as **source**; for a guided read, use [docs/ONBOARDING.md](../docs/ONBOARDING.md) or follow the **GitHub** links inside the hub file after viewing raw/rendered copy.
+The [README](../README.md) and [CONTRIBUTING](../CONTRIBUTING.md) point newcomers here. Open **[index.html](index.html)** from a clone (or view raw on GitHub under `dashboard/` once that path exists on the default branch); for a guided read, use [docs/ONBOARDING.md](../docs/ONBOARDING.md).
 
 ## Publishing
 
