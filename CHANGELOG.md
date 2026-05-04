@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- **markdown-link-check (CI):** Plain-text GitHub Pages base URL in [README.md](README.md) and [docs/REPOSITORY_MANIFEST.md](docs/REPOSITORY_MANIFEST.md) until HTTPS 200; [docs/index.md](docs/index.md) uses absolute `github.com/.../tree/main/...` links for repo folders (broken `../tree/main/...` checked as HTTP 400).
+
 ### Added
 - **GitHub Pages deploy** workflow (`.github/workflows/mkdocs-gh-pages.yml`) + `site_url` in `mkdocs.yml` for `https://kr8zysho3.github.io/Universal-Science-Discovery/`
 - README **Published documentation** subsection and REPOSITORY_MANIFEST entry for the live docs URL and `gh-pages` Pages source; `.gitignore` **MkDocs output** (`/site/`) so local builds are not committed
