@@ -4,8 +4,8 @@ A **bridge entry** captures an explicit connection between two or more scientifi
 fields studying the same underlying phenomenon with different language, methods, or
 tools — and with little awareness of each other.
 
-Bridge files live under [`cross-domain/`](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/tree/main/cross-domain),
-validated against [`schemas/bridge.yaml`](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/schemas/bridge.yaml).
+Bridge files live under `cross-domain/` in the repository root,
+validated against `schemas/bridge.yaml`.
 
 ---
 
@@ -24,10 +24,10 @@ rediscover it independently — wasting decades. Bridges make the connection exp
 
 | ID | Fields | Unknown | Hypothesis |
 |----|--------|---------|-----------|
-| [b-percolation-oncology](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/cross-domain/physics-oncology/b-percolation-oncology.yaml) | statistical-physics ↔ oncology | u-tumor-containment-percolation | h-adaptive-therapy-percolation-threshold |
-| [b-criticality-neuroscience](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/cross-domain/physics-neuroscience/b-criticality-neuroscience.yaml) | condensed-matter ↔ neuroscience | u-brain-criticality-function | h-criticality-conscious-integration |
-| [b-glymphatic-aging](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/cross-domain/biology-medicine/b-glymphatic-aging.yaml) | sleep-medicine ↔ neurology ↔ geroscience | u-amyloid-progression-trajectory | h-glymphatic-amyloid-clearance-rate |
-| [b-lichen-astrobiology](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/cross-domain/biology-astrobiology/b-lichen-astrobiology.yaml) | synthetic-biology ↔ astrobiology | u-synthetic-lichen-biofabrication | h-lichen-consortium-metabolic-coupling |
+| b-percolation-oncology | statistical-physics ↔ oncology | u-tumor-containment-percolation | h-adaptive-therapy-percolation-threshold |
+| b-criticality-neuroscience | condensed-matter ↔ neuroscience | u-brain-criticality-function | h-criticality-conscious-integration |
+| b-glymphatic-aging | sleep-medicine ↔ neurology ↔ geroscience | u-amyloid-progression-trajectory | h-glymphatic-amyloid-clearance-rate |
+| b-lichen-astrobiology | synthetic-biology ↔ astrobiology | u-synthetic-lichen-biofabrication | h-lichen-consortium-metabolic-coupling |
 
 ---
 
@@ -46,7 +46,7 @@ Each bridge requires at minimum:
 Optional enrichment fields: `translation_table`, `cross_pollination_opportunities`,
 `communication_gap`, `related_unknowns`, `related_hypotheses`, `references`.
 
-Full schema: [`schemas/bridge.yaml`](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/schemas/bridge.yaml)
+Full schema: `schemas/bridge.yaml` in the repository root.
 
 ---
 
