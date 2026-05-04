@@ -4,7 +4,7 @@ Small, **checked-in** artifacts that illustrate repository contracts without pul
 
 | File | Purpose |
 |------|---------|
-| [`arxiv-oai-metadata-sample.v1.jsonl`](arxiv-oai-metadata-sample.v1.jsonl) | Two **synthetic** envelope rows matching [`schemas/ingestion-envelope-1.0.0.json`](../../schemas/ingestion-envelope-1.0.0.json). Content is derived from the same OAI XML **fixtures** used in [`packages/ingest` tests](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/tree/main/packages/ingest/tests/fixtures), not from a live arXiv harvest. |
+| [`arxiv-oai-metadata-sample.v1.jsonl`](arxiv-oai-metadata-sample.v1.jsonl) | Two **synthetic** envelope rows matching [`schemas/ingestion-envelope-1.0.0.json`](../../schemas/ingestion-envelope-1.0.0.json). Content is derived from the same OAI XML **fixtures** used in [`packages/ingest` tests](../../packages/ingest/tests/test_harvest_mock.py), not from a live arXiv harvest. |
 
 **Traceability:** [DATA_PLAN.md](../DATA_PLAN.md) (Phase A optional exemplar), [LEGAL.md](../../LEGAL.md) (metadata-only scope).
 
