@@ -18,7 +18,7 @@
         <link rel="prev" href="../REPOSITORY_MANIFEST/">
       
       
-        <link rel="next" href="../prompts/literature_synthesis/">
+        <link rel="next" href="../examples/">
       
       
         
@@ -366,6 +366,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../HAPPY_PATH_FIRST_RECORDS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Happy path (Stream A)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../DOC_MAP/" class="md-nav__link">
         
   
@@ -512,6 +540,34 @@
     
   
     Collaboration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../QUALITY_BAR/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quality bar (anti-sloppiness)
   
 
     
@@ -879,6 +935,118 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documentation examples (ingest)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UAT_INGEST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ingest UAT (manual)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DEV_DASHBOARD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dev dashboard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GSD_INTEGRATION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Optional GSD tooling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1162,7 +1330,8 @@
 <p><strong>Primary recommendation: <a href="https://arxiv.org/">arXiv</a> via <a href="https://arxiv.org/help/oa">OAI-PMH</a>, metadata records only.</strong></p>
 <ul>
 <li><strong>Harvest base URL (verify before implementation):</strong> OAI endpoint documented in arXiv help (e.g. <code>http://export.arxiv.org/oai</code> — follow current arXiv documentation for HTTPS and any redirects).</li>
-<li><strong>Scope:</strong> <code>ListRecords</code> / incremental <code>from</code>–<code>until</code> (or small <strong>SetSpec</strong> slice if used) — <strong>XML metadata payloads only.</strong> No PDFs, no LaTeX source downloads, no web scraping outside OAI.</li>
+<li><strong>Run ingest (Phase B starter, metadata only — no PDFs):</strong> <code>pip install -r requirements-ingest.txt &amp;&amp; pip install -e ./packages/ingest &amp;&amp; usdr-ingest harvest --help</code></li>
+<li><strong>Scope:</strong> Incremental OAI <code>from</code>–<code>until</code> (or <strong>SetSpec</strong> slice) implemented via <strong><code>ListIdentifiers</code> + <code>GetRecord</code></strong> (<code>oai_dc</code> metadata) — <strong>XML metadata payloads only.</strong> No PDFs, no LaTeX source downloads, no web scraping outside OAI.</li>
 <li><strong>Why this pilot (one sentence):</strong> A single authoritative preprint OAI stream gives <strong>bounded, metadata-first</strong> ingestion with explicit alignment to <a href="../LEGAL.md">LEGAL.md</a> (metadata / OA posture, no mirrored publisher full text) while exercising the envelope and provenance fields described in ARCHITECTURE.</li>
 </ul>
 <p><strong>Contrast (not chosen for v1 pilot):</strong> An <strong>OpenAlex</strong> API or snapshot subset is also low-friction (CC0 data) but adds aggregation semantics and citation-graph breadth better suited immediately after this pilot once the envelope is proven on one OAI-shaped pipeline.</p>
@@ -1282,7 +1451,7 @@
 </tbody>
 </table>
 <h3 id="json-schema-informative">JSON Schema (informative)<a class="headerlink" href="#json-schema-informative" title="Permanent link">&para;</a></h3>
-<p>Implementations SHOULD validate payloads against a machine schema; until one is checked in under <code>schemas/</code>, this fragment is authoritative text.</p>
+<p>Machine-validatable copy (use in CI and clients): <a href="../schemas/ingestion-envelope-1.0.0.json"><code>schemas/ingestion-envelope-1.0.0.json</code></a>. The fragment below mirrors it for readers who prefer inline reference.</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://json-schema.org/draft/2020-12/schema&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;$id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://usdr.dev/schemas/ingestion-envelope-1.0.0.json&quot;</span><span class="p">,</span>
@@ -1335,7 +1504,9 @@
 <li><strong>Architecture alignment:</strong> Cross-reference to ARCHITECTURE’s “External corpora &amp; ingestion program” and Phase A wording is satisfied (this file is the accountable spec).</li>
 <li><strong>Discoverability:</strong> <a href="../DOC_MAP/">DOC_MAP.md</a> lists this plan so Phase B work stays traceable.</li>
 </ol>
-<p>Optional stretch (not required to call Phase A “done”): a <strong>small exemplar JSONL</strong> (e.g. ≤20 synthetic or hand-redacted rows) checked in under <code>docs/examples/</code> — only if maintainers want a concrete fixture without live harvest.</p>
+<p>Optional stretch (not required to call Phase A “done”): a <strong>small exemplar JSONL</strong> (e.g. ≤20 synthetic or hand-redacted rows) checked in under <a href="../examples/"><code>docs/examples/</code></a> — <a href="../examples/arxiv-oai-metadata-sample.v1.jsonl">arxiv-oai-metadata-sample.v1.jsonl</a> (from package test fixtures; <strong>not</strong> a live harvest).</p>
+<p><strong>Implementation note:</strong> <a href="../packages/ingest"><code>packages/ingest</code></a> implements Phase B harvest toward this envelope; unit tests validate harvest output against <a href="../schemas/ingestion-envelope-1.0.0.json"><code>schemas/ingestion-envelope-1.0.0.json</code></a>. Keep this page aligned when the CLI or manifest schema changes.</p>
+<p><strong>Manual QA:</strong> <a href="../UAT_INGEST/">UAT_INGEST.md</a> — smoke steps and optional live OAI dry-run.</p>
 <hr />
 <h2 id="revision-history">Revision history<a class="headerlink" href="#revision-history" title="Permanent link">&para;</a></h2>
 <table>

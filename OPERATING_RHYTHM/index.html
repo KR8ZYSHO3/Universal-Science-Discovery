@@ -366,6 +366,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../HAPPY_PATH_FIRST_RECORDS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Happy path (Stream A)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../DOC_MAP/" class="md-nav__link">
         
   
@@ -512,6 +540,34 @@
     
   
     Collaboration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../QUALITY_BAR/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quality bar (anti-sloppiness)
   
 
     
@@ -784,6 +840,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Branch protection (GitHub settings)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#status-check-names-as-github-lists-them" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Status check names (as GitHub lists them)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -849,6 +922,118 @@
     
   
     Data plan (Phase A pilot)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documentation examples (ingest)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UAT_INGEST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ingest UAT (manual)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DEV_DASHBOARD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dev dashboard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GSD_INTEGRATION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Optional GSD tooling
   
 
     
@@ -1086,6 +1271,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Branch protection (GitHub settings)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#status-check-names-as-github-lists-them" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Status check names (as GitHub lists them)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1126,10 +1328,12 @@
 <li>Sync <a href="../AGENTS.md">AGENTS.md</a> and <a href="../.cursor/rules/">.cursor/rules/</a> if agent-facing expectations changed.</li>
 <li>Sync issue/PR templates under <a href="../.github/">.github/</a> if workflow fields need to match.</li>
 <li>Merge governance and tooling updates in <strong>one PR</strong> when possible so history stays coherent.</li>
+<li><strong>Milestones and features:</strong> update <a href="../CHANGELOG.md">CHANGELOG.md</a> (Unreleased), <a href="../README.md">README.md</a> or deeper docs as needed, <a href="../.planning/STATE.md">.planning/STATE.md</a>, and <a href="../dashboard/index.html">dashboard/index.html</a> so <a href="http://localhost:8765/dashboard/">http://localhost:8765/dashboard/</a> stays accurate; run <code>mkdocs build --strict</code> when <code>docs/</code> or <code>mkdocs.yml</code> changed. Cursor rule: <code>.cursor/rules/documentation-and-dashboard.mdc</code>.</li>
 </ol>
 <h2 id="ci-and-merges">CI and merges<a class="headerlink" href="#ci-and-merges" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Pull requests should pass <a href="../.github/workflows/markdown-link-check.yml">Markdown link check</a> before merge to <code>main</code>.</li>
+<li><strong>GitHub Pages:</strong> Until the published site at <code>https://kr8zysho3.github.io/Universal-Science-Discovery/</code> returns HTTP <strong>200</strong>, do not use that URL as a markdown <strong>hyperlink</strong> in tracked docs (the checker treats 404 as failure). Use backticks, or add/adjust an entry in <a href="../.markdown-link-check.json">.markdown-link-check.json</a> <code>ignorePatterns</code> if you intentionally link before go-live.</li>
 <li><a href="../.github/dependabot.yml">Dependabot</a> opens weekly PRs to update GitHub Actions; review and merge to reduce supply-chain drift.</li>
 <li>Expand CI (lint, tests) when code under <a href="../scripts/">scripts/</a> grows.</li>
 </ul>
@@ -1146,10 +1350,39 @@
 <p>Recommended for <code>main</code> once collaborators join:</p>
 <ul>
 <li>Require pull request before merge.</li>
-<li>Require status checks to pass (at minimum: <code>markdown-link-check</code>).</li>
+<li>Require status checks to pass — see <strong>Status check names</strong> below (pick what matches how strictly you want to gate merges).</li>
 <li>Optionally require an approving review.</li>
 </ul>
 <p>These options are configured under <strong>Settings → Branches → Branch protection rules</strong> in the GitHub UI; they are not stored in this repository.</p>
+<h3 id="status-check-names-as-github-lists-them">Status check names (as GitHub lists them)<a class="headerlink" href="#status-check-names-as-github-lists-them" title="Permanent link">&para;</a></h3>
+<p>Use <strong>Actions → … → workflow run</strong> to copy exact names into branch protection. Typical identifiers:</p>
+<table>
+<thead>
+<tr>
+<th>Workflow file</th>
+<th>Often appears as</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../.github/workflows/markdown-link-check.yml">markdown-link-check.yml</a></td>
+<td><code>markdown-link-check</code> (job: <code>markdown-link-check</code>)</td>
+</tr>
+<tr>
+<td><a href="../.github/workflows/mkdocs-build.yml">mkdocs-build.yml</a></td>
+<td><code>mkdocs-build / mkdocs</code></td>
+</tr>
+<tr>
+<td><a href="../.github/workflows/validate-schemas.yml">validate-schemas.yml</a></td>
+<td><code>validate-schemas / validate-schemas</code></td>
+</tr>
+<tr>
+<td><a href="../.github/workflows/ingest-ci.yml">ingest-ci.yml</a></td>
+<td><code>ingest tests / pytest-ingest</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ingest caveat:</strong> <a href="../.github/workflows/ingest-ci.yml">ingest-ci.yml</a> runs only when PRs touch ingest-related paths (<code>packages/ingest/</code>, <code>requirements-ingest.txt</code>, envelope schema, etc.). If you mark <strong><code>ingest tests / pytest-ingest</code></strong> as <strong>required</strong>, GitHub may block merges on docs-only PRs where that workflow did not run. Options: omit it from required checks, use a ruleset that allows skipped optional checks, or touch an ingest path when you need the check to appear.</p>
 <h2 id="cadence">Cadence<a class="headerlink" href="#cadence" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Weekly (lightweight):</strong> triage issues, label stalled threads, skim open PRs.</li>
