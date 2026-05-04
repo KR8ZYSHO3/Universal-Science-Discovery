@@ -2,13 +2,17 @@
 
 Open-source, Git-based knowledge infrastructure for **discovery-first** science: explicit unknowns, testable hypotheses, cross-domain links, and reproducible workflows.
 
+[![Developer Dashboard](https://img.shields.io/badge/Developer%20Dashboard-Live-4f9cf9?style=for-the-badge&logo=github)](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/)
+[![Docs](https://img.shields.io/badge/Documentation-Live-22d3b8?style=for-the-badge&logo=readthedocs)](https://kr8zysho3.github.io/Universal-Science-Discovery/)
+[![CI](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/actions/workflows/validate-schemas.yml/badge.svg)](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/actions)
+
 ## New here? (contributors)
 
 1. **Skim this README** (5 min), then **[CONTRIBUTING.md](CONTRIBUTING.md)** — how to participate and what to contribute first.
-2. **Contributor hub (recommended after clone):** open **[dashboard/index.html](dashboard/index.html)** locally — contributor path, policies, **where to edit unknowns/hypotheses**, and (with a local server) live **STATE** + **ROADMAP** for maintainers. Run from the repo root: `python -m http.server 8765` → [http://localhost:8765/dashboard/](http://localhost:8765/dashboard/) — details in **[dashboard/README.md](dashboard/README.md)**.
+2. **Contributor hub:** open the **[live dashboard](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/)** — contributor path, policies, phase progress, CI status, and workstreams. Or run locally: `python -m http.server 8765` and open [localhost:8765/dashboard/](http://localhost:8765/dashboard/) — details in **[dashboard/README.md](dashboard/README.md)**.
 3. **Browsing only on GitHub (no clone):** use **[docs/ONBOARDING.md](docs/ONBOARDING.md)** and the links in CONTRIBUTING; the dashboard’s **GitHub** links next to each doc open the files in the browser.
 
-Everything under **`dashboard/`** is **tracked in git** so anyone who clones the repo gets the same hub; it is not a separate website unless you host it yourself.
+Everything under **`dashboard/`** is **tracked in git** and auto-deployed to **[GitHub Pages](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/)** on every push to `main`.
 
 ## Why this exists
 
@@ -87,10 +91,11 @@ Add `--dry-run` to summarize requests without writing files. Tests use recorded 
 
 ### Published documentation (GitHub Pages)
 
-**Live URL** (after GitHub Pages is enabled): `https://kr8zysho3.github.io/Universal-Science-Discovery/`
+**Live:** [https://kr8zysho3.github.io/Universal-Science-Discovery/](https://kr8zysho3.github.io/Universal-Science-Discovery/) — auto-deploys on every push to `main`.
 
-After the first successful run of [`.github/workflows/mkdocs-gh-pages.yml`](.github/workflows/mkdocs-gh-pages.yml) on `main`, configure **Settings → Pages → Build and deployment → Deploy from a branch**: branch **`gh-pages`**, folder **`/` (root)**. Later pushes to `main` rebuild and update that branch via [peaceiris/actions-gh-pages](https://github.com/peaceiris/actions-gh-pages).
+**Developer dashboard:** [https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/)
 
 ## AI-assisted work in this repo
 
 Project-specific Cursor guidance is in [cursorrules](cursorrules) (import or symlink into `.cursor/rules/` per your editor setup).
+

@@ -27,6 +27,11 @@ jobs:
       - name: Build MkDocs site (strict)
         run: mkdocs build --strict
 
+      - name: Copy developer dashboard into site
+        run: |
+          mkdir -p site/dashboard
+          cp dashboard/index.html site/dashboard/index.html
+
       - name: Publish to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
         with:

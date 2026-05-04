@@ -725,7 +725,9 @@
       <div id="server-banner" class="server-banner" role="status">
         <strong>Heads up:</strong> Live panels need a local server.
         From repo root: <code>python -m http.server 8765</code> — then open
-        <a href="http://localhost:8765/dashboard/">http://localhost:8765/dashboard/</a>
+        <a href="http://localhost:8765/dashboard/">localhost:8765/dashboard/</a>
+        · or view the hosted version at
+        <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/" target="_blank" rel="noopener">GitHub Pages ↗</a>
       </div>
     </div>
 
@@ -1283,8 +1285,8 @@
           <strong>Doc discipline:</strong> at each milestone or feature merge, update <code>README</code>,
           <code>CHANGELOG</code> (Unreleased), relevant <code>docs/</code>, and this hub if links change. ·
           <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/pulls" target="_blank" rel="noopener">Pull requests</a> ·
-          <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/compare/main...feat/dev-dashboard?expand=1" target="_blank" rel="noopener">Compare to main</a> ·
-          <a href="../CHANGELOG.md">CHANGELOG.md</a>
+          <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/issues" target="_blank" rel="noopener">Open issues</a> ·
+          <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/CHANGELOG.md" target="_blank" rel="noopener">CHANGELOG.md</a>
         </p>
       </div>
       <div class="panels-grid">
@@ -1321,9 +1323,11 @@
   (function () {
     'use strict';
 
-    var REPO    = 'KR8ZYSHO3/Universal-Science-Discovery';
-    var GH_API  = 'https://api.github.com/repos/' + REPO;
-    var isFile  = location.protocol === 'file:';
+    var REPO      = 'KR8ZYSHO3/Universal-Science-Discovery';
+    var GH_API    = 'https://api.github.com/repos/' + REPO;
+    var RAW_BASE  = 'https://raw.githubusercontent.com/' + REPO + '/main';
+    var isFile    = location.protocol === 'file:';
+    var isGHPages = location.hostname === 'kr8zysho3.github.io';
 
     /* ── THEME ───────────────────────────────────────────────── */
     var root = document.documentElement;
@@ -1451,7 +1455,7 @@
       { done: true,  prog: false, t: 'Contributor hub & developer dashboard' },
       { done: true,  prog: false, t: 'arXiv OAI-PMH ingest package (Phase B)' },
       { done: true,  prog: false, t: '3 seeded disciplines (Physics, Biology, CS)' },
-      { done: false, prog: true,  t: 'GitHub Pages deployment live' },
+      { done: true,  prog: false, t: 'GitHub Pages deployment live' },
       { done: false, prog: true,  t: 'Stream A first-contributor happy path validated' },
       { done: false, prog: false, t: '500+ high-quality structured entries' },
       { done: false, prog: false, t: 'First 50 contributors' },
@@ -1617,7 +1621,10 @@
           el.classList.remove('loading');
         });
     }
-    if (!isFile) {
+    if (isGHPages) {
+      renderMd('state-md',   RAW_BASE + '/.planning/STATE.md');
+      renderMd('roadmap-md', RAW_BASE + '/ROADMAP.md');
+    } else if (!isFile) {
       renderMd('state-md',   '../.planning/STATE.md');
       renderMd('roadmap-md', '../ROADMAP.md');
     } else {
