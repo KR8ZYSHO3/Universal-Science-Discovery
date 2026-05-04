@@ -24,10 +24,11 @@ rediscover it independently — wasting decades. Bridges make the connection exp
 
 | ID | Fields | Unknown | Hypothesis |
 |----|--------|---------|-----------|
-| b-percolation-oncology | statistical-physics ↔ oncology | u-tumor-containment-percolation | h-adaptive-therapy-percolation-threshold |
+| b-percolation-oncology | statistical-physics ↔ oncology | u-tumor-containment-percolation, u-active-matter-percolation | h-adaptive-therapy-percolation-threshold |
 | b-criticality-neuroscience | condensed-matter ↔ neuroscience | u-brain-criticality-function | h-criticality-conscious-integration |
 | b-glymphatic-aging | sleep-medicine ↔ neurology ↔ geroscience | u-amyloid-progression-trajectory | h-glymphatic-amyloid-clearance-rate |
 | b-lichen-astrobiology | synthetic-biology ↔ astrobiology | u-synthetic-lichen-biofabrication | h-lichen-consortium-metabolic-coupling |
+| b-topology-morphogenesis | mathematical-physics ↔ developmental-biology | u-topological-morphogenesis | — |
 
 ---
 
