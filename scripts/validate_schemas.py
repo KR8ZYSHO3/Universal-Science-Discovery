@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate USDR record YAML under hypotheses/ and unknowns-catalog/ against schemas/."""
+"""Validate USDR record YAML under hypotheses/, unknowns-catalog/, and cross-domain/ against schemas/."""
 from __future__ import annotations
 
 import sys
@@ -23,9 +23,11 @@ def main() -> int:
     root = Path(__file__).resolve().parents[1]
     schemas = root / "schemas"
     hypothesis_schema = load_yaml(schemas / "hypothesis.yaml")
-    unknown_schema = load_yaml(schemas / "unknown.yaml")
-    hypo_validator = Draft202012Validator(hypothesis_schema)
-    unk_validator = Draft202012Validator(unknown_schema)
+    unknown_schema    = load_yaml(schemas / "unknown.yaml")
+    bridge_schema     = load_yaml(schemas / "bridge.yaml")
+    hypo_validator    = Draft202012Validator(hypothesis_schema)
+    unk_validator     = Draft202012Validator(unknown_schema)
+    bridge_validator  = Draft202012Validator(bridge_schema)
 
     errors: list[str] = []
 
@@ -41,13 +43,19 @@ def main() -> int:
             loc = "/".join(str(p) for p in err.absolute_path) or "(root)"
             errors.append(f"{path.relative_to(root)} [{loc}]: {err.message}")
 
+    for path in sorted((root / "cross-domain").rglob("b-*.yaml")):
+        inst = load_yaml(path)
+        for err in bridge_validator.iter_errors(inst):
+            loc = "/".join(str(p) for p in err.absolute_path) or "(root)"
+            errors.append(f"{path.relative_to(root)} [{loc}]: {err.message}")
+
     if errors:
         print("Schema validation failed:\n", file=sys.stderr)
         for line in errors:
             print(line, file=sys.stderr)
         return 1
 
-    print("OK: all hypothesis and unknown-catalog YAML files validate.")
+    print("OK: all hypothesis, unknown-catalog, and cross-domain bridge YAML files validate.")
     return 0
 
 

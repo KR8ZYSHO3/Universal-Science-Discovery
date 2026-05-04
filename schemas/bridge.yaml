@@ -1,0 +1,96 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: https://usdr.local/schemas/bridge.schema.json
+title: USDR Cross-domain bridge entry
+description: >
+  Explicit cross-disciplinary connection. Captures the insight that two or more fields
+  are studying the same underlying phenomenon with different language, methods, or
+  awareness of each other. Store under cross-domain/ as YAML.
+type: object
+additionalProperties: false
+required:
+  - id
+  - title
+  - status
+  - fields
+  - bridge_claim
+properties:
+  id:
+    type: string
+    pattern: "^b-[a-z0-9.-]+$"
+    description: Stable ID, e.g. b-percolation-oncology
+  title:
+    type: string
+    minLength: 8
+    maxLength: 500
+    description: One-sentence statement of the cross-domain equivalence or connection
+  status:
+    type: string
+    enum: [proposed, established, contested, stale]
+    description: >
+      proposed — connection is plausible but not yet validated across fields;
+      established — recognised in at least one cross-disciplinary publication;
+      contested — active disagreement about whether the analogy holds;
+      stale — fields have diverged or the connection was refuted.
+  fields:
+    type: array
+    minItems: 2
+    items:
+      type: string
+    description: List of disciplines connected by this bridge (at least two)
+  bridge_claim:
+    type: string
+    minLength: 20
+    description: >
+      The core equivalence or insight stated precisely: what concept, model, or
+      result in field A maps onto what concept, model, or result in field B, and
+      why the mapping is non-trivial.
+  translation_table:
+    type: array
+    description: Optional term-by-term concept mapping between fields
+    items:
+      type: object
+      additionalProperties: false
+      required: [field_a_term, field_b_term]
+      properties:
+        field_a_term:
+          type: string
+        field_b_term:
+          type: string
+        note:
+          type: string
+  related_unknowns:
+    type: array
+    items:
+      type: string
+    description: IDs of unknowns (u-...) illuminated by this bridge
+  related_hypotheses:
+    type: array
+    items:
+      type: string
+    description: IDs of hypotheses (h-...) that cross this bridge
+  cross_pollination_opportunities:
+    type: array
+    items:
+      type: string
+    description: Specific experiments or collaborations that become possible when both fields share knowledge
+  communication_gap:
+    type: string
+    description: Why these fields have not already converged — journal siloing, terminology, funding structure, etc.
+  last_reviewed:
+    type: string
+    format: date
+  references:
+    type: array
+    items:
+      type: object
+      additionalProperties: false
+      properties:
+        doi:
+          type: string
+        arxiv:
+          type: string
+        url:
+          type: string
+          format: uri
+        note:
+          type: string
