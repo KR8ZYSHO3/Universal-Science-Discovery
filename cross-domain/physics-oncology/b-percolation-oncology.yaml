@@ -1,0 +1,57 @@
+id: b-percolation-oncology
+title: >
+  Tumor vascular network fragmentation under adaptive therapy maps directly onto
+  percolation-threshold transitions studied in statistical physics.
+status: proposed
+fields:
+  - oncology
+  - statistical-physics
+  - network-science
+bridge_claim: >
+  When a tumor's blood-supply network is disrupted below its percolation threshold,
+  large-scale connectivity collapses and nutrient delivery fails — the same phase
+  transition that physicists use to model connectivity in random graphs and porous
+  media. Adaptive therapy (cycling drug doses to exploit competitive suppression)
+  may be deliberately tuned to keep the network near — but just below — the
+  percolation threshold, maximising tumor fragmentation while avoiding full
+  drug-resistance selection. Neither oncologists nor physicists have yet jointly
+  designed dosing schedules using percolation-threshold mathematics as the
+  objective function.
+translation_table:
+  - field_a_term: bond percolation probability
+    field_b_term: vessel patency under treatment pressure
+    note: Fraction of edges (vessel segments) still functional
+  - field_a_term: giant connected component
+    field_b_term: viable tumour vascular core
+    note: The dominant connected region supplying nutrients
+  - field_a_term: percolation threshold p_c
+    field_b_term: minimum viable vascular density
+    note: Critical fraction below which nutrient supply collapses
+  - field_a_term: cluster size distribution
+    field_b_term: isolated tumour micro-regions
+    note: Disconnected fragments starved of blood supply
+  - field_a_term: renormalisation group
+    field_b_term: adaptive dosing schedule optimisation
+    note: Multi-scale description of how local drug actions aggregate to global effects
+related_unknowns:
+  - u-tumor-containment-percolation
+related_hypotheses:
+  - h-adaptive-therapy-percolation-threshold
+cross_pollination_opportunities:
+  - Oncologists provide longitudinal imaging (DCE-MRI vascular maps); physicists supply percolation models → joint threshold calibration
+  - Percolation-derived metrics (giant-component fraction) as a real-time treatment-response biomarker
+  - Adaptive dosing protocols derived from optimal percolation-threshold pursuit rather than empirical MTD
+communication_gap: >
+  Oncology journals rarely cite statistical-physics literature, and vice versa.
+  Clinical trials measure tumour volume or survival endpoints, not topological
+  graph metrics. The toolchains (MATLAB/Python network libraries vs. medical
+  imaging suites) are largely siloed, and grant bodies do not routinely fund
+  physics-oncology hybrids.
+last_reviewed: "2026-05-04"
+references:
+  - arxiv: "2405.04242"
+    note: Harvested paper that seeded u-tumor-containment-percolation
+  - doi: 10.1038/s41559-017-0328-6
+    note: Gatenby et al. — foundational adaptive-therapy clinical work
+  - doi: 10.1103/PhysRevLett.85.4626
+    note: Callaway et al. — network robustness and percolation thresholds
