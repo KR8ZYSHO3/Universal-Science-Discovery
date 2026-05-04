@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://usdr.dev/schemas/ingestion-envelope-1.0.0.json",
+  "title": "USDR ingestion record envelope",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "envelope_version",
+    "source_system",
+    "source_id",
+    "retrieved_at",
+    "license_or_status"
+  ],
+  "properties": {
+    "envelope_version": {
+      "type": "string",
+      "pattern": "^1\\.0\\.0$"
+    },
+    "source_system": { "type": "string", "minLength": 1 },
+    "source_id": { "type": "string", "minLength": 1 },
+    "source_record_url": { "type": "string", "format": "uri" },
+    "retrieved_at": { "type": "string", "format": "date-time" },
+    "license_or_status": { "type": "string", "minLength": 1 },
+    "jurisdiction": { "type": "string" },
+    "legal_note": { "type": "string" },
+    "title": { "type": "string" },
+    "abstract": { "type": "string" },
+    "authors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name"],
+        "properties": { "name": { "type": "string" } },
+        "additionalProperties": true
+      }
+    },
+    "published_at": { "type": "string" },
+    "subjects": { "type": "array", "items": { "type": "string" } },
+    "ingestion_cursor": { "type": "string" },
+    "content_fingerprint": { "type": "string" }
+  }
+}

@@ -12,7 +12,8 @@ This document fixes **one** pilot external source, **non-goals**, a versioned **
 **Primary recommendation: [arXiv](https://arxiv.org/) via [OAI-PMH](https://arxiv.org/help/oa), metadata records only.**
 
 - **Harvest base URL (verify before implementation):** OAI endpoint documented in arXiv help (e.g. `http://export.arxiv.org/oai` — follow current arXiv documentation for HTTPS and any redirects).
-- **Scope:** `ListRecords` / incremental `from`–`until` (or small **SetSpec** slice if used) — **XML metadata payloads only.** No PDFs, no LaTeX source downloads, no web scraping outside OAI.
+- **Run ingest (Phase B starter, metadata only — no PDFs):** `pip install -r requirements-ingest.txt && pip install -e ./packages/ingest && usdr-ingest harvest --help`
+- **Scope:** Incremental OAI `from`–`until` (or **SetSpec** slice) implemented via **`ListIdentifiers` + `GetRecord`** (`oai_dc` metadata) — **XML metadata payloads only.** No PDFs, no LaTeX source downloads, no web scraping outside OAI.
 - **Why this pilot (one sentence):** A single authoritative preprint OAI stream gives **bounded, metadata-first** ingestion with explicit alignment to [LEGAL.md](../LEGAL.md) (metadata / OA posture, no mirrored publisher full text) while exercising the envelope and provenance fields described in ARCHITECTURE.
 
 **Contrast (not chosen for v1 pilot):** An **OpenAlex** API or snapshot subset is also low-friction (CC0 data) but adds aggregation semantics and citation-graph breadth better suited immediately after this pilot once the envelope is proven on one OAI-shaped pipeline.
@@ -55,7 +56,7 @@ Every normalized record ingested toward the future knowledge graph MUST carry pr
 
 ### JSON Schema (informative)
 
-Implementations SHOULD validate payloads against a machine schema; until one is checked in under `schemas/`, this fragment is authoritative text.
+Machine-validatable copy (use in CI and clients): [`schemas/ingestion-envelope-1.0.0.json`](../schemas/ingestion-envelope-1.0.0.json). The fragment below mirrors it for readers who prefer inline reference.
 
 ```json
 {
@@ -112,7 +113,11 @@ Implementations SHOULD validate payloads against a machine schema; until one is 
 4. **Architecture alignment:** Cross-reference to ARCHITECTURE’s “External corpora & ingestion program” and Phase A wording is satisfied (this file is the accountable spec).
 5. **Discoverability:** [DOC_MAP.md](DOC_MAP.md) lists this plan so Phase B work stays traceable.
 
-Optional stretch (not required to call Phase A “done”): a **small exemplar JSONL** (e.g. ≤20 synthetic or hand-redacted rows) checked in under `docs/examples/` — only if maintainers want a concrete fixture without live harvest.
+Optional stretch (not required to call Phase A “done”): a **small exemplar JSONL** (e.g. ≤20 synthetic or hand-redacted rows) checked in under [`docs/examples/`](examples/README.md) — [arxiv-oai-metadata-sample.v1.jsonl](examples/arxiv-oai-metadata-sample.v1.jsonl) (from package test fixtures; **not** a live harvest).
+
+**Implementation note:** [`packages/ingest`](../packages/ingest) implements Phase B harvest toward this envelope; unit tests validate harvest output against [`schemas/ingestion-envelope-1.0.0.json`](../schemas/ingestion-envelope-1.0.0.json). Keep this page aligned when the CLI or manifest schema changes.
+
+**Manual QA:** [UAT_INGEST.md](UAT_INGEST.md) — smoke steps and optional live OAI dry-run.
 
 ---
 

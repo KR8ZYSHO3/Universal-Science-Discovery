@@ -1,0 +1,12 @@
+---
+description: Prefer running installs, builds, tests, scripts, and git in-environment over telling the user what to run
+alwaysApply: true
+---
+
+# Agent execution (terminal & tooling)
+
+Run work in this environment whenever it is safe and permitted: installs, builds, tests, lint, scripts, data checks, git reads and ordinary git workflow, and exploratory shell commands needed to diagnose or verify.
+
+Do not substitute a “here’s what to run” list for tasks you can execute yourself. Only ask the user to run something when blocked—e.g. authentication or secrets you cannot access, GUIs or flows that demand human interaction, or destructive or irreversible operations that need explicit human confirmation before proceeding.
+
+Follow normal project hygiene: verify branch and intent before destructive git; do not force-push to `main` (or similarly protected refs) unless the user explicitly asks; retry or try another approach after failures instead of stopping at the first error when reasonable.

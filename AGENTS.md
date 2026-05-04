@@ -26,6 +26,15 @@ For cadence and versioning: [docs/OPERATING_RHYTHM.md](docs/OPERATING_RHYTHM.md)
 
 See [docs/prompts/](docs/prompts/) for literature synthesis, hypothesis comparison, and falsification passes.
 
+## Documentation and contributor hub
+
+- Treat **documentation as part of the deliverable**: when you finish a milestone or merge-worthy feature, update **`README.md`**, **`CHANGELOG.md` (Unreleased)**, relevant **`docs/*.md`**, **`docs/DOC_MAP.md`** / **`docs/REPOSITORY_MANIFEST.md`** when paths or traceability change, and **`.planning/STATE.md`** for maintainer status.
+- Keep **`dashboard/index.html`** aligned with onboarding and links; after **`http://localhost:8765/dashboard/`**-relevant edits, verify the hub with `python -m http.server 8765` from the repo root.
+- If **`canvases/Progress.canvas.tsx`** exists, run **`python scripts/sync-dashboard-from-state.py`** after **`STATE.md`** changes.
+- If **`docs/`** or **`mkdocs.yml`** changes, run **`mkdocs build --strict`**.
+
+See `.cursor/rules/documentation-and-dashboard.mdc` (always apply).
+
 ## Project rules
 
 This repository includes Cursor rules under [.cursor/rules/](.cursor/rules/) that mirror the above; keep them in sync when policy changes.

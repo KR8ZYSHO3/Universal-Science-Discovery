@@ -2,6 +2,14 @@
 
 Open-source, Git-based knowledge infrastructure for **discovery-first** science: explicit unknowns, testable hypotheses, cross-domain links, and reproducible workflows.
 
+## New here? (contributors)
+
+1. **Skim this README** (5 min), then **[CONTRIBUTING.md](CONTRIBUTING.md)** — how to participate and what to contribute first.
+2. **Contributor hub (recommended after clone):** open **[dashboard/index.html](dashboard/index.html)** locally — contributor path, policies, **where to edit unknowns/hypotheses**, and (with a local server) live **STATE** + **ROADMAP** for maintainers. Run from the repo root: `python -m http.server 8765` → [http://localhost:8765/dashboard/](http://localhost:8765/dashboard/) — details in **[dashboard/README.md](dashboard/README.md)**.
+3. **Browsing only on GitHub (no clone):** use **[docs/ONBOARDING.md](docs/ONBOARDING.md)** and the links in CONTRIBUTING; the dashboard’s **GitHub** links next to each doc open the files in the browser.
+
+Everything under **`dashboard/`** is **tracked in git** so anyone who clones the repo gets the same hub; it is not a separate website unless you host it yourself.
+
 ## Why this exists
 
 - **Mobilize contributors:** [WHY_CONTRIBUTE.md](WHY_CONTRIBUTE.md)
@@ -43,13 +51,14 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 | Path | Role |
 |------|------|
-| [schemas/](schemas/) | JSON Schemas (YAML): hypothesis, unknown, dataset |
+| [schemas/](schemas/) | JSON Schemas: hypothesis, unknown, dataset (YAML); ingestion envelope v1 (`ingestion-envelope-1.0.0.json`) for metadata JSONL |
 | [templates/](templates/) | PR / issue boilerplate for new records |
 | [disciplines/](disciplines/) | Per-field trees; Phase 0 anchors: [physics](disciplines/physics/), [biology](disciplines/biology/), [computer-science](disciplines/computer-science/) |
 | [unknowns-catalog/](unknowns-catalog/) | Global research gaps (`u-...`) |
 | [hypotheses/](hypotheses/) | Hypothesis registry (`h-...`; `active` / `validated` / `archived`) |
 | [cross-domain/](cross-domain/) | Interdisciplinary bridge folders |
 | [code/](code/) | Automation and tooling |
+| [packages/ingest/](packages/ingest/) | `usdr-ingest` — arXiv OAI metadata pilot (see [README](packages/ingest/README.md)) |
 
 Older generic layout (`docs/`, `methods/`, `data/`, …) still applies for governance and prompts.
 
@@ -64,9 +73,21 @@ mkdocs serve
 
 CI runs `mkdocs build --strict` on every PR and push to `main` (see `.github/workflows/mkdocs-build.yml`).
 
+### arXiv metadata ingest (Phase B starter)
+
+Package overview: [`packages/ingest/README.md`](packages/ingest/README.md). Compliance-oriented **metadata-only** harvest from arXiv OAI-PMH (no PDFs; see [LEGAL.md](LEGAL.md) and [docs/DATA_PLAN.md](docs/DATA_PLAN.md)):
+
+```bash
+pip install -r requirements-ingest.txt
+pip install -e ./packages/ingest
+usdr-ingest harvest --output records.jsonl --max-records 10 --manifest manifest.json
+```
+
+Add `--dry-run` to summarize requests without writing files. Tests use recorded XML fixtures (no live HTTP in default CI — see `.github/workflows/ingest-ci.yml`).
+
 ### Published documentation (GitHub Pages)
 
-**Live URL (when Pages is enabled):** `https://kr8zysho3.github.io/Universal-Science-Discovery/` — use plain text here until the site returns HTTP 200 (see [docs/OPERATING_RHYTHM.md](docs/OPERATING_RHYTHM.md)).
+**Live URL** (after GitHub Pages is enabled): `https://kr8zysho3.github.io/Universal-Science-Discovery/`
 
 After the first successful run of [`.github/workflows/mkdocs-gh-pages.yml`](.github/workflows/mkdocs-gh-pages.yml) on `main`, configure **Settings → Pages → Build and deployment → Deploy from a branch**: branch **`gh-pages`**, folder **`/` (root)**. Later pushes to `main` rebuild and update that branch via [peaceiris/actions-gh-pages](https://github.com/peaceiris/actions-gh-pages).
 

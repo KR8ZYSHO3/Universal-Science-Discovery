@@ -4,6 +4,8 @@
 
 See [CONTRIBUTING.md](../CONTRIBUTING.md) for mechanics (fork, branch, PR, checks).
 
+**Anti-sloppiness playbook:** [QUALITY_BAR.md](QUALITY_BAR.md) — CI gates, review lanes, definition of done, exemplars.
+
 ## Review expectations
 
 - **Substantive changes to methods or findings:** require at least one reviewer familiar with the domain thread (or explicit maintainer review if the team is small).
