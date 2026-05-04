@@ -1,0 +1,66 @@
+id: h-cardiac-arrhythmia-phase-transition
+title: >
+  Atrial fibrillation onset is the cardiac Kuramoto system crossing its critical
+  synchronisation threshold; the transition is detectable as a diverging susceptibility
+  in ECG power spectra before clinical arrhythmia is visible.
+status: active
+created: "2026-05-04"
+last_updated: "2026-05-04"
+priority: high
+related_disciplines:
+  - cardiology
+  - statistical-physics
+  - nonlinear-dynamics
+  - biomedical-engineering
+unknowns_addressed:
+  - u-cardiac-criticality-synchronization
+evidence_links:
+  - type: supporting
+    arxiv: "2604.13391"
+    note: Elastic synchronization of cardiomyocytes follows Kuramoto-model dynamics — establishes the physical framework
+  - type: related
+    note: >
+      Kuramoto transition: in the standard Kuramoto model of N coupled oscillators,
+      there is a critical coupling K_c above which the system synchronises. Near K_c,
+      the order parameter (global phase coherence R) scales as R ~ (K - K_c)^β with
+      β = 0.5 in mean field. The susceptibility (variance of R across realisations)
+      diverges at K_c.
+  - type: related
+    note: >
+      Heart rate variability (HRV) power spectra show 1/f scaling in healthy subjects,
+      consistent with operation near criticality. Reduced HRV (white noise spectrum)
+      predicts adverse cardiac events — consistent with moving away from the critical point.
+  - type: contradicting
+    note: >
+      Atrial fibrillation may be better described as a spatially-extended excitable-medium
+      spiral-wave re-entry phenomenon (Winfree-Courtemanche model) rather than a
+      global Kuramoto transition — in which case the order parameter is local wavefront
+      curvature, not global phase coherence.
+proposed_tests:
+  - discipline: cardiology
+    description: >
+      Analyse 24-hour Holter ECG recordings from patients who develop paroxysmal AF.
+      Compute the global phase coherence (Kuramoto order parameter R) from RR-interval
+      time series using a Hilbert transform. Test whether R decreases and its variance
+      (susceptibility) peaks in the hours before AF onset relative to matched controls
+      who remain in sinus rhythm.
+  - discipline: statistical-physics
+    description: >
+      In ex-vivo cardiac tissue (atrial myocyte monolayers), pharmacologically vary the
+      gap-junction coupling conductance (equivalent to the Kuramoto coupling K). Measure
+      R as a function of K using Ca²⁺ imaging. Determine whether a sharp K_c exists and
+      whether the order-parameter exponent β matches the mean-field Kuramoto prediction.
+  - discipline: biomedical-engineering
+    cross_domain_angle: >
+      Design an ECG-based susceptibility monitor: compute the rolling variance of the
+      inter-beat coherence estimate in real time. A diverging variance signal (susceptibility
+      peak) would be a pre-clinical warning of approaching arrhythmia onset — analogous
+      to the "critical slowing down" early-warning signals used in ecology and climate
+      science for tipping-point detection.
+  - discipline: neuroscience
+    cross_domain_angle: >
+      The autonomic nervous system couples brain criticality (u-brain-criticality-function)
+      to cardiac criticality through vagal and sympathetic modulation of the sinoatrial node
+      coupling constant K. Test whether EEG markers of brain criticality (neural avalanche
+      exponent) co-vary with cardiac susceptibility in the same subjects — a dual-criticality
+      coupling that neither neuroscience nor cardiology has measured.

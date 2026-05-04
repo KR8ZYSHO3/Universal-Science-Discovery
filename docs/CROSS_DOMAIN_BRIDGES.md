@@ -29,7 +29,7 @@ rediscover it independently — wasting decades. Bridges make the connection exp
 | b-glymphatic-aging | sleep-medicine ↔ neurology ↔ geroscience | u-amyloid-progression-trajectory | h-glymphatic-amyloid-clearance-rate |
 | b-lichen-astrobiology | synthetic-biology ↔ astrobiology | u-synthetic-lichen-biofabrication | h-lichen-consortium-metabolic-coupling |
 | b-topology-morphogenesis | mathematical-physics ↔ developmental-biology | u-topological-morphogenesis | h-topological-defect-morphogenesis |
-| b-grokking-criticality | machine-learning ↔ statistical-physics | u-grokking-phase-transition | — |
+| b-grokking-criticality | machine-learning ↔ statistical-physics | u-grokking-phase-transition | h-grokking-criticality-universality |
 
 ---
 
