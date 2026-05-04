@@ -16,14 +16,14 @@ Authoritative checklist for humans and agents. The Cursor Canvas [`canvases/Prog
 - 2026-05-03 — **UAT_INGEST.md** for `usdr-ingest`; hub + MkDocs + DATA_PLAN links.
 - 2026-05-03 — Contributor **hub** links **docs/GSD_INTEGRATION.md**; manifest row added. **docs/index** Meta link.
 - 2026-05-03 — Added **docs/GSD_INTEGRATION.md** (optional GSD maintainer boundaries); MkDocs nav + DOC_MAP + onboarding cross-links.
-- 2026-05-03 — Checked in **ingestion envelope** JSON Schema + ingest tests that validate harvest output against it.
+- 2026-05-04 — **`docs/examples/`** ingest exemplar JSONL (fixture-derived) + `generate-ingest-example-jsonl.py` + envelope pytest for checked-in sample; DATA_PLAN stretch, DOC_MAP, manifest, MkDocs nav, CHANGELOG.
 
 ## Current focus
 
 - Docs + **dashboard** discipline: milestones and ongoing work update `README`, `CHANGELOG` (Unreleased), `docs/` as needed, `dashboard/index.html`, and spot-check **`http://localhost:8765/dashboard/`** (see `.cursor/rules/documentation-and-dashboard.mdc`).
 - **Happy path (Stream A):** [docs/HAPPY_PATH_FIRST_RECORDS.md](../docs/HAPPY_PATH_FIRST_RECORDS.md) — first unknown + hypothesis → PR; keep in sync with schemas/templates and seed YAML examples.
 - **Quality bar:** [docs/QUALITY_BAR.md](../docs/QUALITY_BAR.md) — CI + review lanes + definition of done; keep aligned with METHODOLOGY / COLLABORATION / CI.
-- **usdr-ingest** (`packages/ingest`): arXiv OAI-PMH metadata only — extend CLI/manifest as needed per [DATA_PLAN.md](../docs/DATA_PLAN.md).
+- **DATA_PLAN stretch:** [docs/examples/README.md](../docs/examples/README.md) — synthetic envelope v1 JSONL from ingest fixtures; pytest keeps it schema-valid.
 - Keeping [mkdocs.yml](../mkdocs.yml) + GitHub Pages (`site_url` / `edit_uri`) consistent with the default branch and fork workflow.
 - Phase A plan artifacts under `.planning/` and cross-links to methodology docs (no new scientific claims in meta files).
 
@@ -36,6 +36,7 @@ Authoritative checklist for humans and agents. The Cursor Canvas [`canvases/Prog
 
 ## Shipped recently
 
+- **`docs/examples/`** — [arxiv-oai-metadata-sample.v1.jsonl](../docs/examples/arxiv-oai-metadata-sample.v1.jsonl) + [README](../docs/examples/README.md); regen via [scripts/generate-ingest-example-jsonl.py](../scripts/generate-ingest-example-jsonl.py); validated in `packages/ingest/tests/test_envelope_schema.py`.
 - **[QUALITY_BAR.md](../docs/QUALITY_BAR.md)** — explicit anti-sloppiness playbook (CI + review lanes + definition of done).
 - **Contributor hub** visual refresh: hero, theme toggle, scroll-spy nav, card motion (`dashboard/index.html`).
 - Contributor **HTML hub** (`dashboard/index.html`) and README onboarding path.

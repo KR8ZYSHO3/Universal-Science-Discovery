@@ -113,7 +113,7 @@ Machine-validatable copy (use in CI and clients): [`schemas/ingestion-envelope-1
 4. **Architecture alignment:** Cross-reference to ARCHITECTURE’s “External corpora & ingestion program” and Phase A wording is satisfied (this file is the accountable spec).
 5. **Discoverability:** [DOC_MAP.md](DOC_MAP.md) lists this plan so Phase B work stays traceable.
 
-Optional stretch (not required to call Phase A “done”): a **small exemplar JSONL** (e.g. ≤20 synthetic or hand-redacted rows) checked in under `docs/examples/` — only if maintainers want a concrete fixture without live harvest.
+Optional stretch (not required to call Phase A “done”): a **small exemplar JSONL** (e.g. ≤20 synthetic or hand-redacted rows) checked in under [`docs/examples/`](examples/README.md) — [arxiv-oai-metadata-sample.v1.jsonl](examples/arxiv-oai-metadata-sample.v1.jsonl) (from package test fixtures; **not** a live harvest).
 
 **Implementation note:** [`packages/ingest`](../packages/ingest) implements Phase B harvest toward this envelope; unit tests validate harvest output against [`schemas/ingestion-envelope-1.0.0.json`](../schemas/ingestion-envelope-1.0.0.json). Keep this page aligned when the CLI or manifest schema changes.
 

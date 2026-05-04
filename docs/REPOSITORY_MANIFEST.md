@@ -40,6 +40,8 @@ Exhaustive index of **tracked** paths (excluding `.git`), what each is for, and 
 | [docs/HAPPY_PATH_FIRST_RECORDS.md](HAPPY_PATH_FIRST_RECORDS.md) | Guide | Stream A happy path: first unknown + hypothesis YAML → PR | [CONTRIBUTING.md](../CONTRIBUTING.md), [METHODOLOGY.md](METHODOLOGY.md), [LEGAL.md](../LEGAL.md), [schemas/unknown.yaml](../schemas/unknown.yaml), [schemas/hypothesis.yaml](../schemas/hypothesis.yaml) |
 | [docs/GSD_INTEGRATION.md](GSD_INTEGRATION.md) | Guide | Optional GSD (get-shit-done / spec-driven) boundaries for maintainers | [METHODOLOGY.md](METHODOLOGY.md), [DATA_PLAN.md](DATA_PLAN.md), [LEGAL.md](../LEGAL.md), [DEV_DASHBOARD.md](DEV_DASHBOARD.md) |
 | [docs/UAT_INGEST.md](UAT_INGEST.md) | Guide | Manual UAT for `usdr-ingest` CLI | [DATA_PLAN.md](DATA_PLAN.md), [LEGAL.md](../LEGAL.md), [packages/ingest/pyproject.toml](../packages/ingest/pyproject.toml) |
+| [docs/examples/README.md](examples/README.md) | Guide | Checked-in synthetic ingest JSONL exemplar + regen notes | [DATA_PLAN.md](DATA_PLAN.md), [schemas/ingestion-envelope-1.0.0.json](../schemas/ingestion-envelope-1.0.0.json) |
+| [docs/examples/arxiv-oai-metadata-sample.v1.jsonl](examples/arxiv-oai-metadata-sample.v1.jsonl) | Example data | Two envelope v1 rows (fixture-derived; not live OAI) | [docs/examples/README.md](examples/README.md), [LEGAL.md](../LEGAL.md) |
 | [docs/REPOSITORY_MANIFEST.md](REPOSITORY_MANIFEST.md) | Index | This file | — |
 | [docs/LABELS_AND_MILESTONES.md](LABELS_AND_MILESTONES.md) | Guide | GitHub labels / milestones | [COLLABORATION_AND_REVIEWS.md](COLLABORATION_AND_REVIEWS.md) |
 | [docs/LICENSING_NOTES.md](LICENSING_NOTES.md) | Policy | Exceptions to default LICENSE | [LICENSE](../LICENSE) |
@@ -60,6 +62,7 @@ Exhaustive index of **tracked** paths (excluding `.git`), what each is for, and 
 | [scripts/validate_schemas.py](../scripts/validate_schemas.py) | Tool | CI + local YAML validation | [schemas/README.md](../schemas/README.md) |
 | [scripts/requirements-validate.txt](../scripts/requirements-validate.txt) | Config | Deps for `validate_schemas.py` | [scripts/README.md](../scripts/README.md) |
 | [scripts/sync-dashboard-from-state.py](../scripts/sync-dashboard-from-state.py) | Tool | Rewrites Canvas snapshot from `.planning/STATE.md` | [docs/DEV_DASHBOARD.md](DEV_DASHBOARD.md) |
+| [scripts/generate-ingest-example-jsonl.py](../scripts/generate-ingest-example-jsonl.py) | Tool | Regenerate `docs/examples/arxiv-oai-metadata-sample.v1.jsonl` from offline fixtures | [docs/examples/README.md](examples/README.md) |
 | [packages/ingest/README.md](../packages/ingest/README.md) | Guide | `usdr-ingest` quickstart (install, CLI, tests) | [docs/DATA_PLAN.md](DATA_PLAN.md), [docs/UAT_INGEST.md](UAT_INGEST.md), [LEGAL.md](../LEGAL.md) |
 | [packages/ingest/pyproject.toml](../packages/ingest/pyproject.toml) | Code | `usdr-ingest` — arXiv OAI-PMH metadata harvest (see `src/usdr_ingest/`; **no PDFs**) | [docs/DATA_PLAN.md](DATA_PLAN.md), [LEGAL.md](../LEGAL.md) |
 | [disciplines/README.md](../disciplines/README.md) | Guide | Discipline tree contract | [VISION_AND_SCOPE.md](VISION_AND_SCOPE.md) |

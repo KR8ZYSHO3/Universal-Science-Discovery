@@ -18,8 +18,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - **markdown-link-check (CI):** GitHub Pages URL in README/manifest as plain text (not a link until live); `docs/index.md` uses explicit reference links to `tree/main/...` (avoids broken `../tree/...`); broaden `kr8zysho3.github.io` ignore pattern in `.markdown-link-check.json`
+- **ingest pytest (CI):** `test_cli_help.py` sets `TERM=dumb` for `CliRunner` so Rich/Typer help includes option text under `TERM=linux` (GitHub Actions default)
 
 ### Added
+- **`docs/examples/`** — synthetic [arxiv-oai-metadata-sample.v1.jsonl](docs/examples/arxiv-oai-metadata-sample.v1.jsonl) (envelope v1, fixture-derived); [README](docs/examples/README.md); **MkDocs** Operations nav; [`scripts/generate-ingest-example-jsonl.py`](scripts/generate-ingest-example-jsonl.py); pytest asserts sample validates against [`schemas/ingestion-envelope-1.0.0.json`](schemas/ingestion-envelope-1.0.0.json); [DATA_PLAN.md](docs/DATA_PLAN.md) stretch item filled; DOC_MAP + REPOSITORY_MANIFEST rows
 - **[docs/QUALITY_BAR.md](docs/QUALITY_BAR.md)** — anti-sloppiness playbook (CI, review lanes, definition of done); linked from CONTRIBUTING, collaboration doc, onboarding, MkDocs **Community & integrity**, DOC_MAP, manifest, docs index, hub, happy path
 - **[docs/HAPPY_PATH_FIRST_RECORDS.md](docs/HAPPY_PATH_FIRST_RECORDS.md)** — Stream A: setup → unknown YAML → hypothesis YAML → PR; wired through CONTRIBUTING, onboarding, MkDocs, DOC_MAP, manifest, templates README, `docs/index`, contributor hub
 - **PR template** ingest/envelope checkbox; **CONTRIBUTING** tooling section for `packages/ingest`; contributor **hub** maintainer bar links **compare** `main...feat/dev-dashboard` for integration PRs
