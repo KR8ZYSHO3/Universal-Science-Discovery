@@ -12,10 +12,17 @@ Exhaustive index of **tracked** paths (excluding `.git`), what each is for, and 
 | [LICENSE](../LICENSE) | Legal | Default OSS license (MIT) | [LICENSING_NOTES.md](LICENSING_NOTES.md) |
 | [.gitignore](../.gitignore) | Config | Files never committed | [ETHICS_REPRODUCIBILITY_AND_DATA.md](ETHICS_REPRODUCIBILITY_AND_DATA.md) |
 | [.markdown-link-check.json](../.markdown-link-check.json) | Config | Link checker rules for CI/local | [OPERATING_RHYTHM.md](OPERATING_RHYTHM.md) |
+| [mkdocs.yml](../mkdocs.yml) | Config | MkDocs Material site (sources under `docs/`) | [INTERFACE.md](../INTERFACE.md), [README.md](../README.md) |
+| [requirements-docs.txt](../requirements-docs.txt) | Config | Python deps for MkDocs build | [README.md](../README.md) |
+| [mkdocs.yml](../mkdocs.yml) | Config | Static docs site (Material) for `docs/` | [INTERFACE.md](../INTERFACE.md), [OPERATING_RHYTHM.md](OPERATING_RHYTHM.md) |
+| [requirements-docs.txt](../requirements-docs.txt) | Config | MkDocs / Material dependencies | [mkdocs.yml](../mkdocs.yml) |
 | [.cursor/rules/science-discovery-core.mdc](../.cursor/rules/science-discovery-core.mdc) | Config | Cursor always-on rules | [AGENTS.md](../AGENTS.md), [DOC_MAP.md](DOC_MAP.md) |
 | [.github/dependabot.yml](../.github/dependabot.yml) | Config | Dependency update PRs (Actions) | [OPERATING_RHYTHM.md](OPERATING_RHYTHM.md) |
 | [.github/workflows/markdown-link-check.yml](../.github/workflows/markdown-link-check.yml) | CI | Validates Markdown links | [CONTRIBUTING.md](../CONTRIBUTING.md), [OPERATING_RHYTHM.md](OPERATING_RHYTHM.md) |
 | [.github/workflows/validate-schemas.yml](../.github/workflows/validate-schemas.yml) | CI | Validates hypothesis / unknown YAML against `schemas/` | [schemas/README.md](../schemas/README.md), [OPERATING_RHYTHM.md](OPERATING_RHYTHM.md) |
+| [.github/workflows/mkdocs-build.yml](../.github/workflows/mkdocs-build.yml) | CI | Builds MkDocs site from `docs/` (`mkdocs build --strict`) | [INTERFACE.md](../INTERFACE.md), [OPERATING_RHYTHM.md](OPERATING_RHYTHM.md) |
+| [.github/workflows/mkdocs-gh-pages.yml](../.github/workflows/mkdocs-gh-pages.yml) | CI | On push to `main`: `mkdocs build --strict`, deploy `./site` to branch `gh-pages` (peaceiris/actions-gh-pages@v4). **Live:** [https://kr8zysho3.github.io/Universal-Science-Discovery/](https://kr8zysho3.github.io/Universal-Science-Discovery/) after Pages source is `gh-pages` / root | [INTERFACE.md](../INTERFACE.md), [README.md](../README.md) |
+| [.github/workflows/mkdocs-build.yml](../.github/workflows/mkdocs-build.yml) | CI | Builds MkDocs site; uploads `site` artifact | [mkdocs.yml](../mkdocs.yml), [INTERFACE.md](../INTERFACE.md) |
 | [.github/pull_request_template.md](../.github/pull_request_template.md) | Template | PR checklist | [METHODOLOGY.md](METHODOLOGY.md), [ETHICS_REPRODUCIBILITY_AND_DATA.md](ETHICS_REPRODUCIBILITY_AND_DATA.md) |
 | [.github/ISSUE_TEMPLATE/config.yml](../.github/ISSUE_TEMPLATE/config.yml) | Template | Issue chooser config | — |
 | [.github/ISSUE_TEMPLATE/bug_report.md](../.github/ISSUE_TEMPLATE/bug_report.md) | Template | Bugs / inaccuracies | [METHODOLOGY.md](METHODOLOGY.md) |
@@ -24,6 +31,8 @@ Exhaustive index of **tracked** paths (excluding `.git`), what each is for, and 
 | [.github/ISSUE_TEMPLATE/methods_change.md](../.github/ISSUE_TEMPLATE/methods_change.md) | Template | Protocol / analysis changes | [METHODOLOGY.md](METHODOLOGY.md) |
 | [.github/ISSUE_TEMPLATE/hypothesis_thread.md](../.github/ISSUE_TEMPLATE/hypothesis_thread.md) | Template | New or revised hypotheses | [VISION_AND_SCOPE.md](VISION_AND_SCOPE.md), [METHODOLOGY.md](METHODOLOGY.md) |
 | [docs/DOC_MAP.md](DOC_MAP.md) | Policy | Doc → behavior traceability | All guiding docs |
+| [docs/index.md](index.md) | Guide | MkDocs homepage for the `docs/` tree | [README.md](../README.md), [INTERFACE.md](../INTERFACE.md) |
+| [docs/index.md](index.md) | Guide | MkDocs landing; links to repo root on GitHub | [mkdocs.yml](../mkdocs.yml) |
 | [docs/ONBOARDING.md](ONBOARDING.md) | Guide | First-hour navigation | — |
 | [docs/REPOSITORY_MANIFEST.md](REPOSITORY_MANIFEST.md) | Index | This file | — |
 | [docs/LABELS_AND_MILESTONES.md](LABELS_AND_MILESTONES.md) | Guide | GitHub labels / milestones | [COLLABORATION_AND_REVIEWS.md](COLLABORATION_AND_REVIEWS.md) |
