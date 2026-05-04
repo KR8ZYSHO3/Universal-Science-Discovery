@@ -1,0 +1,78 @@
+id: b-grokking-criticality
+title: >
+  The "grokking" generalisation transition in deep learning is a second-order phase
+  transition governed by the same universality classes that describe magnetisation,
+  percolation, and neural avalanches in physical systems.
+status: proposed
+fields:
+  - machine-learning
+  - statistical-physics
+  - information-theory
+  - neuroscience
+bridge_claim: >
+  Grokking — the phenomenon where a neural network suddenly transitions from
+  memorisation to generalisation after a long plateau — exhibits sharp, non-analytic
+  changes in the effective dimensionality of learned representations, with scaling
+  behaviour consistent with a second-order phase transition (arXiv 2604.16431).
+  Statistical physics has a complete toolkit for characterising such transitions:
+  universality classes, critical exponents, renormalisation group flow, finite-size
+  scaling. Machine learning has the phenomenon but not the theoretical framework.
+  Conversely, statistical physics has the framework but no substrate as computationally
+  accessible and systematically variable as a deep neural network — where the
+  "system size" (model size, dataset size), "temperature" (learning rate, noise),
+  and "order parameter" (generalisation gap) can all be independently controlled.
+  This makes deep learning models potentially the most precise and controllable
+  experimental system ever available for studying critical phenomena.
+  The bridge runs in both directions: physics tools explain AI behaviour; AI
+  experiments test physics theory with unprecedented precision.
+translation_table:
+  - field_a_term: order parameter (e.g. magnetisation)
+    field_b_term: generalisation gap (train accuracy minus test accuracy)
+    note: The quantity that is zero in one phase (generalising) and non-zero in the other (memorising)
+  - field_a_term: critical temperature T_c
+    field_b_term: grokking training step t_c
+    note: The control parameter value at which the phase transition occurs
+  - field_a_term: universality class
+    field_b_term: architecture-independent generalisation exponents
+    note: If grokking is universal, exponents should be the same for MLPs and Transformers — as arXiv 2604.16431 suggests
+  - field_a_term: renormalisation group flow
+    field_b_term: weight matrix spectral evolution during training
+    note: The progressive coarse-graining of the learned representation toward a fixed point
+  - field_a_term: finite-size scaling
+    field_b_term: scaling of grokking step t_c with model size N and dataset size D
+    note: Predicts how t_c scales as N, D → ∞ — enables extrapolation without training giant models
+  - field_a_term: correlation length ξ → ∞
+    field_b_term: long-range feature correlations at grokking
+    note: At the transition, the representation becomes globally coherent — a sudden increase in effective representation range
+  - field_a_term: spontaneous symmetry breaking
+    field_b_term: selection of a generalising solution from the symmetry-degenerate memorising manifold
+    note: Grokking selects one generalising solution from many equivalent memorising ones
+related_unknowns:
+  - u-grokking-phase-transition
+  - u-brain-criticality-function
+related_hypotheses: []
+cross_pollination_opportunities:
+  - Measure grokking critical exponents (β, ν, η) across model sizes and architectures; test universality class membership against known 2D/3D Ising, percolation, XY model exponents
+  - Apply renormalisation group flow analysis to weight matrices during training to locate the fixed point and characterise its stability — this is novel for both ML and physics communities
+  - Use finite-size scaling to predict grokking step from small-model experiments, potentially replacing expensive full-scale training runs for generalisation estimation
+  - Test whether biological synaptic plasticity during memory consolidation (slow-wave sleep) exhibits the same critical scaling as grokking — connecting artificial and biological learning phase transitions
+  - Design training curricula that deliberately position networks at the critical point for maximal learning efficiency — analogous to simulated annealing near T_c
+  - Use neural networks as laboratory systems for testing contested predictions of renormalisation group theory with unprecedented statistical power and controllability
+communication_gap: >
+  Machine learning researchers rarely read Physical Review Letters or the Journal of
+  Statistical Physics; condensed-matter physicists rarely read NeurIPS or ICML.
+  The vocabulary mismatch is severe: "grokking" is an ML neologism that physicists
+  have not encountered; "universality class" and "renormalisation group" are physics
+  terms that ML researchers may have heard of but do not use operationally.
+  Grant panels for ML research do not include statistical physicists; physics panels
+  do not include deep learning practitioners. The computational cost of training large
+  models has created a perception barrier — physicists assume they cannot afford ML
+  experiments — even though the relevant scaling phenomena occur in small, cheap models.
+last_reviewed: "2026-05-04"
+references:
+  - arxiv: "2604.16431"
+    note: Dimensional Criticality at Grokking Across MLPs and Transformers — seeding paper
+  - doi: 10.48550/arXiv.2301.05217
+    note: Power et al. 2022 — original grokking paper
+  - doi: 10.1103/PhysRevLett.85.4626
+    note: Callaway et al. — network percolation (same universality class candidate)

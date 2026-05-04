@@ -1,0 +1,42 @@
+id: u-grokking-phase-transition
+title: Is the "grokking" phenomenon in deep neural networks a genuine second-order phase transition, and what is its universality class?
+status: open
+priority: high
+disciplines:
+  - machine-learning
+  - statistical-physics
+  - information-theory
+  - neuroscience
+summary: >
+  "Grokking" is the striking phenomenon where a deep neural network first memorises
+  its training data (zero generalisation) and then, after many more training steps,
+  suddenly generalises — jumping from near-chance to near-perfect test accuracy in
+  a few steps after a long plateau. A 2026 paper (arXiv 2604.16431) demonstrates
+  that this transition exhibits "dimensional criticality" — the effective dimensionality
+  of the learned representations undergoes a sharp, non-analytic change at grokking,
+  with scaling behaviour consistent with a second-order phase transition in both MLPs
+  and Transformer architectures. This is a profound bridge: learning generalisation
+  in artificial neural networks may be governed by the same universality classes that
+  describe magnetisation, percolation, and neural avalanches in biological systems.
+  If true, tools from the renormalisation group — scaling laws, critical exponents,
+  finite-size scaling — could predict when and how networks will generalise, without
+  requiring exhaustive hyperparameter search. It is unknown which universality class
+  grokking belongs to, and whether biological learning (synaptic plasticity, memory
+  consolidation) undergoes an analogous critical transition.
+systematic_gaps:
+  - The universality class of the grokking transition is unknown; critical exponents have not been measured systematically across architectures and task families.
+  - It is unknown whether grokking is the same phase transition as the "lazy-to-rich learning" transition observed in NTK vs feature-learning regimes.
+  - Finite-size scaling analysis (borrowed from condensed-matter physics) has not been applied to determine how grokking scales with model size, dataset size, and training time simultaneously.
+  - "The connection to biological learning is entirely unexplored: does synaptic consolidation (memory consolidation during sleep) represent an analogous criticality transition in biological neural networks?"
+suggested_hypotheses:
+  - The grokking transition belongs to the same universality class as the 2D Ising ferromagnetic transition; critical exponents (ν, η, β) measured from representation-dimension scaling should match known Ising values.
+  - Renormalisation-group flow of the learned weight matrices during training converges to a fixed point at grokking; the approach to this fixed point obeys the same scaling laws as thermodynamic systems approaching T_c.
+related_unknowns:
+  - u-brain-criticality-function
+related_bridges:
+  - b-grokking-criticality
+  - b-criticality-neuroscience
+last_reviewed: "2026-05-04"
+references:
+  - arxiv: "2604.16431"
+    note: "Dimensional Criticality at Grokking Across MLPs and Transformers — nlin harvest 2026-05-04"
