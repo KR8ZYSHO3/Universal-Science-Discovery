@@ -66,7 +66,7 @@ CI runs `mkdocs build --strict` on every PR and push to `main` (see `.github/wor
 
 ### Published documentation (GitHub Pages)
 
-**Live URL:** [https://kr8zysho3.github.io/Universal-Science-Discovery/](https://kr8zysho3.github.io/Universal-Science-Discovery/)
+**Live URL (when Pages is enabled):** `https://kr8zysho3.github.io/Universal-Science-Discovery/` — use plain text here until the site returns HTTP 200 (see [docs/OPERATING_RHYTHM.md](docs/OPERATING_RHYTHM.md)).
 
 After the first successful run of [`.github/workflows/mkdocs-gh-pages.yml`](.github/workflows/mkdocs-gh-pages.yml) on `main`, configure **Settings → Pages → Build and deployment → Deploy from a branch**: branch **`gh-pages`**, folder **`/` (root)**. Later pushes to `main` rebuild and update that branch via [peaceiris/actions-gh-pages](https://github.com/peaceiris/actions-gh-pages).
 
