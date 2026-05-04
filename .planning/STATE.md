@@ -5,7 +5,7 @@ Authoritative checklist for humans and agents. The Cursor Canvas [`canvases/Prog
 ## Last updated
 
 - 2026-05-03 — **QUALITY_BAR.md** (anti-sloppiness) + hub/DOC_MAP/CONTRIBUTING wiring.
-- 2026-05-03 — **Stream A** happy path doc ([docs/HAPPY_PATH_FIRST_RECORDS.md](docs/HAPPY_PATH_FIRST_RECORDS.md)) wired through CONTRIBUTING, hub, MkDocs, DOC_MAP, manifest, onboarding.
+- 2026-05-03 — **Stream A** happy path doc ([docs/HAPPY_PATH_FIRST_RECORDS.md](../docs/HAPPY_PATH_FIRST_RECORDS.md)) wired through CONTRIBUTING, hub, MkDocs, DOC_MAP, manifest, onboarding.
 - 2026-05-03 — Cursor rule **documentation-and-dashboard**: hub CDN/privacy + UX sync with README/DEV_DASHBOARD.
 - 2026-05-03 — **DEV_DASHBOARD** + hub README: document theme/CDN behavior and privacy/offline notes.
 - 2026-05-03 — **Contributor hub** visual refresh (hero, theme toggle, scroll-spy nav, fonts).

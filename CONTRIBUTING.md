@@ -17,7 +17,7 @@ If you only have the GitHub website, follow the steps in this file and [docs/ONB
 
 Per the blueprint, prioritize **unknowns**, **hypotheses**, **cross-domain bridges**, and **reproducible stubs** over bulk text. When in doubt, open a small PR or issue and reference the relevant blueprint section.
 
-**Stream A (happy path):** step-by-step first unknown + hypothesis → [docs/HAPPY_PATH_FIRST_RECORDS.md](docs/HAPPY_PATH_FIRST_RECORDS.md).
+**Stream A (happy path):** step-by-step first unknown + hypothesis → [docs/HAPPY_PATH_FIRST_RECORDS.md](./docs/HAPPY_PATH_FIRST_RECORDS.md).
 
 **Quality / anti-sloppiness:** [docs/QUALITY_BAR.md](docs/QUALITY_BAR.md) — CI + review lanes + definition of done.
 
