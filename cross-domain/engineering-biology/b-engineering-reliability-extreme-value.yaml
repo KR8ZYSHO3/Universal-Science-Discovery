@@ -1,0 +1,125 @@
+id: b-engineering-reliability-extreme-value
+title: >
+  Extreme value theory (Gumbel/Weibull distributions) governs infrastructure
+  failure, biological aging mortality, and material fatigue through the same
+  mathematical framework of order statistics, making actuarial, structural, and
+  materials reliability engineering mathematically unified.
+status: established
+fields:
+  - structural-engineering
+  - reliability-engineering
+  - actuarial-science
+  - biology
+  - materials-science
+  - statistics
+bridge_claim: >
+  Extreme value theory (EVT) asks: given N independent random variables (component
+  strengths, lifespans, load magnitudes), what is the distribution of the maximum
+  or minimum? The Fisher-Tippett-Gnedenko theorem proves that the limiting distribution
+  belongs to one of three families regardless of the original distribution:
+
+  - Gumbel distribution (Type I): for exponential or normal tails
+  - Fréchet distribution (Type II): for power-law tails
+  - Weibull distribution (Type III): for bounded tails
+
+  The same mathematical structure governs three apparently unrelated phenomena:
+
+  1. STRUCTURAL/INFRASTRUCTURE FAILURE: A bridge or pipeline fails at its weakest
+     link. The weakest-link model gives Weibull statistics for component lifetime
+     under fatigue. The Weibull distribution is now standard in engineering
+     reliability (IEC 61649). The shape parameter β (Weibull slope) determines
+     failure pattern: β < 1 (infant mortality), β = 1 (random failure = exponential),
+     β > 1 (wear-out/fatigue — life-limited components).
+
+  2. BIOLOGICAL AGING AND MORTALITY: The Gompertz mortality law (exponential
+     increase in mortality rate with age, observed in nearly all multicellular
+     organisms) is mathematically equivalent to a Gumbel extreme value distribution.
+     If an organism's death occurs when the first of N independent "vital clocks"
+     fails, and those clocks have exponentially increasing failure rates, the
+     resulting mortality curve is Gompertz. The Gompertz law is thus a statement
+     about the extreme value statistics of biological component failure — not
+     a separate empirical law.
+
+  3. MATERIAL FATIGUE PREDICTION: The S-N curve (stress vs. cycles to failure)
+     for metals follows a Weibull distribution. The weakest crack or inclusion
+     determines fatigue life; EVT predicts how fatigue life scales with specimen
+     volume (larger specimens fail sooner — the size effect — because the extreme
+     value of defect size increases with sample size).
+
+  The unification: all three are weakest-link problems in disguise. EVT provides
+  the universal mathematical language for systems that fail at their extremes
+  rather than their averages. This is the bridge that connects structural engineering
+  reliability (decades of Weibull analysis), actuarial science (Gompertz mortality
+  tables), and materials science (fatigue life prediction) into a single theoretical
+  framework.
+
+  Quantitative prediction: the Weibull modulus m (shape parameter) for human
+  mortality fits β ≈ 8–12 at ages 30–80 in modern populations, consistent with
+  engineered systems in the wear-out regime. This predicts that human aging is
+  governed by the same statistical physics as metal fatigue — a remarkable and
+  largely unexploited correspondence.
+translation_table:
+  - field_a_term: Weibull distribution of component lifetime (engineering)
+    field_b_term: Gompertz mortality law (biology/actuarial)
+    note: Both are extreme value (Gumbel) distributions of first-failure time
+  - field_a_term: Weibull shape parameter β (reliability engineering)
+    field_b_term: Gompertz rate parameter b (aging biology)
+    note: Both describe the steepness of hazard rate increase with time
+  - field_a_term: Weakest-link model (structural mechanics)
+    field_b_term: Competing risks model (survival analysis)
+  - field_a_term: Fatigue life scatter (Weibull modulus)
+    field_b_term: Lifespan variation across individuals (mortality scatter)
+  - field_a_term: Size effect (larger specimens fail earlier)
+    field_b_term: Population size effect on maximum lifespan (larger populations have older max ages)
+  - field_a_term: Burn-in period (infant mortality, β < 1)
+    field_b_term: Childhood/juvenile mortality peak
+  - field_a_term: Design life (characteristic lifetime at chosen reliability level)
+    field_b_term: Life expectancy (median/mean lifetime at population level)
+related_unknowns:
+  - u-offshore-wind-fatigue
+  - u-3d-printed-metal-fatigue
+cross_pollination_opportunities:
+  - >
+    The volume-scaling of Weibull statistics is well-established in structural
+    ceramics: a ceramic component twice the volume has a predictably shorter
+    characteristic lifetime. The biological analog is Kleiber's law (metabolic rate
+    scales as body mass^0.75) and the lifespan-mass relationship. EVT suggests that
+    both should follow from the same statistical physics of organ/tissue failure with
+    volume. This bridge could unify metabolic scaling theory with materials reliability
+    theory through extreme value statistics.
+  - >
+    Engineering components are subject to "burn-in" testing — running them under
+    stress to eliminate early-failure units before deployment (eliminating the
+    β < 1 portion of the Weibull curve). The biological analog is natural selection
+    during development — embryonic lethality and infant mortality preferentially
+    eliminate individuals with severe defects, leaving survivors with longer remaining
+    lifespans. The "burn-in" model from engineering provides a quantitative prediction
+    for how juvenile selection should shift the adult mortality Gompertz parameters.
+  - >
+    Extreme value statistics of maximum flood height, maximum wind speed, and maximum
+    earthquake magnitude (all Gumbel-distributed) are used for infrastructure design
+    return-period analysis (100-year flood, etc.). The same return-period framework
+    can be applied to biological rarity: the probability of achieving a given human
+    lifespan in a population of size N is given by Gumbel order statistics. The
+    theoretical maximum human lifespan (as a function of population size and Gompertz
+    parameters) is directly predictable from EVT but is almost never computed by
+    gerontologists.
+communication_gap: >
+  Structural engineers use Weibull analysis daily but rarely know Gompertz mortality.
+  Actuaries use Gompertz tables but do not connect them to materials reliability.
+  Biologists studying aging know Gompertz empirically but do not recognize it as
+  extreme value theory. The mathematical unification (EVT as the common framework)
+  is known to statisticians (Gumbel, 1958; de Haan & Ferreira) but has not been
+  made accessible or useful to practitioners in any of the three applied fields
+  simultaneously. The bridge requires only the recognition that "weakest-link" is
+  a universal failure model, not a field-specific assumption.
+last_reviewed: "2026-05-05"
+references:
+  - doi: "10.1017/CBO9780511755019"
+    note: "de Haan & Ferreira (2006) - Extreme Value Theory: An Introduction; mathematical unification of EVT families"
+  - doi: "10.1098/rspb.1825.0039"
+    note: "Gompertz (1825) - On the nature of the function expressive of the law of human mortality"
+  - doi: "10.1080/01621459.1951.10500793"
+    note: "Weibull (1951) - A statistical distribution function of wide applicability; engineering reliability foundation"
+  - doi: "10.1093/biomet/40.1-2.12"
+    note: "Gumbel (1953) - Statistical theory of extreme values and some practical applications"
