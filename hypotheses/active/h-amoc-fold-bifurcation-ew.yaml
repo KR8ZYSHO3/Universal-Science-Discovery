@@ -1,0 +1,78 @@
+id: h-amoc-fold-bifurcation-ew
+title: >
+  AMOC collapse is a subcritical fold bifurcation, and the rising AR1 and
+  variance already visible in the AMOC fingerprint data (Boers 2021) follow
+  the universal fold-bifurcation scaling exponents — meaning AMOC is within
+  measurable early-warning range of its tipping point and the remaining
+  warning time is estimable from the scaling trajectory.
+status: active
+created: "2026-05-04"
+last_updated: "2026-05-04"
+priority: critical
+related_disciplines:
+  - climate-science
+  - statistical-physics
+  - oceanography
+unknowns_addressed:
+  - u-climate-ew-indicator-universality
+evidence_links:
+  - type: supporting
+    doi: "10.1038/s41586-021-03796-w"
+    note: Boers (2021) — detected rising AR1 and variance in AMOC fingerprint (sea surface temperature gradient) 1870-2020; concluded AMOC approaching tipping; but did not fit fold-bifurcation scaling exponents
+  - type: supporting
+    doi: "10.1073/pnas.0805172105"
+    note: "Scheffer et al. (2009) — universal AR1 scaling near fold: AR1 ~ 1 - c*(mu_c - mu)^(1/2); this exponent 1/2 has not been measured from AMOC data"
+  - type: supporting
+    note: >
+      Box-Jenkin ARMA models fit to AMOC fingerprint 1870-2020 show monotonically
+      increasing AR1 coefficient. If AMOC is approaching a fold bifurcation, the
+      AR1 should be well described by 1 - c*(T_c - T)^(1/2) where T_c is the
+      critical freshwater forcing temperature and T is current forcing. Fitting this
+      functional form to the Boers (2021) AR1 time series would estimate T_c and
+      hence the remaining warming budget before AMOC collapse.
+  - type: contradicting
+    note: >
+      AMOC variability may be increasing for reasons unrelated to tipping proximity:
+      changing North Atlantic Oscillation patterns, increased freshwater input from
+      Greenland (a separate forcing trend), or observational artifacts in the SST
+      proxy record. If the AR1 rise is driven by changing external forcing rather
+      than critical slowing down internal to the AMOC dynamics, the fold-bifurcation
+      interpretation is incorrect and the scaling exponent fit would fail. Isolating
+      the internal dynamics from external forcing is the central methodological
+      challenge.
+proposed_tests:
+  - discipline: climate-science
+    description: >
+      Fit the functional form AR1(t) = 1 - c * (T_c - T(t))^(1/2) to the Boers (2021)
+      AMOC fingerprint AR1 time series, where T(t) is global mean temperature as
+      a proxy for freshwater forcing. Extract the fitted T_c (critical temperature)
+      and c (prefactor). Test whether T_c is within the range of plausible 21st century
+      warming (1.5 - 4 degrees C above pre-industrial). If T_c < 2 degrees C, AMOC
+      is within the IPCC likely warming range — a finding of immediate policy relevance.
+  - discipline: statistical-physics
+    description: >
+      Compute the power spectral density S(f) of the AMOC fingerprint time series.
+      Near a fold bifurcation, S(f) ~ f^(-alpha) with alpha approaching 1 (1/f noise)
+      at the tipping point. Fit alpha as a function of time (decade-by-decade windows).
+      Test whether alpha is monotonically increasing toward 1.0 over 1870-2020.
+      Compare the rate of alpha increase to the AR1 increase — they should be
+      consistent with a single fold bifurcation model.
+  - discipline: oceanography
+    cross_domain_angle: >
+      Run a high-resolution ocean model (NEMO, MOM6) with prescribed freshwater
+      forcing increased at two rates (slow: 0.01 Sv/century, fast: 0.1 Sv/century).
+      Measure AR1 and variance of the AMOC index in each simulation. Test whether
+      the Kibble-Zurek mechanism (b-kibble-zurek-morphogenesis) applies: in the
+      Kuramoto model and the KZ framework, faster quench rates produce more defects
+      (or more disorder). For AMOC, faster freshwater forcing should produce a more
+      abrupt transition with smaller EWI lead time. If the quench-rate dependence
+      matches the KZ prediction, a single framework connects AMOC, Kibble-Zurek,
+      and embryonic symmetry breaking through their shared quench-rate physics.
+  - discipline: statistics
+    cross_domain_angle: >
+      Apply sequential probability ratio tests (SPRT) and the CUSUM statistic —
+      optimal for detecting a change in an AR1 process — to the AMOC fingerprint.
+      Compute the detection power: how many years before T_c would a rigorous
+      CUSUM test raise an alarm at p < 0.05? Compare to the informal trend detection
+      in Boers (2021). The difference in warning time (in years) is the cost of not
+      importing optimal detection theory from signal processing into climate science.

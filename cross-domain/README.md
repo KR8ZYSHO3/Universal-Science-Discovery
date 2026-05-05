@@ -29,6 +29,8 @@ new bridges while reading any paper.
 | [b-error-threshold-information](information-evolution/b-error-threshold-information.yaml) | information-theory ↔ molecular-evolution | proposed | u-error-threshold-genome-size | h-viral-proofreading-shannon-optimality |
 | [b-kuramoto-synchronization](physics-engineering-neuroscience/b-kuramoto-synchronization.yaml) | statistical-physics ↔ neuroscience ↔ cardiology ↔ engineering | proposed | u-brain-criticality-function, u-cardiac-criticality-synchronization | h-kuramoto-af-spectral-gap, h-cardiac-arrhythmia-phase-transition |
 | [b-fisher-information-evolution](statistics-evolution/b-fisher-information-evolution.yaml) | statistics ↔ evolutionary-biology ↔ machine-learning | proposed | u-fisher-natural-gradient-evolution | h-fisher-speed-limit-selection |
+| [b-tipping-points-phase-transitions](physics-climate/b-tipping-points-phase-transitions.yaml) | statistical-physics ↔ climate-science | proposed | u-climate-ew-indicator-universality | h-amoc-fold-bifurcation-ew |
+| [b-ising-social-dynamics](physics-social/b-ising-social-dynamics.yaml) | statistical-physics ↔ social-science | proposed | u-social-ising-universality | h-norm-cascade-ising-ew |
 
 ---
 
@@ -49,6 +51,8 @@ new bridges while reading any paper.
 | `information-evolution/` | Shannon channel capacity ↔ Eigen error threshold (Darwin meets Shannon) |
 | `physics-engineering-neuroscience/` | Kuramoto model ↔ neural gamma / cardiac AF / power grid / laser arrays |
 | `statistics-evolution/` | Fisher information ↔ fundamental theorem of natural selection ↔ natural gradient (ML) |
+| `physics-climate/` | Phase transitions + EWIs ↔ climate tipping points (AMOC, Amazon, Arctic) |
+| `physics-social/` | Ising model ↔ opinion dynamics ↔ social tipping points ↔ echo chambers |
 
 ---
 
