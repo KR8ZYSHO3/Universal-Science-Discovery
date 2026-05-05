@@ -4,6 +4,7 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 ## Last updated
 
+- 2026-05-05 — **Knowledge graph + 4 new bridges (27-30)**: `scripts/build_graph.py` → `docs/knowledge_graph.json` (138 nodes, 300 edges). New bridges: b-entropy-arrow-of-time (thermodynamics↔information↔cosmology), b-stochastic-resonance (physics↔sensory-neuroscience), b-maximum-entropy-ecology (MaxEnt↔macroecology, Jaynes→Harte), b-quantum-error-correction-topology (toric code = Z2 gauge theory = topological phase). 4 unknowns + 4 hypotheses. Dashboard: bridges 30, unknowns 73, hypotheses 31, graph-edges 300.
 - 2026-05-05 — **2 new bridges + 2 unknowns + 1 hypothesis**: b-optimal-transport-vasculature (21st, math↔biology, Murray's law = Wasserstein gradient flow = p-Laplacian) + b-turbulence-financial-markets (22nd, physics↔finance, Kolmogorov cascade = multifractal volatility); dashboard 28/27/22.
 - 2026-05-05 — **Phenomenology catalog launched**: schema/phenomenon.yaml, phenomenology/ directory, first entry p-nonhelical-cavity-resonator (dream → triaged → slow-wave structure / metamaterial unit cell). intuition_to_unknown.md prompt. Validator extended. Dashboard stat card added.
 - 2026-05-05 — **2 new bridges + 2 unknowns + 2 hypotheses**: b-landauer-information-thermodynamics (19th, physics↔info, Maxwell's demon resolved) + b-game-theory-evolution (20th, math↔evolution↔ML, Nash=ESS, replicator dynamics=gradient descent); dashboard 26/26/20.
@@ -28,11 +29,13 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 | Type | Count | Directory |
 |------|-------|-----------|
-| Unknowns | 28 | `unknowns-catalog/` |
-| Hypotheses | 27 | `hypotheses/active/` |
-| Bridges | 22 | `cross-domain/` |
+| Unknowns | 73 | `unknowns-catalog/` |
+| Hypotheses | 31 | `hypotheses/active/` |
+| Bridges | 30 | `cross-domain/` |
 | Pre-formal observations | 1 | `phenomenology/` |
-| Schemas | 3 | `schemas/` (unknown, hypothesis, bridge) |
+| Knowledge graph nodes | 138 | `docs/knowledge_graph.json` |
+| Knowledge graph edges | 300 | `docs/knowledge_graph.json` |
+| Schemas | 4 | `schemas/` (unknown, hypothesis, bridge, phenomenon) |
 
 ### Bridge network (cross-domain connections)
 

@@ -1,0 +1,98 @@
+id: b-stochastic-resonance
+title: >
+  Stochastic resonance — the counterintuitive enhancement of weak-signal detection
+  by adding noise — is a universal nonlinear phenomenon observed in physical
+  bistable systems, hair-cell mechanoreceptors, cricket cercal systems, and
+  human tactile perception, with optimal noise amplitude predicted by the
+  same signal-to-noise ratio analysis in all cases.
+status: established
+fields:
+  - statistical-physics
+  - neuroscience
+  - sensory-biology
+  - nonlinear-dynamics
+bridge_claim: >
+  In a bistable system (e.g. a double-well potential), a subthreshold periodic signal
+  alone cannot drive transitions between wells. Adding noise of optimal amplitude
+  causes the system to cross the barrier preferentially in phase with the signal,
+  producing a maximum in the output signal-to-noise ratio (SNR) at a non-zero noise
+  level. This is stochastic resonance (SR).
+
+  The same phenomenon appears in biological sensory systems:
+  - Crayfish and cricket mechanoreceptors (cercal cells): external noise enhances
+    detection of low-amplitude prey-generated water movement (Russell & Moss 1995;
+    Levin & Miller 1996). The SNR curve vs. noise amplitude matches the SR prediction.
+  - Mammalian hair cells: spontaneous otoacoustic emissions and noise-enhanced
+    threshold sensitivity in the cochlea. Internal noise from hair-bundle Brownian
+    motion may be tuned near the SR optimum.
+  - Human tactile perception: adding subthreshold vibrotactile noise to fingertips
+    improves detection of weak stimuli (Collins et al. 1996). Confirmed in elderly
+    subjects with reduced sensitivity — therapeutic application for neuropathy.
+  - Neural spike trains: integrate-and-fire neurons exhibit SR with the optimal
+    noise amplitude matching the membrane noise level observed in vivo (Wiesenfeld
+    & Moss 1995).
+
+  The bridge is not metaphorical: the mathematical condition for SR (nonlinear
+  threshold, subthreshold signal, additive noise) is identical in the physical
+  double-well system and the biological sensory neuron. The SNR vs. noise curve
+  has the same functional form. Biology has not independently "discovered" SR —
+  it is operating SR because it is a threshold nonlinear system subject to noise.
+
+  The implication for sensory biology: evolution may have tuned internal noise
+  levels to the SR optimum rather than minimizing noise. This inverts the usual
+  design intuition (less noise = better) and has direct implications for
+  prosthetics, hearing aids, and neurological therapies.
+translation_table:
+  - field_a_term: bistable double-well potential
+    field_b_term: threshold-based sensory neuron with two states (subthreshold / firing)
+  - field_a_term: optimal noise amplitude D_opt (maximizes SNR)
+    field_b_term: optimal physiological noise level (thermal + channel noise) in hair cells or mechanoreceptors
+  - field_a_term: periodic subthreshold forcing signal
+    field_b_term: weak periodic stimulus (prey water wave, faint touch, weak sound)
+  - field_a_term: Kramers rate (thermal escape rate over barrier)
+    field_b_term: spontaneous firing rate in sensory neuron below threshold
+  - field_a_term: output SNR peak at D_opt
+    field_b_term: behavioural detection threshold minimum at optimal noise; psychometric function nonmonotonicity
+  - field_a_term: residence time distribution (bimodal at SR)
+    field_b_term: interspike interval distribution locked to stimulus period
+related_unknowns:
+  - u-stochastic-resonance-neural-tuning
+related_hypotheses:
+  - h-sensory-noise-sr-optimality
+cross_pollination_opportunities:
+  - >
+    Therapeutic vibrotactile noise devices for peripheral neuropathy (diabetes-related
+    sensory loss). Collins et al. (1996) demonstrated proof of concept; SR physics
+    predicts the optimal noise spectrum and amplitude for maximum benefit. Clinical
+    trials comparing SR-optimized vs. random-noise protocols are lacking.
+  - >
+    Hearing aids and cochlear implants: if the cochlea uses SR, adding controlled
+    noise to hearing aids (dithering) could improve speech detection in noise —
+    the opposite of conventional noise-reduction engineering. SR-based dithering
+    is an untested alternative to spectral subtraction.
+  - >
+    Neural recording and brain-computer interfaces: SR theory predicts that adding
+    noise to the input of a BCI decoder with a hard threshold should improve
+    detection of weak neural signals. Optimal noise amplitude can be estimated from
+    the decoder's threshold and background noise statistics.
+communication_gap: >
+  Stochastic resonance was identified in physics (Benzi et al. 1981, Nicolis 1982)
+  in the context of glacial climate oscillations, then moved to electronics and
+  bistable ring lasers before reaching sensory biology. However, the physics and
+  neuroscience literatures remain largely separate: neuroscientists cite the SR
+  papers but rarely engage with the quantitative predictions from nonlinear dynamics
+  (Kramers rate, SNR functional form). Therapeutic applications (noise-based
+  prosthetics) are largely in rehabilitation engineering, disconnected from the
+  theoretical physics foundation.
+last_reviewed: "2026-05-05"
+references:
+  - doi: "10.1007/BF02451825"
+    note: Benzi, Sutera, Vulpiani (1981) - original stochastic resonance paper (climate oscillations)
+  - doi: "10.1038/373033a0"
+    note: Levin & Miller (1996) - stochastic resonance in cricket cercal sensory neurons
+  - doi: "10.1126/science.271.5246.239"
+    note: Collins et al. (1996) - noise-enhanced human tactile sensitivity
+  - doi: "10.1038/373033a0"
+    note: Russell & Moss (1995) - noise-enhanced sensory information in crayfish
+  - arxiv: "cond-mat/9503002"
+    note: Wiesenfeld & Moss (1995) - stochastic resonance and the benefits of noise in nonlinear systems

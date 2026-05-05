@@ -1,0 +1,51 @@
+id: h-topological-phase-qec-threshold-correspondence
+title: The threshold error rate of topological quantum error-correcting codes is in exact correspondence with the paramagnetic phase boundary of their associated random-bond statistical mechanics models, and this correspondence can be exploited to compute thresholds for arbitrary noise models via classical Monte Carlo simulation
+status: active
+priority: high
+created: "2026-05-05"
+last_updated: "2026-05-05"
+author: USDR seed content (replace with GitHub handle when stewarded)
+impact_score: 0.8
+unknowns_addressed:
+  - u-topological-qec-physical-realization
+related_disciplines:
+  - quantum-information
+  - condensed-matter-physics
+  - statistical-mechanics
+evidence_links:
+  - type: supporting
+    confidence: 0.85
+    arxiv: "quant-ph/0110143"
+    note: Dennis et al. (2002) - topological quantum memory; establishes random-bond Ising model correspondence for toric code threshold
+  - type: supporting
+    confidence: 0.9
+    doi: "10.1038/s41586-023-06927-2"
+    note: Google Quantum AI (2023) - surface code experiments approaching threshold; consistent with theoretical threshold value
+  - type: supporting
+    confidence: 0.7
+    arxiv: "1207.6823"
+    note: Haah cubic code - fracton generalization; threshold correspondence not yet established for fracton codes
+  - type: related
+    confidence: 0.6
+    note: >
+      Statistical mechanics of spin glasses and random-bond models is extensively
+      developed; if the correspondence is exact, the full machinery of spin-glass
+      theory (replica method, TAP equations) applies to QEC threshold computation
+proposed_tests:
+  - summary: >
+      Monte Carlo computation of thresholds for biased noise models (where X and Z
+      errors have different rates) using the random-bond Ising model correspondence.
+      Compare against direct quantum simulation thresholds on Google/IBM hardware.
+      Confirm that the statistical mechanics method gives thresholds accurate to 1%
+      across noise bias ratios from 1:1 to 100:1.
+  - summary: >
+      Extend the random-bond correspondence to fracton codes (Haah cubic code, X-cube).
+      Identify the statistical mechanics model corresponding to fracton QEC. If the
+      correspondence fails, identify which property of fracton topological order
+      (sub-extensive ground state degeneracy, immobile excitations) breaks the mapping.
+  - summary: >
+      Experimental test: run surface code circuits on superconducting qubit hardware
+      at error rates deliberately set above and below the estimated threshold.
+      Measure logical error rate scaling as L increases. Confirm that below threshold,
+      logical error rate decreases exponentially with L as the quantum phase transition
+      picture predicts; above threshold, it increases.
