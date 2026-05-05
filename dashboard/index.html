@@ -1031,6 +1031,53 @@
       background: rgba(167,139,250,.15);
       border-color: rgba(167,139,250,.5);
     }
+
+    /* ── DEVELOPER API ───────────────────────────────────────── */
+    #developer-api { scroll-margin-top: calc(var(--nav-h) + 1rem); }
+    .api-endpoints {
+      display: flex; flex-direction: column; gap: .7rem;
+      margin-top: 1.6rem;
+    }
+    .api-endpoint {
+      display: flex; align-items: center; gap: 1rem;
+      padding: .9rem 1.2rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      text-decoration: none; color: var(--text);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      transition: border-color .2s, box-shadow .2s, transform .2s;
+      position: relative; overflow: hidden;
+    }
+    .api-endpoint::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(circle at left center, rgba(79,156,249,.06), transparent 55%);
+      opacity: 0; transition: opacity .3s;
+    }
+    .api-endpoint:hover {
+      border-color: var(--accent);
+      box-shadow: 0 8px 32px -12px rgba(79,156,249,.25);
+      transform: translateX(4px);
+    }
+    .api-endpoint:hover::before { opacity: 1; }
+    .api-endpoint code {
+      font-family: var(--mono); font-size: .82rem;
+      color: var(--teal); white-space: nowrap; flex-shrink: 0;
+      background: rgba(34,211,184,.07); border: 1px solid rgba(34,211,184,.18);
+      border-radius: 5px; padding: .2rem .55rem;
+    }
+    .api-endpoint span {
+      font-size: .84rem; color: var(--muted); flex: 1;
+    }
+    .api-endpoint-badge {
+      font-size: .7rem; font-weight: 600; padding: .15rem .5rem;
+      border-radius: 999px; background: rgba(79,156,249,.12);
+      border: 1px solid rgba(79,156,249,.22); color: var(--accent);
+      white-space: nowrap; flex-shrink: 0;
+    }
+    @media (max-width: 640px) {
+      .api-endpoint { flex-wrap: wrap; gap: .5rem; }
+      .api-endpoint-badge { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -1137,6 +1184,7 @@
       <a href="#catalog-search">Search</a>
       <a href="#discovery-engines">Engines</a>
       <a href="#ai-copilot">AI co-pilot</a>
+      <a href="#developer-api">API</a>
       <a href="#knowledge-graph">Knowledge graph</a>
       <a href="#workstreams">Workstreams</a>
       <a href="#status">Status</a>
@@ -1232,6 +1280,55 @@
           <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/docs/HYPOTHESIS_GENERATION.md"
              class="copilot-link" target="_blank" rel="noopener">How it works →</a>
         </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ DEVELOPER API -->
+    <section id="developer-api">
+      <div>
+        <span class="section-tag">Developer API</span>
+        <h2 class="section-title">Static JSON endpoints</h2>
+        <p class="section-desc">
+          No authentication. No rate limits. Served directly from GitHub Pages.
+          Base URL: <code style="font-family:var(--mono);font-size:.84rem;color:var(--teal);">https://kr8zysho3.github.io/Universal-Science-Discovery/api/v1/</code>
+        </p>
+      </div>
+      <div class="api-endpoints">
+        <a href="../api/v1/meta.json" class="api-endpoint" target="_blank" rel="noopener">
+          <code>GET /api/v1/meta.json</code>
+          <span>Catalog statistics, counts, and metadata</span>
+          <span class="api-endpoint-badge">~1 KB</span>
+        </a>
+        <a href="../api/v1/bridges.json" class="api-endpoint" target="_blank" rel="noopener">
+          <code>GET /api/v1/bridges.json</code>
+          <span>All 58 cross-domain bridges with translation tables and references</span>
+          <span class="api-endpoint-badge">~213 KB</span>
+        </a>
+        <a href="../api/v1/unknowns.json" class="api-endpoint" target="_blank" rel="noopener">
+          <code>GET /api/v1/unknowns.json</code>
+          <span>All 502 open unknowns with domain, status, and file path</span>
+          <span class="api-endpoint-badge">~451 KB</span>
+        </a>
+        <a href="../api/v1/hypotheses.json" class="api-endpoint" target="_blank" rel="noopener">
+          <code>GET /api/v1/hypotheses.json</code>
+          <span>All 84 hypotheses with priority, impact score, and evidence links</span>
+          <span class="api-endpoint-badge">~114 KB</span>
+        </a>
+        <a href="../api/v1/domains.json" class="api-endpoint" target="_blank" rel="noopener">
+          <code>GET /api/v1/domains.json</code>
+          <span>Per-domain summary statistics (unknowns and bridge counts)</span>
+          <span class="api-endpoint-badge">~2 KB</span>
+        </a>
+        <a href="../api/v1/graph.json" class="api-endpoint" target="_blank" rel="noopener">
+          <code>GET /api/v1/graph.json</code>
+          <span>Full knowledge graph — 645 nodes, 472 edges</span>
+          <span class="api-endpoint-badge">~320 KB</span>
+        </a>
+        <a href="../api/v1/bridge_proposals.json" class="api-endpoint" target="_blank" rel="noopener">
+          <code>GET /api/v1/bridge_proposals.json</code>
+          <span>AI co-pilot bridge proposals ranked by novelty score</span>
+          <span class="api-endpoint-badge">~6 KB</span>
+        </a>
       </div>
     </section>
 
