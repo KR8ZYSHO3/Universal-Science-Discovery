@@ -9,6 +9,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added (2026-05-05 session — Turing patterns and spin-glass bridges)
+- **`cross-domain/mathematics-biology/b-turing-reaction-diffusion.yaml`** — 17th bridge: Turing (1952) reaction-diffusion instability ↔ biological pattern formation. Predicted zebrafish stripe wavelength (0.48 mm) matches observed (0.50 mm) using FCS-measured Nodal/Lefty diffusivities — no free parameters. Same mechanism governs digits, hair follicles, palate rugae, and left-right symmetry breaking.
+- **`cross-domain/physics-computing/b-spin-glass-neural-networks.yaml`** — 18th bridge: SK spin-glass statistical mechanics ↔ Hopfield associative memory. Critical capacity α_c = 0.138 patterns/neuron derived exactly from the replica method. Above α_c the network enters a spin-glass phase (catastrophic confabulation). Same replica machinery governs deep learning loss landscapes.
+- **`unknowns-catalog/biology/u-turing-digit-wavelength-scaling.yaml`** — Does digit count scale as limb-width / Λ* across vertebrate species?
+- **`unknowns-catalog/physics/u-hopfield-capacity-cortex.yaml`** — Does human CA3 operate near α_c = 0.138? Does Alzheimer's synapse loss trigger the glass transition?
+- **`hypotheses/active/h-turing-zebrafish-diffusivity-ratio.yaml`** — Zebrafish adult stripe period predicted from FCS diffusivities alone; laser-ablation test predicts +15% wavelength shift on iridophore removal.
+- **`hypotheses/active/h-hopfield-alzheimers-glass-transition.yaml`** — AD synapse loss (30-50%) pushes CA3 past α_c, causing confabulation rather than blank retrieval; observable as confusion-to-omission error ratio inflection.
+- **`scripts/showcase_analysis.py`**, **`scripts/generate_showcase_figure.py`**, **`scripts/math_derivation.py`** — Quantitative showcase scripts: Monte Carlo percolation simulation, power-law β fit, FSS ν fit, one-sample t-test (t=0.52, p=0.63 vs p_c).
+- **`docs/showcase_percolation_ecology.png`**, **`docs/math_derivation_percolation.png`** — Publication-quality figures.
+- **`dashboard/index.html`** — Updated counts: 24 unknowns · 24 hypotheses · 18 bridges.
+
 ### Added (2026-05-04 session — climate and social physics bridges)
 - **`cross-domain/physics-climate/b-tipping-points-phase-transitions.yaml`** — 15th bridge: climate tipping elements are formal bifurcations. AMOC, Amazon, Arctic, permafrost each have a specific bifurcation class with universal EWI exponents. Boers (2021) measured rising AR1 in AMOC but never fit the fold scaling exponent 1/2 to estimate remaining warming budget to collapse.
 - **`unknowns-catalog/physics/u-climate-ew-indicator-universality.yaml`** — Which bifurcation class is each IPCC tipping element? Are the EWI scaling exponents universal? Has spatial correlation length been computed for Amazon NDVI or Arctic sea ice?

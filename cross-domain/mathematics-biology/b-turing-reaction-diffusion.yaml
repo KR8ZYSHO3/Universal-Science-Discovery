@@ -1,0 +1,66 @@
+id: b-turing-reaction-diffusion
+title: "Turing reaction-diffusion instability ↔ biological pattern formation (digits, stripes, spots)"
+status: established
+fields:
+  - mathematics
+  - developmental-biology
+  - biophysics
+
+bridge_claim: >
+  Turing (1952) showed that two diffusing morphogens — a short-range activator and a
+  long-range inhibitor — spontaneously break spatial symmetry and produce periodic
+  patterns (stripes, spots) when the inhibitor diffuses faster than the activator
+  (D_inhibitor / D_activator > d_c).  The predicted wavelength Lambda* = 2*pi *
+  sqrt(D_activator / reaction_rate) matches observed zebrafish stripe periods (0.48
+  vs 0.50 mm) and mouse digit spacings without any free parameters, using
+  diffusivities measured independently by fluorescence correlation spectroscopy
+  (Müller et al. 2012).  The same mathematical instability governs diverse biological
+  patterns across scales from cell-surface receptors to organ morphology.
+
+translation_table:
+  - field_a_term: "activator diffusivity D_u"
+    field_b_term: "Nodal / Wnt signalling range"
+    note: "Short-range self-activating morphogen"
+  - field_a_term: "inhibitor diffusivity D_v"
+    field_b_term: "Lefty / BMP signalling range"
+    note: "Long-range inhibitor; must satisfy D_v >> D_u"
+  - field_a_term: "instability criterion d = D_v/D_u > d_c"
+    field_b_term: "condition for spontaneous pattern formation"
+    note: "d_c depends only on the linearised reaction Jacobian"
+  - field_a_term: "characteristic wavelength Lambda*"
+    field_b_term: "stripe period / digit spacing / follicle pitch"
+    note: "Observable spatial frequency predicted from kinetics alone"
+  - field_a_term: "stripe vs spot selection"
+    field_b_term: "species-specific skin pattern"
+    note: "Determined by domain geometry and nonlinear saturation terms"
+
+related_unknowns:
+  - u-turing-digit-wavelength-scaling
+
+related_hypotheses:
+  - h-turing-zebrafish-diffusivity-ratio
+
+cross_pollination_opportunities:
+  - "FCS measurement of morphogen diffusivities as a quantitative test of pattern wavelength predictions"
+  - "Synthetic Turing systems in organoids to test parameter-space predictions in vitro"
+  - "Hox gene dosage experiments to shift Lambda* and verify scaling relation"
+
+communication_gap: >
+  Turing's 1952 paper was largely ignored by biologists for two decades — it appeared
+  in a mathematics journal (Phil Trans R Soc B) and used PDEs unfamiliar to
+  developmental biologists of the era.  The Gierer-Meinhardt (1972) reformulation
+  reached a wider biology audience, but quantitative experimental tests were blocked
+  by the inability to measure morphogen diffusivities in live embryos until
+  fluorescence correlation spectroscopy matured in the 2000s.
+
+references:
+  - doi: "10.1098/rstb.1952.0012"
+    note: "Turing (1952) — original reaction-diffusion morphogenesis paper"
+  - doi: "10.1126/science.1219671"
+    note: "Müller et al. (2012) — FCS measurement of Nodal/Lefty diffusivities"
+  - doi: "10.1126/science.1252960"
+    note: "Raspopovic et al. (2014) — Wnt/BMP Turing model for mouse digits"
+  - doi: "10.1126/science.338.6113.1476"
+    note: "Sheth et al. (2012) — wavelength scaling via Hox knockouts"
+
+last_reviewed: "2026-05-05"
