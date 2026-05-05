@@ -1,4 +1,5 @@
 # USDR Roadmap
+
 ## The Open-Source Engine That Will Redefine Scientific Discovery
 
 **"We are building the operating system for humanity’s next century of discovery."**
@@ -25,6 +26,7 @@ This is the **global brain of science** — open, versioned, and built for disco
 **Goal:** Launch a credible, high-quality seed that proves the concept and attracts the first wave of serious contributors.
 
 **Key Milestones**
+
 - Public launch with 2–3 seeded disciplines (Physics, Biology, Computer Science)
 - 500+ high-quality structured entries (knowns, unknowns, hypotheses)
 - Core governance, legal, and ethics framework live
@@ -41,11 +43,13 @@ The project is recognized as “the most ambitious open science infrastructure p
 
 The **canonical plan for UX, static site, and the future “Discovery OS”** is [INTERFACE.md](INTERFACE.md). That document is **longer-term** than most Phase 0 tasks: we do **not** block governance, legal clarity, or seeded content on a polished UI. Git stays the source of truth; the interface is always a **view** of the repo.
 
-| USDR roadmap (this file) | Interface program ([INTERFACE.md](INTERFACE.md)) |
-|---------------------------|------------------------------------------------|
-| **Phase 0** | Lock assumptions in INTERFACE.md; when seed content exists, ship a **minimal static site** (docs navigation, contribute links, search placeholder). |
-| **Phase 1** | Execute INTERFACE.md “Phase 1: Trust & Accessibility” in full; prototype early “Phase 2” features only where they accelerate adoption. |
-| **Phase 2+** | INTERFACE.md “Phase 2–3” — interactive graph, co-pilot grounded in the graph, contributor dashboards — as the knowledge graph and community scale. |
+
+| USDR roadmap (this file) | Interface program ([INTERFACE.md](INTERFACE.md))                                                                                                    |
+| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Phase 0**              | Lock assumptions in INTERFACE.md; when seed content exists, ship a **minimal static site** (docs navigation, contribute links, search placeholder). |
+| **Phase 1**              | Execute INTERFACE.md “Phase 1: Trust & Accessibility” in full; prototype early “Phase 2” features only where they accelerate adoption.              |
+| **Phase 2+**             | INTERFACE.md “Phase 2–3” — interactive graph, co-pilot grounded in the graph, contributor dashboards — as the knowledge graph and community scale.  |
+
 
 Track interface milestones in issues/PRs as a **separate workstream** from discipline content.
 
@@ -56,6 +60,7 @@ Track interface milestones in issues/PRs as a **separate workstream** from disci
 **Goal:** Become the default place where serious researchers go to find open problems and collaborate on breakthroughs.
 
 **Key Milestones**
+
 - 10,000+ structured entries across 15+ disciplines
 - First major institutional partners (universities, research institutes, arXiv, OpenAlex)
 - AI co-pilot (open weights) trained on the repo that can propose novel hypotheses
@@ -73,6 +78,7 @@ At least 10 high-impact scientific papers or patents trace their origin to hypot
 **Goal:** Turn USDR into a self-sustaining discovery machine that actively accelerates the pace of science.
 
 **Key Milestones**
+
 - 100,000+ entries + full knowledge graph with semantic search
 - Federated model (other repos can plug into USDR)
 - Autonomous “Discovery Agents” that continuously scan literature and propose new connections
@@ -90,6 +96,7 @@ USDR is widely regarded as one of the top 5 most important scientific infrastruc
 **Goal:** Become the foundational layer of 21st-century science — the “Linux of Discovery.”
 
 **Visionary Milestones**
+
 - USDR becomes the default interface through which most researchers interact with the global scientific literature and open problems
 - Integration with major AI labs (models are trained with explicit “discovery grounding” from USDR)
 - Decentralized governance + on-chain contribution reputation (optional future evolution)
@@ -100,6 +107,7 @@ USDR is widely regarded as one of the top 5 most important scientific infrastruc
 **Ultimate Success Metric:**  
 The rate of major scientific breakthroughs increases measurably because of USDR.  
 Future historians write:  
+
 > “The creation of the Universal Science Discovery Repository marked the beginning of the Acceleration Age of Science.”
 
 ---
