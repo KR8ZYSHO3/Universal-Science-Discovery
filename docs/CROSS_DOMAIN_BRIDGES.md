@@ -30,7 +30,8 @@ rediscover it independently — wasting decades. Bridges make the connection exp
 | b-lichen-astrobiology | synthetic-biology ↔ astrobiology | u-synthetic-lichen-biofabrication | h-lichen-consortium-metabolic-coupling |
 | b-topology-morphogenesis | mathematical-physics ↔ developmental-biology | u-topological-morphogenesis | h-topological-defect-morphogenesis |
 | b-grokking-criticality | machine-learning ↔ statistical-physics | u-grokking-phase-transition | h-grokking-criticality-universality |
-| b-quantum-biology-navigation | quantum-mechanics ↔ sensory-biology | u-quantum-biology-decoherence | — |
+| b-quantum-biology-navigation | quantum-mechanics ↔ sensory-biology | u-quantum-biology-decoherence | h-quantum-compass-precision |
+| b-kibble-zurek-morphogenesis | cosmology ↔ developmental-biology | u-kibble-zurek-embryo, u-topological-morphogenesis | h-kibble-zurek-polarity-scaling |
 
 ---
 
