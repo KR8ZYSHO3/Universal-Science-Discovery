@@ -1,0 +1,72 @@
+id: b-landauer-information-thermodynamics
+title: "Landauer's principle ↔ thermodynamic cost of information erasure (Maxwell's demon resolution)"
+status: established
+fields:
+  - thermodynamics
+  - information-theory
+  - statistical-physics
+  - computer-science
+
+bridge_claim: >
+  Landauer (1961) proved that erasing one bit of information in a thermal
+  environment at temperature T requires dissipating at least k_B * T * ln(2)
+  of free energy as heat — approximately 3 zJ at room temperature.  This resolves
+  Maxwell's demon paradox (1867): the demon cannot violate the second law because
+  the erasure of its memory at the end of each cycle costs exactly the entropy
+  the demon gained by sorting molecules.  Bennett (1982) completed the argument
+  by showing that logically reversible computation can in principle be done
+  without dissipation, but erasure (resetting a bit) is irreversible and always
+  costs k_B * T * ln(2).  Experimentally verified by Berut et al. (2012) in a
+  colloidal particle bistable trap to within 1% of the Landauer limit.
+  Consequence for computing: a 1 GHz processor erasing 10^18 bits/s is bounded
+  by P >= 10^18 * k_B * T * ln(2) ~ 3 nW minimum — 9 orders of magnitude below
+  current CMOS dissipation, so we are far from the Landauer limit in practice,
+  but neuromorphic and reversible computing architectures approach it.
+
+translation_table:
+  - field_a_term: "entropy decrease in gas (demon sorts molecules)"
+    field_b_term: "information gain (1 bit per measurement)"
+    note: "Szilard (1929) established this equivalence"
+  - field_a_term: "free energy cost of erasing memory"
+    field_b_term: "k_B * T * ln(2) per bit erased"
+    note: "The Landauer limit — exact lower bound"
+  - field_a_term: "logically irreversible operation (AND, OR, ERASE)"
+    field_b_term: "thermodynamically irreversible — must dissipate heat"
+    note: "NAND gate erases 1 bit; minimum cost k_B T ln 2"
+  - field_a_term: "logically reversible computation (Toffoli gate)"
+    field_b_term: "thermodynamically reversible — zero minimum dissipation"
+    note: "Bennett (1973) proved reversible universal computation possible"
+  - field_a_term: "second law of thermodynamics"
+    field_b_term: "Shannon entropy cannot decrease for free"
+    note: "Mutual information = negative entropy in Szilard engine"
+
+related_unknowns:
+  - u-landauer-limit-biological-computation
+
+related_hypotheses:
+  - h-brain-landauer-efficiency
+
+cross_pollination_opportunities:
+  - "Measure the thermodynamic cost of a single synaptic erasure event in a neuron to compare to the Landauer bound"
+  - "Design neuromorphic chips approaching the Landauer limit; measure heat dissipation per logic operation"
+  - "Test whether DNA replication error-correction has a thermodynamic cost consistent with Landauer erasure per corrected base"
+
+communication_gap: >
+  Landauer's 1961 paper appeared in IBM Journal of Research and Development — an
+  engineering journal — and was largely ignored by both physicists and computer
+  scientists for two decades.  Shannon's information theory community knew about
+  entropy but not the physical cost of erasure.  Thermodynamicists knew about the
+  second law but not that information erasure was the key mechanism.  The bridge
+  was not fully established until Bennett's 1982 paper, 21 years after Landauer.
+
+references:
+  - doi: "10.1147/rd.53.0183"
+    note: "Landauer (1961) — original paper: irreversibility and heat generation"
+  - doi: "10.1038/nature10872"
+    note: "Berut et al. (2012) Nature — experimental verification at 1% of Landauer limit"
+  - doi: "10.1147/rd.173.0525"
+    note: "Bennett (1973) — logical reversibility of computation"
+  - doi: "10.1038/scientificamerican1182-48"
+    note: "Bennett (1982) — thermodynamics of computation review"
+
+last_reviewed: "2026-05-05"
