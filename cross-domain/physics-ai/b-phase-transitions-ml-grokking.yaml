@@ -1,0 +1,100 @@
+id: b-phase-transitions-ml-grokking
+title: "Statistical physics phase transitions ↔ sudden generalization (grokking), double descent, and loss landscape geometry in deep learning"
+status: proposed
+fields:
+  - statistical-physics
+  - machine-learning
+  - information-theory
+
+bridge_claim: >
+  Deep neural networks undergo a series of phenomena that are strikingly
+  described by the language of statistical physics phase transitions:
+
+  1. **Grokking (Power et al. 2022)**: a model trains to 100% training
+     accuracy but only *later* generalises to the test set — sometimes
+     thousands of epochs after overfitting. This sudden, discontinuous jump
+     to generalisation is a first-order-like phase transition in the model's
+     internal representation. The nlin:AO preprint "Dimensional Criticality
+     at Grokking Across MLPs and Transformers" (arXiv 2026) directly measures
+     a dimension-halving transition in the hidden layer geometry at the moment
+     of grokking — consistent with a true order-parameter jump.
+
+  2. **Double descent**: as model capacity increases past the interpolation
+     threshold, test error first rises then falls — producing a non-monotonic
+     "double descent" curve. The interpolation threshold is the analogue of a
+     percolation threshold or critical capacity in spin-glass theory (the
+     Hopfield critical load α_c = 0.138 is a special case).
+
+  3. **Loss landscape / spin glass**: the energy landscape of an overparameterised
+     neural network (many saddle points, exponentially many local minima near the
+     global minimum) matches the free energy landscape of a spin glass
+     (Choromanska et al. 2015). The "high-temperature" disordered phase = random
+     initialisation; the "low-temperature" ordered phase = a well-trained model.
+
+  4. **Neural scaling laws (Kaplan et al. 2020)**: loss scales as a power law
+     in the number of parameters L ~ N^{-alpha}. Power-law scaling at all scales
+     is the hallmark of criticality — the system sits at or near a critical point
+     for all model sizes tested, consistent with the hypothesis that gradient
+     descent steers networks toward a self-organised critical regime.
+
+  The unifying mathematical object is the **order parameter** of learning:
+  a function of the weight matrix whose expectation is zero in the disordered
+  (memorising) phase and non-zero in the ordered (generalising) phase. The
+  phase transition in weight space corresponds to a symmetry-breaking transition
+  from a replica-symmetric (high-temperature) to a replica-symmetry-broken
+  (low-temperature) solution in the mean-field limit — exactly the spin-glass
+  formalism of Sherrington-Kirkpatrick (1975).
+
+translation_table:
+  - field_a_term: "Temperature T in spin glass"
+    field_b_term: "Learning rate / noise level in SGD"
+    note: "High T = high noise = disordered phase; low T = sharp loss basin = ordered phase"
+  - field_a_term: "Order parameter m (magnetisation)"
+    field_b_term: "Test accuracy / generalisation gap"
+    note: "Zero in disordered phase; jumps discontinuously at phase transition"
+  - field_a_term: "Critical capacity alpha_c = 0.138 (Hopfield)"
+    field_b_term: "Interpolation threshold (N_params = N_data)"
+    note: "Both mark the boundary between memorisation and catastrophic failure/spin-glass phase"
+  - field_a_term: "Replica symmetry breaking (RSB)"
+    field_b_term: "Multiple distinct loss basins (flat minima landscape)"
+    note: "RSB = exponentially many metastable states; deep learning = exponentially many flat minima"
+  - field_a_term: "1/f noise at criticality"
+    field_b_term: "Neural scaling power laws L ~ N^{-alpha}"
+    note: "Power laws in both; grokking is near-critical; scaling laws suggest criticality throughout training"
+  - field_a_term: "Renormalisation group (RG) fixed point"
+    field_b_term: "Representation convergence (deep networks distil same features regardless of architecture)"
+    note: "RG: irrelevant operators flow to zero; DNN: architecture-independent features emerge at depth"
+
+related_unknowns:
+  - u-grokking-criticality-universality-class
+
+related_hypotheses:
+  - h-grokking-criticality-universality
+
+cross_pollination_opportunities:
+  - "Use spin-glass free energy methods to predict at what dataset size a transformer will 'grok' modular arithmetic"
+  - "Design a 'grokking diagnostic' that measures the hidden-layer dimension (order parameter) in real time during training"
+  - "Apply RG flow analysis to neural architecture search — irrelevant architectural choices should flow away under training"
+  - "Use the RS/RSB transition to predict catastrophic forgetting: RSB = many metastable states = forgetting risk"
+
+communication_gap: >
+  Phase transitions in machine learning were mathematically framed by the
+  statistical physics community (Sompolinsky, Gardner, Amit, Mezard — JSTAT and
+  PRL papers, 1980s-90s) but were essentially ignored by the ML engineering
+  community until Kaplan et al. (2020) scaling laws made the empirical power
+  laws impossible to ignore. The grokking phenomenon (Power et al. 2022,
+  OpenAI) was reported by ML engineers without reference to phase transition
+  language; the connection was made independently in several 2023-2026 papers.
+  No textbook in deep learning connects grokking to the Ising model.
+
+references:
+  - doi: "10.48550/arXiv.2201.02177"
+    note: "Power et al. (2022) — Grokking: generalisation beyond overfitting. Seeded from arXiv nlin:AO harvest 2026-05-04: Dimensional Criticality at Grokking Across MLPs and Transformers"
+  - doi: "10.48550/arXiv.2001.08361"
+    note: "Kaplan et al. (2020) — Neural scaling laws"
+  - doi: "10.48550/arXiv.1412.0233"
+    note: "Choromanska et al. (2015) — loss surfaces of DNN and spin glasses"
+  - doi: "10.1103/PhysRevLett.35.1792"
+    note: "Sherrington & Kirkpatrick (1975) — original SK spin-glass model"
+
+last_reviewed: "2026-05-05"
