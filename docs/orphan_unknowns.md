@@ -1,10 +1,22 @@
 # Orphan Unknowns — Priority Contribution Targets
 
-These **260** unknowns have no associated hypothesis or bridge edge in the knowledge graph.
+These **329** unknowns have no associated hypothesis or bridge edge in the knowledge graph.
 They are the highest-priority targets for new contributions — add a hypothesis or propose a cross-domain bridge connecting them.
 
 | ID | Title |
 |---|---|
+| `u-aesthetic-preference-neural-basis` | What neural circuits and computational principles underlie aesthetic preference, and are these circuits domain-general or art-form specific? |
+| `u-architectural-emotional-impact` | What physical properties of built environments causally affect psychological well-being, stress, and cognitive performance? |
+| `u-collective-vs-individual-creativity` | Under what conditions does group collaboration enhance vs. inhibit creative output compared to individuals working alone? |
+| `u-color-emotion-mapping` | Is the mapping between colors and emotional valence universal or culturally constructed, and what are the physiological mechanisms? |
+| `u-creativity-intelligence-correlation` | What is the relationship between general intelligence (g) and creative ability, and does the threshold hypothesis hold above IQ 120? |
+| `u-flow-state-neural-signature` | What are the neural and physiological signatures of the "flow state" (optimal experience), and can flow be reliably induced and measured? |
+| `u-humor-cognitive-mechanism` | What is the computational and neural mechanism of humor comprehension, and why does incongruity resolution trigger positive affect? |
+| `u-improvisation-neural-correlates` | What neural mechanisms distinguish improvised from rehearsed musical performance, and does improvisation require deactivation of executive control? |
+| `u-metaphor-abstract-thought` | Is abstract thought fundamentally grounded in sensorimotor metaphor (conceptual metaphor theory), or can genuine amodal abstract representation exist? |
+| `u-narrative-comprehension-brain` | What brain regions and computational processes support the construction of narrative mental models during story comprehension? |
+| `u-synaesthesia-mechanism` | What neural mechanisms produce synesthesia, and why does cross-activation of perceptual modalities occur in approximately 4% of the population? |
+| `u-visual-art-emotional-response` | What visual features of artworks reliably evoke specific emotional responses, and does the "aesthetic emotion" differ from ordinary emotion? |
 | `u-baryon-asymmetry-origin` | What is the mechanism of baryogenesis that produced the observed matter-antimatter asymmetry? |
 | `u-black-hole-information-paradox` | Is information destroyed by black hole evaporation, and if not, how is it encoded in Hawking radiation? |
 | `u-cgm-enrichment` | How is the circumgalactic medium enriched with metals and what is its role in the baryon cycle? |
@@ -117,6 +129,50 @@ They are the highest-priority targets for new contributions — add a hypothesis
 | `u-supply-chain-resilience-efficiency` | What is the optimal tradeoff between supply chain efficiency and resilience, and how has COVID-19 revealed the limits of just-in-time production? |
 | `u-trade-war-equilibrium` | What is the long-term equilibrium outcome of escalating trade wars, and under what conditions do countries converge to cooperation versus persistent protection? |
 | `u-universal-basic-income-macro-effects` | What are the macroeconomic effects of universal basic income on labour supply, inflation, innovation, and wellbeing at scale? |
+| `u-advanced-fission-proliferation` | Do advanced fission reactor designs (molten salt, fast spectrum, small modular reactors) present materially different nuclear proliferation risks than light-water reactors? |
+| `u-autonomous-vehicle-edge-cases` | How frequent are truly novel edge cases for autonomous vehicles in real-world deployment, and can safety guarantees be established without exhaustive real-world testing? |
+| `u-biodegradable-electronics` | Can biodegradable or transient electronics achieve the electrical performance and environmental lifetime control needed for implantable and disposable devices? |
+| `u-carbon-capture-regeneration` | What is the minimum thermodynamic energy penalty for CO2 capture and sorbent regeneration, and how close do current materials come to this limit? |
+| `u-fusion-plasma-stability` | What are the remaining plasma instability and confinement barriers to sustained net-energy-gain nuclear fusion at commercial scale? |
+| `u-geothermal-subsidence` | What controls surface subsidence and induced seismicity from enhanced geothermal systems, and can they be predicted and mitigated in pre-development assessment? |
+| `u-green-hydrogen-electrolysis` | What is the fundamental efficiency ceiling for water electrolysis for green hydrogen production, and what electrode degradation mechanisms limit durability? |
+| `u-hypersonic-thermal-protection` | What material systems can provide reliable, reusable thermal protection for hypersonic vehicles at Mach 10–25 over multiple flights? |
+| `u-metamaterial-acoustic-cloaking` | Can acoustic metamaterial cloaks achieve broadband, three-dimensional sound cloaking at practical scales, or are fundamental bandwidth-thickness trade-offs prohibitive? |
+| `u-microplastic-filtration` | What physical and chemical mechanisms enable efficient removal of nanoplastics and microplastics from drinking water and wastewater at scale? |
+| `u-nanotechnology-self-assembly-yield` | What limits the yield and complexity of DNA origami and molecular self-assembly, and how can hierarchical nanostructures be built with near-unity yield? |
+| `u-neuromorphic-energy-efficiency` | What are the fundamental energy efficiency limits of neuromorphic computing, and how do they compare to biological neural computation? |
+| `u-quantum-error-correction-overhead` | What is the minimum physical qubit overhead required for fault-tolerant quantum computation at error rates achievable in near-term hardware? |
+| `u-reusable-rocket-precision` | What are the guidance and control limits for precision propulsive rocket landing, and what failure modes bound reusability turnaround times? |
+| `u-smart-grid-stability` | How can electrical grid stability be maintained at high variable renewable energy penetration without fossil fuel synchronous generators providing inertia? |
+| `u-soft-robotics-actuator-lifespan` | What limits the fatigue life of soft pneumatic and hydraulic actuators, and can they achieve the 10^7+ cycle durability required for practical service robots? |
+| `u-turbulent-drag-reduction-limit` | Is there a fundamental physical limit to turbulent drag reduction in pipe and channel flows, and does the maximum drag reduction (MDR) asymptote represent a true physical bound? |
+| `u-urban-air-mobility-noise` | What are the fundamental acoustic limits of electric vertical-takeoff-and-landing (eVTOL) aircraft, and can they achieve community-acceptable noise levels in urban environments? |
+| `u-water-desalination-energy` | How close to the thermodynamic minimum can seawater desalination approach, and what membrane and process innovations are needed to close the gap? |
+| `u-wireless-power-transfer-limit` | What are the fundamental efficiency and range limits of resonant inductive and far-field wireless power transfer, and how does Friis transmission compare to near-field coupling? |
+| `u-continental-drift-initiation` | What initiated plate tectonics on early Earth, and did it operate continuously or episodically in the Archean? |
+| `u-cratonic-root-stability` | Why are Archean cratonic keels stable for billions of years, and what conditions cause their sudden removal? |
+| `u-crustal-delamination` | When and how does lower crustal delamination occur, and what are its topographic, geochemical, and volcanic consequences? |
+| `u-deep-carbon-storage` | How much carbon is stored in Earth's deep interior, and what controls the long-term geologic carbon cycle between mantle, crust, and atmosphere? |
+| `u-deep-earth-water-cycle` | How much water is stored in Earth's mantle and lower crust, and what are the fluxes that govern the deep water cycle? |
+| `u-delta-avulsion-prediction` | Can river delta avulsion timing and pathfinding be predicted, and what are the dominant controls on avulsion frequency? |
+| `u-diamond-inclusion-dating` | How reliably do diamond inclusion ages record ancient mantle events, and what biases affect inclusions as windows into deep Earth history? |
+| `u-geomagnetic-excursion-climate` | Do geomagnetic excursions and reversals affect climate by modulating cosmic ray flux and ozone production? |
+| `u-geomagnetic-reversal-prediction` | Can geomagnetic field reversals be predicted, and what controls their frequency and duration? |
+| `u-hydrothermal-vent-biodiversity` | What determines species richness and biogeographic connectivity patterns at deep-sea hydrothermal vents? |
+| `u-inner-core-anisotropy-origin` | What is the origin of seismic anisotropy in Earth's inner core, and does it record solidification texture or ongoing convection? |
+| `u-karst-aquifer-connectivity` | How are karst aquifer conduit networks organized, and can their connectivity and recharge dynamics be characterized without full cave exploration? |
+| `u-mantle-convection-transitions` | What controls the transition between layered and whole-mantle convection, and can the pattern switch on geologic timescales? |
+| `u-mineral-nucleation-kinetics` | What controls mineral nucleation kinetics in natural fluids, and why do classical nucleation theory predictions fail for many geological systems? |
+| `u-post-perovskite-implications` | What are the dynamical and seismic implications of the post-perovskite phase transition in Earth's D'' layer? |
+| `u-river-network-branching` | Is river network branching geometry universal, and what physical principle selects Hack's law exponents and Horton ratios? |
+| `u-sea-level-fingerprint` | How do sea-level fingerprints from individual ice mass changes allow attribution of observed sea-level trends to specific glacier and ice sheet sources? |
+| `u-sediment-transport-nonlinearity` | What are the nonlinear thresholds and stochastic dynamics governing sediment transport in rivers and their long-term geomorphic effects? |
+| `u-serpentinization-hydrogen` | What is the global flux of abiotic hydrogen produced by serpentinization, and can it support subsurface chemolithotrophs at ocean ridges and in continental settings? |
+| `u-snowball-earth-escape` | How did Snowball Earth events end, and what prevented Earth from permanently freezing under high-albedo ice cover? |
+| `u-subduction-initiation` | How does subduction initiation occur, and can it begin spontaneously from a passive margin without a pre-existing plate boundary? |
+| `u-supervolcano-eruption-forecasting` | What are the precursors and timescales of supereruption onset at caldera systems like Yellowstone and Campi Flegrei? |
+| `u-tsunami-submarine-slides` | What are the physics of tsunami generation by submarine landslides, and how does slide rheology control wave amplitude and runup? |
+| `u-xenolith-mantle-bias` | To what extent do mantle xenoliths provide a representative sample of the lithospheric mantle, and what biases are introduced by entrainment and transport? |
 | `u-bilingual-cognitive-advantage-replication` | Does bilingualism confer measurable cognitive advantages in executive function, and why have many key findings failed to replicate? |
 | `u-creole-genesis-mechanism` | What grammatical and social mechanisms produce creole languages from contact situations, and is there a universal creole prototype? |
 | `u-endangered-language-documentation-priority` | What documentation strategies best preserve endangered languages for future linguistic and cultural research, and how should priorities be set? |
@@ -219,9 +275,22 @@ They are the highest-priority targets for new contributions — add a hypothesis
 | `u-engram-molecular-basis` | What are the molecular and synaptic mechanisms that store specific memories in engram cells, and how are they maintained over decades? |
 | `u-glial-cell-computation` | Do astrocytes perform genuine computational operations on neural signals through tripartite synapses, or is gliotransmission a modulatory background process? |
 | `u-interoception-consciousness-link` | How does interoceptive signalling from body organs contribute to emotional experience and conscious self-awareness? |
-| `u-neuroplasticity-adult-limits` | What are the molecular and circuit mechanisms that limit neuroplasticity in the adult brain, and how can they be safely reopened? |
 | `u-pain-gate-control-molecular-basis` | What is the molecular identity of the 'gate' in Melzack-Wall gate control theory, and does it correspond to a specific interneuron type in the dorsal horn? |
 | `u-synapse-heterogeneity-function` | What is the functional significance of the enormous molecular heterogeneity of synapses, and does synapse-type diversity encode information? |
+| `u-causation-vs-correlation` | Under what observational study designs and statistical assumptions can causal conclusions be reliably drawn without experimental intervention? |
+| `u-citizen-science-quality` | Under what conditions does citizen science generate data of sufficient quality for peer-reviewed scientific conclusions? |
+| `u-emergence-vs-reduction` | Under what conditions are higher-level scientific explanations genuinely autonomous rather than in-principle reducible to lower-level descriptions? |
+| `u-interdisciplinary-barriers` | What are the structural and epistemic barriers to effective interdisciplinary collaboration, and how can they be systematically reduced? |
+| `u-measurement-theory-foundations` | What is the ontological status of measurement scales, and under what conditions do psychometric measurements quantify genuine psychological attributes? |
+| `u-model-selection-validity` | Are AIC, BIC, and MDL genuinely measuring predictive accuracy or model simplicity, and when do they give misleading guidance? |
+| `u-open-science-incentives` | What incentive structures and institutional reforms would sustainably increase open data sharing, preregistration, and replication in science? |
+| `u-paradigm-shift-prediction` | Are Kuhnian paradigm shifts predictable from anomaly accumulation patterns, and can science-of-science methods detect pre-revolutionary conditions? |
+| `u-peer-review-validity` | Does peer review reliably filter low-quality and incorrect science, and what alternative gatekeeping mechanisms might perform better? |
+| `u-publication-bias-correction` | Can publication bias be corrected post-hoc in meta-analyses, and what methods are valid under realistic distributions of true effects? |
+| `u-science-communication-effectiveness` | What communication strategies reliably improve public understanding of scientific evidence and reduce belief in scientific misinformation? |
+| `u-scientific-consensus-formation` | What are the epistemic and social mechanisms by which scientific consensus forms, and under what conditions can consensus be mistaken? |
+| `u-scientific-progress-measure` | How should scientific progress be measured, and do citation counts, replication rates, or predictive accuracy provide valid progress indicators? |
+| `u-theory-ladenness-observation` | In what sense and to what degree are scientific observations theory-laden, and does this threaten the independence of evidence from theory? |
 | `u-bell-loophole-free-implications` | What are the full physical implications of loophole-free Bell inequality violations, and do they definitively rule out all local hidden variable theories? |
 | `u-decoherence-timescales-warm-systems` | What determines quantum decoherence timescales in warm, wet biological systems, and can coherence survive long enough to be functionally relevant? |
 | `u-entanglement-entropy-area-law-exceptions` | What are the conditions under which quantum systems violate the entanglement entropy area law, and what do violations imply for classical simulability? |
