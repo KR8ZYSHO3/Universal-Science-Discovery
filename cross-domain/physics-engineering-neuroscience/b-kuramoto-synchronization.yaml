@@ -1,0 +1,119 @@
+id: b-kuramoto-synchronization
+title: >
+  The Kuramoto model of coupled phase oscillators is a single mathematical
+  framework that simultaneously describes neural gamma-band synchronization,
+  cardiac pacemaker coupling, power-grid frequency stability, and laser array
+  coherence — four fields with almost no cross-disciplinary communication despite
+  sharing identical governing equations.
+status: proposed
+fields:
+  - statistical-physics
+  - neuroscience
+  - cardiology
+  - electrical-engineering
+  - nonlinear-dynamics
+bridge_claim: >
+  The Kuramoto model (1975) describes a population of N coupled phase oscillators:
+    d(theta_i)/dt = omega_i + (K/N) * sum_j sin(theta_j - theta_i)
+  where omega_i are natural frequencies (drawn from a distribution g(omega)) and K
+  is coupling strength. At critical coupling K_c = 2 / (pi * g(0)), a phase
+  transition occurs: the oscillators spontaneously synchronize, and an order
+  parameter r (mean-field coherence) jumps from 0 to a finite value as a
+  second-order phase transition.
+
+  This model, or its direct extensions, describes:
+
+  1. **Neural gamma oscillations** (30-100 Hz): cortical interneuron networks
+     synchronize via GABA synapses. The onset of gamma is a Kuramoto transition;
+     the order parameter r corresponds to the Local Field Potential (LFP) gamma-band
+     power. The b-criticality-neuroscience bridge already connects this to
+     statistical physics — Kuramoto provides the *mechanism*.
+
+  2. **Cardiac pacemaker cells**: sinoatrial node cells synchronize their calcium
+     oscillations via gap junctions. Arrhythmia (atrial fibrillation) onset maps to
+     a Kuramoto desynchronization transition below K_c. The hypothesis
+     h-cardiac-arrhythmia-phase-transition in this repository explicitly predicts this.
+
+  3. **Power grid frequency stability**: AC generators are phase oscillators coupled
+     by transmission lines. Grid collapse (frequency cascades) is a Kuramoto
+     desynchronization event. The same K_c formula that predicts neural gamma onset
+     also predicts grid stability margins — a result that power engineers derive
+     independently using swing equations.
+
+  4. **Laser array coherence**: arrays of coupled semiconductor lasers synchronize
+     when injection coupling exceeds a threshold exactly described by Kuramoto K_c.
+     Laser array phased locking is an engineering application of the same transition
+     that causes neural gamma oscillations.
+
+  All four systems have been studied intensively for decades in separate literatures.
+  The shared Kuramoto framework would let each field import analytical results
+  (mean-field theory, finite-size corrections, noise effects, network topology
+  corrections) derived in any of the others.
+translation_table:
+  - field_a_term: Kuramoto coupling constant K
+    field_b_term: neural — GABAergic synapse conductance; cardiac — gap junction conductance; engineering — transmission line susceptance
+  - field_a_term: critical coupling K_c = 2/(pi*g(0))
+    field_b_term: neural — gamma oscillation onset threshold; cardiac — arrhythmia vulnerability; engineering — grid stability margin
+  - field_a_term: order parameter r (mean-field coherence)
+    field_b_term: neural — LFP gamma power; cardiac — atrial synchrony index; engineering — grid frequency coherence
+  - field_a_term: natural frequency distribution g(omega)
+    field_b_term: neural — intrinsic firing rate distribution of interneurons; cardiac — cell-to-cell calcium oscillation period variance
+  - field_a_term: phase transition at K_c (second-order, mean-field)
+    field_b_term: all systems — abrupt onset of synchrony; identified independently as "critical transition" in each field
+  - field_a_term: finite-size fluctuations of r near K_c
+    field_b_term: neural — trial-to-trial variability near gamma onset; cardiac — paroxysmal AF triggered by noise; engineering — grid frequency noise near stability margin
+related_unknowns:
+  - u-brain-criticality-function
+  - u-cardiac-criticality-synchronization
+related_hypotheses:
+  - h-cardiac-arrhythmia-phase-transition
+  - h-criticality-conscious-integration
+cross_pollination_opportunities:
+  - >
+    Power engineers have derived exact finite-size corrections to the Kuramoto K_c
+    for heterogeneous network topologies (the "swing equation" literature). These
+    corrections predict how a non-uniform coupling network shifts the synchronization
+    threshold. Cardiologists studying sinoatrial node heterogeneity have never
+    imported these results — yet they are directly applicable to predicting which
+    patients' nodal coupling heterogeneity makes them vulnerable to AF.
+  - >
+    Neuroscientists have measured the scaling of LFP gamma power near the onset
+    transition in primate cortex. If this scaling matches the Kuramoto mean-field
+    prediction r ~ (K - K_c)^(1/2), it confirms the universality class. The data
+    exists; the comparison has not been made systematically.
+  - >
+    Laser array engineers have developed noise-robust phase-locking protocols using
+    delayed feedback. These protocols keep laser arrays synchronized in the presence
+    of noise well below the mean-field K_c. Identical protocols, translated to
+    biological coupling, would suggest novel pacemaker designs or optogenetic
+    stimulation patterns to maintain cardiac synchrony in pre-AF patients.
+  - >
+    The Kuramoto model on a complex network (scale-free, small-world) has exact
+    analytical solutions for the critical coupling as a function of the network's
+    spectral gap. The human connectome and the cardiac conduction network have both
+    been mapped. Comparing their spectral gaps to measured synchronization thresholds
+    would test whether the brain and heart operate at the same Kuramoto universality
+    class or at distinct fixed points determined by network architecture.
+communication_gap: >
+  The Kuramoto model appears in Physics Reviews, Journal of Neuroscience, Circulation,
+  and IEEE Transactions on Power Systems — four journals whose editorial boards have
+  essentially zero overlap. Cardiologists who study AF triggers use the term "rotor"
+  (a spatial pattern of desynchronized spiral waves) without awareness that it maps
+  to a Kuramoto defect. Power engineers who study frequency cascades use "swing
+  equation" without awareness that it is a Kuramoto model on a network. The shared
+  framework would allow each field to read the other's 50-year literature of
+  analytical results.
+last_reviewed: "2026-05-04"
+references:
+  - doi: "10.1007/BFb0013365"
+    note: Kuramoto (1975) — original model; second-order synchronization transition
+  - doi: "10.1103/RevModPhys.77.137"
+    note: Acebron et al. (2005) — comprehensive review of Kuramoto model across fields
+  - doi: "10.1016/j.neuron.2009.08.019"
+    note: Fries (2009) — neural gamma oscillations and interneuron synchrony; implicit Kuramoto dynamics
+  - doi: "10.1161/CIRCRESAHA.116.308401"
+    note: Nattel (2002) — AF mechanisms; rotor dynamics as Kuramoto desynchronization
+  - doi: "10.1109/TPWRS.2012.2196691"
+    note: Dorfler & Bullo (2012) — explicit Kuramoto framework for power grid synchronization
+  - arxiv: "2003.07408"
+    note: Rodrigues et al. (2016) — Kuramoto model on complex networks; spectral gap formula for K_c

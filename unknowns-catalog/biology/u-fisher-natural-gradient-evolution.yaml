@@ -1,0 +1,47 @@
+id: u-fisher-natural-gradient-evolution
+title: >
+  Does natural selection implement natural gradient ascent on the fitness landscape
+  in the Fisher information metric, and does the evolutionary speed limit
+  (dW_bar/dt <= V_A = I_pop) match empirical selection responses across taxa?
+status: open
+priority: high
+last_reviewed: "2026-05-04"
+disciplines:
+  - evolutionary-biology
+  - mathematical-statistics
+  - population-genetics
+  - machine-learning
+summary: >
+  Fisher's fundamental theorem of natural selection (1930) states that the rate of
+  increase of mean fitness equals the additive genetic variance in fitness (V_A).
+  Fisher's information matrix I(theta) (1925) bounds estimation speed: no estimator
+  can improve faster than I(theta) allows. These are the same result: V_A is the
+  Fisher information of the population about the fitness gradient.
+
+  In modern machine learning, the natural gradient (Amari 1998) is the theoretically
+  optimal gradient direction on a statistical manifold — it prefers parameter moves
+  that change the distribution most efficiently per unit of information-geometric
+  distance. Evolution on a fitness landscape is natural gradient ascent under this
+  definition.
+
+  **The gap**: the Fisher-information speed limit on natural selection has never been
+  systematically tested against empirical data:
+  - Does the measured response to artificial selection (R = h^2 * S, breeder's
+    equation) saturate the Fisher-information bound V_A?
+  - Do populations under strong selection evolve as fast as V_A allows, or do
+    genetic drift and epistasis systematically reduce the achieved rate below the bound?
+  - In multi-trait selection (multivariate breeder's equation), does the G-matrix
+    (genetic covariance matrix) encode the Fisher information geometry of the fitness
+    landscape, and does evolution follow the natural gradient direction?
+
+  Answering these questions would either confirm that natural selection is
+  information-geometrically optimal, or identify the systematic sources of
+  sub-optimal evolutionary speed.
+systematic_gaps:
+  - The Fisher-information speed limit V_A has not been compared to empirical selection response in artificial selection experiments across multiple taxa
+  - The G-matrix (genetic covariance matrix) has not been analysed as a Fisher information matrix and compared to the theoretical optimum for the measured fitness landscape
+  - Multi-trait selection responses have not been tested for correspondence with natural gradient ascent direction vs steepest gradient ascent direction
+  - The machine learning natural gradient convergence guarantees have not been applied to predict evolutionary convergence time in adaptive landscapes
+related_bridges:
+  - b-fisher-information-evolution
+  - b-error-threshold-information

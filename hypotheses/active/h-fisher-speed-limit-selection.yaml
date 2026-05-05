@@ -1,0 +1,71 @@
+id: h-fisher-speed-limit-selection
+title: >
+  Artificial selection responses across taxa saturate the Fisher-information
+  speed limit V_A within 10%, and departures from saturation are predicted
+  by the ratio of genetic drift (Ne) to selection intensity — confirming
+  that natural selection is information-geometrically near-optimal in large
+  populations and drift-limited in small ones.
+status: active
+created: "2026-05-04"
+last_updated: "2026-05-04"
+priority: high
+related_disciplines:
+  - evolutionary-biology
+  - mathematical-statistics
+  - population-genetics
+unknowns_addressed:
+  - u-fisher-natural-gradient-evolution
+evidence_links:
+  - type: supporting
+    note: >
+      The breeder's equation R = h^2 * S already implicitly contains the Fisher
+      speed limit: V_A = h^2 * V_P (additive genetic variance). The response R per
+      generation equals V_A * beta (selection gradient). This saturates the Fisher
+      bound in infinite populations. The question is whether finite Ne and
+      epistasis reduce R below V_A * beta in practice.
+  - type: supporting
+    note: >
+      Long-term selection experiments (Illinois long-term selection for oil in maize,
+      >100 generations; Drosophila body size experiments; E. coli LTEE) show sustained
+      response over many generations, suggesting V_A is maintained and the Fisher bound
+      is not permanently exceeded. Systematic comparison to the exact Fisher bound has
+      not been done.
+  - type: contradicting
+    note: >
+      Epistasis and gene-by-environment interactions mean V_A (and hence the Fisher
+      information) changes as allele frequencies change under selection. In strong
+      selection, V_A may decline faster than the breeder's equation predicts —
+      the "Bulmer effect." The Fisher speed limit is therefore not static; it
+      co-evolves with the population. A static speed limit comparison may be
+      systematically wrong, and the hypothesis requires fitting the dynamic
+      Fisher information trajectory rather than a snapshot.
+proposed_tests:
+  - discipline: evolutionary-biology
+    description: >
+      Compile 100+ artificial selection experiments from the literature with measured
+      selection differential S, realized heritability h^2, and phenotypic variance V_P
+      across at least 5 generations. For each, compute the predicted Fisher speed limit
+      V_A = h^2 * V_P. Compare the actual response R per generation to V_A * beta.
+      Compute efficiency = R / (V_A * beta). Test whether efficiency clusters near 1.0
+      in large populations and decreases as N_e decreases, with the efficiency
+      correction factor ~ (1 - 1/(2*N_e*s)).
+  - discipline: population-genetics
+    description: >
+      In the Illinois maize oil selection experiment (>100 generations, well-documented
+      V_A trajectory), compute the Fisher information matrix from the G-matrix at each
+      10-generation interval. Test whether the realized selection response direction
+      matches the natural gradient ascent direction (Fisher-metric steepest ascent)
+      vs the ordinary gradient ascent direction. If the G-matrix encodes the Fisher
+      geometry, the natural gradient prediction should be closer to the realized
+      response trajectory than the ordinary gradient prediction.
+  - discipline: machine-learning
+    cross_domain_angle: >
+      Run a parallel experiment: train a neural network on a fitness landscape
+      using (a) ordinary gradient descent and (b) natural gradient descent
+      (KFAC preconditioner). Compare convergence rates to the theoretical bound.
+      The natural gradient should converge faster by a factor proportional to
+      the condition number of the Fisher information matrix. Then measure the
+      condition number of G-matrices from real organisms and predict the speedup
+      that natural selection achieves by using V_A (natural gradient) over
+      ordinary phenotypic gradient — a quantitative measure of how much
+      faster selection is than random drift.
