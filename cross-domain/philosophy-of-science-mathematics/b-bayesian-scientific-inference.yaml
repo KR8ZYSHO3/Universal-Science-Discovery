@@ -1,0 +1,143 @@
+id: b-bayesian-scientific-inference
+title: >
+  Scientific inference is Bayesian belief updating: Bayes' theorem
+  formalises induction, Occam's razor emerges as automatic model
+  complexity penalty, and the Duhem-Quine problem maps to
+  Bayesian model comparison — unifying philosophy of science with
+  probability theory.
+status: established
+fields:
+  - philosophy-of-science
+  - Bayesian-statistics
+  - epistemology
+  - mathematics
+  - cognitive-science
+
+bridge_claim: >
+  The central problem of philosophy of science — how does evidence
+  confirm or disconfirm hypotheses? — is solved in quantitative form
+  by Bayes' theorem:
+
+    P(H | E) = P(E | H) · P(H) / P(E)
+
+  Bayesian confirmation theory (Howson & Urbach 1989) shows that this
+  equation captures the entire logic of empirical inference:
+
+  1. PRIOR P(H): The scientist's background theoretical commitments and
+  plausibility assessments before observing E. These are not irrational
+  — they encode everything known from prior experiments and theory.
+
+  2. LIKELIHOOD P(E | H): The predictive power of the hypothesis. A
+  hypothesis that predicted E strongly (P(E|H) ≫ P(E)) receives large
+  confirmation. This is Popper's corroboration in probabilistic form.
+
+  3. POSTERIOR P(H | E): The rational degree of belief after observing E.
+  Scientific consensus = the posterior after the entire sequence of
+  experimental evidence.
+
+  OCCAM'S RAZOR AS BAYESIAN MODEL SELECTION: MacKay (2003) shows that
+  when integrating out parameters to compute the model evidence P(E|M),
+  complex models are automatically penalised even without an explicit
+  simplicity prior. A model with 10 parameters must spread its
+  predictive probability over a larger hypothesis space than a 3-parameter
+  model; if both fit the data equally well, the simpler model has higher
+  evidence. This "Occam factor" makes Occam's razor a theorem, not an
+  assumption. Jeffreys (1939) developed this framework first; Kass &
+  Raftery (1995) provided a practical calibration via Bayes factors.
+
+  THE DUHEM-QUINE PROBLEM: When an experiment falsifies a prediction,
+  which auxiliary hypothesis (H_aux) is responsible? Bayesian analysis
+  shows that the posterior probability is distributed across all
+  candidate hypotheses proportionally to their likelihoods and priors.
+  The blame falls on whichever combination (H_core + H_aux) has the
+  lowest prior × likelihood product. This does not eliminate underdetermination
+  but it makes the rational allocation of disconfirmation explicit and
+  computable.
+
+  BAYES FACTOR B_{01} = P(E | H_0) / P(E | H_1): The ratio of model
+  evidences quantifies the strength of evidence for H_0 over H_1
+  independently of prior odds. Kass & Raftery's scale (B > 150 = very
+  strong evidence) gives a practical calibration for scientific
+  peer review. p-values, by contrast, do not quantify evidence for H_0.
+
+  The bridge is foundational: it does not merely analogise the two
+  fields but shows that epistemology's normative theory of rational
+  belief change IS probability theory. Every concept in the philosophy
+  of scientific inference has a direct mathematical translation.
+
+translation_table:
+  - field_a_term: "Prior probability P(H) (philosophy of science)"
+    field_b_term: "Prior distribution over hypothesis space (Bayesian statistics)"
+    note: "Encodes background theoretical commitments and plausibility"
+  - field_a_term: "Predictive power of hypothesis"
+    field_b_term: "Likelihood P(E | H)"
+    note: "A hypothesis is powerful if it strongly predicts what was observed"
+  - field_a_term: "Rational degree of belief after evidence"
+    field_b_term: "Posterior probability P(H | E)"
+    note: "The output of Bayesian updating IS rational scientific credence"
+  - field_a_term: "Occam's razor (prefer simpler hypotheses)"
+    field_b_term: "Bayesian Occam factor (automatic complexity penalty in marginal likelihood)"
+    note: "Occam's razor is a theorem of probability theory, not a separate principle"
+  - field_a_term: "Bayes factor B_{01} = P(E|H_0) / P(E|H_1)"
+    field_b_term: "Evidence ratio between competing scientific theories"
+    note: "Kass & Raftery (1995) calibration: B > 150 = very strong evidence"
+  - field_a_term: "Duhem-Quine problem (which auxiliary to reject)"
+    field_b_term: "Bayesian posterior over (H_core, H_aux) joint hypothesis space"
+    note: "Probability theory distributes disconfirmation rationally across candidates"
+  - field_a_term: "Scientific consensus"
+    field_b_term: "Community posterior after all published evidence"
+    note: "Formal definition of scientific consensus in Bayesian terms"
+  - field_a_term: "Theory change / paradigm shift"
+    field_b_term: "Large Bayes factor + prior update shifting posterior mass"
+    note: "Kuhnian revolutions = sudden accumulation of decisive Bayes factors"
+
+related_unknowns:
+  - u-bayesian-prior-objectivity
+  - u-model-selection-validity
+
+related_hypotheses:
+  - h-bayes-factor-theory-selection
+  - h-preregistration-field-replication-rate
+
+cross_pollination_opportunities:
+  - >
+    Train scientists to compute Bayes factors rather than p-values:
+    a direct translation of statistics into the language philosophers
+    of science use for theory confirmation. Would resolve the
+    "replication crisis" framing — failed replications are informative
+    Bayes factors, not binary failures.
+  - >
+    Apply Bayesian model comparison to the history of science: compute
+    the sequential Bayes factors that would have been generated by
+    historical experiments (e.g., Eddington 1919 eclipse, Michelson-Morley,
+    Bell inequality tests) to reconstruct the rational posterior update
+    for each landmark result.
+  - >
+    Use the Bayesian framework to formalise auxiliary-hypothesis blame
+    allocation in contested scientific controversies (e.g., cold fusion,
+    OPERA superluminal neutrinos) — making the Duhem-Quine problem a
+    solvable inference problem rather than a philosophical impasse.
+  - >
+    Build a Bayesian meta-analysis engine for USDR: compute posterior
+    probability of each hypothesis in hypotheses/active/ given all
+    published evidence links, updating as new evidence_links are added.
+
+communication_gap: >
+  Philosophers of science study confirmation theory in journals like
+  British Journal for the Philosophy of Science and Philosophy of Science.
+  Statisticians develop Bayesian methods in JASA, Biometrika, and Bayesian
+  Analysis. The explicit identification of Bayesian confirmation theory
+  with the epistemology of science was made by Howson & Urbach (1989) and
+  MacKay (2003), but is still not standard in either field's training.
+  Most working scientists are taught null-hypothesis significance testing
+  (NHST), not Bayesian inference, creating a systematic disconnect between
+  the normative theory of scientific inference and scientific practice.
+
+last_reviewed: "2026-05-05"
+
+references:
+  - note: "Jeffreys (1939) Theory of Probability (Oxford University Press) — first systematic Bayesian framework for scientific inference"
+  - note: "Howson & Urbach (1989) Scientific Reasoning: The Bayesian Approach (Open Court) — Bayesian confirmation theory"
+  - note: "MacKay (2003) Information Theory, Inference, and Learning Algorithms (Cambridge) — Occam factor as theorem"
+  - doi: "10.1080/01621459.1995.10476572"
+    note: "Kass & Raftery (1995) JASA 90:773 — Bayes factors and their interpretation scale"

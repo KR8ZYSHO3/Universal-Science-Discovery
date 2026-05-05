@@ -1,0 +1,147 @@
+id: b-robustness-evolvability-modularity
+title: >
+  The robustness-evolvability trade-off in engineering (rigid vs. adaptable
+  design) maps onto canalization vs. evolvability in evolution (Waddington
+  1942, Kirschner & Gerhart 1998), and both fields solve it through
+  near-decomposable modular architecture (Simon 1962).
+status: proposed
+fields:
+  - evolutionary-biology
+  - systems-biology
+  - engineering
+  - complexity-science
+  - developmental-biology
+
+bridge_claim: >
+  In engineering, two fundamental design objectives conflict:
+
+  - ROBUSTNESS: Resistance to perturbations (noise, damage, parameter
+    variation). Achieved by over-engineering, redundancy, tight tolerances.
+  - EVOLVABILITY: Ease of modification for new functionality. Achieved by
+    loose coupling, modular interfaces, minimal redundancy.
+
+  Robust systems tend to be brittle under novel conditions (the robust-yet-
+  fragile property of tightly optimised systems). Highly evolvable systems
+  tend to be fragile under environmental stress. This engineering tension
+  has an exact biological analog:
+
+  CANALIZATION (Waddington 1942): Developmental pathways that reliably
+  produce wild-type phenotype despite genetic or environmental perturbations.
+  Canalized traits buffer mutations — they are robust. But this same
+  buffering hides genetic variation from selection, potentially reducing
+  evolvability. Cryptic genetic variation accumulates in canalized
+  backgrounds; under stress, canalization breaks and the hidden variation
+  is exposed — allowing rapid evolutionary response (Rutherford & Lindquist
+  1998: Hsp90 as capacitor).
+
+  EVOLVABILITY (Kirschner & Gerhart 1998): The capacity of organisms to
+  generate heritable phenotypic variation. Achieved through weak regulatory
+  linkage (exploratory processes: actin cytoskeleton, immune system, neural
+  growth cones all operate by exploration-then-selection), compartmentalized
+  development (segments, modules), and conserved core processes with
+  variable peripheral processes.
+
+  THE SHARED SOLUTION — MODULARITY: Both engineering and biology achieve
+  the robustness-evolvability trade-off through near-decomposable modular
+  architecture (Simon 1962):
+  - Strong interactions within modules (ensures within-module robustness)
+  - Weak interactions between modules (ensures between-module evolvability)
+  - Stable interfaces between modules (enables module substitution without
+    cascading failure)
+
+  In biology, gene regulatory network modularity, domain modularity in
+  proteins, and segmental body plans all implement this solution. In
+  engineering, standardised interfaces (USB, ISO threads, PCB form factors)
+  implement the same principle. The robustness-evolvability trade-off and
+  its modular resolution are scale-independent: they appear at the level of
+  molecules (protein domains), cells (gene circuits), organisms (body plans),
+  and engineered systems alike.
+
+  Quantitative mapping: the engineering sensitivity coefficient ∂y/∂x
+  (fractional change in output per fractional change in input) maps to the
+  biological epistasis coefficient — the non-additive genetic interaction
+  between alleles. Near-decomposability predicts that epistasis should be
+  predominantly within-module; between-module epistasis should be minimal.
+  This prediction is empirically testable via combinatorial genetics and
+  has been partially confirmed in yeast epistasis networks.
+
+translation_table:
+  - field_a_term: "Mechanical robustness (resistance to stress-strain perturbation)"
+    field_b_term: "Genetic canalization (buffering of mutations by developmental systems)"
+    note: "Both measure resistance of system output to input perturbation"
+  - field_a_term: "Sensitivity analysis ∂y/∂x (engineering)"
+    field_b_term: "Epistasis coefficient ε_{ij} in gene regulatory networks"
+    note: "Quantitative measure of coupling between system components"
+  - field_a_term: "Near-decomposable architecture (Simon 1962)"
+    field_b_term: "Modular gene regulatory networks and developmental compartments"
+    note: "Both separate fast within-module dynamics from slow between-module coupling"
+  - field_a_term: "Failure mode analysis / FMEA"
+    field_b_term: "Phenotypic plasticity limits and developmental constraints"
+    note: "Both map which perturbations exceed the system's buffering capacity"
+  - field_a_term: "Design-for-manufacturability (DFM) — standardised interfaces"
+    field_b_term: "Conserved core developmental processes with variable periphery"
+    note: "Kirschner & Gerhart: conserved core = stable interface; variable periphery = evolvable module"
+  - field_a_term: "Robust-yet-fragile property (tightly optimised systems fail catastrophically at edges)"
+    field_b_term: "Canalized organisms brittle under novel stressors (Hsp90 capacitor mechanism)"
+    note: "Rutherford & Lindquist (1998): heat shock releases cryptic variation"
+  - field_a_term: "Modular redesign (swap module without system-wide cascade)"
+    field_b_term: "Exon shuffling / domain swapping in protein evolution"
+    note: "Modular protein architecture enables evolutionary innovation by recombination"
+
+related_unknowns:
+  - u-modularity-robustness-evolvability-tradeoff
+  - u-earthquake-soc-universality-class
+
+related_hypotheses:
+  - h-modular-architecture-robustness-evolvability
+  - h-gompertz-weibull-aging-unification
+
+cross_pollination_opportunities:
+  - >
+    Engineering reliability theory (FMEA, fault tree analysis) can be
+    applied to gene regulatory networks: enumerate potential failure modes
+    and their propagation paths to predict which gene knockouts cause
+    lethality vs. viability. Systems biology already does this informally;
+    importing FMEA formalism would make the analysis quantitative and
+    systematic.
+  - >
+    Biological canalization (Hsp90 buffering of cryptic variation) inspired
+    the engineering concept of "design margins" — build tolerance into
+    the system so that component variation does not propagate to system
+    failure. Quantify how much of Hsp90's buffering capacity can be
+    estimated from the sensitivity analysis ∂phenotype/∂genotype.
+  - >
+    Simon's near-decomposability metric (ratio of within-module to
+    between-module interaction strength) can be computed for gene
+    regulatory networks from yeast two-hybrid or co-IP data. Test whether
+    the most evolvable lineages (arthropods, vertebrates) have higher
+    modularity index than less evolvable lineages (early-diverging metazoa).
+  - >
+    Export robust-yet-fragile analysis to synthetic biology: highly optimised
+    synthetic gene circuits (e.g., bistable switches) may be canalized but
+    fragile under novel stressors. Engineering tools (Monte Carlo robustness
+    analysis) can predict evolutionary instability of synthetic constructs.
+
+communication_gap: >
+  Waddington (1942) worked in developmental biology; Simon (1962) worked in
+  cognitive science and organisational theory; Kirschner & Gerhart (1998)
+  worked in cell biology; Wagner (2005) in evolutionary theory. Engineering
+  robustness literature (FMEA, reliability engineering) is largely
+  inaccessible to biologists. The mathematical tools are similar (sensitivity
+  analysis, modularity metrics) but the vocabulary differs completely. The
+  explicit connection between near-decomposability as an engineering design
+  principle and modular developmental organisation as an evolutionary
+  solution has been made by Wagner and Kirschner independently but has not
+  produced cross-disciplinary tool-sharing.
+
+last_reviewed: "2026-05-05"
+
+references:
+  - doi: "10.1038/150563a0"
+    note: "Waddington (1942) Nature 150:563 — canalization and the epigenetic landscape"
+  - doi: "10.1073/pnas.95.15.8420"
+    note: "Kirschner & Gerhart (1998) PNAS 95:8420 — evolvability as facilitated variation"
+  - note: "Simon (1962) Proc Am Phil Soc 106:467 — architecture of complexity; near-decomposability"
+  - note: "Wagner (2005) Robustness and Evolvability in Living Systems (Princeton University Press)"
+  - doi: "10.1038/38593"
+    note: "Rutherford & Lindquist (1998) Nature 396:336 — Hsp90 as capacitor for morphological evolution"

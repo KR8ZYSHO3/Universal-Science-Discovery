@@ -1,0 +1,117 @@
+id: b-earthquake-self-organized-criticality
+title: >
+  The Gutenberg-Richter and Omori laws are empirical signatures of
+  self-organized criticality: fault networks spontaneously evolve to the
+  critical point of the BTW sandpile universality class, unifying
+  earthquake statistics with statistical physics.
+status: established
+fields:
+  - geophysics
+  - seismology
+  - statistical-physics
+  - complexity-science
+
+bridge_claim: >
+  The Gutenberg-Richter law (log N(M) = a - bM, empirical b ≈ 1 globally)
+  states that the number of earthquakes of magnitude M decreases as a power
+  law: N(M) ~ 10^{-bM}, or equivalently the seismic energy E scales as
+  P(E) ~ E^{-τ} with τ ≈ 1.67. Omori's aftershock decay law states that
+  the rate of aftershocks following a mainshock decays as n(t) ~ t^{-p}
+  (p ≈ 1). Both are hallmarks of a critical system.
+
+  Bak & Tang (1989) showed that the BTW sandpile model — the canonical
+  model of self-organized criticality (SOC) — reproduces both laws when
+  the sandpile is mapped onto a fault network: stress accumulates slowly
+  (tectonic loading = grain addition), then redistributes rapidly in
+  avalanches (earthquakes) whose size distribution is a power law
+  P(s) ~ s^{-3/2}. The b-value ≈ 1 corresponds to the slope of this
+  power law evaluated in magnitude units. Aftershock sequences (Omori
+  decay) emerge from the temporal clustering of SOC avalanches near the
+  critical point, where power-law correlations extend over all time scales.
+
+  The key insight: fault networks do not need to be tuned to a critical
+  point — they self-organize there. Tectonic stress builds slowly (slow
+  driving), earthquakes dissipate it rapidly (fast redistribution), and
+  the system's own dynamics drive it to criticality. The same mechanism
+  that gives sandpiles their power-law avalanches gives the crust its
+  Gutenberg-Richter distribution. This is not an analogy — it is the
+  claim that earthquakes ARE SOC avalanches, with the Gutenberg-Richter
+  b-value being a direct measurement of the SOC exponent.
+
+  Quantitative test: the BTW model predicts τ = 3/2 in energy; seismic
+  data give τ ≈ 1.67 ± 0.05 (close but not identical, suggesting the
+  Earth's fault network belongs to a related but distinct universality
+  class, possibly directed percolation or interface depinning).
+
+translation_table:
+  - field_a_term: "Fault network stress accumulation (tectonic loading)"
+    field_b_term: "Grain addition to sandpile (slow driving)"
+    note: "Both are slow external inputs that build stored potential energy"
+  - field_a_term: "Earthquake of magnitude M (seismic energy E)"
+    field_b_term: "Avalanche of size s in BTW sandpile"
+    note: "Rapid redistribution events; size distributions are power laws"
+  - field_a_term: "Gutenberg-Richter: N(M) ~ 10^{-bM}, b ≈ 1"
+    field_b_term: "BTW avalanche: P(s) ~ s^{-3/2}"
+    note: "Both are power laws; b-value maps to SOC exponent τ via energy-magnitude relation"
+  - field_a_term: "Omori aftershock decay: n(t) ~ t^{-p}, p ≈ 1"
+    field_b_term: "Temporal clustering of SOC avalanches at criticality"
+    note: "Long-range temporal correlations are a universal feature of SOC"
+  - field_a_term: "b-value ≈ 1 (universal across tectonic settings)"
+    field_b_term: "SOC exponent at the critical point"
+    note: "The universality of b ≈ 1 reflects the universality class of the critical point"
+  - field_a_term: "Spatial correlation length of aftershock zone"
+    field_b_term: "Correlation length diverging at the critical point (ξ → ∞)"
+    note: "Both describe the spatial extent of event clusters"
+  - field_a_term: "Seismic quiescence before large earthquakes"
+    field_b_term: "Critical slowing down near the critical point"
+    note: "Predicted by SOC but empirically contested in seismology"
+
+related_unknowns:
+  - u-earthquake-soc-universality-class
+  - u-earthquake-nucleation
+
+related_hypotheses:
+  - h-gutenberg-richter-soc-btw-exponent
+  - h-gutenberg-richter-percolation-threshold
+
+cross_pollination_opportunities:
+  - >
+    Apply SOC early-warning indicators (variance increase, autocorrelation
+    increase, b-value decrease) as real-time earthquake hazard metrics on
+    dense seismic networks — a direct translation of criticality-approach
+    indicators from statistical physics to operational seismology.
+  - >
+    Use the seismological depletion of the b-value before large earthquakes
+    (Scholz 1968) to test whether the fault network departs from SOC as
+    stress accumulates — a quantitative test of the sandpile analogy.
+  - >
+    Export Omori-law fitting methods to neuronal avalanche analysis:
+    aftershock temporal clustering may predict recovery time in post-seizure
+    cortical suppression using the same t^{-p} form.
+  - >
+    The Båth law (largest aftershock ≈ main shock − 1.2 magnitude units)
+    can be derived from SOC mean-field theory — test whether BTW model
+    predicts this offset to constrain universality class.
+
+communication_gap: >
+  Bak et al. published SOC in Physical Review Letters (1987) for physicists.
+  Seismologists had Gutenberg-Richter since 1944 and Omori since 1894.
+  Bak & Tang (1989) explicitly connected the two in Journal of Geophysical
+  Research, but the connection remained peripheral to mainstream seismology,
+  which uses empirical scaling laws without invoking criticality theory.
+  The barrier is disciplinary: SOC language (universality classes, order
+  parameters, renormalization group) is foreign to most geophysicists, who
+  prefer phenomenological regression models. Cross-department training and
+  joint publications are rare.
+
+last_reviewed: "2026-05-05"
+
+references:
+  - doi: "10.1103/PhysRevLett.59.381"
+    note: "Bak, Tang & Wiesenfeld (1987) PRL 59:381 — original SOC sandpile model"
+  - doi: "10.1029/JB094iB11p15635"
+    note: "Bak & Tang (1989) J Geophys Res 94:15635 — SOC applied to earthquakes"
+  - note: "Gutenberg & Richter (1944) Bull Seism Soc Am 34:185 — empirical G-R law"
+  - doi: "10.1007/BF01300524"
+    note: "Sornette & Sammis (1995) J Phys I France — critical point model for earthquake rupture"
+  - note: "Omori (1894) J Coll Sci Imp Univ Tokyo 7:111 — aftershock decay law"
