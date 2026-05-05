@@ -722,6 +722,104 @@
       pointer-events: none; opacity: .65;
     }
 
+    /* ── NODE DETAIL PANEL ──────────────────────────────────── */
+    .node-panel {
+      position: absolute;
+      top: 0; right: 0;
+      width: 320px;
+      height: 100%;
+      background: rgba(6,13,26,.97);
+      border-left: 1px solid var(--border-h);
+      overflow-y: auto;
+      padding: 1.5rem 1.25rem 2rem;
+      transform: translateX(100%);
+      transition: transform 0.25s ease;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .node-panel.open { transform: translateX(0); }
+    .node-panel.hidden { display: none; }
+    .panel-close {
+      position: absolute; top: .85rem; right: .9rem;
+      background: none; border: none; color: var(--muted);
+      font-size: 1.1rem; cursor: pointer; line-height: 1;
+      padding: .25rem .4rem; border-radius: var(--r-sm);
+      transition: color .15s, background .15s;
+    }
+    .panel-close:hover { color: var(--text); background: var(--bg-2); }
+    .panel-type-badge {
+      display: inline-flex; align-items: center; gap: .35rem;
+      font-size: .63rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      padding: .2rem .55rem; border-radius: 999px; margin-bottom: .6rem;
+    }
+    .panel-id {
+      font-family: var(--mono); font-size: .7rem; color: var(--muted);
+      margin-bottom: .75rem; word-break: break-all; line-height: 1.4;
+    }
+    .panel-title {
+      font-size: .95rem; font-weight: 600; color: var(--text);
+      margin: 0 0 1rem; line-height: 1.45;
+    }
+    .panel-section-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--muted); margin: 1.1rem 0 .45rem;
+    }
+    .panel-claim {
+      font-size: .82rem; color: #94a3b8; line-height: 1.6;
+      border-left: 2px solid var(--border-h); padding-left: .7rem;
+    }
+    .panel-status {
+      display: inline-flex; align-items: center; gap: .4rem;
+      font-size: .78rem; font-family: var(--mono);
+      padding: .2rem .6rem; border-radius: var(--r-sm);
+      background: var(--bg-2); border: 1px solid var(--border);
+      color: var(--muted); margin-bottom: .5rem;
+    }
+    .panel-status.status-open     { color: var(--warn);   border-color: var(--warn-border);   background: var(--warn-bg); }
+    .panel-status.status-proposed { color: var(--accent);  border-color: rgba(79,156,249,.3);  background: rgba(79,156,249,.07); }
+    .panel-status.status-active   { color: var(--ok);     border-color: var(--ok-border);     background: var(--ok-bg); }
+    .panel-status.status-speculative { color: var(--violet); border-color: rgba(167,139,250,.3); background: rgba(167,139,250,.07); }
+    .translation-table {
+      width: 100%; border-collapse: collapse; font-size: .75rem;
+    }
+    .translation-table th {
+      text-align: left; padding: .25rem .5rem;
+      color: var(--muted); font-weight: 600; font-size: .67rem; letter-spacing: .07em; text-transform: uppercase;
+      border-bottom: 1px solid var(--border);
+    }
+    .translation-table td {
+      padding: .3rem .5rem; border-bottom: 1px solid rgba(26,45,74,.6);
+      color: #94a3b8; vertical-align: top; line-height: 1.4;
+    }
+    .translation-table td:first-child { color: var(--accent); }
+    .panel-connected-list {
+      list-style: none; display: flex; flex-direction: column; gap: .35rem;
+    }
+    .panel-connected-list li {
+      font-size: .78rem; color: var(--muted); font-family: var(--mono);
+      padding: .2rem .4rem; border-radius: var(--r-sm);
+      border: 1px solid var(--border);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .panel-github-link {
+      display: inline-flex; align-items: center; gap: .35rem;
+      margin-top: 1.2rem; color: var(--accent); font-size: .82rem;
+      padding: .4rem .75rem; border-radius: var(--r-sm);
+      border: 1px solid rgba(79,156,249,.25); background: rgba(79,156,249,.06);
+      transition: background .15s, border-color .15s;
+      text-decoration: none !important;
+    }
+    .panel-github-link:hover { background: rgba(79,156,249,.14); border-color: rgba(79,156,249,.5); }
+    .panel-loading {
+      color: var(--muted); font-size: .82rem; text-align: center;
+      padding: 2rem 0; font-family: var(--mono);
+    }
+    .kg-nodes circle.selected {
+      stroke: #fff !important; stroke-width: 2.5 !important;
+      filter: drop-shadow(0 0 6px rgba(255,255,255,.45));
+    }
+
     /* ── CATALOG SEARCH ─────────────────────────────────────── */
     .search-wrap {
       position: relative; max-width: 620px;
@@ -1015,6 +1113,7 @@
   <div class="hub-nav-wrap">
     <nav class="hub-nav" aria-label="Page sections">
       <a href="#start">Start here</a>
+      <a href="domains/" class="nav-link">Browse domains</a>
       <a href="#catalog-search">Search</a>
       <a href="#discovery-engines">Engines</a>
       <a href="#ai-copilot">AI co-pilot</a>
@@ -1122,7 +1221,7 @@
       <h2 class="section-title">Cross-domain connection map</h2>
       <p class="section-desc">
         Force-directed graph of all 633 nodes — bridges, unknowns, hypotheses, and phenomena.
-        Hover a node to inspect it. Drag to reposition. Scroll or pinch to zoom.
+        Hover a node to inspect it. Click a node for full details. Drag to reposition. Scroll or pinch to zoom.
       </p>
       <div class="graph-stats-bar" id="kg-stats-bar">
         <span id="kg-node-count">633</span> nodes &nbsp;·&nbsp;
@@ -1136,8 +1235,14 @@
           <div class="kg-legend-item"><div class="kg-legend-dot" style="background:#22d3b8"></div>Hypothesis</div>
           <div class="kg-legend-item"><div class="kg-legend-dot" style="background:#a78bfa"></div>Phenomenon</div>
         </div>
-        <div class="kg-zoom-hint">scroll to zoom · drag to pan</div>
+        <div class="kg-zoom-hint">scroll to zoom · drag to pan · click node for details</div>
         <div id="kg-tooltip" class="kg-tooltip hidden"></div>
+        <div id="node-detail-panel" class="node-panel hidden" role="dialog" aria-label="Node details" aria-modal="false">
+          <button class="panel-close" id="panel-close" aria-label="Close panel">✕</button>
+          <div id="panel-content">
+            <div class="panel-loading">Select a node…</div>
+          </div>
+        </div>
       </div>
     </section>
 
