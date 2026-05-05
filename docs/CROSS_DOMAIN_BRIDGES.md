@@ -34,6 +34,8 @@ rediscover it independently — wasting decades. Bridges make the connection exp
 | b-kibble-zurek-morphogenesis | cosmology ↔ developmental-biology | u-kibble-zurek-embryo, u-topological-morphogenesis | h-kibble-zurek-polarity-scaling |
 | b-renormalization-biological-scaling | mathematical-physics ↔ comparative-physiology | u-renormalization-allometric, u-kleiber-pulsatile-waves | h-allometric-rg-fixed-point, h-kleiber-wave-physics |
 | b-percolation-epidemiology | statistical-physics ↔ epidemiology | u-percolation-epidemic-fss | h-percolation-outbreak-threshold |
+| b-habitat-percolation-ecology | statistical-physics ↔ conservation-ecology | u-habitat-fragmentation-threshold | h-habitat-percolation-critical-density |
+| b-error-threshold-information | information-theory ↔ molecular-evolution | u-error-threshold-genome-size | h-viral-proofreading-shannon-optimality |
 
 ---
 
