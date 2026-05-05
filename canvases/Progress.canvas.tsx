@@ -21,7 +21,7 @@ import {
 
 // @sync-dashboard-begin
 const dashboardSnapshot = {
-  lastUpdated: "2026-05-05 - **Content push toward 1,000 entries (603 total)**: 4 new domain directories (geoscience/28, philosophy-of-science/20, engineering/25, art-and-cognition/15) + 4 new bridges (b-seismology-percolation #41, b-philosophy-underdetermination-quantum #42, b-music-physics-resonance #43, b-engineering-reliability-extreme-value #44) + 10 new hypotheses. Knowledge graph rebuilt: 603 nodes, 628 edges. Dashboard updated. Validates clean.",
+  lastUpdated: "2026-05-05 - **Bridges 50-54 — astronomy orphan connections targeting largest cluster (633 nodes)**: 5 new bridges (b-blackhole-information-paradox #50, b-baryon-asymmetry-cp-violation #51, b-dark-matter-phase-transition-relics #52, b-cosmic-rays-mutagenesis #53, b-frb-random-matrix #54) with 5 new unknowns + 5 new hypotheses. Created 4 new cross-domain directories (astronomy-information, astronomy-physics, astronomy-biology, astronomy-mathematics). Connected 5 existing astronomy orphan unknowns (black hole info paradox, baryon asymmetry, dark matter identity, FRB origin, UHECR). Orphan count reduced from 329 → 324. Knowledge graph rebuilt: 633 nodes, 443 edges. Dashboard updated. Validates clean.",
   currentFocus: [
     "**Content seeding**: running arXiv harvests (q-bio, cond-mat:stat-mech, nlin, bio-ph) to seed unknowns, hypotheses, and bridges.",
     "**Bridge discovery**: every harvest is checked against the bridge-discovery prompt in `docs/prompts/bridge_discovery.md`.",

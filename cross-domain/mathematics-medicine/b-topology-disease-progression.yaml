@@ -1,0 +1,121 @@
+id: b-topology-disease-progression
+title: >
+  Topological Data Analysis (persistent homology, Betti numbers, the Mapper
+  algorithm) classifies the shape of high-dimensional patient data spaces and
+  reveals disease progression trajectories and subtypes that are invisible to
+  distance-based clustering — because the relevant structure is topological
+  (connected components, loops, voids) rather than metric.
+status: established
+fields:
+  - mathematics
+  - medicine
+  - oncology
+  - computational-biology
+  - topology
+bridge_claim: >
+  Nicolau et al. (2011) applied the Mapper algorithm (Singh, Mémoli & Carlsson
+  2007) — which builds a topological skeleton of a point cloud in high-dimensional
+  space — to a breast cancer microarray dataset of 295 patients. Mapper revealed
+  a small "flare" subgroup of estrogen-receptor-positive patients with uniformly
+  good prognosis that was invisible to k-means, hierarchical clustering, and
+  principal component analysis. This subgroup (c-MYB overexpression signature)
+  had 100% survival in the dataset and corresponds to a topologically distinct
+  connected component (β₀ = isolated cluster) in the gene-expression space.
+
+  The key insight is that Mapper preserves topological structure — the connected
+  components, loops (β₁), and voids (β₂) of the data manifold — while distance-
+  based methods collapse topology to centroids. For disease progression, the
+  relevant mathematical object is not the distance between patient states but the
+  topological connectivity of the trajectory through disease state space: is the
+  progression path a simple arc (irreversible), a loop (recoverable/cyclic), or
+  a branching tree (multiple progression routes)?
+
+  Persistent homology (Edelsbrunner & Harer 2010) provides a multiscale summary
+  of topological features: a persistence diagram records the "birth" and "death"
+  scales of connected components (β₀), loops (β₁), and cavities (β₂) as a
+  distance threshold grows. Features with long persistence (large birth-death gap)
+  are robust signal; short-lived features are noise. For tumor evolution, Camara
+  et al. (2016) showed that the topology of copy-number variation space reveals
+  branching evolutionary trajectories that cannot be reconstructed by phylogenetic
+  tree methods (which assume tree topology, i.e., β₁ = 0).
+
+  The translation is operationally complete: every concept in TDA has a direct
+  medical interpretation, enabling algorithmic transfer from pure mathematics to
+  clinical data analysis with no loss of mathematical rigor.
+translation_table:
+  - field_a_term: "Betti number β₀ (count of connected components)"
+    field_b_term: "Number of disconnected disease subtypes in patient population"
+    note: High β₀ means patients cluster into separate disease states with no continuous transitions
+  - field_a_term: "Betti number β₁ (count of independent loops / 1-cycles)"
+    field_b_term: "Cyclic disease progression routes (recurrence, reversion to earlier state)"
+    note: β₁ > 0 indicates that some patients return to earlier disease states — cyclic trajectories
+  - field_a_term: "Persistence diagram (birth-death pairs for each topological feature)"
+    field_b_term: "Transient vs. stable disease states along progression trajectory"
+    note: Short persistence = transient state visited briefly; long persistence = stable attractor state
+  - field_a_term: "Vietoris-Rips complex built from pairwise patient distances"
+    field_b_term: "Patient similarity network derived from clinical/omics data"
+    note: The simplicial complex encodes all multi-patient relationships, not just pairwise ones
+  - field_a_term: "Mapper algorithm — topological skeleton of high-D point cloud"
+    field_b_term: "Disease subtype discovery: topological flares = novel subtypes"
+    note: Nicolau et al. (2011) found a survival-predictive breast cancer subtype invisible to clustering
+  - field_a_term: "Wasserstein distance between persistence diagrams"
+    field_b_term: "Topological dissimilarity between two patient cohorts or disease conditions"
+    note: Provides a metric on the space of disease topologies robust to small data perturbations
+related_unknowns:
+  - u-topological-data-analysis-phase-transitions
+  - u-tumor-evolution-topology-branching
+related_hypotheses:
+  - h-tda-cancer-subtype-prognosis-superiority
+cross_pollination_opportunities:
+  - >
+    Persistent homology applied to longitudinal EHR data (sequences of clinical
+    events for thousands of patients) can identify topological features of disease
+    trajectories — loops (recurrence), branches (disease progression forks),
+    and voids — that predict outcomes better than regression on static biomarkers.
+  - >
+    The Mapper algorithm's success in breast cancer subtype discovery
+    (Nicolau et al. 2011) has not been systematically replicated across cancer
+    types. A systematic TDA screen across TCGA data for all 33 cancer types
+    could identify additional prognostic subgroups with clinical actionability.
+  - >
+    TDA tools for time-series data (persistent homology of sliding-window
+    embeddings) can be applied to patient monitoring data (ICU vitals, continuous
+    glucose monitoring) to detect topological changes in physiological dynamics
+    that precede adverse events (sepsis onset, hypoglycemia) earlier than
+    threshold-based alerts.
+communication_gap: >
+  Topological data analysis is primarily published in mathematics and computational
+  geometry venues (Annals of Mathematics, SIAM Journal on Computing, Foundations
+  of Computational Mathematics). Clinical medicine researchers are generally
+  unaware of TDA tools beyond PCA and clustering. The Nicolau et al. (2011) PNAS
+  paper was widely cited in TDA and bioinformatics but has not led to clinical
+  adoption, partly because TDA requires mathematical training not common in medical
+  research, and partly because software implementations (Ripser, Gudhi, KeplerMapper)
+  have not been packaged with clinical-grade documentation and validation. The
+  result is that a powerful set of shape-analysis tools — provably superior to
+  clustering for certain data topologies — remains unused in clinical data analysis.
+last_reviewed: "2026-05-05"
+references:
+  - doi: "10.1073/pnas.1102826108"
+    note: >
+      Nicolau, Levine & Carlsson (2011) PNAS — "Topology based data analysis identifies
+      a subgroup of breast cancers with a unique mutational profile and excellent survival";
+      landmark application of Mapper to cancer genomics
+  - doi: "10.1090/bull/1506"
+    note: >
+      Carlsson (2009) Bull AMS — "Topology and data"; foundational review of persistent
+      homology and Mapper for applied mathematics; accessible introduction to the framework
+  - doi: "10.1038/srep01236"
+    note: >
+      Lum et al. (2013) Sci Rep — "Extracting insights from the shape of complex data
+      using topology"; Mapper applied to basketball player performance, diabetes progression,
+      and House of Representatives voting data
+  - doi: "10.1371/journal.pcbi.1004374"
+    note: >
+      Camara et al. (2016) PLOS Comput Biol — "Topological data analysis generates
+      high-resolution, genome-wide maps of human recombination"; TDA for genomic structure
+  - doi: "10.1007/978-3-540-33259-6_7"
+    note: >
+      Singh, Mémoli & Carlsson (2007) Eurographics Symp on Point-Based Graphics —
+      "Topological methods for the analysis of high dimensional data sets and 3D object recognition";
+      original Mapper algorithm paper

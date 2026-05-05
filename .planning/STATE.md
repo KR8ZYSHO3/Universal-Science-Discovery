@@ -4,6 +4,7 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 ## Last updated
 
+- 2026-05-05 - **Bridges 55-58 — AI-draft-to-real-science conversion (645 nodes)**: 4 new fully citable bridges from top-scoring draft proposals: b-neural-criticality-climate-tipping (#55, neuroscience↔climate-science, Beggs/Scheffer/Dakos), b-predictive-coding-grammar (#56, neuroscience↔linguistics, Friston/Hale/Levy/Clark), b-wealth-distribution-statistical-mechanics (#57, economics↔statistical-physics, Dragulescu/Yakovenko/Bouchaud-Mezard), b-topology-disease-progression (#58, mathematics↔medicine, Nicolau/Carlsson/Lum). Each includes full translation table, DOI references, communication_gap, cross_pollination_opportunities. Created 4 new cross-domain directories (neuroscience-climate, neuroscience-linguistics, economics-physics, mathematics-medicine). 4 new unknowns + 4 new hypotheses. Knowledge graph rebuilt: 645 nodes, 472 edges. Dashboard updated. Validates clean.
 - 2026-05-05 - **Bridges 50-54 — astronomy orphan connections targeting largest cluster (633 nodes)**: 5 new bridges (b-blackhole-information-paradox #50, b-baryon-asymmetry-cp-violation #51, b-dark-matter-phase-transition-relics #52, b-cosmic-rays-mutagenesis #53, b-frb-random-matrix #54) with 5 new unknowns + 5 new hypotheses. Created 4 new cross-domain directories (astronomy-information, astronomy-physics, astronomy-biology, astronomy-mathematics). Connected 5 existing astronomy orphan unknowns (black hole info paradox, baryon asymmetry, dark matter identity, FRB origin, UHECR). Orphan count reduced from 329 → 324. Knowledge graph rebuilt: 633 nodes, 443 edges. Dashboard updated. Validates clean.
 - 2026-05-05 - **Bridges 45-49 — co-pilot-proposed medicine and astronomy connections (618 nodes)**: 5 new bridges (b-connectome-neurodegeneration #45, b-climate-tipping-health #46, b-inequality-health-gradient #47, b-language-biomarker-diagnosis #48, b-stellar-forcing-paleoclimate #49) with 5 new unknowns + 5 new hypotheses. Medicine domain now has 4 cross-domain bridges (was 0). Knowledge graph rebuilt: 618 nodes, 398 edges. Dashboard updated. Validates clean.
 - 2026-05-05 - **Content push toward 1,000 entries (603 total)**: 4 new domain directories (geoscience/28, philosophy-of-science/20, engineering/25, art-and-cognition/15) + 4 new bridges (b-seismology-percolation #41, b-philosophy-underdetermination-quantum #42, b-music-physics-resonance #43, b-engineering-reliability-extreme-value #44) + 10 new hypotheses. Knowledge graph rebuilt: 603 nodes, 628 edges. Dashboard updated. Validates clean.
@@ -35,12 +36,12 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 | Type | Count | Directory |
 |------|-------|-----------|
-| Unknowns | 493 | `unknowns-catalog/` |
-| Hypotheses | 75 | `hypotheses/active/` |
-| Bridges | 49 | `cross-domain/` |
+| Unknowns | 502 | `unknowns-catalog/` |
+| Hypotheses | 84 | `hypotheses/active/` |
+| Bridges | 58 | `cross-domain/` |
 | Pre-formal observations | 1 | `phenomenology/` |
-| Knowledge graph nodes | 618 | `docs/knowledge_graph.json` |
-| Knowledge graph edges | 628 | `docs/knowledge_graph.json` |
+| Knowledge graph nodes | 645 | `docs/knowledge_graph.json` |
+| Knowledge graph edges | 472 | `docs/knowledge_graph.json` |
 | Schemas | 4 | `schemas/` (unknown, hypothesis, bridge, phenomenon) |
 
 ### Bridge network (cross-domain connections)
