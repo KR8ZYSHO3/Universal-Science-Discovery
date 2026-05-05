@@ -1,0 +1,79 @@
+id: b-optimal-transport-vasculature
+title: "Optimal transport theory ↔ biological vascular and neural network architecture (Murray's law as Wasserstein flow)"
+status: established
+fields:
+  - mathematics
+  - fluid-dynamics
+  - comparative-physiology
+  - developmental-biology
+  - neuroscience
+
+bridge_claim: >
+  Murray's law (1926) — that the cube of the parent vessel radius equals the sum
+  of cubes of daughter radii at every branch point (r_0^3 = r_1^3 + r_2^3) — is
+  the exact solution to a variational problem: minimise the total metabolic cost
+  of maintaining and pumping blood through a branching network, subject to fixed
+  total volume. This is precisely the discrete optimal transport problem on a tree:
+  find the branching geometry that minimises the Wasserstein-1 transport cost from
+  source (heart) to sinks (capillaries). The same variational principle governs
+  leaf vein networks, bronchial trees, lymphatic vessels, river deltas, and
+  fungal mycelial networks — all without coordination, purely from local cost
+  minimisation at each branch point. Recent work (Santambrogio 2015; Facca et al.
+  2021) shows that the biological networks are solutions to the Benamou-Brenier
+  formulation of optimal transport, and that the continuous limit of Murray's law
+  is the p-Laplacian PDE with p = 3/2. This means the geometry of every vascular
+  tree in every animal is implicitly solving a PDE from 20th-century mathematics.
+
+translation_table:
+  - field_a_term: "Wasserstein-1 transport cost W_1(mu, nu)"
+    field_b_term: "total metabolic cost of vascular network (pumping + maintenance)"
+    note: "Minimising W_1 on a tree gives Murray branching angles"
+  - field_a_term: "p-Laplacian PDE with p = 3/2"
+    field_b_term: "continuous limit of Murray's branching law"
+    note: "Exact equivalence proved by Facca et al. 2021"
+  - field_a_term: "source measure mu"
+    field_b_term: "cardiac output distribution"
+    note: "Where blood enters the network"
+  - field_a_term: "sink measure nu"
+    field_b_term: "tissue oxygen demand distribution"
+    note: "Where blood is consumed; drives network geometry"
+  - field_a_term: "transport plan (coupling)"
+    field_b_term: "network topology (which vessels connect which tissues)"
+    note: "Optimal coupling = optimal routing"
+  - field_a_term: "branching exponent gamma in r_0^gamma = r_1^gamma + r_2^gamma"
+    field_b_term: "Horton-Strahler stream order exponent"
+    note: "gamma=3 (Murray, metabolic cost); gamma=2 (surface minimisation)"
+
+related_unknowns:
+  - u-optimal-transport-angiogenesis
+  - u-renormalization-allometric
+
+related_hypotheses:
+  - h-allometric-rg-fixed-point
+
+cross_pollination_opportunities:
+  - "Use Wasserstein gradient flow to model tumour angiogenesis — new drug targets where vessel geometry deviates from Murray's law"
+  - "Apply p-Laplacian PDE solvers to predict vascular remodelling after stroke or arterial occlusion"
+  - "Use optimal transport to design synthetic scaffold geometries for tissue engineering that match the Murray branching law"
+  - "Compare neural axon branching geometry to Murray's law — does the brain also solve optimal transport?"
+
+communication_gap: >
+  Murray published his law in 1926 in experimental biology journals. Optimal
+  transport theory was developed by Kantorovich (1942) in mathematics/economics.
+  The Wasserstein metric became central to ML and probability only in the 2010s.
+  The connection between Murray's law and the p-Laplacian was not made explicit
+  until Facca et al. (2021). The three communities (vascular biology, optimal
+  transport mathematics, and network science) arrived at the same variational
+  problem from entirely different directions across a century.
+
+references:
+  - doi: "10.1073/pnas.12.3.207"
+    note: "Murray (1926) PNAS — original branching law derivation"
+  - doi: "10.1007/978-3-319-20828-2"
+    note: "Santambrogio (2015) — Optimal Transport for Applied Mathematicians"
+  - doi: "10.1137/20M1383296"
+    note: "Facca et al. (2021) SIAM J. Appl. Math. — p-Laplacian = Murray's law"
+  - doi: "10.1126/science.abn2727"
+    note: "Ronellenfitsch & Katifori (2016) — optimal transport in leaf venation"
+
+last_reviewed: "2026-05-05"
