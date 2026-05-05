@@ -1,0 +1,35 @@
+id: u-fractional-spiking-neural-memory
+title: Does fractional-order differentiation in spiking neural networks capture long-range temporal dependencies that integer-order models cannot, and is this biologically realized in slow adaptation currents?
+status: open
+priority: medium
+disciplines:
+  - computational-neuroscience
+  - fractional-calculus
+  - machine-learning
+  - neurophysiology
+summary: >
+  A 2025 preprint (arXiv 2507.16937) introduces "fractional-order spiking neural
+  networks" - spiking networks where the membrane potential dynamics follow a fractional
+  differential equation (d^alpha V/dt^alpha = I_syn, with 0 < alpha < 1) instead of
+  the standard first-order leaky integrate-and-fire. Fractional differential equations
+  have power-law memory kernels, enabling them to model long-range temporal dependencies
+  that exponential (integer-order) kernels cannot. Biologically, slow adaptation currents
+  in cortical neurons (Ca2+-activated K+ currents, slow AHP) produce sub-exponential
+  spike rate adaptation consistent with fractional dynamics. The key open question is
+  whether fractional-order spiking networks implement a provably richer temporal
+  computation class than integer-order networks, and whether the fractional order alpha
+  estimated from cortical spike trains matches the mathematically optimal alpha for
+  the statistics of natural sensory inputs.
+systematic_gaps:
+  - Whether fractional-order spiking networks are strictly more computationally powerful (in the sense of approximating a wider class of time series) than integer-order spiking networks of the same size has not been proven.
+  - The biologically observed distribution of alpha values (estimated from in vivo spike train statistics) across cortical areas has not been measured.
+  - Whether fractional-order SNN dynamics can be implemented in analog neuromorphic hardware (e.g., Intel Loihi) and what the energy cost is relative to integer-order implementation is unknown.
+suggested_hypotheses:
+  - The optimal fractional order alpha for natural speech processing equals 0.7 ± 0.1, matching the value estimated from cortical spike train power spectra, because both systems have adapted to the 1/f temporal correlations of natural language.
+related_unknowns:
+  - u-oscillatory-spiking-neural-computation
+  - u-landauer-limit-biological-computation
+references:
+  - arxiv: "2507.16937"
+    note: "Fractional-order Spiking Neural Network - cs-ne harvest 2026-05-05"
+last_reviewed: "2026-05-05"

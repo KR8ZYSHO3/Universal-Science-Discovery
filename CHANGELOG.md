@@ -9,6 +9,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added (2026-05-05 session — bulk-seed unknowns: 37 new entries across 4 disciplines)
+- **`unknowns-catalog/mathematics/`** — New discipline directory seeded with 8 unknowns spanning number theory, statistics, economics, linguistics, and mathematical biology.
+- **`unknowns-catalog/computer-science/`** — New discipline directory seeded with 9 unknowns spanning neuromorphic computing, spiking networks, ML theory, and quantum cognition.
+- **Physics unknowns (10 new):** `u-quantum-turbulence-simulation-limit`, `u-turbulence-symmetry-breaking-cascade`, `u-minimum-dissipation-network-topology`, `u-vegetation-pattern-tipping-universality`, `u-cardiomyocyte-synchronization-criticality`, `u-active-matter-chiral-renormalization`, `u-replica-boltzmann-machine-glass`, `u-quantum-glass-learning-efficiency`, `u-ion-pump-landauer-thermodynamics`, `u-nonextensive-entropy-turbulence`.
+- **Biology unknowns (10 new):** `u-cryptochrome-radical-pair-quantum-nav`, `u-alzheimer-network-attractor-dynamics`, `u-evolution-undecidability-open-ended`, `u-fitness-landscape-overlapping-genes`, `u-pathogen-coevolution-network-percolation`, `u-mechanical-bifurcation-morphogenesis`, `u-temporal-biosignature-information`, `u-ecology-resilience-spatial-indicator`, `u-braess-paradox-biological-foraging`, `u-self-organized-criticality-consciousness`.
+- **Mathematics unknowns (8 new):** `u-riemann-zeta-biomedical-discoverability`, `u-optimal-transport-word-order-universals`, `u-spectral-geometry-phylogenetic-trees`, `u-large-deviations-non-markovian-epidemic`, `u-statistical-mechanics-income-wealth`, `u-cortical-folding-poisson-flow`, `u-causal-attribution-chain-rule-universality`, `u-ising-exact-density-states-universality`.
+- **Computer-science unknowns (9 new):** `u-astrocyte-memory-replay-transformers`, `u-oscillatory-spiking-neural-computation`, `u-predictive-coding-motion-illusion`, `u-stdp-reward-modulation-rl-equivalence`, `u-continuous-symmetry-neural-topology`, `u-physics-informed-nn-fourier-convergence`, `u-fractional-spiking-neural-memory`, `u-quantum-cognition-lindblad-decisions`, `u-neuromorphic-thermodynamic-energy`.
+- All 37 unknowns seeded from arXiv OAI-PMH harvest data (cs-ne, nlin, statmech, qbio, bioph harvests; 2026-03-01 to 2026-05-04).
+- All files pass `scripts/validate_schemas.py` (jsonschema Draft202012).
+- **`dashboard/index.html`** — Updated counts: 69 unknowns · 26 bridges · 27 hypotheses · 1 observation.
+
 ### Added (2026-05-05 session — phenomenology catalog)
 - **`phenomenology/`** — New catalog tier for pre-formal observations: dreams, intuitions, engineering hunches, everyday anomalies. Lower bar than `unknowns-catalog/` — no citations or credentials required. Entries are triaged and promoted to `u-`, `b-`, or `h-` entries by domain experts.
 - **`schemas/phenomenon.yaml`** — New schema: required fields are `id`, `title`, `origin`, `description`, `date_observed` only. Optional: `sketch_description`, `analogies`, `candidate_fields`, `why_anomalous`, `review_notes`.

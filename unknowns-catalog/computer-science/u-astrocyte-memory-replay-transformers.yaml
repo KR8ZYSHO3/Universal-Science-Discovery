@@ -1,0 +1,39 @@
+id: u-astrocyte-memory-replay-transformers
+title: Can astrocyte-inspired memory compression and replay mechanisms eliminate catastrophic forgetting in long-context transformers while maintaining O(1) storage cost per context token?
+status: open
+priority: high
+disciplines:
+  - machine-learning
+  - neuroscience
+  - computational-neuroscience
+  - artificial-intelligence
+summary: >
+  A 2026 preprint (arXiv 2601.00426) introduces RMAAT (Recurrent Memory Astrocyte-inspired
+  Attention Transformer) - a transformer architecture augmented with astrocyte-inspired
+  memory compression and replay mechanisms. Biological astrocytes regulate synaptic
+  plasticity and participate in memory consolidation by selectively gating neurotransmitter
+  reuptake and triggering coordinated replay events across neural populations. The
+  architecture compresses long context histories using astrocyte-inspired "glial filters"
+  and replays compressed memories during generation. The key open questions are: (1)
+  Does the astrocyte memory mechanism provide provably O(1) memory cost per token (vs.
+  O(n) for standard attention), and if so, what information is provably lost? (2) Is
+  the astrocyte-inspired mechanism mathematically equivalent to any existing compression
+  scheme (linear attention, state space models, random projections)? (3) Can the
+  biological model of astrocyte-mediated slow oscillation replay be formally connected
+  to the transformer's token replay mechanism, or is the biological inspiration merely
+  metaphorical?
+systematic_gaps:
+  - Whether astrocyte-inspired memory compression provides any advantage over existing O(1) attention approximations (Performer, Mamba, RetNet) on genuinely long-range tasks has not been benchmarked.
+  - The biological accuracy of the astrocyte model (does it reflect known astrocyte calcium signaling dynamics?) has not been assessed by computational neuroscientists.
+  - The information-theoretic loss bound of astrocyte-inspired compression has not been derived.
+suggested_hypotheses:
+  - Astrocyte-inspired memory compression achieves the same perplexity as full attention on 100K-token contexts while using 100x less memory, because biological replay preferentially preserves high-entropy (surprising) tokens, matching the information-theoretic optimum.
+related_unknowns:
+  - u-hopfield-capacity-cortex
+  - u-landauer-limit-biological-computation
+related_bridges:
+  - b-spin-glass-neural-networks
+references:
+  - arxiv: "2601.00426"
+    note: "RMAAT: Astrocyte-Inspired Memory Compression and Replay for Efficient Long-Context Transformers - cs-ne harvest 2026-05-05"
+last_reviewed: "2026-05-05"
