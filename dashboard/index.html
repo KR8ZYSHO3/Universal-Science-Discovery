@@ -1845,6 +1845,14 @@
         var nodes = data.nodes.map(function (n) { return Object.assign({}, n); });
         var edges = data.edges.map(function (e) { return Object.assign({}, e); });
 
+        /* Defensive: drop edges whose source/target node doesn't exist */
+        var nodeIds = new Set(nodes.map(function (n) { return n.id; }));
+        edges = edges.filter(function (e) {
+          var s = typeof e.source === 'object' ? e.source.id : e.source;
+          var t = typeof e.target === 'object' ? e.target.id : e.target;
+          return nodeIds.has(s) && nodeIds.has(t);
+        });
+
         /* stats bar */
         var nc = (data.meta && data.meta.node_count) ? data.meta.node_count : nodes.length;
         var ec = (data.meta && data.meta.edge_count)  ? data.meta.edge_count  : edges.length;
