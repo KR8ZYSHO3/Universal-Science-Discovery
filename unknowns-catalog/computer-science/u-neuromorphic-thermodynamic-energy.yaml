@@ -1,0 +1,37 @@
+id: u-neuromorphic-thermodynamic-energy
+title: Do neuromorphic processors approach thermodynamic (Landauer) energy efficiency limits that silicon von Neumann architectures cannot, and what circuit mechanisms enable this?
+status: open
+priority: high
+disciplines:
+  - neuromorphic-computing
+  - information-thermodynamics
+  - computer-architecture
+  - statistical-physics
+summary: >
+  A 2026 preprint (arXiv 2601.10035) develops a "compute and communication runtime
+  model for Loihi 2" - Intel's second-generation neuromorphic chip - quantifying
+  energy consumption per spike, per synaptic operation, and per memory access. The
+  brain consumes ~20W for ~10^14 synaptic operations per second, implying ~0.2 fJ per
+  synaptic operation. Loihi 2 achieves ~1 pJ per synaptic operation - 5000x less
+  efficient than biology. The Landauer limit is ~0.003 fJ per bit at 310K, implying
+  the brain operates at ~70x the Landauer limit per synaptic event - already better
+  than any silicon implementation. The open question is: what circuit mechanisms allow
+  biological synapses to approach within 70x of the Landauer limit, and can these
+  mechanisms be reverse-engineered into neuromorphic hardware? Specifically, does the
+  brain exploit near-equilibrium thermodynamic processes (adiabatic switching,
+  stochastic resonance) that digital CMOS cannot implement?
+systematic_gaps:
+  - The energy consumption per synaptic event in biological cortical synapses (in vivo, at physiological firing rates) has not been measured with sufficient precision to establish the ratio to the Landauer limit.
+  - Whether neuromorphic processors can in principle approach the Landauer limit (or are fundamentally limited by circuit noise) has not been analyzed thermodynamically.
+  - The role of stochastic resonance and noise-assisted computation in reducing effective energy consumption below the deterministic Landauer limit in biological systems is unknown.
+suggested_hypotheses:
+  - Biological synapses achieve near-Landauer efficiency because they operate in a noise-dominated (stochastic resonance) regime where thermal noise is a feature, not a bug - reducing required signal power at a thermodynamic cost that falls below the deterministic equivalent.
+related_unknowns:
+  - u-landauer-limit-biological-computation
+  - u-ion-pump-landauer-thermodynamics
+related_bridges:
+  - b-landauer-information-thermodynamics
+references:
+  - arxiv: "2601.10035"
+    note: "A Compute and Communication Runtime Model for Loihi 2 - cs-ne harvest 2026-05-05"
+last_reviewed: "2026-05-05"

@@ -1,0 +1,37 @@
+id: u-stdp-reward-modulation-rl-equivalence
+title: Is reward-modulated spike-timing-dependent plasticity (R-STDP) mathematically equivalent to a form of policy gradient reinforcement learning, and does this equivalence hold at the circuit level in biological brains?
+status: open
+priority: high
+disciplines:
+  - computational-neuroscience
+  - machine-learning
+  - neurophysiology
+  - reinforcement-learning
+summary: >
+  A 2026 preprint (arXiv 2603.00710) studies "reward-modulated local learning in
+  spiking encoders with STDP and hybrid rate readouts," demonstrating that STDP
+  combined with a global reward signal approximates a form of local gradient estimation.
+  Theoretical work by Florian (2007) and Fremaux et al. have previously suggested that
+  reward-modulated STDP (R-STDP) approximates the REINFORCE policy gradient algorithm
+  in the limit of slow reward signals and small learning rates. However, whether this
+  equivalence is exact (same gradient, same learning trajectory) or only approximate
+  (correlated but distinct), and whether real biological circuits implement R-STDP in
+  a way that matches RL theory, remains contested. The open question is: what is the
+  precise mathematical relationship between R-STDP and modern deep RL algorithms
+  (PPO, SAC), and does the biological implementation of reward-modulated plasticity
+  (dopamine, norepinephrine timing) match the mathematical requirements?
+systematic_gaps:
+  - The exact mathematical equivalence conditions between R-STDP and policy gradient RL have not been derived for multi-layer spiking networks (only proven for single-layer in certain limits).
+  - Whether dopamine timing in biological circuits satisfies the mathematical requirements for policy gradient estimation (correct temporal credit assignment) has not been verified quantitatively.
+  - Whether R-STDP approximates actor-critic (vs. REINFORCE) algorithms when applied in networks with separate "value" cells has not been established.
+suggested_hypotheses:
+  - R-STDP implements a biologically plausible approximation of the proximal policy optimization (PPO) clipped objective when the reward signal is low-pass filtered with the time constant of dopamine clearance (~200ms).
+related_unknowns:
+  - u-replicator-dynamics-llm-training
+  - u-landauer-limit-biological-computation
+related_bridges:
+  - b-game-theory-evolution
+references:
+  - arxiv: "2603.00710"
+    note: "Reward-Modulated Local Learning in Spiking Encoders: Controlled Benchmarks with STDP and Hybrid Rate Readouts - cs-ne harvest 2026-05-05"
+last_reviewed: "2026-05-05"

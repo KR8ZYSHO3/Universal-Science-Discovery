@@ -1,0 +1,34 @@
+id: u-physics-informed-nn-fourier-convergence
+title: When do physics-informed neural networks (PINNs) with domain-aware Fourier features provably converge to true PDE solutions, and what is the error bound as a function of network size and feature frequency?
+status: open
+priority: medium
+disciplines:
+  - machine-learning
+  - numerical-analysis
+  - partial-differential-equations
+  - computational-physics
+summary: >
+  A 2026 preprint (arXiv 2603.02948) introduces PINNs augmented with "domain-aware
+  Fourier features" - neural network encodings of the input coordinates using Fourier
+  basis functions matched to the known length scales of the PDE solution. Empirically,
+  this improves both performance and interpretability. However, the theoretical
+  convergence guarantees for PINNs (even standard ones) are weak: existing theory shows
+  convergence in the limit of infinite data and network size, but not in the finite
+  regime most relevant to practice. The open question is whether domain-aware Fourier
+  features provide provably better approximation error bounds (not just empirically
+  better performance), and what the sample complexity is as a function of the Fourier
+  feature frequency mismatch with the true PDE solution. This matters enormously for
+  scientific computing: if PINNs can replace classical PDE solvers for high-dimensional
+  PDEs, they need rigorous error bounds, not just empirical benchmarks.
+systematic_gaps:
+  - No theorem exists bounding the PINN approximation error in terms of both network size AND Fourier feature frequencies simultaneously.
+  - The optimal Fourier feature frequency distribution for a given PDE (elliptic, parabolic, hyperbolic) has not been derived theoretically.
+  - Whether domain-aware Fourier PINNs achieve the same approximation rate as classical spectral methods (which is O(N^{-s}) for smooth s-order solutions) has not been established.
+suggested_hypotheses:
+  - PINNs with domain-aware Fourier features achieve the same approximation rate as classical spectral methods for smooth PDE solutions when the Fourier feature bandwidth matches the solution's effective bandwidth, providing a principled replacement for spectral methods in high dimension.
+related_unknowns:
+  - u-grokking-phase-transition
+references:
+  - arxiv: "2603.02948"
+    note: "Enhancing Physics-Informed Neural Networks with Domain-aware Fourier Features: Towards Improved Performance and Interpretable Results - cs-ne harvest 2026-05-05"
+last_reviewed: "2026-05-05"
