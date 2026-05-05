@@ -1,0 +1,82 @@
+id: b-turing-patterns-ecosystem-tipping
+title: "Turing vegetation patterns as early-warning signals for catastrophic ecosystem collapse"
+status: established
+fields:
+  - mathematical-biology
+  - ecology
+  - nonlinear-dynamics
+  - conservation-science
+
+bridge_claim: >
+  In dryland ecosystems, plant biomass and water interact as activator-inhibitor
+  pairs that satisfy the Turing reaction-diffusion conditions (Klausmeier 1999).
+  At intermediate rainfall, vegetation self-organises into regular spatial patterns
+  — stripes, spots, or gaps — whose geometry is determined by the Turing wavelength
+  Lambda* = 2*pi / sqrt(D_w/D_v * d_v - a_v), where D_w and D_v are the
+  diffusivities of water and vegetation respectively. These patterns are not merely
+  aesthetic: a landmark paper (Rietkerk et al. 2004, Science) showed that the
+  progression from uniform vegetation → stripes → spots → bare soil tracks a
+  sequence of Turing bifurcations that precedes ecosystem collapse by years to
+  decades. The 2026 arXiv preprint "Vegetation Patterning Can Both Impede and
+  Trigger Critical Transitions from Savanna to Grassland" (nlin:PS) extends this:
+  patterning can *buffer* collapse (by redistributing resources) or *accelerate* it
+  (when patterns erode the remaining connectivity). The key variable is whether the
+  pattern is above or below the percolation threshold p_c = 0.5927 (see
+  b-percolation-ecology).
+
+  This connects three cross-domain bridges: Turing reaction-diffusion
+  (b-turing-reaction-diffusion), percolation theory (b-percolation-ecology),
+  and self-organised criticality (b-self-organized-criticality) into a single
+  mechanistic account of ecosystem collapse. The spatial pattern is the
+  *early-warning signal*: its Fourier spectrum shifts from a broad peak (healthy)
+  to a sharp narrow peak (near bifurcation) to disappearance (collapse) — a
+  measurable, remotely-sensed precursor that does not require ground truth data.
+
+translation_table:
+  - field_a_term: "Activator (vegetation)"
+    field_b_term: "Species biomass / canopy cover"
+    note: "Positive feedback: more vegetation retains water, enabling more growth"
+  - field_a_term: "Inhibitor (soil water)"
+    field_b_term: "Water table / soil moisture"
+    note: "Vegetation depletes local water, creating the differential diffusion condition"
+  - field_a_term: "Turing wavelength Lambda*"
+    field_b_term: "Characteristic patch spacing (measurable via satellite)"
+    note: "Shift in Lambda* towards shorter wavelengths precedes collapse"
+  - field_a_term: "Turing bifurcation (d_critical)"
+    field_b_term: "Rainfall threshold below which patterns appear"
+    note: "Below this rainfall, uniform vegetation is unstable"
+  - field_a_term: "SOC / percolation threshold p_c"
+    field_b_term: "Minimum connected vegetated fraction for ecosystem function"
+    note: "When the spot pattern fragments below p_c, the ecosystem loses connectivity"
+
+related_unknowns:
+  - u-turing-ms-demyelination-pattern
+  - u-vegetation-pattern-percolation-connectivity
+
+related_hypotheses: []
+
+cross_pollination_opportunities:
+  - "Use satellite time-series of Sahel vegetation patterns as a Turing-pattern early-warning sensor for desertification"
+  - "Apply the same framework to coral reef bleaching (coral/algae = activator/inhibitor on nutrient background)"
+  - "Connect to SOC: the vegetation pattern mosaic just above p_c may itself be a self-organised critical state"
+  - "Use Fourier peak-sharpening as an early-warning indicator in global ecosystem monitoring, alongside the standard variance/autocorrelation indicators"
+
+communication_gap: >
+  Turing (1952) was a mathematician writing in Phil Trans Royal Society.
+  Klausmeier (1999) was an ecologist writing in Science.
+  Rietkerk et al. (2004) was published in Science. But the explicit connection
+  between the Turing mechanism, percolation, and SOC was not made in a single
+  accessible paper until around 2010s. Remote sensing ecologists who monitor
+  vegetation patterns do not routinely use Fourier-spectrum Turing diagnostics;
+  they use NDVI thresholds. The mathematical toolkit from pattern formation
+  physics has not been standardised in ecological monitoring practice.
+
+references:
+  - doi: "10.1126/science.1116505"
+    note: "Rietkerk et al. (2004) Science — self-organisation and tipping points in dryland ecosystems. Seeded from arXiv nlin:AO harvest 2026-05-04: Vegetation Patterning Can Both Impede and Trigger Critical Transitions from Savanna to Grassland"
+  - doi: "10.1086/303135"
+    note: "Klausmeier (1999) Science — regular and irregular patterns in semiarid vegetation"
+  - doi: "10.1098/rstb.1952.0012"
+    note: "Turing (1952) — The chemical basis of morphogenesis"
+
+last_reviewed: "2026-05-05"

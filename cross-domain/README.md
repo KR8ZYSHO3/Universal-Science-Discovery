@@ -31,6 +31,16 @@ new bridges while reading any paper.
 | [b-fisher-information-evolution](statistics-evolution/b-fisher-information-evolution.yaml) | statistics ↔ evolutionary-biology ↔ machine-learning | proposed | u-fisher-natural-gradient-evolution | h-fisher-speed-limit-selection |
 | [b-tipping-points-phase-transitions](physics-climate/b-tipping-points-phase-transitions.yaml) | statistical-physics ↔ climate-science | proposed | u-climate-ew-indicator-universality | h-amoc-fold-bifurcation-ew |
 | [b-ising-social-dynamics](physics-social/b-ising-social-dynamics.yaml) | statistical-physics ↔ social-science | proposed | u-social-ising-universality | h-norm-cascade-ising-ew |
+| [b-turing-reaction-diffusion](mathematics-biology/b-turing-reaction-diffusion.yaml) | mathematics ↔ developmental-biology | established | u-turing-digit-wavelength-scaling, u-turing-ms-demyelination-pattern | h-turing-zebrafish-diffusivity-ratio |
+| [b-spin-glass-neural-networks](physics-computing/b-spin-glass-neural-networks.yaml) | statistical-physics ↔ neuroscience/ML | established | u-hopfield-capacity-cortex | h-hopfield-alzheimers-glass-transition |
+| [b-landauer-information-thermodynamics](physics-information/b-landauer-information-thermodynamics.yaml) | thermodynamics ↔ information-theory | established | u-landauer-limit-biological-computation | h-brain-landauer-efficiency |
+| [b-game-theory-evolution](mathematics-evolution/b-game-theory-evolution.yaml) | mathematics/game-theory ↔ evolutionary-biology | established | u-replicator-dynamics-llm-training | h-gan-training-redqueen-dynamics |
+| [b-optimal-transport-vasculature](mathematics-biology/b-optimal-transport-vasculature.yaml) | mathematics ↔ biology | established | u-optimal-transport-angiogenesis | — |
+| [b-turbulence-financial-markets](physics-finance/b-turbulence-financial-markets.yaml) | statistical-physics ↔ quantitative-finance | proposed | u-turbulence-market-reynolds-analogue | h-market-crash-turbulent-transition |
+| [b-self-organized-criticality](physics-complexity/b-self-organized-criticality.yaml) | statistical-physics ↔ neuroscience/geophysics/ecology | established | u-soc-universality-class-brain | — |
+| [b-higgs-superconductivity](physics-physics/b-higgs-superconductivity.yaml) | particle-physics ↔ condensed-matter | established | u-higgs-mode-high-tc-superconductors | — |
+| [b-phase-transitions-ml-grokking](physics-ai/b-phase-transitions-ml-grokking.yaml) | statistical-physics ↔ machine-learning | proposed | u-grokking-criticality-universality-class | h-grokking-criticality-universality |
+| [b-turing-patterns-ecosystem-tipping](physics-ecology/b-turing-patterns-ecosystem-tipping.yaml) | mathematical-biology ↔ ecology | established | — | — |
 
 ---
 
@@ -42,17 +52,24 @@ new bridges while reading any paper.
 | `physics-neuroscience/` | Phase transitions ↔ neural avalanches |
 | `biology-medicine/` | Glymphatic system ↔ sleep / amyloid / aging |
 | `biology-astrobiology/` | Synthetic lichen consortia ↔ space ISRU |
-| `mathematics-biology/` | Topological defects + RG fixed-point ↔ embryonic morphogenesis + biological scaling |
+| `mathematics-biology/` | Topological defects + RG fixed-point + Turing R-D + optimal transport ↔ morphogenesis + scaling + vasculature |
 | `ai-physics/` | Grokking transition ↔ second-order phase transitions |
+| `physics-ai/` | Statistical physics phase transitions ↔ grokking, double descent, scaling laws |
 | `quantum-biology/` | Radical-pair compass ↔ quantum Fisher-information sensing |
 | `cosmology-biology/` | Kibble-Zurek mechanism ↔ embryonic symmetry breaking |
 | `physics-epidemiology/` | Network percolation ↔ epidemic threshold + finite-size scaling |
-| `physics-ecology/` | Percolation ↔ habitat fragmentation threshold (SLOSS resolution) |
+| `physics-ecology/` | Percolation ↔ habitat fragmentation threshold; Turing patterns ↔ ecosystem tipping points |
 | `information-evolution/` | Shannon channel capacity ↔ Eigen error threshold (Darwin meets Shannon) |
 | `physics-engineering-neuroscience/` | Kuramoto model ↔ neural gamma / cardiac AF / power grid / laser arrays |
 | `statistics-evolution/` | Fisher information ↔ fundamental theorem of natural selection ↔ natural gradient (ML) |
 | `physics-climate/` | Phase transitions + EWIs ↔ climate tipping points (AMOC, Amazon, Arctic) |
 | `physics-social/` | Ising model ↔ opinion dynamics ↔ social tipping points ↔ echo chambers |
+| `mathematics-evolution/` | Nash equilibrium ↔ evolutionary stable strategies |
+| `physics-information/` | Landauer's principle ↔ thermodynamic cost of computation |
+| `physics-computing/` | Spin-glass mechanics ↔ associative memory / neural networks |
+| `physics-finance/` | Kolmogorov turbulence cascade ↔ multifractal volatility |
+| `physics-complexity/` | Self-organized criticality ↔ brains, earthquakes, forest fires |
+| `physics-physics/` | Higgs mechanism (particle physics) = Anderson-Higgs (superconductivity) |
 
 ---
 
