@@ -789,6 +789,32 @@
       font-family: var(--mono);
     }
 
+    /* ── DOMAIN FILTER CHIPS ────────────────────────────────── */
+    .domain-chips {
+      display: flex; flex-wrap: wrap; gap: .38rem;
+      margin-top: .75rem; max-width: 620px;
+    }
+    .domain-chip {
+      display: inline-flex; align-items: center;
+      height: 28px; padding: 0 .75rem;
+      font-size: .72rem; font-weight: 600; letter-spacing: .02em;
+      border: 1px solid var(--border); border-radius: 999px;
+      background: var(--surface); color: var(--muted);
+      cursor: pointer; white-space: nowrap;
+      transition: border-color .18s, color .18s, background .18s, transform .15s;
+      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+      user-select: none;
+    }
+    .domain-chip:hover {
+      border-color: var(--border-h); color: var(--text); transform: translateY(-1px);
+    }
+    .domain-chip.active {
+      background: var(--accent); border-color: var(--accent);
+      color: #fff; transform: translateY(-1px);
+    }
+    [data-theme="light"] .domain-chip.active { color: #fff; }
+    .activity-fallback { color: var(--accent); font-size: .88rem; }
+
     /* ── DISCOVERY ENGINES ──────────────────────────────────── */
     .engines-grid {
       display: grid;
@@ -949,15 +975,15 @@
           <div class="lbl">Contributors</div>
         </div>
         <div class="stat-card">
-          <div class="n" id="stat-hyp">70</div>
+          <div class="n" id="stat-hyp">75</div>
           <div class="lbl">Active Hypotheses</div>
         </div>
         <div class="stat-card">
-          <div class="n" id="stat-unk">488</div>
+          <div class="n" id="stat-unk">493</div>
           <div class="lbl">Tracked Unknowns</div>
         </div>
         <div class="stat-card">
-          <div class="n" id="stat-bridges">44</div>
+          <div class="n" id="stat-bridges">49</div>
           <div class="lbl">Cross-domain Bridges</div>
         </div>
         <div class="stat-card">
@@ -965,7 +991,7 @@
           <div class="lbl">Pre-formal Observations</div>
         </div>
         <div class="stat-card">
-          <div class="n" id="stat-graph-edges">582</div>
+          <div class="n" id="stat-graph-edges">628</div>
           <div class="lbl">Knowledge Graph Edges</div>
         </div>
       </div>
@@ -1025,6 +1051,7 @@
         </svg>
         <span class="search-kbd">/</span>
       </div>
+      <div id="domain-chips" class="domain-chips" aria-label="Filter by domain" role="group"></div>
       <div id="search-results" class="search-results" aria-live="polite" aria-label="Search results"></div>
       <div id="search-count-note" class="search-count-note" hidden></div>
     </section>
@@ -1090,7 +1117,7 @@
       </p>
       <div class="graph-stats-bar" id="kg-stats-bar">
         <span id="kg-node-count">618</span> nodes &nbsp;·&nbsp;
-        <span id="kg-edge-count">300</span> edges<span id="kg-top-node"></span>
+        <span id="kg-edge-count">628</span> edges<span id="kg-top-node"></span>
       </div>
       <div id="graph-container">
         <svg id="kg-svg" aria-label="Knowledge graph force-directed visualization"></svg>
@@ -1888,27 +1915,45 @@
 
     /* ── ACTIVITY FEED ───────────────────────────────────────── */
     var feedEl = document.getElementById('activity-feed');
-    if (!isFile) {
-      ghFetch('/commits?per_page=6').then(function (commits) {
-        feedEl.innerHTML = '';
-        commits.forEach(function (c) {
-          var av  = c.author ? c.author.avatar_url : '';
-          var who = c.author ? c.author.login : (c.commit.author ? c.commit.author.name : '?');
+    var FEED_PREFIX_RE = /^(feat|fix|docs|content|chore):/i;
+
+    function renderFeedCommits(commits) {
+      feedEl.innerHTML = '';
+      var filtered = commits
+        .filter(function (c) {
           var msg = c.commit.message.split('\n')[0];
-          var a   = document.createElement('a');
-          a.className = 'commit-row';
-          a.href = c.html_url; a.target = '_blank'; a.rel = 'noopener';
-          a.setAttribute('aria-label', msg + ' by ' + who);
-          a.innerHTML =
-            '<div class="commit-av">' + (av ? '<img src="'+av+'" alt="'+who+'" loading="lazy"/>' : '') + '</div>' +
-            '<div><div class="commit-msg">' + msg.replace(/</g,'&lt;') + '</div>' +
-              '<div class="commit-sub">' + who + ' · ' + timeAgo(c.commit.author.date) + '</div>' +
-            '</div>' +
-            '<span class="commit-sha">' + c.sha.slice(0,7) + '</span>';
-          feedEl.appendChild(a);
-        });
+          return FEED_PREFIX_RE.test(msg);
+        })
+        .slice(0, 8);
+
+      if (!filtered.length) {
+        feedEl.innerHTML = '<div class="feed-msg"><a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/commits/main" class="activity-fallback" target="_blank" rel="noopener">View recent activity on GitHub →</a></div>';
+        return;
+      }
+
+      filtered.forEach(function (c) {
+        var av  = c.author ? c.author.avatar_url : '';
+        var who = c.author ? c.author.login : (c.commit.author ? c.commit.author.name : '?');
+        var msg = c.commit.message.split('\n')[0].substring(0, 80);
+        var a   = document.createElement('a');
+        a.className = 'commit-row';
+        a.href = c.html_url; a.target = '_blank'; a.rel = 'noopener';
+        a.setAttribute('aria-label', msg + ' by ' + who);
+        a.innerHTML =
+          '<div class="commit-av">' + (av ? '<img src="'+av+'" alt="'+who+'" loading="lazy"/>' : '') + '</div>' +
+          '<div><div class="commit-msg">' + msg.replace(/</g,'&lt;') + '</div>' +
+            '<div class="commit-sub">' + who + ' · ' + timeAgo(c.commit.author.date) + '</div>' +
+          '</div>' +
+          '<span class="commit-sha">' + c.sha.slice(0,7) + '</span>';
+        feedEl.appendChild(a);
+      });
+    }
+
+    if (!isFile) {
+      ghFetch('/commits?per_page=20').then(function (commits) {
+        renderFeedCommits(commits);
       }).catch(function () {
-        feedEl.innerHTML = '<div class="feed-msg err">Could not load commits — GitHub API may be rate-limited.</div>';
+        feedEl.innerHTML = '<div class="feed-msg"><a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/commits/main" class="activity-fallback" target="_blank" rel="noopener">View recent activity on GitHub →</a></div>';
       });
     } else {
       feedEl.innerHTML = '<div class="feed-msg">Start <code>python -m http.server 8765</code> to see live commits.</div>';
@@ -2105,13 +2150,63 @@
           };
         });
 
-        var inputEl     = document.getElementById('catalog-search-input');
-        var resultsEl   = document.getElementById('search-results');
-        var countNoteEl = document.getElementById('search-count-note');
+        var inputEl      = document.getElementById('catalog-search-input');
+        var resultsEl    = document.getElementById('search-results');
+        var countNoteEl  = document.getElementById('search-count-note');
+        var chipsEl      = document.getElementById('domain-chips');
+        var activeDomain = 'all';
 
         if (inputEl) {
           inputEl.placeholder = 'Search ' + searchIndex.length + ' entries \u2014 unknowns, bridges, hypotheses\u2026';
         }
+
+        /* ── BUILD DOMAIN CHIPS ──────────────────────────────── */
+        var domainSet = new Set();
+        searchIndex.forEach(function (n) {
+          if (n.domain) {
+            n.domain.split(/[,;]+/).forEach(function (d) {
+              var trimmed = d.trim();
+              if (trimmed) domainSet.add(trimmed);
+            });
+          }
+        });
+        var domains = Array.from(domainSet).sort();
+
+        function buildDomainChips() {
+          if (!chipsEl || !domains.length) return;
+          chipsEl.innerHTML = '';
+          var allChip = document.createElement('button');
+          allChip.className = 'domain-chip active';
+          allChip.textContent = 'All';
+          allChip.setAttribute('aria-pressed', 'true');
+          allChip.addEventListener('click', function () { setActiveDomain('all'); });
+          chipsEl.appendChild(allChip);
+
+          domains.forEach(function (d) {
+            var chip = document.createElement('button');
+            chip.className = 'domain-chip';
+            chip.textContent = d.charAt(0).toUpperCase() + d.slice(1);
+            chip.dataset.domain = d.toLowerCase();
+            chip.setAttribute('aria-pressed', 'false');
+            chip.addEventListener('click', function () { setActiveDomain(d.toLowerCase()); });
+            chipsEl.appendChild(chip);
+          });
+        }
+
+        function setActiveDomain(domain) {
+          activeDomain = domain;
+          if (chipsEl) {
+            Array.from(chipsEl.querySelectorAll('.domain-chip')).forEach(function (chip) {
+              var isActive = (domain === 'all' && chip.textContent === 'All') ||
+                             (chip.dataset.domain === domain);
+              chip.classList.toggle('active', isActive);
+              chip.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+            });
+          }
+          doSearch(inputEl ? inputEl.value : '');
+        }
+
+        buildDomainChips();
 
         function typeLabel(t) {
           return { bridge:'Bridge', unknown:'Unknown', hypothesis:'Hypothesis', phenomenon:'Phenomenon' }[t] || t;
@@ -2153,9 +2248,17 @@
 
         function doSearch(query) {
           var q = query.toLowerCase().trim();
-          if (!q) { showSearchPlaceholder(); return; }
-          var all = searchIndex.filter(function (n) { return n.searchText.includes(q); });
-          renderSearchResults(all.slice(0, 20), all.length);
+          var results = searchIndex;
+          if (activeDomain && activeDomain !== 'all') {
+            results = results.filter(function (n) {
+              return (n.domain || '').toLowerCase().includes(activeDomain);
+            });
+          }
+          if (!q && activeDomain === 'all') { showSearchPlaceholder(); return; }
+          if (q) {
+            results = results.filter(function (n) { return n.searchText.includes(q); });
+          }
+          renderSearchResults(results.slice(0, 20), results.length);
         }
 
         if (inputEl) {
