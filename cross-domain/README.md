@@ -23,6 +23,8 @@ new bridges while reading any paper.
 | [b-grokking-criticality](ai-physics/b-grokking-criticality.yaml) | AI/machine-learning ↔ statistical-physics | proposed | u-grokking-phase-transition | h-grokking-criticality-universality |
 | [b-quantum-biology-navigation](quantum-biology/b-quantum-biology-navigation.yaml) | quantum-mechanics ↔ sensory-biology | **established** | u-quantum-biology-decoherence | h-quantum-compass-precision |
 | [b-kibble-zurek-morphogenesis](cosmology-biology/b-kibble-zurek-morphogenesis.yaml) | cosmology ↔ developmental-biology | proposed | u-kibble-zurek-embryo, u-topological-morphogenesis | h-kibble-zurek-polarity-scaling |
+| [b-renormalization-biological-scaling](mathematics-biology/b-renormalization-biological-scaling.yaml) | mathematical-physics ↔ comparative-physiology | proposed | u-renormalization-allometric, u-kleiber-pulsatile-waves | h-allometric-rg-fixed-point, h-kleiber-wave-physics |
+| [b-percolation-epidemiology](physics-epidemiology/b-percolation-epidemiology.yaml) | statistical-physics ↔ epidemiology | proposed | u-percolation-epidemic-fss | h-percolation-outbreak-threshold |
 
 ---
 
@@ -34,10 +36,11 @@ new bridges while reading any paper.
 | `physics-neuroscience/` | Phase transitions ↔ neural avalanches |
 | `biology-medicine/` | Glymphatic system ↔ sleep / amyloid / aging |
 | `biology-astrobiology/` | Synthetic lichen consortia ↔ space ISRU |
-| `mathematics-biology/` | Topological defects ↔ embryonic morphogenesis + cortical folding |
+| `mathematics-biology/` | Topological defects + RG fixed-point ↔ embryonic morphogenesis + biological scaling |
 | `ai-physics/` | Grokking transition ↔ second-order phase transitions |
 | `quantum-biology/` | Radical-pair compass ↔ quantum Fisher-information sensing |
 | `cosmology-biology/` | Kibble-Zurek mechanism ↔ embryonic symmetry breaking |
+| `physics-epidemiology/` | Network percolation ↔ epidemic threshold + finite-size scaling |
 
 ---
 

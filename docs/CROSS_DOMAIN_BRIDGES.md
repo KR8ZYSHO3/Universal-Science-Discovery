@@ -32,6 +32,8 @@ rediscover it independently — wasting decades. Bridges make the connection exp
 | b-grokking-criticality | machine-learning ↔ statistical-physics | u-grokking-phase-transition | h-grokking-criticality-universality |
 | b-quantum-biology-navigation | quantum-mechanics ↔ sensory-biology | u-quantum-biology-decoherence | h-quantum-compass-precision |
 | b-kibble-zurek-morphogenesis | cosmology ↔ developmental-biology | u-kibble-zurek-embryo, u-topological-morphogenesis | h-kibble-zurek-polarity-scaling |
+| b-renormalization-biological-scaling | mathematical-physics ↔ comparative-physiology | u-renormalization-allometric, u-kleiber-pulsatile-waves | h-allometric-rg-fixed-point, h-kleiber-wave-physics |
+| b-percolation-epidemiology | statistical-physics ↔ epidemiology | u-percolation-epidemic-fss | h-percolation-outbreak-threshold |
 
 ---
 
