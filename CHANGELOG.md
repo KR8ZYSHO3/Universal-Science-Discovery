@@ -9,6 +9,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added (2026-05-04 session — Kuramoto and Fisher information bridges)
+- **`cross-domain/physics-engineering-neuroscience/b-kuramoto-synchronization.yaml`** — 13th bridge: Kuramoto model unifies neural gamma oscillations, cardiac AF, power grid stability, and laser arrays. The spectral-gap formula for K_c (derived for power grids) predicts sinoatrial node AF threshold. Includes h-kuramoto-af-spectral-gap: pacemaker stimulation protocol from laser engineering.
+- **`hypotheses/active/h-kuramoto-af-spectral-gap.yaml`** — AF vulnerability = inverse spectral gap of sinoatrial coupling Laplacian; laser noise-robust phase-locking protocol → novel pacemaker design.
+- **`cross-domain/statistics-evolution/b-fisher-information-evolution.yaml`** — 14th bridge: Fisher information I(theta) = additive genetic variance V_A. Fisher's two 1925/1930 theorems are one. Natural selection = natural gradient ascent = TRPO/NPG in deep RL. Connects to h-quantum-compass-precision (quantum Fisher info).
+- **`unknowns-catalog/biology/u-fisher-natural-gradient-evolution.yaml`** — Does natural selection saturate the Fisher-information speed limit? Does the G-matrix encode the natural gradient direction?
+- **`hypotheses/active/h-fisher-speed-limit-selection.yaml`** — Artificial selection efficiency R/(V_A*beta) near 1.0 in large populations, drops with 1/(2*Ne*s); Illinois maize long-term experiment as test case.
+- **GitHub Issues #29-31** — Kuramoto AF spectral gap, Fisher speed limit, habitat percolation SLOSS resolution.
+- **`dashboard/index.html`** — Updated counts: 20 unknowns · 20 hypotheses · 14 bridges.
+- **`.planning/STATE.md`** — Bridge network table updated to 14 bridges.
+
 ### Added (2026-05-04 session — ecology and information-evolution bridges)
 - **`cross-domain/physics-ecology/b-habitat-percolation-ecology.yaml`** — 11th bridge: completes the percolation trilogy (oncology, epidemiology, ecology). The ~60% habitat threshold at which forest-interior species collapse is the 2D site percolation threshold p_c=0.593. FSS corrections predict how this threshold shifts in finite landscapes. Resolves the 50-year SLOSS debate analytically.
 - **`unknowns-catalog/biology/u-habitat-fragmentation-threshold.yaml`** — Has the 2D percolation FSS exponent nu=4/3 ever been measured from real species-persistence data? No.

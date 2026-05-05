@@ -4,6 +4,7 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 ## Last updated
 
+- 2026-05-04 — **2 new bridges + 2 unknowns + 2 hypotheses**: b-kuramoto-synchronization (Kuramoto model unifying neuroscience/cardiology/engineering) + b-fisher-information-evolution (Fisher info = fundamental theorem of natural selection = natural gradient ML); GitHub Issues #29-31
 - 2026-05-04 — **2 new bridges + 3 unknowns + 2 hypotheses + q-bio:PE harvest**: b-habitat-percolation-ecology (completes percolation trilogy) + b-error-threshold-information (Shannon meets Darwin); u-gauge-field-epidemic-nonlocality seeded from harvest; ingest URL fixed (/oai → /oai2)
 - 2026-05-04 — **2 new bridges + 2 unknowns + 2 hypotheses**: b-renormalization-biological-scaling (RG↔allometry) + b-percolation-epidemiology (percolation↔epidemic FSS); GitHub Issues #24-26 opened (feat branch pending PR)
 - 2026-05-04 — **Kibble-Zurek bridge + quantum compass hypothesis** (PR #23): b-kibble-zurek-morphogenesis (cosmology↔embryogenesis), u-kibble-zurek-embryo, h-kibble-zurek-polarity-scaling, h-quantum-compass-precision; closes Issue #18
@@ -22,9 +23,9 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 | Type | Count | Directory |
 |------|-------|-----------|
-| Unknowns | 19 | `unknowns-catalog/` |
-| Hypotheses | 18 | `hypotheses/active/` |
-| Bridges | 12 | `cross-domain/` |
+| Unknowns | 20 | `unknowns-catalog/` |
+| Hypotheses | 20 | `hypotheses/active/` |
+| Bridges | 14 | `cross-domain/` |
 | Schemas | 3 | `schemas/` (unknown, hypothesis, bridge) |
 
 ### Bridge network (cross-domain connections)
@@ -43,6 +44,8 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 | b-percolation-epidemiology | statistical-physics ↔ epidemiology | proposed |
 | b-habitat-percolation-ecology | statistical-physics ↔ conservation-ecology | proposed |
 | b-error-threshold-information | information-theory ↔ molecular-evolution | proposed |
+| b-kuramoto-synchronization | statistical-physics ↔ neuroscience ↔ cardiology ↔ engineering | proposed |
+| b-fisher-information-evolution | statistics ↔ evolutionary-biology ↔ machine-learning | proposed |
 
 ## Current focus
 
