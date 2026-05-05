@@ -1,0 +1,37 @@
+id: u-erdos-renyi-random-graph-biological
+title: "Do biological networks (gene regulatory, protein-protein interaction, metabolic) show giant component emergence at the same critical connectivity as Erdős-Rényi random graphs, and what does this imply for robustness?"
+status: open
+priority: medium
+disciplines:
+  - network-science
+  - mathematics
+  - systems-biology
+summary: >
+  The Erdős-Rényi random graph model shows a phase transition at mean degree <k> = 1:
+  below this threshold, the network consists of small isolated components; above it,
+  a giant connected component appears containing O(N) nodes. This is a percolation
+  transition, and the scaling of the giant component near <k>_c = 1 follows
+  mean-field percolation exponents. Biological networks (gene regulatory networks,
+  protein-protein interaction networks, metabolic networks) have mean degrees of
+  2-10, well above the ER threshold, ensuring connectivity. However, biological
+  networks are not random — they are scale-free, hierarchical, and modular.
+  The unknown: when biological networks are perturbed (gene knockouts, protein
+  deletions, metabolic flux disruptions), do they undergo a connectivity transition
+  (giant component breakup) following ER percolation theory, or does the non-random
+  structure (scale-free degree distribution) fundamentally alter the transition?
+  Cohen et al. (2001) showed that scale-free networks require removing nearly all
+  nodes before disconnecting (infinite critical threshold for gamma ≤ 3 and random removal),
+  but biological implications (cell death threshold after gene knockouts) have not
+  been systematically tested.
+systematic_gaps:
+  - Whether biological network connectivity loss after systematic gene knockouts follows ER or scale-free percolation has not been tested in a genome-scale experiment
+  - The critical knockout fraction for giant component loss in real interactomes is not empirically established
+  - Whether synthetic lethality pairs in yeast correspond to percolation-sensitive network bottlenecks is not quantified
+suggested_hypotheses:
+  - The critical fraction of gene knockouts needed to destroy the giant component of the yeast protein interaction network is f_c > 0.9 (consistent with scale-free percolation), while targeted deletion of the top 1% hub proteins achieves the same disconnection at f = 0.01 — testable via systematic synthetic lethality datasets
+related_unknowns:
+  - u-scale-free-brain-connectome-criticality
+references:
+  - doi: "10.1103/PhysRevLett.86.3682"
+    note: "Cohen et al. (2001) PRL - resilience of scale-free networks to random failures and attacks"
+last_reviewed: "2026-05-05"
