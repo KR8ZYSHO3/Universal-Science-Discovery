@@ -1,0 +1,84 @@
+id: b-turbulence-financial-markets
+title: "Kolmogorov turbulence cascade ↔ multifractal volatility in financial markets"
+status: proposed
+fields:
+  - statistical-physics
+  - fluid-dynamics
+  - quantitative-finance
+  - econophysics
+
+bridge_claim: >
+  Kolmogorov (1941) derived that in fully developed turbulence, energy cascades
+  from large eddies to small ones with a universal power-law energy spectrum
+  E(k) ~ k^{-5/3}, and velocity increments delta_v(r) ~ r^{1/3} (the
+  Kolmogorov scaling). Mandelbrot (1963) observed that financial return
+  increments r(tau) show heavy tails and long-range dependence inconsistent with
+  Brownian motion — and that the statistical structure of price changes across
+  timescales looks like a multifractal cascade, analogous to Richardson's energy
+  cascade in turbulence. The Multifractal Model of Asset Returns (MMAR, Mandelbrot
+  et al. 1997) and the Multifractal Random Walk (MRW, Bacry et al. 2001) make
+  this analogy quantitative: the Hurst exponent H, the multifractal spectrum f(alpha),
+  and the intermittency parameter lambda^2 in the log-normal cascade model all
+  have direct fluid turbulence counterparts. The cascade timescale in S&P 500
+  returns (T ~ 1.5 years) corresponds to the integral scale of turbulent energy
+  injection in the market analogy. Crucially, the same log-normal cascade that
+  describes velocity fluctuations in turbulence also describes volatility
+  clustering in financial time series — suggesting both are driven by a
+  multiplicative cascade process with no characteristic scale.
+
+translation_table:
+  - field_a_term: "energy cascade (large eddies → small eddies)"
+    field_b_term: "volatility cascade (long-term trends → short-term fluctuations)"
+    note: "Richardson cascade in turbulence; no analogue identified in market microstructure yet"
+  - field_a_term: "Kolmogorov -5/3 energy spectrum"
+    field_b_term: "power-law autocorrelation of squared returns (ARCH)"
+    note: "Both arise from multiplicative cascade with log-normal increments"
+  - field_a_term: "velocity increment delta_v(r) at scale r"
+    field_b_term: "return r(tau) over horizon tau"
+    note: "Anomalous scaling of moments in both"
+  - field_a_term: "intermittency / multifractal spectrum f(alpha)"
+    field_b_term: "heteroskedasticity / volatility clustering"
+    note: "Both depart from simple monofractal (H = 1/3 or H = 1/2)"
+  - field_a_term: "integral scale L (energy injection scale)"
+    field_b_term: "cascade timescale T ~ 1.5 years (S&P 500)"
+    note: "Where the cascade begins; identified empirically"
+  - field_a_term: "Kolmogorov dissipation scale eta"
+    field_b_term: "market microstructure noise scale (tick data)"
+    note: "Where the cascade ends"
+  - field_a_term: "Reynolds number Re (turbulence intensity)"
+    field_b_term: "market depth / liquidity (no formal correspondence yet)"
+    note: "Analogy incomplete — open unknown"
+
+related_unknowns:
+  - u-turbulence-market-reynolds-analogue
+  - u-kolmogorov-volatility-cascade-mechanism
+
+related_hypotheses:
+  - h-market-crash-turbulent-transition
+
+cross_pollination_opportunities:
+  - "Use turbulence intermittency models (She-Leveque 1994) to predict tail-risk statistics in financial returns"
+  - "Test whether the market cascade timescale T shifts before financial crises as a leading indicator"
+  - "Apply renormalisation group methods from turbulence to derive the market analogue of the Kolmogorov -5/3 law from first principles"
+
+communication_gap: >
+  Mandelbrot noticed the turbulence-finance analogy in the 1960s but it was
+  treated as a metaphor by mainstream finance (which adopted Gaussian Brownian
+  motion instead). Econophysics developed the quantitative multifractal models
+  in the 1990s-2000s in physics journals (Physica A, Physical Review E) largely
+  unread by financial economists. The 2008 crisis renewed interest but the
+  communities still publish in separate journals with minimal cross-citation.
+
+references:
+  - doi: "10.1007/BF00538711"
+    note: "Kolmogorov (1941) — -5/3 turbulence spectrum"
+  - doi: "10.1017/CBO9780511817311"
+    note: "Frisch (1995) Turbulence — definitive text on the cascade"
+  - doi: "10.1023/A:1003003012316"
+    note: "Mandelbrot, Fisher & Calvet (1997) — MMAR multifractal asset returns"
+  - doi: "10.1088/1469-7688/1/2/306"
+    note: "Bacry, Delour & Muzy (2001) — Multifractal Random Walk"
+  - doi: "10.1103/PhysRevLett.73.845"
+    note: "Ghashghaie et al. (1996) PRL — turbulent cascades in FX markets"
+
+last_reviewed: "2026-05-05"
