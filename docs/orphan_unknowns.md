@@ -1,6 +1,6 @@
 # Orphan Unknowns — Priority Contribution Targets
 
-These **329** unknowns have no associated hypothesis or bridge edge in the knowledge graph.
+These **324** unknowns have no associated hypothesis or bridge edge in the knowledge graph.
 They are the highest-priority targets for new contributions — add a hypothesis or propose a cross-domain bridge connecting them.
 
 | ID | Title |
@@ -17,16 +17,12 @@ They are the highest-priority targets for new contributions — add a hypothesis
 | `u-narrative-comprehension-brain` | What brain regions and computational processes support the construction of narrative mental models during story comprehension? |
 | `u-synaesthesia-mechanism` | What neural mechanisms produce synesthesia, and why does cross-activation of perceptual modalities occur in approximately 4% of the population? |
 | `u-visual-art-emotional-response` | What visual features of artworks reliably evoke specific emotional responses, and does the "aesthetic emotion" differ from ordinary emotion? |
-| `u-baryon-asymmetry-origin` | What is the mechanism of baryogenesis that produced the observed matter-antimatter asymmetry? |
-| `u-black-hole-information-paradox` | Is information destroyed by black hole evaporation, and if not, how is it encoded in Hawking radiation? |
 | `u-cgm-enrichment` | How is the circumgalactic medium enriched with metals and what is its role in the baryon cycle? |
 | `u-cluster-cooling-flows` | Why do galaxy cluster cooling flows not form stars at the rates predicted by their X-ray luminosities? |
 | `u-cosmic-string-networks` | Do cosmic string networks exist and what are their observational signatures in the CMB and gravitational wave background? |
 | `u-dark-energy-equation-of-state` | Is dark energy a cosmological constant or a dynamical field, and what is its equation of state w(z)? |
-| `u-dark-matter-particle-identity` | What particle or particles constitute cosmological dark matter? |
 | `u-early-galaxy-formation-jwst` | Why do JWST observations reveal massive, evolved galaxies at z>10 that are absent in ΛCDM predictions? |
 | `u-exoplanet-biosignature-false-positives` | What abiotic processes can mimic biosignature gases in exoplanet atmospheres? |
-| `u-fast-radio-burst-origin` | What are the dominant progenitor mechanisms for cosmological fast radio bursts? |
 | `u-galaxy-angular-momentum` | How is angular momentum transported during galaxy formation to produce the observed diversity of disk sizes? |
 | `u-globular-cluster-formation` | How do globular clusters form and why do they show multiple stellar populations? |
 | `u-gwb-spectrum` | What is the origin of the nanohertz gravitational wave background detected by pulsar timing arrays? |
@@ -38,7 +34,6 @@ They are the highest-priority targets for new contributions — add a hypothesis
 | `u-stellar-bh-spin-distribution` | What process sets the spin magnitude distribution of stellar-mass black holes in binary systems? |
 | `u-stellar-initial-mass-function` | Is the stellar initial mass function universal, and what physics drives variations in extreme environments? |
 | `u-type-ia-supernova-progenitor` | What stellar system produces the majority of Type Ia supernovae: single-degenerate or double-degenerate? |
-| `u-uhecr-origin` | What are the sources of ultra-high-energy cosmic rays above the GZK cutoff and what accelerates them? |
 | `u-atmospheric-chemistry-aerosol-nucleation` | What are the molecular mechanisms of atmospheric new particle formation, and which trace species drive nucleation under different atmospheric conditions? |
 | `u-battery-solid-electrolyte-stability` | What determines the long-term electrochemical stability of solid electrolytes at electrode interfaces, and can this stability be predicted computationally? |
 | `u-catalyst-optimization-volcano-plots` | Do Sabatier volcano plots have a universal mathematical form, and can machine learning identify the binding energy descriptors that place any catalyst near the volcano peak? |
