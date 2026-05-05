@@ -1,0 +1,50 @@
+id: u-percolation-epidemic-fss
+title: >
+  Do finite-size scaling corrections from percolation theory quantitatively
+  improve epidemic risk estimates in populations of 10,000-100,000?
+status: open
+priority: critical
+last_reviewed: "2026-05-04"
+disciplines:
+  - epidemiology
+  - statistical-physics
+  - network-science
+  - public-health
+summary: >
+  The SIR epidemic threshold R_0=1 is mathematically identical to the percolation
+  threshold on a contact network. In infinite populations (mean-field), R_0 is
+  well-defined. In finite populations — hospitals (N~500), schools (N~1,000),
+  island communities (N~10,000), small cities (N~100,000) — the apparent R_0
+  estimated from early case data is systematically biased by finite-size effects.
+
+  Condensed-matter physicists have 50 years of finite-size scaling (FSS) methods
+  that correctly account for these biases. The standard FSS formula for a system
+  of N nodes near a percolation threshold gives a correction:
+
+    R_0^eff(N) = R_0^inf + c * N^(-1/nu)
+
+  where nu is the correlation length exponent (nu=1 for random networks; nu=4/3
+  for 2D spatially structured populations).
+
+  **The gap**: nobody has systematically validated whether FSS corrections improve
+  R_0 estimates in real outbreak data from finite institutions. During COVID-19,
+  nursing home and hospital outbreaks provided hundreds of natural experiments —
+  small populations with known contact structure and well-documented case counts.
+  The FSS prediction could have been tested retrospectively against these datasets.
+  It has not been.
+
+  The practical consequence: public health agencies currently report R_0 estimates
+  without population-size uncertainty bands. In a nursing home of 100 residents,
+  the difference between R_0=0.9 and R_0=1.1 near the percolation threshold may
+  be statistically indistinguishable with finite-size noise — yet the public-health
+  response (full lockdown vs monitoring) differs dramatically.
+systematic_gaps:
+  - FSS corrections to epidemic threshold have not been validated against real outbreak data in populations of N < 100,000
+  - The appropriate universality class (random-graph vs 2D spatial) for institutional contact networks (hospitals, schools) has not been empirically determined
+  - No public health tool currently reports R_0 with finite-size uncertainty bands derived from percolation FSS
+  - Retrospective COVID-19 nursing home / hospital outbreak data has not been analysed with FSS methods
+related_unknowns:
+  - u-tumor-containment-percolation
+related_bridges:
+  - b-percolation-epidemiology
+  - b-percolation-oncology

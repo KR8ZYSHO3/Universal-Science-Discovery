@@ -9,6 +9,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added (2026-05-04 session — RG and epidemiology bridges)
+- **`cross-domain/mathematics-biology/b-renormalization-biological-scaling.yaml`** — 9th bridge: renormalization group (RG) fixed point ↔ biological allometric scaling laws. The WBE vascular branching recursion is structurally an RG equation; the correction-to-scaling exponent predicts how Kleiber's Law breaks down below 1g. Includes full translation table with 7 entries and cross-pollination opportunities.
+- **`unknowns-catalog/biology/u-renormalization-allometric.yaml`** — Has the WBE vascular recursion ever been cast as a real-space RG transformation and the correction-to-scaling exponent derived? No.
+- **`hypotheses/active/h-allometric-rg-fixed-point.yaml`** — Wilson-Fisher correction-to-scaling exponent from the branching-network RG predicts the observed sub-1g deviation in Savage et al. (2004); testable against ectotherm data.
+- **`cross-domain/physics-epidemiology/b-percolation-epidemiology.yaml`** — 10th bridge: network percolation ↔ epidemic threshold. R_0=1 is a percolation phase transition; FSS corrections predict finite-population R_0 bias. COVID-19 nursing home datasets provide the test.
+- **`unknowns-catalog/biology/u-percolation-epidemic-fss.yaml`** — Do percolation FSS corrections quantitatively improve R_0 estimates in populations of N < 10,000?
+- **`hypotheses/active/h-percolation-outbreak-threshold.yaml`** — FSS correction exponent nu=1 (random-graph universality class) measurable from COVID-19 nursing home outbreak data; 30% R_0 estimation improvement predicted.
+- **GitHub Issues #24-26** — contributor tasks for KZ experiment, FSS epidemiology analysis, and RG allometry calculation.
+- **`dashboard/index.html`** — Updated counts: 16 unknowns · 16 hypotheses · 10 bridges.
+- **`.planning/STATE.md`** — Full bridge network table updated to 10 bridges.
+
 ### Added (2026-05-04 session — cross-domain catalog expansion)
 - **8th bridge** [`cross-domain/cosmology-biology/b-kibble-zurek-morphogenesis.yaml`](cross-domain/cosmology-biology/b-kibble-zurek-morphogenesis.yaml)
   — Kibble-Zurek mechanism (Big Bang defect formation) ↔ embryonic symmetry breaking (PAR polarisation in *C. elegans*);

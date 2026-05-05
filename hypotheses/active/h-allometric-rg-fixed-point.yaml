@@ -1,0 +1,72 @@
+id: h-allometric-rg-fixed-point
+title: >
+  Vascular branching recursion has an RG fixed point at area-preserving branching,
+  and the Wilson-Fisher correction-to-scaling terms quantitatively predict the
+  observed deviation from Kleiber's Law below 1 gram body mass.
+status: active
+created: "2026-05-04"
+last_updated: "2026-05-04"
+priority: high
+related_disciplines:
+  - mathematical-physics
+  - theoretical-biology
+  - comparative-physiology
+unknowns_addressed:
+  - u-renormalization-allometric
+  - u-kleiber-pulsatile-waves
+evidence_links:
+  - type: supporting
+    doi: "10.1126/science.276.5309.122"
+    note: WBE derives 3/4 from area-preserving branching — the recursion relation is structurally an RG equation at its fixed point
+  - type: supporting
+    arxiv: "q-bio/0612023"
+    note: Savage et al. document systematic sub-1g deviation from M^(3/4) — the correction-to-scaling regime
+  - type: supporting
+    note: >
+      Wilson-Fisher epsilon expansion gives correction-to-scaling exponent omega ~ 0.8
+      for the 3D Ising universality class. A comparable calculation for the branching
+      network RG would give a specific prediction for the curvature of the log-log
+      metabolic plot below 1g — currently fit only phenomenologically.
+  - type: contradicting
+    note: >
+      The sub-1g deviation may be explained entirely by surface-area-to-volume geometry
+      (higher mass-specific metabolic rate in small organisms due to heat loss) rather
+      than correction-to-scaling. This would mean the RG fixed point is exact at all
+      body sizes and the deviation is a boundary effect, not a scaling correction.
+      Distinguishing these requires precise metabolic data on ectothermic small organisms
+      where the heat-loss argument does not apply.
+proposed_tests:
+  - discipline: mathematical-physics
+    description: >
+      Formalise the WBE vascular recursion as a real-space RG transformation: define
+      a "block branching" operation that coarse-grains the terminal N capillaries of a
+      vascular tree into an effective single vessel, and derive the recursion relation
+      for the branching ratio under this coarse-graining. Find the fixed point and the
+      linearised RG matrix around it. Extract the leading irrelevant eigenvalue omega
+      (the correction-to-scaling exponent). This is a straightforward calculation in
+      the WBE framework — it has simply never been done.
+  - discipline: comparative-physiology
+    description: >
+      Fit the full metabolic dataset from Savage et al. (2004) to the form:
+        log(B/M) = (3/4 - 1) log(M) + A * M^(-omega) + constant
+      where omega is the RG correction-to-scaling exponent. Compare the fitted omega
+      to the theoretical prediction from the RG calculation above. A good fit with the
+      theoretically predicted omega — rather than a phenomenological fit — would confirm
+      the RG interpretation.
+  - discipline: comparative-physiology
+    cross_domain_angle: >
+      Measure basal metabolic rates for 5-10 species of ectothermic invertebrates spanning
+      0.01g to 10g (e.g., insect larvae, polychaete worms). Ectotherms do not pay the
+      heat-loss penalty, so any sub-power-law deviation in this mass range must be a
+      genuine correction-to-scaling, not a thermal boundary effect. If the RG correction
+      fits ectotherm data, the hypothesis survives the most discriminating test.
+  - discipline: theoretical-biology
+    cross_domain_angle: >
+      Classify vascular perturbations (non-area-preserving branching ratios, variable
+      branching angles, asymmetric daughter vessels) as relevant or irrelevant in the
+      RG sense by computing their scaling dimensions. Compare the classification to
+      empirical observations of which vascular features vary freely across species
+      (irrelevant — not under selection) and which are conserved (relevant — under
+      selection). If RG classification matches evolutionary conservation pattern, it
+      provides a physical mechanism for why natural selection acts on some vascular
+      features and not others.
