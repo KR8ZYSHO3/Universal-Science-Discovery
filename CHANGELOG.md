@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added (2026-05-05 session — bulk content push to 357 entries)
+- **6 new domain directories:** `unknowns-catalog/materials-science/` (25 unknowns), `unknowns-catalog/climate-science/` (25), `unknowns-catalog/astronomy/` (25), `unknowns-catalog/medicine/` (30), `unknowns-catalog/cognitive-science/` (20), plus 20 new unknowns in `unknowns-catalog/mathematics/`.
+- **145 new unknowns** covering: high-Tc superconductivity, topological insulators, metallic glass, perovskite stability, twistronics, metamaterials; cloud feedback, AMOC collapse, permafrost tipping, ENSO predictability, ice sheet instability, SAI side effects; dark matter identity, dark energy EOS, FRB origin, Hubble tension, baryon asymmetry, BH information paradox, JWST early galaxies; sepsis heterogeneity, autoimmune triggers, immunotherapy non-responders, Alzheimer biomarkers, long COVID, spinal cord repair; hard problem of consciousness, language critical period, working memory capacity, mind-wandering; P vs NP geometric barriers, Riemann zero distribution, abc conjecture verification, turbulence formulation, random matrix universality.
+- **10 new hypotheses** (`h-magnetar-rapid-rotation-dynamo`, `h-amoc-saddle-node-bifurcation`, `h-soluble-amyloid-oligomers-synaptic`, `h-permafrost-carbon-tipping-2point5`, `h-gut-microbiome-serotonin-depression`, `h-sei-organic-inorganic-layers`, `h-recurrent-processing-consciousness`, `h-jwst-pop3-lensing-detection`, `h-early-dark-energy-hubble-tension`, `h-microglial-synaptic-pruning-depression`).
+- **2 new bridges (37–38):** `b-climate-tipping-percolation` (climate saddle-node bifurcations ↔ percolation phase transitions) in `cross-domain/physics-climate/`; `b-materials-consciousness-criticality` (spin glass SOC ↔ neural criticality) in `cross-domain/physics-neuroscience/`.
+- **Knowledge graph rebuilt:** **357 nodes, 582 edges**.
+- **Dashboard updated:** 38 bridges, 266 unknowns, 52 hypotheses, 582 graph edges.
+
 ### Added (2026-05-05 session — content push to 200 entries)
 - **6 new bridges (31–36):** b-synchronization-circadian (Kuramoto ↔ circadian, jet lag as desynchronization crisis), b-allometry-fractal-networks (WBE ↔ Kleiber's law from geometry), b-ecological-stoichiometry-redfield (Redfield ratio as evolutionary attractor), b-minority-game-economics (El Farol ↔ market microstructure ↔ quasispecies), b-landau-theory-universality (Landau order parameter → all second-order transitions), b-scale-free-networks-criticality (Barabási-Albert ↔ brain connectome ↔ internet).
 - **New directories:** `unknowns-catalog/chemistry/` (8 unknowns), `unknowns-catalog/neuroscience/` (8 unknowns), `unknowns-catalog/ecology/` (7 unknowns), `cross-domain/physics-networks/`.
