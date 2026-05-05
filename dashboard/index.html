@@ -2473,6 +2473,265 @@
               })
           );
 
+        /* ── NODE DETAIL PANEL ──────────────────────────────── */
+        var panelEl   = document.getElementById('node-detail-panel');
+        var contentEl = document.getElementById('panel-content');
+        var closeBtn  = document.getElementById('panel-close');
+
+        var TYPE_EMOJI = { bridge: '🔵', unknown: '🟠', hypothesis: '🟢', phenomenon: '🟣' };
+        var TYPE_LABEL = { bridge: 'Bridge', unknown: 'Unknown', hypothesis: 'Hypothesis', phenomenon: 'Phenomenon' };
+
+        /* build candidate file paths for a given node id + type */
+        function getFilePaths(nodeId, type) {
+          if (type === 'bridge') {
+            var dirs = [
+              'physics-ecology','physics-finance','physics-neuroscience','physics-computing',
+              'physics-information','physics-complexity','physics-climate','physics-social',
+              'physics-networks','physics-epidemiology','physics-oncology','physics-ai',
+              'physics-engineering-neuroscience','physics-physics','mathematics-biology',
+              'mathematics-evolution','neuroscience-medicine','climate-medicine',
+              'economics-medicine','astronomy-climate','linguistics-medicine',
+              'quantum-biology','social-physics','statistics-evolution','music-physics',
+              'philosophy-quantum','linguistics-physics','engineering-biology',
+              'seismology-physics','biology-astrobiology','information-evolution',
+              'cosmology-biology','biology-medicine','ai-physics',
+              'physics-biology','mathematics-information',
+              'astronomy-physics','astronomy-biology','astronomy-mathematics'
+            ];
+            return dirs.map(function (d) { return 'cross-domain/' + d + '/' + nodeId + '.yaml'; });
+          }
+          if (type === 'unknown') {
+            var domains = [
+              'biology','physics','chemistry','neuroscience','ecology',
+              'computer-science','mathematics','materials-science',
+              'climate-science','astronomy','medicine','cognitive-science',
+              'quantum-physics','linguistics','social-science','economics',
+              'geoscience','philosophy-of-science','engineering','art-and-cognition'
+            ];
+            return domains.map(function (d) { return 'unknowns-catalog/' + d + '/' + nodeId + '.yaml'; });
+          }
+          if (type === 'hypothesis') {
+            return ['hypotheses/active/' + nodeId + '.yaml', 'hypotheses/speculative/' + nodeId + '.yaml'];
+          }
+          return ['phenomenology/physics/' + nodeId + '.yaml', 'phenomenology/' + nodeId + '.yaml'];
+        }
+
+        async function loadNodeDetails(nodeId, type) {
+          var paths = getFilePaths(nodeId, type);
+          for (var i = 0; i < paths.length; i++) {
+            try {
+              var url = 'https://raw.githubusercontent.com/KR8ZYSHO3/Universal-Science-Discovery/main/' + paths[i];
+              var res = await fetch(url);
+              if (res.ok) {
+                var text = await res.text();
+                return { text: text, path: paths[i] };
+              }
+            } catch (e) { /* try next */ }
+          }
+          return null;
+        }
+
+        function parseYamlFields(yamlText) {
+          var fields = {};
+
+          var titleMatch = yamlText.match(/^title:\s*[>|]?\s*\n?([\s\S]*?)(?=\n\w|\n#|$)/m);
+          if (titleMatch) {
+            var raw = titleMatch[1].replace(/^\s{2,}/mg, ' ').replace(/\n/g, ' ').trim();
+            fields.title = raw.replace(/^["']|["']$/g, '');
+          }
+          if (!fields.title) {
+            var simple = yamlText.match(/^title:\s*["']?(.+?)["']?\s*$/m);
+            if (simple) fields.title = simple[1].trim();
+          }
+
+          var claimMatch = yamlText.match(/^bridge_claim:\s*[>|]?\s*\n([\s\S]*?)(?=\n\w|\n#|$)/m);
+          if (claimMatch) {
+            var claimRaw = claimMatch[1].replace(/^\s{2,}/mg, '').replace(/\n{3,}/g, '\n\n').trim();
+            fields.bridge_claim = claimRaw.split('\n\n')[0].replace(/\n/g, ' ').trim();
+          } else {
+            var inlineClaimMatch = yamlText.match(/^bridge_claim:\s*["']?(.+?)["']?\s*$/m);
+            if (inlineClaimMatch) fields.bridge_claim = inlineClaimMatch[1].trim();
+          }
+
+          var statusMatch = yamlText.match(/^status:\s*["']?(.+?)["']?\s*$/m);
+          if (statusMatch) fields.status = statusMatch[1].trim();
+
+          var questionMatch = yamlText.match(/^question:\s*[>|]?\s*\n?([\s\S]*?)(?=\n\w|\n#|$)/m);
+          if (questionMatch) {
+            fields.question = questionMatch[1].replace(/^\s{2,}/mg, ' ').replace(/\n/g, ' ').trim();
+          } else {
+            var qInline = yamlText.match(/^question:\s*["']?(.+?)["']?\s*$/m);
+            if (qInline) fields.question = qInline[1].trim();
+          }
+
+          /* translation_table: handles field_a_term/field_b_term format */
+          var ttSection = yamlText.match(/^translation_table:([\s\S]*?)(?=\n[a-zA-Z_]|\n#|$)/m);
+          if (ttSection) {
+            var entries = [];
+            var aMatches = Array.from(ttSection[1].matchAll(/field_a_term:\s*["']?(.+?)["']?\s*$/mg));
+            var bMatches = Array.from(ttSection[1].matchAll(/field_b_term:\s*["']?(.+?)["']?\s*$/mg));
+            for (var j = 0; j < Math.min(aMatches.length, bMatches.length, 6); j++) {
+              entries.push({ source: aMatches[j][1].trim(), target: bMatches[j][1].trim() });
+            }
+            fields.translation_table = entries;
+          }
+
+          /* related nodes */
+          var ruMatch = yamlText.match(/^related_unknowns:([\s\S]*?)(?=\n[a-zA-Z_]|\n#|$)/m);
+          if (ruMatch) {
+            fields.related_unknowns = Array.from(ruMatch[1].matchAll(/^\s*-\s*(.+)\s*$/mg)).map(function (m) { return m[1].trim().replace(/^["']|["']$/g, ''); });
+          }
+          var rhMatch = yamlText.match(/^related_hypotheses:([\s\S]*?)(?=\n[a-zA-Z_]|\n#|$)/m);
+          if (rhMatch) {
+            fields.related_hypotheses = Array.from(rhMatch[1].matchAll(/^\s*-\s*(.+)\s*$/mg)).map(function (m) { return m[1].trim().replace(/^["']|["']$/g, ''); });
+          }
+          var rbMatch = yamlText.match(/^related_bridges:([\s\S]*?)(?=\n[a-zA-Z_]|\n#|$)/m);
+          if (rbMatch) {
+            fields.related_bridges = Array.from(rbMatch[1].matchAll(/^\s*-\s*(.+)\s*$/mg)).map(function (m) { return m[1].trim().replace(/^["']|["']$/g, ''); });
+          }
+
+          return fields;
+        }
+
+        function esc(s) {
+          return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+        }
+
+        function renderPanel(d, fields, path, edges) {
+          var type = (d.type || 'unknown').toLowerCase();
+          var emoji = TYPE_EMOJI[type] || '⚪';
+          var label = TYPE_LABEL[type] || type;
+          var displayTitle = fields.title || d.title || d.id;
+          if (displayTitle.length > 160) displayTitle = displayTitle.slice(0, 160) + '…';
+
+          /* find connected node ids from edges */
+          var nodeId = d.id;
+          var connectedIds = [];
+          edges.forEach(function (e) {
+            var s = typeof e.source === 'object' ? e.source.id : e.source;
+            var t = typeof e.target === 'object' ? e.target.id : e.target;
+            if (s === nodeId && !connectedIds.includes(t)) connectedIds.push(t);
+            if (t === nodeId && !connectedIds.includes(s)) connectedIds.push(s);
+          });
+
+          var html = '';
+          html += '<span class="panel-type-badge type-' + type + '">' + emoji + ' ' + esc(label) + '</span>';
+          html += '<p class="panel-id">' + esc(nodeId) + '</p>';
+          html += '<p class="panel-title">' + esc(displayTitle) + '</p>';
+
+          if (fields.status) {
+            var statusClass = 'status-' + fields.status.toLowerCase().replace(/\s+/g, '-');
+            html += '<span class="panel-status ' + statusClass + '">' + esc(fields.status) + '</span>';
+          }
+
+          if (fields.question) {
+            html += '<p class="panel-section-label">Question</p>';
+            html += '<p class="panel-claim">' + esc(fields.question.slice(0, 300) + (fields.question.length > 300 ? '…' : '')) + '</p>';
+          }
+
+          if (fields.bridge_claim) {
+            html += '<p class="panel-section-label">Bridge Claim</p>';
+            var claimText = fields.bridge_claim.slice(0, 300) + (fields.bridge_claim.length > 300 ? '…' : '');
+            html += '<p class="panel-claim">' + esc(claimText) + '</p>';
+          }
+
+          if (fields.translation_table && fields.translation_table.length) {
+            html += '<p class="panel-section-label">Translation Table</p>';
+            html += '<table class="translation-table"><thead><tr><th>Source</th><th>Target</th></tr></thead><tbody>';
+            fields.translation_table.forEach(function (row) {
+              html += '<tr><td>' + esc(row.source) + '</td><td>' + esc(row.target) + '</td></tr>';
+            });
+            html += '</tbody></table>';
+          }
+
+          /* connected nodes from edge list */
+          if (connectedIds.length) {
+            html += '<p class="panel-section-label">Connected Nodes</p>';
+            html += '<ul class="panel-connected-list">';
+            connectedIds.slice(0, 8).forEach(function (id) {
+              html += '<li title="' + esc(id) + '">' + esc(id) + '</li>';
+            });
+            if (connectedIds.length > 8) {
+              html += '<li style="color:var(--muted);font-size:.72rem">+ ' + (connectedIds.length - 8) + ' more…</li>';
+            }
+            html += '</ul>';
+          } else {
+            /* fall back to YAML related_ fields */
+            var related = [].concat(fields.related_unknowns || [], fields.related_hypotheses || [], fields.related_bridges || []);
+            if (related.length) {
+              html += '<p class="panel-section-label">Related Entries</p>';
+              html += '<ul class="panel-connected-list">';
+              related.slice(0, 6).forEach(function (id) {
+                html += '<li title="' + esc(id) + '">' + esc(id) + '</li>';
+              });
+              html += '</ul>';
+            }
+          }
+
+          var ghPath = 'https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/' + path;
+          html += '<a href="' + ghPath + '" class="panel-github-link" target="_blank" rel="noopener">View on GitHub ↗</a>';
+
+          contentEl.innerHTML = html;
+        }
+
+        function openPanel(d) {
+          panelEl.classList.remove('hidden');
+          /* force reflow so transition fires */
+          panelEl.getBoundingClientRect();
+          panelEl.classList.add('open');
+        }
+
+        function closePanel() {
+          panelEl.classList.remove('open');
+          svg.selectAll('circle').classed('selected', false);
+        }
+
+        if (closeBtn) {
+          closeBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            closePanel();
+          });
+        }
+
+        /* close on Escape */
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && panelEl && panelEl.classList.contains('open')) closePanel();
+        });
+
+        /* click on SVG background closes panel */
+        svgEl.addEventListener('click', function (e) {
+          if (e.target === svgEl || e.target.tagName === 'svg') closePanel();
+        });
+
+        /* node click */
+        node.on('click', function (event, d) {
+          event.stopPropagation();
+
+          svg.selectAll('circle').classed('selected', function (n) { return n.id === d.id; });
+
+          openPanel(d);
+          contentEl.innerHTML = '<div class="panel-loading">Loading…</div>';
+
+          var type = d.id.startsWith('b-') ? 'bridge'
+                   : d.id.startsWith('u-') ? 'unknown'
+                   : d.id.startsWith('h-') ? 'hypothesis'
+                   : 'phenomenon';
+
+          loadNodeDetails(d.id, type).then(function (result) {
+            if (result) {
+              var fields = parseYamlFields(result.text);
+              renderPanel(d, fields, result.path, edges);
+            } else {
+              contentEl.innerHTML =
+                '<span class="panel-type-badge type-' + type + '">' + (TYPE_EMOJI[type] || '⚪') + ' ' + esc(TYPE_LABEL[type] || type) + '</span>' +
+                '<p class="panel-id">' + esc(d.id) + '</p>' +
+                '<p class="panel-title">' + esc(d.title || d.id) + '</p>' +
+                '<p style="color:var(--muted);font-size:.8rem;margin-top:.5rem">Full details not available in preview mode.</p>' +
+                '<a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/search?q=' + encodeURIComponent(d.id) + '" class="panel-github-link" target="_blank" rel="noopener">Search on GitHub ↗</a>';
+            }
+          });
+        });
+
         /* tooltip */
         node
           .on('mousemove', function (event, d) {
