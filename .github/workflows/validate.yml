@@ -1,0 +1,50 @@
+name: Validate Catalog
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'unknowns-catalog/**'
+      - 'hypotheses/**'
+      - 'cross-domain/**'
+      - 'phenomenology/**'
+      - 'schemas/**'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          pip install pyyaml jsonschema
+
+      - name: Validate schemas
+        run: python scripts/validate_schemas.py
+
+      - name: Run quality audit
+        run: python scripts/audit_quality.py --report /tmp/quality_report.md
+
+      - name: Upload quality report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: quality-report
+          path: /tmp/quality_report.md
+
+      - name: Count new entries
+        run: |
+          echo "## Catalog Statistics" >> $GITHUB_STEP_SUMMARY
+          echo "| Type | Count |" >> $GITHUB_STEP_SUMMARY
+          echo "|------|-------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Unknowns | $(find unknowns-catalog -name 'u-*.yaml' | wc -l) |" >> $GITHUB_STEP_SUMMARY
+          echo "| Hypotheses | $(find hypotheses -name 'h-*.yaml' | wc -l) |" >> $GITHUB_STEP_SUMMARY
+          echo "| Bridges | $(find cross-domain -name 'b-*.yaml' | wc -l) |" >> $GITHUB_STEP_SUMMARY
+          echo "| Phenomena | $(find phenomenology -name 'p-*.yaml' 2>/dev/null | wc -l) |" >> $GITHUB_STEP_SUMMARY
