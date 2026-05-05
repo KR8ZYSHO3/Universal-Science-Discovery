@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate USDR record YAML under hypotheses/, unknowns-catalog/, and cross-domain/ against schemas/."""
+"""Validate USDR record YAML under hypotheses/, unknowns-catalog/, cross-domain/, and phenomenology/."""
 from __future__ import annotations
 
 import sys
@@ -22,12 +22,14 @@ def load_yaml(path: Path) -> dict:
 def main() -> int:
     root = Path(__file__).resolve().parents[1]
     schemas = root / "schemas"
-    hypothesis_schema = load_yaml(schemas / "hypothesis.yaml")
-    unknown_schema    = load_yaml(schemas / "unknown.yaml")
-    bridge_schema     = load_yaml(schemas / "bridge.yaml")
-    hypo_validator    = Draft202012Validator(hypothesis_schema)
-    unk_validator     = Draft202012Validator(unknown_schema)
-    bridge_validator  = Draft202012Validator(bridge_schema)
+    hypothesis_schema  = load_yaml(schemas / "hypothesis.yaml")
+    unknown_schema     = load_yaml(schemas / "unknown.yaml")
+    bridge_schema      = load_yaml(schemas / "bridge.yaml")
+    phenomenon_schema  = load_yaml(schemas / "phenomenon.yaml")
+    hypo_validator     = Draft202012Validator(hypothesis_schema)
+    unk_validator      = Draft202012Validator(unknown_schema)
+    bridge_validator   = Draft202012Validator(bridge_schema)
+    phenom_validator   = Draft202012Validator(phenomenon_schema)
 
     errors: list[str] = []
 
@@ -49,13 +51,26 @@ def main() -> int:
             loc = "/".join(str(p) for p in err.absolute_path) or "(root)"
             errors.append(f"{path.relative_to(root)} [{loc}]: {err.message}")
 
+    phenom_dir = root / "phenomenology"
+    if phenom_dir.exists():
+        for path in sorted(phenom_dir.rglob("p-*.yaml")):
+            inst = load_yaml(path)
+            for err in phenom_validator.iter_errors(inst):
+                loc = "/".join(str(p) for p in err.absolute_path) or "(root)"
+                errors.append(f"{path.relative_to(root)} [{loc}]: {err.message}")
+
     if errors:
         print("Schema validation failed:\n", file=sys.stderr)
         for line in errors:
             print(line, file=sys.stderr)
         return 1
 
-    print("OK: all hypothesis, unknown-catalog, and cross-domain bridge YAML files validate.")
+    phenom_count = len(list(phenom_dir.rglob("p-*.yaml"))) if phenom_dir.exists() else 0
+    print(
+        f"OK: all hypothesis, unknown-catalog, cross-domain bridge, "
+        f"and phenomenology YAML files validate. "
+        f"({phenom_count} phenomenology entr{'y' if phenom_count == 1 else 'ies'})"
+    )
     return 0
 
 

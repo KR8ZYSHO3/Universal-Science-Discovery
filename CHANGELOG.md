@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added (2026-05-05 session — phenomenology catalog)
+- **`phenomenology/`** — New catalog tier for pre-formal observations: dreams, intuitions, engineering hunches, everyday anomalies. Lower bar than `unknowns-catalog/` — no citations or credentials required. Entries are triaged and promoted to `u-`, `b-`, or `h-` entries by domain experts.
+- **`schemas/phenomenon.yaml`** — New schema: required fields are `id`, `title`, `origin`, `description`, `date_observed` only. Optional: `sketch_description`, `analogies`, `candidate_fields`, `why_anomalous`, `review_notes`.
+- **`phenomenology/physics/p-nonhelical-cavity-resonator.yaml`** — First entry: a dream about a hollow aluminum box with lattice-insulated wire wound non-helically. Triaged to: slow-wave structure inside resonant cavity (traveling-wave tube) OR negative-permeability metamaterial unit cell. Seeds an open question about unexplored non-helical winding geometries.
+- **`docs/prompts/intuition_to_unknown.md`** — Step-by-step guide for converting any intuition or observation into a structured entry, including an AI triage prompt.
+- **`scripts/validate_schemas.py`** — Extended to validate `phenomenology/p-*.yaml` entries.
+- **`dashboard/index.html`** — New "Pre-formal Observations" stat card.
+
 ### Added (2026-05-05 session — Landauer and game-theory bridges)
 - **`cross-domain/physics-information/b-landauer-information-thermodynamics.yaml`** — 19th bridge: Landauer (1961) proved erasing 1 bit costs k_B*T*ln(2). Resolves Maxwell's demon (94-year-old paradox). Experimentally verified by Berut et al. 2012 to 1%. The brain operates within ~100x of the Landauer limit per synaptic event — closer than any silicon chip.
 - **`cross-domain/mathematics-evolution/b-game-theory-evolution.yaml`** — 20th bridge: Nash equilibrium (1950) = ESS (Maynard Smith 1973) = replicator dynamics fixed point = GAN training convergence = RLHF Nash reward models. The Price equation (1970) unifies all of these. Three independent communities rediscovered the same math with ~20-year gaps each.
