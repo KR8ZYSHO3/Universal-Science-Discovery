@@ -1,0 +1,99 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: https://usdr.local/schemas/phenomenon.schema.json
+title: USDR Phenomenology entry
+description: >
+  Pre-formal observation record. Captures intuitions, dream imagery, engineering
+  hunches, everyday anomalies, and cross-domain pattern matches that have not yet
+  been formalised into a structured unknown or hypothesis. Lower bar than u-/h-
+  entries: no citations required. Store under phenomenology/ per domain as YAML.
+  Goal: nothing pre-formal gets lost. Expert review promotes entries to u- or b-.
+type: object
+additionalProperties: false
+required:
+  - id
+  - title
+  - origin
+  - description
+  - date_observed
+properties:
+  id:
+    type: string
+    pattern: "^p-[a-z0-9.-]+$"
+    description: Stable ID, e.g. p-nonhelical-cavity-resonator
+  title:
+    type: string
+    minLength: 8
+    maxLength: 500
+    description: One-line description of the observed phenomenon or intuition
+  origin:
+    type: string
+    enum: [dream, intuition, engineering-observation, everyday-observation,
+           analogy, experiment, cross-domain-pattern, other]
+    description: How this phenomenon was first noticed
+  description:
+    type: string
+    minLength: 20
+    description: >
+      Plain-language description of what was observed, imagined, or intuited.
+      No technical jargon required. Be as specific as possible about
+      geometry, materials, behaviour, or feeling — the more concrete, the better.
+  date_observed:
+    type: string
+    format: date
+    description: When the observation or intuition occurred (approximate is fine)
+  observer:
+    type: string
+    description: GitHub handle or "anonymous" — no credentials required
+  candidate_fields:
+    type: array
+    items:
+      type: string
+    description: >
+      Best-guess list of scientific fields this might belong to.
+      Leave empty if unsure — the review process will fill this in.
+  candidate_bridges:
+    type: array
+    items:
+      type: string
+    description: Existing bridge IDs (b-...) this might connect to or extend
+  candidate_unknowns:
+    type: array
+    items:
+      type: string
+    description: Existing unknown IDs (u-...) this might be an instance of
+  why_anomalous:
+    type: string
+    description: >
+      What makes this feel surprising, wrong, or like it shouldn't work?
+      Why did it catch your attention?
+  analogies:
+    type: array
+    items:
+      type: string
+    description: >
+      Things this reminds you of, even if the connection seems absurd.
+      "This feels like X" is valid input.
+  sketch_description:
+    type: string
+    description: >
+      If there is a visual component — a shape, diagram, or spatial arrangement
+      that was observed or imagined — describe it in as much geometric detail
+      as possible.
+  status:
+    type: string
+    enum: [raw, triaged, promoted, stale]
+    default: raw
+    description: >
+      raw     - just captured, no expert review yet
+      triaged - reviewed; candidate fields and bridges identified
+      promoted - converted to a formal u- or b- entry
+      stale   - no longer promising after review
+  promoted_to:
+    type: string
+    description: If promoted, the ID of the u-, h-, or b- entry it became
+  last_reviewed:
+    type: string
+    format: date
+  review_notes:
+    type: string
+    description: Notes from expert triage — what the observation might correspond to
