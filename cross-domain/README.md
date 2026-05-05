@@ -21,7 +21,8 @@ new bridges while reading any paper.
 | [b-lichen-astrobiology](biology-astrobiology/b-lichen-astrobiology.yaml) | synthetic-biology ↔ astrobiology | proposed | u-synthetic-lichen-biofabrication | h-lichen-consortium-metabolic-coupling |
 | [b-topology-morphogenesis](mathematics-biology/b-topology-morphogenesis.yaml) | mathematics/topology ↔ developmental-biology | proposed | u-topological-morphogenesis, u-cortical-folding-topology | h-topological-defect-morphogenesis, h-cortical-sulcal-topological-conservation |
 | [b-grokking-criticality](ai-physics/b-grokking-criticality.yaml) | AI/machine-learning ↔ statistical-physics | proposed | u-grokking-phase-transition | h-grokking-criticality-universality |
-| [b-quantum-biology-navigation](quantum-biology/b-quantum-biology-navigation.yaml) | quantum-mechanics ↔ sensory-biology | **established** | u-quantum-biology-decoherence | — |
+| [b-quantum-biology-navigation](quantum-biology/b-quantum-biology-navigation.yaml) | quantum-mechanics ↔ sensory-biology | **established** | u-quantum-biology-decoherence | h-quantum-compass-precision |
+| [b-kibble-zurek-morphogenesis](cosmology-biology/b-kibble-zurek-morphogenesis.yaml) | cosmology ↔ developmental-biology | proposed | u-kibble-zurek-embryo, u-topological-morphogenesis | h-kibble-zurek-polarity-scaling |
 
 ---
 
@@ -36,6 +37,7 @@ new bridges while reading any paper.
 | `mathematics-biology/` | Topological defects ↔ embryonic morphogenesis + cortical folding |
 | `ai-physics/` | Grokking transition ↔ second-order phase transitions |
 | `quantum-biology/` | Radical-pair compass ↔ quantum Fisher-information sensing |
+| `cosmology-biology/` | Kibble-Zurek mechanism ↔ embryonic symmetry breaking |
 
 ---
 
