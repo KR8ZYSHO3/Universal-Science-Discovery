@@ -36,6 +36,8 @@ rediscover it independently — wasting decades. Bridges make the connection exp
 | b-percolation-epidemiology | statistical-physics ↔ epidemiology | u-percolation-epidemic-fss | h-percolation-outbreak-threshold |
 | b-habitat-percolation-ecology | statistical-physics ↔ conservation-ecology | u-habitat-fragmentation-threshold | h-habitat-percolation-critical-density |
 | b-error-threshold-information | information-theory ↔ molecular-evolution | u-error-threshold-genome-size | h-viral-proofreading-shannon-optimality |
+| b-kuramoto-synchronization | statistical-physics ↔ neuroscience ↔ cardiology ↔ engineering | u-brain-criticality-function, u-cardiac-criticality-synchronization | h-kuramoto-af-spectral-gap |
+| b-fisher-information-evolution | statistics ↔ evolutionary-biology ↔ machine-learning | u-fisher-natural-gradient-evolution | h-fisher-speed-limit-selection |
 
 ---
 

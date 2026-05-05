@@ -1,0 +1,122 @@
+id: b-fisher-information-evolution
+title: >
+  R.A. Fisher's fundamental theorem of natural selection and his Fisher information
+  matrix in statistics are the same mathematical object — the rate of increase
+  of mean fitness equals the population's statistical Fisher information about
+  fitness, and this identity gives evolutionary biology the full toolkit of
+  statistical estimation theory.
+status: proposed
+fields:
+  - statistics
+  - mathematical-statistics
+  - evolutionary-biology
+  - population-genetics
+  - quantum-information-theory
+bridge_claim: >
+  R.A. Fisher invented both: (a) the Fisher information matrix I(theta) in
+  statistics (1925) — the expected curvature of the log-likelihood, whose inverse
+  gives the Cramér-Rao lower bound on estimation variance; and (b) the fundamental
+  theorem of natural selection (1930) — the rate of change of mean fitness equals
+  the additive genetic variance in fitness.
+
+  These are the same result in different notation.
+
+  The mathematical identity: in a population evolving under selection, the mean
+  fitness W_bar changes at rate dW_bar/dt = I_pop, where I_pop is the Fisher
+  information of the population's trait distribution about the fitness landscape
+  gradient. This was formalised by Ewens (1989) and Kimura (1958), and made
+  precise by Frank & Slatkin (1992) and Maynard Smith.
+
+  Consequences that evolutionary biology has not fully imported from statistics:
+
+  1. **Cramér-Rao bound on evolution**: just as no estimator can have variance
+     below 1/I(theta), no population can evolve faster than its Fisher information
+     allows. This gives a rigorous speed limit on natural selection.
+
+  2. **Score function = selection gradient**: the selection gradient (the direction
+     of fastest fitness increase) is the score function of the population
+     distribution. Gradient-based optimization in machine learning and gradient
+     ascent on a fitness landscape are the same algorithm.
+
+  3. **Natural gradient**: the natural gradient in machine learning (Amari 1998)
+     is gradient ascent on a Riemannian manifold with the Fisher information metric.
+     Evolution on a fitness landscape is natural gradient ascent. Deep learning
+     has imported this insight (Natural Policy Gradient, TRPO, KFAC); evolutionary
+     theory has not.
+
+  4. **Connection to quantum Cramér-Rao**: the quantum Fisher information (QFI)
+     in the h-quantum-compass-precision hypothesis already in this repository
+     is the quantum generalization of this same Fisher information. The bridge
+     therefore connects statistics ↔ evolution ↔ quantum sensing in a single
+     information-geometric framework.
+translation_table:
+  - field_a_term: Fisher information I(theta)
+    field_b_term: additive genetic variance in fitness (V_A)
+  - field_a_term: Cramér-Rao lower bound (var >= 1/I)
+    field_b_term: speed limit on natural selection (dW_bar/dt <= V_A)
+  - field_a_term: score function (d/dtheta log p(x|theta))
+    field_b_term: selection gradient (direction of steepest fitness increase in phenotype space)
+  - field_a_term: maximum likelihood estimator (achieves Cramér-Rao bound)
+    field_b_term: optimal evolutionary strategy (maximises V_A for given environmental uncertainty)
+  - field_a_term: Fisher information metric (Riemannian metric on probability simplex)
+    field_b_term: information geometry of the genotype-frequency distribution under selection
+  - field_a_term: natural gradient (steepest ascent in Fisher metric)
+    field_b_term: natural selection (steepest ascent on fitness landscape corrected for population geometry)
+  - field_a_term: quantum Fisher information (QFI)
+    field_b_term: quantum speed limit on state estimation (Cramér-Rao for quantum measurements)
+related_unknowns:
+  - u-fisher-natural-gradient-evolution
+related_hypotheses:
+  - h-fisher-speed-limit-selection
+  - h-quantum-compass-precision
+cross_pollination_opportunities:
+  - >
+    Natural gradient descent (Amari 1998) is now state-of-the-art in deep learning
+    (TRPO, PPO, KFAC). It works by preconditioning the gradient with the inverse
+    Fisher information matrix — this removes the dependence on parameterisation and
+    finds the steepest ascent direction on the statistical manifold. Evolution does
+    this automatically. Studying evolutionary dynamics with natural gradient theory
+    would give population geneticists a language to describe evolutionary speed and
+    efficiency that they currently lack.
+  - >
+    The Cramér-Rao bound gives a lower bound on estimation variance. Translated to
+    evolution, it gives an upper bound on how fast a population can increase mean
+    fitness per generation — a rigorous evolutionary speed limit. Current quantitative
+    genetics has only approximations (Robertson's secondary theorem of selection).
+    The exact Fisher-information speed limit is derivable but has not been used to
+    analyse empirical selection data.
+  - >
+    The quantum Fisher information (QFI) connects this bridge to b-quantum-biology-
+    navigation and h-quantum-compass-precision. The cryptochrome Cramér-Rao bound
+    measured in that context is the quantum generalization of the same Fisher
+    information that governs evolutionary speed. An information-geometric framework
+    spanning quantum sensing, statistical estimation, and evolutionary dynamics would
+    be a unification with no precedent in any of the three fields.
+  - >
+    In machine learning, the natural gradient has been applied to policy optimisation
+    (Natural Policy Gradient) and to neural network training (KFAC, Kronecker-factored
+    Fisher). These are direct applications of evolution-equivalent optimisation on
+    statistical manifolds. Importing the evolutionary biology literature on genetic
+    drift, mutation-selection balance, and adaptive landscapes into ML theory could
+    give new regularisation principles and convergence guarantees.
+communication_gap: >
+  Fisher (1930) proved the fundamental theorem in the language of biometry, without
+  reference to his own 1925 information matrix. Ewens, Frank, and Kimura connected
+  the two in the genetics literature, but these papers are technical and not widely
+  read by working evolutionary biologists. Machine learning researchers who daily use
+  the natural gradient are completely unaware that they are implementing an operation
+  mathematically equivalent to natural selection on a fitness landscape. The bridge
+  requires only notation translation — no new mathematics — but the translation has
+  never been made accessible to practitioners in all three fields simultaneously.
+last_reviewed: "2026-05-04"
+references:
+  - doi: "10.1111/j.1469-1809.1930.tb01202.x"
+    note: Fisher (1930) — The Genetical Theory of Natural Selection; fundamental theorem of natural selection
+  - doi: "10.1214/aoms/1177729694"
+    note: Fisher (1925) — Theory of statistical estimation; Fisher information matrix and Cramer-Rao bound
+  - doi: "10.1073/pnas.89.7.2912"
+    note: Frank & Slatkin (1992) — Fisher's fundamental theorem restated in terms of partial regression; explicit connection to variance decomposition
+  - doi: "10.1162/089976698300017746"
+    note: Amari (1998) — Natural gradient works efficiently in learning; the machine-learning form of the Fisher metric
+  - arxiv: "1301.3666"
+    note: Martens (2014) — New insights and perspectives on the natural gradient; KFAC connection

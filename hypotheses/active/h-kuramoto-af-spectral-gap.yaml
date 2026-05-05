@@ -1,0 +1,66 @@
+id: h-kuramoto-af-spectral-gap
+title: >
+  Atrial fibrillation vulnerability is predicted by the spectral gap of the
+  sinoatrial node coupling network — patients with smaller spectral gap require
+  less coupling degradation to cross the Kuramoto desynchronization threshold
+  and are quantifiably more AF-prone.
+status: active
+created: "2026-05-04"
+last_updated: "2026-05-04"
+priority: high
+related_disciplines:
+  - cardiology
+  - statistical-physics
+  - network-science
+unknowns_addressed:
+  - u-cardiac-criticality-synchronization
+evidence_links:
+  - type: supporting
+    doi: "10.1109/TPWRS.2012.2196691"
+    note: Dorfler & Bullo (2012) — exact formula K_c = lambda_2(L)^(-1) where lambda_2 is the spectral gap of the network Laplacian; derived for power grids; directly applicable to cardiac coupling
+  - type: supporting
+    doi: "10.1161/CIRCRESAHA.116.308401"
+    note: Nattel (2002) — AF rotor dynamics; gap junction remodelling reduces coupling K; Kuramoto desynchronization is the mechanism
+  - type: supporting
+    note: >
+      Human sinoatrial node gap junction heterogeneity has been mapped in explanted
+      hearts (Dobrzynski et al. 2013). The node is a 2D sheet of ~10,000 cells with
+      heterogeneous Cx43/Cx45 expression. The coupling network Laplacian can be
+      constructed from immunofluorescence data and its spectral gap computed.
+  - type: contradicting
+    note: >
+      AF triggers include re-entry circuits, triggered activity from ectopic foci,
+      and autonomic modulation — mechanisms that are not purely Kuramoto
+      desynchronization. The Kuramoto model describes phase oscillators with a single
+      degree of freedom; cardiac cells have action potential shape, calcium dynamics,
+      and stretch-sensitive channels that may produce AF through routes outside the
+      Kuramoto framework. The spectral-gap prediction may hold for some patients
+      (vagally-mediated paroxysmal AF) and fail for others (structural AF after fibrosis).
+proposed_tests:
+  - discipline: cardiology
+    description: >
+      In a cohort of patients undergoing cardiac MRI and electrophysiology study for
+      suspected AF, measure: (a) late gadolinium enhancement (LGE) as a proxy for
+      fibrosis-induced coupling reduction, (b) sinoatrial node effective refractory
+      period heterogeneity from electrophysiology mapping, (c) AF inducibility by
+      burst pacing. Estimate the sinoatrial coupling network Laplacian spectral gap
+      lambda_2 from LGE data (fibrosis reduces local coupling K). Test whether
+      AF-inducible patients have smaller lambda_2 than non-inducible patients.
+  - discipline: computational-biology
+    description: >
+      Build a Kuramoto model of the sinoatrial node using the Dobrzynski et al.
+      gap junction coupling map as the network adjacency matrix. Compute K_c from
+      the spectral gap formula. Simulate the effect of progressive coupling reduction
+      (modelling fibrosis or gap junction remodelling) and measure the order parameter
+      r as a function of K. Confirm the second-order Kuramoto transition at K_c and
+      compare the predicted transition point to the clinically observed AF threshold
+      in the patient cohort above.
+  - discipline: electrical-engineering
+    cross_domain_angle: >
+      Apply the noise-robust phase-locking protocols developed for laser array
+      synchronization (Kuramoto with delayed feedback) to the sinoatrial node model.
+      Identify the optimal pacing pattern (temporal delay, spatial distribution of
+      stimulation sites) that maintains r > r_threshold despite coupling reduction
+      below K_c. Translate this into a novel pacemaker stimulation algorithm.
+      This cross-domain translation from laser engineering to cardiology has never
+      been attempted.
