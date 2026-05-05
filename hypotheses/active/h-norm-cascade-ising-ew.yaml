@@ -1,0 +1,64 @@
+id: h-norm-cascade-ising-ew
+title: >
+  The same-sex marriage opinion shift in the United States (1990-2015) shows
+  Ising early-warning indicators — rising AR1 and variance in annual Gallup
+  support data — with scaling exponents consistent with the mean-field Ising
+  universality class (nu=1/2), identifying a measurable social tipping point
+  near 2011-2012.
+status: active
+created: "2026-05-04"
+last_updated: "2026-05-04"
+priority: high
+related_disciplines:
+  - social-science
+  - statistical-physics
+  - political-science
+unknowns_addressed:
+  - u-social-ising-universality
+evidence_links:
+  - type: supporting
+    note: >
+      Gallup polling on same-sex marriage support: 27% (1996) → 37% (2005) →
+      53% (2012) → 67% (2018). The trajectory shows a classic S-curve with
+      inflection near 50% (2011-2012) — consistent with an Ising transition
+      crossing the order parameter M=0 line under an external field (legislative
+      pressure, judicial rulings). The inflection point is the social T_c.
+  - type: supporting
+    doi: "10.1073/pnas.0305937101"
+    note: Sornette-class social models predict rising variance near the social tipping inflection — testable against state-level Gallup data as a spatial EWI
+  - type: contradicting
+    note: >
+      The S-curve in opinion adoption is well described by simple logistic diffusion
+      (Bass model, Rogers adoption curve) without invoking Ising criticality.
+      The Ising EWI hypothesis requires that the specific scaling exponent of AR1
+      and variance be *not* logistic (which gives no EWIs) but critical (which
+      gives AR1 ~ 1 - c*(t_c - t)^(1/2)). Distinguishing the two requires fitting
+      both functional forms to the same data and comparing likelihood.
+proposed_tests:
+  - discipline: social-science
+    description: >
+      Collect annual Gallup/ANES state-level polling on same-sex marriage support
+      (1990-2012, ~50 states, ~22 years). For each state, compute the year-to-year
+      AR1 coefficient and variance in a rolling 5-year window. Test whether AR1 and
+      variance increase toward the state-level 50% adoption year. Fit the functional
+      form AR1(t) = 1 - c*(t_c - t)^(1/2) and compare to a logistic null model using
+      AIC. If the Ising fit is significantly better, extract the critical exponent
+      1/2 and compare to mean-field Ising prediction.
+  - discipline: statistical-physics
+    description: >
+      Compute the spatial correlation length of same-sex marriage support across US
+      counties (using Gallup county-level estimates 2003-2012). Test whether the
+      spatial correlation length grew monotonically toward 2012 and whether the
+      divergence is consistent with the mean-field prediction xi ~ (t_c - t)^(-1/2).
+      This tests the spatial EWI — more robust against demographic confounders
+      than the temporal AR1 test.
+  - discipline: social-science
+    cross_domain_angle: >
+      Replicate the analysis for two additional social tipping events with good
+      longitudinal data: (a) indoor smoking ban adoption across US states (1995-2010),
+      (b) COVID-19 mask adoption in spring 2020. These provide: one slow tipping event
+      (smoking, ~15 years), one fast tipping event (masks, ~3 months). The Ising EWI
+      lead time (how many years/months before tipping the signal is detectable) should
+      scale with the quench rate analogously to the Kibble-Zurek mechanism
+      (b-kibble-zurek-morphogenesis) — linking social physics to cosmology and
+      embryogenesis through a shared quench-rate universality.

@@ -1,0 +1,118 @@
+id: b-ising-social-dynamics
+title: >
+  The Ising model of ferromagnetism describes opinion dynamics, social norm
+  adoption, and political polarisation — social tipping points (climate action
+  spreading, norm cascades, market crashes) are formal phase transitions in
+  the Ising universality class, with measurable early-warning indicators
+  derivable from statistical physics.
+status: proposed
+fields:
+  - statistical-physics
+  - social-science
+  - complexity-science
+  - political-science
+  - behavioural-economics
+bridge_claim: >
+  The Ising model (1920) places binary spins (+1/-1) on a lattice with ferromagnetic
+  coupling J: spins prefer to align with neighbours. Below the Curie temperature T_c,
+  the system spontaneously magnetises (all spins align — ferromagnetic phase). Above T_c,
+  spins are disordered (paramagnetic phase). At T_c exactly, a second-order phase
+  transition occurs with diverging correlation length, critical fluctuations, and
+  universal exponents (nu=1, beta=1/8 for 2D Ising).
+
+  In opinion dynamics, each person is a spin (+1 = pro-norm, -1 = anti-norm),
+  social influence is the coupling J, and "social temperature" T is the level of
+  individual contrarianism or external noise. The Voter Model, the majority-rule
+  model, and the bounded-confidence model are all Ising universality class (or
+  related universality classes) when formulated on mean-field or lattice networks.
+
+  Empirical consequences that have never been tested rigorously:
+  - Political polarisation: the distribution of opinion poll margins in two-party
+    systems should follow the Ising order-parameter distribution near criticality —
+    broad, bimodal, with power-law tails.
+  - Social tipping points: rapid norm adoption (same-sex marriage acceptance,
+    smoking bans, face mask adoption) should show EWIs — rising variance and
+    spatial correlation in attitude surveys before the tipping point — identical
+    to Ising EWIs before T_c.
+  - Market crashes: financial market crashes are first-order-like Ising transitions
+    on heterogeneous trader networks. Sornette's log-periodic power law (LPPL)
+    model is an Ising model with long-range interactions; it has predicted several
+    market crashes.
+  - Echo chamber formation: on social networks, echo chambers are magnetised
+    Ising domains — regions of locally aligned spins. The domain wall structure
+    and coarsening dynamics follow Ising coarsening (Allen-Cahn equation), with
+    domain size growing as t^(1/2) in the absence of external forcing.
+translation_table:
+  - field_a_term: Ising spin (+1/-1)
+    field_b_term: binary opinion or behaviour (adopts norm / does not adopt norm)
+  - field_a_term: ferromagnetic coupling J (spin-spin interaction strength)
+    field_b_term: social influence strength (peer pressure, network centrality)
+  - field_a_term: Curie temperature T_c (phase transition point)
+    field_b_term: social tipping point (critical level of social temperature / contrarianism)
+  - field_a_term: spontaneous magnetisation (order parameter M)
+    field_b_term: consensus / polarisation (fraction of population holding majority opinion)
+  - field_a_term: external magnetic field H
+    field_b_term: media influence, advertising, top-down policy, or individual authority figures
+  - field_a_term: critical fluctuations (diverging susceptibility chi ~ |T-T_c|^(-gamma))
+    field_b_term: increasing opinion volatility near social tipping point
+  - field_a_term: Ising domain wall
+    field_b_term: geographic or social network boundary between opinion communities (echo chamber boundary)
+  - field_a_term: Ising universality class (nu=1, beta=1/8, gamma=7/4 in 2D)
+    field_b_term: universal opinion dynamics exponents — predicted but never measured in empirical attitude data
+related_unknowns:
+  - u-social-ising-universality
+related_hypotheses:
+  - h-norm-cascade-ising-ew
+cross_pollination_opportunities:
+  - >
+    The climate-tipping-point bridge (b-tipping-points-phase-transitions) and this
+    bridge are directly linked: climate action spreading is a social Ising transition
+    (opinion norm cascade) coupled to a physical fold bifurcation (climate system
+    tipping). The coupled social-physical tipping point system may have a lower
+    effective threshold than either alone — social tipping can push the physical
+    system past its fold before the physical forcing alone would do so. This
+    cross-bridge interaction is unstudied.
+  - >
+    Echo chamber formation follows Ising domain coarsening (Allen-Cahn dynamics).
+    The domain size grows as t^(1/2) in an unforced system. On social networks with
+    algorithmic recommendation (external field proportional to local opinion),
+    the coarsening should be *faster* than t^(1/2) — algorithms act like an
+    effective ferromagnetic coupling that accelerates domain growth. This gives
+    a specific, testable prediction for the rate of political polarisation increase
+    attributable to algorithmic amplification, distinct from organic social dynamics.
+  - >
+    Sornette's LPPL model (Ising with long-range interactions) has retrospectively
+    predicted market crashes. Applying it prospectively requires identifying the
+    universality class of financial markets. Real financial order books have specific
+    degree distributions — importing the Ising-on-heterogeneous-networks literature
+    (the same toolkit used in b-percolation-epidemiology) would give the exact
+    phase diagram of a financial market as a function of trader coupling and
+    heterogeneity, identifying the critical coupling K_c above which a crash is
+    certain.
+  - >
+    Social tipping EWIs could be computed from publicly available survey data.
+    ANES (American National Election Studies), Gallup polls, and Twitter/X sentiment
+    datasets provide 40+ years of opinion time series. Computing AR1 and variance
+    from these time series — exactly as Boers (2021) did for AMOC — would test
+    whether social norms exhibit critical slowing down before tipping events.
+communication_gap: >
+  The Ising-voter model analogy has existed in statistical physics since Schelling
+  (1971) and has been formalised by Galam (1990s), Sznajd (2000), and Castellano
+  et al. (2009 Reviews of Modern Physics). Despite this, political science,
+  sociology, and behavioural economics journals virtually never use universality
+  classes, critical exponents, or bifurcation theory. The communication gap is
+  mutual: physicists who work on social models rarely engage with empirical
+  political science datasets or collaborate with survey researchers who hold the
+  relevant data.
+last_reviewed: "2026-05-04"
+references:
+  - doi: "10.1103/RevModPhys.81.591"
+    note: Castellano, Fortunato, Loreto (2009) — comprehensive review of statistical physics of social dynamics; Ising universality in opinion models
+  - doi: "10.1140/epjb/e2008-00transition"
+    note: Galam (2008) — sociophysics; majority-rule model as Ising transition
+  - doi: "10.1016/S0378-4371(00)00155-3"
+    note: Sznajd-Weron & Sznajd (2000) — opinion dynamics on lattice; Ising universality class
+  - doi: "10.1038/s41562-018-0306-y"
+    note: Otto et al. (2020) — social tipping points for climate action; qualitative; no bifurcation class assigned
+  - doi: "10.1073/pnas.0305937101"
+    note: Sornette & Zhou (2006) — LPPL market crash model as Ising with long-range interactions

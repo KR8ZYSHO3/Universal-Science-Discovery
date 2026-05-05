@@ -38,6 +38,8 @@ rediscover it independently — wasting decades. Bridges make the connection exp
 | b-error-threshold-information | information-theory ↔ molecular-evolution | u-error-threshold-genome-size | h-viral-proofreading-shannon-optimality |
 | b-kuramoto-synchronization | statistical-physics ↔ neuroscience ↔ cardiology ↔ engineering | u-brain-criticality-function, u-cardiac-criticality-synchronization | h-kuramoto-af-spectral-gap |
 | b-fisher-information-evolution | statistics ↔ evolutionary-biology ↔ machine-learning | u-fisher-natural-gradient-evolution | h-fisher-speed-limit-selection |
+| b-tipping-points-phase-transitions | statistical-physics ↔ climate-science | u-climate-ew-indicator-universality | h-amoc-fold-bifurcation-ew |
+| b-ising-social-dynamics | statistical-physics ↔ social-science | u-social-ising-universality | h-norm-cascade-ising-ew |
 
 ---
 

@@ -1,0 +1,125 @@
+id: b-tipping-points-phase-transitions
+title: >
+  Climate tipping points are formal thermodynamic phase transitions — the Amazon
+  dieback, Arctic sea ice loss, Atlantic circulation collapse, and permafrost
+  carbon release each correspond to a specific bifurcation class (fold, Hopf,
+  transcritical), and condensed-matter physics provides a century of analytical
+  early-warning indicators that climate science has not systematically imported.
+status: proposed
+fields:
+  - statistical-physics
+  - climate-science
+  - dynamical-systems
+  - earth-systems-science
+bridge_claim: >
+  In condensed-matter physics, phase transitions are classified by their
+  bifurcation structure: first-order transitions have hysteresis and latent heat;
+  second-order transitions have diverging correlation length and critical slowing
+  down; fold bifurcations produce irreversible state changes with no return path.
+  Each class produces specific, measurable signatures in fluctuations *before*
+  the transition occurs — early-warning indicators (EWIs) that a system is
+  approaching a tipping point.
+
+  IPCC-assessed climate tipping elements map directly onto these classes:
+
+  - **Amazon dieback** (~40% deforestation threshold): fold bifurcation.
+    Vegetation-precipitation feedback creates two stable states (forest, savanna)
+    with a fold in the stability landscape. EWI: rising variance and autocorrelation
+    in regional rainfall time series before the fold.
+  - **Arctic sea ice loss**: second-order-like transition with albedo-feedback
+    amplification. EWI: rising lag-1 autocorrelation in September Arctic sea ice
+    extent (already detectable in satellite data since 1979).
+  - **Atlantic Meridional Overturning Circulation (AMOC) collapse**: subcritical
+    Hopf bifurcation — the circulation may jump discontinuously from "on" to "off"
+    with a recovery threshold far below the collapse threshold (hysteresis). EWI:
+    increasing variance in AMOC fingerprint before collapse.
+  - **Permafrost carbon release**: first-order transition. Frozen carbon is
+    metastable; warming unlocks a runaway positive feedback. Once initiated,
+    the transition proceeds beyond external forcing level — irreversible on
+    century timescales.
+
+  Climate scientists who study tipping points use qualitative frameworks.
+  Statistical physicists have quantitative predictions for each class:
+  - Fold: EWI exponents follow 1/f^alpha spectral scaling approaching transition
+  - Second-order: correlation length diverges as |T - T_c|^(-nu) with nu=1 (mean-field)
+  - Hopf: amplitude of oscillations grows as |mu - mu_c|^(1/2) before onset
+
+  These predictions are testable against 40+ years of satellite climate records.
+translation_table:
+  - field_a_term: fold bifurcation (first-order transition, hysteresis)
+    field_b_term: Amazon forest/savanna bistability; AMOC on/off states; ice sheet glaciation/deglaciation
+  - field_a_term: second-order phase transition (critical slowing down, nu exponent)
+    field_b_term: Arctic sea ice thinning approaching seasonal ice-free state
+  - field_a_term: Hopf bifurcation (oscillation onset)
+    field_b_term: ENSO amplitude changes; monsoon system bistability
+  - field_a_term: early-warning indicator — rising lag-1 autocorrelation (AR1)
+    field_b_term: slowing recovery from perturbations in climate time series before tipping
+  - field_a_term: early-warning indicator — rising variance (sigma^2)
+    field_b_term: increasing variability in rainfall, sea ice extent, or AMOC fingerprint before collapse
+  - field_a_term: critical slowing down (eigenvalue approaching zero)
+    field_b_term: slowing of climate system's return to equilibrium after volcanic forcing or ENSO events
+  - field_a_term: spatial correlation length divergence at second-order transition
+    field_b_term: growing spatial coherence of vegetation stress or sea-surface temperature anomalies before tipping
+  - field_a_term: nucleation (first-order transition initiated by fluctuation above barrier)
+    field_b_term: local Amazon deforestation patch triggering regional forest collapse above a critical patch size
+related_unknowns:
+  - u-climate-ew-indicator-universality
+related_hypotheses:
+  - h-amoc-fold-bifurcation-ew
+cross_pollination_opportunities:
+  - >
+    Condensed-matter physics has rigorous theorems on which EWIs are universal
+    (apply to all systems near a fold/second-order transition) and which are
+    system-specific. Climate scientists currently use AR1 and variance as EWIs
+    empirically, without knowing which bifurcation class produces them or whether
+    they are the most sensitive possible indicators. The physics classification
+    would tell climate scientists: (a) which EWI is optimal for each tipping element
+    and (b) what the false-positive rate is as a function of distance from threshold.
+  - >
+    Spatial EWIs from condensed-matter physics (growing patch-size distribution
+    power law, diverging spatial autocorrelation length) are more robust than
+    time-series EWIs because they use spatial data rather than a single location.
+    Satellite imagery (Landsat, MODIS, Sentinel) provides the spatial data for
+    Amazon, Arctic, and coral reef systems. No one has computed the spatial
+    correlation length of Amazon vegetation stress and tested whether it diverges
+    as deforestation approaches the fold bifurcation point.
+  - >
+    The b-habitat-percolation-ecology bridge already in this repository connects
+    percolation theory to habitat fragmentation. Amazon deforestation combines
+    *both* frameworks: percolation governs whether the forest matrix stays connected
+    (species dispersal), while the fold bifurcation governs whether the forest
+    stays wet enough to sustain itself. Combining the two would give a two-threshold
+    model — first deforestation crosses the percolation threshold (connectivity
+    loss), then it crosses the fold (precipitation feedback collapse) — with the
+    percolation threshold always arriving first.
+  - >
+    The permafrost carbon release is thermodynamically analogous to a superheated
+    liquid (metastable above the true transition temperature). Statistical physics
+    predicts the waiting time distribution for nucleation as a function of
+    "overheating" (warming above the metastable threshold). This gives a probability
+    distribution for permafrost carbon release onset — currently unknown and not
+    computed by any IPCC model.
+communication_gap: >
+  The IPCC Sixth Assessment Report (2021) uses the term "tipping point" 171 times
+  and "bifurcation" 12 times, but "phase transition" appears only in the context
+  of physical state changes (liquid to solid), never in the dynamical-systems or
+  statistical-physics sense. Climate scientists have independently developed EWI
+  theory (Scheffer 2009, Lenton 2011) based on dynamical systems bifurcation
+  theory, but have not connected it to the condensed-matter physics literature
+  that provides: (a) universality classes, (b) exact exponents, (c) spatial EWIs,
+  (d) optimal detection statistics. The two communities publish in Nature Climate
+  Change vs Physical Review — journals with essentially no shared readership.
+last_reviewed: "2026-05-04"
+references:
+  - doi: "10.1038/461472a"
+    note: Lenton et al. (2008) — defining climate tipping elements; qualitative bifurcation classification
+  - doi: "10.1073/pnas.0805172105"
+    note: Scheffer et al. (2009) — early warning signals before critical transitions; AR1 and variance EWIs
+  - doi: "10.1126/science.1225244"
+    note: Scheffer et al. (2012) — anticipating critical transitions; spatial EWIs and universality
+  - doi: "10.1038/s41586-021-03796-w"
+    note: Boers (2021) — AMOC approaching tipping point; AR1 and variance rising in fingerprint data
+  - doi: "10.1126/sciadv.abn7950"
+    note: Boulton et al. (2022) — Amazon resilience declining since 2000; AR1 signature in satellite NDVI
+  - doi: "10.1103/RevModPhys.49.435"
+    note: Wilson (1979) — Nobel lecture on renormalization group; universality and critical exponents — the physics toolkit climate science has not imported

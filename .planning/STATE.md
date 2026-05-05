@@ -4,6 +4,7 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 ## Last updated
 
+- 2026-05-04 — **2 new bridges + 2 unknowns + 2 hypotheses**: b-tipping-points-phase-transitions (climate EWIs as phase transitions) + b-ising-social-dynamics (opinion dynamics as Ising model); math-ph harvest (20 records)
 - 2026-05-04 — **2 new bridges + 2 unknowns + 2 hypotheses**: b-kuramoto-synchronization (Kuramoto model unifying neuroscience/cardiology/engineering) + b-fisher-information-evolution (Fisher info = fundamental theorem of natural selection = natural gradient ML); GitHub Issues #29-31
 - 2026-05-04 — **2 new bridges + 3 unknowns + 2 hypotheses + q-bio:PE harvest**: b-habitat-percolation-ecology (completes percolation trilogy) + b-error-threshold-information (Shannon meets Darwin); u-gauge-field-epidemic-nonlocality seeded from harvest; ingest URL fixed (/oai → /oai2)
 - 2026-05-04 — **2 new bridges + 2 unknowns + 2 hypotheses**: b-renormalization-biological-scaling (RG↔allometry) + b-percolation-epidemiology (percolation↔epidemic FSS); GitHub Issues #24-26 opened (feat branch pending PR)
@@ -23,9 +24,9 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 | Type | Count | Directory |
 |------|-------|-----------|
-| Unknowns | 20 | `unknowns-catalog/` |
-| Hypotheses | 20 | `hypotheses/active/` |
-| Bridges | 14 | `cross-domain/` |
+| Unknowns | 22 | `unknowns-catalog/` |
+| Hypotheses | 22 | `hypotheses/active/` |
+| Bridges | 16 | `cross-domain/` |
 | Schemas | 3 | `schemas/` (unknown, hypothesis, bridge) |
 
 ### Bridge network (cross-domain connections)
@@ -46,6 +47,8 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 | b-error-threshold-information | information-theory ↔ molecular-evolution | proposed |
 | b-kuramoto-synchronization | statistical-physics ↔ neuroscience ↔ cardiology ↔ engineering | proposed |
 | b-fisher-information-evolution | statistics ↔ evolutionary-biology ↔ machine-learning | proposed |
+| b-tipping-points-phase-transitions | statistical-physics ↔ climate-science | proposed |
+| b-ising-social-dynamics | statistical-physics ↔ social-science | proposed |
 
 ## Current focus
 

@@ -9,6 +9,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added (2026-05-04 session — climate and social physics bridges)
+- **`cross-domain/physics-climate/b-tipping-points-phase-transitions.yaml`** — 15th bridge: climate tipping elements are formal bifurcations. AMOC, Amazon, Arctic, permafrost each have a specific bifurcation class with universal EWI exponents. Boers (2021) measured rising AR1 in AMOC but never fit the fold scaling exponent 1/2 to estimate remaining warming budget to collapse.
+- **`unknowns-catalog/physics/u-climate-ew-indicator-universality.yaml`** — Which bifurcation class is each IPCC tipping element? Are the EWI scaling exponents universal? Has spatial correlation length been computed for Amazon NDVI or Arctic sea ice?
+- **`hypotheses/active/h-amoc-fold-bifurcation-ew.yaml`** — Fold exponent 1/2 fit to Boers (2021) AR1 time series estimates T_c (critical warming for AMOC collapse); KZ quench-rate connection links AMOC to embryogenesis and cosmology.
+- **`cross-domain/physics-social/b-ising-social-dynamics.yaml`** — 16th bridge: opinion dynamics, norm cascades, echo chamber formation, and market crashes are all Ising universality class. Social tipping coupled to physical climate tipping creates a two-system tipping interaction.
+- **`unknowns-catalog/physics/u-social-ising-universality.yaml`** — Do social tipping events show Ising EWIs? Which universality class governs opinion dynamics on real social networks?
+- **`hypotheses/active/h-norm-cascade-ising-ew.yaml`** — Same-sex marriage US 1990-2015 should show fold-bifurcation scaling in Gallup data; social and physical tipping linked via KZ quench-rate universality.
+- **`data/harvest/mathph-2026-05-04.jsonl`** — 20 records from physics:math-ph (April 2026); continuum percolation paper strengthens ecology bridge.
+- **`dashboard/index.html`** — Updated counts: 22 unknowns · 22 hypotheses · 16 bridges.
+
 ### Added (2026-05-04 session — Kuramoto and Fisher information bridges)
 - **`cross-domain/physics-engineering-neuroscience/b-kuramoto-synchronization.yaml`** — 13th bridge: Kuramoto model unifies neural gamma oscillations, cardiac AF, power grid stability, and laser arrays. The spectral-gap formula for K_c (derived for power grids) predicts sinoatrial node AF threshold. Includes h-kuramoto-af-spectral-gap: pacemaker stimulation protocol from laser engineering.
 - **`hypotheses/active/h-kuramoto-af-spectral-gap.yaml`** — AF vulnerability = inverse spectral gap of sinoatrial coupling Laplacian; laser noise-robust phase-locking protocol → novel pacemaker design.
