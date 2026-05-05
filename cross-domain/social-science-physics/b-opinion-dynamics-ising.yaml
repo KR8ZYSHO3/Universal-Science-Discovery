@@ -1,0 +1,146 @@
+id: b-opinion-dynamics-ising
+title: >
+  Opinion dynamics models (Voter, Sznajd, Deffuant) are instances of
+  Ising-like spin dynamics on social networks: political polarisation is
+  a ferromagnetic phase transition, echo chambers are ferromagnetic
+  domains, and the critical temperature T_c predicts the consensus-to-
+  fragmentation transition.
+status: proposed
+fields:
+  - social-science
+  - political-science
+  - statistical-physics
+  - complexity-science
+  - network-science
+
+bridge_claim: >
+  The Ising model describes interacting binary spins σ_i ∈ {-1, +1} on
+  a lattice with Hamiltonian H = -J Σ_{ij} σ_i σ_j - h Σ_i σ_i.
+  The ferromagnetic phase transition at T_c separates two phases:
+  - T < T_c (ordered, ferromagnetic): spins align → consensus / polarisation
+  - T > T_c (disordered, paramagnetic): random orientations → pluralism
+
+  Opinion dynamics models are structural Ising variants on social networks:
+
+  1. SZNAJD MODEL (2000): A pair of aligned neighbours converts adjacent
+  spins (social proof mechanism). This is formally equivalent to a
+  ferromagnetic Ising model with an asymmetric update rule. The model
+  exhibits a sharp transition from opinion fragmentation to consensus as
+  the initial alignment fraction crosses a threshold — analogous to T_c.
+
+  2. VOTER MODEL: Each agent copies a random neighbour. On finite lattices,
+  this is equivalent to a zero-temperature Ising model — always reaching
+  consensus (all spins aligned). Network topology shifts the consensus
+  time from polynomial (lattice) to logarithmic (small-world) — a direct
+  translation of the Ising correlation length.
+
+  3. DEFFUANT BOUNDED-CONFIDENCE MODEL (2000): Agents interact only if
+  their opinions differ by less than a threshold ε (bounded confidence =
+  effective coupling range). This maps to an Ising model with an
+  opinion-distance-dependent coupling J_{ij}. Small ε → fragmentation into
+  multiple opinion clusters (multiple ferromagnetic domains); large ε →
+  global consensus. The transition at ε_c is a percolation-like phase
+  transition in opinion space.
+
+  POLARISATION AS FERROMAGNETIC TRANSITION: Political polarisation data
+  (congressional voting, Twitter retweet networks) show that opinion
+  distributions transition from unimodal (pluralism) to bimodal
+  (polarisation) as homophily increases. Castellano et al. (2009) showed
+  this is a genuine second-order phase transition in the mean-field limit.
+  The order parameter m = ⟨σ⟩ (mean opinion) maps to the Ising
+  magnetisation.
+
+  ECHO CHAMBERS AS FERROMAGNETIC DOMAINS: In spatial Ising models below
+  T_c, ferromagnetic domains form — regions of aligned spins separated by
+  domain walls. Echo chambers on social networks are the topological
+  equivalent: densely connected communities with internal consensus
+  separated by sparse cross-community ties. The domain wall energy (cost
+  of a cross-community link) maps to the social cost of engaging with
+  out-group opinion.
+
+  EXTERNAL FIELD = MEDIA / INSTITUTIONS: The Ising external field h biases
+  all spins toward +1. In the social model, media, advertising, and
+  institutional authority apply opinion pressure analogous to a magnetic
+  field. The effective field h can be estimated from the asymmetry of
+  opinion distributions around zero.
+
+translation_table:
+  - field_a_term: "Ising spin σ_i ∈ {-1, +1}"
+    field_b_term: "Binary political opinion o_i (e.g., liberal/conservative)"
+    note: "Discrete opinion maps exactly to spin; continuous opinion requires XY or Heisenberg generalization"
+  - field_a_term: "Ferromagnetic coupling J_{ij} > 0"
+    field_b_term: "Social influence between agents i and j"
+    note: "Homophily increases effective J; heterophily decreases it"
+  - field_a_term: "External magnetic field h"
+    field_b_term: "Media influence, institutional framing, propaganda"
+    note: "Biases all agents toward a particular opinion direction"
+  - field_a_term: "Temperature T (= inverse social conformity pressure)"
+    field_b_term: "Individual-level independence / contrarianism"
+    note: "High T = individuals resist social influence; low T = strong conformity"
+  - field_a_term: "Ferromagnetic phase transition at T_c"
+    field_b_term: "Polarisation transition at critical homophily threshold"
+    note: "Sharp transition from pluralism to polarisation as T drops below T_c"
+  - field_a_term: "Order parameter m = ⟨σ⟩ (magnetisation)"
+    field_b_term: "Mean opinion / degree of societal polarisation"
+    note: "m = 0 is pluralism; |m| → 1 is full polarisation"
+  - field_a_term: "Ferromagnetic domain"
+    field_b_term: "Echo chamber / partisan filter bubble"
+    note: "Spatial region of aligned spins / densely connected community of like-minded agents"
+  - field_a_term: "Domain wall (interface between domains)"
+    field_b_term: "Cross-partisan bridge tie in social network"
+    note: "High-energy configuration; destroyed by increasing conformity (decreasing T)"
+  - field_a_term: "Correlation length ξ diverging at T_c"
+    field_b_term: "Spatial range of opinion clusters diverging at polarisation transition"
+    note: "Near the transition, opinion fluctuations are correlated across the whole society"
+
+related_unknowns:
+  - u-opinion-dynamics-critical-homophily
+
+related_hypotheses:
+  - h-social-ising-polarization-transition
+  - h-polarisation-ising-phase-transition
+  - h-norm-cascade-ising-ew
+
+cross_pollination_opportunities:
+  - >
+    Use Ising model renormalization group methods to predict how polarisation
+    scales with network size — does the polarisation transition sharpen
+    (become more abrupt) in larger societies? This is directly testable
+    from electoral data across countries with different population sizes.
+  - >
+    Map measured Twitter/Reddit retweet network topology to Ising coupling
+    matrices J_{ij} and infer the effective social temperature T and external
+    field h from the empirical opinion distribution. This would make the
+    Ising-social mapping quantitative and predictive, not just qualitative.
+  - >
+    Apply critical slowing-down early-warning indicators (increasing
+    autocorrelation, increasing variance of opinion fluctuations) to
+    predict upcoming polarisation transitions in social data — export
+    from climate tipping-point detection to political science.
+  - >
+    Test whether Galam's (2002) group-size asymmetry mechanism (minorities
+    can stabilise at specific fractions in finite Ising systems) predicts
+    stable minority opinions in real political systems — a concrete
+    quantitative prediction from the Ising mapping.
+
+communication_gap: >
+  Physicists developed the Ising model for magnetism from 1920 onwards.
+  Sociologists and political scientists developed opinion dynamics models
+  independently in the 1990s-2000s, largely unaware of the exact
+  correspondence with statistical mechanics. Castellano et al.'s 2009
+  Reviews of Modern Physics article made the connection explicit and
+  accessible, but adoption in political science remains limited because
+  the language of phase transitions, order parameters, and universality
+  classes is not standard in social science training.
+
+last_reviewed: "2026-05-05"
+
+references:
+  - doi: "10.1142/S0129183100000936"
+    note: "Sznajd-Weron & Sznajd (2000) Int J Mod Phys C 11:1157 — Sznajd model of opinion dynamics"
+  - doi: "10.1142/S0219525900000078"
+    note: "Deffuant et al. (2000) Advances in Complex Systems 3:87 — bounded-confidence model"
+  - doi: "10.1103/RevModPhys.81.591"
+    note: "Castellano, Fortunato & Loreto (2009) Rev Mod Phys 81:591 — comprehensive review of statistical physics of social dynamics"
+  - doi: "10.1140/epjb/e2002-00359-2"
+    note: "Galam (2002) Eur Phys J B 25:403 — minority opinion spreading and Ising analogy"

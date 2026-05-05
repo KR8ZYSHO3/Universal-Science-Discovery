@@ -1,0 +1,136 @@
+id: b-efficient-coding-perception
+title: >
+  The efficient coding hypothesis (Barlow 1961) unifies sensory neuroscience
+  and information theory: retinal whitening, V1 Gabor receptive fields, and
+  auditory log-frequency tuning all follow from maximizing Shannon
+  information transmission per unit metabolic cost.
+status: established
+fields:
+  - neuroscience
+  - cognitive-science
+  - information-theory
+  - sensory-physiology
+  - computational-neuroscience
+
+bridge_claim: >
+  Barlow (1961) proposed that the goal of sensory processing is to represent
+  the environment using the minimum number of active neurons — equivalently,
+  to maximize the Shannon mutual information I(stimulus; neural response)
+  subject to a metabolic cost constraint. This efficient coding hypothesis
+  makes three quantitative predictions that have been validated:
+
+  1. RETINAL LATERAL INHIBITION (WHITENING): Natural images have highly
+  correlated pixels (power spectrum ~ 1/f²). A linear filter that whitens
+  this spectrum — removing redundancy by implementing lateral inhibition —
+  maximises the information transmitted downstream. The centre-surround
+  receptive fields of retinal ganglion cells perform exactly this operation.
+  Atick & Redlich (1992) showed that the retina implements a Wiener filter
+  optimised for the statistical structure of natural scenes.
+
+  2. V1 GABOR RECEPTIVE FIELDS (SPARSE CODING / ICA): If a neural code
+  maximises sparseness (most neurons inactive at any moment), the basis
+  functions that achieve this for natural images are Gabor wavelets —
+  localized, oriented, bandpass filters. Olshausen & Field (1996) showed
+  that sparse coding of natural image patches via gradient descent learns
+  basis functions indistinguishable from V1 simple cell receptive fields.
+  Bell & Sejnowski (1997) showed that independent component analysis (ICA)
+  applied to natural images yields the same Gabor basis. The brain does not
+  hard-wire Gabor filters — it discovers them because they are the efficient
+  code for natural statistics.
+
+  3. LOGARITHMIC FREQUENCY TUNING IN AUDITION: Natural sounds have 1/f
+  power spectra in frequency; logarithmic spacing of cochlear filters
+  (equivalent to equal-ratio frequency bands) maximises information about
+  natural sounds under a fixed number of hair cells. The cochlea's
+  tonotopic map is log-frequency precisely because this is the efficient
+  code for the acoustic environment.
+
+  The unifying principle: sensory systems do not passively transduce
+  physical signals — they perform information-theoretic compression tuned
+  to the statistical structure of natural stimuli. Shannon's channel
+  capacity theorem (C = B log₂(1 + SNR)) is the objective function that
+  evolution has maximised in sensory design.
+
+  The information bottleneck principle (Tishby et al. 2000) extends this:
+  efficient coding requires not just redundancy reduction but also discarding
+  irrelevant information. The V1-to-IT hierarchy compresses retinal
+  information while preserving task-relevant structure — a deep network
+  solving the IB trade-off at each layer.
+
+translation_table:
+  - field_a_term: "Shannon channel capacity C = max I(X;Y)"
+    field_b_term: "Optimal neural population code efficiency"
+    note: "Sensory neurons are hypothesised to operate near channel capacity for natural inputs"
+  - field_a_term: "Redundancy reduction (removing statistical dependencies)"
+    field_b_term: "Lateral inhibition in retina and cortex"
+    note: "Centre-surround receptive fields decorrelate spatially redundant signals"
+  - field_a_term: "Independent component analysis (ICA) of natural images"
+    field_b_term: "Gabor wavelets = V1 simple cell receptive fields"
+    note: "Olshausen & Field (1996), Bell & Sejnowski (1997) — learning confirms prediction"
+  - field_a_term: "Minimum description length (MDL) / sparse code"
+    field_b_term: "Sparse neural firing (few active neurons at a time)"
+    note: "Metabolic cost = code length; sparseness = compression"
+  - field_a_term: "Information bottleneck trade-off β·I(T;Y) - I(T;X)"
+    field_b_term: "Compression-relevance hierarchy from V1 to IT cortex"
+    note: "Each visual area discards irrelevant information while preserving task-relevant structure"
+  - field_a_term: "Power spectrum of natural images: S(f) ~ 1/f²"
+    field_b_term: "Whitening filter = centre-surround antagonism"
+    note: "The retina's filter is the Wiener filter for the natural image ensemble"
+  - field_a_term: "Logarithmic frequency axis (equal-ratio bands)"
+    field_b_term: "Cochlear tonotopic map (mel / bark scale)"
+    note: "Log spacing maximises information about 1/f natural sounds"
+
+related_unknowns:
+  - u-efficient-coding-metabolic-optimality
+  - u-predictive-coding-grammar-neural-substrate
+
+related_hypotheses:
+  - h-v1-gabor-infomax-prediction
+  - h-surprisal-n400-mismatch-equivalence
+
+cross_pollination_opportunities:
+  - >
+    Apply efficient coding theory to olfaction: the olfactory receptor
+    neuron ensemble should be the ICA basis for the natural odour environment.
+    Test by recording from olfactory epithelium while presenting natural
+    odour statistics — a direct test of the efficient coding prediction
+    outside the visual and auditory modalities.
+  - >
+    Use the information bottleneck objective as a training loss for deep
+    neural network compression — the brain's solution (hierarchical ICA)
+    may outperform standard compression methods on natural data distributions.
+  - >
+    Barlow's hypothesis predicts that sensory adaptation (gain control)
+    should track second-order statistics of the current environment to
+    maintain channel capacity. Test whether photoreceptor adaptation
+    parameters match the Wiener filter for current local luminance
+    statistics — quantifying how rapidly the retina re-optimises.
+  - >
+    Export V1 Gabor-wavelet representation to medical imaging: efficient
+    coding predicts that Gabor wavelets are optimal for natural image
+    compression; test whether Gabor-wavelet patch descriptors outperform
+    CNN features on low-data medical image classification.
+
+communication_gap: >
+  Barlow published in Sensory Communication (MIT Press, 1961) — read by
+  physiologists but not by information theorists. Shannon's work was read
+  by engineers. Olshausen & Field (1996) appeared in Nature and explicitly
+  bridged the communities, but their result is still not standard
+  curriculum in neuroscience programs, which typically teach Gabor filters
+  as a phenomenological description rather than as the output of an
+  information-theoretic optimization. The mathematics required (ICA,
+  information bottleneck, natural scene statistics) sits across the
+  neuroscience/statistics disciplinary boundary.
+
+last_reviewed: "2026-05-05"
+
+references:
+  - note: "Barlow (1961) 'Possible principles underlying the transformation of sensory messages' in Sensory Communication (MIT Press) — original efficient coding hypothesis"
+  - doi: "10.1038/381607a0"
+    note: "Olshausen & Field (1996) Nature 381:607 — sparse coding of natural images yields V1-like Gabor basis"
+  - doi: "10.1016/S0042-6989(97)00169-7"
+    note: "Bell & Sejnowski (1997) Vision Research 37:3327 — ICA of natural images yields Gabor filters"
+  - arxiv: "physics/0004057"
+    note: "Tishby, Pereira & Bialek (2000) — information bottleneck principle"
+  - doi: "10.1162/neco.1992.4.2.196"
+    note: "Atick & Redlich (1992) Neural Comput 4:196 — retina as Wiener filter for natural images"

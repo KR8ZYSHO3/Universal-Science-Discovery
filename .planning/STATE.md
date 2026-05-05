@@ -4,6 +4,7 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 ## Last updated
 
+- 2026-05-05 - **Bridges 59-64 — earthquake SOC, efficient coding, Bayesian inference, robustness-evolvability, opinion dynamics, aesthetic complexity (663 nodes)**: 6 new fully-citable bridges: b-earthquake-self-organized-criticality (#59, geoscience↔statistical-physics, Gutenberg-Richter as SOC power law, Bak/Tang/Omori; established), b-efficient-coding-perception (#60, cognitive-science↔information-theory, Barlow/Olshausen/Bell-Sejnowski; established), b-bayesian-scientific-inference (#61, philosophy-of-science↔mathematics, Jeffreys/MacKay/Kass-Raftery; established), b-robustness-evolvability-modularity (#62, engineering↔biology, Waddington/Kirschner-Gerhart/Simon; proposed), b-opinion-dynamics-ising (#63, social-science↔physics, Sznajd/Deffuant/Castellano; proposed), b-aesthetic-complexity-information (#64, art-and-cognition↔mathematics, Birkhoff/Taylor/Huron/Schmidhuber; proposed). 5 new cross-domain directories. 6 new unknowns + 6 new hypotheses. Knowledge graph rebuilt: 663 nodes, 521 edges. Dashboard updated. Validates clean.
 - 2026-05-05 - **Bridges 55-58 — AI-draft-to-real-science conversion (645 nodes)**: 4 new fully citable bridges from top-scoring draft proposals: b-neural-criticality-climate-tipping (#55, neuroscience↔climate-science, Beggs/Scheffer/Dakos), b-predictive-coding-grammar (#56, neuroscience↔linguistics, Friston/Hale/Levy/Clark), b-wealth-distribution-statistical-mechanics (#57, economics↔statistical-physics, Dragulescu/Yakovenko/Bouchaud-Mezard), b-topology-disease-progression (#58, mathematics↔medicine, Nicolau/Carlsson/Lum). Each includes full translation table, DOI references, communication_gap, cross_pollination_opportunities. Created 4 new cross-domain directories (neuroscience-climate, neuroscience-linguistics, economics-physics, mathematics-medicine). 4 new unknowns + 4 new hypotheses. Knowledge graph rebuilt: 645 nodes, 472 edges. Dashboard updated. Validates clean.
 - 2026-05-05 - **Bridges 50-54 — astronomy orphan connections targeting largest cluster (633 nodes)**: 5 new bridges (b-blackhole-information-paradox #50, b-baryon-asymmetry-cp-violation #51, b-dark-matter-phase-transition-relics #52, b-cosmic-rays-mutagenesis #53, b-frb-random-matrix #54) with 5 new unknowns + 5 new hypotheses. Created 4 new cross-domain directories (astronomy-information, astronomy-physics, astronomy-biology, astronomy-mathematics). Connected 5 existing astronomy orphan unknowns (black hole info paradox, baryon asymmetry, dark matter identity, FRB origin, UHECR). Orphan count reduced from 329 → 324. Knowledge graph rebuilt: 633 nodes, 443 edges. Dashboard updated. Validates clean.
 - 2026-05-05 - **Bridges 45-49 — co-pilot-proposed medicine and astronomy connections (618 nodes)**: 5 new bridges (b-connectome-neurodegeneration #45, b-climate-tipping-health #46, b-inequality-health-gradient #47, b-language-biomarker-diagnosis #48, b-stellar-forcing-paleoclimate #49) with 5 new unknowns + 5 new hypotheses. Medicine domain now has 4 cross-domain bridges (was 0). Knowledge graph rebuilt: 618 nodes, 398 edges. Dashboard updated. Validates clean.
@@ -36,12 +37,12 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 | Type | Count | Directory |
 |------|-------|-----------|
-| Unknowns | 502 | `unknowns-catalog/` |
-| Hypotheses | 84 | `hypotheses/active/` |
-| Bridges | 58 | `cross-domain/` |
+| Unknowns | 508 | `unknowns-catalog/` |
+| Hypotheses | 90 | `hypotheses/active/` |
+| Bridges | 64 | `cross-domain/` |
 | Pre-formal observations | 1 | `phenomenology/` |
-| Knowledge graph nodes | 645 | `docs/knowledge_graph.json` |
-| Knowledge graph edges | 472 | `docs/knowledge_graph.json` |
+| Knowledge graph nodes | 663 | `docs/knowledge_graph.json` |
+| Knowledge graph edges | 521 | `docs/knowledge_graph.json` |
 | Schemas | 4 | `schemas/` (unknown, hypothesis, bridge, phenomenon) |
 
 ### Bridge network (cross-domain connections)
@@ -72,6 +73,26 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 | b-philosophy-underdetermination-quantum | philosophy-of-science ↔ quantum-mechanics ↔ epistemology | proposed |
 | b-music-physics-resonance | acoustics ↔ music-theory ↔ cognitive-neuroscience | **established** |
 | b-engineering-reliability-extreme-value | reliability-engineering ↔ actuarial-science ↔ biology ↔ materials-science | **established** |
+| b-connectome-neurodegeneration | neuroscience ↔ medicine | proposed |
+| b-climate-tipping-health | climate-science ↔ medicine | proposed |
+| b-inequality-health-gradient | economics ↔ medicine | proposed |
+| b-language-biomarker-diagnosis | linguistics ↔ medicine | proposed |
+| b-stellar-forcing-paleoclimate | astronomy ↔ climate-science | proposed |
+| b-blackhole-information-paradox | astronomy ↔ information-theory | proposed |
+| b-baryon-asymmetry-cp-violation | astronomy ↔ particle-physics | proposed |
+| b-dark-matter-phase-transition-relics | astronomy ↔ statistical-physics | proposed |
+| b-cosmic-rays-mutagenesis | astronomy ↔ biology | proposed |
+| b-frb-random-matrix | astronomy ↔ mathematics | proposed |
+| b-neural-criticality-climate-tipping | neuroscience ↔ climate-science | proposed |
+| b-predictive-coding-grammar | neuroscience ↔ linguistics | proposed |
+| b-wealth-distribution-statistical-mechanics | economics ↔ statistical-physics | **established** |
+| b-topology-disease-progression | mathematics ↔ medicine | **established** |
+| b-earthquake-self-organized-criticality | geophysics ↔ statistical-physics | **established** |
+| b-efficient-coding-perception | cognitive-science ↔ information-theory | **established** |
+| b-bayesian-scientific-inference | philosophy-of-science ↔ mathematics | **established** |
+| b-robustness-evolvability-modularity | engineering ↔ evolutionary-biology | proposed |
+| b-opinion-dynamics-ising | social-science ↔ statistical-physics | proposed |
+| b-aesthetic-complexity-information | aesthetics ↔ mathematics ↔ cognitive-science | proposed |
 
 ## Current focus
 
