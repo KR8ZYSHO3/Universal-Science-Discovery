@@ -1822,12 +1822,26 @@
     var tipEl  = document.getElementById('kg-tooltip');
     if (!svgEl) return;
 
-    fetch('../docs/knowledge_graph.json')
-      .then(function (r) {
-        if (!r.ok) throw new Error('HTTP ' + r.status);
-        return r.json();
-      })
-      .then(function (data) {
+    var kgPaths = ['../docs/knowledge_graph.json', 'knowledge_graph.json', 'docs/knowledge_graph.json'];
+    (function tryNextPath(paths) {
+      if (!paths.length) {
+        if (window.location.protocol === 'file:') {
+          renderFallback('Run a local server to see the interactive graph:<br><code>python -m http.server 8765</code>');
+        } else {
+          renderFallback('Could not load knowledge_graph.json — all paths failed.');
+        }
+        return;
+      }
+      fetch(paths[0])
+        .then(function (r) {
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          return r.json();
+        })
+        .catch(function () { tryNextPath(paths.slice(1)); return null; })
+        .then(function (data) { if (data) handleData(data); });
+    })(kgPaths);
+
+    function handleData(data) {
         var nodes = data.nodes.map(function (n) { return Object.assign({}, n); });
         var edges = data.edges.map(function (e) { return Object.assign({}, e); });
 
@@ -1939,14 +1953,7 @@
             .attr('cx', function (d) { return d.x; })
             .attr('cy', function (d) { return d.y; });
         });
-      })
-      .catch(function (err) {
-        if (window.location.protocol === 'file:') {
-          renderFallback('Run a local server to see the interactive graph:<br><code>python -m http.server 8765</code>');
-        } else {
-          renderFallback('Could not load knowledge_graph.json — ' + (err && err.message ? err.message : err));
-        }
-      });
+    }
   })();
   </script>
 </body>

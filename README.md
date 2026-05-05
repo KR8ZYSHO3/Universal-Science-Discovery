@@ -5,6 +5,13 @@ Open-source, Git-based knowledge infrastructure for **discovery-first** science:
 [![Developer Dashboard](https://img.shields.io/badge/Developer%20Dashboard-Live-4f9cf9?style=for-the-badge&logo=github)](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/)
 [![Docs](https://img.shields.io/badge/Documentation-Live-22d3b8?style=for-the-badge&logo=readthedocs)](https://kr8zysho3.github.io/Universal-Science-Discovery/)
 [![CI](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/actions/workflows/validate-schemas.yml/badge.svg)](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/actions)
+[![Dashboard](https://img.shields.io/badge/dashboard-live-brightgreen)](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/)
+
+## Live Dashboard
+
+**[Open the live dashboard →](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/)**
+
+Interactive knowledge graph · contributor paths · real-time CI status
 
 ## New here? (contributors)
 
