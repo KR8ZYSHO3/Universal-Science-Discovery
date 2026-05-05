@@ -1455,8 +1455,8 @@
       document.getElementById('icon-moon').style.display = m === 'light' ? ''     : 'none';
     }
     var stored; try { stored = localStorage.getItem('usdr-theme'); } catch(e) {}
-    applyTheme(stored === 'light' || stored === 'dark' ? stored
-      : window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    if (!stored) { try { localStorage.setItem('usdr-theme', 'dark'); } catch(e) {} }
+    applyTheme(stored === 'light' || stored === 'dark' ? stored : 'dark');
     themeBtn.addEventListener('click', function () {
       var n = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
       applyTheme(n);
