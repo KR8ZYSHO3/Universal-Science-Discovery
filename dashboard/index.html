@@ -721,6 +721,118 @@
       font-size: .72rem; color: var(--muted); font-family: var(--mono);
       pointer-events: none; opacity: .65;
     }
+
+    /* ── CATALOG SEARCH ─────────────────────────────────────── */
+    .search-wrap {
+      position: relative; max-width: 620px;
+    }
+    .search-input {
+      width: 100%; height: 46px; padding: 0 1.1rem 0 2.9rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--r); color: var(--text);
+      font-family: var(--font); font-size: .95rem;
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      outline: none; transition: border-color .2s, box-shadow .2s;
+    }
+    .search-input::placeholder { color: var(--muted); }
+    .search-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(79,156,249,.14);
+    }
+    .search-icon {
+      position: absolute; left: .9rem; top: 50%; transform: translateY(-50%);
+      color: var(--muted); pointer-events: none;
+    }
+    .search-kbd {
+      position: absolute; right: .85rem; top: 50%; transform: translateY(-50%);
+      font-family: var(--mono); font-size: .68rem; color: var(--muted);
+      background: var(--bg-1); border: 1px solid var(--border);
+      border-radius: 5px; padding: .1rem .38rem; pointer-events: none;
+      transition: opacity .2s;
+    }
+    .search-results {
+      margin-top: .85rem;
+      display: flex; flex-direction: column; gap: .45rem;
+    }
+    .search-result-card {
+      display: flex; align-items: center; gap: .65rem;
+      padding: .75rem 1rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--r);
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      transition: border-color .18s, transform .18s;
+      cursor: default;
+    }
+    .search-result-card:hover { border-color: var(--border-h); transform: translateX(3px); }
+    .type-badge {
+      flex-shrink: 0;
+      font-size: .63rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase;
+      padding: .2rem .52rem; border-radius: 999px;
+    }
+    .type-bridge     { background: rgba(79,156,249,.15);  color: #4f9cf9;  border: 1px solid rgba(79,156,249,.3); }
+    .type-unknown    { background: rgba(249,115,22,.15);  color: #f97316;  border: 1px solid rgba(249,115,22,.3); }
+    .type-hypothesis { background: rgba(34,211,184,.15);  color: #22d3b8;  border: 1px solid rgba(34,211,184,.3); }
+    .type-phenomenon { background: rgba(167,139,250,.15); color: #a78bfa;  border: 1px solid rgba(167,139,250,.3); }
+    .result-title {
+      flex: 1; font-size: .88rem; font-weight: 500; line-height: 1.3;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .result-domain {
+      font-size: .72rem; color: var(--muted); font-family: var(--mono);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 160px;
+    }
+    .search-placeholder-msg {
+      color: var(--muted); font-size: .9rem; padding: .5rem 0;
+    }
+    .search-count-note {
+      font-size: .78rem; color: var(--muted); margin-top: .5rem;
+      font-family: var(--mono);
+    }
+
+    /* ── DISCOVERY ENGINES ──────────────────────────────────── */
+    .engines-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.1rem;
+    }
+    @media (max-width: 960px) { .engines-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .engines-grid { grid-template-columns: 1fr; } }
+
+    .engine-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--r-lg); padding: 1.4rem 1.3rem;
+      position: relative; overflow: hidden;
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      transition: transform .2s ease, border-color .2s ease, box-shadow .25s ease;
+    }
+    .engine-card::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      opacity: 0; transition: opacity .3s;
+      background: radial-gradient(circle at top right, var(--ec, rgba(79,156,249,.07)), transparent 60%);
+    }
+    .engine-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--eb, var(--border-h));
+      box-shadow: 0 20px 52px -24px var(--eg, var(--glow-a));
+    }
+    .engine-card:hover::before { opacity: 1; }
+    .engine-header {
+      display: flex; align-items: center; gap: .65rem; margin-bottom: .72rem;
+    }
+    .engine-icon { font-size: 1.6rem; flex-shrink: 0; }
+    .engine-name { font-size: 1rem; font-weight: 700; line-height: 1.2; }
+    .engine-desc {
+      font-size: .84rem; color: var(--muted); line-height: 1.55;
+      margin-bottom: .9rem;
+    }
+    .engine-stat {
+      display: inline-flex; align-items: center; gap: .38rem;
+      font-size: .72rem; font-family: var(--mono); font-weight: 600;
+      padding: .22rem .6rem; border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--muted); background: var(--bg-1);
+    }
+    .engine-stat-dot { width: 5px; height: 5px; border-radius: 50%; }
   </style>
 </head>
 <body>
@@ -823,6 +935,8 @@
   <div class="hub-nav-wrap">
     <nav class="hub-nav" aria-label="Page sections">
       <a href="#start">Start here</a>
+      <a href="#catalog-search">Search</a>
+      <a href="#discovery-engines">Engines</a>
       <a href="#knowledge-graph">Knowledge graph</a>
       <a href="#workstreams">Workstreams</a>
       <a href="#status">Status</a>
@@ -835,6 +949,43 @@
   </div>
 
   <main>
+    <!-- ═══════════════════════════════════════════ CATALOG SEARCH -->
+    <section id="catalog-search">
+      <div>
+        <span class="section-tag">Catalog</span>
+        <h2 class="section-title">Search the knowledge catalog</h2>
+        <p class="section-desc">
+          Real-time filter across all unknowns, bridges, hypotheses, and phenomena loaded from the knowledge graph.
+          Press <kbd style="font-family:var(--mono);font-size:.78em;background:var(--bg-1);border:1px solid var(--border);border-radius:4px;padding:.1rem .35rem;">/</kbd> to focus.
+        </p>
+      </div>
+      <div class="search-wrap">
+        <input id="catalog-search-input" class="search-input"
+               type="search" autocomplete="off" spellcheck="false"
+               placeholder="Search — loading catalog..."
+               aria-label="Search catalog entries" />
+        <svg class="search-icon" width="17" height="17" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <span class="search-kbd">/</span>
+      </div>
+      <div id="search-results" class="search-results" aria-live="polite" aria-label="Search results"></div>
+      <div id="search-count-note" class="search-count-note" hidden></div>
+    </section>
+
+    <!-- ══════════════════════════════════════ DISCOVERY ENGINES -->
+    <section id="discovery-engines">
+      <div>
+        <span class="section-tag">Discovery Engines</span>
+        <h2 class="section-title">Curated cross-domain engines</h2>
+        <p class="section-desc">
+          Six thematic lenses that surface the most fertile cross-domain bridges — where physics meets biology, computation meets evolution, and equations meet the real world.
+        </p>
+      </div>
+      <div class="engines-grid" id="engines-grid" aria-label="Discovery engines"></div>
+    </section>
+
     <!-- ════════════════════════════════════════ KNOWLEDGE GRAPH -->
     <section class="graph-section" id="knowledge-graph" aria-label="Knowledge graph">
       <span class="section-tag">Knowledge Graph</span>
@@ -1845,6 +1996,91 @@
         var nodes = data.nodes.map(function (n) { return Object.assign({}, n); });
         var edges = data.edges.map(function (e) { return Object.assign({}, e); });
 
+        /* ── BUILD SEARCH INDEX ──────────────────────────────── */
+        var searchIndex = data.nodes.map(function (n) {
+          var domain = '';
+          if (n.fields) {
+            domain = Array.isArray(n.fields) ? n.fields.join(', ') : String(n.fields);
+          }
+          return {
+            id:         n.id,
+            type:       n.type || 'unknown',
+            title:      n.title || n.id,
+            domain:     domain,
+            searchText: ((n.title || '') + ' ' + n.id + ' ' + domain).toLowerCase()
+          };
+        });
+
+        var inputEl     = document.getElementById('catalog-search-input');
+        var resultsEl   = document.getElementById('search-results');
+        var countNoteEl = document.getElementById('search-count-note');
+
+        if (inputEl) {
+          inputEl.placeholder = 'Search ' + searchIndex.length + ' entries \u2014 unknowns, bridges, hypotheses\u2026';
+        }
+
+        function typeLabel(t) {
+          return { bridge:'Bridge', unknown:'Unknown', hypothesis:'Hypothesis', phenomenon:'Phenomenon' }[t] || t;
+        }
+
+        function showSearchPlaceholder() {
+          if (resultsEl) resultsEl.innerHTML = '';
+          if (countNoteEl) countNoteEl.hidden = true;
+        }
+
+        function renderSearchResults(results, total) {
+          if (!resultsEl) return;
+          resultsEl.innerHTML = '';
+          if (results.length === 0) {
+            var msg = document.createElement('div');
+            msg.className = 'search-placeholder-msg';
+            msg.textContent = 'No results found.';
+            resultsEl.appendChild(msg);
+            if (countNoteEl) countNoteEl.hidden = true;
+            return;
+          }
+          results.forEach(function (n) {
+            var card = document.createElement('div');
+            card.className = 'search-result-card';
+            var t = (n.type || 'unknown').toLowerCase();
+            card.innerHTML =
+              '<span class="type-badge type-' + t + '">' + typeLabel(t) + '</span>' +
+              '<span class="result-title">' + (n.title || n.id).replace(/</g, '&lt;') + '</span>' +
+              (n.domain ? '<span class="result-domain">' + n.domain.replace(/</g, '&lt;') + '</span>' : '');
+            resultsEl.appendChild(card);
+          });
+          if (countNoteEl) {
+            countNoteEl.textContent = (total > results.length)
+              ? 'Showing ' + results.length + ' of ' + total + ' matches.'
+              : total + ' match' + (total === 1 ? '' : 'es') + '.';
+            countNoteEl.hidden = false;
+          }
+        }
+
+        function doSearch(query) {
+          var q = query.toLowerCase().trim();
+          if (!q) { showSearchPlaceholder(); return; }
+          var all = searchIndex.filter(function (n) { return n.searchText.includes(q); });
+          renderSearchResults(all.slice(0, 20), all.length);
+        }
+
+        if (inputEl) {
+          var debounceTimer;
+          inputEl.addEventListener('input', function () {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(function () { doSearch(inputEl.value); }, 80);
+          });
+        }
+
+        /* keyboard shortcut: / focuses search */
+        document.addEventListener('keydown', function (e) {
+          if (e.key === '/' && document.activeElement !== inputEl &&
+              !['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)) {
+            e.preventDefault();
+            if (inputEl) { inputEl.focus(); inputEl.select(); }
+          }
+        });
+
         /* Defensive: drop edges whose source/target node doesn't exist */
         var nodeIds = new Set(nodes.map(function (n) { return n.id; }));
         edges = edges.filter(function (e) {
@@ -1961,6 +2197,108 @@
             .attr('cx', function (d) { return d.x; })
             .attr('cy', function (d) { return d.y; });
         });
+    }
+  })();
+
+  /* ── DISCOVERY ENGINES ──────────────────────────────────── */
+  (function () {
+    var discoveryEngines = [
+      {
+        name:     'Quantum Biology',
+        icon:     '\u26db\ufe0f',
+        description: 'Where quantum mechanics meets life: bird navigation, photosynthesis coherence, enzyme tunneling',
+        bridges:  ['b-quantum-biology-navigation', 'b-landauer-information-thermodynamics'],
+        unknowns: 3,
+        color:    '#a78bfa'
+      },
+      {
+        name:     'Physics of Society',
+        icon:     '\ud83c\udf10',
+        description: 'Statistical mechanics of human systems: opinion dynamics, polarization phase transitions, economic crashes',
+        bridges:  ['b-phase-transitions-social-climate', 'b-social-ising-polarisation', 'b-turbulence-financial-markets'],
+        unknowns: 8,
+        color:    '#f97316'
+      },
+      {
+        name:     'Life as Computation',
+        icon:     '\ud83e\uddec',
+        description: 'Evolution, genetics, and neural computation through an information-theoretic lens',
+        bridges:  ['b-information-theory-evolution', 'b-game-theory-evolution', 'b-spin-glass-neural-networks'],
+        unknowns: 12,
+        color:    '#22d3b8'
+      },
+      {
+        name:     'Climate Tipping Points',
+        icon:     '\ud83c\udf0d',
+        description: 'Percolation and phase transition theory applied to planetary-scale ecological and climate thresholds',
+        bridges:  ['b-percolation-ecology', 'b-climate-tipping-percolation', 'b-turing-patterns-ecosystem-tipping'],
+        unknowns: 7,
+        color:    '#4ade80'
+      },
+      {
+        name:     'Mind & Criticality',
+        icon:     '\ud83e\udde0',
+        description: 'Neural avalanches, spin-glass memory, and the brain as a self-organized critical system',
+        bridges:  ['b-self-organized-criticality', 'b-spin-glass-neural-networks', 'b-phase-transitions-ml-grokking'],
+        unknowns: 9,
+        color:    '#4f9cf9'
+      },
+      {
+        name:     'Mathematics of Shape',
+        icon:     '\ud83d\udd2c',
+        description: 'Turing patterns, optimal transport, and reaction-diffusion systems that explain biological form',
+        bridges:  ['b-turing-reaction-diffusion', 'b-optimal-transport-vasculature', 'b-turing-patterns-ecosystem-tipping'],
+        unknowns: 5,
+        color:    '#f43f5e'
+      }
+    ];
+
+    function hexToRgba(hex, a) {
+      var r = parseInt(hex.slice(1,3), 16);
+      var g = parseInt(hex.slice(3,5), 16);
+      var b = parseInt(hex.slice(5,7), 16);
+      return 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')';
+    }
+
+    var grid = document.getElementById('engines-grid');
+    if (!grid) return;
+    grid.innerHTML = '';
+
+    discoveryEngines.forEach(function (eng) {
+      var card = document.createElement('div');
+      card.className = 'engine-card aos';
+      card.style.setProperty('--ec', hexToRgba(eng.color, .07));
+      card.style.setProperty('--eb', hexToRgba(eng.color, .38));
+      card.style.setProperty('--eg', hexToRgba(eng.color, .25));
+      card.innerHTML =
+        '<div class="engine-header">' +
+          '<span class="engine-icon" aria-hidden="true">' + eng.icon + '</span>' +
+          '<span class="engine-name">' + eng.name + '</span>' +
+        '</div>' +
+        '<p class="engine-desc">' + eng.description + '</p>' +
+        '<div style="display:flex;gap:.5rem;flex-wrap:wrap;">' +
+          '<span class="engine-stat">' +
+            '<span class="engine-stat-dot" style="background:' + eng.color + '"></span>' +
+            eng.bridges.length + ' bridges' +
+          '</span>' +
+          '<span class="engine-stat">' +
+            '<span class="engine-stat-dot" style="background:' + eng.color + '"></span>' +
+            eng.unknowns + ' unknowns' +
+          '</span>' +
+        '</div>';
+      grid.appendChild(card);
+    });
+
+    /* trigger AOS for dynamically added cards */
+    if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+        });
+      }, { threshold: .07 });
+      grid.querySelectorAll('.aos').forEach(function (el) { obs.observe(el); });
+    } else {
+      grid.querySelectorAll('.aos').forEach(function (el) { el.classList.add('in'); });
     }
   })();
   </script>
