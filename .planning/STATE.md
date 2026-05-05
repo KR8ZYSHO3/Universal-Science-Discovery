@@ -4,6 +4,8 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 ## Last updated
 
+- 2026-05-04 — **2 new bridges + 2 unknowns + 2 hypotheses**: b-renormalization-biological-scaling (RG↔allometry) + b-percolation-epidemiology (percolation↔epidemic FSS); GitHub Issues #24-26 opened (feat branch pending PR)
+- 2026-05-04 — **Kibble-Zurek bridge + quantum compass hypothesis** (PR #23): b-kibble-zurek-morphogenesis (cosmology↔embryogenesis), u-kibble-zurek-embryo, h-kibble-zurek-polarity-scaling, h-quantum-compass-precision; closes Issue #18
 - 2026-05-04 — **bio-ph harvest** + 2 missing hypotheses + quantum-biology bridge + Kleiber unknown (PR #16, this session)
 - 2026-05-04 — **Dashboard** stat deck updated: bridges card added, counts refreshed (PR #15)
 - 2026-05-04 — **2 hypotheses closed gaps**: h-grokking-criticality-universality, h-cardiac-arrhythmia-phase-transition + u-cortical-folding-topology (PR #14)
@@ -19,9 +21,9 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 | Type | Count | Directory |
 |------|-------|-----------|
-| Unknowns | 12 | `unknowns-catalog/` |
-| Hypotheses | 11 | `hypotheses/active/` |
-| Bridges | 7 | `cross-domain/` |
+| Unknowns | 16 | `unknowns-catalog/` |
+| Hypotheses | 16 | `hypotheses/active/` |
+| Bridges | 10 | `cross-domain/` |
 | Schemas | 3 | `schemas/` (unknown, hypothesis, bridge) |
 
 ### Bridge network (cross-domain connections)
@@ -35,6 +37,9 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 | b-topology-morphogenesis | mathematics/topology ↔ developmental-biology | proposed |
 | b-grokking-criticality | AI/machine-learning ↔ statistical-physics | proposed |
 | b-quantum-biology-navigation | quantum-mechanics ↔ sensory-biology | **established** |
+| b-kibble-zurek-morphogenesis | cosmology ↔ developmental-biology | proposed |
+| b-renormalization-biological-scaling | mathematical-physics ↔ comparative-physiology | proposed |
+| b-percolation-epidemiology | statistical-physics ↔ epidemiology | proposed |
 
 ## Current focus
 

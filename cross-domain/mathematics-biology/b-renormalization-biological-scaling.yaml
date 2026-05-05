@@ -1,0 +1,100 @@
+id: b-renormalization-biological-scaling
+title: >
+  The renormalization group explains why biological allometric scaling laws
+  are power laws with universal exponents — metabolic scaling, growth rates,
+  and lifespan all emerge from the same fixed-point structure that governs
+  critical phenomena in statistical physics.
+status: proposed
+fields:
+  - mathematical-physics
+  - theoretical-biology
+  - statistical-physics
+  - comparative-physiology
+bridge_claim: >
+  The renormalization group (RG) is the standard physics explanation for why
+  power laws arise universally near critical points: when you "coarse-grain"
+  a system (average out short-scale details), the long-scale behaviour flows
+  to a fixed point characterised by a small set of exponents determined only
+  by dimension and symmetry, not by microscopic details. This is why water,
+  iron, and CO2 all have the same critical exponent β=0.326 near their
+  liquid-gas transitions.
+
+  Biological allometric scaling laws — Kleiber's metabolic rate ∝ M^(3/4),
+  heart rate ∝ M^(-1/4), lifespan ∝ M^(1/4), aorta radius ∝ M^(3/8) —
+  are all power laws with exponents that are simple multiples of 1/4. This
+  "quarter-power" universality across all taxa (bacteria to blue whale)
+  is precisely the signature of an RG fixed point: the vascular tree
+  coarse-grains under a length-rescaling, flowing to a fixed point in the
+  space of branching networks.
+
+  The WBE theory (West-Brown-Enquist 1997) derives the 3/4 exponent from
+  area-preserving branching, but does not cast it as an RG calculation.
+  Casting it as one predicts: (a) the exact correction-to-scaling exponents
+  at finite body size, (b) which perturbations to vascular geometry are
+  "relevant" (change the exponent) vs "irrelevant" (change only prefactors),
+  and (c) why non-pulsatile organisms (plants, echinoderms) should exhibit
+  the same 3/4 exponent — they are in the same universality class despite
+  having completely different microscopic vascular architectures.
+translation_table:
+  - field_a_term: renormalization group fixed point
+    field_b_term: allometric scaling law (universal quarter-power exponents)
+  - field_a_term: universality class
+    field_b_term: quarter-power scaling shared by all vascular taxa
+  - field_a_term: relevant perturbation (changes critical exponent)
+    field_b_term: vascular geometry change that alters the scaling exponent (e.g. non-area-preserving branching)
+  - field_a_term: irrelevant perturbation (flows to zero under RG)
+    field_b_term: organism-specific vascular geometry detail that changes prefactor but not exponent
+  - field_a_term: correction-to-scaling term (finite-size effect)
+    field_b_term: deviation from Kleiber's Law in small organisms (below ~1g body mass)
+  - field_a_term: coarse-graining (averaging out short-scale modes)
+    field_b_term: summing metabolic contributions over a vascular subtree (recursive branching)
+  - field_a_term: Wilson-Fisher epsilon expansion
+    field_b_term: systematic perturbation theory for allometric exponents around the area-preserving branching limit
+related_unknowns:
+  - u-kleiber-pulsatile-waves
+  - u-renormalization-allometric
+related_hypotheses:
+  - h-kleiber-wave-physics
+  - h-allometric-rg-fixed-point
+cross_pollination_opportunities:
+  - >
+    RG provides correction-to-scaling exponents that predict exactly how Kleiber's Law
+    breaks down for small organisms — a quantitative test that WBE theory cannot make.
+    Comparative physiologists have the data (metabolic rates across 5+ decades of body
+    mass); they just lack the RG framework to fit it.
+  - >
+    The RG classification of "relevant" vs "irrelevant" perturbations tells biologists
+    which aspects of vascular geometry evolution can freely vary (irrelevant, invisible
+    to scaling) and which are under strong selection (relevant, would shift the exponent).
+    This reframes a 50-year debate about vascular morphology in purely physical terms.
+  - >
+    Non-vascular organisms (fungi, colonial tunicates, siphonophores) should — if the
+    RG picture is correct — either share the 1/4-power exponents (same universality class)
+    or exhibit a discrete jump to different exponents (different fixed point). A survey
+    combining metabolic measurement with RG classification would determine how many
+    universality classes biological scaling has — a question with no existing answer.
+  - >
+    The pulsatile-wave mechanism (h-kleiber-wave-physics, u-kleiber-pulsatile-waves)
+    and the RG fixed-point picture are not mutually exclusive — pulsatile waves may
+    be the *mechanism* that enforces the area-preserving branching condition that drives
+    the system to the RG fixed point. Unifying the two would give the most complete
+    theory of allometric scaling to date.
+communication_gap: >
+  West, Brown, and Enquist (1997) derived the 3/4 exponent and explicitly noted the
+  fractal/self-similar structure of vascular trees, but stopped short of an RG
+  calculation. Statistical physicists who work on RG are generally unaware that
+  biological scaling is an open problem — they would likely classify it as a solved
+  problem (it looks like a fixed-point calculation) without realising that the
+  correction-to-scaling predictions have never been tested experimentally. The
+  barrier is disciplinary: the biology journals that publish allometric scaling do
+  not routinely receive manuscripts using Wilson-Fisher renormalization.
+last_reviewed: "2026-05-04"
+references:
+  - doi: "10.1126/science.276.5309.122"
+    note: West, Brown, Enquist (1997) — WBE theory of allometric scaling; derives 3/4 from area-preserving branching
+  - doi: "10.1038/35007655"
+    note: West et al. (2001) — extended allometric scaling to growth rates and lifespans
+  - arxiv: "cond-mat/9812315"
+    note: Wilson-Fisher RG and corrections to scaling — the theoretical toolkit needed
+  - arxiv: "q-bio/0612023"
+    note: Savage et al. — deviations from Kleiber below 1g body mass; exactly the correction-to-scaling regime

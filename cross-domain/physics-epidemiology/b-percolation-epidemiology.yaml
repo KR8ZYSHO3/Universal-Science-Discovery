@@ -1,0 +1,101 @@
+id: b-percolation-epidemiology
+title: >
+  Network percolation theory and epidemic threshold theory are the same
+  mathematical object — the epidemic threshold R_0=1 is a percolation phase
+  transition, and importing finite-size scaling from condensed-matter physics
+  would transform how outbreak risk is estimated in finite populations.
+status: proposed
+fields:
+  - statistical-physics
+  - epidemiology
+  - network-science
+  - public-health
+bridge_claim: >
+  In bond percolation on a network, a giant connected component emerges at a
+  critical bond probability p_c — below p_c the outbreak is finite; above it
+  a macroscopic fraction of nodes is infected. The epidemic threshold R_0=1
+  (basic reproduction number equals 1) is *exactly* this percolation threshold
+  applied to a contact network where each edge is "bonded" with probability
+  proportional to transmission probability.
+
+  This mathematical identity has been known since Newman (2002) and Kenah-Robins
+  (2007), but almost no working epidemiologists use percolation theory in practice.
+  The result is that standard SIR/SEIR models treat populations as effectively
+  infinite (mean-field), while condensed-matter physicists have 50 years of
+  finite-size scaling (FSS) methods that correctly estimate critical behaviour in
+  finite systems.
+
+  The practical consequence: current outbreak risk models routinely over- or
+  under-estimate the probability of a major epidemic in populations of 10,000-
+  100,000 people (the regime of healthcare facility outbreaks, island communities,
+  schools) because they use mean-field R_0 estimates without finite-size corrections.
+  Percolation FSS would give systematic, quantitative corrections to these estimates.
+translation_table:
+  - field_a_term: bond percolation threshold p_c
+    field_b_term: epidemic threshold R_0 = 1 (herd immunity boundary)
+  - field_a_term: giant connected component
+    field_b_term: epidemic — macroscopic fraction of population infected
+  - field_a_term: finite cluster below p_c
+    field_b_term: self-limiting outbreak (index case dies out without major spread)
+  - field_a_term: finite-size scaling (FSS) correction to p_c in N-node network
+    field_b_term: correction to R_0 threshold in finite population of size N
+  - field_a_term: percolation correlation length xi
+    field_b_term: spatial/network scale over which infections correlate (cluster size distribution)
+  - field_a_term: order parameter (giant component fraction P_inf)
+    field_b_term: final attack rate (fraction of population ultimately infected)
+  - field_a_term: scaling function near p_c (P_inf ~ |p-p_c|^beta)
+    field_b_term: epidemic size as function of R_0 near threshold
+  - field_a_term: universality class (mean-field percolation for random graphs, 2D percolation for spatial grids)
+    field_b_term: contact network topology class (random mixing vs spatially structured population)
+related_unknowns:
+  - u-percolation-epidemic-fss
+related_hypotheses:
+  - h-percolation-outbreak-threshold
+  - h-adaptive-therapy-percolation-threshold
+cross_pollination_opportunities:
+  - >
+    Finite-size scaling from condensed-matter physics gives a precise formula for
+    how the effective epidemic threshold shifts in a population of N individuals:
+    R_0^eff(N) = R_0^infinity + c * N^(-1/nu), where nu is the percolation correlation
+    length exponent (nu=1 for random networks, nu=4/3 for 2D spatial). Epidemiologists
+    could use this formula to report R_0 estimates with explicit finite-population
+    uncertainty bands — a capability that does not currently exist.
+  - >
+    The percolation cluster size distribution below threshold predicts the outbreak
+    size distribution. Condensed-matter physicists know this distribution analytically
+    (it is a power law with exponent tau=5/2 for mean-field percolation). This means
+    the probability of an outbreak reaching any given size is derivable from the same
+    framework, not just simulatable — giving public health a closed-form risk formula.
+  - >
+    Vaccination strategies map directly to percolation bond removal. Targeted removal
+    of high-degree nodes (hubs) in a network pushes p_c up nonlinearly — this is the
+    mathematical basis of ring vaccination and contact tracing. Importing the full
+    toolkit of percolation on heterogeneous networks (configuration model, degree
+    sequence methods) would let epidemiologists design vaccination campaigns using
+    rigorous phase-transition analysis rather than simulation.
+  - >
+    The b-percolation-oncology bridge uses percolation to model tumour vascular networks.
+    The same finite-size scaling methods apply — connecting the mathematical toolkits
+    of oncology, epidemiology, and statistical physics through a single framework.
+communication_gap: >
+  The mathematical equivalence of SIR thresholds and percolation thresholds is
+  established in the network science literature (Newman 2002, Kenah-Robins 2007,
+  Miller 2010). However, the epidemiology literature overwhelmingly uses deterministic
+  ODE models (SIR/SEIR) that are mean-field and infinite-population. The finite-size
+  scaling tools are developed in condensed-matter physics and statistical mechanics
+  journals that epidemiologists do not read. During COVID-19, finite-size effects in
+  small institutional outbreaks (hospitals, nursing homes, schools) were handled with
+  ad hoc simulation rather than systematic FSS — a direct consequence of this
+  communication gap.
+last_reviewed: "2026-05-04"
+references:
+  - doi: "10.1103/PhysRevE.66.016128"
+    note: Newman (2002) — proved SIR epidemic threshold = bond percolation threshold on random graphs
+  - doi: "10.1093/aje/kwm120"
+    note: Kenah & Robins (2007) — epidemic as percolation on the transmission network
+  - doi: "10.1103/PhysRevE.76.010101"
+    note: Miller (2007) — epidemic size and final size as percolation order parameter
+  - arxiv: "cond-mat/9212004"
+    note: Finite-size scaling in percolation — the FSS toolkit that epidemiology has not imported
+  - doi: "10.1038/nature04153"
+    note: Newman (2006) — modularity and community structure in networks; relevant to spatial epidemic structure

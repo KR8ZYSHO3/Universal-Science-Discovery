@@ -1,0 +1,68 @@
+id: h-percolation-outbreak-threshold
+title: >
+  Percolation finite-size scaling corrections reduce R_0 estimation error by
+  >30% in institutional outbreaks (N < 10,000), and the correction exponent
+  matches the random-graph percolation universality class (nu = 1).
+status: active
+created: "2026-05-04"
+last_updated: "2026-05-04"
+priority: critical
+related_disciplines:
+  - epidemiology
+  - statistical-physics
+  - public-health
+unknowns_addressed:
+  - u-percolation-epidemic-fss
+evidence_links:
+  - type: supporting
+    doi: "10.1103/PhysRevE.66.016128"
+    note: Newman (2002) proves the mathematical equivalence — FSS must apply if the equivalence holds
+  - type: supporting
+    note: >
+      COVID-19 nursing home outbreaks (US, UK, France 2020) provide hundreds of
+      natural experiments with N=50 to N=500, known attack rates, and documented
+      case counts. If FSS correction is real, the corrected R_0 estimates should be
+      more consistent across facilities than the uncorrected estimates — a testable
+      pattern in the published outbreak reports.
+  - type: contradicting
+    note: >
+      Contact networks in institutions may be sufficiently heterogeneous (staff hub
+      nodes) that the random-graph FSS formula (nu=1) does not apply — the system may
+      be in a different universality class or crossover regime where FSS corrections are
+      much smaller or larger than predicted. Only empirical validation can distinguish
+      these cases.
+proposed_tests:
+  - discipline: epidemiology
+    description: >
+      Collect 50+ nursing home COVID-19 outbreak datasets with facility size N and
+      final attack rate from published literature (CDC MMWR reports, ECDC, UK PHE).
+      For each outbreak above threshold, estimate R_0 from early exponential growth
+      rate. Plot the estimated R_0 vs N^(-1) on a log scale. If the FSS formula
+      holds, the data should lie on a straight line with slope c and intercept R_0^inf.
+      Compare the slope-derived nu to the theoretical nu=1 (random graph) prediction.
+  - discipline: statistical-physics
+    description: >
+      Derive the FSS correction formula analytically for an SIR model on a
+      configuration-model random graph with a realistic degree distribution (measured
+      from contact tracing data in institutional settings). The analytical result gives
+      a specific prediction for c (the FSS coefficient) as a function of the degree
+      distribution moments. Compare to the empirically fitted c from the outbreak dataset.
+  - discipline: public-health
+    cross_domain_angle: >
+      Implement the FSS-corrected R_0 estimator as an R/Python package with a simple
+      interface: input case count time series and population size N; output R_0^eff with
+      finite-size uncertainty band. Deploy during a real outbreak (flu season, norovirus
+      in a school) and compare FSS-corrected vs standard estimate to the observed final
+      attack rate. This is a direct public-health translation of the physics result.
+  - discipline: network-science
+    cross_domain_angle: >
+      Compare FSS corrections under different assumed contact network topologies
+      (random graph, scale-free, 2D spatial grid) using stochastic SIR simulations.
+      Determine which topology gives FSS corrections that best match the empirical
+      pattern in the nursing home dataset — effectively using outbreak data to infer
+      the universality class of institutional contact networks. This connects
+      b-percolation-epidemiology directly to network science empirics.
+bounty: >
+  First group to publish a retrospective FSS-corrected R_0 analysis of COVID-19
+  nursing home data — with nu measured from real data — gets cited here and credited
+  in the USDR contributor log.
