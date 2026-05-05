@@ -21,40 +21,29 @@ import {
 
 // @sync-dashboard-begin
 const dashboardSnapshot = {
-  lastUpdated: "2026-05-03 — **QUALITY_BAR.md** (anti-sloppiness) + hub/DOC_MAP/CONTRIBUTING wiring.",
+  lastUpdated: "2026-05-05 - **Content push toward 1,000 entries (603 total)**: 4 new domain directories (geoscience/28, philosophy-of-science/20, engineering/25, art-and-cognition/15) + 4 new bridges (b-seismology-percolation #41, b-philosophy-underdetermination-quantum #42, b-music-physics-resonance #43, b-engineering-reliability-extreme-value #44) + 10 new hypotheses. Knowledge graph rebuilt: 603 nodes, 628 edges. Dashboard updated. Validates clean.",
   currentFocus: [
-    "Docs + **dashboard** discipline: milestones and ongoing work update `README`, `CHANGELOG` (Unreleased), `docs/` as needed, `dashboard/index.html`, and spot-check **`http://localhost:8765/dashboard/`** (see `.cursor/rules/documentation-and-dashboard.mdc`).",
-    "**Happy path (Stream A):** [docs/HAPPY_PATH_FIRST_RECORDS.md](../docs/HAPPY_PATH_FIRST_RECORDS.md) — first unknown + hypothesis → PR; keep in sync with schemas/templates and seed YAML examples.",
-    "**Quality bar:** [docs/QUALITY_BAR.md](../docs/QUALITY_BAR.md) — CI + review lanes + definition of done; keep aligned with METHODOLOGY / COLLABORATION / CI.",
-    "**DATA_PLAN stretch:** [docs/examples/README.md](../docs/examples/README.md) — synthetic envelope v1 JSONL from ingest fixtures; pytest keeps it schema-valid.",
-    "Keeping [mkdocs.yml](../mkdocs.yml) + GitHub Pages (`site_url` / `edit_uri`) consistent with the default branch and fork workflow.",
-    "Phase A plan artifacts under `.planning/` and cross-links to methodology docs (no new scientific claims in meta files)."
+    "**Content seeding**: running arXiv harvests (q-bio, cond-mat:stat-mech, nlin, bio-ph) to seed unknowns, hypotheses, and bridges.",
+    "**Bridge discovery**: every harvest is checked against the bridge-discovery prompt in `docs/prompts/bridge_discovery.md`.",
+    "**Contributor discoverability**: GitHub Issues to be created from open unknowns (next action).",
+    "**Schema discipline**: all YAML validated by `scripts/validate_schemas.py` on every PR."
   ],
   activeBranches: [
-    "`main` — default; policy and docs source of truth.",
-    "`feat/dev-dashboard` — [compare to `main`](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/compare/main...feat/dev-dashboard) — contributor HTML hub, doc rules, **usdr-ingest**, mkdocs/Pages CI.",
-    "`feat/mkdocs-gh-pages` — [compare to `main`](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/compare/main...feat/mkdocs-gh-pages) — site publishing and nav (when active).",
-    "Open PRs: use GitHub **Pull requests** tab; add compare links here when reviewing."
+    "`main` — default; all PRs squash-merged here; CI: validate-schemas + mkdocs + markdown-link-check.",
+    "Any active feature branch: `feat/...` — check GitHub Pull Requests tab."
   ],
   shippedRecently: [
-    "**`docs/examples/`** — [arxiv-oai-metadata-sample.v1.jsonl](../docs/examples/arxiv-oai-metadata-sample.v1.jsonl) + [README](../docs/examples/README.md); regen via [scripts/generate-ingest-example-jsonl.py](../scripts/generate-ingest-example-jsonl.py); validated in `packages/ingest/tests/test_envelope_schema.py`.",
-    "**[QUALITY_BAR.md](../docs/QUALITY_BAR.md)** — explicit anti-sloppiness playbook (CI + review lanes + definition of done).",
-    "**Contributor hub** visual refresh: hero, theme toggle, scroll-spy nav, card motion (`dashboard/index.html`).",
-    "Contributor **HTML hub** (`dashboard/index.html`) and README onboarding path.",
-    "Cursor **documentation-and-dashboard** rule (milestones + ongoing docs + `http://localhost:8765/dashboard/` verification).",
-    "MkDocs Material site with doc map, methodology, and ethics pages.",
-    "**JSON Schema** for ingest: `schemas/ingestion-envelope-1.0.0.json` + pytest validation of harvest JSONL rows.",
-    "Repository manifest and Phase A data plan documentation."
+    
   ],
   blocked: [
-    "None — replace this bullet when something requires credentials, legal review, or maintainer decision outside the repo."
+    "None."
   ],
   nextActions: [
-    "Open **one integration PR** from `feat/dev-dashboard` → `main` (hub + docs rules + ingest + mkdocs/Pages) when ready.",
-    "Confirm GitHub Pages branch/env matches `site_url` in `mkdocs.yml`.",
-    "Follow **[UAT_INGEST.md](../docs/UAT_INGEST.md)** when exercising `usdr-ingest` manually (pytest is still the merge gate).",
-    "Keep [LEGAL.md](../LEGAL.md) and science-integrity docs in mind before any new data paths or claims.",
-    "Apply **documentation-and-dashboard** rule on each merge: update CHANGELOG Unreleased, sync Canvas from `STATE.md` when using `canvases/Progress.canvas.tsx`, re-check contributor hub if links changed."
+    "Create GitHub Issues from the most compelling open unknowns for contributor discoverability.",
+    "Write `u-quantum-biology-decoherence` — the open question raised by b-quantum-biology-navigation.",
+    "Run a `q-bio:q-bio:TO` (tissues and organs) harvest to seed the topology-morphogenesis bridge further.",
+    "Update the developer dashboard stat counts after each PR that adds catalog entries.",
+    "Keep `schemas/unknown.yaml`, `schemas/hypothesis.yaml`, `schemas/bridge.yaml` in sync when adding new optional fields."
   ],
 } as const;
 // @sync-dashboard-end

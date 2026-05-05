@@ -9,6 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added (2026-05-05 session — bridges 45-49 from AI co-pilot proposals; 618 nodes total)
+- **5 new bridges (45–49):** b-connectome-neurodegeneration (neuroscience↔medicine, graph-theoretic hub vulnerability predicts neurodegeneration trajectory), b-climate-tipping-health (climate-science↔medicine, fold-bifurcation governs both AMOC and epidemic thresholds), b-inequality-health-gradient (economics↔medicine, Gini coefficient as control parameter for health phase transitions), b-language-biomarker-diagnosis (linguistics↔medicine, NLP speech coherence as non-invasive Alzheimer's/psychiatric biomarker), b-stellar-forcing-paleoclimate (astronomy↔climate-science, Milankovitch cycles and solar variability control ice ages and habitability).
+- **5 new unknowns:** u-connectome-neurodegeneration-spread-rate (neuroscience), u-climate-health-tipping-threshold (climate-science), u-inequality-health-phase-transition-threshold (economics), u-language-biomarker-clinical-validity (medicine), u-stellar-forcing-climate-sensitivity-scale (astronomy).
+- **5 new hypotheses:** h-connectome-hub-vulnerability-neurodegeneration, h-epidemic-ar1-tipping-warning, h-gini-mortality-phase-transition, h-speech-coherence-alzheimers-prediction, h-milankovitch-nonlinear-resonance-100kyr.
+- **5 new cross-domain directories:** neuroscience-medicine, climate-medicine, economics-medicine, linguistics-medicine, astronomy-climate.
+- **Medicine domain bridges:** medicine now has 4 cross-domain connections (was 0 per co-pilot audit).
+- **Knowledge graph rebuilt:** 618 nodes (+15), 398 edges. Orphan unknowns reduced from 260 to 329 (but base grew by 100+ from concurrent PRs).
+- **Dashboard updated:** 49 bridges, 493 unknowns, 75 hypotheses, 618 nodes.
+
 ### Added (2026-05-05 session — content push toward 1,000 entries; 603 total)
 - **4 new domain directories:** `unknowns-catalog/geoscience/` (28 unknowns), `unknowns-catalog/philosophy-of-science/` (20 unknowns), `unknowns-catalog/engineering/` (25 unknowns), `unknowns-catalog/art-and-cognition/` (15 unknowns).
 - **88 new unknowns** spanning: deep Earth water cycle, mantle convection, inner core anisotropy, flood basalt triggers, earthquake nucleation, slow-slip events, supervolcano forecasting, permafrost thaw, ice sheet basal melting, demarcation problem, underdetermination, reproducibility crisis, peer review validity, preregistration, causation inference, turbulent drag reduction, fusion plasma stability, solid-state battery failure, offshore wind fatigue, carbon capture energy, green hydrogen electrolysis, smart grid stability, space debris removal, aesthetic preference, music universals, improvisation neuroscience, flow state, synesthesia, and more.

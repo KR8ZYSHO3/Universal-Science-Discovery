@@ -4,6 +4,7 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 ## Last updated
 
+- 2026-05-05 - **Bridges 45-49 — co-pilot-proposed medicine and astronomy connections (618 nodes)**: 5 new bridges (b-connectome-neurodegeneration #45, b-climate-tipping-health #46, b-inequality-health-gradient #47, b-language-biomarker-diagnosis #48, b-stellar-forcing-paleoclimate #49) with 5 new unknowns + 5 new hypotheses. Medicine domain now has 4 cross-domain bridges (was 0). Knowledge graph rebuilt: 618 nodes, 398 edges. Dashboard updated. Validates clean.
 - 2026-05-05 - **Content push toward 1,000 entries (603 total)**: 4 new domain directories (geoscience/28, philosophy-of-science/20, engineering/25, art-and-cognition/15) + 4 new bridges (b-seismology-percolation #41, b-philosophy-underdetermination-quantum #42, b-music-physics-resonance #43, b-engineering-reliability-extreme-value #44) + 10 new hypotheses. Knowledge graph rebuilt: 603 nodes, 628 edges. Dashboard updated. Validates clean.
 - 2026-05-05 - **Final content push — Phase 0 target of 500+ achieved (502 entries)**: 4 new domain directories (quantum-physics/25, linguistics/25, social-science/25, economics/25) + gap-filled computer-science (+10), neuroscience (+10), ecology (+8), chemistry (+6). 8 new hypotheses, 2 new bridges (b-linguistic-relativity-quantum-basis \#39, b-social-ising-polarisation \#40). Knowledge graph rebuilt: 502 nodes, 601 edges. Dashboard updated. Validates clean.
 - 2026-05-05 — **Bulk content push to 357 entries (Phase 0: 500+ target)**: 6 new domain directories (materials-science, climate-science, astronomy, medicine, cognitive-science) + 20 new mathematics unknowns; 145 new unknowns, 10 new hypotheses, 2 new bridges (b-climate-tipping-percolation, b-materials-consciousness-criticality). Knowledge graph rebuilt: 357 nodes, 582 edges. Dashboard updated. Validates clean.
@@ -33,11 +34,11 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 | Type | Count | Directory |
 |------|-------|-----------|
-| Unknowns | 488 | `unknowns-catalog/` |
-| Hypotheses | 70 | `hypotheses/active/` |
-| Bridges | 44 | `cross-domain/` |
+| Unknowns | 493 | `unknowns-catalog/` |
+| Hypotheses | 75 | `hypotheses/active/` |
+| Bridges | 49 | `cross-domain/` |
 | Pre-formal observations | 1 | `phenomenology/` |
-| Knowledge graph nodes | 603 | `docs/knowledge_graph.json` |
+| Knowledge graph nodes | 618 | `docs/knowledge_graph.json` |
 | Knowledge graph edges | 628 | `docs/knowledge_graph.json` |
 | Schemas | 4 | `schemas/` (unknown, hypothesis, bridge, phenomenon) |
 

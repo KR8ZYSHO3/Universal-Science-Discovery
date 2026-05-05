@@ -1,0 +1,105 @@
+id: b-connectome-neurodegeneration
+title: >
+  Graph-theoretic measures of brain connectome topology (clustering coefficient,
+  path length, hub vulnerability) that characterize healthy neural networks predict
+  neurodegenerative disease progression and clinical treatment targets in Alzheimer's,
+  Parkinson's, and epilepsy.
+status: proposed
+fields:
+  - network-neuroscience
+  - computational-neurology
+  - graph-theory
+  - clinical-medicine
+bridge_claim: >
+  Network neuroscience applies graph theory to the brain's connectome — the
+  wiring diagram of structural and functional connections between regions. The
+  same measures used to characterize small-world networks in physics (clustering
+  coefficient C, characteristic path length L, hub centrality) directly predict
+  which brain regions accumulate pathological protein (amyloid, tau, alpha-synuclein)
+  first, how fast neurodegeneration spreads, and which therapeutic targets will
+  have the greatest leverage.
+
+  Alzheimer's disease preferentially attacks high-centrality "hub" regions
+  (default mode network: posterior cingulate, precuneus, angular gyrus) — exactly
+  the nodes predicted by network hub vulnerability theory to accumulate the most
+  pathological load from neuronal activity-driven amyloid secretion. Tau spreads
+  along axonal connections following a network-diffusion process that matches
+  Braak staging when seeded from the entorhinal cortex.
+
+  Epilepsy seizure onset zones are structurally distinguishable from surrounding
+  tissue by their anomalous clustering: they are locally over-connected (high
+  clustering) relative to their path length, creating resonance pockets where
+  excitation recurs. Surgical resection guided by graph-theoretic ictogenicity
+  measures outperforms lesion-based targeting.
+
+  The mathematics is not metaphorical — the same eigenvector centrality, spectral
+  gap, and random-walk diffusion models used in network science apply directly
+  to neural graphs where nodes are brain regions and edges are tractography
+  streamlines or functional correlation.
+translation_table:
+  - field_a_term: clustering coefficient C
+    field_b_term: local recurrent connectivity density in cortical circuits; elevated in seizure onset zones
+    note: High C with low L defines small-world topology; disease disrupts this balance
+  - field_a_term: characteristic path length L
+    field_b_term: mean axonal communication distance; increases in Alzheimer's white matter degeneration
+  - field_a_term: hub node (high betweenness or eigenvector centrality)
+    field_b_term: default-mode network regions (precuneus, posterior cingulate) — earliest amyloid accumulation sites
+  - field_a_term: network diffusion / graph Laplacian propagation
+    field_b_term: trans-synaptic spread of tau and alpha-synuclein along connectome edges
+  - field_a_term: spectral gap (lambda_2 of graph Laplacian)
+    field_b_term: connectome resilience to lesioning; predicts cognitive reserve capacity
+  - field_a_term: rich-club coefficient
+    field_b_term: high-cost, high-capacity cortical backbone attacked preferentially in neurodegeneration
+related_unknowns:
+  - u-connectome-neurodegeneration-spread-rate
+  - u-alzheimer-causal-biomarkers
+related_hypotheses:
+  - h-scale-free-criticality-brain-hub-vulnerability
+  - h-hopfield-alzheimers-glass-transition
+cross_pollination_opportunities:
+  - >
+    Network diffusion models (NDM) seeded with a single tau-positive region and
+    propagated via the structural connectome predict Braak-stage tau PET patterns
+    across subjects. This model requires no free parameters beyond the connectome
+    itself — validating it prospectively in longitudinal cohorts would establish
+    connectome topology as a predictive biomarker superior to amyloid PET alone.
+  - >
+    Graph-theoretic ictogenicity scoring of pre-surgical EEG networks could replace
+    the current trial-and-error approach to epilepsy surgery targeting. Seizure
+    onset zones identified by eigenvector centrality anomalies in interictal networks
+    show better post-surgical outcome prediction than MRI lesion identification alone.
+  - >
+    Parkinson's alpha-synuclein spreads from the gut/olfactory bulb along anatomical
+    connections in a pattern consistent with graph distance from the origin node —
+    the Braak hypothesis for PD can be quantitatively tested using connectome
+    diffusion models, providing staging biomarkers from prodromal constipation/
+    hyposmia through motor onset.
+  - >
+    "Connectome-informed brain stimulation": delivering TMS or DBS to nodes that
+    maximize network-theoretic impact (high betweenness, bridges between modules)
+    rather than lesion sites would use the same optimal-control-on-graphs framework
+    used in infrastructure resilience engineering.
+communication_gap: >
+  Clinical neurology and network neuroscience publish in largely non-overlapping
+  journals (Lancet Neurology, JAMA Neurology vs. Nature Neuroscience, Network
+  Neuroscience). Graph-theoretic terminology (spectral gap, Laplacian eigenvectors,
+  rich-club) is unfamiliar to clinicians trained on anatomy and pharmacology.
+  MRI tractography data required for structural connectomics is available in most
+  academic medical centers but is rarely analyzed with graph tools outside
+  specialized computational labs. Clinical trial endpoints (cognitive tests, PET
+  staging) do not yet include connectome metrics, preventing validation in
+  large powered cohorts.
+last_reviewed: "2026-05-05"
+references:
+  - doi: "10.1073/pnas.1924041117"
+    note: Raj et al. (2020) — network diffusion model predicts tau PET staging in Alzheimer's disease
+  - doi: "10.1038/nn.2208"
+    note: Buckner et al. (2009) — default mode network hubs correspond to early amyloid deposition sites
+  - doi: "10.1523/JNEUROSCI.2242-16.2016"
+    note: Lariviere et al. — epilepsy surgery outcome predicted by graph-theoretic ictogenicity
+  - doi: "10.1016/j.neuron.2019.07.056"
+    note: Vogel et al. (2019) — data-driven subtypes of Alzheimer's tau spread follow connectome topology
+  - doi: "10.1016/j.neuroimage.2012.06.002"
+    note: "Stam (2014) — modern network analysis of EEG and MEG: theory and clinical applications"
+  - doi: "10.1073/pnas.0701519104"
+    note: Sporns et al. (2007) — identification and classification of hubs in brain networks
