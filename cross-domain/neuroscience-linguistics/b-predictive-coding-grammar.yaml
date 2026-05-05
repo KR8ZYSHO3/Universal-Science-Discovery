@@ -1,0 +1,123 @@
+id: b-predictive-coding-grammar
+title: >
+  Friston's free-energy / predictive coding framework for hierarchical neural
+  inference is mathematically equivalent to probabilistic hierarchical phrase
+  structure grammar: prediction error in neural processing equals surprisal in
+  syntactic processing, and precision-weighting equals attention over syntactic
+  dependencies.
+status: proposed
+fields:
+  - neuroscience
+  - linguistics
+  - cognitive-science
+  - computational-neuroscience
+bridge_claim: >
+  Friston's free-energy principle (2010) proposes that the brain is a
+  hierarchical generative model that minimizes variational free energy
+  F = KL[q(h)||p(h|s)] ≈ complexity - accuracy. At each level, top-down
+  predictions are compared with bottom-up sensory signals; the mismatch
+  (prediction error δ = s - μ) is propagated upward and used to update the
+  generative model. This architecture is implemented in cortical hierarchies
+  via superficial pyramidal cells (error units) and deep pyramidal cells
+  (prediction units).
+
+  Hale (2001) and Levy (2008) independently established that the cognitive
+  difficulty of processing a word is proportional to its surprisal:
+  difficulty ∝ -log P(w_t | w_{1:t-1}). This is precisely the information-
+  theoretic measure of prediction error for a probabilistic language model.
+  Levy (2008) showed that surprisal accounts for reading time data better than
+  memory-based models, and Hale (2001) showed it explains garden-path effects.
+
+  The bridge deepens via Clark's (2013) "Whatever next?" synthesis: syntactic
+  prediction is a special case of the general predictive coding architecture.
+  The brain's top-down syntactic predictions (from phrase structure knowledge)
+  are the linguistic generative model; bottom-up word-form inputs are the
+  sensory signal; syntactic surprisal is the linguistic prediction error.
+  Precision-weighting — the mechanism by which predictive coding allocates
+  computational resources to reliable signals — corresponds to attentional
+  modulation of syntactic processing (e.g., increased attention at clause
+  boundaries where structural ambiguity is highest).
+
+  The quantitative identity is strongest for the relationship between
+  free energy F and minimum description length (MDL): both are measures of
+  the trade-off between model complexity and fit to data. MDL grammars
+  (Rissanen, Goldsmith) minimize description length for a corpus in exactly
+  the sense that predictive coding minimizes variational free energy over the
+  sensory stream. This suggests universal grammar constraints may be derivable
+  as priors that minimize expected free energy over all possible languages.
+translation_table:
+  - field_a_term: "Generative model P(s|h) in predictive coding hierarchy"
+    field_b_term: "Probabilistic phrase structure grammar P(word | syntactic context)"
+    note: Both define the prior that generates expected inputs from latent structure
+  - field_a_term: "Prediction error δ = s - μ (sensory signal minus prediction)"
+    field_b_term: "Surprisal = -log P(w_t | w_{1:t-1})"
+    note: Both quantify the unexpectedness of an input; both drive belief updating
+  - field_a_term: "Precision-weighted prediction error π·δ"
+    field_b_term: "Attention-weighted processing of syntactic dependencies"
+    note: Precision controls the gain on error signals; attention selects dependency arcs
+  - field_a_term: "Variational free energy F = complexity - accuracy"
+    field_b_term: "MDL grammar cost = description length + encoding cost"
+    note: Formally equivalent trade-off between model complexity and empirical fit
+  - field_a_term: "Hierarchical latent causes (h₁, h₂, ...) in generative model"
+    field_b_term: "Hierarchical phrase structure (morpheme → word → phrase → clause)"
+    note: The linguistic hierarchy is the natural decomposition of the neural hierarchy
+  - field_a_term: "Active inference — acting to confirm predictions (minimize free energy)"
+    field_b_term: "Syntactic priming — prior usage biases subsequent structural choices"
+    note: Both represent the motor/production analog of the perceptual/parsing direction
+related_unknowns:
+  - u-bilingual-cognitive-advantage-replication
+  - u-predictive-coding-grammar-neural-substrate
+related_hypotheses:
+  - h-surprisal-n400-mismatch-equivalence
+cross_pollination_opportunities:
+  - >
+    Computational linguists building neural language models can ground their
+    attention mechanisms in the neuroscience of precision-weighting, deriving
+    principled constraints on where and how attention should modulate in
+    syntactic processing — testable via eye-tracking and EEG N400/P600 data.
+  - >
+    Predictive coding theorists can test the grammar-as-generative-model
+    hypothesis using naturalistic fMRI: regions associated with high-level
+    syntactic prediction (left IFG, temporal pole) should show suppressed
+    activity (prediction match) for high-probability continuations and
+    elevated activity for low-probability (high surprisal) continuations,
+    with the effect scaling with the full surprisal value, not just binary
+    violation.
+  - >
+    The free-energy framework predicts that grammar learning is equivalent to
+    learning a generative model that minimizes expected free energy over a
+    language corpus — this connects language acquisition to Bayesian model
+    selection and could be tested in infant statistical learning paradigms.
+communication_gap: >
+  Computational neuroscience publications on predictive coding and free energy
+  (Friston lab, Trends in Cognitive Sciences, PLOS Computational Biology) and
+  formal linguistics / psycholinguistics publications (Language, Cognition,
+  Journal of Memory and Language) occupy almost entirely disjoint citation
+  networks. The surprisal theory of reading time is widely cited in
+  psycholinguistics but rarely connected to free-energy minimization. Clark's
+  (2013) "Whatever next?" synthesis reached cognitive science but has had
+  limited uptake in formal linguistics. The mathematics is identical, but
+  disciplinary vocabulary (precision vs. attention, free energy vs. surprisal,
+  generative model vs. grammar) prevents recognition of the equivalence.
+last_reviewed: "2026-05-05"
+references:
+  - doi: "10.1038/nrn2787"
+    note: >
+      Friston (2010) Nat Rev Neurosci — "The free-energy principle: a unified brain
+      theory?"; foundational statement of variational free energy and predictive coding
+  - url: "https://aclanthology.org/N01-1021"
+    note: >
+      Hale (2001) NAACL — "A probabilistic Earley parser as a psycholinguistic model";
+      introduces surprisal as cognitive difficulty measure for syntactic processing
+  - doi: "10.1016/j.cognition.2007.05.006"
+    note: >
+      Levy (2008) Cognition — "Expectation-based syntactic comprehension"; surprisal
+      predicts reading times better than memory-based alternatives across 5 datasets
+  - doi: "10.1017/S0140525X12000477"
+    note: >
+      Clark (2013) Behav Brain Sci — "Whatever next? Predictive brains, situated
+      agents, and the future of cognitive science"; links predictive coding to language
+  - doi: "10.1016/j.tics.2018.02.002"
+    note: >
+      Kuperberg & Jaeger (2016) Lang Cogn Neurosci — "What do we mean by prediction
+      in language comprehension?"; empirical review bridging predictive processing and linguistics

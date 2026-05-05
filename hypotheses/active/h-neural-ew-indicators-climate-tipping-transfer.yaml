@@ -1,0 +1,55 @@
+id: h-neural-ew-indicators-climate-tipping-transfer
+title: >
+  Multivariate early-warning indicators borrowed from neural criticality analysis
+  (leading eigenvector of the spatial covariance matrix) applied to CMIP6 climate
+  model output will detect simulated AMOC and Arctic sea-ice tipping points with
+  at least 20% greater lead time than the standard univariate AR1 indicator
+status: active
+priority: high
+created: "2026-05-05"
+last_updated: "2026-05-05"
+author: USDR seed content (replace with GitHub handle when stewarded)
+unknowns_addressed:
+  - u-neural-criticality-tipping-shared-mathematics
+  - u-abrupt-climate-transitions
+related_disciplines:
+  - neuroscience
+  - climate-science
+  - statistical-physics
+  - dynamical-systems
+evidence_links:
+  - type: supporting
+    doi: "10.1038/nature08227"
+    note: >
+      Scheffer et al. (2009) Nature — establishes AR1 and variance as universal EWIs;
+      motivates testing of multivariate generalizations
+  - type: supporting
+    doi: "10.1523/JNEUROSCI.23-35-11167.2003"
+    note: >
+      Beggs & Plenz (2003) — neural criticality EWIs; multivariate methods developed
+      in this tradition (dynamic functional connectivity, eigenvector analysis)
+  - type: related
+    doi: "10.1098/rstb.2012.0114"
+    note: >
+      Lenton et al. (2012) — review of tipping EWI caveats; null model requirements
+      that any multivariate method must pass
+proposed_tests:
+  - summary: >
+      Extract 500-year control run output from CMIP6 CESM2 near the simulated
+      freshwater forcing threshold for AMOC collapse. Apply (a) univariate AR1 to
+      AMOC index, (b) multivariate leading eigenvector of the Atlantic SST covariance
+      matrix using a sliding 50-year window. Compare detection lead time and
+      false-positive rates at the same specificity (using phase-randomized surrogates
+      as null). Falsifying criterion: if multivariate method does not improve lead time
+      by ≥20% at 90% specificity, hypothesis is rejected for this indicator/system pair.
+  - summary: >
+      Apply the same test to the abrupt sea-ice loss transition in CMIP6 CESM2-WACCM
+      Arctic runs. If multivariate EWI improves AMOC detection but not sea-ice detection,
+      this constrains which transitions are in the fold bifurcation universality class
+      and which require different EWI approaches.
+  - summary: >
+      Cross-validation: apply the same multivariate eigenvector EWI to in vitro
+      cortical culture data from Beggs & Plenz (2003) approaching pharmacologically
+      induced sub-criticality. Confirm that the method detects approaching criticality
+      with higher sensitivity than univariate inter-spike-interval variance, establishing
+      methodological equivalence before applying to climate data.

@@ -1,0 +1,116 @@
+id: b-neural-criticality-climate-tipping
+title: >
+  Neural systems at criticality and climate systems near tipping points share
+  identical mathematical signatures — diverging correlation length, critical
+  slowing down (AR1 coefficient → 1), and power-law fluctuations — because both
+  are governed by the same bifurcation theory of nonlinear dynamical systems.
+status: proposed
+fields:
+  - neuroscience
+  - climate-science
+  - statistical-physics
+  - dynamical-systems
+bridge_claim: >
+  Beggs & Plenz (2003) showed that cortical networks self-organize to a critical
+  point where neuronal avalanche sizes follow a power law P(s) ~ s^{-3/2} — the
+  mean-field branching process critical exponent. At this point, the network
+  exhibits maximum dynamic range, information transmission, and susceptibility
+  to inputs. Critically, the network also shows "critical slowing down": after
+  perturbation, recovery is slow because the leading eigenvalue of the dynamics
+  approaches zero (the system's Jacobian has a near-zero eigenvalue).
+
+  Scheffer et al. (2009) and Dakos et al. (2008) independently identified the
+  same mathematical precursors in climate time series before documented tipping
+  points (AMOC slowdown, Greenland ice sheet transitions, lake eutrophication).
+  The AR1 autocorrelation coefficient rises toward 1 — precisely the climate
+  analog of critical slowing down — because the restoring force weakens as the
+  fold bifurcation approaches. Variance increases and spatial correlation length
+  diverges for the same reason.
+
+  The mathematical identity is not superficial: both systems are described by a
+  scalar stochastic differential equation near a saddle-node (fold) bifurcation
+  dx/dt = r·x - x³ + noise, where r is a control parameter (excitation/inhibition
+  balance in neural systems; net forcing vs. feedback in climate). At r → 0, both
+  systems exhibit the same universal behavior governed by the normal form of the
+  fold bifurcation. The AR1 early-warning indicator, the variance precursor, and
+  the spatial correlation precursor are field-independent predictions of this
+  normal form.
+
+  This bridge enables direct methodological transfer: early-warning indicator
+  methods developed for neural criticality assessment (Shew & Plenz 2013) can
+  be applied to climate multivariate time series, and the climate community's
+  statistical robustness tests for EWIs (bootstrapping, detrending, surrogate
+  null models — Lenton et al. 2012) can improve neural criticality estimation.
+translation_table:
+  - field_a_term: "Excitation/inhibition (E/I) balance in cortex"
+    field_b_term: "Net climate forcing vs. restoring feedback strength"
+    note: Both are the bifurcation control parameter r in the fold normal form
+  - field_a_term: "Neuronal avalanche size distribution P(s) ~ s^{-3/2}"
+    field_b_term: "Precipitation extreme distribution / storm intensity power law"
+    note: Mean-field critical exponent -3/2 appears in both when at criticality
+  - field_a_term: "Critical slowing down (recovery rate λ → 0 after perturbation)"
+    field_b_term: "AR1 early-warning indicator rising toward 1.0 before tipping"
+    note: Both measure the leading eigenvalue of the linearized dynamics approaching zero
+  - field_a_term: "Branching ratio σ → 1 (sub-critical < 1, super-critical > 1)"
+    field_b_term: "Effective feedback gain approaching 1 near tipping point"
+    note: σ = 1 is the critical point in both branching-process descriptions
+  - field_a_term: "Hopf bifurcation (oscillatory) at critical E/I ratio γ_c"
+    field_b_term: "Fold (saddle-node) bifurcation at climate tipping threshold"
+    note: Neural criticality can be either Hopf or fold depending on circuit topology
+  - field_a_term: "Detrended fluctuation analysis (DFA) exponent ≈ 1 at criticality"
+    field_b_term: "1/f noise in paleoclimate proxies near past tipping events"
+    note: DFA exponent = 1 indicates long-range correlations; both show this near transitions
+related_unknowns:
+  - u-abrupt-climate-transitions
+  - u-neural-criticality-tipping-shared-mathematics
+related_hypotheses:
+  - h-neural-ew-indicators-climate-tipping-transfer
+cross_pollination_opportunities:
+  - >
+    Multivariate EWI methods from neuroscience (e.g., dynamic functional
+    connectivity, leading eigenvector analysis of the covariance matrix) can be
+    applied to climate model ensembles to detect approaching tipping points
+    earlier than univariate AR1.
+  - >
+    Neural criticality estimation methods (avalanche shape collapse, scaling
+    relation χ = γ/(ν z)) developed for in vitro cortical cultures can be
+    adapted for spatial climate reanalysis data to test whether the atmosphere
+    operates near criticality between tipping events.
+  - >
+    The climate community's robust surrogate null model tests (phase-randomized
+    surrogates, ARMA null models) for validating EWIs should be adopted as
+    standard practice in neural criticality studies to reduce false-positive
+    criticality claims.
+communication_gap: >
+  Neuroscientists studying criticality publish in Journal of Neuroscience,
+  PLOS Computational Biology, and Nature Neuroscience. Climate tipping-point
+  researchers publish in Nature, PNAS, and Nature Climate Change. Despite
+  both literatures using identical mathematical formalisms (fold bifurcation,
+  AR1 EWI, variance precursor, DFA exponent), there is essentially no
+  citation overlap. The 2009 Scheffer Nature paper on tipping points never
+  cites Beggs & Plenz (2003) despite discovering the same phenomenology.
+  Workshops on critical transitions in complex systems occasionally bridge
+  the gap, but most practitioners in each field are unaware of the
+  methodological toolkit developed by the other.
+last_reviewed: "2026-05-05"
+references:
+  - doi: "10.1523/JNEUROSCI.23-35-11167.2003"
+    note: >
+      Beggs & Plenz (2003) J Neurosci — neuronal avalanches in cortex; power law
+      P(s) ~ s^{-3/2}; foundational experimental demonstration of neural criticality
+  - doi: "10.1038/nature08227"
+    note: >
+      Scheffer et al. (2009) Nature — "Early-warning signals for critical transitions";
+      AR1 and variance as universal precursors to tipping points across systems
+  - doi: "10.1073/pnas.0802430105"
+    note: >
+      Dakos et al. (2008) PNAS — "Slowing down as an early warning signal for abrupt
+      climate change"; empirical AR1 rise before 8 past climate transitions
+  - doi: "10.1371/journal.pcbi.1000402"
+    note: >
+      Shew & Plenz (2013) PLOS Comput Biol — dynamic range, information capacity,
+      and susceptibility are maximized at neural criticality
+  - doi: "10.1098/rstb.2012.0114"
+    note: >
+      Lenton et al. (2012) Phil Trans R Soc B — framework and caveats for
+      tipping-point early-warning indicators; statistical robustness tests

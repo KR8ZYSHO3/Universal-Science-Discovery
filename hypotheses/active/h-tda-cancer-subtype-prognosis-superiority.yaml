@@ -1,0 +1,66 @@
+id: h-tda-cancer-subtype-prognosis-superiority
+title: >
+  Topological Data Analysis (Mapper algorithm) applied to TCGA breast cancer gene
+  expression data will identify at least one prognostically significant patient
+  subgroup — defined by topological isolation (a flare or connected component
+  in the Mapper graph) — that is missed by k-means, hierarchical clustering,
+  and PAM50 molecular subtypes, and that shows a statistically significant
+  difference in 10-year overall survival (log-rank p < 0.01) compared to the
+  most similar standard subtype
+status: active
+priority: high
+created: "2026-05-05"
+last_updated: "2026-05-05"
+author: USDR seed content (replace with GitHub handle when stewarded)
+unknowns_addressed:
+  - u-tumor-evolution-topology-branching
+  - u-cancer-stem-cell-hierarchy
+related_disciplines:
+  - medicine
+  - oncology
+  - mathematics
+  - computational-biology
+evidence_links:
+  - type: supporting
+    doi: "10.1073/pnas.1102826108"
+    note: >
+      Nicolau et al. (2011) PNAS — proof-of-concept: Mapper found a breast cancer
+      subgroup with 100% survival that clustering missed; this hypothesis calls for
+      systematic replication with larger TCGA dataset and survival endpoints
+  - type: supporting
+    doi: "10.1038/srep01236"
+    note: >
+      Lum et al. (2013) Sci Rep — Mapper applied to Type 2 diabetes and other
+      disease datasets; demonstrates generality of topology-based subtype discovery
+  - type: related
+    url: "https://www.cancer.gov/tcga"
+    note: >
+      TCGA (The Cancer Genome Atlas) — provides the gene expression, clinical outcome,
+      and molecular subtype data needed for this test
+  - type: contradicting
+    url: "https://doi.org/10.1200/JCO.2009.22.1283"
+    note: >
+      Parker et al. (2009) J Clin Oncol — PAM50 molecular subtypes validated for
+      prognosis; the comparison benchmark this hypothesis must outperform
+proposed_tests:
+  - summary: >
+      Apply KeplerMapper to TCGA BRCA RNA-seq (n=1,093) using the first two UMAP
+      components as filter and cosine distance as the metric. Use a resolution of
+      30 bins with 50% overlap. Identify topologically isolated subgroups (flares,
+      isolated nodes) in the Mapper graph. For each identified subgroup: (a) test
+      whether it is assignable to an existing PAM50 subtype by majority vote,
+      (b) run Kaplan-Meier survival analysis with log-rank test vs. the majority
+      PAM50 subtype. Falsifying criterion: if no Mapper subgroup has log-rank
+      p < 0.01 after Bonferroni correction for the number of subgroups tested,
+      hypothesis is rejected.
+  - summary: >
+      Replication test: apply the same pipeline to METABRIC dataset (n=1,980)
+      to confirm that any identified subgroup replicates across independent cohorts.
+      A subgroup found only in TCGA and not replicating in METABRIC is likely an
+      overfitting artifact.
+  - summary: >
+      Comparison with UMAP + DBSCAN clustering (the natural competing method) using
+      the same feature space and survival endpoint. If DBSCAN identifies the same
+      subgroup, TDA provides no advantage. If Mapper finds a subgroup missed by
+      DBSCAN, the advantage is specifically topological (connected component structure
+      preserved by Mapper but lost in density-based clustering).

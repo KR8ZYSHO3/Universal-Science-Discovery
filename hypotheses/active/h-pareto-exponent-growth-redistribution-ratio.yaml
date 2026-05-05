@@ -1,0 +1,58 @@
+id: h-pareto-exponent-growth-redistribution-ratio
+title: >
+  The Pareto exponent α of top-income distributions across OECD countries satisfies
+  the Bouchaud-Mezard prediction α ≈ 1 + r/(g - r), where r is the effective
+  redistribution rate (taxes and transfers as fraction of GDP) and g is the
+  top-1% income growth rate, with this functional form fitting better than
+  linear regression on redistribution rate alone
+status: active
+priority: high
+created: "2026-05-05"
+last_updated: "2026-05-05"
+author: USDR seed content (replace with GitHub handle when stewarded)
+unknowns_addressed:
+  - u-pareto-exponent-redistribution-mechanism
+  - u-statistical-mechanics-income-wealth
+related_disciplines:
+  - economics
+  - statistical-physics
+  - econophysics
+evidence_links:
+  - type: supporting
+    doi: "10.1016/S0378-4371(00)00205-3"
+    note: >
+      Bouchaud & Mezard (2000) — derives the formula α = 1 + r/(g-r) from a
+      multiplicative stochastic process with redistribution; theoretical foundation
+  - type: supporting
+    doi: "10.1016/j.physrep.2014.11.001"
+    note: >
+      Yakovenko & Rosser (2009) — empirical α values for 70+ countries; provides
+      the dependent variable for testing the formula
+  - type: contradicting
+    url: "https://doi.org/10.1093/qje/qju004"
+    note: >
+      Piketty & Saez (2014) QJE — documents α changes over time without testing
+      the Bouchaud-Mezard functional form; shows that political institutions, not
+      just r and g, affect inequality (potential confounder)
+proposed_tests:
+  - summary: >
+      Collect Pareto exponent α from Piketty-Saez World Inequality Database for 30+
+      OECD countries, 1990-2020. Measure r as (taxes + transfers)/GDP from OECD
+      stats. Measure g as average top-1% income growth rate from WID. Fit both
+      linear model (α ~ r) and Bouchaud-Mezard model (α ~ 1 + r/(g-r)) via OLS
+      with country and year fixed effects. Test if Bouchaud-Mezard model has
+      significantly lower AIC/BIC. Falsifying criterion: if r²(linear) > r²(BM)
+      or if the BM formula residuals are not normally distributed, hypothesis is
+      rejected; the mechanism requires a more complex model.
+  - summary: >
+      Time-series test: the Bouchaud-Mezard formula predicts that changes in α
+      should Granger-cause changes in the r/(g-r) ratio with a short lag (1-3 years)
+      rather than the reverse. Test Granger causality in both directions for each
+      country using 30-year annual panels. If r/(g-r) does not Granger-cause α,
+      the model's causal claim is falsified.
+  - summary: >
+      Agent-based simulation: run Bouchaud-Mezard model with empirically calibrated
+      r and g for 5 countries (US, France, Sweden, Japan, Brazil). Predict the
+      Pareto exponent and compare to observed. If predicted α differs from observed
+      by more than 0.3 (one standard deviation of cross-country variation) for
+      3+ countries, the model is quantitatively insufficient.

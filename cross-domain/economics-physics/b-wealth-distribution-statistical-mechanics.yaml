@@ -1,0 +1,125 @@
+id: b-wealth-distribution-statistical-mechanics
+title: >
+  The Boltzmann-Gibbs exponential wealth distribution arising from entropy
+  maximization subject to wealth conservation is the economic analog of the
+  Maxwell-Boltzmann energy distribution in statistical mechanics: mean wealth
+  is the economic "temperature," wealth exchanges are binary collisions, and
+  the Lorenz curve is the cumulative distribution function of kinetic energy.
+status: established
+fields:
+  - economics
+  - statistical-physics
+  - econophysics
+  - information-theory
+bridge_claim: >
+  Dragulescu & Yakovenko (2000) demonstrated that if economic agents exchange
+  wealth in random pairwise interactions conserving total wealth (analogous to
+  elastic collisions conserving energy), the stationary distribution is the
+  Boltzmann-Gibbs exponential P(w) ~ exp(-w/⟨w⟩), where ⟨w⟩ plays the role
+  of temperature T in statistical mechanics. This is not a mere analogy: the
+  derivation is formally identical to maximizing Shannon entropy S = -Σ p_i ln p_i
+  subject to the constraint Σ w_i = const (fixed total wealth), exactly as
+  Boltzmann derived the energy distribution from the ergodic hypothesis and
+  entropy maximization.
+
+  Empirical income data from the UK (1996-1999) and US tax records confirm that
+  the lower 95-97% of the income distribution follows the exponential (Gibbs)
+  distribution, while the top 1-3% follow a Pareto power law P(w) ~ w^{-α}
+  (with α ≈ 1.5-2 in most economies), analogous to the high-energy tail of a
+  non-equilibrium distribution. The crossover between Gibbs and Pareto regimes
+  corresponds to a transition from "thermal" (random exchange) dynamics to
+  "multiplicative" (investment/capital) dynamics where wealth generates wealth.
+
+  Chakraborti & Chakrabarti (2000) showed that introducing a savings propensity
+  λ (agents save fraction λ before exchanging) shifts the distribution from
+  exponential to a Gamma distribution with mode at w = λ/(1-λ)·⟨w⟩. A
+  distribution of savings propensities across agents reproduces the empirical
+  Pareto tail without requiring any other mechanism, connecting income inequality
+  directly to heterogeneity in savings behavior.
+
+  Bouchaud & Mezard (2000) treated the problem as a multiplicative stochastic
+  process with redistribution, showing that the competition between multiplicative
+  growth (generating Pareto tails) and diffusive exchange (generating Gibbs body)
+  determines the Pareto exponent α in terms of the ratio of growth rate to
+  redistribution rate. This provides a precise quantitative prediction: α =
+  1 + redistribution_rate / (growth_rate - redistribution_rate).
+
+  The bridge is productive: the Fermi-Dirac distribution, relevant when a minimum
+  income (social floor) and maximum income constraint are imposed, and Bose-Einstein
+  condensation, which in the economic context corresponds to extreme wealth
+  concentration ("oligarchy phase"), provide untested but falsifiable predictions
+  about wealth distributions under different redistribution regimes.
+translation_table:
+  - field_a_term: "Boltzmann factor exp(-E/kT) — probability of energy state E"
+    field_b_term: "Probability of wealth w: P(w) ~ exp(-w/⟨w⟩)"
+    note: Identical functional form; derived from entropy maximization with conservation constraint
+  - field_a_term: "Temperature T = ⟨E⟩/k_B (average kinetic energy)"
+    field_b_term: "Mean wealth ⟨w⟩ — the economic 'temperature'"
+    note: Higher T (higher average wealth) means wider distribution; inequality is not captured by T alone
+  - field_a_term: "Elastic binary collision conserving total kinetic energy"
+    field_b_term: "Two-agent wealth exchange transaction (trade, purchase, wage)"
+    note: The stochastic exchange rule determines the stationary distribution
+  - field_a_term: "Fermi-Dirac distribution (quantum statistics, exclusion principle)"
+    field_b_term: "Wealth distribution with minimum income constraint (social floor)"
+    note: Fermion exclusion corresponds to a lower bound on allowable wealth states
+  - field_a_term: "Bose-Einstein condensation (macroscopic occupation of ground state)"
+    field_b_term: "Extreme wealth concentration: one agent captures finite fraction of total wealth"
+    note: Predicted by Bouchaud-Mezard when growth rate >> redistribution rate
+  - field_a_term: "Entropy S = -Σ p_i ln p_i (Boltzmann/Shannon)"
+    field_b_term: "Negative Gini coefficient — measure of distributional evenness"
+    note: Maximum entropy corresponds to minimum Gini (most equal distribution for given mean)
+  - field_a_term: "Maxwell-Boltzmann CDF (cumulative distribution of energies)"
+    field_b_term: "Lorenz curve (cumulative fraction of wealth held by poorest x% of population)"
+    note: The Lorenz curve is the economic Boltzmann CDF; both derived from the same exponential distribution
+related_unknowns:
+  - u-statistical-mechanics-income-wealth
+  - u-pareto-exponent-redistribution-mechanism
+related_hypotheses:
+  - h-pareto-exponent-growth-redistribution-ratio
+cross_pollination_opportunities:
+  - >
+    The Bouchaud-Mezard prediction α = 1 + r/(g - r) (where r is redistribution
+    rate and g is multiplicative growth rate) can be tested empirically by
+    correlating cross-country Pareto exponents with measured redistribution rates
+    (tax-and-transfer as fraction of GDP) and growth rates — a falsifiable
+    quantitative prediction that economic models have not systematically tested.
+  - >
+    Quantum statistics (Fermi-Dirac and Bose-Einstein distributions) provide
+    untested but tractable predictions for wealth distributions under minimum
+    income guarantees and wealth caps. Policy simulations with agent-based
+    models can test whether these distributions emerge from realistic exchange
+    rules, informing optimal redistribution policy design.
+  - >
+    Statistical mechanics tools for non-equilibrium systems (master equations,
+    fluctuation theorems, Jarzynski equality) can model economic dynamics far
+    from equilibrium (crises, rapid growth periods) in ways that equilibrium
+    economics cannot, providing physicists and economists with a common
+    quantitative language for transient dynamics.
+communication_gap: >
+  Classical economics derives income distributions from optimization behavior
+  (utility maximization, general equilibrium) and does not use entropy or
+  statistical mechanics formalisms. The econophysics literature (mostly in
+  European Physical Journal B, Physica A) has established the Boltzmann-Gibbs
+  income distribution empirically and theoretically, but this work is largely
+  unknown to mainstream economists who dismiss the lack of agent rationality
+  assumptions as a theoretical weakness. The result is that a robust empirical
+  regularity (exponential income distribution for the bottom 97%) and its
+  predictive framework are not integrated into policy-relevant economic modeling.
+last_reviewed: "2026-05-05"
+references:
+  - doi: "10.1140/epjb/e2001-00122-9"
+    note: >
+      Dragulescu & Yakovenko (2000) Eur Phys J B — "Statistical mechanics of money";
+      derives Boltzmann-Gibbs distribution for income; empirical validation with UK/US data
+  - doi: "10.1140/epjb/e2001-00113-x"
+    note: >
+      Chakraborti & Chakrabarti (2000) Eur Phys J B — "Statistical mechanics of money:
+      effects of saving propensity"; shows savings propensity heterogeneity generates Pareto tail
+  - doi: "10.1016/S0378-4371(00)00205-3"
+    note: >
+      Bouchaud & Mezard (2000) Physica A — "Wealth condensation in a simple model of economy";
+      multiplicative growth vs. redistribution determines Pareto exponent; predicts wealth condensation
+  - doi: "10.1016/j.physrep.2014.11.001"
+    note: >
+      Yakovenko & Rosser (2009) Rev Mod Phys — "Colloquium: Statistical mechanics of money,
+      wealth, and income"; comprehensive review of the field with empirical data from 70+ countries
