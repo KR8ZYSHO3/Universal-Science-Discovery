@@ -2158,7 +2158,7 @@
 
     /* ── SCROLL SPY ──────────────────────────────────────────── */
     var navLinks = [].slice.call(document.querySelectorAll('.hub-nav a'));
-    var sections = navLinks.map(function (a) { return document.querySelector(a.getAttribute('href')); }).filter(Boolean);
+    var sections = navLinks.map(function (a) { var h = a.getAttribute('href'); return h && h.startsWith('#') ? document.querySelector(h) : null; }).filter(Boolean);
     var navWrap  = document.querySelector('.hub-nav-wrap');
     var spyTick  = null;
     function updateSpy() {
