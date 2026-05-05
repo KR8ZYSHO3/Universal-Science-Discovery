@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-USDR Bridge Proposer — finds domain pairs with high unknown density but few bridges.
+USDR Bridge Proposer - finds domain pairs with high unknown density but few bridges.
 Surfaces candidate cross-domain connections for human review.
 
 Domain assignment strategy:
@@ -11,6 +11,7 @@ Domain assignment strategy:
 
 Usage:
     python scripts/propose_bridges.py [--top N] [--min-unknowns M] [--output PATH]
+                                      [--draft-yaml]
 """
 import json
 import argparse
@@ -46,12 +47,64 @@ def _domain_for_node(node: dict, catalog_map: dict[str, str]) -> str:
     return parts[1] if len(parts) > 1 else "general"
 
 
+def _write_draft_yamls(top: list[dict], drafts_dir: Path) -> None:
+    """Write draft bridge YAML stubs for each top candidate."""
+    import yaml  # noqa: PLC0415 — intentional local import
+
+    drafts_dir.mkdir(parents=True, exist_ok=True)
+    for c in top:
+        slug = f"{c['domain_1']}-{c['domain_2']}".replace(" ", "-").lower()
+        draft = {
+            "id": f"b-{slug}",
+            "title": (
+                f"[DRAFT] {c['domain_1'].title()} \u2194 {c['domain_2'].title()}"
+                " \u2014 bridge claim TBD"
+            ),
+            "source_domain": c["domain_1"],
+            "target_domain": c["domain_2"],
+            "bridge_claim": "TODO: state the mathematical/conceptual bridge",
+            "translation_table": [
+                {
+                    "source_concept": "TODO",
+                    "target_concept": "TODO",
+                    "mathematical_object": "TODO",
+                }
+            ],
+            "evidence": ["TODO: cite key papers"],
+            "open_unknowns": (
+                c["sample_unknowns_d1"][:2] + c["sample_unknowns_d2"][:2]
+            ),
+            "related_hypotheses": [],
+            "communication_gap": (
+                f"Researchers in {c['domain_1']} and {c['domain_2']} rarely"
+                " collaborate \u2014 this bridge may be invisible to both communities."
+            ),
+            "cross_pollination_opportunities": ["TODO"],
+            "references": [],
+            "last_reviewed": "2026-05-05",
+        }
+        out_path = drafts_dir / f"b-{slug}.yaml"
+        out_path.write_text(
+            yaml.dump(draft, allow_unicode=True, sort_keys=False),
+            encoding="utf-8",
+        )
+    print(f"\nDraft YAMLs written to {drafts_dir}/")
+
+
 def main() -> list[dict]:
     parser = argparse.ArgumentParser(description="Propose novel cross-domain bridges")
     parser.add_argument("--top", type=int, default=10, help="Number of candidates to show")
     parser.add_argument("--min-unknowns", type=int, default=3,
                         help="Min unknowns per domain to consider")
     parser.add_argument("--output", type=str, default=None, help="Output JSON file path")
+    parser.add_argument(
+        "--draft-yaml",
+        action="store_true",
+        help=(
+            "Write draft bridge YAML stubs to drafts/bridges/ for human expert review."
+            " Each stub is a pre-filled template; edit before submitting as a PR."
+        ),
+    )
     args = parser.parse_args()
 
     graph_path = ROOT / "docs" / "knowledge_graph.json"
@@ -117,7 +170,7 @@ def main() -> list[dict]:
     top = candidates[:args.top]
 
     print(f"\n{'='*60}")
-    print(f"USDR Bridge Proposer — Top {args.top} Novel Connection Candidates")
+    print(f"USDR Bridge Proposer - Top {args.top} Novel Connection Candidates")
     print(f"{'='*60}\n")
 
     for i, c in enumerate(top, 1):
@@ -141,6 +194,9 @@ def main() -> list[dict]:
             encoding="utf-8",
         )
         print(f"Results written to {out}")
+
+    if args.draft_yaml:
+        _write_draft_yamls(top, ROOT / "drafts" / "bridges")
 
     return top
 
