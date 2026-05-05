@@ -9,6 +9,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added (2026-05-04 session — cross-domain catalog expansion)
+- **8th bridge** [`cross-domain/cosmology-biology/b-kibble-zurek-morphogenesis.yaml`](cross-domain/cosmology-biology/b-kibble-zurek-morphogenesis.yaml)
+  — Kibble-Zurek mechanism (Big Bang defect formation) ↔ embryonic symmetry breaking (PAR polarisation in *C. elegans*);
+  includes full `translation_table`, `cross_pollination_opportunities`, and `communication_gap`.
+- **Unknown** [`unknowns-catalog/physics/u-kibble-zurek-embryo.yaml`](unknowns-catalog/physics/u-kibble-zurek-embryo.yaml)
+  — Does PAR-domain error density scale with fertilisation quench rate per KZ power-law?
+- **Hypothesis** [`hypotheses/active/h-kibble-zurek-polarity-scaling.yaml`](hypotheses/active/h-kibble-zurek-polarity-scaling.yaml)
+  — CDK1 quench-rate experiment in *C. elegans* + active-KZ theory extension; closes the loop to `b-topology-morphogenesis`.
+- **Hypothesis** [`hypotheses/active/h-quantum-compass-precision.yaml`](hypotheses/active/h-quantum-compass-precision.yaml)
+  — Cryptochrome CRY4 operates at the quantum Fisher-information Cramér-Rao bound; proposes QFI ratio measurement
+  and bio-inspired protein-scaffold quantum sensor as spinoff; fills `b-quantum-biology-navigation` hypothesis gap
+  and closes GitHub Issue #18.
+- **`cross-domain/cosmology-biology/README.md`** — Bridge overview with 55-orders-of-magnitude span table.
+- **`cross-domain/README.md`** — Updated bridge index table; 8 bridges now listed.
+- **`docs/CROSS_DOMAIN_BRIDGES.md`** — Updated bridge table with new KZ and quantum compass entries.
+- **`dashboard/index.html`** — Updated counts: 14 unknowns · 14 hypotheses · 8 bridges.
+
 ### Changed
 - **[`.cursor/rules/documentation-and-dashboard.mdc`](.cursor/rules/documentation-and-dashboard.mdc)** — hub CDN/offline + **HAPPY_PATH_FIRST_RECORDS** when schemas/seed examples change Stream A; sync **README** / **DEV_DASHBOARD** when hub UX changes
 - **[docs/DEV_DASHBOARD.md](docs/DEV_DASHBOARD.md)** and **[dashboard/README.md](dashboard/README.md)** — hub UX (theme, nav) and CDN / offline notes
