@@ -1,0 +1,83 @@
+id: b-game-theory-evolution
+title: "Nash equilibrium ↔ evolutionary stable strategy: game theory and natural selection are the same optimisation"
+status: established
+fields:
+  - mathematics
+  - game-theory
+  - evolutionary-biology
+  - machine-learning
+  - economics
+
+bridge_claim: >
+  Maynard Smith & Price (1973) showed that natural selection on heritable
+  strategies converges to evolutionary stable strategies (ESS), which are
+  exactly Nash equilibria of the payoff game defined by fitness interactions.
+  The replicator equation dx_i/dt = x_i * (f_i(x) - mean_f(x)) — derived from
+  population genetics — implements gradient ascent on mean fitness, and its
+  fixed points are precisely the Nash equilibria of the underlying game.  This
+  makes evolution a decentralised Nash-finding algorithm operating on populations
+  rather than individual rational agents.  The same replicator dynamics governs
+  reinforcement learning (RLHF uses Nash equilibria for reward model training),
+  multi-agent AI training (GAN training is a two-player zero-sum game whose
+  fixed point is a Nash equilibrium), and language model fine-tuning via RLAIF.
+  The connection runs deeper: the Price equation (1970) — the fundamental theorem
+  of natural selection — is a change-of-basis identity that unifies Fisher's
+  theorem, Hamilton's kin selection, Maynard Smith's ESS, and gradient-based ML
+  optimisation in a single algebraic framework.
+
+translation_table:
+  - field_a_term: "Nash equilibrium (game theory)"
+    field_b_term: "evolutionary stable strategy ESS (evolutionary biology)"
+    note: "Every ESS is a Nash equilibrium; not all Nash equilibria are ESS"
+  - field_a_term: "payoff matrix A_ij"
+    field_b_term: "fitness payoff from strategy i against j"
+    note: "Matrix entries are fitness increments from pairwise interactions"
+  - field_a_term: "rational agent best-response"
+    field_b_term: "natural selection (no rationality needed)"
+    note: "Equilibrium reached by selection, not reasoning"
+  - field_a_term: "replicator equation (math/game theory)"
+    field_b_term: "selection-mutation dynamics (population genetics)"
+    note: "Identical ODE — different interpretations"
+  - field_a_term: "zero-sum two-player game minimax"
+    field_b_term: "arms race / antagonistic coevolution"
+    note: "Red Queen dynamics as minimax optimisation"
+  - field_a_term: "GAN training (ML)"
+    field_b_term: "host-parasite coevolution"
+    note: "Both are two-player zero-sum replicator dynamics"
+  - field_a_term: "RLHF / Nash fine-tuning (ML)"
+    field_b_term: "frequency-dependent selection"
+    note: "LLM alignment uses Nash equilibrium reward models"
+
+related_unknowns:
+  - u-replicator-dynamics-llm-training
+  - u-price-equation-ml-unification
+
+related_hypotheses:
+  - h-gan-training-redqueen-dynamics
+
+cross_pollination_opportunities:
+  - "Use ESS stability analysis to predict which LLM fine-tuning strategies are stable under self-play"
+  - "Apply replicator dynamics to model cultural evolution of scientific paradigms (Kuhnian shifts)"
+  - "Test whether multi-agent AI systems without communication converge to Nash equilibria at the same rate as biological populations"
+  - "Use the Price equation to decompose gradient descent into selection (between-batch) and transmission (within-batch) components"
+
+communication_gap: >
+  Nash published his equilibrium theorem in 1950 in mathematics journals.
+  Maynard Smith independently derived ESS in 1973 in evolutionary biology journals.
+  The mathematical equivalence was not widely recognised until Hofbauer & Sigmund
+  (1988) unified both in "The Theory of Evolution and Dynamical Systems."
+  The ML community rediscovered the same framework independently through GANs (2014)
+  and RLHF (2017-2022) without systematically connecting to the 70-year-old
+  evolutionary biology literature.
+
+references:
+  - doi: "10.1038/246015a0"
+    note: "Maynard Smith & Price (1973) Nature — The logic of animal conflict; ESS definition"
+  - doi: "10.1073/pnas.67.3.1092"
+    note: "Price (1970) — The Price equation; unification of selection theorems"
+  - arxiv: "1406.2661"
+    note: "Goodfellow et al. (2014) — GANs as two-player Nash game"
+  - doi: "10.1007/BF01941371"
+    note: "Taylor & Jonker (1978) — replicator equation derivation"
+
+last_reviewed: "2026-05-05"

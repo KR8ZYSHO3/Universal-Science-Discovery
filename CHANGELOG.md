@@ -9,6 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added (2026-05-05 session — Landauer and game-theory bridges)
+- **`cross-domain/physics-information/b-landauer-information-thermodynamics.yaml`** — 19th bridge: Landauer (1961) proved erasing 1 bit costs k_B*T*ln(2). Resolves Maxwell's demon (94-year-old paradox). Experimentally verified by Berut et al. 2012 to 1%. The brain operates within ~100x of the Landauer limit per synaptic event — closer than any silicon chip.
+- **`cross-domain/mathematics-evolution/b-game-theory-evolution.yaml`** — 20th bridge: Nash equilibrium (1950) = ESS (Maynard Smith 1973) = replicator dynamics fixed point = GAN training convergence = RLHF Nash reward models. The Price equation (1970) unifies all of these. Three independent communities rediscovered the same math with ~20-year gaps each.
+- **`unknowns-catalog/physics/u-landauer-limit-biological-computation.yaml`** — How close to the Landauer limit do synapses, ribosomes, and DNA repair operate?
+- **`unknowns-catalog/biology/u-replicator-dynamics-llm-training.yaml`** — Does LLM self-play RLHF converge to Nash equilibria at the same rate as biological replicator dynamics?
+- **`hypotheses/active/h-brain-landauer-efficiency.yaml`** — Brain operates within 2 orders of the Landauer limit per synaptic event.
+- **`hypotheses/active/h-gan-training-redqueen-dynamics.yaml`** — GAN instability (mode collapse, oscillation) is predicted by Red Queen zero-sum replicator dynamics.
+- **`dashboard/index.html`** — Updated counts: 26 unknowns · 26 hypotheses · 20 bridges.
+
 ### Added (2026-05-05 session — Turing patterns and spin-glass bridges)
 - **`cross-domain/mathematics-biology/b-turing-reaction-diffusion.yaml`** — 17th bridge: Turing (1952) reaction-diffusion instability ↔ biological pattern formation. Predicted zebrafish stripe wavelength (0.48 mm) matches observed (0.50 mm) using FCS-measured Nodal/Lefty diffusivities — no free parameters. Same mechanism governs digits, hair follicles, palate rugae, and left-right symmetry breaking.
 - **`cross-domain/physics-computing/b-spin-glass-neural-networks.yaml`** — 18th bridge: SK spin-glass statistical mechanics ↔ Hopfield associative memory. Critical capacity α_c = 0.138 patterns/neuron derived exactly from the replica method. Above α_c the network enters a spin-glass phase (catastrophic confabulation). Same replica machinery governs deep learning loss landscapes.
