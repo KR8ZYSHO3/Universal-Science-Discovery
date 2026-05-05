@@ -135,14 +135,32 @@ def generate_page(domain, unknowns, bridges, hypotheses, meta):
         for h in hypotheses
     ]) or "<p class='empty-state'>No linked hypotheses yet — <a href='../..'>contribute one</a>!</p>"
 
+    og_desc = f"{len(unknowns)} open unknowns, {len(bridges)} cross-domain bridges in {domain_title}. {description}"
+    tw_desc = f"{len(unknowns)} open questions in {domain_title} tracked by the Universal Science Discovery Repository."
+
     return f'''<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{domain_title} — USDR</title>
-  <meta name="description" content="Open unknowns, bridges, and hypotheses in {domain_title}. {description}">
+  <meta name="description" content="Open unknowns in {domain_title}: {description}. Part of the Universal Science Discovery Repository.">
   <link rel="canonical" href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/domains/{domain}.html">
+
+  <!-- OpenGraph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/domains/{domain}.html">
+  <meta property="og:title" content="{domain_title} — Open Unknowns | USDR">
+  <meta property="og:description" content="{og_desc}">
+  <meta property="og:image" content="https://opengraph.githubassets.com/1/KR8ZYSHO3/Universal-Science-Discovery">
+  <meta property="og:site_name" content="USDR">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{domain_title} Unknowns — USDR">
+  <meta name="twitter:description" content="{tw_desc}">
+  <meta name="twitter:image" content="https://opengraph.githubassets.com/1/KR8ZYSHO3/Universal-Science-Discovery">
+
   <link rel="stylesheet" href="../style.css" onerror="this.remove()">
   <style>
     :root {{ --bg: #060d1a; --card: #0d1b2e; --border: #1a2d4a; --text: #e2e8f0; --muted: #64748b; --accent: {color}; }}
@@ -256,11 +274,30 @@ def generate_index(domains_data):
         for domain, unknowns, bridges in sorted(domains_data, key=lambda x: -x[1])
     ])
 
+    total_unknowns = sum(u for _, u, _ in domains_data)
+    total_bridges = sum(b for _, _, b in domains_data)
     index_html = f'''<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Domains — USDR</title>
+  <meta name="description" content="Browse {len(domains_data)} scientific disciplines in the Universal Science Discovery Repository. {total_unknowns}+ open unknowns, {total_bridges}+ cross-domain bridges.">
+  <link rel="canonical" href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/domains/">
+
+  <!-- OpenGraph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/domains/">
+  <meta property="og:title" content="Science Domains — USDR">
+  <meta property="og:description" content="{len(domains_data)} disciplines · {total_unknowns}+ open unknowns · {total_bridges}+ cross-domain bridges. Explore the Universal Science Discovery Repository.">
+  <meta property="og:image" content="https://opengraph.githubassets.com/1/KR8ZYSHO3/Universal-Science-Discovery">
+  <meta property="og:site_name" content="USDR">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Science Domains — USDR">
+  <meta name="twitter:description" content="Browse {len(domains_data)} disciplines with {total_unknowns}+ open unknowns and {total_bridges}+ cross-domain bridges.">
+  <meta name="twitter:image" content="https://opengraph.githubassets.com/1/KR8ZYSHO3/Universal-Science-Discovery">
+
   <style>
     :root {{ --bg: #060d1a; --card: #0d1b2e; --border: #1a2d4a; --text: #e2e8f0; --muted: #64748b; }}
     * {{ box-sizing: border-box; margin: 0; padding: 0; }}
