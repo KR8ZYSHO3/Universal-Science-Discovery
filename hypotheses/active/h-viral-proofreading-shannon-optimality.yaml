@@ -1,0 +1,79 @@
+id: h-viral-proofreading-shannon-optimality
+title: >
+  The coronavirus nsp14 proofreading exonuclease is a Shannon-optimal adaptation —
+  it raises replication fidelity exactly to the level required by channel capacity
+  theory to support the coronavirus genome size, and the quantitative trade-off curve
+  (fidelity vs genome size) matches the Shannon bound across all sequenced nidoviruses.
+status: active
+created: "2026-05-04"
+last_updated: "2026-05-04"
+priority: high
+related_disciplines:
+  - virology
+  - information-theory
+  - molecular-evolution
+unknowns_addressed:
+  - u-error-threshold-genome-size
+evidence_links:
+  - type: supporting
+    doi: "10.1038/nature09149"
+    note: Denison et al. (2011) — nsp14 knockout increases SARS-CoV mutation rate ~15x, confirming proofreading function
+  - type: supporting
+    note: >
+      Nidovirus genome sizes range from 13 kb (arterivirus) to 41 kb (planarian
+      secretory cell nidovirus) — the largest known RNA genomes. All large nidoviruses
+      (>20 kb) encode an nsp14-like proofreading exonuclease; all small nidoviruses
+      (<20 kb) lack it. This discrete jump at ~20 kb is quantitatively consistent with
+      the Shannon capacity prediction: for typical RNA virus mutation rates (10^-4/base),
+      the maximum supported genome size without proofreading is ~10 kb; with 10-15x
+      fidelity improvement, the capacity-limited genome size rises to 20-30 kb.
+  - type: supporting
+    doi: "10.1006/jtbi.1997.0536"
+    note: Domingo & Holland (1997) — formal Shannon equivalence; fidelity increase should allow genome expansion up to new capacity limit
+  - type: contradicting
+    note: >
+      The nsp14 exonuclease may primarily function as a cap methyltransferase (its
+      N-terminal domain) rather than proofreading — the proofreading function may be
+      incidental. Additionally, the genome size increase in coronaviruses may be
+      driven by selective pressure for specific gene functions (spike protein complexity,
+      immune evasion) rather than by information-theoretic capacity expansion. The
+      Shannon-optimality hypothesis requires that the fidelity and genome size
+      co-evolved, which must be tested by reconstructing ancestral nidovirus sequences.
+proposed_tests:
+  - discipline: information-theory
+    description: >
+      For each sequenced nidovirus, extract: (a) genome length L in bases, (b) per-base
+      mutation rate mu (from evolutionary rate estimates or direct measurement), (c)
+      presence/absence of nsp14 proofreading domain (from sequence annotation). Compute
+      the Shannon capacity C = 1 - H(mu) for each species. Plot L vs 1/mu on a log-log
+      axis. Test whether: (i) species with nsp14 cluster at higher L*mu product than
+      those without, and (ii) the L*mu product for species with nsp14 fits the Shannon
+      capacity bound with a consistent selective advantage sigma (~0.01-0.1 per base).
+  - discipline: virology
+    description: >
+      Use a SARS-CoV-2 nsp14 point-mutant with reduced exonuclease activity (e.g. D90A/E92A)
+      to generate populations with elevated mutation rates (measured by deep sequencing).
+      Passage the virus 50+ generations. Measure whether: (a) genome undergoes progressive
+      deletion (error catastrophe — approaching Shannon capacity from above), (b) the
+      first deletions preferentially remove the most recently acquired genes (least
+      conserved — consistent with information-theoretic selection against redundant
+      sequence above capacity), (c) the Shannon capacity formula predicts the timescale
+      of catastrophe given the measured elevated mu.
+  - discipline: molecular-evolution
+    cross_domain_angle: >
+      Reconstruct the ancestral nidovirus phylogeny and map nsp14 acquisition events
+      to genome size jumps. If the Shannon hypothesis is correct, every acquisition of
+      a proofreading domain should be followed by genome expansion up to the new
+      capacity limit, and every loss of proofreading should be followed by genome
+      contraction. This is a retrospective evolutionary test of information theory:
+      the Shannon bound as a constraint on the evolutionary trajectory of genome size
+      over 100+ million years of nidovirus evolution.
+  - discipline: drug-development
+    cross_domain_angle: >
+      Lethal mutagenesis antivirals (favipiravir, molnupiravir) raise mu above mu_c.
+      The Shannon bound gives the exact capacity threshold: for SARS-CoV-2 with
+      genome L=30 kb and proofreading, mu_c ~ sigma/L where sigma ~ 0.01-0.1.
+      For a favipiravir-treated cell, the expected increase in mu is measurable by
+      deep sequencing. The Shannon formula predicts the minimum drug concentration
+      required to cross mu_c — a rigorous pharmacological bound that current
+      empirical dose-response curves cannot provide.

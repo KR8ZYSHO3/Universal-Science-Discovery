@@ -4,6 +4,7 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 ## Last updated
 
+- 2026-05-04 — **2 new bridges + 3 unknowns + 2 hypotheses + q-bio:PE harvest**: b-habitat-percolation-ecology (completes percolation trilogy) + b-error-threshold-information (Shannon meets Darwin); u-gauge-field-epidemic-nonlocality seeded from harvest; ingest URL fixed (/oai → /oai2)
 - 2026-05-04 — **2 new bridges + 2 unknowns + 2 hypotheses**: b-renormalization-biological-scaling (RG↔allometry) + b-percolation-epidemiology (percolation↔epidemic FSS); GitHub Issues #24-26 opened (feat branch pending PR)
 - 2026-05-04 — **Kibble-Zurek bridge + quantum compass hypothesis** (PR #23): b-kibble-zurek-morphogenesis (cosmology↔embryogenesis), u-kibble-zurek-embryo, h-kibble-zurek-polarity-scaling, h-quantum-compass-precision; closes Issue #18
 - 2026-05-04 — **bio-ph harvest** + 2 missing hypotheses + quantum-biology bridge + Kleiber unknown (PR #16, this session)
@@ -21,9 +22,9 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 | Type | Count | Directory |
 |------|-------|-----------|
-| Unknowns | 16 | `unknowns-catalog/` |
-| Hypotheses | 16 | `hypotheses/active/` |
-| Bridges | 10 | `cross-domain/` |
+| Unknowns | 19 | `unknowns-catalog/` |
+| Hypotheses | 18 | `hypotheses/active/` |
+| Bridges | 12 | `cross-domain/` |
 | Schemas | 3 | `schemas/` (unknown, hypothesis, bridge) |
 
 ### Bridge network (cross-domain connections)
@@ -40,6 +41,8 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 | b-kibble-zurek-morphogenesis | cosmology ↔ developmental-biology | proposed |
 | b-renormalization-biological-scaling | mathematical-physics ↔ comparative-physiology | proposed |
 | b-percolation-epidemiology | statistical-physics ↔ epidemiology | proposed |
+| b-habitat-percolation-ecology | statistical-physics ↔ conservation-ecology | proposed |
+| b-error-threshold-information | information-theory ↔ molecular-evolution | proposed |
 
 ## Current focus
 

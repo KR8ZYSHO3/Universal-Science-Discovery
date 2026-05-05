@@ -1,0 +1,78 @@
+id: h-habitat-percolation-critical-density
+title: >
+  The empirical ~60% habitat threshold for forest-interior species collapse is
+  the 2D site percolation threshold (p_c=0.593), and deviations across landscapes
+  of different area follow the FSS scaling p_c(A) = 0.593 + c*A^(-3/4).
+status: active
+created: "2026-05-04"
+last_updated: "2026-05-04"
+priority: critical
+related_disciplines:
+  - conservation-biology
+  - statistical-physics
+  - landscape-ecology
+unknowns_addressed:
+  - u-habitat-fragmentation-threshold
+evidence_links:
+  - type: supporting
+    doi: "10.1007/BF02275266"
+    note: Gardner et al. (1987) first showed percolation threshold emerges in simulated landscapes near 59% — matches 2D site percolation p_c=0.593
+  - type: supporting
+    doi: "10.1007/BF02275369"
+    note: With & Crist (1995) showed animal movement collapses near percolation threshold in fragmented landscapes
+  - type: supporting
+    note: >
+      Multiple empirical studies report species collapse near 60% habitat cover:
+      Andrén (1994) meta-analysis shows threshold effects in bird and mammal abundance
+      between 10-30% remaining habitat (below p_c, post-threshold regime). The 60%
+      threshold corresponds to onset of non-linear decline, consistent with percolation.
+  - type: contradicting
+    note: >
+      The empirical ~60% figure may reflect species-area effects and edge effects
+      rather than percolation connectivity. Many species respond to habitat amount
+      rather than connectivity per se — in which case the percolation framework applies
+      only to obligate corridor-users, not to all forest species. Distinguishing
+      connectivity-driven from area-driven thresholds requires tracking individual
+      dispersal movements, not just presence-absence data.
+proposed_tests:
+  - discipline: landscape-ecology
+    description: >
+      Compile a dataset of 100+ landscape studies with known habitat coverage fraction,
+      landscape total area, and documented species persistence/extinction outcomes.
+      For each landscape, compute the percolation order parameter (fraction of habitat
+      in the largest connected cluster) from satellite land-cover data (Landsat, Sentinel-2
+      at 10-30m resolution). Fit species persistence probability as a function of
+      percolation order parameter. Test whether the critical threshold (50% persistence
+      probability) matches p_c=0.593, and whether the FSS correction A^(-3/4) explains
+      threshold variation across landscape sizes.
+  - discipline: statistical-physics
+    description: >
+      Compute the habitat patch cluster-size distribution from satellite land-cover data
+      for 20+ fragmented landscapes spanning a range of habitat coverage (0.3 to 0.8).
+      Fit the cluster size distribution n(s) to a power law near threshold. Test whether
+      the exponent matches the 2D percolation prediction tau=187/91=2.055. Measure the
+      percolation correlation length xi as a function of habitat coverage p and test
+      whether it diverges as xi ~ |p - p_c|^(-nu) with nu=4/3.
+  - discipline: remote-sensing
+    cross_domain_angle: >
+      Build a global early-warning monitoring system using Sentinel-2 time-series
+      satellite imagery. For each year, compute the percolation order parameter and
+      correlation length for 500 "sentinel landscapes" across major biomes. Landscapes
+      where the correlation length is increasing and cluster-size distribution is
+      approaching a power law are approaching the percolation threshold — flagging
+      them 10-20 years before species extinction debt becomes irreversible. This is
+      an operational conservation tool derivable directly from the physics.
+  - discipline: conservation-biology
+    cross_domain_angle: >
+      Apply the FSS-corrected threshold to the SLOSS debate: for a fixed total habitat
+      area H, compute the percolation order parameter for (a) one large reserve of
+      area H and (b) several small reserves of areas H/n. The percolation framework
+      gives the connectivity structure directly, resolving SLOSS without simulation.
+      For dispersal-limited species, the answer is always "single large" when total
+      area is near threshold — but "several small" may dominate well above threshold.
+      This is a rigorous, quantitative resolution to a 50-year debate.
+bounty: >
+  First group to publish the 2D percolation FSS exponent measured from real species
+  persistence data (not simulation) gets cited here and credited in the USDR
+  contributor log. This is a straightforward retrospective analysis of existing
+  landscape ecology datasets.

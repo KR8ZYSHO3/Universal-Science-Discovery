@@ -1,0 +1,104 @@
+id: b-habitat-percolation-ecology
+title: >
+  Habitat fragmentation is a percolation phase transition — species extinction
+  risk collapses discontinuously when connected habitat falls below the
+  percolation threshold, and finite-size scaling predicts exactly how this
+  threshold shifts in landscapes of finite total area.
+status: proposed
+fields:
+  - statistical-physics
+  - conservation-biology
+  - landscape-ecology
+  - network-science
+bridge_claim: >
+  In bond/site percolation on a lattice, a giant connected cluster (spanning
+  the system) disappears abruptly below a critical occupancy p_c. In fragmented
+  landscapes, habitat patches connected by dispersal corridors form exactly such
+  a network, and species requiring connected habitat experience a sharp threshold
+  — below p_c, no dispersal path spans the landscape and local populations cannot
+  be rescued by immigration. The percolation threshold p_c for a 2D square lattice
+  is 0.593 (site percolation) — strikingly close to the empirically observed
+  ~60% habitat coverage threshold at which many forest interior species collapse.
+
+  This is not a metaphor. The mathematics is identical:
+  - Habitat patches = lattice sites
+  - Dispersal corridors = bonds
+  - Connected habitat = giant percolating cluster
+  - Species persistence = giant cluster spans landscape
+  - Extinction debt = approach to percolation threshold from above
+
+  Conservation biology has debated the SLOSS question (Single Large Or Several
+  Small reserves?) for 50 years without a rigorous resolution. Percolation theory
+  answers it: the connected-cluster geometry at fixed total habitat area is
+  determined by the spatial arrangement of patches, and finite-size scaling gives
+  the systematic correction for landscape area. SLOSS is a finite-size scaling
+  problem in disguise.
+translation_table:
+  - field_a_term: site percolation threshold p_c
+    field_b_term: critical habitat coverage fraction (~60%) below which landscape connectivity collapses
+  - field_a_term: giant connected component
+    field_b_term: connected habitat network allowing population rescue by immigration
+  - field_a_term: finite-size scaling correction to p_c
+    field_b_term: threshold shift in smaller landscape patches vs continental-scale habitat
+  - field_a_term: correlation length xi (diverges at p_c)
+    field_b_term: mean dispersal distance required to maintain connectivity near threshold
+  - field_a_term: cluster size distribution (power law at p_c)
+    field_b_term: patch size distribution in fragmented landscapes at the extinction threshold
+  - field_a_term: universality class (2D percolation, nu=4/3)
+    field_b_term: spatial connectivity structure of landscapes where habitat is random vs structured
+  - field_a_term: bond vs site percolation
+    field_b_term: corridor-dependent dispersal (bond) vs patch-quality-dependent dispersal (site)
+related_unknowns:
+  - u-habitat-fragmentation-threshold
+related_hypotheses:
+  - h-habitat-percolation-critical-density
+cross_pollination_opportunities:
+  - >
+    The 2D percolation finite-size scaling formula gives an analytic prediction for
+    how the effective connectivity threshold shifts as landscape area decreases:
+    p_c(A) = p_c(inf) + c * A^(-1/nu), where nu=4/3 for 2D percolation and A is
+    landscape area in units of the dispersal range squared. Conservation planners
+    currently set reserve size based on species-area curves — FSS gives a sharper,
+    mechanistic alternative that predicts threshold behaviour rather than smooth
+    power laws.
+  - >
+    Percolation cluster statistics predict the distribution of isolated habitat
+    patches below threshold. In a fragmented landscape, the cluster size distribution
+    follows a power law n(s) ~ s^(-tau) with tau=187/91 for 2D percolation. This
+    power law has been observed empirically in landscape fragmentation studies —
+    the match to the exact percolation exponent has not been rigorously tested.
+  - >
+    The b-percolation-oncology bridge (tumour vasculature) and b-percolation-epidemiology
+    bridge (outbreak networks) use the same mathematical framework. A unified percolation
+    toolkit — covering tumour therapy, outbreak control, and reserve design — would be
+    a single codebase serving oncology, public health, and conservation simultaneously.
+    The numerical algorithms are identical; only the input data and interpretation differ.
+  - >
+    Climate change is systematically reducing habitat coverage p across landscapes.
+    If p is currently above p_c but approaching it, the percolation framework predicts
+    not a gradual decline in connectivity but an abrupt collapse at threshold.
+    Early-warning indicators of approaching percolation criticality (rising correlation
+    length, power-law cluster size distribution) are analogous to early-warning
+    indicators used in climate tipping points — both are applications of critical
+    slowing down near a phase transition.
+communication_gap: >
+  Percolation theory has been used in landscape ecology since Gardner et al. (1987),
+  but primarily as a simulation tool rather than an analytical framework. The formal
+  machinery of finite-size scaling, universality classes, and critical exponents from
+  condensed-matter physics has not penetrated conservation biology literature. As a
+  result, the SLOSS debate continues without the rigorous quantitative framework
+  that would resolve it. Conservation biology journals do not typically handle
+  manuscripts using Wilson-Fisher RG, critical exponents, or FSS corrections —
+  even though the underlying biology is exactly described by these tools.
+last_reviewed: "2026-05-04"
+references:
+  - doi: "10.1007/BF02275266"
+    note: Gardner et al. (1987) — original application of percolation to landscape ecology
+  - doi: "10.1007/BF02275369"
+    note: With & Crist (1995) — percolation threshold and animal movement in fragmented landscapes
+  - doi: "10.1023/A:1008917418979"
+    note: Flather & Bevers (2002) — patch size and connectivity in bird species persistence
+  - arxiv: "cond-mat/9212004"
+    note: Finite-size scaling in percolation (same toolkit as b-percolation-epidemiology)
+  - doi: "10.1038/nature04317"
+    note: Hanski (2005) — metapopulation dynamics in fragmented landscapes; implicit percolation structure

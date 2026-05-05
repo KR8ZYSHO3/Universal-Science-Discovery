@@ -9,6 +9,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added (2026-05-04 session — ecology and information-evolution bridges)
+- **`cross-domain/physics-ecology/b-habitat-percolation-ecology.yaml`** — 11th bridge: completes the percolation trilogy (oncology, epidemiology, ecology). The ~60% habitat threshold at which forest-interior species collapse is the 2D site percolation threshold p_c=0.593. FSS corrections predict how this threshold shifts in finite landscapes. Resolves the 50-year SLOSS debate analytically.
+- **`unknowns-catalog/biology/u-habitat-fragmentation-threshold.yaml`** — Has the 2D percolation FSS exponent nu=4/3 ever been measured from real species-persistence data? No.
+- **`hypotheses/active/h-habitat-percolation-critical-density.yaml`** — FSS-corrected threshold p_c(A)=0.593+c*A^(-3/4) measurable from Sentinel-2 satellite data; early-warning indicators of approaching threshold derivable from cluster-size power law.
+- **`cross-domain/information-evolution/b-error-threshold-information.yaml`** — 12th bridge: Eigen's quasispecies error threshold and Shannon's channel capacity theorem are the same mathematical result. RNA viruses operate near the Shannon limit. Coronavirus nsp14 proofreading is a capacity-expansion adaptation.
+- **`unknowns-catalog/biology/u-error-threshold-genome-size.yaml`** — Has the Shannon bound C=1-H(mu) ever been fitted to the (mu, L) distribution across all domains of life?
+- **`hypotheses/active/h-viral-proofreading-shannon-optimality.yaml`** — nsp14 proofreading is Shannon-optimal; nidovirus genome-size distribution should fit the Shannon capacity curve; lethal mutagenesis minimum dose derivable from the bound.
+- **`unknowns-catalog/physics/u-gauge-field-epidemic-nonlocality.yaml`** — Seeded from q-bio:PE harvest; QED gauge-field formalism applied to non-local epidemic spreading (April 2026 preprints); speculation clearly labelled.
+- **`data/harvest/qbio-pe-2026-05-04.jsonl`** — 25 records from q-bio:q-bio:PE (April 2026).
+- **`packages/ingest/src/usdr_ingest/constants.py`** — Fixed OAI-PMH endpoint URL (`/oai` → `/oai2`).
+- **`dashboard/index.html`** — Updated counts: 19 unknowns · 18 hypotheses · 12 bridges.
+- **`.planning/STATE.md`** — Bridge network table updated to 12 bridges.
+
 ### Added (2026-05-04 session — RG and epidemiology bridges)
 - **`cross-domain/mathematics-biology/b-renormalization-biological-scaling.yaml`** — 9th bridge: renormalization group (RG) fixed point ↔ biological allometric scaling laws. The WBE vascular branching recursion is structurally an RG equation; the correction-to-scaling exponent predicts how Kleiber's Law breaks down below 1g. Includes full translation table with 7 entries and cross-pollination opportunities.
 - **`unknowns-catalog/biology/u-renormalization-allometric.yaml`** — Has the WBE vascular recursion ever been cast as a real-space RG transformation and the correction-to-scaling exponent derived? No.

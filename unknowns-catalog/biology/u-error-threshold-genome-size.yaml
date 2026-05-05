@@ -1,0 +1,45 @@
+id: u-error-threshold-genome-size
+title: >
+  Does the Shannon channel capacity of biological replication channels quantitatively
+  predict the maximum viable genome size as a function of per-base mutation rate
+  across all domains of life — RNA viruses, DNA viruses, bacteria, and eukaryotes?
+status: open
+priority: high
+last_reviewed: "2026-05-04"
+disciplines:
+  - molecular-evolution
+  - information-theory
+  - virology
+  - genomics
+summary: >
+  Eigen's error threshold predicts that a genome of length L can be maintained by
+  natural selection only if the per-base mutation rate mu satisfies mu < sigma/L,
+  where sigma is the selective advantage of the master sequence. This is the
+  information-theoretic statement that the Shannon capacity of the replication
+  channel (C = 1 - H(mu) bits per base, where H is binary entropy) must exceed
+  the information content of the genome per base.
+
+  The empirical observation: across RNA viruses (mu ~ 10^-4/base/replication, L ~ 10 kb),
+  DNA viruses (mu ~ 10^-8/base/replication, L ~ 100-200 kb), bacteria (mu ~ 10^-9,
+  L ~ 4 Mb), and eukaryotes (mu ~ 10^-9 to 10^-10, L ~ 10^9-10^10 bp), the product
+  mu * L is remarkably consistent — roughly 0.001 to 0.01. This is the Eigen
+  "error threshold" operating across 6 orders of magnitude in genome size and 6
+  orders of magnitude in mutation rate.
+
+  **The gap**: this empirical mu*L constancy is qualitatively consistent with the
+  error threshold, but the quantitative prediction requires knowing sigma (selective
+  advantage), which varies by species and environment. Nobody has fitted the full
+  Shannon capacity formula C = 1 - H(mu) to the observed (mu, L) distribution and
+  tested whether the fitted sigma values are biologically plausible. A systematic
+  information-theoretic analysis of the genome size vs mutation rate distribution
+  across all life would either confirm the Shannon bound as the controlling
+  constraint or identify where other factors dominate.
+systematic_gaps:
+  - The Shannon capacity bound C = 1-H(mu) has not been fitted to the full (mu, L) distribution across domains of life
+  - The selective advantage sigma has not been estimated independently and compared to the value required for Shannon-bound consistency
+  - The coronavirus proofreading exonuclease genome-size increase (~3x) has not been quantitatively analysed as a Shannon capacity expansion
+  - Finite-length coding theory corrections (analogous to finite genome length) have not been applied to predict genome size variance around the Shannon limit
+related_unknowns:
+  - u-grokking-phase-transition
+related_bridges:
+  - b-error-threshold-information
