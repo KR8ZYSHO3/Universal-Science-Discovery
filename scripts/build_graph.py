@@ -118,6 +118,23 @@ def build_graph() -> tuple[list[dict], list[dict]]:
                         "relation": relation,
                     })
 
+    # Filter out orphan edges (endpoints not present in node set)
+    node_ids = {n["id"] for n in nodes}
+    valid_edges: list[dict] = []
+    orphan_count = 0
+    for edge in edges:
+        if edge["source"] in node_ids and edge["target"] in node_ids:
+            valid_edges.append(edge)
+        else:
+            orphan_count += 1
+    if orphan_count:
+        print(
+            f"WARNING: filtered {orphan_count} orphan edge(s) "
+            "(endpoints not in node set)",
+            file=sys.stderr,
+        )
+    edges = valid_edges
+
     return nodes, edges
 
 
