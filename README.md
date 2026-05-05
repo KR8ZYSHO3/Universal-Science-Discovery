@@ -5,6 +5,9 @@ Open-source, Git-based knowledge infrastructure for **discovery-first** science:
 [![Developer Dashboard](https://img.shields.io/badge/Developer%20Dashboard-Live-4f9cf9?style=for-the-badge&logo=github)](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/)
 [![Docs](https://img.shields.io/badge/Documentation-Live-22d3b8?style=for-the-badge&logo=readthedocs)](https://kr8zysho3.github.io/Universal-Science-Discovery/)
 [![CI](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/actions/workflows/validate-schemas.yml/badge.svg)](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/actions)
+[![License](https://img.shields.io/github/license/KR8ZYSHO3/Universal-Science-Discovery)](LICENSE)
+[![Contributors](https://img.shields.io/github/contributors/KR8ZYSHO3/Universal-Science-Discovery)](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/graphs/contributors)
+[![Issues](https://img.shields.io/github/issues/KR8ZYSHO3/Universal-Science-Discovery)](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/issues)
 
 ## New here? (contributors)
 

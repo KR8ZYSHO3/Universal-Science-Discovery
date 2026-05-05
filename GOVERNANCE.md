@@ -82,7 +82,7 @@ This governance model is expected to evolve. Changes require:
 - 2/3 maintainer approval
 - 30-day community comment period
 
-**Current Maintainers** (to be filled after first public launch):
-- [To be added]
+**Current Maintainers:**
+- [KR8ZYSHO3](https://github.com/KR8ZYSHO3) — Founding Maintainer
 
 We are committed to governance that serves the mission of accelerating scientific discovery while remaining accountable to the global research community.
