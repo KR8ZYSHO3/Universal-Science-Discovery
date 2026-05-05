@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <script src="https://unpkg.com/marked@12.0.2/marked.min.js"></script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
   <style>
     /* ── TOKENS ─────────────────────────────────────────────── */
     :root {
@@ -653,6 +654,73 @@
     ::-webkit-scrollbar { width: 5px; height: 5px; }
     ::-webkit-scrollbar-track { background: transparent; }
     ::-webkit-scrollbar-thumb { background: var(--border-h); border-radius: 999px; }
+
+    /* ── KNOWLEDGE GRAPH ────────────────────────────────────── */
+    .graph-section {
+      padding: clamp(3rem,6vw,5rem) clamp(1.25rem,4vw,3rem);
+      border-bottom: 1px solid var(--border);
+    }
+    .graph-stats-bar {
+      font-size: .82rem; color: var(--muted); font-family: var(--mono);
+      margin: .5rem 0 1.1rem;
+      display: flex; align-items: center; gap: .5rem; flex-wrap: wrap;
+    }
+    .graph-stats-bar span { color: var(--accent); font-weight: 600; }
+    #graph-container {
+      position: relative;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      height: 700px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    #kg-svg { width: 100%; height: 100%; display: block; }
+    .kg-links line { stroke-opacity: 1; }
+    #kg-legend {
+      position: absolute; bottom: 1.2rem; left: 1.2rem;
+      display: flex; flex-direction: column; gap: .4rem;
+      background: rgba(6,13,26,.78);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: .65rem .9rem;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      pointer-events: none;
+    }
+    .kg-legend-item {
+      display: flex; align-items: center; gap: .5rem;
+      font-size: .75rem; color: var(--text);
+    }
+    .kg-legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .kg-tooltip {
+      position: absolute; pointer-events: none;
+      background: rgba(11,21,42,.93);
+      border: 1px solid var(--border-h);
+      border-radius: var(--r-sm);
+      padding: .55rem .8rem;
+      font-size: .8rem; color: var(--text);
+      max-width: 280px; line-height: 1.5;
+      z-index: 10;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: opacity .12s;
+    }
+    .kg-tooltip.hidden { opacity: 0; }
+    .kg-tooltip strong { color: var(--accent); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; }
+    .kg-fallback {
+      display: flex; align-items: center; justify-content: center;
+      height: 100%; color: var(--muted); font-size: .88rem;
+      text-align: center; padding: 2rem;
+      flex-direction: column; gap: .75rem;
+    }
+    .kg-fallback code { color: var(--accent); font-family: var(--mono); }
+    .kg-zoom-hint {
+      position: absolute; top: 1rem; right: 1.2rem;
+      font-size: .72rem; color: var(--muted); font-family: var(--mono);
+      pointer-events: none; opacity: .65;
+    }
   </style>
 </head>
 <body>
@@ -755,6 +823,7 @@
   <div class="hub-nav-wrap">
     <nav class="hub-nav" aria-label="Page sections">
       <a href="#start">Start here</a>
+      <a href="#knowledge-graph">Knowledge graph</a>
       <a href="#workstreams">Workstreams</a>
       <a href="#status">Status</a>
       <a href="#contribute">Contribute</a>
@@ -766,6 +835,31 @@
   </div>
 
   <main>
+    <!-- ════════════════════════════════════════ KNOWLEDGE GRAPH -->
+    <section class="graph-section" id="knowledge-graph" aria-label="Knowledge graph">
+      <span class="section-tag">Knowledge Graph</span>
+      <h2 class="section-title">Cross-domain connection map</h2>
+      <p class="section-desc">
+        Force-directed graph of all 138 nodes — bridges, unknowns, hypotheses, and phenomena.
+        Hover a node to inspect it. Drag to reposition. Scroll or pinch to zoom.
+      </p>
+      <div class="graph-stats-bar" id="kg-stats-bar">
+        <span id="kg-node-count">138</span> nodes &nbsp;·&nbsp;
+        <span id="kg-edge-count">300</span> edges<span id="kg-top-node"></span>
+      </div>
+      <div id="graph-container">
+        <svg id="kg-svg" aria-label="Knowledge graph force-directed visualization"></svg>
+        <div id="kg-legend">
+          <div class="kg-legend-item"><div class="kg-legend-dot" style="background:#4f9cf9"></div>Bridge</div>
+          <div class="kg-legend-item"><div class="kg-legend-dot" style="background:#f97316"></div>Unknown</div>
+          <div class="kg-legend-item"><div class="kg-legend-dot" style="background:#22d3b8"></div>Hypothesis</div>
+          <div class="kg-legend-item"><div class="kg-legend-dot" style="background:#a78bfa"></div>Phenomenon</div>
+        </div>
+        <div class="kg-zoom-hint">scroll to zoom · drag to pan</div>
+        <div id="kg-tooltip" class="kg-tooltip hidden"></div>
+      </div>
+    </section>
+
     <!-- ═══════════════════════════════════════════ START HERE -->
     <section id="start">
       <div>
@@ -1692,6 +1786,167 @@
       document.querySelectorAll('.aos').forEach(function (el) { el.classList.add('in'); });
     }
 
+  })();
+
+  /* ── KNOWLEDGE GRAPH (D3.js v7) ──────────────────────────── */
+  (function () {
+    var NODE_COLOR = { bridge: '#4f9cf9', unknown: '#f97316', hypothesis: '#22d3b8', phenomenon: '#a78bfa' };
+    var NODE_R     = { bridge: 10, unknown: 7, hypothesis: 6, phenomenon: 8 };
+    var EDGE_COLOR = {
+      addresses_unknown:   'rgba(249,115,22,.32)',
+      candidate_bridge:    'rgba(79,156,249,.55)',
+      related_bridge:      'rgba(79,156,249,.22)',
+      related_hypothesis:  'rgba(34,211,184,.28)',
+      related_unknown:     'rgba(249,115,22,.18)',
+      suggested_hypothesis:'rgba(34,211,184,.22)'
+    };
+
+    function nodeR(d)     { return NODE_R[d.type]     || 6; }
+    function nodeColor(d) { return NODE_COLOR[d.type]  || '#6b8aac'; }
+    function edgeColor(d) { return EDGE_COLOR[d.relation] || 'rgba(107,138,172,.18)'; }
+
+    function renderFallback(msg) {
+      var c = document.getElementById('graph-container');
+      if (!c) return;
+      c.innerHTML = '<div class="kg-fallback">'
+        + '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:2rem;height:2rem;opacity:.35"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>'
+        + '<div>' + msg + '</div></div>';
+    }
+
+    if (typeof d3 === 'undefined') {
+      renderFallback('D3.js failed to load — check network connection.');
+      return;
+    }
+
+    var svgEl  = document.getElementById('kg-svg');
+    var tipEl  = document.getElementById('kg-tooltip');
+    if (!svgEl) return;
+
+    fetch('../docs/knowledge_graph.json')
+      .then(function (r) {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      })
+      .then(function (data) {
+        var nodes = data.nodes.map(function (n) { return Object.assign({}, n); });
+        var edges = data.edges.map(function (e) { return Object.assign({}, e); });
+
+        /* stats bar */
+        var nc = (data.meta && data.meta.node_count) ? data.meta.node_count : nodes.length;
+        var ec = (data.meta && data.meta.edge_count)  ? data.meta.edge_count  : edges.length;
+        document.getElementById('kg-node-count').textContent = nc;
+        document.getElementById('kg-edge-count').textContent = ec;
+
+        /* top-connected node */
+        var deg = {};
+        edges.forEach(function (e) {
+          var s = typeof e.source === 'object' ? e.source.id : e.source;
+          var t = typeof e.target === 'object' ? e.target.id : e.target;
+          deg[s] = (deg[s] || 0) + 1;
+          deg[t] = (deg[t] || 0) + 1;
+        });
+        var topId = Object.keys(deg).sort(function (a, b) { return deg[b] - deg[a]; })[0];
+        var topNode = nodes.find(function (n) { return n.id === topId; });
+        if (topNode && document.getElementById('kg-top-node')) {
+          document.getElementById('kg-top-node').innerHTML =
+            ' &nbsp;·&nbsp; top: <span>' + topNode.id + '</span> (' + deg[topId] + ')';
+        }
+
+        /* svg setup */
+        var w = svgEl.clientWidth  || svgEl.parentElement.clientWidth  || 900;
+        var h = svgEl.clientHeight || svgEl.parentElement.clientHeight || 700;
+
+        var svg = d3.select(svgEl);
+        var g   = svg.append('g');
+
+        /* zoom + pan */
+        svg.call(
+          d3.zoom().scaleExtent([0.15, 8]).on('zoom', function (event) {
+            g.attr('transform', event.transform);
+          })
+        );
+
+        /* force simulation */
+        var sim = d3.forceSimulation(nodes)
+          .force('link',      d3.forceLink(edges).id(function (d) { return d.id; }).distance(60))
+          .force('charge',    d3.forceManyBody().strength(-200))
+          .force('center',    d3.forceCenter(w / 2, h / 2))
+          .force('collision', d3.forceCollide().radius(function (d) { return nodeR(d) + 3; }));
+
+        /* edges */
+        var link = g.append('g').attr('class', 'kg-links')
+          .selectAll('line')
+          .data(edges)
+          .join('line')
+          .attr('stroke',       function (d) { return edgeColor(d); })
+          .attr('stroke-width', 1.2);
+
+        /* nodes */
+        var node = g.append('g').attr('class', 'kg-nodes')
+          .selectAll('circle')
+          .data(nodes)
+          .join('circle')
+          .attr('r',            nodeR)
+          .attr('fill',         nodeColor)
+          .attr('stroke',       'rgba(255,255,255,0.14)')
+          .attr('stroke-width', 1)
+          .style('cursor',      'pointer')
+          .call(
+            d3.drag()
+              .on('start', function (event, d) {
+                if (!event.active) sim.alphaTarget(0.3).restart();
+                d.fx = d.x; d.fy = d.y;
+              })
+              .on('drag',  function (event, d) { d.fx = event.x; d.fy = event.y; })
+              .on('end',   function (event, d) {
+                if (!event.active) sim.alphaTarget(0);
+                d.fx = null; d.fy = null;
+              })
+          );
+
+        /* tooltip */
+        node
+          .on('mousemove', function (event, d) {
+            var typeLabel = (d.type || 'unknown');
+            typeLabel = typeLabel.charAt(0).toUpperCase() + typeLabel.slice(1);
+            var rawTitle = (d.title || d.id).replace(/\n/g, ' ');
+            var title = rawTitle.length > 130 ? rawTitle.slice(0, 130) + '\u2026' : rawTitle;
+            var inner = '<strong>' + typeLabel + '</strong><br>'
+              + '<span style="font-size:.78rem;word-break:break-word;">' + d.id + '</span>';
+            if (title && title !== d.id) {
+              inner += '<br><span style="color:var(--muted);font-size:.74rem;line-height:1.4;">' + title + '</span>';
+            }
+            tipEl.innerHTML = inner;
+            tipEl.classList.remove('hidden');
+            var rect = svgEl.getBoundingClientRect();
+            var tx = event.clientX - rect.left + 14;
+            var ty = event.clientY - rect.top  - 14;
+            if (tx + 290 > rect.width)  tx = event.clientX - rect.left - 290;
+            if (ty + 80  > rect.height) ty = event.clientY - rect.top  - 80;
+            tipEl.style.left = tx + 'px';
+            tipEl.style.top  = ty + 'px';
+          })
+          .on('mouseleave', function () { tipEl.classList.add('hidden'); });
+
+        /* tick */
+        sim.on('tick', function () {
+          link
+            .attr('x1', function (d) { return d.source.x; })
+            .attr('y1', function (d) { return d.source.y; })
+            .attr('x2', function (d) { return d.target.x; })
+            .attr('y2', function (d) { return d.target.y; });
+          node
+            .attr('cx', function (d) { return d.x; })
+            .attr('cy', function (d) { return d.y; });
+        });
+      })
+      .catch(function (err) {
+        if (window.location.protocol === 'file:') {
+          renderFallback('Run a local server to see the interactive graph:<br><code>python -m http.server 8765</code>');
+        } else {
+          renderFallback('Could not load knowledge_graph.json — ' + (err && err.message ? err.message : err));
+        }
+      });
   })();
   </script>
 </body>
