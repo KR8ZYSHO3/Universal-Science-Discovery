@@ -1,0 +1,60 @@
+id: u-tumor-evolution-topology-branching
+title: >
+  Does the topology (Betti numbers β₀, β₁) of tumor copy-number variation space
+  predict clinical outcomes — specifically, does β₁ > 0 (presence of evolutionary
+  loops, indicating homologous recombination or convergent evolution) correlate
+  with worse prognosis and resistance to targeted therapy?
+status: open
+priority: high
+disciplines:
+  - medicine
+  - oncology
+  - mathematics
+  - computational-biology
+summary: >
+  Tumor evolution proceeds via accumulation of somatic mutations and copy-number
+  variations (CNVs). Single-cell sequencing now provides high-dimensional CNV
+  profiles for hundreds to thousands of cells per tumor. Phylogenetic tree
+  reconstruction assumes that the evolutionary topology is a tree (β₁ = 0:
+  no loops). However, horizontal gene transfer analogs in cancer (chromothripsis,
+  whole-genome doubling, homologous recombination between chromosomes) can create
+  evolutionary loops where multiple lineages converge or exchange genetic material,
+  producing β₁ > 0 in the topological representation of the CNV space.
+
+  Camara et al. (2016) demonstrated using persistent homology that CNV landscapes
+  in single-cell sequencing data contain loops and higher-order topological features
+  that are absent from simulated tree evolution, suggesting non-tree evolutionary
+  processes in real tumors. The clinical implications are unexplored:
+  (1) If β₁ > 0 indicates convergent evolution to a fit genotype, it may predict
+  resistance — multiple independent lineages arriving at the same resistance mechanism.
+  (2) The persistence diagram of a tumor's CNV topology could provide a topological
+  "fingerprint" that predicts relapse risk beyond standard CNV burden metrics.
+  (3) Topological changes between primary tumor and metastasis (change in Betti
+  numbers) could quantify evolutionary divergence without assuming tree topology.
+systematic_gaps:
+  - No clinical study has correlated Betti numbers of tumor CNV topology with
+    patient outcomes (survival, time to relapse, drug resistance)
+  - Standard phylogenetic tree reconstruction discards topological information
+    about non-tree evolutionary events; no benchmark comparing TDA and tree methods
+    for predicting clonal dynamics exists
+  - Computational tools for persistent homology of single-cell CNV data are not
+    integrated into clinical bioinformatics pipelines (GATK, Seurat, etc.)
+suggested_hypotheses:
+  - Breast cancer tumors with β₁ > 0 in their single-cell CNV persistent homology
+    have significantly worse 5-year progression-free survival than β₁ = 0 tumors
+    at matched stage and grade, because evolutionary loops indicate convergent
+    selection for fit genotypes with multiple independent paths to resistance
+related_unknowns:
+  - u-cancer-stem-cell-hierarchy
+  - u-immunotherapy-nonresponders
+  - u-topological-data-analysis-phase-transitions
+references:
+  - doi: "10.1073/pnas.1102826108"
+    note: "Nicolau et al. (2011) PNAS — Mapper identifies breast cancer subgroup via topology"
+  - doi: "10.1371/journal.pcbi.1004374"
+    note: >
+      Camara et al. (2016) PLOS Comput Biol — persistent homology of CNV data reveals
+      loops indicative of non-tree tumor evolution
+  - doi: "10.1038/srep01236"
+    note: "Lum et al. (2013) Sci Rep — Mapper applied to disease progression data"
+last_reviewed: "2026-05-05"
