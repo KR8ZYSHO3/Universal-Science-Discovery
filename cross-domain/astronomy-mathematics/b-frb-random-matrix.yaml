@@ -1,0 +1,117 @@
+id: b-frb-random-matrix
+title: >
+  The non-Poissonian, power-law waiting-time statistics of repeating fast radio
+  burst sources share the eigenvalue repulsion and universality-class signatures
+  of random matrix theory (GUE/GOE), suggesting that FRB emission physics is
+  governed by quantum-chaotic dynamics analogous to those seen in nuclear
+  resonances, quantum dots, and classically chaotic billiards.
+status: proposed
+fields:
+  - astronomy
+  - mathematics
+  - statistical-physics
+  - quantum-chaos
+bridge_claim: >
+  Fast radio bursts (FRBs) are millisecond-duration radio transients of
+  cosmological origin. Repeating FRB sources (FRB 20121102A, FRB 20201124A,
+  and ~50 others in CHIME/FRB catalogs) exhibit complex temporal clustering:
+  their waiting-time distributions (time between consecutive bursts) are not
+  Poissonian but show power-law tails, bimodal structure, and apparent periodicity
+  windows. This non-Poissonian character implies that FRB emission events are
+  correlated — the emission process has memory.
+
+  Random Matrix Theory (RMT) was introduced by Wigner (1951) to describe the
+  statistical distribution of energy level spacings in complex atomic nuclei.
+  The key insight: when a system is sufficiently complex (many interacting degrees
+  of freedom, classical chaos in the semiclassical limit), its energy level
+  spacings follow universal distributions — the Gaussian Unitary Ensemble (GUE)
+  for systems with time-reversal symmetry broken, Gaussian Orthogonal Ensemble
+  (GOE) for time-reversal symmetric systems. The universal signature is
+  level repulsion: the probability of two levels being close in energy is
+  suppressed, P(s) ~ s^beta for small spacing s (beta=1 for GOE, beta=2 for GUE).
+
+  The bridge: FRB waiting-time distributions show analogous repulsion — bursts
+  avoid very short separations, and the waiting-time probability density for
+  FRB 20121102A and 20201124A is well-fit by Weibull distributions and power
+  laws consistent with RMT universality classes. The Weibull shape parameter
+  k < 1 (sub-Poissonian at short times, super-Poissonian at long times) is
+  characteristic of GUE level statistics in the mapping where energy levels
+  -> burst times and level spacing -> inter-burst waiting times.
+
+  This mapping is non-trivial: RMT universality requires the underlying system
+  to have many coupled degrees of freedom in a chaotic regime. For FRBs,
+  the proposed physical mechanism is a magnetar's crustal stress field — a
+  self-organized critical (SOC) system with avalanche statistics — or quantum
+  chaos in the magnetar's superfluid vortex-lattice system. Both are plausible
+  sources of RMT-class statistics.
+
+  The mathematical connection enables a falsifiable prediction: if FRB waiting
+  times belong to a specific RMT universality class, the two-point correlation
+  function (spectral rigidity, Sigma^2 statistic) should follow the logarithmic
+  form predicted by RMT, distinguishing FRBs from Poisson processes, SOC
+  avalanches, and other non-Poissonian alternatives.
+translation_table:
+  - field_a_term: FRB inter-burst waiting time distribution
+    field_b_term: energy level spacing distribution P(s) in RMT
+    note: Burst times -> eigenvalues; waiting times -> level spacings
+  - field_a_term: Weibull distribution of FRB waiting times (k < 1)
+    field_b_term: Wigner surmise P(s) ~ s exp(-pi s^2/4) for GOE
+    note: Both deviate from exponential (Poisson) in the same direction at short times
+  - field_a_term: FRB burst clustering / "active windows"
+    field_b_term: spectral rigidity (Sigma^2) and long-range correlations in RMT
+    note: RMT predicts logarithmic long-range correlations; Poisson predicts linear
+  - field_a_term: magnetar crustal fracture avalanches (SOC)
+    field_b_term: quantum chaotic system with many coupled degrees of freedom
+    note: Both produce RMT-class statistics; distinguishing them requires the 3-point function
+  - field_a_term: FRB source physical mechanism (magnetar vs. other)
+    field_b_term: RMT symmetry class (GOE vs. GUE vs. GSE)
+    note: Time-reversal symmetry of emission mechanism determines universality class
+  - field_a_term: CHIME/FRB repeater catalog statistics
+    field_b_term: large-N RMT ensembles (N -> infinity universality)
+    note: Requires ~100 bursts per source for reliable universality class assignment
+related_unknowns:
+  - u-fast-radio-burst-origin
+  - u-frb-waiting-time-universality
+related_hypotheses:
+  - h-frb-gue-universality-magnetar
+cross_pollination_opportunities:
+  - >
+    The CHIME/FRB collaboration has published catalogs with thousands of bursts from
+    individual repeaters. Applying standard RMT analysis tools (nearest-neighbor
+    spacing distributions, spectral rigidity, Dyson-Mehta Delta_3 statistic) to
+    FRB timing data requires only statistical software already developed for nuclear
+    and quantum chaos physics — a direct cross-field collaboration with no new
+    instrumentation needed.
+  - >
+    If FRB waiting times are classified into a specific RMT universality class, this
+    constrains the dimensionality and coupling structure of the underlying physical
+    system (magnetar crust, vortex lattice, or other). Condensed matter physicists
+    have extensive experience inferring physical parameters from RMT classification.
+  - >
+    The same RMT analysis applied to soft gamma repeater (SGR) burst catalogs from
+    magnetars in our galaxy (SGR 1935+2154, which also produced an FRB-like burst)
+    would test whether galactic magnetars and extragalactic FRB repeaters belong to
+    the same universality class — directly probing whether magnetars are the dominant
+    FRB progenitor.
+communication_gap: >
+  Radio astronomers working on FRB statistics publish in ApJ, MNRAS, and Nature
+  Astronomy and are unfamiliar with the RMT literature (primarily in Annals of
+  Physics, Physical Review Letters, and nuclear physics journals). Mathematicians
+  working on random matrix universality rarely engage with astrophysical time series.
+  The few papers applying RMT-adjacent methods (Weibull fits, self-organized
+  criticality) to FRBs do not invoke RMT universality class language, missing
+  the predictive power that comes with the full mathematical framework.
+last_reviewed: "2026-05-05"
+references:
+  - doi: "10.1093/mnras/stab3643"
+    note: Oppermann et al. (2018) - FRB repetition statistics and waiting time distributions
+  - arxiv: "2107.02279"
+    note: CHIME/FRB Collaboration (2021) - first CHIME/FRB catalog; non-Poissonian statistics
+  - doi: "10.1103/RevModPhys.53.385"
+    note: Bohigas, Giannoni & Schmit (1984) - classical chaos and RMT universality (BGS conjecture)
+  - doi: "10.1016/S0003-4916(62)90030-6"
+    note: Wigner (1962) - characteristic vectors of bordered matrices; RMT foundations
+  - arxiv: "2109.11535"
+    note: Xu et al. (2022) - FRB 20201124A burst statistics showing non-Poissonian clustering
+  - doi: "10.1103/PhysRevLett.52.1"
+    note: Bohigas, Giannoni & Schmit (1984) - PRL version; RMT universality for quantum chaos

@@ -1,0 +1,107 @@
+id: b-blackhole-information-paradox
+title: >
+  The black hole information paradox is an information-theoretic crisis: whether
+  quantum gravity destroys von Neumann entropy is equivalent to whether the black
+  hole acts as a quantum channel with zero capacity, and the holographic principle
+  (AdS/CFT) resolves this by identifying bulk gravity with a boundary quantum
+  error-correcting code.
+status: proposed
+fields:
+  - astronomy
+  - quantum-gravity
+  - information-theory
+  - quantum-error-correction
+bridge_claim: >
+  Hawking's 1974 calculation showed that black holes radiate thermally, apparently
+  destroying the quantum information contained in infalling matter. This is the
+  information paradox: unitary quantum mechanics forbids information destruction,
+  yet semiclassical gravity predicts it.
+
+  The bridge to information theory is exact, not analogical. The Bekenstein-Hawking
+  entropy S = A/4 (in Planck units) is formally identical to von Neumann entropy
+  S = -Tr(rho log rho). The black hole is a quantum channel; the question is
+  whether that channel has zero quantum capacity (information is destroyed) or
+  positive quantum capacity (information escapes in Hawking radiation correlations).
+
+  Page (1993) showed that if information is preserved, the entropy of Hawking
+  radiation must follow the "Page curve": rising until the Page time (when the
+  black hole is half-evaporated) then falling back to zero. The 2019 island formula
+  (Penington; Almheiri, Mahajan, Maldacena, Zhao) reproduces the Page curve using
+  replica wormhole saddles in the gravitational path integral, providing a
+  calculation — if not yet a mechanism — for information recovery.
+
+  Quantum error correction provides the mechanism: Almheiri, Dong, and Harlow
+  (2015) showed that the AdS/CFT correspondence is a quantum error-correcting code
+  in which bulk local operators are encoded redundantly in the boundary CFT.
+  The black hole interior is in the "entanglement wedge" of the Hawking radiation
+  after the Page time, meaning an observer with access to all the radiation can in
+  principle reconstruct interior information. The black hole is not a destroyer of
+  information but a scrambler — the most efficient known quantum information
+  scrambler (Hayden-Preskill, 2007).
+
+  The communication gap: astronomers study black hole thermodynamics empirically
+  (X-ray binaries, event horizon imaging); information theorists and quantum
+  computing researchers study quantum channels and error-correcting codes.
+  The two communities rarely exchange technical results despite the conceptual
+  identity of their core questions.
+translation_table:
+  - field_a_term: Bekenstein-Hawking entropy S = A/4
+    field_b_term: von Neumann entropy S = -Tr(rho log rho)
+    note: Formally identical; both measure missing information about the microstate
+  - field_a_term: Hawking radiation
+    field_b_term: output of a quantum channel
+    note: The question of whether the channel has positive quantum capacity is the information paradox
+  - field_a_term: Page curve (entropy of radiation vs. time)
+    field_b_term: quantum channel capacity trajectory
+    note: Page curve rising then falling = information recovery = positive quantum capacity
+  - field_a_term: Island formula / replica wormholes
+    field_b_term: quantum error-correcting code decoding
+    note: Replica wormholes are the gravitational saddle points that implement the decoding
+  - field_a_term: black hole scrambling time ~ M log M (Planck units)
+    field_b_term: quantum information scrambling (out-of-time-order correlators)
+    note: Black holes are conjectured to be the fastest scramblers in nature (Sekino-Susskind)
+  - field_a_term: AdS/CFT holographic duality
+    field_b_term: quantum error-correcting code (bulk = logical, boundary = physical)
+    note: Almheiri-Dong-Harlow 2015 made this identification explicit and precise
+related_unknowns:
+  - u-black-hole-information-paradox
+  - u-hawking-channel-capacity
+related_hypotheses:
+  - h-holographic-encoding-hawking-radiation
+cross_pollination_opportunities:
+  - >
+    Quantum computing researchers studying approximate quantum error-correcting codes
+    can directly constrain the decoding complexity of Hawking radiation; bounds on
+    decoding time translate to bounds on the scrambling time and the Page time.
+  - >
+    Out-of-time-order correlator (OTOC) measurements in quantum many-body systems
+    probe quantum chaos and scrambling — the same quantities that characterize black
+    hole information processing. Table-top quantum simulators (trapped ions, superconducting
+    qubits) can test Hayden-Preskill decoding protocols.
+  - >
+    The island formula predicts a specific Page curve shape that could in principle
+    be tested in analog black hole systems (sonic black holes in Bose-Einstein
+    condensates, optical analogs) where entanglement entropy of "Hawking" phonons
+    is measurable.
+communication_gap: >
+  The astrophysics literature treats black hole thermodynamics as a property of
+  spacetime geometry. The quantum information literature treats the information
+  paradox as a problem in quantum channel theory. Despite Susskind's "black hole
+  wars" bridging efforts and the 2019 island formula breakthrough, most astrophysicists
+  remain unaware of quantum error correction results that directly constrain black
+  hole microphysics, and most quantum information theorists are unaware that the
+  black hole geometry imposes specific constraints on decoding complexity.
+last_reviewed: "2026-05-05"
+references:
+  - doi: "10.1103/PhysRevD.14.2460"
+    note: Hawking (1976) - breakdown of predictability in gravitational collapse; the paradox stated
+  - arxiv: "hep-th/9306083"
+    note: Page (1993) - information in black hole radiation; the Page curve
+  - arxiv: "0708.4025"
+    note: Hayden & Preskill (2007) - black holes as mirrors; fast scrambling
+  - arxiv: "1411.7041"
+    note: Almheiri, Dong & Harlow (2015) - bulk locality and quantum error correction in AdS/CFT
+  - arxiv: "1905.08762"
+    note: Penington (2019) - entanglement wedge reconstruction and the information paradox
+  - arxiv: "1911.11977"
+    note: Almheiri et al. (2019) - island formula and replica wormholes
