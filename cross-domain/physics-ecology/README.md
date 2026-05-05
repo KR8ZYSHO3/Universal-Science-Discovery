@@ -1,50 +1,44 @@
-# Statistical Physics ↔ Conservation Ecology
+# Cross-domain bridges: physics ↔ ecology
 
-## The bridge in one sentence
+## Active bridges
 
-The ~60% habitat threshold at which forest-interior species collapse is the 2D site
-percolation threshold (p_c = 0.593), and 50 years of percolation finite-size scaling
-gives conservation biology a rigorous, quantitative framework that the SLOSS debate
-has never had.
+### b-turing-patterns-ecosystem-tipping — Turing patterns as early-warning signals for ecosystem collapse
 
-## The percolation trilogy
+In the 1990s, ecologists noticed that drought-stressed vegetation in the Sahel,
+the Negev, and Namibia forms strikingly regular spatial patterns: stripes on
+slopes, hexagonal patches on flat terrain, leopard-spots of bare soil surrounded
+by vegetation rings. These were beautiful, but their *function* was unclear.
 
-This bridge completes a trio of fields united by the same mathematics:
+In 1999, ecologist Mark Klausmeier wrote down the simplest model: vegetation
+absorbs water (activator), and dense vegetation locally depletes water
+(inhibitor). The diffusion rates differ: water flows fast, vegetation spreads
+slowly. That is exactly the Turing condition. The characteristic patch spacing
+follows directly from the Turing wavelength formula.
 
-| Bridge | Field | Application |
-|--------|-------|-------------|
-| `b-percolation-oncology` | Oncology | Tumour vascular network fragmentation |
-| `b-percolation-epidemiology` | Epidemiology | Outbreak threshold in finite populations |
-| **`b-habitat-percolation-ecology`** | **Conservation ecology** | **Species extinction in fragmented landscapes** |
+In 2004, a *Science* paper changed everything: **the progression of pattern types
+is an early-warning signal for ecosystem collapse.** As rainfall decreases:
 
-The numerical algorithms for computing the percolation order parameter, correlation
-length, and FSS corrections are *identical* across all three. A single open-source
-percolation toolkit would serve tumour biologists, public health agencies, and
-conservation planners simultaneously.
+```
+Uniform green → Labyrinthine → Stripes → Spots → Bare soil
+(healthy)                                          (collapsed)
+```
 
-## The SLOSS resolution
+Each transition is a Turing bifurcation. The final transition — spots to bare
+soil — is catastrophic and hysteretic: once the system collapses, increasing
+rainfall does *not* immediately restore vegetation.
 
-SLOSS (Single Large Or Several Small reserves?) has been debated since the 1970s.
-Percolation theory answers it: for a fixed total habitat area H, the connectivity
-of the landscape (the percolation order parameter) depends on the spatial arrangement
-of patches, not just the total area. Near the percolation threshold, a single large
-reserve is always better for connectivity — a rigorous result, not an approximation.
+**The 2026 extension** (from our arXiv harvest): the pattern can either *buffer*
+or *accelerate* collapse depending on whether the spot pattern remains above the
+percolation threshold (p_c = 0.5927). If the vegetated fraction exceeds p_c,
+connectivity is maintained and the ecosystem is resilient. Below p_c, it tips.
 
-## Bridge entries
+This bridges three pillars of the project:
+- **Turing reaction-diffusion** (`b-turing-reaction-diffusion`)
+- **Percolation theory** (`b-percolation-ecology`)
+- **Self-organised criticality** (`b-self-organized-criticality`)
 
-- [`b-habitat-percolation-ecology`](b-habitat-percolation-ecology.yaml)
-
-## Unknowns seeded here
-
-- [`u-habitat-fragmentation-threshold`](../../unknowns-catalog/biology/u-habitat-fragmentation-threshold.yaml)
-
-## Hypotheses to test
-
-- [`h-habitat-percolation-critical-density`](../../hypotheses/active/h-habitat-percolation-critical-density.yaml)
-
-## Next contributor action
-
-1. Download Sentinel-2 land-cover data for 20 fragmented forest landscapes
-2. Compute percolation order parameter and cluster-size distribution
-3. Test whether cluster-size exponent matches tau=187/91 (2D percolation)
-4. Open a PR against `h-habitat-percolation-critical-density.yaml`
+### Practical implication
+Satellite time-series of vegetation patterns can be analysed using Fourier
+spectroscopy. A narrowing and shifting Turing peak in the power spectrum is a
+quantitative early-warning signal — *years before collapse* — that requires no
+ground-truth data.

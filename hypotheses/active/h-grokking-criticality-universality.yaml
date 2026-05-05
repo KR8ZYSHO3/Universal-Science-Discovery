@@ -1,64 +1,24 @@
 id: h-grokking-criticality-universality
-title: >
-  The grokking generalisation transition belongs to the 2D Ising universality class;
-  its critical exponents are measurable via finite-size scaling and predict
-  generalisation onset without training large models to completion.
+title: "Grokking is a second-order phase transition in the Ising universality class, detectable via finite-size scaling of hidden-layer intrinsic dimension"
 status: active
-created: "2026-05-04"
-last_updated: "2026-05-04"
+created: "2026-05-05"
 priority: high
-related_disciplines:
-  - machine-learning
-  - statistical-physics
-  - information-theory
-unknowns_addressed:
-  - u-grokking-phase-transition
+impact_score: 0.9
+
 evidence_links:
   - type: supporting
-    arxiv: "2604.16431"
-    note: Dimensional criticality at grokking — sharp non-analytic change in representation dimension consistent with second-order transition; universality across MLPs and Transformers
+    doi: "10.48550/arXiv.2201.02177"
+    note: "Power et al. (2022) document sudden generalisation with a sharp front in test accuracy — consistent with a sharp continuous transition"
+  - type: supporting
+    note: "Dimensional Criticality at Grokking (arXiv 2026 nlin:AO harvest 2026-05-04) measures intrinsic dimension halving at the grokking point — consistent with a symmetry-breaking order parameter"
   - type: related
-    doi: 10.48550/arXiv.2201.02177
-    note: Power et al. 2022 — original grokking paper establishing the phenomenon
-  - type: related
-    note: >
-      Finite-size scaling in statistical physics: the location and sharpness of a phase
-      transition scales with system size N as t_c ~ N^(1/ν), where ν is the correlation
-      length exponent. If grokking obeys this, t_c should scale predictably with model
-      and dataset size — a direct, falsifiable prediction.
-  - type: contradicting
-    note: >
-      Grokking may be driven by weight norm regularisation dynamics rather than a genuine
-      thermodynamic transition — in which case no universality class applies and the
-      transition is a regularisation artifact, not a phase transition.
+    doi: "10.48550/arXiv.1412.0233"
+    note: "Choromanska et al. (2015) connect DNN loss landscape to SK spin-glass free energy"
+
 proposed_tests:
-  - discipline: machine-learning
-    description: >
-      Train MLPs and Transformers of varying widths W and depths D on modular arithmetic
-      tasks (the canonical grokking benchmark) with the same optimiser and regularisation.
-      Measure t_c (grokking step) as a function of (W, D, dataset size D_s). Fit
-      finite-size scaling ansatz: t_c = f(W^(1/ν), D_s^(1/ν)). Extract ν and compare
-      to 2D Ising (ν = 1), 3D Ising (ν ≈ 0.63), percolation (ν ≈ 0.875).
-  - discipline: statistical-physics
-    description: >
-      Compute the order parameter (generalisation gap) as a function of training step
-      near t_c. Extract the exponent β from the power-law approach to zero. Compute
-      susceptibility (variance of generalisation gap across seeds) and extract γ.
-      Check hyperscaling relation: 2β + γ = dν (where d is the effective dimension).
-  - discipline: machine-learning
-    cross_domain_angle: >
-      Apply renormalisation group coarse-graining to the weight matrix spectrum during
-      training. Track the spectral dimension (effective rank) as a function of training
-      step. A genuine phase transition predicts a diverging correlation length in the
-      spectral domain at t_c — measurable as a peak in spectral susceptibility.
-  - discipline: neuroscience
-    cross_domain_angle: >
-      Test whether hippocampal memory consolidation during slow-wave sleep exhibits
-      analogous scaling: measure the "generalisation onset" (when a new memory becomes
-      applicable to novel contexts) as a function of sleep duration and sleep-stage
-      composition. If both biological and artificial learning share a universality class,
-      the exponents should match.
-bounty: >
-  First team to publish measured grokking critical exponents with error bars and a
-  confirmed universality class assignment gets a citation here and a shout-out in the
-  USDR contributor log.
+  - description: "Measure critical exponents beta and nu via finite-size scaling of hidden-layer intrinsic dimension across dataset sizes and model sizes; compare to 2D Ising values (beta=0.125, nu=1)"
+  - description: "Test for first-order vs. second-order transition: measure variance of intrinsic dimension at the grokking point; divergent variance = second-order, bimodal distribution = first-order"
+  - description: "Repeat across tasks (modular arithmetic, sparse parity, permutation groups); if exponents differ, multiple universality classes exist"
+
+unknowns_addressed:
+  - u-grokking-criticality-universality-class
