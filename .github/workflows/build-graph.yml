@@ -46,10 +46,16 @@ jobs:
       - name: Stage domain pages
         run: git add dashboard/domains/
 
+      - name: Generate static API
+        run: python scripts/generate_api.py
+
+      - name: Stage API files
+        run: git add api/
+
       - name: Commit updated artifacts
         run: |
           git config user.name "USDR Bot"
           git config user.email "bot@usdr.science"
-          git add docs/knowledge_graph.json docs/orphan_unknowns.md docs/bridge_proposals.json dashboard/index.html dashboard/domains/
+          git add docs/knowledge_graph.json docs/orphan_unknowns.md docs/bridge_proposals.json dashboard/index.html dashboard/domains/ api/
           git diff --staged --quiet || git commit -m "bot: auto-rebuild knowledge graph and update dashboard stats [skip ci]"
           git push
