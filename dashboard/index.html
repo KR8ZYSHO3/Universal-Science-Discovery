@@ -833,6 +833,60 @@
       color: var(--muted); background: var(--bg-1);
     }
     .engine-stat-dot { width: 5px; height: 5px; border-radius: 50%; }
+
+    /* ── AI CO-PILOT ─────────────────────────────────────────── */
+    #ai-copilot { scroll-margin-top: calc(var(--nav-h) + 1rem); }
+    .copilot-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.1rem;
+      margin-top: 1.6rem;
+    }
+    @media (max-width: 960px) { .copilot-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .copilot-grid { grid-template-columns: 1fr; } }
+
+    .copilot-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--r-lg); padding: 1.4rem 1.3rem;
+      position: relative; overflow: hidden;
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      transition: transform .2s ease, border-color .2s ease, box-shadow .25s ease;
+      display: flex; flex-direction: column; gap: .6rem;
+    }
+    .copilot-card::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      opacity: 0; transition: opacity .3s;
+      background: radial-gradient(circle at top right, rgba(167,139,250,.07), transparent 60%);
+    }
+    .copilot-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--violet);
+      box-shadow: 0 20px 52px -24px rgba(167,139,250,.28);
+    }
+    .copilot-card:hover::before { opacity: 1; }
+    .copilot-icon { font-size: 1.8rem; line-height: 1; }
+    .copilot-card h3 {
+      font-size: 1rem; font-weight: 700; color: var(--text);
+      margin: 0;
+    }
+    .copilot-card p {
+      font-size: .84rem; color: var(--muted); line-height: 1.55;
+      flex: 1;
+    }
+    .copilot-link {
+      display: inline-flex; align-items: center; gap: .3rem;
+      font-size: .8rem; font-weight: 600;
+      color: var(--violet); text-decoration: none;
+      padding: .28rem .7rem; border-radius: 999px;
+      border: 1px solid rgba(167,139,250,.25);
+      background: rgba(167,139,250,.07);
+      transition: background .2s, border-color .2s;
+      width: fit-content; margin-top: auto;
+    }
+    .copilot-link:hover {
+      background: rgba(167,139,250,.15);
+      border-color: rgba(167,139,250,.5);
+    }
   </style>
 </head>
 <body>
@@ -937,6 +991,7 @@
       <a href="#start">Start here</a>
       <a href="#catalog-search">Search</a>
       <a href="#discovery-engines">Engines</a>
+      <a href="#ai-copilot">AI co-pilot</a>
       <a href="#knowledge-graph">Knowledge graph</a>
       <a href="#workstreams">Workstreams</a>
       <a href="#status">Status</a>
@@ -984,6 +1039,45 @@
         </p>
       </div>
       <div class="engines-grid" id="engines-grid" aria-label="Discovery engines"></div>
+    </section>
+
+    <!-- ════════════════════════════════════════════ AI CO-PILOT -->
+    <section id="ai-copilot">
+      <div>
+        <span class="section-tag">AI Co-pilot</span>
+        <h2 class="section-title">Automated knowledge-graph analysis</h2>
+        <p class="section-desc">
+          Three scripts that continuously mine the knowledge graph — surfacing gaps,
+          proposing novel cross-domain connections, and flagging low-quality entries
+          for human review.
+        </p>
+      </div>
+      <div class="copilot-grid">
+        <div class="copilot-card">
+          <span class="copilot-icon">🔭</span>
+          <h3>Bridge Proposals</h3>
+          <p>Domain pairs with high unknown density and no existing bridge — the most
+          fertile candidates for the next cross-domain discovery.</p>
+          <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/docs/bridge_proposals.json"
+             class="copilot-link" target="_blank" rel="noopener">View proposals ↗</a>
+        </div>
+        <div class="copilot-card">
+          <span class="copilot-icon">🎯</span>
+          <h3>Priority Targets</h3>
+          <p>Unknowns with no hypothesis or bridge edge — the highest-impact contribution
+          opportunities in the graph today.</p>
+          <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/docs/orphan_unknowns.md"
+             class="copilot-link" target="_blank" rel="noopener">View targets ↗</a>
+        </div>
+        <div class="copilot-card">
+          <span class="copilot-icon">✅</span>
+          <h3>Quality Audit</h3>
+          <p>Automated quality checks across all 401 catalog entries — errors, warnings,
+          and improvement opportunities surfaced automatically.</p>
+          <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/docs/quality_report.md"
+             class="copilot-link" target="_blank" rel="noopener">View audit ↗</a>
+        </div>
+      </div>
     </section>
 
     <!-- ════════════════════════════════════════ KNOWLEDGE GRAPH -->
