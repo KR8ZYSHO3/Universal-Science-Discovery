@@ -1,0 +1,87 @@
+id: b-seismology-percolation
+title: >
+  Earthquake fault networks exhibit Gutenberg-Richter power-law magnitude-frequency
+  distributions because fault systems self-organize to the percolation critical
+  point, making seismic hazard a direct application of percolation criticality theory.
+status: proposed
+fields:
+  - seismology
+  - geophysics
+  - statistical-physics
+  - network-theory
+  - complex-systems
+bridge_claim: >
+  The Gutenberg-Richter law (log N = a - b*M, where N is the number of earthquakes
+  exceeding magnitude M and b ≈ 1 universally) is the earthquake community's empirical
+  observation that seismic energy release follows a power law spanning many decades.
+  This is not a property of rock physics alone—it emerges from the network structure
+  of fault systems.
+
+  The percolation connection: a fault network is a disordered network of connected
+  segments. At the percolation threshold (critical fraction of connected segments),
+  the cluster size distribution becomes a power law with exponent τ ≈ 2.05 for 3D
+  percolation. The GR b-value of 1 corresponds to this exponent through the moment-
+  area scaling relationship for ruptures. This identity—that b=1 reflects percolation
+  criticality—was proposed by Sornette & Sammis (1995) and is consistent with:
+
+  1. The universality of b ≈ 1 across tectonic settings, scales, and depths (as
+     percolation has a universal exponent independent of microscopic details).
+  2. b-value deviations in high-stress, highly connected fault zones (above critical
+     percolation) vs. immature faults (below critical) mirror the super/sub-critical
+     percolation cluster statistics.
+  3. Foreshock sequences showing b-value decrease before mainshocks, consistent with
+     approaching the percolation threshold from below.
+
+  The non-trivial implication: fault network geometry—not just rock strength—determines
+  earthquake size statistics. Seismic hazard analysis should incorporate percolation-
+  theoretic measures of fault connectivity, not just slip rate and Gutenberg-Richter
+  parameters independently.
+translation_table:
+  - field_a_term: Fault network (seismology)
+    field_b_term: Random bond lattice (percolation theory)
+  - field_a_term: Earthquake magnitude-frequency (GR law, b-value)
+    field_b_term: Percolation cluster size distribution (power-law exponent τ)
+  - field_a_term: b = 1 universal GR exponent
+    field_b_term: τ ≈ 2.05 percolation critical exponent (via moment-area scaling)
+  - field_a_term: High-stress fault zone (b < 1)
+    field_b_term: Super-critical percolation (spanning cluster exists, large events dominate)
+  - field_a_term: Immature, disconnected fault system (b > 1)
+    field_b_term: Sub-critical percolation (only small clusters, no spanning cluster)
+  - field_a_term: Foreshock b-value decrease before mainshock
+    field_b_term: Correlation length divergence approaching percolation critical point
+related_unknowns:
+  - u-earthquake-nucleation
+  - u-earthquake-swarm-migration
+cross_pollination_opportunities:
+  - >
+    Percolation theory provides a rigorous framework for computing the probability
+    of a "spanning cluster" (system-wide rupture) from fault connectivity maps derived
+    from seismic catalogs. This translates to maximum credible earthquake estimation
+    from network topology rather than paleo-slip rates alone.
+  - >
+    The finite-size scaling theory of percolation predicts how GR statistics should
+    change with the spatial scale of the fault network analyzed. This predicts
+    measurable b-value dependence on catalog completeness and network sampling area—
+    a testable prediction that has not been systematically checked against global catalogs.
+  - >
+    Percolation criticality in other contexts (porous media flow, epidemic spreading)
+    has engineering applications (enhanced oil recovery, vaccination strategy). The
+    same framework applied to fault networks could guide where to measure fault
+    connectivity to improve seismic hazard assessment most efficiently.
+communication_gap: >
+  Seismologists develop Gutenberg-Richter statistics empirically and use them for
+  probabilistic seismic hazard analysis without requiring a physical derivation.
+  Statistical physicists studying percolation rarely have access to seismic catalog
+  data and do not typically investigate geophysical applications. The mathematical
+  connection has been noted in the theoretical seismology literature (Sornette, Main,
+  Turcotte) but has not been adopted into standard seismic hazard practice, partly
+  because the fault connectivity data needed to test the percolation hypothesis at
+  regional scale are not routinely compiled.
+last_reviewed: "2026-05-05"
+references:
+  - doi: "10.1029/95JB01091"
+    note: "Sornette & Sammis (1995) - Complex critical exponents from renormalization group theory of earthquakes; percolation connection"
+  - doi: "10.1029/92JB01381"
+    note: "Main (1992) - Damage mechanics model for power-law statistics in seismicity; percolation-based derivation of b-value"
+  - doi: "10.1007/BF00874612"
+    note: "Turcotte (1992) - Fractals and chaos in geology and geophysics; GR law as fractal percolation"

@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added (2026-05-05 session — content push toward 1,000 entries; 603 total)
+- **4 new domain directories:** `unknowns-catalog/geoscience/` (28 unknowns), `unknowns-catalog/philosophy-of-science/` (20 unknowns), `unknowns-catalog/engineering/` (25 unknowns), `unknowns-catalog/art-and-cognition/` (15 unknowns).
+- **88 new unknowns** spanning: deep Earth water cycle, mantle convection, inner core anisotropy, flood basalt triggers, earthquake nucleation, slow-slip events, supervolcano forecasting, permafrost thaw, ice sheet basal melting, demarcation problem, underdetermination, reproducibility crisis, peer review validity, preregistration, causation inference, turbulent drag reduction, fusion plasma stability, solid-state battery failure, offshore wind fatigue, carbon capture energy, green hydrogen electrolysis, smart grid stability, space debris removal, aesthetic preference, music universals, improvisation neuroscience, flow state, synesthesia, and more.
+- **4 new bridges (41–44):** b-seismology-percolation (GR b=1 ↔ percolation criticality), b-philosophy-underdetermination-quantum (underdetermination ↔ quantum measurement problem), b-music-physics-resonance (Fourier analysis ↔ consonance/octave equivalence), b-engineering-reliability-extreme-value (Weibull/Gumbel ↔ Gompertz mortality ↔ fatigue).
+- **10 new hypotheses:** h-gutenberg-richter-percolation-threshold, h-gompertz-weibull-aging-unification, h-preregistration-field-replication-rate, h-ice-sheet-basal-topography-instability, h-slow-slip-seismic-loading, h-solid-state-battery-pressure-dendrite, h-flood-basalt-ozone-kill-mechanism, h-permafrost-abrupt-thaw-dominates, h-synchrony-prosociality-physiological, h-kessler-cascade-altitude-band.
+- **Knowledge graph rebuilt:** 603 nodes, 628 edges.
+- **Dashboard updated:** 44 bridges, 488 unknowns, 70 hypotheses.
+
 ### Added (2026-05-05 session - final push - Phase 0 target 500+ achieved)
 - **4 new domain directories:** quantum-physics (25), linguistics (25), social-science (25), economics (25).
 - **Gap-filled existing domains:** computer-science (+10), neuroscience (+10), ecology (+8), chemistry (+6).

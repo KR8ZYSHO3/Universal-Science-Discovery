@@ -4,6 +4,7 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 ## Last updated
 
+- 2026-05-05 - **Content push toward 1,000 entries (603 total)**: 4 new domain directories (geoscience/28, philosophy-of-science/20, engineering/25, art-and-cognition/15) + 4 new bridges (b-seismology-percolation #41, b-philosophy-underdetermination-quantum #42, b-music-physics-resonance #43, b-engineering-reliability-extreme-value #44) + 10 new hypotheses. Knowledge graph rebuilt: 603 nodes, 628 edges. Dashboard updated. Validates clean.
 - 2026-05-05 - **Final content push — Phase 0 target of 500+ achieved (502 entries)**: 4 new domain directories (quantum-physics/25, linguistics/25, social-science/25, economics/25) + gap-filled computer-science (+10), neuroscience (+10), ecology (+8), chemistry (+6). 8 new hypotheses, 2 new bridges (b-linguistic-relativity-quantum-basis \#39, b-social-ising-polarisation \#40). Knowledge graph rebuilt: 502 nodes, 601 edges. Dashboard updated. Validates clean.
 - 2026-05-05 — **Bulk content push to 357 entries (Phase 0: 500+ target)**: 6 new domain directories (materials-science, climate-science, astronomy, medicine, cognitive-science) + 20 new mathematics unknowns; 145 new unknowns, 10 new hypotheses, 2 new bridges (b-climate-tipping-percolation, b-materials-consciousness-criticality). Knowledge graph rebuilt: 357 nodes, 582 edges. Dashboard updated. Validates clean.
 - 2026-05-05 — **Content push to 200 entries**: 6 new bridges (31-36), 45 new unknowns (chemistry/neuroscience/ecology directories created), 11 new hypotheses. Knowledge graph rebuilt: 200 nodes, 421 edges. Dashboard updated. Validates clean.
@@ -32,12 +33,12 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 | Type | Count | Directory |
 |------|-------|-----------|
-| Unknowns | 401 | `unknowns-catalog/` |
-| Hypotheses | 60 | `hypotheses/active/` |
-| Bridges | 40 | `cross-domain/` |
+| Unknowns | 488 | `unknowns-catalog/` |
+| Hypotheses | 70 | `hypotheses/active/` |
+| Bridges | 44 | `cross-domain/` |
 | Pre-formal observations | 1 | `phenomenology/` |
-| Knowledge graph nodes | 502 | `docs/knowledge_graph.json` |
-| Knowledge graph edges | 601 | `docs/knowledge_graph.json` |
+| Knowledge graph nodes | 603 | `docs/knowledge_graph.json` |
+| Knowledge graph edges | 628 | `docs/knowledge_graph.json` |
 | Schemas | 4 | `schemas/` (unknown, hypothesis, bridge, phenomenon) |
 
 ### Bridge network (cross-domain connections)
@@ -64,6 +65,10 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 | b-spin-glass-neural-networks | statistical-physics ↔ neuroscience ↔ machine-learning | **established** |
 | b-landauer-information-thermodynamics | thermodynamics ↔ information-theory ↔ computer-science | **established** |
 | b-game-theory-evolution | mathematics ↔ evolutionary-biology ↔ machine-learning | **established** |
+| b-seismology-percolation | seismology ↔ statistical-physics ↔ network-theory | proposed |
+| b-philosophy-underdetermination-quantum | philosophy-of-science ↔ quantum-mechanics ↔ epistemology | proposed |
+| b-music-physics-resonance | acoustics ↔ music-theory ↔ cognitive-neuroscience | **established** |
+| b-engineering-reliability-extreme-value | reliability-engineering ↔ actuarial-science ↔ biology ↔ materials-science | **established** |
 
 ## Current focus
 
