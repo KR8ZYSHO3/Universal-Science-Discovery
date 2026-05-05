@@ -1,0 +1,35 @@
+id: u-dopamine-prediction-error-temporal-credit
+title: "Does dopaminergic prediction error signaling implement temporal-difference learning exactly, and how does it solve the temporal credit assignment problem for rewards separated by minutes?"
+status: open
+priority: high
+disciplines:
+  - neuroscience
+  - computational-neuroscience
+  - reinforcement-learning
+summary: >
+  Schultz, Dayan & Montague (1997, Science) showed that midbrain dopamine neurons
+  fire precisely to unpredicted rewards (prediction error) and shift their response
+  to reward-predicting cues after learning — exactly as predicted by the temporal
+  difference (TD) reinforcement learning algorithm. This is one of the strongest
+  neuroscience-to-computation mappings. However, three deep unknowns remain:
+  (1) Temporal credit assignment: how do dopamine neurons learn to assign credit
+  to stimuli separated from rewards by minutes (e.g., working all morning for a
+  reward at lunch)? TD-learning requires either very long eligibility traces
+  or hierarchical state representations, neither of which has a clear neural
+  implementation; (2) Whether dopamine signals are a true scalar reward prediction
+  error or encode more information (variance, risk, uncertainty) is not resolved —
+  some neurons fire to uncertainty, others to value; (3) The learning rule that
+  updates dopamine neuron weights when they emit a prediction error (how do
+  dopamine neurons themselves learn?) is not known.
+systematic_gaps:
+  - Neural mechanism for temporal credit assignment over minutes-long delays unidentified
+  - Whether dopamine encodes variance (risk) in addition to mean value is contested
+  - How dopamine neurons learn to produce correct prediction errors (meta-learning problem) is unknown
+suggested_hypotheses:
+  - Hippocampal time cells (neurons encoding elapsed time) provide temporal context signals to dopamine neurons via VTA afferents, implementing an effective eligibility trace with timescale set by hippocampal theta oscillation frequency
+related_unknowns:
+  - u-sleep-memory-consolidation-mechanism
+references:
+  - doi: "10.1126/science.275.5306.1593"
+    note: "Schultz, Dayan & Montague (1997) Science - dopamine as prediction error signal"
+last_reviewed: "2026-05-05"

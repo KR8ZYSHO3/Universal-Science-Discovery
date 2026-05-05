@@ -1,0 +1,76 @@
+id: b-synchronization-circadian
+title: "Kuramoto phase locking ↔ circadian entrainment: jet lag as desynchronization crisis"
+status: established
+fields:
+  - nonlinear-dynamics
+  - chronobiology
+  - neuroscience
+  - statistical-physics
+
+bridge_claim: >
+  Kuramoto (1975) showed that a population of N weakly-coupled oscillators with
+  heterogeneous natural frequencies omega_i synchronizes above a critical coupling
+  strength K_c = 2/pi*g(0) (where g is the frequency distribution width), producing
+  a collective phase-locked state described by the order parameter r = |1/N * sum e^{i*theta_j}|.
+  Below K_c, oscillators remain incoherent (r→0); above K_c, r→1 and the
+  population entrains to a common frequency. The suprachiasmatic nucleus (SCN) of
+  the hypothalamus is a physical instantiation of this model: approximately 20,000
+  neurons each running a cell-autonomous circadian oscillator (~24 h period),
+  coupled via VIP neuropeptide signaling. Disrupting VIP coupling produces
+  desynchrony among SCN cells, fragmented locomotor rhythms, and failure to
+  entrain to light-dark cycles — the animal equivalent of permanent jet lag.
+  Jet lag itself maps to a transiently subcritical or phase-shifted Kuramoto state:
+  the external light-dark cycle (Zeitgeber) acts as a common drive forcing
+  re-entrainment at rate proportional to the phase sensitivity function (PRC).
+  Recovery from jet lag is thus described by the Kuramoto model with external forcing,
+  and its slowness arises from the near-marginal coupling in the SCN.
+
+translation_table:
+  - field_a_term: "oscillator natural frequency omega_i"
+    field_b_term: "individual SCN neuron circadian period (~23.5-24.5 h)"
+    note: "Gaussian spread of ~1 h width; sets K_c"
+  - field_a_term: "coupling constant K"
+    field_b_term: "VIP neuropeptide coupling strength"
+    note: "K > K_c required for coherent circadian output"
+  - field_a_term: "Kuramoto order parameter r"
+    field_b_term: "amplitude of circadian behavioral rhythms"
+    note: "r→0 during jet lag / VIP knockout; r→1 in healthy entrainment"
+  - field_a_term: "external forcing (Zeitgeber)"
+    field_b_term: "light-dark cycle via retinohypothalamic tract"
+    note: "Phase shifts the Kuramoto system; PRC determines re-entrainment rate"
+  - field_a_term: "synchronization transition at K_c"
+    field_b_term: "onset of coherent circadian output in developing SCN"
+    note: "SCN coupling strengthens postnatally until K > K_c"
+
+related_unknowns:
+  - u-circadian-kuramoto-jet-lag-dynamics
+  - u-soc-universality-class-brain
+
+related_hypotheses:
+  - h-circadian-synchrony-kuramoto-critical-coupling
+
+cross_pollination_opportunities:
+  - "Predict optimal jet-lag recovery protocols using Kuramoto re-entrainment dynamics and PRC measurements"
+  - "Design chronotherapy schedules for SCN disorders (shift-work syndrome, DSWPD) as Kuramoto phase-resetting problems"
+  - "Use electrical coupling as a backup synchronization channel when VIP signaling is disrupted - test via Kuramoto model with two coupling channels"
+  - "Apply findings to social jet lag (mismatch between biological and social clocks) using population-level Kuramoto models"
+
+communication_gap: >
+  Kuramoto published in the physics literature (Progress of Theoretical Physics, 1975).
+  Circadian biology is dominated by genetics and cell biology journals (Cell, Nature,
+  PNAS neuroscience section). The mathematical mapping was made explicit by Gonze et al.
+  (2005, Biophysical Journal) but remains poorly known among chronobiologists who treat
+  SCN coupling as a biological curiosity rather than a phase-transition phenomenon with
+  universal scaling laws.
+
+references:
+  - doi: "10.1007/BFb0013365"
+    note: "Kuramoto (1975) - original self-entrainment paper, Springer Lecture Notes"
+  - doi: "10.1529/biophysj.104.058388"
+    note: "Gonze et al. (2005) Biophysical Journal - Kuramoto model of SCN synchrony"
+  - doi: "10.1016/j.neuron.2010.09.023"
+    note: "Welsh et al. (2010) Neuron - VIP coupling and SCN desynchrony review"
+  - doi: "10.1038/s41593-019-0419-0"
+    note: "Aton & Herzog (2005) - mechanisms of SCN circadian rhythm coupling"
+
+last_reviewed: "2026-05-05"

@@ -1,0 +1,36 @@
+id: u-random-matrix-theory-neural-spectra
+title: "Do the eigenvalue spectra of neural connectivity matrices follow random matrix theory (Marchenko-Pastur) predictions, and do deviations encode learned structure?"
+status: open
+priority: high
+disciplines:
+  - mathematics
+  - computational-neuroscience
+  - statistical-physics
+summary: >
+  Random Matrix Theory (RMT) predicts that eigenvalue spectra of large random
+  matrices follow universal distributions: the Marchenko-Pastur distribution for
+  covariance matrices, and the Wigner semicircle for symmetric random matrices.
+  Departures from RMT predictions indicate structured, non-random organization.
+  Neuroscience application: the synaptic weight matrix W of a neural network
+  (recurrent cortex, trained deep networks) can be analyzed via its eigenspectrum.
+  RMT has been applied to financial correlation matrices to distinguish market
+  modes from noise — the same approach can separate meaningful connectivity patterns
+  from biological noise in connectomes. Two unknowns: (1) Do the eigenspectra of
+  biological neural networks (C. elegans connectome, mouse cortical connectivity)
+  show departures from Marchenko-Pastur that encode specific computations?
+  (2) In trained deep networks, does the deviation from RMT (specifically the
+  heavy tail of singular value spectra) quantify the amount of "useful structure"
+  learned — a universal learning metric? Martin & Mahoney (2021) proposed this
+  for DNN diagnostics, but biological validation is lacking.
+systematic_gaps:
+  - Eigenspectrum analysis of biological connectomes at single-synapse resolution has not been performed
+  - Whether RMT departures in trained networks predict generalization better than other metrics is not established
+  - The spectral universality class of recurrent neural network dynamics has not been identified
+suggested_hypotheses:
+  - The fraction of eigenvalues exceeding the Marchenko-Pastur upper edge (bulk) in trained DNNs correlates with test accuracy to within 5% across architectures and datasets, providing a trainability metric without labeled test data
+related_unknowns:
+  - u-grokking-phase-transition
+references:
+  - doi: "10.48550/arXiv.2106.10827"
+    note: "Martin & Mahoney (2021) - heavy-tailed self-regularization and RMT in DNNs"
+last_reviewed: "2026-05-05"

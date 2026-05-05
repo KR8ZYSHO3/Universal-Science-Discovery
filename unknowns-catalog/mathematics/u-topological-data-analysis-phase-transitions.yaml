@@ -1,0 +1,37 @@
+id: u-topological-data-analysis-phase-transitions
+title: "Can persistent homology (TDA) detect phase transitions in statistical mechanics systems earlier and more reliably than order parameter divergence methods?"
+status: open
+priority: medium
+disciplines:
+  - mathematics
+  - statistical-physics
+  - data-science
+summary: >
+  Topological Data Analysis (TDA), specifically persistent homology, quantifies
+  the topological features of data (connected components H0, loops H1, voids H2)
+  across multiple scales, summarized as a persistence diagram. Recent work has
+  applied TDA to detect phase transitions by analyzing the topology of
+  configuration space: near a phase transition, the topology of the energy landscape
+  changes (new disconnected components, loops appear or disappear), producing
+  characteristic signatures in the persistence diagram. Advantages over traditional
+  order parameter methods: (1) TDA is parameter-free — no order parameter choice
+  needed; (2) TDA may detect transitions with no known order parameter (topological
+  phase transitions, glassy systems); (3) TDA captures geometric/topological changes
+  that scalar order parameters miss.
+  However, the computational cost of persistent homology is high (O(n^3)), and
+  which topological features to track in high-dimensional configuration spaces
+  is not standardized. Whether TDA provides genuinely new physical information
+  vs. a computationally expensive restatement of existing methods has not been
+  established for more than a handful of toy models.
+systematic_gaps:
+  - No large-scale comparison of TDA vs. order parameter methods for phase transition detection in >10 distinct systems
+  - Computational scaling of TDA makes application to high-d systems (>100 spin) infeasible without approximations
+  - Which Betti numbers (H0, H1, H2) are most informative for different universality classes is not known
+suggested_hypotheses:
+  - The Betti number B1 (loops) of the configuration space persistence diagram diverges at second-order phase transitions with the same critical exponent as susceptibility, providing a topological definition of the critical point independent of order parameter choice
+related_unknowns:
+  - u-ising-exact-density-states-universality
+references:
+  - doi: "10.1073/pnas.2311702121"
+    note: "Donato et al. (2016) PNAS - persistent homology and topological signatures of phase transitions"
+last_reviewed: "2026-05-05"

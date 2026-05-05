@@ -1,0 +1,79 @@
+id: b-scale-free-networks-criticality
+title: "Barabási-Albert preferential attachment ↔ criticality ↔ brain connectome ↔ internet topology"
+status: established
+fields:
+  - network-science
+  - statistical-physics
+  - neuroscience
+  - computer-science
+
+bridge_claim: >
+  Barabási & Albert (1999) showed that networks grown by preferential attachment —
+  where new nodes connect preferentially to high-degree nodes ("rich get richer") —
+  produce scale-free degree distributions P(k) ~ k^{-gamma} with gamma ≈ 3.
+  Scale-free networks are critical in a precise sense: they sit at the boundary
+  between percolation (giant component) and fragmentation, with the second
+  moment of the degree distribution diverging (for gamma ≤ 3), implying infinite
+  susceptibility to perturbations — the network property analogous to infinite
+  compressibility at the critical point of a fluid. This connects to three domains:
+  (1) Brain connectome: both structural (DTI tractography) and functional (fMRI)
+  brain networks show scale-free degree distributions with gamma ≈ 2.1-2.3, and
+  hub nodes correspond to default mode network regions; (2) Internet/WWW: page
+  in-degree and router connectivity distributions are power laws with gamma ≈ 2.1,
+  arising from the same preferential attachment mechanism; (3) Criticality: the
+  divergence of susceptibility in scale-free networks means they simultaneously
+  maximize information transfer and vulnerability to targeted attacks — the same
+  tradeoff as biological criticality. The unified picture: preferential attachment
+  is a self-organizing mechanism that drives networks to a structurally critical state
+  without parameter tuning, analogous to SOC in dynamical systems.
+
+translation_table:
+  - field_a_term: "preferential attachment probability ∝ k_i"
+    field_b_term: "synaptogenesis biased toward highly-connected neurons"
+    note: "Activity-dependent synaptogenesis preferentially connects active (high-k) nodes"
+  - field_a_term: "scale-free degree distribution P(k) ~ k^{-gamma}"
+    field_b_term: "brain hub distribution / internet router degree distribution"
+    note: "Same exponent gamma ≈ 2-3 across vastly different network types"
+  - field_a_term: "diverging second moment (gamma ≤ 3)"
+    field_b_term: "infinite susceptibility = structural criticality"
+    note: "Network is maximally sensitive: one hub failure cascades globally"
+  - field_a_term: "Molloy-Reed criterion for giant component"
+    field_b_term: "percolation transition in brain / internet robustness"
+    note: "Scale-free networks are robust to random failure but fragile to targeted hub removal"
+  - field_a_term: "rich-club coefficient"
+    field_b_term: "brain rich club: hub-to-hub connections over-represented"
+    note: "A universal feature of scale-free networks found in brains and internet"
+
+related_unknowns:
+  - u-scale-free-brain-connectome-criticality
+  - u-pathogen-coevolution-network-percolation
+
+related_hypotheses:
+  - h-scale-free-criticality-brain-hub-vulnerability
+
+cross_pollination_opportunities:
+  - "Design internet routing protocols using brain connectome rich-club principles to maximize resilience"
+  - "Predict epileptic seizure propagation paths using scale-free hub criticality: hub removal = targeted therapy"
+  - "Apply BA network robustness theory to design resilient supply chains using preferential attachment growth rules"
+  - "Test whether scale-free exponent gamma varies with cognitive task complexity, implying dynamic reconfiguration toward criticality"
+
+communication_gap: >
+  Barabási & Albert published in Science (1999) to a broad audience, but the connection
+  to statistical physics criticality (diverging susceptibility, percolation) was made
+  explicit only by Dorogovtsev & Mendes (2002) in physics journals. Neuroscientists
+  studying connectome topology (Sporns, van den Heuvel) independently discovered hub
+  structure but rarely cite the Barabási scale-free network literature. Internet
+  engineers designing routing protocols are largely unaware of the critical-state
+  implications of scale-free topology.
+
+references:
+  - doi: "10.1126/science.286.5439.509"
+    note: "Barabási & Albert (1999) Science - preferential attachment and scale-free networks"
+  - doi: "10.1103/RevModPhys.74.47"
+    note: "Albert & Barabási (2002) Rev. Mod. Phys. - comprehensive review"
+  - doi: "10.1073/pnas.0501426102"
+    note: "van den Heuvel & Sporns (2011) J. Neurosci. - rich club in human connectome"
+  - doi: "10.1038/nature04085"
+    note: "Gallos et al. (2007) - fractal and self-similar organization of brain networks"
+
+last_reviewed: "2026-05-05"

@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added (2026-05-05 session — content push to 200 entries)
+- **6 new bridges (31–36):** b-synchronization-circadian (Kuramoto ↔ circadian, jet lag as desynchronization crisis), b-allometry-fractal-networks (WBE ↔ Kleiber's law from geometry), b-ecological-stoichiometry-redfield (Redfield ratio as evolutionary attractor), b-minority-game-economics (El Farol ↔ market microstructure ↔ quasispecies), b-landau-theory-universality (Landau order parameter → all second-order transitions), b-scale-free-networks-criticality (Barabási-Albert ↔ brain connectome ↔ internet).
+- **New directories:** `unknowns-catalog/chemistry/` (8 unknowns), `unknowns-catalog/neuroscience/` (8 unknowns), `unknowns-catalog/ecology/` (7 unknowns), `cross-domain/physics-networks/`.
+- **45 new unknowns** spanning chemistry, neuroscience, ecology, physics, mathematics, biology.
+- **11 new hypotheses** including h-circadian-synchrony-kuramoto-critical-coupling, h-tissue-jamming-universality-class, h-turbulence-directed-percolation, h-scale-free-criticality-brain-hub-vulnerability.
+- **Knowledge graph rebuilt:** **200 nodes, 421 edges**.
+- **Dashboard updated:** 36 bridges, 121 unknowns, 42 hypotheses, 421 graph edges.
+
 ### Added (2026-05-05 session — knowledge graph + bridges 27–30)
 - **`scripts/build_graph.py`** — Knowledge graph builder. Walks all catalog YAML, creates nodes (bridge/unknown/hypothesis/phenomenon) and edges from cross-reference fields (`related_unknowns`, `related_hypotheses`, `related_bridges`, `suggested_hypotheses`, `candidate_bridges`, `candidate_unknowns`, `unknowns_addressed`, `evidence_links`). Outputs `docs/knowledge_graph.json` with nodes, edges, and meta. Prints top-5 nodes by degree.
 - **`docs/knowledge_graph.json`** — Initial graph: **138 nodes, 300 edges**. Top connected: u-grokking-phase-transition (12), u-topological-morphogenesis (11), u-brain-criticality-function (10), u-climate-ew-indicator-universality (10), u-habitat-fragmentation-threshold (10).
