@@ -25,6 +25,8 @@ new bridges while reading any paper.
 | [b-kibble-zurek-morphogenesis](cosmology-biology/b-kibble-zurek-morphogenesis.yaml) | cosmology ↔ developmental-biology | proposed | u-kibble-zurek-embryo, u-topological-morphogenesis | h-kibble-zurek-polarity-scaling |
 | [b-renormalization-biological-scaling](mathematics-biology/b-renormalization-biological-scaling.yaml) | mathematical-physics ↔ comparative-physiology | proposed | u-renormalization-allometric, u-kleiber-pulsatile-waves | h-allometric-rg-fixed-point, h-kleiber-wave-physics |
 | [b-percolation-epidemiology](physics-epidemiology/b-percolation-epidemiology.yaml) | statistical-physics ↔ epidemiology | proposed | u-percolation-epidemic-fss | h-percolation-outbreak-threshold |
+| [b-habitat-percolation-ecology](physics-ecology/b-habitat-percolation-ecology.yaml) | statistical-physics ↔ conservation-ecology | proposed | u-habitat-fragmentation-threshold | h-habitat-percolation-critical-density |
+| [b-error-threshold-information](information-evolution/b-error-threshold-information.yaml) | information-theory ↔ molecular-evolution | proposed | u-error-threshold-genome-size | h-viral-proofreading-shannon-optimality |
 
 ---
 
@@ -41,6 +43,8 @@ new bridges while reading any paper.
 | `quantum-biology/` | Radical-pair compass ↔ quantum Fisher-information sensing |
 | `cosmology-biology/` | Kibble-Zurek mechanism ↔ embryonic symmetry breaking |
 | `physics-epidemiology/` | Network percolation ↔ epidemic threshold + finite-size scaling |
+| `physics-ecology/` | Percolation ↔ habitat fragmentation threshold (SLOSS resolution) |
+| `information-evolution/` | Shannon channel capacity ↔ Eigen error threshold (Darwin meets Shannon) |
 
 ---
 

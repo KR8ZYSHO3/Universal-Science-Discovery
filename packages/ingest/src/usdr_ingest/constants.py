@@ -1,6 +1,6 @@
 """Shared constants (User-Agent, defaults) — polite, project-identified requests."""
 
-DEFAULT_ARXIV_OAI_BASE = "https://export.arxiv.org/oai"
+DEFAULT_ARXIV_OAI_BASE = "https://export.arxiv.org/oai2"
 
 # Identify the project; metadata-only harvest per LEGAL.md / docs/DATA_PLAN.md
 USER_AGENT = (

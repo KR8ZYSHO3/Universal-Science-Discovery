@@ -1,0 +1,115 @@
+id: b-error-threshold-information
+title: >
+  Eigen's quasispecies error threshold in molecular evolution and Shannon's
+  channel capacity theorem in information theory are the same mathematical
+  result — the mutation rate at which genetic information is irreversibly lost
+  is the Shannon capacity of the replication channel.
+status: proposed
+fields:
+  - information-theory
+  - molecular-evolution
+  - statistical-physics
+  - virology
+bridge_claim: >
+  Manfred Eigen's quasispecies theory (1971) shows that a replicating population
+  of sequences (RNA, DNA, or proteins) undergoes a phase transition at a critical
+  mutation rate mu_c: below mu_c, a "master sequence" (the fittest genotype) is
+  maintained by selection; above mu_c, the population "melts" into a random
+  distribution and all genetic information is lost. This is the error threshold.
+
+  Claude Shannon's noisy channel coding theorem (1948) shows that reliable
+  information transmission through a noisy channel is possible up to a critical
+  information rate R = C (channel capacity); above C, information is irreversibly
+  lost to noise. This is the channel capacity.
+
+  These two results are the same theorem. The replication fidelity (1 - mu) is
+  the channel reliability; the selective advantage of the master sequence
+  corresponds to the redundancy of the code; and the error threshold mu_c is
+  exactly the Shannon capacity C of the biological replication channel.
+
+  The formal equivalence was established by Eigen and Schuster (1979) and made
+  mathematically precise by Domingo and Holland (1997). Despite this, the two
+  fields have never systematically cross-pollinated their toolkits:
+  - Information theorists have optimal codes (Reed-Solomon, LDPC, polar codes)
+    that approach channel capacity. Biology has found its own near-capacity codes
+    (the genetic code, DNA repair, proofreading) independently.
+  - Virologists measure mutation rates empirically without systematic use of
+    Shannon's bounds to predict the minimum viable genome size or optimal mutation
+    rate for evolvability.
+  - The error-correction mechanisms evolved by RNA viruses (e.g., coronavirus
+    proofreading exonuclease nsp14) are information-theoretic adaptations — but
+    virology and coding theory have never collaborated to analyse them.
+translation_table:
+  - field_a_term: Shannon channel capacity C
+    field_b_term: Eigen error threshold mu_c (maximum tolerable mutation rate before information collapse)
+  - field_a_term: binary symmetric channel noise probability p
+    field_b_term: per-base mutation rate mu per replication cycle
+  - field_a_term: information rate R (bits per channel use)
+    field_b_term: sequence-specific information content of the master genotype (Eigen value)
+  - field_a_term: error-correcting code (redundancy added to protect signal)
+    field_b_term: DNA repair, proofreading, error correction (redundancy evolved to protect genome)
+  - field_a_term: Shannon entropy H(p) = -p*log(p) - (1-p)*log(1-p)
+    field_b_term: sequence entropy of the quasispecies distribution above error threshold
+  - field_a_term: capacity-achieving code (polar code, LDPC)
+    field_b_term: error-threshold-optimising genome (approaches mu_c from below to maximise evolvability)
+  - field_a_term: block length N (code length)
+    field_b_term: genome length L (number of base pairs)
+related_unknowns:
+  - u-error-threshold-genome-size
+related_hypotheses:
+  - h-viral-proofreading-shannon-optimality
+cross_pollination_opportunities:
+  - >
+    RNA viruses operate near the error threshold by design — high mutation rates
+    maximise evolvability (vaccine escape, drug resistance) while staying below the
+    error threshold. Information theory predicts the exact mutation rate that maximises
+    evolvable sequence space while maintaining viability: it is the Shannon capacity
+    of the replication channel. Antivirals that push mu above mu_c (lethal mutagenesis
+    — e.g., favipiravir, ribavirin) are information-theoretic capacity erasure. The
+    Shannon framework gives a rigorous bound on minimum dose for guaranteed
+    error-threshold crossing — something empirical virology cannot provide.
+  - >
+    Modern error-correcting codes (LDPC, polar codes) approach the Shannon capacity
+    with decreasing block length as code design improves. The genetic code approaches
+    the Eigen error threshold with genome length (larger genomes can tolerate lower
+    mutation rates). Importing finite-length code design theory into genome evolution
+    would predict optimal genome size as a function of mutation rate — resolving the
+    mystery of why RNA viruses have genome sizes clustered around 10 kb.
+  - >
+    The coronavirus proofreading exonuclease (nsp14-nsp10 complex) reduces SARS-CoV-2
+    mutation rate ~10-100x relative to other RNA viruses, enabling a genome ~3x larger
+    (30 kb vs 10 kb). This is a direct information-theoretic trade-off: higher fidelity
+    (larger channel capacity) allows larger information content (longer genome). The
+    quantitative trade-off curve predicted by Shannon should match the observed
+    genome-size vs mutation-rate distribution across RNA virus families.
+  - >
+    Lethal mutagenesis (deliberate mutation rate elevation above mu_c) is an antiviral
+    strategy. Shannon's framework predicts the exact capacity threshold that must be
+    crossed for guaranteed information erasure — giving a rigorous minimum effective
+    dose calculation for favipiravir, ribavirin, and EIDD-2801 (molnupiravir). This
+    is a direct drug-development application of coding theory.
+communication_gap: >
+  Eigen himself noted the Shannon analogy in his Nobel lecture (1992), and several
+  papers have formalised the equivalence. Despite this, virology journals do not use
+  information-theoretic notation, and coding theorists are unaware that RNA viruses
+  have been running near-capacity replication for billions of years — possibly
+  solving problems (near-threshold operation, genome size optimisation) that
+  information theory only recently addressed with polar codes and finite-length
+  analysis. The language barrier is severe: "quasispecies", "error catastrophe", and
+  "fitness landscape" map exactly to "codeword", "channel erasure", and "code
+  distance" — but the terminologies have never been bridged in a form accessible
+  to practitioners in both fields.
+last_reviewed: "2026-05-04"
+references:
+  - doi: "10.1007/BF01402390"
+    note: Eigen (1971) — original quasispecies theory and error threshold
+  - doi: "10.1007/978-3-642-67247-7"
+    note: Eigen & Schuster (1979) — The Hypercycle; explicit Shannon analogy section
+  - doi: "10.1006/jtbi.1997.0536"
+    note: Domingo & Holland (1997) — formal equivalence of error threshold and channel capacity
+  - doi: "10.1103/PhysRevLett.86.5819"
+    note: Wilke et al. (2001) — quasispecies on fitness landscapes; phase transition confirmed
+  - doi: "10.1038/nature09149"
+    note: Denison et al. (2011) — coronavirus nsp14 proofreading exonuclease; information-theoretic function
+  - arxiv: "0901.2137"
+    note: Arikan (2009) — polar codes achieve Shannon capacity; the engineering analog of biological proofreading
