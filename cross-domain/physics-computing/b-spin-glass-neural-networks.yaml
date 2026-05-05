@@ -1,0 +1,72 @@
+id: b-spin-glass-neural-networks
+title: "Spin-glass statistical mechanics ↔ associative memory capacity and phase transitions in neural networks"
+status: established
+fields:
+  - statistical-physics
+  - neuroscience
+  - machine-learning
+
+bridge_claim: >
+  The Hopfield (1982) model of associative memory is mathematically identical to the
+  Sherrington-Kirkpatrick spin glass: neuron states map to spins, synaptic weights to
+  random exchange couplings, and stored memories to planted low-energy states.  The
+  memory capacity alpha_c = p/N = 0.138 (patterns per neuron) is derived exactly from
+  the replica method developed for spin glasses (Amit, Gutfreund & Sompolinsky 1985),
+  with no free parameters.  Above alpha_c the network enters a spin-glass phase with
+  exponentially many spurious memory attractors — catastrophic confusion rather than
+  graceful degradation.  The same replica machinery governs the loss landscape of deep
+  neural networks (Choromanska et al. 2015) and predicts when gradient descent will
+  find good minima vs get trapped in glass-like local optima.
+
+translation_table:
+  - field_a_term: "spin sigma_i in {-1, +1}"
+    field_b_term: "neuron state s_i (firing / silent)"
+    note: "Binary units in both models"
+  - field_a_term: "random exchange coupling J_ij"
+    field_b_term: "Hebbian synaptic weight W_ij = (1/N) * sum_mu xi_i^mu * xi_j^mu"
+    note: "Quenched disorder from stored patterns"
+  - field_a_term: "spin-glass transition temperature T_g"
+    field_b_term: "capacity threshold alpha_c = 0.138"
+    note: "Phase boundary between ordered (retrieval) and glassy (confused) phases"
+  - field_a_term: "energy E = -1/2 sum_ij J_ij s_i s_j"
+    field_b_term: "Hopfield energy E = -1/2 sum_ij W_ij s_i s_j"
+    note: "Identical functional form"
+  - field_a_term: "metastable spin-glass state"
+    field_b_term: "spurious memory (confabulation)"
+    note: "Wrong-but-stable attractors below the glass transition"
+  - field_a_term: "replica symmetry breaking (Parisi 1979)"
+    field_b_term: "hierarchical memory organisation"
+    note: "RSB predicts ultrametric structure of memory space"
+
+related_unknowns:
+  - u-hopfield-capacity-cortex
+
+related_hypotheses:
+  - h-hopfield-alzheimers-glass-transition
+
+cross_pollination_opportunities:
+  - "Use replica theory to predict when Alzheimer's synapse loss pushes CA3 past alpha_c"
+  - "Apply spin-glass mean-field theory to predict deep neural network trainability phase diagrams"
+  - "Design memory-augmented networks that stay sub-critical by enforcing alpha << alpha_c"
+
+communication_gap: >
+  Hopfield acknowledged the connection to spin glasses in his 1982 paper, but the
+  exact capacity calculation required the full machinery of replica symmetry breaking
+  developed by Parisi for spin glasses — a result not published until 1979, and not
+  fully understood until the mid-1980s.  The ML community largely rediscovered this
+  independently through the deep learning loss-landscape literature of 2014-2016,
+  without initially connecting it to the Parisi replica solution.
+
+references:
+  - doi: "10.1073/pnas.79.8.2554"
+    note: "Hopfield (1982) — original associative memory model"
+  - doi: "10.1103/PhysRevLett.55.1530"
+    note: "Amit, Gutfreund & Sompolinsky (1985) — exact capacity from replica method"
+  - doi: "10.1103/PhysRevLett.43.1754"
+    note: "Parisi (1979) — replica symmetry breaking solution"
+  - arxiv: "1412.0233"
+    note: "Choromanska et al. (2015) — deep network loss landscape as spin glass"
+  - arxiv: "2008.02217"
+    note: "Ramsauer et al. (2020) — modern Hopfield networks, capacity ~ N^2"
+
+last_reviewed: "2026-05-05"
