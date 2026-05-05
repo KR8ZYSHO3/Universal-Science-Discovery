@@ -1,0 +1,107 @@
+id: b-quantum-error-correction-topology
+title: >
+  Topological quantum error-correcting codes (Kitaev's toric code) are physically
+  realized as Z2 lattice gauge theories whose ground states are topological phases
+  of matter — bridging quantum information theory, condensed-matter physics, and
+  high-energy gauge theory via the shared language of anyons, topological order,
+  and ground-state degeneracy on non-trivial manifolds.
+status: established
+fields:
+  - quantum-information
+  - condensed-matter-physics
+  - topological-field-theory
+  - quantum-computing
+bridge_claim: >
+  Kitaev's toric code (2003) is simultaneously:
+  (A) A quantum error-correcting code with macroscopic code distance, where logical
+      qubits are encoded in global topological degrees of freedom immune to local
+      errors;
+  (B) A Z2 lattice gauge theory (the simplest deconfined gauge theory in 2+1D),
+      where the Hamiltonian is the sum of plaquette and vertex stabilizers;
+  (C) A topological phase of matter (the Z2 topologically ordered phase, also
+      called the toric code phase) with anyonic excitations — e-type and m-type
+      anyons that are mutual semions.
+
+  These three identities are not analogies — they are the same mathematical object
+  viewed from three disciplines:
+  - Quantum information: the toric code encodes 2 logical qubits per handle of the
+    torus with distance L (scales with system size). Errors are local, logical
+    operations require spanning the torus.
+  - Condensed matter: the ground state has topological order detected by topological
+    entanglement entropy (gamma = ln 2 for the toric code phase). Anyon excitations
+    have fractional statistics — exchanging two e-anyons accumulates phase pi.
+  - Gauge theory: the Hamiltonian is the sum of Z2 gauge-invariant operators.
+    Gauge charges (e-anyons) and vortices (m-anyons) are deconfined in the
+    topological phase and confined in the trivial phase — a quantum phase transition
+    in the Z2 gauge theory.
+
+  The bridge has direct engineering consequences: physical realizations of topological
+  phases (spin liquids, fractional quantum Hall states, Majorana-based platforms)
+  are simultaneously hardware realizations of topological quantum codes. Google's
+  surface code experiments (2023) demonstrated this unity explicitly.
+
+  Extension: the Haah cubic code generalizes this to a 3D fracton topological
+  order with no known classical analogue, connecting quantum error correction to
+  a new class of topological phases without parallels in traditional condensed matter.
+translation_table:
+  - field_a_term: logical qubit (encoded in toric code)
+    field_b_term: ground state degeneracy of topological phase (depends on genus of manifold)
+  - field_a_term: code distance (errors required to cause logical error)
+    field_b_term: topological protection (local perturbations cannot change topological invariant)
+  - field_a_term: stabilizer generators (plaquette and vertex operators)
+    field_b_term: Z2 gauge-invariant operators (magnetic and electric flux)
+  - field_a_term: "anyon e (code error: flipped vertex stabilizer)"
+    field_b_term: gauge charge (electric charge in Z2 gauge theory)
+  - field_a_term: "anyon m (code error: flipped plaquette stabilizer)"
+    field_b_term: gauge vortex (magnetic flux in Z2 gauge theory)
+  - field_a_term: error correction (moving anyons back to boundary and annihilating)
+    field_b_term: confinement transition (anyons become confined at phase boundary)
+  - field_a_term: "threshold error rate (below which QEC succeeds asymptotically)"
+    field_b_term: "phase boundary of Z2 gauge theory (deconfined/topological vs. trivial)"
+related_unknowns:
+  - u-topological-qec-physical-realization
+related_hypotheses:
+  - h-topological-phase-qec-threshold-correspondence
+cross_pollination_opportunities:
+  - >
+    Physical realization survey: which condensed-matter systems are in the toric-code
+    topological phase? Candidates include Z2 quantum spin liquids (e.g. alpha-RuCl3,
+    H3LiIr2O6), Majorana-based platforms (InAs/Al nanowires), and fractional quantum
+    Hall states at nu=5/2. Each is simultaneously a quantum error-correcting code.
+    Measuring topological entanglement entropy confirms the code structure.
+  - >
+    Error threshold as phase transition: the toric code threshold error rate (~11%
+    for depolarizing noise) corresponds exactly to the paramagnetic-to-ordered phase
+    transition in the random-bond Ising model. This statistical mechanics mapping
+    allows Monte Carlo computation of thresholds for arbitrary noise models.
+  - >
+    Fracton topological order (Haah code, X-cube model): these 3D generalizations
+    have no string operators — excitations are immobile except in groups. They
+    represent a new class of matter beyond the topological phase classification,
+    with potential for even higher code distances. No physical realization is known.
+  - >
+    Holographic error correction (Almheiri-Dong-Harlow, 2015): the AdS/CFT bulk-boundary
+    correspondence is a quantum error-correcting code where bulk operators are encoded
+    in boundary CFT degrees of freedom. This connects topological QEC to quantum gravity.
+communication_gap: >
+  Quantum error correction research lives primarily in quantum information/computing
+  conferences (QIP, IEEE QW). Topological condensed matter research lives in
+  physical review journals (PRB, PRL, Nature Physics). Gauge theory lives in
+  high-energy theory (JHEP, PRD). Despite the mathematical identity of these
+  three perspectives, cross-citation is limited. Experimentalists building
+  topological qubits (Google, Microsoft, IBM) rarely cite the condensed-matter
+  topological order literature from the same year, and vice versa.
+last_reviewed: "2026-05-05"
+references:
+  - arxiv: "quant-ph/0303004"
+    note: Kitaev (2003) - fault-tolerant quantum computation by anyons; original toric code paper
+  - doi: "10.1103/PhysRevLett.96.110405"
+    note: Levin & Wen (2006) - topological entanglement entropy
+  - doi: "10.1103/PhysRevLett.96.110404"
+    note: Kitaev & Preskill (2006) - topological entanglement entropy
+  - arxiv: "1207.6823"
+    note: Haah (2011) - cubic code; fracton topological order
+  - doi: "10.1038/s41586-023-06927-2"
+    note: Google Quantum AI (2023) - suppressing quantum errors by scaling surface code logical qubits
+  - arxiv: "1411.7041"
+    note: Almheiri, Dong, Harlow (2015) - bulk locality and quantum error correction in AdS/CFT

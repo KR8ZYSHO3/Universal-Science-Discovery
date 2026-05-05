@@ -1,0 +1,97 @@
+id: b-maximum-entropy-ecology
+title: >
+  Jaynes's maximum-entropy (MaxEnt) principle from statistical mechanics — applied
+  with macroecological state variables as constraints — predicts species abundance
+  distributions, species-area relationships, and metabolic scaling in ecological
+  communities with no free parameters, demonstrating that biodiversity patterns
+  emerge from information-theoretic constraints rather than species-specific biology.
+status: proposed
+fields:
+  - statistical-mechanics
+  - macroecology
+  - information-theory
+  - biodiversity-science
+bridge_claim: >
+  Jaynes (1957) showed that the Boltzmann-Gibbs distribution is the unique
+  probability distribution that maximizes Shannon entropy subject to known
+  macroscopic constraints (e.g. fixed mean energy). Harte et al. (2008, 2011)
+  applied this to ecology: given the constraints of total species richness S,
+  total abundance N, and total metabolic rate E in a community, the MaxEnt
+  distribution over species abundances and body sizes is uniquely determined.
+  This is the Maximum Entropy Theory of Ecology (METE).
+
+  METE predicts (with zero free parameters beyond S, N, E):
+  1. Species abundance distribution (SAD): approximately log-series, matching
+     Preston's canonical log-normal and Fisher's log-series across hundreds of
+     datasets.
+  2. Species-area relationship (SAR): power law with exponent z derived from
+     MaxEnt, matching empirical z ~ 0.1–0.5.
+  3. Individual-size distribution: power law in body mass, matching empirical
+     patterns in forest, grassland, and stream communities.
+  4. Abundance-body size relationship: negative correlation across species,
+     matching Damuth's law (abundance ∝ mass^(-3/4)).
+
+  The bridge is that ecological patterns — which ecologists have debated
+  mechanistically for decades (niche theory, neutral theory, metabolic theory)
+  — may be statistical consequences of information-theoretic constraints,
+  just as the Maxwell-Boltzmann speed distribution is a consequence of energy
+  conservation, not of detailed molecular interactions.
+
+  Where METE fails (non-equilibrium communities, invaded systems, strong
+  environmental gradients) indicates where specific ecological mechanisms
+  matter beyond the MaxEnt baseline.
+translation_table:
+  - field_a_term: Boltzmann distribution (maximizes entropy at fixed mean energy)
+    field_b_term: log-series species abundance distribution (maximizes entropy at fixed N, S)
+  - field_a_term: macroscopic constraint (mean energy <E>)
+    field_b_term: macroecological state variable (N, S, E — abundance, richness, metabolic rate)
+  - field_a_term: partition function Z (Boltzmann)
+    field_b_term: Lagrange multiplier structure in METE (lambda_1, lambda_2)
+  - field_a_term: equation of state (thermodynamic identity)
+    field_b_term: METE's constraint equations linking S, N, E to SAD shape
+  - field_a_term: deviation from MaxEnt = non-equilibrium / additional information
+    field_b_term: deviation from METE prediction = ecological mechanism (invasions, disturbance)
+  - field_a_term: microstate (energy distribution over molecules)
+    field_b_term: abundance distribution over individuals across species
+related_unknowns:
+  - u-maxent-ecology-failure-modes
+related_hypotheses:
+  - h-mete-non-equilibrium-deviations
+cross_pollination_opportunities:
+  - >
+    METE as null model: any study reporting a species abundance distribution or
+    species-area relationship should compare against the zero-parameter METE
+    prediction. Deviations from METE, rather than the raw pattern, are the
+    informative signal about ecological mechanisms. This reframes the purpose
+    of macroecological pattern-fitting entirely.
+  - >
+    Extension to non-equilibrium ecology: maximum entropy production (MEP)
+    principle applied to open ecosystems with energy throughput. Predicts
+    how productivity constraints modify the METE predictions and when
+    metabolic steady-state assumptions break down.
+  - >
+    Connection to neutral theory (Hubbell): METE and neutral theory both
+    predict approximately log-series SADs. Distinguishing them requires
+    spatial predictions (SAR) where METE and neutral theory diverge.
+    This provides a testable discriminant between information-theoretic
+    and demographic mechanisms.
+communication_gap: >
+  Macroecology has been dominated by mechanistic debates (niche vs. neutral theory)
+  that make species-specific assumptions. Jaynes's MaxEnt formalism is standard
+  in physics and machine learning but largely unfamiliar to ecologists. Harte's
+  METE group (UC Berkeley) has applied it rigorously, but adoption in mainstream
+  ecology journals is slow because the information-theoretic framing differs
+  fundamentally from the mechanistic tradition. Physicists who know MaxEnt
+  rarely study ecology; ecologists rarely read Jaynes.
+last_reviewed: "2026-05-05"
+references:
+  - doi: "10.1103/PhysRev.106.620"
+    note: Jaynes (1957) - maximum entropy and statistical mechanics
+  - doi: "10.1111/j.1461-0248.2008.01201.x"
+    note: Harte et al. (2008) - maximum entropy and the state-variable approach to macroecology
+  - doi: "10.1111/j.1461-0248.2009.01309.x"
+    note: Harte et al. (2009) - METE predictions of species abundance distributions
+  - url: https://global.oup.com/academic/product/maximum-entropy-and-ecology-9780199593415
+    note: Harte (2011) - Maximum Entropy and Ecology (Oxford University Press)
+  - doi: "10.1126/science.284.5414.550"
+    note: Hubbell (2001) - Neutral theory of biodiversity (comparison baseline)

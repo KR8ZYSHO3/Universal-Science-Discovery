@@ -9,6 +9,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added (2026-05-05 session — knowledge graph + bridges 27–30)
+- **`scripts/build_graph.py`** — Knowledge graph builder. Walks all catalog YAML, creates nodes (bridge/unknown/hypothesis/phenomenon) and edges from cross-reference fields (`related_unknowns`, `related_hypotheses`, `related_bridges`, `suggested_hypotheses`, `candidate_bridges`, `candidate_unknowns`, `unknowns_addressed`, `evidence_links`). Outputs `docs/knowledge_graph.json` with nodes, edges, and meta. Prints top-5 nodes by degree.
+- **`docs/knowledge_graph.json`** — Initial graph: **138 nodes, 300 edges**. Top connected: u-grokking-phase-transition (12), u-topological-morphogenesis (11), u-brain-criticality-function (10), u-climate-ew-indicator-universality (10), u-habitat-fragmentation-threshold (10).
+- **Bridge 27 — `cross-domain/physics-information/b-entropy-arrow-of-time.yaml`** — Thermodynamic entropy (Boltzmann) ↔ information erasure (Landauer 1961, k_BT ln 2 per bit) ↔ cosmological arrow of time (Penrose Weyl curvature hypothesis). Resolves Maxwell's demon via Szilard-Landauer argument. References: Berut et al. 2012 (Nature, experimental Landauer test).
+- **Bridge 28 — `cross-domain/physics-neuroscience/b-stochastic-resonance.yaml`** — Stochastic resonance in bistable physical systems ↔ noise-enhanced detection in crayfish/cricket mechanoreceptors, mammalian hair cells, and human tactile perception. Status: **established**. Therapeutic implications for neuropathy and hearing aids.
+- **Bridge 29 — `cross-domain/physics-ecology/b-maximum-entropy-ecology.yaml`** — Jaynes MaxEnt (1957) ↔ Maximum Entropy Theory of Ecology (Harte et al. 2008, METE). Zero-free-parameter predictions of species abundance distributions, species-area relationships, and body-size distributions from S, N, E state variables.
+- **Bridge 30 — `cross-domain/physics-computing/b-quantum-error-correction-topology.yaml`** — Kitaev toric code ↔ Z2 lattice gauge theory ↔ topological phase of matter (anyons, topological entanglement entropy). Status: **established**. Includes AdS/CFT holographic QEC connection and fracton extension.
+- **4 new unknowns:** `u-arrow-of-time-low-entropy-origin` (physics), `u-stochastic-resonance-neural-tuning` (biology), `u-maxent-ecology-failure-modes` (biology), `u-topological-qec-physical-realization` (physics).
+- **4 new hypotheses:** `h-landauer-cosmological-arrow`, `h-sensory-noise-sr-optimality`, `h-mete-non-equilibrium-deviations`, `h-topological-phase-qec-threshold-correspondence`.
+- **`dashboard/index.html`** — Updated counts: **30 bridges · 73 unknowns · 31 hypotheses**. New "Knowledge Graph Edges" stat card (300 edges).
+
 ### Added (2026-05-05 session — bulk-seed unknowns: 37 new entries across 4 disciplines)
 - **`unknowns-catalog/mathematics/`** — New discipline directory seeded with 8 unknowns spanning number theory, statistics, economics, linguistics, and mathematical biology.
 - **`unknowns-catalog/computer-science/`** — New discipline directory seeded with 9 unknowns spanning neuromorphic computing, spiking networks, ML theory, and quantum cognition.
