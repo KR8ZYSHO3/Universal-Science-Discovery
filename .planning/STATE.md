@@ -4,6 +4,7 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 ## Last updated
 
+- 2026-05-05 — **2 new bridges + 2 unknowns + 1 hypothesis**: b-optimal-transport-vasculature (21st, math↔biology, Murray's law = Wasserstein gradient flow = p-Laplacian) + b-turbulence-financial-markets (22nd, physics↔finance, Kolmogorov cascade = multifractal volatility); dashboard 28/27/22.
 - 2026-05-05 — **Phenomenology catalog launched**: schema/phenomenon.yaml, phenomenology/ directory, first entry p-nonhelical-cavity-resonator (dream → triaged → slow-wave structure / metamaterial unit cell). intuition_to_unknown.md prompt. Validator extended. Dashboard stat card added.
 - 2026-05-05 — **2 new bridges + 2 unknowns + 2 hypotheses**: b-landauer-information-thermodynamics (19th, physics↔info, Maxwell's demon resolved) + b-game-theory-evolution (20th, math↔evolution↔ML, Nash=ESS, replicator dynamics=gradient descent); dashboard 26/26/20.
 - 2026-05-05 — **2 new bridges + 2 unknowns + 2 hypotheses + showcase scripts**: b-turing-reaction-diffusion (17th, math↔biology, Turing patterns) + b-spin-glass-neural-networks (18th, physics↔computing, Hopfield capacity); showcase scripts + publication figures; dashboard updated to 24/24/18.
@@ -27,9 +28,9 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 | Type | Count | Directory |
 |------|-------|-----------|
-| Unknowns | 26 | `unknowns-catalog/` |
-| Hypotheses | 26 | `hypotheses/active/` |
-| Bridges | 20 | `cross-domain/` |
+| Unknowns | 28 | `unknowns-catalog/` |
+| Hypotheses | 27 | `hypotheses/active/` |
+| Bridges | 22 | `cross-domain/` |
 | Pre-formal observations | 1 | `phenomenology/` |
 | Schemas | 3 | `schemas/` (unknown, hypothesis, bridge) |
 
@@ -89,3 +90,4 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 - Run a `q-bio:q-bio:TO` (tissues and organs) harvest to seed the topology-morphogenesis bridge further.
 - Update the developer dashboard stat counts after each PR that adds catalog entries.
 - Keep `schemas/unknown.yaml`, `schemas/hypothesis.yaml`, `schemas/bridge.yaml` in sync when adding new optional fields.
+
