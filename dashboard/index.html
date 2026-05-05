@@ -760,8 +760,8 @@
 
       <div class="pill-row" aria-label="Highlights">
         <span class="pill live"><span class="d"></span> Phase 0 · Foundation 2026</span>
-        <span class="pill">36 cross-domain bridges</span>
-        <span class="pill">121 unknowns · 42 hypotheses · 1 pre-formal observation</span>
+        <span class="pill">38 cross-domain bridges</span>
+        <span class="pill">266 unknowns · 52 hypotheses · 1 pre-formal observation</span>
         <span class="pill">Git-native · Open source</span>
       </div>
 
@@ -783,15 +783,15 @@
           <div class="lbl">Contributors</div>
         </div>
         <div class="stat-card">
-          <div class="n" id="stat-hyp">42</div>
+          <div class="n" id="stat-hyp">52</div>
           <div class="lbl">Active Hypotheses</div>
         </div>
         <div class="stat-card">
-          <div class="n" id="stat-unk">121</div>
+          <div class="n" id="stat-unk">266</div>
           <div class="lbl">Tracked Unknowns</div>
         </div>
         <div class="stat-card">
-          <div class="n" id="stat-bridges">36</div>
+          <div class="n" id="stat-bridges">38</div>
           <div class="lbl">Cross-domain Bridges</div>
         </div>
         <div class="stat-card">
@@ -799,7 +799,7 @@
           <div class="lbl">Pre-formal Observations</div>
         </div>
         <div class="stat-card">
-          <div class="n" id="stat-graph-edges">421</div>
+          <div class="n" id="stat-graph-edges">582</div>
           <div class="lbl">Knowledge Graph Edges</div>
         </div>
       </div>
@@ -840,7 +840,7 @@
       <span class="section-tag">Knowledge Graph</span>
       <h2 class="section-title">Cross-domain connection map</h2>
       <p class="section-desc">
-        Force-directed graph of all 138 nodes — bridges, unknowns, hypotheses, and phenomena.
+        Force-directed graph of all 357 nodes — bridges, unknowns, hypotheses, and phenomena.
         Hover a node to inspect it. Drag to reposition. Scroll or pinch to zoom.
       </p>
       <div class="graph-stats-bar" id="kg-stats-bar">
@@ -1822,12 +1822,26 @@
     var tipEl  = document.getElementById('kg-tooltip');
     if (!svgEl) return;
 
-    fetch('../docs/knowledge_graph.json')
-      .then(function (r) {
-        if (!r.ok) throw new Error('HTTP ' + r.status);
-        return r.json();
-      })
-      .then(function (data) {
+    var kgPaths = ['../docs/knowledge_graph.json', 'knowledge_graph.json', 'docs/knowledge_graph.json'];
+    (function tryNextPath(paths) {
+      if (!paths.length) {
+        if (window.location.protocol === 'file:') {
+          renderFallback('Run a local server to see the interactive graph:<br><code>python -m http.server 8765</code>');
+        } else {
+          renderFallback('Could not load knowledge_graph.json — all paths failed.');
+        }
+        return;
+      }
+      fetch(paths[0])
+        .then(function (r) {
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          return r.json();
+        })
+        .catch(function () { tryNextPath(paths.slice(1)); return null; })
+        .then(function (data) { if (data) handleData(data); });
+    })(kgPaths);
+
+    function handleData(data) {
         var nodes = data.nodes.map(function (n) { return Object.assign({}, n); });
         var edges = data.edges.map(function (e) { return Object.assign({}, e); });
 
@@ -1939,14 +1953,7 @@
             .attr('cx', function (d) { return d.x; })
             .attr('cy', function (d) { return d.y; });
         });
-      })
-      .catch(function (err) {
-        if (window.location.protocol === 'file:') {
-          renderFallback('Run a local server to see the interactive graph:<br><code>python -m http.server 8765</code>');
-        } else {
-          renderFallback('Could not load knowledge_graph.json — ' + (err && err.message ? err.message : err));
-        }
-      });
+    }
   })();
   </script>
 </body>
