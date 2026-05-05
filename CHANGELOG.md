@@ -9,6 +9,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added (2026-05-05 session - final push - Phase 0 target 500+ achieved)
+- **4 new domain directories:** quantum-physics (25), linguistics (25), social-science (25), economics (25).
+- **Gap-filled existing domains:** computer-science (+10), neuroscience (+10), ecology (+8), chemistry (+6).
+- **135 total new unknowns** across all domains.
+- **8 new hypotheses:** h-quantum-advantage-noise-threshold, h-polarisation-ising-phase-transition, h-linguistic-relativity-neural-boundary, h-carbon-price-optimal-100, h-neuroinflammation-depression-biomarker, h-soil-microbiome-carbon-enhancement, h-llm-scaling-emergence-artifact, h-rewilding-trophic-cascade-predictability.
+- **2 new bridges (39-40):** b-linguistic-relativity-quantum-basis (observer-dependent reality in language and physics); b-social-ising-polarisation (echo chambers as ferromagnetic domains).
+- **Knowledge graph rebuilt:** 502 nodes, 601 edges.
+- **Dashboard updated:** 40 bridges, 401 unknowns, 60 hypotheses.
+- **Phase 0 target achieved:** 502 total entries.
+
 ### Added (2026-05-05 session — bulk content push to 357 entries)
 - **6 new domain directories:** `unknowns-catalog/materials-science/` (25 unknowns), `unknowns-catalog/climate-science/` (25), `unknowns-catalog/astronomy/` (25), `unknowns-catalog/medicine/` (30), `unknowns-catalog/cognitive-science/` (20), plus 20 new unknowns in `unknowns-catalog/mathematics/`.
 - **145 new unknowns** covering: high-Tc superconductivity, topological insulators, metallic glass, perovskite stability, twistronics, metamaterials; cloud feedback, AMOC collapse, permafrost tipping, ENSO predictability, ice sheet instability, SAI side effects; dark matter identity, dark energy EOS, FRB origin, Hubble tension, baryon asymmetry, BH information paradox, JWST early galaxies; sepsis heterogeneity, autoimmune triggers, immunotherapy non-responders, Alzheimer biomarkers, long COVID, spinal cord repair; hard problem of consciousness, language critical period, working memory capacity, mind-wandering; P vs NP geometric barriers, Riemann zero distribution, abc conjecture verification, turbulence formulation, random matrix universality.
