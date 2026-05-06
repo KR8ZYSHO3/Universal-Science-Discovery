@@ -1,5 +1,5 @@
 {
-  "count": 192,
+  "count": 214,
   "items": [
     {
       "id": "b-grokking-criticality",
@@ -1072,6 +1072,61 @@
       "file": "cross-domain\\biology-computer-science\\b-crispr-programmable-genome-editing.yaml"
     },
     {
+      "id": "b-biofilm-self-assembly",
+      "title": "Bacterial biofilm formation via quorum sensing is a chemical-order-parameter phase transition governed by the same self-assembly mathematics as colloidal and block-copolymer nanostructure assembly",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Bacterial biofilm formation is a phase transition from planktonic (disordered) to biofilm (structured) states triggered when autoinducer concentration (N-acyl homoserine lactones) crosses a critical threshold — an order parameter analogous to those governing colloidal particle self-assembly and bloc",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-biofilm-threshold-colloidal-phase-transition-analogy"
+      ],
+      "communication_gap": "Microbiology and materials science operate in separate journals and conferences. The language of free-energy landscapes and phase diagrams is native to materials science but rarely applied formally to bacterial ecology. Funding structures rarely bridge NIH (biology) and NSF-DMR (materials).\n",
+      "translation_table": [
+        {
+          "field_a_term": "autoinducer concentration",
+          "field_b_term": "order parameter (volume fraction, chi·N)",
+          "note": "Critical threshold triggers phase transition in both biological and synthetic systems"
+        },
+        {
+          "field_a_term": "quorum sensing threshold",
+          "field_b_term": "spinodal / binodal decomposition point",
+          "note": "Both define the boundary between stable disordered and structured phases"
+        },
+        {
+          "field_a_term": "biofilm matrix (EPS)",
+          "field_b_term": "self-assembled nanostructure (micelle, lamella)",
+          "note": "Emergent ordered structures that appear above threshold"
+        },
+        {
+          "field_a_term": "gene expression switch",
+          "field_b_term": "nucleation event",
+          "note": "Stochastic first passage triggering ordered-phase growth"
+        }
+      ],
+      "references": [
+        {
+          "note": "Fuqua et al. (1994) — quorum sensing discovery",
+          "doi": "10.1128/jb.176.2.269-275.1994"
+        },
+        {
+          "note": "Costerton et al. (1999) — biofilm science review",
+          "doi": "10.1126/science.284.5418.1318"
+        },
+        {
+          "note": "Hall-Stoodley et al. (2004) — biofilm development review",
+          "doi": "10.1038/nrmicro821"
+        },
+        {
+          "note": "Ng & Bassler (2009) — quorum sensing mechanisms",
+          "doi": "10.1146/annurev.genet.43.110708.163243"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\biology-engineering\\b-biofilm-self-assembly.yaml"
+    },
+    {
       "id": "b-dna-digital-error-correcting-code",
       "title": "The genetic code is a near-optimal digital error-correcting code: codon degeneracy implements a natural parity-check scheme that minimises the chemical impact of single-base mutations, and the 64-codon/20-amino-acid mapping operates near the Shannon capacity of the DNA replication channel.\n",
       "source_domain": "",
@@ -1198,6 +1253,69 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\biology-information-theory\\b-genetic-regulatory-boolean-circuits.yaml"
+    },
+    {
+      "id": "b-game-theory-immune-evasion",
+      "title": "Evolutionary game theory and immune evasion — host-pathogen arms races are co-evolutionary games whose dynamics follow replicator equations and ESS theory",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "proposed",
+      "bridge_claim": "Pathogens and immune systems are engaged in a co-evolutionary arms race formally describable as a repeated evolutionary game. Pathogen antigenic variation = mixed strategy in the immune evasion game: randomizing surface antigens prevents adaptive immune recognition. Immune memory = commitment device",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-red-queen-ess-influenza-diversity-prediction"
+      ],
+      "communication_gap": "Evolutionary game theory was developed by Maynard Smith with biological applications in mind, but immunology adopted it slowly. Nowak & May (1994) applied replicator dynamics to viral diversity but the framework remained niche. Immunologists primarily use empirical approaches rather than game-theoretic models. The mathematics of frequency-dependent selection and ESS is standard in population genetics but infrequently taught in immunology graduate programs.\n",
+      "translation_table": [
+        {
+          "field_a_term": "pathogen strain frequency x_i",
+          "field_b_term": "strategy frequency in evolutionary game",
+          "note": "Replicator equation governs both; selection ∝ payoff difference from mean"
+        },
+        {
+          "field_a_term": "antigenic variation (surface protein diversity)",
+          "field_b_term": "mixed strategy (randomized action choice)",
+          "note": "Pathogen mixes antigens to prevent single dominant immune response"
+        },
+        {
+          "field_a_term": "immune memory (long-lived lymphocytes)",
+          "field_b_term": "memory / commitment device in strategic interaction",
+          "note": "Past exposure changes payoff matrix for future encounters"
+        },
+        {
+          "field_a_term": "Red Queen co-evolution (arms race dynamics)",
+          "field_b_term": "zero-sum repeated game with frequency-dependent payoffs",
+          "note": "No ESS in zero-sum game → perpetual cycling; models influenza antigenic drift"
+        },
+        {
+          "field_a_term": "escape mutation (new variant evading immunity)",
+          "field_b_term": "strategy deviation testing Nash equilibrium stability",
+          "note": "ESS condition: mutant strain cannot invade; immune escape = invading mutant strategy"
+        },
+        {
+          "field_a_term": "original antigenic sin (immunodominance of first exposure)",
+          "field_b_term": "prior commitment constraining future strategy space",
+          "note": "First exposure narrows subsequent immune response — strategic path dependence"
+        }
+      ],
+      "references": [
+        {
+          "note": "Van Valen (1973) Evol Theory 1:1 — Red Queen hypothesis of co-evolutionary arms races"
+        },
+        {
+          "doi": "10.1126/science.7754375",
+          "note": "Nowak & May (1994) Science 265:1084 — superinfection and the evolution of parasite virulence"
+        },
+        {
+          "note": "Frank (2002) Immunology and Evolution of Infectious Disease (Princeton UP, ISBN 069102607X) — game-theoretic immunology"
+        },
+        {
+          "doi": "10.1006/jtbi.2000.2032",
+          "note": "McLean & Bostock (2000) J Theor Biol — evolutionary game theory of immune responses"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\biology-mathematics\\b-game-theory-immune-evasion.yaml"
     },
     {
       "id": "b-replicator-equations-evolutionary-dynamics",
@@ -1445,6 +1563,70 @@
       "file": "cross-domain\\biology-physics\\b-active-matter-cytoskeletal.yaml"
     },
     {
+      "id": "b-protein-folding-energy-landscape",
+      "title": "Protein folding as a search on a funneled high-dimensional energy landscape — the same mathematical structure describes spin glass physics, neural network loss landscapes, and optimization",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Protein folding is a search on a high-dimensional energy landscape E(conformation). The \"funnel\" landscape hypothesis (Bryngelson & Wolynes 1987): native proteins have evolved funneled energy landscapes that minimize frustration, ensuring kinetic accessibility of the native state. The folding rate k",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-alphafold-energy-landscape-implicit-learning"
+      ],
+      "communication_gap": "Protein biophysics and statistical physics of spin glasses developed largely independently despite sharing energy landscape mathematics. The Bryngelson-Wolynes theoretical framework was known to biophysicists but the spin glass connection (Wolynes's explicit analogy) took decades to be widely appreciated. The AlphaFold2 breakthrough was primarily celebrated in structural biology; its connection to energy landscape theory and random matrix theory of co-evolution received less mainstream attention.\n",
+      "translation_table": [
+        {
+          "field_a_term": "energy landscape E(conformation)",
+          "field_b_term": "loss landscape L(weights) in neural networks",
+          "note": "Both are high-dimensional surfaces; funneled structure ensures efficient minimization"
+        },
+        {
+          "field_a_term": "native state (global energy minimum)",
+          "field_b_term": "optimal solution / trained model minimum",
+          "note": "Evolution / training drives the system toward the global or low-loss basin"
+        },
+        {
+          "field_a_term": "kinetic trap (local minimum)",
+          "field_b_term": "saddle point / sharp local minimum in loss landscape",
+          "note": "Both represent stuck states; annealing strategies help escape in both domains"
+        },
+        {
+          "field_a_term": "folding funnel (decreasing entropy toward native state)",
+          "field_b_term": "loss funnel (flat wide minima in overparameterized networks)",
+          "note": "Wide minima generalize better; flat loss funnels analogize to evolved protein funnels"
+        },
+        {
+          "field_a_term": "frustration (competing interactions preventing folding)",
+          "field_b_term": "spin glass phase (replica symmetry breaking)",
+          "note": "Random heteropolymers are spin glasses; evolved proteins minimize frustration"
+        },
+        {
+          "field_a_term": "evolutionary co-variation (correlated mutations in MSA)",
+          "field_b_term": "learned coupling matrix in AlphaFold2 attention",
+          "note": "Co-evolution encodes the energy landscape; AlphaFold2 learns this implicitly"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1073/pnas.84.21.7524",
+          "note": "Bryngelson & Wolynes (1987) PNAS 84:7524 — funneled energy landscape and principle of minimal frustration"
+        },
+        {
+          "doi": "10.1038/nsb0197-10",
+          "note": "Dill & Chan (1997) Nat Struct Biol 4:10 — review of energy landscape theory of protein folding"
+        },
+        {
+          "doi": "10.1038/s41586-021-03819-2",
+          "note": "Jumper et al. (2021) Nature 596:583 — AlphaFold2: structure prediction from evolutionary data"
+        },
+        {
+          "note": "Wales (2003) Energy Landscapes (Cambridge University Press, ISBN 0521814138) — comprehensive treatment of energy landscape theory"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\biology-physics\\b-protein-folding-energy-landscape.yaml"
+    },
+    {
       "id": "b-molecular-motors-thermodynamic-efficiency",
       "title": "Biological molecular motors (myosin, kinesin, ATP synthase) convert chemical free energy to mechanical work at 25-40% efficiency near the Carnot limit, verified by the Jarzynski equality connecting non-equilibrium work to equilibrium free energy, establishing single-molecule thermodynamics as a bridge between biophysics and mechanical engineering.\n",
       "source_domain": "",
@@ -1573,6 +1755,60 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\chemistry-biology\\b-michaelis-menten-enzyme-kinetics.yaml"
+    },
+    {
+      "id": "b-chemical-ecology-signaling-networks",
+      "title": "Organismal chemical communication (pheromones, allelochemicals, quorum sensing) forms a molecular information network governed by the same channel-capacity mathematics as telecommunications",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Organisms communicate, defend, and cooperate via chemical signals forming a molecular information network. Pheromones (insects), allelopathic chemicals (plants inhibiting neighbours), and microbial quorum sensing autoinducers constitute a chemical internet with definable channel capacity C = B log₂(",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-chemical-signaling-channel-capacity-limits-ecosystem-complexity"
+      ],
+      "communication_gap": "Chemical ecology and information theory developed independently; ecologists rarely quantify communication in bits, and information theorists do not model chemical diffusion channels. Shannon's framework was applied to molecular communication only in the 2000s (Akyildiz et al.) and rarely extended back to natural chemical ecology.\n",
+      "translation_table": [
+        {
+          "field_a_term": "pheromone/autoinducer molecule",
+          "field_b_term": "carrier signal / symbol",
+          "note": "Chemical identity encodes information; receptor binding is decoding"
+        },
+        {
+          "field_a_term": "diffusion coefficient D",
+          "field_b_term": "channel bandwidth B",
+          "note": "Diffusion rate limits the speed of chemical information transmission"
+        },
+        {
+          "field_a_term": "receptor binding affinity (K_d)",
+          "field_b_term": "detector sensitivity / noise floor",
+          "note": "Low K_d = high sensitivity; noise floor sets minimum detectable signal"
+        },
+        {
+          "field_a_term": "quorum-sensing threshold concentration",
+          "field_b_term": "decision threshold in hypothesis testing",
+          "note": "Binary decision (respond/not respond) based on signal exceeding threshold"
+        }
+      ],
+      "references": [
+        {
+          "note": "Karlson & Lüscher (1959) — pheromone concept",
+          "doi": "10.1038/183055a0"
+        },
+        {
+          "note": "Whittaker & Feeny (1971) — allelochemics and chemical ecology",
+          "doi": "10.1126/science.171.3973.757"
+        },
+        {
+          "note": "Keller & Surette (2006) — quorum sensing and microbial communication",
+          "doi": "10.1038/nrmicro1511"
+        },
+        {
+          "note": "Wyatt (2014) Pheromones and Animal Behaviour — comprehensive review"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\chemistry-ecology\\b-chemical-ecology-signaling-networks.yaml"
     },
     {
       "id": "b-pem-hydrogen-economy",
@@ -2314,6 +2550,70 @@
       "file": "cross-domain\\computer-science-biology\\b-evolutionary-algorithms-natural-computation.yaml"
     },
     {
+      "id": "b-complexity-phase-transitions",
+      "title": "Computational complexity and phase transitions — NP-hard problem hardness exhibits thermodynamic-like phase transitions governed by the same statistical physics of disordered systems",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "proposed",
+      "bridge_claim": "Many NP-complete problems (3-SAT, graph coloring, random k-SAT, traveling salesman) exhibit sharp phase transitions in their typical-case hardness as a control parameter varies. In random k-SAT: let α = clauses/variables. Below α_c (SAT phase): almost all instances are satisfiable, easily solved by ",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-rsg-transition-separates-polynomial-exponential-regimes"
+      ],
+      "communication_gap": "Theoretical computer scientists and statistical physicists have largely separate literature cultures despite deep mathematical connections. The Mézard et al. (2002) Science paper was a landmark bridge publication. Theoretical CS tends to focus on worst-case complexity; statistical physics on typical-case behavior. The cavity method has yet to be fully absorbed into the CS algorithms curriculum. The P vs NP problem is framed as a question about worst-case complexity, while physics approaches address typical-case hardness — different but related questions.\n",
+      "translation_table": [
+        {
+          "field_a_term": "clause-to-variable ratio α",
+          "field_b_term": "inverse temperature β (or disorder parameter)",
+          "note": "α plays the role of the control parameter that drives the phase transition"
+        },
+        {
+          "field_a_term": "satisfying assignment (solution)",
+          "field_b_term": "low-energy configuration in spin system",
+          "note": "Finding a solution = finding a ground state; random walk = thermal fluctuation"
+        },
+        {
+          "field_a_term": "UNSAT phase (no solutions)",
+          "field_b_term": "ordered phase (no ground state entropy)",
+          "note": "Above α_c: problem almost surely has no solution; ordered phase has unique ground state"
+        },
+        {
+          "field_a_term": "clustering of solutions (solution space fragmentation)",
+          "field_b_term": "replica symmetry breaking (spin glass phase)",
+          "note": "Solutions cluster into exponentially many well-separated basins — makes search hard"
+        },
+        {
+          "field_a_term": "survey propagation algorithm",
+          "field_b_term": "belief propagation on factor graph (message passing)",
+          "note": "Derived from cavity method; works at RSB level; solves instances DPLL cannot"
+        },
+        {
+          "field_a_term": "backtracking plateau in DPLL solver",
+          "field_b_term": "metastable trapping in spin glass landscape",
+          "note": "Both reflect the same barrier structure in the solution space"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1126/science.1073287",
+          "note": "Mézard et al. (2002) Science 297:812 — survey propagation and the cavity method for random k-SAT"
+        },
+        {
+          "doi": "10.1038/22055",
+          "note": "Monasson et al. (1999) Nature 400:133 — determining computational complexity from phase transitions"
+        },
+        {
+          "note": "Cook (1971) STOC — original NP-completeness paper for SAT"
+        },
+        {
+          "doi": "10.1073/pnas.0703685104",
+          "note": "Krzakala et al. (2007) PNAS 104:10318 — clustering and survey propagation"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\computer-science-mathematics\\b-complexity-phase-transitions.yaml"
+    },
+    {
       "id": "b-sat-phase-transition",
       "title": "Random 3-SAT undergoes a sharp satisfiability phase transition at clause-to-variable ratio α ≈ 4.267 — the computational hardness peak maps onto a spin-glass phase transition (replica-symmetry breaking), linking P vs. NP to the statistical physics of disordered systems.\n",
       "source_domain": "",
@@ -2386,6 +2686,63 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\computer-science-mathematics\\b-sat-phase-transition.yaml"
+    },
+    {
+      "id": "b-type-theory-logic-curry-howard",
+      "title": "The Curry-Howard correspondence establishes propositions-as-types, proofs-as-programs — making every mathematical proof a computer program and every type-checking computation a proof verification",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The Curry-Howard correspondence (Curry 1934, Howard 1980) reveals a deep structural identity between formal logic and type theory in programming languages: propositions correspond to types, proofs correspond to programs, and logical connectives correspond to type constructors. Specifically: conjunct",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-homotopy-type-theory-completes-curry-howard-for-homotopy-theory"
+      ],
+      "communication_gap": "Mathematicians writing proofs in natural language and programmers writing code rarely interact. The correspondence is well-known to programming language theorists but under-appreciated in mainstream mathematics and software engineering. Educational silos mean most CS students learn types without logic and most math students learn logic without types.\n",
+      "translation_table": [
+        {
+          "field_a_term": "proposition P",
+          "field_b_term": "type T",
+          "note": "A proposition is identified with the type of its proofs"
+        },
+        {
+          "field_a_term": "proof of P",
+          "field_b_term": "term of type T (program)",
+          "note": "A proof is a construction — literally a program of the corresponding type"
+        },
+        {
+          "field_a_term": "logical implication A→B",
+          "field_b_term": "function type A→B",
+          "note": "Modus ponens = function application; a proof of A→B applied to a proof of A yields a proof of B"
+        },
+        {
+          "field_a_term": "universal quantification ∀x.P(x)",
+          "field_b_term": "dependent product type Π(x:A).P(x)",
+          "note": "Quantification over individuals corresponds to parametric polymorphism"
+        },
+        {
+          "field_a_term": "cut elimination (normalisation)",
+          "field_b_term": "beta reduction (program execution)",
+          "note": "Proof simplification corresponds exactly to program evaluation"
+        }
+      ],
+      "references": [
+        {
+          "note": "Curry (1934) — functionality in combinatory logic, first observation"
+        },
+        {
+          "note": "Howard (1980) — formulae-as-types notion of construction"
+        },
+        {
+          "note": "Martin-Löf (1984) Intuitionistic Type Theory — dependent type theory"
+        },
+        {
+          "note": "Wadler (2015) — propositions as types (historical survey)",
+          "doi": "10.1145/2699407"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\computer-science-mathematics\\b-type-theory-logic-curry-howard.yaml"
     },
     {
       "id": "b-transformer-attention-neural-attention",
@@ -3103,6 +3460,68 @@
       "file": "cross-domain\\ecology-mathematics\\b-neutral-theory-random-matrix.yaml"
     },
     {
+      "id": "b-stochastic-population-master-equation",
+      "title": "Stochastic population dynamics and the master equation — birth-death processes connect population ecology to statistical physics through shared probability flow mathematics",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Deterministic population models (Lotka-Volterra, logistic) break down at small population sizes where demographic stochasticity dominates. The master equation governs probability flow: dP(n,t)/dt = Σ [T(n|n')P(n',t) - T(n'|n)P(n,t)] where T(n|n') is the transition rate from state n' to n and P(n,t) ",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-extinction-debt-master-equation-prediction"
+      ],
+      "communication_gap": "Population ecologists and evolutionary biologists largely work with differential equation models; the master equation formalism is standard in statistical physics but uncommon in ecology courses. Gardiner's Handbook of Stochastic Methods is the bridge text but is rarely cited in ecology. The connection between genetic drift and Brownian motion was recognized by Kimura (1964) but the broader master equation framework is underused in quantitative ecology.\n",
+      "translation_table": [
+        {
+          "field_a_term": "master equation (probability flow over population states)",
+          "field_b_term": "Kolmogorov forward equation (stochastic physics)",
+          "note": "Identical PDE for probability density; difference is only in interpretation of states"
+        },
+        {
+          "field_a_term": "birth rate b(n)",
+          "field_b_term": "upward transition rate in physical Markov chain",
+          "note": "Linear birth: b(n)=bn gives Poisson steady state; nonlinear b modifies distribution"
+        },
+        {
+          "field_a_term": "demographic stochasticity (N finite effects)",
+          "field_b_term": "shot noise in physical systems",
+          "note": "Both scale as 1/√N; suppressed in thermodynamic limit but crucial at small N"
+        },
+        {
+          "field_a_term": "extinction probability (first passage to n=0)",
+          "field_b_term": "absorption probability in Markov chain with absorbing state",
+          "note": "Exact formula: P_ext = (d/b)^N for simple birth-death process"
+        },
+        {
+          "field_a_term": "genetic drift (Wright-Fisher diffusion)",
+          "field_b_term": "Brownian motion in allele frequency space [0,1]",
+          "note": "Diffusion coefficient D = p(1-p)/2N; same as physical diffusion in bounded domain"
+        },
+        {
+          "field_a_term": "quasi-stationary distribution (conditional on non-extinction)",
+          "field_b_term": "quasi-stationary state in metastable physical systems",
+          "note": "Determines effective population size and evolutionary dynamics before extinction"
+        }
+      ],
+      "references": [
+        {
+          "note": "Bartlett (1960) Stochastic Population Models (Methuen, ISBN 0306434512) — foundational ecological text"
+        },
+        {
+          "note": "Gardiner (2004) Handbook of Stochastic Methods (Springer, ISBN 3540208828) — comprehensive physics treatment"
+        },
+        {
+          "doi": "10.1093/acprof:oso/9780198525257.001.0001",
+          "note": "Lande et al. (2003) Stochastic Population Dynamics in Ecology and Conservation"
+        },
+        {
+          "note": "van Kampen (2007) Stochastic Processes in Physics and Chemistry (Elsevier, ISBN 0444893490) — definitive reference"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\ecology-mathematics\\b-stochastic-population-master-equation.yaml"
+    },
+    {
       "id": "b-food-webs-cascade-dynamics",
       "title": "Ecological food webs as directed networks — trophic cascade dynamics as network percolation",
       "source_domain": "",
@@ -3289,6 +3708,61 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\ecology-physics\\b-metabolic-scaling-fractal-networks.yaml"
+    },
+    {
+      "id": "b-trophic-cascades-phase-transitions",
+      "title": "Trophic cascades triggered by apex predator removal are fold bifurcations (saddle-node) in ecosystem dynamical systems — the same mathematics as all ecological tipping points",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Trophic cascades — propagation of population changes from apex predators down through herbivore and primary producer trophic levels — represent transitions between multiple stable ecosystem states. The system possesses two stable fixed points (predator-present and predator-absent states) separated b",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-trophic-cascade-early-warning-signals-critical-slowing-down"
+      ],
+      "communication_gap": "Ecologists describe trophic cascades in species-interaction language while physicists describe bifurcations in dynamical systems language. The mathematical identity was first formalised by Scheffer et al. (2001) but remains underutilised in conservation biology practice, where the nonlinear dynamical systems framing is rarely taught.\n",
+      "translation_table": [
+        {
+          "field_a_term": "apex predator density",
+          "field_b_term": "control parameter (bifurcation parameter)",
+          "note": "Predator abundance plays the role of the control parameter crossing a tipping point"
+        },
+        {
+          "field_a_term": "ecosystem with/without top predator",
+          "field_b_term": "two stable fixed points / alternative stable states",
+          "note": "Both correspond to stable equilibria of the dynamical system"
+        },
+        {
+          "field_a_term": "trophic cascade threshold",
+          "field_b_term": "saddle-node bifurcation point",
+          "note": "The critical predator density below which the system transitions"
+        },
+        {
+          "field_a_term": "behaviour modification by prey (landscape of fear)",
+          "field_b_term": "nonlinear feedback loop",
+          "note": "Indirect effects arise from nonlinear coupling between trophic levels"
+        }
+      ],
+      "references": [
+        {
+          "note": "Estes et al. (2011) — trophic downgrading of planet Earth",
+          "doi": "10.1126/science.1205106"
+        },
+        {
+          "note": "Ripple & Beschta (2004) — wolves, elk, and trophic cascades in Yellowstone",
+          "doi": "10.1641/0006-3568(2004)054[0755:WEATCI]2.0.CO;2"
+        },
+        {
+          "note": "Scheffer et al. (2001) — catastrophic shifts in ecosystems",
+          "doi": "10.1038/35098000"
+        },
+        {
+          "note": "Terborgh et al. (2001) — ecological meltdown in predator-free forest fragments",
+          "doi": "10.1126/science.1059257"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\ecology-physics\\b-trophic-cascades-phase-transitions.yaml"
     },
     {
       "id": "b-common-pool-resources-game-theory",
@@ -4073,6 +4547,70 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\engineering-biology\\b-engineering-reliability-extreme-value.yaml"
+    },
+    {
+      "id": "b-feedback-control-homeostasis",
+      "title": "Feedback control theory and biological homeostasis — integral feedback is the mathematical mechanism guaranteeing perfect adaptation in both engineered PID controllers and glucose regulation",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Biological homeostasis (blood glucose, body temperature, pH) implements integral feedback control — mathematically identical to the I term of a PID controller. The integral action guarantees zero steady-state error regardless of disturbance magnitude or type. Yi et al. (2000) proved that perfect ada",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-integral-feedback-sufficient-perfect-adaptation-living-cells"
+      ],
+      "communication_gap": "Control engineers and biologists rarely collaborate despite deep mathematical connections. Yi et al. (2000) is a landmark paper cited across both fields, but control-theoretic frameworks remain peripheral in most physiology curricula. Medical education teaches homeostasis descriptively without feedback control formalism. The synthetic biology community is the main bridge (Elowitz, Leibler, Khalil & Collins), but pharmacology has largely not adopted control-theoretic drug dosing optimization.\n",
+      "translation_table": [
+        {
+          "field_a_term": "integral gain K_I in PID controller",
+          "field_b_term": "transcriptional integration of error signal",
+          "note": "Protein accumulation (mRNA, signaling molecules) integrates error over time"
+        },
+        {
+          "field_a_term": "setpoint (reference signal r(t))",
+          "field_b_term": "physiological reference level (e.g., 5 mM blood glucose)",
+          "note": "Encoded in receptor binding constants and enzyme Km values"
+        },
+        {
+          "field_a_term": "error signal e(t) = r(t) - y(t)",
+          "field_b_term": "deviation from homeostatic set point",
+          "note": "Sensed by receptor occupancy; drives downstream effector response"
+        },
+        {
+          "field_a_term": "actuator (control signal u(t))",
+          "field_b_term": "effector organ (beta cells, kidney tubules, sweat glands)",
+          "note": "Converts control signal into physical correction of regulated variable"
+        },
+        {
+          "field_a_term": "steady-state error (non-zero in P-only control)",
+          "field_b_term": "offset from setpoint in proportional-only regulation",
+          "note": "Integral action eliminates steady-state error; essential for exact homeostasis"
+        },
+        {
+          "field_a_term": "actuator saturation (control signal limits)",
+          "field_b_term": "insulin resistance (T2D: same insulin signal, less effect)",
+          "note": "Saturation causes steady-state error even with integral action — T2D mechanism"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1073/pnas.97.9.4649",
+          "note": "Yi et al. (2000) PNAS 97:4649 — perfect adaptation requires integral feedback"
+        },
+        {
+          "doi": "10.1016/j.cell.2004.08.012",
+          "note": "Stelling et al. (2004) Cell 118:675 — robustness of cellular functions"
+        },
+        {
+          "note": "Aström & Murray (2008) Feedback Systems (Princeton UP, ISBN 0691135762) — textbook connecting control theory and biology"
+        },
+        {
+          "doi": "10.1006/jtbi.2001.2383",
+          "note": "El-Samad et al. (2002) J Theor Biol 214:17 — control-theoretic analysis of temperature compensation"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\engineering-biology\\b-feedback-control-homeostasis.yaml"
     },
     {
       "id": "b-robustness-evolvability-modularity",
@@ -5878,6 +6416,69 @@
       "file": "cross-domain\\materials-science-mathematics\\b-crystallography-group-theory.yaml"
     },
     {
+      "id": "b-phonons-thermal-conductivity",
+      "title": "Phonons and thermal conductivity — quantized lattice vibrations are the primary heat carriers in non-metallic solids and govern thermoelectric efficiency and CPU thermal management",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Phonons (quanta of lattice vibration, analogous to photons as quanta of light) are the dominant heat carriers in non-metallic solids. Thermal conductivity κ = (1/3)Cvl where C is volumetric heat capacity, v is mean phonon group velocity, and l is phonon mean free path. The phonon dispersion relation",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-phonon-glass-electron-crystal-zt-optimization"
+      ],
+      "communication_gap": "Phonon physics is taught in solid state physics courses but rarely connected explicitly to thermal engineering education, which often uses empirical κ values without the underlying physical model. The thermoelectric materials community (materials science / chemistry) and the phonon physics community (condensed matter physics) overlap but use different language. The CPU cooling community largely treats thermal conductivity as a bulk material property without engineering the phonon spectrum.\n",
+      "translation_table": [
+        {
+          "field_a_term": "phonon dispersion ω(k)",
+          "field_b_term": "band structure of thermal transport (analogous to electron bands)",
+          "note": "Acoustic branches carry most heat; optical branches carry less due to low group velocity"
+        },
+        {
+          "field_a_term": "Normal (N) process scattering (momentum conserved)",
+          "field_b_term": "elastic scattering (momentum conserving collisions)",
+          "note": "N-processes alone do not limit κ; they are thermal but not resistive"
+        },
+        {
+          "field_a_term": "Umklapp (U) process (momentum transferred to lattice)",
+          "field_b_term": "resistive phonon-phonon scattering (thermal resistance)",
+          "note": "U-processes give κ ∝ exp(θ_D/aT) at low T, ∝ T⁻¹ at high T"
+        },
+        {
+          "field_a_term": "mean free path l (average phonon propagation distance)",
+          "field_b_term": "electron mean free path in electrical conductivity",
+          "note": "Both determined by scattering rate; engineering l via nanostructuring is the thermoelectric design strategy"
+        },
+        {
+          "field_a_term": "phonon-electron coupling constant λ",
+          "field_b_term": "BCS superconducting pairing strength",
+          "note": "Strong phonon-electron coupling → high T_c; same constant determines electrical resistivity"
+        },
+        {
+          "field_a_term": "phononic crystal (periodic nanostructure)",
+          "field_b_term": "photonic crystal (periodic optical structure)",
+          "note": "Analogous gap engineering: phononic bandgap suppresses thermal conductivity modes"
+        }
+      ],
+      "references": [
+        {
+          "note": "Debye (1912) Ann Phys 344:789 — phonon model and T³ heat capacity"
+        },
+        {
+          "note": "Peierls (1929) Ann Phys 395:1055 — Umklapp scattering and thermal resistance theory"
+        },
+        {
+          "doi": "10.1063/1.1524305",
+          "note": "Cahill et al. (2003) J Appl Phys 93:793 — nanoscale thermal transport review"
+        },
+        {
+          "doi": "10.1038/nmat2090",
+          "note": "Snyder & Toberer (2008) Nat Mater 7:105 — complex thermoelectric materials and phonon engineering"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\materials-science-physics\\b-phonons-thermal-conductivity.yaml"
+    },
+    {
       "id": "b-bcs-superconductivity",
       "title": "BCS theory explains conventional superconductivity via phonon-mediated Cooper pairing — but high-Tc cuprates and iron-based superconductors violate BCS assumptions, and the pairing mechanism remains unknown.\n",
       "source_domain": "",
@@ -6576,6 +7177,59 @@
       "file": "cross-domain\\mathematics-computer-science\\b-curry-howard-proofs-programs.yaml"
     },
     {
+      "id": "b-information-geometry-machine-learning",
+      "title": "Information geometry (Amari) equips the space of probability distributions with a Riemannian metric via the Fisher information matrix, enabling natural gradient descent invariant to reparametrisation in machine learning",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Information geometry (Amari 1985) applies differential geometry to the statistical manifold — the space of probability distributions parametrised by θ. The Fisher information matrix g_ij(θ) = E[(∂log p/∂θ_i)(∂log p/∂θ_j)] defines a Riemannian metric (the unique metric invariant under sufficient stat",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-natural-gradient-fisher-rao-metric-optimal-deep-learning-convergence"
+      ],
+      "communication_gap": "Differential geometers and machine learning engineers rarely interact. Information geometry developed primarily in the statistics literature (Amari's group in Japan) and is underutilised in mainstream machine learning despite its direct relevance. The computational cost of inverting the Fisher matrix long discouraged adoption; K-FAC and related approximations have only recently bridged this gap.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Fisher information matrix g_ij",
+          "field_b_term": "Riemannian metric on parameter space",
+          "note": "Same object — the metric that makes the statistical manifold into a Riemannian space"
+        },
+        {
+          "field_a_term": "KL divergence D_KL(p||q)",
+          "field_b_term": "squared geodesic distance (to second order)",
+          "note": "KL divergence is not a metric but approximates squared geodesic distance near p=q"
+        },
+        {
+          "field_a_term": "natural gradient F⁻¹∇L",
+          "field_b_term": "Riemannian gradient (covariant derivative)",
+          "note": "Natural gradient is the steepest ascent direction in the Riemannian metric"
+        },
+        {
+          "field_a_term": "exponential family / mixture family (dual foliations)",
+          "field_b_term": "e-flat and m-flat submanifolds",
+          "note": "Dual geometric structures enable exact information projection algorithms"
+        }
+      ],
+      "references": [
+        {
+          "note": "Amari (1985) Differential-Geometrical Methods in Statistics — foundational text"
+        },
+        {
+          "note": "Amari (1998) — natural gradient works efficiently in learning",
+          "doi": "10.1162/089976698300017746"
+        },
+        {
+          "note": "Martens (2014) New Insights and Perspectives on the Natural Gradient Method — ICML"
+        },
+        {
+          "note": "Nielsen (2020) — an elementary introduction to information geometry",
+          "doi": "10.3390/e22101100"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\mathematics-computer-science\\b-information-geometry-machine-learning.yaml"
+    },
+    {
       "id": "b-perron-frobenius-population-dynamics",
       "title": "The Perron-Frobenius theorem guarantees that the Leslie matrix (age-structured population model) has a unique positive dominant eigenvalue λ₁ = asymptotic growth rate, with the stable age distribution as its eigenvector; sensitivity analysis of λ₁ to matrix entries guides conservation biology priorities.\n",
       "source_domain": "",
@@ -6631,6 +7285,59 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\mathematics-ecology\\b-perron-frobenius-population-dynamics.yaml"
+    },
+    {
+      "id": "b-convex-optimization-economic-equilibrium",
+      "title": "Arrow-Debreu general equilibrium existence (via Kakutani's fixed point theorem) is equivalent to solving a convex optimization problem — KKT conditions are conditions for economic optimality with resource constraints",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The Arrow-Debreu general equilibrium theorem (1954) proves that under convexity of preferences and production sets, a competitive equilibrium exists and is Pareto optimal (first welfare theorem). The proof uses Kakutani's fixed point theorem applied to excess demand correspondences — the same mathem",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-mechanism-design-convex-duality-revenue-optimality"
+      ],
+      "communication_gap": "Economists rarely use algorithmic optimisation language; computer scientists working on equilibrium computation rarely connect to Arrow-Debreu theory. The mathematical equivalence between competitive equilibrium and convex programming was established by Samuelson and Dorfman et al. but the bridge to modern convex optimisation algorithms (Boyd & Vandenberghe) is underexploited in economic computation.\n",
+      "translation_table": [
+        {
+          "field_a_term": "convex feasible set",
+          "field_b_term": "convex consumption/production set",
+          "note": "Convexity of economic sets is the regularity condition ensuring existence"
+        },
+        {
+          "field_a_term": "Lagrange multiplier λ_i",
+          "field_b_term": "shadow price / market-clearing price",
+          "note": "Multipliers have direct economic interpretation as resource scarcity prices"
+        },
+        {
+          "field_a_term": "KKT complementary slackness g_i(x*)λ_i = 0",
+          "field_b_term": "market-clearing condition (no excess supply at positive price)",
+          "note": "Zero price for non-scarce goods; positive price only for binding constraints"
+        },
+        {
+          "field_a_term": "fixed point of best-response correspondence",
+          "field_b_term": "competitive equilibrium / Nash equilibrium",
+          "note": "Kakutani's theorem proves existence in both economic and game-theoretic settings"
+        }
+      ],
+      "references": [
+        {
+          "note": "Arrow & Debreu (1954) — existence of an equilibrium for a competitive economy",
+          "doi": "10.2307/1907353"
+        },
+        {
+          "note": "Kakutani (1941) — fixed-point theorem for correspondences",
+          "doi": "10.1215/S0012-7094-41-00838-4"
+        },
+        {
+          "note": "Boyd & Vandenberghe (2004) Convex Optimization — standard reference"
+        },
+        {
+          "note": "Mas-Colell, Whinston & Green (1995) Microeconomic Theory — KKT conditions and welfare"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\mathematics-economics\\b-convex-optimization-economic-equilibrium.yaml"
     },
     {
       "id": "b-game-theory-evolution",
@@ -7027,6 +7734,60 @@
       "file": "cross-domain\\mathematics-neuroscience\\b-dynamical-systems-neural-oscillations.yaml"
     },
     {
+      "id": "b-ergodic-theory-statistical-mechanics",
+      "title": "Birkhoff's ergodic theorem provides the rigorous mathematical foundation for Boltzmann's ergodic hypothesis, justifying ensemble averages in statistical mechanics",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The ergodic hypothesis (Boltzmann 1884) — that the time average of an observable equals its ensemble average for a system in thermal equilibrium ⟨A⟩_time = ⟨A⟩_ensemble — is the foundational assumption of statistical mechanics. Birkhoff's ergodic theorem (1931) proved this rigorously for measure-pre",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-many-body-localisation-ergodicity-breaking-universal"
+      ],
+      "communication_gap": "Pure mathematicians working in ergodic theory and physicists working in statistical mechanics rarely collaborate. The physical literature often invokes ergodicity informally; the mathematical literature on ergodic theory rarely addresses physical applications of non-ergodicity (MBL, spin glasses). Separate journals (Ergodic Theory and Dynamical Systems vs. Physical Review) reinforce the divide.\n",
+      "translation_table": [
+        {
+          "field_a_term": "measure-preserving dynamical system",
+          "field_b_term": "Hamiltonian system (Liouville's theorem)",
+          "note": "Phase-space volume conservation is the physical realisation of measure preservation"
+        },
+        {
+          "field_a_term": "ergodic transformation (irreducible, aperiodic)",
+          "field_b_term": "chaotic Hamiltonian dynamics (mixing)",
+          "note": "Ergodicity requires the system to explore all phase space — physical analogue is mixing"
+        },
+        {
+          "field_a_term": "time average (Birkhoff)",
+          "field_b_term": "thermodynamic observable (experimental measurement)",
+          "note": "Laboratory measurements are time averages; theory computes ensemble averages"
+        },
+        {
+          "field_a_term": "invariant measure (Haar measure)",
+          "field_b_term": "microcanonical/Boltzmann distribution",
+          "note": "The unique invariant probability measure on the energy shell"
+        }
+      ],
+      "references": [
+        {
+          "note": "Boltzmann (1884) — ergodic hypothesis origin"
+        },
+        {
+          "note": "Birkhoff (1931) — rigorous ergodic theorem",
+          "doi": "10.1073/pnas.17.12.656"
+        },
+        {
+          "note": "Moore (2015) — ergodic theorem, ergodic theory, and statistical mechanics",
+          "doi": "10.1073/pnas.1421798112"
+        },
+        {
+          "note": "Bouchaud (1992) — weak ergodicity breaking in disordered systems",
+          "doi": "10.1051/jp1:1992238"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\mathematics-physics\\b-ergodic-theory-statistical-mechanics.yaml"
+    },
+    {
       "id": "b-group-theory-symmetry-breaking",
       "title": "Spontaneous symmetry breaking — from ferromagnetism to the Higgs mechanism to crystal formation — is described by the mathematical framework of Lie group representations: when the ground state has symmetry H ⊂ G, the quotient G/H parametrises degenerate vacua and Goldstone's theorem counts the massless modes.\n",
       "source_domain": "",
@@ -7087,6 +7848,64 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\mathematics-physics\\b-group-theory-symmetry-breaking.yaml"
+    },
+    {
+      "id": "b-renormalization-group-scale-invariance",
+      "title": "Renormalization group and scale invariance — the mathematics of how physical laws transform across observation scales unifies critical phenomena, QCD, and universality classes",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The renormalization group (Wilson 1971) describes how physical laws change with observation scale. RG flow: systematically integrate out short-wavelength degrees of freedom → effective theory at longer scales. Fixed points of the RG flow correspond to scale-invariant theories (critical points). The ",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-rg-universality-neural-network-criticality"
+      ],
+      "communication_gap": "Despite Wilson's Nobel Prize (1982), RG is taught differently across physics sub-disciplines: condensed matter physicists learn block spins, particle physicists learn the Callan-Symanzik equation, and string theorists learn AdS/CFT. The underlying mathematical unity is rarely taught as a coherent framework across these communities. Applied mathematics has largely ignored RG despite its potential for multiscale analysis of PDEs.\n",
+      "translation_table": [
+        {
+          "field_a_term": "beta function β(g) = μ dg/dμ",
+          "field_b_term": "flow equation in coupling constant space",
+          "note": "Positive β: coupling grows at long distances (IR slavery); negative β: asymptotic freedom"
+        },
+        {
+          "field_a_term": "UV fixed point (g* with β(g*)=0)",
+          "field_b_term": "critical point of a statistical mechanical system",
+          "note": "Scale-invariant theory; power-law correlations; no characteristic length scale"
+        },
+        {
+          "field_a_term": "relevant operator (grows under RG flow)",
+          "field_b_term": "relevant perturbation (drives system away from criticality)",
+          "note": "Temperature T-Tc is always a relevant perturbation near a critical point"
+        },
+        {
+          "field_a_term": "universality class (same fixed point, same exponents)",
+          "field_b_term": "equivalence class of different physical systems",
+          "note": "Water-steam and Ising magnet are in the same universality class (3D Ising)"
+        },
+        {
+          "field_a_term": "conformal field theory (CFT at fixed point)",
+          "field_b_term": "exactly solvable 2D critical models (Ising, Potts)",
+          "note": "2D CFT is exactly solvable via infinite-dimensional Virasoro symmetry"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1016/0370-1573(74)90023-4",
+          "note": "Wilson & Kogut (1974) Phys Rep 12:75 — comprehensive review of exact RG"
+        },
+        {
+          "doi": "10.1103/PhysRevB.4.3174",
+          "note": "Wilson (1971) Phys Rev B 4:3174 — original RG paper on critical phenomena"
+        },
+        {
+          "note": "Kadanoff (1966) Physics 2:263 — block spin decimation, precursor to Wilson RG"
+        },
+        {
+          "note": "Cardy (1996) Scaling and Renormalization in Statistical Physics (Cambridge, ISBN 0521499593) — accessible graduate text"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\mathematics-physics\\b-renormalization-group-scale-invariance.yaml"
     },
     {
       "id": "b-symplectic-geometry-mechanics",
@@ -7479,6 +8298,71 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\neuroscience-computer-science\\b-backpropagation-synaptic-plasticity.yaml"
+    },
+    {
+      "id": "b-neural-diversity-ecosystem-stability",
+      "title": "Neural circuit diversity and ecosystem stability — May's random matrix stability criterion governs both heterogeneous neural populations and biodiverse food webs",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "proposed",
+      "bridge_claim": "The diversity-stability relationship in ecology (May 1972) maps precisely onto neural circuit diversity: heterogeneous neural populations are more robust to perturbation than homogeneous ones, just as biodiverse ecosystems are more stable than monocultures. May's stability criterion: a random ecolog",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-neural-diversity-stability-random-matrix-prediction"
+      ],
+      "communication_gap": "Ecologists and neuroscientists rarely read each other's literature despite sharing stability mathematics. May (1972) was written for ecologists; Sompolinsky et al. (1988) derived the same stability criterion for neural networks without citing May. The connection was partly bridged by Allesina & Tang (2012) who updated May's analysis with structured random matrices. The neuroscience community has not widely adopted ecological stability metrics.\n",
+      "translation_table": [
+        {
+          "field_a_term": "community matrix A_ij (species interaction)",
+          "field_b_term": "synaptic weight matrix W_ij (neural connectivity)",
+          "note": "Both are random matrices; eigenspectrum determines stability of fixed points"
+        },
+        {
+          "field_a_term": "connectance C (fraction of realized interactions)",
+          "field_b_term": "connectivity p (fraction of connected neuron pairs)",
+          "note": "Both appear in the stability criterion: λ_max ~ σ√(SC) or σ√(pN)"
+        },
+        {
+          "field_a_term": "biodiversity (species richness S)",
+          "field_b_term": "neural diversity (cell type heterogeneity)",
+          "note": "More diverse communities / populations can support more complex dynamics"
+        },
+        {
+          "field_a_term": "predator-prey balance (top-down control)",
+          "field_b_term": "inhibitory interneuron control (E/I balance)",
+          "note": "Both prevent runaway growth; loss of predators → prey explosion = loss of inhibition → seizure"
+        },
+        {
+          "field_a_term": "trophic cascade (keystone species removal)",
+          "field_b_term": "disinhibition cascade (PV interneuron loss)",
+          "note": "Remove a single control node → cascade instability in both food web and circuit"
+        },
+        {
+          "field_a_term": "May's stability criterion σ√(SC) < 1",
+          "field_b_term": "E/I balance criterion for cortical circuits",
+          "note": "Both are conditions on interaction strength × connectivity for linear stability"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1038/238413a0",
+          "note": "May (1972) Nature 238:413 — random matrix stability criterion for ecological communities"
+        },
+        {
+          "doi": "10.1016/j.cell.2011.09.026",
+          "note": "Isaacson & Scanziani (2011) Cell 147:1449 — E/I balance in cortical circuits"
+        },
+        {
+          "doi": "10.1038/nn.3134",
+          "note": "Litwin-Kumar & Doiron (2012) Nat Neurosci 15:1498 — slow fluctuations from heterogeneous networks"
+        },
+        {
+          "doi": "10.1038/nature10832",
+          "note": "Allesina & Tang (2012) Nature 483:205 — stability criteria for complex ecological networks"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\neuroscience-ecology\\b-neural-diversity-ecosystem-stability.yaml"
     },
     {
       "id": "b-neural-control-theory",
@@ -7994,6 +8878,59 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\neuroscience-medicine\\b-connectome-neurodegeneration.yaml"
+    },
+    {
+      "id": "b-predictive-coding-phenomenal-consciousness",
+      "title": "Predictive coding frames perception as hierarchical Bayesian inference, bridging computational neuroscience to the hard problem of consciousness by proposing phenomenal experience as residual unresolved prediction error",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "proposed",
+      "bridge_claim": "Predictive coding (Rao & Ballard 1999; Friston 2010; Clark 2013) proposes that the brain is a hierarchical Bayesian prediction machine: top-down predictions cancel bottom-up sensory signals, with only prediction errors propagating upward for belief updating. This framework unifies perception, attent",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-predictive-coding-precision-weighting-explains-attention-consciousness"
+      ],
+      "communication_gap": "Philosophers of mind and computational neuroscientists rarely engage with each other's technical arguments. Philosophers lack mathematical fluency with Bayesian inference; neuroscientists avoid the hard problem as \"not scientific.\" The predictive coding bridge offers a scientific framework with genuine philosophical implications that both communities resist fully engaging with.\n",
+      "translation_table": [
+        {
+          "field_a_term": "prediction error (PE) signal",
+          "field_b_term": "phenomenal experience / qualia",
+          "note": "Proposed identification — unresolved PE corresponds to conscious percept"
+        },
+        {
+          "field_a_term": "prior (top-down prediction)",
+          "field_b_term": "concept / expectation",
+          "note": "Prior beliefs shape percepts just as concepts shape phenomenology"
+        },
+        {
+          "field_a_term": "free energy minimisation (active inference)",
+          "field_b_term": "minimisation of existential surprise",
+          "note": "Friston extends free energy principle to model all purposive behaviour"
+        },
+        {
+          "field_a_term": "precision weighting of PE",
+          "field_b_term": "attentional gain / salience",
+          "note": "High-precision PEs enter consciousness; low-precision ones do not"
+        }
+      ],
+      "references": [
+        {
+          "note": "Friston (2010) — free energy principle and the brain",
+          "doi": "10.1038/nrn2787"
+        },
+        {
+          "note": "Clark (2013) — whatever next? Predictive brains, situated agents",
+          "doi": "10.1017/S0140525X12000477"
+        },
+        {
+          "note": "Chalmers (1996) The Conscious Mind — hard problem of consciousness"
+        },
+        {
+          "note": "Hohwy (2013) The Predictive Mind — philosophy of predictive coding"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\neuroscience-philosophy\\b-predictive-coding-phenomenal-consciousness.yaml"
     },
     {
       "id": "b-free-energy-principle-thermodynamics",
@@ -8726,6 +9663,60 @@
       "file": "cross-domain\\physics-biology\\b-mechanobiology-continuum-mechanics.yaml"
     },
     {
+      "id": "b-mechanosensing-piezoelectric",
+      "title": "Biological tissues (bone, collagen, DNA) exhibit piezoelectric properties bridging solid-state physics crystal mechanics to mechanobiology and Wolff's law of bone remodelling",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "proposed",
+      "bridge_claim": "Piezoelectricity — the generation of electrical polarisation by mechanical stress and vice versa — appears in many biological tissues including bone, collagen, DNA, and some cell membranes. The piezoelectric tensor d_ijk relates stress σ_jk to polarisation P_i: P_i = d_ijk σ_jk. Bone exhibits measur",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-bone-piezoelectric-signal-drives-wolff-law-remodelling"
+      ],
+      "communication_gap": "Solid-state physicists working on piezoelectrics and biologists studying mechanosensing operate in separate communities. Clinical bone biology rarely applies piezoelectric tensor formalism. The biophysical field of mechanobiology has grown substantially but often lacks the mathematical rigour of solid-state physics treatment of piezoelectric phenomena.\n",
+      "translation_table": [
+        {
+          "field_a_term": "piezoelectric tensor d_ijk",
+          "field_b_term": "mechanosensitive coupling coefficient",
+          "note": "Same mathematical object; biophysics uses it to relate mechanical input to biological signal output"
+        },
+        {
+          "field_a_term": "crystal symmetry group (non-centrosymmetric)",
+          "field_b_term": "structural anisotropy of collagen fibrils",
+          "note": "Piezoelectricity requires broken inversion symmetry — collagen handedness provides this"
+        },
+        {
+          "field_a_term": "streaming potential / piezoelectric voltage",
+          "field_b_term": "mechanosensory signal to osteocytes",
+          "note": "The electrical signal generated by mechanical loading is the proposed biological transducer"
+        },
+        {
+          "field_a_term": "converse piezoelectric effect (E → strain)",
+          "field_b_term": "electrically stimulated bone growth (clinical use)",
+          "note": "Applied electric fields promote bone healing — converse piezo effect in biological tissue"
+        }
+      ],
+      "references": [
+        {
+          "note": "Fukada & Yasuda (1957) — piezoelectric effect of bone",
+          "doi": "10.1143/JPSJ.12.1158"
+        },
+        {
+          "note": "Wolff (1892) Das Gesetz der Transformation der Knochen — bone remodelling law"
+        },
+        {
+          "note": "Bassett & Becker (1962) — generation of electric potentials by bone in response to mechanical stress",
+          "doi": "10.1126/science.137.3535.1063"
+        },
+        {
+          "note": "Ahn & Grodzinsky (2009) — relevance of collagen piezoelectricity to wound healing",
+          "doi": "10.1615/CritRevBiomedEng.v37.i1-2.20"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\physics-biology\\b-mechanosensing-piezoelectric.yaml"
+    },
+    {
       "id": "b-maxwell-boltzmann-chemical-kinetics",
       "title": "The Maxwell-Boltzmann speed distribution determines the fraction of molecules energetic enough to overcome activation barriers, directly deriving the Arrhenius equation and establishing statistical mechanics as the microscopic foundation of chemical kinetics.\n",
       "source_domain": "",
@@ -8785,6 +9776,61 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\physics-chemistry\\b-maxwell-boltzmann-chemical-kinetics.yaml"
+    },
+    {
+      "id": "b-transition-state-theory-kinetics",
+      "title": "Transition state theory (Eyring 1935) and Kramers' escape rate (1940) unify chemical reaction kinetics, protein conformational dynamics, and ion channel gating as thermally activated first-passage over energy barriers",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Transition state theory (Eyring, Evans & Polanyi 1935) describes chemical reactions as passage over a saddle point on the potential energy surface (PES): the rate constant k = (k_B T/h) exp(-ΔG‡/RT), where ΔG‡ is the free energy of the transition state (activated complex) relative to reactants. This",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-kramers-turnover-solvent-friction-controls-enzyme-reaction-rates"
+      ],
+      "communication_gap": "Physical chemists computing PES and biochemists studying enzyme kinetics rarely share mathematical frameworks. Transition state theory is taught in physical chemistry but Kramers theory is taught in statistical physics; the equivalence is rarely emphasised. Biophysicists studying protein folding often reinvent Kramers theory terminology.\n",
+      "translation_table": [
+        {
+          "field_a_term": "transition state (saddle point on PES)",
+          "field_b_term": "free energy barrier ΔG‡",
+          "note": "Same object — the highest-free-energy point on the minimum energy path"
+        },
+        {
+          "field_a_term": "Eyring rate k = (kT/h)exp(-ΔG‡/RT)",
+          "field_b_term": "Kramers rate k = (ω_min ω_b / 2πγ)exp(-ΔE/kT)",
+          "note": "Both are Arrhenius forms; Kramers adds friction and barrier curvature corrections"
+        },
+        {
+          "field_a_term": "reaction coordinate",
+          "field_b_term": "order parameter / progress variable",
+          "note": "The collective coordinate along which the system moves from reactant to product basin"
+        },
+        {
+          "field_a_term": "PES landscape (quantum chemistry, DFT)",
+          "field_b_term": "free energy landscape (statistical mechanics, umbrella sampling)",
+          "note": "Quantum PES averaged over thermal fluctuations gives the free energy surface"
+        }
+      ],
+      "references": [
+        {
+          "note": "Eyring (1935) — transition state theory, activated complex",
+          "doi": "10.1063/1.1749604"
+        },
+        {
+          "note": "Evans & Polanyi (1935) — transition state theory in chemical kinetics",
+          "doi": "10.1039/tf9353100875"
+        },
+        {
+          "note": "Kramers (1940) — Brownian motion and escape over barriers",
+          "doi": "10.1016/S0031-8914(40)90098-2"
+        },
+        {
+          "note": "Hänggi, Talkner & Borkovec (1990) — reaction rate theory review",
+          "doi": "10.1103/RevModPhys.62.251"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\physics-chemistry\\b-transition-state-theory-kinetics.yaml"
     },
     {
       "id": "b-van-der-waals-phase-transitions",
@@ -9576,6 +10622,70 @@
       "file": "cross-domain\\physics-economics\\b-entropy-production-market-irreversibility.yaml"
     },
     {
+      "id": "b-kinetic-theory-wealth-distribution",
+      "title": "Kinetic theory of gases and wealth distribution — random pairwise energy/wealth exchange produces exponential (Boltzmann-Gibbs) equilibrium distributions in both gases and simplified economies",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "proposed",
+      "bridge_claim": "The Boltzmann-Gibbs distribution of kinetic energy in ideal gases maps onto wealth distributions in simplified random exchange models. In a gas, molecules exchange energy randomly in two-body collisions conserving total energy — equilibrium P(E) ∝ exp(-E/kT). In a simplified economy where N agents r",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-two-class-economy-boltzmann-pareto-transition"
+      ],
+      "communication_gap": "Mainstream economics dismissed early statistical physics approaches to wealth distribution (econophysics) as oversimplified. The field of econophysics (Mantegna, Stanley, Yakovenko) remains marginal in economics departments despite successful empirical predictions. Economists prefer agent-based models with rationality assumptions; physicists prefer minimal models with emergent distributions. The connection between Pareto's original power law observation and kinetic theory was not made until the late 1990s.\n",
+      "translation_table": [
+        {
+          "field_a_term": "kinetic energy E of gas molecule",
+          "field_b_term": "wealth W_i of economic agent",
+          "note": "Both are non-negative conserved quantities exchanged pairwise"
+        },
+        {
+          "field_a_term": "temperature kT = mean kinetic energy",
+          "field_b_term": "mean wealth ⟨W⟩ (economic temperature)",
+          "note": "Both set the scale of the equilibrium distribution; inequality ∝ 1/kT"
+        },
+        {
+          "field_a_term": "elastic collision (energy conserving)",
+          "field_b_term": "fair exchange (wealth conserving transaction)",
+          "note": "Simplest model; real transactions have friction, information asymmetry"
+        },
+        {
+          "field_a_term": "Maxwell-Boltzmann distribution P(v)",
+          "field_b_term": "exponential income distribution (lower tail)",
+          "note": "Observed in lower 90% of US income distribution by Dragulescu & Yakovenko"
+        },
+        {
+          "field_a_term": "multiplicative stochastic process (geometric Brownian motion)",
+          "field_b_term": "investment returns (compounding wealth)",
+          "note": "Produces log-normal or power-law distribution; Pareto tail from asset ownership"
+        },
+        {
+          "field_a_term": "entropy maximization (Boltzmann's H-theorem)",
+          "field_b_term": "maximum entropy principle for wealth distribution",
+          "note": "Both derive the equilibrium distribution from entropy maximization with constraint"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1007/s100510050292",
+          "note": "Dragulescu & Yakovenko (2000) Eur Phys J B 17:723 — Boltzmann-Gibbs distribution of money"
+        },
+        {
+          "doi": "10.1007/s100510050276",
+          "note": "Chakraborti & Chakrabarti (2000) Eur Phys J B 17:167 — statistical mechanics of money"
+        },
+        {
+          "note": "Pareto (1897) Cours d'économie politique — original power-law wealth distribution observation"
+        },
+        {
+          "doi": "10.1016/S0378-4371(00)00205-3",
+          "note": "Bouchaud & Mézard (2000) Physica A 282:536 — wealth condensation in simple models"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\physics-economics\\b-kinetic-theory-wealth-distribution.yaml"
+    },
+    {
       "id": "b-quantum-sensing-fundamental-limits",
       "title": "Quantum metrology achieves Heisenberg-limited sensitivity — quantum sensors beat classical noise floors by exploiting entanglement and squeezing",
       "source_domain": "",
@@ -10350,6 +11460,59 @@
       "references": [],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\physics-neuroscience\\b-materials-consciousness-criticality.yaml"
+    },
+    {
+      "id": "b-spin-waves-neural-synchronization",
+      "title": "Magnon dispersion in ferromagnets is formally identical to phase-oscillation band structure in coupled neural networks (Kuramoto model)",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "proposed",
+      "bridge_claim": "Spin waves (magnons) in ferromagnets propagate collective oscillations of magnetic moment orientation with a dispersion relation ω(k) that mirrors the band structure of phase-oscillation modes in coupled neural oscillator networks described by the Kuramoto model. In both systems, long-range synchron",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-kuramoto-magnon-synchronization-threshold-equivalence"
+      ],
+      "communication_gap": "Condensed matter physicists and computational neuroscientists rarely co-publish; terminology (magnon vs. oscillator mode, exchange coupling vs. synaptic weight) conceals the mathematical identity. Spintronics and neural computation are funded through separate agencies.\n",
+      "translation_table": [
+        {
+          "field_a_term": "magnon (spin-wave quantum)",
+          "field_b_term": "phase oscillation mode",
+          "note": "Both are collective excitations of an ordered state propagating on a lattice/network"
+        },
+        {
+          "field_a_term": "exchange coupling J",
+          "field_b_term": "synaptic coupling strength K",
+          "note": "Critical coupling threshold for synchronization is J_c or K_c in respective models"
+        },
+        {
+          "field_a_term": "ferromagnetic order parameter (magnetisation)",
+          "field_b_term": "Kuramoto order parameter r = |N^{-1} Σ e^{iθ_j}|",
+          "note": "Both measure global coherence; both undergo continuous phase transitions at threshold coupling"
+        },
+        {
+          "field_a_term": "spin-wave dispersion ω(k) = Dk²",
+          "field_b_term": "neural oscillation band structure",
+          "note": "Both describe how frequency scales with wavenumber/mode index"
+        }
+      ],
+      "references": [
+        {
+          "note": "Bloch (1930) — spin-wave theory in ferromagnets",
+          "doi": "10.1007/BF01339661"
+        },
+        {
+          "note": "Kuramoto (1984) Chemical Oscillations, Waves and Turbulence — coupled oscillator model"
+        },
+        {
+          "note": "Strogatz (2000) — Kuramoto model review, synchronization phase transition",
+          "doi": "10.1016/S0167-2789(00)00094-4"
+        },
+        {
+          "note": "Néel (1948) — antiferromagnetic spin waves"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\physics-neuroscience\\b-spin-waves-neural-synchronization.yaml"
     },
     {
       "id": "b-stochastic-resonance",
@@ -11869,6 +13032,70 @@
       "file": "cross-domain\\social-science-mathematics\\b-voter-model-consensus.yaml"
     },
     {
+      "id": "b-homophily-structural-segregation",
+      "title": "Homophily and structural segregation — the tendency of similar individuals to connect produces modular networks that are the mathematical basis of filter bubbles and information siloing",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Homophily — the tendency of similar individuals to form ties (\"birds of a feather flock together\") — is the dominant structural force shaping social networks. Measured by the assortativity coefficient r = (Σ_jk jk·e_jk - [Σ_j j·q_j]²) / (σ²_q), where e_jk is the fraction of edges between nodes of ty",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-network-assortativity-predicts-misinformation-spread-rate"
+      ],
+      "communication_gap": "Sociologists developed homophily theory empirically (McPherson et al.) while network scientists developed assortativity theory mathematically (Newman 2002) — the explicit connection was made only in the mid-2000s. The political science and communication studies literature on filter bubbles rarely uses the assortativity formalism despite it providing quantitative predictions. Pariser's (2011) popular account lacked the mathematical framework, limiting its scientific uptake.\n",
+      "translation_table": [
+        {
+          "field_a_term": "assortativity coefficient r",
+          "field_b_term": "Pearson correlation of node degrees across edges",
+          "note": "r ∈ [-1,1]; social networks typically r > 0 (assortative); biological networks r < 0"
+        },
+        {
+          "field_a_term": "homophily (preference for similar alters)",
+          "field_b_term": "positive degree-degree correlation",
+          "note": "Multiple dimensions: race, education, age, opinion — all produce independent assortativity terms"
+        },
+        {
+          "field_a_term": "modularity Q (fraction of edges within groups above random)",
+          "field_b_term": "community structure strength",
+          "note": "Q > 0.3 typically indicates meaningful community structure; maximized by Louvain algorithm"
+        },
+        {
+          "field_a_term": "echo chamber (within-group information amplification)",
+          "field_b_term": "high spectral gap between within/between community mixing rates",
+          "note": "Information propagates fast within group (short path), slow between groups (long bridges)"
+        },
+        {
+          "field_a_term": "filter bubble (outgroup information filtered)",
+          "field_b_term": "bottleneck edges (bridges) between network communities",
+          "note": "Removing few bridge edges disconnects communities — structural basis of information gatekeeping"
+        },
+        {
+          "field_a_term": "Schelling tipping model (weak preference → strong segregation)",
+          "field_b_term": "phase transition in network modularity under local rewiring",
+          "note": "Even mild homophily preference drives network to highly segregated state — nonlinear tipping"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1146/annurev.soc.27.1.415",
+          "note": "McPherson et al. (2001) Annu Rev Sociol 27:415 — homophily in social networks: review"
+        },
+        {
+          "doi": "10.1103/PhysRevLett.89.208701",
+          "note": "Newman (2002) Phys Rev Lett 89:208701 — assortative mixing in networks"
+        },
+        {
+          "note": "Pariser (2011) The Filter Bubble (Penguin Press, ISBN 1594203008) — popular account of algorithmic echo chambers"
+        },
+        {
+          "doi": "10.1086/521848",
+          "note": "Centola et al. (2007) Am J Sociol 113:702 — homophily, cultural drift, and echo chambers"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\social-science-network-science\\b-homophily-structural-segregation.yaml"
+    },
+    {
       "id": "b-social-capital-network-centrality",
       "title": "Bourdieu's social capital — resources available through social networks — maps precisely onto network centrality measures: betweenness centrality captures brokerage capital (Burt's structural holes), eigenvector centrality captures prestige capital, and the Gini coefficient of the degree distribution measures inequality in social capital access.\n",
       "source_domain": "",
@@ -12069,6 +13296,58 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\social-science-physics\\b-opinion-dynamics-ising.yaml"
+    },
+    {
+      "id": "b-survey-causal-inference",
+      "title": "The potential outcomes framework (Rubin) and Pearl's do-calculus provide the statistical foundations for causal inference from survey and observational data, connecting survey methodology to formal causal graph theory",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The potential outcomes framework (Rubin 1974): each unit has potential outcomes Y(1) under treatment and Y(0) under control; the causal effect = Y(1) - Y(0), but only one is observed (the fundamental problem of causal inference). Randomised controlled trials (RCTs) solve this by making treatment ind",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-regression-discontinuity-surveys-local-average-treatment-effect-equivalence"
+      ],
+      "communication_gap": "Survey statisticians and causal inference researchers developed parallel frameworks with different vocabularies (design-based vs. model-based; potential outcomes vs. DAGs). Rubin and Pearl rarely cross-cited despite solving related problems. Applied social scientists often use one framework without knowing its connection to the other.\n",
+      "translation_table": [
+        {
+          "field_a_term": "potential outcome Y(t)",
+          "field_b_term": "counterfactual / do-operator do(T=t)",
+          "note": "Both formalise what would happen under an intervention not actually observed"
+        },
+        {
+          "field_a_term": "assignment mechanism (SUTVA, ignorability)",
+          "field_b_term": "back-door criterion (no unblocked confounding path)",
+          "note": "Both conditions ensure that observed association equals causal effect"
+        },
+        {
+          "field_a_term": "propensity score e(X) = P(T=1|X)",
+          "field_b_term": "inverse probability weighting (IPW)",
+          "note": "Propensity scores reweight the sample to approximate a randomised experiment"
+        },
+        {
+          "field_a_term": "instrumental variable Z (exclusion, relevance, independence)",
+          "field_b_term": "front-door criterion in DAG",
+          "note": "Both identify causal effect when direct randomisation is impossible"
+        }
+      ],
+      "references": [
+        {
+          "note": "Rubin (1974) — potential outcomes framework for causal inference",
+          "doi": "10.1037/h0037350"
+        },
+        {
+          "note": "Pearl (2000) Causality — do-calculus and DAG-based causal inference"
+        },
+        {
+          "note": "Angrist & Pischke (2009) Mostly Harmless Econometrics — IV and RD methods"
+        },
+        {
+          "note": "Imbens & Rubin (2015) Causal Inference for Statistics, Social, and Biomedical Sciences"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\social-science-statistics\\b-survey-causal-inference.yaml"
     },
     {
       "id": "b-boltzmann-shannon-entropy",
