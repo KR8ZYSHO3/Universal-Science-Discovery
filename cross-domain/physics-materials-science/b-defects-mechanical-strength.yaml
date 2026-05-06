@@ -1,0 +1,81 @@
+id: b-defects-mechanical-strength
+title: >
+  The mechanical strength of crystalline materials is governed entirely by
+  dislocation physics: Taylor hardening (τ ∝ √ρ), the Hall-Petch grain-size
+  effect (σ_y ∝ d⁻¹/²), and Orowan precipitate strengthening reduce all
+  strength-of-materials to the statistical mechanics of dislocation ensembles
+  in a periodic lattice.
+status: established
+fields:
+  - physics
+  - materials-science
+  - condensed-matter
+  - mechanical-engineering
+  - crystallography
+bridge_claim: >
+  A perfect crystal is theoretically very strong: theoretical shear strength
+  τ_th ≈ Gb/(2πa) ≈ G/30 where G is shear modulus (~40 GPa for steel) and
+  a is lattice spacing. Real iron fails at τ ~ 50 MPa — three orders of magnitude
+  weaker — because of dislocations: line defects characterised by their Burgers
+  vector b. The Peierls-Nabarro stress to move a single dislocation is
+  τ_PN = (2G/1-ν)·exp(-2πw/b) where w is dislocation width. Taylor hardening
+  (1934): as dislocation density ρ increases during plastic deformation, mutual
+  elastic interactions strengthen the material: τ = τ₀ + αGb√ρ (α ~ 0.5).
+  Hall-Petch (1951/1953): grain boundaries block dislocation slip, giving
+  σ_y = σ₀ + k_y/√d — nanocrystalline metals (d ~ 10 nm) approach theoretical
+  strength. Orowan strengthening: dislocations bypass hard precipitates
+  (radius r, spacing l) by bowing loops: Δτ = Gb/(l-2r). All three mechanisms
+  are dislocation statistics: the ensemble average of Peierls barriers,
+  forest intersections, and geometric obstacles determines macroscopic yield
+  stress. Molecular dynamics simulations now track individual dislocations
+  (10⁸ atoms, 10 ns) and validate Taylor/Hall-Petch laws from first principles.
+translation_table:
+  - field_a_term: Burgers vector b of edge/screw dislocation
+    field_b_term: unit of plastic strain per dislocation glide event
+    note: b = a/2⟨110⟩ in FCC metals; b = a/2⟨111⟩ in BCC — determines slip geometry
+  - field_a_term: dislocation density ρ (lines per m²)
+    field_b_term: degree of work hardening / stored plastic strain energy
+    note: "Annealed Cu: ρ ~ 10¹⁰ m⁻²; cold-worked: ρ ~ 10¹⁵ m⁻²"
+  - field_a_term: Taylor factor M relating resolved shear to macroscopic stress
+    field_b_term: crystallographic texture effect on polycrystal yield stress
+    note: M = σ_macro/τ_resolved ~ 3.06 for random FCC texture; texture affects strength
+  - field_a_term: grain boundary as dislocation pile-up barrier
+    field_b_term: Hall-Petch k_y coefficient (grain boundary strengthening efficacy)
+    note: k_y depends on grain boundary energy and dislocation core structure
+  - field_a_term: Orowan loop left behind precipitate
+    field_b_term: precipitation hardening back-stress and fatigue crack nucleation
+    note: Orowan loops accumulate → back-stress → Bauschinger effect in cyclic loading
+related_unknowns:
+  - u-dislocation-avalanche-statistical-mechanics-plasticity
+related_hypotheses:
+  - h-dislocation-density-taylor-hardening-md-validation
+cross_pollination_opportunities:
+  - >
+    Statistical physics of dislocation avalanches: acoustic emission from deforming
+    crystals shows power-law event size distributions (Weiss et al.) — this is
+    the physics of self-organised criticality (Bak-Tang-Wiesenfeld) applied to
+    crystal plasticity; the connection has been made but not fully exploited for
+    predictive strength models.
+  - >
+    Machine learning interatomic potentials (MLIPs) trained on DFT data can
+    simulate the full dislocation-grain boundary interaction landscape at
+    nanosecond/nanometre scales — validating and extending Taylor/Hall-Petch
+    to complex alloy compositions.
+communication_gap: >
+  Dislocation physics was developed by physicists (Taylor, Orowan, Burgers, Nabarro)
+  but published primarily in materials science and metallurgy journals. Condensed
+  matter physicists trained post-1970 typically do not study dislocation theory
+  (it is not in standard graduate curricula), even though it is one of the most
+  successful applications of solid-state physics to engineering. Materials
+  engineers use Taylor/Hall-Petch empirically without connecting to the
+  statistical mechanics derivations that would enable prediction in new alloy
+  systems.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1098/rspa.1934.0106"
+    note: "Taylor (1934) The mechanism of plastic deformation of crystals. Proc R Soc A 145:362"
+  - doi: "10.1088/0370-1301/64/9/303"
+    note: "Hall (1951) The deformation and ageing of mild steel. Proc Phys Soc B 64:747"
+  - note: "Petch (1953) The cleavage strength of polycrystals. J Iron Steel Inst 174:25"
+  - doi: "10.1088/0034-4885/12/1/309"
+    note: "Orowan (1948) Discussion in Symposium on Internal Stresses in Metals and Alloys. Rep Prog Phys 12:185"

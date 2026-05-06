@@ -1,0 +1,54 @@
+id: h-wavelet-shrinkage-minimax-optimal-natural-image-sparsity
+title: >
+  Natural images lie in a Besov space B^s_{1,1}(ℝ²) with s ≈ 1, and wavelet
+  thresholding achieves the optimal minimax reconstruction rate n^(-2s/(2s+2))
+  = n^(-1/2) for this function class, explaining why JPEG-2000 wavelet compression
+  outperforms JPEG-DCT by a constant factor at all compression ratios rather
+  than only at low quality.
+status: active
+priority: medium
+impact_score: 0.73
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+
+evidence_links:
+  - doi: "10.1093/biomet/81.3.425"
+    type: supporting
+    confidence: 0.82
+    note: "Donoho & Johnstone (1994) — wavelet shrinkage is minimax optimal over Sobolev classes; extension to Besov spaces in subsequent work"
+  - doi: "10.1109/83.136598"
+    type: supporting
+    confidence: 0.75
+    note: "Antonini et al. (1992) — JPEG-2000 wavelet implementation; empirically outperforms DCT at moderate-to-high compression"
+  - type: supporting
+    note: "Ruderman & Bialek (1994) Statistics of natural images — wavelet coefficients of natural images follow heavy-tailed distributions consistent with Besov space membership"
+
+unknowns_addressed:
+  - u-wavelet-optimal-basis-nonstationary-signal-adaptation
+
+proposed_tests:
+  - description: >
+      Estimate the Besov space smoothness parameter s for a large natural image
+      dataset (ImageNet, n = 1.2M images) by fitting the decay rate of sorted
+      wavelet coefficient magnitudes |w_(k)| ∝ k^(-s-1/p) and comparing to
+      s = 1 prediction; then compute the predicted minimax rate and verify it
+      matches the observed PSNR vs. compression rate curve for Daubechies-9/7
+      JPEG-2000 compression.
+    method: "Daubechies-9/7 wavelet decomposition of ImageNet; coefficient sorting; power-law fitting for s; PSNR vs. bpp compression curves compared to minimax rate prediction"
+    prediction: "Natural images have Besov smoothness s = 0.8 ± 0.2; JPEG-2000 PSNR advantage over JPEG scales as (compression ratio)^(0.1±0.05) consistent with the predicted rate gap"
+  - description: >
+      V1 wavelet hypothesis test: measure the Besov space parameter s implied
+      by primary visual cortex (V1) receptive field tuning bandwidths across
+      species (mouse, cat, primate); test whether s_V1 matches s_natural images
+      to 10%, which would confirm that V1 is optimally tuned to the statistical
+      structure of natural images in the Besov sense.
+    method: "Electrophysiology + two-photon calcium imaging of V1 simple cells; measure spatial frequency bandwidth σ_sf; compute implied s from bandwidth-to-frequency ratio; compare to image statistics"
+    prediction: "V1 tuning bandwidth implies Besov s = 0.9 ± 0.15, matching natural image s within measurement error; primates show closer match than mice due to higher exposure to natural image statistics"
+
+related_disciplines:
+  - mathematics
+  - engineering
+  - signal-processing
+  - neuroscience
+  - statistics

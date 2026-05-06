@@ -1,0 +1,80 @@
+id: b-network-centrality-social-influence
+title: >
+  Network centrality measures — degree, betweenness, eigenvector, and Katz
+  centrality — derived from spectral properties of the adjacency matrix, provide
+  a unified mathematical framework quantifying social influence, predicting
+  epidemiological superspreaders, economic wage inequality in oligopoly, and
+  information diffusion in social networks.
+status: established
+fields:
+  - social-science
+  - mathematics
+  - network-science
+  - economics
+  - epidemiology
+  - sociology
+bridge_claim: >
+  Social influence in a network G = (V, E) with adjacency matrix A is captured
+  by multiple centrality measures, all derivable from A's spectral decomposition.
+  Degree centrality: k_i = Σⱼ Aᵢⱼ (direct connections). Betweenness centrality:
+  B_i = Σ_{s≠t} σ_{st}(i)/σ_{st} where σ_{st}(i) is the number of shortest
+  paths from s to t passing through i — identifies bridge nodes and gatekeepers.
+  Eigenvector centrality: xᵢ = (1/λ₁)Σⱼ Aᵢⱼxⱼ, or in matrix form Ax = λ₁x
+  (principal eigenvector of A). Google PageRank: x = αAᵀx + (1-α)e, a damped
+  eigenvector centrality with teleportation probability (1-α). Katz centrality:
+  K = (I - αA)⁻¹·1 — 1 sums contributions from all walks of all lengths with
+  discount α^length. The key mathematical result: all centrality measures are
+  functions of the eigenvalues and eigenvectors {λ_i, v_i} of A. Bonacich
+  (1987) shows that in oligopoly games, equilibrium wages equal Bonacich
+  centrality (eigenvector centrality with network externalities). In epidemic
+  SIR models, the epidemic threshold is 1/λ₁(A); nodes with high eigenvector
+  centrality are the superspreaders.
+translation_table:
+  - field_a_term: adjacency matrix A of social network
+    field_b_term: who-influences-whom relationship in a community
+    note: A_ij = 1 if person j can directly influence person i; A encodes all social structure
+  - field_a_term: principal eigenvalue λ₁(A) of adjacency matrix
+    field_b_term: epidemic threshold — R₀ = β/γ must exceed 1/λ₁ for epidemic
+    note: Spectral gap λ₁ - λ₂ determines robustness to node removal
+  - field_a_term: eigenvector centrality (principal eigenvector)
+    field_b_term: Bonacich power — equilibrium payoff in economic network games
+    note: "Formally identical: both are principal eigenvector of the weighted adjacency matrix"
+  - field_a_term: betweenness centrality B_i
+    field_b_term: information broker or structural hole position in sociology
+    note: Burt's (1992) structural holes correspond to high-betweenness nodes
+  - field_a_term: PageRank damping factor α
+    field_b_term: probability that influence propagates vs. attenuates
+    note: α = 0.85 (Google default) has no sociological derivation; biology suggests α varies by context
+related_unknowns:
+  - u-network-centrality-temporal-dynamics-influence
+related_hypotheses:
+  - h-eigenvector-centrality-superspreader-epidemic-prediction
+cross_pollination_opportunities:
+  - >
+    Real-time eigenvector centrality computed from mobile phone call records
+    (proxy social network) during an epidemic outbreak would directly test whether
+    high-centrality individuals are the observed superspreaders — the mathematical
+    prediction is clear but the epidemiological validation is technically difficult.
+  - >
+    In labour economics, computing Bonacich centrality in professional networks
+    (from LinkedIn graph data) and regressing on wages would directly test
+    Ballester-Calvó-Zenou's theory — a pure network-math prediction testable
+    with observational data.
+communication_gap: >
+  Sociologists invented betweenness centrality (Freeman 1977) and published in
+  Sociometry; mathematicians developed spectral graph theory in parallel in
+  discrete mathematics journals. Economists (Bonacich, Katz) developed network
+  centrality independently in economics journals. The synthesis — that all these
+  are eigenvector variants — is well-known to network scientists but rarely
+  presented in standard sociology or economics curricula. PageRank's connection
+  to sociological influence theory is rarely discussed outside network science.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.2307/3033543"
+    note: "Freeman (1977) A set of measures of centrality based on betweenness. Sociometry 40:35"
+  - doi: "10.2307/2785990"
+    note: "Katz (1953) A new status index derived from sociometric analysis. Sociometry 16:39"
+  - doi: "10.1086/228631"
+    note: "Bonacich (1987) Power and centrality: a family of measures. Am J Sociol 92:1170"
+  - doi: "10.1016/S0169-7552(98)00110-X"
+    note: "Brin & Page (1998) The anatomy of a large-scale hypertextual web search engine. Comput Netw ISDN Syst 30:107"

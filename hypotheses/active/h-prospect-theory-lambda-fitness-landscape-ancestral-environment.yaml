@@ -1,0 +1,53 @@
+id: h-prospect-theory-lambda-fitness-landscape-ancestral-environment
+title: >
+  The loss aversion coefficient λ ≈ 2.25 is a Bayesian-optimal decision
+  parameter for an agent facing the ancestral human foraging environment, where
+  the variance-to-mean ratio of daily caloric intake creates a fitness landscape
+  in which losses have systematically 2.0–2.5× greater fitness consequences
+  than equivalent gains due to starvation risk asymmetry.
+status: active
+priority: medium
+impact_score: 0.76
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+
+evidence_links:
+  - doi: "10.2307/1914185"
+    type: related
+    confidence: 0.55
+    note: "Kahneman & Tversky (1979) established λ ≈ 2.25 empirically in WEIRD samples"
+  - doi: "10.1162/003355397555253"
+    type: related
+    confidence: 0.50
+    note: "Laibson (1997) present bias as evolutionary adaptation — parallel evolutionary-economic reasoning"
+  - type: related
+    note: "Kelly (1956) Kelly criterion for optimal betting under uncertainty gives asymmetric response to gains/losses; applied to foraging gives loss-aversion-like parameters for nutritional variance ~ 30% CV"
+
+unknowns_addressed:
+  - u-loss-aversion-cross-cultural-evolutionary-universality
+
+proposed_tests:
+  - description: >
+      Compute the optimal λ from daily caloric intake variance data for
+      Hadza hunter-gatherers (Tanzania), Tsimane horticulturalists (Bolivia),
+      and WEIRD US undergraduates, using a formal fitness maximization model
+      (Kelly-like optimization of caloric reserve below starvation threshold);
+      compare to measured λ in the same populations using incentivized
+      gamble paradigms.
+    method: "Foraging data from published ethnographic surveys (CV of daily calories) → model optimal λ; incentivized mixed gambles (e.g. lose £y vs. gain £x) → empirical λ; Spearman correlation"
+    prediction: "Model-predicted λ and empirical λ are correlated across populations (r > 0.7); Hadza show λ ≈ 3–4, US students show λ ≈ 2–2.5, consistent with caloric variance differences"
+  - description: >
+      Genetic test: genome-wide association study (GWAS) of individually
+      measured λ (from 500-trial mixed gamble task) in 50,000 participants;
+      test whether variants in COMT, BDNF, DRD4, 5-HTTLPR are associated
+      with λ; compute SNP heritability and compare to twin-study h² ≈ 0.3.
+    method: "Online gamble task + saliva DNA; GWAS with PCA covariates; LD-score regression for heritability; gene-set enrichment for dopamine/serotonin pathways"
+    prediction: "SNP heritability h² ≥ 0.20; DRD4 and 5-HTTLPR show nominally significant associations (p < 10⁻⁵); gene-set enrichment for mesolimbic dopamine pathway is significant"
+
+related_disciplines:
+  - biology
+  - evolutionary-psychology
+  - behavioral-economics
+  - neuroscience
+  - anthropology

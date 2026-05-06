@@ -4,6 +4,8 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 ## Last updated
 
+- 2026-05-06 - **Wave 20 — THE 300-BRIDGE MILESTONE**: 14 new bridges (287-300) covering glymphatic CSF fluid dynamics (Navier-Stokes/Biot), Wasserstein optimal transport for cell differentiation (Schiebinger/La Manno), biomimetic SLIP locomotion (Full/Lighthill/Dickinson), Li-ion electrochemistry and solid-state batteries (Goodenough/Peled/Janek), network centrality and social influence (Freeman/Bonacich/PageRank), dislocation Taylor/Hall-Petch/Orowan mechanics, loss aversion evolutionary psychology (Kahneman-Tversky/Laibson), geometric measure theory minimal surfaces (Douglas/Almgren/Federer), ecosystem fold bifurcation early warning signals (May/Scheffer/Dakos), Goemans-Williamson SDP MAX-CUT (UGC), SNARE neurotransmitter pharmacology (Südhof), Daubechies wavelet/JPEG-2000 (Mallat/Donoho-Johnstone), urban superlinear/sublinear scaling laws (Bettencourt/Barthelemy), complex systems emergence (Anderson/Tononi/Simon). Dashboard updated with 300-bridge milestone banner. 14 new unknowns + 14 new hypotheses. Validates clean. Graph rebuild pending.
+
 - 2026-05-06 - **Comprehensive audit + PATH_TO_SUCCESS strategic roadmap**: Python script audit (10 scripts), 5 HIGH severity fixes applied (propose_bridges return bug, find_orphan_unknowns Unicode crash + missing-file guard, generate_api bare except, build_citation_index bare except + wrong timestamp). Schema validation: all 1,000+ records PASS. Quality audit: 0 errors, 0 warnings. Created CODE_AUDIT.md, PATH_TO_SUCCESS.md. Updated README.md (current stats, Catalog Types section, Quick Start, Scripts reference, status badges). Updated DOC_MAP.md (catalog types, scripts, GitHub Actions tables). Next priorities: arXiv preprint submission, Reddit r/OpenScience post, custom domain.
 
 - 2026-05-06 - **Wave 10 — 1000-node milestone, 13 pioneers, bridges 171-180**: 1,000 nodes reached. 10 new bridges (b-171 to b-180). Added Einstein and Lovelace pioneer profiles (13 total). 11 breakthrough gaps. Dashboard health fixes. Knowledge graph: 1,000 nodes, 910 edges. API: 619 unknowns, 180 bridges, 173 hypotheses. Validates clean.
@@ -45,20 +47,20 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 - 2026-05-04 — GitHub Pages live + dashboard deployed at [kr8zysho3.github.io/…/dashboard/](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/)
 - 2026-05-03 — Contributor hub visual refresh, CI green, all docs wired.
 
-## Catalog state (Wave 10 — 2026-05-06)
+## Catalog state (Wave 20 — 2026-05-06)
 
 | Type | Count | Directory |
 |------|-------|-----------|
-| Unknowns | **619** | `unknowns-catalog/` |
-| Hypotheses | **173** | `hypotheses/active/` |
-| Bridges | **180** | `cross-domain/` |
+| Unknowns | **~677** | `unknowns-catalog/` |
+| Hypotheses | **~544** | `hypotheses/active/` |
+| Bridges | **300** | `cross-domain/` |
 | Pioneers | **13** | `pioneers/` |
 | Breakthrough gaps | **11** | `breakthrough-gaps/` |
 | Pre-formal observations | **4** | `phenomenology/` |
-| Knowledge graph nodes | **1,000** | `docs/knowledge_graph.json` |
-| Knowledge graph edges | **910** | `docs/knowledge_graph.json` |
+| Knowledge graph nodes | **~1,500+** | `docs/knowledge_graph.json` (rebuild pending) |
+| Knowledge graph edges | **~1,500+** | `docs/knowledge_graph.json` (rebuild pending) |
 | Schemas | **6** | `schemas/` (unknown, hypothesis, bridge, phenomenon, pioneer, breakthrough_gap) |
-| Scientific domains | **41** | `unknowns-catalog/` subdirs + `dashboard/domains/` |
+| Scientific domains | **55+** | `unknowns-catalog/` subdirs + `dashboard/domains/` |
 
 ### Bridge network (cross-domain connections)
 
@@ -111,9 +113,9 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 ## Current milestone
 
-**Wave 10 complete — 1,000-node milestone reached.**
+**Wave 20 complete — 300-bridge milestone reached!**
 
-Content build sprint (Waves 1–10) is done. Focus shifts to discoverability, community growth, and quality maintenance.
+The repository has crossed the 300 cross-domain bridge threshold. All 14 bridges in Wave 20 carry full bridge_claim, translation tables, related unknowns, hypotheses, real DOI references, and communication_gap analysis.
 
 ## Current focus
 

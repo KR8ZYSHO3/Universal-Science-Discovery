@@ -1,0 +1,42 @@
+id: u-wavelet-optimal-basis-nonstationary-signal-adaptation
+title: What is the optimal adaptive wavelet basis for non-stationary signals with time-varying spectral content, and can a data-driven basis selection algorithm achieve provably minimax-optimal compression and denoising simultaneously?
+status: open
+priority: medium
+disciplines:
+  - mathematics
+  - signal-processing
+  - statistics
+  - information-theory
+  - machine-learning
+summary: >
+  Daubechies wavelets are optimal for signals in Sobolev spaces W^s (fixed
+  smoothness s). Real-world signals — seismic, neural, speech, financial —
+  are non-stationary: their smoothness and spectral content vary over time.
+  The Coifman-Wickerhauser best-basis algorithm selects the optimal wavelet
+  packet from a library of 2^N bases by minimising an entropy cost function
+  — but "best" is defined globally over the entire signal, not adaptively
+  over time-varying segments. Empirical mode decomposition (EMD, Huang 1998)
+  and its extensions (EEMD, VMD) provide fully adaptive decompositions without
+  theoretical optimality guarantees. The question of whether there exists a
+  signal decomposition that is simultaneously: (a) provably minimax-optimal
+  for denoising over the class of piecewise-smooth functions; (b) computationally
+  feasible; and (c) adaptive to time-varying non-stationarity — has not been
+  answered. Recent machine learning approaches (learnable filter banks, neural
+  wavelets) optimize empirically but lack the rigorous minimax guarantees of
+  Donoho-Johnstone wavelet shrinkage.
+systematic_gaps:
+  - No wavelet-packet or learnable basis algorithm achieves provably minimax-optimal denoising over piecewise-Sobolev function classes simultaneously with adaptive basis selection; the gap between the best known theoretical guarantee and empirical performance of adaptive methods is large.
+  - The information-theoretic lower bound on the best achievable compression ratio for non-stationary signals with known spectral variability has not been derived; it is unknown how much adaptivity can improve over fixed Daubechies bases.
+  - Neural wavelet transforms (Wavelets learned end-to-end) show improved empirical performance but their generalization guarantees and relationship to classical minimax theory are not established.
+suggested_hypotheses:
+  - A locally stationary wavelet (LSW) basis selected by a Bayesian nonparametric spectral estimator achieves within a log(N) factor of the oracle minimax risk for piecewise-Sobolev signals, matching the information-theoretic lower bound and outperforming fixed Daubechies bases by a polynomial factor for non-stationary signals.
+related_unknowns:
+  - u-compressed-sensing-optimal-measurement-matrix-design
+related_bridges:
+  - b-wavelet-theory-signal-compression
+references:
+  - doi: "10.1109/34.192463"
+    note: "Mallat (1989) IEEE TPAMI 11:674"
+  - doi: "10.1093/biomet/81.3.425"
+    note: "Donoho & Johnstone (1994) Biometrika 81:425"
+last_reviewed: "2026-05-06"

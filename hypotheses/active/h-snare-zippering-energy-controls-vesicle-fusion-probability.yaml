@@ -1,0 +1,51 @@
+id: h-snare-zippering-energy-controls-vesicle-fusion-probability
+title: >
+  The probability of spontaneous synaptic vesicle fusion is a Boltzmann function
+  of the SNARE zippering energy barrier ΔG_barrier, such that P_fusion = A·exp(-ΔG_barrier/k_BT),
+  and pharmacological manipulation of SNARE zippering intermediates (via
+  complexin or α-SNAP) quantitatively shifts spontaneous release rate according
+  to this energy landscape.
+status: active
+priority: medium
+impact_score: 0.78
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+
+evidence_links:
+  - type: supporting
+    note: "Zorman et al. (2014) PNAS — optical tweezer measurement of SNARE zippering stages; identified 3 kinetic intermediates with measurable free energy steps"
+    confidence: 0.72
+  - type: supporting
+    note: "Südhof (2013) Nobel Lecture — complexin clamps SNARE partially-zipped state; synaptotagmin triggers rapid completion of zipping on Ca2+ binding"
+    confidence: 0.75
+  - type: related
+    note: "Kavalali & Chung (2022) Nat Rev Neurosci — spontaneous and evoked release may share common fusion machinery but differ in Ca²⁺ sensitivity; thermodynamic model not yet formulated"
+
+unknowns_addressed:
+  - u-snare-complex-partial-zippering-spontaneous-release-rate
+
+proposed_tests:
+  - description: >
+      Single-molecule optical tweezer experiment: measure the free energy of
+      each SNARE zippering intermediate state using constant-force extension
+      curves for recombinant SNARE complexes at physiological ionic strength
+      and temperature; compute the thermal barrier ΔG_barrier from the
+      force-extension curve topology; compare to spontaneous mEPSP frequency
+      measured in neurons transfected with the same SNARE variants.
+    method: "DNA-handle optical tweezer SNARE unzipping assay (Ha lab protocol); barrier extraction from transition rate vs. force extrapolation; mEPSP frequency from whole-cell patch clamp in transfected neurons"
+    prediction: "log(mEPSP frequency) is linearly related to ΔG_barrier across 6+ SNARE mutations with r² > 0.8; slope = -1/k_BT confirming Boltzmann energy control"
+  - description: >
+      Complexin dose-response: express complexin at 0.1×, 1×, 10× normal
+      levels in hippocampal neurons (AAV-mediated) and measure spontaneous
+      mEPSP frequency; fit to a model where complexin raises ΔG_barrier by
+      a complexin-binding free energy term ΔG_cx; extract ΔG_cx and compare
+      to ITC (isothermal calorimetry) measurement of complexin-SNARE binding affinity.
+    method: "AAV-Cre + complexin-floxed mice; electrophysiology in hippocampal slices; ITC with purified complexin and SNARE complex"
+    prediction: "mEPSP frequency decreases by 3–10× per 10× increase in complexin concentration; ΔG_cx extracted from mEPSP kinetics matches ITC-measured complexin-SNARE ΔG within 2 kJ/mol"
+
+related_disciplines:
+  - neuroscience
+  - chemistry
+  - biophysics
+  - pharmacology

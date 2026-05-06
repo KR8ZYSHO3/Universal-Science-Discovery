@@ -1,0 +1,80 @@
+id: b-biomimetic-robotics-locomotion
+title: >
+  Biological locomotion principles — spring-loaded inverted pendulum (SLIP) for
+  running, Lighthill elongated-body theory for swimming, and leading-edge vortex
+  dynamics for flapping flight — provide quantitative engineering templates for
+  legged, undulatory, and aerial robots, unifying evolutionary optimization with
+  mechanical design.
+status: established
+fields:
+  - engineering
+  - biology
+  - biomechanics
+  - robotics
+  - fluid-dynamics
+  - evolutionary-biology
+bridge_claim: >
+  Biological locomotion has been refined over hundreds of millions of years of
+  evolution and can be described by precise physical models that engineers can
+  implement directly. Running (cockroach, horse, human): the spring-loaded
+  inverted pendulum (SLIP) model reduces all running to a single spring
+  (stiffness k_leg ~ 7–35 kN/m in humans) bouncing on the ground, with energy
+  alternating between gravitational potential and elastic strain energy. The
+  mechanical cost of transport (COT = E/(mgd)) is minimised by tuning the
+  natural frequency f = (1/2π)√(k/m) to step frequency. Swimming fish:
+  Lighthill's elongated-body theory gives reactive thrust T = ½ρU²cl(∂h/∂t)|_tail
+  where c is cross-sectional area, l is body length, U is swimming speed, and
+  ∂h/∂t is tail lateral velocity — Strouhal number St = fA/U ≈ 0.25–0.35 for
+  efficient oscillatory swimming. Flapping flight: Wagner effect describes
+  transient lift buildup after stroke reversal (characteristic time τ = c/U);
+  the stable leading-edge vortex (LEV) — discovered by Dickinson et al. (2000)
+  in Drosophila — generates ~40% of total lift via delayed stall. Boston Dynamics
+  Atlas/Spot implement SLIP control directly; soft robotics uses pneumatic
+  elastomers to mimic muscle fiber geometry.
+translation_table:
+  - field_a_term: leg spring stiffness k in SLIP model
+    field_b_term: robotic leg spring constant in compliant running machines
+    note: Animals tune k via muscle co-contraction; robots use physical springs or series-elastic actuators
+  - field_a_term: Strouhal number St = fA/U (swimming efficiency optimum)
+    field_b_term: tail-beat frequency and amplitude control in underwater robots
+    note: Fish self-tune to St ~ 0.3; AUV control loops should enforce same constraint
+  - field_a_term: leading-edge vortex (LEV) in insect flight
+    field_b_term: micro-air-vehicle wing geometry for high-lift at low Reynolds number
+    note: LEV is stable only for Re 100–10000; MAV design must target this regime
+  - field_a_term: muscle fiber pennation angle and compliance
+    field_b_term: pneumatic soft actuator fiber winding angle
+    note: McKibben actuator force-length curve mirrors pennate muscle geometry
+  - field_a_term: metabolic cost of transport (COT)
+    field_b_term: specific energy consumption of legged robots
+    note: SLIP mechanics enables COT < 1 J/(N·m); many robots achieve COT > 10
+related_unknowns:
+  - u-slip-model-biological-accuracy-multi-legged-running
+related_hypotheses:
+  - h-biomimetic-slip-locomotion-minimal-energy-cost-robots
+cross_pollination_opportunities:
+  - >
+    Measuring muscle-tendon energy storage in running animals (via ultrasonography
+    + force plates) would give ground-truth spring constants k_leg for validating
+    SLIP control in running robots; this experiment is cheap in biology but the
+    result is directly importable into robotics.
+  - >
+    Drosophila neuromechanics: the sensorimotor circuits controlling wing kinematics
+    during flight are being mapped (connectome); implementing analogous control
+    topology in flapping-wing MAVs could give adaptive gust rejection without
+    explicit aerodynamic modeling.
+communication_gap: >
+  Biomechanics publishes in J Exp Biology, J R Soc Interface, and Biology Letters;
+  robotics publishes in ICRA, IROS, and IEEE Transactions. The overlap is present
+  but limited: most roboticists re-derive biological principles independently
+  (or approximate them crudely) because they do not read biology literature.
+  Conversely, biologists rarely frame locomotion principles in control-theoretic
+  language accessible to engineers. The "bio-inspired robotics" conferences are
+  improving this but remain niche.
+last_reviewed: "2026-05-06"
+references:
+  - note: "Full & Koditschek (1999) Templates and anchors: neuromechanical hypotheses of legged locomotion. J Exp Biol 202:3325"
+  - doi: "10.1098/rspb.1971.0085"
+    note: "Lighthill (1971) Large-amplitude elongated-body theory of fish locomotion. Proc R Soc B 179:125"
+  - doi: "10.1126/science.288.5463.100"
+    note: "Dickinson et al. (2000) How animals move: an integrative view. Science 288:100"
+  - note: "Raibert (1986) Legged Robots That Balance. MIT Press"

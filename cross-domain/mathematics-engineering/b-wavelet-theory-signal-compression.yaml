@@ -1,0 +1,86 @@
+id: b-wavelet-theory-signal-compression
+title: >
+  Mallat's multiresolution analysis and Daubechies compactly-supported wavelets
+  provide an O(N) fast wavelet transform achieving near-optimal signal compression,
+  with JPEG-2000 using 9/7 biorthogonal wavelets for 40:1 compression and
+  Donoho-Johnstone wavelet shrinkage achieving minimax-optimal denoising over
+  Sobolev function classes.
+status: established
+fields:
+  - mathematics
+  - engineering
+  - signal-processing
+  - harmonic-analysis
+  - image-processing
+  - statistics
+bridge_claim: >
+  Wavelets provide a multi-resolution analysis (MRA) of signals: a nested
+  sequence of approximation spaces V_j ⊂ V_{j+1} ⊂ L²(ℝ) with scaling
+  function φ and wavelet ψ satisfying ⟨ψ(·-k), ψ(·-l)⟩ = δ_{kl},
+  ⟨φ(·-k), φ(·-l)⟩ = δ_{kl}. Mallat's fast wavelet transform (1989):
+  decompose f ∈ V_{j+1} as f = A_j + D_j where A_j = Σ_k ⟨f,φ_{j,k}⟩φ_{j,k}
+  (approximation) and D_j = Σ_k ⟨f,ψ_{j,k}⟩ψ_{j,k} (detail/wavelet coefficients).
+  Implemented as iterated filtering: apply low-pass g and high-pass h filters,
+  then downsample by 2 — O(N) operations per scale, O(N) total. Daubechies
+  wavelets (1988): unique compactly-supported orthogonal wavelets with N
+  vanishing moments (∫x^k ψ(x)dx = 0, k<N) giving exact polynomial reproduction
+  of degree N-1 — these are the wavelets in JPEG-2000 (9/7 biorthogonal
+  variant, Cohen-Daubechies-Feauveau). JPEG-2000 achieves 40:1 compression
+  at perceptually transparent quality (vs JPEG's blocking artifacts from DCT
+  at high compression). Donoho-Johnstone wavelet shrinkage (1994): given noisy
+  signal y = f + σε, apply wavelet transform, soft-threshold detail coefficients
+  at λ = σ√(2 log N), inverse transform. This achieves minimax risk:
+  R(f̂, f) ≤ C·σ²·(log N)·N^{-2s/(2s+1)} over Sobolev class W^s — within log N
+  factor of the unachievable oracle estimator.
+translation_table:
+  - field_a_term: scaling function φ and wavelet ψ in MRA
+    field_b_term: low-frequency (approximation) and high-frequency (edge/detail) image components
+    note: "Wavelets are matched to human visual system: HVS most sensitive to contrast edges (ψ captures)"
+  - field_a_term: N vanishing moments of Daubechies wavelet
+    field_b_term: compression efficiency for smooth image regions
+    note: More vanishing moments = smoother wavelet = better compression for polynomial regions
+  - field_a_term: soft thresholding at λ = σ√(2 log N)
+    field_b_term: denoising by coefficient sparsification (signal is sparse in wavelet domain)
+    note: The threshold λ is optimal (Stein's unbiased risk estimate) — a mathematical prediction validated empirically
+  - field_a_term: Sobolev smoothness exponent s of function class
+    field_b_term: image texture roughness / compression difficulty
+    note: s determines optimal compression rate; s=1 is smooth images, s→0 is textures/fractals
+  - field_a_term: discrete wavelet packet decomposition (full binary tree)
+    field_b_term: adaptive subband coding for audio compression (WMA, ATRAC)
+    note: Best basis selection (Coifman-Wickerhauser) chooses the tree decomposition minimising entropy
+related_unknowns:
+  - u-wavelet-optimal-basis-nonstationary-signal-adaptation
+related_hypotheses:
+  - h-wavelet-shrinkage-minimax-optimal-natural-image-sparsity
+cross_pollination_opportunities:
+  - >
+    Neuroscience: the primary visual cortex implements a wavelet-like decomposition
+    — simple cells have Gabor-like receptive fields (localized in space and
+    frequency, like wavelets). Testing whether V1 neuron basis functions are
+    optimal wavelets for natural image statistics would directly connect
+    Daubechies wavelet theory to neural computation.
+  - >
+    Gravitational wave detection (LIGO): wavelet denoising is used to remove
+    non-Gaussian noise transients ("glitches") before matched filter templates
+    are applied. Donoho-Johnstone theory could provide principled false-alarm
+    rate estimates for wavelet-cleaned detector data.
+communication_gap: >
+  Wavelet theory was developed primarily by applied mathematicians (Daubechies,
+  Mallat, Meyer — Mallat bridges signal processing and mathematics, Meyer won
+  the 2017 Abel Prize). The electrical engineering signal processing community
+  adopted wavelets for image compression (JPEG-2000) but often treats them as
+  black-box filter banks without understanding the underlying MRA theory.
+  The statistics community (Donoho) developed wavelet denoising theory
+  independently. The neuroscience connection (V1 as Gabor wavelet bank) is
+  well-known to computational neuroscientists but unfamiliar to both engineers
+  and mathematicians.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1109/34.192463"
+    note: "Mallat (1989) A theory for multiresolution signal decomposition: the wavelet representation. IEEE Trans Pattern Anal Mach Intell 11:674"
+  - doi: "10.1002/cpa.3160410705"
+    note: "Daubechies (1988) Orthonormal bases of compactly supported wavelets. Commun Pure Appl Math 41:909"
+  - doi: "10.1093/biomet/81.3.425"
+    note: "Donoho & Johnstone (1994) Ideal spatial adaptation by wavelet shrinkage. Biometrika 81:425"
+  - doi: "10.1109/83.136598"
+    note: "Antonini et al. (1992) Image coding using wavelet transform. IEEE Trans Image Process 1:205"

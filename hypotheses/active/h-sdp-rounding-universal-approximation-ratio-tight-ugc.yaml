@@ -1,0 +1,52 @@
+id: h-sdp-rounding-universal-approximation-ratio-tight-ugc
+title: >
+  The Goemans-Williamson SDP + randomized hyperplane rounding framework is
+  universally optimal for constraint satisfaction problems (CSPs) under the
+  Unique Games Conjecture: for every 2-variable CSP, the approximation ratio
+  achievable by the basic SDP is tight — i.e., no polynomial-time algorithm
+  can improve the SDP ratio by more than ε without violating UGC.
+status: active
+priority: medium
+impact_score: 0.82
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+
+evidence_links:
+  - doi: "10.1145/227683.227684"
+    type: supporting
+    confidence: 0.88
+    note: "Goemans & Williamson (1995) — 0.878 approximation proven; rounding analysis tight (achieves arccos(ρ)/π ≥ 0.878(1-ρ)/2)"
+  - doi: "10.1145/509907.510016"
+    type: supporting
+    confidence: 0.75
+    note: "Khot (2002) UGC formulation; subsequent work shows UGC implies GW is optimal for MAX-CUT"
+  - doi: "10.1137/1038003"
+    type: related
+    confidence: 0.80
+    note: "Vandenberghe & Boyd (1996) SDP framework; interior-point methods achieve ε-optimal solution in polynomial time"
+
+unknowns_addressed:
+  - u-unique-games-conjecture-sdp-approximation-tight-gap
+
+proposed_tests:
+  - description: >
+      Compute the SDP integrality gap (ratio of SDP optimum to true OPT) for
+      MAX-CUT on random d-regular graphs for d = 3, 5, 10, 50; compare to
+      the Parisi constant (which is the true large-d limit from the replica method)
+      to test whether GW exactly achieves the SDP integrality gap at each degree.
+    method: "Interior-point SDP solver (MOSEK) + branch-and-bound for exact MAX-CUT on n ≤ 50 graphs; statistical comparison of gap distributions over 10⁴ random instances"
+    prediction: "SDP integrality gap converges to 0.878 for random regular graphs, with variance decreasing as 1/n; this confirms GW rounding exactly achieves the SDP bound and no combinatorial improvement exists"
+  - description: >
+      Test UGC hardness empirically: solve unique game instances on structured
+      graphs (expanders, trees, planar graphs) using the best known sub-exponential
+      algorithm (Arora-Barak-Steurer 2010) and measure the empirical approximation
+      ratio achieved as a function of n; compare to GW's 0.878 for MAX-CUT
+      instances derived from those unique game instances.
+    method: "ABS algorithm implementation + MAX-CUT benchmark on Biq Mac library; timing and approximation ratio measurement for n = 100 to 10,000"
+    prediction: "ABS algorithm achieves approximation ratio > 0.878 on MAX-CUT instances derived from near-unique-game graphs with efficiently solvable structure, providing a conditional refutation of UGC for expanding graphs"
+
+related_disciplines:
+  - computer-science
+  - mathematics
+  - combinatorial-optimization

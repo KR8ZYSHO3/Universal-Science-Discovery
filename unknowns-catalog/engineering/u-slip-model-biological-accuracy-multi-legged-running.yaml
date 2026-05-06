@@ -1,0 +1,37 @@
+id: u-slip-model-biological-accuracy-multi-legged-running
+title: How accurately does the spring-loaded inverted pendulum (SLIP) model predict energy storage and metabolic cost across different running speeds, gradients, and body morphologies, and does it generalise to multi-legged gaits beyond bipedal and quadrupedal running?
+status: open
+priority: medium
+disciplines:
+  - engineering
+  - biomechanics
+  - robotics
+  - evolutionary-biology
+  - fluid-dynamics
+summary: >
+  The SLIP model reduces running to a point mass on a spring, successfully
+  capturing many gait dynamics for bipeds and quadrupeds. However, its
+  accuracy breaks down in several regimes: uphill/downhill running (gravity
+  changes potential landscape asymmetrically), very slow running (walking-
+  running transition is a separate bifurcation), and multi-legged gaits
+  (hexapods like cockroaches use alternating tripod gaits where the SLIP
+  model applies to the tripod as a unit, but the mapping from individual
+  leg mechanics to the effective SLIP spring is not quantitatively derived).
+  For robotics, the predictive accuracy of SLIP-based control at the boundary
+  cases determines whether biomimetic locomotion controllers generalise or
+  require animal-specific parameter tuning. It is unknown whether a single
+  universal SLIP model (with leg count as a parameter) can predict metabolic
+  cost of transport across insects, birds, mammals, and robots.
+systematic_gaps:
+  - The effective spring constant k_leg for hexapodal locomotion (cockroach, ant) has not been measured in the same standardised way as bipedal/quadrupedal k_leg, making cross-taxon SLIP comparisons incomplete.
+  - Metabolic cost of transport predictions from SLIP theory for non-flat terrain have not been systematically validated against calorimetric measurements.
+  - The SLIP model assumes massless legs; for robotic systems with heavy leg segments, the deviation from SLIP predictions as a function of leg-to-body mass ratio is not characterised.
+suggested_hypotheses:
+  - The effective spring constant of the SLIP model is a conserved function of body mass (k ∝ m^0.67) across all running animals, providing a universal biomechanical scaling law that also predicts optimal leg stiffness for robots of any mass.
+related_unknowns:
+  - u-metabolic-cost-transport-locomotion-energetics
+related_bridges:
+  - b-biomimetic-robotics-locomotion
+references:
+  - note: "Full & Koditschek (1999) Templates and anchors. J Exp Biol 202:3325"
+last_reviewed: "2026-05-06"

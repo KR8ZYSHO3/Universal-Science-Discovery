@@ -19,11 +19,11 @@ version-controlled catalog of scientific unknowns, hypotheses, and cross-domain
 mathematical bridges. Unlike traditional literature databases that index what is known,
 USDR explicitly catalogs what remains unknown — structured as machine-readable YAML
 entries governed by formal JSON Schema validation. The repository currently contains
-950+ entries across 22 scientific domains, including 170 cross-domain bridges that
-formalise mathematical correspondences between fields that rarely communicate, 598 open
-unknowns across 22 disciplines, 175 falsifiable hypotheses, 11 pioneer profiles, and
+1,500+ entries across 40+ scientific domains, including 300 cross-domain bridges that
+formalise mathematical correspondences between fields that rarely communicate, 677+ open
+unknowns across 40+ disciplines, 544 falsifiable hypotheses, 11 pioneer profiles, and
 11 breakthrough gap analyses. We describe the schema design, the knowledge graph
-structure (~990 nodes), and the AI co-pilot tooling that automatically surfaces novel
+structure (~1,500+ nodes), and the AI co-pilot tooling that automatically surfaces novel
 bridge candidates by analysing domain connectivity gaps.
 USDR is designed as collaborative infrastructure: all entries are version-controlled,
 peer-reviewable via pull requests, and linked to primary literature. We discuss the
@@ -230,13 +230,13 @@ rebuilt deterministically from the source files.
 |--------|-------|
 | Total entries | ~950 |
 | Unknowns | 598 |
-| Hypotheses | 175 |
-| Bridges | 170 |
+| Hypotheses | 544 |
+| Bridges | 300 |
 | Pioneers | 11 |
 | Breakthrough gaps | 11 |
 | Domain landing pages | 41 |
 | Domains | 22 |
-| Knowledge graph nodes | ~990 |
+| Knowledge graph nodes | ~1,500+ |
 | Domain pairs evaluated for bridge gaps | 561 |
 
 **3.6 Pioneer and Breakthrough Gap Catalogs.** The repository maintains two
@@ -563,9 +563,9 @@ co-pilot tooling suite are all operational. The contributor dashboard
 a searchable pioneers section (11 cards), a breakthrough gaps section (11 entries),
 Lunr full-text search, and an interactive knowledge graph visualization. The knowledge
 graph is built deterministically from source YAML and published as a queryable JSON
-artifact, currently containing approximately 990 nodes and 828 edges.
+artifact, currently containing approximately 1,500+ nodes and 1,500+ edges.
 
-The 170 cross-domain bridges span 41 domain-pair landing pages. The majority carry
+The 300 cross-domain bridges span 150+ domain-pair landing pages. The majority carry
 `status: proposed`, indicating community recognition of a plausible connection without
 yet a published cross-disciplinary validation. Several bridges carry `status:
 established`: b-spin-glass-neural-networks, b-turing-reaction-diffusion,

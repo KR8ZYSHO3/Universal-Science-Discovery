@@ -1,0 +1,50 @@
+id: h-willmore-energy-biological-membrane-morphogenesis-ground-state
+title: >
+  Biological cell membrane shapes during morphogenesis are Willmore energy
+  (W = ∫H² dA) minimizers subject to volume and area constraints, with
+  active cytoskeletal forces entering as Lagrange multipliers that define
+  the morphogenetic Willmore flow, and the shapes of cell organelles (ER,
+  Golgi) are calculable from the Helfrich elastic model without free parameters.
+status: active
+priority: medium
+impact_score: 0.74
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+
+evidence_links:
+  - doi: "10.1002/cpa.3160340603"
+    type: related
+    confidence: 0.60
+    note: "Schoen & Simon (1981) mathematical regularity theory for Willmore minimizers"
+  - type: supporting
+    note: "Helfrich (1973) Z Naturforsch — derived membrane bending energy W = κ∫H² dA + κ_G∫K dA from elasticity theory; κ ~ 20 k_BT for lipid bilayer"
+  - type: supporting
+    note: "Seifert, Berndl & Lipowsky (1991) Phys Rev A — phase diagram of vesicle shapes computed from Helfrich model; matches observed prolate/oblate/stomatocyte transitions"
+
+unknowns_addressed:
+  - u-almgren-regularity-singular-set-sharp-dimension
+
+proposed_tests:
+  - description: >
+      Measure ER membrane curvature at high resolution using cryo-electron
+      tomography (cryo-ET) in HeLa cells; compute mean curvature H(x) at
+      each membrane patch; test whether the distribution of H² matches the
+      Helfrich Willmore minimizer prediction for the measured bending modulus
+      κ (κ = 20 k_BT for ER lipid composition).
+    method: "Cryo-ET tomograms at 2 nm resolution; membrane segmentation via DeepMIB; mean curvature computed from discrete surface Laplacian; comparison to Willmore energy density from Helfrich parameters"
+    prediction: "ER curvature distribution matches Helfrich minimizer prediction within 15%; tubular ER has |H| = 1/r_tube ≈ 50 nm⁻¹ as predicted by Willmore energy minimisation at fixed volume"
+  - description: >
+      Test active Willmore flow: apply micropipette aspiration to measure κ in vivo
+      for the plasma membrane of mesoderm cells in Drosophila gastrulation; then
+      predict the membrane shape changes during cell invagination using Willmore
+      flow with cytoskeletal tension as external forcing; compare to high-speed
+      confocal imaging.
+    method: "Micropipette aspiration (κ measurement) + live confocal imaging of myosin-GFP during invagination; Willmore flow numerical simulation with measured κ and myosin pressure"
+    prediction: "Cell membrane shape during invagination matches Willmore flow prediction within 20% RMSE; deviations identify non-Willmore contributions (cytoskeletal buckling, osmotic pressure)"
+
+related_disciplines:
+  - mathematics
+  - biophysics
+  - cell-biology
+  - physics
