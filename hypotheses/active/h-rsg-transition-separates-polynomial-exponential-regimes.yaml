@@ -1,0 +1,50 @@
+id: h-rsg-transition-separates-polynomial-exponential-regimes
+title: >
+  The replica symmetry breaking (clustering) transition in random k-SAT is the exact
+  information-theoretic barrier separating polynomial-time-solvable from exponential-time-
+  typical instances, such that efficient algorithms exist if and only if the clause
+  density α lies below the clustering transition α_clust.
+status: active
+created: "2026-05-06"
+last_updated: "2026-05-06"
+priority: high
+unknowns_addressed:
+  - u-p-vs-np-geometric-barriers
+related_disciplines:
+  - computer-science
+  - mathematics
+  - statistical-physics
+  - information-theory
+evidence_links:
+  - type: supporting
+    doi: 10.1126/science.1073287
+    note: >
+      Mézard et al. (2002) Science — survey propagation derived from cavity method
+      solves random 3-SAT up to the clustering transition; performance degrades above.
+  - type: supporting
+    doi: 10.1073/pnas.0703685104
+    note: >
+      Krzakala et al. (2007) PNAS — identifies distinct condensation and clustering
+      thresholds; clustering threshold appears to be algorithmic barrier.
+  - type: contested
+    doi: 10.1145/3055399.3055476
+    note: >
+      Coja-Oghlan & Panagiotou (2017) STOC — polynomial-time algorithms for random
+      k-SAT up to the satisfiability threshold exist for k large enough, partially
+      challenging the clustering-barrier hypothesis.
+proposed_tests:
+  - discipline: computer-science
+    description: >
+      Benchmark 10 state-of-the-art SAT solvers (MiniSAT, CryptoMiniSAT, survey
+      propagation, DPLL) on 1000 random 3-SAT instances at 20 density values α
+      spanning [2.0, 4.27]. Measure median solve time and solving success rate.
+      Hypothesis: the solve time exhibits a sharp divergence at α_clust ≈ 3.86
+      (below the SAT/UNSAT threshold α_c ≈ 4.27), with exponential median time
+      for α_clust < α < α_c and polynomial time below α_clust.
+  - discipline: statistical-physics
+    description: >
+      Numerically compute the complexity Σ(f) (logarithm of number of clusters
+      with internal free energy f) for random 3-SAT at densities 3.0 ≤ α ≤ 4.27
+      using the cavity method. Verify the condensation and clustering transitions
+      and confirm that the point at which Σ(f_max) = 0 corresponds to the
+      observed algorithmic hardness transition.

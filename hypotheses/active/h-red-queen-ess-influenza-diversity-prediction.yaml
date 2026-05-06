@@ -1,0 +1,54 @@
+id: h-red-queen-ess-influenza-diversity-prediction
+title: >
+  The evolutionary stable strategy (ESS) of the influenza-immune system game predicts
+  the number of co-circulating antigenic variants and their relative frequencies, with
+  the ESS diversity determined by the cross-reactivity matrix of human immune responses
+  to historical strains.
+status: active
+created: "2026-05-06"
+last_updated: "2026-05-06"
+priority: high
+unknowns_addressed:
+  - u-immune-escape-ess-predictions
+related_disciplines:
+  - biology
+  - mathematics
+  - immunology
+  - evolutionary-biology
+  - epidemiology
+evidence_links:
+  - type: supporting
+    doi: 10.1126/science.7754375
+    note: >
+      Nowak & May (1994) Science — diversity of viral quasi-species is set by
+      cross-immunity structure; replicator dynamics predict stable coexistence
+      of N strains if cross-immunity matrix has N positive eigenvalues.
+  - type: related
+    doi: 10.1073/pnas.0609148104
+    note: >
+      Smith et al. (2004) Science — antigenic cartography of influenza H3N2;
+      provides empirical cross-reactivity data for parameterizing the ESS model.
+  - type: related
+    doi: 10.1126/science.1093091
+    note: >
+      Ferguson et al. (2003) Science — epidemiological model of influenza antigenic
+      evolution; does not use ESS framework but shows drift rate consistent with
+      immune pressure from past strains.
+proposed_tests:
+  - discipline: immunology
+    description: >
+      Measure cross-reactivity matrix (hemagglutination inhibition titers) between
+      all pairwise combinations of 20 influenza H3N2 strains spanning 1968-2020
+      in serum from 200 unvaccinated adults stratified by birth year. Compute
+      the ESS diversity from the eigenvalues of the cross-reactivity matrix.
+      Hypothesis: the predicted ESS number of co-circulating strains (N_ESS)
+      matches the observed number of phylogenetically distinct clades circulating
+      simultaneously within ±2 clades.
+  - discipline: mathematics
+    description: >
+      Parameterize the replicator equation model with the empirical influenza
+      cross-reactivity matrix and simulate antigenic evolution over 50 years.
+      Compare the simulated antigenic drift rate (distance in antigenic cartography
+      space per year) to observed drift from WHO surveillance data. Hypothesis:
+      the model predicts the observed ~1 antigenic unit per year drift rate
+      without free parameters, using only measured cross-reactivity values.

@@ -1,0 +1,53 @@
+id: h-integral-feedback-sufficient-perfect-adaptation-living-cells
+title: >
+  Antithetic integral feedback motifs — where two molecular species with opposite
+  effects on a target variable annihilate each other — are the minimal biomolecular
+  implementation of integral control, and their robustness to molecular noise is
+  determined by the ratio of annihilation rate to production rates.
+status: active
+created: "2026-05-06"
+last_updated: "2026-05-06"
+priority: high
+unknowns_addressed:
+  - u-homeostasis-integral-feedback-synthetic-design
+related_disciplines:
+  - engineering
+  - biology
+  - systems-biology
+  - synthetic-biology
+  - control-theory
+evidence_links:
+  - type: supporting
+    doi: 10.1073/pnas.97.9.4649
+    note: >
+      Yi et al. (2000) PNAS — mathematical proof that integral feedback is necessary
+      and sufficient for perfect adaptation; provides theoretical foundation.
+  - type: supporting
+    doi: 10.1016/j.cell.2016.01.041
+    note: >
+      Briat et al. (2016) Cell Systems — antithetic integral feedback (Z1+Z2→0)
+      achieves perfect adaptation in mean; molecular implementation proposed.
+  - type: related
+    doi: 10.1038/s41589-018-0095-7
+    note: >
+      Aoki et al. (2019) Nature Chemical Biology — experimental demonstration of
+      antithetic integral controller in E. coli; validates core mechanism.
+proposed_tests:
+  - discipline: synthetic-biology
+    description: >
+      Construct antithetic integral feedback circuits with varying annihilation
+      rate constants (η = 0.01, 0.1, 1, 10 per molecule per minute) by titrating
+      the expression of the sequestration ribozyme. Measure steady-state setpoint
+      error and response to step disturbances (IPTG pulse). Hypothesis: steady-
+      state error ε = 0 for all η values (perfect adaptation guaranteed by topology),
+      but the transient response time scales as 1/η, and cell-to-cell variability
+      in steady-state output decreases with increasing η as predicted by stochastic
+      analysis of the antithetic motif.
+  - discipline: control-theory
+    description: >
+      Derive the transfer function of the antithetic integral feedback circuit
+      including molecular noise (Langevin formulation). Compute the noise
+      amplification factor (Fano factor at steady state) as a function of η
+      and compare to numerical stochastic simulation. Hypothesis: there exists
+      an optimal η* that minimizes the product of adaptation error and output
+      noise, corresponding to the control-theoretic Bode optimal integral gain.

@@ -1,0 +1,51 @@
+id: h-alphafold-energy-landscape-implicit-learning
+title: >
+  AlphaFold2 implicitly learns the protein energy landscape from evolutionary covariation
+  such that its attention maps correspond quantitatively to physical coupling constants
+  in the Potts model, and misfolding-prone sequences can be identified by high frustration
+  in the learned landscape.
+status: active
+created: "2026-05-06"
+last_updated: "2026-05-06"
+priority: high
+unknowns_addressed:
+  - u-protein-misfolding-disease-mechanism
+related_disciplines:
+  - biology
+  - biophysics
+  - computational-biology
+  - statistical-mechanics
+evidence_links:
+  - type: supporting
+    doi: 10.1038/s41586-021-03819-2
+    note: >
+      Jumper et al. (2021) — AlphaFold2 architecture uses multiple sequence alignment
+      (evolutionary covariation) as primary input; attention weights implicitly
+      capture residue-residue coupling.
+  - type: supporting
+    doi: 10.1073/pnas.84.21.7524
+    note: >
+      Bryngelson & Wolynes (1987) — principle of minimal frustration: evolved sequences
+      have funneled landscapes; frustration analysis identifies non-native contacts.
+  - type: related
+    doi: 10.7554/eLife.47380
+    note: >
+      Hopf et al. (2019) — EVCouplings Potts model from MSA covariation predicts
+      mutational effects and structure; quantitative comparison to AlphaFold2 attention
+      not yet performed.
+proposed_tests:
+  - discipline: computational-biology
+    description: >
+      Extract residue-residue attention weights from AlphaFold2's pairwise
+      representation for 100 proteins. Compute Potts model coupling constants J_ij
+      from the same MSAs using EVCouplings. Compute Pearson correlation between
+      AlphaFold2 attention (summed across heads) and |J_ij|. Hypothesis predicts
+      r > 0.7. Further test: compute AWSEM frustration index for same proteins;
+      test whether AlphaFold2 attention is higher for frustrated residue pairs.
+  - discipline: biophysics
+    description: >
+      For 50 disease-associated proteins (aggregation-prone vs stable), compute
+      energy landscape frustration using AWSEM-MD simulations and compare to
+      AlphaFold2 pLDDT scores. Hypothesis predicts that residues with low pLDDT
+      correspond to high-frustration regions in the energy landscape that drive
+      misfolding and aggregation.

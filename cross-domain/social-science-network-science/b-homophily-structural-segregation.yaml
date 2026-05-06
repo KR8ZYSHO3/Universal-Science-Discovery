@@ -1,0 +1,78 @@
+id: b-homophily-structural-segregation
+title: "Homophily and structural segregation — the tendency of similar individuals to connect produces modular networks that are the mathematical basis of filter bubbles and information siloing"
+status: established
+fields:
+  - social-science
+  - network-science
+  - sociology
+  - mathematics
+  - information-theory
+
+bridge_claim: >
+  Homophily — the tendency of similar individuals to form ties ("birds of a feather
+  flock together") — is the dominant structural force shaping social networks. Measured
+  by the assortativity coefficient r = (Σ_jk jk·e_jk - [Σ_j j·q_j]²) / (σ²_q),
+  where e_jk is the fraction of edges between nodes of types j and k, and q_j is the
+  fraction of edge stubs with type j. Positive r (assortative mixing) means nodes
+  preferentially connect to similar nodes; negative r (disassortative) means hubs
+  connect to non-hubs. Homophily produces modular networks: high within-group
+  clustering coefficient, sparse inter-group edges, and high modularity Q. Structural
+  corollaries: (1) filter bubbles — information from outside one's group reaches
+  members slowly (long inter-community path lengths), (2) echo chambers — within-group
+  information circulates amplified (high internal redundancy), (3) segregation
+  persistence — even weak homophily produces strong structural separation (Schelling
+  tipping model). The same assortativity mathematics describes disassortative mixing
+  in biological networks (metabolic networks: highly-connected hubs link to poorly-
+  connected periphery nodes) contrasting with social networks. Newman's (2002)
+  formalism applies across all network types.
+
+translation_table:
+  - field_a_term: "assortativity coefficient r"
+    field_b_term: "Pearson correlation of node degrees across edges"
+    note: "r ∈ [-1,1]; social networks typically r > 0 (assortative); biological networks r < 0"
+  - field_a_term: "homophily (preference for similar alters)"
+    field_b_term: "positive degree-degree correlation"
+    note: "Multiple dimensions: race, education, age, opinion — all produce independent assortativity terms"
+  - field_a_term: "modularity Q (fraction of edges within groups above random)"
+    field_b_term: "community structure strength"
+    note: "Q > 0.3 typically indicates meaningful community structure; maximized by Louvain algorithm"
+  - field_a_term: "echo chamber (within-group information amplification)"
+    field_b_term: "high spectral gap between within/between community mixing rates"
+    note: "Information propagates fast within group (short path), slow between groups (long bridges)"
+  - field_a_term: "filter bubble (outgroup information filtered)"
+    field_b_term: "bottleneck edges (bridges) between network communities"
+    note: "Removing few bridge edges disconnects communities — structural basis of information gatekeeping"
+  - field_a_term: "Schelling tipping model (weak preference → strong segregation)"
+    field_b_term: "phase transition in network modularity under local rewiring"
+    note: "Even mild homophily preference drives network to highly segregated state — nonlinear tipping"
+
+related_unknowns:
+  - u-homophily-echo-chamber-causality
+
+related_hypotheses:
+  - h-network-assortativity-predicts-misinformation-spread-rate
+
+cross_pollination_opportunities:
+  - "Apply spectral graph theory (Fiedler vector) to identify structural vulnerabilities in filter bubble networks"
+  - "Design social platform recommendation algorithms that explicitly reduce assortativity while maintaining engagement"
+  - "Test whether Schelling's 1D model predictions for tipping extend to realistic social networks with heterogeneous preferences"
+
+communication_gap: >
+  Sociologists developed homophily theory empirically (McPherson et al.) while network
+  scientists developed assortativity theory mathematically (Newman 2002) — the explicit
+  connection was made only in the mid-2000s. The political science and communication
+  studies literature on filter bubbles rarely uses the assortativity formalism despite
+  it providing quantitative predictions. Pariser's (2011) popular account lacked the
+  mathematical framework, limiting its scientific uptake.
+
+references:
+  - doi: "10.1146/annurev.soc.27.1.415"
+    note: "McPherson et al. (2001) Annu Rev Sociol 27:415 — homophily in social networks: review"
+  - doi: "10.1103/PhysRevLett.89.208701"
+    note: "Newman (2002) Phys Rev Lett 89:208701 — assortative mixing in networks"
+  - isbn: "1594203008"
+    note: "Pariser (2011) The Filter Bubble — popular account of algorithmic echo chambers"
+  - doi: "10.1086/521848"
+    note: "Centola et al. (2007) Am J Sociol 113:702 — homophily, cultural drift, and echo chambers"
+
+last_reviewed: "2026-05-06"
