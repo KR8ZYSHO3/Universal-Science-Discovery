@@ -1,0 +1,45 @@
+id: h-vcg-regretnet-combinatorial-approximation
+title: >
+  Neural network auction design (RegretNet) can learn near-optimal, approximately
+  incentive-compatible mechanisms for combinatorial auctions that achieve within 5%
+  of VCG social welfare while running in polynomial time, resolving the computational-
+  incentive incompatibility for practical auction scales.
+status: active
+priority: medium
+impact_score: 0.79
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+related_disciplines:
+  - mechanism-design
+  - machine-learning
+  - algorithmic-game-theory
+unknowns_addressed:
+  - u-vcg-combinatorial-auction-scalability
+evidence_links:
+  - doi: "10.1145/3219166.3219204"
+    type: supporting
+    confidence: 0.80
+    note: >
+      Duetting et al. (2019) ACM EC — RegretNet achieves near-zero ex-post regret
+      (< 0.01 on unit demand auctions) and matches Myerson revenue within 2% on
+      settings where Myerson is computable; extends to multi-item settings
+  - doi: "10.1145/3391403.3399466"
+    type: supporting
+    confidence: 0.76
+    note: >
+      Curry et al. (2020) — MenuNet uses menu-based architecture that guarantees
+      incentive compatibility exactly for a restricted class while maintaining
+      near-optimal welfare; hybrid approach outperforms pure neural or pure VCG
+  - doi: "10.1145/3490486.3538297"
+    type: related
+    confidence: 0.70
+    note: >
+      Combinatorial auction experiments at FCC spectrum auctions show that
+      approximate VCG (Activity Rule Clock Auctions) achieves 95%+ of VCG efficiency
+      with polynomial computation, supporting the achievability of the approximation claim
+proposed_tests:
+  - description: >
+      Train RegretNet on combinatorial auction instances with 10, 50, 200, 1000 items
+      and 10-100 bidders; measure social welfare ratio (RegretNet/VCG) and regret as
+      function of problem scale; test convergence of welfare gap as items → ∞.

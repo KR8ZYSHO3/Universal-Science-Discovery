@@ -1,0 +1,104 @@
+id: b-thermoacoustics-heat-engines
+title: >
+  Acoustic pressure oscillations in gas-filled tubes can sustain heat engine and
+  refrigeration cycles with no moving parts, achieving Carnot efficiency in the
+  ideal limit — the thermoacoustic effect bridges acoustic wave physics with
+  classical thermodynamics and has produced practical heat engines with >30% Carnot efficiency.
+status: established
+fields:
+  - physics
+  - engineering
+  - thermodynamics
+  - acoustics
+bridge_claim: >
+  The thermoacoustic effect (discovered by Sondhauss 1850, theoretically explained
+  by Kirchhoff 1868): when an acoustic standing wave establishes a steep temperature
+  gradient along a solid surface (stack), the oscillating gas parcels undergo an
+  approximate thermodynamic cycle. A gas parcel moves toward the hot end (compression
+  stroke), receives heat from the stack wall (which is slightly hotter than the gas
+  at that location due to the temperature gradient), then moves back and rejects heat
+  to the stack at the cooler end. Net work extraction = heat engine.
+
+  Mathematical description (Swift 1988): the acoustic power flux (intensity) for a
+  plane wave in a tube is I = ½Re[p̃ũ*], where p̃ is acoustic pressure amplitude and
+  ũ is acoustic velocity amplitude. The time-averaged heat flux along the stack:
+  Q̇₂ = ½Aρ₀Cₚ|p̃₁||U₁|cos(φ)·(-dT₀/dx)/(ωρ₀)
+  where A is cross-sectional area, ρ₀ is mean density, Cₚ is heat capacity, ω is
+  angular frequency, and φ is the phase angle between pressure and velocity.
+
+  The critical quantity is the phase angle φ between pressure and velocity oscillations:
+  - Standing wave (φ = π/2): inefficient — gas moves to hot end as it cools and
+    to cool end as it heats (wrong phase). Works as a heat pump (refrigerator) but
+    inefficiently as an engine.
+  - Travelling wave (φ = 0): gas compresses and moves toward hot end simultaneously —
+    approximates the ideal Stirling cycle. Maximum possible efficiency approaches Carnot.
+
+  Carnot efficiency limit: a thermoacoustic engine operating between T_hot and T_cold
+  achieves work W = Q_in × (1 - T_cold/T_hot) = Q_in × η_Carnot in the limit of
+  infinitesimal acoustic amplitude (slow, quasi-static process) with ideal regenerator
+  (perfect heat exchange). Practical engines achieve 20-40% of Carnot.
+
+  Historical engineering significance: Backhaus & Swift (1999) built a thermoacoustic
+  Stirling engine achieving 30% Carnot efficiency (comparable to Stirling engines of
+  the era) with no moving parts. LANL programme produced thermoacoustic refrigerators
+  for cryogenic cooling using natural gas combustion — no moving parts enables extreme
+  reliability. NASA interest: thermoacoustic power conversion for deep-space probes
+  using radioisotope heat sources.
+
+  The failure mode of engineering systems: thermoacoustic combustion instability in rocket
+  engines (Rayleigh's criterion, 1878) — acoustic pressure oscillations in a combustion
+  chamber feed back to produce more heat release when pressure and heat release are
+  in-phase. This amplifies oscillations until structural failure. The same effect
+  that enables thermoacoustic engines caused catastrophic failures in the Space Shuttle
+  solid rocket boosters and the Falcon 9 first stage (2010).
+translation_table:
+  - field_a_term: acoustic pressure amplitude p̃₁ at stack
+    field_b_term: pressure variation in thermodynamic cycle (piston compression)
+  - field_a_term: acoustic velocity amplitude ũ₁ (displacement oscillation)
+    field_b_term: piston stroke in Stirling engine
+  - field_a_term: phase angle φ between p̃ and ũ
+    field_b_term: phasing of piston expansion and heat exchange strokes
+  - field_a_term: stack temperature gradient dT₀/dx
+    field_b_term: temperature difference between hot and cold reservoirs
+  - field_a_term: regenerator (porous material storing and releasing heat)
+    field_b_term: regenerator in Stirling engine (thermal storage element)
+  - field_a_term: thermoacoustic heat flux Q̇₂
+    field_b_term: heat rejection rate of thermodynamic cycle
+  - field_a_term: Rayleigh criterion (pressure-heat release in phase → instability)
+    field_b_term: positive feedback in active acoustic amplifier
+related_unknowns:
+  - u-thermoacoustic-engine-efficiency-scaling
+related_hypotheses:
+  - h-thermoacoustic-travelling-wave-carnot-approach
+cross_pollination_opportunities:
+  - >
+    Distributed waste heat recovery: industrial processes (steel mills, cement kilns,
+    data centres) reject heat at 100-400°C. Thermoacoustic Stirling engines could
+    convert this to electricity with no moving parts, enabling waste heat recovery in
+    harsh environments where mechanical reliability is paramount. The acoustic network
+    design problem (optimising tube geometry, regenerator material, operating frequency)
+    is an engineering application of acoustic wave theory.
+  - >
+    Cryogenic thermoacoustic refrigeration using helium-4 working fluid can achieve
+    4K cooling (liquid helium temperature) — potentially replacing liquid helium in
+    MRI machines and superconducting magnet systems. The no-moving-parts design avoids
+    the maintenance of Gifford-McMahon coolers currently used.
+communication_gap: >
+  Thermoacoustics straddles acoustics (ASA journals), heat transfer (ASME journals),
+  and thermodynamics (physics journals) — communities that rarely read each other's
+  work. Rott (1969-1980) developed the linear thermoacoustic theory in a series of
+  Advances in Applied Mechanics papers that were technically demanding and rarely
+  cited in engineering practice. Swift's work at LANL from 1988 onward translated
+  this into accessible engineering design equations, but thermoacoustics remains outside
+  standard engineering curricula. Combustion engineers studying thermoacoustic
+  instabilities and cryogenic engineers building thermoacoustic refrigerators are
+  literally in the same physical phenomenon from opposite engineering perspectives and
+  rarely attend the same conferences.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1121/1.396617"
+    note: "Swift (1988) J Acoust Soc Am 84:1145 — thermoacoustic engines review"
+  - note: "Rott (1980) Adv Appl Mech 20:135 — thermoacoustic oscillation theory"
+  - doi: "10.1038/21398"
+    note: "Backhaus & Swift (1999) Nature 399:335 — thermoacoustic Stirling engine 30% Carnot"
+  - note: "Swift (2002) Thermoacoustics: A Unifying Perspective. ASA Press"

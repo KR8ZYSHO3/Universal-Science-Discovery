@@ -1,0 +1,109 @@
+id: b-quantum-complexity-circuit-depth
+title: >
+  Random quantum circuits of sufficient depth produce probability distributions that
+  are computationally hard to classically sample from, establishing a complexity-theoretic
+  separation between quantum and classical computation that connects circuit depth theory
+  to the physics of quantum chaos, entanglement growth, and decoherence.
+status: established
+fields:
+  - computer-science
+  - physics
+  - quantum-information
+  - computational-complexity
+bridge_claim: >
+  Classical computational complexity: the class BPP (bounded-error probabilistic
+  polynomial time) captures what classical computers can efficiently compute. BQP
+  (bounded-error quantum polynomial time) adds quantum superposition and entanglement.
+  It is widely believed that BQP ≠ BPP (quantum computers are strictly more powerful)
+  but this has not been proven (related to P vs. NP problem hierarchy).
+
+  Random circuit sampling (RCS) provides a near-term approach to demonstrating quantum
+  advantage without solving a classically-hard decision problem. An n-qubit circuit of
+  depth d applies a sequence of random 2-qubit gates (sampled uniformly from a gate set).
+  The output is a probability distribution over 2ⁿ bit strings. At large d, this
+  distribution is indistinguishable from the Porter-Thomas distribution (eigenvalue
+  spacing statistics of random matrices) — the circuit anti-concentrates.
+
+  Anti-concentration (d > log n): the output probability of each bit string converges
+  to p_x ≈ 1/2ⁿ + O(1/2^(n/2)), with fluctuations distributed as Porter-Thomas.
+  Anti-concentration is necessary (but not sufficient) for classical simulation hardness.
+  For d < log n, the circuit has too little entanglement; classical simulation by
+  tensor product states is efficient.
+
+  Classical simulation complexity: the exact simulation of an n-qubit depth-d circuit
+  requires O(2ⁿ) memory for d > n using Schrödinger simulation. Tensor network methods
+  can reduce this for low entanglement, but for depth d > O(log n) with random gates,
+  the entanglement entropy saturates the area law upper bound, making tensor network
+  compression exponential in n.
+
+  Quantum Volume: V_Q = 2^min(n,d) quantifies achievable circuit complexity given
+  hardware noise. For Google's Sycamore at the supremacy experiment: n=53, d=20,
+  XEB fidelity ≈ 0.224%, establishing that the output distribution is non-trivially
+  quantum — consistent with simulating a quantum circuit that a classical computer
+  cannot replicate in reasonable time.
+
+  The physics connection: random circuit dynamics mimics quantum chaos. The quantum
+  Lyapunov exponent (OTOC growth rate) governs how quickly local operators spread
+  across the system (information scrambling). At depth d ≈ n/v_butterfly (butterfly
+  velocity), the circuit reaches full quantum chaos. The MSS bound λ_L ≤ 2πT/ℏ sets
+  the maximum scrambling rate — exactly equivalent to the maximum circuit depth at
+  which new classical simulation complexity emerges per layer.
+
+  Boixo et al. (2018) proved: conditional on the unproven conjecture that the
+  polynomial hierarchy does not collapse to level 3, efficient classical simulation
+  of random circuit sampling is impossible. This connects computational complexity
+  (PH, Toda's theorem) to quantum physics (random matrix theory, Berry-Keating conjecture).
+translation_table:
+  - field_a_term: quantum circuit of depth d on n qubits
+    field_b_term: quantum chaotic system evolved for time t = d (discrete time)
+  - field_a_term: random 2-qubit gate (Haar-random unitary)
+    field_b_term: random time step in quantum chaotic dynamics
+  - field_a_term: anti-concentration (Porter-Thomas distribution of output probabilities)
+    field_b_term: quantum ergodicity (eigenstate thermalisation hypothesis for circuits)
+  - field_a_term: quantum volume V_Q = 2^min(n,d)
+    field_b_term: Hilbert space volume accessible to quantum chaotic dynamics
+  - field_a_term: cross-entropy benchmarking (XEB) fidelity
+    field_b_term: overlap between quantum state and its ideal counterpart (state fidelity)
+  - field_a_term: tensor network contraction (classical simulation)
+    field_b_term: area law of entanglement entropy (condition for efficient classical description)
+  - field_a_term: quantum supremacy threshold (fidelity F*)
+    field_b_term: quantum chaos threshold (scrambling time t_scramble)
+related_unknowns:
+  - u-quantum-supremacy-hardness-noise-boundary
+  - u-entanglement-entropy-area-law-exceptions
+  - u-quantum-speedup-optimization-np
+related_hypotheses:
+  - h-random-circuit-sampling-classical-boundary-fidelity
+cross_pollination_opportunities:
+  - >
+    Quantum error correction threshold theorem: circuits with gate error rate below
+    threshold ε* ≈ 10^(-3) can implement fault-tolerant quantum computation. The
+    circuit depth threshold for classical simulation hardness (related to F*) and
+    the fault-tolerance threshold are both circuit-complexity quantities — clarifying
+    the relationship between these two thresholds would determine whether near-term
+    (NISQ) devices can demonstrate sustained quantum advantage before achieving
+    fault tolerance.
+  - >
+    Holographic quantum error correction (Almheiri et al. 2015): the tensor network
+    structure of the AdS/CFT correspondence is a quantum error correcting code. The
+    entanglement structure of random circuits at threshold depth mimics the holographic
+    tensor network structure — connecting circuit complexity to quantum gravity.
+communication_gap: >
+  Computational complexity theory (Arora & Barak, STOC/FOCS) and quantum physics
+  (Phys Rev Lett, Nature Physics) developed independently for decades. Quantum computing
+  theory (Shor 1994, Grover 1996) was done by computer scientists and physicists jointly
+  but focused on algorithms, not circuit complexity. The specific connection between
+  random circuit complexity and quantum chaos via OTOCs was made by Hayden & Preskill
+  (2007) for black hole information and extended to circuits by Roberts & Yoshida (2017).
+  Experimental quantum computing groups (Google, IBM) bridge these literatures in
+  practice but the theoretical communities remain somewhat separate. Complexity theorists
+  rarely attend quantum chaos conferences and vice versa.
+last_reviewed: "2026-05-06"
+references:
+  - note: "Nielsen & Chuang (2000) Quantum Computation and Quantum Information. Cambridge"
+  - doi: "10.1038/s41567-018-0318-2"
+    note: "Boixo et al. (2018) Nat Phys 14:595 — quantum supremacy framework, XEB"
+  - doi: "10.1038/s41586-019-1666-5"
+    note: "Arute et al. (2019) Nature 574:505 — Google quantum supremacy experiment"
+  - doi: "10.1038/s41567-019-0483-4"
+    note: "Bouland et al. (2019) Nat Phys 15:159 — complexity-theoretic hardness of RCS"

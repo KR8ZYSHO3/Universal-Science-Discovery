@@ -1,5 +1,5 @@
 {
-  "count": 262,
+  "count": 272,
   "items": [
     {
       "id": "b-grokking-criticality",
@@ -1240,6 +1240,73 @@
       "file": "cross-domain\\biology-computer-science\\b-crispr-programmable-genome-editing.yaml"
     },
     {
+      "id": "b-gene-regulatory-networks-boolean-logic",
+      "title": "Kauffman's Boolean network model maps gene regulatory circuits onto digital logic gates, predicting that cell types correspond to dynamical attractors and that the number of cell types scales as √N_genes for critical K=2 networks — a cross-domain insight connecting combinatorial logic theory to developmental cell biology.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Boolean network models (Kauffman 1969): genes are binary nodes (on/off), each receiving K regulatory inputs and computing a Boolean function of those inputs. The entire N-gene network is a finite deterministic automaton with 2^N states; from any initial state, the trajectory leads to a cycle (attrac",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-critical-boolean-network-cell-type-count"
+      ],
+      "communication_gap": "Kauffman published in Journal of Theoretical Biology (biology journal); the formal theory of Boolean satisfiability and phase transitions was developed in computer science (STOC, FOCS conferences) and statistical physics simultaneously but without citation exchange. Boolean network theory in biology was largely descriptive; computer scientists who could have provided rigorous attractor analysis tools rarely engaged with biological applications. The ENCODE project reframed the regulatory genome but did not connect to Boolean network theory. Biologists trained in molecular biology rarely learn about Boolean satisfiability, and computer scientists rarely encounter Kauffman's model.\n",
+      "translation_table": [
+        {
+          "field_a_term": "gene node (on/off expression state)",
+          "field_b_term": "Boolean variable (0/1 logic gate input)"
+        },
+        {
+          "field_a_term": "transcription factor regulatory function",
+          "field_b_term": "Boolean logic gate (AND, OR, NOT, XOR function of inputs)"
+        },
+        {
+          "field_a_term": "cell type (stable gene expression pattern)",
+          "field_b_term": "attractor of the Boolean automaton (fixed point or limit cycle)"
+        },
+        {
+          "field_a_term": "cell differentiation (transition between cell types)",
+          "field_b_term": "perturbation-driven transition between attractor basins"
+        },
+        {
+          "field_a_term": "developmental canalization (Waddington landscape)",
+          "field_b_term": "basin of attraction (size ∝ canalization strength)"
+        },
+        {
+          "field_a_term": "oncogenic transformation (aberrant cell state)",
+          "field_b_term": "spurious attractor (not in normal attractor set)"
+        },
+        {
+          "field_a_term": "K connectivity (average regulatory inputs per gene)",
+          "field_b_term": "fan-in of logic gate (inputs per gate in circuit)"
+        },
+        {
+          "field_a_term": "critical K=2 (edge of chaos)",
+          "field_b_term": "critical Boolean satisfiability threshold (phase transition at K=2 per variable)"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1016/0022-5193(69)90015-0",
+          "note": "Kauffman (1969) J Theor Biol 22:437 — Boolean network model of gene regulation"
+        },
+        {
+          "doi": "10.1209/0295-5075/1/2/001",
+          "note": "Derrida & Pomeau (1986) Europhys Lett 1:45 — damage spreading, phase transition in RBNs"
+        },
+        {
+          "doi": "10.1103/RevModPhys.74.47",
+          "note": "Albert & Barabási (2002) Rev Mod Phys 74:47 — statistical mechanics of complex networks"
+        },
+        {
+          "doi": "10.1038/nature11232",
+          "note": "ENCODE Project Consortium (2012) Nature 489:57 — 85% of genome functional"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\biology-computer-science\\b-gene-regulatory-networks-boolean-logic.yaml"
+    },
+    {
       "id": "b-biofilm-self-assembly",
       "title": "Bacterial biofilm formation via quorum sensing is a chemical-order-parameter phase transition governed by the same self-assembly mathematics as colloidal and block-copolymer nanostructure assembly",
       "source_domain": "",
@@ -1965,6 +2032,73 @@
       "file": "cross-domain\\biology-physics\\b-membrane-curvature-vesicle-formation.yaml"
     },
     {
+      "id": "b-morphogenesis-mechanical-forces",
+      "title": "Tissue morphogenesis — the shaping of embryos and organs — is driven by mechanical forces (surface tension, actomyosin contractility, elastic buckling) governed by the same physical laws as soft condensed matter, bridging cell biology to continuum mechanics and explaining how cells collectively sculpture 3D anatomy from a flat sheet.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The differential adhesion hypothesis (Steinberg 1963): tissues sort like immiscible liquids because cells maximise adhesion energy by segregating into phases. Cell surface tension γ_AB = (W_AA + W_BB)/2 - W_AB, where W_ij is the work of adhesion between cell types i and j. Tissues with higher cohesi",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-vertex-model-cortical-gyrification-mechanics"
+      ],
+      "communication_gap": "Developmental biology emphasised molecular signals (Wnt, Shh, BMP pathways) for 40 years after the molecular biology revolution, treating mechanics as secondary. Biophysicists (Ingber, Discher, Fletcher) developed cell mechanics in parallel using physics instrumentation (AFM, optical traps, micropipettes) but rarely collaborated with developmental biologists. Steinberg's DAH (1963) was controversial for 40 years because the molecular mechanism (cadherin differential expression) was not identified until 1986. The vertex model and active matter frameworks for tissues emerged from soft condensed matter physics (Marchetti group, Bi et al.) and are still not taught in standard cell biology courses. Developmental biologists and physicists attend different meetings and publish in mostly separate journals.\n",
+      "translation_table": [
+        {
+          "field_a_term": "cell-cell adhesion energy W_ij",
+          "field_b_term": "surface energy in liquid-liquid interface (interfacial tension)"
+        },
+        {
+          "field_a_term": "actomyosin cortical tension T_cortex",
+          "field_b_term": "active surface tension of a self-propelled interface"
+        },
+        {
+          "field_a_term": "tissue sorting (Steinberg, cells of type A engulf type B)",
+          "field_b_term": "Rayleigh-Taylor instability (denser fluid below lighter → stable)"
+        },
+        {
+          "field_a_term": "vertex model cell energy E = K(A-A₀)² + ΓP²",
+          "field_b_term": "elastic energy of a 2D foam / network (soft matter physics)"
+        },
+        {
+          "field_a_term": "shape index p₀ = P₀/√A₀ (rigidity transition marker)",
+          "field_b_term": "packing fraction in jamming transition (particulate matter)"
+        },
+        {
+          "field_a_term": "cortical buckling (gyrification)",
+          "field_b_term": "Euler buckling of a thin elastic plate under compression"
+        },
+        {
+          "field_a_term": "T1 transition (cell neighbour exchange)",
+          "field_b_term": "plastic rearrangement event in amorphous solid"
+        },
+        {
+          "field_a_term": "Young-Laplace pressure ΔP = 2γ/R across tissue interface",
+          "field_b_term": "capillary pressure across liquid-gas interface"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1126/science.141.3579.401",
+          "note": "Steinberg (1963) Science 141:401 — differential adhesion hypothesis"
+        },
+        {
+          "doi": "10.1016/0022-5193(83)90161-4",
+          "note": "Honda (1983) J Theor Biol 106:423 — vertex model of epithelial sheets"
+        },
+        {
+          "doi": "10.1016/j.cub.2007.11.049",
+          "note": "Farhadifar et al. (2007) Curr Biol 17:2095 — vertex model mechanics"
+        },
+        {
+          "doi": "10.1038/nphys3655",
+          "note": "Tallinen et al. (2016) Nat Phys 12:588 — cortical folding by differential growth"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\biology-physics\\b-morphogenesis-mechanical-forces.yaml"
+    },
+    {
       "id": "b-protein-folding-energy-landscape",
       "title": "Protein folding as a search on a funneled high-dimensional energy landscape — the same mathematical structure describes spin glass physics, neural network loss landscapes, and optimization",
       "source_domain": "",
@@ -2147,6 +2281,67 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\biophysics-engineering\\b-molecular-motors-thermodynamic-efficiency.yaml"
+    },
+    {
+      "id": "b-enzyme-kinetics-metabolic-network",
+      "title": "Metabolic Control Analysis formalises the distributed nature of metabolic flux control in enzyme networks via the summation theorem (ΣCⁱⱼ = 1) and connectivity theorem, proving that no single enzyme is fully rate-limiting in a metabolic network — a result that emerged from bridging Michaelis-Menten kinetics with network-level systems theory.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Michaelis & Menten (1913) derived the fundamental rate equation for an enzyme-catalysed reaction: v = Vmax[S]/(Km + [S]). This is derived by assuming quasi-steady state of the enzyme-substrate complex (ES): d[ES]/dt ≈ 0, giving Km = (k₋₁ + k₂)/k₁. The hyperbolic saturation curve means: at [S] << Km,",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-mca-summation-theorem-distributed-cancer-target"
+      ],
+      "communication_gap": "Michaelis-Menten kinetics was established in physical chemistry (Biochemische Zeitschrift), while MCA was developed in quantitative biology (Symposia of the Society for Experimental Biology, 1973 — not a mainstream journal). For 20 years after Kacser & Burns, MCA was unknown in the broader biochemistry community, which continued teaching the \"rate-limiting step\" concept. Even today, introductory biochemistry textbooks use the rate-limiting step concept without MCA corrections. Metabolic engineers who discovered the same control distribution empirically often rediscovered MCA principles without knowing the original formulation. The gap between single-enzyme kinetics (chemistry) and network control (systems biology) is still incompletely bridged in curricula.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Michaelis constant Km (affinity of enzyme for substrate)",
+          "field_b_term": "network input sensitivity parameter"
+        },
+        {
+          "field_a_term": "Vmax = kcat × [E_total] (maximum catalytic rate)",
+          "field_b_term": "rate capacity of a network node"
+        },
+        {
+          "field_a_term": "flux control coefficient Cⁱⱼ (enzyme j's share of flux control)",
+          "field_b_term": "sensitivity coefficient in sensitivity analysis of systems models"
+        },
+        {
+          "field_a_term": "summation theorem ΣCⁱⱼ = 1",
+          "field_b_term": "budget constraint in network optimisation (resources sum to total)"
+        },
+        {
+          "field_a_term": "elasticity εⱼˢ (kinetic sensitivity to metabolite)",
+          "field_b_term": "local gain of a feedback element in control engineering"
+        },
+        {
+          "field_a_term": "connectivity theorem (MCA)",
+          "field_b_term": "gain-bandwidth product relationship in control systems"
+        },
+        {
+          "field_a_term": "metabolic steady state (Sv = 0)",
+          "field_b_term": "equilibrium of a linear dynamical system (dx/dt = Ax = 0)"
+        }
+      ],
+      "references": [
+        {
+          "note": "Michaelis & Menten (1913) Biochem Z 49:333 — Michaelis-Menten kinetics"
+        },
+        {
+          "doi": "10.1007/BF01093582",
+          "note": "Kacser & Burns (1973) Symp Soc Exp Biol 27:65 — metabolic control analysis"
+        },
+        {
+          "doi": "10.1111/j.1432-1033.1974.tb03318.x",
+          "note": "Heinrich & Rapoport (1974) Eur J Biochem 42:89 — independent MCA derivation"
+        },
+        {
+          "note": "Fell (1997) Understanding the Control of Metabolism. Portland Press"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\chemistry-biology\\b-enzyme-kinetics-metabolic-network.yaml"
     },
     {
       "id": "b-michaelis-menten-enzyme-kinetics",
@@ -3553,6 +3748,68 @@
       "file": "cross-domain\\computer-science-neuroscience\\b-transformer-attention-neural-attention.yaml"
     },
     {
+      "id": "b-quantum-complexity-circuit-depth",
+      "title": "Random quantum circuits of sufficient depth produce probability distributions that are computationally hard to classically sample from, establishing a complexity-theoretic separation between quantum and classical computation that connects circuit depth theory to the physics of quantum chaos, entanglement growth, and decoherence.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Classical computational complexity: the class BPP (bounded-error probabilistic polynomial time) captures what classical computers can efficiently compute. BQP (bounded-error quantum polynomial time) adds quantum superposition and entanglement. It is widely believed that BQP ≠ BPP (quantum computers ",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-random-circuit-sampling-classical-boundary-fidelity"
+      ],
+      "communication_gap": "Computational complexity theory (Arora & Barak, STOC/FOCS) and quantum physics (Phys Rev Lett, Nature Physics) developed independently for decades. Quantum computing theory (Shor 1994, Grover 1996) was done by computer scientists and physicists jointly but focused on algorithms, not circuit complexity. The specific connection between random circuit complexity and quantum chaos via OTOCs was made by Hayden & Preskill (2007) for black hole information and extended to circuits by Roberts & Yoshida (2017). Experimental quantum computing groups (Google, IBM) bridge these literatures in practice but the theoretical communities remain somewhat separate. Complexity theorists rarely attend quantum chaos conferences and vice versa.\n",
+      "translation_table": [
+        {
+          "field_a_term": "quantum circuit of depth d on n qubits",
+          "field_b_term": "quantum chaotic system evolved for time t = d (discrete time)"
+        },
+        {
+          "field_a_term": "random 2-qubit gate (Haar-random unitary)",
+          "field_b_term": "random time step in quantum chaotic dynamics"
+        },
+        {
+          "field_a_term": "anti-concentration (Porter-Thomas distribution of output probabilities)",
+          "field_b_term": "quantum ergodicity (eigenstate thermalisation hypothesis for circuits)"
+        },
+        {
+          "field_a_term": "quantum volume V_Q = 2^min(n,d)",
+          "field_b_term": "Hilbert space volume accessible to quantum chaotic dynamics"
+        },
+        {
+          "field_a_term": "cross-entropy benchmarking (XEB) fidelity",
+          "field_b_term": "overlap between quantum state and its ideal counterpart (state fidelity)"
+        },
+        {
+          "field_a_term": "tensor network contraction (classical simulation)",
+          "field_b_term": "area law of entanglement entropy (condition for efficient classical description)"
+        },
+        {
+          "field_a_term": "quantum supremacy threshold (fidelity F*)",
+          "field_b_term": "quantum chaos threshold (scrambling time t_scramble)"
+        }
+      ],
+      "references": [
+        {
+          "note": "Nielsen & Chuang (2000) Quantum Computation and Quantum Information. Cambridge"
+        },
+        {
+          "doi": "10.1038/s41567-018-0318-2",
+          "note": "Boixo et al. (2018) Nat Phys 14:595 — quantum supremacy framework, XEB"
+        },
+        {
+          "doi": "10.1038/s41586-019-1666-5",
+          "note": "Arute et al. (2019) Nature 574:505 — Google quantum supremacy experiment"
+        },
+        {
+          "doi": "10.1038/s41567-019-0483-4",
+          "note": "Bouland et al. (2019) Nat Phys 15:159 — complexity-theoretic hardness of RCS"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\computer-science-physics\\b-quantum-complexity-circuit-depth.yaml"
+    },
+    {
       "id": "b-quantum-supremacy-complexity",
       "title": "Google's Sycamore quantum processor (2019) demonstrated quantum computational advantage by sampling a random quantum circuit distribution in 200s vs estimated 10,000 classical years, framing the question of quantum advantage as the complexity separation BQP vs BPP and connecting quantum entanglement physics to computational complexity theory.\n",
       "source_domain": "",
@@ -4307,6 +4564,67 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\ecology-mathematics\\b-chaos-population-cycles.yaml"
+    },
+    {
+      "id": "b-metapopulation-dynamics-patch-theory",
+      "title": "Levins' metapopulation model and Hanski's incidence function model connect island biogeography theory to dynamic landscape ecology, replacing the static species-area relationship with a mechanistic extinction-colonisation balance governed by the metapopulation capacity — the dominant eigenvalue of the landscape connectivity matrix.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "MacArthur & Wilson (1963, 1967) island biogeography: species number on an island S follows a species-area relationship S = cA^z (z ≈ 0.25 for oceanic islands). Species richness represents a dynamic equilibrium between immigration from mainland and local extinction. This was a static, non-mechanistic",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-metapopulation-capacity-climate-refugia-network"
+      ],
+      "communication_gap": "Island biogeography (MacArthur & Wilson) was published in Ecology and as a monograph — accessible to ecologists. Levins (1969) published in Bulletin of the Entomological Society of America — an obscure journal that delayed uptake by a decade. Hanski's work (Finnish Academy, published in Nature, American Naturalist, and Oikos) brought metapopulation theory to mainstream ecology but required 20+ years of long-term empirical data to convince sceptical ecologists. The metapopulation capacity eigenvalue formulation is mathematically advanced (linear algebra of large sparse matrices) and uncommon in ecological training. Conservation practitioners rarely perform eigenvalue calculations and rely on surrogate metrics (area, buffer zones) that MCA shows are inferior to λ_M.\n",
+      "translation_table": [
+        {
+          "field_a_term": "habitat patch i (area, quality, location)",
+          "field_b_term": "node in a graph (with weight = area)"
+        },
+        {
+          "field_a_term": "colonisation rate cᵢⱼ (dispersal from j to i)",
+          "field_b_term": "edge weight in dispersal graph"
+        },
+        {
+          "field_a_term": "local extinction rate eᵢ (per patch)",
+          "field_b_term": "decay rate of node occupancy"
+        },
+        {
+          "field_a_term": "metapopulation capacity λ_M (dominant eigenvalue)",
+          "field_b_term": "spectral radius of the colonisation matrix (Perron-Frobenius eigenvalue)"
+        },
+        {
+          "field_a_term": "persistence threshold λ_M > e/c",
+          "field_b_term": "R₀ > 1 threshold in epidemiology (SIR model)"
+        },
+        {
+          "field_a_term": "extinction debt (committed but delayed extinction)",
+          "field_b_term": "transient behaviour after parameter shift below threshold"
+        },
+        {
+          "field_a_term": "species-area relationship (static, MacArthur-Wilson)",
+          "field_b_term": "equilibrium of metapopulation at θ = 0 dispersal (degenerate case)"
+        }
+      ],
+      "references": [
+        {
+          "note": "Levins (1969) Bull Entomol Soc Am 15:237 — metapopulation model"
+        },
+        {
+          "doi": "10.1086/285744",
+          "note": "Hanski (1994) Am Nat 144:646 — incidence function model"
+        },
+        {
+          "note": "Hanski (1999) Metapopulation Ecology. Oxford University Press"
+        },
+        {
+          "doi": "10.1086/303056",
+          "note": "Ovaskainen & Hanski (2001) Am Nat 158:538 — metapopulation capacity"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\ecology-mathematics\\b-metapopulation-dynamics-patch-theory.yaml"
     },
     {
       "id": "b-neutral-theory-random-matrix",
@@ -5170,6 +5488,67 @@
       "file": "cross-domain\\economics-mathematics\\b-arrow-impossibility-social-choice.yaml"
     },
     {
+      "id": "b-auction-theory-mechanism-design",
+      "title": "The Vickrey-Clarke-Groves mechanism achieves the fundamental impossibility resolution in mechanism design — dominant-strategy truthfulness compatible with social welfare maximisation — while Myerson's optimal auction characterises revenue-maximising mechanisms via virtual value theory, unifying mathematical economics with computational allocation problems.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The central problem of mechanism design: how to aggregate private information (valuations, preferences) from self-interested agents into collective decisions (allocations, prices) without the agents having incentives to misreport. The Gibbard-Satterthwaite theorem (1973) states that the only dominan",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-vcg-regretnet-combinatorial-approximation"
+      ],
+      "communication_gap": "Auction theory emerged in mathematical economics (Vickrey 1961 in Journal of Finance, Clarke 1971 in Public Choice), while the generalisation to mechanism design was done at the intersection of economics and operations research. Computer science discovered algorithmic game theory in the late 1990s (Nisan, Roughgarden) and independently rediscovered many mechanism design results, creating a parallel literature with different terminology. Practitioners in finance, procurement, and advertising who run multi-billion dollar auctions daily rarely read the original VCG papers, and academic mechanism designers rarely engage with the engineering challenges of running auctions at scale.\n",
+      "translation_table": [
+        {
+          "field_a_term": "agent type (private valuation vᵢ)",
+          "field_b_term": "random variable in type space Θᵢ"
+        },
+        {
+          "field_a_term": "allocation rule (who gets the good)",
+          "field_b_term": "deterministic function x: Θ → X (allocation correspondence)"
+        },
+        {
+          "field_a_term": "payment rule (how much each agent pays)",
+          "field_b_term": "transfer function t: Θ → ℝ"
+        },
+        {
+          "field_a_term": "dominant-strategy incentive compatibility (DSIC)",
+          "field_b_term": "Nash equilibrium in dominant strategies (truth-telling)"
+        },
+        {
+          "field_a_term": "virtual value φ(v) = v - (1-F(v))/f(v)",
+          "field_b_term": "marginal revenue in optimal pricing theory (analogous structure)"
+        },
+        {
+          "field_a_term": "VCG payment (negative externality internalisation)",
+          "field_b_term": "Pigou tax (social cost internalisation in public economics)"
+        },
+        {
+          "field_a_term": "revenue equivalence (all efficient auctions equal revenue)",
+          "field_b_term": "Modigliani-Miller theorem (capital structure irrelevance under conditions)"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1111/j.1540-6261.1961.tb04130.x",
+          "note": "Vickrey (1961) J Finance 16:8 — second-price auction, Vickrey mechanism"
+        },
+        {
+          "note": "Clarke (1971) Public Choice 11:17 — Clarke tax (VCG generalisation to public goods)"
+        },
+        {
+          "doi": "10.1287/moor.6.1.58",
+          "note": "Myerson (1981) Math Oper Res 6:58 — optimal auction design, virtual values"
+        },
+        {
+          "note": "Nisan et al. (2007) Algorithmic Game Theory. Cambridge University Press"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\economics-mathematics\\b-auction-theory-mechanism-design.yaml"
+    },
+    {
       "id": "b-inequality-health-gradient",
       "title": "Economic inequality dynamics (Pareto income distribution, poverty-trap bifurcations, Gini coefficient) predict population health phase transitions — the Gini coefficient functions as a control parameter for health outcome distributions in the same way temperature controls Ising model phase transitions.\n",
       "source_domain": "",
@@ -5959,6 +6338,70 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\engineering-mathematics\\b-control-theory-differential-geometry.yaml"
+    },
+    {
+      "id": "b-control-theory-lie-groups",
+      "title": "The geometric structure of nonlinear control systems on Lie groups — characterised by the Chow-Rashevski theorem via the Lie algebra rank condition — provides the correct framework for robotic motion planning and spacecraft attitude control, replacing Euclidean linearisation methods that fail for large-angle maneuvers.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Classical linear control theory (PID, LQR, Kalman filter) works in Euclidean spaces (ℝⁿ) where linear approximations remain valid near an operating point. For robotic systems and spacecraft, the configuration space is not Euclidean but a Lie group: the group SE(3) = SO(3) ⋉ ℝ³ of rigid body motions ",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-geometric-control-se3-optimal-robotic-grasping"
+      ],
+      "communication_gap": "Control theory and Lie group mathematics developed in separate communities. Lie groups were studied by mathematicians (Sophus Lie, Cartan, Weyl) and theoretical physicists (gauge theory, particle physics). Engineering control theorists (Kalman, Zames, Åström) worked predominantly in linear systems and Euclidean state spaces. Brockett (1972) first explicitly connected Lie brackets to controllability for engineers, but the resulting literature (geometric mechanics, Bullo & Lewis 2005) remained in academic robotics. Practising control engineers in aerospace and robotics industry primarily still use quaternion-based or Euler angle methods, despite their theoretical limitations.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Lie group G (configuration space of mechanical system)",
+          "field_b_term": "state space X of control system"
+        },
+        {
+          "field_a_term": "Lie algebra g (tangent space at identity)",
+          "field_b_term": "linearised control inputs at operating point"
+        },
+        {
+          "field_a_term": "Lie bracket [f, g] (commutator of vector fields)",
+          "field_b_term": "second-order maneuver achievable by combining first-order inputs"
+        },
+        {
+          "field_a_term": "Chow-Rashevski theorem (Lie algebra rank condition)",
+          "field_b_term": "controllability condition for nonlinear systems"
+        },
+        {
+          "field_a_term": "exponential map exp: g → G",
+          "field_b_term": "finite rotation from infinitesimal generator (ωt)"
+        },
+        {
+          "field_a_term": "adjoint action Ad_g: g → g",
+          "field_b_term": "coordinate transformation of velocity under configuration change"
+        },
+        {
+          "field_a_term": "geodesic on Lie group (optimal path under left-invariant metric)",
+          "field_b_term": "time-optimal or energy-optimal control trajectory"
+        },
+        {
+          "field_a_term": "nonholonomic constraint (rolling without slipping)",
+          "field_b_term": "system with fewer control inputs than state dimensions"
+        }
+      ],
+      "references": [
+        {
+          "note": "Chow (1939) Math Ann 117:98 — Chow's theorem on nonholonomic controllability"
+        },
+        {
+          "doi": "10.1137/0310021",
+          "note": "Brockett (1972) SIAM J Control 10:265 — system theory on Lie groups"
+        },
+        {
+          "note": "Bullo & Lewis (2005) Geometric Mechanics and Robotics. Springer"
+        },
+        {
+          "note": "Jurdjevic (1997) Geometric Control Theory. Cambridge University Press"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\engineering-mathematics\\b-control-theory-lie-groups.yaml"
     },
     {
       "id": "b-optimization-algorithms-convex-analysis",
@@ -9333,53 +9776,60 @@
     },
     {
       "id": "b-ergodic-theory-statistical-mechanics",
-      "title": "Birkhoff's ergodic theorem provides the rigorous mathematical foundation for Boltzmann's ergodic hypothesis, justifying ensemble averages in statistical mechanics",
+      "title": "Birkhoff's ergodic theorem guarantees that time averages equal ensemble averages for measure-preserving dynamical systems, directly justifying Gibbs's statistical mechanics; the KAM theorem identifies the subset of Hamiltonian systems that break ergodicity by preserving invariant tori, explaining why some quantum systems thermalise and others localise.\n",
       "source_domain": "",
       "target_domain": "",
       "status": "established",
-      "bridge_claim": "The ergodic hypothesis (Boltzmann 1884) — that the time average of an observable equals its ensemble average for a system in thermal equilibrium ⟨A⟩_time = ⟨A⟩_ensemble — is the foundational assumption of statistical mechanics. Birkhoff's ergodic theorem (1931) proved this rigorously for measure-pre",
+      "bridge_claim": "Boltzmann's ergodic hypothesis (1884) conjectured that a gas molecule would, over infinite time, visit every point on the constant-energy hypersurface in phase space — making the time average of any observable equal to its phase-space average (ensemble average). This is the foundation of statistical",
       "open_unknowns": [],
       "related_hypotheses": [
-        "h-many-body-localisation-ergodicity-breaking-universal"
+        "h-kam-nonergodicity-many-body-localization"
       ],
-      "communication_gap": "Pure mathematicians working in ergodic theory and physicists working in statistical mechanics rarely collaborate. The physical literature often invokes ergodicity informally; the mathematical literature on ergodic theory rarely addresses physical applications of non-ergodicity (MBL, spin glasses). Separate journals (Ergodic Theory and Dynamical Systems vs. Physical Review) reinforce the divide.\n",
+      "communication_gap": "Ergodic theory developed as pure mathematics in measure theory (Birkhoff, von Neumann, Halmos), while statistical mechanics developed as physics (Boltzmann, Gibbs, Maxwell). The formal connection via Birkhoff's theorem was understood by mathematicians but rarely taught in physics graduate programs. KAM theory was equally siloed in mathematical dynamics and solar system mechanics. The connection to quantum thermalisation and MBL was not appreciated until the 2010s — even though physicists had known about FPUT (1955) and the classical integrability barrier for decades. The fields of ergodic theory, Hamiltonian mechanics, and condensed matter quantum physics rarely cite each other's foundational literature.\n",
       "translation_table": [
         {
-          "field_a_term": "measure-preserving dynamical system",
-          "field_b_term": "Hamiltonian system (Liouville's theorem)",
-          "note": "Phase-space volume conservation is the physical realisation of measure preservation"
+          "field_a_term": "Birkhoff ergodic theorem (time average = ensemble average)",
+          "field_b_term": "Gibbs statistical mechanics (justify ensemble method for gases)"
         },
         {
-          "field_a_term": "ergodic transformation (irreducible, aperiodic)",
-          "field_b_term": "chaotic Hamiltonian dynamics (mixing)",
-          "note": "Ergodicity requires the system to explore all phase space — physical analogue is mixing"
+          "field_a_term": "measure-preserving transformation T on phase space",
+          "field_b_term": "Hamiltonian evolution of molecular system (Liouville's theorem)"
         },
         {
-          "field_a_term": "time average (Birkhoff)",
-          "field_b_term": "thermodynamic observable (experimental measurement)",
-          "note": "Laboratory measurements are time averages; theory computes ensemble averages"
+          "field_a_term": "ergodic system (dense orbit on energy surface)",
+          "field_b_term": "thermalising quantum system (ETH-satisfying, Gibbs state)"
         },
         {
-          "field_a_term": "invariant measure (Haar measure)",
-          "field_b_term": "microcanonical/Boltzmann distribution",
-          "note": "The unique invariant probability measure on the energy shell"
+          "field_a_term": "KAM invariant torus (preserved by small perturbation)",
+          "field_b_term": "many-body localised phase (LIOMs prevent thermalisation)"
+        },
+        {
+          "field_a_term": "KAM threshold perturbation ε_c",
+          "field_b_term": "MBL transition disorder strength W_c"
+        },
+        {
+          "field_a_term": "FPUT recurrence (non-thermalising classical chain)",
+          "field_b_term": "quantum scar states (non-thermalising eigenstates)"
+        },
+        {
+          "field_a_term": "Lyapunov exponent (rate of ergodic mixing)",
+          "field_b_term": "quantum chaos Lyapunov exponent (OTOC decay rate, MSS-bounded)"
         }
       ],
       "references": [
         {
-          "note": "Boltzmann (1884) — ergodic hypothesis origin"
-        },
-        {
-          "note": "Birkhoff (1931) — rigorous ergodic theorem",
+          "note": "Birkhoff (1931) Proc Natl Acad Sci 17:656 — pointwise ergodic theorem",
           "doi": "10.1073/pnas.17.12.656"
         },
         {
-          "note": "Moore (2015) — ergodic theorem, ergodic theory, and statistical mechanics",
-          "doi": "10.1073/pnas.1421798112"
+          "note": "Kolmogorov (1954) Dokl Akad Nauk 98:527 — KAM theorem original paper"
         },
         {
-          "note": "Bouchaud (1992) — weak ergodicity breaking in disordered systems",
-          "doi": "10.1051/jp1:1992238"
+          "note": "Ott (2002) Chaos in Dynamical Systems, 2nd ed. Cambridge University Press"
+        },
+        {
+          "doi": "10.1103/RevModPhys.83.863",
+          "note": "Polkovnikov et al. (2011) Rev Mod Phys 83:863 — thermalisation in isolated quantum systems, ETH review"
         }
       ],
       "last_reviewed": "2026-05-06",
@@ -9859,6 +10309,66 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\mathematics-social-science\\b-network-formation-graph-theory.yaml"
+    },
+    {
+      "id": "b-replicator-dynamics-ess",
+      "title": "The replicator equation — governing strategy frequency evolution in evolutionary games — is formally equivalent to Fisher's selection equation in population genetics, Lotka-Volterra predator-prey dynamics, and chemical reaction kinetics, creating a unified dynamical framework spanning biology, mathematics, economics, and social science.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The replicator equation (Taylor & Jonker 1978): ẋᵢ = xᵢ[fᵢ(x) - φ(x)], where xᵢ is the frequency of strategy i, fᵢ(x) = Σⱼaᵢⱼxⱼ is the fitness of strategy i (given payoff matrix A), and φ(x) = Σᵢxᵢfᵢ(x) is the mean fitness of the population. The equation simply says: a strategy grows in frequency if",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-replicator-dynamics-ess-institutional-design"
+      ],
+      "communication_gap": "Taylor & Jonker published in Mathematical Biosciences (applied mathematics); Maynard Smith published in Nature and in game theory monographs (biology). The connection to economics (Nash equilibria) was recognised slowly: Nash (1950) did not know about evolution, and biologists did not read economics. The Lotka-Volterra equivalence (Hofbauer 1981, in Journal of Mathematical Biology) was proven in a specialised mathematical biology journal that economists and physicists rarely read. The Price equation connecting to statistics (covariance) was published in Nature (1970) but rarely cited outside evolutionary biology for 20 years. Social scientists applying replicator dynamics to cultural evolution (Cavalli-Sforza, Boyd & Richerson) developed largely independently of the mathematical biology literature.\n",
+      "translation_table": [
+        {
+          "field_a_term": "strategy frequency xᵢ",
+          "field_b_term": "allele frequency in population genetics / species abundance in ecology"
+        },
+        {
+          "field_a_term": "payoff matrix A (fitness of i against j)",
+          "field_b_term": "Lotka-Volterra competition matrix / chemical stoichiometry matrix"
+        },
+        {
+          "field_a_term": "mean fitness φ(x) = Σxᵢfᵢ",
+          "field_b_term": "mean fitness (Fisher) / normalisation in chemical concentration space"
+        },
+        {
+          "field_a_term": "Nash equilibrium (best response fixed point)",
+          "field_b_term": "stable allele frequency / Lotka-Volterra coexistence equilibrium"
+        },
+        {
+          "field_a_term": "evolutionarily stable strategy (ESS)",
+          "field_b_term": "asymptotically stable equilibrium of selection dynamics"
+        },
+        {
+          "field_a_term": "rock-paper-scissors game (no ESS, limit cycle)",
+          "field_b_term": "predator-prey oscillation (Lotka-Volterra cycle) / competitive exclusion cycle"
+        },
+        {
+          "field_a_term": "Price equation ΔZ̄ = Cov(w,z)/w̄",
+          "field_b_term": "Fisher's fundamental theorem / KL-divergence minimisation"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1016/0025-5564(78)90077-9",
+          "note": "Taylor & Jonker (1978) Math Biosci 40:145 — replicator equation"
+        },
+        {
+          "note": "Maynard Smith (1982) Evolution and the Theory of Games. Cambridge University Press"
+        },
+        {
+          "note": "Hofbauer & Sigmund (1998) Evolutionary Games and Population Dynamics. Cambridge"
+        },
+        {
+          "note": "Sandholm (2011) Population Games and Evolutionary Dynamics. MIT Press"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\mathematics-social-science\\b-replicator-dynamics-ess.yaml"
     },
     {
       "id": "b-radiation-biophysics-let",
@@ -11005,64 +11515,62 @@
     },
     {
       "id": "b-neural-avalanches-criticality",
-      "title": "Neural networks in vitro and in vivo exhibit avalanche size and duration distributions following power laws P(s) ∝ s^(-3/2) and P(t) ∝ t^(-2) — the signatures of a second-order phase transition critical point — supporting the critical brain hypothesis that neural computation is optimized near the boundary between order and disorder.\n",
+      "title": "Spontaneous neuronal activity in the cortex exhibits power-law avalanche statistics matching mean-field critical branching process predictions, suggesting the brain operates at the edge of a second-order phase transition — a state that maximises dynamic range, information transmission, and computational repertoire simultaneously.\n",
       "source_domain": "",
       "target_domain": "",
       "status": "established",
-      "bridge_claim": "The concept of criticality — a system poised at a second-order phase transition — from condensed matter physics maps onto the dynamics of neural networks with precise quantitative predictions that have been experimentally verified.\n1. Neural avalanches and power laws. Beggs & Plenz (2003) measured c",
+      "bridge_claim": "Self-organised criticality (SOC): Bak, Tang & Wiesenfeld (1987) discovered that many open dissipative systems naturally evolve toward a critical state characterised by power-law distributions, without fine-tuning of parameters. The canonical example is the sandpile model — adding grains one at a tim",
       "open_unknowns": [],
       "related_hypotheses": [
-        "h-criticality-maximizes-neural-dynamic-range"
+        "h-neural-avalanche-criticality-dynamic-range"
       ],
-      "communication_gap": "Statistical physicists and neuroscientists overlap significantly in computational neuroscience, but the critical brain hypothesis is more widely known in physics-of-biology communities than in clinical neuroscience. The direct connection between epilepsy/coma (supercritical/subcritical) and the phase transition framework is underutilized in clinical settings. Muñoz (2018) Review of Modern Physics provides the comprehensive review.\n",
+      "communication_gap": "Statistical physics of phase transitions and SOC was developed in physics departments by condensed matter physicists (Bak, Kadanoff, Wilson). Neuroscientists studying cortical dynamics had no exposure to these concepts until Beggs & Plenz (2003) explicitly applied them. Even then, the neuroscience community was sceptical because: (1) power laws can arise from many mechanisms beyond SOC, (2) the specific exponents were not universally reproduced, and (3) the physiological mechanism maintaining σ ≈ 1 (synaptic homeostasis) was identified much later. The connection remains contested because verifying SOC universality class requires multiple scaling exponents — a standard requirement in physics but unfamiliar to most neuroscientists.\n",
       "translation_table": [
         {
-          "field_a_term": "second-order phase transition / critical point (statistical physics)",
-          "field_b_term": "optimal brain operating point / edge of chaos (neuroscience)",
-          "note": "Brain criticality hypothesis maps neural dynamics onto phase transitions"
+          "field_a_term": "branching ratio σ (average recruits per active neuron)",
+          "field_b_term": "criticality order parameter of the branching process"
         },
         {
-          "field_a_term": "branching ratio σ = 1 (branching process theory)",
-          "field_b_term": "critical neural network (neuroscience)",
-          "note": "σ < 1 = subcritical (coma-like); σ > 1 = supercritical (epileptic)"
+          "field_a_term": "neuronal avalanche (cascade of correlated activations)",
+          "field_b_term": "cluster in percolation theory / avalanche in sandpile model"
         },
         {
-          "field_a_term": "power-law cluster size distribution (statistical physics)",
-          "field_b_term": "neural avalanche size distribution P(s) ∝ s^(-3/2) (neuroscience)",
-          "note": "Mean-field critical exponent -3/2 observed experimentally in cortex"
+          "field_a_term": "power-law P(s) ∝ s^(-3/2) (avalanche size distribution)",
+          "field_b_term": "mean-field critical branching process exponent (Galton-Watson)"
         },
         {
-          "field_a_term": "diverging susceptibility χ near T_c (statistical physics)",
-          "field_b_term": "maximal dynamic range at σ = 1 (neuroscience)",
-          "note": "Maximum sensitivity to input is the experimental signature of criticality"
+          "field_a_term": "subcritical cortex (σ < 1, anaesthesia, slow-wave sleep)",
+          "field_b_term": "subcritical phase (finite correlation length, exponential decay)"
         },
         {
-          "field_a_term": "correlation length ξ diverging at criticality",
-          "field_b_term": "long-range spatial correlations in neural activity (neuroscience)",
-          "note": "Critical neural networks show correlations across cortical distances"
+          "field_a_term": "supercritical cortex (σ > 1, seizure, epilepsy)",
+          "field_b_term": "supercritical phase (runaway cascades, divergent cluster size)"
         },
         {
-          "field_a_term": "universality class (statistical physics)",
-          "field_b_term": "neural network class (size-dependent critical exponents)",
-          "note": "Whether cortical avalanches are mean-field or non-mean-field universality is debated"
+          "field_a_term": "synaptic plasticity (homeostatic maintenance of σ ≈ 1)",
+          "field_b_term": "self-organised criticality (parameter-free critical state maintenance)"
+        },
+        {
+          "field_a_term": "dynamic range of sensory cortex (input discrimination range)",
+          "field_b_term": "susceptibility peak at the critical point"
         }
       ],
       "references": [
         {
-          "doi": "10.1523/JNEUROSCI.23-35-11167.2003",
-          "note": "Beggs & Plenz (2003) J Neurosci 23:11167 — neuronal avalanches in neocortical circuits"
+          "doi": "10.1523/JNEUROSCI.5601-03.2003",
+          "note": "Beggs & Plenz (2003) J Neurosci 23:11167 — neural avalanches in cortical cultures"
         },
         {
-          "doi": "10.1038/nphys1803",
-          "note": "Chialvo (2010) Nat Phys 6:744 — emergent complexity at the edge of chaos"
+          "doi": "10.1038/nphys1746",
+          "note": "Chialvo (2010) Nat Phys 6:744 — emergent complex neural dynamics at criticality"
         },
         {
-          "doi": "10.1177/1073858412445487",
+          "doi": "10.1177/1073858412440101",
           "note": "Shew & Plenz (2013) Neuroscientist 19:88 — functional benefits of criticality"
         },
         {
-          "doi": "10.1103/RevModPhys.90.031001",
-          "note": "Muñoz (2018) Rev Mod Phys 90:031001 — colloquium on criticality and dynamical large-scale brain models"
+          "doi": "10.1371/journal.pcbi.1003985",
+          "note": "Priesemann et al. (2014) PLoS Comput Biol 10:e1003985 — in vivo cortex subcritical"
         }
       ],
       "last_reviewed": "2026-05-06",
@@ -11578,6 +12086,73 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\physics-ai\\b-phase-transitions-ml-grokking.yaml"
+    },
+    {
+      "id": "b-active-matter-collective-locomotion",
+      "title": "The Vicsek model's phase transition from disordered to ordered collective motion in self-propelled particles — driven by noise-dependent symmetry breaking despite Mermin-Wagner theorem prohibition — explains flocking in birds, bacterial swarming, and cytoskeletal dynamics, bridging non-equilibrium statistical mechanics with biological collective behaviour.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Active matter consists of self-propelled agents that continuously consume energy from internal fuel (ATP, chemical gradients, food) to generate directed motion. Examples span ten orders of magnitude: actin-myosin filaments (nm), bacteria (μm), cells (10μm), fish (cm), birds (m). The defining propert",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-active-nematic-defect-tissue-extrusion"
+      ],
+      "communication_gap": "The Vicsek model emerged from statistical physics (Physical Review Letters); collective animal behaviour emerged from ethology and ecology (Nature, Behavioral Ecology). For a decade after Vicsek (1995), the two literatures developed independently. Biologists studying bird flocking (Potts 1984, empirical) and physicists studying flocking models rarely cited each other. The connection was bridged partly by Couzin et al. (2002, 2005) who brought physics methods to biological collective motion data. The active nematics connection to cytoskeleton was developed primarily by the Cambridge group (Marchetti, Dogic) and required synthesising liquid crystal physics and cell biology — communities that almost never interact.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Vicsek velocity-alignment rule (average neighbours' directions)",
+          "field_b_term": "social imitation in collective behaviour (conform to local norm)"
+        },
+        {
+          "field_a_term": "noise amplitude η (misalignment per step)",
+          "field_b_term": "individual variation / decision noise in biological system"
+        },
+        {
+          "field_a_term": "critical noise η_c (phase transition)",
+          "field_b_term": "critical density or perception range for collective behaviour onset"
+        },
+        {
+          "field_a_term": "order parameter Φ = |⟨v⟩|/v₀ (mean polarisation)",
+          "field_b_term": "degree of coherent flock or swarm alignment"
+        },
+        {
+          "field_a_term": "active nematic ±½ topological defects",
+          "field_b_term": "stress concentration points in tissue driving cell fate"
+        },
+        {
+          "field_a_term": "actomyosin motor protein driving filament sliding",
+          "field_b_term": "self-propulsion mechanism of active matter particle"
+        },
+        {
+          "field_a_term": "non-equilibrium (self-propulsion, no Boltzmann measure)",
+          "field_b_term": "metabolically active biological tissue (out-of-equilibrium)"
+        },
+        {
+          "field_a_term": "spontaneous flow in active nematic",
+          "field_b_term": "cytoplasmic streaming, tissue morphogenesis flows"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1103/PhysRevLett.75.1226",
+          "note": "Vicsek et al. (1995) Phys Rev Lett 75:1226 — self-propelled particle model"
+        },
+        {
+          "doi": "10.1103/PhysRevE.58.4828",
+          "note": "Toner & Tu (1998) Phys Rev E 58:4828 — hydrodynamic theory of flocking"
+        },
+        {
+          "doi": "10.1103/RevModPhys.85.1143",
+          "note": "Marchetti et al. (2013) Rev Mod Phys 85:1143 — active matter review"
+        },
+        {
+          "doi": "10.1038/s41467-018-05666-8",
+          "note": "Doostmohammadi et al. (2018) Nat Commun 9:3246 — active nematics in biology"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\physics-biology\\b-active-matter-collective-locomotion.yaml"
     },
     {
       "id": "b-brownian-motion-cell-diffusion",
@@ -13023,6 +13598,67 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\physics-engineering\\b-quantum-sensing-fundamental-limits.yaml"
+    },
+    {
+      "id": "b-thermoacoustics-heat-engines",
+      "title": "Acoustic pressure oscillations in gas-filled tubes can sustain heat engine and refrigeration cycles with no moving parts, achieving Carnot efficiency in the ideal limit — the thermoacoustic effect bridges acoustic wave physics with classical thermodynamics and has produced practical heat engines with >30% Carnot efficiency.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The thermoacoustic effect (discovered by Sondhauss 1850, theoretically explained by Kirchhoff 1868): when an acoustic standing wave establishes a steep temperature gradient along a solid surface (stack), the oscillating gas parcels undergo an approximate thermodynamic cycle. A gas parcel moves towar",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-thermoacoustic-travelling-wave-carnot-approach"
+      ],
+      "communication_gap": "Thermoacoustics straddles acoustics (ASA journals), heat transfer (ASME journals), and thermodynamics (physics journals) — communities that rarely read each other's work. Rott (1969-1980) developed the linear thermoacoustic theory in a series of Advances in Applied Mechanics papers that were technically demanding and rarely cited in engineering practice. Swift's work at LANL from 1988 onward translated this into accessible engineering design equations, but thermoacoustics remains outside standard engineering curricula. Combustion engineers studying thermoacoustic instabilities and cryogenic engineers building thermoacoustic refrigerators are literally in the same physical phenomenon from opposite engineering perspectives and rarely attend the same conferences.\n",
+      "translation_table": [
+        {
+          "field_a_term": "acoustic pressure amplitude p̃₁ at stack",
+          "field_b_term": "pressure variation in thermodynamic cycle (piston compression)"
+        },
+        {
+          "field_a_term": "acoustic velocity amplitude ũ₁ (displacement oscillation)",
+          "field_b_term": "piston stroke in Stirling engine"
+        },
+        {
+          "field_a_term": "phase angle φ between p̃ and ũ",
+          "field_b_term": "phasing of piston expansion and heat exchange strokes"
+        },
+        {
+          "field_a_term": "stack temperature gradient dT₀/dx",
+          "field_b_term": "temperature difference between hot and cold reservoirs"
+        },
+        {
+          "field_a_term": "regenerator (porous material storing and releasing heat)",
+          "field_b_term": "regenerator in Stirling engine (thermal storage element)"
+        },
+        {
+          "field_a_term": "thermoacoustic heat flux Q̇₂",
+          "field_b_term": "heat rejection rate of thermodynamic cycle"
+        },
+        {
+          "field_a_term": "Rayleigh criterion (pressure-heat release in phase → instability)",
+          "field_b_term": "positive feedback in active acoustic amplifier"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1121/1.396617",
+          "note": "Swift (1988) J Acoust Soc Am 84:1145 — thermoacoustic engines review"
+        },
+        {
+          "note": "Rott (1980) Adv Appl Mech 20:135 — thermoacoustic oscillation theory"
+        },
+        {
+          "doi": "10.1038/21398",
+          "note": "Backhaus & Swift (1999) Nature 399:335 — thermoacoustic Stirling engine 30% Carnot"
+        },
+        {
+          "note": "Swift (2002) Thermoacoustics: A Unifying Perspective. ASA Press"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\physics-engineering\\b-thermoacoustics-heat-engines.yaml"
     },
     {
       "id": "b-kuramoto-synchronization",
