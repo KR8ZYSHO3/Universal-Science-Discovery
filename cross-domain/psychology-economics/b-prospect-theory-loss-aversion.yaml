@@ -1,0 +1,100 @@
+id: b-prospect-theory-loss-aversion
+title: >
+  Prospect theory is the psychophysical analog of the Weber-Fechner law applied to
+  monetary outcomes — the value function v(x) is the S-shaped transducer mapping
+  objective monetary changes to subjective utility, with loss aversion (λ ≈ 2.25)
+  encoding the asymmetric steepness for losses versus gains.
+status: established
+fields:
+  - psychology
+  - behavioral-economics
+  - psychophysics
+  - decision-theory
+bridge_claim: >
+  Kahneman & Tversky's prospect theory (1979) replaces expected utility theory with a
+  psychophysically grounded model of decision under uncertainty. The model has two
+  components: a value function v(x) over outcomes and a probability weighting function
+  π(p) over probabilities.
+
+  The value function is the direct analog of the Weber-Fechner law from psychophysics:
+  just as perceived loudness L = k·log(I/I₀) (sensation proportional to log of
+  stimulus intensity), the subjective value of monetary gains follows v(x) ~ x^α
+  for x > 0 with α ≈ 0.88 (concave for gains) and v(x) = -λ(-x)^β for x < 0 with
+  β ≈ 0.88, λ ≈ 2.25 (convex for losses, steeper by factor λ).
+
+  This is the psychophysical power law (Stevens' law) applied to monetary stimuli,
+  with the critical addition that the reference point matters — outcomes are evaluated
+  as gains or losses relative to a status quo, not as absolute wealth levels.
+
+  Loss aversion (λ ≈ 2.25) means losing $100 hurts roughly as much as gaining $225
+  feels good. This explains a cascade of economic anomalies: the equity premium puzzle,
+  the disposition effect (selling winners too early, holding losers too long), the
+  status quo bias, and endowment effects.
+
+  The probability weighting function π(p) is the second psychophysical component:
+  π(p) overweights small probabilities (explains lottery and insurance demand) and
+  underweights large ones. The functional form π(p) = p^γ / (p^γ + (1-p)^γ)^{1/γ}
+  with γ ≈ 0.65 matches the psychophysical compression of the probability scale
+  analogous to compression of the loudness scale.
+translation_table:
+  - field_a_term: objective monetary outcome x (gain or loss)
+    field_b_term: physical stimulus intensity I in psychophysics
+  - field_a_term: subjective value v(x) = x^α (gains), -λ(-x)^β (losses)
+    field_b_term: perceived sensation L = k·log(I) (Weber-Fechner) or L = k·I^n (Stevens)
+  - field_a_term: reference point (status quo, purchase price)
+    field_b_term: adaptation level / background stimulus in psychophysics
+  - field_a_term: loss aversion coefficient λ ≈ 2.25
+    field_b_term: asymmetric gain/loss sensitivity (no direct psychophysical analog)
+  - field_a_term: probability weighting function π(p)
+    field_b_term: psychophysical compression of the probability dimension
+  - field_a_term: overweighting of small probabilities π(p) > p for p small
+    field_b_term: detection threshold effects in psychophysics (near-zero intensities feel larger)
+  - field_a_term: risk aversion for gains (buy insurance)
+    field_b_term: concavity of value function for positive outcomes
+  - field_a_term: risk seeking for losses (gamble to break even)
+    field_b_term: convexity of value function for negative outcomes
+  - field_a_term: certainty effect (overvaluing certain vs. probable gains)
+    field_b_term: unit probability anchoring (p=1 maps to π=1, creating discontinuity)
+related_unknowns:
+  - u-loss-aversion-neural-substrate
+related_hypotheses:
+  - h-prospect-theory-neural-encoding
+cross_pollination_opportunities:
+  - >
+    Neuroscience can test the psychophysical bridge directly: fMRI and single-unit
+    recording should reveal neural value signals with the S-shaped prospect-theory
+    curvature. The striatum encodes reward prediction errors; the orbitofrontal cortex
+    encodes stimulus value. Do these regions implement the concave/convex switching
+    at the reference point? Neuroimaging has partially confirmed this but the
+    neural basis of λ (loss aversion) remains debated.
+  - >
+    The probability weighting function maps probability to decision weight in a way
+    that mirrors auditory loudness curves (Fletcher-Munson equal-loudness contours).
+    Systematic psychoacoustic experiments comparing probability estimation tasks to
+    loudness matching tasks could test whether the same neural compression mechanism
+    underlies both, unifying two seemingly different psychophysical domains.
+  - >
+    Cumulative prospect theory (Tversky & Kahneman 1992) is formally a rank-dependent
+    utility model. The rank-dependence is analogous to Weber's law for comparative
+    judgments (sensitivity depends on context/rank of stimulus among alternatives).
+    This connection to order statistics and rank-based perception has not been
+    fully formalized.
+communication_gap: >
+  Psychophysics (loudness, brightness, pain perception) and economics (utility theory)
+  have developed in parallel since Fechner (1860) and Bernoulli (1738) but rarely
+  interact formally. Kahneman & Tversky noted the Weber-Fechner connection informally
+  in 1979 but the formal mathematical equivalence has not been fully developed.
+  Behavioral economists rarely cite psychophysics literature; psychophysicists rarely
+  cite prospect theory. The neural implementation — where both should converge — is
+  studied by neuroeconomics but without full integration of classical psychophysics.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.2307/1914185"
+    note: Kahneman & Tversky (1979) Econometrica 47:263 — original prospect theory paper
+  - doi: "10.1007/BF00122574"
+    note: Tversky & Kahneman (1992) J Risk Uncertain 5:297 — cumulative prospect theory
+  - note: Weber (1834) De Pulsu, Resorptione, Auditu et Tactu — original Weber's law
+  - doi: "10.1016/0167-2681(80)90051-7"
+    note: Thaler (1980) J Econ Behav Organ 1:39 — mental accounting and loss aversion applications
+  - doi: "10.1016/j.neuron.2009.09.019"
+    note: Rangel, Camerer & Montague (2008) Nature Neurosci — neuroeconomics review

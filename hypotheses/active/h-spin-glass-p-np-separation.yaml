@@ -1,0 +1,58 @@
+id: h-spin-glass-p-np-separation
+title: >
+  The replica-symmetry-breaking transition in random 3-SAT at α_c ≈ 4.267 constitutes
+  an average-case hardness phase transition: no polynomial-time algorithm can solve
+  a uniformly random 3-SAT instance drawn from the critical window α ∈ [4.2, 4.3]
+  with probability greater than 1/2, for sufficiently large n.
+status: active
+created: "2026-05-06"
+last_updated: "2026-05-06"
+priority: high
+related_disciplines:
+  - computer-science
+  - mathematics
+  - statistical-physics
+  - combinatorics
+unknowns_addressed:
+  - u-sat-phase-transition-p-np
+evidence_links:
+  - type: supporting
+    doi: "10.1126/science.297.5582.812"
+    note: Mézard et al. (2002) — cavity method shows solution space shattering at α_c (RSB transition)
+  - type: supporting
+    doi: "10.1145/2746539.2746619"
+    note: Ding, Sly & Sun (2015) — rigorous proof of satisfiability threshold for random k-SAT
+  - type: related
+    doi: "10.1145/1374376.1374428"
+    note: Achlioptas & Richa (2008) — algorithmic barriers near SAT threshold (power of local search)
+  - type: contradicting
+    note: >
+      Average-case hardness near α_c has not been proven (no known reduction from
+      worst-case SAT to random SAT at threshold). Survey propagation solves typical
+      near-threshold instances efficiently, but may fail on planted solutions or
+      adversarially perturbed instances.
+proposed_tests:
+  - discipline: computer-science
+    description: >
+      Systematic benchmark of all major SAT solvers (MiniSAT, CaDiCaL, Glucose, survey
+      propagation) on random 3-SAT instances at α ∈ {3.5, 4.0, 4.1, 4.2, 4.267, 4.3,
+      4.5, 5.0} with n = 100, 200, 500, 1000, 2000 variables. Measure median and 99th-
+      percentile runtime. Test whether runtime exhibits exponential scaling with n only
+      in the window α ∈ [4.1, 4.4] (the predicted hard phase from RSB theory), with
+      polynomial scaling outside. If confirmed, this is algorithmic evidence for an
+      average-case phase transition.
+  - discipline: mathematics
+    description: >
+      Apply the Aizenman-Sims-Starr method (rigorous Parisi formula) to random 3-SAT
+      to compute the free energy density at the RSB transition. If the free energy is
+      non-analytic at α_c (thermodynamic phase transition), this provides a rigorous
+      foundation for the conjecture that no polynomial algorithm can solve the problem
+      at threshold, by the information-theoretic lower bound approach.
+  - discipline: statistical-physics
+    description: >
+      Planted 3-SAT test: generate instances by randomly choosing a solution σ*, then
+      adding m = αn random clauses satisfied by σ*. Measure the threshold ratio α_plant
+      below which no efficient algorithm recovers σ* (distinguishing planted from
+      random). Test whether α_plant coincides with the RSB transition in the planted
+      ensemble. Confirming this would establish the information-theoretic lower bound
+      as tight, directly linking computational hardness to the physics phase transition.

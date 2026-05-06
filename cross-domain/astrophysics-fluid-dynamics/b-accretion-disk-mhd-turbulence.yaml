@@ -1,0 +1,99 @@
+id: b-accretion-disk-mhd-turbulence
+title: >
+  Accretion disk angular momentum transport is governed by the magnetorotational
+  instability (MRI) — a linear MHD instability in differentially rotating magnetized
+  plasmas that drives turbulence and mediates the anomalous viscosity α required
+  to explain observed accretion rates.
+status: established
+fields:
+  - astrophysics
+  - fluid-dynamics
+  - magnetohydrodynamics
+  - plasma-physics
+bridge_claim: >
+  Accretion disks around compact objects (black holes, neutron stars, white dwarfs,
+  young stellar objects) must transport angular momentum outward to allow mass to flow
+  inward. Molecular viscosity is 13 orders of magnitude too small to explain observed
+  accretion rates. Shakura & Sunyaev (1973) parametrized the unknown transport
+  mechanism as an anomalous viscosity ν = α c_s H (α-disk model), with α ~ 0.01-0.1
+  required by observations.
+
+  The magnetorotational instability (MRI), identified in the modern astrophysical
+  context by Balbus & Hawley (1991), provides the physical mechanism. In a weakly
+  magnetized differentially rotating plasma with dΩ/dr < 0 (Keplerian profile),
+  the MRI is a linear instability of the ideal MHD equations. A magnetic field line
+  connecting two fluid elements on different orbits acts as a spring: the inner
+  element orbits faster, the spring tension transfers angular momentum outward,
+  destabilizing the system. Growth rate ~ Ω (orbital frequency) for field strengths
+  satisfying v_A < c_s (sub-thermal).
+
+  The MRI-driven MHD turbulence provides the Maxwell and Reynolds stresses that
+  transport angular momentum, generating the effective α ≈ 0.01-0.1 in numerical MHD
+  simulations — matching the observational requirement. The same instability has been
+  demonstrated in liquid metal Couette-Taylor laboratory experiments (Princeton MRI
+  experiment), making it one of the most precisely tested astrophysical mechanisms.
+
+  Connection to fluid dynamics: the MRI is the magnetized analog of the Rayleigh
+  centrifugal instability (d(r²Ω)/dr < 0 for hydrodynamics) but operates in the
+  opposite Rayleigh-stable regime (Keplerian disks satisfy the Rayleigh criterion
+  but are MRI-unstable). MHD changes the stability condition fundamentally.
+translation_table:
+  - field_a_term: differential rotation profile Ω(r) ∝ r^{-3/2} (Keplerian)
+    field_b_term: shear flow profile in rotating Couette-Taylor apparatus
+    note: The MRI operates identically in the astrophysical and laboratory settings
+  - field_a_term: weak vertical magnetic field B_z
+    field_b_term: applied axial magnetic field in liquid metal experiments
+    note: Sub-thermal field required; v_A = B/√(4πρ) < c_s
+  - field_a_term: MRI growth rate ~ Ω (fastest mode)
+    field_b_term: instability growth timescale in shear-flow MHD
+    note: Fastest growing wavelength λ_MRI = 2π v_A/Ω
+  - field_a_term: angular momentum transport by Maxwell stress ⟨B_r B_φ⟩/4π
+    field_b_term: turbulent momentum flux in MHD shear turbulence
+    note: The α parameter α ≈ ⟨B_r B_φ + ρ v_r v_φ⟩/P
+  - field_a_term: anomalous viscosity α (Shakura-Sunyaev)
+    field_b_term: turbulent eddy viscosity in fluid dynamics
+    note: Both parametrize sub-grid momentum transport
+  - field_a_term: accretion timescale t_acc = r²/ν = r²/(α c_s H)
+    field_b_term: viscous diffusion timescale in turbulent fluid
+  - field_a_term: dead zones (low-ionization regions with suppressed MRI)
+    field_b_term: laminar regions between turbulent zones
+    note: Relevant to planet formation in protoplanetary disks
+related_unknowns:
+  - u-accretion-disk-mri-saturation
+related_hypotheses:
+  - h-mri-turbulence-alpha-prediction
+cross_pollination_opportunities:
+  - >
+    Laboratory liquid metal MRI experiments (Princeton MRI facility, DRESDYN-MRI
+    at Helmholtz-Zentrum Dresden-Rossendorf) provide ground truth for MHD turbulence
+    models used in astrophysical simulations. More systematic parameter sweeps in
+    laboratory settings could calibrate numerical MHD codes used to model X-ray
+    binary and AGN accretion.
+  - >
+    The MRI saturation problem (what determines α at nonlinear saturation) remains
+    unsolved — numerical simulations give α ~ 0.01-0.1 depending on magnetic Prandtl
+    number Pm = ν/η. Importing turbulence theory tools (energy spectrum analysis,
+    structure functions) from fluid dynamics could constrain the Pm dependence.
+  - >
+    Protoplanetary disk dead zones (regions too cold for MRI activity) may regulate
+    planet formation timescales. Reconnection-driven turbulence and non-ideal MHD
+    (Ohmic, Hall, ambipolar diffusion) replace MRI in these zones — importing
+    Hall-MHD fluid dynamics into planet formation theory is an active frontier.
+communication_gap: >
+  Astrophysicists work with global disk simulations using general relativistic MHD
+  (GRMHD), while fluid dynamicists develop turbulence theory for simpler Cartesian
+  shear flows. The parameter regimes accessible in laboratory experiments (Pm < 1)
+  differ from astrophysical disks (Pm >> 1 in hot plasmas). The communities publish
+  in the Astrophysical Journal vs. Journal of Fluid Mechanics, with limited overlap.
+  The connection between the Shakura-Sunyaev α model and MRI turbulence is widely
+  understood in astrophysics but rarely taught in fluid dynamics courses.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1086/170270"
+    note: Balbus & Hawley (1991) ApJ 376:214 — definitive MRI paper for accretion disks
+  - note: Shakura & Sunyaev (1973) A&A 24:337 — α-disk model
+  - note: Lynden-Bell & Pringle (1974) MNRAS 168:603 — viscous disk evolution
+  - doi: "10.1051/0004-6361:20077537"
+    note: Fromang & Papaloizou (2007) A&A 476:1123 — MRI turbulence and angular momentum transport
+  - doi: "10.1103/PhysRevLett.97.184503"
+    note: Sisan et al. (2004/2006) — laboratory MRI in liquid metal Couette flow

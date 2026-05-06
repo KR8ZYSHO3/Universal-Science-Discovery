@@ -1,0 +1,103 @@
+id: b-maxwells-demon-computation
+title: >
+  Maxwell's demon is resolved by Landauer's principle — erasing one bit of information
+  dissipates at least kT ln 2 of energy, exactly linking Shannon information entropy
+  to thermodynamic entropy and establishing the physical cost of logical irreversibility.
+status: established
+fields:
+  - thermodynamics
+  - computer-science
+  - information-theory
+  - statistical-mechanics
+bridge_claim: >
+  Maxwell's demon (1867): a hypothetical being that monitors individual molecules in
+  a partitioned gas container, opening a small door to let fast molecules pass to
+  one side and slow ones to the other. Net result: the gas unmixes, entropy decreases,
+  and work is seemingly extracted from a heat bath — violating the second law.
+
+  Resolution via information theory (Landauer 1961, Bennett 1973):
+  The demon must observe and record the velocity of each molecule. Each observation
+  stores one bit of information in the demon's memory. Eventually the memory fills
+  and must be erased to continue operation. Landauer's principle: erasing one bit of
+  information in a heat bath at temperature T requires dissipating at least k_B T ln 2
+  of energy as heat. This exactly compensates the entropy decrease in the gas,
+  restoring the second law.
+
+  Bennett (1973) showed that computation itself can be made thermodynamically
+  reversible — logically reversible operations (such as Fredkin gates, which are
+  bijective) generate no heat. Only logically irreversible operations (bit erasure,
+  AND gate, OR gate — where input information is lost) must dissipate energy.
+
+  The exact equivalence: Shannon entropy H = -Σ p_i log₂ p_i (bits) corresponds
+  to thermodynamic entropy S = k_B ln 2 · H (joules/kelvin). One bit of information
+  corresponds to k_B ln 2 ≈ 9.57 × 10⁻²⁴ J/K of thermodynamic entropy.
+
+  This is not metaphorical: in 2012 Bérut et al. demonstrated Landauer's bound
+  experimentally using a colloidal particle in a double-well potential, erasing one
+  bit and measuring exactly k_B T ln 2 of heat dissipation at the erasure threshold.
+
+  Implications for computing: as transistors approach molecular scales, Landauer's
+  bound becomes the fundamental lower limit on energy consumption per logical operation.
+  Modern chips dissipate ~10⁶ k_B T per operation — enormous room for efficiency
+  improvement — but the Landauer bound is the physical floor that cannot be crossed
+  without reversible computation.
+translation_table:
+  - field_a_term: Maxwell's demon's memory bit
+    field_b_term: one bit in a computational register
+  - field_a_term: memory erasure (demon resets to accept new measurement)
+    field_b_term: logically irreversible operation (bit reset, AND gate)
+  - field_a_term: heat dissipated by erasure k_B T ln 2 per bit
+    field_b_term: minimum energy cost of irreversible computation (Landauer bound)
+  - field_a_term: thermodynamic entropy S = k_B ln Ω
+    field_b_term: Shannon information entropy H = -Σ p_i log₂ p_i (S = k_B ln 2 · H)
+  - field_a_term: reversible thermodynamic process (quasi-static, no entropy production)
+    field_b_term: logically reversible computation (Toffoli gate, Fredkin gate)
+  - field_a_term: irreversible mixing of gas
+    field_b_term: irreversible logical operation (information loss = entropy production)
+  - field_a_term: second law of thermodynamics (ΔS_universe ≥ 0)
+    field_b_term: Landauer bound (every irreversible bit operation costs ≥ k_B T ln 2)
+  - field_a_term: Szilard engine (1 bit = one Maxwell's demon measurement)
+    field_b_term: single-bit memory cell (DRAM bit / flip-flop)
+related_unknowns:
+  - u-landauer-bound-experimental-verification
+related_hypotheses:
+  - h-reversible-computing-landauer-limit
+cross_pollination_opportunities:
+  - >
+    Reversible computing architectures (Fredkin & Toffoli 1982) can in principle
+    approach the Landauer bound asymptotically. Current research in adiabatic quantum
+    computing and reversible CMOS explores this regime. Thermodynamics predicts that
+    reversible logic at 300K could reduce energy consumption by ~6 orders of magnitude
+    from today's CPUs — the fundamental motivation for pursuing reversible architectures.
+  - >
+    Biological computation (DNA, protein folding, neural signal transduction) must also
+    obey Landauer's bound. Estimating the irreversible operations performed by a neuron
+    during a spike and comparing to the metabolic cost of neural computation could
+    determine whether the brain operates near or far from the Landauer limit —
+    relevant to understanding neural energy efficiency.
+  - >
+    Quantum computing complicates Landauer's bound: unitary quantum gates are
+    reversible by definition, so quantum computation can in principle be done without
+    energy cost (until measurement or decoherence introduces irreversibility).
+    The relationship between quantum decoherence (irreversibility from entanglement with
+    environment) and Landauer's bound is an active research frontier.
+communication_gap: >
+  The Maxwell's demon paradox was a 94-year mystery (1867-1961) because physicists
+  treated it as a thermodynamics problem, while the information-theoretic resolution
+  required importing Shannon's 1948 concepts into physics. Landauer's insight was
+  not immediately accepted — the explicit experimental confirmation only came in 2012.
+  Computer science curricula rarely teach thermodynamic limits; thermodynamics courses
+  rarely discuss logical reversibility. The connection between von Neumann's information-
+  theoretic entropy and thermodynamic entropy, first noted by von Neumann and Shannon
+  themselves, is still not universally acknowledged as exact rather than analogical.
+last_reviewed: "2026-05-06"
+references:
+  - note: Maxwell (1871) Theory of Heat. Longmans, Green, London. (Chapter 12, demon described)
+  - doi: "10.1147/rd.53.0183"
+    note: Landauer (1961) IBM J Res Dev 5:183 — Landauer's principle, erasure costs k_B T ln 2
+  - doi: "10.1147/rd.173.0525"
+    note: Bennett (1973) IBM J Res Dev 17:525 — reversible computation generates no heat
+  - doi: "10.1038/nature10872"
+    note: Bérut et al. (2012) Nature — experimental verification of Landauer's bound
+  - doi: "10.1038/nphys2169"
+    note: Lutz & Ciliberto (2015) Physics Today — review of Landauer's principle experiments
