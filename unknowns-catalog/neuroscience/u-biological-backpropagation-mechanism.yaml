@@ -1,0 +1,38 @@
+id: u-biological-backpropagation-mechanism
+title: How does the brain implement something functionally equivalent to backpropagation for credit assignment across multi-layer circuits without a global error signal?
+status: open
+priority: critical
+disciplines:
+  - neuroscience
+  - computational-neuroscience
+  - machine-learning
+summary: >
+  Backpropagation requires (1) a forward pass computing activity, (2) a backward pass
+  propagating error gradients layer-by-layer using transposed weight matrices, and (3)
+  a global loss signal. Neurons in the brain lack: direct access to transposed synaptic
+  weights ('weight transport problem'), global error signals that propagate backwards,
+  and the ability to distinguish forward and backward passes. Several biologically
+  plausible alternatives have been proposed: predictive coding (Rao & Ballard 1999;
+  Friston 2005), contrastive Hebbian learning (Hinton), target propagation (Bengio),
+  feedback alignment (Lillicrap et al. 2016), and forward-forward algorithm (Hinton 2022).
+  None has been confirmed as the mechanism used in cortex. The credit assignment problem
+  across brain areas separated by many synapses (e.g., prefrontal→striatum→dopamine)
+  may require neuromodulatory signals that differ fundamentally from gradient backprop.
+systematic_gaps:
+  - No in-vivo measurement of whether synaptic weight updates in cortex match
+    backpropagation predictions versus feedback alignment versus random targets.
+  - "The weight transport problem: no biophysical mechanism for neurons to use transposed feedback weights has been identified."
+  - Whether predictive coding circuits in cortex implement exact or approximate
+    gradient computation has not been tested with electrophysiology.
+suggested_hypotheses:
+  - h-predictive-coding-implements-backprop
+references:
+  - doi: 10.1038/s41593-019-0448-6
+    note: Lillicrap et al. (2019) - Backpropagation and the brain
+  - doi: 10.1038/nn.4404
+    note: Lillicrap et al. (2016) - random feedback alignment
+  - doi: 10.1038/s41586-021-04099-6
+    note: Akrout et al. (2022) - deep learning without weight transport
+related_bridges:
+  - b-backpropagation-synaptic-plasticity
+last_reviewed: "2026-05-06"

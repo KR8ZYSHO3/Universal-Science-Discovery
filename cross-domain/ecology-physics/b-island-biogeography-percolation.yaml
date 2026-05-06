@@ -1,0 +1,61 @@
+id: b-island-biogeography-percolation
+title: Island biogeography's species-area relationship reflects percolation of colonization across habitat — habitat fragmentation is a percolation phase transition
+status: established
+fields:
+  - ecology
+  - physics
+bridge_claim: >
+  MacArthur and Wilson's species-area relationship S = cA^z (z ≈ 0.25) reflects the
+  percolation structure of colonization across fragmented habitat. Below a critical habitat
+  area A_c, connectivity drops below the percolation threshold and species cannot maintain
+  viable metapopulations — the extinction cascade is mathematically identical to bond
+  percolation on a landscape graph. The exponent z emerges from the fractal geometry of
+  habitat patches and the scaling of the percolation cluster near criticality. Habitat
+  fragmentation in conservation biology is therefore a problem of inducing a percolation
+  phase transition in the landscape connectivity graph, with predictable consequences
+  for biodiversity loss rates.
+translation_table:
+  - field_a_term: island area A (or habitat patch size)
+    field_b_term: system size in percolation (number of bonds)
+    note: Species richness scales with area as S = cA^z; percolation cluster size scales with p
+  - field_a_term: species richness S
+    field_b_term: size of the largest connected percolation cluster
+    note: Both show power-law scaling near critical threshold
+  - field_a_term: critical habitat area A_c (minimum viable metapopulation)
+    field_b_term: percolation threshold p_c
+    note: Below A_c / p_c, no spanning cluster exists — collapse of persistence
+  - field_a_term: colonization/extinction balance
+    field_b_term: bond occupation probability in percolation
+    note: Immigration balances extinction at equilibrium species richness
+  - field_a_term: species-area exponent z ≈ 0.25
+    field_b_term: critical exponent of percolation cluster (beta/nu ≈ 0.1)
+    note: Both reflect fractal geometry of the spatial structure
+related_unknowns:
+  - u-maxent-species-abundance-prediction
+related_hypotheses:
+  - h-habitat-percolation-z-exponent
+cross_pollination_opportunities:
+  - >
+    Percolation theory provides quantitative predictions for minimum reserve size and
+    connectivity corridors needed to prevent extinction cascades — more precise than
+    current IUCN minimum viable population assessments. Conservation planners could
+    use percolation analysis of satellite-derived land cover maps to identify critical
+    connectivity thresholds for specific species dispersal distances.
+  - >
+    Climate-change-induced habitat shifts move the effective habitat boundary, potentially
+    driving landscapes through the percolation threshold. Coupling climate models with
+    percolation landscape analysis gives an early warning metric for when fragmented
+    habitats will collapse below the biodiversity percolation threshold.
+communication_gap: >
+  Conservation biology and ecological theory rarely engage with statistical physics
+  literature; percolation theory developed without awareness of the species-area problem.
+  With & Crist (1995) established the connection but it remains underutilized in
+  applied conservation planning.
+last_reviewed: "2026-05-06"
+references:
+  - note: "MacArthur, R.H. & Wilson, E.O. (1967). The Theory of Island Biogeography. Princeton University Press."
+  - doi: 10.2307/1934198
+    note: "Preston (1962). The canonical distribution of commonness and rarity. Ecology 43:185."
+  - doi: 10.2307/1938559
+    note: "With & Crist (1995). Critical thresholds in species responses to landscape structure. Ecology 76:2446."
+  - note: "Hanski, I. (1999). Metapopulation Ecology. Oxford University Press."

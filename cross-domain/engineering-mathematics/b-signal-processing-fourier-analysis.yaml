@@ -1,0 +1,65 @@
+id: b-signal-processing-fourier-analysis
+title: Signal processing is applied Fourier analysis — the FFT, Nyquist theorem, and filter design are engineering implementations of mathematical harmonic analysis
+status: established
+fields:
+  - engineering
+  - mathematics
+bridge_claim: >
+  All of modern signal processing rests on the Fourier transform F(ω) = ∫f(t)e^{-iωt}dt,
+  which decomposes any signal into frequency components. The convolution theorem
+  (convolution in time = multiplication in frequency) makes filter design algebraic
+  in frequency space. The Cooley-Tukey FFT (1965) computes the DFT in O(N log N)
+  rather than O(N²), making Fourier analysis practical for all signal processing.
+  The Nyquist-Shannon sampling theorem (1949) proves a bandlimited signal is completely
+  determined by samples at 2f_max — the mathematical foundation of all digital
+  audio, communications, and imaging. JPEG compression uses the DCT (real cosine
+  Fourier transform); MRI reconstruction uses the inverse 2D Fourier transform;
+  radar signal processing uses matched filters (cross-correlation in frequency domain).
+translation_table:
+  - field_a_term: Fourier transform F(omega) = integral f(t) exp(-i omega t) dt
+    field_b_term: signal decomposition into frequency components
+    note: Engineering uses DFT/FFT; mathematics studies L^2(R) and distribution theory
+  - field_a_term: convolution theorem (f*g <-> F*G in frequency domain)
+    field_b_term: linear time-invariant filter design
+    note: Filtering = multiplication in frequency domain; LTI systems have transfer functions H(omega)
+  - field_a_term: Nyquist-Shannon sampling theorem
+    field_b_term: digital signal reconstruction from discrete samples
+    note: Sampling at f_s > 2*f_max guarantees perfect reconstruction; aliasing occurs below Nyquist rate
+  - field_a_term: Parseval's theorem (energy conservation in Fourier domain)
+    field_b_term: power spectral density (energy distribution across frequencies)
+    note: Total signal energy = integral of power spectral density
+  - field_a_term: uncertainty principle Delta_t * Delta_omega >= 1/2
+    field_b_term: time-frequency resolution tradeoff in spectrograms and wavelets
+    note: Perfect time localization and perfect frequency localization are mutually exclusive
+related_unknowns:
+  - u-optimal-cooling-schedule-convergence
+related_hypotheses:
+  - h-compressed-sensing-mri-fourier-sparsity
+cross_pollination_opportunities:
+  - >
+    Compressed sensing (Candès & Tao 2006) shows that signals sparse in a basis
+    (e.g., Fourier) can be recovered from far fewer measurements than the Nyquist
+    rate — breaking a fundamental engineering limit by using mathematical structure.
+    Applications include accelerated MRI (10x speedup by sub-Nyquist sampling),
+    single-pixel cameras, and radio astronomy aperture synthesis.
+  - >
+    Wavelet analysis generalizes Fourier analysis to non-stationary signals by providing
+    time-frequency localization (Morlet, Daubechies). Neuroscience, finance, and seismology
+    all analyze non-stationary time series where wavelets outperform Fourier methods —
+    a mathematical advance that required collaboration between pure harmonic analysts
+    and application domain experts.
+communication_gap: >
+  Electrical engineering and signal processing education teaches the Fourier transform
+  as a computational tool (FFT algorithms) without the mathematical foundations (L² spaces,
+  distributions, harmonic analysis). Mathematicians who developed the Plancherel theorem
+  and distribution theory rarely engage with engineering applications. The gap means
+  engineers lack tools to extend beyond classical Fourier (e.g., non-commutative Fourier
+  analysis for non-Euclidean domains like graphs and manifolds).
+last_reviewed: "2026-05-06"
+references:
+  - note: "Fourier, J.B.J. (1822). Théorie analytique de la chaleur. Paris: Firmin Didot."
+  - doi: 10.1090/S0025-5718-1965-0178586-1
+    note: "Cooley & Tukey (1965). An algorithm for the machine calculation of complex Fourier series. Math Comput 19:297."
+  - doi: 10.1109/JRPROC.1949.232969
+    note: "Shannon, C.E. (1949). Communication in the presence of noise. Proc IRE 37:10."
+  - note: "Oppenheim, A.V. & Schafer, R.W. (2010). Discrete-Time Signal Processing, 3rd ed. Prentice Hall."

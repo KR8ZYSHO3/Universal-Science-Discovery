@@ -1,6 +1,6 @@
 # USDR Citation Index
 
-**1264 total citations · 815 unique references · 171 cited in 2+ bridges**
+**1324 total citations · 849 unique references · 179 cited in 2+ bridges**
 
 ## Most Cross-Domain Papers
 
@@ -40,6 +40,8 @@ Papers cited across the highest number of different bridges — the most influen
 | 2 | Chandrasekhar (1935) polytrope stability — n=3 critical boundary | [DOI](10.1093/mnras/95.3.207) |
 | 2 | Fromang & Papaloizou (2007) — numerical evidence for α ~ Pm^{0.5} in shearing bo... | [DOI](10.1051/0004-6361:20077537) |
 | 2 | Hawking (1975) — black hole entropy = area/4, precursor to holographic principle | [DOI](10.1007/BF01608497) |
+| 2 | Kauffman (1969) - original NK model; K=2 gives sqrt(N) attractors matching cell ... | [DOI](10.1016/S0022-5193(69)80016-0) |
+| 2 | Aldana et al. (2003) - scale-free regulatory networks with mean K near 2 show cr... | [DOI](10.1016/S0022-5193(03)00028-6) |
 | 2 | Sutton et al. (2000) policy gradient theorem: the update rule Δπ ∝ π · ∇V is exa... | [DOI](10.1073/pnas.97.17.9430) |
 | 2 |  | [DOI](10.1103/PhysRevLett.75.4326) |
 | 2 |  | [DOI](10.1103/RevModPhys.85.1143) |
@@ -56,8 +58,6 @@ Papers cited across the highest number of different bridges — the most influen
 | 2 | Weitzman dismal theorem — fat tails make expected damages unbounded | [DOI](10.1257/jel.47.4.703) |
 | 2 | Howard & Sterner — damage function meta-analysis shows standard IAMs underestima... | [DOI](10.1086/685908) |
 | 2 | Armstrong McKay et al. (2022) — exceeding 1.5°C global warming could trigger mul... | [DOI](10.1126/science.abn7950) |
-| 2 | Olshausen & Field (1996) Nature — sparse coding of natural images yields Gabor-l... | [DOI](10.1038/381607a0) |
-| 2 | Bell & Sejnowski (1997) — ICA of natural images yields V1-like filters | [DOI](10.1016/S0042-6989(97)00169-7) |
 
 ## Citation Network
 
@@ -67,4 +67,4 @@ The full citation data is available at [`docs/citation_index.json`](citation_ind
 
 ## All Unique References
 
-The catalog currently references **815 unique papers/books**.
+The catalog currently references **849 unique papers/books**.

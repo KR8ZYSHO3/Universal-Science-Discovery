@@ -1,0 +1,37 @@
+id: u-optimal-cooling-schedule-convergence
+title: What is the optimal annealing schedule for simulated annealing to guarantee convergence with polynomial-time complexity for NP-hard problems?
+status: open
+priority: high
+disciplines:
+  - computer-science
+  - statistical-physics
+  - optimization
+summary: >
+  Simulated annealing provably converges to the global optimum if the temperature
+  decreases no faster than T(t) = C/log(t) (logarithmic cooling, Hajek 1988).
+  However, this schedule is extremely slow in practice. Faster polynomial schedules
+  lose the convergence guarantee. The fundamental open question is: for what classes
+  of optimization problems does polynomial-time annealing find solutions within a
+  constant factor of optimal? The connection to statistical mechanics suggests that
+  the answer involves the free energy landscape — problems with many deep local
+  minima (spin glass phase) are hard; problems with a smooth free energy funnel
+  are easy. Characterizing problem hardness in terms of free energy landscape
+  topology remains open.
+systematic_gaps:
+  - No general theory connects problem structure (clause density, constraint graph
+    topology) to optimal cooling schedule parameters.
+  - The relationship between simulated annealing hardness and worst-case NP-hardness
+    complexity is not well understood.
+  - Adaptive cooling schedules that adjust T based on acceptance rate have not been
+    rigorously analyzed for convergence guarantees.
+suggested_hypotheses:
+  - h-simulated-annealing-quantum-speedup
+references:
+  - doi: 10.1287/moor.13.2.311
+    note: Hajek (1988) - cooling schedule convergence theorem
+  - doi: 10.1126/science.220.4598.671
+    note: Kirkpatrick et al. (1983) - original simulated annealing paper
+  - note: Locatelli (2000) - convergence properties of simulated annealing with adaptive cooling
+related_bridges:
+  - b-simulated-annealing-stat-mech
+last_reviewed: "2026-05-06"

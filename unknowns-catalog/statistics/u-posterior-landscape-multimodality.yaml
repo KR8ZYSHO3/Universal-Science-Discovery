@@ -1,0 +1,39 @@
+id: u-posterior-landscape-multimodality
+title: How does multimodality in the posterior distribution arise in Bayesian inference for high-dimensional models, and what sampling methods reliably explore it?
+status: open
+priority: high
+disciplines:
+  - statistics
+  - statistical-physics
+  - machine-learning
+summary: >
+  Bayesian inference requires computing the posterior P(theta|data) ∝ P(data|theta)P(theta),
+  which in high-dimensional parameter spaces often has multiple well-separated modes
+  (multimodal posterior). Standard MCMC methods (Metropolis-Hastings, HMC/NUTS) get
+  trapped in local modes and fail to provide representative samples. This is formally
+  analogous to slow relaxation in spin glasses — the posterior landscape has many
+  metastable states separated by high free energy barriers. Parallel tempering (replica
+  exchange MCMC) imports the statistical physics solution (running copies at different
+  temperatures and swapping), but efficient implementation for large models remains
+  unsolved. The statistical physics theory of the Bayesian evidence (partition function)
+  via replica calculations predicts phase transitions in learning (underfitting→generalization→
+  overfitting) whose boundary conditions connect directly to the multimodality problem.
+systematic_gaps:
+  - No diagnostic reliably detects failure of MCMC to explore all posterior modes
+    without knowing the true posterior.
+  - Theoretical conditions on likelihood/prior structure that guarantee posterior
+    unimodality are available only for restricted model classes (log-concave).
+  - The connection between posterior landscape geometry (energy barriers) and the
+    capacity of parallel tempering to mix between modes is not quantitatively understood.
+suggested_hypotheses:
+  - h-variational-bayes-mean-field-equivalence
+references:
+  - doi: 10.1023/A:1008923215028
+    note: Neal (1996) - sampling from multimodal distributions via simulated tempering
+  - doi: 10.1103/PhysRevLett.57.2607
+    note: Swendsen & Wang (1986) - replica Monte Carlo
+  - arxiv: "1701.02434"
+    note: Betancourt (2017) - conceptual introduction to MCMC for Bayesian inference
+related_bridges:
+  - b-bayesian-inference-stat-mech
+last_reviewed: "2026-05-06"
