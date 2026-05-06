@@ -1,0 +1,56 @@
+id: h-zipf-optimal-coding-universality
+title: >
+  Any communication system subject to least-effort constraints (joint
+  sender-receiver cost minimisation) should exhibit Zipfian power-law
+  statistics with exponent determined by the channel capacity ratio between
+  sender and receiver.
+status: active
+priority: medium
+impact_score: 0.72
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+
+evidence_links:
+  - doi: "10.1073/pnas.1012551108"
+    type: supporting
+    confidence: 0.85
+    note: "Piantadosi et al. (2011) — word length follows surprisal across 10 languages, confirming optimal coding"
+  - type: supporting
+    note: "Zipf distributions in animal vocalisation repertoires (Suzuki et al. 2005 birdsong; McCowan et al. 1999 dolphins) suggest cross-species universality"
+  - type: related
+    note: "Mandelbrot (1953) derivation — any least-effort communication converges on power law; exponent determined by relative costs"
+
+unknowns_addressed:
+  - u-zipf-law-universality-mechanism
+
+proposed_tests:
+  - description: >
+      Cross-species vocalisation study: compute rank-frequency distributions
+      for bird species with known song complexity, primate alarm call
+      repertoires, and cetacean click sequences. Test whether Zipf exponent
+      varies systematically with estimated channel capacity (repertoire size,
+      bandwidth, receiver cognitive complexity).
+    method: "Log-log regression of frequency vs. rank; MLE estimate of power law exponent; compare across species and modalities"
+    prediction: "Exponent α = 1 + (capacity_sender / capacity_receiver); deviations predict communication inefficiency"
+  - description: >
+      Neural spike train analysis: measure Zipf exponent of inter-spike
+      interval distributions in primary sensory cortices across species with
+      different neural complexity. Test whether exponent correlates with
+      estimated information capacity of the sensory channel.
+    method: "Electrophysiology + rank-frequency analysis + channel capacity estimation from mutual information between stimulus and response"
+    prediction: "Spike train exponent tracks channel capacity ratio; deviations identify non-optimal coding regimes"
+  - description: >
+      Chemical signalling: analyse rank-frequency distributions of metabolite
+      concentrations in bacterial quorum sensing systems. Test whether the
+      least-effort prediction holds in a biochemical communication channel.
+    method: "Mass spectrometry of quorum sensing molecules across bacterial densities; rank-frequency analysis"
+    prediction: "Zipfian distribution in metabolite frequency with exponent predictable from diffusion-limited channel capacity"
+
+related_disciplines:
+  - linguistics
+  - information-theory
+  - cognitive-science
+  - neuroscience
+  - evolutionary-biology
+  - biophysics

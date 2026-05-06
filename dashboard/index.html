@@ -30,6 +30,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <script src="https://unpkg.com/marked@12.0.2/marked.min.js"></script>
+  <script src="https://unpkg.com/lunr/lunr.js"></script>
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <style>
     /* ── TOKENS ─────────────────────────────────────────────── */
@@ -954,6 +955,19 @@
       font-size: .78rem; color: var(--muted); margin-top: .5rem;
       font-family: var(--mono);
     }
+    .result-snippet {
+      font-size: .78rem; color: var(--muted); line-height: 1.45;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      max-width: 520px; margin-top: .15rem;
+    }
+    .search-result-card { flex-direction: column; align-items: flex-start; }
+    .search-result-card .result-row {
+      display: flex; align-items: center; gap: .65rem; width: 100%;
+    }
+    .search-powered {
+      font-size: .7rem; color: var(--muted); margin-top: .35rem;
+      font-family: var(--mono);
+    }
 
     /* ── DOMAIN FILTER CHIPS ────────────────────────────────── */
     .domain-chips {
@@ -1165,8 +1179,8 @@
 
       <div class="pill-row" aria-label="Highlights">
         <span class="pill live"><span class="d"></span> Phase 0 · Foundation 2026</span>
-        <span class="pill">100 cross-domain bridges</span>
-        <span class="pill">544 unknowns · 116 hypotheses · 1 pre-formal observation</span>
+        <span class="pill">105 cross-domain bridges</span>
+        <span class="pill">544 unknowns · 121 hypotheses · 1 pre-formal observation</span>
         <span class="pill">Git-native · Open source</span>
       </div>
 
@@ -1188,7 +1202,7 @@
           <div class="lbl">Contributors</div>
         </div>
         <div class="stat-card">
-          <div class="n" id="stat-hyp">116</div>
+          <div class="n" id="stat-hyp">121</div>
           <div class="lbl">Active Hypotheses</div>
         </div>
         <div class="stat-card">
@@ -1196,7 +1210,7 @@
           <div class="lbl">Tracked Unknowns</div>
         </div>
         <div class="stat-card">
-          <div class="n" id="stat-bridges">100</div>
+          <div class="n" id="stat-bridges">105</div>
           <div class="lbl">Cross-domain Bridges</div>
         </div>
         <div class="stat-card">
@@ -1356,7 +1370,7 @@
         </a>
         <a href="../api/v1/bridges.json" class="api-endpoint" target="_blank" rel="noopener">
           <code>GET /api/v1/bridges.json</code>
-          <span>All 100 cross-domain bridges with translation tables and references</span>
+          <span>All 105 cross-domain bridges with translation tables and references</span>
           <span class="api-endpoint-badge">~213 KB</span>
         </a>
         <a href="../api/v1/unknowns.json" class="api-endpoint" target="_blank" rel="noopener">
@@ -2446,19 +2460,91 @@
         var edges = data.edges.map(function (e) { return Object.assign({}, e); });
 
         /* ── BUILD SEARCH INDEX ──────────────────────────────── */
-        var searchIndex = data.nodes.map(function (n) {
+        /* Catalog map: id → enriched entry (title, type, domain, description) */
+        var catalogMap = {};
+        data.nodes.forEach(function (n) {
           var domain = '';
           if (n.fields) {
             domain = Array.isArray(n.fields) ? n.fields.join(', ') : String(n.fields);
           }
-          return {
-            id:         n.id,
-            type:       n.type || 'unknown',
-            title:      n.title || n.id,
-            domain:     domain,
-            searchText: ((n.title || '') + ' ' + n.id + ' ' + domain).toLowerCase()
+          catalogMap[n.id] = {
+            id:          n.id,
+            type:        n.type || 'unknown',
+            title:       (n.title || n.id).replace(/\n/g, ' ').trim(),
+            domain:      domain,
+            description: '',
+            bridge_claim:'',
+            searchText:  ((n.title || '') + ' ' + n.id + ' ' + domain).toLowerCase()
           };
         });
+
+        /* Enrich with bridge_claim and systematic_gaps from API */
+        var _apiBase = (function () {
+          var loc = window.location.href;
+          if (loc.includes('github.io')) return 'https://kr8zysho3.github.io/Universal-Science-Discovery/';
+          if (loc.includes('/dashboard/')) return loc.replace(/dashboard\/.*$/, '');
+          return '../';
+        })();
+
+        var searchIndex = Object.values(catalogMap);
+        var lunrIndex   = null;
+
+        function buildLunrIndex(entries) {
+          if (typeof lunr === 'undefined') return null;
+          return lunr(function () {
+            this.ref('id');
+            this.field('title',       { boost: 10 });
+            this.field('bridge_claim',{ boost: 5  });
+            this.field('description', { boost: 5  });
+            this.field('domain',      { boost: 2  });
+            var self = this;
+            entries.forEach(function (doc) {
+              self.add({
+                id:          doc.id,
+                title:       doc.title,
+                bridge_claim:doc.bridge_claim,
+                description: doc.description,
+                domain:      doc.domain
+              });
+            });
+          });
+        }
+
+        function enrichAndRebuildIndex(bridgesData, unknownsData) {
+          if (bridgesData && bridgesData.items) {
+            bridgesData.items.forEach(function (b) {
+              if (catalogMap[b.id]) {
+                catalogMap[b.id].bridge_claim = (b.bridge_claim || '').substring(0, 400);
+              }
+            });
+          }
+          if (unknownsData && unknownsData.items) {
+            unknownsData.items.forEach(function (u) {
+              if (catalogMap[u.id]) {
+                catalogMap[u.id].description = (u.systematic_gaps || '').substring(0, 400);
+                if (!catalogMap[u.id].domain && u.domain) {
+                  catalogMap[u.id].domain = u.domain;
+                }
+              }
+            });
+          }
+          searchIndex = Object.values(catalogMap);
+          lunrIndex   = buildLunrIndex(searchIndex);
+          if (inputEl) {
+            inputEl.placeholder = 'Search ' + searchIndex.length + ' entries \u2014 titles, claims, domains\u2026';
+          }
+          if (inputEl && inputEl.value.trim()) doSearch(inputEl.value);
+        }
+
+        Promise.all([
+          fetch(_apiBase + 'api/v1/bridges.json').then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; }),
+          fetch(_apiBase + 'api/v1/unknowns.json').then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; })
+        ]).then(function (results) {
+          enrichAndRebuildIndex(results[0], results[1]);
+        });
+
+        /* Build a basic index immediately from graph data while API loads */
+        lunrIndex = buildLunrIndex(searchIndex);
 
         var inputEl      = document.getElementById('catalog-search-input');
         var resultsEl    = document.getElementById('search-results');
@@ -2527,6 +2613,12 @@
           if (countNoteEl) countNoteEl.hidden = true;
         }
 
+        function snippet(text, maxLen) {
+          if (!text) return '';
+          text = text.replace(/\n/g,' ').trim();
+          return text.length > maxLen ? text.substring(0, maxLen) + '\u2026' : text;
+        }
+
         function renderSearchResults(results, total) {
           if (!resultsEl) return;
           resultsEl.innerHTML = '';
@@ -2542,33 +2634,55 @@
             var card = document.createElement('div');
             card.className = 'search-result-card';
             var t = (n.type || 'unknown').toLowerCase();
+            var desc = n.bridge_claim || n.description || '';
+            var snip = snippet(desc, 160);
             card.innerHTML =
-              '<span class="type-badge type-' + t + '">' + typeLabel(t) + '</span>' +
-              '<span class="result-title">' + (n.title || n.id).replace(/</g, '&lt;') + '</span>' +
-              (n.domain ? '<span class="result-domain">' + n.domain.replace(/</g, '&lt;') + '</span>' : '');
+              '<div class="result-row">' +
+                '<span class="type-badge type-' + t + '">' + typeLabel(t) + '</span>' +
+                '<span class="result-title">' + esc(n.title || n.id) + '</span>' +
+                (n.domain ? '<span class="result-domain">' + esc(n.domain) + '</span>' : '') +
+              '</div>' +
+              (snip ? '<div class="result-snippet">' + esc(snip) + '</div>' : '');
+            card.addEventListener('click', function () { highlightNode(n.id); });
             resultsEl.appendChild(card);
           });
           if (countNoteEl) {
             countNoteEl.textContent = (total > results.length)
-              ? 'Showing ' + results.length + ' of ' + total + ' matches.'
-              : total + ' match' + (total === 1 ? '' : 'es') + '.';
+              ? 'Showing ' + results.length + ' of ' + total + ' matches \u2014 powered by Lunr.js'
+              : total + ' match' + (total === 1 ? '' : 'es') + ' \u2014 powered by Lunr.js';
             countNoteEl.hidden = false;
           }
         }
 
         function doSearch(query) {
-          var q = query.toLowerCase().trim();
-          var results = searchIndex;
-          if (activeDomain && activeDomain !== 'all') {
+          var q = query.trim();
+          var domainFilter = (activeDomain && activeDomain !== 'all') ? activeDomain : null;
+
+          if (!q && !domainFilter) { showSearchPlaceholder(); return; }
+
+          var results;
+          if (q && lunrIndex) {
+            /* Lunr full-text search — try exact then wildcard */
+            var lunrResults;
+            try { lunrResults = lunrIndex.search(q); } catch (e) { lunrResults = []; }
+            if (lunrResults.length === 0) {
+              try { lunrResults = lunrIndex.search(q + '*'); } catch (e) { lunrResults = []; }
+            }
+            var idSet = {};
+            lunrResults.forEach(function (r) { idSet[r.ref] = r.score; });
+            results = searchIndex.filter(function (n) { return idSet[n.id] !== undefined; });
+            results.sort(function (a, b) { return (idSet[b.id] || 0) - (idSet[a.id] || 0); });
+          } else {
+            results = searchIndex;
+          }
+
+          if (domainFilter) {
             results = results.filter(function (n) {
-              return (n.domain || '').toLowerCase().includes(activeDomain);
+              return (n.domain || '').toLowerCase().includes(domainFilter);
             });
           }
-          if (!q && activeDomain === 'all') { showSearchPlaceholder(); return; }
-          if (q) {
-            results = results.filter(function (n) { return n.searchText.includes(q); });
-          }
-          renderSearchResults(results.slice(0, 20), results.length);
+
+          renderSearchResults(results.slice(0, 25), results.length);
         }
 
         if (inputEl) {
@@ -2577,6 +2691,36 @@
             clearTimeout(debounceTimer);
             debounceTimer = setTimeout(function () { doSearch(inputEl.value); }, 80);
           });
+        }
+
+        /* Scroll to graph and open detail panel for a node from search results */
+        function highlightNode(nodeId) {
+          var graphSection = document.getElementById('knowledge-graph');
+          if (graphSection) graphSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+          /* Use a small delay so the scroll completes before the panel opens */
+          setTimeout(function () {
+            var d = nodeMap ? nodeMap[nodeId] : null;
+            if (!d) {
+              d = { id: nodeId, type: nodeId.startsWith('b-') ? 'bridge' : nodeId.startsWith('u-') ? 'unknown' : 'hypothesis', title: nodeId };
+            }
+            if (typeof highlightNeighborhood === 'function') highlightNeighborhood(nodeId);
+            if (typeof openPanel === 'function') {
+              openPanel(d);
+              if (contentEl) contentEl.innerHTML = '<div class="panel-loading">Loading\u2026</div>';
+              var type = d.id.startsWith('b-') ? 'bridge' : d.id.startsWith('u-') ? 'unknown' : d.id.startsWith('h-') ? 'hypothesis' : 'phenomenon';
+              if (typeof loadNodeDetails === 'function') {
+                loadNodeDetails(d.id, type).then(function (result) {
+                  if (result && typeof parseYamlFields === 'function' && typeof renderPanel === 'function') {
+                    var fields = parseYamlFields(result.text);
+                    renderPanel(d, fields, result.path, edges);
+                  } else if (contentEl) {
+                    contentEl.innerHTML = '<p class="panel-id">' + esc(d.id) + '</p><p class="panel-title">' + esc(d.title || d.id) + '</p>';
+                  }
+                });
+              }
+            }
+          }, 350);
         }
 
         /* keyboard shortcut: / focuses search */

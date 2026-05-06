@@ -1,0 +1,65 @@
+id: h-tensegrity-cancer-mechanics
+title: >
+  Cancer cells that have lost normal cytoskeletal tensegrity architecture
+  have measurably lower mechanical stiffness (Young's modulus) and higher
+  deformability than normal cells of the same tissue type, making atomic
+  force microscopy a viable early detection modality.
+status: active
+priority: high
+impact_score: 0.82
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+
+evidence_links:
+  - doi: "10.1038/nnanotechnology.2007.8"
+    type: supporting
+    confidence: 0.82
+    note: "Cross et al. (2007) Nature Nanotech 2:780 — cancer cells are 70% softer than normal cells by AFM; detectable in patient pleural fluid"
+  - doi: "10.1126/science.7684161"
+    type: supporting
+    confidence: 0.78
+    note: "Wang, Butler & Ingber (1993) — cytoskeletal prestress determines cell stiffness; tensegrity model confirmed"
+  - doi: "10.1007/s10237-002-0015-y"
+    type: supporting
+    confidence: 0.75
+    note: "Stamenović & Ingber (2002) — tensegrity model quantitatively predicts cell mechanical response"
+  - type: related
+    note: "Paszek et al. (2005) Cancer Cell — ECM stiffness drives malignant transformation; tensegrity disruption is upstream of invasion"
+
+unknowns_addressed:
+  - u-cancer-cell-mechanics-early-detection
+
+proposed_tests:
+  - description: >
+      AFM stiffness mapping of isogenic pairs: measure Young's modulus of
+      normal vs. oncogene-transformed epithelial cells (e.g. MCF-10A vs.
+      MCF-7) using colloidal-probe AFM. Test whether stiffness reduction
+      correlates quantitatively with F-actin prestress loss as measured by
+      traction force microscopy.
+    method: "Colloidal-probe AFM force-indentation curves fit to Hertz model; traction force microscopy for prestress; Western blot for actin/tubulin ratios"
+    prediction: "Malignant cells: E < 1 kPa; normal epithelial cells: E = 1-5 kPa; reduction correlates with actin prestress loss (r > 0.7)"
+  - description: >
+      Microfluidic deformability cytometry for early cancer detection in
+      clinical samples: measure cell transit time through calibrated
+      microconstrictions in peripheral blood or pleural fluid from patients
+      with known cancer status. Test sensitivity and specificity as a
+      diagnostic tool.
+    method: "Real-time deformability cytometry (RT-DC); ROC analysis vs. pathology gold standard; power calculation for clinical trial design"
+    prediction: "AUC > 0.85 for distinguishing malignant vs. normal epithelial cells in pleural effusions; detects cancer at Stage I"
+  - description: >
+      Tensegrity model parameter estimation: use traction force microscopy
+      to measure actin prestress and microtubule buckling in graded
+      carcinogenesis models (normal → pre-malignant → invasive). Test whether
+      tensegrity model parameters (strut stiffness, cable prestress) degrade
+      monotonically with malignant progression.
+    method: "Multi-scale TFM; buckling wavelength analysis for microtubule compression; tensegrity finite-element model fitting"
+    prediction: "Monotonic decrease in actin prestress and microtubule buckling load with malignant grade; quantitative tensegrity model predicts metastatic potential"
+
+related_disciplines:
+  - cell-biology
+  - biophysics
+  - oncology
+  - engineering
+  - materials-science
+  - clinical-medicine

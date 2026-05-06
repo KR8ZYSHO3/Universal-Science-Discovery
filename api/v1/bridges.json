@@ -1,5 +1,5 @@
 {
-  "count": 100,
+  "count": 105,
   "items": [
     {
       "id": "b-grokking-criticality",
@@ -1390,6 +1390,77 @@
       "file": "cross-domain\\cognitive-science-information\\b-efficient-coding-perception.yaml"
     },
     {
+      "id": "b-free-energy-principle-stat-mech",
+      "title": "Friston's free energy principle — biological systems minimise variational free energy F = E_q[log q(s) − log p(s,o)] — is formally identical to variational inference in machine learning and to Helmholtz free energy in thermodynamics, unifying perception, action, homeostasis, and learning.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "proposed",
+      "bridge_claim": "Friston (2010) proposed that all biological self-organisation can be understood as the minimisation of variational free energy F, where:\n\n  F = E_q[log q(s)] − E_q[log p(s,o)]\n    = KL[q(s) || p(s|o)] − log p(o)\n\nHere q(s) is the organism's internal model of hidden states s, p(s,o) is a generative m",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-free-energy-aging"
+      ],
+      "communication_gap": "Friston's work is published primarily in neuroscience journals (Nature Reviews Neuroscience, Journal of Neuroscience) and is cited mainly within that field. Thermodynamicists and statistical physicists are largely unaware of the free energy principle. Machine learning researchers know variational inference (ELBO) but the cognitive neuroscience literature uses different notation. The philosophical framing (\"everything is free energy minimisation\") alienates physicists who prefer minimal formal claims. Beal's (2003) PhD thesis making the variational Bayes / Helmholtz connection explicit is widely cited in ML but rarely by neuroscientists.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Variational free energy F (cognitive science)",
+          "field_b_term": "Helmholtz free energy A = U − TS (thermodynamics)",
+          "note": "Both are upper bounds on surprise/non-equilibrium free energy; minimisation drives the system"
+        },
+        {
+          "field_a_term": "KL-divergence KL[q || p] (complexity penalty)",
+          "field_b_term": "Entropy cost −TS in free energy",
+          "note": "Both penalise deviation from equilibrium/prior; information-geometric equivalent"
+        },
+        {
+          "field_a_term": "Accuracy −E_q[log p(o|s)] (model fit)",
+          "field_b_term": "Internal energy U (energy of current state)",
+          "note": "Both measure the cost of the current configuration"
+        },
+        {
+          "field_a_term": "Perception (inference about hidden states)",
+          "field_b_term": "Equilibration (relaxation to minimum free energy state)",
+          "note": "Both correspond to gradient descent on free energy w.r.t. internal variables"
+        },
+        {
+          "field_a_term": "Action (changing the world to match predictions)",
+          "field_b_term": "Work (changing external state to reduce free energy)",
+          "note": "Both are free-energy-minimising operations on the environment"
+        },
+        {
+          "field_a_term": "Generative model p(s,o)",
+          "field_b_term": "Hamiltonian H(x) defining the energy landscape",
+          "note": "Both specify the structure of the free energy functional"
+        },
+        {
+          "field_a_term": "Active inference (minimise F by acting)",
+          "field_b_term": "Dissipative structure (maintain order by exporting entropy)",
+          "note": "Prigogine: living systems maintain low entropy by coupling to environment"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1038/nrn2787",
+          "note": "Friston (2010) Nat Rev Neurosci 11:127 — free energy principle review"
+        },
+        {
+          "note": "Helmholtz (1882) Wissenschaftliche Abhandlungen, Vol. 2 — free energy formulation"
+        },
+        {
+          "note": "Beal (2003) Variational Algorithms for Approximate Bayesian Inference, PhD thesis, UCL"
+        },
+        {
+          "note": "Parr, Pezzulo & Friston (2022) Active Inference: The Free Energy Principle in Mind, Brain, and Behavior (MIT Press)"
+        },
+        {
+          "doi": "10.48550/arXiv.1312.6114",
+          "note": "Kingma & Welling (2013) Auto-Encoding Variational Bayes — ELBO / VAE formulation"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\cognitive-science-physics\\b-free-energy-principle-stat-mech.yaml"
+    },
+    {
       "id": "b-transformer-attention-neural-attention",
       "title": "The transformer's scaled dot-product attention mechanism is a computational formalisation of neural attention theories from cognitive neuroscience — scaled dot-product Q·Kᵀ/√d_k implements a soft winner-take-all competition analogous to cortical inhibitory circuits, while self-attention corresponds to lateral inhibition combined with top-down modulatory feedback.\n",
       "source_domain": "",
@@ -1744,6 +1815,73 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\economics-ecology\\b-lotka-volterra-market-dynamics.yaml"
+    },
+    {
+      "id": "b-efficient-markets-martingale",
+      "title": "The Efficient Market Hypothesis (Fama 1970) — that asset prices reflect all available information — is the statement that price processes are martingales (E[P_{t+1}|F_t] = P_t); market anomalies are quantifiable as residual mutual information between price history and future returns.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Fama (1970) defined the Efficient Market Hypothesis (EMH): asset prices fully reflect all available information. Samuelson (1965) showed that this is mathematically equivalent to the statement that price processes are martingales: E[P_{t+1} | F_t] = P_t, where F_t is the filtration of all informatio",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-martingale-ecological-pricing"
+      ],
+      "communication_gap": "Fama (1970) and Samuelson (1965) wrote for finance journals without using information-theoretic language. Shannon's information theory was known to them but not operationalised in the EMH context. Cover & Thomas (2006) discuss the Kelly criterion and information theory but the explicit connection to market efficiency is not a central theme. Lo's Adaptive Market Hypothesis (2004) uses the information metaphor but not formal mutual information. Finance researchers use statistical tools (autocorrelation, variance ratio tests) rather than information-theoretic measures because the latter require large samples and non-parametric estimators that were computationally expensive until recently.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Efficient market (EMH, Fama 1970)",
+          "field_b_term": "Zero-redundancy channel (no exploitable mutual information)",
+          "note": "Efficient market = channel with zero capacity for systematic profit extraction"
+        },
+        {
+          "field_a_term": "Martingale property E[P_{t+1}|F_t] = P_t",
+          "field_b_term": "Zero mutual information I(P_{t+1}; P_t, P_{t-1}, ...) = 0",
+          "note": "Mathematical equivalence: martingale ↔ unpredictability ↔ zero MI"
+        },
+        {
+          "field_a_term": "Insider trading (private information advantage)",
+          "field_b_term": "Side channel (higher-capacity channel available to privileged sender)",
+          "note": "Insider has access to larger filtration F_t; strictly positive MI with future prices"
+        },
+        {
+          "field_a_term": "Market anomaly (momentum, mean-reversion)",
+          "field_b_term": "Residual mutual information I(future return; price history)",
+          "note": "Anomalies quantify inefficiency as exploitable MI; should decay as arbitrageurs act"
+        },
+        {
+          "field_a_term": "Kelly criterion (optimal bet size)",
+          "field_b_term": "Channel capacity (maximum information extraction rate)",
+          "note": "Kelly growth rate = MI between signal and outcome; zero in efficient market"
+        },
+        {
+          "field_a_term": "Adaptive Market Hypothesis (Lo 2004)",
+          "field_b_term": "Adaptive coding (channel capacity changes as agents learn)",
+          "note": "Markets dynamically approach zero-redundancy as traders eliminate MI"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.2307/2325486",
+          "note": "Fama (1970) J Finance 25:383 — Efficient Capital Markets review"
+        },
+        {
+          "doi": "10.1287/mnsc.11.6.B197",
+          "note": "Samuelson (1965) Ind Mgmt Rev 6:41 — Proof that properly anticipated prices fluctuate randomly"
+        },
+        {
+          "note": "Cover & Thomas (2006) Elements of Information Theory, 2nd ed. (Wiley) — Kelly criterion and information theory"
+        },
+        {
+          "doi": "10.3905/jpm.2004.442611",
+          "note": "Lo (2004) J Portfolio Mgmt 30:15 — Adaptive Market Hypothesis"
+        },
+        {
+          "note": "Kelly (1956) Bell Syst Tech J 35:917 — A New Interpretation of Information Rate"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\economics-information\\b-efficient-markets-martingale.yaml"
     },
     {
       "id": "b-inequality-health-gradient",
@@ -2168,6 +2306,69 @@
       "file": "cross-domain\\engineering-biology\\b-robustness-evolvability-modularity.yaml"
     },
     {
+      "id": "b-tensegrity-cytoskeleton",
+      "title": "Buckminster Fuller's tensegrity (tensional integrity) structures — where compression members float in a continuous tension network — are the mechanical principle governing cytoskeletal architecture; actin filaments (tension) and microtubules (compression) form a biological tensegrity network predicting cell stiffness, shape change, and mechanotransduction.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Fuller (1961) defined tensegrity as a structural principle where isolated compression members (\"struts\") are suspended in a continuous network of tension members (\"cables\"). The structure is globally stable without any compression member touching another — stability arises from the interplay of tens",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-tensegrity-cancer-mechanics"
+      ],
+      "communication_gap": "Fuller worked in architecture and engineering; his tensegrity structures were known in the art and architecture communities from the 1960s but not in cell biology. Ingber's 1993 Scientific American article made the connection accessible but the engineering tensegrity literature remains largely unknown to cell biologists. Cell mechanics researchers use continuum mechanics frameworks (cortical shell models, soft glassy rheology) and are not familiar with the structural engineering of geodesic domes. The vocabulary gap (\"prestress\" vs. \"cortical tension\", \"compliance\" vs. \"creep\") maintains the separation despite the mathematical identity.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Struts (compression members in tensegrity)",
+          "field_b_term": "Microtubules (compression-bearing elements in cytoskeleton)",
+          "note": "Both carry compressive loads; both are discrete members surrounded by continuous tension network"
+        },
+        {
+          "field_a_term": "Cables (tension members in tensegrity)",
+          "field_b_term": "Actin filaments (tension-carrying pre-stressed cables)",
+          "note": "Both are continuously pre-stressed in tension; primary load-bearing network"
+        },
+        {
+          "field_a_term": "Ground anchors (tensegrity attachment points)",
+          "field_b_term": "Focal adhesions (ECM attachment complexes)",
+          "note": "Both provide external anchorage that transmits forces from the global structure"
+        },
+        {
+          "field_a_term": "Prestress (initial tension in cables)",
+          "field_b_term": "Actin cortex tension (myosin-II-generated cortical tension)",
+          "note": "Both determine structural stiffness independently of material properties"
+        },
+        {
+          "field_a_term": "Global structural stiffness (scales with prestress)",
+          "field_b_term": "Cell Young's modulus (measured by AFM indentation)",
+          "note": "Prediction: E ∝ cortical tension; confirmed by blebbistatin/cytochalasin experiments"
+        },
+        {
+          "field_a_term": "Force transmission through strut network",
+          "field_b_term": "Mechanotransduction (force propagation to nucleus)",
+          "note": "Tensegrity predicts long-range force transmission; confirmed by nuclear distortion experiments"
+        }
+      ],
+      "references": [
+        {
+          "note": "Fuller (1961) Portfolio and Art News Annual 4:112 — tensegrity definition"
+        },
+        {
+          "note": "Ingber (1993) Sci Am 268(1):48 — cellular tensegrity hypothesis"
+        },
+        {
+          "doi": "10.1126/science.7684161",
+          "note": "Wang, Butler & Ingber (1993) Science 260:1124 — mechanical coupling via integrins"
+        },
+        {
+          "doi": "10.1007/s10237-002-0015-y",
+          "note": "Stamenović & Ingber (2002) Biomech Model Mechanobiol 1:95 — tensegrity and cell deformability"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\engineering-biology\\b-tensegrity-cytoskeleton.yaml"
+    },
+    {
       "id": "b-control-theory-differential-geometry",
       "title": "Modern nonlinear control theory is formulated on differential manifolds — controllability is determined by the Lie bracket structure of vector fields (Chow-Rashevsky theorem), optimal trajectories are geodesics on sub-Riemannian manifolds, and robotics kinematics is fibre bundle theory — making differential geometry the natural language of nonlinear systems engineering.\n",
       "source_domain": "",
@@ -2527,6 +2728,69 @@
       "file": "cross-domain\\information-evolution\\b-error-threshold-information.yaml"
     },
     {
+      "id": "b-zipf-optimal-coding",
+      "title": "Zipf's law (word frequency proportional to 1/rank) is derivable from the principle of least effort — a communication system minimising joint speaker-listener effort converges on a power-law frequency distribution identical to Shannon's optimal coding theorem applied to natural language.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Zipf (1949) observed that the frequency of a word is inversely proportional to its rank in the frequency table: f(r) ∝ 1/r. This power law appears in word frequencies across all natural languages, city population sizes, income distributions, and protein interaction networks.\nMandelbrot (1953) derive",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-zipf-optimal-coding-universality",
+        "h-zipf-critical-point-communication-efficiency"
+      ],
+      "communication_gap": "Zipf (1949) worked in linguistics and did not use information theory, which was formalised by Shannon the year before. Mandelbrot (1953) made the connection explicit but his work appeared in a biophysics journal and was not widely read by linguists or information theorists. The modern integration (Piantadosi et al. 2011) appears in PNAS and is known in cognitive science but not universally recognised by information theorists as a direct confirmation of optimal coding. The vocabulary mismatch — \"power law\", \"Zipf exponent\", \"rank-frequency plot\" in linguistics vs. \"source entropy\", \"code length\", \"mutual information\" in information theory — maintains the separation.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Word frequency rank (Zipf's law)",
+          "field_b_term": "Probability of a symbol in a source distribution",
+          "note": "High-rank words = low-frequency = low-probability symbols"
+        },
+        {
+          "field_a_term": "Word length (syllables)",
+          "field_b_term": "Codeword length (bits) in Shannon optimal code",
+          "note": "Optimal coding: length ∝ −log₂(p); Zipf: length ∝ log(rank)"
+        },
+        {
+          "field_a_term": "Speaker effort (minimise articulation)",
+          "field_b_term": "Encoder compression (minimise bit length)",
+          "note": "Both minimise the cost of transmission"
+        },
+        {
+          "field_a_term": "Listener effort (minimise disambiguation)",
+          "field_b_term": "Decoder reliability (maximise information per symbol)",
+          "note": "Both maximise information transfer rate"
+        },
+        {
+          "field_a_term": "Principle of least effort (Zipf 1949)",
+          "field_b_term": "Source coding theorem (Shannon 1948)",
+          "note": "The same optimisation principle stated in different vocabularies"
+        },
+        {
+          "field_a_term": "Vocabulary size N",
+          "field_b_term": "Alphabet size of the source",
+          "note": "Both set the number of available codewords/words"
+        }
+      ],
+      "references": [
+        {
+          "note": "Zipf (1949) Human Behavior and the Principle of Least Effort (Addison-Wesley)"
+        },
+        {
+          "note": "Mandelbrot (1953) Bull Math Biophys 15:337 — derivation of Zipf from least-effort"
+        },
+        {
+          "note": "Shannon (1948) Bell Syst Tech J 27:379 — source coding theorem"
+        },
+        {
+          "doi": "10.1073/pnas.1012551108",
+          "note": "Piantadosi, Tily & Gibson (2011) PNAS 108:3825 — word length determined by surprisal"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\linguistics-information\\b-zipf-optimal-coding.yaml"
+    },
+    {
       "id": "b-language-biomarker-diagnosis",
       "title": "Computational linguistics measures of syntactic complexity, semantic coherence, and speech-rate variability serve as non-invasive biomarkers of neural health — detecting Alzheimer's disease, depression, and psychotic-spectrum formal thought disorder years before clinical presentation.\n",
       "source_domain": "",
@@ -2694,6 +2958,71 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\materials-science-biology\\b-biomineralization-crystal-growth.yaml"
+    },
+    {
+      "id": "b-crystallography-group-theory",
+      "title": "The 230 space groups classifying all possible crystal symmetries are a complete enumeration of discrete subgroups of the Euclidean group in 3D; quasicrystals (Shechtman 1984) require the mathematics of aperiodic tilings, extending the connection to non-crystallographic point groups.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Every crystal is characterised by its space group — one of exactly 230 discrete subgroups of the Euclidean group E(3) in three dimensions. This is a theorem of mathematics (proved independently by Fedorov 1891, Schoenflies 1891, and Barlow 1894) and is the foundation of all crystallography: diffract",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-crystallographic-protein-folding"
+      ],
+      "communication_gap": "Crystallographers learn the 230 space groups as empirical tables, not as theorems of group theory. Mathematicians studying discrete subgroups of Euclidean groups rarely read materials science journals. The physical chemist learning crystal field theory, the condensed matter physicist deriving band structures, and the pure mathematician studying lattice groups are all working with the same mathematical objects but rarely interact. Penrose's original work on aperiodic tilings appeared in a mathematics journal (Bulletin of the Institute of Mathematics and its Applications) and was unknown to materials scientists until Shechtman's experimental discovery.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Crystal lattice (periodic arrangement of atoms)",
+          "field_b_term": "Discrete subgroup of the Euclidean group E(3)",
+          "note": "Bravais lattice = translational subgroup; point group = rotational subgroup"
+        },
+        {
+          "field_a_term": "Space group (230 types)",
+          "field_b_term": "Discrete crystallographic group in 3D",
+          "note": "Complete enumeration by Schoenflies (1891) and Fedorov (1891)"
+        },
+        {
+          "field_a_term": "Neumann's principle (crystal properties reflect symmetry)",
+          "field_b_term": "Representation theory: physical observables transform as irreps",
+          "note": "Tensor properties vanish unless they span the totally symmetric irrep"
+        },
+        {
+          "field_a_term": "Diffraction selection rules (allowed/forbidden reflections)",
+          "field_b_term": "Group-theory extinction rules for reciprocal lattice vectors",
+          "note": "Systematic absences directly encode the space group"
+        },
+        {
+          "field_a_term": "Quasicrystal (5-fold icosahedral symmetry)",
+          "field_b_term": "Aperiodic tiling (Penrose tiles, de Bruijn pentagrids)",
+          "note": "Long-range order without translational periodicity; described by 6D space groups"
+        },
+        {
+          "field_a_term": "Phase transition (symmetry breaking)",
+          "field_b_term": "Group–subgroup relationship (Landau theory)",
+          "note": "Continuous transition allowed only if lower-symmetry group is subgroup of higher-symmetry group"
+        }
+      ],
+      "references": [
+        {
+          "note": "Schoenflies (1891) Krystallsysteme und Krystallstructur — 230 space groups"
+        },
+        {
+          "doi": "10.1103/PhysRevLett.53.1951",
+          "note": "Shechtman et al. (1984) Phys Rev Lett 53:1951 — icosahedral quasicrystal discovery"
+        },
+        {
+          "note": "Penrose (1974) Bull Inst Math Appl 10:266 — aperiodic tilings"
+        },
+        {
+          "note": "Burns & Glazer (2013) Space Groups for Solid State Scientists, 3rd ed. (Academic Press)"
+        },
+        {
+          "note": "Hahn (ed.) (2006) International Tables for Crystallography Vol. A — definitive space group tables"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\materials-science-mathematics\\b-crystallography-group-theory.yaml"
     },
     {
       "id": "b-allometry-fractal-networks",

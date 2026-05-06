@@ -1,0 +1,59 @@
+id: h-crystallographic-protein-folding
+title: >
+  The symmetry group of a protein's native fold constrains possible folding
+  pathways from the denatured state — proteins with higher internal symmetry
+  (higher-order point groups) should have fewer kinetic traps and fold more
+  reliably, explaining the prevalence of symmetric oligomeric proteins in
+  stable cellular structures.
+status: active
+priority: medium
+impact_score: 0.68
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+
+evidence_links:
+  - type: supporting
+    note: "Wolynes (1996) — energy landscape theory: symmetric folds have more funnel-like landscapes; fewer kinetic traps"
+  - type: supporting
+    note: "Andre et al. (2008) Science — designed symmetric protein assemblies fold reliably; symmetry constrains folding pathway"
+  - type: related
+    note: "Goodsell & Olson (2000) Ann Rev Biophys — prevalence of symmetric oligomers in cellular structures (ribosomes, ATP synthase, viral capsids)"
+  - type: related
+    note: "Levy et al. (2008) Structure — symmetric protein complexes evolved multiple times; symmetry provides folding and functional advantages"
+
+unknowns_addressed:
+  - u-protein-symmetry-folding-kinetics
+
+proposed_tests:
+  - description: >
+      Computational folding pathway analysis: for a dataset of proteins with
+      known point group symmetry (C1 through icosahedral), compute the
+      fraction of folding trajectories (from MD simulations or AlphaFold
+      confidence distributions) that reach the native state without kinetic
+      traps. Test whether symmetry order predicts trap-free folding frequency.
+    method: "AlphaFold2 pLDDT score distribution as proxy for folding confidence; explicit MD folding simulations for small proteins; kinetic network analysis"
+    prediction: "Proteins with Cn symmetry (n≥4) have >80% of folding trajectories trap-free vs. <40% for C1; icosahedral > tetrahedral > dihedral > cyclic"
+  - description: >
+      Experimental comparison of folding rates for symmetric vs. asymmetric
+      proteins matched for length and hydrophobicity: measure folding rates
+      (stopped-flow CD, single-molecule FRET) for isologous pairs differing
+      only in internal symmetry. Test whether symmetric proteins fold faster
+      and with higher yield.
+    method: "Stopped-flow circular dichroism; single-molecule FRET; chevron plot analysis; comparison of activation free energy ΔG‡ vs. symmetry order"
+    prediction: "Symmetric proteins (Cn, n≥3): folding rate ≥ 5× faster; aggregation yield ≤ 20% vs. ≥ 40% for comparable asymmetric proteins"
+  - description: >
+      Evolutionary analysis: test whether protein families that evolved in
+      environments with high proteostatic stress (thermophiles, cancer cells)
+      show higher internal symmetry than matched families from low-stress
+      environments.
+    method: "Structural database mining (PDB); point group assignment; comparison of symmetry distributions across phylogenetic groups and habitat extremity"
+    prediction: "Thermophilic proteomes contain higher proportion of symmetric oligomers (>70% vs. ~45% in mesophiles); internal symmetry correlates with optimal growth temperature (r > 0.6)"
+
+related_disciplines:
+  - structural-biology
+  - biophysics
+  - mathematics
+  - group-theory
+  - computational-biology
+  - evolutionary-biology
