@@ -1,0 +1,61 @@
+id: b-symplectic-geometry-hamiltonian
+title: >
+  The phase space of classical mechanics is a symplectic manifold (M, ω) and Hamilton's
+  equations preserve the symplectic form (Liouville's theorem); quantum mechanics is
+  the deformation quantization of this symplectic structure, making symplectic geometry
+  the unifying language of classical and quantum dynamics.
+status: established
+fields:
+  - mathematics
+  - symplectic-geometry
+  - classical-mechanics
+  - quantum-mechanics
+  - numerical-methods
+bridge_claim: >
+  Phase space of a classical mechanical system is a symplectic manifold (M, ω) where
+  ω = Σ dp_i ∧ dq_i. Hamilton's equations ṗ = -∂H/∂q, q̇ = ∂H/∂p preserve ω
+  (Liouville's theorem: phase space volume is conserved by Hamiltonian flow).
+  Symplectic integrators (leapfrog, Verlet) preserve this structure numerically —
+  critical for long-time molecular dynamics and celestial mechanics simulations.
+  Floer homology (infinite-dimensional Morse theory on the loop space of M) is
+  symplectic topology's deepest tool, counting pseudoholomorphic curves.
+  Quantum mechanics = deformation quantization of the symplectic structure:
+  {f,g}_Poisson → (i/ħ)[f̂,ĝ] as ħ → 0.
+translation_table:
+  - field_a_term: symplectic form ω = Σ dp_i ∧ dq_i
+    field_b_term: canonical commutation relations [q̂_i, p̂_j] = iħδ_ij
+    note: quantization replaces Poisson bracket with commutator divided by iħ
+  - field_a_term: Hamiltonian flow preserving ω (Liouville)
+    field_b_term: unitary quantum time evolution preserving inner products
+    note: unitarity is the quantum analog of symplectic volume preservation
+  - field_a_term: symplectic integrator (leapfrog, Verlet)
+    field_b_term: Trotter-Suzuki decomposition for quantum simulation
+    note: both preserve the algebraic structure of time evolution exactly
+  - field_a_term: Floer homology of loop space
+    field_b_term: path integral quantization over all trajectories
+    note: Floer theory can be seen as a Morse theory analog of the Feynman path integral
+related_unknowns:
+  - u-symplectic-quantization-gap
+related_hypotheses:
+  - h-deformation-quantization-symplectic-bridge
+cross_pollination_opportunities:
+  - >
+    Symplectic integrators for molecular dynamics (NAMD, GROMACS, AMBER) preserve
+    physical conserved quantities over million-step simulations — a direct mathematical
+    benefit transferred from pure geometry to computational chemistry and biophysics.
+  - >
+    Floer homology tools (pseudoholomorphic curves) now appear in mirror symmetry
+    (Fukaya category), connecting symplectic topology to algebraic geometry and
+    string theory in unexpected ways.
+communication_gap: >
+  Classical mechanics and quantum mechanics are taught in separate courses with
+  different mathematical language (Lagrangian/Hamiltonian vs Hilbert space operators).
+  The symplectic geometry unification is standard in mathematical physics but rarely
+  reaches computational scientists who implement molecular dynamics.
+last_reviewed: "2026-05-06"
+references:
+  - note: "Arnold (1978) Mathematical Methods of Classical Mechanics; Springer"
+  - note: "Weyl (1931) The Theory of Groups and Quantum Mechanics; Dover"
+  - doi: "10.4310/jdg/1214442477"
+    note: "Floer (1988) J Differ Geom 28:513 — Floer homology construction"
+  - note: "Leimkuhler & Reich (2004) Simulating Hamiltonian Dynamics; Cambridge"

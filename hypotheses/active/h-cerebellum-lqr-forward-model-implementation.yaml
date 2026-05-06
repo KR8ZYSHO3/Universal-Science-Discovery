@@ -1,0 +1,41 @@
+id: h-cerebellum-lqr-forward-model-implementation
+title: >
+  The cerebellum implements a forward model that predicts sensory consequences of
+  motor commands via a biologically plausible approximation to the Kalman filter:
+  Purkinje cells encode prediction of sensory state given efference copy, granule
+  cells provide the basis for state representation, and climbing fiber error drives
+  gradient descent on prediction error, implementing a neural linear quadratic
+  regulator for motor control.
+status: active
+priority: high
+impact_score: 0.76
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+unknowns_addressed:
+  - u-forward-model-cerebellum-learning-rule
+evidence_links:
+  - doi: "10.1126/science.280.5368.1880"
+    type: supporting
+    confidence: 0.75
+    note: "Wolpert et al. (1998) Science 280:1880 — cerebellar internal models for motor control"
+  - doi: "10.1038/nn1116"
+    type: supporting
+    confidence: 0.70
+    note: "Todorov & Jordan (2002) Nat Neurosci 5:1226 — optimal feedback control theory of motor control"
+  - doi: "10.1016/S0959-4388(99)00016-5"
+    type: supporting
+    confidence: 0.65
+    note: "Kawato (1999) Curr Opin Neurobiol 9:718 — internal model hypothesis of cerebellum"
+proposed_tests:
+  - description: >
+      Perturbation study: expose participants to visuomotor rotations (30° clockwise
+      rotation of cursor). Measure: adaptation rate vs Kalman gain prediction (function
+      of sensory noise variance). Manipulate sensory noise (add visual jitter).
+      Test: does adaptation rate follow Kalman filter optimal gain as function of noise?
+    prediction: "Adaptation rate decreases by 40-60% when visual noise doubled (consistent with Kalman gain reduction); cerebellar-lesioned patients show impaired but not absent adaptation."
+related_disciplines:
+  - motor-neuroscience
+  - control-theory
+  - cerebellar-neuroscience
+  - computational-neuroscience

@@ -1,0 +1,59 @@
+id: b-statistical-thermodynamics-equilibrium
+title: >
+  Chemical equilibrium (K = exp(-ΔG°/RT)) is derived entirely from statistical
+  thermodynamics: the equilibrium constant equals the ratio of molecular partition
+  functions of products to reactants, making all of macroscopic chemical equilibrium
+  a direct consequence of quantum mechanical energy level statistics.
+status: established
+fields:
+  - physics
+  - statistical-mechanics
+  - chemistry
+  - physical-chemistry
+bridge_claim: >
+  The equilibrium constant K = exp(-ΔG°/RT) derived from statistical thermodynamics:
+  K = Z_products/Z_reactants where Z = Σ_i exp(-E_i/kT) is the molecular partition
+  function summing over all quantum states. For ideal gases, Z = Z_trans × Z_rot ×
+  Z_vib × Z_elec — each factor derived from quantum mechanics. Le Chatelier's
+  principle = the system shifts to minimize perturbation to equilibrium (linear
+  stability of the partition function minimum). Van't Hoff equation:
+  d(lnK)/dT = ΔH°/RT² links temperature dependence to enthalpy via d(lnZ)/dT = <E>/kT².
+  All of macroscopic chemical equilibrium follows from the partition function —
+  the bridge between microscopic quantum states and macroscopic observable chemistry.
+translation_table:
+  - field_a_term: partition function Z = Σ exp(-E_i/kT)
+    field_b_term: equilibrium constant K (ratio of Z_products/Z_reactants)
+    note: K is dimensionless ratio of product to reactant partition functions
+  - field_a_term: Boltzmann factor exp(-E_i/kT)
+    field_b_term: relative population of reactant vs product states
+    note: at equilibrium, populations are Boltzmann-weighted
+  - field_a_term: temperature T (thermal energy scale)
+    field_b_term: van't Hoff factor RT in ΔG° = -RT lnK
+    note: k_B and R differ only by Avogadro's number
+  - field_a_term: quantum energy levels E_i of molecule
+    field_b_term: thermochemical tables (ΔH°_f, ΔG°_f, S°)
+    note: NIST Webbook tabulates partition-function-derived thermochemical quantities
+related_unknowns:
+  - u-partition-function-anharmonic-correction
+related_hypotheses:
+  - h-statistical-thermodynamics-equilibrium-partition-function
+cross_pollination_opportunities:
+  - >
+    Drug-protein binding free energies (ΔG_bind) are computed via free energy perturbation
+    (FEP) using classical molecular dynamics — a direct application of the statistical
+    mechanics partition function framework to pharmaceutical chemistry.
+  - >
+    Atmospheric chemistry models (NCAR CAM, GEOS-Chem) use polynomial fits to statistical-
+    mechanically computed equilibrium constants; improving anharmonic corrections directly
+    improves atmospheric composition predictions.
+communication_gap: >
+  Physical chemistry textbooks teach statistical thermodynamics in separate chapters
+  from chemical equilibrium, obscuring the fact that K is a direct ratio of partition
+  functions. Chemists using K rarely think about quantum energy levels; physicists
+  studying partition functions rarely think about chemical applications.
+last_reviewed: "2026-05-06"
+references:
+  - note: "Boltzmann (1877) — Boltzmann distribution; entropy as log of microstates"
+  - note: "Gibbs (1902) Elementary Principles in Statistical Mechanics; Yale University Press"
+  - note: "Atkins & de Paula (2010) Physical Chemistry; Oxford University Press"
+  - note: "McQuarrie (2000) Statistical Mechanics; University Science Books"

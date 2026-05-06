@@ -1,0 +1,64 @@
+id: b-developmental-geometry-morphogenesis
+title: >
+  Biological forms are transformations of each other under smooth coordinate
+  deformations (diffeomorphisms) as proposed by D'Arcy Thompson; modern
+  computational anatomy formalizes this as geodesics on the infinite-dimensional
+  group Diff(M) with the same mathematical structure as ideal fluid mechanics,
+  enabling quantitative comparison of biological shapes across evolution and
+  development.
+status: established
+fields:
+  - biology
+  - mathematics
+  - differential-geometry
+  - computational-anatomy
+bridge_claim: >
+  D'Arcy Thompson's On Growth and Form (1917): biological forms are transformations
+  of each other under continuous deformations (diffeomorphisms). Fish species' body
+  shapes are related by smooth coordinate transformations — a topological/geometric
+  relationship. Modern computational anatomy (Grenander & Miller) formalizes this as
+  geodesics on the group of diffeomorphisms Diff(M) — the same mathematical structure
+  as ideal fluid mechanics (Arnold 1966: geodesics on SDiff(M) = Euler's equations).
+  Brain shape analysis (computational neuroanatomy) uses LDDMM (Large Deformation
+  Diffeomorphic Metric Mapping) for disease diagnosis and developmental studies.
+translation_table:
+  - field_a_term: fish species body plan comparison (D'Arcy Thompson)
+    field_b_term: diffeomorphic image registration (computational anatomy)
+    note: both ask what smooth map deforms one shape into another
+  - field_a_term: biological growth trajectory
+    field_b_term: geodesic on Diff(M) with H^1 Sobolev metric
+    note: minimizing total deformation energy over time corresponds to geodesic
+  - field_a_term: evolutionary distance between species body plans
+    field_b_term: Riemannian distance on shape space Diff(M)/Diff(M)_0
+    note: geodesic distance in shape space as proxy for evolutionary relatedness
+  - field_a_term: ideal fluid velocity field v(x,t)
+    field_b_term: diffeomorphic deformation field φ_t(x) = ∫v dt
+    note: Arnold (1966) showed Euler equations = geodesics on SDiff(M); same as LDDMM
+related_unknowns:
+  - u-diffeomorphic-growth-mechanical-constraints
+related_hypotheses:
+  - h-developmental-geometry-diffeomorphism-geodesic
+cross_pollination_opportunities:
+  - >
+    Optimal transport theory (Wasserstein distance) provides a metric on probability
+    distributions that generalizes diffeomorphic distance in shape space; combining
+    optimal transport with diffeomorphic registration could handle the topological
+    changes (cell division, death) that LDDMM cannot.
+  - >
+    Fluid mechanics turbulence models applied to cell flow fields in developing embryos
+    (gastrulation) could predict collective cell motion patterns, importing Reynolds
+    decomposition and turbulence statistics into developmental biology.
+communication_gap: >
+  D'Arcy Thompson's 1917 book was read by biologists and mathematicians but the
+  rigorous formalization (Grenander, Miller 1980s-1990s) happened in the applied
+  mathematics / computer vision community with limited biological uptake until
+  neuroimaging adopted it for MRI brain shape analysis in the 2000s.
+last_reviewed: "2026-05-06"
+references:
+  - note: "Thompson (1917) On Growth and Form; Cambridge University Press"
+  - doi: "10.5802/aif.233"
+    note: "Arnold (1966) Ann Inst Fourier 16:319 — geodesics on SDiff(M) = Euler equations"
+  - doi: "10.1090/qam/926445"
+    note: "Grenander & Miller (1998) Q Appl Math 56:617 — diffeomorphic mapping framework"
+  - doi: "10.1038/nrn644"
+    note: "Toga & Thompson (2001) Nat Rev Neurosci 2:37 — computational neuroanatomy"

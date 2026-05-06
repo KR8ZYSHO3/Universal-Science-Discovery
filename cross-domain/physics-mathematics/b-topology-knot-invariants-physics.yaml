@@ -1,0 +1,68 @@
+id: b-topology-knot-invariants-physics
+title: >
+  Wilson loops in Chern-Simons gauge theory equal Jones polynomial knot invariants
+  (Witten 1989) — the expectation value ⟨W(C)⟩ of the Wilson loop along closed curve C
+  computes the Jones polynomial of knot C, giving a physical interpretation of purely
+  mathematical knot invariants as partition functions of topological quantum field theories.
+status: established
+fields:
+  - physics
+  - mathematics
+  - topology
+  - quantum-field-theory
+  - knot-theory
+bridge_claim: >
+  Witten (1989) showed that the partition function of SU(2) Chern-Simons theory on a
+  3-manifold M equals the Jones polynomial V_K(q) of a knot K = C embedded in M, where
+  q = exp(2πi/(k+2)) and k is the Chern-Simons coupling. The Wilson loop operator
+  W_R(C) = Tr_R P exp(i∮_C A) computes the holonomy of the gauge connection around C
+  in representation R; its expectation value ⟨W_R(C)⟩ in the quantum theory gives the
+  colored Jones polynomial in representation R. This connects: DNA topology (topoisomerase
+  enzymes perform topological surgery equivalent to Reidemeister moves; DNA supercoiling
+  is measured by the writhe and twist invariants); polymer physics (ring polymer entanglement
+  number computed by the Alexander polynomial); and anyonic quantum computing (non-Abelian
+  anyons in ν=5/2 fractional quantum Hall systems braid to perform quantum gates, with
+  gate fidelity = Jones polynomial evaluation).
+translation_table:
+  - field_a_term: Chern-Simons action S = (k/4π)∫Tr(A∧dA + (2/3)A∧A∧A)
+    field_b_term: Jones polynomial V_K(t) via skein relation
+    note: physical coupling k corresponds to variable t = exp(2πi/(k+2)) in the polynomial
+  - field_a_term: Wilson loop W_R(C) = Tr_R P exp(i∮A)
+    field_b_term: knot invariant associated to framing of K in representation R
+    note: different representations R give different colored Jones polynomials
+  - field_a_term: topological quantum field theory (no local degrees of freedom)
+    field_b_term: topological invariant (independent of metric, depends only on topology)
+    note: both objects are metric-independent — the fundamental reason the connection works
+  - field_a_term: anyonic braiding in quantum Hall state
+    field_b_term: braid group representation → quantum gate
+    note: topological quantum computing encodes gates as knot invariant computations
+related_unknowns:
+  - u-3manifold-invariants-completeness
+related_hypotheses:
+  - h-3manifold-invariants-topological-completeness
+cross_pollination_opportunities:
+  - >
+    Topological quantum computing: Microsoft's Station Q program designs quantum gates
+    as anyonic braid operations whose output is a knot invariant evaluation. Physical
+    implementation requires Majorana fermions in topological superconductors — the
+    physics-mathematics bridge is the literal computational mechanism.
+  - >
+    DNA topoisomerases perform topological surgery (strand crossing changes) equivalent
+    to computing the change in linking number Lk = Wr + Tw. Knot-theoretic analysis
+    of DNA replication intermediates predicts the enzyme action required to untangle
+    replicated chromosomes — a direct application of mathematical knot theory to biology.
+communication_gap: >
+  Knot theory developed in pure mathematics departments (Jones, Thurston, Freedman)
+  completely unaware of gauge theory. Witten's 1989 paper bridging the fields required
+  understanding two expert literatures. Atiyah (1990) wrote The Geometry and Physics
+  of Knots specifically to make this connection accessible to mathematicians.
+  Topological quantum computing groups in condensed matter physics cite knot theory
+  papers rarely, despite computing Jones polynomials by design.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1007/BF01217730"
+    note: Witten (1989) — Quantum field theory and the Jones polynomial; Commun Math Phys 121:351
+  - doi: "10.2307/1971403"
+    note: Jones (1985) — A polynomial invariant for knots via von Neumann algebras; Bull AMS 12:103
+  - note: Adams (1994) — The Knot Book; W.H. Freeman
+  - note: Atiyah (1990) — The Geometry and Physics of Knots; Cambridge University Press

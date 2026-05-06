@@ -1,0 +1,69 @@
+id: b-circadian-clocks-nonlinear-oscillators
+title: >
+  Circadian clocks are ~24-hour biological limit cycle oscillators arising via Hopf
+  bifurcation in transcription-translation delay feedback loops; entrainment by light
+  follows Arnold tongue theory for periodically forced nonlinear oscillators, and
+  temperature compensation (Q10~1) represents an unsolved problem in biological
+  nonlinear dynamics, bridging molecular biology to dynamical systems theory.
+status: established
+fields:
+  - biology
+  - physics
+  - nonlinear-dynamics
+  - chronobiology
+bridge_claim: >
+  Circadian clocks are ~24-hour biological oscillators driven by transcription-translation
+  feedback loops. Core mechanism: protein X represses its own transcription with delay tau
+  — a delay differential equation x_dot = f(x(t-tau)) - gamma*x. This produces limit cycle
+  oscillations when tau × |df/dx| > pi/2 (Hopf bifurcation condition). Entrainment by
+  light = response of a nonlinear oscillator to periodic forcing (Arnold tongue): 1:1
+  entrainment occurs when light forcing frequency is near the natural frequency, within
+  an Arnold tongue whose width grows with forcing amplitude. Temperature compensation
+  (Q10 approximately 1 for circadian period) is an unsolved problem: how does biology
+  make an oscillator whose period is insensitive to temperature when all individual
+  biochemical reactions have Q10 = 2-3?
+translation_table:
+  - field_a_term: transcription-translation feedback loop
+    field_b_term: delay differential equation with negative feedback
+    note: PER/TIM (Drosophila) or CLOCK/BMAL1/CRY (mammals) are the molecular delay
+  - field_a_term: onset of circadian oscillation (loss of arrhythmicity in mutants)
+    field_b_term: Hopf bifurcation (stable fixed point loses stability, limit cycle emerges)
+    note: arrhythmic mutants (per01, clk) correspond to fixed-point stable regime
+  - field_a_term: entrainment by light (zeitgeber)
+    field_b_term: forced nonlinear oscillator response (Arnold tongue)
+    note: jet lag = transient period during which oscillator re-synchronizes to new forcing
+  - field_a_term: temperature compensation (Q10~1)
+    field_b_term: parameter-insensitive limit cycle period (robustness to k_cat changes)
+    note: "unresolved: molecular mechanism that makes tau*k_cat product temperature-insensitive"
+  - field_a_term: spontaneous activity rhythm (free-running period tau_0)
+    field_b_term: natural frequency omega_0 of the limit cycle oscillator
+    note: tau_0 measured in constant darkness; species-specific due to molecular differences
+related_unknowns:
+  - u-circadian-temperature-compensation-mechanism
+related_hypotheses:
+  - h-circadian-hopf-bifurcation-delay-oscillator
+cross_pollination_opportunities:
+  - >
+    Chronotherapy (timing cancer drug administration to circadian phase) relies on
+    the Arnold tongue structure: drugs administered during specific circadian phases
+    maximize efficacy and minimize toxicity. Mathematical modeling of the circadian
+    oscillator is essential for optimizing chronotherapeutic protocols.
+  - >
+    Circadian disruption (shift work, jet lag, artificial light at night) alters the
+    oscillator's phase and amplitude; nonlinear dynamics predicts that strong forcing
+    amplitude (bright artificial light) can synchronize the clock to non-24h rhythms,
+    predicting cancer, metabolic syndrome, and psychiatric disease risk quantitatively.
+communication_gap: >
+  Molecular chronobiology (identifying clock genes, protein interactions) and nonlinear
+  dynamics (Hopf bifurcation, Arnold tongue, delay equations) are conducted in different
+  communities with different mathematical fluency. Goodwin (1965) made the connection
+  originally, but molecular biologists rediscovered clock mechanisms without adopting the
+  mathematical framework systematically until Goldbeter's 1995 model.
+last_reviewed: "2026-05-06"
+references:
+  - note: "Goodwin (1965) Adv Enzyme Regul 3:425 — oscillations in biochemical control systems"
+  - doi: "10.1073/pnas.92.20.9107"
+    note: "Goldbeter (1995) PNAS 92:9107 — minimal model for circadian oscillations"
+  - doi: "10.1038/nature01078"
+    note: "Reppert & Weaver (2002) Nature 418:935 — molecular architecture of mammalian circadian clock"
+  - note: "Roenneberg & Merrow (2016) Curr Biol 26:R432 — circadian clocks in biology"

@@ -1,0 +1,39 @@
+id: h-cache-oblivious-algorithm-hierarchy-optimality
+title: >
+  Cache-oblivious algorithms that recursively divide data access without explicit
+  knowledge of cache line sizes achieve asymptotically optimal memory access patterns
+  across all levels of the memory hierarchy simultaneously, and formal specification
+  of cache-oblivious transformations can be partially automated via polyhedral
+  analysis and affine scheduling in optimizing compilers.
+status: active
+priority: medium
+impact_score: 0.68
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+unknowns_addressed:
+  - u-cache-efficient-algorithm-design
+evidence_links:
+  - doi: "10.1145/301970.301974"
+    type: supporting
+    confidence: 0.75
+    note: "Frigo et al. (1999) - cache-oblivious algorithms: sorting, FFT, matrix multiply achieve optimal I/O complexity"
+  - doi: "10.1145/2254064.2254108"
+    type: supporting
+    confidence: 0.65
+    note: "Polyhedral model for automatic loop transformations (Bondhugula et al. 2008)"
+  - type: related
+    confidence: 0.55
+    note: "Aggarwal & Vitter (1988) - external memory model (I/O model) that cache-oblivious algorithms target"
+proposed_tests:
+  - description: >
+      Implement and benchmark 5 algorithms (matrix multiply, FFT, sorting, stencil,
+      BFS) in three versions: cache-unaware, cache-aware, and cache-oblivious, on
+      4 architectures spanning 2-4 cache levels (ARM Cortex-A77, AMD EPYC, Intel Xeon,
+      Apple M2). Measure cache miss rates and throughput.
+    prediction: "Cache-oblivious versions achieve within 20% of optimal across all architectures; automated polyhedral tiling recovers >70% of hand-tuned performance for stencil codes."
+related_disciplines:
+  - computer-science
+  - algorithms
+  - computer-architecture
+  - performance-engineering

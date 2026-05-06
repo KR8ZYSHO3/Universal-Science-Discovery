@@ -1,0 +1,39 @@
+id: h-smart-grid-virtual-inertia-stability
+title: >
+  Electrical grids can maintain stability at >80% variable renewable penetration
+  using grid-forming inverters with virtual synchronous generator (VSG) control that
+  synthetically provides inertial response (H~5-10 seconds equivalent), provided
+  frequency-responsive demand response and distributed storage fill sub-second
+  gaps not covered by VSG response dynamics.
+status: active
+priority: high
+impact_score: 0.78
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+unknowns_addressed:
+  - u-smart-grid-stability
+evidence_links:
+  - doi: "10.1109/TSG.2015.2488544"
+    type: supporting
+    confidence: 0.65
+    note: "Dreidy et al. (2017) - inertia response from wind turbines and inverter-based resources: review"
+  - doi: "10.1038/s41560-020-00695-4"
+    type: supporting
+    confidence: 0.70
+    note: "Denholm et al. (2021) - operational challenges with high VRE penetration; stability solutions review"
+  - type: related
+    confidence: 0.55
+    note: "South Australia grid: >70% instantaneous VRE penetration achieved with grid-forming inverters (2023)"
+proposed_tests:
+  - description: >
+      Hardware-in-the-loop simulation: 100-bus grid model with VRE penetration swept
+      0-100%. Grid-forming inverter VSG control vs traditional grid-following. Test:
+      rate of change of frequency (ROCOF) after N-1 contingency. Stability criterion:
+      ROCOF < 1 Hz/s.
+    prediction: "VSG control maintains ROCOF<1 Hz/s up to 85% VRE penetration; grid-following inverters fail (ROCOF>2 Hz/s) above 60% VRE; demand response extends stable operating range to 90% VRE."
+related_disciplines:
+  - power-systems-engineering
+  - control-theory
+  - energy-systems
+  - electrical-engineering
