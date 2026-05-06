@@ -1,0 +1,40 @@
+id: u-seismic-tomography-null-space-resolution
+title: What is the minimum resolvable length scale and depth extent of mantle structures in global P-wave tomography, and how do null-space contamination and regularization artifacts mimic real geodynamic features?
+status: open
+priority: high
+disciplines:
+  - geology
+  - geophysics
+  - mathematics
+  - inverse-problems
+  - geodynamics
+summary: >
+  Global seismic tomography models (LLSVP, mantle plumes, subducted slabs) are
+  the primary evidence base for deep Earth geodynamics, but their reliability is
+  fundamentally limited by: (1) uneven earthquake and station distribution (dominated
+  by Pacific Ring of Fire and northern hemisphere seismic networks), (2) the null
+  space of the ray-path matrix G (structures invisible to the data), and (3)
+  regularization artifacts (Tikhonov smoothing may create or destroy anomalies).
+  The large low-shear-velocity provinces (LLSVPs) at the core-mantle boundary —
+  interpreted as thermochemical piles or mantle plume sources — subtend ~30° in
+  longitude. Whether these are resolution artifacts of poor sampling in the southern
+  hemisphere or real compositional heterogeneities is debated. Checkerboard tests
+  (synthetic recovery experiments) show resolution of ~500 km in the upper mantle
+  and ~1000 km in the lower mantle, but these tests assume the same geometry as the
+  checkerboard — real anomalies may have different spatial frequencies.
+systematic_gaps:
+  - A probabilistic uncertainty quantification framework for global tomography models (providing pixel-wise confidence intervals rather than single deterministic models) does not exist at global scale — the posterior distribution over velocity models is too high-dimensional for current MCMC methods.
+  - The non-uniqueness of seismic tomography (infinitely many velocity models fit the data within noise) has not been systematically explored; existing "different" tomography models (TX2008, LLSVP_Garnero, SEMUCB-WM1) are not samples from the posterior but products of different regularization choices.
+  - Distinguishing thermal from compositional velocity anomalies (both change P-wave speed but in different ratios of Vp/Vs) requires joint P+S tomography with mineral physics constraints — current joint inversions disagree on LLSVP composition.
+suggested_hypotheses:
+  - Bayesian ensemble tomography using 100+ independent regularization parameter choices produces a posterior ensemble for lower mantle velocity anomalies in which the LLSVPs have probability >0.95 of being real (not artifacts), while proposed plume conduits below Hawaii and Iceland have probability <0.5 at 1000 km depth.
+related_unknowns:
+  - u-mantle-plume-deep-origin-evidence
+related_bridges:
+  - b-seismic-tomography-inverse-problems
+references:
+  - doi: "10.1029/JB082i002p00239"
+    note: "Dziewonski et al. (1977) — original P-wave tomography"
+  - doi: "10.1016/j.earscirev.2012.02.010"
+    note: "Liu & Gu (2012) Earth Sci Rev — tomography review with resolution discussion"
+last_reviewed: "2026-05-06"

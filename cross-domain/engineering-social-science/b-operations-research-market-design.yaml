@@ -1,0 +1,107 @@
+id: b-operations-research-market-design
+title: >
+  Operations research (linear programming, matching algorithms) provides the
+  computational backbone of modern market design — the Gale-Shapley deferred
+  acceptance algorithm achieves stable matching in O(n²), kidney exchange is
+  maximum-weight matching on compatibility graphs, and spectrum auctions are
+  NP-hard combinatorial optimization problems in practice.
+status: established
+fields:
+  - engineering
+  - social-science
+  - operations-research
+  - economics
+  - computer-science
+  - mechanism-design
+bridge_claim: >
+  Operations research (OR) develops algorithms for resource allocation under
+  constraints. Market design applies these algorithms to real economic markets —
+  transforming abstract optimization theory into institutions that match people to
+  organs, students to schools, and spectrum licenses to telecoms.
+
+  Linear Programming (LP): maximize cᵀx subject to Ax ≤ b, x ≥ 0. Dantzig's
+  simplex algorithm (1947) is practically efficient (O(n²·m) average case).
+  Theoretical polynomial-time: Khachiyam ellipsoid method (1979), Karmarkar
+  interior-point method (1984). LP underlies resource allocation in logistics,
+  supply chains, and airline scheduling — the engineering backbone of the economy.
+
+  Stable matching (Gale & Shapley 1962): given n men and n women with complete
+  preference orderings, find a matching where no man-woman pair would both prefer
+  each other to their assigned partners (no "blocking pair"). The deferred
+  acceptance (DA) algorithm: men propose to women in order of preference; women
+  tentatively accept best proposal, reject worse; rejected men propose to next;
+  repeat until no proposals remain. Complexity: O(n²). The resulting matching is
+  man-optimal stable — no other stable matching is better for every man.
+
+  Applications of DA:
+  — NRMP (National Resident Matching Program): ~35,000 medical residents matched
+    to hospitals annually since 1952 (DA formalized in 1998, Roth & Peranson).
+  — NYC public school choice: ~90,000 8th graders matched to high schools via DA.
+  — College admissions (China, Turkey): national university entrance matching.
+
+  Kidney exchange (Roth, Sönmez & Ünver 2004; Roth 2012 Nobel Prize): incompatible
+  donor-recipient pairs can form exchange cycles. Finding maximum-weight matching
+  on a compatibility graph (nodes = pairs, edges = compatible exchanges). For 2-3
+  way cycles: polynomial-time maximum matching (Edmonds algorithm). For longer
+  chains: NP-hard in general, but near-optimal heuristics (integer programming).
+  US kidney exchange pools (APKD, NKDD) have enabled >15,000 additional transplants.
+
+  Spectrum auctions: the FCC Incentive Auction (2016-2017) — a two-sided auction
+  buying broadcast TV licenses and reselling as mobile spectrum — required solving
+  a combinatorial optimization problem (repacking constraint satisfaction) that is
+  NP-hard in the worst case. OR heuristics (simulated annealing, constraint
+  propagation) enabled the $19.8B auction. Milgrom & Wilson (Nobel 2020) designed
+  the Simultaneous Multiple Round Auction (SMRA).
+translation_table:
+  - field_a_term: stable matching (Gale-Shapley)
+    field_b_term: maximum weight matching with stability constraints on bipartite graph
+    note: Stability = Nash equilibrium of decentralized matching game
+  - field_a_term: deferred acceptance (DA) algorithm
+    field_b_term: iterative auction where highest bidder holds tentative allocation
+    note: DA is strategy-proof for the proposing side — truthful preference revelation is optimal
+  - field_a_term: kidney exchange compatibility graph
+    field_b_term: maximum weight cycle cover problem (NP-hard for k>2 cycles)
+    note: "Practical solution: integer programming with cycle/chain length constraints"
+  - field_a_term: LP dual variables (shadow prices)
+    field_b_term: equilibrium prices in competitive market (Walrasian equilibrium)
+    note: By LP duality, every LP optimum corresponds to competitive equilibrium prices
+  - field_a_term: FCC spectrum repacking constraint satisfaction
+    field_b_term: NP-hard combinatorial auction design
+    note: Feasibility check (can n stations be repacked into fewer channels?) is NP-complete
+  - field_a_term: strategy-proof mechanism
+    field_b_term: dominant strategy incentive compatible (DSIC) mechanism
+    note: DA is DSIC for proposers (Roth 1982); not for receivers — hospitals can game
+related_unknowns:
+  - u-combinatorial-auction-computational-complexity
+related_hypotheses:
+  - h-gale-shapley-deferred-acceptance-stability-uniqueness
+cross_pollination_opportunities:
+  - >
+    AI-assisted market design: using machine learning to learn preference structures
+    and predict market outcomes without explicit preference elicitation.
+    Automated mechanism design (Conitzer & Sandholm 2002) — compute the optimal
+    mechanism for a given environment using LP or neural networks. This bridges
+    ML, game theory, and mechanism design into a computational social science.
+  - >
+    Dynamic matching markets: labor markets, gig economy platforms (Uber, TaskRabbit)
+    do matching in real time with uncertain arrivals. OR algorithms (online bipartite
+    matching, secretary problem) provide provably near-optimal policies. This bridges
+    online algorithms theory to platform economics.
+communication_gap: >
+  OR was developed as an engineering discipline (Dantzig, RAND Corporation, 1940s-60s)
+  with applications to logistics and military operations. Market design emerged in
+  economics (Roth, Wilson) in the 1980s-90s largely independently. The explicit
+  connection — that market design is applied OR — was made by practitioners (Roth
+  brought in OR specialists for kidney exchange algorithms) but is not standard
+  in economics PhD curricula. Operations Research journals (Management Science,
+  Operations Research) and economics journals (American Economic Review) have low
+  cross-citation rates despite shared mathematical foundations.
+last_reviewed: "2026-05-06"
+references:
+  - note: Dantzig (1963) Linear Programming and Extensions. Princeton University Press.
+  - doi: "10.2307/2312726"
+    note: Gale & Shapley (1962) Am Math Mon 69:9 — college admissions and stable marriage
+  - doi: "10.1257/aer.89.4.748"
+    note: Roth & Peranson (1999) Am Econ Rev 89:748 — NRMP redesign using DA
+  - doi: "10.1126/science.1154938"
+    note: Roth (2008) Science 319:1069 — kidney exchange as market design

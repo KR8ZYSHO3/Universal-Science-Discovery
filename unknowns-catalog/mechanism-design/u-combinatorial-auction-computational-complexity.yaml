@@ -1,0 +1,44 @@
+id: u-combinatorial-auction-computational-complexity
+title: Can combinatorial auction design (spectrum, landing slots, kidney exchange chains) achieve near-optimal allocations in polynomial time using approximation algorithms or machine learning, and what are the theoretical limits of strategyproof combinatorial mechanisms?
+status: open
+priority: high
+disciplines:
+  - mechanism-design
+  - economics
+  - computer-science
+  - operations-research
+  - mathematics
+summary: >
+  Combinatorial auctions allow bidders to bid on bundles of items, capturing
+  complementarities (landing slots at different airports, spectrum licenses in
+  geographic packages). The winner determination problem (WDP) — find the revenue-
+  maximizing allocation — is NP-hard (equivalent to set packing, Lehmann et al.
+  2002). The VCG mechanism (Vickrey-Clarke-Groves) achieves truthfulness and
+  efficiency simultaneously but is computationally intractable for WDP (requires
+  solving NP-hard problem) and revenue-inefficient (Clarke pivot payments may
+  be zero). In practice: FCC spectrum auctions use clock auction formats that
+  are not fully strategyproof; the 2016 Incentive Auction required iterative
+  feasibility checks that are each NP-hard. Approximation algorithms for WDP
+  achieve constant-factor approximations (2-approximation via LP relaxation,
+  Lavi & Swamy 2005), but their strategyproofness properties are poor. Machine
+  learning approaches (automated mechanism design, Conitzer & Sandholm 2002;
+  deep learning for auctions, Dutting et al. 2019) can compute near-optimal
+  mechanisms for specific distributions but provide no worst-case guarantees.
+  The fundamental tension: computation is hard, truthfulness is valuable,
+  and efficiency requires both simultaneously.
+systematic_gaps:
+  - No polynomial-time strategyproof mechanism achieves a constant-factor approximation to optimal welfare in general combinatorial auctions — the computational-incentive compatibility frontier has not been fully characterized, and whether such a mechanism exists is an open complexity theory question.
+  - Kidney exchange chains of length >4 are NP-hard to optimize; current US kidney exchange pools use IP solvers that find optimal solutions for the current pool size (~5000 pairs) but will fail as pools scale by 10x — no approximation algorithm with known strategyproofness properties exists for long kidney chains.
+  - The sample complexity of learning an approximately optimal auction from bidder behavior data (without knowing the true value distribution) has not been established for combinatorial settings; existing results for single-item auctions do not generalize to multi-item settings with correlations.
+suggested_hypotheses:
+  - Deep neural network auction mechanisms (Dutting et al. "RochetNet" architecture) trained on the empirical distribution of FCC spectrum bidder preferences achieve within 5% of VCG optimal revenue while satisfying approximate strategyproofness (ex-post Nash equilibrium) with probability >0.95 over the training distribution.
+related_unknowns:
+  - u-mechanism-design-strategyproof-computational-frontier
+related_bridges:
+  - b-operations-research-market-design
+references:
+  - doi: "10.2307/2312726"
+    note: "Gale & Shapley (1962) — stable matching"
+  - doi: "10.1126/science.1154938"
+    note: "Roth (2008) Science 319:1069 — market design"
+last_reviewed: "2026-05-06"

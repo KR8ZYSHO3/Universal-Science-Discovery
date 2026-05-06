@@ -1,6 +1,6 @@
 # USDR Citation Index
 
-**2890 total citations · 2090 unique references · 285 cited in 2+ bridges**
+**3001 total citations · 2151 unique references · 304 cited in 2+ bridges**
 
 ## Most Cross-Domain Papers
 
@@ -18,6 +18,7 @@ Papers cited across the highest number of different bridges — the most influen
 | 5 | WBE derives 3/4 from area-preserving branching — the recursion relation is struc... | [DOI](10.1126/science.276.5309.122) |
 | 5 |  | [DOI](10.1103/PhysRev.106.620) |
 | 5 | Hopfield (1982) — associative memory energy model | [DOI](10.1073/pnas.79.8.2554) |
+| 5 | Hasan & Kane (2010) — comprehensive review of Z2 TI classification and experimen... | [DOI](10.1103/RevModPhys.82.3045) |
 | 4 | Bohigas et al. (1984) — Bohigas-Giannoni-Schmit conjecture: chaotic quantum syst... | [DOI](10.1103/PhysRevLett.52.1) |
 | 4 | Maynard Smith & Price (1973) — ESS and cyclical dynamics in zero-sum games | [DOI](10.1038/246015a0) |
 | 4 | Gonze et al. (2005) - quantitative Kuramoto model of SCN fits synchrony data wit... | [DOI](10.1529/biophysj.104.058388) |
@@ -29,6 +30,8 @@ Papers cited across the highest number of different bridges — the most influen
 | 4 | Beggs & Plenz (2003) — original neural avalanche paper establishing critical exp... | [DOI](10.1523/JNEUROSCI.23-35-11167.2003) |
 | 4 | Landauer (1961) — irreversibility and heat generation in computation | [DOI](10.1147/rd.53.0183) |
 | 3 | Tononi (2004) IIT — quantitative emergence measure; not connected to RG formalis... | [DOI](10.1186/1471-2202-5-42) |
+| 3 | Bryngelson & Wolynes (1987) — principle of minimal frustration: evolved sequence... | [DOI](10.1073/pnas.84.21.7524) |
+| 3 | Jumper et al. (2021) — AlphaFold2 architecture uses multiple sequence alignment ... | [DOI](10.1038/s41586-021-03819-2) |
 | 3 | Gardner et al. (2000) Nature 403:339 — toggle switch as testbed circuit | [DOI](10.1038/35002131) |
 | 3 | Price (1970) establishes the general decomposition applicable to cultural traits | [DOI](10.1038/227520a0) |
 | 3 | Xie et al. (2013) showed 60% faster amyloid-β clearance during sleep vs. wakeful... | [DOI](10.1126/science.1241224) |
@@ -42,6 +45,7 @@ Papers cited across the highest number of different bridges — the most influen
 | 3 | Cahill et al. (2003) — review of thermal transport in nanostructures; interface ... | [DOI](10.1063/1.1524305) |
 | 3 | Saw et al. 2017 — topological defects in epithelia determine cell fate; establis... | [DOI](10.1126/science.aar5663) |
 | 3 |  | [DOI](10.1038/30918) |
+| 3 | Aucott et al. (2013) PTLDS symptom burden and functional impairment — establishe... | [DOI](10.3389/fmed.2013.00057) |
 | 3 | Clark (2013) Behav Brain Sci — predictive coding framework motivating the precis... | [DOI](10.1017/S0140525X12000477) |
 | 3 | Amit et al. (1985) Phys Rev A 32:1007 — AGS capacity theorem | [DOI](10.1103/PhysRevA.32.1007) |
 | 3 | Crooks (1999) — Crooks fluctuation theorem; tighter and more statistically effic... | [DOI](10.1103/PhysRevE.60.2721) |
@@ -51,13 +55,9 @@ Papers cited across the highest number of different bridges — the most influen
 | 3 | Challet & Zhang (1997) - MG phase transition at alpha_c analogous to error thres... | [DOI](10.1016/S0378-4371(97)00419-6) |
 | 3 | Bennett (1973) — theoretical demonstration that reversible computation has zero ... | [DOI](10.1147/rd.173.0525) |
 | 3 | Taylor (1934) — original phenomenological derivation; α treated as empirical fit... | [DOI](10.1098/rspa.1934.0106) |
-| 3 | Hasan & Kane (2010) — comprehensive review of Z2 TI classification and experimen... | [DOI](10.1103/RevModPhys.82.3045) |
+| 3 | Kane & Mele (2005) — topological protection framework; exponential gap opening w... | [DOI](10.1103/PhysRevLett.95.146802) |
 | 3 | Vosoughi et al. (2018) Science: false news spreads faster and more broadly than ... | [DOI](10.1126/science.aap9559) |
 | 3 | Bettencourt et al. (2007) — β ≈ 1.15 for GDP and patents across US, European, Ch... | [DOI](10.1073/pnas.0610172104) |
-| 3 | Sood & Redner — voter model on heterogeneous graphs, consensus time scaling | [DOI](10.1103/PhysRevLett.94.178701) |
-| 3 | Engel et al. (2007) observe coherence signatures consistent with quantum transpo... | [DOI](10.1038/nature05678) |
-| 3 | Ryu & Takayanagi (2006) - holographic entanglement entropy: area formula connect... | [DOI](10.1103/PhysRevLett.96.181602) |
-| 3 | Freeman (1977) — theoretical framework for centrality measures; no epidemic vali... | [DOI](10.2307/3033543) |
 
 ## Citation Network
 
@@ -67,4 +67,4 @@ The full citation data is available at [`docs/citation_index.json`](citation_ind
 
 ## All Unique References
 
-The catalog currently references **2090 unique papers/books**.
+The catalog currently references **2151 unique papers/books**.

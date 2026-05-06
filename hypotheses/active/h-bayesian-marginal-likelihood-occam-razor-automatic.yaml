@@ -1,0 +1,49 @@
+id: h-bayesian-marginal-likelihood-occam-razor-automatic
+title: >
+  Bayesian model comparison via marginal likelihood P(E|M) = ∫ P(E|θ,M)P(θ|M)dθ
+  automatically implements Occam's razor — the model evidence penalizes complexity
+  proportional to the prior volume of unused parameter space — and this automatic
+  penalization is formally equivalent to the minimum description length (MDL)
+  principle and Fisher information geometry.
+status: active
+priority: medium
+impact_score: 0.71
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+
+evidence_links:
+  - note: "MacKay (1992) Neural Comput 4:415 — Bayesian evidence as Occam factor; systematic derivation of automatic complexity penalization"
+    type: supporting
+    confidence: 0.90
+  - note: "Jeffreys (1961) Theory of Probability — Jeffreys factors for model comparison; Bayes factor BF₁₂ = P(E|M₁)/P(E|M₂)"
+    type: supporting
+    confidence: 0.88
+  - note: "Rissanen (1978) — MDL and Bayesian evidence are equivalent to leading order in n; connecting information theory and Bayesian model selection"
+    type: supporting
+    confidence: 0.82
+
+unknowns_addressed:
+  - u-bayesian-old-evidence-problem
+
+proposed_tests:
+  - description: >
+      Systematic comparison of Bayesian model evidence vs. BIC, AIC, and cross-
+      validation on a benchmark of 50 regression datasets (from PMLB) with known
+      generative models at varying sample sizes n = 10, 100, 1000; measure how
+      often each criterion selects the true generative model.
+    method: "50 PMLB datasets; polynomial regression models of degree 1-10; marginal likelihood (Laplace approximation + HMC), BIC, AIC, 5-fold CV; model selection accuracy vs. n"
+    prediction: "Bayesian evidence outperforms AIC at all n and outperforms BIC for n < 100; at n=10, Bayesian evidence selects correct model 20% more often than AIC; automatic Occam penalization is most valuable in the small-data regime"
+  - description: >
+      Test MacKay's Occam factor derivation: for a linear regression model with k
+      parameters, compute the marginal likelihood P(data|k) analytically; compare
+      the Occam factor Δ = −(k/2) log n (from Laplace approximation) to the true
+      marginal likelihood; verify the Occam penalization scales as k/2·log(prior_volume/posterior_volume).
+    method: "Analytic computation for conjugate Gaussian linear model; numerical validation via HMC on non-conjugate models; comparison of Occam factor to BIC"
+    prediction: "Occam factor = (k/2)·log(posterior_shrinkage) within 5% for conjugate models; non-conjugate models show same scaling with <10% deviation for n > 10k; confirming automatic Occam's razor mechanism"
+
+related_disciplines:
+  - philosophy-of-science
+  - statistics
+  - Bayesian-inference
+  - information-theory

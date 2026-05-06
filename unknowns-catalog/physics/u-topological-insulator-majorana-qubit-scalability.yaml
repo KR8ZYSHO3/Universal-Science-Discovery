@@ -1,0 +1,40 @@
+id: u-topological-insulator-majorana-qubit-scalability
+title: Can Majorana zero modes at topological insulator-superconductor interfaces be scaled to a fault-tolerant topological qubit with error rates below the surface code threshold, and what materials platform minimizes quasiparticle poisoning?
+status: open
+priority: critical
+disciplines:
+  - physics
+  - materials-science
+  - quantum-computing
+  - condensed-matter-physics
+summary: >
+  Topological qubits based on Majorana zero modes (MZMs) promise fault-tolerant
+  quantum computation protected by non-Abelian anyon statistics (Kitaev 2003).
+  The exchange (braiding) of two MZMs implements a quantum gate without coupling
+  to local perturbations — topological protection. However, experimental
+  demonstration of true MZMs is contested. Microsoft's InAs/Al and InSb/Al
+  semiconductor nanowire platforms (Mourik et al. 2012, Kouwenhoven group)
+  initially reported zero-bias conductance peaks consistent with MZMs, but
+  subsequent retractions (Kayyalha et al. 2020; Zhang et al. 2021) established
+  that trivial Andreev bound states produce similar signatures. The 2022 Science
+  paper (Zhang et al.) claimed topological gap protocol validation; peer review
+  found the interpretation overstated. The fundamental problem: MZMs and trivial
+  Andreev bound states produce similar tunneling spectra unless the topological
+  gap is clean and non-local correlations are measured. Beyond detection, quasiparticle
+  poisoning (thermally excited bulk quasiparticles that pair with MZMs) sets
+  a coherence time limit of T₁ ~ ms at 20 mK — insufficient for gate-based computation.
+systematic_gaps:
+  - No experimental platform has unambiguously demonstrated a pair of spatially separated MZMs with non-local correlations (simultaneous zero-bias peaks at both ends of a wire with correlated noise) meeting the topological gap protocol criteria without alternative trivial explanations.
+  - The quasiparticle poisoning rate in the most advanced InAs/Al platforms has not been measured below the threshold required for topological qubit coherence (T_poison > T_braid ~ 100 ns); current estimates suggest poisoning rates 100-1000x too high at achievable temperatures.
+  - No braiding operation has been demonstrated experimentally in any topological platform; the only evidence for non-Abelian statistics comes from fractional quantum Hall systems (ν=5/2), not the semiconductor Majorana platforms, leaving the fault-tolerance claim unverified experimentally.
+suggested_hypotheses:
+  - Epitaxial InAs/Al heterostructures with Al film thickness 3–7 nm and In-face InAs (111) orientation will exhibit topological gap protocol-compliant signatures with topological gap Δ_topo > 100 μeV and quasiparticle poisoning time T_poison > 10 μs at 20 mK, sufficient for demonstration of a non-local Majorana qubit.
+related_unknowns:
+  - u-quantum-error-correction-threshold-experimental
+related_bridges:
+  - b-topological-materials-band-theory
+references:
+  - doi: "10.1103/RevModPhys.82.3045"
+    note: "Hasan & Kane (2010) — topological insulators review"
+  - note: "Kitaev (2003) Ann Phys 303:2 — fault-tolerant quantum computation via Majoranas"
+last_reviewed: "2026-05-06"

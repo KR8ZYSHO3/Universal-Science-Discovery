@@ -1,0 +1,51 @@
+id: h-hasselmann-red-noise-ocean-temperature-spectrum
+title: >
+  North Atlantic SST power spectra at frequencies below 1/(2 years) are statistically
+  indistinguishable from the Hasselmann red noise prediction S(ω) = σ²/(λ²+ω²)
+  with a damping timescale τ = 1/λ ≈ 8–12 months — confirming that decadal Atlantic
+  variability requires no coupled ocean-atmosphere resonance beyond integrated
+  atmospheric white noise.
+status: active
+priority: medium
+impact_score: 0.75
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+
+evidence_links:
+  - note: "Hasselmann (1976) Tellus 28:473 — original prediction of Lorentzian spectrum for ocean temperature; τ ≈ 1 year estimated from mixed layer depth and heat flux"
+    type: supporting
+    confidence: 0.85
+  - note: "Frankignoul & Hasselmann (1977) Tellus 29:289 — first validation against observed North Atlantic SST spectrum; red noise null hypothesis established"
+    type: supporting
+    confidence: 0.80
+  - type: contradicting
+    confidence: 0.60
+    note: "Deser & Blackmon (1993) J Climate — North Atlantic decadal variability shows some power above red noise at 10-13 year period; contested whether this is AMOC-coupled mode or red noise peak"
+
+unknowns_addressed:
+  - u-hasselmann-stochastic-resonance-glacial-mechanism
+
+proposed_tests:
+  - description: >
+      Fit Hasselmann OU model to HadSST4 North Atlantic SST anomalies (1850-2024)
+      using maximum likelihood estimation; estimate λ and σ² from autocorrelation
+      function; compare fitted red noise spectrum to observed multitaper power
+      spectrum; test whether observed spectrum is consistent with the fitted red
+      noise model using an F-test for spectral peaks.
+    method: "HadSST4 monthly SST; OU model MLE via Kalman filter; multitaper spectral estimation; Monte Carlo F-test for spectrum peaks (1000 red noise surrogate spectra)"
+    prediction: "No spectral peaks exceed the 95% red noise confidence interval at 2-50 year periods in the North Atlantic; damping timescale τ = 9±2 months (consistent with ocean mixed layer heat capacity ÷ surface heat flux coefficient); confirming Hasselmann's null hypothesis"
+  - description: >
+      Cross-regional test: fit Hasselmann model to SST spectra in 10 ocean basins
+      (North Atlantic, South Atlantic, North Pacific, South Pacific, Indian,
+      Southern, Arctic, Mediterranean, Caribbean, Arabian Sea); test whether τ
+      scales with mixed layer depth H as τ ∝ ρ_w c_p H / (λ_flux) where λ_flux
+      is the surface heat flux damping coefficient.
+    method: "EN4 ocean temperature profiles for mixed layer depth; NCEP reanalysis for surface heat flux; Hasselmann model fit per basin; regression τ vs. predicted timescale"
+    prediction: "τ scales with H/λ_flux with r² > 0.8 across 10 basins; τ ranges from 4 months (Arabian Sea shallow mixed layer) to 18 months (Southern Ocean deep mixed layer) — confirming the physical mechanism of atmospheric noise integration"
+
+related_disciplines:
+  - climate-science
+  - mathematics
+  - stochastic-processes
+  - oceanography

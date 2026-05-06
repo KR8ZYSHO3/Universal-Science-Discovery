@@ -1,5 +1,5 @@
 {
-  "count": 300,
+  "count": 315,
   "items": [
     {
       "id": "b-grokking-criticality",
@@ -1226,6 +1226,70 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\biology-chemistry\\b-lipid-bilayer-membrane-thermodynamics.yaml"
+    },
+    {
+      "id": "b-protein-folding-energy-landscape",
+      "title": "Protein folding is explained by the funnel-shaped energy landscape theory: the native state is a deep, narrow free energy minimum, folding follows a downhill path through G(Q) parameterized by fraction of native contacts Q, and AlphaFold2 implicitly learns this landscape via evolutionary covariance contact predictions with near-experimental accuracy.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Levinthal's paradox (1969): a 100-amino-acid protein has ~3^100 ≈ 10^48 conformations; even sampling at 10^13/s would take 10^27 years — far longer than the age of the universe. Yet proteins fold reproducibly in milliseconds to microseconds. Resolution: the energy landscape is funneled (Wolynes, Onu",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-protein-folding-funnel-alphafold2-contact-prediction-mechanism"
+      ],
+      "communication_gap": "The energy landscape framework was developed by theoretical biophysicists (Wolynes, Onuchic, Bryngelson, Dill) using statistical mechanics language not standard in biochemistry. Experimental protein chemists focused on Φ-value analysis and kinetics without the landscape framing. AlphaFold2 emerged from machine learning, disconnected from the biophysics theory. The theoretical prediction that AlphaFold2 implicitly computes the energy landscape minimum is not in the AlphaFold2 paper — it is a post-hoc interpretation that bridges the computational and theoretical communities.\n",
+      "translation_table": [
+        {
+          "field_a_term": "protein folding funnel",
+          "field_b_term": "funneled free energy landscape in configuration space G(Q)",
+          "note": "Native state = deep free energy minimum; denatured = broad entropic basin"
+        },
+        {
+          "field_a_term": "fraction of native contacts Q",
+          "field_b_term": "order parameter for folding phase transition",
+          "note": "Q ∈ [0,1]; two-state folding = first-order-like transition at Q*"
+        },
+        {
+          "field_a_term": "folding rate k_f = k₀ exp(−ΔG‡/RT)",
+          "field_b_term": "Arrhenius/Kramers rate for barrier crossing on free energy surface",
+          "note": "k₀ ~ 10^7 s⁻¹ for diffusion-limited contact formation"
+        },
+        {
+          "field_a_term": "Φ-value analysis (mutant effect on k_f and K_eq)",
+          "field_b_term": "probe of transition state structure — position of TS on folding funnel",
+          "note": "Φ ≈ 1 → residue natively structured in TS; Φ ≈ 0 → disordered"
+        },
+        {
+          "field_a_term": "stability gap (E_native − E_glass > δ)",
+          "field_b_term": "condition for directed folding vs. glass transition (Bryngelson-Wolynes)",
+          "note": "Evolution has optimized sequences to satisfy the stability gap"
+        },
+        {
+          "field_a_term": "AlphaFold2 evoformer attention",
+          "field_b_term": "learned approximation to minimum of G(Q) from evolutionary data",
+          "note": "Contact predictions from MSA covariation are a compressed representation of the landscape"
+        }
+      ],
+      "references": [
+        {
+          "note": "Levinthal (1969) J Chim Phys 65:44 — Levinthal's paradox statement"
+        },
+        {
+          "doi": "10.1073/pnas.84.21.7524",
+          "note": "Bryngelson & Wolynes (1987) PNAS 84:7524 — statistical mechanics of protein folding and spin glasses"
+        },
+        {
+          "doi": "10.1038/nsb0497-10",
+          "note": "Dill & Chan (1997) Nat Struct Biol 4:10 — from Levinthal to pathways to funnels"
+        },
+        {
+          "doi": "10.1038/s41586-021-03819-2",
+          "note": "Jumper et al. (2021) Nature 596:583 — AlphaFold2 protein structure prediction"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\biology-chemistry\\b-protein-folding-energy-landscape.yaml"
     },
     {
       "id": "b-crispr-programmable-genome-editing",
@@ -3462,6 +3526,130 @@
       "file": "cross-domain\\climate-science-mathematics\\b-navier-stokes-atmospheric-dynamics.yaml"
     },
     {
+      "id": "b-stochastic-climate-hasselmann",
+      "title": "Hasselmann's stochastic climate theory (1976) models slow ocean temperature as a Langevin equation dT/dt = −λT + σξ(t) forced by fast atmospheric white noise, predicting a red noise power spectrum S(ω) = σ²/(λ²+ω²) that matches observed ocean variability — the same Fokker-Planck framework as Brownian motion.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Hasselmann (1976, Nobel Prize in Physics 2021) derived a stochastic theory of climate variability by separating timescales: fast atmospheric \"weather\" fluctuations act as stochastic forcing on slow ocean variables, identical to how molecular collisions force a Brownian particle.\nThe Langevin equatio",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-hasselmann-red-noise-ocean-temperature-spectrum"
+      ],
+      "communication_gap": "Hasselmann published in Tellus, a meteorology journal, using statistical mechanics language; Benzi et al. (1982) published stochastic resonance simultaneously in physics and climate journals. The mathematical community working on SDEs and statistical mechanics did not engage with climate science until the 1990s-2000s. The Nobel Committee (2021) explicitly cited the cross-disciplinary nature of Hasselmann's work — climate physics required statistical mechanics.\n",
+      "translation_table": [
+        {
+          "field_a_term": "ocean surface temperature T(t)",
+          "field_b_term": "position of Brownian particle x(t) in Ornstein-Uhlenbeck process",
+          "note": "Ocean is the \"heavy particle\"; atmosphere is the molecular bath"
+        },
+        {
+          "field_a_term": "damping λ (surface heat flux restoring)",
+          "field_b_term": "friction coefficient in Langevin equation",
+          "note": "λ ≈ 10 W/m²/K for typical ocean mixed layer; τ = 1/λ ≈ months"
+        },
+        {
+          "field_a_term": "atmospheric weather fluctuations σξ(t)",
+          "field_b_term": "white noise forcing (delta-correlated)",
+          "note": "Weather decorrelates on ~10 days; ocean memory is months-centuries"
+        },
+        {
+          "field_a_term": "red noise power spectrum S(ω) = σ²/(λ²+ω²)",
+          "field_b_term": "Lorentzian spectrum of OU process — integrates white noise",
+          "note": "S(ω) ∝ 1/ω² at ω >> λ; flat at ω << λ (white noise for very slow variations)"
+        },
+        {
+          "field_a_term": "Fokker-Planck equation for P(T,t)",
+          "field_b_term": "diffusion equation with drift (statistical mechanics)",
+          "note": "Stationary solution: Gaussian P(T) ∝ exp(−λT²/σ²) — exactly Boltzmann distribution"
+        },
+        {
+          "field_a_term": "stochastic resonance in glacial cycles",
+          "field_b_term": "noise-induced enhancement of weak periodic signal in bistable system",
+          "note": "Optimal noise amplitude ≈ barrier height / correlation time"
+        }
+      ],
+      "references": [
+        {
+          "note": "Hasselmann, K. (1976) Tellus 28:473 — stochastic climate models"
+        },
+        {
+          "note": "Benzi et al. (1982) Tellus 34:10 — stochastic resonance and glacial cycles"
+        },
+        {
+          "note": "Frankignoul & Hasselmann (1977) Tellus 29:289 — observed SST spectrum matches red noise"
+        },
+        {
+          "note": "Palmer & Williams (eds.) (2010) Stochastic Physics and Climate Modelling. Cambridge University Press."
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\climate-science-mathematics\\b-stochastic-climate-hasselmann.yaml"
+    },
+    {
+      "id": "b-radiative-forcing-energy-balance",
+      "title": "Earth's greenhouse effect is governed by the same radiative transfer physics as blackbody emission and molecular spectroscopy — CO2 forcing ΔF = 5.35 ln(C/C₀) W/m² follows directly from Beer-Lambert absorption in the 15 μm bending band, and climate sensitivity is the Planck feedback plus amplifying thermodynamic feedbacks.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Earth's energy balance is a direct application of blackbody radiation physics. Incoming solar power: S₀/4·(1−α) ≈ 240 W/m² (α ≈ 0.30 planetary albedo). Outgoing longwave radiation: σT_eff⁴ where T_eff ≈ 255 K (effective emission temperature). The greenhouse effect arises because CO₂ absorbs and re-e",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-climate-sensitivity-emergent-constraint-water-vapor"
+      ],
+      "communication_gap": "Climate scientists use forcing and feedback language developed for policy communication, while physicists use spectroscopic language (transition moments, line strengths, pressure broadening). The mathematical connection — that ΔF = 5.35 ln(C/C₀) is a Taylor expansion of the Beer-Lambert law integrated over the HITRAN spectrum — is not taught in either physics or climate courses. Journal siloing between Journal of Geophysical Research (Atmospheres) and Journal of Quantitative Spectroscopy & Radiative Transfer has maintained the gap despite the two fields sharing fundamental physics.\n",
+      "translation_table": [
+        {
+          "field_a_term": "CO2 greenhouse effect",
+          "field_b_term": "Beer-Lambert absorption in 15 μm ν₂ bending band",
+          "note": "Same molecular physics; forcing is logarithmic because wings broaden as band saturates"
+        },
+        {
+          "field_a_term": "radiative forcing ΔF = 5.35 ln(C/C₀) W/m²",
+          "field_b_term": "integrated line absorption in pressure-broadened Lorentzian spectrum",
+          "note": "The coefficient 5.35 W/m² is an empirical fit to line-by-line radiative transfer calculations"
+        },
+        {
+          "field_a_term": "Planck feedback (−3.2 W/m²/K)",
+          "field_b_term": "Stefan-Boltzmann derivative: −dσT⁴/dT = −4σT³ ≈ −3.2 W/m²/K at T=255 K",
+          "note": "Exact blackbody physics; not a parameterization but a first-principles result"
+        },
+        {
+          "field_a_term": "water vapor feedback (+1.8 W/m²/K)",
+          "field_b_term": "Clausius-Clapeyron: d(ln p_sat)/dT = L/RT² ≈ 7%/K at 280 K",
+          "note": "Warmer air holds more water vapor, amplifying the greenhouse effect"
+        },
+        {
+          "field_a_term": "equilibrium climate sensitivity (ECS)",
+          "field_b_term": "inverse feedback parameter lambda = 1/(lambda_0_inv - f) where f = sum of feedbacks"
+        },
+        {
+          "field_a_term": "effective emission temperature T_eff = 255 K",
+          "field_b_term": "blackbody temperature at which σT⁴ = absorbed solar flux",
+          "note": "Difference from surface T ≈ 288 K (33 K) is the greenhouse warming"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1029/98GL01908",
+          "note": "Myhre et al. (1998) Geophys Res Lett 25:2715 — ΔF = 5.35 ln(C/C₀) formula"
+        },
+        {
+          "doi": "10.1175/1520-0469(1967)024<0241:TEOTAW>2.0.CO;2",
+          "note": "Manabe & Wetherald (1967) J Atmos Sci 24:241 — first GCM with water vapor feedback"
+        },
+        {
+          "doi": "10.1029/2019RG000678",
+          "note": "Sherwood et al. (2020) Rev Geophys 58:e2019RG000678 — ECS assessment, 2.6–3.9 K likely range"
+        },
+        {
+          "note": "IPCC AR6 WGI (2021) Chapter 7 — Energy budget and climate feedbacks"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\climate-science-physics\\b-radiative-forcing-energy-balance.yaml"
+    },
+    {
       "id": "b-efficient-coding-perception",
       "title": "The efficient coding hypothesis (Barlow 1961) unifies sensory neuroscience and information theory: retinal whitening, V1 Gabor receptive fields, and auditory log-frequency tuning all follow from maximizing Shannon information transmission per unit metabolic cost.\n",
       "source_domain": "",
@@ -4793,6 +4981,66 @@
       "file": "cross-domain\\ecology-economics\\b-commons-game-theory-ostrom.yaml"
     },
     {
+      "id": "b-climate-tick-range-lyme",
+      "title": "Climate warming, Ixodes tick range expansion, and Lyme disease incidence — an ecology–epidemiology bridge linking tick population dynamics and deer management to human disease burden.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Lyme disease is simultaneously an ecological and epidemiological problem, but the two communities use different models, metrics, and interventions. Ecology side: Ixodes scapularis (black-legged tick) requires a 3-host life cycle across 2 years, ≥50% relative humidity for survival and development, wh",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-ohio-lyme-deer-management-intervention"
+      ],
+      "communication_gap": "Tick ecologists and field biologists publish primarily in Parasitology, Journal of Medical Entomology, and Ecological Applications. Epidemiologists studying Lyme disease publish in Emerging Infectious Diseases, MMWR, and American Journal of Epidemiology. The mathematical epidemiologists who develop R₀ models rarely have field ecology training. State health departments (who collect human incidence data) do not coordinate surveillance efforts with state wildlife agencies (who manage deer populations), even though deer density is the primary lever for reducing tick burden. Climate scientists whose models generate habitat projections are largely disconnected from both communities. This fragmentation is a direct barrier to evidence-based Lyme prevention policy.\n",
+      "translation_table": [
+        {
+          "field_a_term": "deer density (ecology)",
+          "field_b_term": "tick abundance per unit area (epidemiology-relevant exposure metric)",
+          "note": "Deer density is the primary driver of adult tick reproductive success; epidemiology needs per-area tick nymph density as the proximal exposure metric"
+        },
+        {
+          "field_a_term": "Peromyscus leucopus reservoir competence (ecology)",
+          "field_b_term": "Borrelia force of infection from reservoir to tick (epidemiology)",
+          "note": "Reservoir competence (% nymphs infected after feeding on reservoir host) translates ecological data to epidemiological transmission parameters"
+        },
+        {
+          "field_a_term": "habitat suitability index for Ixodes scapularis (ecology/climate)",
+          "field_b_term": "geographic risk surface for human Lyme exposure (epidemiology)",
+          "note": "Ecological niche models can be converted to human exposure risk maps if calibrated with surveillance incidence data"
+        },
+        {
+          "field_a_term": "tick questing behavior / host-finding rate (ecology)",
+          "field_b_term": "contact rate between infectious vector and susceptible human (R₀ component)",
+          "note": "The core bridge between field ecology (tick behavior studies) and mathematical epidemiology (R₀ formulation)"
+        },
+        {
+          "field_a_term": "deer exclusion fence experiment (ecology)",
+          "field_b_term": "Lyme incidence reduction in treated area (epidemiology outcome)",
+          "note": "Daniels et al. (1993) showed deer exclusion reduces tick density; the epidemiological translation to human cases has not been rigorously quantified"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1016/j.ijpara.2008.01.014",
+          "note": "Ogden et al. (2008) Role of migratory birds in introduction and range expansion of Ixodes scapularis ticks and of Borrelia burgdorferi and Anaplasma phagocytophilum in Canada. Int J Parasitol 38:887–897."
+        },
+        {
+          "doi": "10.3201/eid2703.201994",
+          "note": "Kugeler et al. (2021) Estimated annual infections of Lyme disease, United States, 2010–2018. Emerg Infect Dis 27:616."
+        },
+        {
+          "doi": "10.1111/j.1461-0248.2008.01159.x",
+          "note": "Brunner et al. (2008) Hosts as ecological traps for the vector of Lyme disease. Ecol Lett 11:820–828."
+        },
+        {
+          "doi": "10.1038/s41598-019-43105-4",
+          "note": "Bouchard et al. (2019) Harvested white-tailed deer as sentinel hosts for early establishing Ixodes scapularis populations and risk of Lyme disease in Quebec, Canada. Sci Rep 9:6694."
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\ecology-epidemiology\\b-climate-tick-range-lyme.yaml"
+    },
+    {
       "id": "b-ess-ecosystem-dynamics",
       "title": "Maynard Smith's evolutionarily stable strategies are Nash equilibria of the ecological game: replicator dynamics on the strategy simplex unifies evolutionary game theory with Lotka-Volterra competition, and rock-paper-scissors cyclic dominance maintains biodiversity.\n",
       "source_domain": "",
@@ -5896,6 +6144,68 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\economics-ecology\\b-lotka-volterra-market-dynamics.yaml"
+    },
+    {
+      "id": "b-natural-capital-ecosystem-services",
+      "title": "Ecosystem services (pollination, water purification, carbon sequestration, flood control) are natural capital whose economic value ($33–125 trillion/year) is systematically excluded from market prices — a Pigouvian externality that requires carbon/biodiversity credits or national natural capital accounting (UN SEEA) to internalize into welfare-maximizing decisions.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Ecology produces \"services\" — quantifiable flows of benefit to human welfare — that are economically analogous to any other factor of production (labor, physical capital). Costanza et al. (1997) estimated the global value of 17 ecosystem service categories at $33 trillion/year (revised to $125 trill",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-ecosystem-services-pigouvian-subsidy-biodiversity-market"
+      ],
+      "communication_gap": "Costanza et al. (1997) in Nature sparked controversy partly because economists objected to valuing non-market goods and ecologists objected to reducing biodiversity to dollar values. This disciplinary discomfort has slowed adoption of natural capital accounting despite the mathematical consistency of the approach with standard welfare economics. Environmental economics journals (Journal of Environmental Economics and Management) and ecology journals (Ecological Applications) rarely cite each other despite working on the same empirical problems.\n",
+      "translation_table": [
+        {
+          "field_a_term": "ecosystem services (pollination, water filtration)",
+          "field_b_term": "factor inputs in production function Y = f(K, L, N)",
+          "note": "Natural capital N is a third factor of production alongside physical (K) and human (L) capital"
+        },
+        {
+          "field_a_term": "ecosystem service value (willingness-to-pay)",
+          "field_b_term": "shadow price of non-market goods",
+          "note": "Estimated via hedonic pricing, travel cost, or contingent valuation methods"
+        },
+        {
+          "field_a_term": "habitat destruction externality",
+          "field_b_term": "Pigouvian externality — private benefit exceeds social benefit",
+          "note": "Optimal policy: Pigouvian tax on conversion = marginal ecosystem service value"
+        },
+        {
+          "field_a_term": "biodiversity as natural capital stock",
+          "field_b_term": "capital stock K in neoclassical growth model",
+          "note": "Depletion below minimum viable population is analogous to running down capital to zero"
+        },
+        {
+          "field_a_term": "Payment for Ecosystem Services (PES)",
+          "field_b_term": "Pigouvian subsidy to align private and social returns",
+          "note": "PES pays landowners the externality value they forgo by not converting habitat"
+        },
+        {
+          "field_a_term": "UN SEEA ecosystem accounts",
+          "field_b_term": "balance sheet entry for natural capital (alongside financial and physical capital)",
+          "note": "Extends SNA (System of National Accounts) to include ecosystem assets"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1038/387253a0",
+          "note": "Costanza et al. (1997) Nature 387:253 — global ecosystem services valuation"
+        },
+        {
+          "note": "Daily, G.C. (ed.) (1997) Nature's Services. Island Press."
+        },
+        {
+          "note": "Dasgupta, P. (2021) The Economics of Biodiversity. HM Treasury, UK Government."
+        },
+        {
+          "note": "TEEB (2010) The Economics of Ecosystems and Biodiversity. UNEP."
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\economics-ecology\\b-natural-capital-ecosystem-services.yaml"
     },
     {
       "id": "b-efficient-markets-martingale",
@@ -7472,6 +7782,70 @@
       "file": "cross-domain\\engineering-physics\\b-tesla-resonant-wireless-power.yaml"
     },
     {
+      "id": "b-operations-research-market-design",
+      "title": "Operations research (linear programming, matching algorithms) provides the computational backbone of modern market design — the Gale-Shapley deferred acceptance algorithm achieves stable matching in O(n²), kidney exchange is maximum-weight matching on compatibility graphs, and spectrum auctions are NP-hard combinatorial optimization problems in practice.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Operations research (OR) develops algorithms for resource allocation under constraints. Market design applies these algorithms to real economic markets — transforming abstract optimization theory into institutions that match people to organs, students to schools, and spectrum licenses to telecoms.\nL",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-gale-shapley-deferred-acceptance-stability-uniqueness"
+      ],
+      "communication_gap": "OR was developed as an engineering discipline (Dantzig, RAND Corporation, 1940s-60s) with applications to logistics and military operations. Market design emerged in economics (Roth, Wilson) in the 1980s-90s largely independently. The explicit connection — that market design is applied OR — was made by practitioners (Roth brought in OR specialists for kidney exchange algorithms) but is not standard in economics PhD curricula. Operations Research journals (Management Science, Operations Research) and economics journals (American Economic Review) have low cross-citation rates despite shared mathematical foundations.\n",
+      "translation_table": [
+        {
+          "field_a_term": "stable matching (Gale-Shapley)",
+          "field_b_term": "maximum weight matching with stability constraints on bipartite graph",
+          "note": "Stability = Nash equilibrium of decentralized matching game"
+        },
+        {
+          "field_a_term": "deferred acceptance (DA) algorithm",
+          "field_b_term": "iterative auction where highest bidder holds tentative allocation",
+          "note": "DA is strategy-proof for the proposing side — truthful preference revelation is optimal"
+        },
+        {
+          "field_a_term": "kidney exchange compatibility graph",
+          "field_b_term": "maximum weight cycle cover problem (NP-hard for k>2 cycles)",
+          "note": "Practical solution: integer programming with cycle/chain length constraints"
+        },
+        {
+          "field_a_term": "LP dual variables (shadow prices)",
+          "field_b_term": "equilibrium prices in competitive market (Walrasian equilibrium)",
+          "note": "By LP duality, every LP optimum corresponds to competitive equilibrium prices"
+        },
+        {
+          "field_a_term": "FCC spectrum repacking constraint satisfaction",
+          "field_b_term": "NP-hard combinatorial auction design",
+          "note": "Feasibility check (can n stations be repacked into fewer channels?) is NP-complete"
+        },
+        {
+          "field_a_term": "strategy-proof mechanism",
+          "field_b_term": "dominant strategy incentive compatible (DSIC) mechanism",
+          "note": "DA is DSIC for proposers (Roth 1982); not for receivers — hospitals can game"
+        }
+      ],
+      "references": [
+        {
+          "note": "Dantzig (1963) Linear Programming and Extensions. Princeton University Press."
+        },
+        {
+          "doi": "10.2307/2312726",
+          "note": "Gale & Shapley (1962) Am Math Mon 69:9 — college admissions and stable marriage"
+        },
+        {
+          "doi": "10.1257/aer.89.4.748",
+          "note": "Roth & Peranson (1999) Am Econ Rev 89:748 — NRMP redesign using DA"
+        },
+        {
+          "doi": "10.1126/science.1154938",
+          "note": "Roth (2008) Science 319:1069 — kidney exchange as market design"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\engineering-social-science\\b-operations-research-market-design.yaml"
+    },
+    {
       "id": "b-sir-percolation",
       "title": "The SIR epidemic model is bond percolation on a contact network — the epidemic threshold 1/R₀ equals the percolation threshold p_c, and herd immunity is the destruction of the giant connected component of susceptible individuals.\n",
       "source_domain": "",
@@ -7676,6 +8050,73 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\geology-statistical-physics\\b-earthquake-soc.yaml"
+    },
+    {
+      "id": "b-seismic-tomography-inverse-problems",
+      "title": "Seismic tomography infers Earth's 3D velocity structure from P-wave travel times via the same Tikhonov-regularized linear inverse theory used in medical imaging and geophysical prospecting, with adjoint-state methods computing sensitivity kernels efficiently through forward + adjoint wavefield simulations.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Seismic tomography reconstructs the 3D P-wave velocity structure v(x) of Earth's interior from travel time measurements tᵢⱼ = ∫_ray ds/v(x). The ray integral is linearized about a reference model v₀(x): δtᵢⱼ = −∫_ray (δv/v₀²) ds, yielding a linear system d = Gm + ε where d is the vector of travel ti",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-seismic-adjoint-tomography-resolves-mantle-plumes"
+      ],
+      "communication_gap": "Inverse problem theory was developed in applied mathematics (Tikhonov 1977, Tarantola 1987) and has parallel developments in geophysics, medical imaging, and remote sensing. Seismologists developed their own regularization methods often unaware of the mathematical literature. The adjoint-state method was well-known in optimal control theory (Pontryagin, 1962) decades before Tromp et al. (2005) derived it for seismology. Journal boundaries between SIAM Journal on Applied Mathematics and Geophysical Journal International maintain the gap.\n",
+      "translation_table": [
+        {
+          "field_a_term": "P-wave travel time residual δt",
+          "field_b_term": "data vector d in linear inverse problem d = Gm + ε"
+        },
+        {
+          "field_a_term": "3D velocity perturbation δv/v",
+          "field_b_term": "model vector m to be estimated"
+        },
+        {
+          "field_a_term": "ray-path sensitivity matrix G",
+          "field_b_term": "forward operator (Radon-like transform)",
+          "note": "G is sparse — each ray samples only a subset of model cells"
+        },
+        {
+          "field_a_term": "Tikhonov regularization α||Lm||²",
+          "field_b_term": "prior information / smoothness constraint on model",
+          "note": "Equivalent to Bayesian inference with Gaussian prior precision α²LᵀL"
+        },
+        {
+          "field_a_term": "checkerboard test",
+          "field_b_term": "point spread function / resolution matrix R = G†G",
+          "note": "Recovered checkerboard reveals where R ≈ I (well-resolved) vs. R ≈ 0 (null space)"
+        },
+        {
+          "field_a_term": "adjoint-state sensitivity kernel K(x)",
+          "field_b_term": "Fréchet derivative of misfit with respect to model parameter",
+          "note": "Computed by cross-correlating forward and adjoint wavefields — O(1) backward pass"
+        },
+        {
+          "field_a_term": "full waveform inversion (FWI)",
+          "field_b_term": "nonlinear iterative gradient descent on waveform misfit",
+          "note": "Same structure as neural network backpropagation — gradient via adjoint method"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1029/JB082i002p00239",
+          "note": "Dziewonski et al. (1977) JGR 82:239 — first global P-wave tomography"
+        },
+        {
+          "note": "Tikhonov & Arsenin (1977) Solutions of Ill-Posed Problems. V.H. Winston & Sons."
+        },
+        {
+          "doi": "10.1111/j.1365-246X.2005.02489.x",
+          "note": "Tromp, Tape & Liu (2005) Geophys J Int 160:195 — adjoint-state sensitivity kernels for seismology"
+        },
+        {
+          "doi": "10.1016/j.earscirev.2012.02.010",
+          "note": "Liu & Gu (2012) Earth Sci Rev 112:25 — seismic tomography review"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\geophysics-mathematics\\b-seismic-tomography-inverse-problems.yaml"
     },
     {
       "id": "b-kriging-geostatistics",
@@ -8016,6 +8457,61 @@
       "file": "cross-domain\\immunology-materials-science\\b-lipid-nanoparticle-mrna-delivery.yaml"
     },
     {
+      "id": "b-borrelia-immune-evasion",
+      "title": "Borrelia burgdorferi's VlsE antigenic variation and complement evasion — studied separately in microbiology and immunology — together constitute a unified immune-escape architecture with direct therapeutic implications.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Borrelia burgdorferi evades host immunity through two mechanistically distinct but synergistic strategies that span the microbiology–immunology boundary. (1) Antigenic variation (VlsE): Borrelia encodes 15+ silent vls cassettes on a linear plasmid (lp36). During mammalian infection, segmental gene c",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-borrelia-triple-combo-persister-eradication"
+      ],
+      "communication_gap": "Lyme disease microbiology researchers (Borrelia molecular biology, plasmid genetics, gene conversion) publish primarily in Infection and Immunity, Journal of Bacteriology, and mBio. Clinical immunologists studying PTLDS and seronegative Lyme publish in Clinical Infectious Diseases, Arthritis & Rheumatology, and Frontiers in Medicine. The molecular biology of VlsE is rarely discussed in clinical immunology papers, and immunological consequences of antigenic variation are rarely quantified in microbiology papers. Structural biologists who could design CRASP-blocking drugs are largely absent from Lyme disease conferences.\n",
+      "translation_table": [
+        {
+          "field_a_term": "VlsE gene conversion rate (microbiology)",
+          "field_b_term": "rate of antibody escape (immunology)",
+          "note": "Each gene conversion event produces a new antigenic variant; the rate sets how quickly humoral immunity is defeated"
+        },
+        {
+          "field_a_term": "vls silent cassette diversity on lp36 (microbiology)",
+          "field_b_term": "breadth of antibody evasion space (immunology)",
+          "note": "Greater cassette diversity means more variants can be generated, overwhelming the adaptive immune repertoire"
+        },
+        {
+          "field_a_term": "CRASP-Factor H binding affinity (microbiology/structural biology)",
+          "field_b_term": "complement evasion efficiency (immunology)",
+          "note": "Higher CRASP-FH binding Kd directly predicts reduced C3b deposition and serum resistance"
+        },
+        {
+          "field_a_term": "OspC downregulation timing (microbiology)",
+          "field_b_term": "window of antibody vulnerability (immunology)",
+          "note": "OspC is expressed only briefly during tick feeding — antibody targeting requires vaccines that act within this narrow window"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1128/IAI.69.10.6678-6686.2001",
+          "note": "Labandeira-Rey & Skare (2001) Decreased infectivity in Borrelia burgdorferi strain B31 is associated with loss of linear plasmid 25 or 28-1. Infect Immun 69:6678."
+        },
+        {
+          "doi": "10.1016/S0092-8674(00)80448-6",
+          "note": "Zhang et al. (1997) Antigenic variation in Lyme disease borreliae by promiscuous recombination of VMP-like sequence cassettes. Cell 89:275–285."
+        },
+        {
+          "doi": "10.1016/j.micinf.2005.12.027",
+          "note": "Kraiczy & Würzner (2006) Complement escape of human pathogenic bacteria by acquisition of complement regulators. Microbes Infect 8:1298–1307."
+        },
+        {
+          "doi": "10.1038/nrdp.2016.90",
+          "note": "Steere et al. (2016) Lyme disease. Nat Rev Dis Primers 2:16090."
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\immunology-microbiology\\b-borrelia-immune-evasion.yaml"
+    },
+    {
       "id": "b-immune-network-idiotypic",
       "title": "Jerne's immune network theory (1974) — antibodies recognising other antibodies (idiotypes) form a self-regulating scale-free network whose attractor dynamics implement immune memory and self-tolerance — is formally equivalent to a Hopfield associative memory network; immunological disorders correspond to network bifurcations.\n",
       "source_domain": "",
@@ -8073,6 +8569,69 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\immunology-network-science\\b-immune-network-idiotypic.yaml"
+    },
+    {
+      "id": "b-immune-recognition-statistical-pattern-detection",
+      "title": "The adaptive immune system solves a high-dimensional pattern detection problem using stochastic V(D)J recombination to generate a diverse receptor repertoire, thymic selection to set affinity thresholds, and clonal expansion as a Bayesian posterior update — mathematically equivalent to a noisy channel decoder for self/non-self discrimination.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The adaptive immune system must recognize ~10¹⁵ possible foreign antigens using only ~10⁷ circulating T-cell clones (each with a distinct T-cell receptor, TCR). This is a covering problem: the T-cell repertoire must collectively \"cover\" pathogen space while avoiding self-peptides. The physics and ma",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-tcr-repertoire-percolation-threshold-pathogen-coverage"
+      ],
+      "communication_gap": "Theoretical immunology (Perelson, Nowak) uses statistical physics and information theory, but clinical immunologists rarely read physics journals. The maximum entropy / statistical mechanics framework for immune diversity (Mora & Bialek) is published in J Stat Phys but rarely cited in immunology literature. Conversely, the rich experimental data on thymic selection and clonal dynamics in clinical immunology papers is underused by the theoretical physics community. NIH study sections fund immunology and physics separately.\n",
+      "translation_table": [
+        {
+          "field_a_term": "V(D)J recombination diversity (~10¹⁸ possible TCR sequences)",
+          "field_b_term": "random code ensemble in Shannon coding theory",
+          "note": "Repertoire diversity is the code rate; thymic selection is the decoder"
+        },
+        {
+          "field_a_term": "thymic selection affinity window (1 nM < K_D < 10 μM)",
+          "field_b_term": "likelihood ratio threshold in Neyman-Pearson detection",
+          "note": "Selection implements a decision threshold on TCR-pMHC binding affinity"
+        },
+        {
+          "field_a_term": "T-cell repertoire covering pathogen shape space",
+          "field_b_term": "percolation threshold in random covering theory",
+          "note": "Minimum N_T to cover pathogen space is a geometric percolation problem"
+        },
+        {
+          "field_a_term": "clonal expansion upon antigen recognition",
+          "field_b_term": "Bayesian posterior update (likelihood × prior)",
+          "note": "Clonal expansion ∝ P(pathogen | TCR binding) — amplifies matching clones"
+        },
+        {
+          "field_a_term": "immunological memory (long-lived plasma cells)",
+          "field_b_term": "sufficient statistic of past Bayesian updates",
+          "note": "Memory cells encode the posterior from past infections — compressed experience"
+        },
+        {
+          "field_a_term": "self/non-self discrimination",
+          "field_b_term": "binary hypothesis testing in a noisy channel (Shannon)",
+          "note": "Thymic deletion = error correction for false positives (autoimmunity risk)"
+        }
+      ],
+      "references": [
+        {
+          "note": "Burnet (1959) The Clonal Selection Theory of Acquired Immunity. Cambridge University Press."
+        },
+        {
+          "doi": "10.1016/S0092-8674(02)00761-7",
+          "note": "Germain (2002) Cell 109:291 — T-cell development and selection review"
+        },
+        {
+          "note": "Perelson & Oster (1979) J Theor Biol 81:645 — shape space and repertoire covering theory"
+        },
+        {
+          "doi": "10.1007/s10955-011-0295-3",
+          "note": "Mora & Bialek (2011) J Stat Phys 144:268 — maximum entropy model of TCR repertoire"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\immunology-physics\\b-immune-recognition-statistical-pattern-detection.yaml"
     },
     {
       "id": "b-error-threshold-information",
@@ -8447,6 +9006,72 @@
       "file": "cross-domain\\linguistics-information\\b-zipf-optimal-coding.yaml"
     },
     {
+      "id": "b-formal-grammar-automata-theory",
+      "title": "Chomsky's hierarchy of formal grammars (regular, context-free, context-sensitive, recursively enumerable) is isomorphic to a hierarchy of computational automata (finite state machines, pushdown automata, linear-bounded automata, Turing machines), and natural human language sits above context-free in the mildly context-sensitive class.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Chomsky (1956, 1959) identified a hierarchy of formal languages classified by the computational power required to generate or recognize them. The four levels and their automaton equivalences: — Type 3 (Regular): right-linear grammars → finite state automata (FSA).\n  Languages: a^n b^n is NOT regular",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-natural-language-mildly-context-sensitive-transformer-approximation"
+      ],
+      "communication_gap": "Chomsky's original hierarchy was developed in linguistics for theoretical syntax, but the computational automaton equivalences were worked out by computer scientists (Rabin & Scott 1959, Hopcroft & Ullman 1979). Linguists largely abandoned formal language theory after the \"cognitive revolution\" in favor of minimalist syntax; computer scientists use it for compiler theory. The empirical question of where natural language sits in the hierarchy — requiring careful corpus analysis and psycholinguistic experiments — falls between the two fields with no natural disciplinary home.\n",
+      "translation_table": [
+        {
+          "field_a_term": "phrase structure grammar (CFG)",
+          "field_b_term": "pushdown automaton (stack machine)",
+          "note": "Every CFG has an equivalent PDA; CYK algorithm parses in O(n³)"
+        },
+        {
+          "field_a_term": "regular expression (morphological rule)",
+          "field_b_term": "finite state automaton (FSA)",
+          "note": "English morphology (pluralization, past tense) is efficiently modeled as FSA"
+        },
+        {
+          "field_a_term": "center-embedded relative clause",
+          "field_b_term": "stack depth in pushdown automaton",
+          "note": "Human working memory limits stack depth to ~2-3 levels empirically"
+        },
+        {
+          "field_a_term": "tree-adjoining grammar (TAG)",
+          "field_b_term": "mildly context-sensitive language (O(n⁶) parsing)",
+          "note": "TAG captures cross-serial dependencies while remaining polynomially parseable"
+        },
+        {
+          "field_a_term": "transformer attention head",
+          "field_b_term": "approximate finite state transducer",
+          "note": "Each attention head learns approximately a relation between positions — a soft FSA"
+        },
+        {
+          "field_a_term": "V(D)J recombination in immunology (analogy)",
+          "field_b_term": "stochastic context-free grammar for receptor generation",
+          "note": "Immune receptor diversity modeled as SCFG; cross-domain connection to immunology"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1109/TIT.1956.1056813",
+          "note": "Chomsky (1956) IRE Trans Inf Theory 2:113 — the original hierarchy paper"
+        },
+        {
+          "note": "Joshi, Levy & Takahashi (1975) JACM 22:130 — tree-adjoining grammars and mildly context-sensitive languages"
+        },
+        {
+          "note": "Hopcroft, Motwani & Ullman (2006) Introduction to Automata Theory, Languages, and Computation. Pearson."
+        },
+        {
+          "note": "Manning & Schütze (1999) Foundations of Statistical Natural Language Processing. MIT Press."
+        },
+        {
+          "doi": "10.1162/ling_a_00400",
+          "note": "Shieber (1985) Linguistics & Philosophy — evidence that Swiss German is not context-free"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\linguistics-mathematics\\b-formal-grammar-automata-theory.yaml"
+    },
+    {
       "id": "b-language-biomarker-diagnosis",
       "title": "Computational linguistics measures of syntactic complexity, semantic coherence, and speech-rate variability serve as non-invasive biomarkers of neural health — detecting Alzheimer's disease, depression, and psychotic-spectrum formal thought disorder years before clinical presentation.\n",
       "source_domain": "",
@@ -8805,6 +9430,69 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\materials-science-biology\\b-gecko-adhesion-van-der-waals.yaml"
+    },
+    {
+      "id": "b-phase-diagrams-alloy-design",
+      "title": "Binary and multi-component alloy phase diagrams are thermodynamic predictions of Gibbs free energy minimization — CALPHAD parameterizes G(T,x) from sublattice models, and high-entropy alloys exploit large configurational entropy ΔS_mix = −R Σxᵢ ln(xᵢ) to stabilize single-phase solid solutions.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Phase diagrams are maps of thermodynamic equilibrium: for a given composition and temperature, which phase (or mixture of phases) minimizes the total Gibbs free energy G = H − TS? The phase boundary locations follow from the common tangent construction on G(x) curves. This bridges thermodynamic chem",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-high-entropy-alloy-configurational-entropy-stabilization"
+      ],
+      "communication_gap": "CALPHAD was developed by metallurgists (Kaufman, Hillert, Pelton) and is taught primarily in materials science and metallurgical engineering programs. Chemists studying solution thermodynamics and physicists studying phase transitions use the same Gibbs free energy formalism but different parameterizations. The HEA field emerged partly because materials scientists recognized entropy arguments from statistical thermodynamics — a cross-fertilization that happened within materials science but is still not widely known in physical chemistry departments.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Gibbs free energy G = H − TS",
+          "field_b_term": "phase stability criterion — phase with lowest G is stable",
+          "note": "Phase boundaries are loci where ΔG = 0 between two competing phases"
+        },
+        {
+          "field_a_term": "common tangent construction",
+          "field_b_term": "phase coexistence rule (two-phase region in phase diagram)",
+          "note": "Tie lines connect phases in equilibrium at the same chemical potential"
+        },
+        {
+          "field_a_term": "Hume-Rothery size rule (<15% radius difference)",
+          "field_b_term": "elastic strain energy ΔH_elastic from size mismatch",
+          "note": "Derived from continuum elasticity theory for substitutional defect"
+        },
+        {
+          "field_a_term": "CALPHAD Redlich-Kister interaction parameter L_k",
+          "field_b_term": "excess Gibbs energy of mixing (deviation from ideal solution)",
+          "note": "Fitted to binary experiments; enables ternary/quaternary predictions"
+        },
+        {
+          "field_a_term": "configurational entropy ΔS_mix = −R Σxᵢ ln(xᵢ)",
+          "field_b_term": "HEA stabilization: −TΔS_mix lowers G of solid solution",
+          "note": "At high T, entropy term dominates; at low T, enthalpy terms may drive phase separation"
+        },
+        {
+          "field_a_term": "martensite transformation",
+          "field_b_term": "diffusionless first-order phase transition (military transformation)",
+          "note": "Shear-dominated; Bain correspondence relates parent and product crystal structures"
+        }
+      ],
+      "references": [
+        {
+          "note": "Hume-Rothery (1926) J Inst Met 35:295 — empirical rules for solid solution formation"
+        },
+        {
+          "note": "Saunders & Miodownik (1998) CALPHAD: A Comprehensive Guide. Pergamon Press."
+        },
+        {
+          "doi": "10.1016/j.msea.2003.10.257",
+          "note": "Cantor et al. (2004) Mater Sci Eng A 375:213 — first report of CrMnFeCoNi HEA"
+        },
+        {
+          "doi": "10.1038/s41578-019-0121-4",
+          "note": "George et al. (2019) Nat Rev Mater 4:515 — high-entropy alloys review"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\materials-science-chemistry\\b-phase-diagrams-alloy-design.yaml"
     },
     {
       "id": "b-fracture-mechanics-griffith",
@@ -10654,6 +11342,70 @@
       "file": "cross-domain\\mathematics-neuroscience\\b-dynamical-systems-neural-oscillations.yaml"
     },
     {
+      "id": "b-reinforcement-learning-dopamine",
+      "title": "The temporal difference (TD) prediction error δ_t = r_t + γV(s_{t+1}) − V(s_t) in reinforcement learning is exactly implemented by dopaminergic neurons in the ventral tegmental area — firing rates encode δ: burst on positive surprise, pause on negative surprise, silence on accurate prediction — the tightest known neuroscience-AI correspondence.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Temporal difference (TD) learning (Sutton 1988; Sutton & Barto 1998) defines the prediction error: δ_t = r_t + γV(s_{t+1}) − V(s_t), where r_t is the reward received, γ ∈ (0,1) is the discount factor, and V(s) is the estimated value function (expected future discounted reward). The value function is",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-td-prediction-error-dopamine-burst-identity-schultz"
+      ],
+      "communication_gap": "The TD-dopamine identity was established in 1997, but the two communities (RL theory and systems neuroscience) continue to evolve largely independently. Computer science RL research rarely cites the neuroscience beyond the Schultz 1997 paper; neuroscientists rarely read the ICML/NeurIPS literature. The distributional RL-dopamine connection (Dabney 2020) required direct collaboration between DeepMind and neuroscientists — exceptional rather than routine.\n",
+      "translation_table": [
+        {
+          "field_a_term": "TD prediction error δ_t = r_t + γV(s_{t+1}) − V(s_t)",
+          "field_b_term": "dopamine neuron firing rate deviation from baseline",
+          "note": "Burst = δ > 0; pause = δ < 0; no change = δ = 0 (prediction correct)"
+        },
+        {
+          "field_a_term": "value function V(s) = E[Σ γᵏ r_{t+k}]",
+          "field_b_term": "subjective expected value of a state",
+          "note": "Represented in striatum and OFC; updated via dopaminergic TD signal"
+        },
+        {
+          "field_a_term": "discount factor γ ∈ (0,1)",
+          "field_b_term": "temporal discounting of future rewards (hyperbolic discounting in humans ≈ 1/(1+kd))",
+          "note": "Humans show hyperbolic discounting; TD uses exponential — a known discrepancy"
+        },
+        {
+          "field_a_term": "Q(s,a) action-value function",
+          "field_b_term": "striatal action-value representation (medium spiny neuron activity)",
+          "note": "D1-MSNs: direct pathway (Go, δ > 0 → LTP); D2-MSNs: indirect (NoGo, δ < 0 → LTD)"
+        },
+        {
+          "field_a_term": "policy update via TD error (actor-critic)",
+          "field_b_term": "dopamine-modulated synaptic plasticity in striatum",
+          "note": "DA release → D1/D2 receptor activation → LTP/LTD → policy change"
+        },
+        {
+          "field_a_term": "distributional RL (quantile regression)",
+          "field_b_term": "heterogeneous dopamine neuron responses encoding different return quantiles",
+          "note": "Dabney et al. (2020) Nature — different DA neurons encode optimistic/pessimistic predictions"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1126/science.275.5306.1593",
+          "note": "Schultz, Dayan & Montague (1997) Science 275:1593 — dopamine as TD prediction error"
+        },
+        {
+          "doi": "10.1523/JNEUROSCI.16-05-01936.1996",
+          "note": "Montague, Dayan & Sejnowski (1996) J Neurosci 16:1936 — predictive Hebbian learning"
+        },
+        {
+          "note": "Sutton & Barto (2018) Reinforcement Learning: An Introduction. 2nd ed. MIT Press."
+        },
+        {
+          "doi": "10.1038/nature14236",
+          "note": "Mnih et al. (2015) Nature 518:529 — Deep Q-Network (DQN) superhuman Atari performance"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\mathematics-neuroscience\\b-reinforcement-learning-dopamine.yaml"
+    },
+    {
       "id": "b-spectral-graph-theory-connectome",
       "title": "Graph Laplacian eigenmodes of the structural connectome define the brain's harmonic resonances — resting-state fMRI networks align with low-frequency Laplacian eigenvectors, bridging spectral graph theory to systems neuroscience.\n",
       "source_domain": "",
@@ -12115,6 +12867,66 @@
       "file": "cross-domain\\neuroscience-fluid-dynamics\\b-glymphatic-cerebrospinal-fluid.yaml"
     },
     {
+      "id": "b-neurolyme-neuroinflammation",
+      "title": "Lyme neuroborreliosis links blood-brain barrier biology (neuroscience) to TLR-mediated cytokine signaling (immunology) through a BBB-crossing and neuroinflammation cascade that can become self-sustaining after bacterial clearance.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "proposed",
+      "bridge_claim": "Lyme neuroborreliosis (LNB) requires understanding at two levels that belong to different research communities. Neuroscience side: Borrelia crosses the blood-brain barrier (BBB) via a Trojan-horse mechanism — infecting perivascular macrophages or transcytosing directly through brain endothelial cell",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-ptlds-neuroinflammation-il6-blockade"
+      ],
+      "communication_gap": "Lyme neuroborreliosis is primarily managed by infectious disease specialists and neurologists who focus on antibiotic treatment. Neuroimmunologists who study self-sustaining neuroinflammation (from MS, TBI, and neurodegeneration research) rarely attend Lyme disease conferences. The concept of post-infectious self-sustaining astrogliosis is well-established in the neurodegeneration literature (Sofroniew 2015) but has not been formally tested in PTLDS. This communication gap may be directly responsible for the lack of anti-inflammatory treatment trials in PTLDS over the past 20 years.\n",
+      "translation_table": [
+        {
+          "field_a_term": "BBB tight-junction permeability increase (neuroscience)",
+          "field_b_term": "CNS immune surveillance access (immunology)",
+          "note": "Increased BBB permeability enables CNS infiltration by peripheral immune cells, amplifying neuroinflammation"
+        },
+        {
+          "field_a_term": "Microglial M1 activation state (neuroscience)",
+          "field_b_term": "TLR2/NFκB-driven pro-inflammatory cytokine production (immunology)",
+          "note": "Microglial activation is the cellular substrate; TLR2/NFκB is the molecular mechanism — rarely described together"
+        },
+        {
+          "field_a_term": "Reactive astrogliosis (neuroscience)",
+          "field_b_term": "IL-6/STAT3-driven glial scar formation (immunology)",
+          "note": "Astrogliosis is driven by IL-6 signaling (JAK/STAT3); blocking IL-6R is testable as therapy"
+        },
+        {
+          "field_a_term": "Hippocampal neurogenesis suppression (neuroscience)",
+          "field_b_term": "TNF-α-mediated neural progenitor inhibition (immunology)",
+          "note": "TNF-α directly suppresses hippocampal neural progenitor proliferation — links cytokine excess to cognitive symptoms"
+        },
+        {
+          "field_a_term": "CXCL13 in CSF (clinical neurology biomarker)",
+          "field_b_term": "B-cell chemoattractant / intrathecal B-cell response marker (immunology)",
+          "note": "CXCL13 bridges the clinical neurology and immunology communities as the most diagnostically useful LNB biomarker"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1186/s12974-015-0312-5",
+          "note": "Ramesh et al. (2015) Inhibition of TLR2 and TLR4 signaling reduces microglial and astrocyte activation and Borrelia burgdorferi-induced CNS inflammation. J Neuroinflammation 12:102."
+        },
+        {
+          "doi": "10.1212/WNL.0b013e31816c8a43",
+          "note": "Fallon et al. (2008) A randomized, placebo-controlled trial of repeated IV antibiotic therapy for Lyme encephalopathy. Neurology 70:992–1003."
+        },
+        {
+          "doi": "10.2353/ajpath.2009.080955",
+          "note": "Bernardino et al. (2009) Infection-induced and antibody-mediated outer surface protein C seroconversion in Borrelia burgdorferi-infected mice. Am J Pathol 174:1087–1096."
+        },
+        {
+          "doi": "10.3389/fmed.2013.00057",
+          "note": "Aucott et al. (2013) Post-treatment Lyme disease syndrome symptomatology and the impact on life functioning. Front Med 7:57."
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\neuroscience-immunology\\b-neurolyme-neuroinflammation.yaml"
+    },
+    {
       "id": "b-neural-coding-channel-capacity",
       "title": "Sensory neurons as Shannon information channels — efficient coding and neural channel capacity",
       "source_domain": "",
@@ -13075,6 +13887,67 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\philosophy-of-science-mathematics\\b-bayesian-scientific-inference.yaml"
+    },
+    {
+      "id": "b-bayesian-inference-scientific-confirmation",
+      "title": "The Bayesian account of scientific confirmation — evidence E confirms hypothesis H iff P(H|E) > P(H) — provides a quantitative, principled replacement for Popperian falsificationism, resolves Hempel's raven paradox, and explains why Bayesian model comparison via marginal likelihood automatically implements Occam's razor against overfitted hypotheses.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The core Bayesian account of confirmation: evidence E confirms hypothesis H if P(H|E) > P(H), i.e., if observing E raises our credence in H. By Bayes' theorem: P(H|E) = P(E|H)·P(H) / P(E). The likelihood ratio P(E|H)/P(E|¬H) > 1 is the strength of confirmation (Bayes factor). This is a quantitative ",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-bayesian-marginal-likelihood-occam-razor-automatic"
+      ],
+      "communication_gap": "Philosophy of science and statistics have parallel traditions that rarely intersect. Howson & Urbach (2006) made the Bayesian-confirmation connection explicit, but philosophy journals (British Journal for the Philosophy of Science, Philosophy of Science) and statistics journals (Annals of Statistics, Bayesian Analysis) have non-overlapping readerships. Philosophers cite Glymour, Hempel, Popper; statisticians cite Jeffreys, Jaynes, Lindley. The mathematical equivalence of their accounts of \"evidence\" is rarely acknowledged across the disciplinary boundary.\n",
+      "translation_table": [
+        {
+          "field_a_term": "scientific confirmation of hypothesis H by evidence E",
+          "field_b_term": "Bayesian posterior update P(H|E) > P(H)",
+          "note": "Degree of confirmation = log Bayes factor log[P(E|H)/P(E|¬H)]"
+        },
+        {
+          "field_a_term": "Popper's falsification (H refuted by E)",
+          "field_b_term": "Bayesian update with P(E|H) = 0 → P(H|E) = 0",
+          "note": "Falsification is a degenerate Bayesian case, not a separate logic"
+        },
+        {
+          "field_a_term": "Occam's razor (prefer simpler hypotheses)",
+          "field_b_term": "marginal likelihood (Bayesian evidence) P(E|M) penalizes complexity",
+          "note": "Complex models integrate over more parameter space → lower P(E|M) if extra complexity is unused"
+        },
+        {
+          "field_a_term": "scientific prior probability P(H)",
+          "field_b_term": "prior in Bayesian inference (subjective or reference prior)",
+          "note": "The objectivity debate: Jeffreys' reference priors minimize information about θ"
+        },
+        {
+          "field_a_term": "Jeffreys-Lindley paradox (p-value vs. Bayes factor)",
+          "field_b_term": "different questions: p(E|H₀) vs. P(H₀|E)/P(H₁|E)",
+          "note": "Frequentist p-value and Bayes factor are not measuring the same thing"
+        },
+        {
+          "field_a_term": "old evidence problem (Glymour 1980)",
+          "field_b_term": "conditioning on known data: P(H|E)=P(H) when E already in sample space",
+          "note": "Resolved by counterfactual Bayesianism or using Bayes factor as measure"
+        }
+      ],
+      "references": [
+        {
+          "note": "Howson & Urbach (2006) Scientific Reasoning: The Bayesian Approach. 3rd ed. Open Court."
+        },
+        {
+          "note": "Jaynes, E.T. (2003) Probability Theory: The Logic of Science. Cambridge University Press."
+        },
+        {
+          "note": "Jeffreys, H. (1961) Theory of Probability. 3rd ed. Oxford University Press."
+        },
+        {
+          "note": "Glymour, C. (1980) Theory and Evidence. Princeton University Press."
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\philosophy-of-science-statistics\\b-bayesian-inference-scientific-confirmation.yaml"
     },
     {
       "id": "b-induction-bayesian-convergence",
@@ -15457,6 +16330,71 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\physics-materials-science\\b-dislocations-crystal-plasticity.yaml"
+    },
+    {
+      "id": "b-topological-materials-band-theory",
+      "title": "Topological insulators host bulk band gaps alongside surface/edge states protected by time-reversal symmetry, characterized by the ℤ₂ topological invariant and Chern number C = (1/2π)∫_{BZ} Ω_k dk — a quantized topological invariant that predicts the quantum anomalous Hall conductance σ_xy = Ce²/h without free parameters.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Topological insulators (TIs) are materials whose electronic band structure has a bulk gap (like a conventional insulator) but whose surface or edge hosts gapless, conducting states protected by time-reversal symmetry (TRS). These surface states cannot be removed by any TRS-preserving perturbation wi",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-topological-insulator-majorana-fault-tolerant-qubit"
+      ],
+      "communication_gap": "Topological materials theory requires algebraic topology (fiber bundles, K-theory, cohomology) that is not taught in standard physics programs. The mathematical machinery was known to mathematicians (Atiyah-Singer index theorem, 1963) but its application to condensed matter required the insight of Thouless et al. (1982) that band structure invariants are topological. The physics literature rarely cites the mathematical topology literature (K-theory of C*-algebras, Kitaev periodic table) despite using equivalent results.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Chern number C = (1/2π)∫_{BZ} Ω_k dk",
+          "field_b_term": "integer topological invariant from Berry curvature integral",
+          "note": "Identical to TKNN invariant (Thouless et al. 1982) for quantum Hall effect"
+        },
+        {
+          "field_a_term": "Berry curvature Ω_n(k) in Brillouin zone",
+          "field_b_term": "curvature 2-form on a U(1) fiber bundle over momentum space",
+          "note": "Topological in the sense of fiber bundle topology (mathematics)"
+        },
+        {
+          "field_a_term": "ℤ₂ topological invariant ν",
+          "field_b_term": "parity of Chern number (even → trivial, odd → topological)",
+          "note": "ν = 0 (trivial) vs. ν = 1 (topological) for 2D TRS-symmetric insulators"
+        },
+        {
+          "field_a_term": "topologically protected surface states",
+          "field_b_term": "zero modes of Atiyah-Singer index theorem",
+          "note": "Bulk-boundary correspondence is an index theorem — bulk topology forces surface modes"
+        },
+        {
+          "field_a_term": "Weyl node (Berry curvature monopole)",
+          "field_b_term": "magnetic monopole in k-space (Dirac monopole, charge ±1)",
+          "note": "Fermi arcs connecting Weyl nodes are the k-space analog of Dirac strings"
+        },
+        {
+          "field_a_term": "Majorana zero mode at TI-superconductor interface",
+          "field_b_term": "non-Abelian anyon (Ising anyon) for topological quantum computation",
+          "note": "Braiding Majoranas implements fault-tolerant quantum gates"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1103/PhysRevLett.95.146802",
+          "note": "Kane & Mele (2005) Phys Rev Lett 95:146802 — ℤ₂ topological insulator in graphene"
+        },
+        {
+          "doi": "10.1126/science.1133734",
+          "note": "Bernevig, Hughes & Zhang (2006) Science 314:1757 — prediction of HgTe TI"
+        },
+        {
+          "doi": "10.1103/RevModPhys.82.3045",
+          "note": "Hasan & Kane (2010) Rev Mod Phys 82:3045 — topological insulators review"
+        },
+        {
+          "doi": "10.1103/RevModPhys.90.015001",
+          "note": "Armitage, Mong & Vishwanath (2018) Rev Mod Phys 90:015001 — Weyl and Dirac semimetals"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\physics-materials-science\\b-topological-materials-band-theory.yaml"
     },
     {
       "id": "b-noether-theorem-conservation-laws",

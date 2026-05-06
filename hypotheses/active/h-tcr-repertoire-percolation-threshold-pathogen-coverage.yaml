@@ -1,0 +1,52 @@
+id: h-tcr-repertoire-percolation-threshold-pathogen-coverage
+title: >
+  The human naive T-cell repertoire of ~10⁷ clonotypes sits at the percolation
+  threshold for 99% pathogen coverage in a 15-dimensional TCR-pMHC shape space
+  with cross-reactivity radius r ≈ 10⁻⁵, predicting that repertoire sizes below
+  10⁶ (as in aging or lymphopenia) create coverage holes detectable as increased
+  susceptibility to novel viral epitopes.
+status: active
+priority: medium
+impact_score: 0.74
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+
+evidence_links:
+  - note: "Perelson & Oster (1979) J Theor Biol 81:645 — original shape space covering theory with percolation-like threshold"
+    type: supporting
+    confidence: 0.70
+  - doi: "10.1007/s10955-011-0295-3"
+    type: supporting
+    confidence: 0.75
+    note: "Mora & Bialek (2011) — maximum entropy model estimates cross-reactivity radius from TCR sequence space; approximately 10^-5 to 10^-6"
+  - type: supporting
+    confidence: 0.60
+    note: "Rudd et al. (2020) Nat Rev Immunol — aged individuals show collapsed TCR repertoire and increased susceptibility to novel pathogens, qualitatively consistent with coverage holes"
+
+unknowns_addressed:
+  - u-tcr-repertoire-pathogen-space-coverage
+
+proposed_tests:
+  - description: >
+      Measure naive TCR repertoire diversity in 100 donors aged 20-80 years by
+      deep sequencing (ImmunoSEQ); compute Shannon diversity and clonal richness
+      (number of unique clonotypes); correlate with primary antibody response
+      to novel flu hemagglutinin epitopes after vaccination with a novel H3N2
+      strain not previously circulating.
+    method: "ImmunoSEQ TCR-β deep sequencing; validated MHC-I tetramer staining for responding clones; primary response magnitude vs. repertoire diversity linear regression"
+    prediction: "Primary T-cell response magnitude to novel epitopes correlates with repertoire clonal richness (r > 0.6, p < 0.01) across 100 donors; donors with clonal richness < 10^6 show 3-5x reduced primary response — consistent with coverage hole prediction"
+  - description: >
+      Compute percolation threshold analytically: model TCR shape space as a
+      15-dimensional hypercube with side length 20 (20 amino acids per CDR3
+      position); model pathogen coverage as a random covering problem with
+      cross-reactivity radius r; compute minimum repertoire size N_T for 99%
+      coverage as function of r; compare to observed N_T ≈ 10⁷.
+    method: "Random covering theory (geometric probability); Monte Carlo simulation of random TCR placement in 15-d space; percolation threshold calculation"
+    prediction: "Percolation threshold N_T* = 10^(6.5±0.5) for d=15, r=10^-5 — consistent with observed ~10^7 naive repertoire size within experimental uncertainty"
+
+related_disciplines:
+  - immunology
+  - physics
+  - mathematics
+  - statistics

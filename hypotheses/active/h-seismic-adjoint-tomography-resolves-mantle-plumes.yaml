@@ -1,0 +1,51 @@
+id: h-seismic-adjoint-tomography-resolves-mantle-plumes
+title: >
+  Full-waveform adjoint tomography (FWI) using GLAD-M35 or equivalent models with
+  >100 million waveform measurements resolves mantle plume conduits below Hawaii
+  and Iceland to diameters <200 km at depths >1000 km, distinguishing them from
+  purely upper-mantle thermal anomalies — contradicting travel-time tomography
+  models that show resolution loss below 700 km.
+status: active
+priority: medium
+impact_score: 0.78
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+
+evidence_links:
+  - doi: "10.1111/j.1365-246X.2005.02489.x"
+    type: supporting
+    confidence: 0.75
+    note: "Tromp et al. (2005) — adjoint-state sensitivity kernels eliminate the high-frequency geometric-ray approximation, dramatically improving resolution in the lower mantle"
+  - doi: "10.1016/j.earscirev.2012.02.010"
+    type: related
+    confidence: 0.60
+    note: "Liu & Gu (2012) — travel-time tomography resolution analysis showing >500 km resolution limit in lower mantle"
+  - type: supporting
+    confidence: 0.65
+    note: "Lei et al. (2020) Science — GLAD-M35 global FWI model shows sub-200 km features in upper mantle; lower mantle plume imaging is the next frontier"
+
+unknowns_addressed:
+  - u-seismic-tomography-null-space-resolution
+
+proposed_tests:
+  - description: >
+      Synthetic plume recovery test: inject synthetic plume conduits (cylindrical,
+      200 km diameter, −1.5% δVs) at 1000 km depth in GLAD-M35 starting model;
+      compute synthetic seismograms for the actual IRIS/FDSN station-earthquake
+      distribution; apply FWI recovery; measure recovered amplitude and diameter.
+    method: "Spectral-element forward simulation (SPECFEM3D_GLOBE); adjoint source computation; 20 FWI iterations; recovered anomaly comparison to input"
+    prediction: "FWI recovers plume at 1000 km depth with >60% amplitude and <30% diameter inflation when station density >1 station/5° in the region; travel-time tomography recovers <30% amplitude"
+  - description: >
+      Apply FWI to 50-year ISC bulletin for Hawaii and Iceland plume regions
+      separately; compare recovered slow-anomaly structure at 500, 1000, 1500 km
+      depth to predictions of the "deep plume" hypothesis (connected to LLSVP base)
+      vs. "shallow plume" hypothesis (upper mantle origin); test statistical
+      significance via bootstrap resampling of earthquake catalog.
+    method: "GLAD-M35 starting model; Hawaii-focused and Iceland-focused FWI refinements; bootstrap significance testing; comparison to geodynamic predictions"
+    prediction: "Hawaii plume shows continuous slow anomaly from surface to >1500 km depth at >2σ significance; Iceland plume is shallower (<700 km connected) — testing deep vs. shallow origin hypotheses"
+
+related_disciplines:
+  - geophysics
+  - mathematics
+  - computational-science

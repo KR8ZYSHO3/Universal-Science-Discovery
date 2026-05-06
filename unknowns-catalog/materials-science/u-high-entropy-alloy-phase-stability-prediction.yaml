@@ -1,0 +1,40 @@
+id: u-high-entropy-alloy-phase-stability-prediction
+title: Can CALPHAD-based thermodynamic models reliably predict the phase stability, mechanical properties, and oxidation resistance of high-entropy alloys with 5+ principal elements without extensive experimental validation?
+status: open
+priority: high
+disciplines:
+  - materials-science
+  - chemistry
+  - thermodynamics
+  - computational-materials-science
+  - machine-learning
+summary: >
+  High-entropy alloys (HEAs) with 5+ principal elements span a compositional space
+  of ~10^6 distinct equimolar alloys for 5-element subsets of 30 common metals —
+  far too large to explore experimentally. CALPHAD predicts phase stability from
+  thermodynamic databases, but existing databases (TCFE, TTAL) were validated
+  primarily on binary and ternary systems. Extrapolation to quinary+ systems
+  accumulates errors in interaction parameters. The "sluggish diffusion" effect
+  in HEAs (slower phase transformations than expected from constituent elements)
+  is poorly captured by standard CALPHAD kinetics databases. Machine learning
+  interatomic potentials (GAP, NequIP, MACE) can compute G(T,x) from DFT
+  without experimental fitting, but are computationally expensive and require
+  large training sets. A key unknown: does the configurational entropy argument
+  (ΔS = R ln n) correctly predict single-phase stability at elevated temperatures,
+  or do competing intermetallic compounds (e.g., sigma phase, Laves phase) form
+  despite the entropy argument?
+systematic_gaps:
+  - CALPHAD databases lack reliable higher-order interaction parameters (quaternary, quinary) for most HEA-relevant element combinations; extrapolation errors can exceed 10 kJ/mol, reversing phase stability predictions.
+  - The thermodynamic conditions for single-phase HEA formation vs. phase separation into multiple phases have not been mapped across composition space; the "high entropy effect" boundary conditions are undefined.
+  - Oxidation resistance in HEAs (critical for high-temperature applications) depends on selective oxidation of the most reactive element — a kinetic problem not captured by equilibrium CALPHAD, requiring coupled thermodynamic-kinetic models not yet available.
+suggested_hypotheses:
+  - Machine-learning interatomic potentials trained on DFT calculations for binary/ternary subsets can predict single-phase stability of quinary HEAs with <5% error in phase boundary temperatures when using a many-body equivariant architecture (NequIP/MACE).
+related_unknowns:
+  - u-calphad-higher-order-interaction-parameters
+related_bridges:
+  - b-phase-diagrams-alloy-design
+references:
+  - doi: "10.1038/s41578-019-0121-4"
+    note: "George et al. (2019) Nat Rev Mater 4:515 — HEA review with open questions"
+  - note: "Saunders & Miodownik (1998) CALPHAD — database accuracy and extrapolation limits"
+last_reviewed: "2026-05-06"

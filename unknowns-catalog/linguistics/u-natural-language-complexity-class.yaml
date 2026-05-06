@@ -1,0 +1,40 @@
+id: u-natural-language-complexity-class
+title: Does human natural language belong strictly to the mildly context-sensitive class, and can transformer language models generate or recognize all and only the languages in this class?
+status: open
+priority: medium
+disciplines:
+  - linguistics
+  - mathematics
+  - computer-science
+  - cognitive-science
+  - formal-language-theory
+summary: >
+  The formal complexity class of natural language remains contested. Chomsky's
+  hierarchy places context-free languages (Type 2) below context-sensitive (Type 1),
+  and Joshi's mildly context-sensitive languages (MCSL — tree-adjoining grammars,
+  CCG, LCFRS) are between them. Empirical evidence: Swiss German cross-serial
+  dependencies (Shieber 1985) are context-sensitive; scrambling in Japanese may
+  require mild context-sensitivity. However, the theoretical question — is the set
+  of well-formed human language sentences decidable in polynomial time? — is
+  entangled with processing difficulty (humans cannot parse deeply center-embedded
+  sentences even if they are syntactically valid). Transformer LMs complicate this:
+  they generate text that is grammatically acceptable but demonstrably fail certain
+  formal language recognition tasks (a^n b^n for large n, Hahn et al. 2020).
+  Whether this represents a fundamental limitation of attention mechanisms or a
+  capacity limitation is unknown. The question has practical implications for
+  designing AI systems that can reliably parse all human language constructions.
+systematic_gaps:
+  - No rigorous experimental protocol exists to determine the complexity class of a natural language from corpus data — existing arguments rely on constructed examples (cross-serial dependencies) that are grammatical but may not be representative of actual usage frequency.
+  - The computational complexity of human language parsing is confounded with processing difficulty — theoretical grammar and performance grammar diverge in ways that make the complexity question empirically inaccessible from behavioral data alone.
+  - Transformer LMs' formal language recognition abilities have been tested on artificial grammars but not systematically on the full range of MCSL constructions; the precise boundary of what transformers can and cannot recognize is unknown.
+suggested_hypotheses:
+  - Transformers with unlimited depth and width recognize exactly the class of languages recognizable by O(n²)-space computation — strictly between context-free and context-sensitive — matching the mildly context-sensitive class that best characterizes human language.
+related_unknowns:
+  - u-transformer-attention-formal-language-class
+related_bridges:
+  - b-formal-grammar-automata-theory
+references:
+  - doi: "10.1109/TIT.1956.1056813"
+    note: "Chomsky (1956) — the hierarchy"
+  - note: "Hahn et al. (2020) TACL — formal limitations of transformers on formal languages"
+last_reviewed: "2026-05-06"
