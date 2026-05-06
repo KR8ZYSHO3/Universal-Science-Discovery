@@ -1,0 +1,43 @@
+id: h-cerebellum-kalman-prediction-error
+title: >
+  The climbing fibre signal to cerebellar Purkinje cells encodes a Kalman
+  filter innovation (sensory prediction error weighted by optimal gain),
+  and the magnitude of cerebellar adaptation tracks the Kalman gain
+  K ∝ P_pred/(P_pred + R) as sensory reliability R varies.
+status: active
+priority: high
+impact_score: 0.74
+created: "2026-05-05"
+last_updated: "2026-05-05"
+related_disciplines:
+  - computational-neuroscience
+  - motor-neuroscience
+  - control-engineering
+unknowns_addressed:
+  - u-neural-optimal-control-noise-model
+evidence_links:
+  - doi: "10.1016/S0893-6080(98)00066-5"
+    type: supporting
+    confidence: 0.62
+    note: Wolpert & Kawato (1998) MOSAIC model — cerebellar forward model architecture
+  - doi: "10.1038/nn963"
+    type: supporting
+    confidence: 0.70
+    note: Todorov & Jordan (2002) OFC framework predicts Kalman-like weighting
+  - doi: "10.1126/science.1192588"
+    type: related
+    confidence: 0.50
+    note: Churchland et al. (2012) rotational dynamics consistent with forward model
+proposed_tests:
+  - description: >
+      Adapt sensory reliability R by degrading visual feedback (blur or delay)
+      in a visuomotor adaptation task. Measure cerebellar-dependent adaptation
+      rate as a function of R. Prediction: adaptation rate ∝ K(R) = P/(P+R),
+      decreasing monotonically as R increases, with specific functional form
+      distinguishable from a simple linear scaling.
+  - description: >
+      Record complex spike (climbing fibre) rates in monkey cerebellum during
+      a perturbation task. Compute the correlation between complex spike
+      magnitude and the sensory prediction error signal. Test: complex spike
+      rate should be proportional to the Kalman innovation |y - Hx̂|, not
+      to the raw sensory error |y - y_target|.

@@ -1,0 +1,39 @@
+id: h-doob-convergence-rate-scientific-inference
+title: >
+  For scientific hypotheses with k free parameters, the Bayesian posterior
+  achieves ε-convergence to the true parameter at sample size n* ∝ k/ε²
+  (independent of the prior satisfying Cromwell's rule), making the practical
+  resolution of induction scale as the Cramér-Rao lower bound.
+status: active
+priority: medium
+impact_score: 0.57
+created: "2026-05-05"
+last_updated: "2026-05-05"
+related_disciplines:
+  - statistics
+  - philosophy-of-science
+  - probability-theory
+unknowns_addressed:
+  - u-bayesian-convergence-prior-dependence
+evidence_links:
+  - doi: "10.2307/1990660"
+    type: supporting
+    confidence: 0.60
+    note: Doob (1949) asymptotic consistency — prior convergence guarantee
+  - doi: "10.2307/2291091"
+    type: related
+    confidence: 0.55
+    note: Kass & Raftery (1995) Bayes factors — finite-sample prior sensitivity analysis
+proposed_tests:
+  - description: >
+      Simulate Bayesian inference for a k-parameter linear regression model
+      under three priors (Jeffreys, diffuse normal, strongly misspecified).
+      Measure n* (sample size for KL divergence D(p_posterior || p_truth) < ε)
+      as a function of k and ε. Test: n* ∝ k/ε² for all three priors, with
+      constants within an order of magnitude of each other.
+  - description: >
+      Analyse prior sensitivity in 50 published Bayesian meta-analyses
+      (psychology replication crisis dataset). Compute posterior sensitivity
+      S = ||θ̂_informative - θ̂_Jeffreys|| / ||θ̂_truth - θ̂_informative||
+      as a function of n (study sample size). Test: S decreases as 1/√n
+      consistent with the Cramér-Rao convergence rate.

@@ -1,0 +1,53 @@
+id: u-subriemannian-geodesic-abnormal-optimality
+title: >
+  Under what conditions are abnormal geodesics (singular extremals) of
+  sub-Riemannian geometry globally length-minimising, and what does this
+  imply for the existence of optimal control solutions in robotic systems
+  with non-holonomic constraints?
+status: open
+priority: medium
+disciplines:
+  - mathematics
+  - control-engineering
+  - differential-geometry
+  - robotics
+summary: >
+  In sub-Riemannian geometry, geodesics (locally length-minimising curves)
+  come in two types: normal geodesics (satisfying the Hamiltonian ODE on T*M,
+  analogous to Riemannian geodesics) and abnormal geodesics (satisfying the
+  Pontryagin maximum principle as singular extremals, with zero Hamiltonian).
+  Montgomery (2002) showed that in some sub-Riemannian structures, abnormal
+  geodesics can be locally length-minimising. Whether they can be globally
+  length-minimising — and what this means for optimal robot path planning —
+  remains an open problem in several key cases.
+
+  Key open questions:
+  1. For which sub-Riemannian structures (rank-2 distributions in ℝⁿ,
+     Carnot groups) can abnormal extremals be globally minimising, and
+     can this be decided algorithmically?
+  2. In robotic path planning (car-like robots: Dubins, Reeds-Shepp), abnormal
+     extremals correspond to "degenerate" paths (e.g., driving in a straight
+     line at minimum turning radius). When are these globally optimal relative
+     to normal geodesics?
+  3. Does the presence of globally-minimising abnormal extremals imply the
+     failure of the sub-Riemannian sphere to be smooth — and what are the
+     implications for numerical optimal control solvers?
+  4. Can the structure of the Lie algebra (step-2 vs. higher-step Carnot
+     groups) predict whether abnormal minimisers exist?
+systematic_gaps:
+  - Rigorous examples of globally-minimising abnormal extremals are known
+    only for specific low-dimensional cases (rank-2 in ℝ³, certain Carnot groups)
+  - No general algorithmic test exists for determining whether a given
+    sub-Riemannian structure admits globally-minimising abnormal extremals
+  - Numerical optimal control solvers (GPOPS, Bocop) typically cannot find
+    abnormal extremals because they have zero Hamiltonian
+suggested_hypotheses:
+  - h-lie-bracket-depth-complexity-robot-planning
+related_bridges:
+  - b-control-theory-differential-geometry
+last_reviewed: "2026-05-05"
+references:
+  - url: https://www.ams.org/books/surv/091/
+    note: Montgomery (2002) A Tour of Subriemannian Geometries — AMS, comprehensive treatment
+  - doi: "10.1137/0310021"
+    note: Brockett (1972) system theory on group manifolds

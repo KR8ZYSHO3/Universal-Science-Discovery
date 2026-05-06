@@ -1,0 +1,120 @@
+id: b-induction-bayesian-convergence
+title: >
+  Hume's problem of induction — no finite evidence can logically prove a
+  universal law — is dissolved by Bayesian convergence theorems showing that
+  posterior beliefs converge to truth with probability 1 as evidence accumulates
+  (Doob 1949), while Popperian falsificationism corresponds to the degenerate
+  case of zero prior that Bayesian theory proves leads to incoherence.
+status: established
+fields:
+  - philosophy-of-science
+  - statistics
+  - probability-theory
+  - epistemology
+bridge_claim: >
+  Hume (1748, Enquiry Concerning Human Understanding, Section IV) argued that
+  the inference "the sun will rise tomorrow because it always has" is logically
+  circular — we cannot justify inductive inference by induction itself. No finite
+  sequence of observations can entail a universal law; any proposed law could
+  be falsified by the next observation.
+
+  Bayesian convergence resolves this:
+  1. Doob's consistency theorem (1949, Trans AMS). Let θ be a parameter with
+     prior p(θ) and likelihood p(D|θ). Under mild regularity conditions
+     (the true θ₀ is in the support of the prior — Cromwell's rule), the
+     posterior p(θ|D_n) concentrates on θ₀ as n → ∞: for any ε > 0,
+     P(|θ̂_n - θ₀| > ε | θ₀) → 0 almost surely. Induction is justified:
+     if you begin with a prior that does not exclude the truth, Bayesian
+     updating converges to certainty about the truth.
+
+  2. Cromwell's rule and Hume. The one residual limitation is Cromwell's rule:
+     if p(θ₀) = 0 (the prior assigns zero probability to the true state),
+     convergence fails permanently. Hume's scepticism is thus valid only when
+     we begin with complete prior ignorance — but de Finetti (1937) and Savage
+     (1954) showed that a rational agent with any non-dogmatic prior (p(θ) > 0
+     for all θ in the parameter space) is epistemically obligated to update via
+     Bayes and will converge to the truth.
+
+  3. Falsificationism as incoherence. Popper (1959, Logic of Scientific
+     Discovery) proposed that science proceeds by bold conjectures and attempted
+     falsifications; probability assignments to hypotheses are meaningless.
+     Bayesian theory shows this is equivalent to using a prior that assigns
+     probability 0 or 1 to every hypothesis — a "dogmatic" prior. Dutch book
+     arguments (de Finetti 1937) prove this is incoherent: a Popperian agent
+     can be made to accept a set of bets that guarantees a loss regardless of
+     outcomes. Falsificationism is thus the degenerate edge case of Bayesian
+     updating with improper extreme priors.
+
+  4. Bayes factors and theory selection. The Bayesian updating ratio (Bayes
+     factor) K = p(D|H₁)/p(D|H₀) is a continuous measure of evidential
+     support that generalises the binary falsification/corroboration dichotomy.
+     Jeffreys (1935) and later Kass & Raftery (1995) provide calibration for K
+     (K > 100 = decisive evidence), connecting statistical inference to the
+     philosophy of theory choice under uncertainty.
+
+  5. The practical residue of Hume. Even with Bayesian convergence, the rate
+     of convergence depends on prior width and data quality. For complex
+     scientific hypotheses with many free parameters, convergence to the truth
+     may require astronomically large datasets. Hume's scepticism is thus
+     practically important even if theoretically dissolved: Bayesian theory
+     tells us how much evidence we need, not just that induction eventually works.
+translation_table:
+  - field_a_term: universal law (Hume's target of induction)
+    field_b_term: "point hypothesis H: θ = θ₀ (statistics)"
+  - field_a_term: finite observations (Hume's evidence)
+    field_b_term: data D_n of n observations (Bayesian update)
+  - field_a_term: problem of induction (cannot prove universals from particulars)
+    field_b_term: consistent posterior (converges to truth with probability 1)
+  - field_a_term: Cromwell's rule (do not assign p=0 to live hypotheses)
+    field_b_term: Hume's acknowledgement that we cannot rule out alternatives a priori
+  - field_a_term: Popperian falsification (theory is corroborated until falsified)
+    field_b_term: degenerate 0/1 prior (Bayesian incoherence / Dutch book)
+  - field_a_term: Bayes factor K (ratio of marginal likelihoods)
+    field_b_term: continuous corroboration measure replacing binary falsification
+related_unknowns:
+  - u-bayesian-convergence-prior-dependence
+related_hypotheses:
+  - h-doob-convergence-rate-scientific-inference
+cross_pollination_opportunities:
+  - >
+    Calibrating Bayesian convergence rates for scientific disciplines:
+    given typical data volumes and hypothesis complexity in, say, clinical
+    trials vs. cosmology, compute the number of observations required for
+    posterior concentration within ε of the true parameter. This produces a
+    "inductive efficiency" metric comparing fields.
+  - >
+    Philosophy of science education: replacing falsificationism with the
+    Bayesian framework in science methodology curricula. The Bayes factor
+    provides an operational, graded notion of evidential support that captures
+    both the accumulation of positive evidence and the role of surprising
+    predictions — unifying the Popperian emphasis on bold predictions with
+    Bayesian confirmation theory.
+  - >
+    Connection to algorithmic information theory (Solomonoff induction):
+    the prior p(H) proportional to 2^{-K(H)} (where K is Kolmogorov complexity)
+    is the universal inductive prior that satisfies Cromwell's rule for all
+    computable hypotheses. This bridges Hume's epistemology with computability
+    theory and provides the foundations for universal machine learning.
+communication_gap: >
+  Philosophers of science and statisticians publish in entirely separate
+  literatures. Philosophers cite Hume, Popper, Lakatos; statisticians cite
+  Bayes, Laplace, Fisher, Neyman-Pearson. Bayesian statisticians are aware of
+  the philosophical implications of Doob's theorem, but the result is rarely
+  discussed in philosophy of science journals. Popper's falsificationism
+  remains highly influential in scientific culture (the "falsifiability"
+  criterion for science) even as Bayesian statistics has become dominant in
+  practice. The reconciliation remains primarily in the philosophy of
+  probability literature (Howson & Urbach, de Finetti, Savage) which is
+  unfamiliar to most working scientists.
+last_reviewed: "2026-05-05"
+references:
+  - url: https://www.gutenberg.org/ebooks/9662
+    note: Hume (1748) An Enquiry Concerning Human Understanding — problem of induction (Section IV)
+  - url: https://www.cambridge.org/gb/universitypress/subjects/philosophy/philosophy-science/logic-scientific-discovery
+    note: Popper (1959) The Logic of Scientific Discovery — falsificationism
+  - doi: "10.2307/1990660"
+    note: Doob (1949) Application of the theory of martingales — consistency theorem, Trans AMS 75:58
+  - url: https://www.jstor.org/stable/2287514
+    note: de Finetti (1937) La Prévision — Dutch book argument and coherence, Ann Inst Poincaré
+  - doi: "10.2307/2291091"
+    note: Kass & Raftery (1995) Bayes factors, J Am Stat Assoc 90:773
