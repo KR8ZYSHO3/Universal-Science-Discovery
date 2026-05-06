@@ -1,6 +1,6 @@
 # Orphan Unknowns — Priority Contribution Targets
 
-These **117** unknowns have no associated hypothesis or bridge edge in the knowledge graph.
+These **116** unknowns have no associated hypothesis or bridge edge in the knowledge graph.
 They are the highest-priority targets for new contributions — add a hypothesis or propose a cross-domain bridge connecting them.
 
 | ID | Title |
@@ -60,7 +60,6 @@ They are the highest-priority targets for new contributions — add a hypothesis
 | `u-infinity-category-limits` | What are the fundamental completeness properties of infinity-categories and when do they have all small limits? |
 | `u-model-theory-arithmetic` | What model-theoretic properties distinguish the standard model of arithmetic from non-standard models? |
 | `u-motivic-cohomology-calculations` | Can motivic cohomology groups be computationally determined for all smooth projective varieties? |
-| `u-optimal-stopping-biological-decisions` | Do animals implement optimal stopping rules (secretary problem, explore-exploit tradeoff) in foraging and mate choice, and what neural circuit implements the stopping criterion? |
 | `u-pseudo-holomorphic-curve-counts` | What determines the well-definedness of pseudo-holomorphic curve counts in symplectic topology? |
 | `u-quantum-group-representation` | What is the complete representation theory of quantum groups at roots of unity and its physical interpretation? |
 | `u-symplectic-capacities` | Are Ekeland-Hofer and Gromov-Witten symplectic capacities equal for all convex bodies? |
