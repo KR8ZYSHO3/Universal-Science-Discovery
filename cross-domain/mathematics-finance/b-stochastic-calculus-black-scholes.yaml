@@ -1,0 +1,74 @@
+id: b-stochastic-calculus-black-scholes
+title: "Itô stochastic calculus ↔ Black-Scholes option pricing — the heat equation in disguise"
+status: established
+fields:
+  - mathematics
+  - stochastic-analysis
+  - quantitative-finance
+  - mathematical-physics
+
+bridge_claim: >
+  Itô calculus (1944) defines stochastic differential equations driven by Brownian
+  motion dW, where the non-anticipating Itô integral and Itô's lemma — the stochastic
+  chain rule — replace ordinary calculus. Applied to a self-financing hedged portfolio
+  (Black & Scholes 1973, Merton 1973), Itô's lemma yields the Black-Scholes PDE:
+  ∂V/∂t + ½σ²S²∂²V/∂S² + rS∂V/∂S − rV = 0. Under the log-price substitution
+  x = ln S and time reversal τ = T − t, this PDE is algebraically identical to the
+  heat (diffusion) equation ∂u/∂τ = ½σ²∂²u/∂x² from physics. Option pricing is
+  therefore mathematically equivalent to solving a heat diffusion boundary-value
+  problem: the strike price K is the initial heat source, volatility σ plays the role
+  of thermal diffusivity, and the option payoff profile is the boundary condition.
+  The famous closed-form solution C = S·N(d₁) − K·e^{−rT}·N(d₂) is the integral
+  of the heat kernel (Gaussian propagator) over the payoff.
+
+translation_table:
+  - field_a_term: "Brownian motion W(t)"
+    field_b_term: "log-price random walk ln(S(t)/S₀)"
+    note: "Both are Wiener processes; volatility σ scales the diffusion coefficient"
+  - field_a_term: "Itô's lemma (stochastic chain rule)"
+    field_b_term: "delta-hedging argument (no-arbitrage portfolio)"
+    note: "Itô's lemma applied to V(S,t) generates the PDE; hedging eliminates the dW term"
+  - field_a_term: "heat equation ∂u/∂τ = D ∂²u/∂x²"
+    field_b_term: "Black-Scholes PDE (after log-price substitution)"
+    note: "D = ½σ²; the two equations are algebraically identical under variable substitution"
+  - field_a_term: "heat kernel / Gaussian propagator G(x,τ)"
+    field_b_term: "Black-Scholes log-normal distribution of future prices"
+    note: "The fundamental solution of the heat equation gives the risk-neutral price distribution"
+  - field_a_term: "initial temperature distribution (boundary condition)"
+    field_b_term: "option payoff function max(S−K, 0) at expiry"
+    note: "Both specify the boundary condition that the PDE is solved backward from"
+  - field_a_term: "thermal diffusivity D"
+    field_b_term: "implied volatility σ"
+    note: "Calibrating σ from market prices ≡ measuring thermal diffusivity from temperature data"
+
+related_unknowns:
+  - u-volatility-smile-beyond-black-scholes
+
+related_hypotheses:
+  - h-stochastic-volatility-as-turbulent-diffusion
+
+cross_pollination_opportunities:
+  - "Apply heat-equation Green's function techniques to compute exotic option prices with complex payoff geometries"
+  - "Use physics intuition about diffusion in inhomogeneous media to model local volatility surfaces (Dupire 1994)"
+  - "Import renormalisation group methods from statistical physics to derive market microstructure corrections to Black-Scholes"
+
+communication_gap: >
+  The Black-Scholes paper (1973) was initially rejected by multiple journals because
+  economists were unfamiliar with stochastic calculus. The heat equation connection
+  was known to mathematical physicists but finance departments rarely included
+  physicists. The field of quantitative finance emerged largely through practitioners
+  (Fischer Black had a physics background) rather than academic cross-pollination.
+  Today the connection is taught in mathematical finance programs but rarely in
+  physics curricula — the bridge is one-directional.
+
+references:
+  - note: "Itô (1944) — stochastic integral and Itô's lemma"
+    url: "https://doi.org/10.52547/ijmsi.15.2.111"
+  - doi: "10.1086/260062"
+    note: "Black & Scholes (1973) J Polit Econ 81:637 — the original option pricing formula"
+  - doi: "10.2307/3003143"
+    note: "Merton (1973) Bell J Econ 4:141 — continuous-time finance and the PDE derivation"
+  - note: "Shreve (2004) Stochastic Calculus for Finance II — graduate textbook connecting Itô calculus to Black-Scholes"
+    url: "https://link.springer.com/book/9780387401010"
+
+last_reviewed: "2026-05-06"

@@ -1,6 +1,6 @@
 # USDR Citation Index
 
-**1168 total citations · 757 unique references · 166 cited in 2+ bridges**
+**1216 total citations · 786 unique references · 170 cited in 2+ bridges**
 
 ## Most Cross-Domain Papers
 
@@ -10,6 +10,7 @@ Papers cited across the highest number of different bridges — the most influen
 |---|---|---|
 | 8 | Castellano et al. review connects voter model to spatial ecology | [DOI](10.1103/RevModPhys.81.591) |
 | 6 | Berut et al. (2012) — Landauer limit verified experimentally at k_B T ln 2 ~ 3 z... | [DOI](10.1038/nature10872) |
+| 5 | WBE derives 3/4 from area-preserving branching — the recursion relation is struc... | [DOI](10.1126/science.276.5309.122) |
 | 5 | Beggs & Plenz (2003) — original neural avalanche paper establishing critical exp... | [DOI](10.1523/JNEUROSCI.23-35-11167.2003) |
 | 4 | Maynard Smith & Price (1973) — ESS and cyclical dynamics in zero-sum games | [DOI](10.1038/246015a0) |
 | 4 | Friston (2010) — free energy principle: biological homeostasis = continuous free... | [DOI](10.1038/nrn2787) |
@@ -19,9 +20,9 @@ Papers cited across the highest number of different bridges — the most influen
 | 4 | Newman (2002) proves the mathematical equivalence — FSS must apply if the equiva... | [DOI](10.1103/PhysRevE.66.016128) |
 | 4 | Bak, Tang & Wiesenfeld (1987) — BTW sandpile predicts τ = 3/2 (mean field) | [DOI](10.1103/PhysRevLett.59.381) |
 | 4 | Barabási & Albert (1999) - scale-free networks fragile to targeted hub attack; g... | [DOI](10.1126/science.286.5439.509) |
-| 4 | WBE derives 3/4 from area-preserving branching — the recursion relation is struc... | [DOI](10.1126/science.276.5309.122) |
 | 4 | Landauer (1961) — irreversibility and heat generation in computation | [DOI](10.1147/rd.53.0183) |
 | 3 | Price (1970) establishes the general decomposition applicable to cultural traits | [DOI](10.1038/227520a0) |
+| 3 | Jarzynski equality — theoretical basis for near-equilibrium efficiency measureme... | [DOI](10.1103/PhysRevLett.78.2690) |
 | 3 | Saw et al. 2017 — topological defects in epithelia determine cell fate; establis... | [DOI](10.1126/science.aar5663) |
 | 3 | Hopfield (1982) — associative memory energy model | [DOI](10.1073/pnas.79.8.2554) |
 | 3 | Bennett (1973) — theoretical demonstration that reversible computation has zero ... | [DOI](10.1147/rd.173.0525) |
@@ -40,7 +41,8 @@ Papers cited across the highest number of different bridges — the most influen
 | 2 | Fromang & Papaloizou (2007) — numerical evidence for α ~ Pm^{0.5} in shearing bo... | [DOI](10.1051/0004-6361:20077537) |
 | 2 | Hawking (1975) — black hole entropy = area/4, precursor to holographic principle | [DOI](10.1007/BF01608497) |
 | 2 | Sutton et al. (2000) policy gradient theorem: the update rule Δπ ∝ π · ∇V is exa... | [DOI](10.1073/pnas.97.17.9430) |
-| 2 | Jarzynski equality — theoretical basis for near-equilibrium efficiency measureme... | [DOI](10.1103/PhysRevLett.78.2690) |
+| 2 |  | [DOI](10.1103/PhysRevLett.75.4326) |
+| 2 |  | [DOI](10.1103/RevModPhys.85.1143) |
 | 2 | Bustamante et al. — review of motor protein thermodynamics showing near-stall ef... | [DOI](10.1038/nchembio0705-130) |
 | 2 | Toyabe et al. — Maxwell's demon experiment validates stochastic thermodynamics | [DOI](10.1038/nphys1821) |
 | 2 | Feinberg (1989) shows that deficiency one networks with specific linkage class s... | [DOI](10.1073/pnas.86.1.67) |
@@ -56,8 +58,6 @@ Papers cited across the highest number of different bridges — the most influen
 | 2 | Armstrong McKay et al. (2022) — exceeding 1.5°C global warming could trigger mul... | [DOI](10.1126/science.abn7950) |
 | 2 | Olshausen & Field (1996) Nature — sparse coding of natural images yields Gabor-l... | [DOI](10.1038/381607a0) |
 | 2 | Bell & Sejnowski (1997) — ICA of natural images yields V1-like filters | [DOI](10.1016/S0042-6989(97)00169-7) |
-| 2 | Atick & Redlich (1992) — retina as Wiener filter | [DOI](10.1162/neco.1992.4.2.196) |
-| 2 | Mézard et al. (2002) — cavity method shows solution space shattering at α_c (RSB... | [DOI](10.1126/science.297.5582.812) |
 
 ## Citation Network
 
@@ -67,4 +67,4 @@ The full citation data is available at [`docs/citation_index.json`](citation_ind
 
 ## All Unique References
 
-The catalog currently references **757 unique papers/books**.
+The catalog currently references **786 unique papers/books**.

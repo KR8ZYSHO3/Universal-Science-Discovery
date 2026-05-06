@@ -1,0 +1,78 @@
+id: b-food-webs-cascade-dynamics
+title: "Ecological food webs as directed networks — trophic cascade dynamics as network percolation"
+status: established
+fields:
+  - ecology
+  - network-science
+  - graph-theory
+  - conservation-biology
+  - complexity-science
+
+bridge_claim: >
+  Ecological food webs are directed weighted networks where nodes are species and
+  edges represent trophic interactions (energy flow from prey to predator).
+  Network structural properties predict ecosystem stability and cascade dynamics.
+  Connectance C = L/S² (number of links L over species² S²) is the network
+  density. Trophic level (shortest path length from primary producers) is the
+  network depth metric. Keystone species are nodes with high betweenness centrality
+  — they lie on many shortest paths between other species, controlling energy flow
+  disproportionate to their biomass. Removal of a keystone species triggers trophic
+  cascade: secondary extinctions propagate through the network via percolation-like
+  dynamics. Dunne et al. (2002) showed that food web robustness to species loss
+  follows a percolation threshold: sequential deletion of most-connected species
+  (hubs) triggers cascading collapse far earlier than random deletions — exactly
+  as in scale-free network percolation (Albert-Barabási 2000). The analogy extends
+  to financial contagion networks: systemically important financial institutions
+  are keystone species; their removal triggers cascade defaults. The same network
+  robustness mathematics governs both ecosystem collapse and financial crisis.
+
+translation_table:
+  - field_a_term: "species (node)"
+    field_b_term: "node in food web network"
+    note: "Each species is a node; biomass and body size determine node 'weight'"
+  - field_a_term: "trophic interaction (directed edge, prey → predator)"
+    field_b_term: "energy flow / biomass transfer rate (edge weight)"
+    note: "Directed edges from resource to consumer; weights proportional to energy transfer efficiency"
+  - field_a_term: "connectance C = L/S²"
+    field_b_term: "network density / edge probability"
+    note: "May (1972): stability decreases with increasing connectance — analogous to percolation threshold"
+  - field_a_term: "keystone species (high betweenness centrality)"
+    field_b_term: "hub node / articulation point"
+    note: "Removal disconnects major portions of the network; classic example: sea otters (Paine 1966)"
+  - field_a_term: "trophic cascade (secondary extinction wave)"
+    field_b_term: "cascade failure / contagion propagation"
+    note: "Identical dynamics to cascade failures in power grids and financial networks"
+  - field_a_term: "robustness to species loss"
+    field_b_term: "network resilience to node deletion"
+    note: "Dunne et al.: targeted hub deletion mimics Barabási-Albert robustness analysis exactly"
+
+related_unknowns:
+  - u-food-web-collapse-threshold-empirical-detection
+
+related_hypotheses:
+  - h-keystone-species-betweenness-predicts-cascade-risk
+
+cross_pollination_opportunities:
+  - "Apply network immunisation strategies (targeted vaccination of hub nodes) to invasive species management"
+  - "Use financial network contagion models (Eisenberg-Noe, Acemoglu) to predict secondary extinction dynamics after species loss"
+  - "Compute food web 'systemic risk' scores (analogous to DebtRank in finance) to identify the most dangerous species to lose"
+
+communication_gap: >
+  May (1973) introduced random graph theory to ecology in a landmark book, but
+  most ecologists remained unfamiliar with network science until the early 2000s
+  when Dunne, Williams and Martinez explicitly mapped food webs onto complex network
+  theory. Financial network contagion modelling (Eisenberg-Noe 2001) developed
+  independently with no awareness of the food web cascade literature. Both fields
+  have since rediscovered each other's concepts but still rarely co-publish.
+
+references:
+  - note: "May (1973) Stability and Complexity in Model Ecosystems. Princeton University Press."
+    url: "https://press.princeton.edu/books/paperback/9780691088617/stability-and-complexity-in-model-ecosystems"
+  - note: "Paine (1966) Am Nat 100:65 — keystone predator concept (sea otters and urchins)"
+    doi: "10.1086/282400"
+  - doi: "10.1073/pnas.192407699"
+    note: "Dunne et al. (2002) PNAS 99:12917 — food web robustness via network theory"
+  - doi: "10.1038/nature04927"
+    note: "Montoya et al. (2006) Nature 442:259 — ecological networks and cascade dynamics"
+
+last_reviewed: "2026-05-06"

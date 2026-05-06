@@ -1,0 +1,77 @@
+id: b-neural-coding-channel-capacity
+title: "Sensory neurons as Shannon information channels — efficient coding and neural channel capacity"
+status: established
+fields:
+  - neuroscience
+  - information-theory
+  - sensory-physiology
+  - computational-neuroscience
+
+bridge_claim: >
+  The nervous system encodes stimuli as spike trains — discrete all-or-none action
+  potentials — which can be analysed as Shannon communication channels. The channel
+  capacity C = B log₂(1 + S/N) bounds the mutual information between stimulus and
+  neural response, where B is the bandwidth (maximum firing rate ~1 kHz for cortical
+  neurons, limited by refractory period) and S/N is the signal-to-noise ratio of the
+  spike train. The efficient coding hypothesis (Barlow 1961) proposes that sensory
+  neurons are shaped by evolution to maximise mutual information I(stimulus; response)
+  subject to metabolic constraints — they operate near their Shannon channel capacity.
+  Retinal ganglion cells implement decorrelation (whitening) to remove statistical
+  redundancy in natural images before transmission to the optic nerve — a compression
+  step mathematically equivalent to predictive coding. Lateral inhibition in the
+  retina and primary visual cortex removes spatial correlations; ON/OFF cells remove
+  temporal mean (DC) component — both are classical data compression operations.
+  The neural code is not arbitrary: it is the information-theoretically optimal
+  compressed representation of natural sensory statistics.
+
+translation_table:
+  - field_a_term: "Shannon channel capacity C = B log₂(1+S/N)"
+    field_b_term: "maximum information rate of a single neuron (~3 bits/spike)"
+    note: "Measured directly from spike train statistics; typical values 1-4 bits/spike"
+  - field_a_term: "channel bandwidth B"
+    field_b_term: "maximum neural firing rate (~1 kHz, limited by refractory period)"
+    note: "The refractory period (~1 ms) is the physiological bandwidth constraint"
+  - field_a_term: "channel noise"
+    field_b_term: "trial-to-trial variability (Fano factor, spike jitter)"
+    note: "Poisson-like noise in spike generation; limits information transmission"
+  - field_a_term: "source entropy H(stimulus)"
+    field_b_term: "natural image / sound statistics"
+    note: "Efficient coding hypothesis: neurons adapt to the statistics of their natural stimulus environment"
+  - field_a_term: "data compression / redundancy reduction"
+    field_b_term: "decorrelation / whitening in early visual system"
+    note: "Lateral inhibition removes spatial correlations; center-surround receptive fields implement whitening"
+  - field_a_term: "mutual information I(X;Y)"
+    field_b_term: "neural information transfer (bits/s measured via direct method)"
+    note: "Strong et al. (1998) first measured this directly in H1 neuron of the fly"
+
+related_unknowns:
+  - u-neural-code-population-versus-single-neuron
+
+related_hypotheses:
+  - h-cortical-hierarchies-as-predictive-coding-stack
+
+cross_pollination_opportunities:
+  - "Use rate-distortion theory to derive the optimal neural code for any natural stimulus distribution with metabolic constraints"
+  - "Apply turbo codes / LDPC concepts from telecommunications to understand population coding redundancy in cortex"
+  - "Measure channel capacity directly in human neurons (intraoperative recordings) to test efficient coding at the cognitive level"
+
+communication_gap: >
+  Barlow's 1961 proposal was in a book chapter (Sensory Communication) largely
+  unread outside neuroscience. Information theory was being developed by engineers
+  at Bell Labs simultaneously with no awareness of Barlow's parallel work. The
+  mathematical connection was made explicit only in the 1990s with direct measurements
+  by Strong, Fairhall and colleagues. Today computational neuroscience routinely
+  uses information theory but most neuroscientists are not trained in Shannon
+  theory, and most information theorists are unaware of the neural coding literature.
+
+references:
+  - note: "Barlow (1961) Possible principles underlying the transformation of sensory messages. In Sensory Communication (MIT Press)"
+    url: "https://mitpress.mit.edu/9780262691840/"
+  - note: "Shannon (1948) A Mathematical Theory of Communication. Bell Syst Tech J 27:379"
+    doi: "10.1002/j.1538-7305.1948.tb01338.x"
+  - doi: "10.1103/PhysRevLett.80.197"
+    note: "Strong et al. (1998) Phys Rev Lett 80:197 — direct measurement of neural information transmission"
+  - doi: "10.1038/35024638"
+    note: "Fairhall et al. (2001) Nature 412:787 — adaptation maximises information near channel capacity"
+
+last_reviewed: "2026-05-06"

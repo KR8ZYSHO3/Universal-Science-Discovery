@@ -1,0 +1,78 @@
+id: b-crispr-programmable-genome-editing
+title: "CRISPR-Cas9 ↔ biological search-and-replace algorithm — programmable genome editing as string computation"
+status: established
+fields:
+  - molecular-biology
+  - genomics
+  - computer-science
+  - bioinformatics
+
+bridge_claim: >
+  CRISPR-Cas9 is a programmable biological search-and-replace algorithm operating
+  on the genome as a character string. The guide RNA (gRNA, ~20 nucleotides) is
+  the search pattern; Cas9 protein is the endonuclease (cut function); the PAM
+  sequence (NGG for SpCas9) is the address delimiter that restricts where searches
+  can begin. Target recognition proceeds by Watson-Crick base-pair complementarity —
+  a biological exact-string-matching algorithm running in O(n) over the 3×10⁹ bp
+  genome. Off-target editing (cuts at imperfect matches) is approximate string
+  matching with mismatches, exactly as modelled by the Smith-Waterman or
+  Needleman-Wunsch algorithms. Multiplexed editing (multiple gRNAs simultaneously)
+  is parallel multi-pattern string search. Base editors and prime editors extend
+  the analogy: base editors are single-character substitutions; prime editors are
+  arbitrary find-and-replace with a pegRNA encoding both the search string and
+  replacement sequence. The genome is a read-write storage medium; CRISPR is the
+  I/O interface.
+
+translation_table:
+  - field_a_term: "guide RNA sequence (20 nt)"
+    field_b_term: "search pattern / query string"
+    note: "The gRNA defines which genomic address is targeted; changing it reprograms the cut site"
+  - field_a_term: "Cas9 endonuclease"
+    field_b_term: "cut / write function"
+    note: "Cas9 executes the edit once the gRNA has located the match"
+  - field_a_term: "PAM sequence (NGG)"
+    field_b_term: "address delimiter / restriction site"
+    note: "PAM must immediately follow the protospacer; limits addressable sites to ~1 in 8 bp"
+  - field_a_term: "base-pair complementarity (Watson-Crick)"
+    field_b_term: "exact string matching"
+    note: "The thermodynamic energy of hybridisation is the matching score"
+  - field_a_term: "off-target editing (mismatches tolerated)"
+    field_b_term: "approximate string matching (fuzzy search)"
+    note: "Cas9 tolerates up to ~5 mismatches — analogous to edit distance tolerance in BLAST"
+  - field_a_term: "multiplexed editing (multiple gRNAs)"
+    field_b_term: "parallel multi-pattern search (Aho-Corasick)"
+    note: "Multiple gRNAs can be co-expressed for simultaneous edits at independent loci"
+  - field_a_term: "prime editing pegRNA (spacer + RT template)"
+    field_b_term: "find-and-replace with specified replacement string"
+    note: "pegRNA encodes both the search sequence and the replacement — full string rewrite"
+
+related_unknowns:
+  - u-crispr-off-target-prediction-accuracy
+
+related_hypotheses:
+  - h-genome-as-distributed-write-once-storage
+
+cross_pollination_opportunities:
+  - "Apply automata theory (finite-state machines) to model Cas9 conformational changes during target search"
+  - "Use information-theoretic bounds (channel capacity) to calculate the maximum specificity achievable with a 20 nt gRNA given the genome size"
+  - "Import compiler design concepts (lexing, parsing) to design orthogonal gRNA libraries that avoid cross-reactivity"
+
+communication_gap: >
+  Molecular biologists and computer scientists both have deep relevant expertise
+  but collaborate rarely on CRISPR design. Bioinformatics bridges the gap computationally
+  (off-target prediction tools like Cas-OFFinder, CRISPOR use string-matching
+  algorithms), but the formal computer science framing — complexity analysis,
+  information-theoretic limits on specificity — is rarely applied. Most CRISPR
+  engineering is empirical rather than theory-driven.
+
+references:
+  - doi: "10.1126/science.1225829"
+    note: "Doudna & Charpentier (2012) Science 337:816 — CRISPR-Cas9 as programmable endonuclease"
+  - doi: "10.1126/science.1231143"
+    note: "Cong et al. (2013) Science 339:819 — genome editing in eukaryotic cells"
+  - doi: "10.1016/j.cell.2014.05.010"
+    note: "Hsu et al. (2014) Cell 157:1262 — off-target effects and specificity"
+  - doi: "10.1038/s41586-019-1711-4"
+    note: "Anzalone et al. (2019) Nature 576:149 — prime editing (find-and-replace)"
+
+last_reviewed: "2026-05-06"
