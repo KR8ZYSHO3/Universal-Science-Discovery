@@ -1,0 +1,82 @@
+id: b-biodiversity-entropy-measures
+title: >
+  Shannon entropy applied to species relative abundances gives the Shannon
+  diversity index; Hill numbers unify Shannon (q→1), Simpson (q=2), and species
+  richness (q=0) as the Rényi entropy family applied to ecology; and MaxEnt
+  models derive species abundance distributions from the same thermodynamic
+  analogy that produces the Boltzmann distribution.
+status: established
+fields:
+  - ecology
+  - biodiversity-science
+  - information-theory
+  - statistical-mechanics
+  - biogeography
+bridge_claim: >
+  Shannon's entropy H = -Σ_i p_i log p_i applied to species i with relative
+  abundance p_i is used directly as a biodiversity index (H' or Shannon diversity),
+  quantifying uncertainty in the species identity of a randomly drawn individual.
+  Hill (1973) unified all common diversity indices as instances of the Rényi entropy
+  family R_q = (1/(1-q)) log Σ p_i^q expressed in units of effective number of
+  species: ^qD = (Σ p_i^q)^(1/(1-q)). For q=0: species richness; q→1: exp(Shannon H);
+  q=2: inverse Simpson. The unification shows that disagreements about which
+  diversity index to use are arguments about q — the sensitivity to rare versus
+  common species. Mutual information I(community_A; community_B) between species
+  composition in two samples quantifies beta diversity (between-site turnover) as
+  an information-theoretic distance. MaxEnt (maximum entropy) models (Harte 2011)
+  predict species abundance distributions (SAD) and range distributions by
+  maximizing entropy subject to constraints on total abundance and metabolic flux
+  — recovering the log-series and power-law SADs observed empirically, analogous
+  to the canonical ensemble derivation of the Boltzmann distribution.
+translation_table:
+  - field_a_term: Shannon entropy H = -Σ p_i log p_i
+    field_b_term: Shannon diversity index H' (nats or bits of species uncertainty)
+    note: numerically identical; different interpretations and units
+  - field_a_term: Rényi entropy R_q = (1/(1-q)) log Σ p_i^q
+    field_b_term: Hill number ^qD (effective number of species at diversity order q)
+    note: Hill (1973) expressed Rényi entropy as species diversity with natural units
+  - field_a_term: diversity order q (sensitivity parameter)
+    field_b_term: weighting of rare vs. common species in diversity measurement
+    note: "q=0: all species equal; q=1: weighted by abundance; q=2: dominated by common species"
+  - field_a_term: mutual information I(A;B)
+    field_b_term: beta diversity (compositional turnover between sites)
+    note: quantifies how much knowledge of site A reduces uncertainty about site B
+  - field_a_term: maximum entropy distribution under constraints
+    field_b_term: predicted species abundance distribution (SADs)
+    note: Harte (2011) MaxEnt ecology recovers empirical SADs from energy/abundance constraints
+  - field_a_term: Boltzmann distribution (Gibbs ensemble)
+    field_b_term: species rank-abundance distribution in MaxEnt ecology
+related_unknowns:
+  - u-maxent-species-abundance-prediction
+related_hypotheses:
+  - h-hill-numbers-unify-diversity-indices
+cross_pollination_opportunities:
+  - >
+    Compressed sensing and information-theoretic sampling theory give optimal
+    designs for species surveys that maximize the information gained per sample.
+    Current biodiversity monitoring designs (transects, point counts) are largely
+    heuristic. Applying optimal experiment design from information theory to
+    biodiversity surveys could reduce monitoring costs for equivalent statistical
+    power — directly relevant to IUCN Red List assessments and conservation planning.
+  - >
+    Phylogenetic diversity (Faith 1992) — summing branch lengths of the phylogenetic
+    tree spanning observed species — is a richer diversity measure than species
+    richness. Connecting phylogenetic diversity to information theory (the tree as
+    a code for evolutionary information) could give an information-theoretic
+    justification for phylogenetic diversity conservation priorities.
+communication_gap: >
+  Shannon's 1948 paper was written for electrical engineers and communication
+  theorists. Hill (1973) published in the ecology journal Ecology; the paper is
+  well-known among ecologists but the Rényi entropy connection is rarely
+  acknowledged. Information theorists working on entropy measures rarely read
+  ecology journals. Harte's MaxEnt ecology textbook (2011) is technically demanding
+  and has been critiqued (Haegeman & Etienne 2010) but has not generated the
+  cross-disciplinary engagement with statistical physicists that it deserves.
+last_reviewed: "2026-05-06"
+references:
+  - note: Shannon (1948) — A mathematical theory of communication; Bell Syst Tech J 27:379
+  - doi: "10.2307/1934352"
+    note: Hill (1973) — Diversity and evenness; a unifying notation and its consequences; Ecology 54:427
+  - doi: "10.1146/annurev-ecolsys-120213-091540"
+    note: Chao et al. (2014) — Rarefaction and extrapolation with Hill numbers; Annu Rev Ecol Evol Syst 45:297
+  - note: Harte (2011) — Maximum Entropy and Ecology; Oxford University Press

@@ -1,0 +1,82 @@
+id: b-graph-theory-phylogenetics
+title: >
+  Phylogenetic trees are rooted Cayley trees — graph-theoretic objects — and
+  maximum likelihood phylogenetics maximizes P(sequences|tree, model) over a
+  combinatorially vast tree topology space of (2n-3)!! topologies, making exact
+  search NP-hard and requiring heuristic graph algorithms from combinatorics.
+status: established
+fields:
+  - mathematics
+  - graph-theory
+  - combinatorics
+  - biology
+  - phylogenetics
+  - evolutionary-biology
+bridge_claim: >
+  A rooted bifurcating phylogenetic tree for n taxa is a Cayley tree — a graph
+  with n leaves, n-1 internal nodes, and 2n-2 edges, with the property that each
+  internal node has exactly 3 incident edges (rooted: 2 children + 1 parent).
+  The number of distinct rooted bifurcating tree topologies = (2n-3)!! = 1×3×5×...×(2n-3).
+  For n=50 taxa, this exceeds 3×10⁷⁶ — more than the number of atoms in the
+  observable universe — making exhaustive search over all topologies computationally
+  infeasible. Maximum likelihood phylogenetics (Felsenstein 1981) maximizes the
+  likelihood P(aligned sequences | tree topology T, branch lengths l, substitution
+  model M) = Π_sites Σ_{ancestral states} Π_{branches} P(change|l,M) using Felsenstein's
+  pruning algorithm (dynamic programming on the tree). Parsimony = minimum spanning
+  tree over the character-state graph (Fitch 1971). Reticulate evolution —
+  horizontal gene transfer, hybridization — requires directed acyclic graphs (DAGs)
+  rather than trees, and phylogenetic networks are an active area where graph
+  theory provides the representational framework. Bayesian phylogenetics (MrBayes,
+  BEAST) samples from the posterior over trees using MCMC on tree space — a
+  combinatorial object that requires special graph-theoretic moves (nearest-neighbor
+  interchange, subtree pruning and regrafting).
+translation_table:
+  - field_a_term: Cayley tree (labeled rooted tree)
+    field_b_term: rooted bifurcating phylogenetic tree
+    note: each topology is a distinct Cayley tree; branch lengths add metric structure
+  - field_a_term: number of labeled rooted trees on n vertices = (2n-3)!!
+    field_b_term: number of possible evolutionary histories for n taxa
+    note: the combinatorial explosion that makes phylogenetics computationally hard
+  - field_a_term: minimum spanning tree (MST)
+    field_b_term: maximum parsimony tree (fewest evolutionary changes)
+    note: Fitch (1971) algorithm computes exact parsimony score on a fixed tree
+  - field_a_term: directed acyclic graph (DAG)
+    field_b_term: phylogenetic network (with reticulations for HGT, hybridization)
+  - field_a_term: graph distance / tree metric
+    field_b_term: branch length (evolutionary divergence in substitutions per site)
+  - field_a_term: nearest-neighbor interchange (NNI) on trees
+    field_b_term: tree rearrangement move in MCMC over phylogenetic tree space
+related_unknowns:
+  - u-phylogenetic-network-horizontal-transfer
+related_hypotheses:
+  - h-tree-topology-search-polynomial-approximation
+cross_pollination_opportunities:
+  - >
+    Reconciliation algorithms (gene tree inside species tree) require graph
+    homomorphism theory: finding the embedding of one tree inside another that
+    minimizes duplications, losses, and horizontal transfers. This is a formal
+    subgraph isomorphism problem whose computational complexity is not fully
+    characterized in phylogenetics but is well-studied in graph theory (e.g.
+    tree edit distance).
+  - >
+    Tropical geometry provides an algebraic framework for phylogenetic trees:
+    tree metrics correspond to points in the tropical Grassmannian, and maximum
+    parsimony optimization becomes a linear programming problem over the tropical
+    semiring. This connection (Speyer & Sturmfels 2004) has not been widely adopted
+    by practicing phylogeneticists despite providing exact polynomial-time algorithms
+    for some tree inference problems.
+communication_gap: >
+  Phylogenetics textbooks (Felsenstein 2004) develop the combinatorics from first
+  principles without reference to graph theory literature. Combinatorics and graph
+  theory conferences do not typically include phylogenetics sessions. The algebraic
+  and tropical geometry approaches to phylogenetics are known in mathematical
+  biology but have not been adopted by the software (RAxML, IQ-TREE, MrBayes)
+  used by practicing evolutionary biologists.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1007/BF01734359"
+    note: Felsenstein (1981) — Evolutionary trees from DNA sequences; maximum likelihood method; J Mol Evol 17:368
+  - note: "Cavalli-Sforza & Edwards (1967) — Phylogenetic analysis: models and estimation procedures; Evolution 21:550"
+  - doi: "10.1093/sysbio/20.4.406"
+    note: Fitch (1971) — Toward defining the course of evolution; minimum change for a specific tree topology; Syst Zool 20:406
+  - note: Felsenstein (2004) — Inferring Phylogenies; Sinauer Associates

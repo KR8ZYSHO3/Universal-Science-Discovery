@@ -19,11 +19,12 @@ version-controlled catalog of scientific unknowns, hypotheses, and cross-domain
 mathematical bridges. Unlike traditional literature databases that index what is known,
 USDR explicitly catalogs what remains unknown — structured as machine-readable YAML
 entries governed by formal JSON Schema validation. The repository currently contains
-750+ entries across 22 scientific domains, including 100 cross-domain bridges that
-formalise mathematical correspondences between fields that rarely communicate, 544 open
-unknowns across 22 disciplines, and 116 falsifiable hypotheses. We describe the schema
-design, the knowledge graph structure (761 nodes), and the AI co-pilot tooling that
-automatically surfaces novel bridge candidates by analysing domain connectivity gaps.
+950+ entries across 22 scientific domains, including 170 cross-domain bridges that
+formalise mathematical correspondences between fields that rarely communicate, 598 open
+unknowns across 22 disciplines, 175 falsifiable hypotheses, 11 pioneer profiles, and
+11 breakthrough gap analyses. We describe the schema design, the knowledge graph
+structure (~990 nodes), and the AI co-pilot tooling that automatically surfaces novel
+bridge candidates by analysing domain connectivity gaps.
 USDR is designed as collaborative infrastructure: all entries are version-controlled,
 peer-reviewable via pull requests, and linked to primary literature. We discuss the
 epistemological rationale for explicitly tracking unknowns, the governance model for
@@ -227,13 +228,36 @@ rebuilt deterministically from the source files.
 
 | Metric | Value |
 |--------|-------|
-| Total entries | ~760 |
-| Unknowns | 544 |
-| Hypotheses | 116 |
-| Bridges | 100 |
+| Total entries | ~950 |
+| Unknowns | 598 |
+| Hypotheses | 175 |
+| Bridges | 170 |
+| Pioneers | 11 |
+| Breakthrough gaps | 11 |
+| Domain landing pages | 41 |
 | Domains | 22 |
-| Knowledge graph nodes | 761 |
+| Knowledge graph nodes | ~990 |
 | Domain pairs evaluated for bridge gaps | 561 |
+
+**3.6 Pioneer and Breakthrough Gap Catalogs.** The repository maintains two
+specialized catalog types that complement the core unknowns-bridges-hypotheses triad.
+
+*Pioneer profiles* (`pioneers/`) document eleven scientists whose work created
+foundational cross-domain bridges — figures such as Claude Shannon, Norbert Wiener,
+and Alan Turing, whose contributions simultaneously defined multiple fields. Each entry
+records the pioneer's key cross-domain insight, the mathematical object they introduced,
+the fields it subsequently unified, and the open problems their framework leaves
+unresolved. Pioneer entries serve an onboarding function: they illustrate, through
+historically validated examples, what a genuine mathematical bridge looks like — grounding
+the quality standard for new entries.
+
+*Breakthrough gap analyses* (`breakthrough-gaps/`) catalog eleven scientific transition
+zones where evidence is converging toward a major discovery but the decisive
+cross-disciplinary experiment or theoretical unification has not yet occurred. Each entry
+specifies the competing hypotheses, the data already in hand, the missing measurement or
+theoretical link, and the specific collaboration that could close the gap. Together,
+these catalogs provide historical context and forward-looking priority guidance that
+complements the systematic structural analysis of the knowledge graph.
 
 ---
 
@@ -532,19 +556,24 @@ universality class proofs is not in the standard reading list for conservation b
 ## 8. Current Status and Roadmap
 
 **8.1 Phase 0 status.** The repository has completed its initial seeding phase with
-approximately 760 entries across 22 domains. The governance infrastructure is live:
+approximately 950 entries across 22 domains. The governance infrastructure is live:
 schema validation CI, pull request templates, contribution guidelines, and the AI
 co-pilot tooling suite are all operational. The contributor dashboard
-(`dashboard/index.html`) provides a guided entry point for new contributors. The
-knowledge graph is built deterministically from source YAML and published as a
-queryable JSON artifact.
+(`dashboard/index.html`) provides a guided entry point for new contributors, including
+a searchable pioneers section (11 cards), a breakthrough gaps section (11 entries),
+Lunr full-text search, and an interactive knowledge graph visualization. The knowledge
+graph is built deterministically from source YAML and published as a queryable JSON
+artifact, currently containing approximately 990 nodes and 828 edges.
 
-The 100 cross-domain bridges span multiple domain pair directories. The majority carry
+The 170 cross-domain bridges span 41 domain-pair landing pages. The majority carry
 `status: proposed`, indicating community recognition of a plausible connection without
 yet a published cross-disciplinary validation. Several bridges carry `status:
-established`: b-spin-glass-neural-networks, b-turing-reaction-diffusion, and
-b-landauer-information-thermodynamics. The established bridges serve as calibration
-examples for the review process.
+established`: b-spin-glass-neural-networks, b-turing-reaction-diffusion,
+b-landauer-information-thermodynamics, and bridges in wave 9 covering Brownian motion
+in cell biology, simulated annealing, random matrix portfolio theory, ecological
+stoichiometry, biomineralization, cascade failures in interdependent networks, graph
+theory/phylogenetics, Bayesian-statistical mechanics identity, and biodiversity entropy
+measures. The established bridges serve as calibration examples for the review process.
 
 **8.2 Phase 1 targets.** The next milestone targets: 10,000 total entries through
 a combination of community contributions and assisted seeding; domain steward
@@ -581,7 +610,7 @@ first-class, version-controlled, schema-validated objects linked to primary lite
 gap documentation; (iii) git-native community governance that applies the same peer
 review mechanism to knowledge claims that software engineering applies to code.
 
-The current 760+ entries across 22 domains are a seed, not a completion. The value of
+The current 950+ entries across 22 domains are a seed, not a completion. The value of
 the repository will scale with community participation: each new unknown registered
 makes the frontier more visible; each new bridge identified makes cross-domain discovery
 more likely; each new hypothesis proposed with falsification criteria moves a question

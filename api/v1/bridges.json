@@ -1,5 +1,5 @@
 {
-  "count": 158,
+  "count": 170,
   "items": [
     {
       "id": "b-grokking-criticality",
@@ -2130,6 +2130,67 @@
       "file": "cross-domain\\computer-science-neuroscience\\b-transformer-attention-neural-attention.yaml"
     },
     {
+      "id": "b-simulated-annealing-stat-mech",
+      "title": "The simulated annealing metaheuristic (Kirkpatrick et al. 1983) is a direct algorithmic implementation of statistical-mechanical annealing: the Metropolis acceptance criterion mirrors the Boltzmann factor and the cooling schedule controls convergence to the configuration-space ground state.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Kirkpatrick et al. (1983) introduced simulated annealing by recognising that combinatorial optimization problems are formally equivalent to finding the ground state of a physical system. The acceptance probability P(accept) = exp(-ΔE/T) in the algorithm is precisely the Boltzmann factor from statist",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-simulated-annealing-quantum-speedup"
+      ],
+      "communication_gap": "The 1983 Kirkpatrick paper appeared in Science and was read by computer scientists who adopted the algorithm without internalizing its statistical-mechanical foundations. Meanwhile, physicists who understand the Boltzmann distribution intimately rarely connect it to combinatorial optimization. The Metropolis (1953) paper is among the most-cited in computational physics yet is rarely cited in the operations research and algorithm design literature where simulated annealing is taught.\n",
+      "translation_table": [
+        {
+          "field_a_term": "cost function E(x)",
+          "field_b_term": "potential energy of a configuration",
+          "note": "minimizing cost = finding ground state"
+        },
+        {
+          "field_a_term": "acceptance probability exp(-ΔE/T)",
+          "field_b_term": "Boltzmann factor for thermal fluctuations",
+          "note": "identical mathematical expression in both fields"
+        },
+        {
+          "field_a_term": "computational temperature T",
+          "field_b_term": "thermal energy kT of the physical system",
+          "note": "controls the width of the Boltzmann distribution over solutions"
+        },
+        {
+          "field_a_term": "cooling schedule T(t) → 0",
+          "field_b_term": "physical annealing (slow cooling from melt)",
+          "note": "logarithmic schedule guarantees convergence; faster schedules → local optima"
+        },
+        {
+          "field_a_term": "global optimum of cost function",
+          "field_b_term": "ground state (minimum energy configuration)"
+        },
+        {
+          "field_a_term": "neighborhood of a solution (local moves)",
+          "field_b_term": "configuration space accessible by thermal fluctuations"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1126/science.220.4598.671",
+          "note": "Kirkpatrick et al. (1983) — Optimization by simulated annealing; Science 220:671"
+        },
+        {
+          "doi": "10.1063/1.1699112",
+          "note": "Metropolis et al. (1953) — Equation of state calculations by fast computing machines; J Chem Phys 21:1087"
+        },
+        {
+          "note": "Černý (1985) — Thermodynamical approach to the traveling salesman problem; J Optim Theory Appl 45:41"
+        },
+        {
+          "note": "van Laarhoven & Aarts (1987) — Simulated Annealing: Theory and Applications; Kluwer"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\computer-science-physics\\b-simulated-annealing-stat-mech.yaml"
+    },
+    {
       "id": "b-pac-learning-generalization",
       "title": "PAC learning theory ↔ statistical generalisation — VC dimension as the degrees of freedom of a hypothesis class",
       "source_domain": "",
@@ -2393,6 +2454,64 @@
       "file": "cross-domain\\developmental-biology-physics\\b-morphogen-gradients-diffusion.yaml"
     },
     {
+      "id": "b-stoichiometry-liebig-minimum",
+      "title": "Ecological stoichiometry treats organisms as chemical reactors with fixed elemental ratios (the Redfield ratio in marine phytoplankton), and Liebig's law of the minimum — growth is limited by the scarcest nutrient relative to stoichiometric demand — is the biological application of chemical equilibrium constraints.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Organisms maintain remarkably fixed elemental compositions despite variable environmental nutrient ratios. Marine phytoplankton converge on the Redfield ratio C:N:P ≈ 106:16:1 (by atoms), first documented by Alfred Redfield (1958) and later explained as an optimum under evolutionary selection (Klaus",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-liebig-minimum-generalizes-le-chatelier"
+      ],
+      "communication_gap": "Von Liebig (1840) and Redfield (1958) wrote before modern ecological stoichiometry as a field existed, so their chemical insights were not formalised in the language of chemical thermodynamics. Sterner and Elser (2002) built the field but their textbook is read by ecologists, not chemists. The Le Chatelier connection is conceptually immediate but has not, to our knowledge, been formally demonstrated in any cross-disciplinary publication.\n",
+      "translation_table": [
+        {
+          "field_a_term": "limiting nutrient (element in shortest supply relative to demand)",
+          "field_b_term": "limiting reagent in a chemical reaction",
+          "note": "the reaction (growth) stops when the limiting reagent (nutrient) is exhausted"
+        },
+        {
+          "field_a_term": "Redfield ratio C:N:P = 106:16:1",
+          "field_b_term": "stoichiometric coefficients of the overall biochemical reaction",
+          "note": "deviations from Redfield indicate resource imbalance or evolutionary adaptation"
+        },
+        {
+          "field_a_term": "internal cell quota Q (element per cell)",
+          "field_b_term": "intracellular concentration of a chemical reactant"
+        },
+        {
+          "field_a_term": "Liebig's law of the minimum",
+          "field_b_term": "Le Chatelier's principle (system responds to remove stress on limiting reactant)"
+        },
+        {
+          "field_a_term": "stoichiometric mismatch (consumer vs. food elemental ratio)",
+          "field_b_term": "off-stoichiometry reaction — requires excess of non-limiting reactants"
+        },
+        {
+          "field_a_term": "nutrient recycling efficiency",
+          "field_b_term": "reaction yield / atom economy in green chemistry"
+        }
+      ],
+      "references": [
+        {
+          "note": "Liebig (1840) — Chemistry in its Application to Agriculture and Physiology; Taylor and Walton, London"
+        },
+        {
+          "note": "Redfield (1958) — The biological control of chemical factors in the environment; Am Sci 46:205"
+        },
+        {
+          "note": "Sterner & Elser (2002) — Ecological Stoichiometry; Princeton University Press"
+        },
+        {
+          "doi": "10.1111/j.1461-0248.2007.01109.x",
+          "note": "Elser et al. (2007) — Global analysis of nitrogen and phosphorus limitation; Ecol Lett 10:1135"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\ecology-chemistry\\b-stoichiometry-liebig-minimum.yaml"
+    },
+    {
       "id": "b-commons-game-theory-ostrom",
       "title": "Hardin's tragedy of the commons is a prisoner's dilemma, and Ostrom's polycentric governance of common-pool resources is formally equivalent to the folk theorem of repeated game theory: communities that interact repeatedly sustain cooperation via conditional punishment strategies, provided the discount factor δ exceeds a critical cooperation threshold.\n",
       "source_domain": "",
@@ -2530,6 +2649,68 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\ecology-game-theory\\b-ess-ecosystem-dynamics.yaml"
+    },
+    {
+      "id": "b-biodiversity-entropy-measures",
+      "title": "Shannon entropy applied to species relative abundances gives the Shannon diversity index; Hill numbers unify Shannon (q→1), Simpson (q=2), and species richness (q=0) as the Rényi entropy family applied to ecology; and MaxEnt models derive species abundance distributions from the same thermodynamic analogy that produces the Boltzmann distribution.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Shannon's entropy H = -Σ_i p_i log p_i applied to species i with relative abundance p_i is used directly as a biodiversity index (H' or Shannon diversity), quantifying uncertainty in the species identity of a randomly drawn individual. Hill (1973) unified all common diversity indices as instances of",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-hill-numbers-unify-diversity-indices"
+      ],
+      "communication_gap": "Shannon's 1948 paper was written for electrical engineers and communication theorists. Hill (1973) published in the ecology journal Ecology; the paper is well-known among ecologists but the Rényi entropy connection is rarely acknowledged. Information theorists working on entropy measures rarely read ecology journals. Harte's MaxEnt ecology textbook (2011) is technically demanding and has been critiqued (Haegeman & Etienne 2010) but has not generated the cross-disciplinary engagement with statistical physicists that it deserves.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Shannon entropy H = -Σ p_i log p_i",
+          "field_b_term": "Shannon diversity index H' (nats or bits of species uncertainty)",
+          "note": "numerically identical; different interpretations and units"
+        },
+        {
+          "field_a_term": "Rényi entropy R_q = (1/(1-q)) log Σ p_i^q",
+          "field_b_term": "Hill number ^qD (effective number of species at diversity order q)",
+          "note": "Hill (1973) expressed Rényi entropy as species diversity with natural units"
+        },
+        {
+          "field_a_term": "diversity order q (sensitivity parameter)",
+          "field_b_term": "weighting of rare vs. common species in diversity measurement",
+          "note": "q=0: all species equal; q=1: weighted by abundance; q=2: dominated by common species"
+        },
+        {
+          "field_a_term": "mutual information I(A;B)",
+          "field_b_term": "beta diversity (compositional turnover between sites)",
+          "note": "quantifies how much knowledge of site A reduces uncertainty about site B"
+        },
+        {
+          "field_a_term": "maximum entropy distribution under constraints",
+          "field_b_term": "predicted species abundance distribution (SADs)",
+          "note": "Harte (2011) MaxEnt ecology recovers empirical SADs from energy/abundance constraints"
+        },
+        {
+          "field_a_term": "Boltzmann distribution (Gibbs ensemble)",
+          "field_b_term": "species rank-abundance distribution in MaxEnt ecology"
+        }
+      ],
+      "references": [
+        {
+          "note": "Shannon (1948) — A mathematical theory of communication; Bell Syst Tech J 27:379"
+        },
+        {
+          "doi": "10.2307/1934352",
+          "note": "Hill (1973) — Diversity and evenness; a unifying notation and its consequences; Ecology 54:427"
+        },
+        {
+          "doi": "10.1146/annurev-ecolsys-120213-091540",
+          "note": "Chao et al. (2014) — Rarefaction and extrapolation with Hill numbers; Annu Rev Ecol Evol Syst 45:297"
+        },
+        {
+          "note": "Harte (2011) — Maximum Entropy and Ecology; Oxford University Press"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\ecology-information-theory\\b-biodiversity-entropy-measures.yaml"
     },
     {
       "id": "b-neutral-theory-random-matrix",
@@ -3464,6 +3645,69 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\engineering-biology\\b-robustness-evolvability-modularity.yaml"
+    },
+    {
+      "id": "b-synthetic-biology-genetic-circuits",
+      "title": "Synthetic biology applies electronic circuit design principles to genetic systems — using transcription factors as NOT/AND/NOR gates, implementing the repressilator (genetic ring oscillator) and toggle switch (genetic flip-flop), and employing transfer functions and Bode plots from control theory to engineer programmable living systems.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Elowitz & Leibler (2000) and Gardner et al. (2000) — published simultaneously in Nature — demonstrated that gene regulatory networks can be engineered to implement electronic circuit functions. The repressilator (Elowitz & Leibler) is a synthetic genetic ring oscillator: three genes (tetR, lacI, cI)",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-biological-computing-turing-completeness"
+      ],
+      "communication_gap": "Electrical engineering and control theory training is not part of standard biology PhD programs. The formalisms of transfer functions and Bode plots appear in the synthetic biology literature but are rarely derived from first principles for biological audiences. Conversely, most electrical engineers are unaware that their circuit formalism has been implemented in DNA. The iGEM (International Genetically Engineered Machine) competition has done more than any academic program to bridge this gap through engineering-focused biological design education.\n",
+      "translation_table": [
+        {
+          "field_a_term": "NOT gate (inverter)",
+          "field_b_term": "transcriptional repressor (e.g. TetR represses P_tet promoter)",
+          "note": "protein A represses gene B = A is a NOT gate for B"
+        },
+        {
+          "field_a_term": "AND gate",
+          "field_b_term": "split intein / split protein requiring both fragments for activity",
+          "note": "output only when both inputs present simultaneously"
+        },
+        {
+          "field_a_term": "ring oscillator (3-stage NOT chain)",
+          "field_b_term": "repressilator (3-gene mutual repression cycle)",
+          "note": "Elowitz & Leibler (2000); period set by protein degradation rates"
+        },
+        {
+          "field_a_term": "flip-flop / bistable latch",
+          "field_b_term": "genetic toggle switch (mutual repression bistability)",
+          "note": "Gardner et al. (2000); two stable states encode binary memory"
+        },
+        {
+          "field_a_term": "component library (standardized electronic parts)",
+          "field_b_term": "BioBrick registry (standardized genetic parts with defined interfaces)"
+        },
+        {
+          "field_a_term": "transfer function (input-output gain and phase)",
+          "field_b_term": "dose-response curve of a genetic promoter (Hill function)"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1038/35002125",
+          "note": "Elowitz & Leibler (2000) — A synthetic oscillatory network of transcriptional regulators (repressilator); Nature 403:335"
+        },
+        {
+          "doi": "10.1038/35002131",
+          "note": "Gardner et al. (2000) — Construction of a genetic toggle switch in Escherichia coli; Nature 403:339"
+        },
+        {
+          "doi": "10.1038/msb4100073",
+          "note": "Andrianantoandro et al. (2006) — Synthetic biology; new engineering rules for an emerging discipline; Mol Syst Biol 2:2006.0028"
+        },
+        {
+          "doi": "10.1126/science.1252749",
+          "note": "Cameron et al. (2014) — Tunable protein degradation in bacteria; Science 346:1258829"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\engineering-biology\\b-synthetic-biology-genetic-circuits.yaml"
     },
     {
       "id": "b-tensegrity-cytoskeleton",
@@ -4894,6 +5138,69 @@
       "file": "cross-domain\\materials-science-biology\\b-biomineralization-crystal-growth.yaml"
     },
     {
+      "id": "b-biomineralization-crystal-nucleation",
+      "title": "Organisms direct calcium carbonate, calcium phosphate, and silica crystal nucleation through organic templates and protein matrices that lower the nucleation barrier (ΔG*) — effectively tuning the classical nucleation theory landscape — to produce hierarchically structured biominerals with mechanical properties inaccessible to inorganic synthesis alone.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Classical nucleation theory gives the free energy barrier ΔG* = 16πγ³/(3ΔG_v²), where γ is the solid–liquid interfacial energy and ΔG_v is the volumetric free energy of crystallization. The nucleation rate J ∝ exp(-ΔG*/kT) is exquisitely sensitive to γ: reducing γ by a factor of 2 reduces ΔG* by a f",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-organic-template-lowers-nucleation-barrier"
+      ],
+      "communication_gap": "Classical nucleation theory is taught in materials science and chemical engineering but rarely in biology. Biomineralization research is published in specialist journals (J Struct Biol, Biomaterials) that materials scientists rarely read. The quantitative connection between protein matrix chemistry and the CNT parameters γ and ΔG_v has been made in a handful of studies but has not become the default analytical framework for the biomineralization field.\n",
+      "translation_table": [
+        {
+          "field_a_term": "interfacial free energy γ (crystal-liquid surface energy)",
+          "field_b_term": "organic template–mineral interface energy (reduced by protein binding)",
+          "note": "protein matrices lower γ by 30–60% enabling nucleation at lower supersaturation"
+        },
+        {
+          "field_a_term": "nucleation barrier ΔG* = 16πγ³/(3ΔG_v²)",
+          "field_b_term": "threshold for crystal nucleation at biological templating sites",
+          "note": "ΔG* controls nucleation rate exponentially; small γ reductions have large rate effects"
+        },
+        {
+          "field_a_term": "polymorph selection (aragonite vs. calcite)",
+          "field_b_term": "template-directed crystal phase control in mollusc shell formation",
+          "note": "different protein matrices select different CaCO₃ polymorphs with different mechanical properties"
+        },
+        {
+          "field_a_term": "Ostwald ripening (large crystals grow at expense of small ones)",
+          "field_b_term": "intracellular amorphous calcium carbonate precursor storage and conversion",
+          "note": "biology avoids Ostwald ripening by spatial confinement within vesicles"
+        },
+        {
+          "field_a_term": "crack-tip stress intensity factor K_Ic (fracture toughness)",
+          "field_b_term": "nacre brick-and-mortar architecture toughening mechanism",
+          "note": ">3000x toughness improvement from hierarchical crack deflection vs. monolithic crystal"
+        },
+        {
+          "field_a_term": "epitaxy (crystal growth on matched substrate)",
+          "field_b_term": "stereochemical recognition between protein matrix and crystal face"
+        }
+      ],
+      "references": [
+        {
+          "note": "Lowenstam & Weiner (1989) — On Biomineralization; Oxford University Press"
+        },
+        {
+          "doi": "10.1039/a703590a",
+          "note": "Weiner & Addadi (1997) — Design strategies in mineralized biological materials; J Mater Chem 7:689"
+        },
+        {
+          "doi": "10.1021/cr8002049",
+          "note": "Meldrum & Cölfen (2008) — Controlling mineral morphologies and structures in biological and synthetic systems; Chem Rev 108:4332"
+        },
+        {
+          "doi": "10.1016/j.pmatsci.2008.03.001",
+          "note": "Meyers et al. (2008) — Biological materials: structure and mechanical properties; Prog Mater Sci 53:1"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\materials-science-biology\\b-biomineralization-crystal-nucleation.yaml"
+    },
+    {
       "id": "b-crystallography-group-theory",
       "title": "The 230 space groups classifying all possible crystal symmetries are a complete enumeration of discrete subgroups of the Euclidean group in 3D; quasicrystals (Shechtman 1984) require the mathematics of aperiodic tilings, extending the connection to non-crystallographic point groups.\n",
       "source_domain": "",
@@ -5074,6 +5381,66 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\mathematics-biology\\b-allometry-fractal-networks.yaml"
+    },
+    {
+      "id": "b-graph-theory-phylogenetics",
+      "title": "Phylogenetic trees are rooted Cayley trees — graph-theoretic objects — and maximum likelihood phylogenetics maximizes P(sequences|tree, model) over a combinatorially vast tree topology space of (2n-3)!! topologies, making exact search NP-hard and requiring heuristic graph algorithms from combinatorics.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "A rooted bifurcating phylogenetic tree for n taxa is a Cayley tree — a graph with n leaves, n-1 internal nodes, and 2n-2 edges, with the property that each internal node has exactly 3 incident edges (rooted: 2 children + 1 parent). The number of distinct rooted bifurcating tree topologies = (2n-3)!!",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-tree-topology-search-polynomial-approximation"
+      ],
+      "communication_gap": "Phylogenetics textbooks (Felsenstein 2004) develop the combinatorics from first principles without reference to graph theory literature. Combinatorics and graph theory conferences do not typically include phylogenetics sessions. The algebraic and tropical geometry approaches to phylogenetics are known in mathematical biology but have not been adopted by the software (RAxML, IQ-TREE, MrBayes) used by practicing evolutionary biologists.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Cayley tree (labeled rooted tree)",
+          "field_b_term": "rooted bifurcating phylogenetic tree",
+          "note": "each topology is a distinct Cayley tree; branch lengths add metric structure"
+        },
+        {
+          "field_a_term": "number of labeled rooted trees on n vertices = (2n-3)!!",
+          "field_b_term": "number of possible evolutionary histories for n taxa",
+          "note": "the combinatorial explosion that makes phylogenetics computationally hard"
+        },
+        {
+          "field_a_term": "minimum spanning tree (MST)",
+          "field_b_term": "maximum parsimony tree (fewest evolutionary changes)",
+          "note": "Fitch (1971) algorithm computes exact parsimony score on a fixed tree"
+        },
+        {
+          "field_a_term": "directed acyclic graph (DAG)",
+          "field_b_term": "phylogenetic network (with reticulations for HGT, hybridization)"
+        },
+        {
+          "field_a_term": "graph distance / tree metric",
+          "field_b_term": "branch length (evolutionary divergence in substitutions per site)"
+        },
+        {
+          "field_a_term": "nearest-neighbor interchange (NNI) on trees",
+          "field_b_term": "tree rearrangement move in MCMC over phylogenetic tree space"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1007/BF01734359",
+          "note": "Felsenstein (1981) — Evolutionary trees from DNA sequences; maximum likelihood method; J Mol Evol 17:368"
+        },
+        {
+          "note": "Cavalli-Sforza & Edwards (1967) — Phylogenetic analysis: models and estimation procedures; Evolution 21:550"
+        },
+        {
+          "doi": "10.1093/sysbio/20.4.406",
+          "note": "Fitch (1971) — Toward defining the course of evolution; minimum change for a specific tree topology; Syst Zool 20:406"
+        },
+        {
+          "note": "Felsenstein (2004) — Inferring Phylogenies; Sinauer Associates"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\mathematics-biology\\b-graph-theory-phylogenetics.yaml"
     },
     {
       "id": "b-knot-theory-dna-topology",
@@ -5669,6 +6036,68 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\mathematics-evolution\\b-game-theory-evolution.yaml"
+    },
+    {
+      "id": "b-random-matrix-portfolio-optimization",
+      "title": "Random matrix theory (Marchenko-Pastur law) identifies which eigenvalues of a financial covariance matrix carry genuine correlation signal versus statistical noise, providing an objective criterion for cleaning the matrix and dramatically improving Markowitz mean-variance portfolio optimization out-of-sample.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The sample covariance matrix of N financial return series of length T has most eigenvalues distributed according to the Marchenko-Pastur law — the asymptotic distribution of eigenvalues of a random Wishart matrix when N/T = q is fixed. The bulk of eigenvalues lies within [λ_min, λ_max] = (1 ± √q)²/T",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-eigenvalue-cleaning-portfolio-performance"
+      ],
+      "communication_gap": "RMT was developed in nuclear physics (Wigner, Dyson) for modeling heavy nucleus energy levels and imported to finance by physicists (Laloux, Potters, Bouchaud at the Santa Fe Institute and École Normale). Financial economists were initially resistant to physics imports but Ledoit-Wolf shrinkage — an independently derived statistical approach that converges to RMT cleaning in the large-N limit — is now standard. The physics derivation is cleaner and more principled but less known among practitioners trained in econometrics.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Wishart random matrix eigenvalue distribution",
+          "field_b_term": "null distribution of financial correlation matrix eigenvalues",
+          "note": "Marchenko-Pastur law gives exact analytic form"
+        },
+        {
+          "field_a_term": "eigenvalues outside Marchenko-Pastur bulk",
+          "field_b_term": "genuine market factors (market mode, sector modes)",
+          "note": "largest eigenvalue ≈ market beta; next few ≈ sector correlations"
+        },
+        {
+          "field_a_term": "eigenvalue cleaning (replace bulk with MP average)",
+          "field_b_term": "regularized covariance matrix for portfolio optimization",
+          "note": "reduces estimation error; equivalent to Ledoit-Wolf shrinkage in limit"
+        },
+        {
+          "field_a_term": "ratio q = N/T (matrix aspect ratio)",
+          "field_b_term": "curse of dimensionality parameter in finance (assets / observations)",
+          "note": "larger q = more noise; modern portfolios have q close to or above 1"
+        },
+        {
+          "field_a_term": "Tracy-Widom distribution (largest eigenvalue fluctuations)",
+          "field_b_term": "statistical significance threshold for market-wide shocks"
+        },
+        {
+          "field_a_term": "free probability theory (addition/multiplication of random matrices)",
+          "field_b_term": "composition of risk factors in multi-asset portfolios"
+        }
+      ],
+      "references": [
+        {
+          "note": "Marchenko & Pastur (1967) — Distribution of eigenvalues for some sets of random matrices; Mat Sb 72:507"
+        },
+        {
+          "doi": "10.1103/PhysRevLett.83.1467",
+          "note": "Laloux et al. (1999) — Noise dressing of financial correlation matrices; Phys Rev Lett 83:1467"
+        },
+        {
+          "doi": "10.1103/PhysRevLett.83.1471",
+          "note": "Plerou et al. (1999) — Universal and nonuniversal properties of cross correlations in financial data; Phys Rev Lett 83:1471"
+        },
+        {
+          "doi": "10.1016/S0047-259X(03)00096-4",
+          "note": "Ledoit & Wolf (2004) — A well-conditioned estimator for large-dimensional covariance matrices; J Multivar Anal 88:365"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\mathematics-finance\\b-random-matrix-portfolio-optimization.yaml"
     },
     {
       "id": "b-stochastic-calculus-black-scholes",
@@ -6267,6 +6696,67 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\neuroscience-climate\\b-neural-criticality-climate-tipping.yaml"
+    },
+    {
+      "id": "b-backpropagation-synaptic-plasticity",
+      "title": "The backpropagation algorithm (Rumelhart et al. 1986) computes error gradients by the chain rule propagated backward through a network, while biological synaptic plasticity implements credit assignment by mechanisms (feedback alignment, predictive coding) that may approximate or equal backprop without requiring the biologically implausible weight transport step.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "proposed",
+      "bridge_claim": "Backpropagation (Rumelhart, Hinton & Williams 1986) is an efficient algorithm for computing gradients of a loss function with respect to all parameters in a multilayer neural network via the chain rule: δ_l = (W_{l+1}^T δ_{l+1}) ⊙ f'(z_l). This requires backward propagation of error signals through ",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-predictive-coding-implements-backprop"
+      ],
+      "communication_gap": "The 1986 Rumelhart et al. Nature paper was written for AI researchers and did not engage with neuroscience. The biological plausibility literature grew in computational neuroscience journals (Neural Computation, PLOS Comput Biol) that deep learning engineers rarely read. The formal equivalence proofs (Sacramento 2018, Whittington 2019) are technically demanding and have not yet influenced experimental neuroscientists designing plasticity experiments.\n",
+      "translation_table": [
+        {
+          "field_a_term": "backward error signal δ_l",
+          "field_b_term": "prediction error signal in predictive coding (bottom-up residual)",
+          "note": "top-down predictions generate residuals that propagate like backprop errors"
+        },
+        {
+          "field_a_term": "weight transport (W^T in backward pass)",
+          "field_b_term": "symmetric feedback connections (the biologically implausible step)",
+          "note": "feedback alignment replaces W^T with random B; predictive coding uses separate pathways"
+        },
+        {
+          "field_a_term": "learning rate × gradient (gradient descent step)",
+          "field_b_term": "LTP/LTD magnitude determined by neuromodulator concentration"
+        },
+        {
+          "field_a_term": "loss function L(output, target)",
+          "field_b_term": "reward prediction error (dopaminergic signal)",
+          "note": "RL with backprop maps onto actor-critic with dopaminergic credit assignment"
+        },
+        {
+          "field_a_term": "multilayer network architecture",
+          "field_b_term": "cortical hierarchy (V1 → V2 → V4 → IT in ventral visual stream)"
+        },
+        {
+          "field_a_term": "gradient vanishing / exploding in deep networks",
+          "field_b_term": "credit assignment problem across many synaptic layers in time"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1038/323533a0",
+          "note": "Rumelhart et al. (1986) — Learning representations by back-propagating errors; Nature 323:533"
+        },
+        {
+          "doi": "10.1038/ncomms13276",
+          "note": "Lillicrap et al. (2016) — Random synaptic feedback weights support error backpropagation; Nat Commun 7:13276"
+        },
+        {
+          "note": "Sacramento et al. (2018) — Dendritic cortical microcircuits approximate the backpropagation algorithm; NeurIPS"
+        },
+        {
+          "doi": "10.1016/j.tics.2019.03.001",
+          "note": "Whittington & Bogacz (2019) — Theories of error back-propagation in the brain; Trends Cogn Sci 23:235"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\neuroscience-computer-science\\b-backpropagation-synaptic-plasticity.yaml"
     },
     {
       "id": "b-neural-control-theory",
@@ -7270,6 +7760,69 @@
       "file": "cross-domain\\physics-ai\\b-phase-transitions-ml-grokking.yaml"
     },
     {
+      "id": "b-brownian-motion-cell-diffusion",
+      "title": "Einstein's 1905 Brownian motion theory and the Stokes-Einstein relation govern macromolecular diffusion in living cells, where anomalous subdiffusion arising from cytoplasmic crowding reveals a glass-transition-like phenomenon in the intracellular environment.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Einstein (1905) derived the mean-squared displacement ⟨x²⟩ = 2Dt for a Brownian particle, with diffusion coefficient D = kT/(6πηr) (Stokes-Einstein relation). This result directly governs the kinetics of biochemical reactions inside cells: diffusion-limited reaction rates k_diff = 4πDr depend on D, ",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-cytoplasm-glass-transition"
+      ],
+      "communication_gap": "Statistical physicists who study glass transitions rarely read cell biology journals, and cell biologists who measure diffusion by FRAP or FCS rarely connect their η estimates to glass-transition physics. The anomalous diffusion literature is split between physics journals (Phys Rev Lett) and biophysics journals (Biophys J) with little cross-citation.\n",
+      "translation_table": [
+        {
+          "field_a_term": "mean-squared displacement ⟨x²⟩ = 2Dt",
+          "field_b_term": "single-molecule trajectory MSD measured by fluorescence tracking",
+          "note": "directly measurable in vivo; deviation from linearity signals anomalous diffusion"
+        },
+        {
+          "field_a_term": "diffusion coefficient D = kT/(6πηr)",
+          "field_b_term": "in vivo diffusivity of signaling molecules and transcription factors",
+          "note": "governs whether reactions are diffusion-limited or reaction-limited"
+        },
+        {
+          "field_a_term": "viscosity η (bulk solvent)",
+          "field_b_term": "effective cytoplasmic viscosity (macromolecular crowding parameter)",
+          "note": "3–100× higher than water; probe-size and time-scale dependent"
+        },
+        {
+          "field_a_term": "anomalous diffusion exponent α < 1 (subdiffusion)",
+          "field_b_term": "cytoplasmic crowding and caging by organelles and cytoskeleton",
+          "note": "Golding & Cox (2006) observed α ≈ 0.75 in E. coli cytoplasm"
+        },
+        {
+          "field_a_term": "glass transition temperature T_g",
+          "field_b_term": "transition between liquid-like and glass-like cytoplasmic states",
+          "note": "cells may regulate this transition to control reaction kinetics"
+        },
+        {
+          "field_a_term": "diffusion-limited rate k_diff = 4πDr",
+          "field_b_term": "maximum possible enzymatic reaction rate set by encounter frequency"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1002/andp.19053220806",
+          "note": "Einstein (1905) — On the motion of small particles suspended in a stationary liquid (Brownian motion)"
+        },
+        {
+          "note": "Stokes (1851) — On the effect of the internal friction of fluids on the motion of pendulums; Trans Camb Phil Soc"
+        },
+        {
+          "doi": "10.1146/annurev.biophys.26.1.373",
+          "note": "Saxton & Jacobson (1997) — Single-particle tracking; applications to membrane dynamics; Annu Rev Biophys 26:373"
+        },
+        {
+          "doi": "10.1103/PhysRevLett.96.098102",
+          "note": "Golding & Cox (2006) — Physical nature of bacterial cytoplasm; anomalous subdiffusion in E. coli; Phys Rev Lett 96:098102"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\physics-biology\\b-brownian-motion-cell-diffusion.yaml"
+    },
+    {
       "id": "b-mechanobiology-continuum-mechanics",
       "title": "Cells sense and respond to mechanical forces through mechanotransduction, and collectively exhibit a jamming phase transition (liquid-to-solid) controlled by cell shape index — making continuum mechanics (stress tensors, viscoelasticity, phase transitions) the quantitative framework for tissue biology from single-cell durotaxis to embryonic morphogenesis.\n",
       "source_domain": "",
@@ -7514,6 +8067,67 @@
       ],
       "last_reviewed": "2026-05-04",
       "file": "cross-domain\\physics-climate\\b-tipping-points-phase-transitions.yaml"
+    },
+    {
+      "id": "b-entropy-conscious-experience",
+      "title": "Integrated information theory (Tononi 2004) quantifies consciousness as Φ — the information generated by a system above and beyond its parts — while Friston's free energy principle connects conscious inference to entropy minimization, together posing the deepest open question about the relationship between physical entropy and phenomenal experience.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "proposed",
+      "bridge_claim": "Integrated information theory (IIT; Tononi 2004) defines consciousness as Φ, the amount of irreducible integrated information: the effective information generated by the whole system above and beyond the sum of its parts. Φ is computed from the cause-effect structure of a system and represents how m",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-integrated-information-entropy-equivalence"
+      ],
+      "communication_gap": "IIT is debated primarily among neuroscientists, philosophers of mind, and computational neuroscientists in specialist journals and workshops. Thermodynamicists and statistical physicists rarely engage with the consciousness literature. Friston's free energy principle is mathematically sophisticated (variational Bayes, Laplace approximations) and primarily read by theoretical neuroscientists who rarely connect it to thermodynamics. The hard problem of consciousness (why any physical process gives rise to subjective experience) means the empirical stakes of these formalisms are philosophically contested.\n",
+      "translation_table": [
+        {
+          "field_a_term": "thermodynamic entropy S = k_B ln Ω",
+          "field_b_term": "phenomenal richness (number of distinguishable conscious states)",
+          "note": "IIT posits that high Φ systems can have many distinguishable experiences — analogous to high entropy"
+        },
+        {
+          "field_a_term": "integrated information Φ",
+          "field_b_term": "degree of consciousness (scalar measure of experience)",
+          "note": "Φ > 0 is claimed necessary and sufficient for any degree of consciousness"
+        },
+        {
+          "field_a_term": "variational free energy F = KL(q||p) - log P(y)",
+          "field_b_term": "the brain's prediction error (surprisal) about sensory inputs",
+          "note": "Friston — brains minimize F; this is equivalent to approximate Bayesian inference"
+        },
+        {
+          "field_a_term": "partition function Z (sum over states)",
+          "field_b_term": "Bayesian model evidence (marginal likelihood) in brain inference"
+        },
+        {
+          "field_a_term": "irreversibility (entropy production)",
+          "field_b_term": "the directionality and temporal binding of conscious experience"
+        },
+        {
+          "field_a_term": "Maxwell's demon (information and thermodynamic work)",
+          "field_b_term": "selective attention as thermodynamic work done on sensory information"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1186/1471-2202-5-42",
+          "note": "Tononi (2004) — An information integration theory of consciousness; BMC Neurosci 5:42"
+        },
+        {
+          "doi": "10.1038/nrn.2016.44",
+          "note": "Tononi et al. (2016) — Integrated information theory; from consciousness to its physical substrate; Nat Rev Neurosci 17:450"
+        },
+        {
+          "doi": "10.1038/nrn2787",
+          "note": "Friston (2010) — The free-energy principle; a unified brain theory?; Nat Rev Neurosci 11:127"
+        },
+        {
+          "note": "Chalmers (1996) — The Conscious Mind; Oxford University Press"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\physics-cognitive-science\\b-entropy-conscious-experience.yaml"
     },
     {
       "id": "b-self-organized-criticality",
@@ -10103,6 +10717,68 @@
       "file": "cross-domain\\social-science-network-science\\b-social-capital-network-centrality.yaml"
     },
     {
+      "id": "b-cascade-failures-interdependent-networks",
+      "title": "Interdependent network theory (Buldyrev et al. 2010) shows that mutual dependencies between coupled infrastructure networks (power grid ↔ communication network) convert continuous second-order percolation transitions into abrupt first-order cascades, with direct application to the 2003 Italy blackout and financial systemic risk.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Standard percolation theory predicts that as nodes fail in a random network, the giant connected component shrinks continuously (second-order phase transition) with a critical threshold p_c = 1/<k> for Erdős-Rényi graphs. Buldyrev et al. (2010) showed that when two networks are interdependent — each",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-interdependency-drives-first-order-failure"
+      ],
+      "communication_gap": "Network physicists publish in Physical Review Letters and Nature Physics; infrastructure engineers and policymakers read IEEE Transactions on Power Systems and IEEE Systems Man Cybernetics. The mathematical formalism of percolation theory is rarely taught in engineering programs. Post-event analyses of major blackouts (Italy 2003, Texas 2021) are conducted by engineering commissions that do not cite the physics literature.\n",
+      "translation_table": [
+        {
+          "field_a_term": "percolation threshold p_c (fraction of nodes that can fail before network collapse)",
+          "field_b_term": "systemic risk threshold in infrastructure or financial networks",
+          "note": "lower p_c = more fragile; interdependency dramatically lowers p_c"
+        },
+        {
+          "field_a_term": "second-order percolation transition (continuous collapse)",
+          "field_b_term": "gradual degradation of a single isolated network"
+        },
+        {
+          "field_a_term": "first-order percolation transition (abrupt collapse)",
+          "field_b_term": "catastrophic cascade failure in interdependent systems",
+          "note": "the key new result — interdependency converts gradual to abrupt failure"
+        },
+        {
+          "field_a_term": "giant connected component (GCC)",
+          "field_b_term": "functional core of an infrastructure or financial system"
+        },
+        {
+          "field_a_term": "interdependency links (between-network edges)",
+          "field_b_term": "operational dependencies between infrastructure sectors",
+          "note": "e.g., power grid nodes need communication; communication nodes need power"
+        },
+        {
+          "field_a_term": "degree of interdependency q (fraction of interdependent nodes)",
+          "field_b_term": "coupling strength between infrastructure sectors"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1038/nature08932",
+          "note": "Buldyrev et al. (2010) — Catastrophic cascade of failures in interdependent networks; Nature 464:1025"
+        },
+        {
+          "doi": "10.1038/nphys2180",
+          "note": "Gao et al. (2012) — Networks formed from interdependent networks; Nat Phys 8:40"
+        },
+        {
+          "doi": "10.1038/464984a",
+          "note": "Vespignani (2010) — The fragility of interdependency; Nature 464:984"
+        },
+        {
+          "doi": "10.1038/nphys2727",
+          "note": "Bashan et al. (2013) — The extreme vulnerability of interdependent spatially embedded networks; Nat Phys 9:667"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\social-science-physics\\b-cascade-failures-interdependent-networks.yaml"
+    },
+    {
       "id": "b-opinion-dynamics-ising",
       "title": "Opinion dynamics models (Voter, Sznajd, Deffuant) are instances of Ising-like spin dynamics on social networks: political polarisation is a ferromagnetic phase transition, echo chambers are ferromagnetic domains, and the critical temperature T_c predicts the consensus-to- fragmentation transition.\n",
       "source_domain": "",
@@ -10307,6 +10983,68 @@
       ],
       "last_reviewed": "2026-05-04",
       "file": "cross-domain\\statistics-evolution\\b-fisher-information-evolution.yaml"
+    },
+    {
+      "id": "b-bayesian-inference-stat-mech",
+      "title": "The Bayesian normalizing constant (evidence) is formally identical to the statistical-mechanical partition function Z = Σ exp(-E/T); sampling from the posterior is equivalent to sampling from a Gibbs distribution; and MCMC algorithms are molecular dynamics simulations on the posterior energy landscape, making statistical physics and Bayesian inference the same mathematical theory.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The partition function in statistical mechanics Z = Σ_x exp(-E(x)/kT) normalizes the Boltzmann distribution P(x) = exp(-E(x)/kT)/Z over all configurations x. In Bayesian inference, the posterior P(θ|data) = P(data|θ)P(θ)/Z_Bayes where Z_Bayes = Σ_θ P(data|θ)P(θ) is the marginal likelihood (evidence)",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-variational-bayes-mean-field-equivalence"
+      ],
+      "communication_gap": "Jaynes (1957) made the MaxEnt-Boltzmann connection explicitly but worked as a physicist writing for physicists. The MCMC literature in statistics developed largely independently of the molecular simulation literature, with Gelfand & Smith (1990) and Geman & Geman (1984) rediscovering the Metropolis algorithm for statistical purposes. MacKay (2003) — Information Theory, Inference and Learning Algorithms — made this bridge central and accessible, but Bayesian computation textbooks rarely cite condensed matter physics.\n",
+      "translation_table": [
+        {
+          "field_a_term": "partition function Z = Σ exp(-E/kT)",
+          "field_b_term": "Bayesian evidence (marginal likelihood) Z = Σ P(data|θ)P(θ)",
+          "note": "identical mathematical object; computing Z is"
+        },
+        {
+          "field_a_term": "Boltzmann distribution P(x) = exp(-E/kT)/Z",
+          "field_b_term": "Bayesian posterior P(θ|data) ∝ exp(log likelihood + log prior)",
+          "note": "the posterior at T=1 is the Gibbs distribution with E = -log joint"
+        },
+        {
+          "field_a_term": "temperature T (controls distribution breadth)",
+          "field_b_term": "inverse regularization strength (1/T posterior = tempered posterior)",
+          "note": "T>1 smooths the posterior; T→∞ → uniform; used in parallel tempering MCMC"
+        },
+        {
+          "field_a_term": "Metropolis-Hastings MCMC",
+          "field_b_term": "posterior sampling algorithm for Bayesian inference",
+          "note": "literally the same algorithm; invented for molecular simulation in 1953"
+        },
+        {
+          "field_a_term": "mean field theory (variational approximation)",
+          "field_b_term": "variational Bayes (approximate posterior with factorized q)",
+          "note": "minimize variational free energy = minimize KL(q||p) - log Z"
+        },
+        {
+          "field_a_term": "renormalization group (coarse-graining)",
+          "field_b_term": "hierarchical Bayesian model (marginalizing fine-grained parameters)"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1103/PhysRev.106.620",
+          "note": "Jaynes (1957) — Information theory and statistical mechanics; Phys Rev 106:620"
+        },
+        {
+          "doi": "10.1063/1.1699112",
+          "note": "Metropolis et al. (1953) — Equation of state calculations by fast computing machines; J Chem Phys 21:1087"
+        },
+        {
+          "note": "MacKay (2003) — Information Theory, Inference and Learning Algorithms; Cambridge University Press"
+        },
+        {
+          "note": "Mezard & Montanari (2009) — Information, Physics and Computation; Oxford University Press"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\statistics-physics\\b-bayesian-inference-stat-mech.yaml"
     },
     {
       "id": "b-carbon-capture-entropy-cost",
