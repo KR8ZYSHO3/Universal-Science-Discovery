@@ -1,0 +1,32 @@
+id: h-neural-network-generalisation-implicit-bias
+title: Overparameterised neural networks generalise due to implicit bias of gradient descent toward minimum-norm (maximum-margin) solutions — stochastic gradient descent selects the flattest loss basin, which corresponds to the most regular learned function
+status: active
+created: "2026-05-06"
+last_updated: "2026-05-06"
+priority: critical
+impact_score: 0.88
+author: wave-13-agent
+unknowns_addressed:
+  - u-neural-network-generalisation-theory
+related_disciplines:
+  - machine-learning
+  - mathematics
+  - statistics
+evidence_links:
+  - type: supporting
+    doi: "10.1126/science.abn7293"
+    note: "Bartlett et al. (2020) — benign overfitting in linear regression"
+    confidence: 0.78
+  - type: supporting
+    doi: "10.1145/3313276.3316349"
+    note: "Gunasekar et al. (2018) — implicit regularization in matrix factorization"
+    confidence: 0.75
+  - type: supporting
+    doi: "10.1073/pnas.1821353116"
+    note: "Belkin et al. (2019) — reconciling modern machine learning practice and the bias-variance tradeoff"
+    confidence: 0.82
+proposed_tests:
+  - description: Test whether flatter loss basin minima (smaller Hessian trace) generalise better across architectures and datasets
+  - description: Measure implicit bias of different optimizers (SGD vs. Adam) by comparing minimum-norm norms of learned weights at fixed train accuracy
+  - description: Theoretical analysis of generalisation bounds as function of loss surface curvature across transformer models
+bounty: "Prove a generalisation bound that holds for realistic overparameterised neural networks with a better dependence on model size than classical VC dimension"
