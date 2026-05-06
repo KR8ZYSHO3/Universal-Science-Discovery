@@ -1,0 +1,100 @@
+id: b-earthquake-soc
+title: >
+  Earthquake magnitude-frequency statistics (Gutenberg-Richter law) and aftershock
+  decay (Omori's law) are signatures of self-organized criticality — the Earth's
+  crust maintains itself at a critical state through slow tectonic loading and
+  rapid stress release.
+status: established
+fields:
+  - geology
+  - seismology
+  - statistical-physics
+  - geophysics
+bridge_claim: >
+  The Gutenberg-Richter (GR) law, log₁₀N = a - bM (b ≈ 1), states that earthquake
+  frequency falls as a power law with magnitude: N(M) ∝ 10^{-bM}. This is equivalent
+  to a power-law distribution of seismic energy releases: N(E) ∝ E^{-(1+2b/3)}.
+  Power laws without characteristic scale are the hallmark of a system at a critical
+  point in statistical physics.
+
+  Bak, Tang & Wiesenfeld (1987) introduced self-organized criticality (SOC) with the
+  sandpile model: a slowly driven dissipative system that tunes itself to criticality
+  without external parameter adjustment. The Earth's crust is the canonical natural
+  SOC system: slow tectonic loading (driving) → sudden stress release in earthquakes
+  (avalanches) → fault network maintained near the critical state.
+
+  The Olami-Feder-Christensen (OFC) model (1992) is a 2D spring-block cellular
+  automaton that reproduces both the GR law and Omori's law from SOC dynamics.
+  Each site (fault patch) accumulates stress from slow loading; when stress exceeds
+  threshold, it fails and redistributes stress to neighbors (non-conservatively).
+  The resulting avalanche statistics follow GR, and the temporal clustering of
+  aftershocks follows Omori's law: n(t) ∝ (t + c)^{-p} with p ≈ 1.
+
+  The b-value (GR exponent) encodes information about stress heterogeneity:
+  high b ≈ 1.5 indicates low differential stress (near-surface, geothermal),
+  low b ≈ 0.5 indicates high locked-fault stress. This maps to the distance from
+  the SOC critical point — the system is not exactly at criticality but fluctuates
+  around it, explaining regional b-value variations.
+
+  Omori's law is the critical slowing down of aftershock sequences: after a mainshock
+  perturbs the critical state, the system relaxes back with a power-law tail
+  characteristic of critical dynamics (no intrinsic timescale).
+translation_table:
+  - field_a_term: fault network / Earth's crust
+    field_b_term: SOC cellular automaton lattice (spring-block model)
+  - field_a_term: tectonic loading rate (slow driving)
+    field_b_term: slow sand grain addition in the sandpile model
+  - field_a_term: earthquake (stress release event)
+    field_b_term: avalanche in sandpile / OFC model
+  - field_a_term: Gutenberg-Richter b-value (~1)
+    field_b_term: avalanche size distribution exponent τ at criticality
+  - field_a_term: earthquake magnitude M
+    field_b_term: log₁₀ of avalanche size (energy released)
+  - field_a_term: Omori p-value (~1)
+    field_b_term: temporal autocorrelation decay exponent at critical point
+  - field_a_term: aftershock sequence
+    field_b_term: critical relaxation following a large avalanche
+  - field_a_term: mainshock rupture area
+    field_b_term: cluster size in the percolation problem near criticality
+  - field_a_term: seismic b-value spatial variation
+    field_b_term: distance from SOC critical point (stress heterogeneity)
+related_unknowns:
+  - u-earthquake-soc-predictability
+related_hypotheses:
+  - h-bvalue-stress-criticality-forecast
+cross_pollination_opportunities:
+  - >
+    If the crust is maintained at SOC criticality, early-warning indicators from
+    critical-phenomena theory (rising variance, rising autocorrelation, critical
+    slowing down) should precede major earthquakes. Systematic search for these
+    signatures in high-resolution seismic catalogs could test whether large
+    earthquakes are preceded by detectable critical-state precursors.
+  - >
+    The OFC model predicts that non-conservation of stress during redistribution
+    controls whether true SOC (scale-free GR statistics) is achieved. Laboratory
+    spring-block experiments with tunable friction and elasticity could map the
+    phase diagram of the seismic SOC transition, calibrating which fault properties
+    control the b-value.
+  - >
+    The same SOC framework describes neuronal avalanches in cortical networks
+    (b-neuronal-avalanches bridge). Importing seismological analysis tools
+    (catalog completeness, Omori fitting) into neuroscience, and importing
+    SOC theory from neuroscience back into seismology, could cross-validate both fields.
+communication_gap: >
+  Geologists and seismologists are primarily empirical scientists working with
+  catalog data; statistical physicists work with models. The SOC connection is
+  well-established in the physics literature but treated skeptically in seismology,
+  where predictive failure of simple SOC models has generated backlash. The debate
+  about whether earthquakes are truly predictable (deterministic chaos near criticality)
+  vs. intrinsically unpredictable (true SOC) is not fully resolved. Journals
+  (Geophysical Research Letters vs. Physical Review Letters) rarely overlap.
+last_reviewed: "2026-05-06"
+references:
+  - note: Gutenberg & Richter (1944) Bull Seismol Soc Am 34:185 — original GR law
+  - doi: "10.1103/PhysRevLett.59.381"
+    note: Bak, Tang & Wiesenfeld (1987) Phys Rev Lett 59:381 — original SOC paper
+  - note: Omori (1894) J Coll Sci Imp Univ Tokyo 7:111 — Omori's aftershock law
+  - doi: "10.1103/PhysRevLett.68.1244"
+    note: Olami, Feder & Christensen (1992) Phys Rev Lett 68:1244 — OFC spring-block model
+  - doi: "10.1103/PhysRevLett.71.2510"
+    note: Sornette & Sammis (1995) — critical point model of large earthquakes

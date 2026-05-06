@@ -1,0 +1,61 @@
+id: h-reversible-computing-landauer-limit
+title: >
+  A reversible adiabatic logic gate implemented in a quantum dot or molecular switch
+  can perform one logical operation with energy dissipation within 100× the Landauer
+  bound (100 kT ln 2) at 300K and 1 GHz clock rate, demonstrating that the gap
+  between current transistors (~10⁶ kT) and the physical limit is an engineering
+  problem, not a fundamental one.
+status: active
+created: "2026-05-06"
+last_updated: "2026-05-06"
+priority: medium
+related_disciplines:
+  - physics
+  - computer-science
+  - thermodynamics
+  - information-theory
+unknowns_addressed:
+  - u-landauer-bound-experimental-verification
+evidence_links:
+  - type: supporting
+    doi: "10.1038/nature10872"
+    note: Bérut et al. (2012) — Landauer bound experimentally verified for single-bit erasure in colloidal system
+  - type: supporting
+    doi: "10.1147/rd.173.0525"
+    note: Bennett (1973) — theoretical demonstration that reversible computation has zero heat cost
+  - type: related
+    note: >
+      Franks et al. (2019) — adiabatic reversible gates in CMOS operate at ~300 kT per
+      transition at 1 MHz; clock frequency and device capacitance are the main barriers
+      to approaching the Landauer limit.
+  - type: contradicting
+    note: >
+      Practical adiabatic logic requires slow ramp speeds (adiabaticity condition:
+      ramp time >> RC), limiting clock rates to MHz range for sub-100 kT operation.
+      Achieving 100× Landauer at GHz requires device capacitances below 10^{-18} F —
+      not yet demonstrated in scalable architectures.
+proposed_tests:
+  - discipline: physics
+    description: >
+      Implement a single reversible CNOT gate using two coupled quantum dots at 300K.
+      Apply a slow (quasi-adiabatic) control pulse and measure the heat dissipated per
+      gate operation via a nanocalorimetric technique (e.g., resistive thermometry with
+      10^{-20} J sensitivity). Repeat across a range of pulse speeds. Fit to the
+      adiabaticity formula Q_diss = E_gap × (τ_operation/τ_adiabatic)^2 and extrapolate
+      to find the minimum dissipation for a 1 GHz clock.
+  - discipline: computer-science
+    description: >
+      Implement a reversible 4-bit adder using Fredkin gates in an existing reversible-
+      logic circuit simulator (RevLib). Estimate the physical energy dissipation by
+      counting the number of irreversible sub-operations (fan-out copying, constant
+      input initialization) required to implement reversible logic in a standard CMOS
+      process. Compute the overhead factor N_irrev × kT ln 2 and compare to the
+      theoretical minimum for an equivalent irreversible adder.
+  - discipline: thermodynamics
+    description: >
+      Molecular simulation (molecular dynamics) of a single Fredkin gate implemented
+      as a molecular mechanical switch (bistable molecule in a solvent bath at 300K).
+      Run the gate through one complete input-output cycle with a quasi-static control
+      protocol. Measure the entropy production using non-equilibrium work theorems
+      (Jarzynski equality). Test whether the entropy production per gate operation
+      approaches kT ln 2 as the protocol speed is reduced.

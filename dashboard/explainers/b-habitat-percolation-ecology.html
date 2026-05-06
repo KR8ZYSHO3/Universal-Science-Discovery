@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Statistical Physics ↔ Conservation Biology: Habitat fragmentation is a percolation phase transition | USDR Explainer</title>
+  <meta name="description" content="Habitat fragmentation is a percolation phase transition"/>
+
+  <!-- Open Graph / social sharing -->
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="Statistical Physics ↔ Conservation Biology: Habitat fragmentation is a percolation phase transition"/>
+  <meta property="og:description" content="Habitat fragmentation is a percolation phase transition"/>
+  <meta property="og:url" content="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/explainers/b-habitat-percolation-ecology.html"/>
+  <meta property="og:site_name" content="Universal Science Discovery Repository"/>
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:title" content="Habitat fragmentation is a percolation phase transition"/>
+  <meta name="twitter:description" content="Habitat fragmentation is a percolation phase transition"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"/>
+
+  <style>
+    /* ── Reset & tokens ───────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0d1117;
+      --bg-card:   #161b22;
+      --bg-hover:  #1c2230;
+      --border:    #30363d;
+      --text:      #e6edf3;
+      --text-dim:  #8b949e;
+      --accent:    #58a6ff;
+      --accent2:   #3fb950;
+      --accent3:   #f78166;
+      --accent4:   #d2a8ff;
+      --warn:      #e3b341;
+      --radius:    10px;
+      --font:      'Inter', system-ui, sans-serif;
+      --mono:      'JetBrains Mono', monospace;
+      --max-w:     860px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* ── Nav ──────────────────────────────────────────────────────────── */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13,17,23,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .topbar a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: opacity .15s;
+    }
+    .topbar a:hover { opacity: .75; }
+    .topbar-sep { color: var(--border); }
+    .topbar-title { color: var(--text-dim); font-size: 0.85rem; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+    /* ── Layout ───────────────────────────────────────────────────────── */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* ── Hero ─────────────────────────────────────────────────────────── */
+    .hero {
+      padding: 2.5rem 0 2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2.5rem;
+    }
+    .hero-domain {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+    .hero-title {
+      font-size: clamp(1.35rem, 3vw, 1.8rem);
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: center;
+    }
+
+    /* ── Badges ───────────────────────────────────────────────────────── */
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.65rem;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: .05em;
+    }
+    .badge-established { background: rgba(63,185,80,.18); color: var(--accent2); border: 1px solid rgba(63,185,80,.35); }
+    .badge-proposed    { background: rgba(88,166,255,.18); color: var(--accent);  border: 1px solid rgba(88,166,255,.35); }
+    .badge-contested   { background: rgba(227,179,65,.18); color: var(--warn);    border: 1px solid rgba(227,179,65,.35); }
+    .badge-stale       { background: rgba(139,148,158,.18);color: var(--text-dim);border: 1px solid rgba(139,148,158,.35); }
+
+    .field-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .field-tag {
+      background: rgba(88,166,255,.12);
+      color: var(--accent);
+      border: 1px solid rgba(88,166,255,.25);
+      padding: 0.15rem 0.55rem;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 500;
+    }
+
+    /* ── Sections ─────────────────────────────────────────────────────── */
+    section { margin-bottom: 2.5rem; }
+
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    h2 .icon { font-size: 1.1rem; }
+
+    p { color: var(--text-dim); margin-bottom: 0.8rem; }
+    p:last-child { margin-bottom: 0; }
+
+    /* ── Card ─────────────────────────────────────────────────────────── */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.5rem;
+    }
+
+    /* ── Key insight callout ──────────────────────────────────────────── */
+    .insight {
+      background: linear-gradient(135deg, rgba(88,166,255,.08) 0%, rgba(63,185,80,.06) 100%);
+      border: 1px solid rgba(88,166,255,.3);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.5rem;
+    }
+    .insight p { color: var(--text); }
+
+    /* ── Translation table ────────────────────────────────────────────── */
+    .table-wrap { overflow-x: auto; border-radius: var(--radius); }
+    .translation-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+    .translation-table thead tr {
+      background: rgba(88,166,255,.12);
+    }
+    .translation-table th {
+      padding: 0.7rem 1rem;
+      text-align: left;
+      font-weight: 600;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    .translation-table td {
+      padding: 0.65rem 1rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      vertical-align: top;
+    }
+    .translation-table tr:last-child td { border-bottom: none; }
+    .translation-table tr:nth-child(odd) { background: rgba(255,255,255,.02); }
+    .translation-table tr:hover { background: var(--bg-hover); }
+    .note-cell { color: var(--text-dim) !important; font-size: 0.82rem; }
+
+    /* ── References ───────────────────────────────────────────────────── */
+    .ref-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .ref-list li {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.6rem 0.9rem;
+      font-size: 0.84rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      align-items: center;
+    }
+    .ref-list a { color: var(--accent); text-decoration: none; }
+    .ref-list a:hover { text-decoration: underline; }
+    .ref-note { color: var(--text-dim); }
+
+    /* ── Open questions ───────────────────────────────────────────────── */
+    .opp-list, ul { padding-left: 1.3rem; display: flex; flex-direction: column; gap: 0.5rem; }
+    .opp-list li, ul li { color: var(--text-dim); font-size: 0.9rem; }
+    code { font-family: var(--mono); font-size: 0.82rem; background: rgba(88,166,255,.12); color: var(--accent); padding: 0.1rem 0.4rem; border-radius: 4px; }
+
+    /* ── Footer ───────────────────────────────────────────────────────── */
+    .explainer-footer {
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+      margin-top: 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+    .explainer-footer p { font-size: 0.8rem; color: var(--text-dim); margin: 0; }
+    .explainer-footer a { color: var(--accent); text-decoration: none; }
+
+    /* ── Responsive ───────────────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .container { padding: 1.5rem 1rem 3rem; }
+      .hero-title { font-size: 1.25rem; }
+      .translation-table th, .translation-table td { padding: 0.5rem 0.7rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="topbar">
+  <a href="../../dashboard/index.html">← Dashboard</a>
+  <span class="topbar-sep">|</span>
+  <a href="index.html">All Explainers</a>
+  <span class="topbar-sep">|</span>
+  <span class="topbar-title">Habitat fragmentation is a percolation phase transition</span>
+</nav>
+
+<div class="container">
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-domain">Statistical Physics ↔ Conservation Biology</div>
+    <h1 class="hero-title">Habitat fragmentation is a percolation phase transition — species extinction risk collapses discontinuously when connected habitat falls below the percolation threshold, and finite-size scaling predicts exactly how this threshold shifts in landscapes of finite total area.</h1>
+    <div class="hero-meta">
+      <span class="badge badge-proposed">PROPOSED</span>
+      <div class="field-tags"><span class="field-tag">statistical-physics</span> <span class="field-tag">conservation-biology</span> <span class="field-tag">landscape-ecology</span> <span class="field-tag">network-science</span></div>
+    </div>
+  </header>
+
+  <!-- Overview -->
+  <section id="overview">
+    <h2><span class="icon">🔭</span> Overview</h2>
+    <div class="card">
+      <p>In bond/site percolation on a lattice, a giant connected cluster (spanning the system) disappears abruptly below a critical occupancy p_c. In fragmented landscapes, habitat patches connected by dispersal corridors form exactly such a network, and species requiring connected habitat experience a sharp threshold — below p_c, no dispersal path spans the landscape and local populations cannot be rescued by immigration. The percolation threshold p_c for a 2D square lattice is 0.593 (site percolation) — strikingly close to the empirically observed ~60% habitat coverage threshold at which many forest interior species collapse.
+This is not a metaphor. The mathematics is identical: - Habitat patches = lattice sites - Dispersal corridors = bonds - Connected habitat = giant percolating cluster - Species persistence = giant cluster spans landscape - Extinction debt = approach to percolation threshold from above
+Conservation biology has debated the SLOSS question (Single Large Or Several Small reserves?) for 50 years without a rigorous resolution. Percolation theory answers it: the connected-cluster geometry at fixed total habitat area is determined by the spatial arrangement of patches, and finite-size scaling gives the systematic correction for landscape area. SLOSS is a finite-size scaling problem in disguise.</p>
+    </div>
+  </section>
+
+  <!-- Mathematical Bridge -->
+  <section id="math-bridge">
+    <h2><span class="icon">⚙️</span> The Mathematical Bridge</h2>
+    <div class="insight">
+      <p>
+        This bridge connects <strong>Statistical Physics</strong>
+        and <strong>Conservation Biology</strong>
+        through shared mathematical structure.
+         Status: Proposed connection.
+      </p>
+    </div>
+  </section>
+
+  <!-- Translation Table -->
+  <section id="translation">
+    <h2><span class="icon">↔️</span> Translation Table</h2>
+<div class="table-wrap">
+<table class="translation-table">
+  <thead>
+    <tr>
+      <th>Domain A Term</th>
+      <th>Domain B Term</th>
+      <th>Note</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr><td>site percolation threshold p_c</td><td>critical habitat coverage fraction (~60%) below which landscape connectivity collapses</td><td class="note-cell">—</td></tr>
+<tr><td>giant connected component</td><td>connected habitat network allowing population rescue by immigration</td><td class="note-cell">—</td></tr>
+<tr><td>finite-size scaling correction to p_c</td><td>threshold shift in smaller landscape patches vs continental-scale habitat</td><td class="note-cell">—</td></tr>
+<tr><td>correlation length xi (diverges at p_c)</td><td>mean dispersal distance required to maintain connectivity near threshold</td><td class="note-cell">—</td></tr>
+<tr><td>cluster size distribution (power law at p_c)</td><td>patch size distribution in fragmented landscapes at the extinction threshold</td><td class="note-cell">—</td></tr>
+<tr><td>universality class (2D percolation, nu=4/3)</td><td>spatial connectivity structure of landscapes where habitat is random vs structured</td><td class="note-cell">—</td></tr>
+<tr><td>bond vs site percolation</td><td>corridor-dependent dispersal (bond) vs patch-quality-dependent dispersal (site)</td><td class="note-cell">—</td></tr>
+  </tbody>
+</table>
+</div></section>
+
+  <!-- Communication Gap -->
+  <section id="comm-gap">
+    <h2><span class="icon">🗺️</span> Why Hasn't This Been Unified?</h2>
+    <div class="card"><p>Percolation theory has been used in landscape ecology since Gardner et al. (1987), but primarily as a simulation tool rather than an analytical framework. The formal machinery of finite-size scaling, universality classes, and critical exponents from condensed-matter physics has not penetrated conservation biology literature. As a result, the SLOSS debate continues without the rigorous quantitative framework that would resolve it. Conservation biology journals do not typically handle manuscripts using Wilson-Fisher RG, critical exponents, or FSS corrections — even though the underlying biology is exactly described by these tools.</p></div>
+  </section>
+
+  <!-- Cross-pollination opportunities -->
+  <section id="opportunities">
+    <h2><span class="icon">🌱</span> Cross-Pollination Opportunities</h2><ul class="opp-list"><li>The 2D percolation finite-size scaling formula gives an analytic prediction for how the effective connectivity threshold shifts as landscape area decreases: p_c(A) = p_c(inf) + c * A^(-1/nu), where nu=4/3 for 2D percolation and A is landscape area in units of the dispersal range squared. Conservation planners currently set reserve size based on species-area curves — FSS gives a sharper, mechanistic alternative that predicts threshold behaviour rather than smooth power laws.</li>
+<li>Percolation cluster statistics predict the distribution of isolated habitat patches below threshold. In a fragmented landscape, the cluster size distribution follows a power law n(s) ~ s^(-tau) with tau=187/91 for 2D percolation. This power law has been observed empirically in landscape fragmentation studies — the match to the exact percolation exponent has not been rigorously tested.</li>
+<li>The b-percolation-oncology bridge (tumour vasculature) and b-percolation-epidemiology bridge (outbreak networks) use the same mathematical framework. A unified percolation toolkit — covering tumour therapy, outbreak control, and reserve design — would be a single codebase serving oncology, public health, and conservation simultaneously. The numerical algorithms are identical; only the input data and interpretation differ.</li>
+<li>Climate change is systematically reducing habitat coverage p across landscapes. If p is currently above p_c but approaching it, the percolation framework predicts not a gradual decline in connectivity but an abrupt collapse at threshold. Early-warning indicators of approaching percolation criticality (rising correlation length, power-law cluster size distribution) are analogous to early-warning indicators used in climate tipping points — both are applications of critical slowing down near a phase transition.</li></ul></section>
+
+  <!-- Open Questions -->
+  <section id="open-questions">
+    <h2><span class="icon">❓</span> Open Questions</h2><ul><li>Unknown: <code>u-habitat-fragmentation-threshold</code></li>
+<li>Hypothesis: <code>h-habitat-percolation-critical-density</code></li></ul></section>
+
+  <!-- References -->
+  <section id="references">
+    <h2><span class="icon">📚</span> References</h2>
+    <ul class="ref-list"><li><a href="https://doi.org/10.1007/BF02275266" target="_blank" rel="noopener">DOI:10.1007/BF02275266</a>&nbsp;·&nbsp;<span class="ref-note">Gardner et al. (1987) — original application of percolation to landscape ecology</span></li>
+<li><a href="https://doi.org/10.1007/BF02275369" target="_blank" rel="noopener">DOI:10.1007/BF02275369</a>&nbsp;·&nbsp;<span class="ref-note">With &amp; Crist (1995) — percolation threshold and animal movement in fragmented landscapes</span></li>
+<li><a href="https://doi.org/10.1023/A:1008917418979" target="_blank" rel="noopener">DOI:10.1023/A:1008917418979</a>&nbsp;·&nbsp;<span class="ref-note">Flather &amp; Bevers (2002) — patch size and connectivity in bird species persistence</span></li>
+<li><a href="https://arxiv.org/abs/cond-mat/9212004" target="_blank" rel="noopener">arXiv:cond-mat/9212004</a>&nbsp;·&nbsp;<span class="ref-note">Finite-size scaling in percolation (same toolkit as b-percolation-epidemiology)</span></li>
+<li><a href="https://doi.org/10.1038/nature04317" target="_blank" rel="noopener">DOI:10.1038/nature04317</a>&nbsp;·&nbsp;<span class="ref-note">Hanski (2005) — metapopulation dynamics in fragmented landscapes; implicit percolation structure</span></li></ul>
+  </section>
+
+  <!-- Footer -->
+  <footer class="explainer-footer">
+    <p>Bridge ID: <code>b-habitat-percolation-ecology</code> · Last reviewed: 2026-05-04</p>
+    <p>
+      <a href="../../dashboard/index.html">← Back to Dashboard</a> ·
+      <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery" target="_blank" rel="noopener">GitHub</a>
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>

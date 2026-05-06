@@ -1,0 +1,61 @@
+$schema: "http://json-schema.org/draft-07/schema#"
+title: BreakthroughGap
+type: object
+required:
+  - id
+  - title
+  - breakthrough_description
+  - source_domain
+  - current_trl
+  - world_reshaping_potential
+  - blocking_gaps
+  - required_bridges
+  - references
+properties:
+  id:
+    type: string
+    pattern: "^bg-[a-z0-9-]+$"
+  title:
+    type: string
+  breakthrough_description:
+    type: string
+  source_domain:
+    type: string
+  current_trl:
+    type: integer
+    minimum: 1
+    maximum: 9
+    description: "Technology Readiness Level 1-9"
+  world_reshaping_potential:
+    type: string
+    enum: [transformative, significant, moderate]
+  blocking_gaps:
+    type: array
+    items:
+      type: object
+      required: [gap_title, gap_description, blocking_domain, gap_type]
+      properties:
+        gap_title:
+          type: string
+        gap_description:
+          type: string
+        blocking_domain:
+          type: string
+        gap_type:
+          type: string
+          enum: [materials, economic, engineering, biological, mathematical, social, regulatory]
+    minItems: 1
+  required_bridges:
+    type: array
+    items:
+      type: string
+    description: "Cross-domain bridges whose resolution would unblock this breakthrough"
+  references:
+    type: array
+    items:
+      type: string
+    minItems: 1
+  last_reviewed:
+    type: string
+    format: date
+additionalProperties: false

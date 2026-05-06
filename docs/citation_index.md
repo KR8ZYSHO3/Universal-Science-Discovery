@@ -1,6 +1,6 @@
 # USDR Citation Index
 
-**846 total citations · 570 unique references · 128 cited in 2+ bridges**
+**933 total citations · 624 unique references · 141 cited in 2+ bridges**
 
 ## Most Cross-Domain Papers
 
@@ -8,18 +8,21 @@ Papers cited across the highest number of different bridges — the most influen
 
 | Bridges | Title | DOI |
 |---|---|---|
+| 6 | Berut et al. (2012) — Landauer limit verified experimentally at k_B T ln 2 ~ 3 z... | [DOI](10.1038/nature10872) |
 | 5 | Castellano et al. (2009) — Ising models of social dynamics provide framework for... | [DOI](10.1103/RevModPhys.81.591) |
 | 4 | Friston (2010) — free energy principle: biological homeostasis = continuous free... | [DOI](10.1038/nrn2787) |
+| 4 | Turing (1952) — original prediction λ ∝ √(D/k) | [DOI](10.1098/rstb.1952.0012) |
 | 4 |  | [DOI](10.1103/PhysRev.106.620) |
+| 4 | Newman (2002) proves the mathematical equivalence — FSS must apply if the equiva... | [DOI](10.1103/PhysRevE.66.016128) |
+| 4 | Bak, Tang & Wiesenfeld (1987) — BTW sandpile predicts τ = 3/2 (mean field) | [DOI](10.1103/PhysRevLett.59.381) |
 | 4 | WBE derives 3/4 from area-preserving branching — the recursion relation is struc... | [DOI](10.1126/science.276.5309.122) |
-| 4 | Berut et al. (2012) — Landauer limit verified experimentally at k_B T ln 2 ~ 3 z... | [DOI](10.1038/nature10872) |
+| 4 | Landauer (1961) — irreversibility and heat generation in computation | [DOI](10.1147/rd.53.0183) |
 | 3 | Maynard Smith & Price (1973) — ESS and cyclical dynamics in zero-sum games | [DOI](10.1038/246015a0) |
 | 3 | Price (1970) establishes the general decomposition applicable to cultural traits | [DOI](10.1038/227520a0) |
 | 3 | May (1972) provides stability criterion for LV-type competitive systems | [DOI](10.1038/238413a0) |
-| 3 | Bak, Tang & Wiesenfeld (1987) — BTW sandpile predicts τ = 3/2 (mean field) | [DOI](10.1103/PhysRevLett.59.381) |
 | 3 | Saw et al. 2017 — topological defects in epithelia determine cell fate; establis... | [DOI](10.1126/science.aar5663) |
 | 3 | Beggs & Plenz (2003) — neural criticality EWIs; multivariate methods developed i... | [DOI](10.1523/JNEUROSCI.23-35-11167.2003) |
-| 3 | Landauer (1961) — irreversibility and heat generation in computation | [DOI](10.1147/rd.53.0183) |
+| 3 | Bennett (1973) — theoretical demonstration that reversible computation has zero ... | [DOI](10.1147/rd.173.0525) |
 | 3 | Barabási & Albert (1999) - scale-free networks fragile to targeted hub attack; g... | [DOI](10.1126/science.286.5439.509) |
 | 2 |  | [DOI](10.1103/PhysRevLett.85.4626) |
 | 2 | Taylor et al. (1999) Nature — fractal dimension D ≈ 1.3-1.5 correlates with aest... | [DOI](10.1038/20833) |
@@ -33,6 +36,7 @@ Papers cited across the highest number of different bridges — the most influen
 | 2 | Peccei & Quinn (1977) - original PQ symmetry solving strong CP problem; axion as... | [DOI](10.1103/PhysRevLett.38.1440) |
 | 2 | Lynden-Bell & Wood (1968) establish gravothermal catastrophe theory | [DOI](10.1093/mnras/138.4.495) |
 | 2 | Chandrasekhar (1935) polytrope stability — n=3 critical boundary | [DOI](10.1093/mnras/95.3.207) |
+| 2 | Fromang & Papaloizou (2007) — numerical evidence for α ~ Pm^{0.5} in shearing bo... | [DOI](10.1051/0004-6361:20077537) |
 | 2 | Sutton et al. (2000) policy gradient theorem: the update rule Δπ ∝ π · ∇V is exa... | [DOI](10.1073/pnas.97.17.9430) |
 | 2 | Feinberg (1989) shows that deficiency one networks with specific linkage class s... | [DOI](10.1073/pnas.86.1.67) |
 | 2 | Lenton et al. (2008) — tipping elements framework; early-warning theory | [DOI](10.1126/science.1153842) |
@@ -45,19 +49,15 @@ Papers cited across the highest number of different bridges — the most influen
 | 2 | Olshausen & Field (1996) Nature — sparse coding of natural images yields Gabor-l... | [DOI](10.1038/381607a0) |
 | 2 | Bell & Sejnowski (1997) — ICA of natural images yields V1-like filters | [DOI](10.1016/S0042-6989(97)00169-7) |
 | 2 | Atick & Redlich (1992) — retina as Wiener filter | [DOI](10.1162/neco.1992.4.2.196) |
+| 2 | Mézard et al. (2002) — cavity method shows solution space shattering at α_c (RSB... | [DOI](10.1126/science.297.5582.812) |
 | 2 | Lindsay (2020) review: transformer attention and divisive normalisation share th... | [DOI](10.1016/j.cub.2019.11.015) |
 | 2 | C. elegans PAR polarisation kinetics characterised quantitatively — demonstrates... | [DOI](10.7554/eLife.30606) |
+| 2 | Müller et al. (2012) — quantitative test of Turing wavelength for Nodal/Lefty in... | [DOI](10.1126/science.1225394) |
 | 2 | Farmer & Foley (2009) propose LV-type agent dynamics for markets | [DOI](10.1038/460685a) |
 | 2 | Fama (1970) — EMH as martingale property; applies to any informationally efficie... | [DOI](10.2307/2325486) |
 | 2 | Wilkinson & Pickett (2009) — Spirit Level: near-threshold relationship between i... | [DOI](10.1136/bmj.b1235) |
 | 2 | Pickett & Wilkinson (2015) — causal review of income inequality and health | [DOI](10.1016/j.socscimed.2013.02.002) |
 | 2 | Marmot (2005) — status syndrome: social gradient in health operates across full ... | [DOI](10.1126/science.1126216) |
-| 2 | Bouchaud & Mezard (2000) — derives the formula α = 1 + r/(g-r) from a multiplica... | [DOI](10.1016/S0378-4371(00)00205-3) |
-| 2 | Yakovenko & Rosser (2009) — empirical α values for 70+ countries; provides the d... | [DOI](10.1016/j.physrep.2014.11.001) |
-| 2 | Gompertz (1825) - exponential hazard rate increase with age is the Gumbel extrem... | [DOI](10.1098/rspb.1825.0039) |
-| 2 | Waddington (1942) — canalization concept | [DOI](10.1038/150563a0) |
-| 2 | Kirschner & Gerhart (1998) — theoretical framework for evolvability via modulari... | [DOI](10.1073/pnas.95.15.8420) |
-| 2 | Rutherford & Lindquist (1998) — Hsp90 buffers cryptic variation, demonstrating c... | [DOI](10.1038/38593) |
 
 ## Citation Network
 
@@ -67,4 +67,4 @@ The full citation data is available at [`docs/citation_index.json`](citation_ind
 
 ## All Unique References
 
-The catalog currently references **570 unique papers/books**.
+The catalog currently references **624 unique papers/books**.

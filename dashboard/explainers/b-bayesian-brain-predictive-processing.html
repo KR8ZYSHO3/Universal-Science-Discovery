@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Neuroscience ↔ Statistics: The brain implements approximate Bayesian inference | USDR Explainer</title>
+  <meta name="description" content="The brain implements approximate Bayesian inference"/>
+
+  <!-- Open Graph / social sharing -->
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="Neuroscience ↔ Statistics: The brain implements approximate Bayesian inference"/>
+  <meta property="og:description" content="The brain implements approximate Bayesian inference"/>
+  <meta property="og:url" content="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/explainers/b-bayesian-brain-predictive-processing.html"/>
+  <meta property="og:site_name" content="Universal Science Discovery Repository"/>
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:title" content="The brain implements approximate Bayesian inference"/>
+  <meta name="twitter:description" content="The brain implements approximate Bayesian inference"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"/>
+
+  <style>
+    /* ── Reset & tokens ───────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0d1117;
+      --bg-card:   #161b22;
+      --bg-hover:  #1c2230;
+      --border:    #30363d;
+      --text:      #e6edf3;
+      --text-dim:  #8b949e;
+      --accent:    #58a6ff;
+      --accent2:   #3fb950;
+      --accent3:   #f78166;
+      --accent4:   #d2a8ff;
+      --warn:      #e3b341;
+      --radius:    10px;
+      --font:      'Inter', system-ui, sans-serif;
+      --mono:      'JetBrains Mono', monospace;
+      --max-w:     860px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* ── Nav ──────────────────────────────────────────────────────────── */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13,17,23,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .topbar a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: opacity .15s;
+    }
+    .topbar a:hover { opacity: .75; }
+    .topbar-sep { color: var(--border); }
+    .topbar-title { color: var(--text-dim); font-size: 0.85rem; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+    /* ── Layout ───────────────────────────────────────────────────────── */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* ── Hero ─────────────────────────────────────────────────────────── */
+    .hero {
+      padding: 2.5rem 0 2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2.5rem;
+    }
+    .hero-domain {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+    .hero-title {
+      font-size: clamp(1.35rem, 3vw, 1.8rem);
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: center;
+    }
+
+    /* ── Badges ───────────────────────────────────────────────────────── */
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.65rem;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: .05em;
+    }
+    .badge-established { background: rgba(63,185,80,.18); color: var(--accent2); border: 1px solid rgba(63,185,80,.35); }
+    .badge-proposed    { background: rgba(88,166,255,.18); color: var(--accent);  border: 1px solid rgba(88,166,255,.35); }
+    .badge-contested   { background: rgba(227,179,65,.18); color: var(--warn);    border: 1px solid rgba(227,179,65,.35); }
+    .badge-stale       { background: rgba(139,148,158,.18);color: var(--text-dim);border: 1px solid rgba(139,148,158,.35); }
+
+    .field-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .field-tag {
+      background: rgba(88,166,255,.12);
+      color: var(--accent);
+      border: 1px solid rgba(88,166,255,.25);
+      padding: 0.15rem 0.55rem;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 500;
+    }
+
+    /* ── Sections ─────────────────────────────────────────────────────── */
+    section { margin-bottom: 2.5rem; }
+
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    h2 .icon { font-size: 1.1rem; }
+
+    p { color: var(--text-dim); margin-bottom: 0.8rem; }
+    p:last-child { margin-bottom: 0; }
+
+    /* ── Card ─────────────────────────────────────────────────────────── */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.5rem;
+    }
+
+    /* ── Key insight callout ──────────────────────────────────────────── */
+    .insight {
+      background: linear-gradient(135deg, rgba(88,166,255,.08) 0%, rgba(63,185,80,.06) 100%);
+      border: 1px solid rgba(88,166,255,.3);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.5rem;
+    }
+    .insight p { color: var(--text); }
+
+    /* ── Translation table ────────────────────────────────────────────── */
+    .table-wrap { overflow-x: auto; border-radius: var(--radius); }
+    .translation-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+    .translation-table thead tr {
+      background: rgba(88,166,255,.12);
+    }
+    .translation-table th {
+      padding: 0.7rem 1rem;
+      text-align: left;
+      font-weight: 600;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    .translation-table td {
+      padding: 0.65rem 1rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      vertical-align: top;
+    }
+    .translation-table tr:last-child td { border-bottom: none; }
+    .translation-table tr:nth-child(odd) { background: rgba(255,255,255,.02); }
+    .translation-table tr:hover { background: var(--bg-hover); }
+    .note-cell { color: var(--text-dim) !important; font-size: 0.82rem; }
+
+    /* ── References ───────────────────────────────────────────────────── */
+    .ref-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .ref-list li {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.6rem 0.9rem;
+      font-size: 0.84rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      align-items: center;
+    }
+    .ref-list a { color: var(--accent); text-decoration: none; }
+    .ref-list a:hover { text-decoration: underline; }
+    .ref-note { color: var(--text-dim); }
+
+    /* ── Open questions ───────────────────────────────────────────────── */
+    .opp-list, ul { padding-left: 1.3rem; display: flex; flex-direction: column; gap: 0.5rem; }
+    .opp-list li, ul li { color: var(--text-dim); font-size: 0.9rem; }
+    code { font-family: var(--mono); font-size: 0.82rem; background: rgba(88,166,255,.12); color: var(--accent); padding: 0.1rem 0.4rem; border-radius: 4px; }
+
+    /* ── Footer ───────────────────────────────────────────────────────── */
+    .explainer-footer {
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+      margin-top: 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+    .explainer-footer p { font-size: 0.8rem; color: var(--text-dim); margin: 0; }
+    .explainer-footer a { color: var(--accent); text-decoration: none; }
+
+    /* ── Responsive ───────────────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .container { padding: 1.5rem 1rem 3rem; }
+      .hero-title { font-size: 1.25rem; }
+      .translation-table th, .translation-table td { padding: 0.5rem 0.7rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="topbar">
+  <a href="../../dashboard/index.html">← Dashboard</a>
+  <span class="topbar-sep">|</span>
+  <a href="index.html">All Explainers</a>
+  <span class="topbar-sep">|</span>
+  <span class="topbar-title">The brain implements approximate Bayesian inference</span>
+</nav>
+
+<div class="container">
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-domain">Neuroscience ↔ Statistics</div>
+    <h1 class="hero-title">The brain implements approximate Bayesian inference — perception equals likelihood times prior divided by evidence — and neural populations encode probability distributions, making predictive processing (Helmholtz&#x27;s unconscious inference) a formal instantiation of Bayes&#x27; theorem in cortical circuits.</h1>
+    <div class="hero-meta">
+      <span class="badge badge-established">ESTABLISHED</span>
+      <div class="field-tags"><span class="field-tag">neuroscience</span> <span class="field-tag">statistics</span> <span class="field-tag">cognitive-science</span> <span class="field-tag">Bayesian-inference</span> <span class="field-tag">computational-neuroscience</span></div>
+    </div>
+  </header>
+
+  <!-- Overview -->
+  <section id="overview">
+    <h2><span class="icon">🔭</span> Overview</h2>
+    <div class="card">
+      <p>Helmholtz (1867) proposed that perception is &quot;unconscious inference&quot; — the brain uses prior knowledge to resolve ambiguous sensory input. This informal insight has been formalised into the Bayesian brain hypothesis: sensory perception is the computation of the posterior
+
+  P(cause | sensation) ∝ P(sensation | cause) × P(cause)
+
+where P(cause) is the prior expectation and P(sensation | cause) is the likelihood of the sensory input given a hypothesised cause.
+FORMAL CORRESPONDENCES:
+1. PERCEPTION = BAYESIAN INFERENCE: Weiss et al. (2002) showed that the perceived
+   direction and speed of moving stimuli (including classic visual illusions) are
+   exactly predicted by a Bayesian observer with a prior favouring slow motions.
+   The &quot;slow motion prior&quot; is the neural prior P(speed = slow). Psychophysical
+   data fits Bayesian optimal observers with surprising precision across modalities
+   (vision, touch, audition, multisensory integration).
+
+2. DIVISIVE NORMALIZATION = BAYESIAN NORMALIZATION: The divisive normalization
+   operation ubiquitous in cortical neurons — response = input / (gain + Σ inputs)
+   — is the neural implementation of computing a normalized probability distribution.
+   Carandini &amp; Heeger (2012) showed divisive normalization is the canonical neural
+   computation; Bayesian normalization (dividing by the evidence P(sensation))
+   explains why the brain uses this seemingly arbitrary nonlinearity.
+
+3. ATTENTION = PRECISION WEIGHTING: Friston&#x27;s Free Energy Principle formalises
+   attention as the precision weighting of prediction errors — the inverse variance
+   (precision = 1/σ²) of the sensory likelihood. When attention is directed to a
+   stimulus, its precision weight is increased, amplifying the prediction error
+   signal that drives perceptual updating. This maps directly onto the Fisher
+   information of the sensory channel.
+
+4. PREDICTION ERRORS = SURPRISE SIGNALS: The difference between predicted and
+   actual sensory input (residual = observation - prediction) is the Bayesian
+   prediction error. In the brain, this is computed by superficial pyramidal cells
+   in cortical layer II/III, which project bottom-up; predictions are carried by
+   deep layers projecting top-down. The laminar structure of cortex implements
+   the message-passing algorithm for approximate Bayesian inference.
+
+5. HALLUCINATIONS AND PRIORS: Psychotic hallucinations arise when the prior
+   dominates over the likelihood — the brain &quot;hallucinates&quot; a percept that matches
+   its prior regardless of incoming sensory evidence. Predictive processing predicts
+   this: increased prior precision (relative to likelihood) causes perception to
+   be driven by top-down priors alone. This generates a testable pharmacological
+   prediction: drugs that reduce likelihood precision (e.g. sensory deprivation or
+   ketamine, which blocks NMDA receptors that carry prediction errors) should
+   increase hallucination rates.
+
+6. NEURAL POPULATION CODES AS PROBABILITY DISTRIBUTIONS: Knill &amp; Pouget (2004)
+   proposed that neural population activity represents a probability distribution —
+   the posterior over the underlying variable. The mean firing rate encodes the
+   mean of the posterior; the width of the population activity pattern encodes
+   posterior variance. The Cramér-Rao bound constrains how precisely any neural
+   code can represent a parameter given its Fisher information.</p>
+    </div>
+  </section>
+
+  <!-- Mathematical Bridge -->
+  <section id="math-bridge">
+    <h2><span class="icon">⚙️</span> The Mathematical Bridge</h2>
+    <div class="insight">
+      <p>
+        This bridge connects <strong>Neuroscience</strong>
+        and <strong>Statistics</strong>
+        through shared mathematical structure.
+         Status: Established connection.
+      </p>
+    </div>
+  </section>
+
+  <!-- Translation Table -->
+  <section id="translation">
+    <h2><span class="icon">↔️</span> Translation Table</h2>
+<div class="table-wrap">
+<table class="translation-table">
+  <thead>
+    <tr>
+      <th>Domain A Term</th>
+      <th>Domain B Term</th>
+      <th>Note</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr><td>Prior P(cause)</td><td>Neural prior — baseline expectation from past experience and top-down context</td><td class="note-cell">Encoded in the synaptic weights of top-down connections in cortical hierarchies</td></tr>
+<tr><td>Likelihood P(sensation | cause)</td><td>Sensory evidence carried by bottom-up afferent signals</td><td class="note-cell">Precision-weighted prediction errors in layer II/III superficial pyramidal cells</td></tr>
+<tr><td>Posterior P(cause | sensation)</td><td>Percept — the brain&#x27;s inferred cause of the sensory input</td><td class="note-cell">Approximately computed by loopy belief propagation in cortical circuits</td></tr>
+<tr><td>Bayesian updating (prior → posterior)</td><td>Perceptual learning — prior is updated by prediction errors over time</td><td class="note-cell">Corresponds to Hebbian-like synaptic changes driven by persistent prediction error</td></tr>
+<tr><td>Precision (inverse variance 1/σ²)</td><td>Attention — relative gain of prediction error signals</td><td class="note-cell">High-precision likelihood = high attention to sensory channel; modulated by ACh and NE neuromodulators</td></tr>
+<tr><td>Prediction error (residual)</td><td>Surprise signal — ascending from lower to higher cortical areas</td><td class="note-cell">Minimizing prediction error = perception + action; Free Energy Principle of Friston (2005)</td></tr>
+<tr><td>Bayesian model selection (evidence)</td><td>Perceptual hypothesis testing — why does the brain choose one interpretation over another?</td><td class="note-cell">Model evidence = log marginal likelihood; the brain minimises free energy ≈ surprisal</td></tr>
+  </tbody>
+</table>
+</div></section>
+
+  <!-- Communication Gap -->
+  <section id="comm-gap">
+    <h2><span class="icon">🗺️</span> Why Hasn't This Been Unified?</h2>
+    <div class="card"><p>Helmholtz&#x27;s insight (1867) predated Bayesian statistics; the formal Bayesian brain formulation arrived with Knill &amp; Pouget (2004) and Friston (2005) but remains specialised literature in computational neuroscience. Most experimental neuroscientists record single neurons rather than measuring population-level probabilistic codes; the statistical framework requires population recordings and Bayesian model fitting that most labs lack. The free energy principle literature (Friston) is mathematically dense and has a reputation for being difficult to interpret, slowing adoption by the experimental community.</p></div>
+  </section>
+
+  <!-- Cross-pollination opportunities -->
+  <section id="opportunities">
+    <h2><span class="icon">🌱</span> Cross-Pollination Opportunities</h2><ul class="opp-list"><li>The computational psychiatry programme (Huys et al., Adams et al.) uses Bayesian inference models to classify psychiatric disorders by the abnormal prior and precision parameters that explain their symptoms. Schizophrenia = reduced likelihood precision; autism = overly precise sensory likelihood (reduced prior influence); depression = negatively biased prior over outcomes. This framework unifies diagnosis with mechanistic computational models, making psychiatric diagnosis analogous to parameter estimation in a generative model.</li>
+<li>Variational Bayes (VB), the dominant approximate inference algorithm in machine learning, is mathematically identical to Friston&#x27;s free energy minimization. Both minimise an upper bound on surprise (KL divergence between approximate and true posterior). The brain as a variational inference machine would naturally use the same algorithmic shortcuts (mean-field factorisation, Laplace approximation) as VB in ML — testable by comparing the computational signatures of each approximation against psychophysical data.</li>
+<li>The &quot;prior over causes&quot; in visual perception should be measurable through psychophysical reverse-correlation experiments combined with generative model fitting. The fitted prior would provide a window into the statistics of the visual environment that shaped the prior during development — connecting perceptual ecology to neural coding theory.</li></ul></section>
+
+  <!-- Open Questions -->
+  <section id="open-questions">
+    <h2><span class="icon">❓</span> Open Questions</h2><ul><li>Unknown: <code>u-bayesian-brain-prior-encoding</code></li>
+<li>Hypothesis: <code>h-predictive-processing-psychosis</code></li></ul></section>
+
+  <!-- References -->
+  <section id="references">
+    <h2><span class="icon">📚</span> References</h2>
+    <ul class="ref-list"><li><a href="https://archive.org/details/handbuchderphysi00helm" target="_blank" rel="noopener">https://archive.org/details/handbuchderphysi00helm</a>&nbsp;·&nbsp;<span class="ref-note">Helmholtz (1867) Handbuch der physiologischen Optik — unconscious inference and perception as hypothesis testing</span></li>
+<li><a href="https://doi.org/10.1038/nn741" target="_blank" rel="noopener">DOI:10.1038/nn741</a>&nbsp;·&nbsp;<span class="ref-note">Weiss, Simoncelli &amp; Adelson (2002) Nat Neurosci 5:598 — motion perception as Bayesian inference; slow-speed prior</span></li>
+<li><a href="https://doi.org/10.1016/j.tins.2004.10.007" target="_blank" rel="noopener">DOI:10.1016/j.tins.2004.10.007</a>&nbsp;·&nbsp;<span class="ref-note">Knill &amp; Pouget (2004) Trends Neurosci 27:712 — neural population codes as probability distributions</span></li>
+<li><a href="https://doi.org/10.1098/rstb.2005.1622" target="_blank" rel="noopener">DOI:10.1098/rstb.2005.1622</a>&nbsp;·&nbsp;<span class="ref-note">Friston (2005) Phil Trans R Soc B 360:1023 — free energy principle and predictive processing</span></li>
+<li><a href="https://doi.org/10.1038/nrn3136" target="_blank" rel="noopener">DOI:10.1038/nrn3136</a>&nbsp;·&nbsp;<span class="ref-note">Carandini &amp; Heeger (2012) Nat Rev Neurosci 13:51 — divisive normalization as canonical computation</span></li></ul>
+  </section>
+
+  <!-- Footer -->
+  <footer class="explainer-footer">
+    <p>Bridge ID: <code>b-bayesian-brain-predictive-processing</code> · Last reviewed: 2026-05-05</p>
+    <p>
+      <a href="../../dashboard/index.html">← Back to Dashboard</a> ·
+      <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery" target="_blank" rel="noopener">GitHub</a>
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+id: h-scale-free-epidemic-threshold-vaccination
+title: >
+  Targeted acquaintance immunization on scale-free contact networks achieves herd
+  immunity with ≤15% of the population vaccinated, compared to ≥60% required by
+  random vaccination, because hub removal destroys the giant component at the
+  percolation threshold far more efficiently than random node removal.
+status: active
+created: "2026-05-06"
+last_updated: "2026-05-06"
+priority: high
+related_disciplines:
+  - epidemiology
+  - network-science
+  - statistical-physics
+  - public-health
+unknowns_addressed:
+  - u-network-epidemic-threshold-heterogeneity
+evidence_links:
+  - type: supporting
+    doi: "10.1103/PhysRevE.66.016128"
+    note: Newman (2002) — percolation theory gives exact targeted vs. random vaccination efficiency
+  - type: supporting
+    doi: "10.1103/PhysRevLett.86.3200"
+    note: Pastor-Satorras & Vespignani (2001) — scale-free networks have p_c → 0, making targeted vaccination critical
+  - type: related
+    doi: "10.1103/PhysRevE.65.036133"
+    note: Cohen et al. (2003) — acquaintance immunization strategy (sample neighbor, vaccinate neighbor)
+  - type: contradicting
+    note: >
+      Real contact networks are not pure scale-free (exponent γ > 3 is common in
+      empirical data), which restores a non-zero threshold and reduces the efficiency
+      gap between targeted and random vaccination.
+proposed_tests:
+  - discipline: epidemiology
+    description: >
+      Analyse contact network data from a population with known disease outcomes
+      (e.g., a COVID-19 household transmission study with contact tracing). Compute
+      the degree distribution and estimate γ. Compare the observed vaccine coverage
+      required for herd immunity to the percolation-theory prediction for targeted
+      vs. random vaccination. Test whether the targeted strategy threshold (from
+      percolation theory with the empirical degree distribution) matches the observed
+      outbreak cessation in partially vaccinated subpopulations.
+  - discipline: network-science
+    description: >
+      Simulate SIR dynamics on empirical contact networks from multiple datasets
+      (sexual contact networks, school contact networks, workplace networks). For
+      each network, compute: (a) the percolation-theory prediction of targeted
+      vaccination threshold; (b) the simulated threshold. Quantify the accuracy
+      of the analytical prediction as a function of network size, degree heterogeneity
+      (coefficient of variation of degree), and clustering coefficient. This tests
+      whether mean-field percolation theory is accurate for real networks.
+  - discipline: public-health
+    description: >
+      Design a retrospective analysis of influenza vaccination campaigns in different
+      demographic groups (high-contact essential workers vs. random population).
+      Test whether preferential vaccination of high-contact-rate individuals (hub
+      targeting) produced a disproportionate reduction in overall attack rate
+      compared to the coverage fraction — the epidemiological fingerprint of
+      percolation-threshold suppression.

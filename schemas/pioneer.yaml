@@ -1,0 +1,72 @@
+$schema: "http://json-schema.org/draft-07/schema#"
+title: Pioneer
+type: object
+required:
+  - id
+  - name
+  - birth_year
+  - death_year
+  - primary_domains
+  - core_contributions
+  - bridge_seeds
+  - underappreciated_work
+  - key_references
+properties:
+  id:
+    type: string
+    pattern: "^pioneer-[a-z0-9-]+$"
+  name:
+    type: string
+  birth_year:
+    type: integer
+  death_year:
+    type: [integer, "null"]
+  primary_domains:
+    type: array
+    items:
+      type: string
+    minItems: 1
+  core_contributions:
+    type: array
+    items:
+      type: object
+      required: [title, description, mathematical_form, status]
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        mathematical_form:
+          type: string
+        status:
+          type: string
+          enum: [established, proposed, speculative, open_question]
+  bridge_seeds:
+    type: array
+    items:
+      type: string
+    description: "IDs of bridges this pioneer's work underpins"
+  underappreciated_work:
+    type: array
+    items:
+      type: object
+      required: [title, description, current_status, why_stalled]
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        current_status:
+          type: string
+          enum: [vindicated, open_question, speculative, partially_vindicated]
+        why_stalled:
+          type: string
+  key_references:
+    type: array
+    items:
+      type: string
+    minItems: 1
+  last_reviewed:
+    type: string
+    format: date
+additionalProperties: false

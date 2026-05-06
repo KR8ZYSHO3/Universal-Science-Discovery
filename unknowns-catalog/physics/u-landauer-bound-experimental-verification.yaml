@@ -1,0 +1,44 @@
+id: u-landauer-bound-experimental-verification
+title: Can the Landauer bound kT ln 2 per erased bit be approached within one order of magnitude in a solid-state device, and what are the practical barriers to thermodynamically reversible computation?
+status: open
+priority: medium
+disciplines:
+  - physics
+  - computer-science
+  - thermodynamics
+  - information-theory
+summary: >
+  Landauer's principle (1961) states that erasing one bit of information requires
+  dissipating at least k_B T ln 2 ≈ 2.8 × 10⁻²¹ J at room temperature. This has been
+  verified experimentally for single colloidal particles and single molecular switches
+  (Bérut et al. 2012, Jun et al. 2014), but at speeds far slower than computing operations.
+
+  Modern transistors dissipate roughly 10⁶ k_B T per switching operation at 300K —
+  six orders of magnitude above the Landauer limit. The gap is due to: (1) resistive
+  dissipation in wires, (2) non-adiabatic (fast) switching, (3) parasitic capacitances.
+
+  Reversible computing architectures (adiabatic logic, ballistic CMOS, quantum
+  computing) aim to approach the Landauer limit, but practical implementations
+  remain far from the limit. The key question is not whether the limit exists
+  (Bérut et al. confirmed it) but whether any scalable digital technology can
+  approach within even 3 orders of magnitude at practical clock frequencies.
+
+  Quantum computing adds complexity: unitary quantum gates are logically reversible
+  and generate no heat in isolation. But quantum error correction requires irreversible
+  syndrome measurement and bit reset — reintroducing Landauer costs. The thermodynamic
+  cost per error-corrected logical qubit operation is not known.
+systematic_gaps:
+  - The minimum energy per bit operation in a scalable solid-state device (MOSFET, memristor, quantum dot) at practical operating speeds has not been measured within 3 orders of magnitude of the Landauer limit.
+  - The thermodynamic cost per error-corrected logical qubit operation in a fault-tolerant quantum computer has not been calculated from first principles.
+  - Whether room-temperature Brownian computing (using thermal fluctuations as a resource) can be made practically useful is unknown.
+  - The relationship between the Landauer bound and the minimum energy for neural computation (per synaptic operation) has not been measured experimentally.
+suggested_hypotheses:
+  - Adiabatic CMOS logic at 1 GHz clock frequency can approach 10² k_B T per bit operation (vs. current ~10⁶) through slow-ramp charging of gate capacitances, provably lower-bounded by the RC time constant.
+related_bridges:
+  - b-maxwells-demon-computation
+references:
+  - doi: "10.1038/nature10872"
+    note: Bérut et al. (2012) Nature — experimental Landauer bound in colloidal system
+  - doi: "10.1147/rd.53.0183"
+    note: Landauer (1961) IBM J Res Dev — original principle
+last_reviewed: "2026-05-06"

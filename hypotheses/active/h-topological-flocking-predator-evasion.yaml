@@ -1,0 +1,59 @@
+id: h-topological-flocking-predator-evasion
+title: >
+  Fish species exposed to higher natural predation pressure evolve topological
+  (k-nearest-neighbor) schooling rules with smaller k, enabling faster collective
+  evasion responses than metric (fixed-radius) rules, with k* ≈ log₂(group size)
+  maximizing information propagation speed subject to noise constraints.
+status: active
+created: "2026-05-06"
+last_updated: "2026-05-06"
+priority: medium
+related_disciplines:
+  - marine-biology
+  - ethology
+  - statistical-physics
+  - active-matter-physics
+unknowns_addressed:
+  - u-fish-schooling-topological-interaction
+evidence_links:
+  - type: supporting
+    doi: "10.1073/pnas.0711437105"
+    note: Ballerini et al. (2008) PNAS — topological interaction k ≈ 7 in starlings; metric interaction is density-sensitive
+  - type: supporting
+    doi: "10.1006/jtbi.2002.3065"
+    note: Couzin et al. (2002) — schooling model shows collective evasion speed increases with reduced neighbor number k
+  - type: related
+    doi: "10.1126/science.1088295"
+    note: Liao et al. (2003) — hydrodynamic coupling in fish schooling measured directly
+  - type: contradicting
+    note: >
+      Katz et al. (2011) PNAS — analysis of golden shiner schooling suggests metric interaction
+      dominates over short ranges (< 2 body lengths), with topological interaction only
+      emerging at longer distances. The interaction type may be range-dependent, not
+      a fixed rule.
+proposed_tests:
+  - discipline: marine-biology
+    description: >
+      Multi-species field study: collect 3D stereovideography data of natural schools
+      from 10 fish species spanning a range of predation environments (reef fish with
+      heavy predation, pelagic open-ocean species with moderate predation, freshwater
+      lake species with low predation). Extract interaction rules by fitting social force
+      models to individual trajectories. Test whether species from high-predation
+      environments show topological interaction with smaller k, and low-predation
+      species show metric interaction.
+  - discipline: ethology
+    description: >
+      Laboratory tank experiment with three-spined stickleback (known predation history
+      variation between lake and stream ecotypes). Measure schooling behavior (k value,
+      interaction range) in naïve laboratory-raised individuals from each ecotype
+      presented with a robotic predator model. Test whether stream ecotypes (higher
+      predation) show smaller k and faster collective evasion onset times than lake
+      ecotypes.
+  - discipline: statistical-physics
+    description: >
+      Information-theoretic analysis: simulate Vicsek-model schools of N = 100-10,000
+      agents with topological rule (k nearest neighbors) vs. metric rule (radius r with
+      equivalent mean neighbor count k̄ = r). Measure the speed at which a directional
+      perturbation (simulating predator attack) propagates through the school. Test
+      whether topological k-NN rule produces faster propagation at the same mean
+      density, and whether k* = log₂(N) minimizes the propagation time under noise.

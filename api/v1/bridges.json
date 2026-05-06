@@ -1,5 +1,5 @@
 {
-  "count": 105,
+  "count": 115,
   "items": [
     {
       "id": "b-grokking-criticality",
@@ -702,6 +702,77 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\astronomy-physics\\b-stellar-structure-thermodynamics.yaml"
+    },
+    {
+      "id": "b-accretion-disk-mhd-turbulence",
+      "title": "Accretion disk angular momentum transport is governed by the magnetorotational instability (MRI) — a linear MHD instability in differentially rotating magnetized plasmas that drives turbulence and mediates the anomalous viscosity α required to explain observed accretion rates.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Accretion disks around compact objects (black holes, neutron stars, white dwarfs, young stellar objects) must transport angular momentum outward to allow mass to flow inward. Molecular viscosity is 13 orders of magnitude too small to explain observed accretion rates. Shakura & Sunyaev (1973) paramet",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-mri-turbulence-alpha-prediction"
+      ],
+      "communication_gap": "Astrophysicists work with global disk simulations using general relativistic MHD (GRMHD), while fluid dynamicists develop turbulence theory for simpler Cartesian shear flows. The parameter regimes accessible in laboratory experiments (Pm < 1) differ from astrophysical disks (Pm >> 1 in hot plasmas). The communities publish in the Astrophysical Journal vs. Journal of Fluid Mechanics, with limited overlap. The connection between the Shakura-Sunyaev α model and MRI turbulence is widely understood in astrophysics but rarely taught in fluid dynamics courses.\n",
+      "translation_table": [
+        {
+          "field_a_term": "differential rotation profile Ω(r) ∝ r^{-3/2} (Keplerian)",
+          "field_b_term": "shear flow profile in rotating Couette-Taylor apparatus",
+          "note": "The MRI operates identically in the astrophysical and laboratory settings"
+        },
+        {
+          "field_a_term": "weak vertical magnetic field B_z",
+          "field_b_term": "applied axial magnetic field in liquid metal experiments",
+          "note": "Sub-thermal field required; v_A = B/√(4πρ) < c_s"
+        },
+        {
+          "field_a_term": "MRI growth rate ~ Ω (fastest mode)",
+          "field_b_term": "instability growth timescale in shear-flow MHD",
+          "note": "Fastest growing wavelength λ_MRI = 2π v_A/Ω"
+        },
+        {
+          "field_a_term": "angular momentum transport by Maxwell stress ⟨B_r B_φ⟩/4π",
+          "field_b_term": "turbulent momentum flux in MHD shear turbulence",
+          "note": "The α parameter α ≈ ⟨B_r B_φ + ρ v_r v_φ⟩/P"
+        },
+        {
+          "field_a_term": "anomalous viscosity α (Shakura-Sunyaev)",
+          "field_b_term": "turbulent eddy viscosity in fluid dynamics",
+          "note": "Both parametrize sub-grid momentum transport"
+        },
+        {
+          "field_a_term": "accretion timescale t_acc = r²/ν = r²/(α c_s H)",
+          "field_b_term": "viscous diffusion timescale in turbulent fluid"
+        },
+        {
+          "field_a_term": "dead zones (low-ionization regions with suppressed MRI)",
+          "field_b_term": "laminar regions between turbulent zones",
+          "note": "Relevant to planet formation in protoplanetary disks"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1086/170270",
+          "note": "Balbus & Hawley (1991) ApJ 376:214 — definitive MRI paper for accretion disks"
+        },
+        {
+          "note": "Shakura & Sunyaev (1973) A&A 24:337 — α-disk model"
+        },
+        {
+          "note": "Lynden-Bell & Pringle (1974) MNRAS 168:603 — viscous disk evolution"
+        },
+        {
+          "doi": "10.1051/0004-6361:20077537",
+          "note": "Fromang & Papaloizou (2007) A&A 476:1123 — MRI turbulence and angular momentum transport"
+        },
+        {
+          "doi": "10.1103/PhysRevLett.97.184503",
+          "note": "Sisan et al. (2004/2006) — laboratory MRI in liquid metal Couette flow"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\astrophysics-fluid-dynamics\\b-accretion-disk-mhd-turbulence.yaml"
     },
     {
       "id": "b-lichen-astrobiology",
@@ -1461,6 +1532,80 @@
       "file": "cross-domain\\cognitive-science-physics\\b-free-energy-principle-stat-mech.yaml"
     },
     {
+      "id": "b-sat-phase-transition",
+      "title": "Random 3-SAT undergoes a sharp satisfiability phase transition at clause-to-variable ratio α ≈ 4.267 — the computational hardness peak maps onto a spin-glass phase transition (replica-symmetry breaking), linking P vs. NP to the statistical physics of disordered systems.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "proposed",
+      "bridge_claim": "A random 3-SAT instance with n variables and m = αn clauses (each clause containing 3 random variables in random polarity) undergoes a sharp phase transition at critical ratio α_c ≈ 4.267 (Kirkpatrick & Selman 1994; rigorous bounds by Mézard et al. 2002): - α < α_c: instance is satisfiable with prob",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-spin-glass-p-np-separation"
+      ],
+      "communication_gap": "Computer scientists studying algorithm complexity and statistical physicists studying disordered systems independently discovered similar phase transitions in the 1990s. The communities have converged somewhat (the survey propagation work was a landmark collaboration), but the formal connection between computational complexity classes and equilibrium statistical mechanics phase diagrams remains incomplete. The P≠NP question is studied as pure mathematics in complexity theory but as a physics problem in the statistical mechanics of computation community — rare cross-pollination exists between STOC/FOCS proceedings and Physical Review Letters.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Boolean variable x_i",
+          "field_b_term": "Ising spin σ_i ∈ {-1, +1}"
+        },
+        {
+          "field_a_term": "3-SAT clause (disjunction of 3 literals)",
+          "field_b_term": "3-spin interaction term in random energy model"
+        },
+        {
+          "field_a_term": "clause-to-variable ratio α = m/n",
+          "field_b_term": "inverse temperature / coupling strength in spin glass"
+        },
+        {
+          "field_a_term": "satisfiable instance (α < α_c)",
+          "field_b_term": "paramagnetic phase (replica-symmetric, single Gibbs state)"
+        },
+        {
+          "field_a_term": "unsatisfiable instance (α > α_c)",
+          "field_b_term": "frustrated phase (no zero-energy ground state)"
+        },
+        {
+          "field_a_term": "hardest instances at α ≈ α_c",
+          "field_b_term": "replica-symmetry breaking / spin-glass phase"
+        },
+        {
+          "field_a_term": "exponential solver runtime at phase transition",
+          "field_b_term": "exponential ground-state search in spin glass (no polynomial algorithm known)"
+        },
+        {
+          "field_a_term": "DPLL backtracking algorithm",
+          "field_b_term": "simulated annealing in energy landscape"
+        },
+        {
+          "field_a_term": "survey propagation algorithm",
+          "field_b_term": "cavity method / belief propagation from statistical physics"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1126/science.264.5163.1297",
+          "note": "Kirkpatrick & Selman (1994) Science 264:1297 — discovery of SAT phase transition"
+        },
+        {
+          "doi": "10.1126/science.297.5582.812",
+          "note": "Mézard, Parisi & Zecchina (2002) Science 297:812 — survey propagation / cavity method"
+        },
+        {
+          "note": "Cook (1971) STOC — NP-completeness of SAT"
+        },
+        {
+          "doi": "10.1038/22055",
+          "note": "Monasson et al. (1999) Nature 400:133 — determining computational complexity of 3-SAT"
+        },
+        {
+          "doi": "10.1073/pnas.97.2.792",
+          "note": "Mézard & Montanari (2009) — information, physics, computation (book)"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\computer-science-mathematics\\b-sat-phase-transition.yaml"
+    },
+    {
       "id": "b-transformer-attention-neural-attention",
       "title": "The transformer's scaled dot-product attention mechanism is a computational formalisation of neural attention theories from cognitive neuroscience — scaled dot-product Q·Kᵀ/√d_k implements a soft winner-take-all competition analogous to cortical inhibitory circuits, while self-attention corresponds to lateral inhibition combined with top-down modulatory feedback.\n",
       "source_domain": "",
@@ -1596,6 +1741,76 @@
       ],
       "last_reviewed": "2026-05-04",
       "file": "cross-domain\\cosmology-biology\\b-kibble-zurek-morphogenesis.yaml"
+    },
+    {
+      "id": "b-morphogen-gradients-diffusion",
+      "title": "Turing's reaction-diffusion mechanism generates biological spatial patterns from two morphogens — an activator (short-range positive feedback) and an inhibitor (long-range negative feedback) — with pattern wavelength λ ∝ √(D/k) predicted exactly from diffusion and kinetic constants.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Alan Turing's 1952 paper \"The Chemical Basis of Morphogenesis\" showed that a homogeneous mixture of two interacting chemical species — an activator A and an inhibitor I — becomes spontaneously patterned when their diffusion rates differ sufficiently (D_I >> D_A). This reaction-diffusion (RD) instabi",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-turing-pattern-wavelength-experimental-test"
+      ],
+      "communication_gap": "Turing's 1952 paper was not read by developmental biologists for two decades; the field was dominated by Wolpert's French Flag model (1969) which requires pre-specified gradient sources. The Turing mechanism was treated as an interesting alternative without experimental evidence until the 1990s-2000s when fluorescent protein tools made it possible to measure morphogen dynamics in living embryos. Even now, many developmental biologists are skeptical of RD mechanisms because the measurement of both diffusion constants and kinetic rates in the same system is technically demanding.\n",
+      "translation_table": [
+        {
+          "field_a_term": "activator morphogen A (e.g., Wnt, BMP, Nodal)",
+          "field_b_term": "activator species u in Turing RD system (local positive feedback)"
+        },
+        {
+          "field_a_term": "inhibitor morphogen I (e.g., Dkk, Noggin, Lefty)",
+          "field_b_term": "inhibitor species v in Turing RD system (long-range negative feedback)"
+        },
+        {
+          "field_a_term": "diffusion-driven instability (Turing instability)",
+          "field_b_term": "linear instability of homogeneous steady state when D_I/D_A > threshold"
+        },
+        {
+          "field_a_term": "pattern wavelength (hair follicle spacing, digit spacing)",
+          "field_b_term": "most-unstable wavenumber k* = (k/D_A)^{1/2}"
+        },
+        {
+          "field_a_term": "morphogen gradient (concentration vs. position)",
+          "field_b_term": "steady-state diffusion profile C(x) = C₀·exp(-x/√(D/k))"
+        },
+        {
+          "field_a_term": "threshold concentration for cell fate decision",
+          "field_b_term": "level set of morphogen concentration field (French Flag boundaries)"
+        },
+        {
+          "field_a_term": "gradient noise / cell-to-cell variability",
+          "field_b_term": "fluctuations in diffusion equation at finite particle number"
+        },
+        {
+          "field_a_term": "embryo scaling (pattern scales with organism size)",
+          "field_b_term": "scale-invariant gradient (gradient length ∝ tissue length)"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1098/rstb.1952.0012",
+          "note": "Turing (1952) Phil Trans R Soc B 237:37 — original reaction-diffusion patterning paper"
+        },
+        {
+          "doi": "10.1016/0022-5193(69)90014-3",
+          "note": "Wolpert (1969) J Theor Biol 25:1 — positional information and the French Flag model"
+        },
+        {
+          "note": "Meinhardt (1982) Models of Biological Pattern Formation. Academic Press, London."
+        },
+        {
+          "doi": "10.1126/science.1225394",
+          "note": "Müller et al. (2012) Science 336:721 — quantitative test of Nodal/Lefty Turing system in zebrafish"
+        },
+        {
+          "doi": "10.1016/j.cell.2014.11.018",
+          "note": "Raspopovic et al. (2014) Science — Turing mechanism for digit patterning confirmed"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\developmental-biology-physics\\b-morphogen-gradients-diffusion.yaml"
     },
     {
       "id": "b-commons-game-theory-ostrom",
@@ -2510,6 +2725,158 @@
       "file": "cross-domain\\engineering-physics\\b-chaos-control-systems.yaml"
     },
     {
+      "id": "b-sir-percolation",
+      "title": "The SIR epidemic model is bond percolation on a contact network — the epidemic threshold 1/R₀ equals the percolation threshold p_c, and herd immunity is the destruction of the giant connected component of susceptible individuals.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The classic SIR (Susceptible-Infected-Recovered) compartmental epidemic model maps exactly onto bond percolation on the underlying contact network. Each person is a node; each potentially infectious contact is a bond that is \"occupied\" with probability T = 1 - exp(-β/γ), the transmissibility. An epi",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-scale-free-epidemic-threshold-vaccination"
+      ],
+      "communication_gap": "Compartmental SIR models (Kermack-McKendrick) predate network science by six decades. Epidemiologists trained on ODEs often view network models as complex extensions requiring simulation, not as exact instances of a solved problem in statistical physics. The percolation connection was formalized by Newman (2002) and Pastor-Satorras & Vespignani (2001) but remains underutilized in public health modeling. The fields publish in non-overlapping journals (PLOS Pathogens, Epidemiology vs. Physical Review E, Journal of Statistical Physics).\n",
+      "translation_table": [
+        {
+          "field_a_term": "susceptible individual",
+          "field_b_term": "unoccupied lattice site in the percolation problem",
+          "note": "Each susceptible person is a node that can be reached by the epidemic"
+        },
+        {
+          "field_a_term": "infectious contact (transmission event)",
+          "field_b_term": "occupied bond in bond percolation",
+          "note": "A bond is occupied with probability T = transmissibility"
+        },
+        {
+          "field_a_term": "epidemic threshold (R₀ = 1)",
+          "field_b_term": "percolation threshold (bond occupancy p = p_c)",
+          "note": "Both are the critical conditions for a spanning cluster / macroscopic outbreak"
+        },
+        {
+          "field_a_term": "final epidemic size",
+          "field_b_term": "size of the giant connected component S",
+          "note": "In the infinite-size limit both are exact via the same self-consistency equation"
+        },
+        {
+          "field_a_term": "basic reproduction number R₀",
+          "field_b_term": "network epidemic spreading parameter κ = ⟨k²⟩/⟨k⟩",
+          "note": "R₀ = T·κ for a network SIR model"
+        },
+        {
+          "field_a_term": "herd immunity threshold",
+          "field_b_term": "node fraction removed to destroy the giant component",
+          "note": "Must account for network heterogeneity — not simply 1 - 1/R₀"
+        },
+        {
+          "field_a_term": "random vaccination",
+          "field_b_term": "random node removal (site percolation)",
+          "note": "Effective but inefficient on scale-free networks"
+        },
+        {
+          "field_a_term": "targeted hub vaccination",
+          "field_b_term": "targeted high-degree node removal (acquaintance immunisation)",
+          "note": "Disrupts giant component with far fewer removed nodes"
+        },
+        {
+          "field_a_term": "scale-free contact network (γ ≤ 3)",
+          "field_b_term": "network with diverging ⟨k²⟩ → zero percolation threshold",
+          "note": "Explains persistence of STIs and why scale-free networks are epidemic-prone"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1103/PhysRevE.66.016128",
+          "note": "Newman (2002) — exact mapping of SIR to bond percolation with generating functions"
+        },
+        {
+          "doi": "10.1103/PhysRevLett.86.3200",
+          "note": "Pastor-Satorras & Vespignani (2001) — epidemic spreading on scale-free networks, p_c → 0"
+        },
+        {
+          "note": "Anderson & May (1991) Infectious Diseases of Humans. Oxford University Press."
+        },
+        {
+          "doi": "10.1098/rsif.2005.0051",
+          "note": "Keeling & Eames (2005) Networks and epidemic models — J R Soc Interface 2:295"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\epidemiology-network-science\\b-sir-percolation.yaml"
+    },
+    {
+      "id": "b-earthquake-soc",
+      "title": "Earthquake magnitude-frequency statistics (Gutenberg-Richter law) and aftershock decay (Omori's law) are signatures of self-organized criticality — the Earth's crust maintains itself at a critical state through slow tectonic loading and rapid stress release.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The Gutenberg-Richter (GR) law, log₁₀N = a - bM (b ≈ 1), states that earthquake frequency falls as a power law with magnitude: N(M) ∝ 10^{-bM}. This is equivalent to a power-law distribution of seismic energy releases: N(E) ∝ E^{-(1+2b/3)}. Power laws without characteristic scale are the hallmark of",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-bvalue-stress-criticality-forecast"
+      ],
+      "communication_gap": "Geologists and seismologists are primarily empirical scientists working with catalog data; statistical physicists work with models. The SOC connection is well-established in the physics literature but treated skeptically in seismology, where predictive failure of simple SOC models has generated backlash. The debate about whether earthquakes are truly predictable (deterministic chaos near criticality) vs. intrinsically unpredictable (true SOC) is not fully resolved. Journals (Geophysical Research Letters vs. Physical Review Letters) rarely overlap.\n",
+      "translation_table": [
+        {
+          "field_a_term": "fault network / Earth's crust",
+          "field_b_term": "SOC cellular automaton lattice (spring-block model)"
+        },
+        {
+          "field_a_term": "tectonic loading rate (slow driving)",
+          "field_b_term": "slow sand grain addition in the sandpile model"
+        },
+        {
+          "field_a_term": "earthquake (stress release event)",
+          "field_b_term": "avalanche in sandpile / OFC model"
+        },
+        {
+          "field_a_term": "Gutenberg-Richter b-value (~1)",
+          "field_b_term": "avalanche size distribution exponent τ at criticality"
+        },
+        {
+          "field_a_term": "earthquake magnitude M",
+          "field_b_term": "log₁₀ of avalanche size (energy released)"
+        },
+        {
+          "field_a_term": "Omori p-value (~1)",
+          "field_b_term": "temporal autocorrelation decay exponent at critical point"
+        },
+        {
+          "field_a_term": "aftershock sequence",
+          "field_b_term": "critical relaxation following a large avalanche"
+        },
+        {
+          "field_a_term": "mainshock rupture area",
+          "field_b_term": "cluster size in the percolation problem near criticality"
+        },
+        {
+          "field_a_term": "seismic b-value spatial variation",
+          "field_b_term": "distance from SOC critical point (stress heterogeneity)"
+        }
+      ],
+      "references": [
+        {
+          "note": "Gutenberg & Richter (1944) Bull Seismol Soc Am 34:185 — original GR law"
+        },
+        {
+          "doi": "10.1103/PhysRevLett.59.381",
+          "note": "Bak, Tang & Wiesenfeld (1987) Phys Rev Lett 59:381 — original SOC paper"
+        },
+        {
+          "note": "Omori (1894) J Coll Sci Imp Univ Tokyo 7:111 — Omori's aftershock law"
+        },
+        {
+          "doi": "10.1103/PhysRevLett.68.1244",
+          "note": "Olami, Feder & Christensen (1992) Phys Rev Lett 68:1244 — OFC spring-block model"
+        },
+        {
+          "doi": "10.1103/PhysRevLett.71.2510",
+          "note": "Sornette & Sammis (1995) — critical point model of large earthquakes"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\geology-statistical-physics\\b-earthquake-soc.yaml"
+    },
+    {
       "id": "b-plate-tectonics-topology",
       "title": "Plate tectonic motion on Earth's surface is an exact realisation of the mathematical theory of rigid motions on a sphere: every plate motion is a rotation in SO(3) about an Euler pole, hotspot tracks are geodesics on the rotation manifold, and triple junction stability obeys the Euler characteristic constraint of the 2-sphere.\n",
       "source_domain": "",
@@ -2657,6 +3024,76 @@
       "file": "cross-domain\\geoscience-physics\\b-earthquake-self-organized-criticality.yaml"
     },
     {
+      "id": "b-immune-regulation-feedback",
+      "title": "The immune system is a proportional-integral (PI) feedback controller — T-regulatory cells implement integral negative feedback on effector T-cell responses, maintaining self-tolerance exactly as a PI controller eliminates steady-state error.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "proposed",
+      "bridge_claim": "Classical feedback control theory provides a precise mathematical framework for immune regulation. The IL-2 / T-regulatory cell (Treg) circuit implements a proportional- integral (PI) control loop maintaining self-tolerance against autoimmunity.\nIn control engineering terms: effector T-cells (T_eff)",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-autoimmune-pi-gain-deficiency"
+      ],
+      "communication_gap": "Immunologists describe regulatory circuits in terms of cell types and cytokines; control engineers describe them in transfer functions and Bode plots. The conceptual translation is clear but the mathematical formalism rarely crosses disciplinary boundaries. Systems biology occupies the middle ground but rarely uses formal control-theoretic tools (stability margins, Nyquist criterion, robust control). Clinical immunology training does not include feedback control theory.\n",
+      "translation_table": [
+        {
+          "field_a_term": "effector T-cell count T_eff",
+          "field_b_term": "plant output y(t) to be regulated"
+        },
+        {
+          "field_a_term": "T-regulatory cell count T_reg",
+          "field_b_term": "controller state (integrator variable)"
+        },
+        {
+          "field_a_term": "IL-2 cytokine concentration",
+          "field_b_term": "error signal e(t) = reference - output"
+        },
+        {
+          "field_a_term": "antigen load",
+          "field_b_term": "reference input r(t) / setpoint"
+        },
+        {
+          "field_a_term": "Treg suppression of T_eff (rate k·T_reg·T_eff)",
+          "field_b_term": "proportional control action u_P(t) = K_p·e(t)"
+        },
+        {
+          "field_a_term": "Treg accumulation by IL-2 (integral of cytokine signal)",
+          "field_b_term": "integral control action u_I(t) = K_i∫e(τ)dτ"
+        },
+        {
+          "field_a_term": "autoimmune disease (insufficient Treg suppression)",
+          "field_b_term": "steady-state error (controller gain too low)"
+        },
+        {
+          "field_a_term": "cytokine storm (IL-6/TNF positive feedback loop)",
+          "field_b_term": "unstable closed-loop system (positive feedback dominates)"
+        },
+        {
+          "field_a_term": "immunosuppressive therapy (corticosteroids)",
+          "field_b_term": "adding external negative feedback to stabilize the loop"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1371/journal.pcbi.1003122",
+          "note": "Khailaie et al. (2013) PLOS Comput Biol — PI controller model of IL-2/Treg dynamics"
+        },
+        {
+          "doi": "10.1186/1752-0509-4-2",
+          "note": "Busse et al. (2010) BMC Syst Biol 4:2 — mathematical model of Treg-mediated tolerance"
+        },
+        {
+          "note": "Doyle, Francis & Tannenbaum (2009) Feedback Control Theory. Dover Publications."
+        },
+        {
+          "doi": "10.1038/msb.2010.32",
+          "note": "Feinerman et al. (2010) Mol Syst Biol — IL-2 signaling quantification"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\immunology-control-theory\\b-immune-regulation-feedback.yaml"
+    },
+    {
       "id": "b-error-threshold-information",
       "title": "Eigen's quasispecies error threshold in molecular evolution and Shannon's channel capacity theorem in information theory are the same mathematical result — the mutation rate at which genetic information is irreversibly lost is the Shannon capacity of the replication channel.\n",
       "source_domain": "",
@@ -2726,6 +3163,88 @@
       ],
       "last_reviewed": "2026-05-04",
       "file": "cross-domain\\information-evolution\\b-error-threshold-information.yaml"
+    },
+    {
+      "id": "b-language-evolution-cultural-selection",
+      "title": "Language change obeys evolutionary dynamics — linguistic variants compete under frequency-dependent selection (prestige bias, conformity), the replicator equation governs variant frequencies, and historical linguistics is formally homologous to molecular phylogenetics.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Languages change through processes that are mathematically equivalent to biological evolution: linguistic forms (words, constructions, pronunciations) are variants competing for use in a population of speakers. The analogy is not merely metaphorical — the mathematical formalisms are identical.\nRepli",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-language-change-replicator-conformity"
+      ],
+      "communication_gap": "Historical linguistics is one of the oldest scientific disciplines with a rigorous methodology (comparative method, 19th century). Population genetics developed in the 1920s-1930s independently. The formal mathematical homology was recognized in the 1990s-2000s but is still not standard in linguistics training. Linguists resist the \"language as organism\" metaphor (language does not have fitness in the same sense as organisms), sometimes blocking the more limited but valid claim that variant-frequency dynamics follow the same equations as allele-frequency dynamics.\n",
+      "translation_table": [
+        {
+          "field_a_term": "linguistic variant (word, construction, pronunciation)",
+          "field_b_term": "allele / biological replicator"
+        },
+        {
+          "field_a_term": "speaker population",
+          "field_b_term": "population of replicating individuals"
+        },
+        {
+          "field_a_term": "language use frequency f_i",
+          "field_b_term": "allele frequency p_i"
+        },
+        {
+          "field_a_term": "prestige bias (copy high-status speakers)",
+          "field_b_term": "directional natural selection"
+        },
+        {
+          "field_a_term": "conformity bias (copy majority)",
+          "field_b_term": "frequency-dependent stabilizing selection"
+        },
+        {
+          "field_a_term": "neutral variant drift (random copying)",
+          "field_b_term": "genetic drift (finite-population stochasticity)"
+        },
+        {
+          "field_a_term": "language innovation (new word, borrowing)",
+          "field_b_term": "mutation"
+        },
+        {
+          "field_a_term": "language family tree (Indo-European, Austronesian)",
+          "field_b_term": "phylogenetic gene tree / species tree"
+        },
+        {
+          "field_a_term": "comparative method (reconstruct proto-language)",
+          "field_b_term": "ancestral sequence reconstruction in phylogenetics"
+        },
+        {
+          "field_a_term": "creolization (rapid simplification under selection)",
+          "field_b_term": "adaptation under strong directional selection after bottleneck"
+        },
+        {
+          "field_a_term": "Swadesh 100-word list (core vocabulary)",
+          "field_b_term": "conserved ortholog genes used for phylogenetic reconstruction"
+        }
+      ],
+      "references": [
+        {
+          "note": "Croft (2000) Explaining Language Change. Longman, London."
+        },
+        {
+          "doi": "10.1126/science.291.5501.114",
+          "note": "Nowak, Plotkin & Jansen (2001) Science 291:114 — evolution of universal grammar"
+        },
+        {
+          "doi": "10.1023/A:1006601203931",
+          "note": "Niyogi & Berwick (1997) Linguist Philos — mathematical model of language change"
+        },
+        {
+          "doi": "10.1038/nature06137",
+          "note": "Pagel, Atkinson & Meade (2007) Nature 449:717 — frequency law for word evolution"
+        },
+        {
+          "doi": "10.1126/science.1219042",
+          "note": "Michel et al. (2011) Science — quantitative analysis of culture via Google Ngrams (verb regularization)"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\linguistics-biology\\b-language-evolution-cultural-selection.yaml"
     },
     {
       "id": "b-zipf-optimal-coding",
@@ -2893,6 +3412,81 @@
       "references": [],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\linguistics-physics\\b-linguistic-relativity-quantum-basis.yaml"
+    },
+    {
+      "id": "b-fish-schooling-collective-motion",
+      "title": "Fish schooling and bird flocking are active matter phase transitions — the Vicsek model shows that self-propelled particles aligning with neighbors undergo a continuous order-disorder transition at a critical noise threshold, exhibiting long-range order in 2D forbidden by the Mermin-Wagner theorem for equilibrium systems.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Fish schools (up to 10⁶ individuals), bird flocks (murmurations of starlings), and insect swarms exhibit coherent collective motion emerging from local interaction rules without central coordination. This is a paradigmatic active matter problem.\nThe Vicsek model (1995) is the minimal model: N point ",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-topological-flocking-predator-evasion"
+      ],
+      "communication_gap": "Marine biologists study fish schooling as an anti-predator behavior and hydrodynamic efficiency problem; statistical physicists study it as an active matter phase transition; fluid dynamicists study it as a CFD problem in collective swimming. The three communities use different formalisms and rarely cite each other. Empirical data on 3D fish tracking at sufficient density to extract interaction rules became available only recently (stereophotogrammetry, computer vision) — enabling comparison with theoretical predictions that have existed since 1995.\n",
+      "translation_table": [
+        {
+          "field_a_term": "individual fish / bird (self-propelled particle)",
+          "field_b_term": "Vicsek particle with constant speed v₀"
+        },
+        {
+          "field_a_term": "visual alignment with neighbors",
+          "field_b_term": "ferromagnetic-like alignment interaction with range r"
+        },
+        {
+          "field_a_term": "unpredictable predator approach / environmental perturbation",
+          "field_b_term": "noise parameter η in Vicsek model"
+        },
+        {
+          "field_a_term": "critical noise threshold (disorder/order transition)",
+          "field_b_term": "continuous phase transition in Vicsek model at η_c"
+        },
+        {
+          "field_a_term": "coherent school / murmuration (all moving together)",
+          "field_b_term": "ordered flocking phase (Φ → 1)"
+        },
+        {
+          "field_a_term": "dispersed school (panic, fragmentation)",
+          "field_b_term": "disordered phase (Φ → 0)"
+        },
+        {
+          "field_a_term": "topological interaction (k = 7 nearest neighbors)",
+          "field_b_term": "Voronoi-cell based interaction (graph topology, not metric disk)"
+        },
+        {
+          "field_a_term": "giant number fluctuations in fish school density",
+          "field_b_term": "ΔN ~ N^{0.8} anomalous fluctuations in Toner-Tu theory"
+        },
+        {
+          "field_a_term": "hydrodynamic schooling (lateral line, vortex wakes)",
+          "field_b_term": "far-field hydrodynamic interactions between active swimmers"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1103/PhysRevLett.75.1226",
+          "note": "Vicsek et al. (1995) Phys Rev Lett 75:1226 — original Vicsek model of collective motion"
+        },
+        {
+          "doi": "10.1103/PhysRevLett.75.4326",
+          "note": "Toner & Tu (1995) Phys Rev Lett 75:4326 — hydrodynamic theory, long-range order in 2D active matter"
+        },
+        {
+          "doi": "10.1006/jtbi.2002.3065",
+          "note": "Couzin et al. (2002) J Theor Biol 218:1 — individual-based model of fish school transitions"
+        },
+        {
+          "doi": "10.1073/pnas.0711437105",
+          "note": "Ballerini et al. (2008) PNAS 105:1232 — topological interaction in starling flocks (k ≈ 7)"
+        },
+        {
+          "doi": "10.1126/science.1088295",
+          "note": "Liao et al. (2003) Science — fish exploit Kármán vortex street (hydrodynamic schooling benefit)"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\marine-biology-fluid-dynamics\\b-fish-schooling-collective-motion.yaml"
     },
     {
       "id": "b-biomineralization-crystal-growth",
@@ -6271,6 +6865,80 @@
       "file": "cross-domain\\physics-social\\b-ising-social-dynamics.yaml"
     },
     {
+      "id": "b-prospect-theory-loss-aversion",
+      "title": "Prospect theory is the psychophysical analog of the Weber-Fechner law applied to monetary outcomes — the value function v(x) is the S-shaped transducer mapping objective monetary changes to subjective utility, with loss aversion (λ ≈ 2.25) encoding the asymmetric steepness for losses versus gains.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Kahneman & Tversky's prospect theory (1979) replaces expected utility theory with a psychophysically grounded model of decision under uncertainty. The model has two components: a value function v(x) over outcomes and a probability weighting function π(p) over probabilities.\nThe value function is the",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-prospect-theory-neural-encoding"
+      ],
+      "communication_gap": "Psychophysics (loudness, brightness, pain perception) and economics (utility theory) have developed in parallel since Fechner (1860) and Bernoulli (1738) but rarely interact formally. Kahneman & Tversky noted the Weber-Fechner connection informally in 1979 but the formal mathematical equivalence has not been fully developed. Behavioral economists rarely cite psychophysics literature; psychophysicists rarely cite prospect theory. The neural implementation — where both should converge — is studied by neuroeconomics but without full integration of classical psychophysics.\n",
+      "translation_table": [
+        {
+          "field_a_term": "objective monetary outcome x (gain or loss)",
+          "field_b_term": "physical stimulus intensity I in psychophysics"
+        },
+        {
+          "field_a_term": "subjective value v(x) = x^α (gains), -λ(-x)^β (losses)",
+          "field_b_term": "perceived sensation L = k·log(I) (Weber-Fechner) or L = k·I^n (Stevens)"
+        },
+        {
+          "field_a_term": "reference point (status quo, purchase price)",
+          "field_b_term": "adaptation level / background stimulus in psychophysics"
+        },
+        {
+          "field_a_term": "loss aversion coefficient λ ≈ 2.25",
+          "field_b_term": "asymmetric gain/loss sensitivity (no direct psychophysical analog)"
+        },
+        {
+          "field_a_term": "probability weighting function π(p)",
+          "field_b_term": "psychophysical compression of the probability dimension"
+        },
+        {
+          "field_a_term": "overweighting of small probabilities π(p) > p for p small",
+          "field_b_term": "detection threshold effects in psychophysics (near-zero intensities feel larger)"
+        },
+        {
+          "field_a_term": "risk aversion for gains (buy insurance)",
+          "field_b_term": "concavity of value function for positive outcomes"
+        },
+        {
+          "field_a_term": "risk seeking for losses (gamble to break even)",
+          "field_b_term": "convexity of value function for negative outcomes"
+        },
+        {
+          "field_a_term": "certainty effect (overvaluing certain vs. probable gains)",
+          "field_b_term": "unit probability anchoring (p=1 maps to π=1, creating discontinuity)"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.2307/1914185",
+          "note": "Kahneman & Tversky (1979) Econometrica 47:263 — original prospect theory paper"
+        },
+        {
+          "doi": "10.1007/BF00122574",
+          "note": "Tversky & Kahneman (1992) J Risk Uncertain 5:297 — cumulative prospect theory"
+        },
+        {
+          "note": "Weber (1834) De Pulsu, Resorptione, Auditu et Tactu — original Weber's law"
+        },
+        {
+          "doi": "10.1016/0167-2681(80)90051-7",
+          "note": "Thaler (1980) J Econ Behav Organ 1:39 — mental accounting and loss aversion applications"
+        },
+        {
+          "doi": "10.1016/j.neuron.2009.09.019",
+          "note": "Rangel, Camerer & Montague (2008) Nature Neurosci — neuroeconomics review"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\psychology-economics\\b-prospect-theory-loss-aversion.yaml"
+    },
+    {
       "id": "b-quantum-biology-navigation",
       "title": "Migratory birds navigate using quantum entanglement in cryptochrome — the radical-pair mechanism is a room-temperature quantum sensor inside a living protein, operating at the precision limit set by quantum Fisher information.\n",
       "source_domain": "",
@@ -7013,6 +7681,76 @@
       ],
       "last_reviewed": "2026-05-04",
       "file": "cross-domain\\statistics-evolution\\b-fisher-information-evolution.yaml"
+    },
+    {
+      "id": "b-maxwells-demon-computation",
+      "title": "Maxwell's demon is resolved by Landauer's principle — erasing one bit of information dissipates at least kT ln 2 of energy, exactly linking Shannon information entropy to thermodynamic entropy and establishing the physical cost of logical irreversibility.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Maxwell's demon (1867): a hypothetical being that monitors individual molecules in a partitioned gas container, opening a small door to let fast molecules pass to one side and slow ones to the other. Net result: the gas unmixes, entropy decreases, and work is seemingly extracted from a heat bath — v",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-reversible-computing-landauer-limit"
+      ],
+      "communication_gap": "The Maxwell's demon paradox was a 94-year mystery (1867-1961) because physicists treated it as a thermodynamics problem, while the information-theoretic resolution required importing Shannon's 1948 concepts into physics. Landauer's insight was not immediately accepted — the explicit experimental confirmation only came in 2012. Computer science curricula rarely teach thermodynamic limits; thermodynamics courses rarely discuss logical reversibility. The connection between von Neumann's information- theoretic entropy and thermodynamic entropy, first noted by von Neumann and Shannon themselves, is still not universally acknowledged as exact rather than analogical.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Maxwell's demon's memory bit",
+          "field_b_term": "one bit in a computational register"
+        },
+        {
+          "field_a_term": "memory erasure (demon resets to accept new measurement)",
+          "field_b_term": "logically irreversible operation (bit reset, AND gate)"
+        },
+        {
+          "field_a_term": "heat dissipated by erasure k_B T ln 2 per bit",
+          "field_b_term": "minimum energy cost of irreversible computation (Landauer bound)"
+        },
+        {
+          "field_a_term": "thermodynamic entropy S = k_B ln Ω",
+          "field_b_term": "Shannon information entropy H = -Σ p_i log₂ p_i (S = k_B ln 2 · H)"
+        },
+        {
+          "field_a_term": "reversible thermodynamic process (quasi-static, no entropy production)",
+          "field_b_term": "logically reversible computation (Toffoli gate, Fredkin gate)"
+        },
+        {
+          "field_a_term": "irreversible mixing of gas",
+          "field_b_term": "irreversible logical operation (information loss = entropy production)"
+        },
+        {
+          "field_a_term": "second law of thermodynamics (ΔS_universe ≥ 0)",
+          "field_b_term": "Landauer bound (every irreversible bit operation costs ≥ k_B T ln 2)"
+        },
+        {
+          "field_a_term": "Szilard engine (1 bit = one Maxwell's demon measurement)",
+          "field_b_term": "single-bit memory cell (DRAM bit / flip-flop)"
+        }
+      ],
+      "references": [
+        {
+          "note": "Maxwell (1871) Theory of Heat. Longmans, Green, London. (Chapter 12, demon described)"
+        },
+        {
+          "doi": "10.1147/rd.53.0183",
+          "note": "Landauer (1961) IBM J Res Dev 5:183 — Landauer's principle, erasure costs k_B T ln 2"
+        },
+        {
+          "doi": "10.1147/rd.173.0525",
+          "note": "Bennett (1973) IBM J Res Dev 17:525 — reversible computation generates no heat"
+        },
+        {
+          "doi": "10.1038/nature10872",
+          "note": "Bérut et al. (2012) Nature — experimental verification of Landauer's bound"
+        },
+        {
+          "doi": "10.1038/nphys2169",
+          "note": "Lutz & Ciliberto (2015) Physics Today — review of Landauer's principle experiments"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\thermodynamics-computer-science\\b-maxwells-demon-computation.yaml"
     }
   ]
 }
