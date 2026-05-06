@@ -1,5 +1,5 @@
 {
-  "count": 134,
+  "count": 146,
   "items": [
     {
       "id": "b-grokking-criticality",
@@ -1155,6 +1155,66 @@
       "file": "cross-domain\\biophysics-engineering\\b-molecular-motors-thermodynamic-efficiency.yaml"
     },
     {
+      "id": "b-pem-hydrogen-economy",
+      "title": "Proton exchange membranes (Nafion) enable both PEM electrolysers and PEM fuel cells via proton-selective transport — bridging polymer chemistry to electrochemical engineering to the hydrogen economy, with Faradaic efficiency determined by membrane selectivity and conductivity.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Proton exchange membranes (PEM) — primarily Nafion, a perfluorosulfonated ionomer — are the enabling materials technology for the hydrogen energy cycle. The same membrane enables two complementary devices:\n1. PEM ELECTROLYSER (water splitting):\n   Anode: H₂O → ½O₂ + 2H⁺ + 2e⁻   (OER, ΔE° = +1.23 V)\n",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-pem-membrane-beyond-nafion-high-temperature"
+      ],
+      "communication_gap": "Polymer chemists designing membranes rarely engage with grid-scale energy economics; energy economists rarely understand the materials science constraints on electrolysis efficiency and membrane lifetime. The pathway from sulfonation chemistry to levelised cost of hydrogen is a multi-domain chain that requires simultaneously optimising polymer structure, device engineering, and energy systems economics — but each community publishes in separate journals with minimal overlap.\n",
+      "translation_table": [
+        {
+          "field_a_term": "perfluorosulfonated ionomer (Nafion)",
+          "field_b_term": "proton exchange membrane in electrolyser/fuel cell",
+          "note": "The same polymer serves as both the PEM electrolyser and fuel cell membrane"
+        },
+        {
+          "field_a_term": "Grotthuss proton hopping mechanism",
+          "field_b_term": "membrane ionic conductivity σ (S/cm)",
+          "note": "Protons hop between -SO₃H sites via water molecules; conductivity requires >20% hydration"
+        },
+        {
+          "field_a_term": "ion exchange capacity (IEC, meq/g)",
+          "field_b_term": "sulfonation degree, proton conductivity, and swelling",
+          "note": "Higher IEC increases σ but also water uptake and dimensional instability"
+        },
+        {
+          "field_a_term": "Faradaic efficiency ε_F",
+          "field_b_term": "fraction of current that produces H₂ (vs. parasitic crossover)",
+          "note": "ε_F = 1 - (crossover current / total current); membrane selectivity directly controls ε_F"
+        },
+        {
+          "field_a_term": "membrane electrode assembly (MEA)",
+          "field_b_term": "heart of the PEM device stack",
+          "note": "The MEA (membrane + catalyst layers + gas diffusion layers) determines all device performance metrics"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1016/S0376-7388(01)00376-6",
+          "note": "Kreuer, K.D. (2001). On the development of proton conducting polymer membranes for hydrogen and methanol fuel cells. J. Membr. Sci. 185:29–39."
+        },
+        {
+          "doi": "10.1021/cr0207123",
+          "note": "Mauritz, K.A. & Moore, R.B. (2004). State of understanding of Nafion. Chem. Rev. 104:4535–4585."
+        },
+        {
+          "doi": "10.1038/nature11115",
+          "note": "Debe, M.K. (2012). Electrocatalyst approaches and challenges for automotive fuel cells. Nature 486:43–51."
+        },
+        {
+          "doi": "10.1126/science.aad4998",
+          "note": "Seh, Z.W. et al. (2017). Combining theory and experiment in electrocatalysis: Insights into materials design. Science 355:eaad4998."
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\chemistry-engineering\\b-pem-hydrogen-economy.yaml"
+    },
+    {
       "id": "b-reaction-network-graph-theory",
       "title": "Chemical reaction networks are directed hypergraphs whose steady-state multiplicity and oscillatory behavior are entirely determined by the network topology via the Feinberg-Horn-Jackson deficiency theory — making graph-theoretic invariants (deficiency number, linkage classes, strong linkage) the decisive predictors of chemical dynamics.\n",
       "source_domain": "",
@@ -2207,6 +2267,64 @@
       "file": "cross-domain\\ecology-game-theory\\b-ess-ecosystem-dynamics.yaml"
     },
     {
+      "id": "b-neutral-theory-random-matrix",
+      "title": "Hubbell's neutral theory of biodiversity treats species as statistically equivalent; May (1972) showed random ecosystems become unstable above a complexity threshold — both results are applications of random matrix theory (Wigner's semicircle law) to community ecology.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "proposed",
+      "bridge_claim": "Two mathematical results from random matrix theory (RMT) have profoundly shaped ecology, with implications that are still being worked out:\n1. MAY'S STABILITY CRITERION (1972):\n   For a community of S species with random interaction matrix A (entries\n   drawn from N(0, σ²)), the community equilibriu",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-may-stability-real-ecosystem-applicability"
+      ],
+      "communication_gap": "Ecologists rarely read random matrix theory literature (published in pure mathematics and mathematical physics journals); RMT theorists are rarely aware of ecology applications. May's 1972 Nature paper created the connection, but the full RMT toolkit (free probability, structured ensembles, finite-size corrections) has barely been applied to ecological systems. Allesina & Tang (2012) was a significant step; follow-up work is sparse relative to the mathematical opportunity.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Wigner semicircle law",
+          "field_b_term": "May's stability criterion for random ecosystems",
+          "note": "The spectral radius σ√(SC) from the semicircle law directly gives May's instability threshold"
+        },
+        {
+          "field_a_term": "random matrix ensemble (Wigner GOE/GUE)",
+          "field_b_term": "community interaction matrix with random strengths",
+          "note": "May (1972) used a Gaussian random matrix; Allesina & Tang used structured RMT"
+        },
+        {
+          "field_a_term": "eigenvalue distribution",
+          "field_b_term": "ecological stability spectrum",
+          "note": "Stability requires all eigenvalues to have negative real parts; RMT gives the distribution"
+        },
+        {
+          "field_a_term": "random walk on simplex",
+          "field_b_term": "neutral theory ecological drift",
+          "note": "Hubbell's neutral model is mathematically a multi-dimensional random walk on the abundance simplex"
+        },
+        {
+          "field_a_term": "log-series / Poisson-lognormal distribution",
+          "field_b_term": "species abundance distribution (SAD)",
+          "note": "Neutral theory predicts these specific SADs; observed deviations quantify niche structure"
+        }
+      ],
+      "references": [
+        {
+          "note": "Hubbell, S.P. (2001). The Unified Neutral Theory of Biodiversity and Biogeography. Princeton University Press. -- The neutral theory of biodiversity"
+        },
+        {
+          "doi": "10.1038/238413a0",
+          "note": "May, R.M. (1972). Will a large complex system be stable? Nature 238:413–414."
+        },
+        {
+          "doi": "10.1038/nature10832",
+          "note": "Allesina, S. & Tang, S. (2012). Stability criteria for complex ecosystems. Nature 483:205–208."
+        },
+        {
+          "note": "Wigner, E.P. (1958). On the distribution of the roots of certain symmetric matrices. Ann. Math. 67:325–327. -- Original Wigner semicircle law"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\ecology-mathematics\\b-neutral-theory-random-matrix.yaml"
+    },
+    {
       "id": "b-species-distribution-maxent",
       "title": "MaxEnt species distribution modelling is the ecological application of Jaynes' maximum entropy principle: given presence-only occurrence data and environmental features, MaxEnt finds the distribution of maximum entropy subject to empirical feature constraints — a result formally identical to a Gibbs distribution and to maximum likelihood estimation in a Poisson point process model.\n",
       "source_domain": "",
@@ -2885,7 +3003,7 @@
       "source_domain": "",
       "target_domain": "",
       "status": "proposed",
-      "bridge_claim": "In engineering, two fundamental design objectives conflict:\n- ROBUSTNESS: Resistance to perturbations (noise, damage, parameter\n  variation). Achieved by over-engineering, redundancy, tight tolerances.\n- EVOLVABILITY: Ease of modification for new functionality. Achieved by\n  loose coupling, modular ",
+      "bridge_claim": "In engineering, two fundamental design objectives conflict:\n- ROBUSTNESS -- Resistance to perturbations (noise, damage, parameter\n  variation). Achieved by over-engineering, redundancy, tight tolerances.\n- EVOLVABILITY -- Ease of modification for new functionality. Achieved by\n  loose coupling, modu",
       "open_unknowns": [],
       "related_hypotheses": [
         "h-modular-architecture-robustness-evolvability",
@@ -3155,6 +3273,65 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\engineering-physics\\b-chaos-control-systems.yaml"
+    },
+    {
+      "id": "b-tesla-resonant-wireless-power",
+      "title": "Resonant inductive coupling between two LC circuits at the same frequency — first demonstrated by Tesla (1891–1900) and formalised by coupled-mode theory — underlies modern wireless power transfer: from Qi charging in 2 billion devices to medical implants and electric vehicle charging.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Two LC circuits tuned to the same resonant frequency ω₀ = 1/√(LC) exchange energy efficiently via mutual inductance M, even without a direct electrical connection. The coupled-mode theory (CMT) description:\n\n  ȧ₁ = (jω₀ - κ₁)a₁ + jka₂ + F\n  ȧ₂ = (jω₀ - κ₂)a₂ + jka₁\n\nwhere aᵢ are mode amplitudes, κᵢ ",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-resonant-wpt-ev-charging-grid-integration"
+      ],
+      "communication_gap": "Electrical engineers designing Qi chargers rarely cite Tesla's 1899 Colorado Springs experiments; physicists studying coupled-mode theory rarely discuss consumer power electronics. The MIT Witricity 2007 paper bridged the two but the historical connection to Tesla's work remains under-acknowledged. Conversely, popular accounts of Tesla often describe his wireless power visions without the rigorous coupled-mode theory that explains why resonant coupling is efficient.\n",
+      "translation_table": [
+        {
+          "field_a_term": "resonant frequency ω₀ = 1/√(LC)",
+          "field_b_term": "operating frequency of Qi / WPT system (100–200 kHz)",
+          "note": "Both transmitter and receiver must be tuned to the same resonant frequency for efficient coupling"
+        },
+        {
+          "field_a_term": "quality factor Q = ω₀L/R",
+          "field_b_term": "coil efficiency figure of merit",
+          "note": "Higher Q means less energy lost per oscillation cycle; modern coils achieve Q = 100–500"
+        },
+        {
+          "field_a_term": "coupling coefficient k = M/√(L₁L₂)",
+          "field_b_term": "spatial alignment sensitivity of wireless charger",
+          "note": "k decreases rapidly with distance; Qi pads are designed for k > 0.2"
+        },
+        {
+          "field_a_term": "figure of merit kQ",
+          "field_b_term": "overall WPT system efficiency parameter",
+          "note": "η ≈ (kQ)² / (1 + (kQ)²); engineering goal is to maximise kQ"
+        },
+        {
+          "field_a_term": "mutual inductance M",
+          "field_b_term": "coil geometry / coupling factor",
+          "note": "M depends on coil geometry, separation, and alignment; designed to be maximised at target distance"
+        }
+      ],
+      "references": [
+        {
+          "note": "Tesla, N. (1900). The Problem of Increasing Human Energy. Century Magazine. June 1900. -- Tesla's description of resonant wireless power transmission experiments at Colorado Springs"
+        },
+        {
+          "doi": "10.1126/science.1143254",
+          "note": "Kurs et al. (2007). Wireless power transfer via strongly coupled magnetic resonances. Science 317:83–86."
+        },
+        {
+          "doi": "10.1109/TPEL.2010.2073493",
+          "note": "Sample et al. (2011). Analysis, experimental results, and range adaptation of magnetically coupled resonators for wireless power transfer. IEEE Trans. Power Electron. 26:3254."
+        },
+        {
+          "doi": "10.1109/TPEL.2015.2453127",
+          "note": "Zhong, W.X. & Hui, S.Y.R. (2016). Maximum energy efficiency tracking for wireless power transfer systems. IEEE Trans. Power Electron. 31:5654."
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\engineering-physics\\b-tesla-resonant-wireless-power.yaml"
     },
     {
       "id": "b-sir-percolation",
@@ -3582,6 +3759,65 @@
       "file": "cross-domain\\immunology-materials-science\\b-lipid-nanoparticle-mrna-delivery.yaml"
     },
     {
+      "id": "b-immune-network-idiotypic",
+      "title": "Jerne's immune network theory (1974) — antibodies recognising other antibodies (idiotypes) form a self-regulating scale-free network whose attractor dynamics implement immune memory and self-tolerance — is formally equivalent to a Hopfield associative memory network; immunological disorders correspond to network bifurcations.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "proposed",
+      "bridge_claim": "Jerne (1974) proposed that the immune system is a network: antibodies (idiotypes) can be recognised by other antibodies (anti-idiotypes) as if they were foreign antigens. This creates a network of mutual recognition where antibody concentrations influence each other — an immune network.\nMATHEMATICAL",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-autoimmune-disease-idiotypic-attractor-bifurcation"
+      ],
+      "communication_gap": "Jerne's network theory was highly influential in theoretical immunology in the 1980s-90s but fell out of favour as molecular immunology focused on antigen-specific mechanisms. The mathematical framework (attractor dynamics, network topology) was developed primarily by mathematical biologists (Perelson, Varela, Stewart) rather than experimental immunologists. Modern B-cell repertoire sequencing now makes it feasible to reconstruct idiotypic networks empirically — but the theoretical framework developed 30 years ago is rarely cited in current immunoinformatics papers.\n",
+      "translation_table": [
+        {
+          "field_a_term": "idiotype network node xᵢ",
+          "field_b_term": "antibody clone concentration",
+          "note": "Each node in the idiotypic network is a clonotype defined by its variable region sequence"
+        },
+        {
+          "field_a_term": "network edge Jᵢⱼ",
+          "field_b_term": "paratope-idiotope recognition strength",
+          "note": "Structural complementarity between antibody paratope and idiotope determines coupling strength"
+        },
+        {
+          "field_a_term": "network attractor (energy minimum)",
+          "field_b_term": "immune memory state / homeostatic set point",
+          "note": "The healthy immune system occupies a stable attractor; perturbations (infection, vaccination) shift it"
+        },
+        {
+          "field_a_term": "bifurcation / attractor transition",
+          "field_b_term": "autoimmune disease onset / immune dysregulation",
+          "note": "Autoimmunity may correspond to bifurcation to a pathological attractor where self-reactive clones are stable"
+        },
+        {
+          "field_a_term": "scale-free hub nodes",
+          "field_b_term": "natural antibodies (broadly reactive IgM antibodies)",
+          "note": "Highly connected idiotype hubs modulate the entire network, analogous to hub nodes in social networks"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1016/S0020-7519(74)80093-X",
+          "note": "Jerne, N.K. (1974). Towards a network theory of the immune system. Ann. Immunol. (Inst. Pasteur) 125C:373–389."
+        },
+        {
+          "doi": "10.1016/0165-2478(89)90133-5",
+          "note": "Perelson, A.S. (1989). Immune network theory. Immunol. Rev. 110:5–36."
+        },
+        {
+          "doi": "10.1016/0167-5699(91)90106-A",
+          "note": "Varela, F.J. & Coutinho, A. (1991). Second generation immune networks. Immunol. Today 12:159–166."
+        },
+        {
+          "note": "Stewart, J. & Varela, F.J. (1991). Morphogenesis in shape-space. J. Theor. Biol. 153:477–498. -- Attractor dynamics in idiotypic networks"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\immunology-network-science\\b-immune-network-idiotypic.yaml"
+    },
+    {
       "id": "b-error-threshold-information",
       "title": "Eigen's quasispecies error threshold in molecular evolution and Shannon's channel capacity theorem in information theory are the same mathematical result — the mutation rate at which genetic information is irreversibly lost is the Shannon capacity of the replication channel.\n",
       "source_domain": "",
@@ -3745,6 +3981,68 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\information-science-epistemology\\b-knowledge-overload-findability.yaml"
+    },
+    {
+      "id": "b-shannon-entropy-genetic-information",
+      "title": "DNA is a digital information storage medium whose structure, redundancy, and mutation dynamics are quantitatively captured by Shannon's information theory — the genetic code is a natural error-correcting code whose properties minimize the cost of single-nucleotide substitutions.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Shannon's (1948) framework maps onto molecular genetics with striking precision. The DNA alphabet has size q = 4 (A, T, G, C), so the maximum entropy per position is log₂(4) = 2 bits. The information content of a genome of length L is:\n\n  I_genome = Σᵢ H(position i) bits ≤ 2L bits\n\nThe genetic code ",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-genetic-code-error-correcting-design"
+      ],
+      "communication_gap": "Information theorists rarely study biology; molecular biologists rarely apply Shannon's framework quantitatively. The formal equivalence between DNA replication and a noisy channel is acknowledged in bioinformatics but rarely taught as a founding principle. The error-correcting interpretation of the genetic code (Freeland & Hurst 1998) is a landmark result that remains outside standard genetics curricula.\n",
+      "translation_table": [
+        {
+          "field_a_term": "alphabet size q",
+          "field_b_term": "nucleotide bases (A, T, G, C)",
+          "note": "q = 4 for DNA/RNA; q = 20 for amino acid sequences"
+        },
+        {
+          "field_a_term": "Shannon entropy H(X)",
+          "field_b_term": "sequence variability per position",
+          "note": "High-entropy positions are variable (evolutionarily unconstrained); low-entropy positions are conserved"
+        },
+        {
+          "field_a_term": "channel noise / bit error rate",
+          "field_b_term": "mutation rate per base per generation",
+          "note": "Both quantify the probability of a symbol being changed during transmission/replication"
+        },
+        {
+          "field_a_term": "redundancy / error-correcting code",
+          "field_b_term": "genetic code degeneracy (synonymous codons)",
+          "note": "Synonymous codons provide natural redundancy that buffers the phenotype against single-base errors"
+        },
+        {
+          "field_a_term": "channel capacity C",
+          "field_b_term": "maximum heritable information per genome",
+          "note": "Shannon's theorem bounds how much information can survive noisy replication and selection"
+        }
+      ],
+      "references": [
+        {
+          "note": "Shannon, C.E. (1948). A Mathematical Theory of Communication. Bell Syst. Tech. J. 27:379–423. -- Original information theory paper"
+        },
+        {
+          "note": "Gatlin, L.L. (1972). Information Theory and the Living System. Columbia University Press. -- First systematic application of Shannon entropy to biological sequences"
+        },
+        {
+          "doi": "10.1007/s002390010011",
+          "note": "Freeland, S.J. & Hurst, L.D. (1998). The genetic code is one in a million. J. Mol. Evol. 47:238–248."
+        },
+        {
+          "doi": "10.1038/nrg1419",
+          "note": "Adami, C. (2004). Information theory in molecular biology. Nat. Rev. Genet. 5:880–888."
+        },
+        {
+          "url": "https://doi.org/10.1093/nar/18.20.6097",
+          "note": "Schneider & Stephens (1990) — sequence logos for information-theoretic visualization of binding-site specificity"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\information-theory-genetics\\b-shannon-entropy-genetic-information.yaml"
     },
     {
       "id": "b-language-evolution-cultural-selection",
@@ -4786,6 +5084,63 @@
       "file": "cross-domain\\mathematics-computer-science\\b-curry-howard-proofs-programs.yaml"
     },
     {
+      "id": "b-perron-frobenius-population-dynamics",
+      "title": "The Perron-Frobenius theorem guarantees that the Leslie matrix (age-structured population model) has a unique positive dominant eigenvalue λ₁ = asymptotic growth rate, with the stable age distribution as its eigenvector; sensitivity analysis of λ₁ to matrix entries guides conservation biology priorities.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The Perron-Frobenius theorem (Perron 1907, Frobenius 1912) states: for any non-negative irreducible matrix A, there exists a unique dominant eigenvalue λ₁ > 0 (the Perron root) such that: - λ₁ > |λᵢ| for all other eigenvalues λᵢ - The corresponding eigenvectors v (right) and w (left) have all positi",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-elasticity-analysis-conservation-prioritisation"
+      ],
+      "communication_gap": "The Perron-Frobenius theorem is taught in linear algebra and functional analysis courses without any mention of ecology; Leslie matrix models are taught in ecology without presenting the underlying linear algebra theorem that guarantees their properties. Caswell's (2001) monograph is the canonical bridge, but it is rarely read by pure mathematicians. The generalisations of Perron-Frobenius (to Hilbert spaces, to multi-type branching processes) have only partially been applied to age-structured population models.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Perron root λ₁ (dominant eigenvalue)",
+          "field_b_term": "asymptotic population growth rate λ = e^r",
+          "note": "λ₁ > 1 means population grows; λ₁ < 1 means decline. Same as intrinsic rate of increase r."
+        },
+        {
+          "field_a_term": "dominant right eigenvector v",
+          "field_b_term": "stable age distribution (proportion in each age class)",
+          "note": "Regardless of initial age distribution, population converges to this stable structure"
+        },
+        {
+          "field_a_term": "dominant left eigenvector w",
+          "field_b_term": "reproductive value by age class",
+          "note": "Reproductive value = expected future offspring; maximised in prime reproductive age classes"
+        },
+        {
+          "field_a_term": "non-negative irreducible matrix",
+          "field_b_term": "Leslie matrix with non-zero fecundity in at least one class",
+          "note": "Irreducibility = every age class eventually contributes to all others (biologically realistic condition)"
+        },
+        {
+          "field_a_term": "sensitivity ∂λ₁/∂aᵢⱼ",
+          "field_b_term": "conservation priority of life history stage ij",
+          "note": "High sensitivity entries indicate which demographic rates most affect population viability"
+        }
+      ],
+      "references": [
+        {
+          "note": "Perron, O. (1907). Zur Theorie der Matrices. Math. Ann. 64:248–263. -- Original Perron-Frobenius theorem for positive matrices"
+        },
+        {
+          "note": "Leslie, P.H. (1945). On the use of matrices in certain population mathematics. Biometrika 33:183–212. -- Original Leslie matrix formulation for age-structured population dynamics"
+        },
+        {
+          "note": "Caswell (2001) Matrix Population Models (2nd ed.) Sinauer -- sensitivity/elasticity analysis"
+        },
+        {
+          "doi": "10.2307/1939611",
+          "note": "de Kroon, H. et al. (1986). Elasticity: The relative contribution of demographic parameters to population growth rate. Ecology 67:1427–1431."
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\mathematics-ecology\\b-perron-frobenius-population-dynamics.yaml"
+    },
+    {
       "id": "b-game-theory-evolution",
       "title": "Nash equilibrium ↔ evolutionary stable strategy: game theory and natural selection are the same optimisation",
       "source_domain": "",
@@ -4986,6 +5341,68 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\mathematics-medicine\\b-topology-disease-progression.yaml"
+    },
+    {
+      "id": "b-group-theory-symmetry-breaking",
+      "title": "Spontaneous symmetry breaking — from ferromagnetism to the Higgs mechanism to crystal formation — is described by the mathematical framework of Lie group representations: when the ground state has symmetry H ⊂ G, the quotient G/H parametrises degenerate vacua and Goldstone's theorem counts the massless modes.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Spontaneous symmetry breaking (SSB) occurs when the ground state of a physical system has lower symmetry than its Hamiltonian. The mathematical structure is encoded in Lie group theory:\n- The system has symmetry group G (the full symmetry of the Hamiltonian). - The ground state breaks G down to a re",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-symmetry-breaking-universal-phase-transition-classifier"
+      ],
+      "communication_gap": "Condensed matter physicists learn SSB through the Landau order parameter and Ginzburg-Landau theory; particle physicists learn it through Lie algebra representations and gauge theories. Both communities use the same mathematics but with entirely different notations, physical intuitions, and application domains. Cross-pollination — e.g., applying the Higgs mechanism formalism to topological superconductors — is rare but extremely productive when it occurs.\n",
+      "translation_table": [
+        {
+          "field_a_term": "symmetry group G of the Hamiltonian",
+          "field_b_term": "symmetry of physical system above transition",
+          "note": "G describes all transformations that leave the energy functional invariant"
+        },
+        {
+          "field_a_term": "coset space G/H",
+          "field_b_term": "manifold of degenerate ground states (order parameter space)",
+          "note": "Each point in G/H is a distinct but energetically equivalent ground state"
+        },
+        {
+          "field_a_term": "broken generators T_a ∈ Lie(G) \\ Lie(H)",
+          "field_b_term": "Goldstone boson fields (magnons, phonons, pions)",
+          "note": "One Goldstone mode per broken generator; massless in the absence of explicit breaking"
+        },
+        {
+          "field_a_term": "representation of H (unbroken subgroup)",
+          "field_b_term": "spectrum of the ground state (particle content)",
+          "note": "Particles in the ground state transform in representations of the unbroken H"
+        },
+        {
+          "field_a_term": "gauge symmetry + SSB (Higgs mechanism)",
+          "field_b_term": "massive gauge bosons (W±, Z); Meissner effect in superconductors",
+          "note": "Goldstone bosons become longitudinal polarisations of massive gauge fields"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1007/BF02812722",
+          "note": "Goldstone, J. (1961). Field theories with superconductor solutions. Nuovo Cimento 19:154–164."
+        },
+        {
+          "doi": "10.1103/PhysRev.130.439",
+          "note": "Anderson, P.W. (1963). Plasmons, gauge invariance, and mass. Phys. Rev. 130:439."
+        },
+        {
+          "note": "Weinberg, S. (1996). The Quantum Theory of Fields, Vol. 2. Cambridge University Press. -- Comprehensive treatment of SSB in quantum field theory"
+        },
+        {
+          "note": "Coleman, S. (1985). Aspects of Symmetry. Cambridge University Press. -- Classic lectures on SSB, Goldstone theorem, and the Higgs mechanism"
+        },
+        {
+          "doi": "10.1103/PhysRevLett.17.1133",
+          "note": "Higgs, P.W. (1966). Spontaneous symmetry breakdown without massless bosons. Phys. Rev. Lett."
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\mathematics-physics\\b-group-theory-symmetry-breaking.yaml"
     },
     {
       "id": "b-symplectic-geometry-mechanics",
@@ -5327,6 +5744,66 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\neuroscience-engineering\\b-neural-control-theory.yaml"
+    },
+    {
+      "id": "b-spike-coding-neuromorphic",
+      "title": "Biological neurons communicate via discrete action potentials (spikes) at ~10 fJ/spike; neuromorphic chips (Intel Loihi, IBM TrueNorth) implement spiking neural networks in silicon at 3–4 orders of magnitude lower energy than GPU inference, bridging computational neuroscience to ultra-low-power AI hardware.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "proposed",
+      "bridge_claim": "Biological neural computation uses action potentials (spikes): discrete, all-or-nothing pulses of ~100 mV amplitude and ~1 ms duration. Neurons transmit information via:\n1. RATE CODING: firing rate r(t) encodes stimulus intensity (Adrian 1926).\n   Information = ∫ r log r dt — the rate-coded Fisher i",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-neuromorphic-chips-edge-ai-energy-advantage"
+      ],
+      "communication_gap": "Computational neuroscientists who study spike coding rarely have the hardware design background to implement their models in silicon; chip designers rarely read neuroscience literature. Intel's Loihi team and IBM's TrueNorth team did bridge this gap, but most neuroscience spike coding research is never translated to hardware. Conversely, neuromorphic engineers often use simplified spiking neuron models that omit the dendritic, multi-compartment dynamics that are central to biological neural computation.\n",
+      "translation_table": [
+        {
+          "field_a_term": "action potential (spike)",
+          "field_b_term": "digital event in neuromorphic hardware",
+          "note": "Both are discrete, stereotyped events; information is in timing/rate, not amplitude"
+        },
+        {
+          "field_a_term": "firing rate r(t) [Hz]",
+          "field_b_term": "spike count per time window in hardware",
+          "note": "Rate coding maps to a simple histogram; temporal coding maps to precise timestamp registers"
+        },
+        {
+          "field_a_term": "synaptic weight w_ij",
+          "field_b_term": "configurable crossbar weight in neuromorphic SRAM",
+          "note": "Biological synapse strength ↔ hardware weight register; STDP updates both"
+        },
+        {
+          "field_a_term": "STDP learning rule",
+          "field_b_term": "on-chip local learning in Loihi/TrueNorth",
+          "note": "STDP is local (uses only pre- and post-synaptic spike times), making it hardware-implementable"
+        },
+        {
+          "field_a_term": "neural population code",
+          "field_b_term": "spike pattern across neuromorphic core array",
+          "note": "Population coding spreads information across many neurons; maps to parallel core arrays"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1038/354515a0",
+          "note": "Mahowald, M. & Douglas, R. (1991). A silicon neuron. Nature 354:515–518. — first neuromorphic silicon neuron"
+        },
+        {
+          "doi": "10.1126/science.1254642",
+          "note": "Merolla, P.A. et al. (2014). A million spiking-neuron integrated circuit with a scalable communication network. Science 345:668–673. (IBM TrueNorth)"
+        },
+        {
+          "doi": "10.1109/MM.2018.112130359",
+          "note": "Davies, M. et al. (2018). Loihi: A neuromorphic manycore processor with on-chip learning. IEEE Micro 38:82–99."
+        },
+        {
+          "doi": "10.3389/fnins.2018.00774",
+          "note": "Pfeiffer, M. & Pfeil, T. (2018). Deep learning with spiking neurons: Opportunities and challenges. Front. Neurosci. 12:774."
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\neuroscience-engineering\\b-spike-coding-neuromorphic.yaml"
     },
     {
       "id": "b-glymphatic-cerebrospinal-fluid",
@@ -6210,6 +6687,67 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\physics-biology\\b-mechanobiology-continuum-mechanics.yaml"
+    },
+    {
+      "id": "b-maxwell-boltzmann-chemical-kinetics",
+      "title": "The Maxwell-Boltzmann speed distribution determines the fraction of molecules energetic enough to overcome activation barriers, directly deriving the Arrhenius equation and establishing statistical mechanics as the microscopic foundation of chemical kinetics.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The Maxwell-Boltzmann distribution f(v) = 4π(m/2πkT)^(3/2) v² exp(-mv²/2kT) gives the probability that a molecule has speed v at temperature T. For a reaction to occur, the collision must supply at least the activation energy E_a. The fraction of molecules exceeding E_a is ∝ exp(-E_a/kT), which is e",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-activation-energy-mb-tail-universality"
+      ],
+      "communication_gap": "Physical chemistry curricula cover both the Maxwell-Boltzmann distribution and Arrhenius kinetics, but the derivation of one from the other is often omitted. Statistical mechanics courses treat f(v) as a physics result; kinetics courses treat the Arrhenius equation as an empirical law. The explicit derivation — that every Arrhenius rate constant is an integral over the Maxwell-Boltzmann tail — belongs in both curricula but appears in neither as a highlighted bridge.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Maxwell-Boltzmann distribution f(v)",
+          "field_b_term": "collision energy distribution",
+          "note": "The speed distribution maps to a collision energy distribution via E = ½mv²"
+        },
+        {
+          "field_a_term": "Boltzmann factor exp(-E/kT)",
+          "field_b_term": "Arrhenius exponential exp(-E_a/RT)",
+          "note": "R = N_A · k; the Boltzmann factor is the single-molecule form of the Arrhenius factor"
+        },
+        {
+          "field_a_term": "thermal equilibrium temperature T",
+          "field_b_term": "reaction rate constant k(T)",
+          "note": "Temperature controls both the width of f(v) and the rate constant via the same exp(-E/kT)"
+        },
+        {
+          "field_a_term": "partition function Z",
+          "field_b_term": "pre-exponential factor A",
+          "note": "In TST, A comes from the ratio of partition functions of transition state to reactants"
+        },
+        {
+          "field_a_term": "phase-space density",
+          "field_b_term": "transition state ensemble",
+          "note": "The transition state is the saddle point of the free-energy landscape — a phase-space dividing surface"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1039/tf9343000304",
+          "note": "Eyring (1935) — transition state theory, deriving k = (kT/h) exp(-ΔG‡/RT)"
+        },
+        {
+          "note": "Maxwell, J.C. (1860). Illustrations of the dynamical theory of gases. Phil. Mag. 19:19–32. -- Original Maxwell speed distribution derivation"
+        },
+        {
+          "note": "Arrhenius, S. (1889). Über die Reaktionsgeschwindigkeit bei der Inversion von Rohrzucker. Z. Phys. Chem. 4:226–248. -- Empirical Arrhenius equation"
+        },
+        {
+          "doi": "10.1063/1.1749604",
+          "note": "Eyring (1935) J. Chem. Phys. 3:107 — absolute reaction rate theory"
+        },
+        {
+          "note": "Atkins, P. & de Paula, J. (2010). Physical Chemistry (9th ed.). Oxford University Press. -- Textbook bridge between statistical mechanics and chemical kinetics"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\physics-chemistry\\b-maxwell-boltzmann-chemical-kinetics.yaml"
     },
     {
       "id": "b-climate-tipping-percolation",
@@ -7338,6 +7876,69 @@
       "file": "cross-domain\\physics-neuroscience\\b-criticality-neuroscience.yaml"
     },
     {
+      "id": "b-hopfield-spin-glass",
+      "title": "Hopfield networks store memories as energy minima of E = -½Σ Wᵢⱼsᵢsⱼ — formally identical to the Ising spin glass Hamiltonian — and their storage capacity ~0.14N and catastrophic forgetting transition are calculated exactly by Parisi's replica method from spin glass theory.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The Hopfield network (1982) defines an energy function for a network of N binary neurons sᵢ ∈ {-1, +1} with symmetric weights Wᵢⱼ:\n\n  E = -½ Σᵢ≠ⱼ Wᵢⱼ sᵢ sⱼ\n\nThis is formally identical to the Ising spin glass Hamiltonian used in condensed matter physics, where sᵢ are spin variables and Wᵢⱼ are random",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-dense-hopfield-transformer-attention-unified"
+      ],
+      "communication_gap": "Hopfield's 1982 paper was primarily read by neuroscientists and computer scientists; the spin glass physics connection became explicit only after Amit, Gutfreund & Sompolinsky (1985) applied the replica method. Statistical mechanics of neural networks became a distinct subfield (published in Physical Review), largely disconnected from both experimental neuroscience and modern machine learning until the 2020 dense Hopfield / transformer connection revived the bridge.\n",
+      "translation_table": [
+        {
+          "field_a_term": "spin variable sᵢ ∈ {-1, +1}",
+          "field_b_term": "binary neuron state (inactive / active)",
+          "note": "Ising spins and McCulloch-Pitts neurons have identical mathematical representations"
+        },
+        {
+          "field_a_term": "exchange coupling Jᵢⱼ (random, quenched)",
+          "field_b_term": "synaptic weight Wᵢⱼ (set by Hebbian learning)",
+          "note": "In spin glasses Jᵢⱼ is random; in Hopfield networks Wᵢⱼ is structured but mathematically equivalent"
+        },
+        {
+          "field_a_term": "replica symmetry breaking (RSB, Parisi order parameter)",
+          "field_b_term": "catastrophic forgetting transition at α > 0.14",
+          "note": "RSB marks the transition from retrieval phase to spin-glass (confused) phase in the Hopfield model"
+        },
+        {
+          "field_a_term": "free energy landscape F({m^μ})",
+          "field_b_term": "basin of attraction structure in associative memory",
+          "note": "Memory retrieval = finding a local minimum of the free energy; memories are metastable states"
+        },
+        {
+          "field_a_term": "temperature T (thermal noise)",
+          "field_b_term": "neural noise / stochastic firing",
+          "note": "Both parametrise the width of the Boltzmann distribution over configurations"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1073/pnas.79.8.2554",
+          "note": "Hopfield, J.J. (1982). Neural networks and physical systems with emergent collective computational abilities. PNAS 79:2554–2558."
+        },
+        {
+          "doi": "10.1103/PhysRevA.32.1007",
+          "note": "Amit, D.J., Gutfreund, H. & Sompolinsky, H. (1985). Spin-glass models of neural networks. Phys. Rev. A 32:1007."
+        },
+        {
+          "doi": "10.1103/PhysRevLett.43.1754",
+          "note": "Parisi, G. (1979). Infinite number of order parameters for spin-glasses. Phys. Rev. Lett. 43:1754."
+        },
+        {
+          "note": "Mezard, M., Parisi, G. & Virasoro, M.A. (1987). Spin Glass Theory and Beyond. World Scientific. -- Comprehensive treatment of spin glass physics and its neural network applications"
+        },
+        {
+          "doi": "10.48550/arXiv.2008.02217",
+          "note": "Ramsauer, H. et al. (2020). Hopfield Networks is All You Need. ICLR 2021. — dense Hopfield ↔ transformer attention"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\physics-neuroscience\\b-hopfield-spin-glass.yaml"
+    },
+    {
       "id": "b-materials-consciousness-criticality",
       "title": "Phase transitions near the critical point in disordered materials and the neural dynamics associated with consciousness share mathematical structure through self-organised criticality",
       "source_domain": "",
@@ -8140,6 +8741,66 @@
       "file": "cross-domain\\quantum-physics-information\\b-quantum-error-correction-holography.yaml"
     },
     {
+      "id": "b-topological-insulators-band-theory",
+      "title": "Topological insulators are materials with insulating bulk but conducting surface states protected by time-reversal symmetry — classified by topological invariants (Z₂, Chern number) from algebraic topology applied to electronic band theory, with applications to fault-tolerant quantum computing via Majorana edge modes.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Topological insulators (TIs) are a phase of matter where the bulk band structure has a non-trivial topological invariant, even though the material is an insulator in the bulk. The topological invariant (Z₂ for time-reversal-invariant TIs; Chern number n ∈ Z for quantum Hall systems) is a global prop",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-topological-qubit-fault-tolerance-threshold"
+      ],
+      "communication_gap": "Algebraic topology (K-theory, fiber bundles) is rarely taught in condensed matter physics curricula; conversely, band theory and materials synthesis are outside the typical pure mathematics education. The profound result that K-theory classifies all topological phases of matter (the tenfold way, Kitaev 2009) required cross-pollination between abstract mathematics and experimental materials physics that happened over a decade through a handful of key papers.\n",
+      "translation_table": [
+        {
+          "field_a_term": "topological invariant (Z₂, Chern number)",
+          "field_b_term": "band structure global phase / topological phase label",
+          "note": "A non-zero invariant classifies the band bundle over the Brillouin zone as topologically non-trivial"
+        },
+        {
+          "field_a_term": "bulk-boundary correspondence",
+          "field_b_term": "topologically protected surface/edge states",
+          "note": "Non-trivial bulk invariant guarantees gapless boundary states robust to disorder"
+        },
+        {
+          "field_a_term": "Majorana zero mode",
+          "field_b_term": "non-Abelian anyon for quantum computing",
+          "note": "MZMs at TI-superconductor interface enable topological qubit gates via braiding"
+        },
+        {
+          "field_a_term": "K-theory / algebraic topology",
+          "field_b_term": "classification of topological phases (10-fold way)",
+          "note": "The tenfold way classifies all topological phases by dimensionality and symmetry class"
+        },
+        {
+          "field_a_term": "Berry curvature / Berry phase",
+          "field_b_term": "anomalous Hall conductivity; Chern-Simons response",
+          "note": "The integrated Berry curvature over the Brillouin zone equals the Chern number"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1103/PhysRevLett.95.146802",
+          "note": "Kane, C.L. & Mele, E.J. (2005). Z₂ topological order and the quantum spin Hall effect. Phys. Rev. Lett. 95:146802."
+        },
+        {
+          "doi": "10.1126/science.1133734",
+          "note": "Bernevig, B.A., Hughes, T.L. & Zhang, S.-C. (2006). Quantum spin Hall effect and topological phase transition in HgTe quantum wells. Science 314:1757."
+        },
+        {
+          "doi": "10.1103/RevModPhys.82.3045",
+          "note": "Hasan, M.Z. & Kane, C.L. (2010). Colloquium: Topological insulators. Rev. Mod. Phys. 82:3045."
+        },
+        {
+          "doi": "10.1103/PhysRevLett.100.096407",
+          "note": "Fu, L. & Kane, C.L. (2008). Superconducting proximity effect and Majorana fermions at the surface of a topological insulator. Phys. Rev. Lett. 100:096407."
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\quantum-physics-materials-science\\b-topological-insulators-band-theory.yaml"
+    },
+    {
       "id": "b-representation-theory-particles",
       "title": "The classification of all elementary particles follows from the representation theory of the Poincaré group (Wigner 1939) — particle spin is the label of the irreducible representation of SU(2), the Standard Model gauge group SU(3)×SU(2)×U(1) determines all allowed interactions via group representations, and every conserved quantum number corresponds to a generator of a symmetry Lie group.\n",
       "source_domain": "",
@@ -8599,12 +9260,70 @@
       "file": "cross-domain\\social-science-mathematics\\b-voter-model-consensus.yaml"
     },
     {
+      "id": "b-social-capital-network-centrality",
+      "title": "Bourdieu's social capital — resources available through social networks — maps precisely onto network centrality measures: betweenness centrality captures brokerage capital (Burt's structural holes), eigenvector centrality captures prestige capital, and the Gini coefficient of the degree distribution measures inequality in social capital access.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Bourdieu (1986) defined social capital as \"the aggregate of the actual or potential resources which are linked to possession of a durable network of more or less institutionalized relationships of mutual acquaintance and recognition.\" Network science provides precise mathematical operationalisations",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-structural-holes-income-mobility-mediation"
+      ],
+      "communication_gap": "Sociologists who use Bourdieu's social capital framework rarely quantify networks mathematically; network scientists rarely engage with sociological theory. Surveys measuring social capital (e.g., General Social Survey name-generators) produce data that could be analysed with full network centrality tools but are typically summarised only as degree counts. The full connection between sociology's theoretical concepts and network science's mathematical toolkit was made explicit by Burt (1992) but remains incompletely integrated in either discipline's training.\n",
+      "translation_table": [
+        {
+          "field_a_term": "social capital (Bourdieu)",
+          "field_b_term": "network centrality measures (betweenness, eigenvector, clustering)",
+          "note": "Different types of social capital correspond to different centrality measures"
+        },
+        {
+          "field_a_term": "brokerage capital / structural holes (Burt)",
+          "field_b_term": "betweenness centrality / low constraint index",
+          "note": "A broker between disconnected groups has high betweenness and low constraint"
+        },
+        {
+          "field_a_term": "prestige capital",
+          "field_b_term": "eigenvector centrality / PageRank",
+          "note": "Prestige comes from being connected to prestigious others — the defining property of eigenvector centrality"
+        },
+        {
+          "field_a_term": "bonding capital (Coleman — tight-knit communities)",
+          "field_b_term": "clustering coefficient / network modularity",
+          "note": "High clustering coefficient = many triangles = dense local community = bonding capital"
+        },
+        {
+          "field_a_term": "social stratification / inequality",
+          "field_b_term": "Gini coefficient of degree distribution",
+          "note": "Scale-free networks have highly unequal degree distributions mirroring social capital inequality"
+        }
+      ],
+      "references": [
+        {
+          "note": "Bourdieu (1986) The forms of capital. In Handbook of Theory and Research for the Sociology of Education. Greenwood Press. -- social capital theory"
+        },
+        {
+          "note": "Burt (1992) Structural Holes. Harvard University Press. -- structural holes and brokerage capital"
+        },
+        {
+          "doi": "10.2307/3033543",
+          "note": "Freeman, L.C. (1977). A set of measures of centrality based on betweenness. Sociometry 40:35–41."
+        },
+        {
+          "doi": "10.1038/30918",
+          "note": "Watts, D.J. & Strogatz, S.H. (1998). Collective dynamics of 'small-world' networks. Nature 393:440–442."
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\social-science-network-science\\b-social-capital-network-centrality.yaml"
+    },
+    {
       "id": "b-opinion-dynamics-ising",
       "title": "Opinion dynamics models (Voter, Sznajd, Deffuant) are instances of Ising-like spin dynamics on social networks: political polarisation is a ferromagnetic phase transition, echo chambers are ferromagnetic domains, and the critical temperature T_c predicts the consensus-to- fragmentation transition.\n",
       "source_domain": "",
       "target_domain": "",
       "status": "proposed",
-      "bridge_claim": "The Ising model describes interacting binary spins σ_i ∈ {-1, +1} on a lattice with Hamiltonian H = -J Σ_{ij} σ_i σ_j - h Σ_i σ_i. The ferromagnetic phase transition at T_c separates two phases: - T < T_c (ordered, ferromagnetic): spins align → consensus / polarisation - T > T_c (disordered, paramag",
+      "bridge_claim": "The Ising model describes interacting binary spins σ_i ∈ {-1, +1} on a lattice with Hamiltonian H = -J Σ_{ij} σ_i σ_j - h Σ_i σ_i. The ferromagnetic phase transition at T_c separates two phases: - T < T_c (ordered, ferromagnetic) -- spins align → consensus / polarisation - T > T_c (disordered, param",
       "open_unknowns": [],
       "related_hypotheses": [
         "h-social-ising-polarization-transition",

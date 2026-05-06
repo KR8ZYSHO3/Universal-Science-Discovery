@@ -1,0 +1,86 @@
+id: b-neutral-theory-random-matrix
+title: >
+  Hubbell's neutral theory of biodiversity treats species as statistically
+  equivalent; May (1972) showed random ecosystems become unstable above a complexity
+  threshold — both results are applications of random matrix theory (Wigner's
+  semicircle law) to community ecology.
+status: proposed
+fields:
+  - ecology
+  - mathematics
+  - random-matrix-theory
+  - statistical-physics
+  - population-biology
+bridge_claim: >
+  Two mathematical results from random matrix theory (RMT) have profoundly shaped
+  ecology, with implications that are still being worked out:
+
+  1. MAY'S STABILITY CRITERION (1972):
+     For a community of S species with random interaction matrix A (entries
+     drawn from N(0, σ²)), the community equilibrium is locally stable if and
+     only if: σ√(SC) < 1, where C is connectance. This follows directly from the
+     Wigner semicircle law: the spectral radius of a random matrix with variance
+     σ² and dimension S is σ√S. May's result implies that increasing either
+     diversity (S) or interaction strength (σ) destabilises communities — a
+     provocative counter-intuitive result that launched 50 years of debate.
+
+  2. HUBBELL'S NEUTRAL THEORY (2001):
+     All individuals are ecologically equivalent (same birth, death, speciation,
+     immigration rates). Species abundance distributions (SADs) follow a zero-sum
+     multinomial, whose large-system limit gives a log-series or Poisson-lognormal
+     distribution. The neutral theory is mathematically equivalent to a random walk
+     on the species abundance simplex, where species drift to extinction stochastically.
+     The 'fit' of neutral predictions to observed SADs quantifies how much of
+     community structure is explained by drift alone (vs. niche differentiation).
+
+  3. ALLESINA & TANG (2012) REFINEMENT:
+     Replacing the Wigner ensemble with structured random matrices (predator-prey
+     pairs, competitive pairs, mutualistic pairs) changes the stability criterion.
+     This connects the sign structure of ecological interaction types to eigenvalue
+     distributions beyond the semicircle.
+
+  KEY MATHEMATICAL BRIDGE:
+  The interaction matrix M of an S-species community, linearised around equilibrium,
+  is an S×S random matrix. Its eigenvalue spectrum determines stability: if any
+  eigenvalue has Re(λ) > 0, the equilibrium is unstable. RMT provides analytical
+  distributions for these eigenvalues without needing to know each species interaction.
+translation_table:
+  - field_a_term: Wigner semicircle law
+    field_b_term: May's stability criterion for random ecosystems
+    note: The spectral radius σ√(SC) from the semicircle law directly gives May's instability threshold
+  - field_a_term: random matrix ensemble (Wigner GOE/GUE)
+    field_b_term: community interaction matrix with random strengths
+    note: May (1972) used a Gaussian random matrix; Allesina & Tang used structured RMT
+  - field_a_term: eigenvalue distribution
+    field_b_term: ecological stability spectrum
+    note: Stability requires all eigenvalues to have negative real parts; RMT gives the distribution
+  - field_a_term: random walk on simplex
+    field_b_term: neutral theory ecological drift
+    note: Hubbell's neutral model is mathematically a multi-dimensional random walk on the abundance simplex
+  - field_a_term: log-series / Poisson-lognormal distribution
+    field_b_term: species abundance distribution (SAD)
+    note: Neutral theory predicts these specific SADs; observed deviations quantify niche structure
+related_unknowns:
+  - u-neutral-vs-niche-ecology-partitioning
+related_hypotheses:
+  - h-may-stability-real-ecosystem-applicability
+cross_pollination_opportunities:
+  - Apply free probability theory (Voiculescu) to analytically compute eigenvalue distributions for structured ecological matrices
+  - Use random matrix theory universality classes to classify ecosystem types by their stability properties
+  - Apply neutral theory's mathematical framework to microbiome community assembly and stability
+  - Connect RMT stability results to extinction debt dynamics in fragmented habitats
+communication_gap: >
+  Ecologists rarely read random matrix theory literature (published in pure mathematics
+  and mathematical physics journals); RMT theorists are rarely aware of ecology
+  applications. May's 1972 Nature paper created the connection, but the full RMT
+  toolkit (free probability, structured ensembles, finite-size corrections) has
+  barely been applied to ecological systems. Allesina & Tang (2012) was a significant
+  step; follow-up work is sparse relative to the mathematical opportunity.
+last_reviewed: "2026-05-06"
+references:
+  - note: Hubbell, S.P. (2001). The Unified Neutral Theory of Biodiversity and Biogeography. Princeton University Press. -- The neutral theory of biodiversity
+  - doi: 10.1038/238413a0
+    note: "May, R.M. (1972). Will a large complex system be stable? Nature 238:413–414."
+  - doi: 10.1038/nature10832
+    note: "Allesina, S. & Tang, S. (2012). Stability criteria for complex ecosystems. Nature 483:205–208."
+  - note: Wigner, E.P. (1958). On the distribution of the roots of certain symmetric matrices. Ann. Math. 67:325–327. -- Original Wigner semicircle law

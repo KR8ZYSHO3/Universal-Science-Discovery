@@ -1,0 +1,85 @@
+id: b-perron-frobenius-population-dynamics
+title: >
+  The Perron-Frobenius theorem guarantees that the Leslie matrix (age-structured
+  population model) has a unique positive dominant eigenvalue λ₁ = asymptotic
+  growth rate, with the stable age distribution as its eigenvector; sensitivity
+  analysis of λ₁ to matrix entries guides conservation biology priorities.
+status: established
+fields:
+  - mathematics
+  - linear-algebra
+  - population-biology
+  - ecology
+  - conservation-biology
+bridge_claim: >
+  The Perron-Frobenius theorem (Perron 1907, Frobenius 1912) states: for any
+  non-negative irreducible matrix A, there exists a unique dominant eigenvalue
+  λ₁ > 0 (the Perron root) such that:
+  - λ₁ > |λᵢ| for all other eigenvalues λᵢ
+  - The corresponding eigenvectors v (right) and w (left) have all positive entries
+
+  In population ecology, the Leslie matrix L is the age-class transition matrix:
+
+    L = [f₁  f₂  f₃ ... fₙ]
+        [s₁  0   0  ... 0 ]
+        [0   s₂  0  ... 0 ]
+        [0   0   s₃ ... 0 ]
+
+  where fᵢ = fecundity of age class i, sᵢ = survival probability from class i
+  to class i+1. By Perron-Frobenius:
+  - λ₁ = asymptotic population growth rate (λ₁ > 1 = growing, < 1 = declining)
+  - Dominant right eigenvector v = stable age distribution
+  - Dominant left eigenvector w = reproductive value by age class
+
+  SENSITIVITY ANALYSIS (Caswell 2001):
+    ∂λ₁/∂aᵢⱼ = wᵢvⱼ / (w·v)
+
+  This identifies which life history transitions have the largest marginal effect
+  on λ₁ — directly prioritising conservation interventions (e.g., protecting adult
+  survival vs. juvenile survival vs. fecundity).
+
+  ELASTICITY (proportional sensitivity):
+    eᵢⱼ = (aᵢⱼ/λ₁) · (∂λ₁/∂aᵢⱼ)
+
+  Elasticities sum to 1 across all matrix entries, enabling cross-species comparisons
+  of life history strategy.
+translation_table:
+  - field_a_term: Perron root λ₁ (dominant eigenvalue)
+    field_b_term: asymptotic population growth rate λ = e^r
+    note: λ₁ > 1 means population grows; λ₁ < 1 means decline. Same as intrinsic rate of increase r.
+  - field_a_term: dominant right eigenvector v
+    field_b_term: stable age distribution (proportion in each age class)
+    note: Regardless of initial age distribution, population converges to this stable structure
+  - field_a_term: dominant left eigenvector w
+    field_b_term: reproductive value by age class
+    note: Reproductive value = expected future offspring; maximised in prime reproductive age classes
+  - field_a_term: non-negative irreducible matrix
+    field_b_term: Leslie matrix with non-zero fecundity in at least one class
+    note: Irreducibility = every age class eventually contributes to all others (biologically realistic condition)
+  - field_a_term: sensitivity ∂λ₁/∂aᵢⱼ
+    field_b_term: conservation priority of life history stage ij
+    note: High sensitivity entries indicate which demographic rates most affect population viability
+related_unknowns:
+  - u-leslie-matrix-density-dependence-extension
+related_hypotheses:
+  - h-elasticity-analysis-conservation-prioritisation
+cross_pollination_opportunities:
+  - Apply non-negative tensor decomposition (generalisation of Perron-Frobenius) to multi-stage, multi-patch metapopulation models
+  - Use matrix perturbation theory (beyond sensitivity) to quantify transient dynamics before stable age distribution is reached
+  - Bridge Perron-Frobenius to Markov chain analysis — Leslie matrix is a substochastic matrix and extinction probability is a first-passage time problem
+  - Apply the Leslie matrix framework to cancer cell population dynamics, where age classes are cell cycle stages
+communication_gap: >
+  The Perron-Frobenius theorem is taught in linear algebra and functional analysis
+  courses without any mention of ecology; Leslie matrix models are taught in ecology
+  without presenting the underlying linear algebra theorem that guarantees their
+  properties. Caswell's (2001) monograph is the canonical bridge, but it is rarely
+  read by pure mathematicians. The generalisations of Perron-Frobenius (to Hilbert
+  spaces, to multi-type branching processes) have only partially been applied to
+  age-structured population models.
+last_reviewed: "2026-05-06"
+references:
+  - note: Perron, O. (1907). Zur Theorie der Matrices. Math. Ann. 64:248–263. -- Original Perron-Frobenius theorem for positive matrices
+  - note: Leslie, P.H. (1945). On the use of matrices in certain population mathematics. Biometrika 33:183–212. -- Original Leslie matrix formulation for age-structured population dynamics
+  - note: "Caswell (2001) Matrix Population Models (2nd ed.) Sinauer -- sensitivity/elasticity analysis"
+  - doi: 10.2307/1939611
+    note: "de Kroon, H. et al. (1986). Elasticity: The relative contribution of demographic parameters to population growth rate. Ecology 67:1427–1431."

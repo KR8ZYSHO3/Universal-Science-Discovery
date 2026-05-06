@@ -1,6 +1,6 @@
 # USDR Citation Index
 
-**1070 total citations · 690 unique references · 163 cited in 2+ bridges**
+**1168 total citations · 757 unique references · 166 cited in 2+ bridges**
 
 ## Most Cross-Domain Papers
 
@@ -14,16 +14,17 @@ Papers cited across the highest number of different bridges — the most influen
 | 4 | Maynard Smith & Price (1973) — ESS and cyclical dynamics in zero-sum games | [DOI](10.1038/246015a0) |
 | 4 | Friston (2010) — free energy principle: biological homeostasis = continuous free... | [DOI](10.1038/nrn2787) |
 | 4 | Turing (1952) — original prediction λ ∝ √(D/k) | [DOI](10.1098/rstb.1952.0012) |
+| 4 | May (1972) provides stability criterion for LV-type competitive systems | [DOI](10.1038/238413a0) |
 | 4 |  | [DOI](10.1103/PhysRev.106.620) |
 | 4 | Newman (2002) proves the mathematical equivalence — FSS must apply if the equiva... | [DOI](10.1103/PhysRevE.66.016128) |
 | 4 | Bak, Tang & Wiesenfeld (1987) — BTW sandpile predicts τ = 3/2 (mean field) | [DOI](10.1103/PhysRevLett.59.381) |
+| 4 | Barabási & Albert (1999) - scale-free networks fragile to targeted hub attack; g... | [DOI](10.1126/science.286.5439.509) |
 | 4 | WBE derives 3/4 from area-preserving branching — the recursion relation is struc... | [DOI](10.1126/science.276.5309.122) |
 | 4 | Landauer (1961) — irreversibility and heat generation in computation | [DOI](10.1147/rd.53.0183) |
 | 3 | Price (1970) establishes the general decomposition applicable to cultural traits | [DOI](10.1038/227520a0) |
-| 3 | May (1972) provides stability criterion for LV-type competitive systems | [DOI](10.1038/238413a0) |
 | 3 | Saw et al. 2017 — topological defects in epithelia determine cell fate; establis... | [DOI](10.1126/science.aar5663) |
+| 3 | Hopfield (1982) — associative memory energy model | [DOI](10.1073/pnas.79.8.2554) |
 | 3 | Bennett (1973) — theoretical demonstration that reversible computation has zero ... | [DOI](10.1147/rd.173.0525) |
-| 3 | Barabási & Albert (1999) - scale-free networks fragile to targeted hub attack; g... | [DOI](10.1126/science.286.5439.509) |
 | 2 |  | [DOI](10.1103/PhysRevLett.85.4626) |
 | 2 | Taylor et al. (1999) Nature — fractal dimension D ≈ 1.3-1.5 correlates with aest... | [DOI](10.1038/20833) |
 | 2 | Schmidhuber (2010) — formal compression-progress theory of beauty and curiosity | [DOI](10.1109/TAMD.2010.2059346) |
@@ -57,7 +58,6 @@ Papers cited across the highest number of different bridges — the most influen
 | 2 | Bell & Sejnowski (1997) — ICA of natural images yields V1-like filters | [DOI](10.1016/S0042-6989(97)00169-7) |
 | 2 | Atick & Redlich (1992) — retina as Wiener filter | [DOI](10.1162/neco.1992.4.2.196) |
 | 2 | Mézard et al. (2002) — cavity method shows solution space shattering at α_c (RSB... | [DOI](10.1126/science.297.5582.812) |
-| 2 | Lindsay (2020) review: transformer attention and divisive normalisation share th... | [DOI](10.1016/j.cub.2019.11.015) |
 
 ## Citation Network
 
@@ -67,4 +67,4 @@ The full citation data is available at [`docs/citation_index.json`](citation_ind
 
 ## All Unique References
 
-The catalog currently references **690 unique papers/books**.
+The catalog currently references **757 unique papers/books**.

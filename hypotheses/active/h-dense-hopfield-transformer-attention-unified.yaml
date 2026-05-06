@@ -1,0 +1,35 @@
+id: h-dense-hopfield-transformer-attention-unified
+title: >
+  Transformer self-attention is the update rule of a dense Hopfield network
+  with exponential interactions, implying that the biological correlates of
+  attention in the cortex (top-down modulation of sensory processing) and
+  the mathematical correlates of attention in transformers are instances of
+  the same attractor memory retrieval dynamics described by spin glass theory
+status: active
+priority: high
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR wave-7 seed (replace with GitHub handle when stewarded)
+unknowns_addressed:
+  - u-hopfield-modern-attention-biological-plausibility
+related_disciplines:
+  - machine-learning
+  - computational-neuroscience
+  - statistical-physics
+evidence_links:
+  - type: supporting
+    confidence: 0.75
+    note: "Ramsauer et al. (2020) formally proved: one step of dense Hopfield retrieval with softmax interaction function = one step of transformer self-attention. The mathematics is exact, not approximate."
+  - type: supporting
+    confidence: 0.55
+    note: "Hippocampal CA3 recurrent connections implement autoassociative memory retrieval consistent with Hopfield network dynamics (Rolls & Treves 1998); pattern completion in CA3 is the biological analogue."
+  - type: contradicting
+    confidence: 0.40
+    note: "Transformer attention is not iterative in practice (one softmax per layer); dense Hopfield retrieval requires multiple iteration steps to converge to a stored pattern. The single-step biological plausibility is unclear."
+proposed_tests:
+  - summary: >
+      Train a sparse attention transformer and a dense Hopfield network on the same
+      associative recall task (query → stored key-value pattern); compare the energy
+      landscape (via Hopfield energy function) and the number of retrieval steps
+      to convergence, testing whether the equivalence holds empirically and not just
+      analytically for the specific softmax case.
