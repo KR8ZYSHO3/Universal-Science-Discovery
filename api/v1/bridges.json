@@ -1,5 +1,5 @@
 {
-  "count": 170,
+  "count": 180,
   "items": [
     {
       "id": "b-grokking-criticality",
@@ -835,6 +835,62 @@
       "file": "cross-domain\\astrophysics-information-theory\\b-black-hole-entropy-holographic.yaml"
     },
     {
+      "id": "b-general-relativity-differential-geometry",
+      "title": "General relativity is differential geometry applied to physics — spacetime curvature is the Riemann curvature tensor and gravity emerges from geodesic deviation",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Einstein's field equations Gμν + Λgμν = (8πG/c⁴)Tμν express that the curvature of spacetime (Einstein tensor Gμν, derived from the Riemann curvature tensor Rμναβ) equals the stress-energy content of matter (Tμν). Spacetime is a pseudo-Riemannian 4-manifold with metric tensor gμν; gravity is not a fo",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-gr-gauge-theory-fiber-bundle-unification"
+      ],
+      "communication_gap": "General relativity requires Riemannian geometry typically taught in graduate mathematics programs, while physics curricula often present GR through tensor index notation without the underlying differential geometry formalism. Mathematicians who generalize Riemannian geometry (sub-Riemannian, Finsler, non-commutative geometry) rarely engage with astrophysical applications.\n",
+      "translation_table": [
+        {
+          "field_a_term": "metric tensor g_mu_nu",
+          "field_b_term": "gravitational potential (generalizes Newtonian phi)",
+          "note": "In weak-field limit, g_00 = -(1 + 2phi/c^2), recovering Newtonian gravity"
+        },
+        {
+          "field_a_term": "geodesic equation (d^2x^mu/dtau^2 + Gamma^mu_alphabeta dx^alpha/dtau dx^beta/dtau = 0)",
+          "field_b_term": "equation of motion of a free-falling body",
+          "note": "Christoffel symbols Gamma encode the gravitational field; geodesic = free fall"
+        },
+        {
+          "field_a_term": "Riemann curvature tensor R^alpha_betagammadelta",
+          "field_b_term": "tidal gravitational forces (geodesic deviation equation)",
+          "note": "Riemann tensor measures how nearby geodesics accelerate toward/away from each other"
+        },
+        {
+          "field_a_term": "Bianchi identity (contracted: nabla_mu G^mu_nu = 0)",
+          "field_b_term": "energy-momentum conservation nabla_mu T^mu_nu = 0",
+          "note": "Mathematical identity in differential geometry encodes physical conservation law"
+        },
+        {
+          "field_a_term": "Einstein-Hilbert action S = integral (R - 2Lambda) sqrt(-g) d^4x",
+          "field_b_term": "variational principle from which Einstein's equations are derived",
+          "note": "Riemann scalar curvature R is the Lagrangian density for gravity"
+        }
+      ],
+      "references": [
+        {
+          "note": "Einstein, A. (1915). Die Feldgleichungen der Gravitation. Sitzungsber Preuss Akad Wiss."
+        },
+        {
+          "note": "Riemann, B. (1854). Über die Hypothesen, welche der Geometrie zu Grunde liegen. Göttingen."
+        },
+        {
+          "note": "Misner, C.W., Thorne, K.S. & Wheeler, J.A. (1973). Gravitation. W.H. Freeman."
+        },
+        {
+          "note": "Wald, R.M. (1984). General Relativity. University of Chicago Press."
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\astrophysics-mathematics\\b-general-relativity-differential-geometry.yaml"
+    },
+    {
       "id": "b-lichen-astrobiology",
       "title": "Synthetic lichen-like microbial consortia engineered for biofabrication on Earth are functional analogs of the self-sustaining biosystems required for off-world resource utilisation.\n",
       "source_domain": "",
@@ -1033,6 +1089,60 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\biology-information\\b-dna-digital-error-correcting-code.yaml"
+    },
+    {
+      "id": "b-genetic-regulatory-boolean-circuits",
+      "title": "Kauffman's NK model maps gene regulatory networks onto Boolean circuits — cell types are attractors and the critical K=2 regime corresponds to edge-of-chaos dynamics",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Kauffman (1969) modeled gene regulatory networks as Boolean networks: N genes each updated by a Boolean function of K randomly chosen inputs. For K < 2, networks freeze in ordered attractors; for K > 2, trajectories are chaotic (exponential sensitivity to initial conditions). At K = 2, networks self",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-kauffman-critical-k2-attractor-cell-types"
+      ],
+      "communication_gap": "Systems biology and network medicine literatures are aware of Kauffman's NK model but treat it as qualitative metaphor rather than quantitative framework. The Boolean circuit / computational complexity connection (random circuit phase transitions) is not part of standard bioinformatics or systems biology training.\n",
+      "translation_table": [
+        {
+          "field_a_term": "gene (node in Boolean network)",
+          "field_b_term": "logic gate in Boolean circuit",
+          "note": "Each gene has K inputs and one Boolean function (output = on/off expression)"
+        },
+        {
+          "field_a_term": "K (number of regulatory inputs per gene)",
+          "field_b_term": "fan-in of logic gate",
+          "note": "K = 2 corresponds to NAND/NOR gate connectivity — sufficient for universality"
+        },
+        {
+          "field_a_term": "attractor of Boolean network dynamics",
+          "field_b_term": "stable computational state / register value",
+          "note": "Cell types = attractors; ~sqrt(N) attractors in critical K=2 networks"
+        },
+        {
+          "field_a_term": "perturbation spreading (Hamming distance between trajectories)",
+          "field_b_term": "sensitivity of circuit output to input changes",
+          "note": "Ordered phase: perturbations die out; Chaotic phase: perturbations spread; Critical: marginal"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1016/S0022-5193(69)80016-0",
+          "note": "Kauffman, S.A. (1969). Metabolic stability and epigenesis in randomly constructed genetic nets. J Theor Biol 22:437."
+        },
+        {
+          "note": "Kauffman, S.A. (1993). The Origins of Order: Self-Organization and Selection in Evolution. Oxford University Press."
+        },
+        {
+          "doi": "10.1016/S0022-5193(03)00028-6",
+          "note": "Aldana et al. (2003). Boolean dynamics of networks with scale-free topology. J Theor Biol 223:433."
+        },
+        {
+          "doi": "10.1209/0295-5075/1/2/001",
+          "note": "Derrida & Pomeau (1986). Random networks of automata: a simple annealed approximation. Europhys Lett 1:45."
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\biology-information-theory\\b-genetic-regulatory-boolean-circuits.yaml"
     },
     {
       "id": "b-replicator-equations-evolutionary-dynamics",
@@ -2836,6 +2946,64 @@
       "file": "cross-domain\\ecology-network-science\\b-food-webs-cascade-dynamics.yaml"
     },
     {
+      "id": "b-island-biogeography-percolation",
+      "title": "Island biogeography's species-area relationship reflects percolation of colonization across habitat — habitat fragmentation is a percolation phase transition",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "MacArthur and Wilson's species-area relationship S = cA^z (z ≈ 0.25) reflects the percolation structure of colonization across fragmented habitat. Below a critical habitat area A_c, connectivity drops below the percolation threshold and species cannot maintain viable metapopulations — the extinction",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-habitat-percolation-z-exponent"
+      ],
+      "communication_gap": "Conservation biology and ecological theory rarely engage with statistical physics literature; percolation theory developed without awareness of the species-area problem. With & Crist (1995) established the connection but it remains underutilized in applied conservation planning.\n",
+      "translation_table": [
+        {
+          "field_a_term": "island area A (or habitat patch size)",
+          "field_b_term": "system size in percolation (number of bonds)",
+          "note": "Species richness scales with area as S = cA^z; percolation cluster size scales with p"
+        },
+        {
+          "field_a_term": "species richness S",
+          "field_b_term": "size of the largest connected percolation cluster",
+          "note": "Both show power-law scaling near critical threshold"
+        },
+        {
+          "field_a_term": "critical habitat area A_c (minimum viable metapopulation)",
+          "field_b_term": "percolation threshold p_c",
+          "note": "Below A_c / p_c, no spanning cluster exists — collapse of persistence"
+        },
+        {
+          "field_a_term": "colonization/extinction balance",
+          "field_b_term": "bond occupation probability in percolation",
+          "note": "Immigration balances extinction at equilibrium species richness"
+        },
+        {
+          "field_a_term": "species-area exponent z ≈ 0.25",
+          "field_b_term": "critical exponent of percolation cluster (beta/nu ≈ 0.1)",
+          "note": "Both reflect fractal geometry of the spatial structure"
+        }
+      ],
+      "references": [
+        {
+          "note": "MacArthur, R.H. & Wilson, E.O. (1967). The Theory of Island Biogeography. Princeton University Press."
+        },
+        {
+          "doi": "10.2307/1934198",
+          "note": "Preston (1962). The canonical distribution of commonness and rarity. Ecology 43:185."
+        },
+        {
+          "doi": "10.2307/1938559",
+          "note": "With & Crist (1995). Critical thresholds in species responses to landscape structure. Ecology 76:2446."
+        },
+        {
+          "note": "Hanski, I. (1999). Metapopulation Ecology. Oxford University Press."
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\ecology-physics\\b-island-biogeography-percolation.yaml"
+    },
+    {
       "id": "b-metabolic-scaling-fractal-networks",
       "title": "Fractal vascular network geometry ↔ ¾-power metabolic scaling law — West-Brown-Enquist theory",
       "source_domain": "",
@@ -3838,6 +4006,64 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\engineering-mathematics\\b-control-theory-differential-geometry.yaml"
+    },
+    {
+      "id": "b-signal-processing-fourier-analysis",
+      "title": "Signal processing is applied Fourier analysis — the FFT, Nyquist theorem, and filter design are engineering implementations of mathematical harmonic analysis",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "All of modern signal processing rests on the Fourier transform F(ω) = ∫f(t)e^{-iωt}dt, which decomposes any signal into frequency components. The convolution theorem (convolution in time = multiplication in frequency) makes filter design algebraic in frequency space. The Cooley-Tukey FFT (1965) comp",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-compressed-sensing-mri-fourier-sparsity"
+      ],
+      "communication_gap": "Electrical engineering and signal processing education teaches the Fourier transform as a computational tool (FFT algorithms) without the mathematical foundations (L² spaces, distributions, harmonic analysis). Mathematicians who developed the Plancherel theorem and distribution theory rarely engage with engineering applications. The gap means engineers lack tools to extend beyond classical Fourier (e.g., non-commutative Fourier analysis for non-Euclidean domains like graphs and manifolds).\n",
+      "translation_table": [
+        {
+          "field_a_term": "Fourier transform F(omega) = integral f(t) exp(-i omega t) dt",
+          "field_b_term": "signal decomposition into frequency components",
+          "note": "Engineering uses DFT/FFT; mathematics studies L^2(R) and distribution theory"
+        },
+        {
+          "field_a_term": "convolution theorem (f*g <-> F*G in frequency domain)",
+          "field_b_term": "linear time-invariant filter design",
+          "note": "Filtering = multiplication in frequency domain; LTI systems have transfer functions H(omega)"
+        },
+        {
+          "field_a_term": "Nyquist-Shannon sampling theorem",
+          "field_b_term": "digital signal reconstruction from discrete samples",
+          "note": "Sampling at f_s > 2*f_max guarantees perfect reconstruction; aliasing occurs below Nyquist rate"
+        },
+        {
+          "field_a_term": "Parseval's theorem (energy conservation in Fourier domain)",
+          "field_b_term": "power spectral density (energy distribution across frequencies)",
+          "note": "Total signal energy = integral of power spectral density"
+        },
+        {
+          "field_a_term": "uncertainty principle Delta_t * Delta_omega >= 1/2",
+          "field_b_term": "time-frequency resolution tradeoff in spectrograms and wavelets",
+          "note": "Perfect time localization and perfect frequency localization are mutually exclusive"
+        }
+      ],
+      "references": [
+        {
+          "note": "Fourier, J.B.J. (1822). Théorie analytique de la chaleur. Paris: Firmin Didot."
+        },
+        {
+          "doi": "10.1090/S0025-5718-1965-0178586-1",
+          "note": "Cooley & Tukey (1965). An algorithm for the machine calculation of complex Fourier series. Math Comput 19:297."
+        },
+        {
+          "doi": "10.1109/JRPROC.1949.232969",
+          "note": "Shannon, C.E. (1949). Communication in the presence of noise. Proc IRE 37:10."
+        },
+        {
+          "note": "Oppenheim, A.V. & Schafer, R.W. (2010). Discrete-Time Signal Processing, 3rd ed. Prentice Hall."
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\engineering-mathematics\\b-signal-processing-fourier-analysis.yaml"
     },
     {
       "id": "b-chaos-control-systems",
@@ -6498,6 +6724,63 @@
       "file": "cross-domain\\mathematics-physics\\b-symplectic-geometry-mechanics.yaml"
     },
     {
+      "id": "b-spectral-theory-quantum-mechanics",
+      "title": "Quantum mechanics is functional analysis applied to physics — observables are self-adjoint operators and measurement outcomes are their eigenvalues",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The mathematical framework of quantum mechanics is exactly the spectral theory of self-adjoint operators on a Hilbert space. Observables are self-adjoint operators; measurement outcomes are eigenvalues (guaranteed real by self-adjointness); measurement probabilities are given by the spectral measure",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-quantum-spectral-gap-computational-complexity"
+      ],
+      "communication_gap": "Physicists learn quantum mechanics through wave functions and the Schrödinger equation before encountering operator theory; mathematicians learn functional analysis abstractly without physical motivation. The complete mathematical foundations are taught in mathematical physics courses but rarely to either physics or mathematics students alone.\n",
+      "translation_table": [
+        {
+          "field_a_term": "self-adjoint operator A on Hilbert space",
+          "field_b_term": "physical observable (position, momentum, energy, spin)",
+          "note": "Self-adjointness guarantees real eigenvalues = real measurement outcomes"
+        },
+        {
+          "field_a_term": "eigenvalue of A",
+          "field_b_term": "possible measurement outcome",
+          "note": "Spectral theorem guarantees complete set of eigenvalues"
+        },
+        {
+          "field_a_term": "spectral measure (projection-valued measure)",
+          "field_b_term": "Born rule probability distribution",
+          "note": "P(A in E) = <psi|P_E|psi> where P_E is the spectral projection onto E"
+        },
+        {
+          "field_a_term": "unitary group generated by self-adjoint H",
+          "field_b_term": "quantum time evolution operator exp(-iHt/hbar)",
+          "note": "Stone's theorem: every strongly continuous unitary group has a self-adjoint generator"
+        },
+        {
+          "field_a_term": "tensor product of Hilbert spaces",
+          "field_b_term": "composite quantum system / entanglement",
+          "note": "Entanglement = non-separable states in tensor product space"
+        }
+      ],
+      "references": [
+        {
+          "note": "von Neumann, J. (1932). Mathematische Grundlagen der Quantenmechanik. Springer."
+        },
+        {
+          "doi": "10.2307/1968551",
+          "note": "Stone, M.H. (1932). On one-parameter unitary groups in Hilbert space. Ann Math 33:643."
+        },
+        {
+          "note": "Reed, M. & Simon, B. (1972). Methods of Modern Mathematical Physics. Academic Press."
+        },
+        {
+          "note": "Dirac, P.A.M. (1930). The Principles of Quantum Mechanics. Oxford University Press."
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\mathematics-quantum-physics\\b-spectral-theory-quantum-mechanics.yaml"
+    },
+    {
       "id": "b-radiation-biophysics-let",
       "title": "The biological effectiveness of ionising radiation — from DNA strand break probability to tumour control — is quantitatively predicted by the Bethe-Bloch stopping power formula: the linear energy transfer (LET) framework bridges quantum electrodynamics track structure to radiobiological effectiveness (RBE) and clinical tumour control probability (TCP) in proton and heavy-ion cancer therapy.\n",
       "source_domain": "",
@@ -7074,6 +7357,61 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\neuroscience-linguistics\\b-predictive-coding-grammar.yaml"
+    },
+    {
+      "id": "b-persistent-homology-neural-representation",
+      "title": "Topological data analysis of neural population activity reveals the geometry of cognitive maps — Betti numbers decode represented spaces without positional data",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The topology of space represented by a neural population can be read directly from the topology of the point cloud formed by population activity vectors, via persistent homology. Place cells encoding a circular track produce Betti₁ = 1 (one loop) in the neural activity point cloud. Grid cells encode",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-tda-cognitive-map-nontrivial-topology"
+      ],
+      "communication_gap": "Algebraic topology is not standard training for neuroscientists; the mathematical formalism of persistent homology requires graduate-level algebraic topology background. The neuroscience community adopted TDA tools through the Curto & Itskov (2008) paper but the full mathematical machinery remains inaccessible to most experimentalists.\n",
+      "translation_table": [
+        {
+          "field_a_term": "neural population activity vector at time t",
+          "field_b_term": "point in high-dimensional Euclidean space (point cloud)",
+          "note": "Each time bin gives one point; the cloud samples the neural manifold"
+        },
+        {
+          "field_a_term": "Betti numbers (beta_0, beta_1, beta_2) of the activity cloud",
+          "field_b_term": "topological invariants (components, loops, voids) of represented space",
+          "note": "beta_1 = 1 for circular track; beta_1 = 2, beta_2 = 1 for torus (grid cells)"
+        },
+        {
+          "field_a_term": "persistence diagram (birth-death pairs)",
+          "field_b_term": "multi-scale topological signature robust to noise",
+          "note": "Long-lived features are signal; short-lived features are noise"
+        },
+        {
+          "field_a_term": "Vietoris-Rips filtration",
+          "field_b_term": "systematic merging of point cloud at increasing distance thresholds",
+          "note": "Reveals topological structure at all spatial scales simultaneously"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1007/s00454-004-1146-y",
+          "note": "Zomorodian & Carlsson (2005). Computing persistent homology. Discrete Comput Geom 33:249."
+        },
+        {
+          "doi": "10.1371/journal.pcbi.1000205",
+          "note": "Curto & Itskov (2008). Cell groups reveal structure of stimulus space. PLOS Comput Biol 4:e1000205."
+        },
+        {
+          "doi": "10.1038/s41586-021-04268-7",
+          "note": "Gardner et al. (2022). Toroidal topology of population activity in grid cells. Nature 602:281."
+        },
+        {
+          "doi": "10.1090/S0273-0979-09-01249-X",
+          "note": "Carlsson, G. (2009). Topology and data. Bull AMS 46:255."
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\neuroscience-mathematics\\b-persistent-homology-neural-representation.yaml"
     },
     {
       "id": "b-topological-neuroscience",
@@ -7958,6 +8296,58 @@
       "file": "cross-domain\\physics-chemistry\\b-maxwell-boltzmann-chemical-kinetics.yaml"
     },
     {
+      "id": "b-van-der-waals-phase-transitions",
+      "title": "The van der Waals equation is the prototype for all mean-field theories of phase transitions — its mathematical structure recurs across Landau theory",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The van der Waals equation (p + a/V²)(V-b) = RT contains the essential mathematical structure of all mean-field phase transitions: a cubic equation of state, a double-well free energy below T_c, and an unphysical loop resolved by Maxwell construction. Near the critical point, it predicts mean-field ",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-van-der-waals-free-energy-double-well"
+      ],
+      "communication_gap": "Chemistry students learn the van der Waals equation as a practical equation of state correction; physics students learn Landau theory as abstract symmetry breaking. The explicit connection is made in graduate statistical mechanics courses but not in standard physical chemistry or introductory physics curricula.\n",
+      "translation_table": [
+        {
+          "field_a_term": "molecular attraction parameter a",
+          "field_b_term": "negative quadratic term in Landau free energy (-a|phi|^2)",
+          "note": "Both provide the driving force for phase separation below T_c"
+        },
+        {
+          "field_a_term": "excluded volume b",
+          "field_b_term": "positive quartic term in Landau free energy (+b|phi|^4)",
+          "note": "Both stabilize the ordered phase and prevent divergence"
+        },
+        {
+          "field_a_term": "Maxwell construction (horizontal lever rule)",
+          "field_b_term": "double-tangent construction for phase coexistence",
+          "note": "Equal-area rule = common tangent = minimization of Gibbs free energy"
+        },
+        {
+          "field_a_term": "critical exponent beta = 1/2 (mean field)",
+          "field_b_term": "mean-field critical exponent for any scalar order parameter",
+          "note": "Universal for mean-field theory; corrected by fluctuations (Wilson RG)"
+        }
+      ],
+      "references": [
+        {
+          "note": "van der Waals, J.D. (1873). Over de continuïteit van den gas- en vloeistoftoestand. PhD thesis, Leiden."
+        },
+        {
+          "doi": "10.1038/011357a0",
+          "note": "Maxwell (1875). On the dynamical evidence of the molecular constitution of bodies. Nature 11:357."
+        },
+        {
+          "note": "Landau, L.D. (1937). On the theory of phase transitions. Phys Z Sowjetunion 11:26."
+        },
+        {
+          "note": "Stanley, H.E. (1971). Introduction to Phase Transitions and Critical Phenomena. Oxford University Press."
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\physics-chemistry\\b-van-der-waals-phase-transitions.yaml"
+    },
+    {
       "id": "b-climate-tipping-percolation",
       "title": "Tipping points in Earth's climate system are mathematically equivalent to percolation phase transitions in disordered networks",
       "source_domain": "",
@@ -8638,6 +9028,61 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\physics-economics\\b-entropy-production-market-irreversibility.yaml"
+    },
+    {
+      "id": "b-quantum-sensing-fundamental-limits",
+      "title": "Quantum metrology achieves Heisenberg-limited sensitivity — quantum sensors beat classical noise floors by exploiting entanglement and squeezing",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The Heisenberg uncertainty principle ΔxΔp ≥ ℏ/2 sets a fundamental sensitivity limit for all measurements. Classical sensors are limited by shot noise (standard quantum limit, SQL): sensitivity scales as 1/√N for N independent measurements. Quantum sensors using entangled or squeezed states achieve ",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-heisenberg-limited-sensing-biological"
+      ],
+      "communication_gap": "Quantum optics, atomic physics, and gravitational wave astronomy each developed quantum sensing techniques independently. The unifying theoretical framework of quantum Fisher information and quantum Cramér-Rao bounds was formalized in the 2000s but is not standard training in any single engineering discipline.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Heisenberg uncertainty principle ΔxΔp ≥ ℏ/2",
+          "field_b_term": "fundamental noise floor of any physical sensor",
+          "note": "Sets the standard quantum limit (SQL) that classical sensors asymptotically approach"
+        },
+        {
+          "field_a_term": "squeezed light (reduced phase noise, enhanced amplitude noise)",
+          "field_b_term": "redistributing sensor noise from measured to unmeasured quadrature",
+          "note": "LIGO uses squeezed vacuum injection to beat shot noise at high frequencies"
+        },
+        {
+          "field_a_term": "N-particle entangled GHZ state",
+          "field_b_term": "Heisenberg-limited sensor with 1/N phase sensitivity",
+          "note": "N-fold improvement over classical 1/sqrt(N) scaling"
+        },
+        {
+          "field_a_term": "quantum Fisher information F_Q",
+          "field_b_term": "maximum achievable precision (quantum Cramér-Rao bound 1/sqrt(F_Q))",
+          "note": "F_Q = N for separable states; F_Q = N^2 for maximally entangled GHZ states"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1103/PhysRevD.23.1693",
+          "note": "Caves, C.M. (1981). Quantum-mechanical noise in an interferometer. Phys Rev D 23:1693."
+        },
+        {
+          "doi": "10.1103/PhysRevLett.116.061102",
+          "note": "Abbott et al. [LIGO] (2016). Observation of gravitational waves. Phys Rev Lett 116:061102."
+        },
+        {
+          "doi": "10.1103/RevModPhys.89.035002",
+          "note": "Degen et al. (2017). Quantum sensing. Rev Mod Phys 89:035002."
+        },
+        {
+          "doi": "10.1126/science.1104149",
+          "note": "Giovannetti, Lloyd & Maccone (2004). Quantum-enhanced measurements. Science 306:1330."
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\physics-engineering\\b-quantum-sensing-fundamental-limits.yaml"
     },
     {
       "id": "b-kuramoto-synchronization",
@@ -9680,6 +10125,60 @@
       "file": "cross-domain\\physics-social\\b-ising-social-dynamics.yaml"
     },
     {
+      "id": "b-schelling-phase-separation",
+      "title": "Schelling's segregation model maps onto binary-alloy phase separation — social tolerance thresholds are thermodynamic critical points",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Schelling's (1971) segregation model — agents move when the fraction of unlike neighbors exceeds a threshold — produces complete phase separation even for low tolerance thresholds (~30%). This maps exactly onto binary alloy phase separation: below T_c, A-B mixtures separate into A-rich and B-rich do",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-schelling-spinodal-coarsening"
+      ],
+      "communication_gap": "Sociologists and urban economists rarely read condensed matter physics; the Cahn-Hilliard formalism is not taught in social science programs. Vinkovic & Kirman (2006) made the connection but it remains largely uncited in mainstream urban economics.\n",
+      "translation_table": [
+        {
+          "field_a_term": "tolerance threshold (fraction of unlike neighbors)",
+          "field_b_term": "critical temperature T_c in binary alloy",
+          "note": "Below threshold / below T_c, phase separation is thermodynamically favored"
+        },
+        {
+          "field_a_term": "urban neighborhood composition (fraction group A)",
+          "field_b_term": "local concentration field phi(x) in Cahn-Hilliard equation",
+          "note": "Both fields follow conserved dynamics — total population conserved"
+        },
+        {
+          "field_a_term": "domain coarsening (segregated neighborhoods growing)",
+          "field_b_term": "spinodal decomposition and Ostwald ripening",
+          "note": "Domain growth follows same power-law kinetics R(t) ~ t^(1/3)"
+        },
+        {
+          "field_a_term": "segregation index (fraction of neighbors same-group)",
+          "field_b_term": "order parameter phi_A - phi_B",
+          "note": "Both measure departure from mixed phase"
+        }
+      ],
+      "references": [
+        {
+          "note": "Schelling, T.C. (1971). Dynamic models of segregation. J Math Sociol 1:143-186."
+        },
+        {
+          "doi": "10.1063/1.1744102",
+          "note": "Cahn & Hilliard (1958). Free energy of a nonuniform system. J Chem Phys 28:258."
+        },
+        {
+          "doi": "10.1073/pnas.0609371103",
+          "note": "Vinkovic & Kirman (2006). A physical analogue of the Schelling model. PNAS 103:19261."
+        },
+        {
+          "doi": "10.1140/epjb/e2009-00234-0",
+          "note": "Gauvin et al. (2009). Schelling segregation in an open city. Eur Phys J B 70:293."
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\physics-social-science\\b-schelling-phase-separation.yaml"
+    },
+    {
       "id": "b-scaling-laws-cities",
       "title": "Urban scaling laws — cities as social organisms obeying superlinear and sublinear power-law scaling",
       "source_domain": "",
@@ -10518,6 +11017,59 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\social-science-information\\b-cultural-memes-shannon-entropy.yaml"
+    },
+    {
+      "id": "b-auction-theory-mechanism-design",
+      "title": "Mechanism design reverses game theory — designing incentive structures so that rational self-interest produces socially optimal outcomes",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Vickrey's second-price auction (1961) proves that bidding true valuation is a dominant strategy — truth-telling is optimal regardless of others' strategies. The revenue equivalence theorem (Myerson 1981) establishes that all standard auctions (first-price, second-price, English, Dutch) yield identic",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-mechanism-design-spectrum-auctions-efficiency"
+      ],
+      "communication_gap": "Auction theory is taught in economics programs; operations research teaches optimization of allocation problems. The unification under mechanism design (Nobel 2007) is known across social science but the mathematical depth of the revelation principle and virtual valuations is rarely taught outside specialized graduate courses in economic theory.\n",
+      "translation_table": [
+        {
+          "field_a_term": "revelation principle",
+          "field_b_term": "without loss of generality consider only direct truthful mechanisms",
+          "note": "Any equilibrium of any mechanism can be replicated by a truthful direct mechanism"
+        },
+        {
+          "field_a_term": "dominant strategy incentive compatibility (DSIC)",
+          "field_b_term": "truth-telling is optimal regardless of others' reports",
+          "note": "Vickrey-Clarke-Groves mechanisms achieve DSIC for social welfare maximization"
+        },
+        {
+          "field_a_term": "virtual valuation phi(v) = v - (1-F(v))/f(v)",
+          "field_b_term": "marginal revenue in Myerson's optimal auction",
+          "note": "Optimal mechanism sells to bidder with highest non-negative virtual valuation"
+        },
+        {
+          "field_a_term": "Bayesian Nash equilibrium",
+          "field_b_term": "equilibrium in which each agent best-responds to beliefs about others",
+          "note": "First-price auction has a unique symmetric BNE with shading b(v) = E[max others | others < v]"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1111/j.1540-6261.1961.tb04131.x",
+          "note": "Vickrey, W. (1961). Counterspeculation, auctions, and competitive sealed tenders. J Finance 16:8."
+        },
+        {
+          "doi": "10.1287/moor.6.1.58",
+          "note": "Myerson, R.B. (1981). Optimal auction design. Math Oper Res 6:58."
+        },
+        {
+          "note": "Klemperer, P. (2004). Auctions: Theory and Practice. Princeton University Press."
+        },
+        {
+          "note": "Milgrom, P. (2004). Putting Auction Theory to Work. Cambridge University Press."
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\social-science-mathematics\\b-auction-theory-mechanism-design.yaml"
     },
     {
       "id": "b-social-capital-network-science",

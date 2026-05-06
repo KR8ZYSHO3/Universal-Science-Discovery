@@ -1,0 +1,60 @@
+id: b-auction-theory-mechanism-design
+title: Mechanism design reverses game theory — designing incentive structures so that rational self-interest produces socially optimal outcomes
+status: established
+fields:
+  - social-science
+  - mathematics
+  - economics
+bridge_claim: >
+  Vickrey's second-price auction (1961) proves that bidding true valuation is a dominant
+  strategy — truth-telling is optimal regardless of others' strategies. The revenue
+  equivalence theorem (Myerson 1981) establishes that all standard auctions (first-price,
+  second-price, English, Dutch) yield identical expected revenue under symmetric independent
+  private values. Mechanism design is the inverse of game theory: instead of predicting
+  outcomes given rules, it asks what rules produce desired outcomes when agents play
+  optimally. The mathematical tools (revelation principle, Bayesian incentive compatibility,
+  virtual valuations) transform the social goal (efficiency, revenue maximization) into
+  a constrained optimization over mechanism space. This framework now governs spectrum
+  auctions (+), Google's ad auction system, and kidney exchange markets.
+translation_table:
+  - field_a_term: revelation principle
+    field_b_term: without loss of generality consider only direct truthful mechanisms
+    note: Any equilibrium of any mechanism can be replicated by a truthful direct mechanism
+  - field_a_term: dominant strategy incentive compatibility (DSIC)
+    field_b_term: truth-telling is optimal regardless of others' reports
+    note: Vickrey-Clarke-Groves mechanisms achieve DSIC for social welfare maximization
+  - field_a_term: virtual valuation phi(v) = v - (1-F(v))/f(v)
+    field_b_term: marginal revenue in Myerson's optimal auction
+    note: Optimal mechanism sells to bidder with highest non-negative virtual valuation
+  - field_a_term: Bayesian Nash equilibrium
+    field_b_term: equilibrium in which each agent best-responds to beliefs about others
+    note: First-price auction has a unique symmetric BNE with shading b(v) = E[max others | others < v]
+related_unknowns:
+  - u-cascade-threshold-infrastructure
+related_hypotheses:
+  - h-mechanism-design-spectrum-auctions-efficiency
+cross_pollination_opportunities:
+  - >
+    Mechanism design applied to climate policy: designing carbon markets (cap-and-trade
+    auction rules) using Myerson's framework to maximize emission reductions given
+    private information about firms' abatement costs. The FCC spectrum auction design
+    (Milgrom, McAfee) provides a template for packaging and complementarity that
+    climate policy auctions have not yet adopted.
+  - >
+    Machine learning applied to automated mechanism design: Dutting et al. (2019)
+    trained neural networks to find revenue-optimal mechanisms for multi-item auctions
+    — a problem too complex for analytical solutions. This converts Myerson's mathematical
+    program into a learning problem, with potential for broader social planning applications.
+communication_gap: >
+  Auction theory is taught in economics programs; operations research teaches optimization
+  of allocation problems. The unification under mechanism design (Nobel 2007) is known
+  across social science but the mathematical depth of the revelation principle and
+  virtual valuations is rarely taught outside specialized graduate courses in economic theory.
+last_reviewed: "2026-05-06"
+references:
+  - doi: 10.1111/j.1540-6261.1961.tb04131.x
+    note: "Vickrey, W. (1961). Counterspeculation, auctions, and competitive sealed tenders. J Finance 16:8."
+  - doi: 10.1287/moor.6.1.58
+    note: "Myerson, R.B. (1981). Optimal auction design. Math Oper Res 6:58."
+  - note: "Klemperer, P. (2004). Auctions: Theory and Practice. Princeton University Press."
+  - note: "Milgrom, P. (2004). Putting Auction Theory to Work. Cambridge University Press."

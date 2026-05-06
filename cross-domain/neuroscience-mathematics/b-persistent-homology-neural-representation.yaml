@@ -1,0 +1,60 @@
+id: b-persistent-homology-neural-representation
+title: Topological data analysis of neural population activity reveals the geometry of cognitive maps — Betti numbers decode represented spaces without positional data
+status: established
+fields:
+  - neuroscience
+  - mathematics
+bridge_claim: >
+  The topology of space represented by a neural population can be read directly from
+  the topology of the point cloud formed by population activity vectors, via persistent
+  homology. Place cells encoding a circular track produce Betti₁ = 1 (one loop) in
+  the neural activity point cloud. Grid cells encode a toroidal structure (Betti₁ = 2,
+  Betti₂ = 1) consistent with the torus topology of a hexagonal lattice on a plane.
+  Persistent homology tracks topological features (connected components, loops, voids)
+  across filtration scales, making the readout robust to noise. This allows decoding
+  the geometry of the represented space without knowing ground truth positions —
+  the topology of cognitive maps is geometrically embedded in neural activity.
+translation_table:
+  - field_a_term: neural population activity vector at time t
+    field_b_term: point in high-dimensional Euclidean space (point cloud)
+    note: Each time bin gives one point; the cloud samples the neural manifold
+  - field_a_term: Betti numbers (beta_0, beta_1, beta_2) of the activity cloud
+    field_b_term: topological invariants (components, loops, voids) of represented space
+    note: beta_1 = 1 for circular track; beta_1 = 2, beta_2 = 1 for torus (grid cells)
+  - field_a_term: persistence diagram (birth-death pairs)
+    field_b_term: multi-scale topological signature robust to noise
+    note: Long-lived features are signal; short-lived features are noise
+  - field_a_term: Vietoris-Rips filtration
+    field_b_term: systematic merging of point cloud at increasing distance thresholds
+    note: Reveals topological structure at all spatial scales simultaneously
+related_unknowns:
+  - u-phi-measurement-neural-correlates
+related_hypotheses:
+  - h-tda-cognitive-map-nontrivial-topology
+cross_pollination_opportunities:
+  - >
+    TDA of prefrontal cortex population activity during working memory, decision-making,
+    or concept learning could reveal whether abstract mental representations have
+    non-trivial topological structure (loops, tori, other manifolds) — directly testing
+    theories of conceptual spaces (Gärdenfors) that predict geometric structure in
+    semantic representations.
+  - >
+    Persistent homology applied to fMRI data at rest or during task could identify
+    disease-specific changes in the topology of functional connectivity — a
+    topological biomarker for psychiatric and neurological conditions that complements
+    standard functional connectivity measures.
+communication_gap: >
+  Algebraic topology is not standard training for neuroscientists; the mathematical
+  formalism of persistent homology requires graduate-level algebraic topology background.
+  The neuroscience community adopted TDA tools through the Curto & Itskov (2008) paper
+  but the full mathematical machinery remains inaccessible to most experimentalists.
+last_reviewed: "2026-05-06"
+references:
+  - doi: 10.1007/s00454-004-1146-y
+    note: "Zomorodian & Carlsson (2005). Computing persistent homology. Discrete Comput Geom 33:249."
+  - doi: 10.1371/journal.pcbi.1000205
+    note: "Curto & Itskov (2008). Cell groups reveal structure of stimulus space. PLOS Comput Biol 4:e1000205."
+  - doi: 10.1038/s41586-021-04268-7
+    note: "Gardner et al. (2022). Toroidal topology of population activity in grid cells. Nature 602:281."
+  - doi: 10.1090/S0273-0979-09-01249-X
+    note: "Carlsson, G. (2009). Topology and data. Bull AMS 46:255."

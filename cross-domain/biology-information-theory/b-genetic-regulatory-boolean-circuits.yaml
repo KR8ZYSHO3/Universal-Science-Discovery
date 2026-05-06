@@ -1,0 +1,61 @@
+id: b-genetic-regulatory-boolean-circuits
+title: Kauffman's NK model maps gene regulatory networks onto Boolean circuits — cell types are attractors and the critical K=2 regime corresponds to edge-of-chaos dynamics
+status: established
+fields:
+  - biology
+  - information-theory
+  - computer-science
+bridge_claim: >
+  Kauffman (1969) modeled gene regulatory networks as Boolean networks: N genes each
+  updated by a Boolean function of K randomly chosen inputs. For K < 2, networks freeze
+  in ordered attractors; for K > 2, trajectories are chaotic (exponential sensitivity
+  to initial conditions). At K = 2, networks self-organize to the edge of chaos — the
+  critical point between ordered and chaotic phases, analogous to the critical point
+  in random Boolean circuits (computational complexity). Critical K=2 networks have
+  attractor cycle lengths ∝ √N (matching observed cell cycle times), ~√N distinct
+  attractors (matching observed cell type numbers per organism), and maximum
+  computational capacity. Cell types correspond to dynamical attractors; cell fate
+  decisions correspond to perturbations that shift the system between attractor basins.
+translation_table:
+  - field_a_term: gene (node in Boolean network)
+    field_b_term: logic gate in Boolean circuit
+    note: Each gene has K inputs and one Boolean function (output = on/off expression)
+  - field_a_term: K (number of regulatory inputs per gene)
+    field_b_term: fan-in of logic gate
+    note: K = 2 corresponds to NAND/NOR gate connectivity — sufficient for universality
+  - field_a_term: attractor of Boolean network dynamics
+    field_b_term: stable computational state / register value
+    note: Cell types = attractors; ~sqrt(N) attractors in critical K=2 networks
+  - field_a_term: perturbation spreading (Hamming distance between trajectories)
+    field_b_term: sensitivity of circuit output to input changes
+    note: "Ordered phase: perturbations die out; Chaotic phase: perturbations spread; Critical: marginal"
+related_unknowns:
+  - u-genetic-circuit-crosstalk-noise
+related_hypotheses:
+  - h-kauffman-critical-k2-attractor-cell-types
+cross_pollination_opportunities:
+  - >
+    CRISPR-based combinatorial perturbation screens (Perturb-seq) now measure the
+    regulatory responses of thousands of genes to hundreds of combinatorial perturbations
+    simultaneously — the first empirical data rich enough to fit NK model parameters
+    and test whether real gene networks sit at K ≈ 2 with attractor structure
+    matching cell type diversity.
+  - >
+    Boolean network attractor computation has been applied to cancer: oncogenic mutations
+    as perturbations shifting the epigenetic attractor landscape from normal to cancerous
+    cell types. Drug targets become nodes whose flipping shifts the network back toward
+    normal attractors — mechanism design for cell fate control.
+communication_gap: >
+  Systems biology and network medicine literatures are aware of Kauffman's NK model
+  but treat it as qualitative metaphor rather than quantitative framework. The Boolean
+  circuit / computational complexity connection (random circuit phase transitions) is
+  not part of standard bioinformatics or systems biology training.
+last_reviewed: "2026-05-06"
+references:
+  - doi: 10.1016/S0022-5193(69)80016-0
+    note: "Kauffman, S.A. (1969). Metabolic stability and epigenesis in randomly constructed genetic nets. J Theor Biol 22:437."
+  - note: "Kauffman, S.A. (1993). The Origins of Order: Self-Organization and Selection in Evolution. Oxford University Press."
+  - doi: 10.1016/S0022-5193(03)00028-6
+    note: "Aldana et al. (2003). Boolean dynamics of networks with scale-free topology. J Theor Biol 223:433."
+  - doi: 10.1209/0295-5075/1/2/001
+    note: "Derrida & Pomeau (1986). Random networks of automata: a simple annealed approximation. Europhys Lett 1:45."

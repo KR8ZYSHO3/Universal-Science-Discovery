@@ -1,0 +1,27 @@
+id: u-persistent-homology-noise-thresholds
+title: What statistical criteria distinguish topologically significant features from noise in persistent homology, and how do these criteria scale with dataset size?
+status: open
+priority: medium
+disciplines:
+  - algebraic-topology
+  - statistics
+  - data-science
+summary: >
+  Persistent homology produces a persistence diagram with (birth, death) pairs for each
+  topological feature. Long-lived features (large persistence = death - birth) are
+  conventionally treated as signal; short-lived features as noise. But in high-dimensional
+  neuroscience data, signal features may have short persistence due to embedding effects,
+  and noise features in small datasets may have long persistence by chance. Bootstrap
+  methods for persistence diagrams exist (Chazal et al. 2014) but require assumptions
+  about the data-generating process that are difficult to verify. For single-trial
+  neural data (few hundred time points, hundreds of neurons), the statistical power
+  to detect one-dimensional holes (loops) is poorly characterized.
+systematic_gaps:
+  - No systematic study of statistical power for persistent homology as a function
+    of (sample size, embedding dimension, noise level) has been published.
+  - The appropriate null hypothesis for persistent homology in neural data is not
+    established; the most common null (random rotation of data) does not preserve
+    trial structure.
+related_bridges:
+  - b-persistent-homology-neural-representation
+last_reviewed: "2026-05-06"
