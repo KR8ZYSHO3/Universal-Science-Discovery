@@ -1,5 +1,5 @@
 {
-  "count": 146,
+  "count": 158,
   "items": [
     {
       "id": "b-grokking-criticality",
@@ -891,6 +891,76 @@
       "file": "cross-domain\\biology-astrobiology\\b-lichen-astrobiology.yaml"
     },
     {
+      "id": "b-crispr-programmable-genome-editing",
+      "title": "CRISPR-Cas9 ↔ biological search-and-replace algorithm — programmable genome editing as string computation",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "CRISPR-Cas9 is a programmable biological search-and-replace algorithm operating on the genome as a character string. The guide RNA (gRNA, ~20 nucleotides) is the search pattern; Cas9 protein is the endonuclease (cut function); the PAM sequence (NGG for SpCas9) is the address delimiter that restricts",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-genome-as-distributed-write-once-storage"
+      ],
+      "communication_gap": "Molecular biologists and computer scientists both have deep relevant expertise but collaborate rarely on CRISPR design. Bioinformatics bridges the gap computationally (off-target prediction tools like Cas-OFFinder, CRISPOR use string-matching algorithms), but the formal computer science framing — complexity analysis, information-theoretic limits on specificity — is rarely applied. Most CRISPR engineering is empirical rather than theory-driven.\n",
+      "translation_table": [
+        {
+          "field_a_term": "guide RNA sequence (20 nt)",
+          "field_b_term": "search pattern / query string",
+          "note": "The gRNA defines which genomic address is targeted; changing it reprograms the cut site"
+        },
+        {
+          "field_a_term": "Cas9 endonuclease",
+          "field_b_term": "cut / write function",
+          "note": "Cas9 executes the edit once the gRNA has located the match"
+        },
+        {
+          "field_a_term": "PAM sequence (NGG)",
+          "field_b_term": "address delimiter / restriction site",
+          "note": "PAM must immediately follow the protospacer; limits addressable sites to ~1 in 8 bp"
+        },
+        {
+          "field_a_term": "base-pair complementarity (Watson-Crick)",
+          "field_b_term": "exact string matching",
+          "note": "The thermodynamic energy of hybridisation is the matching score"
+        },
+        {
+          "field_a_term": "off-target editing (mismatches tolerated)",
+          "field_b_term": "approximate string matching (fuzzy search)",
+          "note": "Cas9 tolerates up to ~5 mismatches — analogous to edit distance tolerance in BLAST"
+        },
+        {
+          "field_a_term": "multiplexed editing (multiple gRNAs)",
+          "field_b_term": "parallel multi-pattern search (Aho-Corasick)",
+          "note": "Multiple gRNAs can be co-expressed for simultaneous edits at independent loci"
+        },
+        {
+          "field_a_term": "prime editing pegRNA (spacer + RT template)",
+          "field_b_term": "find-and-replace with specified replacement string",
+          "note": "pegRNA encodes both the search sequence and the replacement — full string rewrite"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1126/science.1225829",
+          "note": "Doudna & Charpentier (2012) Science 337:816 — CRISPR-Cas9 as programmable endonuclease"
+        },
+        {
+          "doi": "10.1126/science.1231143",
+          "note": "Cong et al. (2013) Science 339:819 — genome editing in eukaryotic cells"
+        },
+        {
+          "doi": "10.1016/j.cell.2014.05.010",
+          "note": "Hsu et al. (2014) Cell 157:1262 — off-target effects and specificity"
+        },
+        {
+          "doi": "10.1038/s41586-019-1711-4",
+          "note": "Anzalone et al. (2019) Nature 576:149 — prime editing (find-and-replace)"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\biology-computer-science\\b-crispr-programmable-genome-editing.yaml"
+    },
+    {
       "id": "b-dna-digital-error-correcting-code",
       "title": "The genetic code is a near-optimal digital error-correcting code: codon degeneracy implements a natural parity-check scheme that minimises the chemical impact of single-base mutations, and the 64-codon/20-amino-acid mapping operates near the Shannon capacity of the DNA replication channel.\n",
       "source_domain": "",
@@ -1090,6 +1160,71 @@
       "file": "cross-domain\\biology-medicine\\b-glymphatic-aging.yaml"
     },
     {
+      "id": "b-active-matter-cytoskeletal",
+      "title": "Active matter physics ↔ cytoskeletal dynamics — living contractile gels and biological pattern formation",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Active matter describes systems of self-propelled units that consume energy to generate mechanical forces and motion at the expense of internal free energy — far from thermodynamic equilibrium. The cell cytoskeleton is the canonical active matter system: actin filaments (passive polymer) + myosin II",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-topological-defects-as-mechanobiological-signals"
+      ],
+      "communication_gap": "Active matter physics emerged from the statistical physics community (Toner, Tu, Marchetti, Ramaswamy) with limited connection to cell biologists. The landmark Marchetti et al. (2013) Rev Mod Phys review presented the theory largely to physicists. Cell biologists studying cytoskeletal dynamics rarely read physical review journals. The Saw et al. (2017) Nature paper was transformative precisely because it bridged the communities by placing the abstract topological defect concept directly in a cell biology context with clear physiological implications.\n",
+      "translation_table": [
+        {
+          "field_a_term": "active stress tensor σ_active = −ζQ",
+          "field_b_term": "myosin-generated cortical tension in cells",
+          "note": "ζ > 0 (contractile): cortex contracts toward order; ζ < 0 (extensile): stress fibres push out"
+        },
+        {
+          "field_a_term": "activity coefficient ζ (energy input rate)",
+          "field_b_term": "ATP hydrolysis rate / myosin motor density",
+          "note": "Biochemical free energy input parameterised by a single physical coefficient"
+        },
+        {
+          "field_a_term": "nematic order parameter Q (orientation tensor)",
+          "field_b_term": "actin filament alignment / cell elongation direction",
+          "note": "Q = 0 (isotropic disordered) → Q = 1 (fully aligned); measured by fluorescence polarisation"
+        },
+        {
+          "field_a_term": "+½ topological defect in active nematic",
+          "field_b_term": "cellular extrusion site (cell elimination from epithelium)",
+          "note": "Saw et al. 2017: +½ defects generate compressive stress that squeezes cells out of monolayer"
+        },
+        {
+          "field_a_term": "Toner-Tu equations (polar active fluid hydrodynamics)",
+          "field_b_term": "collective cell migration / flocking of motile cells",
+          "note": "The same PDE describes bird flocks, bacterial swarms, and migrating epithelial sheets"
+        },
+        {
+          "field_a_term": "spontaneous flow instability (ζ > ζ_c)",
+          "field_b_term": "spontaneous actin cortex oscillations in confined cells",
+          "note": "Above a critical activity, the uniform state becomes unstable — predicts spontaneous cortex dynamics"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1103/PhysRevLett.75.4326",
+          "note": "Toner & Tu (1995) Phys Rev Lett 75:4326 — hydrodynamics of active polar fluids"
+        },
+        {
+          "doi": "10.1103/RevModPhys.85.1143",
+          "note": "Marchetti et al. (2013) Rev Mod Phys 85:1143 — comprehensive active matter review"
+        },
+        {
+          "doi": "10.1146/annurev-conmatphys-070909-104101",
+          "note": "Ramaswamy (2010) Annu Rev Condens Matter Phys 1:323 — mechanics and statistics of active matter"
+        },
+        {
+          "doi": "10.1038/nature21718",
+          "note": "Saw et al. (2017) Nature 544:212 — topological defects trigger cell extrusion"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\biology-physics\\b-active-matter-cytoskeletal.yaml"
+    },
+    {
       "id": "b-molecular-motors-thermodynamic-efficiency",
       "title": "Biological molecular motors (myosin, kinesin, ATP synthase) convert chemical free energy to mechanical work at 25-40% efficiency near the Carnot limit, verified by the Jarzynski equality connecting non-equilibrium work to equilibrium free energy, establishing single-molecule thermodynamics as a bridge between biophysics and mechanical engineering.\n",
       "source_domain": "",
@@ -1153,6 +1288,71 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\biophysics-engineering\\b-molecular-motors-thermodynamic-efficiency.yaml"
+    },
+    {
+      "id": "b-michaelis-menten-enzyme-kinetics",
+      "title": "Michaelis-Menten enzyme kinetics ↔ hyperbolic saturation — a universal functional form across biology, chemistry, and ecology",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The Michaelis-Menten equation v = V_max[S]/(K_M + [S]) describes enzyme-catalysed reaction rates via a quasi-steady-state approximation (Briggs & Haldane 1925) applied to the E + S ⇌ ES → E + P mechanism. The Michaelis constant K_M ≈ (k_off + k_cat)/k_on is the substrate concentration at half-maxima",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-universal-saturation-kinetics-evolutionary-origin"
+      ],
+      "communication_gap": "The Michaelis-Menten equation was published in a German biochemistry journal in 1913 and the Langmuir isotherm in an American chemistry journal in 1918 — the communities were completely separate. Monod rediscovered the same form in microbiology in 1949. Holling derived it independently for ecology in 1959. Each field considers the equation 'theirs', teaches it with different notation, and rarely acknowledges the cross-domain equivalence. This perpetuates independent parameter estimation methodology and hampers cross-domain model transfer.\n",
+      "translation_table": [
+        {
+          "field_a_term": "maximum velocity V_max (enzyme kinetics)",
+          "field_b_term": "maximum adsorption θ_max (Langmuir) / μ_max (Monod) / a (Holling)",
+          "note": "The saturation ceiling — set by the number of active sites or handling time"
+        },
+        {
+          "field_a_term": "Michaelis constant K_M",
+          "field_b_term": "Langmuir K_d (dissociation const) / Monod K_s / Holling h (half-saturation)",
+          "note": "The half-saturation constant — substrate/ligand concentration at 50% of maximum"
+        },
+        {
+          "field_a_term": "enzyme-substrate complex ES",
+          "field_b_term": "bound receptor-ligand complex / adsorbed molecule / predator handling prey",
+          "note": "The occupied state that saturates the system"
+        },
+        {
+          "field_a_term": "k_cat (catalytic rate constant)",
+          "field_b_term": "reaction rate after binding / desorption rate / prey handling rate",
+          "note": "The rate-limiting step following binding"
+        },
+        {
+          "field_a_term": "substrate concentration [S]",
+          "field_b_term": "ligand/adsorbate concentration / nutrient concentration / prey density",
+          "note": "The independent variable driving the saturable process"
+        },
+        {
+          "field_a_term": "competitive inhibition (shifts K_M)",
+          "field_b_term": "ligand competition / nutrient competition between species",
+          "note": "Same competitive displacement mathematics in all domains"
+        }
+      ],
+      "references": [
+        {
+          "note": "Michaelis & Menten (1913) Biochem Z 49:333 — original enzyme kinetics derivation",
+          "url": "https://doi.org/10.1016/S0307-4412(13)00153-8"
+        },
+        {
+          "note": "Briggs & Haldane (1925) Biochem J 19:338 — quasi-steady-state approximation",
+          "doi": "10.1042/bj0190338"
+        },
+        {
+          "doi": "10.1021/ja02242a004",
+          "note": "Langmuir (1918) J Am Chem Soc 40:1361 — adsorption isotherm"
+        },
+        {
+          "note": "Monod (1949) Annu Rev Microbiol 3:371 — microbial growth kinetics",
+          "doi": "10.1146/annurev.mi.03.100149.002103"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\chemistry-biology\\b-michaelis-menten-enzyme-kinetics.yaml"
     },
     {
       "id": "b-pem-hydrogen-economy",
@@ -1930,6 +2130,71 @@
       "file": "cross-domain\\computer-science-neuroscience\\b-transformer-attention-neural-attention.yaml"
     },
     {
+      "id": "b-pac-learning-generalization",
+      "title": "PAC learning theory ↔ statistical generalisation — VC dimension as the degrees of freedom of a hypothesis class",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "PAC (Probably Approximately Correct) learning theory (Valiant 1984) provides a mathematical framework for when a learning algorithm can generalise from training data to unseen examples. A concept class C is PAC-learnable if for any accuracy ε and confidence δ there exists a polynomial-time algorithm",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-deep-learning-implicit-regularisation-as-minimum-description-length"
+      ],
+      "communication_gap": "Valiant (computer scientist) and Vapnik-Chervonenkis (statisticians) worked completely independently — Valiant's 1984 paper appeared in Comm ACM (computer science) while VC theory was in Soviet statistics journals. The formal equivalence between VC theory and classical statistics (AIC, BIC) is rarely taught in either machine learning or statistics courses. Statistical physics approaches to learning theory (Gardner, Derrida, Zdeborová) are published in physics journals mostly unknown to machine learning researchers despite solving problems the ML community still treats as open.\n",
+      "translation_table": [
+        {
+          "field_a_term": "VC dimension d_VC",
+          "field_b_term": "effective number of parameters / model complexity",
+          "note": "d_VC bounds overfitting exactly as AIC penalises free parameters in classical statistics"
+        },
+        {
+          "field_a_term": "PAC sample complexity m = O(d_VC/ε)",
+          "field_b_term": "statistical sample size for consistent estimation",
+          "note": "Both quantify how much data is needed to reliably estimate a model of given complexity"
+        },
+        {
+          "field_a_term": "shattering (perfectly classifying all 2ⁿ labellings of n points)",
+          "field_b_term": "interpolation / memorisation of training data",
+          "note": "H shatters n points → H can overfit n points perfectly; analogous to exact interpolation"
+        },
+        {
+          "field_a_term": "Rademacher complexity",
+          "field_b_term": "expected maximum correlation with random noise",
+          "note": "Tighter modern complexity measure; analogous to Fisher information in statistics"
+        },
+        {
+          "field_a_term": "bias-variance tradeoff (underfitting vs overfitting)",
+          "field_b_term": "model selection tradeoff (too simple vs too complex)",
+          "note": "Identical concept in machine learning and classical statistics; PAC quantifies it exactly"
+        },
+        {
+          "field_a_term": "double descent phenomenon (test error dips again past interpolation threshold)",
+          "field_b_term": "phase transition in statistical physics (disorder-order transition)",
+          "note": "Modern DNN behaviour: above d_VC threshold, test error decreases again — a phase transition"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1145/1968.1972",
+          "note": "Valiant (1984) Commun ACM 27:1134 — PAC learning framework"
+        },
+        {
+          "note": "Vapnik & Chervonenkis (1971) Theor Prob Appl 16:264 — VC dimension",
+          "doi": "10.1137/1116025"
+        },
+        {
+          "doi": "10.1145/76359.76371",
+          "note": "Blumer et al. (1989) J ACM 36:929 — VC dimension and PAC learnability equivalence"
+        },
+        {
+          "note": "Shalev-Shwartz & Ben-David (2014) Understanding Machine Learning. Cambridge University Press.",
+          "url": "https://www.cs.huji.ac.il/~shais/UnderstandingMachineLearning/"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\computer-science-statistics\\b-pac-learning-generalization.yaml"
+    },
+    {
       "id": "b-liquid-crystal-cell-membranes",
       "title": "Cell membranes are two-dimensional liquid crystals — lipid bilayers exhibit orientational order without positional order, obeying Frank elastic energy, with membrane proteins as topological defects and lipid-raft phase separation as a liquid-liquid phase transition in a 2D system.\n",
       "source_domain": "",
@@ -2323,6 +2588,136 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\ecology-mathematics\\b-neutral-theory-random-matrix.yaml"
+    },
+    {
+      "id": "b-food-webs-cascade-dynamics",
+      "title": "Ecological food webs as directed networks — trophic cascade dynamics as network percolation",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Ecological food webs are directed weighted networks where nodes are species and edges represent trophic interactions (energy flow from prey to predator). Network structural properties predict ecosystem stability and cascade dynamics. Connectance C = L/S² (number of links L over species² S²) is the n",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-keystone-species-betweenness-predicts-cascade-risk"
+      ],
+      "communication_gap": "May (1973) introduced random graph theory to ecology in a landmark book, but most ecologists remained unfamiliar with network science until the early 2000s when Dunne, Williams and Martinez explicitly mapped food webs onto complex network theory. Financial network contagion modelling (Eisenberg-Noe 2001) developed independently with no awareness of the food web cascade literature. Both fields have since rediscovered each other's concepts but still rarely co-publish.\n",
+      "translation_table": [
+        {
+          "field_a_term": "species (node)",
+          "field_b_term": "node in food web network",
+          "note": "Each species is a node; biomass and body size determine node 'weight'"
+        },
+        {
+          "field_a_term": "trophic interaction (directed edge, prey → predator)",
+          "field_b_term": "energy flow / biomass transfer rate (edge weight)",
+          "note": "Directed edges from resource to consumer; weights proportional to energy transfer efficiency"
+        },
+        {
+          "field_a_term": "connectance C = L/S²",
+          "field_b_term": "network density / edge probability",
+          "note": "May (1972): stability decreases with increasing connectance — analogous to percolation threshold"
+        },
+        {
+          "field_a_term": "keystone species (high betweenness centrality)",
+          "field_b_term": "hub node / articulation point",
+          "note": "Removal disconnects major portions of the network; classic example: sea otters (Paine 1966)"
+        },
+        {
+          "field_a_term": "trophic cascade (secondary extinction wave)",
+          "field_b_term": "cascade failure / contagion propagation",
+          "note": "Identical dynamics to cascade failures in power grids and financial networks"
+        },
+        {
+          "field_a_term": "robustness to species loss",
+          "field_b_term": "network resilience to node deletion",
+          "note": "Dunne et al.: targeted hub deletion mimics Barabási-Albert robustness analysis exactly"
+        }
+      ],
+      "references": [
+        {
+          "note": "May (1973) Stability and Complexity in Model Ecosystems. Princeton University Press.",
+          "url": "https://press.princeton.edu/books/paperback/9780691088617/stability-and-complexity-in-model-ecosystems"
+        },
+        {
+          "note": "Paine (1966) Am Nat 100:65 — keystone predator concept (sea otters and urchins)",
+          "doi": "10.1086/282400"
+        },
+        {
+          "doi": "10.1073/pnas.192407699",
+          "note": "Dunne et al. (2002) PNAS 99:12917 — food web robustness via network theory"
+        },
+        {
+          "doi": "10.1038/nature04927",
+          "note": "Montoya et al. (2006) Nature 442:259 — ecological networks and cascade dynamics"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\ecology-network-science\\b-food-webs-cascade-dynamics.yaml"
+    },
+    {
+      "id": "b-metabolic-scaling-fractal-networks",
+      "title": "Fractal vascular network geometry ↔ ¾-power metabolic scaling law — West-Brown-Enquist theory",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "West, Brown & Enquist (1997) derived Kleiber's empirical ¾-power metabolic scaling law B ∝ M^(3/4) from first principles using the fractal geometry of biological distribution networks (vascular, bronchial, plant xylem). The derivation assumes three constraints: (1) the network is space-filling (frac",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-fractal-network-universal-life-history-clock"
+      ],
+      "communication_gap": "The West-Brown-Enquist paper appeared in Science but was largely developed by physicists (West) in collaboration with ecologists (Brown, Enquist). Mainstream ecology journals were initially skeptical — many ecologists distrusted the level of mathematical abstraction. Subsequent debates about deviations from ¾ scaling (some taxa show 2/3 exponents) have been productive but are conducted largely in separate literatures (ecology vs biophysics) with limited cross-citation.\n",
+      "translation_table": [
+        {
+          "field_a_term": "space-filling fractal network (D_f = 3)",
+          "field_b_term": "body mass M (mass scales as L³)",
+          "note": "The fractal must fill three-dimensional space to supply every cell; this fixes the exponent"
+        },
+        {
+          "field_a_term": "area-preserving branching rule (∑ rᵢ² = r_{parent}²)",
+          "field_b_term": "Murray's law minimising transport resistance",
+          "note": "Optimal branching geometry from fluid dynamics; confirmed in vascular anatomy"
+        },
+        {
+          "field_a_term": "invariant terminal unit (capillary/alveolus size)",
+          "field_b_term": "cell size near-invariance across species",
+          "note": "The boundary condition: all organisms service the same capillary-to-cell geometry"
+        },
+        {
+          "field_a_term": "fractal branching exponent a = 1/3 (radius ratio)",
+          "field_b_term": "metabolic scaling exponent β = 3/4",
+          "note": "β = D_f/(D_f+1) = 3/4 for D_f = 3 — pure geometry determines the exponent"
+        },
+        {
+          "field_a_term": "number of branching generations N ~ ln(M)",
+          "field_b_term": "organismal lifespan scaling ∝ M^{1/4}",
+          "note": "The same network depth parameter predicts multiple life-history traits"
+        },
+        {
+          "field_a_term": "pulsatile vs steady flow transition",
+          "field_b_term": "heart rate ∝ M^{-1/4}",
+          "note": "Womersley number analysis of the branching network predicts the heart rate exponent"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1126/science.276.5309.122",
+          "note": "West, Brown & Enquist (1997) Science 276:122 — derivation of ¾-power law"
+        },
+        {
+          "note": "Kleiber (1932) Hilgardia 6:315 — the original empirical ¾ scaling observation",
+          "url": "https://hilgardia.ucanr.edu/fileaccess.cfm?article=152208&p=FBHOJH"
+        },
+        {
+          "doi": "10.1126/science.284.5420.1677",
+          "note": "West et al. (1999) Science 284:1677 — life history and growth from network model"
+        },
+        {
+          "doi": "10.1111/j.0269-8463.2004.00856.x",
+          "note": "Savage et al. (2004) Funct Ecol 18:257 — tests and critiques of the WBE model"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\ecology-physics\\b-metabolic-scaling-fractal-networks.yaml"
     },
     {
       "id": "b-species-distribution-maxent",
@@ -3484,6 +3879,71 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\geology-statistical-physics\\b-earthquake-soc.yaml"
+    },
+    {
+      "id": "b-kriging-geostatistics",
+      "title": "Kriging / geostatistics ↔ Gaussian process regression — optimal spatial interpolation as machine learning",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Kriging (Krige 1951, formalised by Matheron 1963) is the minimum-variance linear unbiased estimator for spatially correlated data: Ẑ(x₀) = Σᵢ λᵢZ(xᵢ), where the optimal weights λᵢ are determined by solving the kriging system derived from the variogram γ(h) = ½E[Z(x+h)−Z(x)]². The variogram quantifie",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-geostatistical-kriging-as-optimal-climate-downscaling"
+      ],
+      "communication_gap": "Matheron's geostatistics school (Paris) published in French mining engineering journals inaccessible to English-speaking statisticians. Gaussian process regression entered machine learning through O'Hagan's Bayesian statistics (1970s) and Rasmussen's computational work (2006) with no awareness of Krige or Matheron. The formal equivalence was established in scattered statistics papers (Cressie 1990, Stein 1999) but has not fully propagated to either community. Software ecosystems remain separate (GSLIB vs GPy/GPflow).\n",
+      "translation_table": [
+        {
+          "field_a_term": "variogram γ(h) = ½Var[Z(x+h)−Z(x)]",
+          "field_b_term": "GP covariance kernel k(x,x') = Cov[f(x),f(x')]",
+          "note": "Stationary kernel: γ(h) = σ² − k(h); Matérn, spherical, exponential kernels all have variogram equivalents"
+        },
+        {
+          "field_a_term": "kriging system (matrix equation for weights λᵢ)",
+          "field_b_term": "GP posterior mean (kernel matrix inversion)",
+          "note": "Algebraically identical systems of equations; differ only in notation and derivation route"
+        },
+        {
+          "field_a_term": "kriging variance σ²_K(x₀)",
+          "field_b_term": "GP posterior variance σ²_GP(x₀)",
+          "note": "Both quantify prediction uncertainty; equivalent under the stationarity assumption"
+        },
+        {
+          "field_a_term": "nugget effect (variance at zero lag)",
+          "field_b_term": "observation noise variance σ²_n",
+          "note": "Both represent measurement error plus micro-scale variability below the sampling scale"
+        },
+        {
+          "field_a_term": "sill (variogram asymptote)",
+          "field_b_term": "GP prior variance σ²_f",
+          "note": "The asymptotic variance at large lag — the prior signal variance in GP language"
+        },
+        {
+          "field_a_term": "range (lag at which variogram reaches sill)",
+          "field_b_term": "lengthscale ℓ (kernel bandwidth)",
+          "note": "Controls the spatial correlation distance; equivalent to kernel lengthscale"
+        }
+      ],
+      "references": [
+        {
+          "note": "Krige (1951) J S Afr Inst Min Metall 52:119 — original kriging for gold ore estimation",
+          "url": "https://journals.co.za/doi/10.10520/AJA0038223X_4765"
+        },
+        {
+          "note": "Matheron (1963) Econ Geol 58:1246 — formal theory of regionalised variables",
+          "doi": "10.2113/gsecongeo.58.8.1246"
+        },
+        {
+          "note": "Journel & Huijbregts (1978) Mining Geostatistics. Academic Press.",
+          "url": "https://www.sciencedirect.com/book/9780123910507"
+        },
+        {
+          "note": "Rasmussen & Williams (2006) Gaussian Processes for Machine Learning. MIT Press.",
+          "url": "http://www.gaussianprocess.org/gpml/"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\geophysics-statistics\\b-kriging-geostatistics.yaml"
     },
     {
       "id": "b-plate-tectonics-topology",
@@ -5211,6 +5671,71 @@
       "file": "cross-domain\\mathematics-evolution\\b-game-theory-evolution.yaml"
     },
     {
+      "id": "b-stochastic-calculus-black-scholes",
+      "title": "Itô stochastic calculus ↔ Black-Scholes option pricing — the heat equation in disguise",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Itô calculus (1944) defines stochastic differential equations driven by Brownian motion dW, where the non-anticipating Itô integral and Itô's lemma — the stochastic chain rule — replace ordinary calculus. Applied to a self-financing hedged portfolio (Black & Scholes 1973, Merton 1973), Itô's lemma y",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-stochastic-volatility-as-turbulent-diffusion"
+      ],
+      "communication_gap": "The Black-Scholes paper (1973) was initially rejected by multiple journals because economists were unfamiliar with stochastic calculus. The heat equation connection was known to mathematical physicists but finance departments rarely included physicists. The field of quantitative finance emerged largely through practitioners (Fischer Black had a physics background) rather than academic cross-pollination. Today the connection is taught in mathematical finance programs but rarely in physics curricula — the bridge is one-directional.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Brownian motion W(t)",
+          "field_b_term": "log-price random walk ln(S(t)/S₀)",
+          "note": "Both are Wiener processes; volatility σ scales the diffusion coefficient"
+        },
+        {
+          "field_a_term": "Itô's lemma (stochastic chain rule)",
+          "field_b_term": "delta-hedging argument (no-arbitrage portfolio)",
+          "note": "Itô's lemma applied to V(S,t) generates the PDE; hedging eliminates the dW term"
+        },
+        {
+          "field_a_term": "heat equation ∂u/∂τ = D ∂²u/∂x²",
+          "field_b_term": "Black-Scholes PDE (after log-price substitution)",
+          "note": "D = ½σ²; the two equations are algebraically identical under variable substitution"
+        },
+        {
+          "field_a_term": "heat kernel / Gaussian propagator G(x,τ)",
+          "field_b_term": "Black-Scholes log-normal distribution of future prices",
+          "note": "The fundamental solution of the heat equation gives the risk-neutral price distribution"
+        },
+        {
+          "field_a_term": "initial temperature distribution (boundary condition)",
+          "field_b_term": "option payoff function max(S−K, 0) at expiry",
+          "note": "Both specify the boundary condition that the PDE is solved backward from"
+        },
+        {
+          "field_a_term": "thermal diffusivity D",
+          "field_b_term": "implied volatility σ",
+          "note": "Calibrating σ from market prices ≡ measuring thermal diffusivity from temperature data"
+        }
+      ],
+      "references": [
+        {
+          "note": "Itô (1944) — stochastic integral and Itô's lemma",
+          "url": "https://doi.org/10.52547/ijmsi.15.2.111"
+        },
+        {
+          "doi": "10.1086/260062",
+          "note": "Black & Scholes (1973) J Polit Econ 81:637 — the original option pricing formula"
+        },
+        {
+          "doi": "10.2307/3003143",
+          "note": "Merton (1973) Bell J Econ 4:141 — continuous-time finance and the PDE derivation"
+        },
+        {
+          "note": "Shreve (2004) Stochastic Calculus for Finance II — graduate textbook connecting Itô calculus to Black-Scholes",
+          "url": "https://link.springer.com/book/9780387401010"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\mathematics-finance\\b-stochastic-calculus-black-scholes.yaml"
+    },
+    {
       "id": "b-zipf-law-information-efficiency",
       "title": "Zipf's law (word frequency f_r ∝ r^{-α}, α ≈ 1) emerges from entropy maximisation in communication systems — it is the signature of a channel operating at maximum communicative efficiency minimising joint speaker-listener effort, and the same power law appears in city sizes, income distributions, citation counts, and any rank-frequency distribution generated by an entropy-maximising process under a frequency constraint.\n",
       "source_domain": "",
@@ -5341,6 +5866,71 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\mathematics-medicine\\b-topology-disease-progression.yaml"
+    },
+    {
+      "id": "b-dynamical-systems-neural-oscillations",
+      "title": "Nonlinear dynamical systems theory ↔ neural oscillations and brain rhythms — bifurcations at cognitive boundaries",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Neural populations exhibit characteristic oscillations (alpha 8-12 Hz, gamma 30-80 Hz, theta 4-8 Hz, beta 12-30 Hz) whose emergence, frequency, and amplitude are governed by the bifurcation structure of the underlying nonlinear dynamical system. The Wilson-Cowan equations (1972) describe coupled exc",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-seizure-bifurcation-early-warning-signal"
+      ],
+      "communication_gap": "Wilson and Cowan were neuroscientists using mathematics, but the dynamical systems language became dominant in computational neuroscience only in the 1990s (Rinzel, Ermentrout). Neurologists studying seizures rarely use bifurcation theory despite its predictive power. The 'neuro-dynamicists' and clinical neurologists publish in separate journals. Mathematicians with expertise in nonlinear dynamics rarely have neuroscience collaborators and vice versa.\n",
+      "translation_table": [
+        {
+          "field_a_term": "fixed point (stable equilibrium)",
+          "field_b_term": "tonic neural firing rate / resting state",
+          "note": "The brain at rest or under general anaesthesia at a dynamical fixed point"
+        },
+        {
+          "field_a_term": "limit cycle",
+          "field_b_term": "sustained neural oscillation (gamma, theta, alpha)",
+          "note": "Periodic orbit in E-I phase space; frequency determined by eigenvalues at the Hopf bifurcation"
+        },
+        {
+          "field_a_term": "Hopf bifurcation (stable fixed point → limit cycle)",
+          "field_b_term": "oscillation onset as excitation increases",
+          "note": "Critical slowing down predicts the gamma oscillation onset threshold"
+        },
+        {
+          "field_a_term": "bifurcation parameter (excitation/inhibition ratio E/I)",
+          "field_b_term": "neuromodulator levels (dopamine, acetylcholine, GABA)",
+          "note": "Pharmacological interventions shift the E/I ratio and the bifurcation structure"
+        },
+        {
+          "field_a_term": "chaotic attractor (sensitivity to initial conditions)",
+          "field_b_term": "irregular neural firing / cognitive flexibility",
+          "note": "Moderate chaos may be functionally beneficial — 'edge of chaos' hypothesis"
+        },
+        {
+          "field_a_term": "phase locking / synchronisation between oscillators",
+          "field_b_term": "neural synchrony (gamma synchronisation in visual binding)",
+          "note": "Kuramoto model predicts synchronisation threshold in large neural populations"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1016/S0006-3495(72)86068-5",
+          "note": "Wilson & Cowan (1972) Biophys J 12:1 — excitatory-inhibitory neural population equations"
+        },
+        {
+          "doi": "10.1073/pnas.81.10.3088",
+          "note": "Hopfield (1984) PNAS 81:3088 — neural networks with emergent computational properties"
+        },
+        {
+          "note": "Strogatz (1994) Nonlinear Dynamics and Chaos. Westview Press. — standard textbook",
+          "url": "https://www.routledge.com/Nonlinear-Dynamics-and-Chaos/Strogatz/p/book/9780813349107"
+        },
+        {
+          "note": "Buzsáki (2006) Rhythms of the Brain. Oxford University Press.",
+          "doi": "10.1093/acprof:oso/9780195301069.001.0001"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\mathematics-neuroscience\\b-dynamical-systems-neural-oscillations.yaml"
     },
     {
       "id": "b-group-theory-symmetry-breaking",
@@ -5860,6 +6450,71 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\neuroscience-fluid-dynamics\\b-glymphatic-cerebrospinal-fluid.yaml"
+    },
+    {
+      "id": "b-neural-coding-channel-capacity",
+      "title": "Sensory neurons as Shannon information channels — efficient coding and neural channel capacity",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The nervous system encodes stimuli as spike trains — discrete all-or-none action potentials — which can be analysed as Shannon communication channels. The channel capacity C = B log₂(1 + S/N) bounds the mutual information between stimulus and neural response, where B is the bandwidth (maximum firing",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-cortical-hierarchies-as-predictive-coding-stack"
+      ],
+      "communication_gap": "Barlow's 1961 proposal was in a book chapter (Sensory Communication) largely unread outside neuroscience. Information theory was being developed by engineers at Bell Labs simultaneously with no awareness of Barlow's parallel work. The mathematical connection was made explicit only in the 1990s with direct measurements by Strong, Fairhall and colleagues. Today computational neuroscience routinely uses information theory but most neuroscientists are not trained in Shannon theory, and most information theorists are unaware of the neural coding literature.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Shannon channel capacity C = B log₂(1+S/N)",
+          "field_b_term": "maximum information rate of a single neuron (~3 bits/spike)",
+          "note": "Measured directly from spike train statistics; typical values 1-4 bits/spike"
+        },
+        {
+          "field_a_term": "channel bandwidth B",
+          "field_b_term": "maximum neural firing rate (~1 kHz, limited by refractory period)",
+          "note": "The refractory period (~1 ms) is the physiological bandwidth constraint"
+        },
+        {
+          "field_a_term": "channel noise",
+          "field_b_term": "trial-to-trial variability (Fano factor, spike jitter)",
+          "note": "Poisson-like noise in spike generation; limits information transmission"
+        },
+        {
+          "field_a_term": "source entropy H(stimulus)",
+          "field_b_term": "natural image / sound statistics",
+          "note": "Efficient coding hypothesis: neurons adapt to the statistics of their natural stimulus environment"
+        },
+        {
+          "field_a_term": "data compression / redundancy reduction",
+          "field_b_term": "decorrelation / whitening in early visual system",
+          "note": "Lateral inhibition removes spatial correlations; center-surround receptive fields implement whitening"
+        },
+        {
+          "field_a_term": "mutual information I(X;Y)",
+          "field_b_term": "neural information transfer (bits/s measured via direct method)",
+          "note": "Strong et al. (1998) first measured this directly in H1 neuron of the fly"
+        }
+      ],
+      "references": [
+        {
+          "note": "Barlow (1961) Possible principles underlying the transformation of sensory messages. In Sensory Communication (MIT Press)",
+          "url": "https://mitpress.mit.edu/9780262691840/"
+        },
+        {
+          "note": "Shannon (1948) A Mathematical Theory of Communication. Bell Syst Tech J 27:379",
+          "doi": "10.1002/j.1538-7305.1948.tb01338.x"
+        },
+        {
+          "doi": "10.1103/PhysRevLett.80.197",
+          "note": "Strong et al. (1998) Phys Rev Lett 80:197 — direct measurement of neural information transmission"
+        },
+        {
+          "doi": "10.1038/35024638",
+          "note": "Fairhall et al. (2001) Nature 412:787 — adaptation maximises information near channel capacity"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\neuroscience-information-theory\\b-neural-coding-channel-capacity.yaml"
     },
     {
       "id": "b-predictive-coding-grammar",
@@ -7306,6 +7961,71 @@
       "file": "cross-domain\\physics-ecology\\b-turing-patterns-ecosystem-tipping.yaml"
     },
     {
+      "id": "b-entropy-production-market-irreversibility",
+      "title": "Non-equilibrium statistical mechanics ↔ financial market irreversibility — entropy production in price dynamics",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "proposed",
+      "bridge_claim": "Financial markets are fundamentally irreversible dynamical systems: transaction costs, bid-ask spreads, market impact, and information asymmetry make price dynamics time-asymmetric — the statistical distribution of forward price paths differs from that of time-reversed paths. This irreversibility is",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-arbitrage-as-entropy-decreasing-fluctuation"
+      ],
+      "communication_gap": "Non-equilibrium statistical mechanics (Jarzynski, Crooks, Seifert) is a rapidly developing physics field largely unknown to financial economists. Econophysics researchers (Mantegna, Stanley, Sornette) have made the equilibrium statistical mechanics analogy (partition function ↔ option price) well-known, but the non-equilibrium extension — where irreversibility is the central concept — remains a frontier. The Malkiel efficient market hypothesis is a verbal equilibrium claim; the non-equilibrium framework provides a quantitative test of departures from it.\n",
+      "translation_table": [
+        {
+          "field_a_term": "entropy production rate dS/dt > 0",
+          "field_b_term": "market irreversibility / time-asymmetry of returns",
+          "note": "Measured via KL divergence between forward and time-reversed return distributions"
+        },
+        {
+          "field_a_term": "Kullback-Leibler divergence D_KL(P_fwd||P_rev)",
+          "field_b_term": "statistical arrow of time in price dynamics",
+          "note": "Patzelt & Pawelzik (2013) measured this in forex markets; found significant irreversibility"
+        },
+        {
+          "field_a_term": "Crooks fluctuation theorem P(-ΔS)/P(+ΔS) = e^{-ΔS}",
+          "field_b_term": "arbitrage probability decays exponentially with profit size",
+          "note": "Large apparent arbitrage opportunities are exponentially rare — efficient market as thermodynamic law"
+        },
+        {
+          "field_a_term": "Jarzynski equality ⟨e^{-W/kT}⟩ = e^{-ΔF/kT}",
+          "field_b_term": "risk-neutral pricing of derivatives (no-arbitrage condition)",
+          "note": "Both are exact equalities relating non-equilibrium averages to equilibrium quantities"
+        },
+        {
+          "field_a_term": "free energy F = U − TS (Helmholtz)",
+          "field_b_term": "risk-adjusted price (price minus risk premium)",
+          "note": "Proposed analogy: free energy as fair price; entropy as risk; internal energy as expected payoff"
+        },
+        {
+          "field_a_term": "equilibrium thermal fluctuations (kT scale)",
+          "field_b_term": "market microstructure noise (tick size scale)",
+          "note": "Both set the floor for irreducible fluctuations in their respective systems"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1103/PhysRevE.60.2721",
+          "note": "Crooks (1999) Phys Rev E 60:2721 — fluctuation theorem"
+        },
+        {
+          "doi": "10.1103/PhysRevLett.78.2690",
+          "note": "Jarzynski (1997) Phys Rev Lett 78:2690 — non-equilibrium work relation"
+        },
+        {
+          "doi": "10.1257/089533003321164958",
+          "note": "Malkiel (2003) J Econ Perspect 17:59 — efficient market hypothesis survey"
+        },
+        {
+          "doi": "10.1371/journal.pone.0054250",
+          "note": "Patzelt & Pawelzik (2013) PLOS ONE 8:e54250 — empirical irreversibility in financial markets"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\physics-economics\\b-entropy-production-market-irreversibility.yaml"
+    },
+    {
       "id": "b-kuramoto-synchronization",
       "title": "The Kuramoto model of coupled phase oscillators is a single mathematical framework that simultaneously describes neural gamma-band synchronization, cardiac pacemaker coupling, power-grid frequency stability, and laser array coherence — four fields with almost no cross-disciplinary communication despite sharing identical governing equations.\n",
       "source_domain": "",
@@ -8344,6 +9064,71 @@
       ],
       "last_reviewed": "2026-05-04",
       "file": "cross-domain\\physics-social\\b-ising-social-dynamics.yaml"
+    },
+    {
+      "id": "b-scaling-laws-cities",
+      "title": "Urban scaling laws — cities as social organisms obeying superlinear and sublinear power-law scaling",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Bettencourt et al. (2007) showed that virtually all urban indicators Y scale as power laws Y ∝ N^β with population N, with two universal exponent classes: (1) socioeconomic outputs (patents, GDP, wages, crime, innovation) scale superlinearly with β ≈ 1.15 ± 0.01 across 40+ countries and decades; (2)",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-city-as-social-organism-with-metabolism"
+      ],
+      "communication_gap": "Urban economics and urban sociology treat city size effects primarily as agglomeration externalities without mathematical scaling theory. Physics-trained researchers (Bettencourt, West, Lobo) introduced the scaling framework from outside the field. Urban economists initially resisted the power-law claims, preferring log-linear regression. The biological analogy (cities as organisms) is viewed as metaphor by sociologists rather than a testable quantitative model.\n",
+      "translation_table": [
+        {
+          "field_a_term": "population N",
+          "field_b_term": "body mass M (in metabolic scaling)",
+          "note": "The key extensive variable that sets the scale of all other quantities"
+        },
+        {
+          "field_a_term": "socioeconomic output Y ∝ N^1.15",
+          "field_b_term": "superlinear return to social density",
+          "note": "Each doubling of population yields 15% more output per capita — increasing returns to scale"
+        },
+        {
+          "field_a_term": "infrastructure I ∝ N^0.85",
+          "field_b_term": "sublinear scaling (analogous to metabolic rate B ∝ M^0.75)",
+          "note": "Economies of scale: larger cities need less infrastructure per capita"
+        },
+        {
+          "field_a_term": "social interaction rate ∝ N^(1+1/6)",
+          "field_b_term": "vascular blood flow rate ∝ M^(3/4) (metabolic scaling)",
+          "note": "Both derived from network geometry constraints; the exponent δ=1/6 from urban spatial constraints"
+        },
+        {
+          "field_a_term": "city growth rate — must accelerate to sustain superlinear scaling",
+          "field_b_term": "biological senescence — metabolic rate increases with size",
+          "note": "Cities must periodically 'reset' through major innovations to avoid collapse; organisms senesce"
+        },
+        {
+          "field_a_term": "urban agglomeration (clustering coefficient of social network)",
+          "field_b_term": "Reynolds number (turbulence intensity)",
+          "note": "Both parameterise the qualitative change in system behaviour with scale"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1073/pnas.0610172104",
+          "note": "Bettencourt et al. (2007) PNAS 104:7301 — universal scaling of urban indicators"
+        },
+        {
+          "doi": "10.1126/science.1235823",
+          "note": "Bettencourt (2013) Science 340:1438 — origin of scaling in human social networks"
+        },
+        {
+          "note": "West (2017) Scale. Penguin Press. — popular exposition of scaling in cities and organisms",
+          "url": "https://www.penguinrandomhouse.com/books/314049/scale-by-geoffrey-west/"
+        },
+        {
+          "note": "Glaeser (2011) Triumph of the City. Macmillan. — urban economics perspective",
+          "url": "https://www.macmillanpublishers.com/9780143120544/"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\physics-sociology\\b-scaling-laws-cities.yaml"
     },
     {
       "id": "b-prospect-theory-loss-aversion",
