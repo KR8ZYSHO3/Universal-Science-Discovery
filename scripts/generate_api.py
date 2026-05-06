@@ -146,6 +146,13 @@ def main():
         shutil.copy2(proposals_src, API_DIR / "bridge_proposals.json")
         print(f"  copied bridge_proposals.json -> api/v1/bridge_proposals.json")
 
+    # Copy citation index
+    citations_src = ROOT / "docs" / "citation_index.json"
+    if citations_src.exists():
+        import shutil
+        shutil.copy2(citations_src, API_DIR / "citations.json")
+        print("  copied citation_index.json → api/v1/citations.json")
+
     print(f"\nAPI generated: {len(unknowns)} unknowns, {len(bridges)} bridges, {len(hypotheses)} hypotheses")
     print(f"Base URL: https://kr8zysho3.github.io/Universal-Science-Discovery/api/v1/")
 
