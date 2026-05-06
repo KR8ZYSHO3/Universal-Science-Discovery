@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Electrochemistry ↔ Materials Science: The Sabatier principle (volcano plot) bridges electrochemistry and materials science: optimal catalysts bind reaction intermediates with intermediate strength, and DFT computes binding energies from electronic structure to guide catalyst design | USDR Explainer</title>
+  <meta name="description" content="The Sabatier principle (volcano plot) bridges electrochemistry and materials science: optimal catalysts bind reaction intermediates with intermediate strength, "/>
+
+  <!-- Open Graph / social sharing -->
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="Electrochemistry ↔ Materials Science: The Sabatier principle (volcano plot) bridges electrochemistry and materials science: optimal catalysts bind reaction intermediates with intermediate strength, and DFT computes binding energies from electronic structure to guide catalyst design"/>
+  <meta property="og:description" content="The Sabatier principle (volcano plot) bridges electrochemistry and materials science: optimal catalysts bind reaction intermediates with intermediate strength, "/>
+  <meta property="og:url" content="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/explainers/b-catalyst-sabatier-principle.html"/>
+  <meta property="og:site_name" content="Universal Science Discovery Repository"/>
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:title" content="The Sabatier principle (volcano plot) bridges electrochemistry and materials science: optimal catalysts bind reaction intermediates with intermediate strength, and DFT computes binding energies from electronic structure to guide catalyst design"/>
+  <meta name="twitter:description" content="The Sabatier principle (volcano plot) bridges electrochemistry and materials science: optimal catalysts bind reaction intermediates with intermediate strength, "/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"/>
+
+  <style>
+    /* ── Reset & tokens ───────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0d1117;
+      --bg-card:   #161b22;
+      --bg-hover:  #1c2230;
+      --border:    #30363d;
+      --text:      #e6edf3;
+      --text-dim:  #8b949e;
+      --accent:    #58a6ff;
+      --accent2:   #3fb950;
+      --accent3:   #f78166;
+      --accent4:   #d2a8ff;
+      --warn:      #e3b341;
+      --radius:    10px;
+      --font:      'Inter', system-ui, sans-serif;
+      --mono:      'JetBrains Mono', monospace;
+      --max-w:     860px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* ── Nav ──────────────────────────────────────────────────────────── */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13,17,23,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .topbar a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: opacity .15s;
+    }
+    .topbar a:hover { opacity: .75; }
+    .topbar-sep { color: var(--border); }
+    .topbar-title { color: var(--text-dim); font-size: 0.85rem; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+    /* ── Layout ───────────────────────────────────────────────────────── */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* ── Hero ─────────────────────────────────────────────────────────── */
+    .hero {
+      padding: 2.5rem 0 2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2.5rem;
+    }
+    .hero-domain {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+    .hero-title {
+      font-size: clamp(1.35rem, 3vw, 1.8rem);
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: center;
+    }
+
+    /* ── Badges ───────────────────────────────────────────────────────── */
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.65rem;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: .05em;
+    }
+    .badge-established { background: rgba(63,185,80,.18); color: var(--accent2); border: 1px solid rgba(63,185,80,.35); }
+    .badge-proposed    { background: rgba(88,166,255,.18); color: var(--accent);  border: 1px solid rgba(88,166,255,.35); }
+    .badge-contested   { background: rgba(227,179,65,.18); color: var(--warn);    border: 1px solid rgba(227,179,65,.35); }
+    .badge-stale       { background: rgba(139,148,158,.18);color: var(--text-dim);border: 1px solid rgba(139,148,158,.35); }
+
+    .field-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .field-tag {
+      background: rgba(88,166,255,.12);
+      color: var(--accent);
+      border: 1px solid rgba(88,166,255,.25);
+      padding: 0.15rem 0.55rem;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 500;
+    }
+
+    /* ── Sections ─────────────────────────────────────────────────────── */
+    section { margin-bottom: 2.5rem; }
+
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    h2 .icon { font-size: 1.1rem; }
+
+    p { color: var(--text-dim); margin-bottom: 0.8rem; }
+    p:last-child { margin-bottom: 0; }
+
+    /* ── Card ─────────────────────────────────────────────────────────── */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.5rem;
+    }
+
+    /* ── Key insight callout ──────────────────────────────────────────── */
+    .insight {
+      background: linear-gradient(135deg, rgba(88,166,255,.08) 0%, rgba(63,185,80,.06) 100%);
+      border: 1px solid rgba(88,166,255,.3);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.5rem;
+    }
+    .insight p { color: var(--text); }
+
+    /* ── Translation table ────────────────────────────────────────────── */
+    .table-wrap { overflow-x: auto; border-radius: var(--radius); }
+    .translation-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+    .translation-table thead tr {
+      background: rgba(88,166,255,.12);
+    }
+    .translation-table th {
+      padding: 0.7rem 1rem;
+      text-align: left;
+      font-weight: 600;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    .translation-table td {
+      padding: 0.65rem 1rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      vertical-align: top;
+    }
+    .translation-table tr:last-child td { border-bottom: none; }
+    .translation-table tr:nth-child(odd) { background: rgba(255,255,255,.02); }
+    .translation-table tr:hover { background: var(--bg-hover); }
+    .note-cell { color: var(--text-dim) !important; font-size: 0.82rem; }
+
+    /* ── References ───────────────────────────────────────────────────── */
+    .ref-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .ref-list li {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.6rem 0.9rem;
+      font-size: 0.84rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      align-items: center;
+    }
+    .ref-list a { color: var(--accent); text-decoration: none; }
+    .ref-list a:hover { text-decoration: underline; }
+    .ref-note { color: var(--text-dim); }
+
+    /* ── Open questions ───────────────────────────────────────────────── */
+    .opp-list, ul { padding-left: 1.3rem; display: flex; flex-direction: column; gap: 0.5rem; }
+    .opp-list li, ul li { color: var(--text-dim); font-size: 0.9rem; }
+    code { font-family: var(--mono); font-size: 0.82rem; background: rgba(88,166,255,.12); color: var(--accent); padding: 0.1rem 0.4rem; border-radius: 4px; }
+
+    /* ── Footer ───────────────────────────────────────────────────────── */
+    .explainer-footer {
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+      margin-top: 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+    .explainer-footer p { font-size: 0.8rem; color: var(--text-dim); margin: 0; }
+    .explainer-footer a { color: var(--accent); text-decoration: none; }
+
+    /* ── Responsive ───────────────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .container { padding: 1.5rem 1rem 3rem; }
+      .hero-title { font-size: 1.25rem; }
+      .translation-table th, .translation-table td { padding: 0.5rem 0.7rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="topbar">
+  <a href="../../dashboard/index.html">← Dashboard</a>
+  <span class="topbar-sep">|</span>
+  <a href="index.html">All Explainers</a>
+  <span class="topbar-sep">|</span>
+  <span class="topbar-title">The Sabatier principle (volcano plot) bridges electrochemistry and materials science: optimal catalysts bind reaction intermediates with intermediate strength, and DFT computes binding energies from electronic structure to guide catalyst design</span>
+</nav>
+
+<div class="container">
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-domain">Electrochemistry ↔ Materials Science</div>
+    <h1 class="hero-title">The Sabatier principle (volcano plot) bridges electrochemistry and materials science: optimal catalysts bind reaction intermediates with intermediate strength, and DFT computes binding energies from electronic structure to guide catalyst design.</h1>
+    <div class="hero-meta">
+      <span class="badge badge-established">ESTABLISHED</span>
+      <div class="field-tags"><span class="field-tag">electrochemistry</span> <span class="field-tag">materials-science</span> <span class="field-tag">computational-chemistry</span> <span class="field-tag">surface-science</span></div>
+    </div>
+  </header>
+
+  <!-- Overview -->
+  <section id="overview">
+    <h2><span class="icon">🔭</span> Overview</h2>
+    <div class="card">
+      <p>The Sabatier principle states that the optimal catalyst for a reaction binds intermediates neither too strongly (reactants cannot desorb → catalyst poisoned) nor too weakly (reactants cannot adsorb → no reaction). Plotting catalytic activity against binding energy gives a &quot;volcano plot&quot; with optimal catalysts near the peak.
+For water splitting (breakthrough gap bg-hydrogen-water-splitting), the oxygen evolution reaction (OER) overpotential is determined by the binding energies of OH*, O*, and OOH* intermediates on the catalyst surface. Nørskov et al. (2004) showed that for a universal OER scaling relation ΔG_OOH* − ΔG_OH* ≈ 3.2 eV (a thermodynamic constraint), the theoretical minimum overpotential is approximately 0.4 V — a hard lower bound set by intermediate scaling relations.
+The bridge: materials electronic structure (band filling, d-band center, coordination number) → reaction intermediate binding energies → catalytic activity. Density functional theory (DFT) computes binding energies from first principles, enabling materials screening. The &quot;materials genome&quot; vision — predict catalytic activity from crystal structure before synthesis — is this bridge in operation.</p>
+    </div>
+  </section>
+
+  <!-- Mathematical Bridge -->
+  <section id="math-bridge">
+    <h2><span class="icon">⚙️</span> The Mathematical Bridge</h2>
+    <div class="insight">
+      <p>
+        This bridge connects <strong>Electrochemistry</strong>
+        and <strong>Materials Science</strong>
+        through shared mathematical structure.
+         Status: Established connection.
+      </p>
+    </div>
+  </section>
+
+  <!-- Translation Table -->
+  <section id="translation">
+    <h2><span class="icon">↔️</span> Translation Table</h2>
+<div class="table-wrap">
+<table class="translation-table">
+  <thead>
+    <tr>
+      <th>Domain A Term</th>
+      <th>Domain B Term</th>
+      <th>Note</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr><td>d-band center εd (Hammer-Nørskov model)</td><td>intermediate binding energy ΔG* (electrochemical)</td><td class="note-cell">Higher d-band center → stronger adsorbate binding (d-band model)</td></tr>
+<tr><td>OER overpotential η = E_applied − E_thermodynamic</td><td>thermodynamic free energy of limiting step ΔG_max − 1.23 eV</td><td class="note-cell">Overpotential = extra voltage above thermodynamic minimum</td></tr>
+<tr><td>DFT adsorption energy ΔE_ads</td><td>electrochemical free energy ΔG* = ΔE_ads + ZPE − TΔS + eU</td><td class="note-cell">DFT energies corrected for zero-point energy, entropy, and electrode potential</td></tr>
+<tr><td>volcano plot peak (optimal binding)</td><td>Sabatier optimum — maximum turnover frequency</td><td class="note-cell">RuO₂ and IrO₂ sit near OER volcano peak; earth-abundant alternatives needed</td></tr>
+<tr><td>scaling relation ΔG_OOH* − ΔG_OH* ≈ 3.2 eV (universal)</td><td>theoretical minimum OER overpotential ≈ 0.4 V</td><td class="note-cell">This scaling relation is a thermodynamic constraint on all oxide catalysts</td></tr>
+  </tbody>
+</table>
+</div></section>
+
+  <!-- Communication Gap -->
+  <section id="comm-gap">
+    <h2><span class="icon">🗺️</span> Why Hasn't This Been Unified?</h2>
+    <div class="card"><p>Surface science and electrochemistry overlap but differ in experimental conditions (ultra-high vacuum vs. aqueous electrolyte), making it difficult to directly compare surface-science binding energies with electrochemical overpotentials. The computational bridge (DFT + implicit solvation + electrode potential correction) spans this gap but is not universally applied by experimentalists.</p></div>
+  </section>
+
+  <!-- Cross-pollination opportunities -->
+  <section id="opportunities">
+    <h2><span class="icon">🌱</span> Cross-Pollination Opportunities</h2><ul class="opp-list"><li>Breaking OER scaling relations using dual-site catalysts, frustrated Lewis pairs, or confined geometry — a materials design goal informed by the electrochemical thermodynamic analysis of the scaling relation constraint.</li>
+<li>Machine learning interatomic potentials (MLIPs) trained on DFT data can screen millions of catalyst candidates, connecting ML, DFT, and Sabatier principle in a high-throughput materials discovery pipeline.</li></ul></section>
+
+  <!-- Open Questions -->
+  <section id="open-questions">
+    <h2><span class="icon">❓</span> Open Questions</h2><ul><li>Unknown: <code>u-oer-scaling-relation-break</code></li>
+<li>Hypothesis: <code>h-dual-site-catalyst-breaks-oer-scaling</code></li></ul></section>
+
+  <!-- References -->
+  <section id="references">
+    <h2><span class="icon">📚</span> References</h2>
+    <ul class="ref-list"><li><span class="ref-note">Sabatier (1911) Hydrogénations et déshydrogénations par catalyse. Ber Dtsch Chem Ges 44:1984-2001</span></li>
+<li><span class="ref-note">Nørskov et al. (2004) Origin of the overpotential for oxygen reduction at a fuel-cell cathode. J Phys Chem B 108:17886-17892</span></li>
+<li><span class="ref-note">Man et al. (2011) Universality in oxygen evolution electrocatalysis on oxide surfaces. ChemCatChem 3:1159-1165</span></li>
+<li><span class="ref-note">Seh et al. (2017) Combining theory and experiment in electrocatalysis: insights into materials design. Science 355:eaad4998</span></li></ul>
+  </section>
+
+  <!-- Footer -->
+  <footer class="explainer-footer">
+    <p>Bridge ID: <code>b-catalyst-sabatier-principle</code> · Last reviewed: 2026-05-06</p>
+    <p>
+      <a href="../../dashboard/index.html">← Back to Dashboard</a> ·
+      <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery" target="_blank" rel="noopener">GitHub</a>
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>

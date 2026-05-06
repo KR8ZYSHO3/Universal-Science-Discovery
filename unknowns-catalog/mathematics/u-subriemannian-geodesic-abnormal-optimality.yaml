@@ -1,53 +1,50 @@
 id: u-subriemannian-geodesic-abnormal-optimality
 title: >
-  Under what conditions are abnormal geodesics (singular extremals) of
-  sub-Riemannian geometry globally length-minimising, and what does this
-  imply for the existence of optimal control solutions in robotic systems
-  with non-holonomic constraints?
+  Under what geometric conditions are abnormal geodesics in sub-Riemannian
+  geometry locally length-minimizing, and does the existence of abnormal
+  minimizers prevent smooth parameterization of the sub-Riemannian geodesic
+  flow — with direct implications for optimal robot motion planning?
 status: open
 priority: medium
 disciplines:
   - mathematics
-  - control-engineering
   - differential-geometry
+  - control-engineering
   - robotics
 summary: >
-  In sub-Riemannian geometry, geodesics (locally length-minimising curves)
-  come in two types: normal geodesics (satisfying the Hamiltonian ODE on T*M,
-  analogous to Riemannian geodesics) and abnormal geodesics (satisfying the
-  Pontryagin maximum principle as singular extremals, with zero Hamiltonian).
-  Montgomery (2002) showed that in some sub-Riemannian structures, abnormal
-  geodesics can be locally length-minimising. Whether they can be globally
-  length-minimising — and what this means for optimal robot path planning —
-  remains an open problem in several key cases.
+  In sub-Riemannian (SR) geometry, geodesics (locally shortest paths in the
+  distribution-constrained metric) come in two types: normal geodesics
+  (satisfying Hamilton's equations on T*M) and abnormal geodesics (satisfying
+  a degenerate set of conditions with no Riemannian analog). Normal geodesics
+  are always locally minimizing. Abnormal geodesics may or may not be locally
+  minimizing, and this question is poorly understood.
 
-  Key open questions:
-  1. For which sub-Riemannian structures (rank-2 distributions in ℝⁿ,
-     Carnot groups) can abnormal extremals be globally minimising, and
-     can this be decided algorithmically?
-  2. In robotic path planning (car-like robots: Dubins, Reeds-Shepp), abnormal
-     extremals correspond to "degenerate" paths (e.g., driving in a straight
-     line at minimum turning radius). When are these globally optimal relative
-     to normal geodesics?
-  3. Does the presence of globally-minimising abnormal extremals imply the
-     failure of the sub-Riemannian sphere to be smooth — and what are the
-     implications for numerical optimal control solvers?
-  4. Can the structure of the Lie algebra (step-2 vs. higher-step Carnot
-     groups) predict whether abnormal minimisers exist?
+  The problem matters for robotics: optimal paths for non-holonomic systems
+  (cars, wheeled robots, surgical robots) are SR geodesics. If abnormal
+  minimizers exist in a given configuration, the optimal control problem has
+  pathological solutions that numerical optimization methods may miss. Montgomery
+  (1994) showed that in the generic SR structure in dimension ≥ 5, abnormal
+  geodesics are NOT minimizing. Liu & Sussmann (1995) showed that in specific
+  SR structures (e.g., the "monster" distribution), abnormal geodesics ARE
+  minimizing. The general characterization remains open.
+
+  The mathematical difficulty: abnormal geodesics do not satisfy any coercive
+  optimality condition (they are zeros of the Hamiltonian), making standard
+  second-order sufficiency tests inapplicable.
 systematic_gaps:
-  - Rigorous examples of globally-minimising abnormal extremals are known
-    only for specific low-dimensional cases (rank-2 in ℝ³, certain Carnot groups)
-  - No general algorithmic test exists for determining whether a given
-    sub-Riemannian structure admits globally-minimising abnormal extremals
-  - Numerical optimal control solvers (GPOPS, Bocop) typically cannot find
-    abnormal extremals because they have zero Hamiltonian
+  - Characterization of SR structures admitting abnormal minimizers
+  - Smooth parameterization conditions for SR geodesic flows
+  - Algorithmic detection of abnormal minimizers in control systems
+  - Extension of Agrachev-Sarychev theory to infinite-dimensional control systems
 suggested_hypotheses:
   - h-lie-bracket-depth-complexity-robot-planning
 related_bridges:
   - b-control-theory-differential-geometry
-last_reviewed: "2026-05-05"
 references:
   - url: https://www.ams.org/books/surv/091/
-    note: Montgomery (2002) A Tour of Subriemannian Geometries — AMS, comprehensive treatment
+    note: Montgomery (2002) A Tour of Sub-Riemannian Geometries — AMS
   - doi: "10.1137/0310021"
-    note: Brockett (1972) system theory on group manifolds
+    note: Brockett (1972) — system theory on group manifolds
+  - url: https://link.springer.com/book/10.1007/978-0-387-21791-9
+    note: Bloch (2003) Nonholonomic Mechanics and Control — Springer
+last_reviewed: "2026-05-06"

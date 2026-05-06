@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Condensed Matter Physics ↔ Quantum Mechanics: BCS theory explains conventional superconductivity via phonon-mediated Cooper pairing | USDR Explainer</title>
+  <meta name="description" content="BCS theory explains conventional superconductivity via phonon-mediated Cooper pairing"/>
+
+  <!-- Open Graph / social sharing -->
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="Condensed Matter Physics ↔ Quantum Mechanics: BCS theory explains conventional superconductivity via phonon-mediated Cooper pairing"/>
+  <meta property="og:description" content="BCS theory explains conventional superconductivity via phonon-mediated Cooper pairing"/>
+  <meta property="og:url" content="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/explainers/b-bcs-superconductivity.html"/>
+  <meta property="og:site_name" content="Universal Science Discovery Repository"/>
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:title" content="BCS theory explains conventional superconductivity via phonon-mediated Cooper pairing"/>
+  <meta name="twitter:description" content="BCS theory explains conventional superconductivity via phonon-mediated Cooper pairing"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"/>
+
+  <style>
+    /* ── Reset & tokens ───────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0d1117;
+      --bg-card:   #161b22;
+      --bg-hover:  #1c2230;
+      --border:    #30363d;
+      --text:      #e6edf3;
+      --text-dim:  #8b949e;
+      --accent:    #58a6ff;
+      --accent2:   #3fb950;
+      --accent3:   #f78166;
+      --accent4:   #d2a8ff;
+      --warn:      #e3b341;
+      --radius:    10px;
+      --font:      'Inter', system-ui, sans-serif;
+      --mono:      'JetBrains Mono', monospace;
+      --max-w:     860px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* ── Nav ──────────────────────────────────────────────────────────── */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13,17,23,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .topbar a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: opacity .15s;
+    }
+    .topbar a:hover { opacity: .75; }
+    .topbar-sep { color: var(--border); }
+    .topbar-title { color: var(--text-dim); font-size: 0.85rem; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+    /* ── Layout ───────────────────────────────────────────────────────── */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* ── Hero ─────────────────────────────────────────────────────────── */
+    .hero {
+      padding: 2.5rem 0 2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2.5rem;
+    }
+    .hero-domain {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+    .hero-title {
+      font-size: clamp(1.35rem, 3vw, 1.8rem);
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: center;
+    }
+
+    /* ── Badges ───────────────────────────────────────────────────────── */
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.65rem;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: .05em;
+    }
+    .badge-established { background: rgba(63,185,80,.18); color: var(--accent2); border: 1px solid rgba(63,185,80,.35); }
+    .badge-proposed    { background: rgba(88,166,255,.18); color: var(--accent);  border: 1px solid rgba(88,166,255,.35); }
+    .badge-contested   { background: rgba(227,179,65,.18); color: var(--warn);    border: 1px solid rgba(227,179,65,.35); }
+    .badge-stale       { background: rgba(139,148,158,.18);color: var(--text-dim);border: 1px solid rgba(139,148,158,.35); }
+
+    .field-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .field-tag {
+      background: rgba(88,166,255,.12);
+      color: var(--accent);
+      border: 1px solid rgba(88,166,255,.25);
+      padding: 0.15rem 0.55rem;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 500;
+    }
+
+    /* ── Sections ─────────────────────────────────────────────────────── */
+    section { margin-bottom: 2.5rem; }
+
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    h2 .icon { font-size: 1.1rem; }
+
+    p { color: var(--text-dim); margin-bottom: 0.8rem; }
+    p:last-child { margin-bottom: 0; }
+
+    /* ── Card ─────────────────────────────────────────────────────────── */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.5rem;
+    }
+
+    /* ── Key insight callout ──────────────────────────────────────────── */
+    .insight {
+      background: linear-gradient(135deg, rgba(88,166,255,.08) 0%, rgba(63,185,80,.06) 100%);
+      border: 1px solid rgba(88,166,255,.3);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.5rem;
+    }
+    .insight p { color: var(--text); }
+
+    /* ── Translation table ────────────────────────────────────────────── */
+    .table-wrap { overflow-x: auto; border-radius: var(--radius); }
+    .translation-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+    .translation-table thead tr {
+      background: rgba(88,166,255,.12);
+    }
+    .translation-table th {
+      padding: 0.7rem 1rem;
+      text-align: left;
+      font-weight: 600;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    .translation-table td {
+      padding: 0.65rem 1rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      vertical-align: top;
+    }
+    .translation-table tr:last-child td { border-bottom: none; }
+    .translation-table tr:nth-child(odd) { background: rgba(255,255,255,.02); }
+    .translation-table tr:hover { background: var(--bg-hover); }
+    .note-cell { color: var(--text-dim) !important; font-size: 0.82rem; }
+
+    /* ── References ───────────────────────────────────────────────────── */
+    .ref-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .ref-list li {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.6rem 0.9rem;
+      font-size: 0.84rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      align-items: center;
+    }
+    .ref-list a { color: var(--accent); text-decoration: none; }
+    .ref-list a:hover { text-decoration: underline; }
+    .ref-note { color: var(--text-dim); }
+
+    /* ── Open questions ───────────────────────────────────────────────── */
+    .opp-list, ul { padding-left: 1.3rem; display: flex; flex-direction: column; gap: 0.5rem; }
+    .opp-list li, ul li { color: var(--text-dim); font-size: 0.9rem; }
+    code { font-family: var(--mono); font-size: 0.82rem; background: rgba(88,166,255,.12); color: var(--accent); padding: 0.1rem 0.4rem; border-radius: 4px; }
+
+    /* ── Footer ───────────────────────────────────────────────────────── */
+    .explainer-footer {
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+      margin-top: 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+    .explainer-footer p { font-size: 0.8rem; color: var(--text-dim); margin: 0; }
+    .explainer-footer a { color: var(--accent); text-decoration: none; }
+
+    /* ── Responsive ───────────────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .container { padding: 1.5rem 1rem 3rem; }
+      .hero-title { font-size: 1.25rem; }
+      .translation-table th, .translation-table td { padding: 0.5rem 0.7rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="topbar">
+  <a href="../../dashboard/index.html">← Dashboard</a>
+  <span class="topbar-sep">|</span>
+  <a href="index.html">All Explainers</a>
+  <span class="topbar-sep">|</span>
+  <span class="topbar-title">BCS theory explains conventional superconductivity via phonon-mediated Cooper pairing</span>
+</nav>
+
+<div class="container">
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-domain">Condensed Matter Physics ↔ Quantum Mechanics</div>
+    <h1 class="hero-title">BCS theory explains conventional superconductivity via phonon-mediated Cooper pairing — but high-Tc cuprates and iron-based superconductors violate BCS assumptions, and the pairing mechanism remains unknown.</h1>
+    <div class="hero-meta">
+      <span class="badge badge-established">ESTABLISHED</span>
+      <div class="field-tags"><span class="field-tag">condensed-matter-physics</span> <span class="field-tag">quantum-mechanics</span> <span class="field-tag">materials-science</span> <span class="field-tag">solid-state-physics</span></div>
+    </div>
+  </header>
+
+  <!-- Overview -->
+  <section id="overview">
+    <h2><span class="icon">🔭</span> Overview</h2>
+    <div class="card">
+      <p>The BCS theory (Bardeen, Cooper, Schrieffer 1957) bridges quantum mechanics and materials science to explain conventional superconductivity: phonon-mediated (lattice vibration-mediated) effective electron-electron attraction overcomes Coulomb repulsion to form Cooper pairs — bound states of two electrons with opposite momenta (k↑, −k↓) and spin-singlet configuration.
+The BCS gap equation Δ = 2ℏω_D exp(−1/N(0)V) gives the superconducting gap, where ω_D is the Debye phonon frequency, N(0) is the density of states at the Fermi level, and V is the effective electron-phonon coupling. The transition temperature T_c ∝ ω_D exp(−1/N(0)V) — explaining why conventional superconductors have low T_c (&lt; 30 K): phonon frequencies are limited.
+The bridge breaks down for high-T_c superconductors. Cuprate superconductors (Bednorz &amp; Müller 1986, T_c up to 135 K at ambient pressure) and iron-based superconductors have T_c values that violate the BCS ceiling. Their pairing mechanism is the central unsolved problem of condensed matter physics and the primary blocking gap for room-temperature superconductivity (breakthrough gap bg-room-temperature-superconductivity). Candidates include spin-fluctuation mediated pairing, resonating valence bond (RVB) states (Anderson 1987), and polaronic effects — but none is established.</p>
+    </div>
+  </section>
+
+  <!-- Mathematical Bridge -->
+  <section id="math-bridge">
+    <h2><span class="icon">⚙️</span> The Mathematical Bridge</h2>
+    <div class="insight">
+      <p>
+        This bridge connects <strong>Condensed Matter Physics</strong>
+        and <strong>Quantum Mechanics</strong>
+        through shared mathematical structure.
+         Status: Established connection.
+      </p>
+    </div>
+  </section>
+
+  <!-- Translation Table -->
+  <section id="translation">
+    <h2><span class="icon">↔️</span> Translation Table</h2>
+<div class="table-wrap">
+<table class="translation-table">
+  <thead>
+    <tr>
+      <th>Domain A Term</th>
+      <th>Domain B Term</th>
+      <th>Note</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr><td>phonon (lattice vibration quantum)</td><td>pairing boson (mediator of effective e-e attraction)</td><td class="note-cell">In BCS, phonons mediate; in high-Tc, the mediator is unknown</td></tr>
+<tr><td>Cooper pair (k↑, −k↓ bound state)</td><td>bosonic condensate (BCS-BEC crossover)</td><td class="note-cell">Cooper pairs condense into superconducting state via BEC-like mechanism</td></tr>
+<tr><td>energy gap Δ (BCS)</td><td>d-wave gap Δ_k = Δ₀(cos k_x − cos k_y) (cuprates)</td><td class="note-cell">Gap symmetry distinguishes s-wave (BCS) from d-wave (cuprate) pairing</td></tr>
+<tr><td>Fermi surface instability (Cooper instability)</td><td>Mott insulator to superconductor transition (doping-driven)</td><td class="note-cell">High-Tc superconductors emerge from Mott insulating parent compounds</td></tr>
+<tr><td>isotope effect T_c ∝ M^{-1/2} (phonon signature)</td><td>anomalous isotope effect in cuprates (partial, field-dependent)</td><td class="note-cell">Partial isotope effect in cuprates suggests phonons play a secondary role</td></tr>
+  </tbody>
+</table>
+</div></section>
+
+  <!-- Communication Gap -->
+  <section id="comm-gap">
+    <h2><span class="icon">🗺️</span> Why Hasn't This Been Unified?</h2>
+    <div class="card"><p>BCS theory requires quantum field theory fluency; materials synthesis of cuprates requires different expertise in solid-state chemistry. The theoretical and experimental communities overlap but insufficiently. High-Tc superconductivity research has become highly specialized, with few researchers spanning ab initio calculations, strongly correlated electron theory, and materials synthesis.</p></div>
+  </section>
+
+  <!-- Cross-pollination opportunities -->
+  <section id="opportunities">
+    <h2><span class="icon">🌱</span> Cross-Pollination Opportunities</h2><ul class="opp-list"><li>Machine learning for superconductor discovery: train on BCS-calculable properties (Tc, gap, isotope effect) to predict which crystal structures with unconventional pairing might have high Tc — materials science + ML + BCS as training framework.</li>
+<li>Quantum simulation of the Hubbard model (which describes cuprate electronic structure) on quantum computers — connecting quantum computing (stabilizer codes, bridge 119) to the superconductivity problem.</li></ul></section>
+
+  <!-- Open Questions -->
+  <section id="open-questions">
+    <h2><span class="icon">❓</span> Open Questions</h2><ul><li>Unknown: <code>u-high-tc-pairing-mechanism</code></li>
+<li>Hypothesis: <code>h-spin-fluctuation-pairing-cuprates</code></li></ul></section>
+
+  <!-- References -->
+  <section id="references">
+    <h2><span class="icon">📚</span> References</h2>
+    <ul class="ref-list"><li><span class="ref-note">Bardeen, Cooper &amp; Schrieffer (1957) Theory of superconductivity. Phys Rev 108:1175-1204</span></li>
+<li><span class="ref-note">Cooper (1956) Bound electron pairs in a degenerate Fermi gas. Phys Rev 104:1189-1190</span></li>
+<li><span class="ref-note">Bednorz &amp; Müller (1986) Possible high Tc superconductivity in the Ba-La-Cu-O system. Z Phys B 64:189-193</span></li>
+<li><span class="ref-note">Anderson (1987) The resonating valence bond state in La₂CuO₄ and superconductivity. Science 235:1196-1198</span></li></ul>
+  </section>
+
+  <!-- Footer -->
+  <footer class="explainer-footer">
+    <p>Bridge ID: <code>b-bcs-superconductivity</code> · Last reviewed: 2026-05-06</p>
+    <p>
+      <a href="../../dashboard/index.html">← Back to Dashboard</a> ·
+      <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery" target="_blank" rel="noopener">GitHub</a>
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Electromagnetism ↔ Information Theory: Maxwell&#x27;s equations in free space predict plane wave solutions with the same mathematical form as carrier waves in communications | USDR Explainer</title>
+  <meta name="description" content="Maxwell&#x27;s equations in free space predict plane wave solutions with the same mathematical form as carrier waves in communications"/>
+
+  <!-- Open Graph / social sharing -->
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="Electromagnetism ↔ Information Theory: Maxwell&#x27;s equations in free space predict plane wave solutions with the same mathematical form as carrier waves in communications"/>
+  <meta property="og:description" content="Maxwell&#x27;s equations in free space predict plane wave solutions with the same mathematical form as carrier waves in communications"/>
+  <meta property="og:url" content="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/explainers/b-maxwell-equations-wave-encoding.html"/>
+  <meta property="og:site_name" content="Universal Science Discovery Repository"/>
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:title" content="Maxwell&#x27;s equations in free space predict plane wave solutions with the same mathematical form as carrier waves in communications"/>
+  <meta name="twitter:description" content="Maxwell&#x27;s equations in free space predict plane wave solutions with the same mathematical form as carrier waves in communications"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"/>
+
+  <style>
+    /* ── Reset & tokens ───────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0d1117;
+      --bg-card:   #161b22;
+      --bg-hover:  #1c2230;
+      --border:    #30363d;
+      --text:      #e6edf3;
+      --text-dim:  #8b949e;
+      --accent:    #58a6ff;
+      --accent2:   #3fb950;
+      --accent3:   #f78166;
+      --accent4:   #d2a8ff;
+      --warn:      #e3b341;
+      --radius:    10px;
+      --font:      'Inter', system-ui, sans-serif;
+      --mono:      'JetBrains Mono', monospace;
+      --max-w:     860px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* ── Nav ──────────────────────────────────────────────────────────── */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13,17,23,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .topbar a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: opacity .15s;
+    }
+    .topbar a:hover { opacity: .75; }
+    .topbar-sep { color: var(--border); }
+    .topbar-title { color: var(--text-dim); font-size: 0.85rem; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+    /* ── Layout ───────────────────────────────────────────────────────── */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* ── Hero ─────────────────────────────────────────────────────────── */
+    .hero {
+      padding: 2.5rem 0 2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2.5rem;
+    }
+    .hero-domain {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+    .hero-title {
+      font-size: clamp(1.35rem, 3vw, 1.8rem);
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: center;
+    }
+
+    /* ── Badges ───────────────────────────────────────────────────────── */
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.65rem;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: .05em;
+    }
+    .badge-established { background: rgba(63,185,80,.18); color: var(--accent2); border: 1px solid rgba(63,185,80,.35); }
+    .badge-proposed    { background: rgba(88,166,255,.18); color: var(--accent);  border: 1px solid rgba(88,166,255,.35); }
+    .badge-contested   { background: rgba(227,179,65,.18); color: var(--warn);    border: 1px solid rgba(227,179,65,.35); }
+    .badge-stale       { background: rgba(139,148,158,.18);color: var(--text-dim);border: 1px solid rgba(139,148,158,.35); }
+
+    .field-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .field-tag {
+      background: rgba(88,166,255,.12);
+      color: var(--accent);
+      border: 1px solid rgba(88,166,255,.25);
+      padding: 0.15rem 0.55rem;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 500;
+    }
+
+    /* ── Sections ─────────────────────────────────────────────────────── */
+    section { margin-bottom: 2.5rem; }
+
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    h2 .icon { font-size: 1.1rem; }
+
+    p { color: var(--text-dim); margin-bottom: 0.8rem; }
+    p:last-child { margin-bottom: 0; }
+
+    /* ── Card ─────────────────────────────────────────────────────────── */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.5rem;
+    }
+
+    /* ── Key insight callout ──────────────────────────────────────────── */
+    .insight {
+      background: linear-gradient(135deg, rgba(88,166,255,.08) 0%, rgba(63,185,80,.06) 100%);
+      border: 1px solid rgba(88,166,255,.3);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.5rem;
+    }
+    .insight p { color: var(--text); }
+
+    /* ── Translation table ────────────────────────────────────────────── */
+    .table-wrap { overflow-x: auto; border-radius: var(--radius); }
+    .translation-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+    .translation-table thead tr {
+      background: rgba(88,166,255,.12);
+    }
+    .translation-table th {
+      padding: 0.7rem 1rem;
+      text-align: left;
+      font-weight: 600;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    .translation-table td {
+      padding: 0.65rem 1rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      vertical-align: top;
+    }
+    .translation-table tr:last-child td { border-bottom: none; }
+    .translation-table tr:nth-child(odd) { background: rgba(255,255,255,.02); }
+    .translation-table tr:hover { background: var(--bg-hover); }
+    .note-cell { color: var(--text-dim) !important; font-size: 0.82rem; }
+
+    /* ── References ───────────────────────────────────────────────────── */
+    .ref-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .ref-list li {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.6rem 0.9rem;
+      font-size: 0.84rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      align-items: center;
+    }
+    .ref-list a { color: var(--accent); text-decoration: none; }
+    .ref-list a:hover { text-decoration: underline; }
+    .ref-note { color: var(--text-dim); }
+
+    /* ── Open questions ───────────────────────────────────────────────── */
+    .opp-list, ul { padding-left: 1.3rem; display: flex; flex-direction: column; gap: 0.5rem; }
+    .opp-list li, ul li { color: var(--text-dim); font-size: 0.9rem; }
+    code { font-family: var(--mono); font-size: 0.82rem; background: rgba(88,166,255,.12); color: var(--accent); padding: 0.1rem 0.4rem; border-radius: 4px; }
+
+    /* ── Footer ───────────────────────────────────────────────────────── */
+    .explainer-footer {
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+      margin-top: 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+    .explainer-footer p { font-size: 0.8rem; color: var(--text-dim); margin: 0; }
+    .explainer-footer a { color: var(--accent); text-decoration: none; }
+
+    /* ── Responsive ───────────────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .container { padding: 1.5rem 1rem 3rem; }
+      .hero-title { font-size: 1.25rem; }
+      .translation-table th, .translation-table td { padding: 0.5rem 0.7rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="topbar">
+  <a href="../../dashboard/index.html">← Dashboard</a>
+  <span class="topbar-sep">|</span>
+  <a href="index.html">All Explainers</a>
+  <span class="topbar-sep">|</span>
+  <span class="topbar-title">Maxwell&#x27;s equations in free space predict plane wave solutions with the same mathematical form as carrier waves in communications</span>
+</nav>
+
+<div class="container">
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-domain">Electromagnetism ↔ Information Theory</div>
+    <h1 class="hero-title">Maxwell&#x27;s equations in free space predict plane wave solutions with the same mathematical form as carrier waves in communications — the electromagnetic spectrum is a physical implementation of Shannon&#x27;s abstract channel model.</h1>
+    <div class="hero-meta">
+      <span class="badge badge-established">ESTABLISHED</span>
+      <div class="field-tags"><span class="field-tag">electromagnetism</span> <span class="field-tag">information-theory</span> <span class="field-tag">communications-engineering</span></div>
+    </div>
+  </header>
+
+  <!-- Overview -->
+  <section id="overview">
+    <h2><span class="icon">🔭</span> Overview</h2>
+    <div class="card">
+      <p>Maxwell&#x27;s equations in free space admit plane wave solutions of the form E = E₀ exp(i(k·r − ωt)), which are identical in mathematical structure to the carrier waves used in all radio, microwave, and optical communications. Shannon&#x27;s channel capacity theorem C = B log₂(1 + S/N) gives the theoretical maximum information rate for any such wave channel, measured in bits per second.
+The connection is not merely analogical: every radio, WiFi, 5G, and optical fiber system is a Maxwell wave information channel whose design is constrained by Shannon capacity. The electromagnetic spectrum — a physical continuum of frequencies governed by Maxwell&#x27;s equations — is the physical substrate that realizes Shannon&#x27;s abstract channel model.
+Nyquist (1924) established the sampling theorem (maximum symbol rate = 2B for bandwidth B), which applies directly to Maxwell wave channels. The entire edifice of modern digital communications — modulation theory, OFDM, MIMO antenna arrays, optical coherent detection — rests on the joint Maxwell-Shannon framework. Engineers who design wireless systems are simultaneously solving Maxwell&#x27;s equations (propagation, antenna patterns, polarization) and approaching Shannon limits (coding, modulation, capacity).</p>
+    </div>
+  </section>
+
+  <!-- Mathematical Bridge -->
+  <section id="math-bridge">
+    <h2><span class="icon">⚙️</span> The Mathematical Bridge</h2>
+    <div class="insight">
+      <p>
+        This bridge connects <strong>Electromagnetism</strong>
+        and <strong>Information Theory</strong>
+        through shared mathematical structure.
+         Status: Established connection.
+      </p>
+    </div>
+  </section>
+
+  <!-- Translation Table -->
+  <section id="translation">
+    <h2><span class="icon">↔️</span> Translation Table</h2>
+<div class="table-wrap">
+<table class="translation-table">
+  <thead>
+    <tr>
+      <th>Domain A Term</th>
+      <th>Domain B Term</th>
+      <th>Note</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr><td>plane wave E = E₀ exp(i(k·r − ωt))</td><td>sinusoidal carrier wave at frequency f = ω/2π</td><td class="note-cell">The Maxwell wave solution is the physical carrier of information</td></tr>
+<tr><td>electromagnetic bandwidth B (Hz)</td><td>channel bandwidth B in Shannon formula C = B log₂(1 + S/N)</td><td class="note-cell">Same quantity — frequency range available for modulation</td></tr>
+<tr><td>signal power S / noise power N (Maxwell wave)</td><td>signal-to-noise ratio S/N in Shannon capacity</td><td class="note-cell">Maxwell propagation loss and Johnson-Nyquist noise set the S/N</td></tr>
+<tr><td>polarization states of E-field (2 orthogonal)</td><td>2 independent Shannon channels (polarization multiplexing)</td><td class="note-cell">MIMO and polarization-division multiplexing exploit this directly</td></tr>
+<tr><td>wave dispersion relation ω(k)</td><td>group delay and intersymbol interference in digital link</td><td class="note-cell">Dispersive channels require equalization to approach Shannon capacity</td></tr>
+  </tbody>
+</table>
+</div></section>
+
+  <!-- Communication Gap -->
+  <section id="comm-gap">
+    <h2><span class="icon">🗺️</span> Why Hasn't This Been Unified?</h2>
+    <div class="card"><p>Electrical engineering splits into &quot;fields and waves&quot; (Maxwell) and &quot;communications and signal processing&quot; (Shannon) in most curricula, creating practitioners who specialize in one but rarely both. The unification is implicit in the best wireless systems design but rarely stated as a foundational principle.</p></div>
+  </section>
+
+  <!-- Cross-pollination opportunities -->
+  <section id="opportunities">
+    <h2><span class="icon">🌱</span> Cross-Pollination Opportunities</h2><ul class="opp-list"><li>Designing antenna arrays that approach Shannon MIMO capacity bounds by treating each antenna element as a spatial mode of the Maxwell field — spatial multiplexing as a direct consequence of wave orthogonality.</li>
+<li>Optical fiber capacity: WDM channels are Maxwell frequency modes; approaching Shannon capacity requires joint nonlinear Maxwell (Kerr effect) and information- theoretic (capacity under nonlinear noise) analysis.</li></ul></section>
+
+  <!-- Open Questions -->
+  <section id="open-questions">
+    <h2><span class="icon">❓</span> Open Questions</h2><ul><li>Unknown: <code>u-maxwell-shannon-channel-near-capacity</code></li>
+<li>Hypothesis: <code>h-maxwell-wave-channel-capacity-limit</code></li></ul></section>
+
+  <!-- References -->
+  <section id="references">
+    <h2><span class="icon">📚</span> References</h2>
+    <ul class="ref-list"><li><span class="ref-note">Maxwell (1865) A dynamical theory of the electromagnetic field. Phil Trans R Soc 155:459-512</span></li>
+<li><span class="ref-note">Shannon (1948) A mathematical theory of communication. Bell Syst Tech J 27:379-423, 623-656</span></li>
+<li><span class="ref-note">Nyquist (1924) Certain factors affecting telegraph speed. AIEE Trans 43:412-422</span></li>
+<li><span class="ref-note">Proakis &amp; Salehi (2008) Digital Communications, 5th ed. McGraw-Hill</span></li></ul>
+  </section>
+
+  <!-- Footer -->
+  <footer class="explainer-footer">
+    <p>Bridge ID: <code>b-maxwell-equations-wave-encoding</code> · Last reviewed: 2026-05-06</p>
+    <p>
+      <a href="../../dashboard/index.html">← Back to Dashboard</a> ·
+      <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery" target="_blank" rel="noopener">GitHub</a>
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>
