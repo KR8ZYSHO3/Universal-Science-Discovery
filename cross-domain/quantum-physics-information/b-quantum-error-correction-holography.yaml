@@ -1,0 +1,152 @@
+id: b-quantum-error-correction-holography
+title: >
+  Quantum error-correcting codes (stabilizer codes, surface codes) and
+  the holographic principle in quantum gravity (AdS/CFT) are the same
+  mathematical structure: bulk operators in AdS are encoded in boundary
+  CFT degrees of freedom via a quantum error-correcting code, with the
+  Ryu-Takayanagi formula (S = A/4G_N) expressing entanglement entropy
+  as a quantum error-correction redundancy statement.
+status: proposed
+fields:
+  - quantum-information-theory
+  - quantum-gravity
+  - string-theory
+  - quantum-error-correction
+  - condensed-matter-physics
+bridge_claim: >
+  Quantum error correction encodes k logical qubits in n physical qubits
+  with distance d (denoted [[n,k,d]]), such that any error affecting
+  fewer than d/2 qubits can be detected and corrected. The key property
+  is redundancy: the logical information is non-locally distributed
+  across the physical qubits so that no local subsystem reveals the
+  logical state.
+
+  The AdS/CFT correspondence (Maldacena 1997) maps a quantum gravity
+  theory in (d+1)-dimensional anti-de Sitter space (AdS, the "bulk")
+  to a conformal field theory (CFT) on the d-dimensional boundary. The
+  holographic principle states that the bulk theory is fully encoded in
+  the boundary — the boundary CFT is the "code" and the bulk is the
+  "logical" information being protected.
+
+  Almheiri, Dong, and Harlow (2015) proved that this is literally a
+  quantum error-correcting code:
+
+  1. HKLL RECONSTRUCTION = ERASURE CORRECTION: The bulk-to-boundary
+     map (Hamilton-Kabat-Lifschytz-Lowe reconstruction) allows a bulk
+     operator φ(x) at bulk point x to be represented by different
+     boundary operators depending on which boundary region one uses.
+     This means the bulk information is encoded with redundancy: even
+     if a boundary region A is "erased," the bulk can be reconstructed
+     from the complement Ā. This is exactly the defining property of
+     an erasure-correcting quantum code.
+
+  2. RYU-TAKAYANAGI FORMULA AS CODE PROPERTY: The entanglement entropy
+     of boundary region A is S(A) = Area(γ_A) / 4G_N, where γ_A is
+     the minimal geodesic surface in the bulk homologous to A (Ryu &
+     Takayanagi 2006). In quantum error-correction language, the minimal
+     surface is the "quantum error correction radius" — the amount of
+     boundary that must be erased to destroy the encoded bulk information.
+     This formula is an exact quantum Singleton bound.
+
+  3. PERFECT TENSORS = HOLOGRAPHIC CODES: Pastawski et al. (2015)
+     constructed explicit tensor-network models of AdS/CFT using "perfect
+     tensors" — tensors that are maximally entangled across any bipartition.
+     These toy holographic codes reproduce the RT formula exactly and
+     are concrete quantum error-correcting codes (using [[5,1,3]] or
+     [[6,0,4]] perfect codes as building blocks). The tensor network
+     geometry = the bulk AdS geometry.
+
+  4. RINDLER WEDGE = CODE SUBSPACE: The Rindler wedge (the causal
+     diamond accessible to an accelerating observer) corresponds to the
+     "code subspace" of an erasure-correcting code. The bulk-to-boundary
+     encoding is equivalent to a quantum Reed-Solomon code, and the
+     Rindler wedge condition is the condition that the code distance d
+     exceeds the size of the erased boundary region.
+
+  5. BLACK HOLE INFORMATION PARADOX AS CODE FAILURE: The information
+     paradox (Hawking 1974) — does information escape a black hole? —
+     is, in code language, a question about whether the holographic code
+     can survive the "erasure" of the interior. The Page curve (Page 1993),
+     recently derived from the island formula and replica trick (Almheiri
+     et al. 2020), is the statement that the code succeeds: information
+     escapes in Hawking radiation, consistent with unitarity.
+
+  STABILIZER CODE STRUCTURE: The RT formula's additivity (S(AB) =
+  S(A) + S(B) for disjoint regions in the vacuum) is the condition
+  for the boundary theory to decompose as a stabilizer code, where the
+  stabilizer generators correspond to boundary symmetry generators and
+  the logical operators correspond to bulk field operators.
+translation_table:
+  - field_a_term: "Physical qubits (n) in stabilizer code [[n,k,d]]"
+    field_b_term: "Boundary CFT degrees of freedom"
+    note: "The n boundary qubits are the physical storage medium for bulk information"
+  - field_a_term: "Logical qubits (k) — encoded information"
+    field_b_term: "Bulk quantum field theory operators in AdS"
+    note: "The k logical qubits are the bulk operators reconstructable from the boundary"
+  - field_a_term: "Code distance d (error correction capacity)"
+    field_b_term: "RT minimal surface area (in Planck units)"
+    note: "S = A/4G_N is the code distance: how much boundary must be erased to destroy bulk info"
+  - field_a_term: "Erasure error on boundary region A"
+    field_b_term: "Tracing out boundary region A (partial trace)"
+    note: "Code corrects erasure iff bulk is recoverable from complement Ā of the erased region"
+  - field_a_term: "Perfect tensor (maximally entangled across bipartitions)"
+    field_b_term: "Local AdS geometry tensor network vertex"
+    note: "Pastawski et al.'s HaPPY code uses [[5,1,3]] perfect tensors as AdS vertices"
+  - field_a_term: "Stabilizer generators"
+    field_b_term: "Boundary symmetry generators / modular Hamiltonians"
+    note: "The stabilizer group of the holographic code corresponds to the boundary modular flow"
+  - field_a_term: "Quantum Singleton bound (S ≤ n-k)"
+    field_b_term: "Ryu-Takayanagi formula S(A) = Area(γ_A)/4G_N"
+    note: "RT formula is the Singleton bound of the holographic code, saturated by the minimal surface"
+related_unknowns:
+  - u-holographic-code-exact-boundary-conditions
+related_hypotheses:
+  - h-ads-cft-quantum-error-correction-island-formula
+cross_pollination_opportunities:
+  - >
+    Surface codes (the leading architecture for fault-tolerant quantum
+    computing) have a 2D spatial structure reminiscent of the AdS bulk.
+    The logical qubit in a surface code is encoded in boundary anyons
+    in a way that is formally analogous to AdS/CFT. Importing holographic
+    renormalization group techniques to analyse the thermodynamic limit
+    of surface codes could give new insights into topological quantum
+    memory stability at finite temperature.
+  - >
+    The island formula and replica wormholes (Almheiri et al. 2020)
+    that resolve the black hole information paradox use quantum error
+    correction implicitly. Making the code structure explicit — identifying
+    the stabilizers, logical operators, and code distance of the island
+    formula — would provide a fully algebraic formulation of black hole
+    information recovery, potentially accessible to quantum information
+    theorists without string theory background.
+  - >
+    Quantum LDPC codes (sparse codes achieving near-optimal parameters)
+    have recently been constructed that asymptotically approach the
+    quantum Gilbert-Varshamov bound. These codes have a hyperbolic
+    geometry structure (Tillich & Zémor 2014). Since AdS space is
+    hyperbolic, hyperbolic quantum LDPC codes may be the natural
+    discrete models of AdS/CFT, with their parameters (n, k, d) directly
+    mapping to AdS radius, number of bulk fields, and minimal surface area.
+communication_gap: >
+  The quantum error correction community (quantum computing, quantum
+  information) and the quantum gravity / string theory community work in
+  largely separate journals (Phys Rev A vs JHEP) with different language
+  and training. Almheiri, Dong, and Harlow's 2015 paper was a landmark
+  bridge, but it is read mainly in the quantum gravity literature. Working
+  quantum error correction engineers building surface code chips are
+  unaware that their code geometry has a gravitational dual. Conversely,
+  string theorists developing the island formula rarely read the quantum
+  error correction engineering literature where fault-tolerance threshold
+  theorems might offer new tools for the information paradox.
+last_reviewed: "2026-05-05"
+references:
+  - doi: "10.1103/PhysRevLett.96.181602"
+    note: "Ryu & Takayanagi (2006) Phys Rev Lett 96:181602 — holographic derivation of entanglement entropy; RT formula"
+  - doi: "10.1007/JHEP04(2015)163"
+    note: "Almheiri, Dong & Harlow (2015) JHEP 2015:163 — bulk locality and quantum error correction in AdS/CFT"
+  - doi: "10.1007/JHEP06(2015)149"
+    note: "Pastawski et al. (2015) JHEP 2015:149 — holographic quantum error-correcting codes; HaPPY code with perfect tensors"
+  - arxiv: "hep-th/9711200"
+    note: "Maldacena (1997) Int J Theor Phys 38:1113 — the large N limit of superconformal field theories and supergravity; AdS/CFT"
+  - doi: "10.1103/PhysRevD.50.6394"
+    note: "Page (1993) Phys Rev Lett 71:3743 — information in black hole radiation; Page curve"

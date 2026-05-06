@@ -1,0 +1,167 @@
+id: b-commons-game-theory-ostrom
+title: >
+  Hardin's tragedy of the commons is a prisoner's dilemma, and Ostrom's
+  polycentric governance of common-pool resources is formally equivalent
+  to the folk theorem of repeated game theory: communities that interact
+  repeatedly sustain cooperation via conditional punishment strategies,
+  provided the discount factor δ exceeds a critical cooperation threshold.
+status: established
+fields:
+  - ecology
+  - economics
+  - game-theory
+  - evolutionary-biology
+  - political-science
+bridge_claim: >
+  Hardin (1968) argued that rational individuals sharing a common
+  resource (fishery, pasture, aquifer) will inevitably overexploit it —
+  each user captures the full benefit of increased extraction but shares
+  the cost of depletion. This is a prisoner's dilemma (PD) with the
+  payoff structure:
+    Cooperate (C): restrain use → T > R > P > S
+    Defect (D): overextract → dominant strategy for both players
+
+  where T = temptation, R = reward, P = punishment, S = sucker's payoff.
+  In a one-shot PD, defection is the unique Nash equilibrium, leading
+  to the "tragedy."
+
+  Ostrom's Nobel-winning work (1990) documented that in practice, many
+  communities successfully manage common-pool resources (CPRs) for
+  centuries without privatisation (Hardin's market solution) or state
+  regulation. The key insight is that resource users interact repeatedly,
+  and game theory predicts this changes everything:
+
+  1. THE FOLK THEOREM (Fudenberg & Maskin 1986, Aumann & Shapley 1994):
+     In an infinitely repeated prisoner's dilemma with discount factor
+     δ (the probability the game continues / present value of future
+     payoffs), any payoff vector in the individually rational feasible
+     set can be sustained as a Nash equilibrium if δ is sufficiently
+     large:
+       δ_c = (T - R) / (T - P)  [critical cooperation threshold]
+     For δ > δ_c, the grim-trigger strategy (cooperate until one defection,
+     then defect forever) sustains cooperation as a subgame-perfect
+     Nash equilibrium (SPNE).
+
+  2. OSTROM'S DESIGN PRINCIPLES AS MECHANISM DESIGN: Ostrom's eight
+     design principles for sustainable CPR governance (clearly defined
+     boundaries, proportional rules, collective choice arrangements,
+     monitoring, graduated sanctions, conflict resolution, recognition
+     by external authority, polycentric governance) are precisely the
+     institutional conditions that shift δ above δ_c and reduce
+     defection temptation T:
+     - Monitoring: increases detection probability → makes future
+       punishment credible → increases effective δ
+     - Graduated sanctions: implements the threat schedule of the
+       folk theorem (proportional punishment)
+     - Clear boundaries: defines who is in the repeated game
+     - Collective choice: coordinates on which equilibrium to play
+
+  3. AXELROD'S TOURNAMENTS: Axelrod (1984) demonstrated computationally
+     that Tit-for-Tat (TFT) — cooperate on the first move, then copy
+     your partner's last move — wins iterated prisoner's dilemma
+     tournaments. TFT is a memory-1 implementation of the folk theorem
+     cooperation strategy. Biological populations evolving TFT strategies
+     are implementing repeated game equilibria through natural selection —
+     the same mechanism Ostrom found in human CPR governance.
+
+  4. EVOLUTIONARY GAME THEORY CONNECTION: The replicator dynamics for
+     a population playing Cooperators vs. Defectors give:
+       dΔx/dt = x(1-x)[f_C(x) - f_D(x)]
+     where x is the cooperator frequency. In the one-shot PD, f_C < f_D
+     for all x (defection always spreads). In the repeated PD with
+     δ > δ_c, f_C > f_D near x = 1 — cooperation is an evolutionarily
+     stable strategy (ESS). Ostrom communities have found the biological
+     equivalent of the cooperator ESS basin.
+
+  5. POLYCENTRICITY = NETWORK GAME: Ostrom's "polycentric governance"
+     (multiple overlapping governance units at different scales) maps to
+     a network game where the adjacency matrix determines which pairs
+     play repeated games with each other. Local tight-knit communities
+     have high δ (frequent interaction, low discount); interactions
+     between distant strangers have low δ. Polycentric governance
+     creates the overlapping high-δ patches that sustain cooperation at
+     each scale.
+
+  EMPIRICAL VALIDATION: Ostrom's team documented CPR governance in Swiss
+  and Japanese mountain commons (operating sustainably for >500 years),
+  Spanish irrigation systems (>centuries), Maine lobster fisheries, and
+  Nepali farmer-managed irrigation systems. All exhibit the mechanism-
+  design features that correspond to folk-theorem cooperation conditions.
+translation_table:
+  - field_a_term: "Prisoner's dilemma one-shot game"
+    field_b_term: "Tragedy of the commons (Hardin 1968)"
+    note: "One-shot interaction: defection (overextraction) is dominant strategy; depletion is inevitable"
+  - field_a_term: "Discount factor δ (present value of future payoffs)"
+    field_b_term: "Frequency of interaction / shadow of the future in CPR community"
+    note: "Long-lived, frequently interacting communities have high δ; transient users have low δ"
+  - field_a_term: "Critical cooperation threshold δ_c = (T-R)/(T-P)"
+    field_b_term: "Minimum community cohesion for sustainable commons governance"
+    note: "When interactions are frequent enough (δ > δ_c), cooperation is a Nash equilibrium"
+  - field_a_term: "Grim-trigger strategy (defect forever after one deviation)"
+    field_b_term: "Exclusion from the commons for rule violations"
+    note: "Ostrom's graduated sanctions escalate toward permanent exclusion — the grim trigger"
+  - field_a_term: "Tit-for-Tat (TFT) in Axelrod tournaments"
+    field_b_term: "Reciprocal rule enforcement in CPR institutions"
+    note: "TFT is the simplest folk-theorem cooperator; reciprocal monitoring enforces TFT socially"
+  - field_a_term: "Folk theorem (any feasible payoff for δ > δ_c)"
+    field_b_term: "Ostrom's design principles (institutions that sustain cooperation)"
+    note: "Each design principle is an institutional mechanism that ensures δ > δ_c holds"
+  - field_a_term: "Evolutionarily stable strategy (ESS) in replicator dynamics"
+    field_b_term: "Stable CPR governance institution resistant to defector invasion"
+    note: "Ostrom's long-lived institutions are ESS cooperative equilibria in evolutionary game theory"
+related_unknowns:
+  - u-critical-discount-factor-empirical-cpr-communities
+related_hypotheses:
+  - h-ostrom-design-principles-folk-theorem-mapping
+cross_pollination_opportunities:
+  - >
+    The critical discount factor δ_c can be estimated empirically from
+    CPR governance data: communities that collapse (fishery depletion,
+    aquifer exhaustion) should have measurably lower interaction frequency
+    and weaker monitoring than those that sustain cooperation. Testing
+    this prediction across Ostrom's global dataset of CPR systems would
+    provide the first quantitative validation of the folk theorem as the
+    mechanism underlying Ostrom's design principles.
+  - >
+    Climate change mitigation is a global commons problem (tragedy of the
+    atmosphere). The folk theorem framework predicts the conditions under
+    which international cooperation on emissions can be sustained: the
+    effective discount factor δ must exceed δ_c across all major emitter
+    pairs. Computing δ_c from the payoff structure of the climate PD
+    (using damage cost estimates) and comparing to observed international
+    interaction frequencies would quantify how far current governance is
+    from the cooperation threshold.
+  - >
+    Evolutionary simulations of CPR games in structured populations
+    (network games) show that cooperation spreads faster on clustered
+    networks — consistent with Ostrom's observation that tight-knit
+    communities govern commons better than dispersed users. A systematic
+    mapping of CPR governance outcomes to network topology metrics
+    (clustering coefficient, average path length) would test whether
+    Ostrom's polycentric governance principle is a special case of the
+    network-game cooperation condition.
+communication_gap: >
+  Hardin (1968) wrote for biologists and ecologists without awareness
+  of the formal game theory literature that already described the PD
+  structure he was articulating. Ostrom (1990) developed her framework
+  in political science and institutional economics, citing game theory
+  informally but not deriving the folk theorem connection explicitly.
+  Fudenberg & Maskin (1986) proved the folk theorem in the economics
+  theory literature without reference to CPR governance. Axelrod (1984)
+  connected TFT to cooperation in biology and political science but not
+  explicitly to Ostrom's institutional framework. The complete formal
+  equivalence — Ostrom's design principles = folk theorem conditions —
+  is recognised in mechanism design theory but has not been translated
+  back into ecology and conservation policy.
+last_reviewed: "2026-05-05"
+references:
+  - doi: "10.1126/science.162.3859.1243"
+    note: "Hardin (1968) Science 162:1243 — The Tragedy of the Commons; PD structure of resource depletion"
+  - note: "Ostrom (1990) Governing the Commons (Cambridge UP) — polycentric governance of CPR; Nobel 2009"
+    url: "https://doi.org/10.1017/CBO9780511807763"
+  - note: "Axelrod (1984) The Evolution of Cooperation (Basic Books) — TFT wins iterated PD; biological and social applications"
+    url: "https://www.basicbooks.com/titles/robert-axelrod/the-evolution-of-cooperation/9780465005642/"
+  - doi: "10.2307/1911307"
+    note: "Fudenberg & Maskin (1986) Econometrica 54:533 — the folk theorem in repeated games with discounting or incomplete information"
+  - doi: "10.1126/science.1200177"
+    note: "Ostrom (2009) Science 325:419 — a general framework for analyzing sustainability of social-ecological systems (Nobel lecture)"

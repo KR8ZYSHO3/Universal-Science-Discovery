@@ -1,0 +1,156 @@
+id: b-curry-howard-proofs-programs
+title: >
+  The Curry-Howard correspondence proves that propositions in
+  intuitionistic logic are identical to types in typed lambda calculus,
+  and proofs of those propositions are identical to programs of those
+  types — mathematics and computation are the same formal system viewed
+  from two perspectives.
+status: established
+fields:
+  - mathematical-logic
+  - type-theory
+  - computer-science
+  - proof-theory
+  - programming-language-theory
+bridge_claim: >
+  The Curry-Howard isomorphism (independently discovered by Haskell
+  Curry in 1934 for combinatory logic and William Howard in 1969 for
+  natural deduction) establishes an exact correspondence between the
+  syntax of formal logic and the syntax of typed functional programming:
+
+  LOGICAL SIDE             ↔    COMPUTATIONAL SIDE
+  ─────────────────────────────────────────────────────
+  Proposition P                 Type P
+  Proof of P                    Program of type P
+  Implication (A → B)           Function type (A → B)
+  Conjunction (A ∧ B)           Product type (A × B)
+  Disjunction (A ∨ B)           Sum type (A + B)
+  Universal (∀x. P(x))          Dependent product type Πx:A.P(x)
+  Existential (∃x. P(x))        Dependent sum type Σx:A.P(x)
+  Logical truth (⊤)             Unit type ()
+  Logical falsity (⊥)           Empty type (void)
+  Proof normalisation           Program reduction (β-reduction)
+  Cut elimination               Evaluation / computation
+
+  This is not an analogy but a syntactic identity: the rules of
+  natural deduction in minimal propositional logic are term-for-term
+  identical to the typing rules of the simply-typed lambda calculus.
+
+  CONSEQUENCES:
+
+  1. PROOFS AS PROGRAMS: Writing a proof of a theorem is equivalent to
+     writing a program of the corresponding type. Proof assistants
+     (Coq, Agda, Lean) exploit this: a proof of "all even numbers have
+     a square root... no, that's false" — more precisely, a proof of
+     "sorting preserves list length" — is a terminating program of type
+     (List n → List n). Inhabiting a type = proving a theorem.
+
+  2. COMPUTATION AS NORMALISATION: Computing the output of a program
+     (β-reduction) is the same process as normalising a proof
+     (cut elimination in sequent calculus). Both reduce a complex
+     expression to an irreducible normal form. The Church-Rosser theorem
+     (confluence of β-reduction) and the normalisation theorem (every
+     cut-free proof is equivalent to the cut-normal form) are the same
+     theorem.
+
+  3. MARTIN-LÖF TYPE THEORY: Per Martin-Löf's intensional type theory
+     (1984) extends the correspondence to full mathematics: dependent
+     types capture quantifiers and equality types capture proofs of
+     equality. The univalence axiom (Voevodsky 2009, Homotopy Type Theory)
+     further identifies proof isomorphisms with homotopy equivalences,
+     connecting logic, computation, and topology in a single framework.
+
+  4. CATEGORY-THEORETIC COMPLETION: The Curry-Howard correspondence
+     has a third vertex: Cartesian closed categories (CCCs). Propositions
+     = objects; proofs = morphisms; implication = exponential object.
+     This "Curry-Howard-Lambek" triangle unifies logic, computation,
+     and category theory.
+
+  5. PRACTICAL IMPACT: The correspondence enables:
+     (a) Certified software — programs whose correctness is a formal
+         proof (CompCert verified C compiler, seL4 verified OS kernel)
+     (b) Interactive theorem provers — Lean 4, Coq, Agda, Isabelle
+     (c) The "propositions as types" design principle in modern type
+         systems (Haskell, Rust, TypeScript generics)
+
+  The correspondence fails for classical logic versus call/cc (continuations):
+  classical proofs (law of excluded middle) correspond to control
+  operators like call-with-current-continuation (Scheme's call/cc),
+  suggesting that imperative programming is "classical" and functional
+  programming is "intuitionistic" in a deep sense.
+translation_table:
+  - field_a_term: "Proposition P in intuitionistic logic"
+    field_b_term: "Type P in typed lambda calculus"
+    note: "Propositions and types are the same syntactic category; the distinction is only conceptual"
+  - field_a_term: "Proof of proposition P"
+    field_b_term: "Term (program) of type P"
+    note: "A proof is a program; writing a proof is writing a certified program"
+  - field_a_term: "Logical implication A → B"
+    field_b_term: "Function type A → B"
+    note: "Modus ponens = function application; introducing → = lambda abstraction"
+  - field_a_term: "Conjunction A ∧ B"
+    field_b_term: "Product type (pair type) A × B"
+    note: "Proving A and B = constructing a pair (a, b); projections = ∧-elimination"
+  - field_a_term: "Disjunction A ∨ B"
+    field_b_term: "Sum type (tagged union) A + B"
+    note: "Proving A or B = injecting into the left or right component; case analysis = ∨-elimination"
+  - field_a_term: "Cut rule in sequent calculus"
+    field_b_term: "Let-binding / function application"
+    note: "Cut elimination = β-reduction; eliminating a lemma = inlining a function call"
+  - field_a_term: "Proof normalisation (cut-free proof)"
+    field_b_term: "β-normal form (fully reduced program)"
+    note: "Church-Rosser theorem for λ-calculus = confluence of proof normalisation"
+  - field_a_term: "Law of excluded middle (P ∨ ¬P)"
+    field_b_term: "Call/cc (call-with-current-continuation)"
+    note: "Classical logic corresponds to languages with first-class control flow"
+related_unknowns:
+  - u-curry-howard-quantum-logic-types
+related_hypotheses:
+  - h-homotopy-type-theory-univalence-computation
+cross_pollination_opportunities:
+  - >
+    Homotopy type theory (HoTT) identifies proof isomorphisms with
+    homotopy equivalences, making the Curry-Howard correspondence
+    three-way: logic ↔ computation ↔ homotopy theory. Applying HoTT
+    to program verification would allow reasoning about program
+    equivalence using topological tools — homotopy invariants as program
+    correctness certificates.
+  - >
+    Quantum computing and quantum logic (Birkhoff-von Neumann quantum
+    logic) suggest a "quantum Curry-Howard" correspondence where quantum
+    propositions (projections on Hilbert space) correspond to quantum
+    types and quantum proofs correspond to quantum programs (quantum
+    circuits). Developing this would give a type-theoretic foundation for
+    quantum programming languages (Quipper, QWIRE, Proto-Quipper).
+  - >
+    Linear logic (Girard 1987) introduces resource sensitivity: a
+    proposition/type can be used exactly once. The Curry-Howard
+    correspondent is linear type systems, which prevent use-after-free
+    memory errors in systems programming. Rust's borrow checker is a
+    partial implementation of linear type theory. Completing the
+    correspondence between substructural logics and resource-typed
+    programming languages could give formal verification tools for
+    systems with physical resource constraints (energy, memory bandwidth).
+communication_gap: >
+  The Curry-Howard isomorphism is well-known in programming language
+  theory and type theory, where it has driven decades of research on
+  proof assistants. However, it is almost entirely absent from standard
+  mathematics education, where logic and computation are taught
+  separately. Working mathematicians using proof assistants often do not
+  conceptualise what they are doing as programming; conversely, most
+  software engineers have never heard of the correspondence that
+  underlies the type systems they use daily. The categorical completion
+  (Curry-Howard-Lambek) is understood mainly in theoretical computer
+  science and category theory communities.
+last_reviewed: "2026-05-05"
+references:
+  - note: "Howard (1980) in Seldin & Hindley (eds.) To H.B. Curry: Essays on Combinatory Logic — formulae-as-types correspondence (original 1969 manuscript)"
+    url: "https://www.cs.cmu.edu/~crary/819-f09/Howard80.pdf"
+  - doi: "10.1145/2699407"
+    note: "Wadler (2015) Comm ACM 58:75 — Propositions as types; accessible survey of the correspondence"
+  - note: "Martin-Löf (1984) Intuitionistic Type Theory — dependent types extending Curry-Howard to full mathematics"
+    url: "https://archive-pml.github.io/martin-lof/pdfs/Bibliopolis-Book-retypeset-1984.pdf"
+  - note: "Curry & Feys (1958) Combinatory Logic Vol I — original combinatory logic; implicit Curry-Howard for combinators"
+    url: "https://doi.org/10.2307/2964755"
+  - arxiv: "1308.0514"
+    note: "Homotopy Type Theory Book (2013) — univalence axiom extending Curry-Howard to homotopy theory"

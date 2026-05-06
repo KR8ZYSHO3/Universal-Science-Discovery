@@ -1,0 +1,142 @@
+id: b-free-energy-principle-thermodynamics
+title: >
+  Friston's Free Energy Principle in theoretical neuroscience is formally
+  isomorphic to thermodynamic free energy minimisation in statistical
+  mechanics: the KL divergence between approximate and true posterior
+  plays the role of entropy, and active inference (action minimises
+  surprise) is the biological analogue of thermodynamic relaxation
+  toward equilibrium.
+status: proposed
+fields:
+  - theoretical-neuroscience
+  - cognitive-science
+  - statistical-physics
+  - thermodynamics
+  - information-theory
+bridge_claim: >
+  The thermodynamic free energy in statistical mechanics is F = U - TS,
+  where U is internal energy, T is temperature, and S is entropy. A
+  system at equilibrium minimises F, which is equivalent to maximising
+  entropy subject to energy constraints (the Helmholtz principle).
+
+  Friston's variational free energy (2010) is:
+    F = E_q[log q(φ) - log p(φ, s)]
+      = D_KL[q(φ) || p(φ|s)] - log p(s)
+  where q(φ) is the approximate posterior over hidden states φ,
+  p(φ|s) is the true posterior, and p(s) is the marginal likelihood
+  (model evidence). Since D_KL ≥ 0, F ≥ -log p(s), making F an upper
+  bound on surprise (-log p(s)).
+
+  The formal isomorphism operates at several levels:
+
+  1. FREE ENERGY = ENERGY - ENTROPY:
+     Thermodynamic: F = U - TS
+     Variational:   F = E_q[log q] - E_q[log p] = -S_q + U_q
+     where S_q = -E_q[log q] is the entropy of the approximate posterior
+     and U_q = -E_q[log p] is the expected energy under q. The parallel
+     is exact: entropy terms play the same role in both.
+
+  2. EQUILIBRIUM = PERCEPTION: In thermodynamics, equilibrium is the
+     state that minimises F. In neuroscience, perception is the process
+     of minimising variational free energy by updating beliefs q(φ) to
+     match the true posterior p(φ|s). Both are optimisation processes
+     converging on the same extremum.
+
+  3. ACTIVE INFERENCE = WORK AGAINST DISORDER: In thermodynamics, a
+     non-equilibrium system performs work to maintain a low-entropy state
+     (e.g., a living cell maintaining concentration gradients). In active
+     inference, an agent performs actions to change sensory input s such
+     that s matches predictions — bringing the world into conformity with
+     the agent's generative model. Both are entropy-fighting processes
+     sustained by free energy expenditure.
+
+  4. MARKOV BLANKET = SYSTEM BOUNDARY: The Markov blanket (Pearl 1988)
+     that separates a biological system from its environment in the FEP
+     is the analogue of the thermodynamic system boundary separating
+     system from bath. The conditional independence structure of the
+     Markov blanket is the information-theoretic version of the adiabatic
+     boundary in thermodynamics.
+
+  5. SURPRISE MINIMISATION = ENTROPY MINIMISATION: Minimising -log p(s)
+     (surprise) over time is equivalent to the organism maintaining
+     itself in a small number of characteristic states — low entropy in
+     phase space. This is the thermodynamic definition of life (Schrödinger
+     1944: living systems resist the increase of entropy).
+
+  JAYNES CONNECTION: Jaynes (1957) showed that statistical mechanics
+  can be derived entirely from maximum entropy inference, making
+  thermodynamics a special case of Bayesian inference. The FEP inverts
+  this: Bayesian brain inference is a special case of thermodynamic
+  free-energy minimisation. The two perspectives are dual.
+translation_table:
+  - field_a_term: "Thermodynamic free energy F = U - TS"
+    field_b_term: "Variational free energy F = E_q[log q - log p]"
+    note: "Exact algebraic isomorphism: internal energy U ↔ E_q[-log p]; temperature-entropy TS ↔ entropy of beliefs S_q"
+  - field_a_term: "Entropy S of thermodynamic system"
+    field_b_term: "Entropy H[q] = -E_q[log q] of the approximate posterior"
+    note: "Both measure the uncertainty / disorder of the system's state distribution"
+  - field_a_term: "Equilibrium state (minimises F)"
+    field_b_term: "Perceptual inference (minimises F by updating beliefs)"
+    note: "Perception = equilibration of internal model to sensory evidence"
+  - field_a_term: "Non-equilibrium work against disorder"
+    field_b_term: "Active inference (action changes sensory input to match predictions)"
+    note: "Both require energy expenditure to maintain low-entropy ordered states"
+  - field_a_term: "Thermodynamic system boundary / adiabatic wall"
+    field_b_term: "Markov blanket separating agent from environment"
+    note: "Conditional independence = informational insulation = thermodynamic isolation"
+  - field_a_term: "Boltzmann distribution p(x) ∝ exp(-E(x)/kT)"
+    field_b_term: "Posterior distribution p(φ|s) ∝ exp(-F(φ,s))"
+    note: "Variational free energy plays the role of scaled energy E(x)/kT"
+  - field_a_term: "Schrödinger's negentropy (life fights entropy)"
+    field_b_term: "Self-evidencing (organisms minimise surprise to maintain homeostasis)"
+    note: "Equivalent formulations of the thermodynamic cost of life"
+related_unknowns:
+  - u-free-energy-principle-empirical-tests
+related_hypotheses:
+  - h-active-inference-thermodynamic-efficiency
+cross_pollination_opportunities:
+  - >
+    The FEP implies that neural computation has thermodynamic costs
+    directly related to the KL divergence being minimised. Connecting
+    the variational free energy to Landauer's principle (erasing one bit
+    costs kT ln 2 in energy) would give a physical lower bound on the
+    metabolic cost of Bayesian updating — testable against measurements
+    of neural energy consumption during perceptual inference tasks.
+  - >
+    Non-equilibrium thermodynamics (Jarzynski 1997, Crooks 1999) gives
+    exact relations between work, free energy, and irreversibility. The
+    active inference framework has so far ignored these: there should be
+    a "neural Jarzynski equality" relating the variational free energy
+    of perceptual cycles to the thermodynamic work performed on sensory
+    organs. Deriving this would ground the FEP more firmly in physics.
+  - >
+    Predictive coding networks (Rao & Ballard 1999) implement the FEP
+    in a neural circuit. The energy landscape of a predictive coding
+    network is a Lyapunov function for the variational free energy.
+    Treating the network as a physical spin glass and applying
+    equilibrium and non-equilibrium statistical mechanics could predict
+    the dynamics of hallucinations, perceptual switching, and attention
+    from first thermodynamic principles.
+communication_gap: >
+  Friston's FEP was developed in the theoretical neuroscience literature
+  from 2005 onwards. Despite the explicit use of thermodynamic language
+  (free energy, entropy, surprise), the connection to Jaynes' maximum-
+  entropy statistical mechanics and non-equilibrium thermodynamics is not
+  quantitative in most neuroscience applications. Thermodynamicists and
+  statistical physicists are largely unaware of the FEP. The barrier is
+  partly sociological (neuroscience versus physics journals) and partly
+  mathematical (the variational Bayesian language is unfamiliar to
+  physicists, while non-equilibrium thermo is unfamiliar to most
+  neuroscientists).
+last_reviewed: "2026-05-05"
+references:
+  - doi: "10.1038/nrn2787"
+    note: "Friston (2010) Nat Rev Neurosci 11:127 — The free-energy principle: a unified brain theory"
+  - doi: "10.1080/1047840X.2016.1201141"
+    note: "Friston et al. (2016) Psychol Inq 27:1 — Active inference and learning"
+  - doi: "10.1103/PhysRev.106.620"
+    note: "Jaynes (1957) Phys Rev 106:620 — Information theory and statistical mechanics; maximum entropy derivation of thermodynamics"
+  - note: "Schrödinger (1944) What is Life? — negentropy and the thermodynamics of living systems"
+    url: "https://archive.org/details/whatislife00schr"
+  - doi: "10.1162/089976699300016953"
+    note: "Rao & Ballard (1999) Nat Neurosci 2:79 — predictive coding in the visual cortex; neural implementation of FEP"

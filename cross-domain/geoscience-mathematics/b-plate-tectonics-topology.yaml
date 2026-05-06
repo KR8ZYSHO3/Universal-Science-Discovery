@@ -1,0 +1,144 @@
+id: b-plate-tectonics-topology
+title: >
+  Plate tectonic motion on Earth's surface is an exact realisation of
+  the mathematical theory of rigid motions on a sphere: every plate
+  motion is a rotation in SO(3) about an Euler pole, hotspot tracks
+  are geodesics on the rotation manifold, and triple junction stability
+  obeys the Euler characteristic constraint of the 2-sphere.
+status: established
+fields:
+  - geoscience
+  - geology
+  - differential-geometry
+  - topology
+  - mathematics
+bridge_claim: >
+  Euler's fixed-point theorem (1776) states that every orientation-
+  preserving rigid motion of the 2-sphere S² is a rotation about some
+  axis passing through the centre — the Euler pole. McKenzie & Parker
+  (1967) and Morgan (1968) independently recognised that this theorem
+  completely describes plate tectonic motion:
+
+  1. EULER'S THEOREM APPLIED TO TECTONICS: Each tectonic plate is a
+     rigid cap on the 2-sphere. Its relative motion with respect to
+     another plate is uniquely described by an angular velocity vector
+     ω ∈ ℝ³, whose direction gives the Euler pole (the point on Earth's
+     surface about which the plate rotates) and whose magnitude |ω| gives
+     the rotation rate (degrees per million years). The relative velocity
+     at any point P on the plate boundary is:
+       v(P) = ω × r(P)
+     where r(P) is the position vector of P. This is the standard
+     rigid-body rotation formula from classical mechanics, applied to
+     the sphere.
+
+  2. ROTATION GROUP SO(3): The set of all possible plate configurations
+     forms the rotation group SO(3) — the group of 3×3 orthogonal matrices
+     with determinant +1. The kinematics of multiple plates is described
+     by a system of relative rotations in SO(3) satisfying closure:
+     if ω_AB is the rotation of plate B relative to plate A, and ω_BC
+     of plate C relative to plate B, then:
+       ω_AC = ω_AB ∘ ω_BC (composition in SO(3))
+     This circuit closure is not merely convenient — it is a topological
+     constraint, equivalent to the fundamental group of SO(3) being ℤ₂.
+
+  3. TRIPLE JUNCTIONS AND THE EULER CHARACTERISTIC: The Euler
+     characteristic of a closed surface partitioned into F faces, E edges,
+     and V vertices satisfies χ = V - E + F = 2 for the 2-sphere.
+     Applied to the plate tectonic partition of the globe, V = number of
+     triple junctions, E = number of plate boundaries, F = number of
+     plates. This topological constraint limits the possible combinatorics
+     of plate boundary configurations and predicts stability conditions
+     for triple junctions (McKenzie & Morgan 1969).
+
+  4. HOTSPOT TRACKS AS GEODESICS: If a mantle hotspot is fixed relative
+     to the deep mantle (the "hotspot reference frame"), the track it
+     burns through a plate over time is a small circle on the sphere
+     (a curve at constant angular distance from the Euler pole). The
+     Hawaiian-Emperor seamount chain, Yellowstone hotspot track, and
+     Iceland-Greenland ridge are all segments of such small circles —
+     directly tracing out geodesics on the SO(3) rotation manifold.
+
+  5. FIBER BUNDLE STRUCTURE: The full mathematical structure of plate
+     tectonics is a principal SO(3)-bundle over the base space S² × ℝ
+     (sphere × time). The plate configuration at each time is a section
+     of this bundle, and the constraint that relative rotations compose
+     is the cocycle condition for the bundle. Global changes in plate
+     topology (subduction of ridges, ridge jumps) are topological
+     defects — analogous to gauge field instantons.
+
+  ANGULAR VELOCITY DETERMINATION: The three parameters of ω (pole
+  latitude, longitude, and rotation rate) are determined from three
+  observables: earthquake focal mechanisms (give transform fault
+  orientation = small circle), spreading rates from marine magnetic
+  anomalies, and GPS velocities. The overdetermined system is solved by
+  least-squares minimisation on SO(3), exploiting its Lie group structure.
+translation_table:
+  - field_a_term: "Euler pole (fixed point of rotation on sphere)"
+    field_b_term: "Angular velocity vector ω of a tectonic plate"
+    note: "The direction of ω gives the Euler pole coordinates; |ω| gives rotation rate in °/Myr"
+  - field_a_term: "Rotation group SO(3)"
+    field_b_term: "Space of all tectonic plate configurations on the globe"
+    note: "Each plate's relative orientation is an element of SO(3); composition = plate circuit closure"
+  - field_a_term: "Geodesic on S² (great circle)"
+    field_b_term: "Transform fault trace on the ocean floor"
+    note: "Transform faults follow small circles centred on the Euler pole — geodesics in the rotation geometry"
+  - field_a_term: "Euler characteristic χ = V - E + F = 2 for S²"
+    field_b_term: "Constraint on the global plate boundary topology"
+    note: "Limits the possible numbers and types of triple junctions on Earth's surface"
+  - field_a_term: "Lie algebra so(3) (infinitesimal rotations)"
+    field_b_term: "Instantaneous angular velocity of plate motion"
+    note: "The angular velocity ω is an element of the Lie algebra; integration gives finite rotation"
+  - field_a_term: "Principal fiber bundle over base manifold"
+    field_b_term: "Full kinematic state of the tectonic plate system over geological time"
+    note: "Plate topology changes (subduction, ridge jumps) are topological defects in this bundle"
+  - field_a_term: "Parallel transport on SO(3)"
+    field_b_term: "Finite rotation reconstruction from stage poles"
+    note: "Reconstructing past plate positions = parallel-transporting the rotation along the SO(3) geodesic"
+related_unknowns:
+  - u-deep-mantle-reference-frame-true-polar-wander
+related_hypotheses:
+  - h-plate-circuit-closure-so3-constraint
+cross_pollination_opportunities:
+  - >
+    The SO(3) structure of plate tectonics implies that uncertainty in
+    Euler pole determination should be quantified using the geometry of
+    SO(3) (e.g., the Riemannian metric on SO(3)) rather than Euclidean
+    error ellipses. Importing the Lie group statistics developed for
+    robotics (SO(3) mean and covariance, Rodrigues parameters) would give
+    more rigorous uncertainty quantification for paleogeographic
+    reconstructions.
+  - >
+    The fiber bundle description suggests that mantle flow (a connection
+    on the bundle) generates holonomy — when a plate circuit around
+    a triple junction closes, the accumulated rotation need not be the
+    identity if the connection has curvature. Non-zero holonomy would
+    imply that mantle dynamics generate residual rotations not accounted
+    for by rigid plate kinematics alone, testable via GPS closure residuals.
+  - >
+    The topological constraint χ = 2 on the sphere means that changes
+    in the number of plates always involve correlated changes in triple
+    junctions and boundaries. A topological data analysis (TDA) of
+    the plate boundary network over geological time (using persistence
+    diagrams on the boundary graph) could quantify how plate topology
+    evolves through supercontinent cycles.
+communication_gap: >
+  The application of Euler's theorem to tectonics was discovered by
+  geophysicists (McKenzie & Parker 1967, Morgan 1968) who were aware
+  of the theorem but not of the deeper Lie group and fiber bundle
+  structure. Differential geometers and topologists who develop the
+  theory of SO(3) bundles, Lie group statistics, and holonomy are
+  unaware of the tectonic application. Geoscience education introduces
+  Euler poles as a practical tool without the full mathematical context,
+  while pure mathematics courses on Lie groups never mention tectonics.
+last_reviewed: "2026-05-05"
+references:
+  - doi: "10.1038/2161276a0"
+    note: "McKenzie & Parker (1967) Nature 216:1276 — The North Pacific: an example of tectonics on a sphere"
+  - doi: "10.1029/JB073i006p01959"
+    note: "Morgan (1968) J Geophys Res 73:1959 — Rises, trenches, great faults and crustal blocks; Euler pole kinematics"
+  - note: "Euler (1776) Novi Commentarii Academiae Scientiarum Petropolitanae 20:189 — Formulae generales pro translatione quacunque corporum rigidorum"
+    url: "https://scholarlycommons.pacific.edu/euler-works/478/"
+  - note: "Cox & Hart (1986) Plate Tectonics: How It Works (Blackwell) — textbook treatment of SO(3) kinematics"
+    url: "https://www.wiley.com/en-us/Plate+Tectonics%3A+How+It+Works-p-9780865420045"
+  - doi: "10.1038/224125a0"
+    note: "McKenzie & Morgan (1969) Nature 224:125 — Evolution of triple junctions; topological stability analysis"
