@@ -1,0 +1,70 @@
+id: b-quantum-supremacy-complexity
+title: >
+  Google's Sycamore quantum processor (2019) demonstrated quantum computational advantage
+  by sampling a random quantum circuit distribution in 200s vs estimated 10,000 classical
+  years, framing the question of quantum advantage as the complexity separation BQP vs BPP
+  and connecting quantum entanglement physics to computational complexity theory.
+status: proposed
+fields:
+  - computer-science
+  - physics
+  - quantum-computing
+  - computational-complexity
+  - quantum-information
+bridge_claim: >
+  Google's 53-qubit Sycamore processor (Arute et al. 2019) sampled the output distribution
+  of a pseudo-random quantum circuit in 200s, with classical simulation estimated at 10,000
+  years on Summit supercomputer. The complexity-theoretic interpretation: this demonstrates
+  BQP is likely not contained in BPP for this specific sampling task. Aaronson & Arkhipov
+  (2011) proposed BosonSampling — a photonic quantum computer sampling the permanent of a
+  complex matrix — as a quantum advantage proposal; computing the permanent is #P-hard
+  classically (Valiant 1979) but efficient on photonic hardware (Zhong et al. 2020).
+  The physics of entanglement enables computational advantages: the amplitudes of an n-qubit
+  circuit are exponentially many (2^n), each depending on quantum interference; sampling
+  from this distribution cannot be efficiently spoofed classically unless the polynomial
+  hierarchy collapses. The bridge: quantum entanglement (physics) maps to computational
+  hardness (complexity theory) — physical correlations enable calculations beyond classical space.
+translation_table:
+  - field_a_term: quantum entanglement (non-separable multi-qubit state)
+    field_b_term: computational resource enabling BQP separation from BPP
+    note: entanglement is the physical resource; complexity advantage is the computational consequence
+  - field_a_term: quantum interference (amplitude cancellation in circuit)
+    field_b_term: hardness of classical simulation (exponential amplitude summation)
+    note: constructive/destructive interference is precisely what makes classical simulation hard
+  - field_a_term: random quantum circuit sampling
+    field_b_term: anticoncentration (output distribution close to uniform, hard to spoof classically)
+    note: anticoncentration property ensures classical simulation requires exponential time
+  - field_a_term: matrix permanent (BosonSampling)
+    field_b_term: "#P-hard problem in computational complexity"
+    note: computing Perm(A) for complex A is #P-hard; photonic hardware samples it efficiently
+related_unknowns:
+  - u-quantum-simulation-classical-hardness
+related_hypotheses:
+  - h-quantum-error-correction-surface-code-overhead-v2
+cross_pollination_opportunities:
+  - >
+    Classical simulation counter-claims (Pan & Zhang 2022 claiming classical simulation in
+    hours) show the quantum advantage claims depend on precise circuit noise models. Physical
+    error rates determine the complexity boundary. This creates a physics-complexity co-design
+    problem: quantum advantage is a function of both circuit depth (complexity) and physical
+    noise (physics), requiring joint optimization.
+  - >
+    Quantum error correction thresholds define the phase boundary between quantum advantage
+    and classical simulability. The threshold is a physics quantity (error rate per gate)
+    that maps to a complexity theory phase transition.
+communication_gap: >
+  Complexity theorists and quantum physicists largely work in separate communities despite
+  the quantum supremacy question requiring both. The complexity-theoretic framing (BQP vs
+  BPP) is rarely explained in physics papers; the physics of noise and decoherence is rarely
+  engaged in complexity theory papers. Preskill (2018) coined "quantum supremacy" specifically
+  to bridge communities.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1038/s41586-019-1666-5"
+    note: Arute et al. (2019) — Quantum supremacy using a programmable superconducting processor; Nature 574:505
+  - doi: "10.1145/1993636.1993682"
+    note: Aaronson & Arkhipov (2011) — The computational complexity of linear optics; STOC
+  - doi: "10.22331/q-2018-08-06-79"
+    note: Preskill (2018) — Quantum computing in the NISQ era and beyond; Quantum 2:79
+  - doi: "10.1126/science.abe8770"
+    note: Zhong et al. (2020) — Quantum computational advantage using photons; Science 370:1460

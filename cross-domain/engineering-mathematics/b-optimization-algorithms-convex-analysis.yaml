@@ -1,0 +1,76 @@
+id: b-optimization-algorithms-convex-analysis
+title: >
+  Gradient descent and its variants (Nesterov acceleration, proximal methods, ADMM)
+  derive their convergence guarantees from convex analysis: O(1/t) for convex,
+  O(exp(-t)) for strongly convex, and optimal O(1/t²) for Nesterov momentum —
+  unifying engineering optimization with mathematical analysis of convex functions.
+status: established
+fields:
+  - engineering
+  - mathematics
+  - optimization
+  - convex-analysis
+  - machine-learning
+bridge_claim: >
+  Gradient descent x_{t+1} = x_t - η∇f(x_t) converges at rate O(1/t) for L-smooth
+  convex f (Lipschitz gradient, ‖∇f(x)-∇f(y)‖ ≤ L‖x-y‖) and at rate O(exp(-μt/L))
+  for μ-strongly convex f (where μ = σ_min(∇²f)). Nesterov's accelerated gradient
+  method (1983) achieves the optimal rate O(L/t²) for smooth convex functions —
+  provably optimal as shown by his lower bound argument. The proximal operator
+  prox_{τg}(x) = argmin_y{g(y) + (1/2τ)‖x-y‖²} generalizes projection to non-smooth
+  convex g (L1 = LASSO, nuclear norm, indicator functions). Proximal gradient methods
+  (ISTA, FISTA) handle composite f(x) + g(x) with f smooth and g non-smooth.
+  ADMM (Alternating Direction Method of Multipliers, Boyd et al. 2011) solves
+  separable convex programs min{f(x)+g(z): Ax+Bz=c} by augmented Lagrangian updates —
+  enabling distributed optimization across networked agents. The entire framework rests
+  on Rockafellar's convex analysis (1970): subdifferential calculus, conjugate functions,
+  Moreau-Rockafellar theorem, and duality theory that makes convergence proofs rigorous.
+translation_table:
+  - field_a_term: gradient ∇f(x) (smooth function derivative)
+    field_b_term: subgradient ∂f(x) (set-valued, for non-smooth convex f)
+    note: subgradient extends gradient to non-differentiable points; ∂(‖x‖₁) = sign(x) at non-zero
+  - field_a_term: Lipschitz continuity of gradient (L-smoothness)
+    field_b_term: bound on curvature of f; enables step size η = 1/L convergence guarantee
+    note: L-smoothness is the key regularity condition that makes gradient descent's O(1/t) rate provable
+  - field_a_term: strong convexity parameter μ (‖x-y‖² ≤ f(x)-f(y)...)
+    field_b_term: condition number κ = L/μ (determines convergence rate)
+    note: well-conditioned problems (small κ) converge exponentially; ill-conditioned problems need preconditioning
+  - field_a_term: proximal operator prox_{τg}(x) (denoising step)
+    field_b_term: projection onto convex set C (special case g = indicator of C)
+    note: proximal operator generalizes projection; equals soft thresholding for L1 regularization
+  - field_a_term: Lagrangian duality gap = 0 for convex programs (Slater's condition)
+    field_b_term: strong duality (primal = dual optimal value)
+    note: strong duality fails for non-convex programs; convexity is sufficient for zero duality gap
+related_unknowns:
+  - u-cache-efficient-algorithm-design
+related_hypotheses:
+  - h-distribution-shift-invariant-risk-minimization
+cross_pollination_opportunities:
+  - >
+    Mirror descent / entropic descent: replacing Euclidean distance in the proximal
+    step with Bregman divergence D_φ(x,y) = φ(x) - φ(y) - ∇φ(y)·(x-y) generalizes
+    gradient descent to non-Euclidean geometries. Online mirror descent achieves optimal
+    regret O(√T) in online learning (Shalev-Shwartz 2012) — connecting optimization
+    theory to information geometry (Amari's natural gradient uses Fisher metric Bregman
+    divergence, connecting to statistical manifolds).
+  - >
+    Second-order methods (Newton, quasi-Newton BFGS): using curvature information
+    ∇²f (or its approximation) achieves superlinear convergence near optima but at
+    O(d²) cost per iteration. The tradeoff between first-order (cheap, slow) and
+    second-order (expensive, fast) methods is a mathematical problem about the
+    spectral properties of ∇²f, connecting to random matrix theory for large neural networks.
+communication_gap: >
+  Nesterov (1983) published the accelerated gradient method in a Russian-language
+  journal (Doklady Akademii Nauk) and the result was unknown in Western machine
+  learning until the late 2000s. Boyd et al. (2011) ADMM monograph in Foundations
+  and Trends made convex optimization accessible to engineers and machine learning
+  practitioners without background in convex analysis. Rockafellar (1970) remains
+  the definitive mathematical reference but is rarely cited by machine learning engineers.
+last_reviewed: "2026-05-06"
+references:
+  - note: Nesterov (1983) — A method for solving convex programming problems with convergence rate O(1/k²); Doklady AN USSR 269:543
+  - doi: "10.1561/2200000016"
+    note: Boyd et al. (2011) — Distributed optimization and statistical learning via the ADMM; Found Trends Mach Learn 3:1
+  - doi: "10.1561/2400000003"
+    note: Parikh & Boyd (2014) — Proximal algorithms; Found Trends Optim 1:127
+  - note: Rockafellar (1970) — Convex Analysis; Princeton University Press
