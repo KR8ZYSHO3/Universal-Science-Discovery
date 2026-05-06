@@ -1,39 +1,57 @@
 id: h-lie-bracket-depth-complexity-robot-planning
 title: >
-  The computational complexity of optimal path planning for a non-holonomic
-  robot scales exponentially with the depth of the Lie bracket required to
-  satisfy the Chow-Rashevsky controllability condition, implying that robots
-  requiring depth-3 or higher brackets are fundamentally harder to plan for
-  than car-like (depth-2) systems.
+  The computational complexity of optimal motion planning for non-holonomic
+  robots scales exponentially with the minimum Lie bracket depth d required
+  to span the tangent space (Chow-Rashevskii condition), predicting a sharp
+  tractability transition between systems with d ≤ 2 (polynomial planning)
+  and d ≥ 3 (exponential planning) in their state space dimension.
 status: active
 priority: medium
-impact_score: 0.61
-created: "2026-05-05"
-last_updated: "2026-05-05"
-related_disciplines:
-  - robotics
-  - control-engineering
-  - mathematics
-  - computational-complexity
-unknowns_addressed:
-  - u-subriemannian-geodesic-abnormal-optimality
+impact_score: 0.6
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR-AI
 evidence_links:
   - doi: "10.1137/0310021"
     type: supporting
     confidence: 0.55
-    note: Brockett (1972) Lie algebra rank condition for controllability — depth structure
+    note: Brockett (1972) — Lie algebra controllability condition (basis for bracket depth complexity)
+  - url: https://link.springer.com/book/10.1007/978-0-387-21791-9
+    type: related
+    confidence: 0.5
+    note: Bloch (2003) — non-holonomic mechanics, complexity of constrained motion
   - url: https://www.ams.org/books/surv/091/
-    type: supporting
-    confidence: 0.60
-    note: Montgomery (2002) sub-Riemannian complexity and Carnot group step
+    type: related
+    confidence: 0.5
+    note: Montgomery (2002) — sub-Riemannian geometry and geodesic complexity
+unknowns_addressed:
+  - u-subriemannian-geodesic-abnormal-optimality
 proposed_tests:
   - description: >
-      Compare empirical planning time (CPU seconds per query) for RRT* planner
-      applied to: (1) Dubins car (depth-2 Lie bracket), (2) fire truck /
-      trailer system (depth-3), (3) N-trailer (depth-N). Fit scaling law
-      T_plan ∝ exp(α · depth). Test: α > 0 with p < 0.01.
+      Empirical complexity measurement: implement optimal motion planning (RRT*
+      with SR metric) for a sequence of robotic systems with increasing Lie bracket
+      depth d = 1, 2, 3, 4, measure planning time T(n) as a function of problem
+      dimension n, and test whether T(n) transitions from polynomial (d=1,2) to
+      exponential (d≥3) growth.
+    method: >
+      Robot motion planning benchmark (OMPL library) for kinematic chain robots
+      with varying non-holonomic constraints, timing sub-Riemannian RRT* vs.
+      standard Euclidean RRT*
+    prediction: >
+      For d=1 (no non-holonomy): T ∝ n^α; for d=2 (Heisenberg-like car system):
+      T ∝ n^β with β > α; for d=3: T ∝ exp(γn). The ratio T_d3/T_d2 grows
+      exponentially with state space dimension, with transition at d=3.
   - description: >
-      Derive upper and lower bounds on the metric entropy of ε-nets for
-      depth-d sub-Riemannian balls (Carnot groups). Prediction: metric entropy
-      scales as ε^{-Q} where Q (homogeneous dimension) increases with depth d,
-      formally establishing depth-dependent planning complexity.
+      Theoretical: prove or disprove that the sub-Riemannian shortest path
+      problem for a rank-k distribution in R^n with minimum bracket depth d
+      is NP-hard for d ≥ 3, using a reduction from 3-SAT.
+    method: Computational complexity theory reduction
+    prediction: >
+      If the conjecture holds, SR optimal control with d ≥ 3 reduces to 3-SAT
+      for generic distributions, establishing a hardness lower bound and
+      explaining the empirical exponential scaling observed in simulations.
+related_disciplines:
+  - mathematics
+  - control-engineering
+  - robotics
+  - computational-complexity

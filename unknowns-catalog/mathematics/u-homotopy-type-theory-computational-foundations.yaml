@@ -1,0 +1,47 @@
+id: u-homotopy-type-theory-computational-foundations
+title: >
+  Can homotopy type theory (HoTT) and the univalence axiom serve as a complete
+  and decidable computational foundation for mathematics, and what is the
+  complexity of proof search in intensional dependent type theories?
+status: open
+priority: high
+disciplines:
+  - mathematics
+  - computer-science
+  - type-theory
+  - logic
+summary: >
+  Homotopy type theory (HoTT, Voevodsky et al. 2013) proposes a new foundation
+  for mathematics based on Martin-Löf type theory extended with the univalence
+  axiom (UA): equivalent types are propositionally equal. This unifies type
+  theory (foundation for functional programming) with homotopy theory (study of
+  topological spaces up to continuous deformation).
+
+  The univalence axiom is not computationally realizable in plain MLTT: adding
+  it breaks canonical forms and normalization. Cubical type theory (Cohen et al.
+  2016, Angiuli et al. 2018) provides a computational interpretation of UA,
+  but the resulting type theory (implemented in Cubical Agda, RedPRL) has
+  complex reduction rules that are not yet fully understood.
+
+  Key open questions: (1) Is there a decidable type theory that realizes HoTT
+  computationally and still has all the mathematical expressiveness of UA?
+  (2) What is the proof-theoretic strength of HoTT — does it go beyond ZFC?
+  (3) Can automated theorem provers (Lean 4, Agda) be extended to efficiently
+  find proofs of mathematical theorems in HoTT foundations?
+systematic_gaps:
+  - Computational interpretation of univalence that preserves decidability
+  - Proof search complexity in dependent type theories
+  - Consistency strength of HoTT + higher inductive types vs. set theory
+  - Automated tactics for homotopy-theoretic proofs in proof assistants
+suggested_hypotheses:
+  - h-univalence-axiom-proof-assistant-verification
+related_bridges:
+  - b-category-theory-functional-programming
+references:
+  - url: https://homotopytypetheory.org/book/
+    note: HoTT Book (2013) — Homotopy Type Theory univalent foundations of mathematics
+  - url: https://arxiv.org/abs/1611.02108
+    note: Cohen et al. (2016) — cubical type theory (computational interpretation of UA)
+  - doi: "10.1145/2914770.2837872"
+    note: Angiuli et al. — computational higher type theory (RedPRL)
+last_reviewed: "2026-05-06"

@@ -1,0 +1,58 @@
+id: h-molecular-motor-near-equilibrium-operation
+title: >
+  Biological molecular motors operating at near-stall force achieve efficiency
+  approaching the isothermal Carnot limit (ΔG_chemical → W_mechanical) because
+  the free energy landscape is designed for reversible power strokes, and
+  deviation from near-equilibrium operation at high velocity is the primary
+  source of efficiency loss in myosin and kinesin.
+status: active
+priority: medium
+impact_score: 0.6
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR-AI
+evidence_links:
+  - doi: "10.1038/nchembio0705-130"
+    type: supporting
+    confidence: 0.7
+    note: Bustamante et al. — review of motor protein thermodynamics showing near-stall efficiency
+  - doi: "10.1103/PhysRevLett.78.2690"
+    type: supporting
+    confidence: 0.65
+    note: Jarzynski equality — theoretical basis for near-equilibrium efficiency measurement
+  - doi: "10.1038/nphys1821"
+    type: related
+    confidence: 0.6
+    note: Toyabe et al. — Maxwell's demon experiment validates stochastic thermodynamics
+unknowns_addressed:
+  - u-molecular-motor-efficiency-limit-biological
+proposed_tests:
+  - description: >
+      Force-velocity and force-efficiency measurement of single kinesin molecules
+      over a range of ATP concentrations using optical trapping, measuring both
+      velocity v(F) and heat dissipation Q (via fluctuation theorem) to calculate
+      efficiency η = W/(W+Q) as a function of load force.
+    method: >
+      Dual optical trap single-molecule assay + fluctuation theorem analysis of
+      step kinetics to determine heat dissipation per mechanochemical cycle
+    prediction: >
+      Efficiency η peaks near the stall force F_stall and exceeds 35% for
+      kinesin at [ATP] = Km; η decreases monotonically with velocity (i.e.,
+      high velocity = high irreversibility = low efficiency). The efficiency
+      at stall force matches ΔF_ATP/W_mechanical to within 10%.
+  - description: >
+      Computational: run Brownian dynamics simulation of a simplified two-state
+      motor model (Peskin & Oster 1995) with varying power stroke geometry,
+      compute efficiency at maximum power (Curzon-Ahlborn point) and compare
+      to biological motor measurements.
+    method: Brownian dynamics simulation + stochastic thermodynamics efficiency calculation
+    prediction: >
+      Efficiency at maximum power is bounded by η_mp ≤ 1 - √(T_C/T_H) for
+      heat engines (Curzon-Ahlborn), but for isothermal motors the equivalent
+      bound is η_mp ≤ ΔG/(ΔG + kT ln(v_max/v_min)) — motors with narrow
+      velocity range can approach higher efficiency at maximum power.
+related_disciplines:
+  - biophysics
+  - mechanical-engineering
+  - thermodynamics
+  - nanotechnology

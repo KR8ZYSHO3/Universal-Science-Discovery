@@ -1180,7 +1180,7 @@
       <div class="pill-row" aria-label="Highlights">
         <span class="pill live"><span class="d"></span> Phase 0 · Foundation 2026</span>
         <span class="pill">133 cross-domain bridges</span>
-        <span class="pill">567 unknowns · 143 hypotheses · 4 pre-formal observation</span>
+        <span class="pill">573 unknowns · 150 hypotheses · 4 pre-formal observation</span>
         <span class="pill">Git-native · Open source</span>
       </div>
 
@@ -1202,11 +1202,11 @@
           <div class="lbl">Contributors</div>
         </div>
         <div class="stat-card">
-          <div class="n" id="stat-hyp">143</div>
+          <div class="n" id="stat-hyp">150</div>
           <div class="lbl">Active Hypotheses</div>
         </div>
         <div class="stat-card">
-          <div class="n" id="stat-unk">567</div>
+          <div class="n" id="stat-unk">573</div>
           <div class="lbl">Tracked Unknowns</div>
         </div>
         <div class="stat-card">
@@ -1440,6 +1440,19 @@
           proposing novel cross-domain connections, and flagging low-quality entries
           for human review.
         </p>
+        <!-- live bridge proposal counter -->
+        <div id="bridge-proposal-counter" style="
+          margin-top:1rem; padding:0.9rem 1.2rem;
+          background:rgba(99,102,241,0.12); border:1px solid rgba(99,102,241,0.35);
+          border-radius:0.75rem; font-size:0.95rem; line-height:1.55;
+          display:inline-block; min-width:200px;">
+          <span id="bpc-loading" style="opacity:0.6">Loading AI proposal counts…</span>
+          <span id="bpc-content" style="display:none">
+            <strong id="bpc-total"></strong> high-priority bridges proposed by AI co-pilot
+            — <strong id="bpc-pioneer"></strong> from pioneer seeds,
+            <strong id="bpc-gap"></strong> from breakthrough gaps
+          </span>
+        </div>
       </div>
       <div class="copilot-grid">
         <div class="copilot-card">
@@ -3419,6 +3432,33 @@
     } else {
       grid.querySelectorAll('.aos').forEach(function (el) { el.classList.add('in'); });
     }
+  })();
+  </script>
+  <script>
+  /* AI Co-pilot — live bridge proposal counter */
+  (function () {
+    var counter = document.getElementById('bridge-proposal-counter');
+    if (!counter) return;
+    var apiUrl = '../api/v1/bridge_proposals.json';
+    fetch(apiUrl)
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+      .then(function (data) {
+        var summary = data.summary || {};
+        var pioneer = summary.pioneer_seed_count != null ? summary.pioneer_seed_count : '?';
+        var gap     = summary.breakthrough_gap_count != null ? summary.breakthrough_gap_count : '?';
+        var total   = (typeof pioneer === 'number' && typeof gap === 'number')
+                      ? (pioneer + gap) : (summary.missing_count || '?');
+        document.getElementById('bpc-total').textContent   = total;
+        document.getElementById('bpc-pioneer').textContent = pioneer;
+        document.getElementById('bpc-gap').textContent     = gap;
+        document.getElementById('bpc-loading').style.display  = 'none';
+        document.getElementById('bpc-content').style.display  = 'inline';
+      })
+      .catch(function () {
+        /* Gracefully degrade — show static text when offline / no server */
+        document.getElementById('bpc-loading').textContent =
+          'AI co-pilot: pioneer seeds + breakthrough-gap bridges awaiting build.';
+      });
   })();
   </script>
 </body>

@@ -1,0 +1,55 @@
+id: h-network-community-structure-drives-polarization
+title: >
+  Political polarization in online social networks arises from community
+  structure (high modularity) creating exponentially long-lived metastable
+  states in voter-model dynamics, predictable by the ratio of within-community
+  to between-community edges, and reducible by algorithmic feed diversification.
+status: active
+priority: high
+impact_score: 0.82
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR-AI
+evidence_links:
+  - doi: "10.1103/RevModPhys.81.591"
+    type: supporting
+    confidence: 0.7
+    note: Castellano et al. — statistical physics of social dynamics, community structure and consensus time
+  - doi: "10.1103/PhysRevLett.94.178701"
+    type: supporting
+    confidence: 0.65
+    note: Sood & Redner — voter model on heterogeneous graphs, consensus time scaling
+  - doi: "10.2307/2334957"
+    type: related
+    confidence: 0.5
+    note: Clifford & Sudbury (1973) — original voter model connecting ecology and social dynamics
+unknowns_addressed:
+  - u-voter-model-zealots-persistent-minorities
+proposed_tests:
+  - description: >
+      Build a network polarization model calibrated to Twitter/X political graph
+      (using publicly available retweet network data pre-2023), measure network
+      modularity Q, estimate inter-community edge density p_out, and predict
+      the characteristic polarization time T_pol ∝ exp(1/p_out) from voter
+      model theory, comparing to observed opinion divergence timescales.
+    method: Network analysis (modularity measurement) + voter model simulation
+    prediction: >
+      The time for initially uniform network to reach current observed
+      polarization level correlates with 1/p_out across different network
+      subsets (by topic/hashtag), with correlation coefficient R > 0.7.
+  - description: >
+      Controlled experiment: randomly rewire 5-10% of edges in a simulated
+      modular network (Stochastic Block Model, Q ≈ 0.4-0.6) to connect
+      opposing communities, measure reduction in polarization time relative
+      to null (no rewiring), compare to voter model prediction.
+    method: Agent-based simulation + analytical voter model on SBM graph
+    prediction: >
+      Adding p_rewire = 0.1 fraction of cross-community edges reduces
+      polarization time by factor exp(-α/p_rewire) for some α derived from
+      the SBM block structure — exponential improvement from small number of
+      bridging connections.
+related_disciplines:
+  - social-science
+  - network-science
+  - political-science
+  - computational-social-science
