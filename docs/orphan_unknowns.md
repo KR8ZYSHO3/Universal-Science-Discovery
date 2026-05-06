@@ -1,6 +1,6 @@
 # Orphan Unknowns — Priority Contribution Targets
 
-These **217** unknowns have no associated hypothesis or bridge edge in the knowledge graph.
+These **206** unknowns have no associated hypothesis or bridge edge in the knowledge graph.
 They are the highest-priority targets for new contributions — add a hypothesis or propose a cross-domain bridge connecting them.
 
 | ID | Title |
@@ -38,12 +38,10 @@ They are the highest-priority targets for new contributions — add a hypothesis
 | `u-stratosphere-troposphere-coupling` | How does stratospheric dynamics modulate the tropospheric jet streams on multi-decadal timescales? |
 | `u-urban-heat-island-nonlinearity` | Are urban heat island effects nonlinear with city size and density, and how do they interact with regional climate? |
 | `u-wildfire-climate-feedback` | What is the net radiative feedback of increasing wildfire frequency and extent under climate change? |
-| `u-emotion-categorization` | Are basic emotions universal biological categories or culturally constructed prototypes? |
 | `u-sleep-creative-insight` | How does sleep enhance creative problem solving and what stages are critical? |
 | `u-social-cognition-architecture` | What is the neural architecture of social cognition and how does it differ from non-social cognition? |
 | `u-theory-of-mind-substrate` | What is the minimal neural substrate for theory of mind and when does it develop ontogenetically? |
 | `u-time-perception-mechanism` | What neural mechanisms produce subjective time perception and what causes its distortions? |
-| `u-algorithm-discovery-automation` | Can machine learning systems autonomously discover novel algorithms and mathematical proofs beyond human-designed heuristics? |
 | `u-cache-efficient-algorithm-design` | Can memory hierarchy-aware algorithm design principles be formalised to automatically optimise cache efficiency across heterogeneous hardware? |
 | `u-graph-algorithm-quantum-speedup` | Which graph algorithms admit quantum speedup beyond classical near-linear time complexity, and what are the practical costs of quantum graph computation? |
 | `u-p-vs-np-geometric-barrier` | What geometric or algebraic barriers prevent proof of P != NP, and do known techniques suffice if correctly applied? |
@@ -88,11 +86,9 @@ They are the highest-priority targets for new contributions — add a hypothesis
 | `u-urban-air-mobility-noise` | What are the fundamental acoustic limits of electric vertical-takeoff-and-landing (eVTOL) aircraft, and can they achieve community-acceptable noise levels in urban environments? |
 | `u-water-desalination-energy` | How close to the thermodynamic minimum can seawater desalination approach, and what membrane and process innovations are needed to close the gap? |
 | `u-wireless-power-transfer-limit` | What are the fundamental efficiency and range limits of resonant inductive and far-field wireless power transfer, and how does Friis transmission compare to near-field coupling? |
-| `u-continental-drift-initiation` | What initiated plate tectonics on early Earth, and did it operate continuously or episodically in the Archean? |
 | `u-cratonic-root-stability` | Why are Archean cratonic keels stable for billions of years, and what conditions cause their sudden removal? |
 | `u-crustal-delamination` | When and how does lower crustal delamination occur, and what are its topographic, geochemical, and volcanic consequences? |
 | `u-deep-carbon-storage` | How much carbon is stored in Earth's deep interior, and what controls the long-term geologic carbon cycle between mantle, crust, and atmosphere? |
-| `u-deep-earth-water-cycle` | How much water is stored in Earth's mantle and lower crust, and what are the fluxes that govern the deep water cycle? |
 | `u-delta-avulsion-prediction` | Can river delta avulsion timing and pathfinding be predicted, and what are the dominant controls on avulsion frequency? |
 | `u-diamond-inclusion-dating` | How reliably do diamond inclusion ages record ancient mantle events, and what biases affect inclusions as windows into deep Earth history? |
 | `u-geomagnetic-excursion-climate` | Do geomagnetic excursions and reversals affect climate by modulating cosmic ray flux and ozone production? |
@@ -102,22 +98,15 @@ They are the highest-priority targets for new contributions — add a hypothesis
 | `u-mantle-convection-transitions` | What controls the transition between layered and whole-mantle convection, and can the pattern switch on geologic timescales? |
 | `u-mineral-nucleation-kinetics` | What controls mineral nucleation kinetics in natural fluids, and why do classical nucleation theory predictions fail for many geological systems? |
 | `u-post-perovskite-implications` | What are the dynamical and seismic implications of the post-perovskite phase transition in Earth's D'' layer? |
-| `u-river-network-branching` | Is river network branching geometry universal, and what physical principle selects Hack's law exponents and Horton ratios? |
 | `u-sea-level-fingerprint` | How do sea-level fingerprints from individual ice mass changes allow attribution of observed sea-level trends to specific glacier and ice sheet sources? |
 | `u-sediment-transport-nonlinearity` | What are the nonlinear thresholds and stochastic dynamics governing sediment transport in rivers and their long-term geomorphic effects? |
 | `u-serpentinization-hydrogen` | What is the global flux of abiotic hydrogen produced by serpentinization, and can it support subsurface chemolithotrophs at ocean ridges and in continental settings? |
-| `u-snowball-earth-escape` | How did Snowball Earth events end, and what prevented Earth from permanently freezing under high-albedo ice cover? |
-| `u-subduction-initiation` | How does subduction initiation occur, and can it begin spontaneously from a passive margin without a pre-existing plate boundary? |
 | `u-supervolcano-eruption-forecasting` | What are the precursors and timescales of supereruption onset at caldera systems like Yellowstone and Campi Flegrei? |
 | `u-tsunami-submarine-slides` | What are the physics of tsunami generation by submarine landslides, and how does slide rheology control wave amplitude and runup? |
 | `u-xenolith-mantle-bias` | To what extent do mantle xenoliths provide a representative sample of the lithospheric mantle, and what biases are introduced by entrainment and transport? |
 | `u-language-contact-convergence-limit` | What is the maximum degree of structural convergence possible between unrelated contact languages, and what constraints prevent full convergence? |
 | `u-language-death-reversal-feasibility` | Under what conditions can a dying language be successfully revitalised, and what are the cognitive and social prerequisites for sustainable reversal? |
-| `u-language-model-meaning-vs-human` | Do large language models have genuine semantic understanding of language meaning, or do they manipulate form without accessing meaning? |
-| `u-pragmatic-inference-neural-basis` | What neural mechanisms support pragmatic inference (implicature, irony, indirect speech), and why are these mechanisms impaired in autism spectrum conditions? |
 | `u-prosodic-bootstrapping-acquisition` | Does prosodic structure in infant-directed speech provide bootstrapping cues for syntactic acquisition, and how large is its contribution? |
-| `u-signed-language-neural-substrate` | Do signed languages engage the same or different neural substrates as spoken languages, and what does this reveal about language universality? |
-| `u-writing-system-cognition-effects` | Do different writing systems (alphabetic, syllabic, logographic) produce measurable differences in reading processes and cognitive architecture? |
 | `u-corrosion-mechanism-passivation` | What is the atomic-scale mechanism of passive film breakdown that initiates pitting corrosion? |
 | `u-metamaterial-wave-control` | What physical limits govern negative-index metamaterials for sub-diffraction imaging at optical frequencies? |
 | `u-quasicrystal-stability-origin` | What determines whether a quasicrystalline phase forms versus an approximant crystal in metallic alloys? |
