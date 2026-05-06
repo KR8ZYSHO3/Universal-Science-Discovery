@@ -1,0 +1,102 @@
+id: b-integrated-assessment-social-cost-carbon
+title: >
+  Integrated Assessment Models (DICE, PAGE, FUND) couple atmospheric carbon
+  cycle physics to economic damage functions; the social cost of carbon —
+  the present value of marginal damage from one tonne CO₂ — is the bridge
+  where atmospheric physics and welfare economics meet, with the discount
+  rate as the critical contested parameter.
+status: established
+fields:
+  - climate-science
+  - economics
+  - atmospheric-physics
+  - environmental-economics
+bridge_claim: >
+  Integrated Assessment Models (IAMs) are the formal bridge between physical
+  climate science and economic policy. They translate atmospheric CO₂ concentrations
+  into temperature changes (physics) and then into economic damages (economics),
+  yielding the social cost of carbon (SCC).
+
+  1. The IAM structure. IAMs couple three components: (a) emissions module
+     (human activity → CO₂ concentrations), (b) climate module (CO₂ →
+     temperature via radiative forcing ΔF = 5.35 ln(C/C₀) W/m², then temperature
+     response via energy balance dT/dt = F - λT), and (c) damage function D(T)
+     (temperature → economic losses as a fraction of GDP, typically D(T) = 1 -
+     1/(1 + aT + bT²)). The DICE model (Nordhaus 1992) was the first integrated
+     model to optimize carbon taxes over time.
+
+  2. Social cost of carbon. The SCC is defined as the negative externality of
+     emitting one tonne of CO₂: SCC = -∂U/∂E = ∫₀^∞ D'(T(t)) · (∂T/∂E) ·
+     e^{-rt} dt, where r is the social discount rate, D' is the marginal damage
+     function, and ∂T/∂E is the temperature sensitivity to cumulative emissions.
+     US government estimates range from ~$51/tonne (Obama-era) to ~$190/tonne
+     (Biden-era) depending on model parameters. European estimates often exceed
+     $250/tonne. The differences arise primarily from the discount rate r.
+
+  3. The discount rate controversy. The Ramsey-Cass-Koopmans discount rate
+     r = δ + η·g, where δ is the pure time preference rate (how much we value
+     future generations less), η is the elasticity of marginal utility (how
+     much we value additional consumption when already rich), and g is GDP
+     growth rate. Nordhaus uses δ ≈ 1.5%, giving SCC ≈ $30-50/tonne.
+     Stern (2007) uses δ ≈ 0.1% (nearly zero time preference), giving
+     SCC > $300/tonne. This 1-2% difference in δ changes the SCC by 10×.
+     Weitzman (2009) argued that fat-tailed catastrophic risks require
+     near-zero discounting regardless.
+
+  4. Damage function uncertainty. The functional form D(T) is highly uncertain
+     for T > 3°C (no modern analogs). Howard & Sterner (2017) meta-analysis
+     found that damage functions omitting non-market damages (health, ecosystems,
+     conflict) underestimate costs by 2-3×. Above 4-5°C, the damage function
+     may be convex rather than polynomial — the "tail risks" that Weitzman's
+     dismal theorem addresses.
+translation_table:
+  - field_a_term: radiative forcing ΔF (atmospheric physics)
+    field_b_term: climate sensitivity parameter λ in damage function (economics)
+    note: Physical forcing determines temperature; temperature enters damage function
+  - field_a_term: carbon cycle (geophysics / atmospheric chemistry)
+    field_b_term: emissions abatement cost curve (environmental economics)
+    note: Carbon cycle determines atmospheric lifetime; abatement changes trajectory
+  - field_a_term: equilibrium climate sensitivity ECS (physics)
+    field_b_term: expected damages per degree warming (economics)
+    note: ECS uncertainty is the primary physical input to SCC uncertainty
+  - field_a_term: global surface temperature anomaly T(t) (climate science)
+    field_b_term: damage function input D(T) as fraction of GDP (economics)
+    note: Temperature is the bridge variable between physical and economic models
+  - field_a_term: radiative budget and energy balance (atmospheric physics)
+    field_b_term: cost-benefit analysis of mitigation vs. adaptation (economics)
+    note: Physical irreversibilities (tipping points) map to economic lock-in costs
+  - field_a_term: tipping points / abrupt climate change (climate science)
+    field_b_term: fat-tailed risk distributions / Weitzman dismal theorem (economics)
+    note: Physical tipping points produce non-normal economic loss distributions
+related_unknowns:
+  - u-climate-damage-function-high-temperature-regime
+related_hypotheses:
+  - h-scc-convex-damages-fat-tails
+cross_pollination_opportunities:
+  - >
+    Machine learning damage functions: replace parametric D(T) = 1/(1+aT+bT²)
+    with data-driven non-parametric damage functions trained on historical
+    economic-climate correlations across countries, while accounting for
+    adaptation. This would reduce the largest uncertainty in IAM outputs.
+  - >
+    Physical tipping point integration: couple stochastic differential equations
+    for tipping points (AMOC collapse, Amazon dieback, permafrost feedback)
+    directly into the IAM framework using Markov jump processes. Current IAMs
+    largely ignore non-linear tipping cascades.
+communication_gap: >
+  Atmospheric physicists and welfare economists use incompatible frameworks and
+  rarely co-author. IAM modelers (Nordhaus — economics Nobel 2018; Hansen —
+  atmospheric physicist) have fundamentally different assumptions about discount
+  rates, damage functions, and uncertainty handling. The IPCC Working Group III
+  (mitigation economics) and Working Group I (physical science) are often
+  written by non-overlapping author groups with limited cross-citation.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1126/science.258.5086.1315"
+    note: Nordhaus (1992) Science 258:1315 — optimal transition path to a greenhouse gas-free world
+  - url: https://www.cambridge.org/core/books/economics-of-climate-change/A1E0BBF2F0ED8E2E4142A9C878052204
+    note: Stern (2007) The Economics of Climate Change — Cambridge University Press (Stern Review)
+  - doi: "10.1257/jel.47.4.703"
+    note: Weitzman (2009) J Econ Lit 47:703 — on modeling and interpreting the economics of catastrophic climate change
+  - doi: "10.1086/685908"
+    note: Howard & Sterner (2017) J Assoc Environ Resour Econ — few and not so far between

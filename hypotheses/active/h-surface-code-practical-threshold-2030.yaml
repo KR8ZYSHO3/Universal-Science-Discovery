@@ -1,0 +1,44 @@
+id: h-surface-code-practical-threshold-2030
+title: >
+  Superconducting qubit systems will achieve surface code logical error rates below
+  10⁻⁶ per logical gate cycle before 2030, enabling the first demonstration of
+  quantum advantage in fault-tolerant mode for a classically intractable problem.
+status: active
+created: "2026-05-06"
+last_updated: "2026-05-06"
+priority: critical
+related_disciplines:
+  - quantum-computing
+  - quantum-error-correction
+  - superconducting-qubits
+unknowns_addressed:
+  - u-quantum-error-correction-overhead-reduction
+evidence_links:
+  - type: supporting
+    note: >
+      Google Quantum AI (2023) Nature: demonstrated below-threshold surface code
+      performance with distance-7 code showing logical error rate suppression
+      per doubling of code distance. Physical error rates ~0.3% are now routinely
+      achieved on 2D superconducting qubit arrays.
+  - type: supporting
+    note: >
+      Fowler et al. (2012) Phys Rev A 86:032324 — surface code threshold ≈ 1%
+      under circuit-level noise is achievable with realistic superconducting qubit
+      parameters, giving a roadmap to fault tolerance.
+  - type: related
+    note: >
+      IBM Quantum roadmap (2023) projects >100,000 physical qubit systems by 2033,
+      enabling surface code logical qubits at scale.
+proposed_tests:
+  - discipline: quantum-computing
+    description: >
+      Implement a surface code logical qubit with distance d=11 on a superconducting
+      qubit system. Measure the logical error rate per round of error correction.
+      Verify that the logical error rate decreases as p_logical ~ (p/p_th)^{(d+1)/2}
+      with p_th ≈ 1%, consistent with threshold theorem predictions.
+  - discipline: quantum-error-correction
+    description: >
+      Benchmark qLDPC codes (hypergraph product, fiber bundle) against surface code
+      on the same hardware graph, measuring threshold, overhead, and decoding latency.
+      Determine the practical crossover point where qLDPC codes outperform surface
+      codes in terms of total physical qubit count for a target logical error rate.

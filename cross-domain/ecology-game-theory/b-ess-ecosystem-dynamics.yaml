@@ -1,0 +1,100 @@
+id: b-ess-ecosystem-dynamics
+title: >
+  Maynard Smith's evolutionarily stable strategies are Nash equilibria of the
+  ecological game: replicator dynamics on the strategy simplex unifies evolutionary
+  game theory with Lotka-Volterra competition, and rock-paper-scissors cyclic
+  dominance maintains biodiversity.
+status: established
+fields:
+  - ecology
+  - evolutionary-biology
+  - game-theory
+  - mathematics
+bridge_claim: >
+  Maynard Smith & Price (1973) introduced the evolutionarily stable strategy
+  (ESS) concept by applying game theory to biology. The resulting framework
+  unifies evolutionary and ecological dynamics with remarkable precision.
+
+  1. ESS as Nash equilibrium. A strategy I is an ESS if no mutant strategy J
+     can invade a population playing I: E(I,I) > E(J,I), or E(I,I) = E(J,I)
+     and E(I,J) > E(J,J). This is precisely the Nash equilibrium condition
+     for the ecological game, where the payoff E(I,J) is the fitness of an
+     I-player in an encounter with a J-player. Hawk-Dove game: ESS predicts
+     the stable frequency of aggressive vs. passive strategies in a population
+     without any individual-level optimization.
+
+  2. Replicator dynamics. The replicator equation ẋᵢ = xᵢ(fᵢ - f̄) describes
+     how strategy frequencies xᵢ change over time, where fᵢ = Σⱼ aᵢⱼxⱼ is the
+     payoff to strategy i against the current population and f̄ = Σᵢ xᵢfᵢ is
+     the mean fitness. This is simultaneously the standard model in evolutionary
+     game theory AND a general model for multi-species competition. The dynamics
+     take place on the strategy simplex Δₙ.
+
+  3. Lotka-Volterra as game. The Lotka-Volterra competition equations
+     dxᵢ/dt = rᵢxᵢ(1 - Σⱼ αᵢⱼxⱼ/Kᵢ) are a specific instance of replicator
+     dynamics where the payoff matrix aᵢⱼ = -αᵢⱼ/Kᵢ (competition coefficients).
+     The competitive exclusion principle (Gause's law) is a special case: when
+     the payoff matrix has a dominant strategy, that species excludes all others.
+     Stable coexistence requires a game with no dominant strategy — the ESS
+     is an interior fixed point.
+
+  4. Rock-paper-scissors ecology. Three-species systems with cyclic dominance
+     (species A beats B, B beats C, C beats A) produce persistent oscillations
+     or spatial biodiversity, not competitive exclusion. Kerr et al. (2002)
+     demonstrated this experimentally with E. coli strains in spatial culture.
+     May & Leonard (1975) showed the dynamics cycle on the strategy simplex with
+     period-doubling routes to chaos — identical to rock-paper-scissors game
+     theory. This explains why biodiversity is maintained in ecosystems despite
+     competitive pressure.
+translation_table:
+  - field_a_term: Nash equilibrium (game theory)
+    field_b_term: evolutionarily stable strategy ESS (evolutionary biology)
+    note: ESS is Nash equilibrium with additional stability condition against invasion
+  - field_a_term: payoff matrix aᵢⱼ (game theory)
+    field_b_term: competition coefficients αᵢⱼ / fitness matrix (ecology)
+    note: Payoff = fitness effect of interaction; competition matrix = negative payoff
+  - field_a_term: strategy frequency xᵢ (game theory)
+    field_b_term: species relative abundance (ecology)
+    note: Population frequency in evolutionary game = species abundance in ecology
+  - field_a_term: dominant strategy (game theory)
+    field_b_term: competitively superior species / competitive exclusion (ecology)
+    note: Dominant strategy wins = Gause's law of competitive exclusion
+  - field_a_term: mixed Nash equilibrium (game theory)
+    field_b_term: stable coexistence at interior fixed point (ecology)
+    note: Mixed strategy equilibrium = multi-species stable coexistence
+  - field_a_term: rock-paper-scissors non-transitive game (game theory)
+    field_b_term: cyclic dominance among species (ecology)
+    note: Non-transitive competition produces cyclic population dynamics
+related_unknowns:
+  - u-ess-higher-order-interactions-ecosystem
+related_hypotheses:
+  - h-cyclic-dominance-spatial-heterogeneity-biodiversity
+cross_pollination_opportunities:
+  - >
+    Network game theory for realistic ecosystems: beyond pairwise games, apply
+    multiplayer game theory (public goods games, coevolutionary dynamics on
+    food webs) to understand how network topology shapes biodiversity and
+    ecosystem stability.
+  - >
+    Evolutionary game theory for antibiotic resistance management: bacterial
+    resistance strategies (antibiotic production, sensitization, resistance)
+    form a rock-paper-scissors system in the gut microbiome. Applying ESS
+    analysis could predict evolutionarily stable antibiotic cycling protocols.
+communication_gap: >
+  Game theorists (economics, mathematics) and ecologists publish in separate
+  journals (Games and Economic Behavior vs. Ecology, American Naturalist).
+  Evolutionary game theory was largely developed by biologists (Maynard Smith,
+  Hamilton, Parker) and theoretical ecologists (May, Hofbauer) rather than
+  economists — creating a parallel literature that economists are often unaware
+  of. The replicator dynamics / Lotka-Volterra equivalence is well-known to
+  theoretical ecologists but rarely taught in game theory courses.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1038/246015a0"
+    note: Maynard Smith & Price (1973) Nature 246:15 — ESS and the logic of animal conflict
+  - doi: "10.1137/0128012"
+    note: May & Leonard (1975) SIAM J Appl Math — nonlinear aspects of competition
+  - doi: "10.1038/nature00823"
+    note: Kerr et al. (2002) Nature 418:171 — local dispersal promotes rock-paper-scissors biodiversity
+  - url: https://www.cambridge.org/core/books/evolutionary-games-and-population-dynamics/7DFEBF549A5CEE74EFF8A40CF92B92DC
+    note: Hofbauer & Sigmund (1998) Evolutionary Games and Population Dynamics — Cambridge

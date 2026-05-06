@@ -1,5 +1,5 @@
 {
-  "count": 115,
+  "count": 131,
   "items": [
     {
       "id": "b-grokking-criticality",
@@ -1030,6 +1030,71 @@
       "file": "cross-domain\\biology-medicine\\b-glymphatic-aging.yaml"
     },
     {
+      "id": "b-molecular-motors-thermodynamic-efficiency",
+      "title": "Biological molecular motors (myosin, kinesin, ATP synthase) convert chemical free energy to mechanical work at 25-40% efficiency near the Carnot limit, verified by the Jarzynski equality connecting non-equilibrium work to equilibrium free energy, establishing single-molecule thermodynamics as a bridge between biophysics and mechanical engineering.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Molecular motors in living cells are nanoscale machines that perform mechanical work by converting chemical energy (ATP hydrolysis), operating near the thermodynamic efficiency limits derived from macroscopic engineering thermodynamics.\n1. Molecular motor energetics. ATP hydrolysis: ATP → ADP + Pᵢ r",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-molecular-motor-near-equilibrium-operation"
+      ],
+      "communication_gap": "Mechanical engineers studying thermodynamic efficiency of macroscopic motors and biophysicists studying molecular motors are separated by six orders of magnitude in length scale and by disciplinary boundaries. The Jarzynski equality bridges non-equilibrium statistical physics to single-molecule biophysics, but is rarely taught in engineering thermodynamics courses. Toyabe et al. (2010) demonstrated an information-to-energy conversion machine at the single-molecule scale, realizing Maxwell's demon experimentally.\n",
+      "translation_table": [
+        {
+          "field_a_term": "thermal efficiency η = W/Q_H (heat engine / engineering)",
+          "field_b_term": "mechanochemical coupling efficiency W/ΔG_ATP (molecular motor)",
+          "note": "Both are ratios of useful work output to energy input from different sources"
+        },
+        {
+          "field_a_term": "Carnot limit η_C = 1 - T_C/T_H (thermodynamics)",
+          "field_b_term": "isothermal efficiency limit W/ΔG ≤ 1 (molecular motor)",
+          "note": "Molecular motors operate isothermally; Carnot limit is for heat engines"
+        },
+        {
+          "field_a_term": "work W (macroscopic mechanics)",
+          "field_b_term": "mechanical step work (force × displacement in nm·pN) per ATP",
+          "note": "Same concept; 1 pN·nm = 10⁻²¹ J is the molecular scale unit"
+        },
+        {
+          "field_a_term": "free energy ΔF (thermodynamics)",
+          "field_b_term": "ΔG_ATP = ΔG° + kT ln([ADP][Pᵢ]/[ATP]) (biochemistry)",
+          "note": "Both are the maximum useful work extractable from a process"
+        },
+        {
+          "field_a_term": "fluctuation-dissipation theorem (statistical physics)",
+          "field_b_term": "Jarzynski equality ⟨e^{-W/kT}⟩ = e^{-ΔF/kT} (non-equilibrium)",
+          "note": "Jarzynski generalizes fluctuation-dissipation to non-equilibrium processes"
+        },
+        {
+          "field_a_term": "efficiency at maximum power (Curzon-Ahlborn, engineering)",
+          "field_b_term": "optimal ATP hydrolysis rate vs. force-velocity curve (biophysics)",
+          "note": "Both systems face tradeoff between efficiency and power output"
+        }
+      ],
+      "references": [
+        {
+          "url": "https://www.sinauer.com/media/wysiwyg/tocs/MechanicsOfMotorProteins.pdf",
+          "note": "Howard (2001) Mechanics of Motor Proteins and the Cytoskeleton — Sinauer Associates"
+        },
+        {
+          "doi": "10.1103/PhysRevLett.78.2690",
+          "note": "Jarzynski (1997) Phys Rev Lett 78:2690 — nonequilibrium equality for free energy differences"
+        },
+        {
+          "doi": "10.1038/nchembio0705-130",
+          "note": "Bustamante et al. (2005) Nat Chem Biol 1:130 — mechanical design of translocating motor proteins"
+        },
+        {
+          "doi": "10.1038/nphys1821",
+          "note": "Toyabe et al. (2010) Nat Phys 6:988 — experimental demonstration of information-to-energy conversion"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\biophysics-engineering\\b-molecular-motors-thermodynamic-efficiency.yaml"
+    },
+    {
       "id": "b-reaction-network-graph-theory",
       "title": "Chemical reaction networks are directed hypergraphs whose steady-state multiplicity and oscillatory behavior are entirely determined by the network topology via the Feinberg-Horn-Jackson deficiency theory — making graph-theoretic invariants (deficiency number, linkage classes, strong linkage) the decisive predictors of chemical dynamics.\n",
       "source_domain": "",
@@ -1311,6 +1376,71 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\climate-science-economics\\b-carbon-pricing-pigouvian.yaml"
+    },
+    {
+      "id": "b-integrated-assessment-social-cost-carbon",
+      "title": "Integrated Assessment Models (DICE, PAGE, FUND) couple atmospheric carbon cycle physics to economic damage functions; the social cost of carbon — the present value of marginal damage from one tonne CO₂ — is the bridge where atmospheric physics and welfare economics meet, with the discount rate as the critical contested parameter.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Integrated Assessment Models (IAMs) are the formal bridge between physical climate science and economic policy. They translate atmospheric CO₂ concentrations into temperature changes (physics) and then into economic damages (economics), yielding the social cost of carbon (SCC).\n1. The IAM structure.",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-scc-convex-damages-fat-tails"
+      ],
+      "communication_gap": "Atmospheric physicists and welfare economists use incompatible frameworks and rarely co-author. IAM modelers (Nordhaus — economics Nobel 2018; Hansen — atmospheric physicist) have fundamentally different assumptions about discount rates, damage functions, and uncertainty handling. The IPCC Working Group III (mitigation economics) and Working Group I (physical science) are often written by non-overlapping author groups with limited cross-citation.\n",
+      "translation_table": [
+        {
+          "field_a_term": "radiative forcing ΔF (atmospheric physics)",
+          "field_b_term": "climate sensitivity parameter λ in damage function (economics)",
+          "note": "Physical forcing determines temperature; temperature enters damage function"
+        },
+        {
+          "field_a_term": "carbon cycle (geophysics / atmospheric chemistry)",
+          "field_b_term": "emissions abatement cost curve (environmental economics)",
+          "note": "Carbon cycle determines atmospheric lifetime; abatement changes trajectory"
+        },
+        {
+          "field_a_term": "equilibrium climate sensitivity ECS (physics)",
+          "field_b_term": "expected damages per degree warming (economics)",
+          "note": "ECS uncertainty is the primary physical input to SCC uncertainty"
+        },
+        {
+          "field_a_term": "global surface temperature anomaly T(t) (climate science)",
+          "field_b_term": "damage function input D(T) as fraction of GDP (economics)",
+          "note": "Temperature is the bridge variable between physical and economic models"
+        },
+        {
+          "field_a_term": "radiative budget and energy balance (atmospheric physics)",
+          "field_b_term": "cost-benefit analysis of mitigation vs. adaptation (economics)",
+          "note": "Physical irreversibilities (tipping points) map to economic lock-in costs"
+        },
+        {
+          "field_a_term": "tipping points / abrupt climate change (climate science)",
+          "field_b_term": "fat-tailed risk distributions / Weitzman dismal theorem (economics)",
+          "note": "Physical tipping points produce non-normal economic loss distributions"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1126/science.258.5086.1315",
+          "note": "Nordhaus (1992) Science 258:1315 — optimal transition path to a greenhouse gas-free world"
+        },
+        {
+          "url": "https://www.cambridge.org/core/books/economics-of-climate-change/A1E0BBF2F0ED8E2E4142A9C878052204",
+          "note": "Stern (2007) The Economics of Climate Change — Cambridge University Press (Stern Review)"
+        },
+        {
+          "doi": "10.1257/jel.47.4.703",
+          "note": "Weitzman (2009) J Econ Lit 47:703 — on modeling and interpreting the economics of catastrophic climate change"
+        },
+        {
+          "doi": "10.1086/685908",
+          "note": "Howard & Sterner (2017) J Assoc Environ Resour Econ — few and not so far between"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\climate-science-economics\\b-integrated-assessment-social-cost-carbon.yaml"
     },
     {
       "id": "b-navier-stokes-atmospheric-dynamics",
@@ -1680,6 +1810,71 @@
       "file": "cross-domain\\computer-science-neuroscience\\b-transformer-attention-neural-attention.yaml"
     },
     {
+      "id": "b-liquid-crystal-cell-membranes",
+      "title": "Cell membranes are two-dimensional liquid crystals — lipid bilayers exhibit orientational order without positional order, obeying Frank elastic energy, with membrane proteins as topological defects and lipid-raft phase separation as a liquid-liquid phase transition in a 2D system.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The physics of liquid crystals — materials with orientational order but no positional order (nematic phase) — applies directly to cell membranes.\n1. Frank elastic energy for membranes. The deformation energy of a nematic\n   liquid crystal is F = ½∫[K₁(∇·n̂)² + K₂(n̂·∇×n̂)² + K₃(n̂×∇×n̂)²] dV,\n   whe",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-membrane-defects-protein-clustering"
+      ],
+      "communication_gap": "Soft matter physicists (studying LCs) and cell biologists (studying membranes) rarely collaborate. The mathematical equivalence is well-known in biophysics but underutilized: biologists often describe lipid rafts phenomenologically without connecting to the quantitative LC elastic energy framework that would predict defect interactions and protein clustering.\n",
+      "translation_table": [
+        {
+          "field_a_term": "nematic director field n̂ (liquid crystal physics)",
+          "field_b_term": "lipid acyl chain orientation order parameter (cell biology)",
+          "note": "Both describe local orientational order without positional order"
+        },
+        {
+          "field_a_term": "Frank elastic constants K₁, K₂, K₃ (splay, twist, bend)",
+          "field_b_term": "Helfrich bending modulus κ and Gaussian curvature modulus κ_G",
+          "note": "Helfrich energy is Frank energy restricted to a 2D surface"
+        },
+        {
+          "field_a_term": "topological defect ±½ in nematic (liquid crystal)",
+          "field_b_term": "integral membrane protein with local lipid order distortion",
+          "note": "Proteins perturb the lipid director field analogous to LC defects"
+        },
+        {
+          "field_a_term": "nematic-to-isotropic phase transition (LC physics)",
+          "field_b_term": "liquid-ordered to liquid-disordered transition (cell membrane)",
+          "note": "The gel-to-fluid transition of membranes is the biological analog"
+        },
+        {
+          "field_a_term": "liquid-liquid phase coexistence (binary LC mixture)",
+          "field_b_term": "lipid raft / non-raft phase separation in plasma membrane",
+          "note": "Raft domains are liquid-ordered phase islands in a liquid-disordered sea"
+        },
+        {
+          "field_a_term": "electro-optic effect (LCD)",
+          "field_b_term": "electric-field-driven lipid redistribution / electroporation",
+          "note": "External electric fields reorder both LC molecules and membrane lipids"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1515/znc-1973-11-1209",
+          "note": "Helfrich (1973) Z Naturforsch 28c:693 — elastic properties of lipid bilayers"
+        },
+        {
+          "doi": "10.1016/0022-5193(70)90052-5",
+          "note": "Canham (1970) J Theor Biol 26:61 — minimum energy of red blood cell shape"
+        },
+        {
+          "doi": "10.1126/science.175.4023.720",
+          "note": "Singer & Nicolson (1972) Science 175:720 — fluid mosaic model of cell membranes"
+        },
+        {
+          "url": "https://global.oup.com/academic/product/the-physics-of-liquid-crystals-9780198517856",
+          "note": "de Gennes & Prost (1993) The Physics of Liquid Crystals — Oxford University Press"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\condensed-matter-biology\\b-liquid-crystal-cell-membranes.yaml"
+    },
+    {
       "id": "b-kibble-zurek-morphogenesis",
       "title": "The Kibble-Zurek mechanism connects early-universe cosmology to embryonic symmetry breaking",
       "source_domain": "",
@@ -1885,6 +2080,71 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\ecology-economics\\b-commons-game-theory-ostrom.yaml"
+    },
+    {
+      "id": "b-ess-ecosystem-dynamics",
+      "title": "Maynard Smith's evolutionarily stable strategies are Nash equilibria of the ecological game: replicator dynamics on the strategy simplex unifies evolutionary game theory with Lotka-Volterra competition, and rock-paper-scissors cyclic dominance maintains biodiversity.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Maynard Smith & Price (1973) introduced the evolutionarily stable strategy (ESS) concept by applying game theory to biology. The resulting framework unifies evolutionary and ecological dynamics with remarkable precision.\n1. ESS as Nash equilibrium. A strategy I is an ESS if no mutant strategy J\n   c",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-cyclic-dominance-spatial-heterogeneity-biodiversity"
+      ],
+      "communication_gap": "Game theorists (economics, mathematics) and ecologists publish in separate journals (Games and Economic Behavior vs. Ecology, American Naturalist). Evolutionary game theory was largely developed by biologists (Maynard Smith, Hamilton, Parker) and theoretical ecologists (May, Hofbauer) rather than economists — creating a parallel literature that economists are often unaware of. The replicator dynamics / Lotka-Volterra equivalence is well-known to theoretical ecologists but rarely taught in game theory courses.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Nash equilibrium (game theory)",
+          "field_b_term": "evolutionarily stable strategy ESS (evolutionary biology)",
+          "note": "ESS is Nash equilibrium with additional stability condition against invasion"
+        },
+        {
+          "field_a_term": "payoff matrix aᵢⱼ (game theory)",
+          "field_b_term": "competition coefficients αᵢⱼ / fitness matrix (ecology)",
+          "note": "Payoff = fitness effect of interaction; competition matrix = negative payoff"
+        },
+        {
+          "field_a_term": "strategy frequency xᵢ (game theory)",
+          "field_b_term": "species relative abundance (ecology)",
+          "note": "Population frequency in evolutionary game = species abundance in ecology"
+        },
+        {
+          "field_a_term": "dominant strategy (game theory)",
+          "field_b_term": "competitively superior species / competitive exclusion (ecology)",
+          "note": "Dominant strategy wins = Gause's law of competitive exclusion"
+        },
+        {
+          "field_a_term": "mixed Nash equilibrium (game theory)",
+          "field_b_term": "stable coexistence at interior fixed point (ecology)",
+          "note": "Mixed strategy equilibrium = multi-species stable coexistence"
+        },
+        {
+          "field_a_term": "rock-paper-scissors non-transitive game (game theory)",
+          "field_b_term": "cyclic dominance among species (ecology)",
+          "note": "Non-transitive competition produces cyclic population dynamics"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1038/246015a0",
+          "note": "Maynard Smith & Price (1973) Nature 246:15 — ESS and the logic of animal conflict"
+        },
+        {
+          "doi": "10.1137/0128012",
+          "note": "May & Leonard (1975) SIAM J Appl Math — nonlinear aspects of competition"
+        },
+        {
+          "doi": "10.1038/nature00823",
+          "note": "Kerr et al. (2002) Nature 418:171 — local dispersal promotes rock-paper-scissors biodiversity"
+        },
+        {
+          "url": "https://www.cambridge.org/core/books/evolutionary-games-and-population-dynamics/7DFEBF549A5CEE74EFF8A40CF92B92DC",
+          "note": "Hofbauer & Sigmund (1998) Evolutionary Games and Population Dynamics — Cambridge"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\ecology-game-theory\\b-ess-ecosystem-dynamics.yaml"
     },
     {
       "id": "b-species-distribution-maxent",
@@ -2383,6 +2643,118 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\economics-physics\\b-wealth-distribution-statistical-mechanics.yaml"
+    },
+    {
+      "id": "b-catalyst-sabatier-principle",
+      "title": "The Sabatier principle (volcano plot) bridges electrochemistry and materials science: optimal catalysts bind reaction intermediates with intermediate strength, and DFT computes binding energies from electronic structure to guide catalyst design.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The Sabatier principle states that the optimal catalyst for a reaction binds intermediates neither too strongly (reactants cannot desorb → catalyst poisoned) nor too weakly (reactants cannot adsorb → no reaction). Plotting catalytic activity against binding energy gives a \"volcano plot\" with optimal",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-dual-site-catalyst-breaks-oer-scaling"
+      ],
+      "communication_gap": "Surface science and electrochemistry overlap but differ in experimental conditions (ultra-high vacuum vs. aqueous electrolyte), making it difficult to directly compare surface-science binding energies with electrochemical overpotentials. The computational bridge (DFT + implicit solvation + electrode potential correction) spans this gap but is not universally applied by experimentalists.\n",
+      "translation_table": [
+        {
+          "field_a_term": "d-band center εd (Hammer-Nørskov model)",
+          "field_b_term": "intermediate binding energy ΔG* (electrochemical)",
+          "note": "Higher d-band center → stronger adsorbate binding (d-band model)"
+        },
+        {
+          "field_a_term": "OER overpotential η = E_applied − E_thermodynamic",
+          "field_b_term": "thermodynamic free energy of limiting step ΔG_max − 1.23 eV",
+          "note": "Overpotential = extra voltage above thermodynamic minimum"
+        },
+        {
+          "field_a_term": "DFT adsorption energy ΔE_ads",
+          "field_b_term": "electrochemical free energy ΔG* = ΔE_ads + ZPE − TΔS + eU",
+          "note": "DFT energies corrected for zero-point energy, entropy, and electrode potential"
+        },
+        {
+          "field_a_term": "volcano plot peak (optimal binding)",
+          "field_b_term": "Sabatier optimum — maximum turnover frequency",
+          "note": "RuO₂ and IrO₂ sit near OER volcano peak; earth-abundant alternatives needed"
+        },
+        {
+          "field_a_term": "scaling relation ΔG_OOH* − ΔG_OH* ≈ 3.2 eV (universal)",
+          "field_b_term": "theoretical minimum OER overpotential ≈ 0.4 V",
+          "note": "This scaling relation is a thermodynamic constraint on all oxide catalysts"
+        }
+      ],
+      "references": [
+        {
+          "note": "Sabatier (1911) Hydrogénations et déshydrogénations par catalyse. Ber Dtsch Chem Ges 44:1984-2001"
+        },
+        {
+          "note": "Nørskov et al. (2004) Origin of the overpotential for oxygen reduction at a fuel-cell cathode. J Phys Chem B 108:17886-17892"
+        },
+        {
+          "note": "Man et al. (2011) Universality in oxygen evolution electrocatalysis on oxide surfaces. ChemCatChem 3:1159-1165"
+        },
+        {
+          "note": "Seh et al. (2017) Combining theory and experiment in electrocatalysis: insights into materials design. Science 355:eaad4998"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\electrochemistry-materials-science\\b-catalyst-sabatier-principle.yaml"
+    },
+    {
+      "id": "b-maxwell-equations-wave-encoding",
+      "title": "Maxwell's equations in free space predict plane wave solutions with the same mathematical form as carrier waves in communications — the electromagnetic spectrum is a physical implementation of Shannon's abstract channel model.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Maxwell's equations in free space admit plane wave solutions of the form E = E₀ exp(i(k·r − ωt)), which are identical in mathematical structure to the carrier waves used in all radio, microwave, and optical communications. Shannon's channel capacity theorem C = B log₂(1 + S/N) gives the theoretical ",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-maxwell-wave-channel-capacity-limit"
+      ],
+      "communication_gap": "Electrical engineering splits into \"fields and waves\" (Maxwell) and \"communications and signal processing\" (Shannon) in most curricula, creating practitioners who specialize in one but rarely both. The unification is implicit in the best wireless systems design but rarely stated as a foundational principle.\n",
+      "translation_table": [
+        {
+          "field_a_term": "plane wave E = E₀ exp(i(k·r − ωt))",
+          "field_b_term": "sinusoidal carrier wave at frequency f = ω/2π",
+          "note": "The Maxwell wave solution is the physical carrier of information"
+        },
+        {
+          "field_a_term": "electromagnetic bandwidth B (Hz)",
+          "field_b_term": "channel bandwidth B in Shannon formula C = B log₂(1 + S/N)",
+          "note": "Same quantity — frequency range available for modulation"
+        },
+        {
+          "field_a_term": "signal power S / noise power N (Maxwell wave)",
+          "field_b_term": "signal-to-noise ratio S/N in Shannon capacity",
+          "note": "Maxwell propagation loss and Johnson-Nyquist noise set the S/N"
+        },
+        {
+          "field_a_term": "polarization states of E-field (2 orthogonal)",
+          "field_b_term": "2 independent Shannon channels (polarization multiplexing)",
+          "note": "MIMO and polarization-division multiplexing exploit this directly"
+        },
+        {
+          "field_a_term": "wave dispersion relation ω(k)",
+          "field_b_term": "group delay and intersymbol interference in digital link",
+          "note": "Dispersive channels require equalization to approach Shannon capacity"
+        }
+      ],
+      "references": [
+        {
+          "note": "Maxwell (1865) A dynamical theory of the electromagnetic field. Phil Trans R Soc 155:459-512"
+        },
+        {
+          "note": "Shannon (1948) A mathematical theory of communication. Bell Syst Tech J 27:379-423, 623-656"
+        },
+        {
+          "note": "Nyquist (1924) Certain factors affecting telegraph speed. AIEE Trans 43:412-422"
+        },
+        {
+          "note": "Proakis & Salehi (2008) Digital Communications, 5th ed. McGraw-Hill"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\electromagnetism-information-theory\\b-maxwell-equations-wave-encoding.yaml"
     },
     {
       "id": "b-engineering-reliability-extreme-value",
@@ -3094,6 +3466,62 @@
       "file": "cross-domain\\immunology-control-theory\\b-immune-regulation-feedback.yaml"
     },
     {
+      "id": "b-lipid-nanoparticle-mrna-delivery",
+      "title": "mRNA therapeutics require lipid nanoparticle delivery vehicles whose self-assembly is governed by hydrophobic balance and ionizable lipid pKa — a materials science problem with immunological constraints.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "mRNA therapeutics (breakthrough gap bg-mrna-programmable-medicine) require delivery vehicles that protect fragile single-stranded mRNA from serum nucleases and enable endosomal escape into the cytoplasm. Lipid nanoparticles (LNPs) — self-assembled from ionizable lipids, PEG-lipids, cholesterol, and ",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-ionizable-lipid-pka-endosomal-escape"
+      ],
+      "communication_gap": "LNP development sits at the intersection of lipid biophysics, formulation chemistry, immunology, and pharmacology. Academic labs typically specialize in one aspect; industrial development integrates all four but rarely publishes mechanistic detail. The link between specific LNP materials properties (pKa, HLB) and immunological outcomes (innate vs adaptive response) is incompletely understood.\n",
+      "translation_table": [
+        {
+          "field_a_term": "hydrophilic-lipophilic balance (HLB)",
+          "field_b_term": "LNP self-assembly morphology (micelle vs lamellar vs hexagonal)",
+          "note": "HLB determines particle internal structure and endosomal escape efficiency"
+        },
+        {
+          "field_a_term": "ionizable lipid pKa",
+          "field_b_term": "endosomal escape efficiency and circulation half-life",
+          "note": "pKa 6.2-6.8 is optimal — neutral at pH 7.4, cationic in endosome pH 5.5"
+        },
+        {
+          "field_a_term": "PEG-lipid density on particle surface",
+          "field_b_term": "immunological stealth (reduced macrophage uptake, anti-PEG antibody risk)",
+          "note": "High PEG density = long circulation but risk of PEG-specific immune response"
+        },
+        {
+          "field_a_term": "particle size (50-100 nm)",
+          "field_b_term": "tissue biodistribution (liver vs muscle vs lymph node targeting)",
+          "note": "Size and lipid composition jointly determine organ tropism"
+        },
+        {
+          "field_a_term": "cholesterol content (40-50 mol%)",
+          "field_b_term": "membrane rigidity and mRNA encapsulation efficiency",
+          "note": "Cholesterol provides structural stability and modulates fusion with endosomal membrane"
+        }
+      ],
+      "references": [
+        {
+          "note": "Semple et al. (2010) Rational design of cationic lipids for siRNA delivery. Nat Biotechnol 28:172-176"
+        },
+        {
+          "note": "Kulkarni et al. (2019) Lipid nanoparticles enabling gene therapies: from concepts to clinical utility. Nanoscale 11:21733-21739"
+        },
+        {
+          "note": "Akinc et al. (2019) The Onpattro story and the clinical translation of nanomedicines containing nucleic acid-based drugs. Nat Nanotechnol 14:1084-1087"
+        },
+        {
+          "note": "Pardi et al. (2018) mRNA vaccines — a new era in vaccinology. Nat Rev Drug Discov 17:261-279"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\immunology-materials-science\\b-lipid-nanoparticle-mrna-delivery.yaml"
+    },
+    {
       "id": "b-error-threshold-information",
       "title": "Eigen's quasispecies error threshold in molecular evolution and Shannon's channel capacity theorem in information theory are the same mathematical result — the mutation rate at which genetic information is irreversibly lost is the Shannon capacity of the replication channel.\n",
       "source_domain": "",
@@ -3617,6 +4045,62 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\materials-science-mathematics\\b-crystallography-group-theory.yaml"
+    },
+    {
+      "id": "b-bcs-superconductivity",
+      "title": "BCS theory explains conventional superconductivity via phonon-mediated Cooper pairing — but high-Tc cuprates and iron-based superconductors violate BCS assumptions, and the pairing mechanism remains unknown.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The BCS theory (Bardeen, Cooper, Schrieffer 1957) bridges quantum mechanics and materials science to explain conventional superconductivity: phonon-mediated (lattice vibration-mediated) effective electron-electron attraction overcomes Coulomb repulsion to form Cooper pairs — bound states of two elec",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-spin-fluctuation-pairing-cuprates"
+      ],
+      "communication_gap": "BCS theory requires quantum field theory fluency; materials synthesis of cuprates requires different expertise in solid-state chemistry. The theoretical and experimental communities overlap but insufficiently. High-Tc superconductivity research has become highly specialized, with few researchers spanning ab initio calculations, strongly correlated electron theory, and materials synthesis.\n",
+      "translation_table": [
+        {
+          "field_a_term": "phonon (lattice vibration quantum)",
+          "field_b_term": "pairing boson (mediator of effective e-e attraction)",
+          "note": "In BCS, phonons mediate; in high-Tc, the mediator is unknown"
+        },
+        {
+          "field_a_term": "Cooper pair (k↑, −k↓ bound state)",
+          "field_b_term": "bosonic condensate (BCS-BEC crossover)",
+          "note": "Cooper pairs condense into superconducting state via BEC-like mechanism"
+        },
+        {
+          "field_a_term": "energy gap Δ (BCS)",
+          "field_b_term": "d-wave gap Δ_k = Δ₀(cos k_x − cos k_y) (cuprates)",
+          "note": "Gap symmetry distinguishes s-wave (BCS) from d-wave (cuprate) pairing"
+        },
+        {
+          "field_a_term": "Fermi surface instability (Cooper instability)",
+          "field_b_term": "Mott insulator to superconductor transition (doping-driven)",
+          "note": "High-Tc superconductors emerge from Mott insulating parent compounds"
+        },
+        {
+          "field_a_term": "isotope effect T_c ∝ M^{-1/2} (phonon signature)",
+          "field_b_term": "anomalous isotope effect in cuprates (partial, field-dependent)",
+          "note": "Partial isotope effect in cuprates suggests phonons play a secondary role"
+        }
+      ],
+      "references": [
+        {
+          "note": "Bardeen, Cooper & Schrieffer (1957) Theory of superconductivity. Phys Rev 108:1175-1204"
+        },
+        {
+          "note": "Cooper (1956) Bound electron pairs in a degenerate Fermi gas. Phys Rev 104:1189-1190"
+        },
+        {
+          "note": "Bednorz & Müller (1986) Possible high Tc superconductivity in the Ba-La-Cu-O system. Z Phys B 64:189-193"
+        },
+        {
+          "note": "Anderson (1987) The resonating valence bond state in La₂CuO₄ and superconductivity. Science 235:1196-1198"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\materials-science-quantum-physics\\b-bcs-superconductivity.yaml"
     },
     {
       "id": "b-allometry-fractal-networks",
@@ -4626,6 +5110,62 @@
       "file": "cross-domain\\neuroscience-engineering\\b-neural-control-theory.yaml"
     },
     {
+      "id": "b-glymphatic-cerebrospinal-fluid",
+      "title": "The glymphatic system uses perivascular cerebrospinal fluid flow driven by arterial pulsatility and aquaporin-4 water channels to clear amyloid-β and tau from the brain — a fluid dynamics problem with direct Alzheimer's disease implications.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The glymphatic system (Iliff et al. 2012) uses cerebrospinal fluid (CSF) flow along perivascular spaces (the Virchow-Robin spaces surrounding cerebral arteries) to clear metabolic waste products — including amyloid-β and tau, the aggregating proteins implicated in Alzheimer's disease — from brain pa",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-glymphatic-dysfunction-drives-amyloid-accumulation"
+      ],
+      "communication_gap": "Neuroscientists studying Alzheimer's disease rarely have fluid mechanics training; fluid dynamicists rarely study brain physiology. The glymphatic system is a rapidly growing field (first described 2012) with an underserved need for quantitative fluid mechanics modeling to translate cellular observations to tissue-scale clearance rates.\n",
+      "translation_table": [
+        {
+          "field_a_term": "perivascular space (Virchow-Robin space)",
+          "field_b_term": "porous channel geometry for CSF flow",
+          "note": "Annular space between vessel wall and pia mater acts as CSF conduit"
+        },
+        {
+          "field_a_term": "arterial pulsatility (cardiac cycle pressure waves)",
+          "field_b_term": "driving pressure for perivascular CSF flow",
+          "note": "Reduced pulsatility (aging, hypertension) impairs glymphatic function"
+        },
+        {
+          "field_a_term": "aquaporin-4 (AQP4) water channels on astrocyte endfeet",
+          "field_b_term": "hydraulic conductivity of brain parenchyma",
+          "note": "AQP4 knockout mice show 70% reduction in interstitial solute clearance"
+        },
+        {
+          "field_a_term": "extracellular space volume fraction (αe)",
+          "field_b_term": "Darcy hydraulic conductivity K ∝ αe^3 (Kozeny-Carman)",
+          "note": "Sleep-induced αe increase from 14% to 23% enhances K by ~3×"
+        },
+        {
+          "field_a_term": "amyloid-β clearance rate (neuroscience)",
+          "field_b_term": "solute advection rate by bulk interstitial flow (fluid dynamics)",
+          "note": "Diffusion alone is too slow; bulk flow required for efficient clearance"
+        }
+      ],
+      "references": [
+        {
+          "note": "Iliff et al. (2012) A paravascular pathway facilitates CSF flow through the brain parenchyma. Sci Transl Med 4:147ra111"
+        },
+        {
+          "note": "Xie et al. (2013) Sleep drives metabolite clearance from the adult brain. Science 342:373-377"
+        },
+        {
+          "note": "Nedergaard (2013) Garbage truck of the brain. Science 340:1529-1530"
+        },
+        {
+          "note": "Mestre et al. (2018) Flow of cerebrospinal fluid is driven by arterial pulsations and is reduced in hypertension. Nat Commun 9:4878"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\neuroscience-fluid-dynamics\\b-glymphatic-cerebrospinal-fluid.yaml"
+    },
+    {
       "id": "b-predictive-coding-grammar",
       "title": "Friston's free-energy / predictive coding framework for hierarchical neural inference is mathematically equivalent to probabilistic hierarchical phrase structure grammar: prediction error in neural processing equals surprisal in syntactic processing, and precision-weighting equals attention over syntactic dependencies.\n",
       "source_domain": "",
@@ -4910,6 +5450,71 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\neuroscience-physics\\b-free-energy-principle-thermodynamics.yaml"
+    },
+    {
+      "id": "b-neural-avalanches-criticality",
+      "title": "Neural networks in vitro and in vivo exhibit avalanche size and duration distributions following power laws P(s) ∝ s^(-3/2) and P(t) ∝ t^(-2) — the signatures of a second-order phase transition critical point — supporting the critical brain hypothesis that neural computation is optimized near the boundary between order and disorder.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The concept of criticality — a system poised at a second-order phase transition — from condensed matter physics maps onto the dynamics of neural networks with precise quantitative predictions that have been experimentally verified.\n1. Neural avalanches and power laws. Beggs & Plenz (2003) measured c",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-criticality-maximizes-neural-dynamic-range"
+      ],
+      "communication_gap": "Statistical physicists and neuroscientists overlap significantly in computational neuroscience, but the critical brain hypothesis is more widely known in physics-of-biology communities than in clinical neuroscience. The direct connection between epilepsy/coma (supercritical/subcritical) and the phase transition framework is underutilized in clinical settings. Muñoz (2018) Review of Modern Physics provides the comprehensive review.\n",
+      "translation_table": [
+        {
+          "field_a_term": "second-order phase transition / critical point (statistical physics)",
+          "field_b_term": "optimal brain operating point / edge of chaos (neuroscience)",
+          "note": "Brain criticality hypothesis maps neural dynamics onto phase transitions"
+        },
+        {
+          "field_a_term": "branching ratio σ = 1 (branching process theory)",
+          "field_b_term": "critical neural network (neuroscience)",
+          "note": "σ < 1 = subcritical (coma-like); σ > 1 = supercritical (epileptic)"
+        },
+        {
+          "field_a_term": "power-law cluster size distribution (statistical physics)",
+          "field_b_term": "neural avalanche size distribution P(s) ∝ s^(-3/2) (neuroscience)",
+          "note": "Mean-field critical exponent -3/2 observed experimentally in cortex"
+        },
+        {
+          "field_a_term": "diverging susceptibility χ near T_c (statistical physics)",
+          "field_b_term": "maximal dynamic range at σ = 1 (neuroscience)",
+          "note": "Maximum sensitivity to input is the experimental signature of criticality"
+        },
+        {
+          "field_a_term": "correlation length ξ diverging at criticality",
+          "field_b_term": "long-range spatial correlations in neural activity (neuroscience)",
+          "note": "Critical neural networks show correlations across cortical distances"
+        },
+        {
+          "field_a_term": "universality class (statistical physics)",
+          "field_b_term": "neural network class (size-dependent critical exponents)",
+          "note": "Whether cortical avalanches are mean-field or non-mean-field universality is debated"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1523/JNEUROSCI.23-35-11167.2003",
+          "note": "Beggs & Plenz (2003) J Neurosci 23:11167 — neuronal avalanches in neocortical circuits"
+        },
+        {
+          "doi": "10.1038/nphys1803",
+          "note": "Chialvo (2010) Nat Phys 6:744 — emergent complexity at the edge of chaos"
+        },
+        {
+          "doi": "10.1177/1073858412445487",
+          "note": "Shew & Plenz (2013) Neuroscientist 19:88 — functional benefits of criticality"
+        },
+        {
+          "doi": "10.1103/RevModPhys.90.031001",
+          "note": "Muñoz (2018) Rev Mod Phys 90:031001 — colloquium on criticality and dynamical large-scale brain models"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\neuroscience-physics\\b-neural-avalanches-criticality.yaml"
     },
     {
       "id": "b-bayesian-brain-predictive-processing",
@@ -6342,6 +6947,62 @@
       "file": "cross-domain\\physics-information\\b-landauer-information-thermodynamics.yaml"
     },
     {
+      "id": "b-noether-theorem-conservation-laws",
+      "title": "Every differentiable symmetry of the action of a physical system corresponds to a conservation law — Noether's theorem is the deepest known connection between the geometry of symmetry groups and the conservation laws of physics.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Noether's first theorem (1915, published 1918) establishes a bijection between continuous symmetries of the action S = ∫ L dt and conserved quantities (Noether currents/charges). This is not an analogy — it is a theorem with exact mathematical proof.\nThe canonical examples: time translation symmetry",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-noether-symmetry-breaking-new-physics"
+      ],
+      "communication_gap": "Noether's theorem is taught in advanced theoretical physics but rarely in mathematics curricula, despite being a mathematical theorem. Biologists and complex systems scientists rarely encounter it. The abstract algebraic formulation (Lie algebras, co-adjoint orbits) is inaccessible without significant mathematical training, limiting cross-field application.\n",
+      "translation_table": [
+        {
+          "field_a_term": "continuous symmetry of the action (Lie group G)",
+          "field_b_term": "conserved Noether charge Q",
+          "note": "One-to-one: each generator of G gives one conserved current"
+        },
+        {
+          "field_a_term": "time translation symmetry (t → t + ε)",
+          "field_b_term": "conservation of energy (Hamiltonian H = const)",
+          "note": "The most familiar instance — energy conservation from time-homogeneity"
+        },
+        {
+          "field_a_term": "spatial translation symmetry (x → x + a)",
+          "field_b_term": "conservation of linear momentum p",
+          "note": "Momentum conservation from spatial homogeneity of physical laws"
+        },
+        {
+          "field_a_term": "rotational symmetry SO(3) (x → Rx)",
+          "field_b_term": "conservation of angular momentum L = r × p",
+          "note": "Angular momentum from isotropy of space"
+        },
+        {
+          "field_a_term": "U(1) gauge symmetry ψ → e^{iα} ψ",
+          "field_b_term": "conservation of electric charge Q",
+          "note": "The gauge symmetry of electromagnetism gives charge conservation"
+        }
+      ],
+      "references": [
+        {
+          "note": "Noether (1918) Invariante Variationsprobleme. Nachr Akad Wiss Göttingen 235-257"
+        },
+        {
+          "note": "Kosmann-Schwarzbach (2011) The Noether Theorems: Invariance and Conservation Laws. Springer"
+        },
+        {
+          "note": "Weyl (1929) Elektron und Gravitation. Z Phys 56:330-352"
+        },
+        {
+          "note": "Weinberg (1995) The Quantum Theory of Fields, Vol. 1. Cambridge University Press"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\physics-mathematics\\b-noether-theorem-conservation-laws.yaml"
+    },
+    {
       "id": "b-scale-free-networks-criticality",
       "title": "Barabási-Albert preferential attachment ↔ criticality ↔ brain connectome ↔ internet topology",
       "source_domain": "",
@@ -7002,6 +7663,62 @@
       "file": "cross-domain\\quantum-biology\\b-quantum-biology-navigation.yaml"
     },
     {
+      "id": "b-stabilizer-codes-fault-tolerance",
+      "title": "Quantum stabilizer codes are the quantum analog of classical linear codes — the threshold theorem proves that fault-tolerant quantum computation is achievable when physical error rates fall below approximately 1%.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Quantum error correction (Shor 1995, Steane 1996) maps directly onto classical coding theory: a [[n, k, d]] quantum code encodes k logical qubits into n physical qubits with code distance d (able to correct ⌊(d−1)/2⌋ arbitrary errors). Stabilizer codes — defined by a commuting set of Pauli operators",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-surface-code-practical-threshold-2030"
+      ],
+      "communication_gap": "Quantum computing and classical coding theory are taught in separate departments (physics vs electrical engineering/computer science). The CSS construction and stabilizer formalism require both quantum mechanics and group theory, limiting practitioners who can work across the bridge. The threshold theorem is widely cited but rarely understood in detail outside quantum information theory.\n",
+      "translation_table": [
+        {
+          "field_a_term": "[n, k, d] classical linear code",
+          "field_b_term": "[[n, k, d]] quantum stabilizer code",
+          "note": "Direct analog — CSS construction maps classical to quantum codes"
+        },
+        {
+          "field_a_term": "parity check matrix H (classical)",
+          "field_b_term": "stabilizer generators (Pauli operators)",
+          "note": "Syndrome measurement = parity check in the quantum case"
+        },
+        {
+          "field_a_term": "bit flip (0→1) and phase flip error types",
+          "field_b_term": "Pauli X (bit flip) and Pauli Z (phase flip) errors",
+          "note": "Quantum errors decompose into X, Z, Y = iXZ"
+        },
+        {
+          "field_a_term": "classical code rate k/n",
+          "field_b_term": "quantum code rate k/n (logical qubits per physical qubit)",
+          "note": "Surface code rate = 1/n → 0 as n grows (overhead for fault tolerance)"
+        },
+        {
+          "field_a_term": "minimum distance d (classical)",
+          "field_b_term": "code distance d (quantum) — number of correctable errors = ⌊(d−1)/2⌋",
+          "note": "Distance determines fault tolerance threshold"
+        }
+      ],
+      "references": [
+        {
+          "note": "Shor (1995) Scheme for reducing decoherence in quantum computer memory. Phys Rev A 52:R2493"
+        },
+        {
+          "note": "Steane (1996) Error correcting codes in quantum theory. Phys Rev Lett 77:793"
+        },
+        {
+          "note": "Gottesman (1997) Stabilizer codes and quantum error correction. PhD thesis, Caltech"
+        },
+        {
+          "note": "Fowler et al. (2012) Surface codes: towards practical large-scale quantum computation. Phys Rev A 86:032324"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\quantum-computing-error-correction\\b-stabilizer-codes-fault-tolerance.yaml"
+    },
+    {
       "id": "b-quantum-coherence-photosynthesis",
       "title": "Femtosecond spectroscopy reveals long-lived quantum coherence in the Fenna-Matthews-Olson (FMO) light-harvesting complex — energy transfer occurs via quantum superposition across chromophores rather than classical Förster hopping, and the same Lindblad master equation formalism that governs qubit decoherence in quantum computing describes coherence loss in biological light-harvesting at physiological temperatures.\n",
       "source_domain": "",
@@ -7063,6 +7780,71 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\quantum-physics-biology\\b-quantum-coherence-photosynthesis.yaml"
+    },
+    {
+      "id": "b-quantum-tunneling-enzyme-catalysis",
+      "title": "Quantum tunneling of protons and electrons contributes to enzyme catalysis beyond classical transition state theory — measured by anomalously large H/D kinetic isotope effects in alcohol dehydrogenase and aromatic amine dehydrogenase — establishing quantum mechanics as a functional component of room-temperature biochemistry.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Quantum tunneling — transmission through a potential energy barrier classically forbidden to a particle — is not merely a curiosity at cryogenic temperatures but a quantitatively significant contributor to enzyme catalysis at physiological temperatures.\n1. Tunneling rate formula. The WKB (Wentzel-Kr",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-protein-dynamics-optimize-quantum-tunneling"
+      ],
+      "communication_gap": "Quantum physicists and biochemists rarely collaborate directly. Quantum biology is an emerging interdisciplinary field (Al-Khalili & McFadden book 2014) but remains contested. The enzyme tunneling evidence is in well-reviewed experimental biochemistry journals (Annual Review of Biochemistry, Accounts of Chemical Research), not in physics journals, so it is underappreciated in the physics community. Conversely, biologists unfamiliar with quantum mechanics miss the mechanistic explanations provided by WKB theory and PCET formalism.\n",
+      "translation_table": [
+        {
+          "field_a_term": "quantum tunneling rate k_tunnel ∝ exp(-2κd) (quantum mechanics)",
+          "field_b_term": "hydrogen transfer rate in enzyme catalysis (biochemistry)",
+          "note": "WKB tunneling formula describes the quantum component of proton transfer"
+        },
+        {
+          "field_a_term": "de Broglie wavelength λ = h/√(2mE) (quantum mechanics)",
+          "field_b_term": "particle mass dependence of KIE (H vs D vs T) (enzymology)",
+          "note": "Heavier isotopes have shorter de Broglie wavelength — less tunneling"
+        },
+        {
+          "field_a_term": "potential energy barrier U(x) in quantum mechanics",
+          "field_b_term": "activation barrier in enzyme active site (biochemistry)",
+          "note": "The enzyme active site geometry shapes the quantum tunneling barrier"
+        },
+        {
+          "field_a_term": "barrier width d in WKB formula (quantum mechanics)",
+          "field_b_term": "proton donor-acceptor distance in enzyme (biochemistry)",
+          "note": "Protein conformational dynamics compresses d to optimize tunneling"
+        },
+        {
+          "field_a_term": "transmission coefficient κ(E) in quantum mechanics",
+          "field_b_term": "KIE = k_H/k_D ratio (kinetic isotope effect) (enzymology)",
+          "note": "KIE > 7 is the experimental hallmark of quantum tunneling in enzymes"
+        },
+        {
+          "field_a_term": "proton-coupled electron transfer (PCET) theory (quantum chemistry)",
+          "field_b_term": "oxidoreductase mechanism (hydride/proton transfer enzymes)",
+          "note": "PCET theory quantitatively models tunneling in alcohol dehydrogenase"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1021/bi990941v",
+          "note": "Scrutton et al. (1999) Biochemistry 38:10844 — tunneling in enzyme-catalyzed hydrogen transfer"
+        },
+        {
+          "doi": "10.1021/ar050201z",
+          "note": "Hammes-Schiffer (2006) Acc Chem Res 39:93 — hydrogen tunneling and protein motion in enzyme reactions"
+        },
+        {
+          "doi": "10.1146/annurev-biochem-051710-133623",
+          "note": "Klinman & Kohen (2013) Annu Rev Biochem 82:471 — hydrogen tunneling links protein dynamics to enzyme catalysis"
+        },
+        {
+          "doi": "10.1046/j.1432-1033.2002.03018.x",
+          "note": "Sutcliffe & Scrutton (2002) Eur J Biochem 269:3096 — a new conceptual framework for enzyme catalysis"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\quantum-physics-biology\\b-quantum-tunneling-enzyme-catalysis.yaml"
     },
     {
       "id": "b-quantum-error-correction-holography",
@@ -7533,6 +8315,71 @@
       "file": "cross-domain\\social-science-mathematics\\b-social-capital-network-science.yaml"
     },
     {
+      "id": "b-voter-model-consensus",
+      "title": "The voter model (Clifford & Sudbury 1973) — each agent copies a random neighbor's opinion — maps opinion dynamics onto random walk theory: consensus in d≤2 dimensions, persistent diversity in d>2, T∝N·lnN in 2D, and echo-chamber polarization as network-structured metastable trapping.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The voter model is the simplest model of social influence and opinion dynamics, yet it reduces exactly to classical problems in probability theory and statistical physics.\n1. Voter model definition. N agents on a graph, each holding opinion ±1.\n   At each timestep, a random agent i copies the opinio",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-network-community-structure-drives-polarization"
+      ],
+      "communication_gap": "Sociologists studying opinion dynamics and statistical physicists studying the voter model are largely disconnected. The model is well-known in mathematical ecology (it originated as a species competition model), in statistical physics (as a non-equilibrium stochastic model), and increasingly in computational social science, but the exact equivalence between the voter model, the Moran process, and random walks is rarely appreciated in all three communities simultaneously.\n",
+      "translation_table": [
+        {
+          "field_a_term": "opinion ±1 of agent i (voter model)",
+          "field_b_term": "allele A/a at locus of individual i (population genetics / Moran)",
+          "note": "Exact mathematical equivalence; voter model IS the Moran process"
+        },
+        {
+          "field_a_term": "social influence (copying neighbor's opinion)",
+          "field_b_term": "genetic drift (random replacement by neighboring lineage)",
+          "note": "Both processes are pure random copying without selection pressure"
+        },
+        {
+          "field_a_term": "consensus state (all +1 or all −1) in voter model",
+          "field_b_term": "fixation of one allele in Moran process (genetics)",
+          "note": "Absorbing states are identical; fixation probability = initial frequency in both"
+        },
+        {
+          "field_a_term": "domain wall (interface between +1 and −1 clusters)",
+          "field_b_term": "allele frequency gradient / clinal variation (genetics)",
+          "note": "Both represent the boundary between differing discrete states"
+        },
+        {
+          "field_a_term": "consensus time T ∝ N ln N on 2D lattice (voter model)",
+          "field_b_term": "fixation time of neutral allele T ∝ N ln N on 2D structured population",
+          "note": "Same mathematical result from same random walk calculation"
+        },
+        {
+          "field_a_term": "echo chamber / polarized metastable state (social science)",
+          "field_b_term": "long-lived metastable state in community-structured network (physics)",
+          "note": "Community structure creates exponentially long-lived polarized states"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.2307/2334957",
+          "note": "Clifford & Sudbury (1973) Biometrika 60:581 — a model for spatial conflict"
+        },
+        {
+          "doi": "10.1103/PhysRevLett.94.178701",
+          "note": "Sood & Redner (2005) Phys Rev Lett 94:178701 — voter model on heterogeneous graphs"
+        },
+        {
+          "doi": "10.1088/1751-8113/41/2/025001",
+          "note": "Sood et al. (2008) J Phys A 41:025001 — voter models on heterogeneous graphs"
+        },
+        {
+          "doi": "10.1103/RevModPhys.81.591",
+          "note": "Castellano et al. (2009) Rev Mod Phys 81:591 — statistical physics of social dynamics"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\social-science-mathematics\\b-voter-model-consensus.yaml"
+    },
+    {
       "id": "b-opinion-dynamics-ising",
       "title": "Opinion dynamics models (Voter, Sznajd, Deffuant) are instances of Ising-like spin dynamics on social networks: political polarisation is a ferromagnetic phase transition, echo chambers are ferromagnetic domains, and the critical temperature T_c predicts the consensus-to- fragmentation transition.\n",
       "source_domain": "",
@@ -7615,6 +8462,62 @@
       "file": "cross-domain\\social-science-physics\\b-opinion-dynamics-ising.yaml"
     },
     {
+      "id": "b-boltzmann-shannon-entropy",
+      "title": "Boltzmann's entropy S = k_B ln W and Shannon's entropy H = −Σ p_i log p_i are formally identical — thermodynamic entropy IS the Shannon information entropy of the macroscopic probability distribution over microstates.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Boltzmann's entropy S = k_B ln W (W = number of equally probable microstates) and Shannon's entropy H = −Σ p_i log p_i (probability distribution over messages) are the same mathematical object up to the Boltzmann constant k_B and a factor of ln 2 (bit vs nat). The equivalence S = k_B ln 2 · H holds ",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-maxent-nonequilibrium-statistical-mechanics"
+      ],
+      "communication_gap": "Physics and information theory developed the entropy concept independently (Boltzmann 1877 and Shannon 1948 are 71 years apart). Many physicists learn Boltzmann entropy as a physical fact, not as an inference framework. Many information theorists do not know that H is measured in joules/kelvin when multiplied by k_B. Jaynes's unification is underappreciated outside statistical physics.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Boltzmann entropy S = k_B ln W",
+          "field_b_term": "Shannon entropy H = −Σ p_i log p_i (uniform distribution)",
+          "note": "S = k_B ln 2 · H; differ only by units (joules/kelvin vs bits)"
+        },
+        {
+          "field_a_term": "number of microstates W consistent with macrostate",
+          "field_b_term": "number of distinguishable messages of a given probability",
+          "note": "Same combinatorial object — Boltzmann's W is Shannon's code length exponent"
+        },
+        {
+          "field_a_term": "thermodynamic equilibrium (maximum entropy state)",
+          "field_b_term": "maximum entropy distribution (MaxEnt principle)",
+          "note": "Jaynes showed equilibrium statistical mechanics = MaxEnt inference"
+        },
+        {
+          "field_a_term": "partition function Z = Σ exp(−E_i / k_B T)",
+          "field_b_term": "moment generating function of the energy distribution",
+          "note": "Z encodes all thermodynamic information as a Laplace transform"
+        },
+        {
+          "field_a_term": "free energy F = −k_B T ln Z",
+          "field_b_term": "log partition function (cumulant generating function)",
+          "note": "Variational free energy = KL-divergence in variational Bayes"
+        }
+      ],
+      "references": [
+        {
+          "note": "Boltzmann (1877) Über die Beziehung zwischen dem zweiten Hauptsatze der mechanischen Wärmetheorie. Sitzungsber Akad Wiss Wien 76:373-435"
+        },
+        {
+          "note": "Shannon (1948) A mathematical theory of communication. Bell Syst Tech J 27:379-423"
+        },
+        {
+          "note": "Jaynes (1957) Information theory and statistical mechanics I. Phys Rev 106:620-630"
+        },
+        {
+          "note": "Jaynes (1957) Information theory and statistical mechanics II. Phys Rev 108:171-190"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\statistical-mechanics-information-theory\\b-boltzmann-shannon-entropy.yaml"
+    },
+    {
       "id": "b-fisher-information-evolution",
       "title": "R.A. Fisher's fundamental theorem of natural selection and his Fisher information matrix in statistics are the same mathematical object — the rate of increase of mean fitness equals the population's statistical Fisher information about fitness, and this identity gives evolutionary biology the full toolkit of statistical estimation theory.\n",
       "source_domain": "",
@@ -7681,6 +8584,62 @@
       ],
       "last_reviewed": "2026-05-04",
       "file": "cross-domain\\statistics-evolution\\b-fisher-information-evolution.yaml"
+    },
+    {
+      "id": "b-carbon-capture-entropy-cost",
+      "title": "Direct air carbon capture is constrained by thermodynamics — actual DAC systems consume 10-20× above the minimum work set by entropy of mixing, and closing this gap requires understanding sorbent-CO₂ kinetics at the molecular level.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Direct air capture (DAC) of CO₂ from 420 ppm atmosphere (breakthrough gap bg-carbon-direct-air-capture) is fundamentally constrained by the second law of thermodynamics. The minimum work to separate CO₂ from air at concentration x_CO₂ is W_min = RT ln(p_total / p_CO₂) ≈ 20 kJ/mol CO₂ at 420 ppm, 25°",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-mof-sorbent-approaches-dac-thermodynamic-limit"
+      ],
+      "communication_gap": "DAC is studied by atmospheric scientists (climate impact), chemical engineers (process design), materials scientists (sorbent design), and economists (cost modeling) in largely separate literatures. The thermodynamic framework that unifies them is standard in chemical engineering but rarely articulated for climate scientists or materials researchers entering the field.\n",
+      "translation_table": [
+        {
+          "field_a_term": "entropy of mixing CO₂ in air at 420 ppm",
+          "field_b_term": "minimum separation work W_min = RT ln(1/x_CO₂) ≈ 20 kJ/mol",
+          "note": "Thermodynamic lower bound — set by atmospheric concentration, unavoidable"
+        },
+        {
+          "field_a_term": "sorbent regeneration temperature T_reg",
+          "field_b_term": "Carnot efficiency penalty (1 − T_cold/T_hot)^{-1}",
+          "note": "Higher T_reg = more energy for desorption but worse Carnot efficiency"
+        },
+        {
+          "field_a_term": "CO₂ binding enthalpy ΔH_ads of sorbent",
+          "field_b_term": "regeneration energy per mol CO₂ ≈ ΔH_ads + sensible heat",
+          "note": "Strong binding captures CO₂ efficiently but requires more energy to release"
+        },
+        {
+          "field_a_term": "sorbent degradation rate (oxidative, hydrolytic)",
+          "field_b_term": "levelized cost of DAC ($/tonne CO₂)",
+          "note": "Sorbent lifetime dominates capital cost at current TRL"
+        },
+        {
+          "field_a_term": "atmospheric CO₂ concentration (ppm)",
+          "field_b_term": "W_min sensitivity: doubling concentration halves W_min",
+          "note": "At 840 ppm W_min ≈ 18 kJ/mol — modest reduction from concentration increase"
+        }
+      ],
+      "references": [
+        {
+          "note": "House et al. (2011) Economic and energetic analysis of capturing CO₂ from ambient air. Energy Environ Sci 4:1116-1128"
+        },
+        {
+          "note": "Fasihi et al. (2019) Techno-economic assessment of CO₂ direct air capture plants. Joule 3:1983-2049"
+        },
+        {
+          "note": "Keith et al. (2018) A process for capturing CO₂ from the atmosphere. Joule 2:1573-1594"
+        },
+        {
+          "note": "Lackner (2009) Capture of carbon dioxide from ambient air. Eur Phys J Special Topics 176:93-106"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\thermodynamics-atmospheric-chemistry\\b-carbon-capture-entropy-cost.yaml"
     },
     {
       "id": "b-maxwells-demon-computation",

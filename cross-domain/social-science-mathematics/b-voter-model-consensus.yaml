@@ -1,0 +1,105 @@
+id: b-voter-model-consensus
+title: >
+  The voter model (Clifford & Sudbury 1973) — each agent copies a random
+  neighbor's opinion — maps opinion dynamics onto random walk theory:
+  consensus in d≤2 dimensions, persistent diversity in d>2, T∝N·lnN in 2D,
+  and echo-chamber polarization as network-structured metastable trapping.
+status: established
+fields:
+  - social-science
+  - mathematics
+  - statistical-physics
+  - network-science
+bridge_claim: >
+  The voter model is the simplest model of social influence and opinion dynamics,
+  yet it reduces exactly to classical problems in probability theory and
+  statistical physics.
+
+  1. Voter model definition. N agents on a graph, each holding opinion ±1.
+     At each timestep, a random agent i copies the opinion of a random neighbor j.
+     This is a continuous-time Markov process on opinion space {±1}^N. The model
+     was introduced by Clifford & Sudbury (1973) as a model of species competition
+     (each site is a territory; the owner is replaced by a random adjacent territory
+     owner's species). This is the same process — the mapping is exact.
+
+  2. Random walk and coarsening. In d=1, the voter model is equivalent to
+     annihilating random walks of domain walls. Domain walls (boundaries between
+     +1 and -1 clusters) perform independent random walks; when two walls meet,
+     they annihilate. In d=2, this is recurrent (random walkers always meet),
+     so consensus is always reached. In d>2, walks are transient, and the system
+     can sustain coexisting domains indefinitely (in the infinite system).
+
+  3. Consensus time scaling. On a complete graph (mean-field / Moran process):
+     T_consensus ∝ N. On a 2D lattice: T_consensus ∝ N ln N (Sood & Redner 2005).
+     On heterogeneous networks: T_consensus ∝ N·⟨k⟩/⟨k²⟩ — hubs accelerate
+     consensus. The logarithmic factor in 2D is a quantum gravity curiosity:
+     it arises from the same mathematics as the return probability of 2D random walks.
+
+  4. Moran process duality. On a complete graph, the voter model is exactly
+     the Moran process of population genetics (Moran 1958): each opinion
+     corresponds to an allele, and the fixation probability of a minority
+     opinion = its current frequency p. The absorbing states (consensus) are
+     reached with probabilities p and (1-p) respectively. This maps social
+     opinion dynamics onto neutral genetic drift.
+
+  5. Echo chambers as metastable states. On networks with community structure,
+     the voter model can become trapped in long-lived metastable states where
+     each community has internal consensus but communities disagree. These
+     metastable states persist for exponentially long times (in community size)
+     before the system eventually reaches global consensus. This is a quantitative
+     model of political polarization driven by network structure, not by
+     individual stubbornness.
+translation_table:
+  - field_a_term: opinion ±1 of agent i (voter model)
+    field_b_term: allele A/a at locus of individual i (population genetics / Moran)
+    note: Exact mathematical equivalence; voter model IS the Moran process
+  - field_a_term: social influence (copying neighbor's opinion)
+    field_b_term: genetic drift (random replacement by neighboring lineage)
+    note: Both processes are pure random copying without selection pressure
+  - field_a_term: consensus state (all +1 or all −1) in voter model
+    field_b_term: fixation of one allele in Moran process (genetics)
+    note: Absorbing states are identical; fixation probability = initial frequency in both
+  - field_a_term: domain wall (interface between +1 and −1 clusters)
+    field_b_term: allele frequency gradient / clinal variation (genetics)
+    note: Both represent the boundary between differing discrete states
+  - field_a_term: consensus time T ∝ N ln N on 2D lattice (voter model)
+    field_b_term: fixation time of neutral allele T ∝ N ln N on 2D structured population
+    note: Same mathematical result from same random walk calculation
+  - field_a_term: echo chamber / polarized metastable state (social science)
+    field_b_term: long-lived metastable state in community-structured network (physics)
+    note: Community structure creates exponentially long-lived polarized states
+related_unknowns:
+  - u-voter-model-zealots-persistent-minorities
+related_hypotheses:
+  - h-network-community-structure-drives-polarization
+cross_pollination_opportunities:
+  - >
+    Noisy voter model for financial markets: the voter model with external
+    noise (zealots or committed agents who never switch) maps onto a model
+    of herding in financial markets with fat-tailed return distributions.
+    Applying the exact solution on heterogeneous networks could improve
+    understanding of market microstructure.
+  - >
+    Network interventions for depolarization: the voter model quantifies
+    how community structure drives metastable polarization. This gives
+    explicit intervention strategies — adding random links between communities
+    exponentially reduces polarization time — with potential application to
+    algorithmic social media feed design.
+communication_gap: >
+  Sociologists studying opinion dynamics and statistical physicists studying
+  the voter model are largely disconnected. The model is well-known in
+  mathematical ecology (it originated as a species competition model), in
+  statistical physics (as a non-equilibrium stochastic model), and increasingly
+  in computational social science, but the exact equivalence between the voter
+  model, the Moran process, and random walks is rarely appreciated in all three
+  communities simultaneously.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.2307/2334957"
+    note: Clifford & Sudbury (1973) Biometrika 60:581 — a model for spatial conflict
+  - doi: "10.1103/PhysRevLett.94.178701"
+    note: Sood & Redner (2005) Phys Rev Lett 94:178701 — voter model on heterogeneous graphs
+  - doi: "10.1088/1751-8113/41/2/025001"
+    note: Sood et al. (2008) J Phys A 41:025001 — voter models on heterogeneous graphs
+  - doi: "10.1103/RevModPhys.81.591"
+    note: Castellano et al. (2009) Rev Mod Phys 81:591 — statistical physics of social dynamics

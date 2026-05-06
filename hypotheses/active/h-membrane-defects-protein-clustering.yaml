@@ -1,0 +1,53 @@
+id: h-membrane-defects-protein-clustering
+title: >
+  Integral membrane proteins act as topological defects in the lipid bilayer
+  liquid crystal order field, and defect-defect interactions mediated by Frank
+  elastic energy drive protein clustering into lipid raft domains without
+  requiring direct protein-protein binding.
+status: active
+priority: medium
+impact_score: 0.65
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR-AI
+evidence_links:
+  - doi: "10.1515/znc-1973-11-1209"
+    type: supporting
+    confidence: 0.5
+    note: Helfrich elastic energy provides the theoretical framework for lipid-mediated interactions
+  - doi: "10.1126/science.175.4023.720"
+    type: related
+    confidence: 0.4
+    note: Singer-Nicolson model describes proteins embedded in 2D fluid membrane
+  - doi: "10.1038/nrm2322"
+    type: supporting
+    confidence: 0.4
+    note: Lipid raft review — raft organization as liquid-ordered phase
+unknowns_addressed:
+  - u-lipid-raft-protein-sorting-mechanism
+proposed_tests:
+  - description: >
+      Measure the two-dimensional radial distribution function g(r) of a
+      fluorescently labeled single-pass transmembrane protein in a model
+      membrane (GUV) near the Lo/Ld phase transition temperature. If the
+      hypothesis is correct, protein clustering should scale with the
+      membrane correlation length ξ (the 2D analog of critical opalescence),
+      diverging near the phase transition.
+    method: super-resolution STED microscopy + fluorescence correlation spectroscopy
+    prediction: >
+      Protein pair correlation function g(r) ~ exp(-r/ξ)/r^η near phase
+      transition, with ξ diverging as (T-Tc)^{-ν} with 2D Ising exponent ν=1.
+  - description: >
+      Compute the pair interaction potential between two model transmembrane
+      proteins as a function of their separationusing coarse-grained molecular
+      dynamics (CGMD, Martini force field) in a phase-separated bilayer, and
+      compare to the Frank elastic energy prediction.
+    method: CGMD simulation (Martini FF) + analytical Frank elastic calculation
+    prediction: >
+      Effective protein-protein interaction at intermediate separation (2-10 nm)
+      should show elastic energy minimum consistent with defect pair annihilation
+      in the liquid crystal order field.
+related_disciplines:
+  - biophysics
+  - condensed-matter-physics
+  - cell-biology
