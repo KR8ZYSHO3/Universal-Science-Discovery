@@ -1,54 +1,31 @@
 # Orphan Unknowns — Priority Contribution Targets
 
-These **270** unknowns have no associated hypothesis or bridge edge in the knowledge graph.
+These **217** unknowns have no associated hypothesis or bridge edge in the knowledge graph.
 They are the highest-priority targets for new contributions — add a hypothesis or propose a cross-domain bridge connecting them.
 
 | ID | Title |
 |---|---|
-| `u-aesthetic-preference-neural-basis` | What neural circuits and computational principles underlie aesthetic preference, and are these circuits domain-general or art-form specific? |
 | `u-architectural-emotional-impact` | What physical properties of built environments causally affect psychological well-being, stress, and cognitive performance? |
 | `u-collective-vs-individual-creativity` | Under what conditions does group collaboration enhance vs. inhibit creative output compared to individuals working alone? |
 | `u-color-emotion-mapping` | Is the mapping between colors and emotional valence universal or culturally constructed, and what are the physiological mechanisms? |
 | `u-creativity-intelligence-correlation` | What is the relationship between general intelligence (g) and creative ability, and does the threshold hypothesis hold above IQ 120? |
-| `u-flow-state-neural-signature` | What are the neural and physiological signatures of the "flow state" (optimal experience), and can flow be reliably induced and measured? |
-| `u-humor-cognitive-mechanism` | What is the computational and neural mechanism of humor comprehension, and why does incongruity resolution trigger positive affect? |
 | `u-improvisation-neural-correlates` | What neural mechanisms distinguish improvised from rehearsed musical performance, and does improvisation require deactivation of executive control? |
-| `u-metaphor-abstract-thought` | Is abstract thought fundamentally grounded in sensorimotor metaphor (conceptual metaphor theory), or can genuine amodal abstract representation exist? |
 | `u-narrative-comprehension-brain` | What brain regions and computational processes support the construction of narrative mental models during story comprehension? |
-| `u-synaesthesia-mechanism` | What neural mechanisms produce synesthesia, and why does cross-activation of perceptual modalities occur in approximately 4% of the population? |
 | `u-visual-art-emotional-response` | What visual features of artworks reliably evoke specific emotional responses, and does the "aesthetic emotion" differ from ordinary emotion? |
-| `u-cluster-cooling-flows` | Why do galaxy cluster cooling flows not form stars at the rates predicted by their X-ray luminosities? |
 | `u-cosmic-string-networks` | Do cosmic string networks exist and what are their observational signatures in the CMB and gravitational wave background? |
-| `u-dark-energy-equation-of-state` | Is dark energy a cosmological constant or a dynamical field, and what is its equation of state w(z)? |
-| `u-early-galaxy-formation-jwst` | Why do JWST observations reveal massive, evolved galaxies at z>10 that are absent in ΛCDM predictions? |
-| `u-exoplanet-biosignature-false-positives` | What abiotic processes can mimic biosignature gases in exoplanet atmospheres? |
 | `u-galaxy-angular-momentum` | How is angular momentum transported during galaxy formation to produce the observed diversity of disk sizes? |
 | `u-globular-cluster-formation` | How do globular clusters form and why do they show multiple stellar populations? |
-| `u-gwb-spectrum` | What is the origin of the nanohertz gravitational wave background detected by pulsar timing arrays? |
 | `u-magnetic-field-origin-galaxies` | What generates and maintains large-scale magnetic fields in galaxies over Hubble time? |
 | `u-neutron-star-equation-of-state` | What is the equation of state of dense nuclear matter above 2× nuclear saturation density? |
 | `u-primordial-gravitational-waves` | What is the tensor-to-scalar ratio r and what does it imply for inflationary models? |
 | `u-quasar-feedback-mechanism` | How does quasar feedback quench star formation in massive galaxies across cosmic time? |
-| `u-reionization-topology` | What is the spatial topology of cosmic reionization and which sources dominate the ionizing photon budget? |
 | `u-stellar-bh-spin-distribution` | What process sets the spin magnitude distribution of stellar-mass black holes in binary systems? |
-| `u-stellar-initial-mass-function` | Is the stellar initial mass function universal, and what physics drives variations in extreme environments? |
-| `u-type-ia-supernova-progenitor` | What stellar system produces the majority of Type Ia supernovae: single-degenerate or double-degenerate? |
 | `u-battery-solid-electrolyte-stability` | What determines the long-term electrochemical stability of solid electrolytes at electrode interfaces, and can this stability be predicted computationally? |
-| `u-catalyst-optimization-volcano-plots` | Do Sabatier volcano plots have a universal mathematical form, and can machine learning identify the binding energy descriptors that place any catalyst near the volcano peak? |
-| `u-crystallization-kinetics-nucleation` | Why does classical nucleation theory systematically underpredict nucleation rates by 10-20 orders of magnitude, and what is the correct free energy of critical nucleus formation? |
-| `u-electrochemical-co2-reduction-selectivity` | What determines product selectivity in electrochemical CO2 reduction, and can catalyst design achieve multicarbon product yields practical for carbon utilisation? |
-| `u-reaction-mechanism-automated-discovery` | Can automated computational methods reliably discover novel reaction mechanisms and predict activation barriers without experimental calibration? |
-| `u-rna-aptamer-design-principles` | What physical principles govern RNA aptamer binding affinity and selectivity, and can they guide de novo design without combinatorial screening? |
-| `u-supramolecular-self-assembly-prediction` | Can the self-assembly of supramolecular structures be predicted from molecular building block properties, and what determines assembly pathway selectivity? |
-| `u-aerosol-cloud-indirect` | What is the magnitude of the aerosol first and second indirect effects on global radiative forcing? |
 | `u-antarctic-bottom-water` | What controls Antarctic Bottom Water formation rate and how will it respond to ice sheet freshening? |
 | `u-arctic-amplification-mechanism` | What fraction of Arctic amplification is caused by local feedbacks versus poleward heat transport changes? |
-| `u-carbon-cycle-feedbacks` | How do terrestrial carbon cycle feedbacks change sign under sustained high-CO2 forcing? |
 | `u-climate-sensitivity-tails` | What physical processes determine the long upper tail of equilibrium climate sensitivity distributions? |
-| `u-cloud-feedback-sign` | What is the net sign and magnitude of cloud feedback to CO2 forcing across all cloud types? |
 | `u-cloud-seeding-efficacy` | What is the true efficacy of cloud seeding for precipitation enhancement across different cloud types? |
 | `u-deep-ocean-carbon-sequestration` | What fraction of anthropogenic CO2 can be sequestered in the deep ocean on centennial timescales? |
-| `u-enso-predictability-limit` | What determines the fundamental predictability limit of ENSO beyond one year? |
 | `u-ice-sheet-instability-modes` | What are the dominant instability modes of the West Antarctic Ice Sheet under ocean warming? |
 | `u-marine-ice-cliff-instability` | Is marine ice cliff instability a physically realisable mechanism in Antarctica or limited by buttressing? |
 | `u-methane-clathrate-destabilization` | Under what ocean temperature trajectories do seafloor methane clathrates destabilise and contribute to atmospheric methane? |
@@ -58,32 +35,20 @@ They are the highest-priority targets for new contributions — add a hypothesis
 | `u-polar-vortex-disruption` | What drives sudden stratospheric warming events and their link to extreme cold outbreaks at the surface? |
 | `u-regional-sea-level-acceleration` | What drives regional sea level accelerations that exceed the global mean by factors of 2-5? |
 | `u-sai-side-effects` | What are the regional precipitation and ozone consequences of stratospheric aerosol injection? |
-| `u-soil-moisture-atmosphere-feedback` | Does soil moisture-precipitation feedback create bistable wet-dry states in semi-arid regions? |
 | `u-stratosphere-troposphere-coupling` | How does stratospheric dynamics modulate the tropospheric jet streams on multi-decadal timescales? |
 | `u-urban-heat-island-nonlinearity` | Are urban heat island effects nonlinear with city size and density, and how do they interact with regional climate? |
 | `u-wildfire-climate-feedback` | What is the net radiative feedback of increasing wildfire frequency and extent under climate change? |
-| `u-creativity-neural-mechanism` | What distinguishes the neural dynamics of creative versus routine cognition? |
 | `u-emotion-categorization` | Are basic emotions universal biological categories or culturally constructed prototypes? |
-| `u-language-critical-period` | What biological mechanisms close the critical period for first language acquisition at puberty? |
-| `u-metacognition-substrate` | What neural mechanisms allow metacognitive access to one's own cognitive states? |
-| `u-mind-wandering-function` | What adaptive function does mind wandering serve and what determines its content? |
-| `u-neural-correlates-self` | What neural substrates constitute the minimal self and how do they generate a sense of personal identity? |
-| `u-perceptual-binding-problem` | How does the brain bind features processed in different cortical areas into unified percepts? |
 | `u-sleep-creative-insight` | How does sleep enhance creative problem solving and what stages are critical? |
 | `u-social-cognition-architecture` | What is the neural architecture of social cognition and how does it differ from non-social cognition? |
 | `u-theory-of-mind-substrate` | What is the minimal neural substrate for theory of mind and when does it develop ontogenetically? |
 | `u-time-perception-mechanism` | What neural mechanisms produce subjective time perception and what causes its distortions? |
-| `u-working-memory-capacity` | What neural and computational mechanisms impose the ~4-item limit of working memory? |
 | `u-algorithm-discovery-automation` | Can machine learning systems autonomously discover novel algorithms and mathematical proofs beyond human-designed heuristics? |
 | `u-cache-efficient-algorithm-design` | Can memory hierarchy-aware algorithm design principles be formalised to automatically optimise cache efficiency across heterogeneous hardware? |
-| `u-federated-learning-privacy-utility` | What is the fundamental tradeoff between differential privacy guarantees and model utility in federated learning, and how close are current implementations to the Pareto frontier? |
 | `u-graph-algorithm-quantum-speedup` | Which graph algorithms admit quantum speedup beyond classical near-linear time complexity, and what are the practical costs of quantum graph computation? |
-| `u-neural-network-generalisation-theory` | Why do overparameterised neural networks generalise well despite interpolating training data, contradicting classical statistical learning theory? |
 | `u-p-vs-np-geometric-barrier` | What geometric or algebraic barriers prevent proof of P != NP, and do known techniques suffice if correctly applied? |
 | `u-program-synthesis-completeness` | Can program synthesis systems automatically generate programs from specifications for any computable function, and what are the practical limits? |
 | `u-robustness-distribution-shift` | What training and architectural modifications make machine learning models robust to real-world distribution shift, and how much robustness is achievable? |
-| `u-ocean-acidification-ecosystem-effects` | How will ocean acidification affect marine ecosystem structure and functioning, and which species and communities are most vulnerable? |
-| `u-business-cycle-prediction-limits` | What are the fundamental limits of macroeconomic forecasting, and why do professional forecasters systematically fail to predict recessions in advance? |
 | `u-cbdc-monetary-policy-implications` | What are the implications of central bank digital currencies for financial stability, monetary policy transmission, and bank disintermediation? |
 | `u-central-bank-independence-effectiveness` | Does central bank independence cause lower inflation, and what are the political economy limits of central bank independence under fiscal dominance? |
 | `u-creative-economy-measurement` | How should the creative economy be measured in national accounts, and does it drive innovation spillovers to other sectors? |
@@ -94,11 +59,9 @@ They are the highest-priority targets for new contributions — add a hypothesis
 | `u-gig-economy-welfare-effects` | What are the net welfare effects of gig economy platforms on workers, consumers, and incumbent industries, and how do regulatory regimes affect these? |
 | `u-healthcare-cost-spiral-mechanisms` | What mechanisms drive persistently rising healthcare costs in high-income countries, and which healthcare system structures most effectively contain them? |
 | `u-housing-affordability-structural-causes` | What are the primary structural causes of the housing affordability crisis in high-income cities, and which policy interventions are most effective? |
-| `u-inequality-growth-relationship` | Does economic inequality promote or retard long-run economic growth, and at what level of inequality does the net effect change sign? |
 | `u-innovation-diffusion-s-curve` | Why do some innovations follow S-curve diffusion while others plateau or fail, and can early adoption patterns predict long-run diffusion outcomes? |
 | `u-market-microstructure-price-formation` | What determines the speed and efficiency of price discovery in financial markets, and how does high-frequency trading affect market quality? |
 | `u-multiplier-fiscal-policy` | What is the fiscal multiplier under different economic conditions, and when does government spending crowd out versus crowd in private investment? |
-| `u-natural-experiment-validity-economics` | How valid are natural experiment and instrumental variable methods for causal identification in economics, and what are the threats to their external validity? |
 | `u-pension-demographic-stress` | How will demographic aging affect defined-benefit pension systems, and which reform strategies are fiscally sustainable and politically feasible? |
 | `u-platform-monopoly-welfare-effects` | Do digital platform monopolies impose net welfare costs on consumers, and what is the appropriate regulatory framework for two-sided markets? |
 | `u-post-scarcity-economics-feasibility` | Can advanced technology enable post-scarcity economics, and what economic institutions are needed when marginal costs approach zero? |
@@ -116,7 +79,6 @@ They are the highest-priority targets for new contributions — add a hypothesis
 | `u-hypersonic-thermal-protection` | What material systems can provide reliable, reusable thermal protection for hypersonic vehicles at Mach 10–25 over multiple flights? |
 | `u-metamaterial-acoustic-cloaking` | Can acoustic metamaterial cloaks achieve broadband, three-dimensional sound cloaking at practical scales, or are fundamental bandwidth-thickness trade-offs prohibitive? |
 | `u-microplastic-filtration` | What physical and chemical mechanisms enable efficient removal of nanoplastics and microplastics from drinking water and wastewater at scale? |
-| `u-nanotechnology-self-assembly-yield` | What limits the yield and complexity of DNA origami and molecular self-assembly, and how can hierarchical nanostructures be built with near-unity yield? |
 | `u-neuromorphic-energy-efficiency` | What are the fundamental energy efficiency limits of neuromorphic computing, and how do they compare to biological neural computation? |
 | `u-quantum-error-correction-overhead` | What is the minimum physical qubit overhead required for fault-tolerant quantum computation at error rates achievable in near-term hardware? |
 | `u-reusable-rocket-precision` | What are the guidance and control limits for precision propulsive rocket landing, and what failure modes bound reusability turnaround times? |
@@ -135,7 +97,6 @@ They are the highest-priority targets for new contributions — add a hypothesis
 | `u-diamond-inclusion-dating` | How reliably do diamond inclusion ages record ancient mantle events, and what biases affect inclusions as windows into deep Earth history? |
 | `u-geomagnetic-excursion-climate` | Do geomagnetic excursions and reversals affect climate by modulating cosmic ray flux and ozone production? |
 | `u-geomagnetic-reversal-prediction` | Can geomagnetic field reversals be predicted, and what controls their frequency and duration? |
-| `u-hydrothermal-vent-biodiversity` | What determines species richness and biogeographic connectivity patterns at deep-sea hydrothermal vents? |
 | `u-inner-core-anisotropy-origin` | What is the origin of seismic anisotropy in Earth's inner core, and does it record solidification texture or ongoing convection? |
 | `u-karst-aquifer-connectivity` | How are karst aquifer conduit networks organized, and can their connectivity and recharge dynamics be characterized without full cave exploration? |
 | `u-mantle-convection-transitions` | What controls the transition between layered and whole-mantle convection, and can the pattern switch on geologic timescales? |
@@ -153,50 +114,36 @@ They are the highest-priority targets for new contributions — add a hypothesis
 | `u-language-contact-convergence-limit` | What is the maximum degree of structural convergence possible between unrelated contact languages, and what constraints prevent full convergence? |
 | `u-language-death-reversal-feasibility` | Under what conditions can a dying language be successfully revitalised, and what are the cognitive and social prerequisites for sustainable reversal? |
 | `u-language-model-meaning-vs-human` | Do large language models have genuine semantic understanding of language meaning, or do they manipulate form without accessing meaning? |
-| `u-metaphor-universality` | Are conceptual metaphors universal across languages and cultures, or are they culturally specific constructions reflecting local experience? |
 | `u-pragmatic-inference-neural-basis` | What neural mechanisms support pragmatic inference (implicature, irony, indirect speech), and why are these mechanisms impaired in autism spectrum conditions? |
 | `u-prosodic-bootstrapping-acquisition` | Does prosodic structure in infant-directed speech provide bootstrapping cues for syntactic acquisition, and how large is its contribution? |
-| `u-semantic-compositionality-limits` | To what extent is natural language meaning compositional, and where do non-compositional constructions require fundamentally different processing? |
 | `u-signed-language-neural-substrate` | Do signed languages engage the same or different neural substrates as spoken languages, and what does this reveal about language universality? |
 | `u-writing-system-cognition-effects` | Do different writing systems (alphabetic, syllabic, logographic) produce measurable differences in reading processes and cognitive architecture? |
 | `u-corrosion-mechanism-passivation` | What is the atomic-scale mechanism of passive film breakdown that initiates pitting corrosion? |
 | `u-metamaterial-wave-control` | What physical limits govern negative-index metamaterials for sub-diffraction imaging at optical frequencies? |
-| `u-phonon-engineering-thermal` | Can phonon dispersion be engineered to achieve near-zero thermal conductivity in crystalline materials? |
-| `u-piezoelectric-biopolymers` | Can biological polymers like collagen and cellulose be tuned to achieve technologically relevant piezoelectric coefficients? |
 | `u-quasicrystal-stability-origin` | What determines whether a quasicrystalline phase forms versus an approximant crystal in metallic alloys? |
 | `u-radiation-damage-recovery` | What atomic mechanisms drive radiation damage recovery in nuclear materials and can they be accelerated? |
-| `u-self-healing-polymer-mechanism` | What is the molecular mechanism enabling autonomous self-healing in non-covalent polymer networks? |
 | `u-shape-memory-alloy-fatigue` | What atomic-scale mechanisms drive functional fatigue in shape-memory alloys after repeated cycling? |
-| `u-twistronics-moire-phases` | What is the full phase diagram of moiré superlattices as a function of twist angle, pressure, and field? |
 | `u-vdw-heterostructure-emergent-phases` | What emergent electronic phases arise in van der Waals heterostructures beyond graphene-hBN systems? |
 | `u-3manifold-invariants-completeness` | Are quantum invariants of 3-manifolds complete in the sense of distinguishing all non-homeomorphic 3-manifolds? |
 | `u-abc-conjecture-verification` | Is Mochizuki's proof of the abc conjecture correct and how can it be made verifiable by the community? |
 | `u-banach-space-geometry` | What is the geometry of the space of all Banach spaces under various equivalence relations on their structure? |
-| `u-constructive-incompleteness` | What is the constructive content of Godel incompleteness theorems and which unprovable statements have computational meaning? |
 | `u-derived-algebraic-geometry` | What are the fundamental obstructions to extending derived algebraic geometry to characteristic p arithmetic geometry? |
 | `u-descriptive-set-projective-hierarchy` | What are the full regularity properties (measurability, BP, PSP) of sets in the projective hierarchy? |
 | `u-harmonic-analysis-sparse-recovery` | What are the sharp conditions for sparse signal recovery from harmonic measurements with minimal samples? |
-| `u-homotopy-type-theory-foundations` | Can homotopy type theory serve as a complete foundation for mathematics replacing ZFC set theory? |
 | `u-infinity-category-limits` | What are the fundamental completeness properties of infinity-categories and when do they have all small limits? |
 | `u-langlands-physics-connection` | What is the precise mathematical connection between the geometric Langlands program and quantum field theory? |
 | `u-model-theory-arithmetic` | What model-theoretic properties distinguish the standard model of arithmetic from non-standard models? |
 | `u-motivic-cohomology-calculations` | Can motivic cohomology groups be computationally determined for all smooth projective varieties? |
 | `u-optimal-stopping-biological-decisions` | Do animals implement optimal stopping rules (secretary problem, explore-exploit tradeoff) in foraging and mate choice, and what neural circuit implements the stopping criterion? |
-| `u-p-vs-np-geometric-barriers` | What geometric barriers prevent current proof techniques from resolving P vs NP? |
 | `u-pseudo-holomorphic-curve-counts` | What determines the well-definedness of pseudo-holomorphic curve counts in symplectic topology? |
 | `u-quantum-group-representation` | What is the complete representation theory of quantum groups at roots of unity and its physical interpretation? |
-| `u-random-matrix-universality` | Why does random matrix universality arise in systems as diverse as nuclear spectra, number theory zeros, and quantum chaos? |
-| `u-riemann-zero-distribution` | What determines the distribution of non-trivial zeros of the Riemann zeta function along the critical line? |
 | `u-symplectic-capacities` | Are Ekeland-Hofer and Gromov-Witten symplectic capacities equal for all convex bodies? |
 | `u-tropical-geometry-combinatorics` | What is the precise relationship between tropical geometry and the combinatorics of polytopes and matroids? |
-| `u-turbulence-mathematical-formulation` | Can turbulence in three-dimensional fluids be described by a complete mathematical theory? |
 | `u-anesthesia-consciousness` | By what mechanism do general anaesthetics suppress consciousness and could this inform theories of consciousness? |
 | `u-antibiotic-resistance-rate` | What determines the rate at which antibiotic resistance evolves in clinical settings? |
 | `u-autoimmune-trigger-identification` | What environmental triggers initiate autoimmune disease in genetically susceptible individuals? |
 | `u-blood-brain-barrier-regulation` | What molecular signals dynamically regulate blood-brain barrier permeability in health and disease? |
 | `u-cancer-immunoediting` | How does tumour immunoediting shape the neoantigen landscape and what drives immune escape? |
-| `u-cardiac-regeneration-barriers` | Why do adult mammalian cardiomyocytes fail to regenerate after myocardial infarction? |
-| `u-chronic-pain-sensitization` | What drives the transition from acute to chronic pain via central sensitization? |
 | `u-hearing-regeneration-mammals` | Why do mammals fail to regenerate cochlear hair cells after noise or drug-induced loss? |
 | `u-immune-aging-rejuvenation` | What drives age-related immune decline (immunosenescence) and can it be pharmacologically reversed? |
 | `u-long-covid-mechanism` | What are the pathological mechanisms driving long COVID symptoms persisting beyond 12 weeks? |

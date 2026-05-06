@@ -1,0 +1,54 @@
+id: b-convex-optimization-economic-equilibrium
+title: Arrow-Debreu general equilibrium existence (via Kakutani's fixed point theorem) is equivalent to solving a convex optimization problem — KKT conditions are conditions for economic optimality with resource constraints
+status: established
+fields:
+  - mathematics
+  - economics
+bridge_claim: >
+  The Arrow-Debreu general equilibrium theorem (1954) proves that under convexity of preferences
+  and production sets, a competitive equilibrium exists and is Pareto optimal (first welfare
+  theorem). The proof uses Kakutani's fixed point theorem applied to excess demand correspondences
+  — the same mathematical tool that proves Nash equilibrium existence in game theory. Moreover,
+  the Karush-Kuhn-Tucker (KKT) optimality conditions for constrained convex optimization precisely
+  correspond to conditions for economic optimality with resource constraints: Lagrange multipliers
+  equal shadow prices of scarce resources, complementary slackness corresponds to market clearing,
+  and the primal-dual optimality corresponds to the duality between consumption and prices.
+  Convex optimization algorithms (gradient descent, interior point methods, ADMM) solve
+  equilibrium computation problems. This bridge unifies welfare economics, mechanism design,
+  and computational optimisation theory.
+translation_table:
+  - field_a_term: convex feasible set
+    field_b_term: convex consumption/production set
+    note: Convexity of economic sets is the regularity condition ensuring existence
+  - field_a_term: Lagrange multiplier λ_i
+    field_b_term: shadow price / market-clearing price
+    note: Multipliers have direct economic interpretation as resource scarcity prices
+  - field_a_term: KKT complementary slackness g_i(x*)λ_i = 0
+    field_b_term: market-clearing condition (no excess supply at positive price)
+    note: Zero price for non-scarce goods; positive price only for binding constraints
+  - field_a_term: fixed point of best-response correspondence
+    field_b_term: competitive equilibrium / Nash equilibrium
+    note: Kakutani's theorem proves existence in both economic and game-theoretic settings
+related_unknowns:
+  - u-business-cycle-prediction-limits
+  - u-inequality-growth-relationship
+related_hypotheses:
+  - h-mechanism-design-convex-duality-revenue-optimality
+cross_pollination_opportunities:
+  - Apply interior point methods to compute large-scale general equilibrium models
+  - Use duality theory to design optimal tax systems (dual of social planner's problem)
+  - Connect algorithmic game theory (equilibrium computation complexity) to economic design
+communication_gap: >
+  Economists rarely use algorithmic optimisation language; computer scientists working on
+  equilibrium computation rarely connect to Arrow-Debreu theory. The mathematical equivalence
+  between competitive equilibrium and convex programming was established by Samuelson and Dorfman
+  et al. but the bridge to modern convex optimisation algorithms (Boyd & Vandenberghe) is
+  underexploited in economic computation.
+last_reviewed: "2026-05-06"
+references:
+  - note: "Arrow & Debreu (1954) — existence of an equilibrium for a competitive economy"
+    doi: "10.2307/1907353"
+  - note: "Kakutani (1941) — fixed-point theorem for correspondences"
+    doi: "10.1215/S0012-7094-41-00838-4"
+  - note: "Boyd & Vandenberghe (2004) Convex Optimization — standard reference"
+  - note: "Mas-Colell, Whinston & Green (1995) Microeconomic Theory — KKT conditions and welfare"

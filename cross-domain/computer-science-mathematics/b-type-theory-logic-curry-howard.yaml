@@ -1,0 +1,54 @@
+id: b-type-theory-logic-curry-howard
+title: The Curry-Howard correspondence establishes propositions-as-types, proofs-as-programs — making every mathematical proof a computer program and every type-checking computation a proof verification
+status: established
+fields:
+  - computer-science
+  - mathematics
+bridge_claim: >
+  The Curry-Howard correspondence (Curry 1934, Howard 1980) reveals a deep structural identity
+  between formal logic and type theory in programming languages: propositions correspond to types,
+  proofs correspond to programs, and logical connectives correspond to type constructors.
+  Specifically: conjunction A∧B = product type A×B; disjunction A∨B = sum type A+B; implication
+  A→B = function type A→B; universal quantification ∀x.P(x) = dependent product type Π(x:A).P(x).
+  This means every mathematical proof is literally a computer program and vice versa — a proof
+  of A→B is a function transforming proofs of A into proofs of B. Martin-Löf type theory extends
+  this to dependent types, enabling the encoding of all of constructive mathematics. Proof
+  assistants (Coq, Agda, Lean, Rocq) mechanically verify mathematical proofs by type-checking
+  programs, unifying automated theorem proving and programming language theory.
+translation_table:
+  - field_a_term: proposition P
+    field_b_term: type T
+    note: A proposition is identified with the type of its proofs
+  - field_a_term: proof of P
+    field_b_term: term of type T (program)
+    note: A proof is a construction — literally a program of the corresponding type
+  - field_a_term: logical implication A→B
+    field_b_term: function type A→B
+    note: Modus ponens = function application; a proof of A→B applied to a proof of A yields a proof of B
+  - field_a_term: universal quantification ∀x.P(x)
+    field_b_term: dependent product type Π(x:A).P(x)
+    note: Quantification over individuals corresponds to parametric polymorphism
+  - field_a_term: cut elimination (normalisation)
+    field_b_term: beta reduction (program execution)
+    note: Proof simplification corresponds exactly to program evaluation
+related_unknowns:
+  - u-homotopy-type-theory-foundations
+  - u-constructive-incompleteness
+related_hypotheses:
+  - h-homotopy-type-theory-completes-curry-howard-for-homotopy-theory
+cross_pollination_opportunities:
+  - Verified software via dependent types (seL4, CompCert — already exploiting this bridge)
+  - Machine-checked mathematics and collaborative verification (Lean Mathlib project)
+  - Computational interpretation of classical logic (Peirce's law corresponds to call/cc)
+communication_gap: >
+  Mathematicians writing proofs in natural language and programmers writing code rarely interact.
+  The correspondence is well-known to programming language theorists but under-appreciated in
+  mainstream mathematics and software engineering. Educational silos mean most CS students learn
+  types without logic and most math students learn logic without types.
+last_reviewed: "2026-05-06"
+references:
+  - note: "Curry (1934) — functionality in combinatory logic, first observation"
+  - note: "Howard (1980) — formulae-as-types notion of construction"
+  - note: "Martin-Löf (1984) Intuitionistic Type Theory — dependent type theory"
+  - note: "Wadler (2015) — propositions as types (historical survey)"
+    doi: "10.1145/2699407"

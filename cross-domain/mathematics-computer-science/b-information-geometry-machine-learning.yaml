@@ -1,0 +1,54 @@
+id: b-information-geometry-machine-learning
+title: Information geometry (Amari) equips the space of probability distributions with a Riemannian metric via the Fisher information matrix, enabling natural gradient descent invariant to reparametrisation in machine learning
+status: established
+fields:
+  - mathematics
+  - computer-science
+bridge_claim: >
+  Information geometry (Amari 1985) applies differential geometry to the statistical manifold —
+  the space of probability distributions parametrised by θ. The Fisher information matrix
+  g_ij(θ) = E[(∂log p/∂θ_i)(∂log p/∂θ_j)] defines a Riemannian metric (the unique metric
+  invariant under sufficient statistics reparametrisation, by Chentsov's theorem). KL divergence
+  approximates the squared geodesic distance on this manifold. Natural gradient descent (Amari 1998)
+  preconditions gradient updates by the inverse Fisher matrix: θ ← θ - η F⁻¹ ∇L, making
+  learning invariant to reparametrisation and dramatically improving convergence in plateaus.
+  This provides the mathematical foundation for second-order optimisation in deep learning
+  (K-FAC, natural policy gradient in reinforcement learning, variational inference). The bridge
+  between Riemannian geometry and statistical estimation unifies information theory, differential
+  geometry, and machine learning optimisation.
+translation_table:
+  - field_a_term: Fisher information matrix g_ij
+    field_b_term: Riemannian metric on parameter space
+    note: Same object — the metric that makes the statistical manifold into a Riemannian space
+  - field_a_term: KL divergence D_KL(p||q)
+    field_b_term: squared geodesic distance (to second order)
+    note: KL divergence is not a metric but approximates squared geodesic distance near p=q
+  - field_a_term: natural gradient F⁻¹∇L
+    field_b_term: Riemannian gradient (covariant derivative)
+    note: Natural gradient is the steepest ascent direction in the Riemannian metric
+  - field_a_term: exponential family / mixture family (dual foliations)
+    field_b_term: e-flat and m-flat submanifolds
+    note: Dual geometric structures enable exact information projection algorithms
+related_unknowns:
+  - u-neural-network-generalisation-theory
+  - u-federated-learning-privacy-utility
+related_hypotheses:
+  - h-natural-gradient-fisher-rao-metric-optimal-deep-learning-convergence
+cross_pollination_opportunities:
+  - Apply information geometry to understand generalisation of overparameterised neural networks
+  - Use natural gradient methods in federated learning for communication-efficient updates
+  - Connect variational autoencoders to information geometric latent space structure
+communication_gap: >
+  Differential geometers and machine learning engineers rarely interact. Information geometry
+  developed primarily in the statistics literature (Amari's group in Japan) and is underutilised
+  in mainstream machine learning despite its direct relevance. The computational cost of inverting
+  the Fisher matrix long discouraged adoption; K-FAC and related approximations have only
+  recently bridged this gap.
+last_reviewed: "2026-05-06"
+references:
+  - note: "Amari (1985) Differential-Geometrical Methods in Statistics — foundational text"
+  - note: "Amari (1998) — natural gradient works efficiently in learning"
+    doi: "10.1162/089976698300017746"
+  - note: "Martens (2014) New Insights and Perspectives on the Natural Gradient Method — ICML"
+  - note: "Nielsen (2020) — an elementary introduction to information geometry"
+    doi: "10.3390/e22101100"
