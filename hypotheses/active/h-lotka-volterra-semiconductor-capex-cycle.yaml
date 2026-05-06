@@ -1,0 +1,37 @@
+id: h-lotka-volterra-semiconductor-capex-cycle
+title: >
+  Semiconductor capital expenditure cycles (3-5 year period) are consistent
+  with Lotka-Volterra predator-prey oscillations where equipment spending
+  (predator) feeds on demand signals (prey), with LV-predicted period
+  T ≈ 2π/√(αγ) matching observed cycle periods within 20%.
+status: active
+priority: medium
+impact_score: 0.55
+created: "2026-05-05"
+last_updated: "2026-05-05"
+related_disciplines:
+  - economics
+  - ecology
+  - industrial-dynamics
+unknowns_addressed:
+  - u-predator-prey-market-oscillations
+evidence_links:
+  - doi: "10.1038/460685a"
+    type: supporting
+    confidence: 0.40
+    note: Farmer & Foley (2009) propose LV-type agent dynamics for markets
+  - doi: "10.1038/238413a0"
+    type: related
+    confidence: 0.55
+    note: May (1972) provides stability criterion for LV-type competitive systems
+proposed_tests:
+  - description: >
+      Collect quarterly semiconductor capex (SEMI equipment billings) and
+      revenue (SIA) time series 1990-2025. Fit Lotka-Volterra ODE to the
+      supply-capacity (predator) and demand (prey) pair using nonlinear least
+      squares. Compute predicted oscillation period T = 2π/√(αγ) and compare
+      to spectral peak in Fourier transform of empirical data.
+  - description: >
+      Compare LV fit (4 parameters) against delay-differential cobweb model
+      (2 parameters) and AR(2) model using AIC/BIC. If LV is preferred,
+      test out-of-sample forecast accuracy for 2020-2025 held-out period.

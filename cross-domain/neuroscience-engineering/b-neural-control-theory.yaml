@@ -1,0 +1,114 @@
+id: b-neural-control-theory
+title: >
+  Biological motor control implements the same optimal stochastic control theory
+  principles used in engineered controllers — minimising jerk or endpoint
+  variance, Kalman filtering in the cerebellum, and efference-copy forward
+  models — demonstrating that the nervous system is an optimal controller
+  operating under signal-dependent noise.
+status: established
+fields:
+  - neuroscience
+  - control-engineering
+  - computational-neuroscience
+  - robotics
+bridge_claim: >
+  Flash & Hogan (1985, J Neurosci 5:1688) showed that human arm trajectories
+  minimise the third derivative of position (jerk), generating smooth
+  bell-shaped velocity profiles characteristic of minimum-jerk control. This
+  was the first rigorous demonstration that biological motor control obeys an
+  engineering optimality criterion.
+
+  The bridge deepens through four formal identifications:
+
+  1. Kalman filter = cerebellar forward model. Wolpert, Ghahramani & Jordan
+     (1995) proposed that the cerebellum implements a Kalman filter: it
+     maintains an internal state estimate x̂ by combining a forward model
+     prediction (F x̂_{t-1} + G u) with sensory corrections weighted by
+     the Kalman gain K = P_pred H^T (H P_pred H^T + R)^{-1}. The climbing
+     fibre input to Purkinje cells carries the prediction error signal
+     (innovation) exactly as the Kalman innovation update requires.
+     Engineering validation: Kalman (1960, J Basic Eng 82:35) derived the
+     optimal linear state estimator — the cerebellar architecture implements
+     this without explicit design.
+
+  2. Minimum-variance / signal-dependent noise. Todorov & Jordan (2002,
+     Nat Neurosci 5:1226) proposed the optimal feedback control (OFC) model:
+     motor commands are corrupted by signal-dependent (multiplicative) noise
+     σ_i = k_i u_i. Under this noise model, minimising endpoint variance (not
+     jerk) generates the same smooth bell-shaped trajectories as minimum-jerk,
+     but additionally predicts task-specific variability — the system tolerates
+     variability in task-irrelevant dimensions (the "uncontrolled manifold").
+     This matches empirical motor variability data from Scholz & Schöner (1999).
+
+  3. Multiple paired forward-inverse models (MOSAIC). Wolpert & Kawato (1998,
+     Neural Networks 11:1317) showed that the cerebellum likely contains a
+     bank of paired forward models (F_i: state → next state) and inverse
+     models (I_i: desired trajectory → motor command), gated by responsibility
+     signals. This is formally identical to the mixture-of-experts architecture
+     in control engineering (Jacobs et al. 1991) and modular adaptive control.
+
+  4. Efference copy = internal forward model. The efference copy (von Holst &
+     Mittelstaedt 1950) — a copy of the motor command sent to sensory areas to
+     cancel reafference — is mathematically the forward model prediction used
+     in the Kalman filter update. The mismatch between efference copy prediction
+     and actual sensory input is the prediction error that drives both
+     cerebellar LTD learning and sensory suppression during self-motion.
+translation_table:
+  - field_a_term: Kalman filter state estimate x̂ (control engineering)
+    field_b_term: cerebellar internal model of limb state
+  - field_a_term: Kalman gain K (optimal weighting of prediction vs measurement)
+    field_b_term: sensorimotor integration weights (proprioception vs forward model)
+  - field_a_term: process noise covariance Q
+    field_b_term: signal-dependent motor noise (σ ∝ u)
+  - field_a_term: innovation / prediction error (control theory)
+    field_b_term: climbing fibre error signal to Purkinje cells
+  - field_a_term: efference copy (neuroscience)
+    field_b_term: forward model prediction u → x̂ (control engineering)
+  - field_a_term: mixture-of-experts controller (engineering)
+    field_b_term: MOSAIC architecture of paired cerebellar modules
+  - field_a_term: minimum jerk / minimum variance cost function
+    field_b_term: smooth bell-shaped velocity profiles of human arm movements
+related_unknowns:
+  - u-neural-optimal-control-noise-model
+related_hypotheses:
+  - h-cerebellum-kalman-prediction-error
+cross_pollination_opportunities:
+  - >
+    Neural prosthetics design: OFC-derived decoders for brain-computer
+    interfaces (BCIs) that account for signal-dependent noise outperform
+    linear decoders. The Todorov OFC model predicts the structure of
+    motor cortex population activity (rotational dynamics, Churchland et al.
+    2012) which constrains BCI decoding architectures.
+  - >
+    Surgical robot control: minimum-jerk trajectory generation (Hogan's model)
+    is already used in haptic rendering; full OFC implementation could allow
+    surgical robots to adapt trajectory to task-irrelevant variability,
+    mimicking the "uncontrolled manifold" strategy of human surgeons.
+  - >
+    Learning in model-free vs. model-based control: the cerebellum-basal
+    ganglia division of labour (model-based cerebellar vs. model-free basal
+    ganglia) maps exactly onto the model-based / model-free RL dichotomy in
+    reinforcement learning. Computational neuroscience and RL theory can
+    exchange architectural insights about when to learn a forward model vs.
+    use direct policy gradients.
+communication_gap: >
+  Control engineers publishing in IEEE Transactions on Automatic Control and
+  computational neuroscientists publishing in Neuron and J Neurosci operate in
+  largely separate communities. The Wolpert group (Cambridge, now Columbia) and
+  Todorov (now at Google DeepMind) bridge these communities, but most motor
+  neuroscience papers do not cite the control theory literature, and most
+  control engineers are unaware of the cerebellar Kalman filter evidence.
+  Robotics is increasingly aware of biological motor control, but the flow is
+  primarily from neuroscience to robotics, not bidirectional.
+last_reviewed: "2026-05-05"
+references:
+  - doi: "10.1523/JNEUROSCI.05-07-01688.1985"
+    note: Flash & Hogan (1985) The coordination of arm movements — minimum jerk model, J Neurosci 5:1688
+  - doi: "10.1016/S0893-6080(98)00066-5"
+    note: Wolpert & Kawato (1998) Multiple paired forward and inverse models for motor control, Neural Networks 11:1317
+  - doi: "10.1038/nn963"
+    note: Todorov & Jordan (2002) Optimal feedback control as a theory of motor coordination, Nat Neurosci 5:1226
+  - doi: "10.1115/1.3662552"
+    note: Kalman (1960) A new approach to linear filtering and prediction problems, J Basic Eng 82:35
+  - doi: "10.1126/science.1192588"
+    note: Churchland et al. (2012) Neural population dynamics during reaching, Nature 487:51

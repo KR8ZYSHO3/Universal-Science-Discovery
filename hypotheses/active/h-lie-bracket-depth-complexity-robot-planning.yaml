@@ -1,0 +1,39 @@
+id: h-lie-bracket-depth-complexity-robot-planning
+title: >
+  The computational complexity of optimal path planning for a non-holonomic
+  robot scales exponentially with the depth of the Lie bracket required to
+  satisfy the Chow-Rashevsky controllability condition, implying that robots
+  requiring depth-3 or higher brackets are fundamentally harder to plan for
+  than car-like (depth-2) systems.
+status: active
+priority: medium
+impact_score: 0.61
+created: "2026-05-05"
+last_updated: "2026-05-05"
+related_disciplines:
+  - robotics
+  - control-engineering
+  - mathematics
+  - computational-complexity
+unknowns_addressed:
+  - u-subriemannian-geodesic-abnormal-optimality
+evidence_links:
+  - doi: "10.1137/0310021"
+    type: supporting
+    confidence: 0.55
+    note: Brockett (1972) Lie algebra rank condition for controllability — depth structure
+  - url: https://www.ams.org/books/surv/091/
+    type: supporting
+    confidence: 0.60
+    note: Montgomery (2002) sub-Riemannian complexity and Carnot group step
+proposed_tests:
+  - description: >
+      Compare empirical planning time (CPU seconds per query) for RRT* planner
+      applied to: (1) Dubins car (depth-2 Lie bracket), (2) fire truck /
+      trailer system (depth-3), (3) N-trailer (depth-N). Fit scaling law
+      T_plan ∝ exp(α · depth). Test: α > 0 with p < 0.01.
+  - description: >
+      Derive upper and lower bounds on the metric entropy of ε-nets for
+      depth-d sub-Riemannian balls (Carnot groups). Prediction: metric entropy
+      scales as ε^{-Q} where Q (homogeneous dimension) increases with depth d,
+      formally establishing depth-dependent planning complexity.

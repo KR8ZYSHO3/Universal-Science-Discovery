@@ -1,0 +1,42 @@
+id: h-price-equation-cultural-trait-frequency
+title: >
+  The Price equation decomposition applied to Twitter/X meme virality data
+  reveals a significant cultural selection term (Cov(adoption rate, trait value)
+  ≠ 0) distinguishable from neutral drift, with selection coefficient s > 0.01
+  for politically and emotionally salient content categories.
+status: active
+priority: high
+impact_score: 0.68
+created: "2026-05-05"
+last_updated: "2026-05-05"
+related_disciplines:
+  - cultural-anthropology
+  - social-science
+  - evolutionary-biology
+  - computational-social-science
+unknowns_addressed:
+  - u-cultural-drift-vs-selection-detection
+evidence_links:
+  - doi: "10.1038/227520a0"
+    type: supporting
+    confidence: 0.65
+    note: Price (1970) establishes the general decomposition applicable to cultural traits
+  - doi: "10.1016/j.jtbi.2003.08.001"
+    type: supporting
+    confidence: 0.55
+    note: Henrich (2004) provides framework for cultural selection detection
+proposed_tests:
+  - description: >
+      Collect a dataset of Twitter/X meme lineages (original post → retweets →
+      mutations) with >10,000 variants per topic cluster. Assign trait values z
+      (sentiment score, political valence, novelty). Compute Price equation
+      decomposition: ΔZ̄ = Cov(retweet_count, z)/Z̄ + transmission_bias_term.
+      Test: |Cov(retweet_count, z)| is significantly larger than expected under
+      the neutral model (permutation test) for political topics but not for
+      random/neutral content.
+  - description: >
+      Compare selection coefficients across 10 cultural domains (politics, food,
+      sports, science, humour). Prediction: s is highest for political/emotional
+      content (selection pressure from tribalism) and lowest for neutral content
+      (drift dominates). Validated by comparing variants' fitness (retweet rate)
+      between domains using ANOVA.

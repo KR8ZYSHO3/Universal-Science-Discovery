@@ -1,0 +1,111 @@
+id: b-lotka-volterra-market-dynamics
+title: >
+  Predator-prey (Lotka-Volterra) equations from theoretical ecology describe
+  competitive dynamics in markets — incumbent firms vs. disruptive innovators,
+  boom-bust cycles in commodity markets, and niche partitioning among competitors —
+  with species coexistence mapping to Porter's competitive positioning and
+  keystone predators mapping to market regulators.
+status: proposed
+fields:
+  - ecology
+  - economics
+  - complexity-economics
+  - industrial-dynamics
+bridge_claim: >
+  The Lotka (1925) / Volterra (1926) equations for predator (y) and prey (x):
+    dx/dt = αx − βxy   (prey growth minus predation)
+    dy/dt = δxy − γy   (predator growth from prey minus mortality)
+  generate closed oscillatory cycles in (x,y) phase space with period
+  T ≈ 2π/√(αγ) and amplitude set by initial conditions.
+
+  The market mapping:
+  1. Incumbent-disruptor dynamics. Incumbent firm market share (prey x) grows
+     under stable conditions; a disruptive entrant (predator y) grows by
+     converting incumbent customers. The logistic-extended Lotka-Volterra system
+     (Carrying-capacity K for incumbents) gives the Bass diffusion model of
+     technology adoption as a special case. Farmer & Foley (2009, Nature 460:685)
+     explicitly proposed LV-style dynamics for financial markets.
+
+  2. Commodity boom-bust cycles. Pig cycles (Ezekiel 1938, Cobweb theorem),
+     hog cycles, shipping freight cycles, and semiconductor capital cycles all
+     show quasi-periodic oscillations consistent with predator-prey dynamics
+     where "prey" = demand and "predator" = supply capacity with a lag.
+     The LV period formula predicts observed 3-5 year semiconductor capex cycles
+     when α (demand growth rate) and γ (capital depreciation) are calibrated.
+
+  3. Competitive exclusion and niche partitioning. May (1972, Nature 238:413)
+     showed that n competing species can stably coexist only if n ≤ number of
+     limiting resources (competitive exclusion principle). The economic analog
+     is Porter's (1980) competitive positioning: at most as many profitable
+     strategic positions as there are distinct customer segments (resource types).
+     Oligopolies with more firms than segments are unstable to consolidation.
+
+  4. Keystone predators and market regulators. In ecology, removing a keystone
+     predator (Paine 1966) causes trophic cascades and reduces biodiversity.
+     In markets, removing a strong regulator or dominant firm can cause predatory
+     consolidation. The trophic cascade analog is Schumpeterian creative
+     destruction in reverse: excessive protection of incumbents reduces
+     innovation (prey diversity).
+
+  5. Generalised Lotka-Volterra (GLV). The GLV system dx_i/dt = x_i(r_i +
+     Σ_j α_ij x_j) is used in both community ecology and agent-based market
+     models (Farmer et al. 2005, J Econ Dyn Control). The interaction matrix
+     α_ij (competition/facilitation) maps directly to a market substitution /
+     complementarity matrix.
+translation_table:
+  - field_a_term: prey population x (ecology)
+    field_b_term: incumbent firm market share or commodity supply
+  - field_a_term: predator population y (ecology)
+    field_b_term: disruptive entrant market share or demand shock
+  - field_a_term: predation rate β
+    field_b_term: market displacement rate (innovator conversion of incumbent customers)
+  - field_a_term: carrying capacity K (logistic)
+    field_b_term: total addressable market (TAM)
+  - field_a_term: competitive exclusion (n ≤ resources)
+    field_b_term: Porter's competitive positioning (n ≤ market segments)
+  - field_a_term: keystone predator
+    field_b_term: market regulator or dominant platform
+  - field_a_term: trophic cascade
+    field_b_term: conglomerate merger reducing market diversity
+  - field_a_term: GLV interaction matrix α_ij
+    field_b_term: market substitution/complementarity matrix
+related_unknowns:
+  - u-predator-prey-market-oscillations
+related_hypotheses:
+  - h-lotka-volterra-semiconductor-capex-cycle
+cross_pollination_opportunities:
+  - >
+    Estimate LV parameters (α, β, γ, δ) from real market-share and revenue
+    time series (e.g. smartphone OS market 2007-2020: iOS as disruptor,
+    BlackBerry/Nokia as prey). Test whether the oscillation period and
+    amplitude match LV predictions without parameter fitting beyond initial
+    conditions.
+  - >
+    Use the May (1972) complexity-stability result (random GLV systems become
+    unstable above a critical diversity × interaction-strength product) to
+    predict when industry ecosystems are fragile to contagion — a systemic
+    risk indicator analogous to ecological collapse thresholds.
+  - >
+    Agent-based financial models (Farmer & Foley style) calibrated with
+    ecological stability criteria could provide early-warning indicators of
+    market crashes, complementing existing VaR and systemic-risk metrics.
+communication_gap: >
+  Economics textbooks treat competition with static equilibrium models
+  (Cournot, Nash equilibrium); ecology uses dynamic differential-equation
+  models. Econophysics (Farmer, Bouchaud, Mantegna) has imported LV dynamics
+  into finance, but mainstream industrial economics and strategy research
+  (Porter's tradition) rarely cites ecological dynamics literature. Biologists
+  and economists do not typically co-author; the bridge runs almost entirely
+  through the interdisciplinary complexity-economics community at SFI.
+last_reviewed: "2026-05-05"
+references:
+  - url: https://archive.org/details/elementsofphysic00lotk
+    note: Lotka (1925) Elements of Physical Biology — Williams & Wilkins, predator-prey equations
+  - doi: "10.2307/1622645"
+    note: Volterra (1926) Fluctuations in the abundance of a species considered mathematically, Nature 118:558
+  - doi: "10.1038/460685a"
+    note: Farmer & Foley (2009) The economy needs agent-based modelling, Nature 460:685
+  - doi: "10.1038/238413a0"
+    note: May (1972) Will a large complex system be stable?, Nature 238:413
+  - doi: "10.1016/j.jedc.2004.08.008"
+    note: Farmer et al. (2005) Is economics the next physical science?, J Econ Dyn Control

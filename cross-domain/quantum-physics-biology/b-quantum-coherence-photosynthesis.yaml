@@ -1,0 +1,106 @@
+id: b-quantum-coherence-photosynthesis
+title: >
+  Femtosecond spectroscopy reveals long-lived quantum coherence in the
+  Fenna-Matthews-Olson (FMO) light-harvesting complex — energy transfer occurs
+  via quantum superposition across chromophores rather than classical Förster hopping,
+  and the same Lindblad master equation formalism that governs qubit decoherence
+  in quantum computing describes coherence loss in biological light-harvesting
+  at physiological temperatures.
+status: contested
+fields:
+  - quantum-physics
+  - biophysics
+  - photosynthesis-biology
+  - quantum-information
+bridge_claim: >
+  In 2007, Engel et al. (Nature 446:782) used two-dimensional electronic
+  spectroscopy (2DES) at 77 K and 277 K to observe oscillatory cross-peaks in
+  the FMO complex of green sulfur bacteria (Chlorobaculum tepidum) with
+  coherence lifetimes ~ 660 fs at 77 K and visible even at physiological
+  temperatures. They interpreted these oscillations as quantum beating — coherent
+  superpositions of excitonic states across multiple bacteriochlorophyll (BChl)
+  chromophores — rather than classical sequential Förster energy transfer.
+
+  The quantum physics connection:
+  1. Lindblad master equation. Open quantum system dynamics for a system S
+     coupled to a Markovian bath E is governed by dρ/dt = -i[H,ρ]/ℏ + L[ρ],
+     where L[ρ] = Σ_k (L_k ρ L_k† - ½{L_k†L_k, ρ}) is the Lindblad
+     dissipator. This is precisely the same equation used to model T₂ dephasing
+     in superconducting qubits and NV centres. The FMO complex is a 7-site
+     (8-site in the full complex) quantum network, and measured coherence
+     lifetimes can be extracted by fitting the Lindblad model.
+
+  2. Environment-assisted quantum transport (ENAQT). Counterintuitively,
+     moderate dephasing (phonon noise from the protein scaffold) can enhance
+     energy transfer efficiency relative to the purely coherent or purely
+     incoherent limits — a quantum Goldilocks effect demonstrated by Rebentrost
+     et al. (2009). This is analogous to stochastic resonance in classical
+     signal processing but in the quantum regime.
+
+  3. Förster vs Redfield vs modified Redfield. Classical Förster theory treats
+     each chromophore as localised; quantum Redfield theory includes coherence
+     between sites. The FMO system operates in a regime where neither limit is
+     strictly valid — the system-bath coupling is comparable to the inter-site
+     coupling — requiring polaron or hierarchical equations of motion (HEOM)
+     approaches identical to those used in quantum device physics.
+
+  Controversy (why status = contested):
+  Scholes et al. (2017, Nature) argued that the 2DES oscillations are dominated
+  by vibrational (vibronic) coherence rather than purely electronic coherence.
+  If so, the quantum-biology claim is weaker: vibrations in proteins are not
+  special to biology. The debate reduces to whether the coherence that enhances
+  transport is electronic (quantum computing analog) or vibronic (classical
+  analogue with quantum corrections). As of 2026 this remains unresolved.
+translation_table:
+  - field_a_term: qubit (two-level quantum system)
+    field_b_term: bacteriochlorophyll chromophore (two-level excitonic system)
+  - field_a_term: T₂ dephasing time (quantum computing)
+    field_b_term: electronic coherence lifetime in FMO (~660 fs at 77 K)
+  - field_a_term: Lindblad dissipator (open quantum system)
+    field_b_term: protein scaffold phonon bath (Debye-Waller dephasing)
+  - field_a_term: quantum gate fidelity (quantum computing)
+    field_b_term: excitation transfer efficiency to reaction centre (photosynthesis)
+  - field_a_term: environment-assisted quantum transport (ENAQT)
+    field_b_term: vibration-assisted energy transfer in light-harvesting complexes
+  - field_a_term: quantum walk on graph (algorithms)
+    field_b_term: exciton diffusion on BChl network (FMO topology)
+related_unknowns:
+  - u-quantum-coherence-physiological-role
+related_hypotheses:
+  - h-fmo-enaqt-efficiency
+cross_pollination_opportunities:
+  - >
+    Quantum coherence lifetimes measured in FMO can calibrate HEOM solvers
+    used in quantum chemistry / quantum device simulation. Biological systems
+    offer naturally assembled quantum networks at physiological temperatures
+    that synthetic quantum hardware struggles to achieve.
+  - >
+    Artificial light-harvesting antennas designed using FMO topology (7-8
+    coupled chromophore network) with optimised ENAQT bath coupling could
+    outperform conventional organic photovoltaics. The quantum device physics
+    community has the decoherence engineering toolkit; the biophysics community
+    has the network blueprints.
+  - >
+    If vibronic coherence (not electronic) is the key mechanism, this
+    bridges molecular vibration spectroscopy with quantum transport theory —
+    opening design rules for vibronic systems in quantum sensing and chemistry.
+communication_gap: >
+  Quantum information theorists and quantum chemists use overlapping but
+  distinct formalism (Lindblad vs Redfield vs HEOM) with different default
+  approximations. Photosynthesis biophysicists and quantum computing physicists
+  rarely co-author; the 2007 Engel et al. paper was written by a physical
+  chemistry group (Fleming, UC Berkeley) that bridges both worlds, but most
+  photosynthesis researchers and most quantum computing researchers remain
+  unaware of each other's literature on coherence engineering.
+last_reviewed: "2026-05-05"
+references:
+  - doi: "10.1038/nature05678"
+    note: Engel et al. (2007) Evidence for wavelike energy transfer through quantum coherence in photosynthetic systems, Nature 446:782
+  - doi: "10.1063/1.3155372"
+    note: Ishizaki & Fleming (2009) Unified treatment of quantum coherent and incoherent hopping dynamics in electronic energy transfer, J Chem Phys 130:234111
+  - doi: "10.1103/PhysRevLett.103.146404"
+    note: Rebentrost et al. (2009) Environment-assisted quantum transport, PRL 103:146404
+  - doi: "10.1021/jp405421d"
+    note: Scholes et al. (2017) Using coherence to enhance function in chemical and biophysical systems, Nature 543:647
+  - doi: "10.1063/1.3293413"
+    note: Ishizaki & Fleming (2009) Theoretical examination of quantum coherence in a photosynthetic system at physiological temperature, PNAS 106:17255

@@ -1,0 +1,53 @@
+id: u-neural-optimal-control-noise-model
+title: >
+  What is the correct noise model for biological motor control — signal-dependent
+  (multiplicative) noise as in Todorov's OFC model, or state-dependent noise
+  from neural population variability — and does the choice change predictions
+  for motor rehabilitation and brain-computer interface design?
+status: open
+priority: high
+disciplines:
+  - computational-neuroscience
+  - control-engineering
+  - motor-neuroscience
+  - biomedical-engineering
+summary: >
+  Optimal feedback control (OFC) theory of motor coordination (Todorov & Jordan
+  2002) assumes signal-dependent noise: σ_i(t) = k_i u_i(t) (noise proportional
+  to command magnitude). This assumption — derived from single motor unit
+  recordings — generates predictions about variability structure (uncontrolled
+  manifold, tolerance of task-irrelevant variance) that match human arm movement
+  data. However, recent neural population recordings (motor cortex latent
+  dynamics) suggest noise arises from Poisson spiking variability and low-rank
+  network dynamics, not purely from muscle-level multiplicative noise.
+
+  Key open questions:
+  1. At what level of the motor hierarchy does the dominant noise arise —
+     motor unit (signal-dependent), spinal interneurons (additive), motor
+     cortex population (low-rank network noise), or sensory feedback?
+  2. Does the Kalman filter model of cerebellar state estimation remain optimal
+     under Poisson spiking noise (non-Gaussian), or is a particle filter
+     / Kushner-Stratonovich equation the correct model?
+  3. Are BCI decoding errors dominated by the noise model assumed by the
+     decoder (Kalman vs. particle filter vs. neural network) or by
+     non-stationarity of neural tuning curves?
+  4. Does the OFC model accurately predict rehabilitation trajectories after
+     stroke (motor cortex lesion), where forward model relearning is required?
+systematic_gaps:
+  - Simultaneous multi-electrode recordings at motor cortex, spinal cord, and
+    EMG during precisely quantified motor tasks are available in primates but
+    rarely in humans
+  - OFC model variants have been tested against movement kinematics but rarely
+    against the full joint angle covariance structure (UCM vs. OFC predictions)
+  - Bayesian comparison of noise models (signal-dependent vs. Poisson vs.
+    low-rank network) using model evidence has not been done on existing datasets
+suggested_hypotheses:
+  - h-cerebellum-kalman-prediction-error
+related_bridges:
+  - b-neural-control-theory
+last_reviewed: "2026-05-05"
+references:
+  - doi: "10.1038/nn963"
+    note: Todorov & Jordan (2002) optimal feedback control and motor coordination
+  - doi: "10.1126/science.1192588"
+    note: Churchland et al. (2012) neural population dynamics during reaching

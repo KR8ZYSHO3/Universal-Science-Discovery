@@ -1,0 +1,116 @@
+id: b-carbon-pricing-pigouvian
+title: >
+  The social cost of carbon (SCC) is a Pigouvian tax problem — internalising
+  the negative externality of greenhouse gas emissions into market prices —
+  solved within the Ramsey optimal-growth framework extended to climate damage
+  functions, yielding the Stern-Nordhaus integrated assessment model (IAM)
+  as a coupled macroeconomic–climate ODE system.
+status: established
+fields:
+  - climate-science
+  - economics
+  - environmental-economics
+  - policy-science
+bridge_claim: >
+  Pigou (1920) showed that a competitive market overproduces goods with negative
+  externalities; the welfare-maximising corrective is a tax equal to the
+  marginal social damage at the optimum (the Pigouvian tax τ* = MSD).
+  For CO₂, τ* is the social cost of carbon (SCC): the present value of all
+  damages caused by emitting one additional tonne of CO₂ today, integrated
+  over the full future trajectory of climate and economic impacts.
+
+  The Ramsey-Nordhaus-Stern bridge:
+  1. Ramsey (1928) solved the optimal savings problem: maximise ∫₀^∞ U(C(t))
+     e^{-ρt} dt subject to K̇ = Y - C - δK, where ρ is the pure rate of time
+     preference. The Euler equation (Ramsey rule): ċ/c = (r - ρ)/η, where η
+     is the elasticity of marginal utility (consumption smoothing parameter)
+     and r is the return on capital.
+
+  2. Nordhaus (DICE model, 2007): extended Ramsey growth to include a climate
+     module (Bolin box model for CO₂ accumulation, simplified Arrhenius
+     forcing, Weitzman damage function D(T) ≈ 1/(1+aT^b)). The coupled ODE
+     system has state variables: capital K(t), CO₂ concentrations in atmosphere/
+     ocean layers M(t), and global mean temperature T(t). The SCC is the
+     shadow price of the CO₂ constraint in the optimal control problem,
+     directly computable via the Hamiltonian's co-state variable.
+
+  3. Stern (2006) vs. Nordhaus debate is fundamentally about ρ (pure time
+     preference). Stern uses ρ ≈ 0.1% (near-zero: future lives matter almost
+     as much as present); Nordhaus uses ρ ≈ 3% (calibrated to market interest
+     rates). The Ramsey rule then implies very different discount rates r: Stern
+     gets SCC ≈ $85/tCO₂; Nordhaus gets SCC ≈ $12/tCO₂ (2007 values).
+     The entire policy disagreement reduces to an ethical choice embedded in ρ.
+
+  4. Climate science enters through the transient climate response (TCR) and
+     equilibrium climate sensitivity (ECS). The ODE coupling is:
+       ΔT(t) ≈ TCR × ΔF(t) / 3.7 W/m²
+     where ΔF(t) = 5.35 ln(M/M₀) is the radiative forcing from CO₂. Climate
+     model uncertainty in ECS (1.5–4.5 °C per CO₂ doubling, AR6) translates
+     directly to SCC uncertainty — a quantitative bridge between climate physics
+     and economic cost-benefit analysis.
+
+  5. Tipping points and fat tails. Weitzman (2009) showed that if climate
+     damage has fat-tailed uncertainty (σ_D → ∞), expected utility theory
+     prescribes infinite willingness to pay for insurance — the "dismal theorem."
+     This bridges extreme value theory (Gumbel/Fréchet distributions) with
+     climate economics and implies that SCC estimates based on normal-distribution
+     assumptions may be severely underestimated.
+translation_table:
+  - field_a_term: Pigouvian tax τ* = marginal social damage
+    field_b_term: social cost of carbon (SCC, $/tCO₂)
+  - field_a_term: Ramsey discount rate r = ρ + η·g
+    field_b_term: social discount rate applied to future climate damages
+  - field_a_term: pure rate of time preference ρ (Ramsey)
+    field_b_term: Stern-Nordhaus ethical disagreement parameter
+  - field_a_term: Hamiltonian co-state variable (optimal control)
+    field_b_term: shadow price of atmospheric CO₂ = SCC
+  - field_a_term: state variable K(t) (Ramsey capital stock)
+    field_b_term: DICE capital stock K(t) coupled to climate damage D(T)
+  - field_a_term: transient climate response TCR (climate science)
+    field_b_term: temperature sensitivity parameter in IAM damage function
+  - field_a_term: fat-tailed uncertainty (Weitzman, extreme value theory)
+    field_b_term: catastrophic climate damage scenarios (tipping points, ECS tail)
+related_unknowns:
+  - u-social-cost-carbon-discount-rate
+related_hypotheses:
+  - h-ramsey-optimal-carbon-price-tipping-points
+cross_pollination_opportunities:
+  - >
+    ECS uncertainty reduction from climate science (constraining the 1.5-4.5°C
+    range) has direct economic value: narrowing ECS by one standard deviation
+    reduces SCC uncertainty by ~50% and changes the optimal carbon price by
+    ~$20-40/tCO₂. This quantifies the economic value of climate science
+    investment — a bridge between climate funding policy and economic analysis.
+  - >
+    Non-stationary Ramsey models with tipping points: include a jump process
+    in the climate ODE (e.g. Dietz & Stern 2015 with catastrophic tipping) and
+    solve the HJB equation for optimal carbon price under tipping risk. This
+    requires stochastic optimal control theory from engineering and finance,
+    combined with palaeoclimate tipping point data from climate science.
+  - >
+    Empirical SCC estimation from revealed preference: hedonic property value
+    studies near climate-exposed coastlines and health cost studies from extreme
+    heat provide bottom-up SCC components that can validate IAM top-down
+    estimates. Bridging micro-econometrics with macro-IAM modelling.
+communication_gap: >
+  Climate scientists and economists work in largely separate communities and
+  publish in separate journals. Climate models are validated on physical
+  observables (temperature, sea level, ice extent); economic models are
+  validated on GDP growth and consumption data. The IAM community
+  (Nordhaus, Stern, Weitzman, Dietz) sits at the intersection but is relatively
+  small. Most climate scientists are unfamiliar with Ramsey growth theory;
+  most economists are unfamiliar with radiative forcing calculations. Policy
+  bodies (IPCC Working Group III) bring them together, but the underlying
+  mathematical bridge is rarely made explicit in either field's pedagogy.
+last_reviewed: "2026-05-05"
+references:
+  - url: https://www.cambridge.org/gb/universitypress/subjects/economics/public-economics-and-public-policy/economics-welfare
+    note: Pigou (1920) The Economics of Welfare — Macmillan, externality and Pigouvian tax framework
+  - doi: "10.2307/2222(10.2307/2222()"
+    note: Ramsey (1928) A mathematical theory of saving, Econ J 38:543 — optimal growth framework
+  - doi: "10.1162/rest.89.1.1"
+    note: Nordhaus (2007) A review of the Stern Review on the Economics of Climate Change, Rev Econ Stat 89:1
+  - url: https://webarchive.nationalarchives.gov.uk/ukgwa/20100407172811/http://www.hm-treasury.gov.uk/stern_review_report.htm
+    note: Stern (2006) The Stern Review on the Economics of Climate Change — HM Treasury
+  - doi: "10.1093/reep/rep005"
+    note: Weitzman (2009) On modeling and interpreting the economics of catastrophic climate change, Rev Econ Stat 91:1
