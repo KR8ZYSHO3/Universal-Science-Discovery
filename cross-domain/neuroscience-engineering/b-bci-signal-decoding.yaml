@@ -1,0 +1,82 @@
+id: b-bci-signal-decoding
+title: >
+  Brain-computer interfaces decode motor intentions from cortical population activity
+  using linear decoders (Wiener filter) and Kalman state-space models — Fisher
+  information in the neural population code sets the fundamental accuracy bound,
+  connecting information theory to neural prosthetics engineering.
+status: established
+fields:
+  - neuroscience
+  - engineering
+  - neural-engineering
+  - information-theory
+  - signal-processing
+bridge_claim: >
+  BCIs decode intended movement from neural population activity recorded by
+  electrode arrays. Linear decoding: ŷ = Wx + b where x ∈ R^N is the spike rate
+  vector from N neurons, y is decoded kinematics (position, velocity), and W is
+  found by least squares (Moore-Penrose pseudoinverse). The optimal linear decoder
+  (Wiener filter) = the minimum-mean-square-error estimator, achievable when
+  the likelihood P(x|y) is Gaussian. Kalman filter extends this to state-space
+  dynamics: x_t = Ax_{t-1} + w_t (neural dynamics), y_t = Cx_t + v_t (observation
+  model), with recursive state estimation. Modern BCIs: BrainGate2 (Utah array,
+  96 electrodes) achieves cursor control; Willett et al. (2023, Nature) decodes
+  handwriting at 90 characters/minute; speech BCIs achieve 62 words/minute from
+  motor cortex. The fundamental limit: the Fisher information matrix I(θ) of the
+  neural population code bounds decoding precision via the Cramér-Rao bound
+  Var[θ̂] ≥ I(θ)^{-1}. Population vector coding (Georgopoulos 1986) — each neuron
+  has a preferred direction c_i; population vector P = Σ_i r_i c_i — is the
+  maximum-likelihood decoder for Poisson-distributed tuning curves. The bridge:
+  the mathematical framework of BCI decoding is applied information theory (Fisher
+  information, Cramér-Rao, Wiener filter) implemented as neural engineering hardware.
+translation_table:
+  - field_a_term: Fisher information matrix I(θ) of neural population
+    field_b_term: fundamental decoding accuracy bound for any BCI algorithm
+  - field_a_term: Cramér-Rao bound Var[θ̂] ≥ I^{-1}(θ)
+    field_b_term: minimum achievable decoding error in neural prosthetics
+  - field_a_term: Wiener filter (optimal linear MMSE estimator)
+    field_b_term: linear decoder mapping spike rates to kinematic variables
+  - field_a_term: Kalman filter (recursive Bayesian estimation)
+    field_b_term: continuous BCI decoder with temporal dynamics and noise model
+  - field_a_term: signal subspace (PCA / factor analysis of neural activity)
+    field_b_term: low-dimensional neural manifold containing decoded movement information
+  - field_a_term: channel capacity C = ½log₂(1 + SNR)
+    field_b_term: maximum BCI throughput in bits/second from a neural population
+  - field_a_term: population vector P = Σ r_i c_i (preferred direction weighting)
+    field_b_term: Georgopoulos decoder — original motor cortex direction readout
+related_unknowns:
+  - u-bci-long-term-stability-decoding
+related_hypotheses:
+  - h-neural-manifold-bci-decoder-generalization
+cross_pollination_opportunities:
+  - >
+    Closed-loop adaptive BCIs: using online Fisher information estimation to
+    quantify neural code stability and trigger decoder recalibration — translating
+    information-theoretic diagnostics into engineering system monitoring.
+  - >
+    Spike sorting vs. multi-unit activity: Fisher information analysis shows
+    whether precise spike sorting adds information over threshold-crossing multi-unit
+    signals — directly comparing decoding quality to guide electrode design.
+  - >
+    Speech BCI high-bit-rate decoding: applying channel capacity bounds to
+    determine whether current electrode arrays are sampling enough neurons to
+    support fluent naturalistic speech decoding, guiding next-generation array design.
+communication_gap: >
+  Neural prosthetics engineering developed at the intersection of neuroscience and
+  biomedical engineering. The fundamental information-theoretic formulation
+  (Fisher information bound on decoding) is standard in statistics and signal
+  processing but was applied to BCIs primarily by Shenoy's group at Stanford.
+  Clinical neuroscientists developing BCI devices often implement Kalman filtering
+  as a "black box" without connecting it to the Cramér-Rao information theory that
+  explains why it is optimal. The channel capacity bound for BCIs remains
+  underexplored relative to the rapidly advancing empirical decoding results.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1126/science.3749885"
+    note: Georgopoulos et al. (1986) Neuronal population coding of movement direction. Science 233:1416
+  - doi: "10.1016/j.neuron.2013.01.006"
+    note: Shenoy et al. (2013) Cortical control of arm movements. Neuron 77:212
+  - doi: "10.1162/089976606775093882"
+    note: Wu et al. (2006) Bayesian population decoding of motor cortical activity. Neural Comput 18:80
+  - doi: "10.1038/s41586-023-06502-7"
+    note: Willett et al. (2023) A high-performance speech neuroprosthesis. Nature 620:1031

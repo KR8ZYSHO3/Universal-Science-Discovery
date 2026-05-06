@@ -1,6 +1,6 @@
 # USDR Citation Index
 
-**2243 total citations · 1600 unique references · 229 cited in 2+ bridges**
+**2465 total citations · 1803 unique references · 229 cited in 2+ bridges**
 
 ## Most Cross-Domain Papers
 
@@ -8,7 +8,7 @@ Papers cited across the highest number of different bridges — the most influen
 
 | Bridges | Title | DOI |
 |---|---|---|
-| 8 | Castellano et al. review connects voter model to spatial ecology | [DOI](10.1103/RevModPhys.81.591) |
+| 9 | Castellano et al. review connects voter model to spatial ecology | [DOI](10.1103/RevModPhys.81.591) |
 | 6 | Barabási & Albert (1999) - scale-free networks fragile to targeted hub attack; g... | [DOI](10.1126/science.286.5439.509) |
 | 6 | Friston (2010) — free energy principle: biological homeostasis = continuous free... | [DOI](10.1038/nrn2787) |
 | 6 | May (1972) provides stability criterion for LV-type competitive systems | [DOI](10.1038/238413a0) |
@@ -31,9 +31,11 @@ Papers cited across the highest number of different bridges — the most influen
 | 3 |  | [DOI](10.1038/30918) |
 | 3 | Clark (2013) Behav Brain Sci — predictive coding framework motivating the precis... | [DOI](10.1017/S0140525X12000477) |
 | 3 | Hopfield (1982) — associative memory energy model | [DOI](10.1073/pnas.79.8.2554) |
+| 3 | Challet & Zhang (1997) - MG phase transition at alpha_c analogous to error thres... | [DOI](10.1016/S0378-4371(97)00419-6) |
 | 3 | Bennett (1973) — theoretical demonstration that reversible computation has zero ... | [DOI](10.1147/rd.173.0525) |
 | 3 | Hasan & Kane (2010) — comprehensive review of Z2 TI classification and experimen... | [DOI](10.1103/RevModPhys.82.3045) |
 | 3 | Vosoughi et al. (2018) Science: false news spreads faster and more broadly than ... | [DOI](10.1126/science.aap9559) |
+| 3 | Sood & Redner — voter model on heterogeneous graphs, consensus time scaling | [DOI](10.1103/PhysRevLett.94.178701) |
 | 3 | Engel et al. (2007) observe coherence signatures consistent with quantum transpo... | [DOI](10.1038/nature05678) |
 | 3 | Ryu & Takayanagi (2006) - holographic entanglement entropy: area formula connect... | [DOI](10.1103/PhysRevLett.96.181602) |
 | 2 |  | [DOI](10.1103/PhysRevLett.85.4626) |
@@ -56,8 +58,6 @@ Papers cited across the highest number of different bridges — the most influen
 | 2 | Aldana et al. (2003) - scale-free regulatory networks with mean K near 2 show cr... | [DOI](10.1016/S0022-5193(03)00028-6) |
 | 2 | Grenander & Miller (1998) Q Appl Math 56:617 — diffeomorphic image registration;... | [DOI](10.1090/qam/926445) |
 | 2 | Toga & Thompson (2001) Nat Rev Neurosci 2:37 — computational neuroanatomy via di... | [DOI](10.1038/nrn644) |
-| 2 | Nowak & May (1994) Science — diversity of viral quasi-species is set by cross-im... | [DOI](10.1126/science.7754375) |
-| 2 | Sutton et al. (2000) policy gradient theorem: the update rule Δπ ∝ π · ∇V is exa... | [DOI](10.1073/pnas.97.17.9430) |
 
 ## Citation Network
 
@@ -67,4 +67,4 @@ The full citation data is available at [`docs/citation_index.json`](citation_ind
 
 ## All Unique References
 
-The catalog currently references **1600 unique papers/books**.
+The catalog currently references **1803 unique papers/books**.

@@ -1,0 +1,81 @@
+id: b-population-genetics-diffusion
+title: >
+  The Wright-Fisher model of allele frequency evolution under drift and selection
+  maps exactly onto a Fokker-Planck diffusion equation — Kimura's fixation
+  probability formula and the stationary beta distribution are exact solutions,
+  unifying probability theory and evolutionary genetics.
+status: established
+fields:
+  - biology
+  - population-genetics
+  - evolutionary-biology
+  - mathematics
+  - stochastic-processes
+  - probability-theory
+bridge_claim: >
+  The Wright-Fisher model: a population of N diploid individuals; each generation,
+  2N gene copies sampled from previous generation (binomial sampling = genetic drift).
+  For large N, the allele frequency p(t) follows the Fokker-Planck (diffusion)
+  equation: ∂f/∂t = −∂/∂p[M(p)f] + ½∂²/∂p²[V(p)f], where drift coefficient
+  M(p) = sp(1−p) (selection coefficient s) and diffusion coefficient V(p) = p(1−p)/N
+  (genetic drift). This is identical in form to Brownian motion equations, with
+  the boundaries p=0 and p=1 being absorbing (allele loss or fixation).
+  Key exact solutions (Kimura 1964): (1) Fixation probability u(p₀) =
+  [1−exp(−4Nsp₀)]/[1−exp(−4Ns)] — reduces to u = p₀ under neutrality (s=0);
+  (2) Mean fixation time T₁ ≈ 4N (neutral) or T₁ ≈ 2ln(2N)/s (strong selection);
+  (3) Stationary distribution (with mutation at rates μ₁, μ₂):
+  f*(p) = Cp^(4Nμ₁−1)(1−p)^(4Nμ₂−1)exp(4Nsp) — the Beta distribution modified
+  by selection. Ewens's sampling formula gives the exact probability distribution
+  of allele frequencies in a population sample, solvable via Dirichlet process.
+  The unification: all of neutral theory (Kimura, Ohta) follows from the diffusion
+  equation; selection coefficients from fitness landscapes are the drift terms;
+  population size N is the diffusion constant governing stochastic vs deterministic
+  evolution.
+translation_table:
+  - field_a_term: Fokker-Planck diffusion equation ∂f/∂t = −∂[Mf]/∂p + ½∂²[Vf]/∂p²
+    field_b_term: Wright-Fisher diffusion for allele frequency evolution
+  - field_a_term: drift coefficient M(p) = sp(1−p)
+    field_b_term: natural selection pressure on allele frequency
+  - field_a_term: diffusion coefficient V(p) = p(1−p)/N
+    field_b_term: genetic drift (sampling noise inversely proportional to population size)
+  - field_a_term: absorbing boundaries at p=0 and p=1
+    field_b_term: allele loss (p=0) or fixation (p=1) — irreversible evolutionary events
+  - field_a_term: Kimura fixation probability formula
+    field_b_term: probability that a new mutation eventually spreads to fixation
+  - field_a_term: beta distribution stationary state
+    field_b_term: allele frequency spectrum at mutation-drift-selection equilibrium
+  - field_a_term: effective population size N_e (harmonic mean over bottlenecks)
+    field_b_term: effective diffusion constant — sets balance between drift and selection
+related_unknowns:
+  - u-population-genetics-selection-drift-boundary
+related_hypotheses:
+  - h-nearly-neutral-theory-diffusion-boundary
+cross_pollination_opportunities:
+  - >
+    Stochastic gene expression: the same Fokker-Planck formalism applies to
+    protein concentration fluctuations in single cells (chemical Langevin equation),
+    connecting population genetics mathematics to single-cell biology.
+  - >
+    Cancer evolution: applying Wright-Fisher diffusion to somatic cell populations
+    in tumors (N = tumor size, s = driver mutation advantage) — predicting
+    fixation times for oncogenic mutations in cancer progression models.
+  - >
+    Ancestral inference (coalescent theory): time-reversal of the diffusion
+    equation gives the Kingman coalescent backward-in-time genealogy — the
+    mathematical foundation for MCMC-based phylogenetics and ancient DNA analysis.
+communication_gap: >
+  Kimura's diffusion approximation was developed by a geneticist (with formal
+  physics training) writing primarily for mathematical geneticists. Population
+  geneticists routinely apply the diffusion framework but do not always connect
+  it to the broader Fokker-Planck literature in physics and stochastic processes.
+  Conversely, physicists studying stochastic dynamics rarely know that Kimura's
+  fixation formula is an exact solution to their standard equation. The connection
+  to Dirichlet processes (Bayesian nonparametrics) via the Ewens sampling formula
+  is known in mathematical statistics but not well-known in evolutionary biology.
+last_reviewed: "2026-05-06"
+references:
+  - note: Wright (1931) Evolution in Mendelian populations. Genetics 16:97
+  - doi: "10.2307/3211856"
+    note: Kimura (1964) Diffusion models in population genetics. J Appl Probab 1:177
+  - note: Ewens (2004) Mathematical Population Genetics, 2nd ed. Springer
+  - note: Crow & Kimura (1970) An Introduction to Population Genetics Theory. Harper & Row

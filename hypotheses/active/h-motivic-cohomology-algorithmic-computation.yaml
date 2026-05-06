@@ -1,0 +1,40 @@
+id: h-motivic-cohomology-algorithmic-computation
+title: >
+  Motivic cohomology groups H^{p,q}_M(X,ℤ) of smooth projective varieties X over
+  a number field are algorithmically computable for p ≤ 2 via algebraic K-theory
+  and the Bloch-Kato conjecture (now Voevodsky's theorem), but p ≥ 3 cases
+  remain computationally open due to the failure of finite generation.
+status: active
+priority: medium
+impact_score: 0.65
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+unknowns_addressed:
+  - u-motivic-cohomology-calculations
+evidence_links:
+  - type: supporting
+    note: "Voevodsky (2011) proof of Bloch-Kato: Milnor K-theory ≅ étale cohomology mod p — resolves p=1 case of motivic cohomology computation"
+    confidence: 0.90
+  - type: supporting
+    note: "Quillen (1973) algebraic K-theory finite generation: K_n(O_F) finitely generated for number rings — p=2 motivic groups computable"
+    confidence: 0.85
+  - type: related
+    note: "Scholl (1990) motivic cohomology beyond K-theory: higher Chow groups CH^p(X,q) for p≥3 not known to be finitely generated in general"
+    confidence: 0.78
+proposed_tests:
+  - description: >
+      Computational implementation: implement algorithm for H^{1,q}_M(Spec(O_F),ℤ)
+      (motivic cohomology of number ring) using linear algebra over K-theory exact
+      sequences. Benchmark on cyclotomic fields Q(ζ_n) for n = 3, 4, 5, 8, 12.
+      Compare with known regulators from PARI/GP. Test: algorithm terminates and
+      matches known values.
+  - description: >
+      Higher Chow group finiteness test: for a single specific surface X (e.g.,
+      Fermat quartic surface) over Q, compute CH^3(X,0) ⊗ Q via regulator map.
+      Test whether this group is finite or infinite rank. If infinite rank,
+      general algorithmic computation is impossible without period matrix input.
+related_disciplines:
+  - algebraic-geometry
+  - algebraic-K-theory
+  - number-theory

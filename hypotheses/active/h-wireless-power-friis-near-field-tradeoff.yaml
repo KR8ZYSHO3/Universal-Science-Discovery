@@ -1,0 +1,39 @@
+id: h-wireless-power-friis-near-field-tradeoff
+title: >
+  Resonant inductive wireless power transfer efficiency follows a universal
+  coupling-Q product figure of merit (η ∝ κ²/Γ₁Γ₂ in coupled mode theory),
+  and far-field beamed power efficiency is fundamentally limited by beam divergence
+  (Friis equation) — no configuration can simultaneously achieve high efficiency
+  and long range without aperture scaling.
+status: active
+priority: medium
+impact_score: 0.68
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+unknowns_addressed:
+  - u-wireless-power-transfer-limit
+evidence_links:
+  - type: supporting
+    note: "Kurs et al. (2007) Science: mid-range resonant inductive WPT, 60W at 2m, 40% efficiency — coupled mode theory κ/Γ figure of merit validated"
+    confidence: 0.82
+  - type: supporting
+    note: "Friis (1946): far-field efficiency P_r/P_t = G_t G_r (λ/4πR)² — fundamental inverse-square range dependence at fixed aperture"
+    confidence: 0.90
+  - type: related
+    note: "Sample et al. (2011) analysis of near vs. far field transition: optimal frequency and aperture tradeoff — universal efficiency-range Pareto curve"
+    confidence: 0.72
+proposed_tests:
+  - description: >
+      Experimental verification of universal Pareto frontier: measure WPT
+      efficiency vs. distance for 5 technologies (inductive, resonant, retrodirective
+      phased array, laser, mmWave). Plot efficiency-range curves. Test: all systems
+      fall on or below a common theoretical bound derived from aperture theory.
+  - description: >
+      Coupled mode theory parameter sweep: fabricate resonant coil pairs with
+      Q ranging 100–1000. Measure κ/Γ figure of merit. Test that max efficiency
+      η_max = (κ/Γ)²/[1 + √(1+(κ/Γ)²)]² holds to ±5% across all coil geometries.
+related_disciplines:
+  - electromagnetism
+  - power-electronics
+  - antenna-theory

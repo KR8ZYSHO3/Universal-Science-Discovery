@@ -1,0 +1,83 @@
+id: b-schelling-ising-dynamics
+title: >
+  Schelling's residential segregation model is formally equivalent to an
+  antiferromagnetic Ising model at finite temperature — Glauber dynamics at
+  tolerance T produces the Ising phase diagram, and segregation emerges as a
+  magnetic ordering transition even with mild preferences.
+status: established
+fields:
+  - social-science
+  - sociology
+  - physics
+  - statistical-mechanics
+  - complex-systems
+bridge_claim: >
+  Schelling's segregation model (1971): agents of two types (red/blue) on a grid
+  are "satisfied" when at least fraction τ of their neighbors are the same type;
+  unsatisfied agents move to a random empty location. Result: even with τ < 0.5
+  (mild preference — most agents prefer a mixed neighborhood), the system
+  self-organizes into large segregated clusters. Vinković & Kirman (2006) showed
+  the formal equivalence: define "energy" E = −∑_{<ij>} s_i s_j where s_i = ±1
+  encodes agent type. Agent "satisfaction" corresponds to having low local energy.
+  Schelling dynamics (move if unsatisfied) is exactly Glauber dynamics of the
+  Ising model: at each step, flip a spin if the energy change ΔE > 0 (probabilistically,
+  with acceptance probability e^{−ΔE/T}). Tolerance τ maps to temperature T = 1/tolerance:
+  low tolerance (τ ≈ 0.5) → low T → ordering → segregation; high tolerance (τ < 0.3)
+  → high T → paramagnetic phase → mixing. The critical tolerance τ_c corresponds to
+  T_c of the 2D Ising model (Onsager: T_c = 2J/ln(1+√2) ≈ 2.27J). Mean-field Ising
+  solution gives the exact Schelling phase diagram. The key insight: segregation is
+  a thermodynamic phase transition, not a social aberration — it occurs in any system
+  with local preference interactions below a critical temperature, regardless of
+  the magnitude of those preferences.
+translation_table:
+  - field_a_term: Ising spin s_i = ±1
+    field_b_term: Schelling agent type (red = +1, blue = −1)
+  - field_a_term: ferromagnetic coupling J > 0
+    field_b_term: preference for same-type neighbors
+  - field_a_term: temperature T = 1/β
+    field_b_term: inverse tolerance (1/τ) — how strongly agents prefer same-type neighbors
+  - field_a_term: Glauber dynamics (thermal fluctuation-driven spin flips)
+    field_b_term: Schelling agent relocation (unsatisfied agents move)
+  - field_a_term: Ising phase transition at T_c (paramagnetic → ferromagnetic)
+    field_b_term: Schelling segregation transition at critical tolerance τ_c
+  - field_a_term: ordered ferromagnetic phase (aligned domains)
+    field_b_term: segregated residential neighborhoods (like-with-like clusters)
+  - field_a_term: paramagnetic phase (disordered spins, T > T_c)
+    field_b_term: integrated mixed neighborhoods (high tolerance regime)
+  - field_a_term: correlation length ξ ∝ |T − T_c|^{−ν}
+    field_b_term: average segregated cluster size near the tolerance transition
+related_unknowns:
+  - u-schelling-model-empirical-calibration
+related_hypotheses:
+  - h-urban-segregation-ising-phase-transition-test
+cross_pollination_opportunities:
+  - >
+    Policy design: Ising universality class theory predicts that small perturbations
+    near τ_c (tolerance just below critical) can shift the system from segregated
+    to mixed phase — identifying the critical leverage point for desegregation
+    policy with minimal intervention.
+  - >
+    Empirical calibration: fitting the Ising model parameters (J, T) to Census
+    tract data to estimate effective social "temperature" (tolerance) of different
+    cities, and predicting how demographic changes or housing policies shift the
+    system toward or away from the critical point.
+  - >
+    Multi-species extension: n-state Potts model (n > 2 ethnic groups) maps to
+    multi-group Schelling, with Potts phase diagram predicting the segregation
+    threshold as a function of group size distribution.
+communication_gap: >
+  Schelling (1971) was an economist using spatial thought experiments. The Ising
+  equivalence was demonstrated in 2006 by Vinković (physicist) and Kirman (economist)
+  in PNAS — a rare economics-physics collaboration. Most sociology and urban planning
+  literature on residential segregation still treats Schelling as a game-theoretic
+  or social-dynamic model without invoking the Ising framework that provides its
+  exact analytical solution and universal predictions.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1080/0022250X.1971.9989794"
+    note: Schelling (1971) Dynamic models of segregation. J Math Sociol 1:143
+  - doi: "10.1073/pnas.0600362103"
+    note: Vinković & Kirman (2006) A physical analogue of the Schelling model. PNAS 103:19261
+  - note: Mobilia & Georgiev (2005) Ising model equivalence of Schelling. Phys Rev E 71:046102
+  - doi: "10.1103/RevModPhys.81.591"
+    note: Castellano et al. (2009) Statistical physics of social dynamics. Rev Mod Phys 81:591

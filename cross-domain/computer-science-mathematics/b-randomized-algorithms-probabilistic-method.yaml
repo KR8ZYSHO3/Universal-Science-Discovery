@@ -1,0 +1,78 @@
+id: b-randomized-algorithms-probabilistic-method
+title: >
+  The probabilistic method (Erdős) proves combinatorial existence by showing random
+  objects have a desired property with positive probability; randomized algorithms
+  exploit this computationally, and derandomization bridges the two via conditional
+  expectations, unifying combinatorics and algorithm design.
+status: established
+fields:
+  - mathematics
+  - combinatorics
+  - computer-science
+  - algorithm-design
+  - probability-theory
+bridge_claim: >
+  The probabilistic method (Erdős 1947): to prove that a combinatorial object with
+  property P exists, construct a suitable probability space, show the random object
+  lacks property P with probability < 1. No explicit construction needed — existence
+  follows from probability. This is a pure mathematical technique that gave rise
+  to an entire algorithmic paradigm. Randomized algorithms exploit the same logic
+  computationally: (1) Randomized quicksort — choose pivot uniformly at random;
+  expected comparisons = 2n ln n = O(n log n) regardless of input, with no adversarial
+  worst case; (2) Random projections — the Johnson–Lindenstrauss lemma guarantees
+  that projecting n points in R^d to R^k (k = O(ε⁻²log n)) preserves all pairwise
+  distances to within factor (1±ε) with high probability; (3) Randomized rounding
+  of LP relaxations — Raghavan & Thompson (1987) showed that randomly rounding
+  fractional LP solutions yields integer solutions with bounded integrality gap with
+  high probability, with concentrations proved via Chernoff bounds. Derandomization
+  shows the full circle: the method of conditional expectations (Erdős & Selfridge
+  1973) turns probabilistic existence proofs into deterministic polynomial-time
+  constructions, deriving deterministic algorithms that achieve the probabilistic
+  bounds. This bridges pure combinatorics to practical algorithm design through
+  the common language of probability.
+translation_table:
+  - field_a_term: probabilistic existence proof (Pr[P holds] > 0)
+    field_b_term: expected-case guarantee in randomized algorithm
+    note: both rely on random variable analysis over the same probability space
+  - field_a_term: Lovász Local Lemma (sparse bad events can all be avoided)
+    field_b_term: Moser–Tardos constructive proof (algorithmic LLL gives polynomial construction)
+  - field_a_term: Chernoff bound (exponential concentration of sums)
+    field_b_term: high-probability guarantee in randomized rounding algorithms
+  - field_a_term: second moment method (Var[X] ≤ E[X²])
+    field_b_term: analysis of collision probability in hashing algorithms
+  - field_a_term: random graph G(n,p) (Erdős–Rényi)
+    field_b_term: average-case model for network algorithm analysis
+  - field_a_term: method of conditional expectations
+    field_b_term: derandomization — turning probabilistic proof into deterministic algorithm
+  - field_a_term: Johnson–Lindenstrauss lemma (dimension reduction)
+    field_b_term: random projection preprocessing in machine learning pipelines
+related_unknowns:
+  - u-randomized-derandomization-gap
+related_hypotheses:
+  - h-jl-lemma-optimal-dimension-reduction
+cross_pollination_opportunities:
+  - >
+    Quantum derandomization: quantum algorithms achieve quadratic speedup over
+    some randomized algorithms (Grover search). Understanding which randomized
+    algorithms have quantum analogs and which can be derandomized is a frontier
+    connecting quantum computing, randomized algorithms, and combinatorics.
+  - >
+    Streaming algorithms: randomized sketching (Count-Min, HyperLogLog) enable
+    sublinear-space approximate computation — applying probabilistic method to
+    the constraint that memory ≪ input size, with rigorous guarantees from
+    Chernoff/Markov bounds.
+communication_gap: >
+  Erdős worked primarily in combinatorics; the algorithmic implications were
+  developed by the theory of computing community (Rabin, Solovay, Strassen, Motwani)
+  beginning in the 1970s. The unification through derandomization (Nisan, Wigderson,
+  Alon) is a major achievement of theoretical computer science. Applied machine
+  learning practitioners routinely use Johnson–Lindenstrauss projections and
+  randomized SVD without knowing the combinatorial probabilistic method foundations.
+last_reviewed: "2026-05-06"
+references:
+  - note: Alon & Spencer (2016) The Probabilistic Method, 4th ed. Wiley
+  - doi: "10.1090/conm/026/737400"
+    note: Johnson & Lindenstrauss (1984) Extensions of Lipschitz maps into a Hilbert space. Contemp Math 26:189
+  - note: Motwani & Raghavan (1995) Randomized Algorithms. Cambridge University Press
+  - doi: "10.1007/BF02579385"
+    note: Raghavan & Thompson (1987) Randomized rounding. Combinatorica 7:365
