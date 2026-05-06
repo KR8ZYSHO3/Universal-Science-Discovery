@@ -1,0 +1,47 @@
+id: h-quantum-annealing-qaoa-comparison
+title: >
+  Quantum annealing outperforms QAOA for dense, frustrated Ising problems when the
+  tunneling schedule can be calibrated to the problem's spectral gap, but QAOA surpasses
+  quantum annealing for sparse graph problems where shallow circuits avoid decoherence
+  before the annealing gap closes.
+status: active
+created: "2026-05-06"
+last_updated: "2026-05-06"
+priority: high
+unknowns_addressed:
+  - u-quantum-annealing-qaoa-comparison
+related_disciplines:
+  - quantum-computing
+  - computer-science
+  - physics
+  - combinatorial-optimisation
+evidence_links:
+  - type: supporting
+    doi: 10.1103/PhysRevX.6.031015
+    note: >
+      Boixo et al. (2016) — evidence that D-Wave 2000Q exhibits quantum tunneling
+      signatures in dense random Ising instances; comparison to classical SA.
+  - type: related
+    arxiv: "1411.4028"
+    note: >
+      Farhi et al. (2014) — original QAOA paper; performance guarantees for MaxCut
+      on 3-regular graphs outperform simple classical algorithms at p=1.
+  - type: contradicting
+    doi: 10.1038/s41534-021-00425-w
+    note: >
+      Albash & Lidar (2018) review — quantum annealing on D-Wave does not reliably
+      outperform classical simulated annealing on tested benchmark sets.
+proposed_tests:
+  - discipline: quantum-computing
+    description: >
+      Benchmark D-Wave Advantage against QAOA (p=3-10) on a structured test suite:
+      (a) dense random 3D spin glass (annealing advantage expected), (b) sparse
+      random 3-regular MaxCut (QAOA advantage expected), (c) portfolio optimisation
+      (mixed). Measure time-to-solution at fixed success probability 0.99.
+      The hypothesis predicts a crossover in the density-sparsity plane.
+  - discipline: physics
+    description: >
+      Compute the minimum spectral gap Δ_min of both problem classes via exact
+      diagonalisation for N≤20. Test whether the ratio of tunneling amplitude Γ
+      at the optimal annealing time to Δ_min predicts the ordering of methods
+      across problem families.

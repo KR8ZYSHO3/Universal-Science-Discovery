@@ -1,0 +1,61 @@
+id: b-integrate-fire-stochastic-processes
+title: >
+  The leaky integrate-and-fire neuron with noisy input is an Ornstein-Uhlenbeck process,
+  making neural firing rate prediction equivalent to the first-passage time problem in
+  stochastic physics.
+status: established
+fields:
+  - neuroscience
+  - physics
+  - mathematics
+bridge_claim: >
+  The leaky integrate-and-fire (LIF) neuron model, τ_m dV/dt = −(V − V_rest) + RI(t),
+  with stochastic input I(t) = μ + σξ(t) (white noise), is exactly the Ornstein-Uhlenbeck
+  (OU) process from stochastic physics. The membrane potential V(t) performs mean-reverting
+  Brownian motion toward V_rest with noise proportional to σ. The neuron fires when V
+  crosses threshold V_th — a first-passage time problem. The interspike interval (ISI)
+  distribution is the first-passage time distribution of an OU process, analytically
+  computable via the Fokker-Planck equation. Population dynamics of N LIF neurons is
+  a Fokker-Planck PDE in voltage space, equivalent to kinetic theory for interacting
+  particles. This maps the central problem of computational neuroscience (firing rate
+  prediction) onto a solved problem in stochastic physics.
+translation_table:
+  - field_a_term: membrane time constant τ_m
+    field_b_term: OU mean-reversion rate (friction)
+    note: Determines how quickly voltage decays to rest without input
+  - field_a_term: threshold crossing
+    field_b_term: first-passage time to absorbing barrier
+    note: Neural firing = first time OU process hits threshold V_th
+  - field_a_term: interspike interval distribution
+    field_b_term: first-passage time distribution of OU process
+    note: Analytically tractable via Fokker-Planck; ISI mean and variance predictable
+  - field_a_term: population density equation (neural mass model)
+    field_b_term: Fokker-Planck PDE
+    note: Continuity equation in voltage space; describes population dynamics of LIF networks
+related_unknowns:
+  - u-decision-fatigue-neural
+related_hypotheses:
+  - h-lif-decision-fatigue-ornstein-uhlenbeck
+cross_pollination_opportunities:
+  - >
+    Bayesian brain hypothesis: the LIF-OU equivalence supports the Bayesian brain
+    hypothesis — optimal inference under uncertainty requires a prior (mean V_rest)
+    and likelihood (input current). The OU process is the optimal filter for a
+    noisy signal with known mean; the brain may be implementing approximate Bayesian
+    inference in each neuron.
+  - >
+    Neural coding efficiency: first-passage time statistics of the OU process predict
+    the optimal coding strategy (inter-spike interval code vs. rate code) as a function
+    of signal-to-noise ratio, providing a physical basis for neural code selection.
+communication_gap: >
+  Computational neuroscience and stochastic physics use different notation and journals.
+  The Fokker-Planck/Ornstein-Uhlenbeck connection to LIF models is known in theoretical
+  neuroscience (Brunel 2000) but not widely taught in neuroscience graduate programs,
+  where biophysics courses rarely cover stochastic differential equations.
+last_reviewed: "2026-05-06"
+references:
+  - note: "Lapicque, L. (1907). Recherches quantitatives sur l'excitation électrique des nerfs traitée comme une polarisation. J Physiol Pathol Gen 9:620."
+  - note: "Tuckwell, H.C. (1988). Introduction to Theoretical Neurobiology (Vol. 2). Cambridge University Press."
+  - note: "Ricciardi, L.M. (1977). Diffusion Processes and Related Topics in Biology. Springer."
+  - doi: 10.1023/A:1008925309027
+    note: "Brunel, N. (2000). Dynamics of sparsely connected networks of excitatory and inhibitory spiking neurons. J Comput Neurosci 8:183."

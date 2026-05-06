@@ -1,0 +1,64 @@
+id: b-quantum-annealing-optimization
+title: >
+  Quantum annealing exploits quantum tunneling to escape optimisation local minima,
+  mapping NP-hard combinatorial problems onto Ising Hamiltonians solved by adiabatic
+  quantum evolution.
+status: proposed
+fields:
+  - physics
+  - computer-science
+  - mathematics
+bridge_claim: >
+  Quantum annealing (Kadowaki & Nishimori 1998) uses quantum tunneling through energy
+  barriers rather than thermal fluctuations (classical simulated annealing) to find
+  global minima of cost functions. The tunneling amplitude Γ plays the formal role of
+  temperature T: as Γ → 0, the system localises in the ground state. Any NP-hard
+  combinatorial optimisation problem expressible as a Quadratic Unconstrained Binary
+  Optimisation (QUBO) maps directly onto the Ising Hamiltonian H = −Σᵢⱼ Jᵢⱼσᵢσⱼ − Σᵢ hᵢσᵢ.
+  D-Wave superconducting flux qubit processors implement this mapping in hardware.
+  The key question — whether quantum tunneling provides genuine advantage over classical
+  algorithms — bridges theoretical computer science (complexity theory) and condensed
+  matter physics (quantum phase transitions at the minimum spectral gap).
+translation_table:
+  - field_a_term: tunneling amplitude Γ
+    field_b_term: temperature T in simulated annealing
+    note: Both drive escape from local minima; quantum tunneling is exponentially faster through thin barriers
+  - field_a_term: Ising Hamiltonian ground state
+    field_b_term: optimal solution of combinatorial problem
+    note: Problem variables map to spin-1/2 degrees of freedom; interaction strengths encode cost function
+  - field_a_term: quantum phase transition at minimum spectral gap
+    field_b_term: algorithmic hardness bottleneck
+    note: First-order QPT (avoided level crossing) creates exponentially small gap; annealing fails
+  - field_a_term: adiabatic theorem condition
+    field_b_term: time complexity requirement
+    note: Annealing time must scale as 1/Δ_min²; if gap exponentially small, QA provides no speedup
+related_unknowns:
+  - u-quantum-annealing-qaoa-comparison
+related_hypotheses:
+  - h-quantum-annealing-qaoa-comparison
+cross_pollination_opportunities:
+  - >
+    Portfolio optimisation and risk management: financial optimisation (Markowitz
+    portfolio, risk-return tradeoff) maps naturally onto QUBO. Testing quantum annealing
+    on structured financial optimisation problems would bridge quantitative finance
+    with quantum hardware benchmarking.
+  - >
+    Drug discovery conformational search: protein folding lattice models and molecular
+    docking problems are QUBO-expressible. Using D-Wave to solve these problems would
+    test whether quantum tunneling provides practical speedup for biophysical applications.
+communication_gap: >
+  Quantum physics and computer science have different communities. Theoretical computer
+  scientists focus on worst-case complexity; physicists focus on typical-case behaviour.
+  The question of quantum speedup requires language from both communities (complexity
+  classes from CS, spectral gap theory from physics), which is rarely taught across
+  the disciplinary boundary.
+last_reviewed: "2026-05-06"
+references:
+  - doi: 10.1103/PhysRevE.58.5355
+    note: "Kadowaki, T. & Nishimori, H. (1998). Quantum annealing in the transverse Ising model. Phys Rev E 58:5355."
+  - arxiv: "quant-ph/0001106"
+    note: "Farhi, E. et al. (2000). Quantum computation by adiabatic evolution."
+  - doi: 10.1038/nature10012
+    note: "Johnson, M.W. et al. (2011). Quantum annealing with manufactured spins. Nature 473:194."
+  - doi: 10.3389/fphy.2014.00005
+    note: "Lucas, A. (2014). Ising formulations of many NP problems. Front Phys 2:5."
