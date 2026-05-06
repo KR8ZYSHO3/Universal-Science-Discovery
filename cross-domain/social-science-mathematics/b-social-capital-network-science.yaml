@@ -1,0 +1,152 @@
+id: b-social-capital-network-science
+title: >
+  Granovetter's "strength of weak ties" and Burt's structural holes in
+  social capital theory are precisely identified with bridge edges and
+  high-betweenness-centrality nodes in graph theory: social capital
+  reduces to computable network topology, and the Erdős-Rényi giant
+  component transition predicts the critical network density for
+  information to spread society-wide.
+status: established
+fields:
+  - social-science
+  - sociology
+  - graph-theory
+  - network-science
+  - economics
+bridge_claim: >
+  Social capital theory (Granovetter 1973, Burt 1992, Coleman 1988)
+  asserts that an individual's social position determines their access to
+  information, resources, and opportunities. Network science provides
+  exact mathematical translations of these sociological concepts:
+
+  1. WEAK TIES = BRIDGE EDGES: Granovetter's (1973) central claim is that
+     weak ties (acquaintances, as opposed to close friends) are more
+     valuable for finding jobs and spreading information than strong ties.
+     The graph-theoretic translation is precise: an edge (u,v) is a
+     "bridge" (or "local bridge") if its removal increases the shortest
+     path length between u and v. Bridge edges are almost always weak
+     ties because strong ties cluster within dense cliques, while bridges
+     span across sparsely connected communities. The "strength of weak
+     ties" is exactly the high betweenness centrality of bridge edges.
+
+  2. STRUCTURAL HOLES = BETWEENNESS CENTRALITY: Burt's (1992) structural
+     holes are gaps in a network that a "broker" node can span — the
+     broker is the unique information conduit between two otherwise
+     disconnected groups. This is precisely the definition of a high-
+     betweenness-centrality node: B(v) = Σ_{s≠v≠t} σ_{st}(v) / σ_{st},
+     where σ_{st} is the number of shortest paths from s to t, and
+     σ_{st}(v) the number passing through v. Burt's "constraint" measure
+     (C_i = Σ_j (p_{ij} + Σ_q p_{iq}p_{qj})²) is algebraically related
+     to the inverse of local betweenness centrality.
+
+  3. EIGENVECTOR CENTRALITY = SOCIAL CAPITAL STOCK: Coleman's (1988)
+     social capital is the aggregate value of social connections. The
+     eigenvector centrality (PageRank) of a node v — the eigenvector
+     of the adjacency matrix corresponding to the largest eigenvalue —
+     captures exactly this: a node is influential if it is connected to
+     other influential nodes. Google's PageRank is eigenvector centrality
+     on the web graph; social capital is PageRank on the social network.
+
+  4. GIANT COMPONENT TRANSITION: Erdős & Rényi (1960) proved that in
+     a random graph G(n,p), a giant connected component (containing
+     O(n) nodes) emerges when the mean degree ⟨k⟩ = np crosses 1.
+     The critical threshold p_c = 1/n (or equivalently ⟨k⟩_c = 1)
+     is a second-order phase transition. In social network terms: below
+     the threshold, society is fragmented into small isolated groups and
+     information cannot spread widely; above the threshold, a single
+     connected giant component allows society-wide information diffusion.
+     This predicts the minimum social network density for rumours, norms,
+     or innovation to reach critical mass.
+
+  5. SCALE-FREE NETWORKS AND PREFERENTIAL ATTACHMENT: Real social networks
+     (and the internet) are not Erdős-Rényi random graphs — they have
+     power-law degree distributions P(k) ∝ k^{-γ} with γ ≈ 2-3
+     (Barabási & Albert 1999). In such scale-free networks, highly
+     connected "hubs" (celebrities, influencers) disproportionately
+     determine information flow, and the giant component exists even
+     at vanishingly small average degree. This explains why a single
+     influential node can trigger a "viral" cascade in sparse networks.
+
+  6. CLUSTERING COEFFICIENT = SOCIAL CLOSURE: Coleman's (1988) "closure"
+     — the tendency of two friends' mutual friends to be friends with
+     each other — is quantified by the clustering coefficient
+     C_v = (triangles around v) / (possible triangles around v).
+     High clustering = strong social closure = dense cliques. The
+     tension between high clustering (strong-tie cliques) and low
+     clustering bridge nodes (Granovetter's weak ties) is the small-world
+     property (Watts & Strogatz 1998): high clustering + short path
+     lengths simultaneously.
+translation_table:
+  - field_a_term: "Weak tie (acquaintance relationship)"
+    field_b_term: "Bridge edge or local bridge in graph theory"
+    note: "Edges with high edge betweenness are almost always weak ties; bridges cross community boundaries"
+  - field_a_term: "Structural hole (gap spanned by broker)"
+    field_b_term: "High vertex betweenness centrality B(v)"
+    note: "A node spanning structural holes has many shortest paths passing through it"
+  - field_a_term: "Burt's network constraint C_i"
+    field_b_term: "Inverse of local betweenness / redundancy of contacts"
+    note: "High constraint = contacts are densely interconnected = no structural holes = low social capital"
+  - field_a_term: "Social capital stock (Coleman)"
+    field_b_term: "Eigenvector centrality / PageRank"
+    note: "Influence propagates multiplicatively through the network; eigenvector centrality captures recursive influence"
+  - field_a_term: "Critical network density for information spread"
+    field_b_term: "Erdős-Rényi giant component threshold p_c = 1/n (⟨k⟩ = 1)"
+    note: "Below threshold: fragmented society; above: connected giant component enables global diffusion"
+  - field_a_term: "Social closure (Coleman 1988)"
+    field_b_term: "Clustering coefficient C_v"
+    note: "Dense cliques = high clustering = social closure; facilitates trust and norm enforcement"
+  - field_a_term: "Scale-free social network (hubs, influencers)"
+    field_b_term: "Power-law degree distribution P(k) ∝ k^{-γ}"
+    note: "Preferential attachment (the rich get richer) generates hubs analogous to celebrity influencers"
+related_unknowns:
+  - u-structural-holes-empirical-betweenness-correlation
+related_hypotheses:
+  - h-social-capital-eigenvector-centrality-income
+cross_pollination_opportunities:
+  - >
+    Burt's structural holes theory predicts that high-betweenness brokers
+    earn higher incomes (Burt 2004 showed this for managers). Testing this
+    hypothesis using LinkedIn network data mapped to official salary surveys
+    would quantify the income premium per unit of betweenness centrality —
+    making social capital a numerically measurable economic quantity for
+    the first time at large scale.
+  - >
+    The Erdős-Rényi phase transition predicts that opinion cascades and
+    information epidemics require ⟨k⟩ > 1 to spread. Social media
+    algorithms that inflate effective degree (recommendation algorithms)
+    push networks above this threshold artificially. A quantitative model
+    of algorithm-induced ⟨k⟩ inflation and its effect on the giant-
+    component size would connect network theory to platform governance
+    policy.
+  - >
+    In scale-free networks, targeted immunisation (vaccinating hubs) is
+    dramatically more efficient than random immunisation (Pastor-Satorras
+    & Vespignani 2002). The same strategy should apply to social network
+    interventions: targeting high-betweenness brokers (structural holes)
+    with health or norm-change messages should produce faster cascade
+    than random targeting. This is a directly testable public health
+    hypothesis from network science.
+communication_gap: >
+  Granovetter (1973) and Burt (1992) developed social capital theory in
+  the sociology literature using graph-theoretic language informally but
+  without formal graph theory. Erdős and Rényi worked in pure mathematics
+  completely disconnected from social science. Barabási & Albert (1999)
+  explicitly noted the social network application of scale-free graphs,
+  but the sociological literature absorbed network science tools slowly.
+  The precise algebraic equivalences between sociological concepts (closure,
+  structural holes, weak ties) and graph-theoretic quantities (clustering
+  coefficient, betweenness, bridge edges) are now textbook material in
+  computational social science but remain unknown to most empirical
+  sociologists who use social capital as a qualitative concept.
+last_reviewed: "2026-05-05"
+references:
+  - doi: "10.1086/225469"
+    note: "Granovetter (1973) Am J Soc 78:1360 — The strength of weak ties; foundational social capital theory"
+  - note: "Burt (1992) Structural Holes: The Social Structure of Competition (Harvard UP) — structural holes and competitive advantage"
+    url: "https://www.hup.harvard.edu/catalog.php?isbn=9780674843714"
+  - doi: "10.1126/science.286.5439.509"
+    note: "Barabási & Albert (1999) Science 286:509 — emergence of scaling in random networks; preferential attachment"
+  - note: "Erdős & Rényi (1960) Publ Math Inst Hung Acad Sci 5:17 — on the evolution of random graphs; giant component phase transition"
+    url: "https://www.renyi.hu/~p_erdos/1960-10.pdf"
+  - doi: "10.1038/30918"
+    note: "Watts & Strogatz (1998) Nature 393:440 — collective dynamics of small-world networks; clustering coefficient"

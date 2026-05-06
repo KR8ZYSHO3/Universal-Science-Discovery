@@ -1,0 +1,150 @@
+id: b-phenological-mismatch-synchrony
+title: >
+  Climate-driven phenological mismatch in ecological systems is
+  mathematically equivalent to phase desynchronisation between coupled
+  oscillators: the Kuramoto model of coupled biological clocks predicts
+  the critical climate-sensitivity differential at which trophic
+  synchrony breaks down, and observed mismatch data follow the
+  predicted phase-lag scaling.
+status: established
+fields:
+  - climate-science
+  - ecology
+  - evolutionary-biology
+  - dynamical-systems
+  - population-biology
+bridge_claim: >
+  Phenological synchrony — the match between an organism's life-history
+  events (migration, egg-laying, flowering, caterpillar emergence) and
+  the seasonal peak of its food resource — is a prerequisite for fitness
+  in many species. Climate change shifts these peaks differentially:
+  species with different "climate sensitivities" (dT_event/dT_spring)
+  advance at different rates, generating a mismatch.
+
+  The Kuramoto model of coupled phase oscillators provides the
+  mathematical framework:
+    dφ_i/dt = ω_i + (K/N) Σ_j sin(φ_j - φ_i) + η_i
+  where φ_i is the phase of oscillator i (organism i's phenological
+  timing), ω_i its natural frequency, K the coupling strength, and η_i
+  noise. The synchrony order parameter r = |⟨e^{iφ}⟩| transitions from
+  r ≈ 1 (locked) to r ≈ 0 (desynchronised) when the spread in natural
+  frequencies Δω exceeds the coupling threshold K_c ∝ K/√(Δω).
+
+  THE ECOLOGICAL TRANSLATION:
+
+  1. DIFFERENTIAL CLIMATE SENSITIVITY AS FREQUENCY SPREAD: The "natural
+     frequency" ω_i of each species in the Kuramoto model corresponds to
+     its rate of phenological advance per degree of spring warming
+     (dDOY/dT, where DOY = day of year of the life-history event). If
+     predator and prey have different dDOY/dT values, their phases
+     diverge — exactly as Kuramoto oscillators with different ω_i
+     desynchronise when coupling is insufficient.
+
+  2. TROPHIC INTERACTION AS COUPLING: The fitness cost of mismatch
+     (reduced reproductive success when egg-laying date diverges from
+     caterpillar peak) provides the coupling K in the Kuramoto model.
+     Strong trophic dependence = strong coupling = higher resistance to
+     desynchronisation. Both et al. (2006) showed that great tits
+     (Parus major) and winter moth caterpillars are decoupling in the
+     Netherlands as spring warming accelerates: K is insufficient given
+     the Δω between the species.
+
+  3. CROSS-CORRELATION AS PHASE DETECTION: The mismatch between two
+     phenological time series x_1(t) (egg-laying date) and x_2(t)
+     (caterpillar peak) is measured by the cross-correlation at lag τ:
+     C(τ) = ⟨x_1(t) x_2(t+τ)⟩ / (σ_1 σ_2). The optimal synchrony
+     is C(0) = 1; mismatch is quantified by the lag τ* at which C(τ)
+     peaks. This is the standard phase-difference measurement for
+     coupled oscillators.
+
+  4. COHERENCE SPECTRUM: The frequency-domain coherence C(ω) between
+     phenological time series can identify the dominant forcing periods
+     (annual cycle, ENSO, NAO) and quantify how much variance each
+     species' timing shares with the climate driver. Species with low
+     coherence at the annual forcing frequency are less tightly entrained
+     to climate — equivalent to oscillators far from the forcing frequency.
+
+  5. CRITICAL MISMATCH WINDOW: Each trophic interaction has a "match
+     window" W — the number of days within which timing must coincide
+     for fitness benefit. This window width W ∝ 1/K in the Kuramoto
+     framework. Renner & Zohner (2018) reviewed 10,000+ phenological
+     datasets and found that predator-prey pairs have narrower match
+     windows than mutualists, consistent with the coupling-strength
+     prediction.
+
+  FORECASTING: The Kuramoto framework allows forecasting of mismatch
+  under climate scenarios: given the climate sensitivities dDOY/dT for
+  each species and their trophic coupling strengths, predict the critical
+  warming level at which synchrony collapses (the Kuramoto phase
+  transition). Visser & Both (2005) estimated this threshold for
+  temperate insectivorous birds at ~2-4°C above pre-industrial.
+translation_table:
+  - field_a_term: "Phase φ_i of oscillator i"
+    field_b_term: "Day-of-year of phenological event for species i (DOY_i)"
+    note: "The calendar date of egg-laying, flowering, or emergence is the biological 'phase'"
+  - field_a_term: "Natural frequency ω_i"
+    field_b_term: "Climate sensitivity of species i (dDOY/dT_spring)"
+    note: "How many days earlier per degree of spring warming the species advances its timing"
+  - field_a_term: "Coupling constant K between oscillator pair (i,j)"
+    field_b_term: "Trophic dependence strength between species i and j"
+    note: "Strong predator-prey dependence = strong phase-locking; weak mutualism = weak coupling"
+  - field_a_term: "Frequency mismatch Δω = |ω_i - ω_j|"
+    field_b_term: "Differential climate sensitivity between trophically linked species"
+    note: "Large Δω (species respond very differently to warming) → mismatch, even with coupling"
+  - field_a_term: "Kuramoto synchrony order parameter r = |⟨e^{iφ}⟩|"
+    field_b_term: "Population-level phenological overlap between consumer and resource"
+    note: "r = 1 means perfect synchrony; r → 0 means complete mismatch across the population"
+  - field_a_term: "Phase transition at critical coupling K_c"
+    field_b_term: "Critical warming threshold for synchrony collapse"
+    note: "When climate sensitivity differential exceeds trophic coupling, synchrony breaks down"
+  - field_a_term: "Cross-correlation at lag τ"
+    field_b_term: "Phenological mismatch measured in days"
+    note: "The lag τ* that maximises C(τ) is the observed mismatch between timing series"
+related_unknowns:
+  - u-kuramoto-mismatch-critical-warming-threshold
+related_hypotheses:
+  - h-phenological-synchrony-kuramoto-phase-transition
+cross_pollination_opportunities:
+  - >
+    The Kuramoto model has been extensively studied in neuroscience
+    (neural synchrony, gamma oscillations) and in power-grid engineering
+    (frequency synchronisation). The mathematical tools developed in
+    those fields — mean-field approximations, noise-driven transitions,
+    network topology effects on synchronisation — are directly applicable
+    to phenological networks and have not been systematically imported.
+  - >
+    Long-term phenological datasets (European phenology networks, USA-NPN)
+    now span 50+ years. Fitting Kuramoto parameters (ω_i, K_{ij}) to
+    these time series and validating predictions against independent
+    climate projections would provide the first quantitative test of
+    whether ecological synchrony follows Kuramoto dynamics. This is
+    feasible with existing data.
+  - >
+    Network effects in the Kuramoto model are known: scale-free networks
+    synchronise more easily than random networks (Barabási hub nodes act
+    as pacemakers). Food webs are known to have hub species. Predicting
+    which food-web hubs are "phenological pacemakers" whose timing shifts
+    cascade through the network could identify priority species for
+    conservation intervention.
+communication_gap: >
+  Ecologists studying phenological mismatch and dynamical systems
+  physicists studying coupled oscillators work in separate literature
+  streams. The cross-correlation and coherence methods used in phenology
+  are standard signal-processing tools but are not connected to Kuramoto
+  theory in ecology papers. The Kuramoto model is applied extensively
+  in neuroscience and engineering but ecologists are largely unaware of
+  it. Visser & Both (2005) framed mismatch in terms of linear regression
+  on climate sensitivity without the phase-oscillator formalism that
+  would make the predictions quantitatively rigorous.
+last_reviewed: "2026-05-05"
+references:
+  - doi: "10.1098/rspb.2005.3023"
+    note: "Visser & Both (2005) Proc R Soc B 272:2561 — shifts in phenology; time-as-a-resource mismatch framework"
+  - doi: "10.1038/nature04645"
+    note: "Both et al. (2006) Nature 441:81 — climate change and population declines in long-distance migratory birds"
+  - doi: "10.1146/annurev-ecolsys-110617-062535"
+    note: "Renner & Zohner (2018) Annu Rev Ecol Evol Syst — climate change and phenological mismatch in trophic interactions"
+  - doi: "10.1143/PTP.76.576"
+    note: "Kuramoto (1984) Chemical Oscillations, Waves and Turbulence — original Kuramoto phase model"
+  - doi: "10.1103/RevModPhys.77.137"
+    note: "Acebrón et al. (2005) Rev Mod Phys 77:137 — comprehensive review of the Kuramoto model"

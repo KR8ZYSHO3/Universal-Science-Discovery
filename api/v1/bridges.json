@@ -1,5 +1,5 @@
 {
-  "count": 74,
+  "count": 84,
   "items": [
     {
       "id": "b-grokking-criticality",
@@ -686,6 +686,80 @@
       "file": "cross-domain\\biology-astrobiology\\b-lichen-astrobiology.yaml"
     },
     {
+      "id": "b-dna-digital-error-correcting-code",
+      "title": "The genetic code is a near-optimal digital error-correcting code: codon degeneracy implements a natural parity-check scheme that minimises the chemical impact of single-base mutations, and the 64-codon/20-amino-acid mapping operates near the Shannon capacity of the DNA replication channel.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Shannon's channel coding theorem (1948) establishes that for any noisy channel with capacity C = B log₂(1 + SNR), there exist codes that transmit information with arbitrarily small error probability at rates below C. The genetic code — the mapping from 64 codons (triplets of the four DNA bases A, T,",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-genetic-code-near-optimal-error-correction"
+      ],
+      "communication_gap": "Molecular biologists who study the genetic code are generally not trained in Shannon information theory or algebraic coding theory. Coding theorists are unaware that the genetic code is a solved real- world instance of their design problem, optimised over billions of years. Freeland & Hurst (1998) made the connection accessible, but the result is treated as a curiosity rather than an entry point for rigorous coding-theoretic analysis in the biology literature. The quantitative channel-capacity framing (Itzkovitz & Alon 2007) remains almost entirely within the bioinformatics community.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Channel capacity C = B log₂(1 + SNR)",
+          "field_b_term": "Maximum information throughput of the DNA replication machinery",
+          "note": "Noise source = polymerase error rate; bandwidth = genome size × replication rate"
+        },
+        {
+          "field_a_term": "Codeword (binary string of length n)",
+          "field_b_term": "Codon (nucleotide triplet from {A, U, G, C}^3)",
+          "note": "64 = 4^3 possible codewords; quaternary rather than binary alphabet"
+        },
+        {
+          "field_a_term": "Minimum Hamming distance d_min of a code",
+          "field_b_term": "Minimum number of base changes needed to convert one amino acid codon to another",
+          "note": "d_min ≥ 2 at the amino-acid level for the natural code under single-base substitution"
+        },
+        {
+          "field_a_term": "Parity-check matrix H",
+          "field_b_term": "Synonymous codon degeneracy pattern (the wobble rules)",
+          "note": "Wobble position (third base) encodes redundancy analogous to a parity bit"
+        },
+        {
+          "field_a_term": "Decoding error (bit-flip)",
+          "field_b_term": "Non-synonymous mutation (amino acid change)",
+          "note": "Both are the error event the code is designed to minimise"
+        },
+        {
+          "field_a_term": "Frame synchronisation signal",
+          "field_b_term": "Stop codons UAA, UAG, UGA",
+          "note": "Stop codons truncate misframed reading, analogous to re-synchronising a data stream"
+        },
+        {
+          "field_a_term": "Code rate R = k/n",
+          "field_b_term": "Information content per codon = log₂(20)/log₂(64) ≈ 0.70",
+          "note": "The genetic code has effective rate 0.70 — well below the quaternary channel capacity, allowing redundancy"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1007/PL00006310",
+          "note": "Freeland & Hurst (1998) J Mol Evol 47:238 — the genetic code is one in a million: near-optimal error minimisation"
+        },
+        {
+          "doi": "10.1101/gr.5947507",
+          "note": "Itzkovitz & Alon (2007) Genome Res 17:405 — the genetic code is nearly optimal for allowing additional information within protein-coding sequences"
+        },
+        {
+          "note": "Shannon (1948) Bell Syst Tech J 27:379 — A Mathematical Theory of Communication",
+          "url": "https://doi.org/10.1002/j.1538-7305.1948.tb01338.x"
+        },
+        {
+          "doi": "10.1093/oxfordjournals.molbev.a025952",
+          "note": "Sella & Ardell (2006) — the coevolution of genes and genetic codes; evolutionary optimisation of the code"
+        },
+        {
+          "doi": "10.1093/bioinformatics/btg1019",
+          "note": "Gilis et al. (2001) — optimization of the genetic code: the amino acid polar requirement and the origin of life"
+        }
+      ],
+      "last_reviewed": "2026-05-05",
+      "file": "cross-domain\\biology-information\\b-dna-digital-error-correcting-code.yaml"
+    },
+    {
       "id": "b-glymphatic-aging",
       "title": "The glymphatic system — studied separately in sleep medicine, neurology, and geroscience — is a single cross-cutting mechanism linking sleep quality, amyloid clearance, and brain aging rate.\n",
       "source_domain": "",
@@ -803,6 +877,80 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\climate-medicine\\b-climate-tipping-health.yaml"
+    },
+    {
+      "id": "b-phenological-mismatch-synchrony",
+      "title": "Climate-driven phenological mismatch in ecological systems is mathematically equivalent to phase desynchronisation between coupled oscillators: the Kuramoto model of coupled biological clocks predicts the critical climate-sensitivity differential at which trophic synchrony breaks down, and observed mismatch data follow the predicted phase-lag scaling.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Phenological synchrony — the match between an organism's life-history events (migration, egg-laying, flowering, caterpillar emergence) and the seasonal peak of its food resource — is a prerequisite for fitness in many species. Climate change shifts these peaks differentially: species with different ",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-phenological-synchrony-kuramoto-phase-transition"
+      ],
+      "communication_gap": "Ecologists studying phenological mismatch and dynamical systems physicists studying coupled oscillators work in separate literature streams. The cross-correlation and coherence methods used in phenology are standard signal-processing tools but are not connected to Kuramoto theory in ecology papers. The Kuramoto model is applied extensively in neuroscience and engineering but ecologists are largely unaware of it. Visser & Both (2005) framed mismatch in terms of linear regression on climate sensitivity without the phase-oscillator formalism that would make the predictions quantitatively rigorous.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Phase φ_i of oscillator i",
+          "field_b_term": "Day-of-year of phenological event for species i (DOY_i)",
+          "note": "The calendar date of egg-laying, flowering, or emergence is the biological 'phase'"
+        },
+        {
+          "field_a_term": "Natural frequency ω_i",
+          "field_b_term": "Climate sensitivity of species i (dDOY/dT_spring)",
+          "note": "How many days earlier per degree of spring warming the species advances its timing"
+        },
+        {
+          "field_a_term": "Coupling constant K between oscillator pair (i,j)",
+          "field_b_term": "Trophic dependence strength between species i and j",
+          "note": "Strong predator-prey dependence = strong phase-locking; weak mutualism = weak coupling"
+        },
+        {
+          "field_a_term": "Frequency mismatch Δω = |ω_i - ω_j|",
+          "field_b_term": "Differential climate sensitivity between trophically linked species",
+          "note": "Large Δω (species respond very differently to warming) → mismatch, even with coupling"
+        },
+        {
+          "field_a_term": "Kuramoto synchrony order parameter r = |⟨e^{iφ}⟩|",
+          "field_b_term": "Population-level phenological overlap between consumer and resource",
+          "note": "r = 1 means perfect synchrony; r → 0 means complete mismatch across the population"
+        },
+        {
+          "field_a_term": "Phase transition at critical coupling K_c",
+          "field_b_term": "Critical warming threshold for synchrony collapse",
+          "note": "When climate sensitivity differential exceeds trophic coupling, synchrony breaks down"
+        },
+        {
+          "field_a_term": "Cross-correlation at lag τ",
+          "field_b_term": "Phenological mismatch measured in days",
+          "note": "The lag τ* that maximises C(τ) is the observed mismatch between timing series"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1098/rspb.2005.3023",
+          "note": "Visser & Both (2005) Proc R Soc B 272:2561 — shifts in phenology; time-as-a-resource mismatch framework"
+        },
+        {
+          "doi": "10.1038/nature04645",
+          "note": "Both et al. (2006) Nature 441:81 — climate change and population declines in long-distance migratory birds"
+        },
+        {
+          "doi": "10.1146/annurev-ecolsys-110617-062535",
+          "note": "Renner & Zohner (2018) Annu Rev Ecol Evol Syst — climate change and phenological mismatch in trophic interactions"
+        },
+        {
+          "doi": "10.1143/PTP.76.576",
+          "note": "Kuramoto (1984) Chemical Oscillations, Waves and Turbulence — original Kuramoto phase model"
+        },
+        {
+          "doi": "10.1103/RevModPhys.77.137",
+          "note": "Acebrón et al. (2005) Rev Mod Phys 77:137 — comprehensive review of the Kuramoto model"
+        }
+      ],
+      "last_reviewed": "2026-05-05",
+      "file": "cross-domain\\climate-science-biology\\b-phenological-mismatch-synchrony.yaml"
     },
     {
       "id": "b-carbon-pricing-pigouvian",
@@ -1009,6 +1157,80 @@
       "file": "cross-domain\\cosmology-biology\\b-kibble-zurek-morphogenesis.yaml"
     },
     {
+      "id": "b-commons-game-theory-ostrom",
+      "title": "Hardin's tragedy of the commons is a prisoner's dilemma, and Ostrom's polycentric governance of common-pool resources is formally equivalent to the folk theorem of repeated game theory: communities that interact repeatedly sustain cooperation via conditional punishment strategies, provided the discount factor δ exceeds a critical cooperation threshold.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Hardin (1968) argued that rational individuals sharing a common resource (fishery, pasture, aquifer) will inevitably overexploit it — each user captures the full benefit of increased extraction but shares the cost of depletion. This is a prisoner's dilemma (PD) with the payoff structure:\n  Cooperate",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-ostrom-design-principles-folk-theorem-mapping"
+      ],
+      "communication_gap": "Hardin (1968) wrote for biologists and ecologists without awareness of the formal game theory literature that already described the PD structure he was articulating. Ostrom (1990) developed her framework in political science and institutional economics, citing game theory informally but not deriving the folk theorem connection explicitly. Fudenberg & Maskin (1986) proved the folk theorem in the economics theory literature without reference to CPR governance. Axelrod (1984) connected TFT to cooperation in biology and political science but not explicitly to Ostrom's institutional framework. The complete formal equivalence — Ostrom's design principles = folk theorem conditions — is recognised in mechanism design theory but has not been translated back into ecology and conservation policy.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Prisoner's dilemma one-shot game",
+          "field_b_term": "Tragedy of the commons (Hardin 1968)",
+          "note": "One-shot interaction: defection (overextraction) is dominant strategy; depletion is inevitable"
+        },
+        {
+          "field_a_term": "Discount factor δ (present value of future payoffs)",
+          "field_b_term": "Frequency of interaction / shadow of the future in CPR community",
+          "note": "Long-lived, frequently interacting communities have high δ; transient users have low δ"
+        },
+        {
+          "field_a_term": "Critical cooperation threshold δ_c = (T-R)/(T-P)",
+          "field_b_term": "Minimum community cohesion for sustainable commons governance",
+          "note": "When interactions are frequent enough (δ > δ_c), cooperation is a Nash equilibrium"
+        },
+        {
+          "field_a_term": "Grim-trigger strategy (defect forever after one deviation)",
+          "field_b_term": "Exclusion from the commons for rule violations",
+          "note": "Ostrom's graduated sanctions escalate toward permanent exclusion — the grim trigger"
+        },
+        {
+          "field_a_term": "Tit-for-Tat (TFT) in Axelrod tournaments",
+          "field_b_term": "Reciprocal rule enforcement in CPR institutions",
+          "note": "TFT is the simplest folk-theorem cooperator; reciprocal monitoring enforces TFT socially"
+        },
+        {
+          "field_a_term": "Folk theorem (any feasible payoff for δ > δ_c)",
+          "field_b_term": "Ostrom's design principles (institutions that sustain cooperation)",
+          "note": "Each design principle is an institutional mechanism that ensures δ > δ_c holds"
+        },
+        {
+          "field_a_term": "Evolutionarily stable strategy (ESS) in replicator dynamics",
+          "field_b_term": "Stable CPR governance institution resistant to defector invasion",
+          "note": "Ostrom's long-lived institutions are ESS cooperative equilibria in evolutionary game theory"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1126/science.162.3859.1243",
+          "note": "Hardin (1968) Science 162:1243 — The Tragedy of the Commons; PD structure of resource depletion"
+        },
+        {
+          "note": "Ostrom (1990) Governing the Commons (Cambridge UP) — polycentric governance of CPR; Nobel 2009",
+          "url": "https://doi.org/10.1017/CBO9780511807763"
+        },
+        {
+          "note": "Axelrod (1984) The Evolution of Cooperation (Basic Books) — TFT wins iterated PD; biological and social applications",
+          "url": "https://www.basicbooks.com/titles/robert-axelrod/the-evolution-of-cooperation/9780465005642/"
+        },
+        {
+          "doi": "10.2307/1911307",
+          "note": "Fudenberg & Maskin (1986) Econometrica 54:533 — the folk theorem in repeated games with discounting or incomplete information"
+        },
+        {
+          "doi": "10.1126/science.1200177",
+          "note": "Ostrom (2009) Science 325:419 — a general framework for analyzing sustainability of social-ecological systems (Nobel lecture)"
+        }
+      ],
+      "last_reviewed": "2026-05-05",
+      "file": "cross-domain\\ecology-economics\\b-commons-game-theory-ostrom.yaml"
+    },
+    {
       "id": "b-lotka-volterra-market-dynamics",
       "title": "Predator-prey (Lotka-Volterra) equations from theoretical ecology describe competitive dynamics in markets — incumbent firms vs. disruptive innovators, boom-bust cycles in commodity markets, and niche partitioning among competitors — with species coexistence mapping to Porter's competitive positioning and keystone predators mapping to market regulators.\n",
       "source_domain": "",
@@ -1146,6 +1368,80 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\economics-medicine\\b-inequality-health-gradient.yaml"
+    },
+    {
+      "id": "b-arrows-impossibility-quantum-contextuality",
+      "title": "Arrow's impossibility theorem in social choice theory and the Kochen-Specker theorem in quantum mechanics are structurally identical no-go results: both prove the impossibility of a globally consistent classical assignment — social preference orderings and quantum observable values — when subjected to the same type of coherence constraints.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "proposed",
+      "bridge_claim": "Arrow's impossibility theorem (1951) states that no social welfare function can simultaneously satisfy Pareto efficiency, independence of irrelevant alternatives (IIA), and non-dictatorship for three or more candidates. Formally: there is no map f: L(A)^n → L(A) (where L(A) is the set of preference ",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-contextuality-mechanism-design-classification"
+      ],
+      "communication_gap": "Arrow's theorem is a foundational result in welfare economics and political science, studied in every graduate economics curriculum, but almost entirely without mathematical contact with quantum foundations. The Kochen-Specker theorem is a cornerstone of quantum logic and quantum information, but not taught in social science departments. The sheaf-theoretic unification by Abramsky et al. (2011-2012) exists in the computer science / quantum foundations literature but has had essentially zero uptake in economics or political science. The common obstacle is the unfamiliarity of sheaf cohomology in both communities.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Social welfare function f: L(A)^n → L(A)",
+          "field_b_term": "Global value assignment v: O → ℝ on quantum observables",
+          "note": "Both map local data (individual preferences / measurement contexts) to global structure"
+        },
+        {
+          "field_a_term": "Independence of Irrelevant Alternatives (IIA)",
+          "field_b_term": "Non-contextuality condition",
+          "note": "The value/ranking of {A,B} must not depend on the presence of C in the measurement context / preference agenda"
+        },
+        {
+          "field_a_term": "Pareto efficiency",
+          "field_b_term": "Compatibility with QM probability predictions",
+          "note": "The assignment must be consistent with the given data (votes / Born rule)"
+        },
+        {
+          "field_a_term": "Non-dictatorship",
+          "field_b_term": "No preferred measurement basis / non-signalling",
+          "note": "No single agent / observable dominates the global assignment"
+        },
+        {
+          "field_a_term": "Preference ordering over alternatives A",
+          "field_b_term": "Eigenvalue assignment to observable in context C",
+          "note": "Local consistency is always achievable; impossibility is at the global level"
+        },
+        {
+          "field_a_term": "Global consistent preference order (global section)",
+          "field_b_term": "Non-contextual hidden variable assignment (global section)",
+          "note": "Sheaf-theoretic obstruction to existence is the same cohomological object"
+        },
+        {
+          "field_a_term": "|A| ≥ 3 candidates required for impossibility",
+          "field_b_term": "dim(H) ≥ 3 required for Kochen-Specker theorem",
+          "note": "Below threshold, both results fail — two alternatives / qubit is always classically realisable"
+        }
+      ],
+      "references": [
+        {
+          "note": "Arrow (1951) Social Choice and Individual Values — original impossibility theorem",
+          "url": "https://doi.org/10.2307/2549741"
+        },
+        {
+          "doi": "10.1016/j.tcs.2012.02.028",
+          "note": "Abramsky & Brandenburger (2011) New Foundations for Contextuality — sheaf-theoretic unification of Arrow and KS"
+        },
+        {
+          "doi": "10.1016/S0022-2496(86)80002-2",
+          "note": "Kochen & Specker (1967) J Math Mech 17:59 — the problem of hidden variables in quantum mechanics"
+        },
+        {
+          "arxiv": "1203.1184",
+          "note": "Abramsky & Duncan (2012) — The sheaf-theoretic structure of non-locality and contextuality"
+        },
+        {
+          "doi": "10.1017/S0305004100049052",
+          "note": "Gleason (1957) Measures on the closed subspaces of Hilbert space — basis for KS in probabilistic form"
+        }
+      ],
+      "last_reviewed": "2026-05-05",
+      "file": "cross-domain\\economics-physics\\b-arrows-impossibility-quantum-contextuality.yaml"
     },
     {
       "id": "b-wealth-distribution-statistical-mechanics",
@@ -1419,6 +1715,80 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\engineering-mathematics\\b-control-theory-differential-geometry.yaml"
+    },
+    {
+      "id": "b-plate-tectonics-topology",
+      "title": "Plate tectonic motion on Earth's surface is an exact realisation of the mathematical theory of rigid motions on a sphere: every plate motion is a rotation in SO(3) about an Euler pole, hotspot tracks are geodesics on the rotation manifold, and triple junction stability obeys the Euler characteristic constraint of the 2-sphere.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Euler's fixed-point theorem (1776) states that every orientation- preserving rigid motion of the 2-sphere S² is a rotation about some axis passing through the centre — the Euler pole. McKenzie & Parker (1967) and Morgan (1968) independently recognised that this theorem completely describes plate tec",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-plate-circuit-closure-so3-constraint"
+      ],
+      "communication_gap": "The application of Euler's theorem to tectonics was discovered by geophysicists (McKenzie & Parker 1967, Morgan 1968) who were aware of the theorem but not of the deeper Lie group and fiber bundle structure. Differential geometers and topologists who develop the theory of SO(3) bundles, Lie group statistics, and holonomy are unaware of the tectonic application. Geoscience education introduces Euler poles as a practical tool without the full mathematical context, while pure mathematics courses on Lie groups never mention tectonics.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Euler pole (fixed point of rotation on sphere)",
+          "field_b_term": "Angular velocity vector ω of a tectonic plate",
+          "note": "The direction of ω gives the Euler pole coordinates; |ω| gives rotation rate in °/Myr"
+        },
+        {
+          "field_a_term": "Rotation group SO(3)",
+          "field_b_term": "Space of all tectonic plate configurations on the globe",
+          "note": "Each plate's relative orientation is an element of SO(3); composition = plate circuit closure"
+        },
+        {
+          "field_a_term": "Geodesic on S² (great circle)",
+          "field_b_term": "Transform fault trace on the ocean floor",
+          "note": "Transform faults follow small circles centred on the Euler pole — geodesics in the rotation geometry"
+        },
+        {
+          "field_a_term": "Euler characteristic χ = V - E + F = 2 for S²",
+          "field_b_term": "Constraint on the global plate boundary topology",
+          "note": "Limits the possible numbers and types of triple junctions on Earth's surface"
+        },
+        {
+          "field_a_term": "Lie algebra so(3) (infinitesimal rotations)",
+          "field_b_term": "Instantaneous angular velocity of plate motion",
+          "note": "The angular velocity ω is an element of the Lie algebra; integration gives finite rotation"
+        },
+        {
+          "field_a_term": "Principal fiber bundle over base manifold",
+          "field_b_term": "Full kinematic state of the tectonic plate system over geological time",
+          "note": "Plate topology changes (subduction, ridge jumps) are topological defects in this bundle"
+        },
+        {
+          "field_a_term": "Parallel transport on SO(3)",
+          "field_b_term": "Finite rotation reconstruction from stage poles",
+          "note": "Reconstructing past plate positions = parallel-transporting the rotation along the SO(3) geodesic"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1038/2161276a0",
+          "note": "McKenzie & Parker (1967) Nature 216:1276 — The North Pacific: an example of tectonics on a sphere"
+        },
+        {
+          "doi": "10.1029/JB073i006p01959",
+          "note": "Morgan (1968) J Geophys Res 73:1959 — Rises, trenches, great faults and crustal blocks; Euler pole kinematics"
+        },
+        {
+          "note": "Euler (1776) Novi Commentarii Academiae Scientiarum Petropolitanae 20:189 — Formulae generales pro translatione quacunque corporum rigidorum",
+          "url": "https://scholarlycommons.pacific.edu/euler-works/478/"
+        },
+        {
+          "note": "Cox & Hart (1986) Plate Tectonics: How It Works (Blackwell) — textbook treatment of SO(3) kinematics",
+          "url": "https://www.wiley.com/en-us/Plate+Tectonics%3A+How+It+Works-p-9780865420045"
+        },
+        {
+          "doi": "10.1038/224125a0",
+          "note": "McKenzie & Morgan (1969) Nature 224:125 — Evolution of triple junctions; topological stability analysis"
+        }
+      ],
+      "last_reviewed": "2026-05-05",
+      "file": "cross-domain\\geoscience-mathematics\\b-plate-tectonics-topology.yaml"
     },
     {
       "id": "b-earthquake-self-organized-criticality",
@@ -2045,6 +2415,85 @@
       "file": "cross-domain\\mathematics-biology\\b-turing-reaction-diffusion.yaml"
     },
     {
+      "id": "b-curry-howard-proofs-programs",
+      "title": "The Curry-Howard correspondence proves that propositions in intuitionistic logic are identical to types in typed lambda calculus, and proofs of those propositions are identical to programs of those types — mathematics and computation are the same formal system viewed from two perspectives.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The Curry-Howard isomorphism (independently discovered by Haskell Curry in 1934 for combinatory logic and William Howard in 1969 for natural deduction) establishes an exact correspondence between the syntax of formal logic and the syntax of typed functional programming:\nLOGICAL SIDE             ↔   ",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-homotopy-type-theory-univalence-computation"
+      ],
+      "communication_gap": "The Curry-Howard isomorphism is well-known in programming language theory and type theory, where it has driven decades of research on proof assistants. However, it is almost entirely absent from standard mathematics education, where logic and computation are taught separately. Working mathematicians using proof assistants often do not conceptualise what they are doing as programming; conversely, most software engineers have never heard of the correspondence that underlies the type systems they use daily. The categorical completion (Curry-Howard-Lambek) is understood mainly in theoretical computer science and category theory communities.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Proposition P in intuitionistic logic",
+          "field_b_term": "Type P in typed lambda calculus",
+          "note": "Propositions and types are the same syntactic category; the distinction is only conceptual"
+        },
+        {
+          "field_a_term": "Proof of proposition P",
+          "field_b_term": "Term (program) of type P",
+          "note": "A proof is a program; writing a proof is writing a certified program"
+        },
+        {
+          "field_a_term": "Logical implication A → B",
+          "field_b_term": "Function type A → B",
+          "note": "Modus ponens = function application; introducing → = lambda abstraction"
+        },
+        {
+          "field_a_term": "Conjunction A ∧ B",
+          "field_b_term": "Product type (pair type) A × B",
+          "note": "Proving A and B = constructing a pair (a, b); projections = ∧-elimination"
+        },
+        {
+          "field_a_term": "Disjunction A ∨ B",
+          "field_b_term": "Sum type (tagged union) A + B",
+          "note": "Proving A or B = injecting into the left or right component; case analysis = ∨-elimination"
+        },
+        {
+          "field_a_term": "Cut rule in sequent calculus",
+          "field_b_term": "Let-binding / function application",
+          "note": "Cut elimination = β-reduction; eliminating a lemma = inlining a function call"
+        },
+        {
+          "field_a_term": "Proof normalisation (cut-free proof)",
+          "field_b_term": "β-normal form (fully reduced program)",
+          "note": "Church-Rosser theorem for λ-calculus = confluence of proof normalisation"
+        },
+        {
+          "field_a_term": "Law of excluded middle (P ∨ ¬P)",
+          "field_b_term": "Call/cc (call-with-current-continuation)",
+          "note": "Classical logic corresponds to languages with first-class control flow"
+        }
+      ],
+      "references": [
+        {
+          "note": "Howard (1980) in Seldin & Hindley (eds.) To H.B. Curry: Essays on Combinatory Logic — formulae-as-types correspondence (original 1969 manuscript)",
+          "url": "https://www.cs.cmu.edu/~crary/819-f09/Howard80.pdf"
+        },
+        {
+          "doi": "10.1145/2699407",
+          "note": "Wadler (2015) Comm ACM 58:75 — Propositions as types; accessible survey of the correspondence"
+        },
+        {
+          "note": "Martin-Löf (1984) Intuitionistic Type Theory — dependent types extending Curry-Howard to full mathematics",
+          "url": "https://archive-pml.github.io/martin-lof/pdfs/Bibliopolis-Book-retypeset-1984.pdf"
+        },
+        {
+          "note": "Curry & Feys (1958) Combinatory Logic Vol I — original combinatory logic; implicit Curry-Howard for combinators",
+          "url": "https://doi.org/10.2307/2964755"
+        },
+        {
+          "arxiv": "1308.0514",
+          "note": "Homotopy Type Theory Book (2013) — univalence axiom extending Curry-Howard to homotopy theory"
+        }
+      ],
+      "last_reviewed": "2026-05-05",
+      "file": "cross-domain\\mathematics-computer-science\\b-curry-howard-proofs-programs.yaml"
+    },
+    {
       "id": "b-game-theory-evolution",
       "title": "Nash equilibrium ↔ evolutionary stable strategy: game theory and natural selection are the same optimisation",
       "source_domain": "",
@@ -2245,6 +2694,80 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\mathematics-medicine\\b-topology-disease-progression.yaml"
+    },
+    {
+      "id": "b-radiation-biophysics-let",
+      "title": "The biological effectiveness of ionising radiation — from DNA strand break probability to tumour control — is quantitatively predicted by the Bethe-Bloch stopping power formula: the linear energy transfer (LET) framework bridges quantum electrodynamics track structure to radiobiological effectiveness (RBE) and clinical tumour control probability (TCP) in proton and heavy-ion cancer therapy.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The Bethe-Bloch formula (Bethe 1930, Bloch 1933) gives the mean energy loss per unit path length for a charged particle traversing matter:\n  -dE/dx = (4πe⁴z²N_A Z)/(m_e v² A) × [ln(2m_e v²/I) - ln(1-β²) - β²]\nwhere z is the projectile charge, v its velocity, Z/A the atomic number/mass ratio of the a",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-microdosimetry-dna-cluster-repair-threshold"
+      ],
+      "communication_gap": "The Bethe-Bloch formula is a standard result of quantum electrodynamics and nuclear physics, taught in particle physics courses. Radiation biologists who study DNA damage and cell survival typically have little training in particle physics and use LET as an empirical parameter rather than deriving it from Bethe-Bloch. Radiation oncologists use clinical models (LQ, TCP, NTCP) with no exposure to the underlying track-structure physics. Conversely, physicists developing next- generation particle therapy accelerators rarely engage with the molecular radiobiology literature. The chain from QED to clinical outcome exists but is rarely traversed as a whole.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Stopping power -dE/dx (Bethe-Bloch formula)",
+          "field_b_term": "Linear Energy Transfer LET (keV/μm)",
+          "note": "LET = -dE/dx restricted to local energy deposition; delta-ray cutoff distinguishes LET from stopping power"
+        },
+        {
+          "field_a_term": "Bragg peak (1/v² increase near particle stop)",
+          "field_b_term": "Distal dose peak in clinical proton/carbon therapy",
+          "note": "The Bragg peak allows tumour-localised dose delivery — the primary clinical advantage"
+        },
+        {
+          "field_a_term": "Particle track structure (radial dose profile)",
+          "field_b_term": "Spatial pattern of DNA double-strand breaks",
+          "note": "Dense track core → clustered DSBs → unrepairable lethal lesions at high LET"
+        },
+        {
+          "field_a_term": "Relative biological effectiveness RBE",
+          "field_b_term": "Dose-equivalent biological potency of high-LET vs X-ray",
+          "note": "RBE peaks at LET ≈ 100-200 keV/μm; predicted by TDRA model from track structure"
+        },
+        {
+          "field_a_term": "Linear-quadratic survival model S = exp(-αD - βD²)",
+          "field_b_term": "Tumour cell killing probability as a function of radiation dose",
+          "note": "α/β ratio encodes LET-dependent repair capacity; high LET → α dominates (β → 0)"
+        },
+        {
+          "field_a_term": "Tumour control probability TCP = (1-S)^N",
+          "field_b_term": "Clinical probability of local tumour control",
+          "note": "Links Bethe-Bloch track physics to measurable clinical endpoint"
+        },
+        {
+          "field_a_term": "Normal tissue complication probability NTCP",
+          "field_b_term": "Probability of radiation-induced side effects in healthy organs",
+          "note": "Minimised by exploiting the Bragg peak dose localisation from Bethe-Bloch physics"
+        }
+      ],
+      "references": [
+        {
+          "note": "Bethe (1930) Ann Phys 5:325 — Zur Theorie des Durchgangs schneller Korpuskularstrahlen durch Materie; original stopping power formula",
+          "url": "https://doi.org/10.1002/andp.19303970303"
+        },
+        {
+          "note": "Bloch (1933) Z Phys 81:363 — extension of Bethe formula to high velocities",
+          "url": "https://doi.org/10.1007/BF01344553"
+        },
+        {
+          "doi": "10.1016/S0960-9776(09)70024-4",
+          "note": "Kellerer & Rossi (1972) Curr Top Radiat Res Q 8:85 — Theory of Dual Radiation Action; TDRA model connecting track structure to RBE"
+        },
+        {
+          "note": "ICRU Report 49 (1993) — Stopping Powers and Ranges for Protons and Alpha Particles; authoritative Bethe-Bloch tabulations for medical physics",
+          "url": "https://www.icru.org/report/stopping-powers-and-ranges-for-protons-and-alpha-particles-report-49/"
+        },
+        {
+          "doi": "10.1259/bjr/57185823",
+          "note": "Bentzen & Joiner (2009) in Basic Clinical Radiobiology — linear-quadratic model and clinical fractionation; α/β ratios for tumour and normal tissues"
+        }
+      ],
+      "last_reviewed": "2026-05-05",
+      "file": "cross-domain\\medicine-physics\\b-radiation-biophysics-let.yaml"
     },
     {
       "id": "b-music-physics-resonance",
@@ -2576,6 +3099,80 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\neuroscience-medicine\\b-connectome-neurodegeneration.yaml"
+    },
+    {
+      "id": "b-free-energy-principle-thermodynamics",
+      "title": "Friston's Free Energy Principle in theoretical neuroscience is formally isomorphic to thermodynamic free energy minimisation in statistical mechanics: the KL divergence between approximate and true posterior plays the role of entropy, and active inference (action minimises surprise) is the biological analogue of thermodynamic relaxation toward equilibrium.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "proposed",
+      "bridge_claim": "The thermodynamic free energy in statistical mechanics is F = U - TS, where U is internal energy, T is temperature, and S is entropy. A system at equilibrium minimises F, which is equivalent to maximising entropy subject to energy constraints (the Helmholtz principle).\nFriston's variational free ene",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-active-inference-thermodynamic-efficiency"
+      ],
+      "communication_gap": "Friston's FEP was developed in the theoretical neuroscience literature from 2005 onwards. Despite the explicit use of thermodynamic language (free energy, entropy, surprise), the connection to Jaynes' maximum- entropy statistical mechanics and non-equilibrium thermodynamics is not quantitative in most neuroscience applications. Thermodynamicists and statistical physicists are largely unaware of the FEP. The barrier is partly sociological (neuroscience versus physics journals) and partly mathematical (the variational Bayesian language is unfamiliar to physicists, while non-equilibrium thermo is unfamiliar to most neuroscientists).\n",
+      "translation_table": [
+        {
+          "field_a_term": "Thermodynamic free energy F = U - TS",
+          "field_b_term": "Variational free energy F = E_q[log q - log p]",
+          "note": "Exact algebraic isomorphism: internal energy U ↔ E_q[-log p]; temperature-entropy TS ↔ entropy of beliefs S_q"
+        },
+        {
+          "field_a_term": "Entropy S of thermodynamic system",
+          "field_b_term": "Entropy H[q] = -E_q[log q] of the approximate posterior",
+          "note": "Both measure the uncertainty / disorder of the system's state distribution"
+        },
+        {
+          "field_a_term": "Equilibrium state (minimises F)",
+          "field_b_term": "Perceptual inference (minimises F by updating beliefs)",
+          "note": "Perception = equilibration of internal model to sensory evidence"
+        },
+        {
+          "field_a_term": "Non-equilibrium work against disorder",
+          "field_b_term": "Active inference (action changes sensory input to match predictions)",
+          "note": "Both require energy expenditure to maintain low-entropy ordered states"
+        },
+        {
+          "field_a_term": "Thermodynamic system boundary / adiabatic wall",
+          "field_b_term": "Markov blanket separating agent from environment",
+          "note": "Conditional independence = informational insulation = thermodynamic isolation"
+        },
+        {
+          "field_a_term": "Boltzmann distribution p(x) ∝ exp(-E(x)/kT)",
+          "field_b_term": "Posterior distribution p(φ|s) ∝ exp(-F(φ,s))",
+          "note": "Variational free energy plays the role of scaled energy E(x)/kT"
+        },
+        {
+          "field_a_term": "Schrödinger's negentropy (life fights entropy)",
+          "field_b_term": "Self-evidencing (organisms minimise surprise to maintain homeostasis)",
+          "note": "Equivalent formulations of the thermodynamic cost of life"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1038/nrn2787",
+          "note": "Friston (2010) Nat Rev Neurosci 11:127 — The free-energy principle: a unified brain theory"
+        },
+        {
+          "doi": "10.1080/1047840X.2016.1201141",
+          "note": "Friston et al. (2016) Psychol Inq 27:1 — Active inference and learning"
+        },
+        {
+          "doi": "10.1103/PhysRev.106.620",
+          "note": "Jaynes (1957) Phys Rev 106:620 — Information theory and statistical mechanics; maximum entropy derivation of thermodynamics"
+        },
+        {
+          "note": "Schrödinger (1944) What is Life? — negentropy and the thermodynamics of living systems",
+          "url": "https://archive.org/details/whatislife00schr"
+        },
+        {
+          "doi": "10.1162/089976699300016953",
+          "note": "Rao & Ballard (1999) Nat Neurosci 2:79 — predictive coding in the visual cortex; neural implementation of FEP"
+        }
+      ],
+      "last_reviewed": "2026-05-05",
+      "file": "cross-domain\\neuroscience-physics\\b-free-energy-principle-thermodynamics.yaml"
     },
     {
       "id": "b-bayesian-scientific-inference",
@@ -4435,6 +5032,80 @@
       "file": "cross-domain\\quantum-physics-biology\\b-quantum-coherence-photosynthesis.yaml"
     },
     {
+      "id": "b-quantum-error-correction-holography",
+      "title": "Quantum error-correcting codes (stabilizer codes, surface codes) and the holographic principle in quantum gravity (AdS/CFT) are the same mathematical structure: bulk operators in AdS are encoded in boundary CFT degrees of freedom via a quantum error-correcting code, with the Ryu-Takayanagi formula (S = A/4G_N) expressing entanglement entropy as a quantum error-correction redundancy statement.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "proposed",
+      "bridge_claim": "Quantum error correction encodes k logical qubits in n physical qubits with distance d (denoted [[n,k,d]]), such that any error affecting fewer than d/2 qubits can be detected and corrected. The key property is redundancy: the logical information is non-locally distributed across the physical qubits",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-ads-cft-quantum-error-correction-island-formula"
+      ],
+      "communication_gap": "The quantum error correction community (quantum computing, quantum information) and the quantum gravity / string theory community work in largely separate journals (Phys Rev A vs JHEP) with different language and training. Almheiri, Dong, and Harlow's 2015 paper was a landmark bridge, but it is read mainly in the quantum gravity literature. Working quantum error correction engineers building surface code chips are unaware that their code geometry has a gravitational dual. Conversely, string theorists developing the island formula rarely read the quantum error correction engineering literature where fault-tolerance threshold theorems might offer new tools for the information paradox.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Physical qubits (n) in stabilizer code [[n,k,d]]",
+          "field_b_term": "Boundary CFT degrees of freedom",
+          "note": "The n boundary qubits are the physical storage medium for bulk information"
+        },
+        {
+          "field_a_term": "Logical qubits (k) — encoded information",
+          "field_b_term": "Bulk quantum field theory operators in AdS",
+          "note": "The k logical qubits are the bulk operators reconstructable from the boundary"
+        },
+        {
+          "field_a_term": "Code distance d (error correction capacity)",
+          "field_b_term": "RT minimal surface area (in Planck units)",
+          "note": "S = A/4G_N is the code distance: how much boundary must be erased to destroy bulk info"
+        },
+        {
+          "field_a_term": "Erasure error on boundary region A",
+          "field_b_term": "Tracing out boundary region A (partial trace)",
+          "note": "Code corrects erasure iff bulk is recoverable from complement Ā of the erased region"
+        },
+        {
+          "field_a_term": "Perfect tensor (maximally entangled across bipartitions)",
+          "field_b_term": "Local AdS geometry tensor network vertex",
+          "note": "Pastawski et al.'s HaPPY code uses [[5,1,3]] perfect tensors as AdS vertices"
+        },
+        {
+          "field_a_term": "Stabilizer generators",
+          "field_b_term": "Boundary symmetry generators / modular Hamiltonians",
+          "note": "The stabilizer group of the holographic code corresponds to the boundary modular flow"
+        },
+        {
+          "field_a_term": "Quantum Singleton bound (S ≤ n-k)",
+          "field_b_term": "Ryu-Takayanagi formula S(A) = Area(γ_A)/4G_N",
+          "note": "RT formula is the Singleton bound of the holographic code, saturated by the minimal surface"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1103/PhysRevLett.96.181602",
+          "note": "Ryu & Takayanagi (2006) Phys Rev Lett 96:181602 — holographic derivation of entanglement entropy; RT formula"
+        },
+        {
+          "doi": "10.1007/JHEP04(2015)163",
+          "note": "Almheiri, Dong & Harlow (2015) JHEP 2015:163 — bulk locality and quantum error correction in AdS/CFT"
+        },
+        {
+          "doi": "10.1007/JHEP06(2015)149",
+          "note": "Pastawski et al. (2015) JHEP 2015:149 — holographic quantum error-correcting codes; HaPPY code with perfect tensors"
+        },
+        {
+          "arxiv": "hep-th/9711200",
+          "note": "Maldacena (1997) Int J Theor Phys 38:1113 — the large N limit of superconformal field theories and supergravity; AdS/CFT"
+        },
+        {
+          "doi": "10.1103/PhysRevD.50.6394",
+          "note": "Page (1993) Phys Rev Lett 71:3743 — information in black hole radiation; Page curve"
+        }
+      ],
+      "last_reviewed": "2026-05-05",
+      "file": "cross-domain\\quantum-physics-information\\b-quantum-error-correction-holography.yaml"
+    },
+    {
       "id": "b-seismology-percolation",
       "title": "Earthquake fault networks exhibit Gutenberg-Richter power-law magnitude-frequency distributions because fault systems self-organize to the percolation critical point, making seismic hazard a direct application of percolation criticality theory.\n",
       "source_domain": "",
@@ -4605,6 +5276,80 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\social-science-biology\\b-cultural-evolution-darwinian.yaml"
+    },
+    {
+      "id": "b-social-capital-network-science",
+      "title": "Granovetter's \"strength of weak ties\" and Burt's structural holes in social capital theory are precisely identified with bridge edges and high-betweenness-centrality nodes in graph theory: social capital reduces to computable network topology, and the Erdős-Rényi giant component transition predicts the critical network density for information to spread society-wide.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Social capital theory (Granovetter 1973, Burt 1992, Coleman 1988) asserts that an individual's social position determines their access to information, resources, and opportunities. Network science provides exact mathematical translations of these sociological concepts:\n1. WEAK TIES = BRIDGE EDGES: G",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-social-capital-eigenvector-centrality-income"
+      ],
+      "communication_gap": "Granovetter (1973) and Burt (1992) developed social capital theory in the sociology literature using graph-theoretic language informally but without formal graph theory. Erdős and Rényi worked in pure mathematics completely disconnected from social science. Barabási & Albert (1999) explicitly noted the social network application of scale-free graphs, but the sociological literature absorbed network science tools slowly. The precise algebraic equivalences between sociological concepts (closure, structural holes, weak ties) and graph-theoretic quantities (clustering coefficient, betweenness, bridge edges) are now textbook material in computational social science but remain unknown to most empirical sociologists who use social capital as a qualitative concept.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Weak tie (acquaintance relationship)",
+          "field_b_term": "Bridge edge or local bridge in graph theory",
+          "note": "Edges with high edge betweenness are almost always weak ties; bridges cross community boundaries"
+        },
+        {
+          "field_a_term": "Structural hole (gap spanned by broker)",
+          "field_b_term": "High vertex betweenness centrality B(v)",
+          "note": "A node spanning structural holes has many shortest paths passing through it"
+        },
+        {
+          "field_a_term": "Burt's network constraint C_i",
+          "field_b_term": "Inverse of local betweenness / redundancy of contacts",
+          "note": "High constraint = contacts are densely interconnected = no structural holes = low social capital"
+        },
+        {
+          "field_a_term": "Social capital stock (Coleman)",
+          "field_b_term": "Eigenvector centrality / PageRank",
+          "note": "Influence propagates multiplicatively through the network; eigenvector centrality captures recursive influence"
+        },
+        {
+          "field_a_term": "Critical network density for information spread",
+          "field_b_term": "Erdős-Rényi giant component threshold p_c = 1/n (⟨k⟩ = 1)",
+          "note": "Below threshold: fragmented society; above: connected giant component enables global diffusion"
+        },
+        {
+          "field_a_term": "Social closure (Coleman 1988)",
+          "field_b_term": "Clustering coefficient C_v",
+          "note": "Dense cliques = high clustering = social closure; facilitates trust and norm enforcement"
+        },
+        {
+          "field_a_term": "Scale-free social network (hubs, influencers)",
+          "field_b_term": "Power-law degree distribution P(k) ∝ k^{-γ}",
+          "note": "Preferential attachment (the rich get richer) generates hubs analogous to celebrity influencers"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1086/225469",
+          "note": "Granovetter (1973) Am J Soc 78:1360 — The strength of weak ties; foundational social capital theory"
+        },
+        {
+          "note": "Burt (1992) Structural Holes: The Social Structure of Competition (Harvard UP) — structural holes and competitive advantage",
+          "url": "https://www.hup.harvard.edu/catalog.php?isbn=9780674843714"
+        },
+        {
+          "doi": "10.1126/science.286.5439.509",
+          "note": "Barabási & Albert (1999) Science 286:509 — emergence of scaling in random networks; preferential attachment"
+        },
+        {
+          "note": "Erdős & Rényi (1960) Publ Math Inst Hung Acad Sci 5:17 — on the evolution of random graphs; giant component phase transition",
+          "url": "https://www.renyi.hu/~p_erdos/1960-10.pdf"
+        },
+        {
+          "doi": "10.1038/30918",
+          "note": "Watts & Strogatz (1998) Nature 393:440 — collective dynamics of small-world networks; clustering coefficient"
+        }
+      ],
+      "last_reviewed": "2026-05-05",
+      "file": "cross-domain\\social-science-mathematics\\b-social-capital-network-science.yaml"
     },
     {
       "id": "b-opinion-dynamics-ising",

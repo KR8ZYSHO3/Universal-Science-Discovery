@@ -1,0 +1,137 @@
+id: b-arrows-impossibility-quantum-contextuality
+title: >
+  Arrow's impossibility theorem in social choice theory and the
+  Kochen-Specker theorem in quantum mechanics are structurally identical
+  no-go results: both prove the impossibility of a globally consistent
+  classical assignment — social preference orderings and quantum
+  observable values — when subjected to the same type of coherence
+  constraints.
+status: proposed
+fields:
+  - quantum-physics
+  - social-science
+  - economics
+  - voting-theory
+  - foundations-of-mathematics
+bridge_claim: >
+  Arrow's impossibility theorem (1951) states that no social welfare
+  function can simultaneously satisfy Pareto efficiency, independence of
+  irrelevant alternatives (IIA), and non-dictatorship for three or more
+  candidates. Formally: there is no map f: L(A)^n → L(A) (where L(A) is
+  the set of preference orderings over alternatives A) satisfying all
+  three axioms when |A| ≥ 3.
+
+  The Kochen-Specker theorem (1967) states that there is no non-contextual
+  hidden variable theory compatible with quantum mechanics for a Hilbert
+  space of dimension ≥ 3. Formally: there is no valuation function
+  v: O → ℝ (assigning definite values to observables O) that is
+  simultaneously (i) consistent with QM predictions and (ii) context-
+  independent (the value of observable A does not depend on which
+  compatible set of observables it is measured with).
+
+  The structural parallel is not merely metaphorical. Abramsky & Duncan
+  (2012) and Abramsky & Brandenburger (2011) proved this correspondence
+  rigorously using sheaf theory. The "no-global-section" obstruction is
+  the same mathematical object in both cases:
+
+  1. ARROW'S IIA = CONTEXTUALITY CONDITION: IIA says the social ranking
+     of alternatives {A, B} depends only on individual preferences over
+     {A, B}, not on rankings of irrelevant alternative C. This is exactly
+     the non-contextuality condition: the value assigned to an observable
+     should not depend on the measurement context (which other compatible
+     observables are measured simultaneously).
+
+  2. GLOBAL SECTION = CONSISTENT ASSIGNMENT: Arrow requires a globally
+     consistent social preference order. KS requires a globally consistent
+     value assignment to all observables. Both are impossible beyond
+     trivial cases.
+
+  3. SHEAF-THEORETIC FORMULATION: Both theorems can be stated as the
+     non-existence of a global section of a certain presheaf. Local
+     sections always exist (for any fixed context / agenda, preferences
+     or measurement values can be assigned consistently), but they cannot
+     be glued into a global section. This is the sheaf cohomology
+     obstruction identified by Abramsky & Brandenburger.
+
+  4. DIMENSION / CANDIDATE THRESHOLD: Both results require n ≥ 3 (three
+     or more candidates in Arrow; Hilbert space dimension ≥ 3 in KS).
+     In two-option / qubit cases, both results fail — local consistency
+     patches together globally.
+
+  CONSEQUENCES FOR MECHANISM DESIGN: The quantum-social parallel suggests
+  that any mechanism design problem that shares the IIA-type structure
+  will be subject to Arrow-like impossibility. Conversely, quantum
+  measurement theory, which already has a rich theory of contextuality
+  resources (Bell inequalities, magic-state distillation), may provide
+  new algebraic tools for classifying social choice functions by their
+  "contextuality degree."
+translation_table:
+  - field_a_term: "Social welfare function f: L(A)^n → L(A)"
+    field_b_term: "Global value assignment v: O → ℝ on quantum observables"
+    note: "Both map local data (individual preferences / measurement contexts) to global structure"
+  - field_a_term: "Independence of Irrelevant Alternatives (IIA)"
+    field_b_term: "Non-contextuality condition"
+    note: "The value/ranking of {A,B} must not depend on the presence of C in the measurement context / preference agenda"
+  - field_a_term: "Pareto efficiency"
+    field_b_term: "Compatibility with QM probability predictions"
+    note: "The assignment must be consistent with the given data (votes / Born rule)"
+  - field_a_term: "Non-dictatorship"
+    field_b_term: "No preferred measurement basis / non-signalling"
+    note: "No single agent / observable dominates the global assignment"
+  - field_a_term: "Preference ordering over alternatives A"
+    field_b_term: "Eigenvalue assignment to observable in context C"
+    note: "Local consistency is always achievable; impossibility is at the global level"
+  - field_a_term: "Global consistent preference order (global section)"
+    field_b_term: "Non-contextual hidden variable assignment (global section)"
+    note: "Sheaf-theoretic obstruction to existence is the same cohomological object"
+  - field_a_term: "|A| ≥ 3 candidates required for impossibility"
+    field_b_term: "dim(H) ≥ 3 required for Kochen-Specker theorem"
+    note: "Below threshold, both results fail — two alternatives / qubit is always classically realisable"
+related_unknowns:
+  - u-sheaf-cohomology-impossibility-theorems
+related_hypotheses:
+  - h-contextuality-mechanism-design-classification
+cross_pollination_opportunities:
+  - >
+    Abramsky & Brandenburger's sheaf-theoretic framework can classify
+    social choice functions by their contextuality degree — the minimum
+    number of local-to-global consistency violations. This would give
+    mechanism designers a quantitative "impossibility measure" rather than
+    a binary possible/impossible.
+  - >
+    Quantum game theory has studied contextuality as a resource (e.g.,
+    quantum strategies in the magic square game achieve super-classical
+    payoffs). This suggests that quantum voting protocols — where voters'
+    preferences are represented as quantum states — might escape Arrow's
+    constraints in the same way quantum strategies escape classical game
+    theory bounds. A rigorous exploration would require defining what
+    "quantum preferences" means.
+  - >
+    The threshold structure (n ≥ 3 candidates; dim ≥ 3) in both results
+    begs the question: is there a continuous interpolation? For social
+    choice with fuzzy preferences (probabilistic rankings), does a
+    "quantitative Arrow theorem" hold with a contextuality measure that
+    grows continuously? This would connect to the resource theory of
+    coherence in quantum information.
+communication_gap: >
+  Arrow's theorem is a foundational result in welfare economics and
+  political science, studied in every graduate economics curriculum, but
+  almost entirely without mathematical contact with quantum foundations.
+  The Kochen-Specker theorem is a cornerstone of quantum logic and
+  quantum information, but not taught in social science departments.
+  The sheaf-theoretic unification by Abramsky et al. (2011-2012) exists
+  in the computer science / quantum foundations literature but has had
+  essentially zero uptake in economics or political science. The common
+  obstacle is the unfamiliarity of sheaf cohomology in both communities.
+last_reviewed: "2026-05-05"
+references:
+  - note: "Arrow (1951) Social Choice and Individual Values — original impossibility theorem"
+    url: "https://doi.org/10.2307/2549741"
+  - doi: "10.1016/j.tcs.2012.02.028"
+    note: "Abramsky & Brandenburger (2011) New Foundations for Contextuality — sheaf-theoretic unification of Arrow and KS"
+  - doi: "10.1016/S0022-2496(86)80002-2"
+    note: "Kochen & Specker (1967) J Math Mech 17:59 — the problem of hidden variables in quantum mechanics"
+  - arxiv: "1203.1184"
+    note: "Abramsky & Duncan (2012) — The sheaf-theoretic structure of non-locality and contextuality"
+  - doi: "10.1017/S0305004100049052"
+    note: "Gleason (1957) Measures on the closed subspaces of Hilbert space — basis for KS in probabilistic form"

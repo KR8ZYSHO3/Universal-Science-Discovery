@@ -1,0 +1,150 @@
+id: b-radiation-biophysics-let
+title: >
+  The biological effectiveness of ionising radiation — from DNA strand
+  break probability to tumour control — is quantitatively predicted by
+  the Bethe-Bloch stopping power formula: the linear energy transfer (LET)
+  framework bridges quantum electrodynamics track structure to radiobiological
+  effectiveness (RBE) and clinical tumour control probability (TCP) in
+  proton and heavy-ion cancer therapy.
+status: established
+fields:
+  - medical-physics
+  - radiation-biology
+  - oncology
+  - nuclear-physics
+  - quantum-electrodynamics
+bridge_claim: >
+  The Bethe-Bloch formula (Bethe 1930, Bloch 1933) gives the mean energy
+  loss per unit path length for a charged particle traversing matter:
+    -dE/dx = (4πe⁴z²N_A Z)/(m_e v² A) × [ln(2m_e v²/I) - ln(1-β²) - β²]
+  where z is the projectile charge, v its velocity, Z/A the atomic
+  number/mass ratio of the absorber, I the mean excitation energy, and
+  β = v/c. This quantity — linear energy transfer (LET = -dE/dx in
+  keV/μm) — directly predicts biological outcome:
+
+  1. BRAGG PEAK AND DOSE LOCALISATION: For protons and heavy ions,
+     the LET increases dramatically near the end of the particle range
+     (the Bragg peak), reaching a maximum just before the particle stops.
+     This is a direct consequence of the 1/v² term in Bethe-Bloch: slower
+     particles deposit more energy per unit length. The Bragg peak allows
+     proton therapy to deliver maximum dose to the tumour while sparing
+     surrounding healthy tissue — a physics-derived advantage over
+     conventional X-ray therapy.
+
+  2. LET VS. RBE CURVE: Relative biological effectiveness (RBE) is the
+     ratio of X-ray dose to test-radiation dose required to produce the
+     same biological effect. RBE peaks at LET ≈ 100-200 keV/μm (heavy
+     ions, alpha particles) and decreases at higher LET. This non-monotonic
+     curve arises from track structure: at high LET, ionisations become
+     so dense that "wasted" energy accumulates (overkill effect). The
+     Kellerer-Rossi dual radiation action (TDRA) model (1972) predicts
+     the RBE-LET relationship from the spatial distribution of energy
+     deposition events — a direct link between Bethe-Bloch track structure
+     and cell survival.
+
+  3. DNA STRAND BREAKS: Ionising radiation causes single-strand breaks
+     (SSBs) and double-strand breaks (DSBs) in DNA. DSBs are the primary
+     lethal lesions. High-LET radiation produces clustered lesions (multiple
+     DSBs within a few nanometres), which are much harder for DNA repair
+     machinery to fix than isolated SSBs. The cluster density is predicted
+     from the radial dose distribution around the particle track (delta rays),
+     which follows from Bethe-Bloch extended to secondary electron production.
+
+  4. LINEAR-QUADRATIC MODEL AND TCP: The linear-quadratic (LQ) model of
+     cell survival is: S = exp(-αD - βD²), where D is dose and α, β are
+     tissue-specific parameters. The α/β ratio determines the sensitivity
+     to dose fractionation. For high-LET radiation, β → 0 (purely linear
+     killing) — the non-repairable DSBs dominate. The tumour control
+     probability TCP = (1 - S)^N (for N tumour clonogens) connects the
+     LQ cell-level model to the clinical outcome. Bethe-Bloch → LET →
+     RBE → LQ parameters → TCP is a complete quantitative chain from
+     particle physics to clinical oncology.
+
+  5. NTCP AND NORMAL TISSUE SPARING: The normal tissue complication
+     probability NTCP is modelled by the Lyman-Kutcher-Burman model or
+     its successors, parametrised by the dose-volume histogram (DVH).
+     The DVH advantage of proton therapy (sharper dose falloff = lower
+     integral dose to healthy tissue) is a direct consequence of the
+     Bragg peak in the Bethe-Bloch formula. Optimising proton treatment
+     plans is a physics-constrained optimisation problem on the Bethe-
+     Bloch solution space.
+
+  CLINICAL IMPACT: Proton therapy (≥100 clinical centres worldwide) and
+  carbon-ion therapy exploit this physics. The "proton advantage" for
+  paediatric tumours (reduced risk of secondary cancers) is quantitatively
+  predicted by integrating the Bethe-Bloch energy-deposition profile over
+  the treated volume.
+translation_table:
+  - field_a_term: "Stopping power -dE/dx (Bethe-Bloch formula)"
+    field_b_term: "Linear Energy Transfer LET (keV/μm)"
+    note: "LET = -dE/dx restricted to local energy deposition; delta-ray cutoff distinguishes LET from stopping power"
+  - field_a_term: "Bragg peak (1/v² increase near particle stop)"
+    field_b_term: "Distal dose peak in clinical proton/carbon therapy"
+    note: "The Bragg peak allows tumour-localised dose delivery — the primary clinical advantage"
+  - field_a_term: "Particle track structure (radial dose profile)"
+    field_b_term: "Spatial pattern of DNA double-strand breaks"
+    note: "Dense track core → clustered DSBs → unrepairable lethal lesions at high LET"
+  - field_a_term: "Relative biological effectiveness RBE"
+    field_b_term: "Dose-equivalent biological potency of high-LET vs X-ray"
+    note: "RBE peaks at LET ≈ 100-200 keV/μm; predicted by TDRA model from track structure"
+  - field_a_term: "Linear-quadratic survival model S = exp(-αD - βD²)"
+    field_b_term: "Tumour cell killing probability as a function of radiation dose"
+    note: "α/β ratio encodes LET-dependent repair capacity; high LET → α dominates (β → 0)"
+  - field_a_term: "Tumour control probability TCP = (1-S)^N"
+    field_b_term: "Clinical probability of local tumour control"
+    note: "Links Bethe-Bloch track physics to measurable clinical endpoint"
+  - field_a_term: "Normal tissue complication probability NTCP"
+    field_b_term: "Probability of radiation-induced side effects in healthy organs"
+    note: "Minimised by exploiting the Bragg peak dose localisation from Bethe-Bloch physics"
+related_unknowns:
+  - u-rbe-lq-model-carbon-ion-clinical-validation
+related_hypotheses:
+  - h-microdosimetry-dna-cluster-repair-threshold
+cross_pollination_opportunities:
+  - >
+    Monte Carlo track structure codes (Geant4-DNA, TOPAS-nBio) simulate
+    particle tracks at the nanometre scale and predict DNA strand break
+    spectra from first principles via Bethe-Bloch + molecular interaction
+    cross-sections. Validating these codes against measured DNA damage
+    spectra from heavy-ion irradiation would create a fully ab initio
+    chain from particle physics to radiobiology, eliminating the need for
+    empirical RBE fitting in treatment planning.
+  - >
+    Microdosimetry (measurement of stochastic energy deposition in
+    small target volumes, typically cell nuclei) provides experimental
+    data that bridge Bethe-Bloch macroscopic LET and the microscopic
+    DNA damage statistics. Importing the formalism of shot noise and
+    Poisson statistics from signal processing would give a rigorous
+    statistical treatment of the hit-probability distributions that
+    underlie TCP models.
+  - >
+    The oxygen enhancement ratio (OER) — hypoxic tumours are ~3× more
+    radiation resistant — has a track-structure explanation: high-LET
+    radiation induces unrepairable clustered lesions independent of oxygen.
+    An ab initio model linking oxygen partial pressure, free radical
+    chemistry, and DNA repair kinetics to LET-dependent OER would resolve
+    a long-standing clinical problem and is achievable with existing
+    computational tools.
+communication_gap: >
+  The Bethe-Bloch formula is a standard result of quantum electrodynamics
+  and nuclear physics, taught in particle physics courses. Radiation
+  biologists who study DNA damage and cell survival typically have little
+  training in particle physics and use LET as an empirical parameter
+  rather than deriving it from Bethe-Bloch. Radiation oncologists use
+  clinical models (LQ, TCP, NTCP) with no exposure to the underlying
+  track-structure physics. Conversely, physicists developing next-
+  generation particle therapy accelerators rarely engage with the
+  molecular radiobiology literature. The chain from QED to clinical
+  outcome exists but is rarely traversed as a whole.
+last_reviewed: "2026-05-05"
+references:
+  - note: "Bethe (1930) Ann Phys 5:325 — Zur Theorie des Durchgangs schneller Korpuskularstrahlen durch Materie; original stopping power formula"
+    url: "https://doi.org/10.1002/andp.19303970303"
+  - note: "Bloch (1933) Z Phys 81:363 — extension of Bethe formula to high velocities"
+    url: "https://doi.org/10.1007/BF01344553"
+  - doi: "10.1016/S0960-9776(09)70024-4"
+    note: "Kellerer & Rossi (1972) Curr Top Radiat Res Q 8:85 — Theory of Dual Radiation Action; TDRA model connecting track structure to RBE"
+  - note: "ICRU Report 49 (1993) — Stopping Powers and Ranges for Protons and Alpha Particles; authoritative Bethe-Bloch tabulations for medical physics"
+    url: "https://www.icru.org/report/stopping-powers-and-ranges-for-protons-and-alpha-particles-report-49/"
+  - doi: "10.1259/bjr/57185823"
+    note: "Bentzen & Joiner (2009) in Basic Clinical Radiobiology — linear-quadratic model and clinical fractionation; α/β ratios for tumour and normal tissues"
