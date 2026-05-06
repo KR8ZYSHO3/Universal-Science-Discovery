@@ -1,0 +1,42 @@
+id: u-causal-inference-heterogeneous-treatment-effects-identification
+title: Can heterogeneous treatment effects (HTE) — the individual-level variation in causal treatment response — be identified and estimated at scale from observational data, and under what assumptions do machine learning methods (causal forests, meta-learners) provide valid confidence intervals for HTEs?
+status: open
+priority: high
+disciplines:
+  - economics
+  - statistics
+  - causal-inference
+  - machine-learning
+  - epidemiology
+summary: >
+  Instrumental variables and regression discontinuity identify LATE — the
+  average effect for compliers. But policy-makers increasingly need heterogeneous
+  treatment effects (HTE): does the drug work better for women? young patients?
+  high-income groups? Wager-Athey (2018) causal forests and related methods
+  (X-learner, R-learner, AIPW meta-learners) use machine learning to estimate
+  conditional average treatment effects CATE(x) = E[Y(1)-Y(0)|X=x]. The
+  key unresolved issues: (1) Valid confidence intervals for CATE(x) require
+  cross-fitting, Neyman-orthogonality, and regularity assumptions that are
+  rarely verified in practice. (2) HTE estimates from observational data
+  require unconfoundedness (no unmeasured confounders) which is untestable.
+  (3) Multiple testing correction for heterogeneity search across X covariates
+  is not standardised. (4) Whether ML-based HTE methods maintain nominal
+  coverage in realistic settings with high-dimensional confounders is contested.
+systematic_gaps:
+  - Valid finite-sample confidence intervals for CATE(x) from observational data that account for both estimation uncertainty and confounding bias have not been derived for general ML methods; existing results require semiparametric efficiency conditions rarely verified.
+  - The power of standard tests for treatment effect heterogeneity (e.g. Best Linear Predictor test) in realistic observational datasets with n = 1000-10,000 has not been characterised through systematic simulation studies.
+  - Causal forest HTE estimates have not been systematically validated against experimental ground truth (RCT data with the same covariates) across multiple domains to establish their calibration in practice.
+suggested_hypotheses:
+  - >
+    Causal forest CATE estimates from observational data with n > 5,000 and
+    measured confounders have calibration error < 20% relative to RCT CATE
+    in the same population, when cross-fitting is applied — making observational
+    HTE estimation practically useful for policy targeting despite theoretical limitations.
+related_unknowns:
+  - u-instrumental-variable-complier-characterisation
+related_bridges:
+  - b-causal-inference-instrumental-variables
+references:
+  - doi: "10.2307/2951620"
+    note: "Angrist, Imbens & Rubin (1996) J Am Stat Assoc 91:444"
+last_reviewed: "2026-05-06"

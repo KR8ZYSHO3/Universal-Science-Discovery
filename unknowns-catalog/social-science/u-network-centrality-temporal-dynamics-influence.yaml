@@ -1,0 +1,39 @@
+id: u-network-centrality-temporal-dynamics-influence
+title: How does temporal variation in social network structure (edge rewiring, link decay, node activity bursts) affect the validity of static centrality measures as predictors of influence, and what dynamic centrality metrics correctly capture time-varying social power?
+status: open
+priority: medium
+disciplines:
+  - social-science
+  - network-science
+  - mathematics
+  - epidemiology
+  - computational-social-science
+summary: >
+  Static centrality measures (degree, betweenness, eigenvector, PageRank) assume
+  a fixed adjacency matrix A. Real social networks are temporal: edges appear
+  and disappear, node activity fluctuates, and influence propagates along temporal
+  paths (a sequence of edges active at increasing times — not all shortest paths
+  in the aggregate network). Holme & Saramäki (2012) showed that ignoring
+  temporal structure can reverse centrality rankings: a static hub may be
+  temporally peripheral if its connections are active asynchronously. The
+  epidemic threshold on temporal networks is not 1/λ₁(A) but depends on the
+  spectral radius of a higher-dimensional tensor encoding edge timings.
+  No consensus exists on the correct dynamic centrality measure for: (1)
+  predicting epidemic superspreaders on contact networks with bursty activity
+  patterns; (2) identifying opinion leaders in social media with rapidly
+  rewiring follow graphs; (3) computing Nash equilibria in network games where
+  the topology itself is strategic.
+systematic_gaps:
+  - No temporal centrality measure has been validated against empirical epidemic data with individual-level contact tracing at sufficient resolution to compare static vs. temporal centrality predictions for superspreader identification.
+  - The computational complexity of dynamic eigenvector centrality on large temporal networks (|V| > 10⁶, |E| > 10⁸) is prohibitive with current algorithms; approximate methods have not been benchmarked for validity.
+  - The relationship between temporal burstiness (inter-event time distribution P(τ) ∝ τ^(-α)) and the effective centrality ranking stability over time has not been derived analytically.
+suggested_hypotheses:
+  - On social networks with bursty contact patterns (α < 2 power-law inter-event times), static eigenvector centrality overestimates influence by a factor that grows as N^0.5, and a temporal PageRank (computed on the time-ordered edge stream) recovers predictive accuracy.
+related_unknowns:
+  - u-social-network-influence-diffusion-mechanism
+related_bridges:
+  - b-network-centrality-social-influence
+references:
+  - doi: "10.2307/3033543"
+    note: "Freeman (1977) Sociometry 40:35"
+last_reviewed: "2026-05-06"

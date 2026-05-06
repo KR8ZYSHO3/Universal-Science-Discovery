@@ -1,0 +1,83 @@
+id: b-approximation-algorithms-sdp
+title: >
+  Semidefinite programming (SDP) relaxation provides the tightest tractable
+  approximation for NP-hard combinatorial optimization problems: Goemans-
+  Williamson MAX-CUT achieves a 0.878-approximation ratio (optimal under the
+  Unique Games Conjecture) by relaxing binary variables to unit vectors on
+  the semidefinite cone, with the Lovász theta function providing tight bounds
+  on graph independence number and chromatic number.
+status: established
+fields:
+  - computer-science
+  - mathematics
+  - combinatorial-optimization
+  - convex-optimization
+  - complexity-theory
+  - graph-theory
+bridge_claim: >
+  SDP generalizes linear programming: minimize Tr(CX) subject to linear matrix
+  inequalities A_i·X = b_i and X ≽ 0 (positive semidefinite). X ≽ 0 replaces
+  the linear constraint x_i ∈ [0,1] (LP relaxation) with the stronger constraint
+  that X is a Gram matrix of unit vectors — X_ij = v_i·v_j where ||v_i|| = 1.
+  The Goemans-Williamson (1995) MAX-CUT algorithm: (1) Solve the SDP relaxation
+  giving unit vectors {v_i}; (2) sample a random hyperplane normal r ~ N(0,I);
+  (3) cut (i,j) ∈ E iff sign(r·v_i) ≠ sign(r·v_j). Expected cut value:
+  E[cut] = Σ_{(i,j)∈E} (1/π)arccos(v_i·v_j) ≥ 0.878·OPT. This 0.878 ratio
+  is optimal assuming the Unique Games Conjecture (Khot 2002): no poly-time
+  algorithm achieves > 0.878 unless P = NP. The Lovász theta function ϑ(G)
+  is a specific SDP that satisfies α(G) ≤ ϑ(G) ≤ χ(G̅) where α is the
+  independence number and χ(G̅) is the chromatic number of the complement —
+  computable in polynomial time, it "sandwiches" two NP-hard quantities.
+  SDP is to integer programming what LP is to combinatorics: the tightest
+  tractable relaxation. The polynomial-time solvability via interior-point
+  methods (O(n^6.5) arithmetic operations) makes it practically useful.
+translation_table:
+  - field_a_term: binary variable x_i ∈ {-1,+1} (integer program)
+    field_b_term: unit vector v_i ∈ S^{n-1} (SDP relaxation)
+    note: The "rounding" step maps the continuous SDP solution back to discrete binary values
+  - field_a_term: adjacency matrix A_ij of graph G
+    field_b_term: correlation matrix X_ij = v_i·v_j in SDP
+    note: Negative X_ij corresponds to opposite sides of the cut — vectors push apart
+  - field_a_term: random hyperplane rounding (GW algorithm)
+    field_b_term: probabilistic rounding function achieving approximation ratio guarantee
+    note: arccos(ρ)/π ≥ 0.878·(1-ρ)/2 for all ρ ∈ [-1,1] — tight near ρ = -1
+  - field_a_term: Unique Games Conjecture (Khot 2002)
+    field_b_term: hardness of approximation certification — SDP rounding is the best possible
+    note: UGC implies GW is tight; UGC itself remains unproven (major open problem)
+  - field_a_term: Lovász theta ϑ(G) (computable SDP)
+    field_b_term: polytime certificate bounding NP-hard graph quantities
+    note: ϑ(G) = max-weight independent set in a semidefinite sense; equals Shannon capacity for Petersen graph
+related_unknowns:
+  - u-unique-games-conjecture-sdp-approximation-tight-gap
+related_hypotheses:
+  - h-sdp-rounding-universal-approximation-ratio-tight-ugc
+cross_pollination_opportunities:
+  - >
+    Quantum SDP solvers (quantum interior-point methods) claim O(n^1.5) speedup
+    over classical; testing these on MAX-CUT instances from network science
+    (community detection as graph clustering) would validate quantum SDP
+    advantage for practical combinatorial problems.
+  - >
+    SDP relaxations for protein structure determination (distance geometry):
+    the problem of finding 3D atom positions from NMR distance constraints
+    is an SDP feasibility problem — GW-style rounding could give practical
+    polynomial-time heuristics for NMR structure refinement.
+communication_gap: >
+  The Goemans-Williamson result (1995) is central to theoretical computer
+  science but largely unknown in the applied mathematics community that uses
+  SDP for control (LMI conditions), communications (MIMO detection), and
+  finance (portfolio optimization). The connection between GW rounding and
+  SDP theory is understood by complexity theorists but rarely appears in
+  optimization textbooks used by engineers. The Unique Games Conjecture remains
+  one of the most consequential open problems in mathematics but is unknown
+  outside TCS.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1145/227683.227684"
+    note: "Goemans & Williamson (1995) Improved approximation algorithms for maximum cut and satisfiability problems using semidefinite programming. J ACM 42:1115"
+  - doi: "10.1145/509907.510016"
+    note: "Khot (2002) On the power of unique 2-prover 1-round games. Proc 34th STOC:767"
+  - doi: "10.1109/TIT.1979.1056011"
+    note: "Lovász (1979) On the Shannon capacity of a graph. IEEE Trans Inf Theory 25:1"
+  - doi: "10.1137/1038003"
+    note: "Vandenberghe & Boyd (1996) Semidefinite programming. SIAM Rev 38:49"

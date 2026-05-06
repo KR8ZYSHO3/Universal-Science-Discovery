@@ -1,0 +1,80 @@
+id: b-neurotransmitter-pharmacology
+title: >
+  Synaptic neurotransmission is governed by the physical chemistry of SNARE
+  protein complex assembly (ΔG ≈ -65 kJ/mol), vesicle fusion kinetics, and
+  receptor binding thermodynamics (K_D = k_off/k_on), providing a molecular
+  pharmacological framework where all drug mechanisms — SSRIs, antipsychotics,
+  benzodiazepines — reduce to modulation of specific binding equilibria.
+status: established
+fields:
+  - neuroscience
+  - chemistry
+  - pharmacology
+  - biochemistry
+  - molecular-biology
+  - medicine
+bridge_claim: >
+  Synaptic transmission is a sequence of precisely characterised physical
+  chemistry steps. Vesicle docking/priming: SNARE complex formation between
+  synaptobrevin (VAMP, v-SNARE on vesicle), syntaxin-1 and SNAP-25 (t-SNAREs
+  on target membrane) releases ΔG ≈ -65 kJ/mol per complex — driving membrane
+  fusion against the ~40 kT bilayer deformation barrier. Calcium-dependent
+  triggering: synaptotagmin-1 binds 5 Ca²⁺ ions (K_D ~ 200 μM each), causing
+  rapid membrane merger in < 1 ms. Released neurotransmitter diffuses across
+  the ~20 nm synaptic cleft (Stokes-Einstein D ~ 10⁻¹⁰ m²/s, transit time
+  ~10 μs). Postsynaptic binding: K_D = k_off/k_on; AMPA-R K_D(glutamate) ~
+  0.4 mM (low affinity, fast kinetics, ms timescale); NMDA-R requires
+  glycine co-agonist and Mg²⁺ voltage block. Metabotropic (GPCR) receptors
+  trigger second-messenger cascades (cAMP, IP₃, DAG) on seconds timescale.
+  Drug mechanisms: SSRIs (fluoxetine) block SERT with K_i ~ 0.8 nM — competitive
+  inhibition of serotonin reuptake; antipsychotics (haloperidol) are D2-R
+  antagonists K_i ~ 1 nM; benzodiazepines (diazepam) are positive allosteric
+  modulators of GABA-A (increase Cl⁻ channel open probability, shift EC₅₀ for
+  GABA left without changing maximum). All pharmacology is ligand-receptor
+  thermodynamics — the Hill equation: f_occupied = [L]^n / (K_D^n + [L]^n).
+translation_table:
+  - field_a_term: SNARE complex zippering free energy ΔG ≈ -65 kJ/mol
+    field_b_term: vesicle fusion driving force — thermodynamic engine of synaptic release
+    note: ΔG corresponds to ~26 k_BT at 37°C — sufficient to overcome membrane fusion barrier
+  - field_a_term: dissociation constant K_D = k_off/k_on (receptor binding)
+    field_b_term: drug potency and effective concentration (IC₅₀ ≈ K_D for simple competitive inhibition)
+    note: K_D determines synaptic time constant through τ_unbinding = 1/k_off
+  - field_a_term: allosteric modulator (positive/negative) of receptor complex
+    field_b_term: benzodiazepine mechanism — shifts GABA concentration-response curve
+    note: Allosteric vs. orthosteric binding is purely geometric chemistry; has distinct pharmacological signatures
+  - field_a_term: Hill coefficient n in dose-response curve
+    field_b_term: cooperativity of receptor activation (n>1 = switch-like; n=1 = Michaelis-Menten)
+    note: Synaptotagmin Ca²⁺ cooperativity n≈5 creates the sharp threshold for vesicle release
+  - field_a_term: reuptake transporter (SERT, DAT, NET) Km and Vmax
+    field_b_term: synaptic neurotransmitter clearance rate — determines signal duration
+    note: SSRIs elevate [5-HT] by blocking SERT; the spatial gradient of 5-HT depends on DAT Vmax
+related_unknowns:
+  - u-snare-complex-partial-zippering-spontaneous-release-rate
+related_hypotheses:
+  - h-snare-zippering-energy-controls-vesicle-fusion-probability
+cross_pollination_opportunities:
+  - >
+    Computational chemistry (molecular dynamics of SNARE complex zippering)
+    could predict the effects of botulinum toxin (SNARE cleavage) at the
+    residue level — enabling rational design of SNARE-mimetic peptides as
+    novel analgesics without botulinum toxicity.
+  - >
+    Cryo-EM structures of GABA-A receptor in complex with benzodiazepines
+    (now available at ~2Å resolution) combined with molecular dynamics
+    provide a quantitative energy landscape for allosteric modulation —
+    enabling structure-based design of novel anxiolytics with fewer side effects.
+communication_gap: >
+  Neuroscience and chemistry interact at the pharmacology interface but often
+  superficially. Neuroscientists typically learn receptor pharmacology phenomenologically
+  (dose-response curves, agonist/antagonist), while physical chemists and
+  biochemists develop the thermodynamic/kinetic theory without knowing the
+  neurobiological context. Drug discovery companies bridge these fields but
+  proprietary research withholds mechanistic insights from academia. The
+  Südhof Nobel Lecture (2013) is an exception — a neuroscientist presenting
+  the full physical chemistry of vesicle fusion.
+last_reviewed: "2026-05-06"
+references:
+  - note: "Südhof (2013) Neurotransmitter Release: The Last Millisecond in the Life of a Synaptic Vesicle. Nobel Lecture. https://www.nobelprize.org/prizes/medicine/2013/sudhof/lecture/"
+  - note: "Katz (1966) Nerve, Muscle, and Synapse. McGraw-Hill"
+  - note: "Nestler, Hyman & Malenka (2015) Molecular Neuropharmacology: A Foundation for Clinical Neuroscience. 3rd edn. McGraw-Hill"
+  - note: "Stahl (2013) Stahl's Essential Psychopharmacology: Neuroscientific Basis and Practical Applications. 4th edn. Cambridge University Press"

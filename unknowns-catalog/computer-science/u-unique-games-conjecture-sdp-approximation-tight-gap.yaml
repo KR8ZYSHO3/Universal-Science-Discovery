@@ -1,0 +1,45 @@
+id: u-unique-games-conjecture-sdp-approximation-tight-gap
+title: Is the Unique Games Conjecture (UGC) true — i.e., does the Goemans-Williamson 0.878 approximation ratio for MAX-CUT represent an absolute computational barrier — and what is the true approximation ratio achievable in polynomial time if UGC is false?
+status: open
+priority: high
+disciplines:
+  - computer-science
+  - mathematics
+  - complexity-theory
+  - combinatorial-optimization
+  - computational-complexity
+summary: >
+  Khot's Unique Games Conjecture (2002) is the most important open problem in
+  approximation algorithms. If UGC is true, then for every ε > 0, there is
+  no polynomial-time algorithm achieving (0.878 + ε)-approximation for MAX-CUT
+  unless P = NP. The Goemans-Williamson algorithm achieves exactly 0.878 via
+  SDP relaxation + randomized rounding, and its analysis is tight (the gap
+  between SDP relaxation and the rounding is exactly arccos/π ≥ 0.878(1-ρ)/2).
+  UGC implies optimal approximation ratios for many problems (vertex cover ≈ 2,
+  chromatic number, hypergraph coloring). If UGC is false, better-than-SDP
+  algorithms might exist for these problems — with implications for both
+  theoretical computer science and practical optimization. After 20+ years,
+  UGC remains unresolved. Sub-exponential algorithms for unique games exist
+  (Arora-Barak-Steurer 2010), which suggest the conjecture may be false —
+  but no poly-time algorithm has been found. The resolution of UGC would
+  settle the optimality of a large body of approximation algorithm theory
+  simultaneously.
+systematic_gaps:
+  - No proof of UGC is known; no refutation is known. After 20 years, the computational complexity community has made very limited progress on direct proof approaches.
+  - Sub-exponential algorithms (exp(n^ε)) for unique games exist, suggesting UGC hardness might require stronger assumptions; the relationship between UGC and quasi-polynomial hardness (ETH, QSETH) is not fully characterised.
+  - The "Unique Games with expanding graphs" variant is known to have polynomial algorithms; whether restricting unique games to non-expanding instances preserves the hardness gap needed for the SDP lower bound is unknown.
+suggested_hypotheses:
+  - >
+    UGC is false — there exists a polynomial-time algorithm achieving (0.878 + Ω(1))-approximation
+    for MAX-CUT using a Sum-of-Squares SDP hierarchy of constant degree, exploiting the expanding
+    structure of random instances and disproving the need for exponential hardness in UG.
+related_unknowns:
+  - u-p-vs-np-approximation-complexity-barrier
+related_bridges:
+  - b-approximation-algorithms-sdp
+references:
+  - doi: "10.1145/509907.510016"
+    note: "Khot (2002) STOC:767 — original UGC formulation"
+  - doi: "10.1145/227683.227684"
+    note: "Goemans & Williamson (1995) J ACM 42:1115"
+last_reviewed: "2026-05-06"
