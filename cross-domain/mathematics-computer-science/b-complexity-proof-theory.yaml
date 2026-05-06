@@ -1,0 +1,84 @@
+id: b-complexity-proof-theory
+title: >
+  The Cook-Levin theorem (1971) establishes SAT as NP-complete; Gödel's
+  incompleteness theorems and Turing's halting problem both derive from
+  diagonalization; the Curry-Howard correspondence identifies programs with
+  proofs and types with propositions; interactive proof systems (IP=PSPACE)
+  reveal that probabilistic verification is exponentially more powerful
+  than deterministic checking — mathematics and computer science study the
+  same logical limits from different directions.
+status: established
+fields:
+  - mathematics
+  - logic
+  - computer-science
+  - complexity-theory
+  - proof-theory
+  - type-theory
+bridge_claim: >
+  The Cook-Levin theorem (Cook 1971, Levin 1973): SAT is NP-complete — every
+  problem in NP polynomially reduces to Boolean satisfiability. P vs NP
+  (Clay Millennium Problem): does every efficiently verifiable problem have an
+  efficient solution? Geometric complexity theory (Mulmuley & Sohoni 2001) attacks
+  this using algebraic geometry and representation theory: P≠NP iff the permanent
+  polynomial is not in the VP complexity class, which requires proving
+  representation-theoretic obstructions. Diagonalization unifies computability
+  and logic: Turing's halting problem proof (1936) and Gödel's first
+  incompleteness theorem (1931) both construct self-referential objects via
+  diagonal argument. Curry-Howard correspondence: for simply-typed lambda calculus,
+  propositions = types, proofs = programs, proof normalization = program execution.
+  This extends to dependent type theory (Martin-Löf) where the type system is
+  strong enough to express all mathematical theorems — implemented in Coq, Agda,
+  Lean. Interactive proofs (Goldwasser-Micali-Rackoff 1985): IP = PSPACE
+  (Shamir 1992) — a prover with unbounded computation and a probabilistic verifier
+  can check any PSPACE statement in polynomial time with exponentially small
+  error. MIP* = RE (Ji et al. 2020): multi-prover interactive proofs with quantum
+  entanglement can verify recursively enumerable (undecidable!) problems.
+translation_table:
+  - field_a_term: Boolean satisfiability (SAT) — NP-complete under Cook-Levin
+    field_b_term: Hilbert's Entscheidungsproblem — undecidable under Church-Turing
+    note: SAT is the computational analog of the decision problem at finite resource bounds
+  - field_a_term: Gödel sentence (true but unprovable in PA)
+    field_b_term: non-halting Turing machine (runs forever, no output)
+    note: both exploit self-reference; Kleene's recursion theorem unifies them formally
+  - field_a_term: proposition P in intuitionistic logic
+    field_b_term: type T in simply-typed lambda calculus (Curry-Howard)
+    note: proof of P = program of type T; inhabited type = provable proposition
+  - field_a_term: PSPACE (space-bounded computation)
+    field_b_term: "IP interactive proof power (Shamir: IP = PSPACE)"
+    note: randomness allows efficient verification of exponentially many possibilities
+  - field_a_term: permanent polynomial (VNP-complete)
+    field_b_term: determinant polynomial (VP-complete, efficiently computable)
+    note: "Valiant: if perm in VP then #P ⊆ poly — implies P≠NP under derandomization"
+related_unknowns:
+  - u-p-vs-np-geometric-complexity
+related_hypotheses:
+  - h-geometric-complexity-theory-p-np
+cross_pollination_opportunities:
+  - >
+    Proof assistants (Lean 4, Coq, Isabelle) implement Curry-Howard directly,
+    enabling formal verification of mathematical proofs (Feit-Thompson theorem,
+    four-color theorem) and safety-critical software — a practical payoff of
+    the logic-computation correspondence with direct engineering applications.
+  - >
+    MIP* = RE (Ji et al. 2020) uses quantum entanglement to collapse the
+    interactive proof hierarchy — the proof also refutes Connes' embedding
+    conjecture (1976) in operator algebra, showing a completely unexpected
+    connection between quantum information theory and functional analysis.
+communication_gap: >
+  Mathematical logicians, complexity theorists, and type theorists each
+  developed their own language (proof theory, circuit complexity, type systems)
+  to study the same foundational questions. Curry-Howard is widely known in
+  programming language theory but not in logic or complexity theory. Most
+  computer science curricula separate algorithms from logic; the deep
+  connections (diagonalization, Kolmogorov complexity, circuit lower bounds)
+  are graduate-level topics rarely encountered by practitioners.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1145/800157.805047"
+    note: "Cook (1971) The complexity of theorem-proving procedures. STOC 3:151–158"
+  - note: "Sipser (2013) Introduction to the Theory of Computation, 3rd ed; Cengage Learning"
+  - doi: "10.1137/S0097539798347767"
+    note: "Mulmuley & Sohoni (2001) Geometric complexity theory I. SIAM J Comput 31:496–526"
+  - doi: "10.1145/146585.146609"
+    note: "Shamir (1992) IP = PSPACE. J ACM 39:869–877"

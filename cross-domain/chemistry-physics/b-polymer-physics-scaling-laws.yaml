@@ -1,0 +1,75 @@
+id: b-polymer-physics-scaling-laws
+title: >
+  De Gennes' renormalization group mapping of polymer chains (N monomers) to the
+  n→0 field theory gives the exact Flory exponent ν≈0.588 for chain size
+  R∝N^ν; reptation theory gives viscosity η∝N³ and diffusion D∝N⁻²; Edwards'
+  Hamiltonian maps polymer statistics to the Feynman path integral for a free
+  quantum particle — universal scaling independent of chemical identity.
+status: established
+fields:
+  - chemistry
+  - polymer-science
+  - physics
+  - statistical-mechanics
+  - field-theory
+  - soft-matter
+bridge_claim: >
+  A polymer chain of N monomers with excluded volume: the end-to-end distance
+  R ~ N^ν. Flory theory (1949): minimize F = k_BT[R²/Nb² + b³N²/R³] gives
+  ν = 3/(d+2) = 3/5 in d=3. De Gennes' renormalization group argument (1972)
+  maps the partition function of a self-avoiding walk to the n→0 limit of the
+  O(n) magnetic model (n-component field theory), enabling exact RG calculation:
+  ν ≈ 0.5876 (better than Flory's 0.6). Edwards Hamiltonian:
+  H = ∫₀ᴺ (3/2b²)|dR/ds|² ds + (v/2)∫∫δ(R(s)-R(s'))ds ds' — identical in
+  structure to the Feynman path integral for a free particle in an external
+  potential. Reptation (de Gennes 1971, Doi-Edwards 1978): a chain in a melt
+  moves like a snake through a tube formed by surrounding chains. Curvilinear
+  diffusion D_c ∝ N⁻¹ → tube renewal time τ_d ∝ N³ → viscosity η ∝ N³ and
+  self-diffusion D ∝ N⁻². These power laws are universal: identical for DNA
+  (semiflexible), polyethylene (flexible), and synthetic polymers — chemistry
+  only enters through the prefactor (Kuhn length b, excluded volume v).
+translation_table:
+  - field_a_term: polymer partition function Z = Σ exp(-βH[R(s)])
+    field_b_term: quantum amplitude ⟨x_f|e^{-Ht/ħ}|x_i⟩ in imaginary time
+    note: contour length s plays the role of imaginary time in the path integral
+  - field_a_term: Flory exponent ν (chain size R ~ N^ν)
+    field_b_term: critical exponent η in O(n→0) field theory
+    note: ν and η are related by scaling relations; RG gives them exactly
+  - field_a_term: tube diameter a in reptation
+    field_b_term: entanglement molecular weight M_e (characteristic scale)
+    note: a ~ √(M_e) sets the crossover from Rouse to reptation dynamics
+  - field_a_term: polyelectrolyte electrostatic blob size ξ_e
+    field_b_term: Debye screening length λ_D in Coulomb potential
+    note: electrostatic blobs are subsections where electrostatics dominate over entropy
+  - field_a_term: Zimm dynamics (hydrodynamic interaction included)
+    field_b_term: diffusion tensor in Oseen-Burgers formalism
+    note: hydrodynamic screening separates dilute (Zimm) from semi-dilute (Rouse) behavior
+related_unknowns:
+  - u-polymer-entanglement-topology
+related_hypotheses:
+  - h-reptation-tube-model-constraint-release
+cross_pollination_opportunities:
+  - >
+    DNA is a semiflexible polyelectrolyte — polymer physics scaling laws predict
+    its behavior in nanochannels and gels used for genomic mapping (Oxford
+    Nanopore, BioNano). Direct transfer of polymer physics to genomics
+    instrumentation design.
+  - >
+    Field-theoretic simulation methods (FTS) developed for polymer melts are now
+    being applied to protein phase separation (intrinsically disordered proteins),
+    using the same polymer-field-theory duality to compute phase diagrams.
+communication_gap: >
+  Polymer physics is often taught in chemistry departments using empirical rules,
+  while the field-theory derivations live in condensed matter physics. Industrial
+  polymer scientists focus on rheological measurements; the connection between
+  measured viscosity exponents and the reptation model's fundamental assumptions
+  is not always drawn. The quantum mechanics connection (path integral ↔ polymer)
+  is known to theoretical physicists but almost never mentioned in polymer
+  chemistry textbooks.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1063/1.1747243"
+    note: "Flory (1949) The configuration of real polymer chains. J Chem Phys 17:303–310"
+  - note: "de Gennes (1979) Scaling Concepts in Polymer Physics; Cornell University Press, Ithaca NY"
+  - note: "Doi & Edwards (1986) The Theory of Polymer Dynamics; Oxford University Press"
+  - note: "Rubinstein & Colby (2003) Polymer Physics; Oxford University Press"

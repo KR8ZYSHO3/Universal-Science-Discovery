@@ -1,6 +1,6 @@
 # USDR Citation Index
 
-**2631 total citations · 1941 unique references · 238 cited in 2+ bridges**
+**2778 total citations · 2036 unique references · 258 cited in 2+ bridges**
 
 ## Most Cross-Domain Papers
 
@@ -16,24 +16,33 @@ Papers cited across the highest number of different bridges — the most influen
 | 5 | Turing (1952) — original prediction λ ∝ √(D/k) | [DOI](10.1098/rstb.1952.0012) |
 | 5 | WBE derives 3/4 from area-preserving branching — the recursion relation is struc... | [DOI](10.1126/science.276.5309.122) |
 | 5 |  | [DOI](10.1103/PhysRev.106.620) |
+| 5 | Hopfield (1982) — associative memory energy model | [DOI](10.1073/pnas.79.8.2554) |
+| 4 | Bohigas et al. (1984) — Bohigas-Giannoni-Schmit conjecture: chaotic quantum syst... | [DOI](10.1103/PhysRevLett.52.1) |
 | 4 | Maynard Smith & Price (1973) — ESS and cyclical dynamics in zero-sum games | [DOI](10.1038/246015a0) |
+| 4 | Gonze et al. (2005) - quantitative Kuramoto model of SCN fits synchrony data wit... | [DOI](10.1529/biophysj.104.058388) |
+| 4 | Hardin (1968) Science 162:1243 — tragedy of the commons baseline | [DOI](10.1126/science.162.3859.1243) |
 | 4 | Bouchaud & Mezard (2000) — derives the formula α = 1 + r/(g-r) from a multiplica... | [DOI](10.1016/S0378-4371(00)00205-3) |
 | 4 | Newman (2002) proves the mathematical equivalence — FSS must apply if the equiva... | [DOI](10.1103/PhysRevE.66.016128) |
 | 4 | Bak, Tang & Wiesenfeld (1987) — BTW sandpile predicts τ = 3/2 (mean field) | [DOI](10.1103/PhysRevLett.59.381) |
 | 4 | Beggs & Plenz (2003) — original neural avalanche paper establishing critical exp... | [DOI](10.1523/JNEUROSCI.23-35-11167.2003) |
 | 4 | Landauer (1961) — irreversibility and heat generation in computation | [DOI](10.1147/rd.53.0183) |
+| 3 | Gardner et al. (2000) Nature 403:339 — toggle switch as testbed circuit | [DOI](10.1038/35002131) |
 | 3 | Price (1970) establishes the general decomposition applicable to cultural traits | [DOI](10.1038/227520a0) |
 | 3 |  | [DOI](10.1103/RevModPhys.85.1143) |
 | 3 | Jarzynski equality — theoretical basis for near-equilibrium efficiency measureme... | [DOI](10.1103/PhysRevLett.78.2690) |
 | 3 | Armstrong McKay et al. (2022) — Tipping elements in the Earth system; Science 37... | [DOI](10.1126/science.abn7950) |
 | 3 | Arute et al. (2019) — 53-qubit Sycamore at 20 cycles; XEB = 0.224% (above classi... | [DOI](10.1038/s41586-019-1666-5) |
 | 3 | Wagner et al. (2004) - sleep promotes insight into hidden mathematical rule (num... | [DOI](10.1126/science.1205106) |
+| 3 | Dietz et al. (2003) Science 302:1907 — commons governance empirical tests | [DOI](10.1126/science.1091015) |
 | 3 | Brockett (1972) — Lie algebra controllability condition (basis for bracket depth... | [DOI](10.1137/0310021) |
 | 3 | Cahill et al. (2003) — review of thermal transport in nanostructures; interface ... | [DOI](10.1063/1.1524305) |
 | 3 | Saw et al. 2017 — topological defects in epithelia determine cell fate; establis... | [DOI](10.1126/science.aar5663) |
 | 3 |  | [DOI](10.1038/30918) |
 | 3 | Clark (2013) Behav Brain Sci — predictive coding framework motivating the precis... | [DOI](10.1017/S0140525X12000477) |
-| 3 | Hopfield (1982) — associative memory energy model | [DOI](10.1073/pnas.79.8.2554) |
+| 3 | Amit et al. (1985) Phys Rev A 32:1007 — AGS capacity theorem | [DOI](10.1103/PhysRevA.32.1007) |
+| 3 |  | [DOI](10.1063/1.1749604) |
+| 3 | Kramers (1940) Physica 7:284 — solvent friction effects on rate | [DOI](10.1016/S0031-8914(40)90098-2) |
+| 3 | Hänggi et al. (1990) Rev Mod Phys 62:251 — comprehensive reaction rate review | [DOI](10.1103/RevModPhys.62.251) |
 | 3 | Challet & Zhang (1997) - MG phase transition at alpha_c analogous to error thres... | [DOI](10.1016/S0378-4371(97)00419-6) |
 | 3 | Bennett (1973) — theoretical demonstration that reversible computation has zero ... | [DOI](10.1147/rd.173.0525) |
 | 3 | Hasan & Kane (2010) — comprehensive review of Z2 TI classification and experimen... | [DOI](10.1103/RevModPhys.82.3045) |
@@ -49,15 +58,6 @@ Papers cited across the highest number of different bridges — the most influen
 | 2 | Hays et al. (1976) — 100 kyr power confirmed in delta-O18 record; eccentricity c... | [DOI](10.1126/science.194.4270.1121) |
 | 2 | Laskar et al. (2011) — chaotic orbital evolution; eccentricity forcing computed ... | [DOI](10.1038/nature10385) |
 | 2 | Feulner (2012) — stellar evolution and faint young Sun; background on solar forc... | [DOI](10.1073/pnas.1117601109) |
-| 2 | Bohigas et al. (1984) — Bohigas-Giannoni-Schmit conjecture: chaotic quantum syst... | [DOI](10.1103/PhysRevLett.52.1) |
-| 2 | Fukugita & Yanagida (1986) - original leptogenesis mechanism via heavy Majorana ... | [DOI](10.1016/0370-2693(86)91126-3) |
-| 2 | Peccei & Quinn (1977) - original PQ symmetry solving strong CP problem; axion as... | [DOI](10.1103/PhysRevLett.38.1440) |
-| 2 | Lynden-Bell & Wood (1968) establish gravothermal catastrophe theory | [DOI](10.1093/mnras/138.4.495) |
-| 2 | Chandrasekhar (1935) polytrope stability — n=3 critical boundary | [DOI](10.1093/mnras/95.3.207) |
-| 2 | Abbott et al. (2017) — GW170817 kilonova spectroscopy confirms neutron star merg... | [DOI](10.3847/2041-8213/aa920c) |
-| 2 | Fromang & Papaloizou (2007) — numerical evidence for α ~ Pm^{0.5} in shearing bo... | [DOI](10.1051/0004-6361:20077537) |
-| 2 | Hawking (1975) — black hole entropy = area/4, precursor to holographic principle | [DOI](10.1007/BF01608497) |
-| 2 |  | [DOI](10.1209/0295-5075/1/2/001) |
 
 ## Citation Network
 
@@ -67,4 +67,4 @@ The full citation data is available at [`docs/citation_index.json`](citation_ind
 
 ## All Unique References
 
-The catalog currently references **1941 unique papers/books**.
+The catalog currently references **2036 unique papers/books**.

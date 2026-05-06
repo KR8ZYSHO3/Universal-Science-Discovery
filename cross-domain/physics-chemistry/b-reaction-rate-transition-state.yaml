@@ -1,0 +1,84 @@
+id: b-reaction-rate-transition-state
+title: >
+  Eyring-Evans-Polanyi transition state theory (1935) derives reaction rate
+  k = (k_BT/h)exp(-ΔG‡/RT) from statistical mechanics; Kramers' theory adds
+  solvent friction (γ); Marcus theory gives the celebrated inverted region
+  k ∝ exp[-(λ+ΔG°)²/4λk_BT] for electron transfer where faster thermodynamics
+  can slow the rate — unifying statistical mechanics, chemical kinetics, and
+  quantum tunneling through the concept of a rate-limiting transition state.
+status: established
+fields:
+  - physics
+  - statistical-mechanics
+  - chemistry
+  - physical-chemistry
+  - quantum-mechanics
+  - reaction-kinetics
+bridge_claim: >
+  Transition state theory (TST, Eyring-Evans-Polanyi 1935): reaction rate is
+  k = (k_BT/h) · (Q‡/Q_R) · exp(-E‡/k_BT) where Q‡ is the partition function
+  of the activated complex minus one degree of freedom (the reaction coordinate).
+  Using free energies: k = (k_BT/h)exp(-ΔG‡/RT). Key assumptions: (1) quasi-
+  equilibrium — activated complexes are in equilibrium with reactants;
+  (2) no recrossing — trajectories that reach the transition state divide surface
+  proceed to products without returning. Variational TST optimizes the dividing
+  surface to minimize recrossing. Kramers' theory (1940): in the diffusion
+  (high-friction) limit, k = (ω_R ω_TS/2πγ)exp(-ΔE/k_BT) — the prefactor
+  depends on the solvent friction γ. This bridges chemical kinetics to the
+  Langevin equation from statistical physics. Marcus theory for electron transfer
+  (1956, Nobel 1992): treating the environment as a harmonic bath with
+  reorganization energy λ gives k_ET ∝ |H_DA|² exp[-(λ+ΔG°)²/4λk_BT].
+  The inverted region (ΔG° < -λ): as the reaction becomes more exergonic
+  beyond the activationless maximum, the rate decreases — counterintuitive and
+  experimentally verified by Miller et al. (1984). Marcus-Levich-Jortner
+  theory extends this to quantum tunneling of nuclear motion (vibrationally
+  enhanced electron transfer), crucial for biological photosynthesis.
+translation_table:
+  - field_a_term: transition state (activated complex, ‡) on the PES
+    field_b_term: saddle point of the potential energy landscape in statistical mechanics
+    note: transition state is a first-order saddle point in 3N-dimensional configuration space
+  - field_a_term: activation free energy ΔG‡
+    field_b_term: barrier height in the Kramers escape problem
+    note: both determine the Arrhenius exponential suppression of the rate
+  - field_a_term: solvent friction γ in Kramers theory
+    field_b_term: damping in the Langevin equation ṁẋ = -γẋ - dV/dx + ξ(t)
+    note: high friction → diffusion limit; low friction → energy-diffusion limited (Kramers turnover)
+  - field_a_term: Marcus reorganization energy λ
+    field_b_term: harmonic bath coupling parameter in spin-boson model
+    note: λ measures how much the environment must rearrange upon charge transfer
+  - field_a_term: Marcus inverted region (rate decreases at large -ΔG°)
+    field_b_term: quantum tunneling gap between initial and final state wavefunctions
+    note: deep inverted region rates are governed by nuclear tunneling, not classical over-barrier
+related_unknowns:
+  - u-kramers-turnover-solvent-friction
+related_hypotheses:
+  - h-marcus-inverted-region-biological-electron-transfer
+cross_pollination_opportunities:
+  - >
+    Biological electron transfer in photosynthetic reaction centers operates in
+    the Marcus activationless regime (ΔG° ≈ -λ) for primary charge separation
+    steps, explaining the near-unit quantum efficiency. Designing artificial
+    photovoltaics using the same Marcus-region optimization is a direct
+    chemistry-to-engineering transfer.
+  - >
+    Protein folding kinetics obey a modified TST on rugged energy landscapes
+    (Bryngelson-Wolynes funnel model). The recrossing correction (transmission
+    coefficient κ < 1) is analogous to solvent friction in Kramers — connecting
+    polymer physics, statistical mechanics, and structural biology.
+communication_gap: >
+  Transition state theory is taught in physical chemistry; Kramers theory
+  in chemical physics; Marcus theory in electrochemistry and biophysics.
+  These communities use different notation and rarely cross-cite. The
+  connection of Marcus theory to the spin-boson model (condensed matter
+  physics) is known to theorists but not to experimental chemists.
+  Quantum biology connections (tunneling in enzymes) are highly contested.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1063/1.1749604"
+    note: "Eyring (1935) The activated complex in chemical reactions. J Chem Phys 3:107–115"
+  - doi: "10.1016/S0031-8914(40)90098-2"
+    note: "Kramers (1940) Brownian motion in a field of force and the diffusion model of chemical reactions. Physica 7:284–304"
+  - doi: "10.1063/1.1742723"
+    note: "Marcus (1956) On the theory of oxidation-reduction reactions involving electron transfer. J Chem Phys 24:966–978"
+  - doi: "10.1103/RevModPhys.62.251"
+    note: "Hänggi et al. (1990) Reaction-rate theory: fifty years after Kramers. Rev Mod Phys 62:251–341"

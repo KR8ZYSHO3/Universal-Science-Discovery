@@ -1,0 +1,81 @@
+id: b-hopfield-attractor-memory
+title: >
+  Hopfield networks (1982) store M memories as energy-function attractors with
+  Hebbian weights; statistical mechanics (Amit-Gutfreund-Sompolinsky) gives
+  capacity M_max≈0.14N; modern Hopfield networks (Ramsauer 2020) achieve
+  exponential capacity exp(N/2) using log-sum-exp interaction — mathematically
+  equivalent to the scaled dot-product attention mechanism in transformers,
+  connecting associative memory theory directly to large language models.
+status: established
+fields:
+  - neuroscience
+  - mathematics
+  - statistical-mechanics
+  - machine-learning
+  - neural-networks
+  - memory-theory
+bridge_claim: >
+  Hopfield networks (1982): N binary neurons sᵢ ∈ {-1,+1} with symmetric
+  weights Wᵢⱼ = (1/N)Σ_μ ξᵐᵢ ξᵐⱼ (Hebb rule) and dynamics sᵢ(t+1) =
+  sgn(Σⱼ Wᵢⱼsⱼ(t)). Energy E = -½Σᵢⱼ Wᵢⱼsᵢsⱼ decreases monotonically →
+  convergence to attractors. Stored memories ξᵐ are the attractor fixed points.
+  Amit-Gutfreund-Sompolinsky (AGS) theorem (1985): statistical mechanics analysis
+  via replica method gives the storage capacity M_max ≈ 0.138N memories before
+  catastrophic interference — above this, spurious "spin glass" attractors
+  proliferate. Modern Hopfield networks (Ramsauer et al. 2020, Krotov-Hopfield
+  2016): replace the interaction function with F = log(Σ_μ exp(β ξᵐ·s)) giving
+  capacity exponential in N/2 (2^(N/2) memories). The update rule for the
+  continuous state becomes: s_new = Ξ·softmax(β Ξᵀs) where Ξ is the memory
+  matrix. This is precisely the scaled dot-product attention:
+  Attention(Q,K,V) = softmax(QKᵀ/√d)·V with Q=s, K=V=Ξ. Memory retrieval =
+  one attention step. This connects Hopfield's 1982 biologically-inspired
+  neural memory model directly to the core operation of transformer architectures
+  (BERT, GPT), revealing that attention mechanisms implement associative memory.
+translation_table:
+  - field_a_term: Hopfield network synaptic weight matrix Wᵢⱼ
+    field_b_term: outer product of key-value pairs in transformer attention
+    note: Hebb rule Wᵢⱼ = ΣΞ_μᵢΞ_μⱼ is identical to key-value memory outer product
+  - field_a_term: energy function E = -½ sᵀWs
+    field_b_term: negative log-sum-exp interaction function in modern Hopfield
+    note: classical energy is quadratic; modern Hopfield energy is -log(Σexp(βξ·s))
+  - field_a_term: pattern completion (partial cue → full memory)
+    field_b_term: attention query finding the most similar key
+    note: both perform nearest-neighbor retrieval in the space of stored patterns
+  - field_a_term: storage capacity M_max = 0.14N (classical)
+    field_b_term: softmax attention over all N tokens (one-shot perfect retrieval)
+    note: classical has capacity limitation; softmax attention retrieves any of exp(N/2) items
+  - field_a_term: spurious attractors (spin glass states above capacity)
+    field_b_term: hallucination in large language models (blended pattern retrieval)
+    note: both arise when memory density exceeds the network's faithful retrieval limit
+related_unknowns:
+  - u-hopfield-capacity-cortical-memory
+related_hypotheses:
+  - h-modern-hopfield-transformer-attention-equivalence
+cross_pollination_opportunities:
+  - >
+    Biological associative memory capacity limits (AGS theorem gives 0.14N)
+    compared to transformer attention (exponential capacity) suggests that
+    biological implementation constraints fundamentally limit cortical memory
+    capacity — this framing makes concrete predictions about hippocampal
+    capacity measurable via multi-unit recording during memory tasks.
+  - >
+    Reverse-engineering transformer attention as a Hopfield network suggests
+    interpretability methods: attention heads are retrieving "stored memories"
+    — the patterns learned during training. This biological framing motivates
+    new mechanistic interpretability approaches beyond attention visualization.
+communication_gap: >
+  The 1982 Hopfield paper was absorbed by the physics community (statistical
+  mechanics analysis) and the neural network community but largely separated
+  from the 2017 transformer revolution in deep learning. The mathematical
+  equivalence between modern Hopfield networks and attention was published in
+  2020 (Ramsauer et al.) but has not yet widely penetrated neuroscience
+  journals, even though it provides a biologically grounded theoretical
+  framework for understanding transformer architectures.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1073/pnas.79.8.2554"
+    note: "Hopfield (1982) Neural networks and physical systems with emergent collective computational abilities. PNAS 79:2554–2558"
+  - doi: "10.1103/PhysRevA.32.1007"
+    note: "Amit et al. (1985) Storing infinite numbers of patterns in a spin-glass model of neural networks. Phys Rev A 32:1007–1018"
+  - note: "Ramsauer et al. (2020) Hopfield Networks Is All You Need. ICLR 2021. arXiv:2008.02217"
+  - note: "Krotov & Hopfield (2016) Dense associative memory for pattern recognition. Adv Neural Inf Process Syst 29"

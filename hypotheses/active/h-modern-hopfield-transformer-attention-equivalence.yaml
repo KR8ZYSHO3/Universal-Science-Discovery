@@ -1,0 +1,45 @@
+id: h-modern-hopfield-transformer-attention-equivalence
+title: >
+  The mathematical equivalence between modern Hopfield network updates and
+  scaled dot-product attention implies that transformer attention heads
+  implement content-addressable associative memory retrieval, and that
+  the number of "memorized facts" in a transformer's attention layers scales
+  exponentially with the key/query dimension d — testable via probing and
+  capacity saturation experiments.
+status: active
+priority: high
+impact_score: 0.90
+created: "2026-05-06"
+last_updated: "2026-05-06"
+related_disciplines:
+  - neuroscience
+  - machine-learning
+  - mathematics
+  - memory-theory
+unknowns_addressed:
+  - u-hopfield-capacity-cortical-memory
+evidence_links:
+  - doi: "10.1073/pnas.79.8.2554"
+    type: supporting
+    confidence: 0.90
+    note: "Hopfield (1982) PNAS 79:2554 — original attractor network"
+  - note: "Ramsauer et al. (2020) Hopfield Networks Is All You Need. ICLR 2021 — attention equivalence proof"
+    type: supporting
+    confidence: 0.92
+  - doi: "10.1103/PhysRevA.32.1007"
+    type: supporting
+    confidence: 0.80
+    note: "Amit et al. (1985) Phys Rev A 32:1007 — AGS capacity theorem"
+proposed_tests:
+  - description: >
+      Train transformer models of varying key dimension d (16 to 1024) on
+      associative recall tasks with known numbers of key-value pairs M.
+      Measure recall accuracy as a function of M/exp(d/2). The modern
+      Hopfield capacity predicts a sharp phase transition from near-perfect
+      to poor recall at M ≈ exp(d/2), analogous to the AGS capacity transition.
+  - description: >
+      Use mechanistic interpretability probing (linear probing of intermediate
+      activations) to identify attention heads that implement content-addressable
+      memory for factual associations (entity-attribute bindings). Test whether
+      the number of reliably stored associations per head scales as predicted by
+      the exponential Hopfield capacity formula.

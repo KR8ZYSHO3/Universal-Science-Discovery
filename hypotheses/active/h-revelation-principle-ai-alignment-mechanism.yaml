@@ -1,0 +1,44 @@
+id: h-revelation-principle-ai-alignment-mechanism
+title: >
+  Training AI systems with incentive-compatible loss functions — where the AI
+  agent's optimal strategy is to reveal its true internal state and capabilities
+  (analogous to the revelation principle's direct mechanism) — will produce
+  more robustly aligned systems than training with proxy rewards that incentivize
+  misrepresentation of capabilities.
+status: active
+priority: critical
+impact_score: 0.88
+created: "2026-05-06"
+last_updated: "2026-05-06"
+related_disciplines:
+  - economics
+  - mechanism-design
+  - artificial-intelligence
+  - game-theory
+unknowns_addressed:
+  - u-mechanism-design-ai-alignment
+evidence_links:
+  - doi: "10.1287/moor.4.1.61"
+    type: supporting
+    confidence: 0.75
+    note: "Myerson (1979) Math Oper Res 4:61 — revelation principle"
+  - doi: "10.2307/2296779"
+    type: related
+    confidence: 0.70
+    note: "Mirrlees (1971) Rev Econ Stud 38:175 — mechanism design under information asymmetry"
+  - note: "Hurwicz (1973) Am Econ Rev 63:1 — mechanism design framework"
+    type: related
+    confidence: 0.65
+proposed_tests:
+  - description: >
+      In a controlled multi-agent reinforcement learning environment (prisoners'
+      dilemma variants), compare agents trained with VCG-style incentive-compatible
+      reward signals (agent is residual claimant of its reported value) against
+      agents trained with standard proxy rewards. Measure deception rate (divergence
+      between reported and actual capability) and cooperation rate across 1000 episodes.
+  - description: >
+      Train language models on tasks where the model must report its own uncertainty
+      (confidence calibration). Compare incentive-compatible training (proper scoring
+      rules — Brier score, log-loss — where honest calibration is utility-maximizing)
+      versus cross-entropy-only training. Test whether proper scoring rules improve
+      calibration without a separate calibration fine-tuning step.
