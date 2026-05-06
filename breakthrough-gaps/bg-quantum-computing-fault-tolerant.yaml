@@ -1,0 +1,69 @@
+id: bg-quantum-computing-fault-tolerant
+title: Fault-Tolerant Quantum Computation at Practical Scale
+breakthrough_description: >
+  A fault-tolerant quantum computer with ~1,000 error-corrected logical qubits would
+  break RSA-2048 encryption, simulate quantum chemistry at pharmaceutical-design
+  accuracy (protein folding, drug binding), and solve optimization problems
+  (logistics, materials discovery) beyond classical reach. Google's Willow chip
+  (2024, 105 physical qubits) demonstrated below-threshold surface code error
+  correction for the first time. Microsoft announced topological qubits in 2025.
+  The barrier is not the physics — threshold has been crossed — but the 1,000:1
+  physical-to-logical qubit overhead and cryogenic engineering at scale.
+source_domain: quantum-physics
+current_trl: 3
+world_reshaping_potential: transformative
+blocking_gaps:
+  - gap_title: Qubit Coherence Time vs Gate Operation Time Ratio
+    gap_description: >
+      Surface code error correction requires ~1,000 gate operations within a single
+      coherence time (T₂) to achieve logical error rates below 10⁻¹⁰. Current
+      superconducting qubits achieve T₂ ~ 100–500 μs with 50–100 ns gate times,
+      giving a ratio of ~1,000–10,000 — marginally sufficient. Trapped ion qubits
+      have better coherence (T₂ ~ seconds) but slower gates (1–100 μs). No
+      platform yet demonstrates both high coherence and high-speed operations
+      simultaneously at the scale needed for practical algorithms.
+    blocking_domain: quantum-physics
+    gap_type: engineering
+  - gap_title: Error Correction Overhead (Physical-to-Logical Qubit Ratio)
+    gap_description: >
+      Current surface code implementations require ~1,000 physical qubits per
+      logical qubit at physical error rates of 10⁻³. Running Shor's algorithm
+      on RSA-2048 requires ~4,000 logical qubits, implying ~4 million physical
+      qubits. Alternative codes (LDPC, bivariate bicycle codes) promise 10–100×
+      reduction in overhead but require long-range qubit connectivity that
+      conflicts with planar fabrication. The mathematical gap between code
+      theory and physical implementation constraints is the central barrier.
+    blocking_domain: quantum-physics
+    gap_type: mathematical
+  - gap_title: Classical-Quantum Interface Bandwidth
+    gap_description: >
+      Surface code error correction requires real-time classical processing of
+      syndrome measurements at ~1 GHz per logical qubit — a "decoder" that
+      identifies error chains faster than they accumulate. For 1,000 logical
+      qubits, this requires ~1 THz aggregate classical processing at 10–15 mK.
+      Current cryogenic classical computing (RSFQ, SFQ) operates at milliwatts
+      per GHz at 4K but cannot match the 10 mK operating temperature of
+      superconducting qubits without thermal load compromising coherence.
+    blocking_domain: engineering
+    gap_type: engineering
+  - gap_title: Cryogenic Engineering at Scale
+    gap_description: >
+      Current dilution refrigerators cool ~100–1,000 qubits to 10–15 mK using
+      approximately 1–5 kW of input power for ~100 μW of cooling at base temperature.
+      Scaling to millions of qubits requires either many parallel cryostats
+      (enormous infrastructure cost) or modular cryogenic architectures with
+      quantum interconnects between modules. Cryogenic interconnect technology
+      (microwave photon links at 10 mK) is at TRL 2–3.
+    blocking_domain: engineering
+    gap_type: engineering
+required_bridges:
+  - b-quantum-physics-information-theory
+  - b-materials-science-quantum-physics
+  - b-engineering-quantum-physics
+references:
+  - "Acharya, R. et al. (Google Quantum AI) (2024). Quantum error correction below the surface code threshold. Nature 638:920–926."
+  - "Bravyi, S. et al. (2024). High-threshold and low-overhead fault-tolerant quantum memory. Nature 627:778–782."
+  - "Preskill, J. (2018). Quantum Computing in the NISQ Era and Beyond. Quantum 2:79."
+  - "Litinski, D. (2019). A Game of Surface Codes. Quantum 3:128."
+  - "Beverland, M. et al. (2022). Assessing requirements to scale to practical quantum advantage. arXiv:2211.07629."
+last_reviewed: "2026-05-06"

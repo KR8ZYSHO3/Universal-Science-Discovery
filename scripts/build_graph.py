@@ -2,7 +2,8 @@
 """Build a knowledge graph from USDR YAML catalog entries.
 
 Walks cross-domain/b-*.yaml, hypotheses/active/h-*.yaml,
-unknowns-catalog/**/u-*.yaml, and phenomenology/**/p-*.yaml.
+unknowns-catalog/**/u-*.yaml, phenomenology/**/p-*.yaml,
+pioneers/pioneer-*.yaml, and breakthrough-gaps/bg-*.yaml.
 Outputs docs/knowledge_graph.json.
 """
 from __future__ import annotations
@@ -29,6 +30,8 @@ EDGE_FIELDS: list[tuple[str, str]] = [
     ("candidate_unknowns",    "candidate_unknown"),
     ("unknowns_addressed",    "addresses_unknown"),
     ("evidence_links",        "evidence_link"),
+    ("bridge_seeds",          "seeds_bridge"),
+    ("required_bridges",      "requires_bridge"),
 ]
 
 
@@ -53,6 +56,14 @@ def iter_yaml_files():
         yield path, "unknown"
     for path in sorted((ROOT / "phenomenology").rglob("p-*.yaml")):
         yield path, "phenomenon"
+    pioneer_dir = ROOT / "pioneers"
+    if pioneer_dir.exists():
+        for path in sorted(pioneer_dir.glob("pioneer-*.yaml")):
+            yield path, "pioneer"
+    bg_dir = ROOT / "breakthrough-gaps"
+    if bg_dir.exists():
+        for path in sorted(bg_dir.glob("bg-*.yaml")):
+            yield path, "breakthrough_gap"
 
 
 def extract_ref_ids(field_value: list | None) -> list[str]:
@@ -98,10 +109,20 @@ def build_graph() -> tuple[list[dict], list[dict]]:
 
         if entry_type == "bridge":
             node["fields"] = data.get("fields", [])
+            node["color"] = "blue"
         elif entry_type in ("unknown", "phenomenon"):
             node["fields"] = data.get("disciplines", [])
+            node["color"] = "gray"
         elif entry_type == "hypothesis":
             node["fields"] = data.get("related_disciplines", [])
+            node["color"] = "green"
+        elif entry_type == "pioneer":
+            node["title"] = data.get("name", "")
+            node["fields"] = data.get("primary_domains", [])
+            node["color"] = "gold"
+        elif entry_type == "breakthrough_gap":
+            node["fields"] = [data.get("source_domain", "")]
+            node["color"] = "red"
 
         nodes.append(node)
 
