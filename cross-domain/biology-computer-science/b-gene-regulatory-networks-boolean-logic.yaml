@@ -1,0 +1,98 @@
+id: b-gene-regulatory-networks-boolean-logic
+title: >
+  Kauffman's Boolean network model maps gene regulatory circuits onto digital logic gates,
+  predicting that cell types correspond to dynamical attractors and that the number of
+  cell types scales as √N_genes for critical K=2 networks — a cross-domain insight
+  connecting combinatorial logic theory to developmental cell biology.
+status: established
+fields:
+  - biology
+  - computer-science
+  - systems-biology
+  - developmental-biology
+bridge_claim: >
+  Boolean network models (Kauffman 1969): genes are binary nodes (on/off), each
+  receiving K regulatory inputs and computing a Boolean function of those inputs.
+  The entire N-gene network is a finite deterministic automaton with 2^N states;
+  from any initial state, the trajectory leads to a cycle (attractor) or fixed point.
+  Kauffman's radical insight: cell types correspond to attractors.
+
+  Random Boolean Networks (RBNs) with K inputs per node exhibit a phase transition
+  as K varies. For K < 2: ordered (frozen) phase — most nodes frozen, single large
+  attractor. For K > 2: chaotic phase — exponentially many short attractors, extreme
+  sensitivity to perturbation (damage spreads). For K = 2: critical phase — attractor
+  number scales as √N, attractor basin sizes are power-law distributed, and the network
+  is maximally complex in information-theoretic sense.
+
+  The critical K=2 networks have: (1) attractor number ≈ √N ≈ 141 for N=20,000 genes
+  (humans have ~200-400 cell types — quantitative agreement), (2) stability: small
+  perturbations (mutations) typically affect only local attractors (biological robustness),
+  (3) evolvability: the system can reach many attractors through small changes (adaptability).
+
+  Derrida & Pomeau (1986) computed the damage spreading exactly in RBNs: the Derrida map
+  dₙ₊₁ = 2K·p(1-p)·dₙ (where p is bias probability) shows the phase transition is a
+  bifurcation at K=2 in the mean-field approximation.
+
+  ENCODE Project confirmation (2012): 85% of the human genome has at least one functional
+  regulatory element (transcription factor binding, histone modification, RNA activity).
+  This confirms that the "genes" in Kauffman's model correspond not to coding genes alone
+  but to the full regulatory genome — the effective N for the Boolean model is much larger
+  than 20,000, pushing attractor count higher. However, the network topology is scale-free
+  (not random), which reduces attractor count toward observed cell type numbers.
+
+  Computer science connection: Boolean circuits, satisfiability (SAT), and attractor
+  computation are all NP-hard in general — finding the attractor landscape of a real
+  GRN is computationally intractable for N > 50. This is why bioinformatics tools for
+  GRN inference use approximations (Boolean satisfiability solvers, sparse sampling).
+translation_table:
+  - field_a_term: gene node (on/off expression state)
+    field_b_term: Boolean variable (0/1 logic gate input)
+  - field_a_term: transcription factor regulatory function
+    field_b_term: Boolean logic gate (AND, OR, NOT, XOR function of inputs)
+  - field_a_term: cell type (stable gene expression pattern)
+    field_b_term: attractor of the Boolean automaton (fixed point or limit cycle)
+  - field_a_term: cell differentiation (transition between cell types)
+    field_b_term: perturbation-driven transition between attractor basins
+  - field_a_term: developmental canalization (Waddington landscape)
+    field_b_term: basin of attraction (size ∝ canalization strength)
+  - field_a_term: oncogenic transformation (aberrant cell state)
+    field_b_term: spurious attractor (not in normal attractor set)
+  - field_a_term: K connectivity (average regulatory inputs per gene)
+    field_b_term: fan-in of logic gate (inputs per gate in circuit)
+  - field_a_term: critical K=2 (edge of chaos)
+    field_b_term: critical Boolean satisfiability threshold (phase transition at K=2 per variable)
+related_unknowns:
+  - u-boolean-attractor-cell-fate-mapping
+related_hypotheses:
+  - h-critical-boolean-network-cell-type-count
+cross_pollination_opportunities:
+  - >
+    SAT solvers developed for VLSI Boolean circuit analysis could be repurposed to
+    compute the complete attractor landscape of inferred gene regulatory networks from
+    single-cell RNA-seq data — testing Kauffman's quantitative predictions with genome-
+    scale data for the first time.
+  - >
+    Boolean circuit complexity theory predicts minimum circuit depth for computing
+    specified Boolean functions. Applied to GRNs: what is the minimum regulatory
+    depth (transcription factor cascade length) for a given developmental programme?
+    This predicts bottleneck regulatory genes (high complexity nodes) that are
+    essential for differentiation.
+communication_gap: >
+  Kauffman published in Journal of Theoretical Biology (biology journal); the formal
+  theory of Boolean satisfiability and phase transitions was developed in computer science
+  (STOC, FOCS conferences) and statistical physics simultaneously but without citation
+  exchange. Boolean network theory in biology was largely descriptive; computer scientists
+  who could have provided rigorous attractor analysis tools rarely engaged with biological
+  applications. The ENCODE project reframed the regulatory genome but did not connect
+  to Boolean network theory. Biologists trained in molecular biology rarely learn about
+  Boolean satisfiability, and computer scientists rarely encounter Kauffman's model.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1016/0022-5193(69)90015-0"
+    note: "Kauffman (1969) J Theor Biol 22:437 — Boolean network model of gene regulation"
+  - doi: "10.1209/0295-5075/1/2/001"
+    note: "Derrida & Pomeau (1986) Europhys Lett 1:45 — damage spreading, phase transition in RBNs"
+  - doi: "10.1103/RevModPhys.74.47"
+    note: "Albert & Barabási (2002) Rev Mod Phys 74:47 — statistical mechanics of complex networks"
+  - doi: "10.1038/nature11232"
+    note: "ENCODE Project Consortium (2012) Nature 489:57 — 85% of genome functional"

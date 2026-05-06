@@ -1,100 +1,99 @@
 id: b-neural-avalanches-criticality
 title: >
-  Neural networks in vitro and in vivo exhibit avalanche size and duration
-  distributions following power laws P(s) ∝ s^(-3/2) and P(t) ∝ t^(-2) —
-  the signatures of a second-order phase transition critical point — supporting
-  the critical brain hypothesis that neural computation is optimized near
-  the boundary between order and disorder.
+  Spontaneous neuronal activity in the cortex exhibits power-law avalanche statistics
+  matching mean-field critical branching process predictions, suggesting the brain
+  operates at the edge of a second-order phase transition — a state that maximises
+  dynamic range, information transmission, and computational repertoire simultaneously.
 status: established
 fields:
   - neuroscience
-  - statistical-physics
-  - condensed-matter-physics
+  - physics
+  - statistical-mechanics
   - computational-neuroscience
 bridge_claim: >
-  The concept of criticality — a system poised at a second-order phase transition
-  — from condensed matter physics maps onto the dynamics of neural networks with
-  precise quantitative predictions that have been experimentally verified.
+  Self-organised criticality (SOC): Bak, Tang & Wiesenfeld (1987) discovered that many
+  open dissipative systems naturally evolve toward a critical state characterised by
+  power-law distributions, without fine-tuning of parameters. The canonical example
+  is the sandpile model — adding grains one at a time produces avalanches of all sizes
+  following P(s) ∝ s^(-τ) with τ = 1.5 (mean-field) or τ ≈ 1.25 (2D).
 
-  1. Neural avalanches and power laws. Beggs & Plenz (2003) measured cascades
-     of neural activity in cortical slices and found that the probability
-     distribution of avalanche sizes follows P(s) ∝ s^(-3/2) and avalanche
-     durations P(t) ∝ t^(-2) — identical to the mean-field critical exponents
-     for a branching process at the critical point σ = 1. A branching parameter
-     σ < 1 (subcritical) → activity dies exponentially. σ > 1 (supercritical)
-     → activity explodes. σ = 1 (critical) → scale-free avalanches.
+  Beggs & Plenz (2003): spontaneous LFP bursts in cortical organotypic cultures and
+  acute slices show neuronal avalanche distributions P(s) ∝ s^(-3/2) and P(T) ∝ T^(-2)
+  — exactly the mean-field critical branching process exponents. The branching ratio
+  σ = average number of neurons activated by one neuron = 1.0 at criticality.
 
-  2. Phase transition analogy. In statistical physics, a second-order phase
-     transition (e.g., ferromagnet at Curie temperature, percolation at
-     threshold, Ising model at T_c) is characterized by: (a) power-law
-     distributions of cluster sizes, (b) diverging correlation length,
-     (c) maximal susceptibility to external perturbations, (d) scale-free
-     fluctuations. All four signatures have been measured in cortical activity.
-     This places the brain's operating point at or near a critical point in the
-     space of neural dynamics models.
+  Why these specific exponents? A branching process (each activated neuron activates
+  σ others independently) has three phases: σ < 1 (subcritical, avalanches die quickly),
+  σ = 1 (critical, P(s) ∝ s^(-3/2) by Galton-Watson theory), σ > 1 (supercritical,
+  explosive cascades). The cortex, by maintaining σ ≈ 1, occupies the critical point.
 
-  3. Functional advantages of criticality. Shew & Plenz (2013) showed
-     experimentally that dynamic range — the range of input intensities
-     distinguishable by the network — is maximized at the critical branching
-     parameter σ = 1. Information transmission (mutual information between
-     input and output) and computational capacity (number of metastable
-     states) are also maximized at criticality. These are predicted by
-     statistical physics: near a critical point, the order parameter is most
-     sensitive to external fields (diverging susceptibility χ = ∂M/∂H).
+  Computational advantages at criticality (Kinouchi & Copelli 2006): the dynamic range
+  of a neural network (range of input intensities it can discriminate) is maximised at
+  the critical branching ratio — spanning 5-6 orders of magnitude vs. 1-2 for sub/
+  supercritical networks. Similarly, information transmission (Fisher information about
+  input) and the diversity of activation patterns (pattern entropy) peak at criticality.
 
-  4. Subcritical and supercritical pathologies. Departures from criticality
-     map onto pathological states: subcritical dynamics (σ < 1) resemble
-     the suppressed, synchrony-free activity of anesthesia or coma; supercritical
-     (σ > 1) resembles the hypersynchronous bursting of epilepsy. This gives a
-     quantitative physics-based framework for understanding and potentially
-     treating these neurological disorders.
+  Physiological evidence for criticality:
+  - Power-law avalanche distributions in awake animals (LFP, MEA recordings)
+  - Scaling relations between exponents (not just individual power laws) — "crackling noise"
+  - Deviation toward subcriticality under anaesthesia (confirmed by Priesemann et al.)
+  - Deviation toward supercriticality in seizure states
+  - Critical slowing down in transitions between brain states (sleep-wake transitions)
+
+  The physics connection: the critical brain sits at the boundary of a continuous phase
+  transition in a universality class related to directed percolation (non-equilibrium)
+  rather than the Ising universality class (equilibrium). This has implications for
+  which order parameters and correlation length divergences are expected.
 translation_table:
-  - field_a_term: second-order phase transition / critical point (statistical physics)
-    field_b_term: optimal brain operating point / edge of chaos (neuroscience)
-    note: Brain criticality hypothesis maps neural dynamics onto phase transitions
-  - field_a_term: branching ratio σ = 1 (branching process theory)
-    field_b_term: critical neural network (neuroscience)
-    note: σ < 1 = subcritical (coma-like); σ > 1 = supercritical (epileptic)
-  - field_a_term: power-law cluster size distribution (statistical physics)
-    field_b_term: neural avalanche size distribution P(s) ∝ s^(-3/2) (neuroscience)
-    note: Mean-field critical exponent -3/2 observed experimentally in cortex
-  - field_a_term: diverging susceptibility χ near T_c (statistical physics)
-    field_b_term: maximal dynamic range at σ = 1 (neuroscience)
-    note: Maximum sensitivity to input is the experimental signature of criticality
-  - field_a_term: correlation length ξ diverging at criticality
-    field_b_term: long-range spatial correlations in neural activity (neuroscience)
-    note: Critical neural networks show correlations across cortical distances
-  - field_a_term: universality class (statistical physics)
-    field_b_term: neural network class (size-dependent critical exponents)
-    note: Whether cortical avalanches are mean-field or non-mean-field universality is debated
+  - field_a_term: branching ratio σ (average recruits per active neuron)
+    field_b_term: criticality order parameter of the branching process
+  - field_a_term: neuronal avalanche (cascade of correlated activations)
+    field_b_term: cluster in percolation theory / avalanche in sandpile model
+  - field_a_term: power-law P(s) ∝ s^(-3/2) (avalanche size distribution)
+    field_b_term: mean-field critical branching process exponent (Galton-Watson)
+  - field_a_term: subcritical cortex (σ < 1, anaesthesia, slow-wave sleep)
+    field_b_term: subcritical phase (finite correlation length, exponential decay)
+  - field_a_term: supercritical cortex (σ > 1, seizure, epilepsy)
+    field_b_term: supercritical phase (runaway cascades, divergent cluster size)
+  - field_a_term: synaptic plasticity (homeostatic maintenance of σ ≈ 1)
+    field_b_term: self-organised criticality (parameter-free critical state maintenance)
+  - field_a_term: dynamic range of sensory cortex (input discrimination range)
+    field_b_term: susceptibility peak at the critical point
 related_unknowns:
-  - u-brain-criticality-universality-class
+  - u-neural-criticality-consciousness-substrate
 related_hypotheses:
-  - h-criticality-maximizes-neural-dynamic-range
+  - h-neural-avalanche-criticality-dynamic-range
 cross_pollination_opportunities:
   - >
-    Renormalization group (RG) analysis of neural networks: apply real-space
-    RG coarse-graining to cortical activity maps to identify the relevant
-    universality class of neural criticality and test whether it matches the
-    directed percolation or mean-field branching process predictions.
+    The renormalisation group (RG) approach from physics can classify the universality
+    class of the neural critical point — whether it belongs to directed percolation,
+    branching process, or a new universality class. Experimentally measuring all four
+    critical exponents (τ, α, γ, ν) and verifying the scaling relations would
+    definitively place neural criticality in its universality class.
   - >
-    Critical neuromorphic computing: engineer neuromorphic chips (Intel Loihi,
-    IBM TrueNorth) to operate at the critical branching ratio to maximize
-    computational capacity and energy efficiency simultaneously.
+    Deep learning networks trained near the 'edge of chaos' (critical weight
+    initialization) show superior gradient propagation and learning capacity.
+    Whether artificial neural networks share the same critical branching statistics
+    as biological networks is an untested bridge between computational neuroscience
+    and deep learning theory.
 communication_gap: >
-  Statistical physicists and neuroscientists overlap significantly in
-  computational neuroscience, but the critical brain hypothesis is more
-  widely known in physics-of-biology communities than in clinical neuroscience.
-  The direct connection between epilepsy/coma (supercritical/subcritical) and
-  the phase transition framework is underutilized in clinical settings. Muñoz
-  (2018) Review of Modern Physics provides the comprehensive review.
+  Statistical physics of phase transitions and SOC was developed in physics
+  departments by condensed matter physicists (Bak, Kadanoff, Wilson). Neuroscientists
+  studying cortical dynamics had no exposure to these concepts until Beggs & Plenz
+  (2003) explicitly applied them. Even then, the neuroscience community was
+  sceptical because: (1) power laws can arise from many mechanisms beyond SOC,
+  (2) the specific exponents were not universally reproduced, and (3) the physiological
+  mechanism maintaining σ ≈ 1 (synaptic homeostasis) was identified much later.
+  The connection remains contested because verifying SOC universality class requires
+  multiple scaling exponents — a standard requirement in physics but unfamiliar to
+  most neuroscientists.
 last_reviewed: "2026-05-06"
 references:
-  - doi: "10.1523/JNEUROSCI.23-35-11167.2003"
-    note: Beggs & Plenz (2003) J Neurosci 23:11167 — neuronal avalanches in neocortical circuits
-  - doi: "10.1038/nphys1803"
-    note: Chialvo (2010) Nat Phys 6:744 — emergent complexity at the edge of chaos
-  - doi: "10.1177/1073858412445487"
-    note: Shew & Plenz (2013) Neuroscientist 19:88 — functional benefits of criticality
-  - doi: "10.1103/RevModPhys.90.031001"
-    note: Muñoz (2018) Rev Mod Phys 90:031001 — colloquium on criticality and dynamical large-scale brain models
+  - doi: "10.1523/JNEUROSCI.5601-03.2003"
+    note: "Beggs & Plenz (2003) J Neurosci 23:11167 — neural avalanches in cortical cultures"
+  - doi: "10.1038/nphys1746"
+    note: "Chialvo (2010) Nat Phys 6:744 — emergent complex neural dynamics at criticality"
+  - doi: "10.1177/1073858412440101"
+    note: "Shew & Plenz (2013) Neuroscientist 19:88 — functional benefits of criticality"
+  - doi: "10.1371/journal.pcbi.1003985"
+    note: "Priesemann et al. (2014) PLoS Comput Biol 10:e1003985 — in vivo cortex subcritical"

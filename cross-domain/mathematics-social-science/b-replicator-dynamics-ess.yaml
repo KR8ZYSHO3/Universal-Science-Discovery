@@ -1,0 +1,103 @@
+id: b-replicator-dynamics-ess
+title: >
+  The replicator equation — governing strategy frequency evolution in evolutionary
+  games — is formally equivalent to Fisher's selection equation in population genetics,
+  Lotka-Volterra predator-prey dynamics, and chemical reaction kinetics, creating a
+  unified dynamical framework spanning biology, mathematics, economics, and social science.
+status: established
+fields:
+  - mathematics
+  - biology
+  - social-science
+  - economics
+  - evolutionary-biology
+bridge_claim: >
+  The replicator equation (Taylor & Jonker 1978): ẋᵢ = xᵢ[fᵢ(x) - φ(x)], where xᵢ
+  is the frequency of strategy i, fᵢ(x) = Σⱼaᵢⱼxⱼ is the fitness of strategy i
+  (given payoff matrix A), and φ(x) = Σᵢxᵢfᵢ(x) is the mean fitness of the population.
+  The equation simply says: a strategy grows in frequency if its fitness exceeds the
+  average, and shrinks if below — the mathematical formulation of selection.
+
+  Nash equilibria are fixed points: at a Nash equilibrium x*, ẋᵢ = 0 for all i
+  (no strategy improves by deviating). But not all fixed points are Nash equilibria —
+  the interior of the simplex may have non-Nash fixed points. Evolutionarily stable
+  strategies (ESS, Maynard Smith 1973) are the asymptotically stable equilibria of the
+  replicator dynamics. The folk theorem of evolutionary game theory: every ESS is a
+  Nash equilibrium, but not every Nash equilibrium is an ESS — ESS is the
+  evolutionarily meaningful refinement of Nash.
+
+  Formal equivalences:
+  1. Population genetics: Fisher's fundamental theorem of natural selection — the rate of
+     change of mean fitness = additive genetic variance in fitness. This is exactly the
+     replicator equation when strategies are alleles, xᵢ is allele frequency, and fᵢ is
+     allele fitness. The replicator equation IS Fisher's selection equation.
+  2. Lotka-Volterra: the replicator equation ẋᵢ = xᵢ[fᵢ(x) - φ] is equivalent to
+     Lotka-Volterra competition equations under the substitution yᵢ = xᵢ/x₀ (Hofbauer
+     1981). Every Lotka-Volterra interior equilibrium corresponds to a mixed Nash equilibrium.
+     Every predator-prey oscillation corresponds to a rock-paper-scissors replicator cycle.
+  3. Chemical kinetics: for a chemical reaction network A + B → C + D, the rate
+     equation dc_A/dt = -k[A][B] has the same mathematical structure as the replicator
+     equation under appropriate substitution. Mass-action kinetics = replicator dynamics
+     for chemical species.
+
+  Social science application: cultural evolution, norm adoption, and institutional choice
+  can be modelled as strategy frequencies evolving under replicator dynamics. Imitation
+  dynamics (copy the most successful observed strategy) converge to the same equilibria
+  as the replicator equation — justifying its use for human behaviour despite the absence
+  of literal biological replication.
+
+  The Price equation (1970) provides the most general formulation: ΔZ̄ = Cov(w,z)/w̄
+  (change in mean trait = covariance of fitness and trait / mean fitness). The replicator
+  equation is the Price equation applied to discrete strategy frequencies. This connects
+  evolutionary game theory to statistics (covariance of selection) and information theory
+  (natural selection minimises Kullback-Leibler divergence of population from fitness peak).
+translation_table:
+  - field_a_term: strategy frequency xᵢ
+    field_b_term: allele frequency in population genetics / species abundance in ecology
+  - field_a_term: payoff matrix A (fitness of i against j)
+    field_b_term: Lotka-Volterra competition matrix / chemical stoichiometry matrix
+  - field_a_term: mean fitness φ(x) = Σxᵢfᵢ
+    field_b_term: mean fitness (Fisher) / normalisation in chemical concentration space
+  - field_a_term: Nash equilibrium (best response fixed point)
+    field_b_term: stable allele frequency / Lotka-Volterra coexistence equilibrium
+  - field_a_term: evolutionarily stable strategy (ESS)
+    field_b_term: asymptotically stable equilibrium of selection dynamics
+  - field_a_term: rock-paper-scissors game (no ESS, limit cycle)
+    field_b_term: predator-prey oscillation (Lotka-Volterra cycle) / competitive exclusion cycle
+  - field_a_term: Price equation ΔZ̄ = Cov(w,z)/w̄
+    field_b_term: Fisher's fundamental theorem / KL-divergence minimisation
+related_unknowns:
+  - u-replicator-equation-cultural-norm-stability
+related_hypotheses:
+  - h-replicator-dynamics-ess-institutional-design
+cross_pollination_opportunities:
+  - >
+    Multi-level selection theory (group selection vs. individual selection) is modelled
+    by the multilevel Price equation. Applied to social institutions: when do groups
+    (firms, nations) constitute a unit of selection analogous to biological groups?
+    This has immediate implications for institutional design (corporations vs. markets vs.
+    states as evolutionary units competing under replicator dynamics).
+  - >
+    Evolutionary dynamics on networks (Nowak & May 1992): spatial structure changes
+    which strategies are ESS compared to well-mixed populations. For social networks,
+    the network topology determines which norms are evolutionarily stable — explaining
+    why the same behaviour can be stable in one culture but unstable in another with
+    different network structure.
+communication_gap: >
+  Taylor & Jonker published in Mathematical Biosciences (applied mathematics); Maynard
+  Smith published in Nature and in game theory monographs (biology). The connection
+  to economics (Nash equilibria) was recognised slowly: Nash (1950) did not know about
+  evolution, and biologists did not read economics. The Lotka-Volterra equivalence
+  (Hofbauer 1981, in Journal of Mathematical Biology) was proven in a specialised
+  mathematical biology journal that economists and physicists rarely read. The Price
+  equation connecting to statistics (covariance) was published in Nature (1970) but
+  rarely cited outside evolutionary biology for 20 years. Social scientists applying
+  replicator dynamics to cultural evolution (Cavalli-Sforza, Boyd & Richerson) developed
+  largely independently of the mathematical biology literature.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1016/0025-5564(78)90077-9"
+    note: "Taylor & Jonker (1978) Math Biosci 40:145 — replicator equation"
+  - note: "Maynard Smith (1982) Evolution and the Theory of Games. Cambridge University Press"
+  - note: "Hofbauer & Sigmund (1998) Evolutionary Games and Population Dynamics. Cambridge"
+  - note: "Sandholm (2011) Population Games and Evolutionary Dynamics. MIT Press"

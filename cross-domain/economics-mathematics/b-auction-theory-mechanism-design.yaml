@@ -1,0 +1,103 @@
+id: b-auction-theory-mechanism-design
+title: >
+  The Vickrey-Clarke-Groves mechanism achieves the fundamental impossibility resolution
+  in mechanism design — dominant-strategy truthfulness compatible with social welfare
+  maximisation — while Myerson's optimal auction characterises revenue-maximising
+  mechanisms via virtual value theory, unifying mathematical economics with
+  computational allocation problems.
+status: established
+fields:
+  - economics
+  - mathematics
+  - computer-science
+  - game-theory
+bridge_claim: >
+  The central problem of mechanism design: how to aggregate private information (valuations,
+  preferences) from self-interested agents into collective decisions (allocations, prices)
+  without the agents having incentives to misreport. The Gibbard-Satterthwaite theorem
+  (1973) states that the only dominant-strategy incentive-compatible (DSIC) social choice
+  functions for unrestricted preferences are dictatorships — an impossibility result.
+  Mechanism design escapes this by restricting to quasi-linear preferences (payoff =
+  value - payment), enabling the VCG mechanism.
+
+  The VCG mechanism achieves three simultaneous properties: (1) DSIC: truthful bidding
+  is optimal regardless of other bids; (2) allocative efficiency: the outcome maximises
+  total social welfare (sum of values); (3) individual rationality: no agent is worse
+  off by participating. The VCG payment for agent i: tᵢ = Σⱼ≠ᵢ vⱼ(x*) - Σⱼ≠ᵢ vⱼ(x*₋ᵢ)
+  (the negative externality imposed on others), internalising the social cost of each
+  agent's presence.
+
+  Revenue equivalence theorem: all DSIC mechanisms that allocate identically to
+  an efficient mechanism (and give zero payoff to lowest type) yield the same expected
+  revenue. This is a mathematical invariance result — the specific auction format
+  (first-price, second-price, Dutch, English) is revenue-irrelevant under the conditions.
+
+  Myerson's optimal auction (1981): the revenue-maximising DSIC mechanism uses virtual
+  values φᵢ(vᵢ) = vᵢ - (1-Fᵢ(vᵢ))/fᵢ(vᵢ). Allocate to highest positive virtual value;
+  reserve price r* solves φ(r*) = 0. This is equivalent to ironing the virtual value
+  function for irregular distributions. The mathematical structure uses optimal control
+  (Pontryagin) for the revenue maximisation problem under incentive constraints.
+
+  Mathematical structure: the revelation principle reduces any mechanism to a direct
+  revelation mechanism where truth-telling is optimal. The incentive compatibility
+  constraints form a system of differential inequalities in type space. For single-
+  dimensional types, these reduce to a monotonicity condition (Mirrlees, 1971).
+  The mechanism design problem is a calculus of variations problem in type space.
+
+  Applications: Google's AdWords (generalised second-price auction, 2002) generates
+  $50B+ revenue annually and is built on Vickrey auction theory. FCC spectrum auctions
+  (1994-present) use combinatorial clock auctions derived from VCG theory. Procurement
+  auctions for government contracts, carbon permit allocation — all built on mechanism
+  design mathematics.
+
+  Nobel Prize 2007 (Hurwicz, Maskin, Myerson) — the first Nobel Prize explicitly for
+  mathematical mechanism design theory.
+translation_table:
+  - field_a_term: agent type (private valuation vᵢ)
+    field_b_term: random variable in type space Θᵢ
+  - field_a_term: allocation rule (who gets the good)
+    field_b_term: "deterministic function x: Θ → X (allocation correspondence)"
+  - field_a_term: payment rule (how much each agent pays)
+    field_b_term: "transfer function t: Θ → ℝ"
+  - field_a_term: dominant-strategy incentive compatibility (DSIC)
+    field_b_term: Nash equilibrium in dominant strategies (truth-telling)
+  - field_a_term: virtual value φ(v) = v - (1-F(v))/f(v)
+    field_b_term: marginal revenue in optimal pricing theory (analogous structure)
+  - field_a_term: VCG payment (negative externality internalisation)
+    field_b_term: Pigou tax (social cost internalisation in public economics)
+  - field_a_term: revenue equivalence (all efficient auctions equal revenue)
+    field_b_term: Modigliani-Miller theorem (capital structure irrelevance under conditions)
+related_unknowns:
+  - u-vcg-combinatorial-auction-scalability
+related_hypotheses:
+  - h-vcg-regretnet-combinatorial-approximation
+cross_pollination_opportunities:
+  - >
+    Machine learning for mechanism design (RegretNet, automated mechanism design):
+    gradient descent on mechanism parameters with regret as the loss function can
+    discover near-optimal mechanisms for complex settings where Myerson's theory
+    does not give closed forms — directly applying numerical optimisation to the
+    differential-inequality characterisation.
+  - >
+    Carbon permit auctions and cap-and-trade mechanisms could be analysed with VCG
+    theory to determine optimal allocation rules that minimise abatement cost while
+    raising revenue — an application of mechanism design to climate policy that
+    academic economists and climate policymakers rarely pursue jointly.
+communication_gap: >
+  Auction theory emerged in mathematical economics (Vickrey 1961 in Journal of Finance,
+  Clarke 1971 in Public Choice), while the generalisation to mechanism design was
+  done at the intersection of economics and operations research. Computer science
+  discovered algorithmic game theory in the late 1990s (Nisan, Roughgarden) and
+  independently rediscovered many mechanism design results, creating a parallel
+  literature with different terminology. Practitioners in finance, procurement,
+  and advertising who run multi-billion dollar auctions daily rarely read the
+  original VCG papers, and academic mechanism designers rarely engage with the
+  engineering challenges of running auctions at scale.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1111/j.1540-6261.1961.tb04130.x"
+    note: "Vickrey (1961) J Finance 16:8 — second-price auction, Vickrey mechanism"
+  - note: "Clarke (1971) Public Choice 11:17 — Clarke tax (VCG generalisation to public goods)"
+  - doi: "10.1287/moor.6.1.58"
+    note: "Myerson (1981) Math Oper Res 6:58 — optimal auction design, virtual values"
+  - note: "Nisan et al. (2007) Algorithmic Game Theory. Cambridge University Press"

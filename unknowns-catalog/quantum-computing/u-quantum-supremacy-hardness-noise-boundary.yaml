@@ -1,0 +1,37 @@
+id: u-quantum-supremacy-hardness-noise-boundary
+title: "What is the precise noise threshold below which classical simulation of random quantum circuits becomes exponentially hard, and does Google's supremacy claim survive improved classical simulation algorithms?"
+status: open
+priority: high
+disciplines:
+  - quantum-computing
+  - computational-complexity
+  - quantum-information
+summary: >
+  Google's 2019 quantum supremacy experiment claimed that the Sycamore processor (53
+  qubits, 20 cycles) sampled from a distribution that a classical computer would take
+  10,000 years to simulate. IBM subsequently estimated 2.5 days using optimised tensor
+  network methods. The classical simulation cost scales with fidelity: at low fidelity,
+  classical methods become feasible. The key boundary is the noise threshold: above a
+  critical noise rate p_c, the quantum circuit effectively becomes a shallow low-depth
+  circuit that classical methods can simulate. Below p_c, classical simulation requires
+  resources exponential in circuit depth. The value of p_c depends on circuit geometry,
+  connectivity, and the specific simulation algorithm. Current quantum devices operate
+  near or possibly above p_c for this definition of classically hard. The fundamental
+  question: is there a well-defined threshold, and what is its functional form in terms
+  of n (qubits), d (depth), and ε (gate error rate)?
+systematic_gaps:
+  - The classical simulation complexity at specific (n, d, ε) points is not established
+  - Whether anti-concentration is necessary for hardness is unresolved
+  - The role of mid-circuit measurement in changing the hardness boundary is open
+suggested_hypotheses:
+  - Classical simulation hardness threshold occurs at fidelity F* ~ exp(-c·n) where c depends
+    only on circuit geometry, not gate set
+related_unknowns:
+  - u-entanglement-entropy-area-law-exceptions
+  - u-quantum-speedup-optimization-np
+references:
+  - doi: "10.1038/s41586-019-1666-5"
+    note: "Arute et al. (2019) Nature — Google quantum supremacy"
+  - doi: "10.1038/s41567-018-0318-2"
+    note: "Boixo et al. (2018) Nat Phys — XEB and hardness argument"
+last_reviewed: "2026-05-06"

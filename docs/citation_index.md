@@ -1,6 +1,6 @@
 # USDR Citation Index
 
-**2465 total citations · 1803 unique references · 229 cited in 2+ bridges**
+**2631 total citations · 1941 unique references · 238 cited in 2+ bridges**
 
 ## Most Cross-Domain Papers
 
@@ -16,16 +16,19 @@ Papers cited across the highest number of different bridges — the most influen
 | 5 | Turing (1952) — original prediction λ ∝ √(D/k) | [DOI](10.1098/rstb.1952.0012) |
 | 5 | WBE derives 3/4 from area-preserving branching — the recursion relation is struc... | [DOI](10.1126/science.276.5309.122) |
 | 5 |  | [DOI](10.1103/PhysRev.106.620) |
-| 5 | Beggs & Plenz (2003) — original neural avalanche paper establishing critical exp... | [DOI](10.1523/JNEUROSCI.23-35-11167.2003) |
 | 4 | Maynard Smith & Price (1973) — ESS and cyclical dynamics in zero-sum games | [DOI](10.1038/246015a0) |
 | 4 | Bouchaud & Mezard (2000) — derives the formula α = 1 + r/(g-r) from a multiplica... | [DOI](10.1016/S0378-4371(00)00205-3) |
 | 4 | Newman (2002) proves the mathematical equivalence — FSS must apply if the equiva... | [DOI](10.1103/PhysRevE.66.016128) |
 | 4 | Bak, Tang & Wiesenfeld (1987) — BTW sandpile predicts τ = 3/2 (mean field) | [DOI](10.1103/PhysRevLett.59.381) |
+| 4 | Beggs & Plenz (2003) — original neural avalanche paper establishing critical exp... | [DOI](10.1523/JNEUROSCI.23-35-11167.2003) |
 | 4 | Landauer (1961) — irreversibility and heat generation in computation | [DOI](10.1147/rd.53.0183) |
 | 3 | Price (1970) establishes the general decomposition applicable to cultural traits | [DOI](10.1038/227520a0) |
+| 3 |  | [DOI](10.1103/RevModPhys.85.1143) |
 | 3 | Jarzynski equality — theoretical basis for near-equilibrium efficiency measureme... | [DOI](10.1103/PhysRevLett.78.2690) |
 | 3 | Armstrong McKay et al. (2022) — Tipping elements in the Earth system; Science 37... | [DOI](10.1126/science.abn7950) |
+| 3 | Arute et al. (2019) — 53-qubit Sycamore at 20 cycles; XEB = 0.224% (above classi... | [DOI](10.1038/s41586-019-1666-5) |
 | 3 | Wagner et al. (2004) - sleep promotes insight into hidden mathematical rule (num... | [DOI](10.1126/science.1205106) |
+| 3 | Brockett (1972) — Lie algebra controllability condition (basis for bracket depth... | [DOI](10.1137/0310021) |
 | 3 | Cahill et al. (2003) — review of thermal transport in nanostructures; interface ... | [DOI](10.1063/1.1524305) |
 | 3 | Saw et al. 2017 — topological defects in epithelia determine cell fate; establis... | [DOI](10.1126/science.aar5663) |
 | 3 |  | [DOI](10.1038/30918) |
@@ -54,10 +57,7 @@ Papers cited across the highest number of different bridges — the most influen
 | 2 | Abbott et al. (2017) — GW170817 kilonova spectroscopy confirms neutron star merg... | [DOI](10.3847/2041-8213/aa920c) |
 | 2 | Fromang & Papaloizou (2007) — numerical evidence for α ~ Pm^{0.5} in shearing bo... | [DOI](10.1051/0004-6361:20077537) |
 | 2 | Hawking (1975) — black hole entropy = area/4, precursor to holographic principle | [DOI](10.1007/BF01608497) |
-| 2 | Kauffman (1969) - original NK model; K=2 gives sqrt(N) attractors matching cell ... | [DOI](10.1016/S0022-5193(69)80016-0) |
-| 2 | Aldana et al. (2003) - scale-free regulatory networks with mean K near 2 show cr... | [DOI](10.1016/S0022-5193(03)00028-6) |
-| 2 | Grenander & Miller (1998) Q Appl Math 56:617 — diffeomorphic image registration;... | [DOI](10.1090/qam/926445) |
-| 2 | Toga & Thompson (2001) Nat Rev Neurosci 2:37 — computational neuroanatomy via di... | [DOI](10.1038/nrn644) |
+| 2 |  | [DOI](10.1209/0295-5075/1/2/001) |
 
 ## Citation Network
 
@@ -67,4 +67,4 @@ The full citation data is available at [`docs/citation_index.json`](citation_ind
 
 ## All Unique References
 
-The catalog currently references **1803 unique papers/books**.
+The catalog currently references **1941 unique papers/books**.

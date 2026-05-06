@@ -1,0 +1,48 @@
+id: h-random-circuit-sampling-classical-boundary-fidelity
+title: >
+  The boundary between classically hard and classically easy random circuit sampling
+  is a phase transition at cross-entropy benchmarking fidelity F* = exp(-n × ε_gate),
+  where n is qubit count and ε_gate is per-gate error rate, and current NISQ devices
+  operate above this threshold for n > 50 qubits at realistic gate errors.
+status: active
+priority: high
+impact_score: 0.87
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+related_disciplines:
+  - quantum-computing
+  - computational-complexity
+  - quantum-information
+unknowns_addressed:
+  - u-quantum-supremacy-hardness-noise-boundary
+  - u-quantum-speedup-optimization-np
+  - u-entanglement-entropy-area-law-exceptions
+evidence_links:
+  - doi: "10.1038/s41567-018-0318-2"
+    type: supporting
+    confidence: 0.84
+    note: >
+      Boixo et al. (2018) Nat Phys — XEB fidelity: F ≈ exp(-n·d·ε) where d is depth;
+      anti-concentration occurs at d > log(n); classical simulation cost scales as
+      exp(n) when F < 1/exp(1) threshold for tensor network contraction to fail
+  - doi: "10.1038/s41586-019-1666-5"
+    type: supporting
+    confidence: 0.81
+    note: >
+      Arute et al. (2019) — 53-qubit Sycamore at 20 cycles; XEB = 0.224% (above classical
+      threshold by their estimate); subsequent classical simulation claims (IBM) challenged
+      whether F* threshold was actually crossed
+  - doi: "10.1103/PhysRevLett.127.180502"
+    type: related
+    confidence: 0.75
+    note: >
+      Liu et al. (2021) PRL — tensor network contraction algorithms achieve classical
+      simulation of RCS at depth 20 for 30 qubits in minutes; depth threshold for
+      hardness shifts upward as algorithms improve, making F* time-dependent
+proposed_tests:
+  - description: >
+      Run identical RCS experiments at systematically varied (n, d, ε): 20-100 qubits,
+      depth 10-40, three gate error rates; measure XEB; identify empirical F* contour
+      where classical simulation transitions from polynomial to exponential cost;
+      compare F* contour with theoretical prediction F* = exp(-n·ε).
