@@ -1,0 +1,44 @@
+id: h-synthetic-insulator-retroactivity-control
+title: >
+  Phosphorylation-dephosphorylation futile cycle insulators can reduce retroactivity
+  by > 90% in standard E. coli genetic circuit configurations while imposing < 15%
+  metabolic overhead, making them practical for composing circuits of up to
+  10 modules without significant dynamic interference.
+status: active
+priority: high
+impact_score: 0.80
+created: "2026-05-06"
+last_updated: "2026-05-06"
+related_disciplines:
+  - synthetic-biology
+  - engineering
+  - systems-biology
+unknowns_addressed:
+  - u-retroactivity-insulation-genetic-circuits
+evidence_links:
+  - doi: "10.1038/msb.2008.19"
+    type: supporting
+    confidence: 0.82
+    note: "Del Vecchio et al. (2008) Mol Syst Biol 4:161 — retroactivity theory"
+  - doi: "10.1038/35002131"
+    type: supporting
+    confidence: 0.85
+    note: "Gardner et al. (2000) Nature 403:339 — toggle switch as testbed circuit"
+  - doi: "10.1038/nmeth.2926"
+    type: related
+    confidence: 0.78
+    note: "Brophy & Voigt (2014) Nat Methods 11:508 — genetic circuit design principles"
+proposed_tests:
+  - description: >
+      Construct a toggle switch (upstream module) connected to a reporter
+      (downstream load) with and without a phosphorylation-cycle insulator
+      between them. Measure: (1) switching threshold shift due to load,
+      (2) switching time, (3) bistability range reduction. Test whether
+      insulator reduces all three perturbations by ≥ 90% as predicted by
+      the retroactivity attenuation theory.
+  - description: >
+      Construct a 5-module genetic logic circuit (AND-NOT-OR-AND-NOT cascade)
+      with and without insulators between each module. Compare the input-output
+      logic table accuracy (fraction of correctly computed truth table entries)
+      with and without insulators, testing whether insulation enables > 95%
+      logic correctness versus < 60% without insulation.

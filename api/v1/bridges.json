@@ -1,5 +1,5 @@
 {
-  "count": 272,
+  "count": 284,
   "items": [
     {
       "id": "b-grokking-criticality",
@@ -1362,6 +1362,66 @@
       "file": "cross-domain\\biology-engineering\\b-biofilm-self-assembly.yaml"
     },
     {
+      "id": "b-synthetic-biology-circuit-design",
+      "title": "Synthetic biology applies electrical engineering design principles to genetic circuits: Gardner's toggle switch (2000) implements bistable flip-flop logic, Elowitz's repressilator (2000) implements a ring oscillator, and retroactivity from circuit loading — analogous to impedance mismatch — requires biological insulator modules to compose circuits without unintended cross-coupling.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Synthetic biology (Endy 2005) applies electrical engineering abstraction principles — modularity, standardization, composability — to genetic parts. The toggle switch (Gardner et al. 2000): two mutually repressing genes — dX/dt = α₁/(1+Y^β) - X; dY/dt = α₂/(1+X^γ) - Y — is bistable when β,γ > 1 (coo",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-synthetic-insulator-retroactivity-control"
+      ],
+      "communication_gap": "Electrical engineers and molecular biologists study in separate departments with different mathematical training — engineers use Laplace transforms and Bode plots while biologists use differential equations and gene expression assays. Synthetic biology bridged this gap at the level of design metaphors (parts, devices, systems) but the quantitative transfer of control theory tools (e.g., Bode analysis of genetic circuits) remains limited. Retroactivity is known in the field but rarely quantified in published synthetic biology papers, limiting composability of published devices.\n",
+      "translation_table": [
+        {
+          "field_a_term": "promoter + ribosome binding site (RBS) + gene + terminator",
+          "field_b_term": "electronic component with defined input/output transfer function",
+          "note": "promoter strength = gain; RBS efficiency = current amplification factor"
+        },
+        {
+          "field_a_term": "toggle switch bistability (Hill coefficient β,γ > 1)",
+          "field_b_term": "SR latch (set-reset flip-flop) in digital electronics",
+          "note": "bistability requires sufficient cooperative repression; monotone repressors cannot toggle"
+        },
+        {
+          "field_a_term": "repressilator ring oscillator period T",
+          "field_b_term": "ring oscillator period in CMOS (3-inverter ring) T = 6τ_pd",
+          "note": "both depend on the delay per stage; degradation time ~ propagation delay"
+        },
+        {
+          "field_a_term": "retroactivity to the input of a module",
+          "field_b_term": "input impedance loading in electronic circuits",
+          "note": "low input impedance (high retroactivity) perturbs the upstream module's dynamics"
+        },
+        {
+          "field_a_term": "biological insulator module (phosphorylation cascade)",
+          "field_b_term": "electronic buffer amplifier (high input impedance, low output impedance)",
+          "note": "insulator absorbs retroactivity while faithfully transmitting the signal"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1038/35002131",
+          "note": "Gardner et al. (2000) Construction of a genetic toggle switch in Escherichia coli. Nature 403:339–342"
+        },
+        {
+          "doi": "10.1038/35002125",
+          "note": "Elowitz & Leibler (2000) A synthetic oscillatory network of transcriptional regulators. Nature 403:335–338"
+        },
+        {
+          "doi": "10.1038/msb.2008.19",
+          "note": "Del Vecchio et al. (2008) Modular cell biology: retroactivity and insulation. Mol Syst Biol 4:161"
+        },
+        {
+          "doi": "10.1038/nmeth.2926",
+          "note": "Brophy & Voigt (2014) Principles of genetic circuit design. Nat Methods 11:508–520"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\biology-engineering\\b-synthetic-biology-circuit-design.yaml"
+    },
+    {
       "id": "b-dna-digital-error-correcting-code",
       "title": "The genetic code is a near-optimal digital error-correcting code: codon degeneracy implements a natural parity-check scheme that minimises the chemical impact of single-base mutations, and the 64-codon/20-amino-acid mapping operates near the Shannon capacity of the DNA replication channel.\n",
       "source_domain": "",
@@ -1845,6 +1905,66 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\biology-network-science\\b-protein-interaction-robustness.yaml"
+    },
+    {
+      "id": "b-circadian-rhythms-neural-oscillators",
+      "title": "Circadian clocks are cell-autonomous delayed negative-feedback oscillators (Goodwin topology) whose ~20,000 SCN neurons synchronize via VIP-mediated coupling — a biological implementation of the Kuramoto coupled-oscillator model, where jet-lag recovery rate is determined by the second eigenvalue of the coupling matrix.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Circadian clocks operate via transcription-translation feedback loops (TTFL): CLOCK/BMAL1 heterodimers activate PER/CRY gene transcription; PER/CRY proteins inhibit CLOCK/BMAL1 after a nuclear translocation delay — a delayed negative feedback oscillator. The Goodwin oscillator equations ẋ₁ = v₁/(1+(",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-kuramoto-scn-resynchronization-rate"
+      ],
+      "communication_gap": "Molecular chronobiologists publishing in Cell and Nature focus on gene-knockout phenotypes; mathematical biologists publishing Kuramoto analyses focus on network topology; clinical chronobiologists focus on shift-work health effects. These communities rarely cite each other, so quantitative predictions from network theory about resynchronization have not been translated into drug targets.\n",
+      "translation_table": [
+        {
+          "field_a_term": "CLOCK/BMAL1 activator and PER/CRY repressor proteins",
+          "field_b_term": "amplitude and phase variables of a nonlinear oscillator",
+          "note": "protein concentrations encode phase; degradation rates set period"
+        },
+        {
+          "field_a_term": "nuclear translocation delay of PER/CRY",
+          "field_b_term": "time delay τ in a delayed differential equation oscillator",
+          "note": "delay is essential for sustained oscillation; τ ≈ 6–8 h in mammals"
+        },
+        {
+          "field_a_term": "VIP neuropeptide coupling between SCN neurons",
+          "field_b_term": "sinusoidal coupling term in the Kuramoto model",
+          "note": "VIP binds VPAC2 receptors and resets phase via cAMP-PKA signaling"
+        },
+        {
+          "field_a_term": "SCN-wide entrainment to light-dark cycle",
+          "field_b_term": "external forcing of a Kuramoto network above K_c",
+          "note": "light acts on retinohypothalamic tract to phase-shift the SCN oscillator"
+        },
+        {
+          "field_a_term": "jet-lag recovery timescale",
+          "field_b_term": "1/Im(λ₂) — algebraic connectivity of the coupling network",
+          "note": "faster network connectivity → faster resynchronization"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1038/343536a0",
+          "note": "Hardin et al. (1990) Feedback of the Drosophila period gene product on circadian cycling of its messenger RNA levels. Nature 343:536–540"
+        },
+        {
+          "doi": "10.1073/pnas.0308709101",
+          "note": "Leloup & Goldbeter (2004) Toward a detailed computational model for the mammalian circadian clock. PNAS 101:17228–17233"
+        },
+        {
+          "doi": "10.1038/nrn2914",
+          "note": "Welsh et al. (2010) Suprachiasmatic nucleus: cell autonomy and network properties. Nat Rev Neurosci 11:764–773"
+        },
+        {
+          "doi": "10.1529/biophysj.104.058388",
+          "note": "Gonze et al. (2005) Spontaneous synchronization of coupled circadian oscillators. Biophys J 89:120–129"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\biology-neuroscience\\b-circadian-rhythms-neural-oscillators.yaml"
     },
     {
       "id": "b-active-matter-cytoskeletal",
@@ -2710,6 +2830,63 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\chemistry-mathematics\\b-reaction-network-graph-theory.yaml"
+    },
+    {
+      "id": "b-polymer-physics-scaling-laws",
+      "title": "De Gennes' renormalization group mapping of polymer chains (N monomers) to the n→0 field theory gives the exact Flory exponent ν≈0.588 for chain size R∝N^ν; reptation theory gives viscosity η∝N³ and diffusion D∝N⁻²; Edwards' Hamiltonian maps polymer statistics to the Feynman path integral for a free quantum particle — universal scaling independent of chemical identity.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "A polymer chain of N monomers with excluded volume: the end-to-end distance R ~ N^ν. Flory theory (1949): minimize F = k_BT[R²/Nb² + b³N²/R³] gives ν = 3/(d+2) = 3/5 in d=3. De Gennes' renormalization group argument (1972) maps the partition function of a self-avoiding walk to the n→0 limit of the O",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-reptation-tube-model-constraint-release"
+      ],
+      "communication_gap": "Polymer physics is often taught in chemistry departments using empirical rules, while the field-theory derivations live in condensed matter physics. Industrial polymer scientists focus on rheological measurements; the connection between measured viscosity exponents and the reptation model's fundamental assumptions is not always drawn. The quantum mechanics connection (path integral ↔ polymer) is known to theoretical physicists but almost never mentioned in polymer chemistry textbooks.\n",
+      "translation_table": [
+        {
+          "field_a_term": "polymer partition function Z = Σ exp(-βH[R(s)])",
+          "field_b_term": "quantum amplitude ⟨x_f|e^{-Ht/ħ}|x_i⟩ in imaginary time",
+          "note": "contour length s plays the role of imaginary time in the path integral"
+        },
+        {
+          "field_a_term": "Flory exponent ν (chain size R ~ N^ν)",
+          "field_b_term": "critical exponent η in O(n→0) field theory",
+          "note": "ν and η are related by scaling relations; RG gives them exactly"
+        },
+        {
+          "field_a_term": "tube diameter a in reptation",
+          "field_b_term": "entanglement molecular weight M_e (characteristic scale)",
+          "note": "a ~ √(M_e) sets the crossover from Rouse to reptation dynamics"
+        },
+        {
+          "field_a_term": "polyelectrolyte electrostatic blob size ξ_e",
+          "field_b_term": "Debye screening length λ_D in Coulomb potential",
+          "note": "electrostatic blobs are subsections where electrostatics dominate over entropy"
+        },
+        {
+          "field_a_term": "Zimm dynamics (hydrodynamic interaction included)",
+          "field_b_term": "diffusion tensor in Oseen-Burgers formalism",
+          "note": "hydrodynamic screening separates dilute (Zimm) from semi-dilute (Rouse) behavior"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1063/1.1747243",
+          "note": "Flory (1949) The configuration of real polymer chains. J Chem Phys 17:303–310"
+        },
+        {
+          "note": "de Gennes (1979) Scaling Concepts in Polymer Physics; Cornell University Press, Ithaca NY"
+        },
+        {
+          "note": "Doi & Edwards (1986) The Theory of Polymer Dynamics; Oxford University Press"
+        },
+        {
+          "note": "Rubinstein & Colby (2003) Polymer Physics; Oxford University Press"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\chemistry-physics\\b-polymer-physics-scaling-laws.yaml"
     },
     {
       "id": "b-quantum-chemistry-electronic-structure",
@@ -5164,6 +5341,64 @@
       "file": "cross-domain\\ecology-social-science\\b-common-pool-resources-game-theory.yaml"
     },
     {
+      "id": "b-common-pool-resources-institutional-design",
+      "title": "Ostrom's empirical refutation (Nobel 2009) of Hardin's tragedy of the commons shows communities self-organize sustainable governance via eight design principles; game-theoretically, cooperative equilibria are sustained when the discount factor δ > 1-1/N (Folk theorem), connecting ecology, social science, and game theory through the mathematics of repeated-game cooperation.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Hardin (1968): individually rational overexploitation destroys shared resources — the \"tragedy\" occurs because each user's marginal cost is shared while marginal benefit is private. The game is a multi-player Prisoner's Dilemma: defect (overuse) dominates cooperate (restrain) in one-shot play. Ostro",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-ostrom-design-principles-digital-commons"
+      ],
+      "communication_gap": "Ecological economists, political scientists studying institutions, and game theorists work in largely separate communities. Hardin's paper (Science, biology audience) is famous but Ostrom's Nobel-winning empirical refutation (political science journals) is less widely known in natural sciences. The formal game-theoretic Folk theorem basis of Ostrom's findings is rarely cited in her empirical papers, creating a gap between the theoretical explanation and its empirical validation.\n",
+      "translation_table": [
+        {
+          "field_a_term": "common pool resource (CPR) — subtractable, non-excludable",
+          "field_b_term": "public good (non-excludable, non-rival) minus subtractability",
+          "note": "CPR is the intermediate category between public goods and private goods"
+        },
+        {
+          "field_a_term": "Hardin tragedy — dominant strategy to defect in one-shot game",
+          "field_b_term": "Nash equilibrium of one-shot Prisoner's Dilemma",
+          "note": "Hardin implicitly assumed no iteration, no communication, no institutional design"
+        },
+        {
+          "field_a_term": "Ostrom monitoring principle (principle 4)",
+          "field_b_term": "Folk theorem condition — mutual observation enables credible punishment",
+          "note": "without monitoring, trigger strategies lose their incentive force"
+        },
+        {
+          "field_a_term": "graduated sanctions (principle 5)",
+          "field_b_term": "grim trigger vs tit-for-tat — partial punishment sustains cooperation",
+          "note": "mild first-offense sanction minimizes loss from accidental defection"
+        },
+        {
+          "field_a_term": "nested governance (principle 8)",
+          "field_b_term": "hierarchical mechanism design with multiple principals",
+          "note": "federal structure allows local adaptation within global coordination constraints"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1126/science.162.3859.1243",
+          "note": "Hardin (1968) The tragedy of the commons. Science 162:1243–1248"
+        },
+        {
+          "note": "Ostrom (1990) Governing the Commons; Cambridge University Press"
+        },
+        {
+          "note": "Ostrom (2009) Beyond markets and states: polycentric governance of complex economic systems. Nobel Prize Lecture"
+        },
+        {
+          "doi": "10.1126/science.1091015",
+          "note": "Dietz et al. (2003) The struggle to govern the commons. Science 302:1907–1912"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\ecology-social-science\\b-common-pool-resources-institutional-design.yaml"
+    },
+    {
       "id": "b-resilience-theory-adaptive-management",
       "title": "Holling's ecological resilience theory (1973) — ecosystems have multiple stable states with resilience = basin of attraction width, not proximity to equilibrium — provides the panarchy framework applicable to social-ecological systems, cities, and institutions, connecting the fold bifurcation mathematics of alternative stable states to social tipping points and adaptive management.\n",
       "source_domain": "",
@@ -6271,6 +6506,64 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\engineering-biology\\b-tensegrity-cytoskeleton.yaml"
+    },
+    {
+      "id": "b-distributed-systems-consensus",
+      "title": "The Fischer-Lynch-Paterson impossibility theorem (1985) proves no deterministic consensus algorithm terminates in asynchronous systems with even one failure; Paxos achieves consensus under fail-stop in 2 message rounds; Byzantine fault tolerance requires 3f+1 processes; the CAP theorem limits distributed systems to two of three properties — mathematical theorems with direct engineering consequences for cloud storage, blockchain, and distributed databases.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Fischer-Lynch-Paterson (FLP) impossibility (1985): in an asynchronous system where messages may be delayed arbitrarily and at least one process may fail silently, no deterministic algorithm can guarantee both safety (all processes agree) and liveness (they eventually decide). This is a mathematical ",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-cap-theorem-pacelc-extension"
+      ],
+      "communication_gap": "Distributed systems theory and formal verification research publish in PODC/DISC/FOCS; systems engineering of cloud databases uses different vocabulary (eventual consistency, strong consistency) without always tracing these to the formal theorems. Blockchain developers frequently reinvent consensus mechanisms without awareness of impossibility results from 1985 that constrain their designs. The connection to game theory and Byzantine failures in rational agents is even less well-known.\n",
+      "translation_table": [
+        {
+          "field_a_term": "bivalency argument in FLP",
+          "field_b_term": "diagonalization argument in computability theory",
+          "note": "both construct situations where no fixed answer can be reached by a deterministic algorithm"
+        },
+        {
+          "field_a_term": "quorum in Paxos (majority 2f+1)",
+          "field_b_term": "majority voting with f tolerated failures",
+          "note": "quorum intersection property ensures two quorums always share at least one member"
+        },
+        {
+          "field_a_term": "Byzantine generals problem (3f+1 bound)",
+          "field_b_term": "error-correcting code distance requirement for Byzantine agreement",
+          "note": "3f+1 bound is tight; cryptographic authentication reduces to 2f+1 (authenticated Byzantine)"
+        },
+        {
+          "field_a_term": "CAP consistency (linearizability)",
+          "field_b_term": "sequential consistency / serializability in database transactions",
+          "note": "linearizability is the strongest consistency model; TCC/EC are weaker alternatives"
+        },
+        {
+          "field_a_term": "blockchain Nakamoto consensus (probabilistic finality)",
+          "field_b_term": "Paxos/PBFT deterministic finality with 2f+1 quorum",
+          "note": "Nakamoto consensus sacrifices deterministic safety for open membership and incentive compatibility"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1145/3149.214121",
+          "note": "Fischer et al. (1985) Impossibility of distributed consensus with one faulty process. J ACM 32:374–382"
+        },
+        {
+          "note": "Lamport (1998/2001) The Part-Time Parliament (Paxos). ACM Trans Comput Syst 16:133–169"
+        },
+        {
+          "doi": "10.1145/357172.357176",
+          "note": "Lamport, Shostak & Pease (1982) The Byzantine generals problem. ACM Trans Comput Syst 4:382–401"
+        },
+        {
+          "note": "Brewer (2000) Towards robust distributed systems. PODC 2000 keynote; Gilbert & Lynch (2002) Brewers conjecture. ACM SIGACT News 33:51–59"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\engineering-computer-science\\b-distributed-systems-consensus.yaml"
     },
     {
       "id": "b-control-theory-differential-geometry",
@@ -9020,6 +9313,65 @@
       "file": "cross-domain\\mathematics-computer-science\\b-category-theory-functional-programming.yaml"
     },
     {
+      "id": "b-complexity-proof-theory",
+      "title": "The Cook-Levin theorem (1971) establishes SAT as NP-complete; Gödel's incompleteness theorems and Turing's halting problem both derive from diagonalization; the Curry-Howard correspondence identifies programs with proofs and types with propositions; interactive proof systems (IP=PSPACE) reveal that probabilistic verification is exponentially more powerful than deterministic checking — mathematics and computer science study the same logical limits from different directions.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The Cook-Levin theorem (Cook 1971, Levin 1973): SAT is NP-complete — every problem in NP polynomially reduces to Boolean satisfiability. P vs NP (Clay Millennium Problem): does every efficiently verifiable problem have an efficient solution? Geometric complexity theory (Mulmuley & Sohoni 2001) attac",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-geometric-complexity-theory-p-np"
+      ],
+      "communication_gap": "Mathematical logicians, complexity theorists, and type theorists each developed their own language (proof theory, circuit complexity, type systems) to study the same foundational questions. Curry-Howard is widely known in programming language theory but not in logic or complexity theory. Most computer science curricula separate algorithms from logic; the deep connections (diagonalization, Kolmogorov complexity, circuit lower bounds) are graduate-level topics rarely encountered by practitioners.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Boolean satisfiability (SAT) — NP-complete under Cook-Levin",
+          "field_b_term": "Hilbert's Entscheidungsproblem — undecidable under Church-Turing",
+          "note": "SAT is the computational analog of the decision problem at finite resource bounds"
+        },
+        {
+          "field_a_term": "Gödel sentence (true but unprovable in PA)",
+          "field_b_term": "non-halting Turing machine (runs forever, no output)",
+          "note": "both exploit self-reference; Kleene's recursion theorem unifies them formally"
+        },
+        {
+          "field_a_term": "proposition P in intuitionistic logic",
+          "field_b_term": "type T in simply-typed lambda calculus (Curry-Howard)",
+          "note": "proof of P = program of type T; inhabited type = provable proposition"
+        },
+        {
+          "field_a_term": "PSPACE (space-bounded computation)",
+          "field_b_term": "IP interactive proof power (Shamir: IP = PSPACE)",
+          "note": "randomness allows efficient verification of exponentially many possibilities"
+        },
+        {
+          "field_a_term": "permanent polynomial (VNP-complete)",
+          "field_b_term": "determinant polynomial (VP-complete, efficiently computable)",
+          "note": "Valiant: if perm in VP then #P ⊆ poly — implies P≠NP under derandomization"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1145/800157.805047",
+          "note": "Cook (1971) The complexity of theorem-proving procedures. STOC 3:151–158"
+        },
+        {
+          "note": "Sipser (2013) Introduction to the Theory of Computation, 3rd ed; Cengage Learning"
+        },
+        {
+          "doi": "10.1137/S0097539798347767",
+          "note": "Mulmuley & Sohoni (2001) Geometric complexity theory I. SIAM J Comput 31:496–526"
+        },
+        {
+          "doi": "10.1145/146585.146609",
+          "note": "Shamir (1992) IP = PSPACE. J ACM 39:869–877"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\mathematics-computer-science\\b-complexity-proof-theory.yaml"
+    },
+    {
       "id": "b-curry-howard-proofs-programs",
       "title": "The Curry-Howard correspondence proves that propositions in intuitionistic logic are identical to types in typed lambda calculus, and proofs of those propositions are identical to programs of those types — mathematics and computation are the same formal system viewed from two perspectives.\n",
       "source_domain": "",
@@ -9317,6 +9669,65 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\mathematics-economics\\b-convex-optimization-economic-equilibrium.yaml"
+    },
+    {
+      "id": "b-information-economics-mechanism",
+      "title": "Myerson's revelation principle (1979) shows incentive-compatible direct revelation mechanisms are without loss of generality; VCG achieves dominant- strategy incentive compatibility with efficiency; the Mirrlees optimal income tax model (Nobel 1996) shows the top marginal rate should be zero; the Crémer-McLean theorem enables full surplus extraction — mechanism design is reverse game theory unifying information economics, public finance, and social choice theory.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Mechanism design (Hurwicz 1973, Myerson, Maskin, Nobel 2007) is the engineering of game rules to achieve desired social outcomes in the presence of private information. The revelation principle (Myerson 1979): for any Bayesian equilibrium of any mechanism, there exists a direct revelation mechanism ",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-revelation-principle-ai-alignment-mechanism"
+      ],
+      "communication_gap": "Mechanism design is primarily an economics subdiscipline (mathematical economics, auction theory) with its own journals. Computer scientists independently developed algorithmic mechanism design (Nisan-Ronen 1999) with computational efficiency constraints. AI researchers are now applying mechanism design to multi-agent systems and alignment without always being aware of the 50-year-old economics literature. Social choice theory (Arrow, Gibbard-Satterthwaite) and mechanism design overlap substantially but are often taught separately.\n",
+      "translation_table": [
+        {
+          "field_a_term": "direct revelation mechanism (players report types)",
+          "field_b_term": "incentive-compatible tax-transfer system (agents reveal income)",
+          "note": "both reduce the mechanism design problem to a simpler canonical form via the revelation principle"
+        },
+        {
+          "field_a_term": "dominant-strategy incentive compatibility (DSIC)",
+          "field_b_term": "second-price auction (Vickrey) dominant strategy to bid truthfully",
+          "note": "VCG generalizes Vickrey auction to multi-good, multi-agent settings"
+        },
+        {
+          "field_a_term": "Bayesian incentive compatibility (BIC)",
+          "field_b_term": "Nash equilibrium of a Bayesian game (interim expected payoffs)",
+          "note": "BIC is weaker than DSIC; used in Mirrlees model and Myerson optimal auctions"
+        },
+        {
+          "field_a_term": "VCG payment (residual social value externality)",
+          "field_b_term": "Pigouvian tax correcting an externality",
+          "note": "VCG is the decentralized analog of the Pigouvian internalization for information externalities"
+        },
+        {
+          "field_a_term": "Mirrlees top marginal rate = 0 (no distortion at top)",
+          "field_b_term": "no-distortion-at-the-top result in screening models",
+          "note": "arises in all principal-agent screening models; top type receives no rent reduction"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1287/moor.4.1.61",
+          "note": "Myerson (1979) Incentive compatibility and the bargaining problem. Math Oper Res 4:61–73"
+        },
+        {
+          "doi": "10.2307/2296779",
+          "note": "Mirrlees (1971) An exploration in the theory of optimum income taxation. Rev Econ Stud 38:175–208"
+        },
+        {
+          "doi": "10.2307/1911324",
+          "note": "Crémer & McLean (1988) Full extraction of the surplus in Bayesian and dominant strategy auctions. Econometrica 56:345–361"
+        },
+        {
+          "note": "Hurwicz (1973) The design of mechanisms for resource allocation. Am Econ Rev 63:1–30"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\mathematics-economics\\b-information-economics-mechanism.yaml"
     },
     {
       "id": "b-game-theory-evolution",
@@ -9773,6 +10184,63 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\mathematics-neuroscience\\b-spectral-graph-theory-connectome.yaml"
+    },
+    {
+      "id": "b-catastrophe-theory-phase-transitions",
+      "title": "Thom's catastrophe theory classifies generic singularities of smooth potential functions by codimension, providing a rigorous topological description of all possible sudden qualitative changes — the same mathematics governs fold bifurcations in dynamical systems and first-order phase transitions in Landau free energy theory.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Thom's catastrophe theory classifies the seven elementary catastrophes by codimension. The fold (codimension 1): V(x) = x³/3 - ux, bifurcation at u=0 where one stable state splits into two. The cusp (codimension 2): V(x) = x⁴/4 + ux²/2 + vx gives a surface of equilibria with a fold curve bounding th",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-catastrophe-theory-first-order-transitions"
+      ],
+      "communication_gap": "Catastrophe theory reached peak physics interest in the 1970s–80s but was dismissed in some communities due to overapplication by Zeeman to qualitative social phenomena. This created a cultural separation between the mathematically rigorous classification (universally accepted) and its applications, causing physicists to reinvent equivalent constructions without citing Thom's framework. Topology and dynamical-systems communities publish in different journals.\n",
+      "translation_table": [
+        {
+          "field_a_term": "catastrophe codimension",
+          "field_b_term": "number of thermodynamic control parameters at a multicritical point",
+          "note": "codimension equals the number of independent tuning parameters needed to reach the singularity"
+        },
+        {
+          "field_a_term": "fold catastrophe potential V(x) = x³/3 - ux",
+          "field_b_term": "spinodal instability in a first-order transition",
+          "note": "the fold bifurcation corresponds to the limit of metastability (spinodal)"
+        },
+        {
+          "field_a_term": "cusp catastrophe hysteresis loop",
+          "field_b_term": "first-order transition with latent heat and phase coexistence",
+          "note": "the cusp separates the monostable and bistable regions of parameter space"
+        },
+        {
+          "field_a_term": "butterfly catastrophe tricritical structure",
+          "field_b_term": "tricritical point where second-order becomes first-order (He-3/He-4 mixtures)",
+          "note": "requires 4-dimensional parameter control; tricritical exponents differ from Ising"
+        },
+        {
+          "field_a_term": "gradient system ẋ = -dV/dx",
+          "field_b_term": "overdamped relaxational dynamics near a phase transition",
+          "note": "both describe irreversible approach to the nearest attractor"
+        }
+      ],
+      "references": [
+        {
+          "note": "Thom (1975) Structural Stability and Morphogenesis; Benjamin, Reading MA"
+        },
+        {
+          "note": "Zeeman (1976) Catastrophe theory. Sci Am 234:65–83"
+        },
+        {
+          "doi": "10.1070/RM1975v030n05ABEH001521",
+          "note": "Arnold (1975) Critical points of smooth functions and their normal forms. Russ Math Surv 30:1–75"
+        },
+        {
+          "note": "Gilmore (1981) Catastrophe Theory for Scientists and Engineers; Wiley, New York"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\mathematics-physics\\b-catastrophe-theory-phase-transitions.yaml"
     },
     {
       "id": "b-ergodic-theory-statistical-mechanics",
@@ -11135,6 +11603,64 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\neuroscience-linguistics\\b-predictive-coding-grammar.yaml"
+    },
+    {
+      "id": "b-hopfield-attractor-memory",
+      "title": "Hopfield networks (1982) store M memories as energy-function attractors with Hebbian weights; statistical mechanics (Amit-Gutfreund-Sompolinsky) gives capacity M_max≈0.14N; modern Hopfield networks (Ramsauer 2020) achieve exponential capacity exp(N/2) using log-sum-exp interaction — mathematically equivalent to the scaled dot-product attention mechanism in transformers, connecting associative memory theory directly to large language models.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Hopfield networks (1982): N binary neurons sᵢ ∈ {-1,+1} with symmetric weights Wᵢⱼ = (1/N)Σ_μ ξᵐᵢ ξᵐⱼ (Hebb rule) and dynamics sᵢ(t+1) = sgn(Σⱼ Wᵢⱼsⱼ(t)). Energy E = -½Σᵢⱼ Wᵢⱼsᵢsⱼ decreases monotonically → convergence to attractors. Stored memories ξᵐ are the attractor fixed points. Amit-Gutfreund-S",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-modern-hopfield-transformer-attention-equivalence"
+      ],
+      "communication_gap": "The 1982 Hopfield paper was absorbed by the physics community (statistical mechanics analysis) and the neural network community but largely separated from the 2017 transformer revolution in deep learning. The mathematical equivalence between modern Hopfield networks and attention was published in 2020 (Ramsauer et al.) but has not yet widely penetrated neuroscience journals, even though it provides a biologically grounded theoretical framework for understanding transformer architectures.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Hopfield network synaptic weight matrix Wᵢⱼ",
+          "field_b_term": "outer product of key-value pairs in transformer attention",
+          "note": "Hebb rule Wᵢⱼ = ΣΞ_μᵢΞ_μⱼ is identical to key-value memory outer product"
+        },
+        {
+          "field_a_term": "energy function E = -½ sᵀWs",
+          "field_b_term": "negative log-sum-exp interaction function in modern Hopfield",
+          "note": "classical energy is quadratic; modern Hopfield energy is -log(Σexp(βξ·s))"
+        },
+        {
+          "field_a_term": "pattern completion (partial cue → full memory)",
+          "field_b_term": "attention query finding the most similar key",
+          "note": "both perform nearest-neighbor retrieval in the space of stored patterns"
+        },
+        {
+          "field_a_term": "storage capacity M_max = 0.14N (classical)",
+          "field_b_term": "softmax attention over all N tokens (one-shot perfect retrieval)",
+          "note": "classical has capacity limitation; softmax attention retrieves any of exp(N/2) items"
+        },
+        {
+          "field_a_term": "spurious attractors (spin glass states above capacity)",
+          "field_b_term": "hallucination in large language models (blended pattern retrieval)",
+          "note": "both arise when memory density exceeds the network's faithful retrieval limit"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1073/pnas.79.8.2554",
+          "note": "Hopfield (1982) Neural networks and physical systems with emergent collective computational abilities. PNAS 79:2554–2558"
+        },
+        {
+          "doi": "10.1103/PhysRevA.32.1007",
+          "note": "Amit et al. (1985) Storing infinite numbers of patterns in a spin-glass model of neural networks. Phys Rev A 32:1007–1018"
+        },
+        {
+          "note": "Ramsauer et al. (2020) Hopfield Networks Is All You Need. ICLR 2021. arXiv:2008.02217"
+        },
+        {
+          "note": "Krotov & Hopfield (2016) Dense associative memory for pattern recognition. Adv Neural Inf Process Syst 29"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\neuroscience-mathematics\\b-hopfield-attractor-memory.yaml"
     },
     {
       "id": "b-persistent-homology-neural-representation",
@@ -12521,6 +13047,66 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\physics-chemistry\\b-maxwell-boltzmann-chemical-kinetics.yaml"
+    },
+    {
+      "id": "b-reaction-rate-transition-state",
+      "title": "Eyring-Evans-Polanyi transition state theory (1935) derives reaction rate k = (k_BT/h)exp(-ΔG‡/RT) from statistical mechanics; Kramers' theory adds solvent friction (γ); Marcus theory gives the celebrated inverted region k ∝ exp[-(λ+ΔG°)²/4λk_BT] for electron transfer where faster thermodynamics can slow the rate — unifying statistical mechanics, chemical kinetics, and quantum tunneling through the concept of a rate-limiting transition state.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Transition state theory (TST, Eyring-Evans-Polanyi 1935): reaction rate is k = (k_BT/h) · (Q‡/Q_R) · exp(-E‡/k_BT) where Q‡ is the partition function of the activated complex minus one degree of freedom (the reaction coordinate). Using free energies: k = (k_BT/h)exp(-ΔG‡/RT). Key assumptions: (1) qu",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-marcus-inverted-region-biological-electron-transfer"
+      ],
+      "communication_gap": "Transition state theory is taught in physical chemistry; Kramers theory in chemical physics; Marcus theory in electrochemistry and biophysics. These communities use different notation and rarely cross-cite. The connection of Marcus theory to the spin-boson model (condensed matter physics) is known to theorists but not to experimental chemists. Quantum biology connections (tunneling in enzymes) are highly contested.\n",
+      "translation_table": [
+        {
+          "field_a_term": "transition state (activated complex, ‡) on the PES",
+          "field_b_term": "saddle point of the potential energy landscape in statistical mechanics",
+          "note": "transition state is a first-order saddle point in 3N-dimensional configuration space"
+        },
+        {
+          "field_a_term": "activation free energy ΔG‡",
+          "field_b_term": "barrier height in the Kramers escape problem",
+          "note": "both determine the Arrhenius exponential suppression of the rate"
+        },
+        {
+          "field_a_term": "solvent friction γ in Kramers theory",
+          "field_b_term": "damping in the Langevin equation ṁẋ = -γẋ - dV/dx + ξ(t)",
+          "note": "high friction → diffusion limit; low friction → energy-diffusion limited (Kramers turnover)"
+        },
+        {
+          "field_a_term": "Marcus reorganization energy λ",
+          "field_b_term": "harmonic bath coupling parameter in spin-boson model",
+          "note": "λ measures how much the environment must rearrange upon charge transfer"
+        },
+        {
+          "field_a_term": "Marcus inverted region (rate decreases at large -ΔG°)",
+          "field_b_term": "quantum tunneling gap between initial and final state wavefunctions",
+          "note": "deep inverted region rates are governed by nuclear tunneling, not classical over-barrier"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1063/1.1749604",
+          "note": "Eyring (1935) The activated complex in chemical reactions. J Chem Phys 3:107–115"
+        },
+        {
+          "doi": "10.1016/S0031-8914(40)90098-2",
+          "note": "Kramers (1940) Brownian motion in a field of force and the diffusion model of chemical reactions. Physica 7:284–304"
+        },
+        {
+          "doi": "10.1063/1.1742723",
+          "note": "Marcus (1956) On the theory of oxidation-reduction reactions involving electron transfer. J Chem Phys 24:966–978"
+        },
+        {
+          "doi": "10.1103/RevModPhys.62.251",
+          "note": "Hänggi et al. (1990) Reaction-rate theory: fifty years after Kramers. Rev Mod Phys 62:251–341"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\physics-chemistry\\b-reaction-rate-transition-state.yaml"
     },
     {
       "id": "b-statistical-thermodynamics-equilibrium",
@@ -14165,6 +14751,65 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\physics-mathematics\\b-noether-theorem-conservation-laws.yaml"
+    },
+    {
+      "id": "b-random-matrix-quantum-chaos",
+      "title": "The Bohigas-Giannoni-Schmit conjecture (1984) states that energy level statistics of quantum systems with chaotic classical dynamics follow Gaussian Orthogonal Ensemble (GOE) random matrix statistics, proved for specific systems via Sieber-Richter pairs of correlated periodic orbits, unifying quantum chaos, nuclear physics, and the Riemann zeta function zeros.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The Bohigas-Giannoni-Schmit (BGS) conjecture (1984): the nearest-neighbor level spacing distribution of quantized chaotic Hamiltonians follows the Gaussian Orthogonal Ensemble (GOE). The Wigner surmise P(s) = (πs/2)exp(-πs²/4) shows level repulsion — P(0)=0, unlike the Poisson distribution P(s)=exp(",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-sieber-richter-pairs-bgs-proof"
+      ],
+      "communication_gap": "Random matrix theory originated in nuclear physics (Wigner, Dyson, Mehta), developed its own mathematical community (free probability, Wishart matrices in statistics), and was independently adopted in quantum chaos without full cross-citation. Number theorists studying Riemann zeros are rarely in communication with quantum chaos physicists, despite the GUE connection. The SYK/black-hole connection is very recent and still being absorbed by condensed matter physicists.\n",
+      "translation_table": [
+        {
+          "field_a_term": "quantum energy levels of a chaotic Hamiltonian",
+          "field_b_term": "eigenvalues of a random matrix from GOE",
+          "note": "BGS conjecture — the correspondence holds for all locally chaotic classical limits"
+        },
+        {
+          "field_a_term": "Wigner surmise level repulsion P(0)=0",
+          "field_b_term": "vanishing density of states at zero level spacing in GOE",
+          "note": "reflects anti-bunching analogous to fermion statistics in the level gas"
+        },
+        {
+          "field_a_term": "Sieber-Richter correlated orbit pairs",
+          "field_b_term": "leading non-diagonal contribution in the periodic orbit sum",
+          "note": "pairs have same action and nearly identical trajectories linked by time-reversal"
+        },
+        {
+          "field_a_term": "Poisson statistics of integrable system levels",
+          "field_b_term": "uncorrelated (GUE eigenvalue level statistics require chaos)",
+          "note": "absence of avoided crossings in integrable systems — levels can cross freely"
+        },
+        {
+          "field_a_term": "SYK model all-to-all random interactions",
+          "field_b_term": "random matrix Hamiltonian at large N",
+          "note": "SYK saturates the MSS chaos bound and is holographically dual to JT gravity"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1103/PhysRevLett.52.1",
+          "note": "Bohigas et al. (1984) Characterization of chaotic quantum spectra and universality of level fluctuation laws. Phys Rev Lett 52:1–4"
+        },
+        {
+          "doi": "10.1103/PhysRevLett.93.014103",
+          "note": "Müller et al. (2004) Semiclassical foundation of universality in quantum chaos. Phys Rev Lett 93:014103"
+        },
+        {
+          "doi": "10.1016/S0370-1573(97)00088-4",
+          "note": "Guhr et al. (1998) Random-matrix theories in quantum physics: common concepts. Phys Rep 299:189–425"
+        },
+        {
+          "note": "Mehta (2004) Random Matrices, 3rd ed; Academic Press, New York"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\physics-mathematics\\b-random-matrix-quantum-chaos.yaml"
     },
     {
       "id": "b-topology-condensed-matter-tqft",
@@ -15853,6 +16498,63 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\social-science-biology\\b-cultural-evolution-darwinian.yaml"
+    },
+    {
+      "id": "b-cultural-evolution-dual-inheritance",
+      "title": "Boyd and Richerson's dual inheritance theory (1985) formalizes the coevolution of genes and culture using population genetics mathematics — cultural allele frequencies evolve under selection, drift, and transmission biases including conformity and prestige, with the Price equation applying equally to both genetic and cultural change.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Dual inheritance theory (Boyd & Richerson 1985) treats culture as an inheritance system parallel to genetics. Cultural variants spread via selection (differential retention), unbiased transmission (random drift), and biased transmission. Prestige bias: copy high-status individuals. Conformity bias (",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-dual-inheritance-lactase-selection"
+      ],
+      "communication_gap": "Cultural evolution and genetic evolution are studied by different departments (anthropology/social science vs biology/genetics) with different methods, journals, and norms. The mathematical equivalence is accepted in evolutionary anthropology but rarely reaches sociology, cultural psychology, or mainstream economics. Resistance stems partly from the perceived reduction of culture to biology, even though dual inheritance theory explicitly treats culture as an autonomous inheritance system.\n",
+      "translation_table": [
+        {
+          "field_a_term": "cultural variant (belief, practice, norm)",
+          "field_b_term": "allele at a locus in population genetics",
+          "note": "both are heritable, variable, and subject to selection and drift"
+        },
+        {
+          "field_a_term": "imitation/social learning fidelity",
+          "field_b_term": "replication fidelity / mutation rate",
+          "note": "low imitation fidelity acts like high mutation rate, preventing cumulative adaptation"
+        },
+        {
+          "field_a_term": "prestige bias (copy high-status individuals)",
+          "field_b_term": "positive frequency-independent selection (success-based bias)",
+          "note": "prestige bias can produce maladaptive runaway analogous to sexual selection"
+        },
+        {
+          "field_a_term": "conformity bias (overweight majority)",
+          "field_b_term": "positive frequency-dependent selection",
+          "note": "conformity stabilizes cultural norms and enables coordinated social behavior"
+        },
+        {
+          "field_a_term": "cultural group selection",
+          "field_b_term": "multilevel selection (Price equation between-group component)",
+          "note": "controversial but potentially explains unusual ultrasociality of humans"
+        }
+      ],
+      "references": [
+        {
+          "note": "Boyd & Richerson (1985) Culture and the Evolutionary Process; University of Chicago Press"
+        },
+        {
+          "note": "Cavalli-Sforza & Feldman (1981) Cultural Transmission and Evolution; Princeton University Press"
+        },
+        {
+          "note": "Richerson & Boyd (2005) Not by Genes Alone; University of Chicago Press"
+        },
+        {
+          "doi": "10.1002/evan.10017",
+          "note": "Henrich & McElreath (2003) The evolution of cultural evolution. Evol Anthropol 12:123–135"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\social-science-biology\\b-cultural-evolution-dual-inheritance.yaml"
     },
     {
       "id": "b-cultural-evolution-memetics",

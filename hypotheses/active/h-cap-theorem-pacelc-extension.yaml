@@ -1,0 +1,41 @@
+id: h-cap-theorem-pacelc-extension
+title: >
+  The PACELC extension to the CAP theorem (Daniel Abadi 2012) — that distributed
+  systems must trade off latency against consistency even when there is no network
+  partition — is a tighter characterization of practical system tradeoffs, and
+  systems can be rigorously classified on a 2D (PA/EL vs PC/EC) grid that predicts
+  observed user-facing behavior across cloud databases.
+status: active
+priority: medium
+impact_score: 0.74
+created: "2026-05-06"
+last_updated: "2026-05-06"
+related_disciplines:
+  - computer-science
+  - distributed-systems
+  - engineering
+unknowns_addressed:
+  - u-byzantine-fault-tolerance-practical
+evidence_links:
+  - doi: "10.1145/3149.214121"
+    type: supporting
+    confidence: 0.90
+    note: "Fischer et al. (1985) FLP impossibility — foundation for CAP understanding"
+  - note: "Lamport (2001) Paxos — consensus under fail-stop providing CP baseline"
+    type: supporting
+    confidence: 0.85
+  - note: "Brewer (2000) PODC keynote; Gilbert & Lynch (2002) CAP proof"
+    type: supporting
+    confidence: 0.88
+proposed_tests:
+  - description: >
+      Measure end-to-end write latency and read consistency (stale read rate)
+      for DynamoDB, Cassandra, Spanner, and CockroachDB under simulated network
+      partition and normal operation. Classify each on the PACELC grid and test
+      whether the classification predicts measured latency-consistency tradeoffs
+      with < 20% error.
+  - description: >
+      Test whether BFT-enabled systems (Hyperledger Fabric, Tendermint) are
+      correctly classified as PC/EC (consistent, high latency) and whether their
+      latency overhead over Paxos is accurately predicted by the 3f+1 vs 2f+1
+      replica count ratio.

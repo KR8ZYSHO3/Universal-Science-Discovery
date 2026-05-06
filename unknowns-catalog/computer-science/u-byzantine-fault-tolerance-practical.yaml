@@ -1,0 +1,29 @@
+id: u-byzantine-fault-tolerance-practical
+title: What are the practical engineering limits of Byzantine fault-tolerant consensus in real-world deployments, and can BFT achieve performance competitive with non-Byzantine systems?
+status: open
+priority: high
+disciplines:
+  - computer-science
+  - distributed-systems
+  - engineering
+  - cryptography
+summary: >
+  Byzantine fault tolerance (BFT) is theoretically necessary for security in
+  adversarial distributed environments (blockchains, critical infrastructure).
+  However, practical BFT systems (PBFT, HotStuff, Tendermint) have 3–10× higher
+  latency and lower throughput than crash-fault-tolerant (CFT) systems like
+  Paxos/Raft because they require 3f+1 replicas, additional communication rounds
+  for view-change protocols, and cryptographic signatures on all messages.
+  The fundamental question is whether BFT's theoretical overhead is removable
+  with better protocols or whether the 3f+1 bound and extra communication rounds
+  impose irreducible practical costs. HotStuff (2018) achieves linear
+  communication complexity for view change (compared to PBFT's quadratic)
+  but still requires 3f+1. Partially synchronous BFT (Dwork-Lynch-Stockmeyer)
+  offers better performance under favorable network conditions.
+systematic_gaps:
+  - No comprehensive empirical study of BFT protocol performance under realistic Byzantine failures (not crash failures or all-adversarial) in production deployments.
+  - The communication complexity lower bound for BFT under partial synchrony is not precisely known.
+  - Incentive-compatible BFT (rational Byzantine, not adversarial) may require fewer replicas but lacks formal analysis.
+last_reviewed: "2026-05-06"
+related_bridges:
+  - b-distributed-systems-consensus
