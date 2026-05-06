@@ -1,0 +1,73 @@
+id: b-stabilizer-codes-fault-tolerance
+title: >
+  Quantum stabilizer codes are the quantum analog of classical linear codes — the
+  threshold theorem proves that fault-tolerant quantum computation is achievable
+  when physical error rates fall below approximately 1%.
+status: established
+fields:
+  - quantum-computing
+  - quantum-error-correction
+  - classical-coding-theory
+  - computer-science
+bridge_claim: >
+  Quantum error correction (Shor 1995, Steane 1996) maps directly onto classical
+  coding theory: a [[n, k, d]] quantum code encodes k logical qubits into n
+  physical qubits with code distance d (able to correct ⌊(d−1)/2⌋ arbitrary errors).
+  Stabilizer codes — defined by a commuting set of Pauli operators (the stabilizer
+  group) — are the quantum generalization of linear codes over GF(2).
+
+  The bridge between quantum computing and error correction is that quantum
+  information can be protected against decoherence using the same algebraic
+  structure (group theory, syndrome decoding) as classical communications. The
+  Calderbank-Shor-Steane (CSS) construction explicitly maps classical linear codes
+  to quantum codes, providing a systematic translation.
+
+  The threshold theorem (Aharonov & Ben-Or 1997, Knill et al. 1998) proves that
+  if the physical error rate p < p_threshold ≈ 0.1–1% (depending on the code and
+  noise model), arbitrarily long fault-tolerant quantum computation is possible
+  using polynomial overhead in physical qubits. The surface code (Fowler et al.
+  2012) achieves p_threshold ≈ 1% with nearest-neighbor interactions, making it
+  the leading candidate for fault-tolerant quantum computing (breakthrough gap
+  bg-quantum-computing-fault-tolerant).
+translation_table:
+  - field_a_term: "[n, k, d] classical linear code"
+    field_b_term: "[[n, k, d]] quantum stabilizer code"
+    note: Direct analog — CSS construction maps classical to quantum codes
+  - field_a_term: parity check matrix H (classical)
+    field_b_term: stabilizer generators (Pauli operators)
+    note: Syndrome measurement = parity check in the quantum case
+  - field_a_term: bit flip (0→1) and phase flip error types
+    field_b_term: Pauli X (bit flip) and Pauli Z (phase flip) errors
+    note: Quantum errors decompose into X, Z, Y = iXZ
+  - field_a_term: classical code rate k/n
+    field_b_term: quantum code rate k/n (logical qubits per physical qubit)
+    note: Surface code rate = 1/n → 0 as n grows (overhead for fault tolerance)
+  - field_a_term: minimum distance d (classical)
+    field_b_term: code distance d (quantum) — number of correctable errors = ⌊(d−1)/2⌋
+    note: Distance determines fault tolerance threshold
+related_unknowns:
+  - u-quantum-error-correction-overhead-reduction
+related_hypotheses:
+  - h-surface-code-practical-threshold-2030
+cross_pollination_opportunities:
+  - >
+    Classical LDPC codes (low-density parity check) have near-Shannon-capacity
+    performance; quantum LDPC codes (qLDPC) are being developed as lower-overhead
+    alternatives to surface codes. Classical coding theory advances directly
+    accelerate quantum error correction.
+  - >
+    Machine learning decoders for syndrome decoding: neural network decoders trained
+    on classical codes generalize to quantum stabilizer codes, connecting ML, classical
+    coding theory, and quantum error correction.
+communication_gap: >
+  Quantum computing and classical coding theory are taught in separate departments
+  (physics vs electrical engineering/computer science). The CSS construction and
+  stabilizer formalism require both quantum mechanics and group theory, limiting
+  practitioners who can work across the bridge. The threshold theorem is widely
+  cited but rarely understood in detail outside quantum information theory.
+last_reviewed: "2026-05-06"
+references:
+  - note: "Shor (1995) Scheme for reducing decoherence in quantum computer memory. Phys Rev A 52:R2493"
+  - note: "Steane (1996) Error correcting codes in quantum theory. Phys Rev Lett 77:793"
+  - note: "Gottesman (1997) Stabilizer codes and quantum error correction. PhD thesis, Caltech"
+  - note: "Fowler et al. (2012) Surface codes: towards practical large-scale quantum computation. Phys Rev A 86:032324"

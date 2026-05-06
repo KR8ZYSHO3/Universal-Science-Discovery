@@ -1,0 +1,105 @@
+id: b-molecular-motors-thermodynamic-efficiency
+title: >
+  Biological molecular motors (myosin, kinesin, ATP synthase) convert chemical
+  free energy to mechanical work at 25-40% efficiency near the Carnot limit,
+  verified by the Jarzynski equality connecting non-equilibrium work to
+  equilibrium free energy, establishing single-molecule thermodynamics as a
+  bridge between biophysics and mechanical engineering.
+status: established
+fields:
+  - biophysics
+  - mechanical-engineering
+  - thermodynamics
+  - statistical-physics
+bridge_claim: >
+  Molecular motors in living cells are nanoscale machines that perform
+  mechanical work by converting chemical energy (ATP hydrolysis), operating
+  near the thermodynamic efficiency limits derived from macroscopic engineering
+  thermodynamics.
+
+  1. Molecular motor energetics. ATP hydrolysis: ATP → ADP + Pᵢ releases
+     ΔG = -54 kJ/mol under physiological conditions (well below standard
+     -30.5 kJ/mol due to cellular concentration gradients). Myosin II
+     (muscle motor) produces ~10 pN force over ~10 nm stroke per ATP,
+     giving ~100 pN·nm = 10⁻¹⁹ J of work per step. Comparing to ΔG per
+     ATP ≈ 9×10⁻²⁰ J: efficiency ≈ 25%. Kinesin achieves ~40% efficiency.
+     ATP synthase (reverse motor: synthesizes ATP from proton gradient) achieves
+     ~100% efficiency near equilibrium conditions.
+
+  2. Carnot analogy. A Carnot engine operating between temperatures T_H and T_C
+     achieves efficiency η = 1 - T_C/T_H. Molecular motors are isothermal
+     machines operating far from the classical engine limit — they use chemical
+     potential gradients, not heat. The relevant limit is the Stokes efficiency:
+     W_useful / ΔG_chemical ≤ 1 (second law). Near-100% efficiency for ATP
+     synthase suggests operation close to thermodynamic reversibility — an
+     engineering achievement no macroscopic machine approaches.
+
+  3. Jarzynski equality. For a system driven out of equilibrium from state A
+     to state B by an arbitrary protocol, the Jarzynski equality (1997) states:
+     ⟨e^{-W/kT}⟩ = e^{-ΔF/kT}, where W is the work done on the system in each
+     repetition and ΔF is the equilibrium free energy difference. This remarkable
+     result connects non-equilibrium measurements to equilibrium thermodynamics.
+     It has been verified experimentally by stretching RNA molecules with optical
+     tweezers (Liphardt et al. 2002) and manipulating colloidal particles.
+     The engineering implication: free energy of any molecular process can be
+     measured from non-equilibrium pulling experiments.
+
+  4. Macroscopic engineering comparison. Gasoline internal combustion engines:
+     25-35% thermal efficiency (Carnot limited by cylinder temperatures).
+     Electric motors: 85-97% electrical-to-mechanical efficiency (not Carnot
+     limited; limited by resistive losses). Biological motors: 25-40% chemical-
+     to-mechanical efficiency, near the isothermal limit. The comparison is
+     meaningful: both are limited by fundamental thermodynamics, just different
+     thermodynamic cycles.
+translation_table:
+  - field_a_term: thermal efficiency η = W/Q_H (heat engine / engineering)
+    field_b_term: mechanochemical coupling efficiency W/ΔG_ATP (molecular motor)
+    note: Both are ratios of useful work output to energy input from different sources
+  - field_a_term: Carnot limit η_C = 1 - T_C/T_H (thermodynamics)
+    field_b_term: isothermal efficiency limit W/ΔG ≤ 1 (molecular motor)
+    note: Molecular motors operate isothermally; Carnot limit is for heat engines
+  - field_a_term: work W (macroscopic mechanics)
+    field_b_term: mechanical step work (force × displacement in nm·pN) per ATP
+    note: Same concept; 1 pN·nm = 10⁻²¹ J is the molecular scale unit
+  - field_a_term: free energy ΔF (thermodynamics)
+    field_b_term: ΔG_ATP = ΔG° + kT ln([ADP][Pᵢ]/[ATP]) (biochemistry)
+    note: Both are the maximum useful work extractable from a process
+  - field_a_term: fluctuation-dissipation theorem (statistical physics)
+    field_b_term: Jarzynski equality ⟨e^{-W/kT}⟩ = e^{-ΔF/kT} (non-equilibrium)
+    note: Jarzynski generalizes fluctuation-dissipation to non-equilibrium processes
+  - field_a_term: efficiency at maximum power (Curzon-Ahlborn, engineering)
+    field_b_term: optimal ATP hydrolysis rate vs. force-velocity curve (biophysics)
+    note: Both systems face tradeoff between efficiency and power output
+related_unknowns:
+  - u-molecular-motor-efficiency-limit-biological
+related_hypotheses:
+  - h-molecular-motor-near-equilibrium-operation
+cross_pollination_opportunities:
+  - >
+    Bio-inspired nanomachine design: engineering molecular-scale actuators
+    using the geometric and chemical principles of biological motors (power
+    stroke, gating, elastic energy storage) could yield artificial nanomotors
+    far more efficient than current MEMS/NEMS devices.
+  - >
+    Free energy measurement via Jarzynski: optical tweezers + Jarzynski equality
+    is now a standard technique for measuring binding free energies, protein
+    folding energetics, and drug-target interactions — a direct application
+    of non-equilibrium statistical mechanics to pharmaceutical engineering.
+communication_gap: >
+  Mechanical engineers studying thermodynamic efficiency of macroscopic motors
+  and biophysicists studying molecular motors are separated by six orders of
+  magnitude in length scale and by disciplinary boundaries. The Jarzynski
+  equality bridges non-equilibrium statistical physics to single-molecule
+  biophysics, but is rarely taught in engineering thermodynamics courses.
+  Toyabe et al. (2010) demonstrated an information-to-energy conversion machine
+  at the single-molecule scale, realizing Maxwell's demon experimentally.
+last_reviewed: "2026-05-06"
+references:
+  - url: https://www.sinauer.com/media/wysiwyg/tocs/MechanicsOfMotorProteins.pdf
+    note: Howard (2001) Mechanics of Motor Proteins and the Cytoskeleton — Sinauer Associates
+  - doi: "10.1103/PhysRevLett.78.2690"
+    note: Jarzynski (1997) Phys Rev Lett 78:2690 — nonequilibrium equality for free energy differences
+  - doi: "10.1038/nchembio0705-130"
+    note: Bustamante et al. (2005) Nat Chem Biol 1:130 — mechanical design of translocating motor proteins
+  - doi: "10.1038/nphys1821"
+    note: Toyabe et al. (2010) Nat Phys 6:988 — experimental demonstration of information-to-energy conversion

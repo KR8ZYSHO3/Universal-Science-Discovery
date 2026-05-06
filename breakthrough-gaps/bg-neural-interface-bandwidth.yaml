@@ -1,0 +1,73 @@
+id: bg-neural-interface-bandwidth
+title: High-Bandwidth Brain-Computer Interfaces for Restoring and Augmenting Neural Function
+breakthrough_description: >
+  High-bandwidth brain-computer interfaces (BCIs) — capable of reading and writing
+  neural activity at the resolution of individual neurons across large brain areas —
+  would enable restoration of motor function in paralysis, treatment of
+  neuropsychiatric disorders (depression, OCD, PTSD), and potentially direct
+  brain-to-brain or brain-to-machine communication at speeds approaching natural
+  neural computation. Neuralink (2024) demonstrated 1024-channel wireless recording
+  from a human patient; Synchron's Stentrode provides endovascular access without
+  open-brain surgery. However, current systems sample ~1000 neurons from a brain
+  with ~86 billion neurons and trillions of synapses. The gap between current
+  electrode counts and the neuron counts required for high-fidelity sensorimotor
+  restoration is 6-7 orders of magnitude.
+source_domain: neuroscience
+current_trl: 5
+world_reshaping_potential: transformative
+blocking_gaps:
+  - gap_title: Electrode Biocompatibility and Long-Term Stability
+    gap_description: >
+      Implanted electrodes trigger a foreign body response: microglia and astrocytes
+      encapsulate the electrode in a glial scar within weeks to months, progressively
+      degrading signal quality. Current best-in-class implants (Neuropixels,
+      Neuralink N1) maintain recording quality for 1-2 years in clinical trials.
+      Chronic 10+ year implants require either biologically inert surface chemistry
+      (zwitterionic coatings, anti-inflammatory drug elution) or periodically
+      replaceable electrode arrays. Neither approach has been validated at clinical
+      scale for >5 year chronic implants.
+    blocking_domain: biomaterials
+    gap_type: materials
+  - gap_title: Signal Decoding Algorithms for Neural Population Codes
+    gap_description: >
+      The brain encodes information in spatiotemporal patterns of activity across
+      thousands of neurons (population codes). Current BCI decoders (Kalman filter,
+      RNN, Wiener filter) use empirically fitted mappings from spike rates to motor
+      output. They do not exploit the geometric structure of neural manifolds (the
+      low-dimensional subspaces in which population activity is embedded). As
+      electrode count scales from 1000 to 1,000,000, decoders must generalize across
+      sessions, animals, and tasks without re-calibration — requiring a theory of
+      neural population geometry, not just curve fitting.
+    blocking_domain: computational-neuroscience
+    gap_type: algorithmic
+  - gap_title: Wireless Data Bandwidth and Power Delivery
+    gap_description: >
+      1024-channel recording at 30 kHz sampling, 16-bit resolution generates
+      ~500 MB/s of raw data. Neuralink N1 transmits 200 Mbps wirelessly using
+      a near-field antenna in the skull — already near the limit for implant-safe
+      RF exposure (SAR <1.6 W/kg). Scaling to 10,000 channels would require 5 Gbps
+      wireless bandwidth from an implant with battery power limited to ~10 mW.
+      Data compression (spike sorting on-chip) reduces bandwidth by 100-1000×
+      but requires power-efficient neural signal processing ASICs that do not yet exist.
+    blocking_domain: electrical-engineering
+    gap_type: engineering
+  - gap_title: Immune Response to Implanted Electronics
+    gap_description: >
+      Beyond the glial scar response to electrode tips, the immune system mounts
+      systemic responses to implanted electronics: corrosion products from metal
+      electrodes, polymer particulates from insulation degradation, and infection
+      risk from percutaneous connectors. The immunological cascade that leads to
+      encapsulation and device failure is incompletely characterized, particularly
+      for flexible polymeric implants (polyimide, SU-8) intended for long-term use.
+    blocking_domain: immunology
+    gap_type: biological
+required_bridges:
+  - b-neural-population-coding-geometry
+  - b-biomaterials-immunology-interface
+  - b-neuromorphic-computing-signal-processing
+references:
+  - "Musk & Neuralink (2019) An integrated brain-machine interface platform with thousands of channels. J Med Internet Res 21:e16194."
+  - "Oxley et al. (2021) Motor neuroprosthesis implanted with neurointerventional surgery improves capacity for activities of daily living tasks in severe paralysis. J Neurointerv Surg 13:102-108."
+  - "Pandarinath et al. (2018) Inferring single-trial neural population dynamics using sequential auto-encoders. Nat Methods 15:805-815."
+  - "Jeong et al. (2015) Soft materials in neuroengineering for hard problems in neuroscience. Neuron 86:175-186."
+last_reviewed: "2026-05-06"

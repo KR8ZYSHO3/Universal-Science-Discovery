@@ -1,0 +1,32 @@
+id: u-quantum-error-correction-overhead-reduction
+title: What is the minimum physical qubit overhead required for fault-tolerant quantum computation, and can quantum LDPC codes achieve constant overhead with practical decoders?
+status: open
+priority: critical
+disciplines:
+  - quantum-computing
+  - quantum-error-correction
+  - classical-coding-theory
+  - computer-science
+summary: >
+  The surface code — the leading fault-tolerant quantum error correction code —
+  requires approximately 1000-10000 physical qubits per logical qubit at practical
+  error rates (p ~ 0.1%), due to its low encoding rate (k/n → 0). This overhead
+  is the primary engineering barrier to practical fault-tolerant quantum computing
+  (breakthrough gap bg-quantum-computing-fault-tolerant).
+
+  Quantum low-density parity check (qLDPC) codes offer constant encoding rate
+  (k/n = constant) with growing code distance, potentially achieving constant
+  overhead. Panteleev & Kalachev (2022) and Leverrier & Zémor (2022) proved the
+  existence of qLDPC codes with linear minimum distance (matching classical LDPC
+  bounds), but practical efficient decoders for these codes under realistic noise
+  models are unknown. The gap between information-theoretic existence proofs and
+  physically realizable, efficiently decodable codes is the core unknown.
+systematic_gaps:
+  - Whether qLDPC codes with constant overhead and polynomial-time decoders exist that work under realistic noise models (with measurement errors, correlated noise) is unproven.
+  - The hardware connectivity requirements of high-performance qLDPC codes may be incompatible with nearest-neighbor-only quantum hardware (superconducting qubits, ion traps).
+  - The threshold error rate for the best known qLDPC decoders under circuit-level noise is unknown and may be lower than the surface code threshold.
+suggested_hypotheses:
+  - Fiber-bundle and hypergraph product qLDPC codes with belief propagation + ordered statistics decoders can achieve sub-100:1 physical-to-logical qubit overhead at p = 0.1% error rate.
+related_bridges:
+  - b-stabilizer-codes-fault-tolerance
+last_reviewed: "2026-05-06"

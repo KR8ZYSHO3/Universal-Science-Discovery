@@ -1,0 +1,71 @@
+id: b-carbon-capture-entropy-cost
+title: >
+  Direct air carbon capture is constrained by thermodynamics — actual DAC systems
+  consume 10-20× above the minimum work set by entropy of mixing, and closing
+  this gap requires understanding sorbent-CO₂ kinetics at the molecular level.
+status: established
+fields:
+  - thermodynamics
+  - atmospheric-chemistry
+  - materials-science
+  - chemical-engineering
+bridge_claim: >
+  Direct air capture (DAC) of CO₂ from 420 ppm atmosphere (breakthrough gap
+  bg-carbon-direct-air-capture) is fundamentally constrained by the second law of
+  thermodynamics. The minimum work to separate CO₂ from air at concentration x_CO₂
+  is W_min = RT ln(p_total / p_CO₂) ≈ 20 kJ/mol CO₂ at 420 ppm, 25°C.
+
+  Current DAC systems (liquid solvent: Carbon Engineering; solid sorbent: Climeworks)
+  consume 200–400 kJ/mol CO₂ — 10–20× above the thermodynamic minimum. The gap is
+  irreversibility: entropy is produced in every step of the sorbent cycle
+  (adsorption, heat regeneration, desorption, compression). Closing this gap
+  requires identifying which process steps generate the most entropy and optimizing
+  sorbent-CO₂ interaction kinetics at the molecular level.
+
+  The bridge: atmospheric chemistry determines the thermodynamic target (420 ppm
+  CO₂ sets the dilution penalty); thermodynamics provides the minimum work bound
+  and the entropy production framework; materials science designs the sorbent
+  (amine-functionalized mesoporous silica, MOFs, ionic liquids) to minimize
+  regeneration energy while maintaining fast kinetics and long cycle life.
+translation_table:
+  - field_a_term: entropy of mixing CO₂ in air at 420 ppm
+    field_b_term: minimum separation work W_min = RT ln(1/x_CO₂) ≈ 20 kJ/mol
+    note: Thermodynamic lower bound — set by atmospheric concentration, unavoidable
+  - field_a_term: sorbent regeneration temperature T_reg
+    field_b_term: Carnot efficiency penalty (1 − T_cold/T_hot)^{-1}
+    note: Higher T_reg = more energy for desorption but worse Carnot efficiency
+  - field_a_term: CO₂ binding enthalpy ΔH_ads of sorbent
+    field_b_term: regeneration energy per mol CO₂ ≈ ΔH_ads + sensible heat
+    note: Strong binding captures CO₂ efficiently but requires more energy to release
+  - field_a_term: sorbent degradation rate (oxidative, hydrolytic)
+    field_b_term: levelized cost of DAC ($/tonne CO₂)
+    note: Sorbent lifetime dominates capital cost at current TRL
+  - field_a_term: atmospheric CO₂ concentration (ppm)
+    field_b_term: "W_min sensitivity: doubling concentration halves W_min"
+    note: At 840 ppm W_min ≈ 18 kJ/mol — modest reduction from concentration increase
+related_unknowns:
+  - u-dac-sorbent-entropy-production-mechanism
+related_hypotheses:
+  - h-mof-sorbent-approaches-dac-thermodynamic-limit
+cross_pollination_opportunities:
+  - >
+    Electrochemical CO₂ capture: using electrochemically-swing sorbents (redox-active
+    quinones that bind CO₂ when reduced) avoids thermal regeneration, potentially
+    approaching the thermodynamic minimum. This requires bridging electrochemistry,
+    thermodynamics, and sorbent materials science.
+  - >
+    Concentrated solar energy for DAC regeneration: using high-temperature solar
+    heat (700-900°C from concentrating solar) for sorbent regeneration improves
+    Carnot efficiency — connecting solar energy physics to DAC thermodynamics.
+communication_gap: >
+  DAC is studied by atmospheric scientists (climate impact), chemical engineers
+  (process design), materials scientists (sorbent design), and economists (cost
+  modeling) in largely separate literatures. The thermodynamic framework that
+  unifies them is standard in chemical engineering but rarely articulated for
+  climate scientists or materials researchers entering the field.
+last_reviewed: "2026-05-06"
+references:
+  - note: "House et al. (2011) Economic and energetic analysis of capturing CO₂ from ambient air. Energy Environ Sci 4:1116-1128"
+  - note: "Fasihi et al. (2019) Techno-economic assessment of CO₂ direct air capture plants. Joule 3:1983-2049"
+  - note: "Keith et al. (2018) A process for capturing CO₂ from the atmosphere. Joule 2:1573-1594"
+  - note: "Lackner (2009) Capture of carbon dioxide from ambient air. Eur Phys J Special Topics 176:93-106"

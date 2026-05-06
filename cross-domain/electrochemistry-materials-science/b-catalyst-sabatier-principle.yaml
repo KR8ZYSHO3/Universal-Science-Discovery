@@ -1,0 +1,72 @@
+id: b-catalyst-sabatier-principle
+title: >
+  The Sabatier principle (volcano plot) bridges electrochemistry and materials science:
+  optimal catalysts bind reaction intermediates with intermediate strength, and DFT
+  computes binding energies from electronic structure to guide catalyst design.
+status: established
+fields:
+  - electrochemistry
+  - materials-science
+  - computational-chemistry
+  - surface-science
+bridge_claim: >
+  The Sabatier principle states that the optimal catalyst for a reaction binds
+  intermediates neither too strongly (reactants cannot desorb → catalyst poisoned)
+  nor too weakly (reactants cannot adsorb → no reaction). Plotting catalytic
+  activity against binding energy gives a "volcano plot" with optimal catalysts
+  near the peak.
+
+  For water splitting (breakthrough gap bg-hydrogen-water-splitting), the oxygen
+  evolution reaction (OER) overpotential is determined by the binding energies of
+  OH*, O*, and OOH* intermediates on the catalyst surface. Nørskov et al. (2004)
+  showed that for a universal OER scaling relation ΔG_OOH* − ΔG_OH* ≈ 3.2 eV
+  (a thermodynamic constraint), the theoretical minimum overpotential is
+  approximately 0.4 V — a hard lower bound set by intermediate scaling relations.
+
+  The bridge: materials electronic structure (band filling, d-band center,
+  coordination number) → reaction intermediate binding energies → catalytic
+  activity. Density functional theory (DFT) computes binding energies from
+  first principles, enabling materials screening. The "materials genome" vision
+  — predict catalytic activity from crystal structure before synthesis — is this
+  bridge in operation.
+translation_table:
+  - field_a_term: d-band center εd (Hammer-Nørskov model)
+    field_b_term: intermediate binding energy ΔG* (electrochemical)
+    note: Higher d-band center → stronger adsorbate binding (d-band model)
+  - field_a_term: OER overpotential η = E_applied − E_thermodynamic
+    field_b_term: thermodynamic free energy of limiting step ΔG_max − 1.23 eV
+    note: Overpotential = extra voltage above thermodynamic minimum
+  - field_a_term: DFT adsorption energy ΔE_ads
+    field_b_term: electrochemical free energy ΔG* = ΔE_ads + ZPE − TΔS + eU
+    note: DFT energies corrected for zero-point energy, entropy, and electrode potential
+  - field_a_term: volcano plot peak (optimal binding)
+    field_b_term: Sabatier optimum — maximum turnover frequency
+    note: RuO₂ and IrO₂ sit near OER volcano peak; earth-abundant alternatives needed
+  - field_a_term: scaling relation ΔG_OOH* − ΔG_OH* ≈ 3.2 eV (universal)
+    field_b_term: theoretical minimum OER overpotential ≈ 0.4 V
+    note: This scaling relation is a thermodynamic constraint on all oxide catalysts
+related_unknowns:
+  - u-oer-scaling-relation-break
+related_hypotheses:
+  - h-dual-site-catalyst-breaks-oer-scaling
+cross_pollination_opportunities:
+  - >
+    Breaking OER scaling relations using dual-site catalysts, frustrated Lewis pairs,
+    or confined geometry — a materials design goal informed by the electrochemical
+    thermodynamic analysis of the scaling relation constraint.
+  - >
+    Machine learning interatomic potentials (MLIPs) trained on DFT data can screen
+    millions of catalyst candidates, connecting ML, DFT, and Sabatier principle in
+    a high-throughput materials discovery pipeline.
+communication_gap: >
+  Surface science and electrochemistry overlap but differ in experimental conditions
+  (ultra-high vacuum vs. aqueous electrolyte), making it difficult to directly
+  compare surface-science binding energies with electrochemical overpotentials.
+  The computational bridge (DFT + implicit solvation + electrode potential correction)
+  spans this gap but is not universally applied by experimentalists.
+last_reviewed: "2026-05-06"
+references:
+  - note: "Sabatier (1911) Hydrogénations et déshydrogénations par catalyse. Ber Dtsch Chem Ges 44:1984-2001"
+  - note: "Nørskov et al. (2004) Origin of the overpotential for oxygen reduction at a fuel-cell cathode. J Phys Chem B 108:17886-17892"
+  - note: "Man et al. (2011) Universality in oxygen evolution electrocatalysis on oxide surfaces. ChemCatChem 3:1159-1165"
+  - note: "Seh et al. (2017) Combining theory and experiment in electrocatalysis: insights into materials design. Science 355:eaad4998"

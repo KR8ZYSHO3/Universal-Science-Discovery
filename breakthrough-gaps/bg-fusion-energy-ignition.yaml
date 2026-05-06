@@ -1,0 +1,78 @@
+id: bg-fusion-energy-ignition
+title: Commercial Fusion Energy — From NIF Ignition to Grid-Scale Power
+breakthrough_description: >
+  Nuclear fusion — combining hydrogen isotopes to release energy via E=mc² — offers
+  effectively unlimited, low-carbon electricity with no long-lived nuclear waste and
+  inherent safety (no chain reaction, self-extinguishing plasma). The National Ignition
+  Facility (NIF) achieved ignition in December 2022: 3.15 MJ of fusion energy from
+  2.05 MJ of laser energy (Q>1 for the first time). ITER (international tokamak,
+  France) is scheduled for first plasma in 2025 and full D-T operation by 2035, with
+  a target Q=10. Multiple private fusion companies (Commonwealth Fusion, TAE Technologies,
+  Helion, Zap Energy) are targeting commercial fusion pilot plants by 2030-2035.
+  However, NIF ignition uses laser drivers with ~1% efficiency, and ITER is a research
+  reactor, not a power plant. The gap between scientific ignition and commercial
+  grid-scale electricity generation at competitive cost remains substantial.
+source_domain: plasma-physics
+current_trl: 4
+world_reshaping_potential: transformative
+blocking_gaps:
+  - gap_title: Plasma Instability Control at Scale
+    gap_description: >
+      Magnetically confined plasmas (tokamaks, stellarators) exhibit edge-localized
+      modes (ELMs) — periodic instabilities that eject high-energy bursts of plasma
+      into the first wall, causing erosion. In ITER at full power, unmitigated ELMs
+      could deposit 10-20 MJ/m² on plasma-facing components in <1 ms, exceeding
+      material damage thresholds by 10-100×. ELM suppression using resonant magnetic
+      perturbations (RMP) has been demonstrated on smaller tokamaks (ASDEX, KSTAR)
+      but has not been proven to scale to ITER parameters. Disruptions (sudden
+      complete plasma collapse) transfer 300 MJ in <10 ms in ITER, requiring
+      fast active mitigation systems whose reliability has not been demonstrated.
+    blocking_domain: plasma-physics
+    gap_type: control
+  - gap_title: Tritium Breeding Ratio
+    gap_description: >
+      D-T fusion requires tritium (T1/2 = 12.3 years, no natural deposits) as fuel.
+      The tritium breeding blanket must capture 14.1 MeV neutrons in lithium-6 to
+      produce replacement tritium: ⁶Li + n → ⁴He + T. The tritium breeding ratio
+      (TBR) must exceed 1.1 to sustain fuel supply (accounting for radioactive decay
+      and processing losses). No fusion device has yet demonstrated a self-sustaining
+      tritium cycle. The breeding blanket design (lithium-ceramic pebble beds vs.
+      liquid lithium-lead) has not been tested under fusion neutron flux at relevant
+      temperatures and radiation doses.
+    blocking_domain: nuclear-engineering
+    gap_type: engineering
+  - gap_title: Materials Radiation Hardness
+    gap_description: >
+      14.1 MeV fusion neutrons (compared to ~2 MeV fission neutrons) cause more
+      severe radiation damage — transmutation of structural materials (iron → manganese,
+      nickel → cobalt), helium bubble formation causing swelling and embrittlement,
+      and displacement damage exceeding 100 dpa (displacements per atom) over a
+      reactor lifetime. Reduced-activation ferritic-martensitic steels (RAFM),
+      tungsten plasma-facing components, and SiC composites are leading candidates,
+      but none have been qualified under realistic fusion neutron spectra. The
+      International Fusion Materials Irradiation Facility (IFMIF) is under construction
+      to provide this data, but results are 10+ years away.
+    blocking_domain: materials-science
+    gap_type: materials
+  - gap_title: Superconducting Magnet Quench Protection at Scale
+    gap_description: >
+      High-temperature superconducting (HTS) magnets — REBCO tapes operating at
+      20 K — enable compact tokamak designs (Commonwealth Fusion SPARC: 12 T, 20 m
+      major radius vs. ITER: 5 T, 6 m). At the magnet energy densities required
+      (~10 GJ total stored energy in a power plant), quench protection (safely
+      dissipating magnet energy when a segment goes normal-conducting) is a
+      critical safety and reliability challenge. HTS quench is slower and less
+      uniform than LTS quench — detecting and managing HTS quench in fusion magnet
+      geometries has not been demonstrated at scale.
+    blocking_domain: electrical-engineering
+    gap_type: engineering
+required_bridges:
+  - b-plasma-physics-materials-science
+  - b-nuclear-engineering-thermal-hydraulics
+  - b-superconductivity-power-engineering
+references:
+  - "Abu-Shawareb et al. (2022) Lawson criterion for ignition exceeded in an inertial confinement fusion experiment. Phys Rev Lett 129:075001."
+  - "Creely et al. (2020) Overview of the SPARC tokamak. J Plasma Phys 86:865860502."
+  - "Zinkle & Was (2013) Materials challenges in nuclear energy. Acta Mater 61:735-758."
+  - "Federici et al. (2019) European DEMO design strategy and consequences for materials. Nucl Fusion 57:092002."
+last_reviewed: "2026-05-06"
