@@ -10,7 +10,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/">
   <meta property="og:title" content="Universal Science Discovery Repository — Map the Unknowns">
-  <meta property="og:description" content="A version-controlled, AI-augmented knowledge engine tracking what humanity doesn't yet know. 84+ cross-domain bridges &#9658; 518+ open unknowns &#9658; 22 disciplines &#9658; Open source.">
+  <meta property="og:description" content="A version-controlled, AI-augmented knowledge engine tracking what humanity doesn't yet know. 180+ cross-domain bridges &#9658; 619+ open unknowns &#9658; 1,000-node knowledge graph &#9658; Open source.">
   <meta property="og:image" content="https://opengraph.githubassets.com/1/KR8ZYSHO3/Universal-Science-Discovery">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -19,7 +19,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Universal Science Discovery Repository">
-  <meta name="twitter:description" content="Map the unknowns. Accelerate discovery. 84+ cross-domain bridges connecting physics to biology, neuroscience to climate, mathematics to medicine.">
+  <meta name="twitter:description" content="Map the unknowns. Accelerate discovery. 180 cross-domain bridges, 619 open unknowns, 1,000-node knowledge graph. All open source.">
   <meta name="twitter:image" content="https://opengraph.githubassets.com/1/KR8ZYSHO3/Universal-Science-Discovery">
 
   <!-- SEO -->
@@ -697,6 +697,7 @@
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
     }
+    @keyframes kg-spin { to { transform: rotate(360deg); } }
     #kg-svg { width: 100%; height: 100%; display: block; }
     .kg-links line { stroke-opacity: 1; }
     #kg-legend {
@@ -1223,7 +1224,7 @@
           <div class="lbl">Pre-formal Observations</div>
         </div>
         <div class="stat-card">
-          <div class="n" id="stat-graph-edges">472</div>
+          <div class="n" id="stat-graph-edges">910</div>
           <div class="lbl">Knowledge Graph Edges</div>
         </div>
       </div>
@@ -1377,6 +1378,18 @@
           <div style="font-size:2rem; margin-bottom:0.5rem;">🎮</div>
           <h3 style="color:#ffd700; margin:0 0 0.5rem;">John von Neumann</h3>
           <p style="color:#94a3b8; font-size:0.9rem; margin:0;">Stored-program computer · Game theory · Quantum formalism · Self-reproducing automata</p>
+        </div>
+        <!-- Einstein card -->
+        <div style="background:rgba(255,215,0,0.08); border:1px solid rgba(255,215,0,0.3); border-radius:12px; padding:1.5rem;">
+          <div style="font-size:2rem; margin-bottom:0.5rem;">🌌</div>
+          <h3 style="color:#ffd700; margin:0 0 0.5rem;">Albert Einstein</h3>
+          <p style="color:#94a3b8; font-size:0.9rem; margin:0;">Special &amp; general relativity · Photoelectric effect · Brownian motion · Bose–Einstein condensate</p>
+        </div>
+        <!-- Lovelace card -->
+        <div style="background:rgba(255,215,0,0.08); border:1px solid rgba(255,215,0,0.3); border-radius:12px; padding:1.5rem;">
+          <div style="font-size:2rem; margin-bottom:0.5rem;">💻</div>
+          <h3 style="color:#ffd700; margin:0 0 0.5rem;">Ada Lovelace</h3>
+          <p style="color:#94a3b8; font-size:0.9rem; margin:0;">First algorithm · General-purpose computing vision · Analytical Engine programming</p>
         </div>
       </div>
     </section>
@@ -1561,12 +1574,12 @@
         </a>
         <a href="../api/v1/unknowns.json" class="api-endpoint" target="_blank" rel="noopener">
           <code>GET /api/v1/unknowns.json</code>
-          <span>All 508 open unknowns with domain, status, and file path</span>
+          <span>All 619 open unknowns with domain, status, and file path</span>
           <span class="api-endpoint-badge">~451 KB</span>
         </a>
         <a href="../api/v1/hypotheses.json" class="api-endpoint" target="_blank" rel="noopener">
           <code>GET /api/v1/hypotheses.json</code>
-          <span>All 90 hypotheses with priority, impact score, and evidence links</span>
+          <span>All 173 hypotheses with priority, impact score, and evidence links</span>
           <span class="api-endpoint-badge">~114 KB</span>
         </a>
         <a href="../api/v1/domains.json" class="api-endpoint" target="_blank" rel="noopener">
@@ -1576,8 +1589,8 @@
         </a>
         <a href="../api/v1/graph.json" class="api-endpoint" target="_blank" rel="noopener">
           <code>GET /api/v1/graph.json</code>
-          <span>Full knowledge graph — 663 nodes, 521 edges</span>
-          <span class="api-endpoint-badge">~320 KB</span>
+          <span>Full knowledge graph — 1,000 nodes, 910 edges</span>
+          <span class="api-endpoint-badge">~578 KB</span>
         </a>
         <a href="../api/v1/bridge_proposals.json" class="api-endpoint" target="_blank" rel="noopener">
           <code>GET /api/v1/bridge_proposals.json</code>
@@ -1596,8 +1609,8 @@
         Hover a node to inspect it. Click a node for full details. Drag to reposition. Scroll or pinch to zoom.
       </p>
       <div class="graph-stats-bar" id="kg-stats-bar">
-        <span id="kg-node-count">645</span> nodes &nbsp;·&nbsp;
-        <span id="kg-edge-count">472</span> edges<span id="kg-top-node"></span>
+        <span id="kg-node-count">1000</span> nodes &nbsp;·&nbsp;
+        <span id="kg-edge-count">910</span> edges<span id="kg-top-node"></span>
       </div>
       <div class="graph-filters" role="group" aria-label="Node type filters">
         <button class="filter-btn active" data-type="bridge" style="--fc:#4f9cf9">● Bridges</button>
@@ -1606,6 +1619,13 @@
         <button class="filter-btn active" data-type="phenomenon" style="--fc:#a78bfa">● Phenomena</button>
       </div>
       <div id="graph-container">
+        <div id="kg-loading-spinner" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;z-index:5;pointer-events:none;">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" style="animation:kg-spin 1s linear infinite;" aria-hidden="true">
+            <circle cx="20" cy="20" r="16" stroke="rgba(79,156,249,0.2)" stroke-width="4"/>
+            <path d="M20 4a16 16 0 0 1 16 16" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+          <span style="color:var(--muted);font-size:.82rem;font-family:var(--mono)">Loading knowledge graph…</span>
+        </div>
         <svg id="kg-svg" aria-label="Knowledge graph force-directed visualization"></svg>
         <div id="kg-legend">
           <div class="kg-legend-item"><div class="kg-legend-dot" style="background:#4f9cf9"></div>Bridge</div>
@@ -2594,7 +2614,13 @@
     function nodeColor(d) { return NODE_COLOR[d.type]  || '#6b8aac'; }
     function edgeColor(d) { return EDGE_COLOR[d.relation] || 'rgba(107,138,172,.18)'; }
 
+    function hideSpinner() {
+      var s = document.getElementById('kg-loading-spinner');
+      if (s) s.style.display = 'none';
+    }
+
     function renderFallback(msg) {
+      hideSpinner();
       var c = document.getElementById('graph-container');
       if (!c) return;
       c.innerHTML = '<div class="kg-fallback">'
@@ -2642,6 +2668,7 @@
     })(kgPaths);
 
     function handleData(data) {
+        hideSpinner();
         var nodes = data.nodes.map(function (n) { return Object.assign({}, n); });
         var edges = data.edges.map(function (e) { return Object.assign({}, e); });
 
@@ -2935,6 +2962,8 @@
         var ec = (data.meta && data.meta.edge_count)  ? data.meta.edge_count  : edges.length;
         document.getElementById('kg-node-count').textContent = nc;
         document.getElementById('kg-edge-count').textContent = ec;
+        var sge = document.getElementById('stat-graph-edges');
+        if (sge) sge.textContent = ec;
 
         /* top-connected node */
         var deg = {};
