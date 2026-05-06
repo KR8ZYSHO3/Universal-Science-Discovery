@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Validate USDR record YAML under hypotheses/, unknowns-catalog/, cross-domain/, and phenomenology/."""
+"""Validate USDR record YAML under hypotheses/, unknowns-catalog/, cross-domain/, phenomenology/, pioneers/, and breakthrough-gaps/."""
 from __future__ import annotations
 
 import sys
 from pathlib import Path
 
 import yaml
-from jsonschema import Draft202012Validator
+from jsonschema import Draft202012Validator, Draft7Validator
 
 
 def load_yaml(path: Path) -> dict:
@@ -22,14 +22,20 @@ def load_yaml(path: Path) -> dict:
 def main() -> int:
     root = Path(__file__).resolve().parents[1]
     schemas = root / "schemas"
-    hypothesis_schema  = load_yaml(schemas / "hypothesis.yaml")
-    unknown_schema     = load_yaml(schemas / "unknown.yaml")
-    bridge_schema      = load_yaml(schemas / "bridge.yaml")
-    phenomenon_schema  = load_yaml(schemas / "phenomenon.yaml")
-    hypo_validator     = Draft202012Validator(hypothesis_schema)
-    unk_validator      = Draft202012Validator(unknown_schema)
-    bridge_validator   = Draft202012Validator(bridge_schema)
-    phenom_validator   = Draft202012Validator(phenomenon_schema)
+    hypothesis_schema     = load_yaml(schemas / "hypothesis.yaml")
+    unknown_schema        = load_yaml(schemas / "unknown.yaml")
+    bridge_schema         = load_yaml(schemas / "bridge.yaml")
+    phenomenon_schema     = load_yaml(schemas / "phenomenon.yaml")
+    pioneer_schema        = load_yaml(schemas / "pioneer.yaml")
+    breakthrough_schema   = load_yaml(schemas / "breakthrough_gap.yaml")
+
+    hypo_validator        = Draft202012Validator(hypothesis_schema)
+    unk_validator         = Draft202012Validator(unknown_schema)
+    bridge_validator      = Draft202012Validator(bridge_schema)
+    phenom_validator      = Draft202012Validator(phenomenon_schema)
+    # pioneer and breakthrough_gap schemas use draft-07 ($schema declaration)
+    pioneer_validator     = Draft7Validator(pioneer_schema)
+    breakthrough_validator = Draft7Validator(breakthrough_schema)
 
     errors: list[str] = []
 
@@ -59,17 +65,37 @@ def main() -> int:
                 loc = "/".join(str(p) for p in err.absolute_path) or "(root)"
                 errors.append(f"{path.relative_to(root)} [{loc}]: {err.message}")
 
+    pioneer_dir = root / "pioneers"
+    if pioneer_dir.exists():
+        for path in sorted(pioneer_dir.glob("pioneer-*.yaml")):
+            inst = load_yaml(path)
+            for err in pioneer_validator.iter_errors(inst):
+                loc = "/".join(str(p) for p in err.absolute_path) or "(root)"
+                errors.append(f"{path.relative_to(root)} [{loc}]: {err.message}")
+
+    bg_dir = root / "breakthrough-gaps"
+    if bg_dir.exists():
+        for path in sorted(bg_dir.glob("bg-*.yaml")):
+            inst = load_yaml(path)
+            for err in breakthrough_validator.iter_errors(inst):
+                loc = "/".join(str(p) for p in err.absolute_path) or "(root)"
+                errors.append(f"{path.relative_to(root)} [{loc}]: {err.message}")
+
     if errors:
         print("Schema validation failed:\n", file=sys.stderr)
         for line in errors:
             print(line, file=sys.stderr)
         return 1
 
-    phenom_count = len(list(phenom_dir.rglob("p-*.yaml"))) if phenom_dir.exists() else 0
+    phenom_count   = len(list(phenom_dir.rglob("p-*.yaml"))) if phenom_dir.exists() else 0
+    pioneer_count  = len(list(pioneer_dir.glob("pioneer-*.yaml"))) if pioneer_dir.exists() else 0
+    bg_count       = len(list(bg_dir.glob("bg-*.yaml"))) if bg_dir.exists() else 0
     print(
         f"OK: all hypothesis, unknown-catalog, cross-domain bridge, "
-        f"and phenomenology YAML files validate. "
-        f"({phenom_count} phenomenology entr{'y' if phenom_count == 1 else 'ies'})"
+        f"phenomenology, pioneer, and breakthrough-gap YAML files validate. "
+        f"({phenom_count} phenomenology entr{'y' if phenom_count == 1 else 'ies'}, "
+        f"{pioneer_count} pioneer entr{'y' if pioneer_count == 1 else 'ies'}, "
+        f"{bg_count} breakthrough-gap entr{'y' if bg_count == 1 else 'ies'})"
     )
     return 0
 
