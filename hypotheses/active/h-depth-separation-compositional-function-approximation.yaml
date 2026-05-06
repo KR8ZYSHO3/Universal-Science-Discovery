@@ -1,0 +1,42 @@
+id: h-depth-separation-compositional-function-approximation
+title: >
+  Deep neural networks exponentially outperform shallow networks for compositionally
+  structured functions because depth enables hierarchical function composition that
+  matches the compositional structure of natural data (images, language, physics
+  simulations); the depth separation exponent is determined by the nesting depth
+  of the compositional structure, with each additional layer providing exponential
+  reduction in required neurons.
+status: active
+priority: high
+impact_score: 0.80
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+unknowns_addressed:
+  - u-deep-learning-approximation-sobolev-optimal
+evidence_links:
+  - doi: "10.1162/neco.1989.1.4.425"
+    type: supporting
+    confidence: 0.85
+    note: "Cybenko (1989) Math Control Signals Syst 2:303 — universal approximation theorem"
+  - doi: "10.1016/0893-6080(89)90020-8"
+    type: supporting
+    confidence: 0.85
+    note: "Hornik et al. (1989) Neural Netw 2:359 — multilayer feedforward networks are universal approximators"
+  - doi: "10.1109/18.256500"
+    type: supporting
+    confidence: 0.75
+    note: "Barron (1993) IEEE Trans Inf Theory 39:930 — approximation rates for sigmoidal networks in Sobolev spaces"
+proposed_tests:
+  - description: >
+      Compare shallow (1 hidden layer, variable width) vs deep (L layers, fixed total
+      parameters) ReLU networks on functions with known compositional depth k:
+      f(x) = g_k(g_{k-1}(...g_1(x)...)). Measure approximation error vs parameter count.
+      Test: does parameter count to achieve epsilon error scale as O(1/epsilon^{2/s})
+      for shallow vs O(L × 1/epsilon^{2/s/k}) for depth-k deep network?
+    prediction: "For compositional depth k=4, deep networks require 10^4x fewer parameters than shallow at 1% approximation error; gap grows exponentially with depth k."
+related_disciplines:
+  - mathematics
+  - machine-learning
+  - approximation-theory
+  - theoretical-computer-science

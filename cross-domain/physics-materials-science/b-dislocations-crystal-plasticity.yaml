@@ -1,0 +1,83 @@
+id: b-dislocations-crystal-plasticity
+title: >
+  Dislocations (line defects in crystalline lattices) are the microscopic
+  mechanism of plastic deformation in metals — dislocation glide requires
+  far less stress than shearing a perfect crystal (Taylor 1934), connecting
+  continuum plastic flow mechanics to atomic-scale crystal structure through
+  the dislocation density tensor.
+status: established
+fields:
+  - physics
+  - condensed-matter-physics
+  - materials-science
+  - continuum-mechanics
+  - crystallography
+bridge_claim: >
+  PERFECT CRYSTAL PROBLEM: The theoretical shear strength of a perfect crystal
+  is τ_theory = G/2π ≈ G/6, where G is the shear modulus. For copper,
+  τ_theory ≈ 4 GPa. Observed yield stress: ~1 MPa — a factor of 1000 lower.
+
+  DISLOCATION RESOLUTION (Taylor, Orowan, Polyani 1934):
+  A dislocation is a line defect where local atomic registry is offset by one
+  Burgers vector b. Dislocation glide moves the defect through the crystal —
+  only bonds at the core must break simultaneously, not an entire plane.
+
+  PEIERLS-NABARRO STRESS:
+    τ_PN = (2G/1-ν) exp(-2πw/b)
+
+  where w = dislocation core width, b = Burgers vector magnitude. For wide
+  cores (w >> b): τ_PN << G — consistent with observed low yield stress.
+
+  PLASTIC STRAIN RATE:
+    ε̇ = ρ_m · b · v_d
+
+  where ρ_m = mobile dislocation density, v_d = dislocation velocity.
+  This Orowan equation bridges microscale (ρ_m, b) to macroscale plastic
+  flow (ε̇).
+
+  WORK HARDENING: As plastic strain increases, dislocation density ρ rises,
+  dislocations tangle and obstruct each other. Taylor hardening:
+    τ = τ₀ + αGb√ρ
+
+  where α ≈ 0.3-0.5. This predicts the √ε hardening exponent observed
+  in stress-strain curves.
+
+  DISLOCATION DENSITY TENSOR (Nye 1953):
+  The incompatibility of plastic distortion is carried by the dislocation
+  density tensor α_ij — a field theory that bridges discrete dislocations
+  to continuum elasto-plasticity. This is the microscopic foundation of
+  strain gradient plasticity.
+translation_table:
+  - field_a_term: Burgers vector b (crystallography)
+    field_b_term: plastic strain increment per dislocation glide event
+    note: The Burgers vector is both the topological invariant of the defect and the unit of plastic deformation
+  - field_a_term: dislocation density rho (density of line defects per m^2)
+    field_b_term: internal variable in continuum plasticity theory
+    note: rho appears in hardening laws; equivalent to backstress in kinematic hardening models
+  - field_a_term: Peierls-Nabarro stress (lattice friction)
+    field_b_term: yield stress in continuum plasticity
+    note: τ_PN sets the single-crystal yield stress before work hardening; polycrystal yield requires Taylor factor
+  - field_a_term: dislocation core structure
+    field_b_term: strain energy density at singularity
+    note: Core energy must be regularised in continuum field theories — exactly as elastic field theories regularise point sources
+related_unknowns:
+  - u-grain-boundary-dislocation-interaction
+  - u-high-entropy-alloy-deformation-mechanism
+related_hypotheses:
+  - h-dislocation-based-plasticity-hea-alloys
+cross_pollination_opportunities:
+  - Phase field models of dislocation dynamics can borrow variational formulation from continuum fracture mechanics
+  - Analogy between dislocation density tensor and curvature tensor in general relativity enables geometric defect theory
+  - Peierls-Nabarro model for dislocations maps onto Frenkel-Kontorova model in tribology (sliding interfaces)
+communication_gap: >
+  Materials scientists and condensed matter physicists know dislocation theory
+  well. Continuum mechanicians working on plasticity often treat it as a black
+  box without microscopic justification. Crystal plasticity finite element
+  methods (CPFEM) bridge both but require expertise in both fields.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1098/rspa.1934.0106"
+    note: Taylor (1934) Proc R Soc A 145:362 — first dislocation theory of plasticity
+  - note: Orowan (1934) Z Phys 89:634 — independent dislocation proposal
+  - note: Peierls (1940) Proc Phys Soc 52:34 — Peierls stress derivation
+  - note: Hirth & Lothe (1982) Theory of Dislocations, Wiley — comprehensive treatment

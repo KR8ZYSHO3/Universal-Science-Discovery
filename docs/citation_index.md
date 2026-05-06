@@ -1,6 +1,6 @@
 # USDR Citation Index
 
-**1730 total citations · 1171 unique references · 204 cited in 2+ bridges**
+**2195 total citations · 1565 unique references · 228 cited in 2+ bridges**
 
 ## Most Cross-Domain Papers
 
@@ -9,10 +9,10 @@ Papers cited across the highest number of different bridges — the most influen
 | Bridges | Title | DOI |
 |---|---|---|
 | 8 | Castellano et al. review connects voter model to spatial ecology | [DOI](10.1103/RevModPhys.81.591) |
+| 6 | Barabási & Albert (1999) - scale-free networks fragile to targeted hub attack; g... | [DOI](10.1126/science.286.5439.509) |
 | 6 | Friston (2010) — free energy principle: biological homeostasis = continuous free... | [DOI](10.1038/nrn2787) |
 | 6 | May (1972) provides stability criterion for LV-type competitive systems | [DOI](10.1038/238413a0) |
 | 6 | Berut et al. (2012) — Landauer limit verified experimentally at k_B T ln 2 ~ 3 z... | [DOI](10.1038/nature10872) |
-| 5 | Barabási & Albert (1999) - scale-free networks fragile to targeted hub attack; g... | [DOI](10.1126/science.286.5439.509) |
 | 5 | Turing (1952) — original prediction λ ∝ √(D/k) | [DOI](10.1098/rstb.1952.0012) |
 | 5 | WBE derives 3/4 from area-preserving branching — the recursion relation is struc... | [DOI](10.1126/science.276.5309.122) |
 | 5 |  | [DOI](10.1103/PhysRev.106.620) |
@@ -24,12 +24,18 @@ Papers cited across the highest number of different bridges — the most influen
 | 4 | Landauer (1961) — irreversibility and heat generation in computation | [DOI](10.1147/rd.53.0183) |
 | 3 | Price (1970) establishes the general decomposition applicable to cultural traits | [DOI](10.1038/227520a0) |
 | 3 | Jarzynski equality — theoretical basis for near-equilibrium efficiency measureme... | [DOI](10.1103/PhysRevLett.78.2690) |
+| 3 | Armstrong McKay et al. (2022) — Tipping elements in the Earth system; Science 37... | [DOI](10.1126/science.abn7950) |
+| 3 | Wagner et al. (2004) - sleep promotes insight into hidden mathematical rule (num... | [DOI](10.1126/science.1205106) |
 | 3 | Cahill et al. (2003) — review of thermal transport in nanostructures; interface ... | [DOI](10.1063/1.1524305) |
 | 3 | Saw et al. 2017 — topological defects in epithelia determine cell fate; establis... | [DOI](10.1126/science.aar5663) |
+| 3 |  | [DOI](10.1038/30918) |
 | 3 | Clark (2013) Behav Brain Sci — predictive coding framework motivating the precis... | [DOI](10.1017/S0140525X12000477) |
 | 3 | Hopfield (1982) — associative memory energy model | [DOI](10.1073/pnas.79.8.2554) |
 | 3 | Bennett (1973) — theoretical demonstration that reversible computation has zero ... | [DOI](10.1147/rd.173.0525) |
 | 3 | Hasan & Kane (2010) — comprehensive review of Z2 TI classification and experimen... | [DOI](10.1103/RevModPhys.82.3045) |
+| 3 | Vosoughi et al. (2018) Science: false news spreads faster and more broadly than ... | [DOI](10.1126/science.aap9559) |
+| 3 | Engel et al. (2007) observe coherence signatures consistent with quantum transpo... | [DOI](10.1038/nature05678) |
+| 3 | Ryu & Takayanagi (2006) - holographic entanglement entropy: area formula connect... | [DOI](10.1103/PhysRevLett.96.181602) |
 | 2 |  | [DOI](10.1103/PhysRevLett.85.4626) |
 | 2 | Taylor et al. (1999) Nature — fractal dimension D ≈ 1.3-1.5 correlates with aest... | [DOI](10.1038/20833) |
 | 2 | Schmidhuber (2010) — formal compression-progress theory of beauty and curiosity | [DOI](10.1109/TAMD.2010.2059346) |
@@ -48,16 +54,10 @@ Papers cited across the highest number of different bridges — the most influen
 | 2 | Hawking (1975) — black hole entropy = area/4, precursor to holographic principle | [DOI](10.1007/BF01608497) |
 | 2 | Kauffman (1969) - original NK model; K=2 gives sqrt(N) attractors matching cell ... | [DOI](10.1016/S0022-5193(69)80016-0) |
 | 2 | Aldana et al. (2003) - scale-free regulatory networks with mean K near 2 show cr... | [DOI](10.1016/S0022-5193(03)00028-6) |
+| 2 | Grenander & Miller (1998) Q Appl Math 56:617 — diffeomorphic image registration;... | [DOI](10.1090/qam/926445) |
+| 2 | Toga & Thompson (2001) Nat Rev Neurosci 2:37 — computational neuroanatomy via di... | [DOI](10.1038/nrn644) |
 | 2 | Nowak & May (1994) Science — diversity of viral quasi-species is set by cross-im... | [DOI](10.1126/science.7754375) |
 | 2 | Sutton et al. (2000) policy gradient theorem: the update rule Δπ ∝ π · ∇V is exa... | [DOI](10.1073/pnas.97.17.9430) |
-| 2 |  | [DOI](10.1103/PhysRevLett.75.4326) |
-| 2 |  | [DOI](10.1103/RevModPhys.85.1143) |
-| 2 | Bryngelson & Wolynes (1987) — principle of minimal frustration: evolved sequence... | [DOI](10.1073/pnas.84.21.7524) |
-| 2 | Jumper et al. (2021) — AlphaFold2 architecture uses multiple sequence alignment ... | [DOI](10.1038/s41586-021-03819-2) |
-| 2 | Bustamante et al. — review of motor protein thermodynamics showing near-stall ef... | [DOI](10.1038/nchembio0705-130) |
-| 2 | Toyabe et al. — Maxwell's demon experiment validates stochastic thermodynamics | [DOI](10.1038/nphys1821) |
-| 2 | Feinberg (1989) shows that deficiency one networks with specific linkage class s... | [DOI](10.1073/pnas.86.1.67) |
-| 2 | Lenton et al. (2008) — tipping elements framework; early-warning theory | [DOI](10.1126/science.1153842) |
 
 ## Citation Network
 
@@ -67,4 +67,4 @@ The full citation data is available at [`docs/citation_index.json`](citation_ind
 
 ## All Unique References
 
-The catalog currently references **1171 unique papers/books**.
+The catalog currently references **1565 unique papers/books**.

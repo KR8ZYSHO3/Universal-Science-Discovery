@@ -1,0 +1,70 @@
+id: b-traffic-flow-fluid-dynamics
+title: >
+  Vehicular traffic flow obeys fluid-dynamic conservation laws: the LWR model
+  maps vehicle density to fluid density and velocity to flow velocity, traffic
+  jams propagate as shock waves satisfying the Rankine-Hugoniot condition, and
+  phantom traffic jams arise from the same Turing-like linear instability
+  that creates stop-and-go waves in supply chains, pedestrian crowds, and ant trails.
+status: established
+fields:
+  - social-science
+  - physics
+  - fluid-dynamics
+  - transportation-science
+bridge_claim: >
+  Vehicular traffic flow obeys fluid-dynamic conservation laws. The LWR model:
+  d(rho)/dt + d(rho×v)/dx = 0 (conservation of vehicles) with a fundamental diagram
+  v(rho) relating velocity to density. Traffic jams = shock waves propagating backward
+  at wave speed c = dq/drho (Rankine-Hugoniot condition for conservation laws).
+  Phase transition between free flow and congested phases at critical density rho_c.
+  Phantom traffic jams arise from linear instability of uniform flow above rho_c —
+  a Turing-like instability in 1D. The same stop-and-go wave mathematics appears in
+  supply chains, pedestrian crowds, and ant trails — a universal phenomenon of
+  self-driven particle systems with inertia.
+translation_table:
+  - field_a_term: vehicle density rho (vehicles/km)
+    field_b_term: fluid density rho (kg/m^3)
+    note: conservation of vehicles maps exactly to conservation of mass
+  - field_a_term: traffic flow q = rho × v (vehicles/hour)
+    field_b_term: fluid flux J = rho × v (kg/m^2/s)
+    note: identical conservation law d(rho)/dt + d(q)/dx = 0
+  - field_a_term: traffic jam (stationary high-density region)
+    field_b_term: shock wave (discontinuity in density/velocity)
+    note: "Rankine-Hugoniot: jam propagates backward at speed c = (q2-q1)/(rho2-rho1)"
+  - field_a_term: free-flow to congested phase transition
+    field_b_term: supersonic to subsonic flow transition (analogous to car entering jam)
+    note: critical density rho_c analogous to sonic point; LWR is a first-order conservation law
+  - field_a_term: driver reaction time tau (1-2 seconds)
+    field_b_term: relaxation time in second-order traffic model (viscosity analog)
+    note: tau determines instability growth rate and stop-and-go wave formation threshold
+related_unknowns:
+  - u-traffic-jam-phantom-formation-threshold
+related_hypotheses:
+  - h-traffic-flow-turing-instability-stop-go
+cross_pollination_opportunities:
+  - >
+    Autonomous vehicle platooning: replacing human reaction time (tau~1.5s) with
+    vehicle-to-vehicle communication (tau~0.1s) could dramatically raise the critical
+    density rho_c and eliminate phantom traffic jams — a direct application of LWR
+    instability analysis to AV deployment policy.
+  - >
+    Supply chain bullwhip effect (order amplification upstream) follows identical
+    mathematics to traffic flow instability: demand perturbation amplifies as it
+    propagates upstream through supply chain stages, with each stage's order delay
+    playing the role of driver reaction time.
+communication_gap: >
+  Lighthill & Whitham (1955) were fluid dynamicists applying their expertise to a
+  social science problem. Traffic engineering developed largely independently in civil
+  engineering departments, rediscovering many fluid mechanics results. The nonlinear
+  dynamics community (Helbing, Nagel) reconnected traffic science to physics in the
+  1990s but many traffic engineers still use empirical models without awareness of
+  the fluid mechanics foundation.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1098/rspa.1955.0089"
+    note: "Lighthill & Whitham (1955) Proc R Soc A 229:317 — kinematic wave theory"
+  - doi: "10.1287/opre.4.1.42"
+    note: "Richards (1956) Oper Res 4:42 — shock waves on highways"
+  - note: "Kerner & Konhauser (1993) Phys Rev E 48:R2335 — three-phase traffic theory"
+  - doi: "10.1103/RevModPhys.73.1067"
+    note: "Helbing (2001) Rev Mod Phys 73:1067 — traffic and related self-driven particle systems"

@@ -1,0 +1,83 @@
+id: b-percolation-rumor-spreading
+title: >
+  Rumour and misinformation spreading on social networks maps exactly onto
+  bond percolation on the contact network via the SIR epidemic model — with
+  the percolation threshold p_c → 0 for scale-free networks, meaning any
+  viral meme can reach the giant component of social attention regardless
+  of initial conditions.
+status: established
+fields:
+  - physics
+  - social-science
+  - network-science
+  - epidemiology
+  - information-theory
+bridge_claim: >
+  SIR RUMOUR MODEL (Daley & Kendall 1965):
+  Individuals are Susceptible (haven't heard), Infected (spreading),
+  Recovered (heard but no longer spreading). Rate equations:
+
+    dS/dt = -βSI
+    dI/dt = βSI - γI
+    dR/dt = γI
+
+  Final outbreak size R(∞)/N = 1 - e^(-R₀·R(∞)/N) where R₀ = β/γ.
+
+  BOND PERCOLATION MAPPING:
+  Transmit rumour along edge (i,j) with probability T = β/(β+γ).
+  The rumour spreads to a giant connected component iff T > T_c = 1/⟨k⟩.
+  This is exactly the bond percolation threshold p_c on the contact network.
+
+  SCALE-FREE NETWORKS:
+  For networks with degree distribution P(k) ~ k^(-γ) with 2 < γ < 3:
+
+    p_c = ⟨k⟩ / (⟨k²⟩ - ⟨k⟩) → 0 as ⟨k²⟩ → ∞
+
+  For any finite transmission probability, rumours can spread globally.
+  Scale-free social networks (Twitter, Facebook) have γ ≈ 2-2.5, so
+  ⟨k²⟩ diverges → p_c = 0: ANY rumour can reach global scale.
+
+  MISINFORMATION ADVANTAGE (Vosoughi et al. 2018):
+  False news spreads faster because emotional content (fear, surprise,
+  disgust) increases T per contact. If T_false > T_true, then at equal
+  initial conditions, false rumours reach giant component faster.
+
+  SAME MATHEMATICS: network structure (Molloy-Reed criterion for giant
+  component), epidemic threshold (SIR), percolation threshold (bond
+  percolation) — all three are the same phase transition.
+translation_table:
+  - field_a_term: bond percolation threshold p_c (physics)
+    field_b_term: epidemic threshold R_0 = 1 (epidemiology) / virality threshold (social science)
+    note: All three are the same phase transition in disguise; p_c = 1/⟨k⟩ = 1/R_0 on regular random graph
+  - field_a_term: giant connected component (percolation)
+    field_b_term: global information cascade (social media)
+    note: Information reaches global scale iff spreading event is above percolation threshold
+  - field_a_term: transmission probability T (percolation)
+    field_b_term: virality rate / share probability (social science)
+    note: Emotional content of news increases T; this is the mechanism for misinformation advantage
+  - field_a_term: network degree distribution P(k) (network science)
+    field_b_term: follower distribution on social platforms
+    note: Scale-free follower distributions imply p_c -> 0; any content can go viral given right initial seed
+related_unknowns:
+  - u-misinformation-correction-asymmetry
+  - u-information-cascade-polarisation
+related_hypotheses:
+  - h-misinformation-emotional-valence-persistence
+cross_pollination_opportunities:
+  - Herd immunity threshold for viruses is p_c for SIR on contact network — same calculation as rumour percolation
+  - Network immunisation strategies (targeted vaccination) map to link deletion in percolation to raise p_c for rumours
+  - Belief updating models (Bayesian social learning) can be mapped to SIS model to study opinion equilibria
+communication_gap: >
+  Social media researchers and social psychologists who study misinformation
+  rarely use percolation theory. Network scientists publishing in physics
+  journals derive epidemic thresholds without connecting to the empirical
+  social science literature on misinformation content effects.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1093/imamat/1.1.42"
+    note: Daley & Kendall (1965) IMA J Appl Math 1:42 — original rumour spreading model
+  - doi: "10.1126/science.aap9559"
+    note: Vosoughi et al. (2018) Science 359:1146 — false news spreads faster than true
+  - doi: "10.1103/PhysRevE.69.066130"
+    note: Moreno et al. (2004) Phys Rev E 69:066130 — percolation mapping of rumour spreading
+  - note: Goffman & Newill (1964) Nature 204:225 — information spread as epidemic

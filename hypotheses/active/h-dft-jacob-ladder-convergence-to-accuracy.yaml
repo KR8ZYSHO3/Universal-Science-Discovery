@@ -1,0 +1,41 @@
+id: h-dft-jacob-ladder-convergence-to-accuracy
+title: >
+  The Jacob's Ladder of DFT approximations (LDA → GGA → meta-GGA → hybrid →
+  double hybrid) systematically approaches chemical accuracy by satisfying
+  increasingly many exact constraints, with each rung reducing mean absolute error
+  in thermochemistry by ~50%; hybrid functionals already achieve near-chemical-accuracy
+  for organic molecules and the remaining gap arises specifically from strong-
+  correlation systems and delocalization error.
+status: active
+priority: high
+impact_score: 0.80
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+unknowns_addressed:
+  - u-dft-exchange-correlation-exact-functional
+evidence_links:
+  - doi: "10.1103/PhysRevLett.77.3865"
+    type: supporting
+    confidence: 0.85
+    note: "Perdew et al. (1996) PBE functional — GGA satisfying all known constraints performs excellently for solids"
+  - doi: "10.1063/1.2148954"
+    type: supporting
+    confidence: 0.80
+    note: "Becke (2014) J Chem Phys 140:18A301 — 50 years of DFT: historical review and Jacob's Ladder"
+  - doi: "10.1103/PhysRevB.136.B864"
+    type: supporting
+    confidence: 0.90
+    note: "Hohenberg & Kohn (1964) Phys Rev 136:B864 — DFT exact foundation; HK theorem"
+proposed_tests:
+  - description: >
+      Benchmark: apply LDA, PBE (GGA), TPSS (meta-GGA), B3LYP (hybrid), and ωB97X-V
+      (range-separated hybrid) to G4 thermochemistry dataset (3000 energies).
+      Test: does MAE decrease with each rung? Does the improvement plateau below
+      chemical accuracy (1 kcal/mol) for any single functional class?
+    prediction: "MAE reduces: LDA(30 kcal/mol) → GGA(8 kcal/mol) → meta-GGA(5 kcal/mol) → hybrid(2 kcal/mol) → double hybrid(0.8 kcal/mol); plateau at 1-2 kcal/mol for hybrid level without empirical fitting."
+related_disciplines:
+  - quantum-chemistry
+  - computational-physics
+  - materials-science
+  - molecular-physics

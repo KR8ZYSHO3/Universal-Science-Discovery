@@ -1,5 +1,5 @@
 {
-  "count": 214,
+  "count": 238,
   "items": [
     {
       "id": "b-grokking-criticality",
@@ -946,6 +946,61 @@
       "file": "cross-domain\\astrophysics-mathematics\\b-general-relativity-differential-geometry.yaml"
     },
     {
+      "id": "b-neutron-star-nuclear-matter",
+      "title": "Neutron star interiors at 2-8× nuclear saturation density are the densest observable matter in the universe — the equation of state P(ρ) bridges nuclear physics (strong force) to astrophysics (compact object structure) through the Tolman-Oppenheimer-Volkoff equation, constrained by LIGO/Virgo tidal deformability measurements.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "NEUTRON STAR INTERIOR PHYSICS: Nuclear saturation density: ρ₀ = 2.3×10¹⁴ g/cm³. Neutron star core: ρ = 2-8ρ₀ — accessible to no terrestrial experiment but observable via neutron star structure.\nTOLMAN-OPPENHEIMER-VOLKOFF EQUATION (TOV):\n  dP/dr = -G(ρ + P/c²)(M + 4πr³P/c²) / [r²(1 - 2GM/rc²)]\n\nThis ",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-neutron-star-radius-eos-constraint"
+      ],
+      "communication_gap": "Nuclear physicists and astrophysicists work on different aspects of this problem. Nuclear theory groups computing EOS do not always have expertise in GR structure equations; relativistic astrophysicists computing TOV solutions may not deeply know the nuclear physics inputs. The joint analysis required for GW inference bridged this gap post-GW170817.\n",
+      "translation_table": [
+        {
+          "field_a_term": "equation of state P(rho) (nuclear physics)",
+          "field_b_term": "mass-radius relation M(R) (astrophysics)",
+          "note": "TOV equation is the mapping — same EOS produces unique M-R curve; different nuclear models produce measurably different R at given M"
+        },
+        {
+          "field_a_term": "nuclear saturation density rho_0 (nuclear physics)",
+          "field_b_term": "neutron star central density reference scale",
+          "note": "rho_0 = 2.3×10^14 g/cm^3; neutron star cores reach 2-8 rho_0 — regime inaccessible to Earth labs"
+        },
+        {
+          "field_a_term": "tidal Love number k2 (GR / astrophysics)",
+          "field_b_term": "nuclear compressibility K (nuclear physics)",
+          "note": "Stiffer EOS (larger K) → larger R → larger Λ; GW tidal measurement constrains nuclear compressibility"
+        },
+        {
+          "field_a_term": "quark matter EOS (particle physics / QCD)",
+          "field_b_term": "mass gap in M-R curve (astrophysics)",
+          "note": "A QCD phase transition at ~3rho_0 would produce a kink in M-R relation detectable with enough neutron star measurements"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1103/PhysRev.55.374",
+          "note": "Oppenheimer & Volkoff (1939) Phys Rev 55:374 — TOV equation"
+        },
+        {
+          "doi": "10.1086/319702",
+          "note": "Lattimer & Prakash (2001) ApJ 550:426 — EOS review"
+        },
+        {
+          "doi": "10.1103/PhysRevLett.121.161101",
+          "note": "Abbott et al. (2018) Phys Rev Lett 121:161101 — GW170817 tidal constraint"
+        },
+        {
+          "doi": "10.1088/1361-6633/aaae14",
+          "note": "Baym et al. (2018) Rep Prog Phys 81:056902 — dense matter review"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\astrophysics-physics\\b-neutron-star-nuclear-matter.yaml"
+    },
+    {
       "id": "b-lichen-astrobiology",
       "title": "Synthetic lichen-like microbial consortia engineered for biofabrication on Earth are functional analogs of the self-sustaining biosystems required for off-world resource utilisation.\n",
       "source_domain": "",
@@ -1000,6 +1055,60 @@
       ],
       "last_reviewed": "2026-05-04",
       "file": "cross-domain\\biology-astrobiology\\b-lichen-astrobiology.yaml"
+    },
+    {
+      "id": "b-enzyme-allostery-conformational",
+      "title": "Allosteric enzyme regulation follows the Monod-Wyman-Changeux (MWC) model — cooperative T↔R conformational equilibrium governed by the Hill equation — a mathematical framework identical to cooperative binding in hemoglobin, ion channel gating, and gene expression switch behaviour.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "ALLOSTERY DEFINITION: A ligand binding at one site changes activity at a distant active site via conformational change. Cannot be explained by direct steric blockade.\nMWC MODEL (Monod-Wyman-Changeux 1965): Oligomeric enzyme exists in two conformational states: - T (tense/inactive): low affinity, low",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-allostery-entropic-communication-pathway"
+      ],
+      "communication_gap": "Biochemists learn the MWC model and Hill equation as empirical tools without recognising the Ising model connection. Statistical physicists working on two-state systems rarely engage with the allosteric enzyme literature. The bridge is noted by Changeux & Edelstein (2005) in Science but remains underexploited for drug design.\n",
+      "translation_table": [
+        {
+          "field_a_term": "allosteric constant L = T/R equilibrium (biochemistry)",
+          "field_b_term": "Boltzmann factor for two-state system (statistical mechanics)",
+          "note": "L = exp(ΔG_TR / kT) — the MWC model is literally a statistical mechanical two-state partition function"
+        },
+        {
+          "field_a_term": "Hill coefficient n (biochemistry)",
+          "field_b_term": "cooperativity / sharpness of switch",
+          "note": "n can be derived from the MWC model as n_eff = n·L/(1+L) — depends on allosteric constant"
+        },
+        {
+          "field_a_term": "R state (relaxed, active) / T state (tense, inactive)",
+          "field_b_term": "open / closed channel states (biophysics)",
+          "note": "MWC applies directly to ion channels with voltage as the allosteric effector"
+        },
+        {
+          "field_a_term": "conformational change upon ligand binding",
+          "field_b_term": "induced fit vs. conformational selection (structural biology)",
+          "note": "MWC = conformational selection (pre-existing equilibrium); KNF = induced fit (sequential)"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1016/0022-2836(65)90184-3",
+          "note": "Monod et al. (1965) J Mol Biol 12:88 — original MWC model"
+        },
+        {
+          "note": "Hill (1910) J Physiol 40:iv — Hill equation for cooperative binding"
+        },
+        {
+          "doi": "10.1021/bi00829a011",
+          "note": "Koshland et al. (1966) Biochemistry 5:365 — KNF sequential model"
+        },
+        {
+          "doi": "10.1002/prot.20330",
+          "note": "Gunasekaran et al. (2004) Proteins 57:433 — allostery without conformational change"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\biology-chemistry\\b-enzyme-allostery-conformational.yaml"
     },
     {
       "id": "b-crispr-programmable-genome-editing",
@@ -1253,6 +1362,60 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\biology-information-theory\\b-genetic-regulatory-boolean-circuits.yaml"
+    },
+    {
+      "id": "b-developmental-geometry-morphogenesis",
+      "title": "Biological forms are transformations of each other under smooth coordinate deformations (diffeomorphisms) as proposed by D'Arcy Thompson; modern computational anatomy formalizes this as geodesics on the infinite-dimensional group Diff(M) with the same mathematical structure as ideal fluid mechanics, enabling quantitative comparison of biological shapes across evolution and development.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "D'Arcy Thompson's On Growth and Form (1917): biological forms are transformations of each other under continuous deformations (diffeomorphisms). Fish species' body shapes are related by smooth coordinate transformations — a topological/geometric relationship. Modern computational anatomy (Grenander ",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-developmental-geometry-diffeomorphism-geodesic"
+      ],
+      "communication_gap": "D'Arcy Thompson's 1917 book was read by biologists and mathematicians but the rigorous formalization (Grenander, Miller 1980s-1990s) happened in the applied mathematics / computer vision community with limited biological uptake until neuroimaging adopted it for MRI brain shape analysis in the 2000s.\n",
+      "translation_table": [
+        {
+          "field_a_term": "fish species body plan comparison (D'Arcy Thompson)",
+          "field_b_term": "diffeomorphic image registration (computational anatomy)",
+          "note": "both ask what smooth map deforms one shape into another"
+        },
+        {
+          "field_a_term": "biological growth trajectory",
+          "field_b_term": "geodesic on Diff(M) with H^1 Sobolev metric",
+          "note": "minimizing total deformation energy over time corresponds to geodesic"
+        },
+        {
+          "field_a_term": "evolutionary distance between species body plans",
+          "field_b_term": "Riemannian distance on shape space Diff(M)/Diff(M)_0",
+          "note": "geodesic distance in shape space as proxy for evolutionary relatedness"
+        },
+        {
+          "field_a_term": "ideal fluid velocity field v(x,t)",
+          "field_b_term": "diffeomorphic deformation field φ_t(x) = ∫v dt",
+          "note": "Arnold (1966) showed Euler equations = geodesics on SDiff(M); same as LDDMM"
+        }
+      ],
+      "references": [
+        {
+          "note": "Thompson (1917) On Growth and Form; Cambridge University Press"
+        },
+        {
+          "doi": "10.5802/aif.233",
+          "note": "Arnold (1966) Ann Inst Fourier 16:319 — geodesics on SDiff(M) = Euler equations"
+        },
+        {
+          "doi": "10.1090/qam/926445",
+          "note": "Grenander & Miller (1998) Q Appl Math 56:617 — diffeomorphic mapping framework"
+        },
+        {
+          "doi": "10.1038/nrn644",
+          "note": "Toga & Thompson (2001) Nat Rev Neurosci 2:37 — computational neuroanatomy"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\biology-mathematics\\b-developmental-geometry-morphogenesis.yaml"
     },
     {
       "id": "b-game-theory-immune-evasion",
@@ -1563,6 +1726,64 @@
       "file": "cross-domain\\biology-physics\\b-active-matter-cytoskeletal.yaml"
     },
     {
+      "id": "b-circadian-clocks-nonlinear-oscillators",
+      "title": "Circadian clocks are ~24-hour biological limit cycle oscillators arising via Hopf bifurcation in transcription-translation delay feedback loops; entrainment by light follows Arnold tongue theory for periodically forced nonlinear oscillators, and temperature compensation (Q10~1) represents an unsolved problem in biological nonlinear dynamics, bridging molecular biology to dynamical systems theory.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Circadian clocks are ~24-hour biological oscillators driven by transcription-translation feedback loops. Core mechanism: protein X represses its own transcription with delay tau — a delay differential equation x_dot = f(x(t-tau)) - gamma*x. This produces limit cycle oscillations when tau × |df/dx| >",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-circadian-hopf-bifurcation-delay-oscillator"
+      ],
+      "communication_gap": "Molecular chronobiology (identifying clock genes, protein interactions) and nonlinear dynamics (Hopf bifurcation, Arnold tongue, delay equations) are conducted in different communities with different mathematical fluency. Goodwin (1965) made the connection originally, but molecular biologists rediscovered clock mechanisms without adopting the mathematical framework systematically until Goldbeter's 1995 model.\n",
+      "translation_table": [
+        {
+          "field_a_term": "transcription-translation feedback loop",
+          "field_b_term": "delay differential equation with negative feedback",
+          "note": "PER/TIM (Drosophila) or CLOCK/BMAL1/CRY (mammals) are the molecular delay"
+        },
+        {
+          "field_a_term": "onset of circadian oscillation (loss of arrhythmicity in mutants)",
+          "field_b_term": "Hopf bifurcation (stable fixed point loses stability, limit cycle emerges)",
+          "note": "arrhythmic mutants (per01, clk) correspond to fixed-point stable regime"
+        },
+        {
+          "field_a_term": "entrainment by light (zeitgeber)",
+          "field_b_term": "forced nonlinear oscillator response (Arnold tongue)",
+          "note": "jet lag = transient period during which oscillator re-synchronizes to new forcing"
+        },
+        {
+          "field_a_term": "temperature compensation (Q10~1)",
+          "field_b_term": "parameter-insensitive limit cycle period (robustness to k_cat changes)",
+          "note": "unresolved: molecular mechanism that makes tau*k_cat product temperature-insensitive"
+        },
+        {
+          "field_a_term": "spontaneous activity rhythm (free-running period tau_0)",
+          "field_b_term": "natural frequency omega_0 of the limit cycle oscillator",
+          "note": "tau_0 measured in constant darkness; species-specific due to molecular differences"
+        }
+      ],
+      "references": [
+        {
+          "note": "Goodwin (1965) Adv Enzyme Regul 3:425 — oscillations in biochemical control systems"
+        },
+        {
+          "doi": "10.1073/pnas.92.20.9107",
+          "note": "Goldbeter (1995) PNAS 92:9107 — minimal model for circadian oscillations"
+        },
+        {
+          "doi": "10.1038/nature01078",
+          "note": "Reppert & Weaver (2002) Nature 418:935 — molecular architecture of mammalian circadian clock"
+        },
+        {
+          "note": "Roenneberg & Merrow (2016) Curr Biol 26:R432 — circadian clocks in biology"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\biology-physics\\b-circadian-clocks-nonlinear-oscillators.yaml"
+    },
+    {
       "id": "b-protein-folding-energy-landscape",
       "title": "Protein folding as a search on a funneled high-dimensional energy landscape — the same mathematical structure describes spin glass physics, neural network loss landscapes, and optimization",
       "source_domain": "",
@@ -1625,6 +1846,61 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\biology-physics\\b-protein-folding-energy-landscape.yaml"
+    },
+    {
+      "id": "b-phylogenetic-comparative-pgls",
+      "title": "Phylogenetic generalised least squares (PGLS) corrects for the non- independence of closely related species by modelling trait covariance as proportional to shared branch length on the phylogenetic tree, bridging evolutionary biology to multivariate statistics through the variance- covariance structure of trait evolution under Brownian motion.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "PROBLEM: Closely related species share evolutionary history — a regression of body mass on metabolic rate across 100 mammal species treats data as 100 independent observations, but phylogenetic correlation inflates type I error rates dramatically.\nPGLS SOLUTION (Grafen 1989, Freckleton 2002): Model ",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-phylogenetic-signal-metabolic-rate-conservation"
+      ],
+      "communication_gap": "Evolutionary biologists learn phylogenetic methods as a specialist toolkit (PGLS, ancestral state reconstruction) without recognising they are GLS with a structured covariance. Statisticians working on spatial statistics and covariance-structured regression rarely engage with the phylogenetics literature where these methods were independently developed.\n",
+      "translation_table": [
+        {
+          "field_a_term": "phylogenetic covariance matrix V (evolutionary biology)",
+          "field_b_term": "variance-covariance matrix in GLS (statistics)",
+          "note": "V encodes the expected covariance between species under Brownian motion on the tree"
+        },
+        {
+          "field_a_term": "Brownian motion model of trait evolution",
+          "field_b_term": "random walk / Gaussian process prior on trait values",
+          "note": "Brownian motion is equivalent to a Gaussian process with linear covariance kernel = time to MRCA"
+        },
+        {
+          "field_a_term": "Blomberg K (phylogenetic signal)",
+          "field_b_term": "intraclass correlation coefficient",
+          "note": "K measures the proportion of trait variance explained by phylogenetic relatedness — analogous to ICC in mixed models"
+        },
+        {
+          "field_a_term": "Pagel lambda transformation",
+          "field_b_term": "variance components estimation in mixed models",
+          "note": "Lambda is estimated by REML/MLE — equivalent to estimating the random effects variance component in a linear mixed model"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1086/284325",
+          "note": "Felsenstein (1985) Am Nat 125:1 — phylogenetically independent contrasts"
+        },
+        {
+          "doi": "10.1098/rstb.1989.0106",
+          "note": "Grafen (1989) Phil Trans R Soc B 326:119 — PGLS original derivation"
+        },
+        {
+          "doi": "10.1554/0014-3820(2003)057[0717:TPAGSM]2.0.CO;2",
+          "note": "Blomberg et al. (2003) Evolution 57:717 — K statistic"
+        },
+        {
+          "doi": "10.1086/303577",
+          "note": "Freckleton et al. (2002) Am Nat 160:712 — Pagel lambda estimation"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\biology-statistics\\b-phylogenetic-comparative-pgls.yaml"
     },
     {
       "id": "b-molecular-motors-thermodynamic-efficiency",
@@ -1997,6 +2273,55 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\chemistry-mathematics\\b-reaction-network-graph-theory.yaml"
+    },
+    {
+      "id": "b-quantum-chemistry-electronic-structure",
+      "title": "The many-body Schrödinger equation for electrons in molecules is computationally intractable, but density functional theory (DFT) — grounded in the Hohenberg-Kohn theorem that ground state energy is an exact functional of electron density — enables practical first-principles computation of molecular structure, reaction energies, and materials properties, bridging quantum physics to all of chemistry.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The Schrodinger equation for a molecule is exactly solvable only for H2+. DFT (Hohenberg-Kohn 1964): ground state energy E[rho] is exact functional of electron density rho(r); Kohn-Sham 1965 provides practical self-consistent equations. DFT exchange-correlation functional E_xc[rho] is the key unknow",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-dft-jacob-ladder-convergence-to-accuracy"
+      ],
+      "communication_gap": "DFT was developed by physicists (Hohenberg, Kohn Nobel Prizes) but is primarily used by chemists. The HK theorem and KS equations are standard physics but their implications for chemistry are often not explicitly bridged in curricula.\n",
+      "translation_table": [
+        {
+          "field_a_term": "many-body wavefunction Psi(r1, r2, ..., rN)",
+          "field_b_term": "electron density rho(r) = N integral of |Psi|^2 dr2...drN",
+          "note": "HK theorem reduces N-body problem to 3D density functional"
+        },
+        {
+          "field_a_term": "exchange-correlation hole",
+          "field_b_term": "XC functional E_xc[rho]",
+          "note": "key unknown in all DFT approximations"
+        },
+        {
+          "field_a_term": "Slater determinant (Hartree-Fock)",
+          "field_b_term": "Kohn-Sham non-interacting reference system",
+          "note": "KS-DFT uses non-interacting electrons with exact-density exchange-correlation potential"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1103/PhysRev.136.B864",
+          "note": "Hohenberg & Kohn (1964) Phys Rev 136:B864"
+        },
+        {
+          "doi": "10.1103/PhysRev.140.A1133",
+          "note": "Kohn & Sham (1965) Phys Rev 140:A1133"
+        },
+        {
+          "note": "Szabo & Ostlund (1989) Modern Quantum Chemistry; Dover"
+        },
+        {
+          "doi": "10.1063/1.2148954",
+          "note": "Becke (2014) J Chem Phys 140:18A301"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\chemistry-physics\\b-quantum-chemistry-electronic-structure.yaml"
     },
     {
       "id": "b-climate-tipping-health",
@@ -2421,6 +2746,59 @@
       "file": "cross-domain\\cognitive-science-information\\b-efficient-coding-perception.yaml"
     },
     {
+      "id": "b-embodied-cognition-conceptual-metaphor",
+      "title": "Lakoff and Johnson's conceptual metaphor theory (MORE IS UP, ARGUMENT IS WAR) is grounded in embodied cognition — abstract concepts recruit sensorimotor cortex because they are structured by bodily experience, bridging linguistic structure to neural substrate to bodily interaction with the physical world.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "CONCEPTUAL METAPHOR (Lakoff & Johnson 1980): Abstract concepts are structured by concrete bodily experience: - MORE IS UP: \"prices are rising\", \"spirits lifted\", \"high hopes\" - ARGUMENT IS WAR: \"attack a position\", \"demolish an argument\", \"defend a claim\" - TIME IS SPACE: \"looking forward to the fut",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-embodied-simulation-language-comprehension-graded"
+      ],
+      "communication_gap": "Linguistic semanticists and cognitive neuroscientists work in separate communities despite deep connections. The original Lakoff-Johnson theory was linguistic-conceptual; the neural grounding was added later by Gallese, Rizzolatti, and Bergen. Formal semanticists (Montague grammar, model-theoretic semantics) largely reject the embodied approach.\n",
+      "translation_table": [
+        {
+          "field_a_term": "conceptual metaphor schema (linguistics)",
+          "field_b_term": "neural simulation in sensorimotor cortex (neuroscience)",
+          "note": "Each conceptual metaphor predicts specific sensorimotor cortex activation during abstract language comprehension"
+        },
+        {
+          "field_a_term": "image schema (e.g. CONTAINER, FORCE, BALANCE) (linguistics)",
+          "field_b_term": "affordance representation (cognitive science / perception)",
+          "note": "Gibson's affordances and Lakoff's image schemas both capture body-environment interaction structure"
+        },
+        {
+          "field_a_term": "SOURCE-PATH-GOAL schema (linguistics)",
+          "field_b_term": "motor planning: initial state, trajectory, goal state (neuroscience)",
+          "note": "Linguistic path structure mirrors motor action sequence structure — same neural system"
+        },
+        {
+          "field_a_term": "primary metaphor (direct sensorimotor grounding)",
+          "field_b_term": "conditioned stimulus-response association (learning theory)",
+          "note": "Primary metaphors (AFFECTION IS WARMTH) formed by co-occurrence of physical sensation and abstract concept in development"
+        }
+      ],
+      "references": [
+        {
+          "note": "Lakoff & Johnson (1980) Metaphors We Live By, University of Chicago Press"
+        },
+        {
+          "doi": "10.1515/cogl.2005.16.3.455",
+          "note": "Gallese & Lakoff (2005) Cogn Linguist 16:455 — neural mirror system and conceptual metaphor"
+        },
+        {
+          "doi": "10.3758/BF03196313",
+          "note": "Glenberg & Kaschak (2002) Psychon Bull Rev 9:558 — action-sentence compatibility"
+        },
+        {
+          "note": "Bergen (2012) Louder Than Words, Basic Books — embodied simulation review"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\cognitive-science-linguistics\\b-embodied-cognition-conceptual-metaphor.yaml"
+    },
+    {
       "id": "b-free-energy-principle-stat-mech",
       "title": "Friston's free energy principle — biological systems minimise variational free energy F = E_q[log q(s) − log p(s,o)] — is formally identical to variational inference in machine learning and to Helmholtz free energy in thermodynamics, unifying perception, action, homeostasis, and learning.\n",
       "source_domain": "",
@@ -2548,6 +2926,58 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\computer-science-biology\\b-evolutionary-algorithms-natural-computation.yaml"
+    },
+    {
+      "id": "b-algorithmic-game-theory-internet",
+      "title": "Algorithmic game theory analyses internet protocols, ad auctions, and platform economics as games with strategic self-interested agents — computing Nash equilibria for BGP routing, quantifying the price of anarchy for selfish routing, and implementing Vickrey-Clarke-Groves mechanisms at planetary scale in sponsored search auctions.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "CLASSICAL PROBLEM: Internet protocols (BGP routing, TCP congestion control) are designed for cooperative agents, but actual Internet is composed of self-interested autonomous systems (ASes) that may deviate for competitive advantage.\nPRICE OF ANARCHY (Koutsoupias & Papadimitriou 1999):\n  PoA = max_N",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-price-of-anarchy-internet-routing-empirical"
+      ],
+      "communication_gap": "Computer scientists and economists developed game-theoretic analysis of the Internet largely independently in the early 2000s. The two communities now interact through venues like ACM EC and WWW, but undergraduate CS programs rarely teach mechanism design and economics programs rarely teach computational complexity.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Nash equilibrium (game theory)",
+          "field_b_term": "stable routing state / BGP convergence (networking)",
+          "note": "BGP converges iff the routing game has a Nash equilibrium reachable by best-response dynamics"
+        },
+        {
+          "field_a_term": "Price of Anarchy (game theory)",
+          "field_b_term": "efficiency loss from selfish routing vs. traffic engineering",
+          "note": "PoA bounds how much worse Internet routing is than centrally optimised routing"
+        },
+        {
+          "field_a_term": "VCG mechanism (mechanism design)",
+          "field_b_term": "second-price sealed-bid ad auction (internet advertising)",
+          "note": "GSP auction in sponsored search is VCG-like; theoretical analysis predicts approximately-truthful equilibria"
+        },
+        {
+          "field_a_term": "dominant strategy equilibrium (game theory)",
+          "field_b_term": "incentive-compatible protocol (computer science)",
+          "note": "A protocol is incentive-compatible if honest participation is a dominant strategy — the computational counterpart of dominant strategy Nash equilibrium"
+        }
+      ],
+      "references": [
+        {
+          "note": "Nisan et al. (2007) Algorithmic Game Theory, Cambridge UP"
+        },
+        {
+          "doi": "10.1007/3-540-48413-4_58",
+          "note": "Koutsoupias & Papadimitriou (1999) STACS — original price of anarchy"
+        },
+        {
+          "note": "Varian (2007) J Econ Perspect 21:191 — Google ad auction mechanism"
+        },
+        {
+          "note": "Roughgarden (2002) Proceedings 34th STOC — tight PoA bounds for selfish routing"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\computer-science-economics\\b-algorithmic-game-theory-internet.yaml"
     },
     {
       "id": "b-complexity-phase-transitions",
@@ -3402,6 +3832,65 @@
       "file": "cross-domain\\ecology-information-theory\\b-biodiversity-entropy-measures.yaml"
     },
     {
+      "id": "b-chaos-population-cycles",
+      "title": "The logistic map x_{n+1} = rx_n(1-x_n) exhibits period-doubling bifurcations to chaos at the Feigenbaum constant δ = 4.669..., which is universal across all 1D unimodal maps; real laboratory populations (Tribolium, Drosophila) undergo the same bifurcation cascade, establishing chaos theory as a mathematical framework for ecological population dynamics.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "May (1976) showed that even simple 1D population models (logistic map x_{n+1} = rx_n(1-x_n)) exhibit period-doubling bifurcations to chaos as r increases past r_∞ ≈ 3.57. Chaotic population dynamics: sensitive dependence on initial conditions, strange attractors, positive Lyapunov exponents. Observe",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-logistic-map-feigenbaum-ecology-universality"
+      ],
+      "communication_gap": "May's 1976 Nature paper reached ecologists but Feigenbaum's 1978 mathematical universality result appeared in Journal of Statistical Physics and reached mainly physicists. The profound implication — that ecological and physical systems obey identical mathematical universality — was articulated by few and reached standard ecology curricula only slowly through the 1980s-90s.\n",
+      "translation_table": [
+        {
+          "field_a_term": "logistic map parameter r (intrinsic growth rate)",
+          "field_b_term": "r_max (maximum per-capita population growth rate)",
+          "note": "same parameter in mathematical model and ecological interpretation"
+        },
+        {
+          "field_a_term": "period-doubling bifurcation (at r≈3.0, 3.45, 3.54...)",
+          "field_b_term": "transition from stable annual cycle to 2-year, 4-year, 8-year cycles",
+          "note": "Canadian lynx may show 10-year cycles; rodent 4-year cycles may be near bifurcation"
+        },
+        {
+          "field_a_term": "Feigenbaum constant δ = 4.669... (universal across maps)",
+          "field_b_term": "ratio of successive bifurcation intervals in any density-regulated population",
+          "note": "universality means ecological details don't change the mathematical structure"
+        },
+        {
+          "field_a_term": "strange attractor (bounded, aperiodic, sensitive)",
+          "field_b_term": "irregular population cycles that are deterministic, not stochastic",
+          "note": "chaos explains irregular fluctuations without requiring environmental noise"
+        },
+        {
+          "field_a_term": "Lyapunov exponent λ > 0 (exponential divergence of trajectories)",
+          "field_b_term": "long-term unpredictability of population size despite deterministic model",
+          "note": "ecological chaos has finite prediction horizon ≈ 1/λ generations"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1038/261459a0",
+          "note": "May (1976) Nature 261:459 — simple mathematical models with complicated dynamics"
+        },
+        {
+          "doi": "10.1007/BF01107909",
+          "note": "Feigenbaum (1978) J Stat Phys 19:25 — universal metric properties in nonlinear transformations"
+        },
+        {
+          "doi": "10.1126/science.275.5298.389",
+          "note": "Costantino et al. (1997) Science 275:389 — chaotic dynamics in Tribolium"
+        },
+        {
+          "note": "Ellner & Turchin (1995) Am Nat 145:343 — chaos in ecology: detecting it"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\ecology-mathematics\\b-chaos-population-cycles.yaml"
+    },
+    {
       "id": "b-neutral-theory-random-matrix",
       "title": "Hubbell's neutral theory of biodiversity treats species as statistically equivalent; May (1972) showed random ecosystems become unstable above a complexity threshold — both results are applications of random matrix theory (Wigner's semicircle law) to community ecology.\n",
       "source_domain": "",
@@ -3585,6 +4074,63 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\ecology-network-science\\b-food-webs-cascade-dynamics.yaml"
+    },
+    {
+      "id": "b-mutualistic-networks-nestedness",
+      "title": "Plant-pollinator and plant-seed disperser mutualistic networks exhibit characteristic nested architecture where specialists interact with subsets of generalist partners; this nestedness property, quantified identically in ecology and economic complexity networks, predicts robustness to extinction cascades and emerges from maximum entropy constraints on bipartite graphs.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Plant-pollinator and plant-seed disperser networks are bipartite mutualistic networks with characteristic nested structure: specialists interact with subsets of what generalists interact with. Nestedness N = (observed - expected overlaps) / (max - expected). Highly nested networks are more robust to",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-nestedness-robustness-degree-heterogeneity-mediation"
+      ],
+      "communication_gap": "Ecologists and economists independently developed nestedness theory in the 1990s-2000s with no cross-citation. Bascompte's ecological nestedness work and Hidalgo's economic complexity work use mathematically identical bipartite network measures but appear in Nature/Science vs Journal of Economic Geography with no common reference community.\n",
+      "translation_table": [
+        {
+          "field_a_term": "plant species (rows of bipartite matrix)",
+          "field_b_term": "countries (rows of country-product matrix)",
+          "note": "both are the \"specialists\" in their respective bipartite systems"
+        },
+        {
+          "field_a_term": "pollinator species (columns)",
+          "field_b_term": "exported products (columns)"
+        },
+        {
+          "field_a_term": "NODF nestedness score",
+          "field_b_term": "Economic Fitness Index (Tacchella et al. 2012)",
+          "note": "both measure degree to which specialist sets are subsets of generalist sets"
+        },
+        {
+          "field_a_term": "extinction cascade robustness",
+          "field_b_term": "economic resilience to supply chain disruption",
+          "note": "nested structure increases robustness in both domains via the same mechanism"
+        },
+        {
+          "field_a_term": "mutualistic interaction strength",
+          "field_b_term": "export volume / revealed comparative advantage"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1073/pnas.0307334100",
+          "note": "Bascompte et al. (2003) PNAS 100:9383 — nested structure of mutualistic networks"
+        },
+        {
+          "doi": "10.1038/nature07931",
+          "note": "Bastolla et al. (2009) Nature 458:1018 — nestedness reduces interspecific competition"
+        },
+        {
+          "note": "Almeida-Neto et al. (2008) Oikos 117:1227 — NODF nestedness metric"
+        },
+        {
+          "doi": "10.1073/pnas.0900943106",
+          "note": "Hidalgo & Hausmann (2009) PNAS 106:10570 — building blocks of economic complexity"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\ecology-network-science\\b-mutualistic-networks-nestedness.yaml"
     },
     {
       "id": "b-island-biogeography-percolation",
@@ -5011,6 +5557,60 @@
       "file": "cross-domain\\engineering-physics\\b-chaos-control-systems.yaml"
     },
     {
+      "id": "b-metamaterials-negative-refractive-index",
+      "title": "Electromagnetic metamaterials with simultaneously negative permittivity (ε < 0) and permeability (μ < 0) produce negative refractive index (n = -√(εμ) < 0), enabling perfect lensing beyond the diffraction limit and electromagnetic cloaking — with direct extensions to acoustic and elastic metamaterials for sound and vibration control.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "VESELAGO'S PREDICTION (1968): Maxwell's equations allow negative refractive index if BOTH ε < 0 AND μ < 0 simultaneously. For a plane wave with wave vector k:\n\n  k = (ω/c) n = (ω/c) √(εμ)\n\nWhen ε < 0 and μ < 0: n = -√(|ε||μ|) < 0. The phase velocity is antiparallel to the energy flow (Poynting vecto",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-acoustic-metamaterial-cloaking-bandwidth-thickness-tradeoff"
+      ],
+      "communication_gap": "Veselago's original 1968 paper was ignored for 30 years — published in a Soviet physics journal, largely unknown to Western engineers. Pendry's 2000 perfect lens paper triggered an explosive reconnection between electromagnetic theory and materials engineering. Acoustic metamaterials researchers and electromagnetic metamaterial researchers still publish largely in separate journals.\n",
+      "translation_table": [
+        {
+          "field_a_term": "negative permittivity epsilon < 0 (electromagnetism)",
+          "field_b_term": "negative compressibility (acoustic metamaterials)",
+          "note": "Both describe materials that respond to driving force in opposite direction to natural systems"
+        },
+        {
+          "field_a_term": "negative permeability mu < 0 (electromagnetism)",
+          "field_b_term": "negative effective density rho_eff < 0 (acoustics)",
+          "note": "Achieved via resonant local resonators; analogy is precise at the level of wave equations"
+        },
+        {
+          "field_a_term": "evanescent wave amplification (negative index lens)",
+          "field_b_term": "surface plasmon polariton enhancement",
+          "note": "Veselago lens works by surface plasmons on the interfaces amplifying evanescent components"
+        },
+        {
+          "field_a_term": "transformation optics (electromagnetic cloaking)",
+          "field_b_term": "coordinate transformation in general relativity",
+          "note": "Form invariance of Maxwell's equations under coordinate transformations is the mathematical foundation of both"
+        }
+      ],
+      "references": [
+        {
+          "note": "Veselago (1968) Sov Phys Usp 10:509 — theoretical prediction of negative index"
+        },
+        {
+          "doi": "10.1103/PhysRevLett.76.4773",
+          "note": "Pendry et al. (1999) Phys Rev Lett 76 — split ring resonators for negative mu"
+        },
+        {
+          "doi": "10.1103/PhysRevLett.85.3966",
+          "note": "Pendry (2000) Phys Rev Lett 85:3966 — perfect lens"
+        },
+        {
+          "doi": "10.1126/science.1058847",
+          "note": "Shelby et al. (2001) Science 292:77 — first experimental realisation"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\engineering-physics\\b-metamaterials-negative-refractive-index.yaml"
+    },
+    {
       "id": "b-tesla-resonant-wireless-power",
       "title": "Resonant inductive coupling between two LC circuits at the same frequency — first demonstrated by Tesla (1891–1900) and formalised by coupled-mode theory — underlies modern wireless power transfer: from Qi charging in 2 billion devices to medical implants and electric vehicle charging.\n",
       "source_domain": "",
@@ -5147,6 +5747,60 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\epidemiology-network-science\\b-sir-percolation.yaml"
+    },
+    {
+      "id": "b-plate-tectonics-mantle-convection",
+      "title": "Plate tectonics is driven by mantle convection — thermal convection in the viscous mantle (η ~ 10²¹ Pa·s) governed by the same Navier-Stokes equations as atmospheric and oceanic fluid dynamics, with subduction as a Rayleigh-Taylor instability and ridge spreading as upwelling convection cells.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "RAYLEIGH NUMBER CRITERION: Mantle convection occurs when the Rayleigh number exceeds the critical value:\n\n  Ra = ρgαΔTd³ / (ηκ) >> Ra_c ≈ 10³\n\nFor Earth's mantle: ρ = 3300 kg/m³, g = 9.8 m/s², α = 3×10⁻⁵ K⁻¹, ΔT = 1500 K, d = 2900 km, η = 10²¹ Pa·s, κ = 10⁻⁶ m²/s → Ra ~ 10⁷. This is far above Ra_c, ",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-plate-tectonics-initiated-by-bolide-impacts",
+        "h-subduction-initiation-passive-margin-collapse"
+      ],
+      "communication_gap": "Plate tectonics is taught as a geological observation in geology courses without deriving the fluid dynamics that drives it. Fluid dynamicists rarely see geophysics as an application domain. The connection was made by McKenzie, Parker, Morgan and Davies but remains siloed in geophysics literature.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Rayleigh number Ra (fluid dynamics)",
+          "field_b_term": "convective vigour of mantle (geophysics)",
+          "note": "Ra >> Ra_c means vigorous convection; Ra_c depends on boundary conditions (rigid vs. free-slip plates)"
+        },
+        {
+          "field_a_term": "Rayleigh-Taylor instability (fluid dynamics)",
+          "field_b_term": "subduction initiation (plate tectonics)",
+          "note": "Sinking of cold dense lithosphere is the gravitational instability that drives plate motion"
+        },
+        {
+          "field_a_term": "Stokes flow / creeping flow (fluid mechanics)",
+          "field_b_term": "mantle viscous deformation (geophysics)",
+          "note": "Reynolds number near zero; inertial terms negligible; pressure-driven Stokes equations govern"
+        },
+        {
+          "field_a_term": "thermal boundary layer (convection theory)",
+          "field_b_term": "oceanic lithosphere (geology)",
+          "note": "Oceanic lithosphere IS the thermal boundary layer of mantle convection; thickness grows as sqrt(age)"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1038/216239a0",
+          "note": "McKenzie & Parker (1967) Nature 216:1276 — quantitative plate tectonics"
+        },
+        {
+          "doi": "10.1029/JZ073i006p01959",
+          "note": "Morgan (1968) J Geophys Res 73:1959 — ridge-transform-trench system"
+        },
+        {
+          "note": "Davies (1999) Dynamic Earth, Cambridge UP — mantle convection textbook"
+        },
+        {
+          "note": "Schubert et al. (2001) Mantle Convection in the Earth and Planets, Cambridge UP"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\geology-physics\\b-plate-tectonics-mantle-convection.yaml"
     },
     {
       "id": "b-earthquake-soc",
@@ -7033,6 +7687,65 @@
       "file": "cross-domain\\mathematics-biology\\b-voronoi-tessellation-cellular-architecture.yaml"
     },
     {
+      "id": "b-approximation-theory-deep-learning",
+      "title": "Universal approximation theory establishes that neural networks with sufficient depth/width can approximate any continuous function to arbitrary precision; depth separation theorems show that deep networks require exponentially fewer neurons than shallow networks for compositional functions, grounding the empirical success of deep learning in classical Sobolev approximation theory.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Universal approximation theorem (Cybenko 1989, Hornik et al. 1989): a feedforward neural network with one hidden layer and sufficient neurons can approximate any continuous function on a compact domain to arbitrary precision. Depth separation theorems: exponentially more neurons required in shallow ",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-depth-separation-compositional-function-approximation"
+      ],
+      "communication_gap": "Approximation theory is a mathematical analysis subdiscipline with its own journals (Journal of Approximation Theory) rarely read by machine learning practitioners. The universal approximation theorems are cited but the Sobolev space framework, minimax rates, and depth separation proofs are known mainly to mathematical statisticians rather than deep learning practitioners.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Kolmogorov superposition (functions of n variables = compositions of 1D functions)",
+          "field_b_term": "multilayer neural network (hierarchical composition of univariate activations)",
+          "note": "Kolmogorov (1957) directly inspired early neural network theory"
+        },
+        {
+          "field_a_term": "Sobolev smoothness class W^{s,p}(Ω)",
+          "field_b_term": "function class that determines required network depth/width",
+          "note": "smoother functions need fewer parameters; s/d determines approximation rate"
+        },
+        {
+          "field_a_term": "minimax optimal approximation rate n^{-s/d}",
+          "field_b_term": "sample complexity bound for learning with n parameters",
+          "note": "approximation error + estimation error determines generalization bound"
+        },
+        {
+          "field_a_term": "depth separation theorem",
+          "field_b_term": "empirical observation that deep networks outperform shallow ones",
+          "note": "theoretical depth separation explains practical deep learning advantage"
+        },
+        {
+          "field_a_term": "ReLU activation function (piecewise linear)",
+          "field_b_term": "B-spline basis for piecewise polynomial approximation",
+          "note": "ReLU networks are equivalent to adaptive piecewise polynomial approximators"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1007/BF02551274",
+          "note": "Cybenko (1989) Math Control Signals Syst 2:303 — universal approximation"
+        },
+        {
+          "doi": "10.1016/0893-6080(89)90020-8",
+          "note": "Hornik et al. (1989) Neural Netw 2:359 — universal approximators"
+        },
+        {
+          "doi": "10.1109/18.256500",
+          "note": "Barron (1993) IEEE Trans Inf Theory 39:930 — approximation rates"
+        },
+        {
+          "note": "Kolmogorov (1957) Dokl Akad Nauk SSSR 114:953 — superposition theorem"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\mathematics-computer-science\\b-approximation-theory-deep-learning.yaml"
+    },
+    {
       "id": "b-category-theory-functional-programming",
       "title": "Category theory (Eilenberg & Mac Lane 1945) is the semantic foundation of functional programming: types are objects, functions are morphisms, functors are type constructors, monads are monoids in the category of endofunctors, and the Curry-Howard correspondence makes propositions = types and proofs = programs.\n",
       "source_domain": "",
@@ -7228,6 +7941,63 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\mathematics-computer-science\\b-information-geometry-machine-learning.yaml"
+    },
+    {
+      "id": "b-optimal-foraging-calculus-variations",
+      "title": "Charnov's marginal value theorem — the optimal forager leaves a patch when instantaneous gain rate equals the habitat average — is derived from the calculus of variations (Lagrangian optimisation), making patch exploitation mathematically identical to optimal stopping problems in finance and drug dosing interval optimisation.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Marginal value theorem (Charnov 1976): an optimal forager should leave a patch when the instantaneous rate of energy gain f'(t) equals the average rate for the habitat E*:\n\n  f'(t*) = E* = E[g(t)] / (T + t*)\n\nwhere t* = optimal residence time, T = mean travel time between patches, g(t) = gain functi",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-marginal-value-theorem-stochastic-extension"
+      ],
+      "communication_gap": "Ecologists learn MVT as a graphical theorem in behavioural ecology without deriving it from calculus of variations. Applied mathematicians working on optimal stopping do not know that MVT is an instance of their problem. The formalisation in McNamara & Houston (1986) bridges this but remains in specialist literature.\n",
+      "translation_table": [
+        {
+          "field_a_term": "patch gain function g(t) (ecology)",
+          "field_b_term": "objective functional in calculus of variations",
+          "note": "Concavity of g(t) is the diminishing returns assumption required for a unique optimum"
+        },
+        {
+          "field_a_term": "marginal gain f'(t) = dg/dt",
+          "field_b_term": "Euler-Lagrange gradient condition",
+          "note": "Optimality requires first-order stationarity of the variational problem"
+        },
+        {
+          "field_a_term": "habitat average E* (optimal foraging)",
+          "field_b_term": "Lagrange multiplier lambda (constrained optimisation)",
+          "note": "E* is the shadow price of time — exactly the Lagrangian multiplier in the variational formulation"
+        },
+        {
+          "field_a_term": "patch residence time t* (ecology)",
+          "field_b_term": "optimal stopping time (stochastic control)",
+          "note": "Both problems seek a threshold policy where action changes when marginal value hits threshold"
+        },
+        {
+          "field_a_term": "travel time T between patches",
+          "field_b_term": "transaction cost / switching cost (economics)",
+          "note": "High travel time = high switching cost; lowers optimal frequency of patch switching / portfolio rebalancing"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1016/0040-5809(76)90007-5",
+          "note": "Charnov (1976) Theor Popul Biol 9:129 — original marginal value theorem"
+        },
+        {
+          "note": "MacArthur & Pianka (1966) Am Nat 100:603 — optimal diet theory precursor"
+        },
+        {
+          "note": "Stephens & Krebs (1986) Foraging Theory, Princeton UP — comprehensive treatment"
+        },
+        {
+          "note": "McNamara & Houston (1986) J Theor Biol 122:281 — dynamic programming extension"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\mathematics-ecology\\b-optimal-foraging-calculus-variations.yaml"
     },
     {
       "id": "b-perron-frobenius-population-dynamics",
@@ -7908,6 +8678,58 @@
       "file": "cross-domain\\mathematics-physics\\b-renormalization-group-scale-invariance.yaml"
     },
     {
+      "id": "b-symplectic-geometry-hamiltonian",
+      "title": "The phase space of classical mechanics is a symplectic manifold (M, ω) and Hamilton's equations preserve the symplectic form (Liouville's theorem); quantum mechanics is the deformation quantization of this symplectic structure, making symplectic geometry the unifying language of classical and quantum dynamics.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Phase space of a classical mechanical system is a symplectic manifold (M, ω) where ω = Σ dp_i ∧ dq_i. Hamilton's equations ṗ = -∂H/∂q, q̇ = ∂H/∂p preserve ω (Liouville's theorem: phase space volume is conserved by Hamiltonian flow). Symplectic integrators (leapfrog, Verlet) preserve this structure n",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-deformation-quantization-symplectic-bridge"
+      ],
+      "communication_gap": "Classical mechanics and quantum mechanics are taught in separate courses with different mathematical language (Lagrangian/Hamiltonian vs Hilbert space operators). The symplectic geometry unification is standard in mathematical physics but rarely reaches computational scientists who implement molecular dynamics.\n",
+      "translation_table": [
+        {
+          "field_a_term": "symplectic form ω = Σ dp_i ∧ dq_i",
+          "field_b_term": "canonical commutation relations [q̂_i, p̂_j] = iħδ_ij",
+          "note": "quantization replaces Poisson bracket with commutator divided by iħ"
+        },
+        {
+          "field_a_term": "Hamiltonian flow preserving ω (Liouville)",
+          "field_b_term": "unitary quantum time evolution preserving inner products",
+          "note": "unitarity is the quantum analog of symplectic volume preservation"
+        },
+        {
+          "field_a_term": "symplectic integrator (leapfrog, Verlet)",
+          "field_b_term": "Trotter-Suzuki decomposition for quantum simulation",
+          "note": "both preserve the algebraic structure of time evolution exactly"
+        },
+        {
+          "field_a_term": "Floer homology of loop space",
+          "field_b_term": "path integral quantization over all trajectories",
+          "note": "Floer theory can be seen as a Morse theory analog of the Feynman path integral"
+        }
+      ],
+      "references": [
+        {
+          "note": "Arnold (1978) Mathematical Methods of Classical Mechanics; Springer"
+        },
+        {
+          "note": "Weyl (1931) The Theory of Groups and Quantum Mechanics; Dover"
+        },
+        {
+          "doi": "10.4310/jdg/1214442477",
+          "note": "Floer (1988) J Differ Geom 28:513 — Floer homology construction"
+        },
+        {
+          "note": "Leimkuhler & Reich (2004) Simulating Hamiltonian Dynamics; Cambridge"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\mathematics-physics\\b-symplectic-geometry-hamiltonian.yaml"
+    },
+    {
       "id": "b-symplectic-geometry-mechanics",
       "title": "Hamilton's equations are flows on a symplectic manifold (M, ω), Noether's theorem is the statement that Hamiltonian symmetries preserve the symplectic form, and quantum mechanics is the deformation quantization of the classical symplectic structure — making symplectic geometry the exact mathematical language of mechanics at every scale from classical to quantum.\n",
       "source_domain": "",
@@ -8037,6 +8859,60 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\mathematics-quantum-physics\\b-spectral-theory-quantum-mechanics.yaml"
+    },
+    {
+      "id": "b-network-formation-graph-theory",
+      "title": "Strategic network formation (Jackson-Wolinsky pairwise stability) connects graph theory to social science: agents form links based on cost-benefit calculations, generating small-world and scale-free topologies from rational decisions, with efficient networks provably different from stable networks due to the tension between individual incentives and social welfare.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "STRATEGIC NETWORK FORMATION (Jackson & Wolinsky 1996): Agents form links g_ij ∈ {0,1} by mutual consent. Payoff to agent i:\n\n  u_i(g) = Σⱼ δ^d(i,j) - Σⱼ: g_ij=1 c\n\nwhere δ ∈ (0,1) = decay factor with distance d(i,j), c = link cost. Pairwise stable network: no agent wants to delete a link and no two ",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-network-topology-innovation-diffusion"
+      ],
+      "communication_gap": "Graph theorists (mathematics, CS) and social network analysts (sociology, economics) developed largely separate literatures. Jackson's economic network formation theory explicitly bridges these but requires fluency in both game theory and graph theory. The Barabási-Albert model from physics is widely used in social science without connecting to the strategic formation literature.\n",
+      "translation_table": [
+        {
+          "field_a_term": "pairwise stable network (economics/game theory)",
+          "field_b_term": "Nash equilibrium of link formation game",
+          "note": "Pairwise stability is stronger than Nash — requires no bilateral deviations, not just unilateral"
+        },
+        {
+          "field_a_term": "Erdős-Rényi phase transition (graph theory)",
+          "field_b_term": "emergence of giant component (social network)",
+          "note": "Giant component appears at p = 1/n — threshold at which a connected rumour/disease spreading path exists across the network"
+        },
+        {
+          "field_a_term": "degree distribution P(k) (graph theory)",
+          "field_b_term": "social influence distribution (social science)",
+          "note": "Power-law degree distribution implies most influence concentrated in few hubs"
+        },
+        {
+          "field_a_term": "clustering coefficient (graph theory)",
+          "field_b_term": "bonding social capital (sociology/economics)",
+          "note": "Redundant local connections = high clustering = bonding capital; Burt's structural holes = low clustering = bridging capital"
+        }
+      ],
+      "references": [
+        {
+          "note": "Erdős & Rényi (1959) Publ Math Debrecen 6:290 — random graph theory"
+        },
+        {
+          "doi": "10.1038/30918",
+          "note": "Watts & Strogatz (1998) Nature 393:440 — small world networks"
+        },
+        {
+          "doi": "10.1016/S0022-0531(96)90030-6",
+          "note": "Jackson & Wolinsky (1996) J Econ Theory 71:44 — strategic network formation"
+        },
+        {
+          "doi": "10.1126/science.286.5439.509",
+          "note": "Barabási & Albert (1999) Science 286:509 — preferential attachment"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\mathematics-social-science\\b-network-formation-graph-theory.yaml"
     },
     {
       "id": "b-radiation-biophysics-let",
@@ -8298,6 +9174,66 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\neuroscience-computer-science\\b-backpropagation-synaptic-plasticity.yaml"
+    },
+    {
+      "id": "b-motor-control-internal-models",
+      "title": "The brain implements forward and inverse internal models for motor control that are mathematically identical to the Kalman filter and Linear Quadratic Regulator (LQR) of control engineering; the cerebellum implements forward model prediction while the motor cortex implements inverse model control, bridging neuroscience and optimal control theory.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The brain implements internal models (forward and inverse models) for motor control. Forward model: given efference copy of motor command u, predict sensory outcome ŷ = f(u). Inverse model: given desired outcome y*, compute required command u* = f⁻¹(y*). The cerebellum implements forward models for ",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-cerebellum-lqr-forward-model-implementation"
+      ],
+      "communication_gap": "Motor neuroscientists and control engineers work in separate literatures (Nature Neuroscience vs IEEE Transactions on Automatic Control) and rarely cross-cite. The language barrier is substantial: engineers use state-space notation while neuroscientists use biological terminology, obscuring mathematical equivalences.\n",
+      "translation_table": [
+        {
+          "field_a_term": "efference copy (copy of motor command)",
+          "field_b_term": "control input u in state-space model ẋ = Ax + Bu",
+          "note": "efference copy is the biological u; used by forward model for prediction"
+        },
+        {
+          "field_a_term": "forward model (cerebellum): ŷ = f(u)",
+          "field_b_term": "Kalman filter prediction step: x̂_{k|k-1} = Ax̂_{k-1} + Bu_k",
+          "note": "cerebellum implements one-step-ahead prediction of sensory state"
+        },
+        {
+          "field_a_term": "inverse model (motor cortex + SMA): u* = f⁻¹(y*)",
+          "field_b_term": "LQR control law: u* = -K x̂ (linear feedback of state estimate)",
+          "note": "both compute control command from desired state; both are optimal under quadratic cost"
+        },
+        {
+          "field_a_term": "climbing fiber error signal (inferior olive → cerebellum)",
+          "field_b_term": "Kalman innovation: y_k - Cx̂_{k|k-1} (prediction error)",
+          "note": "climbing fiber encodes mismatch between predicted and actual sensory outcome"
+        },
+        {
+          "field_a_term": "Purkinje cell firing rate adaptation (LTD)",
+          "field_b_term": "Kalman gain update: K_k = P_{k|k-1}C'(CP_{k|k-1}C'+R)^{-1}",
+          "note": "cerebellar learning adjusts the internal model parameters analogous to Kalman gain"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1126/science.280.5368.1880",
+          "note": "Wolpert et al. (1998) Science 280:1880 — cerebellar internal models"
+        },
+        {
+          "doi": "10.1038/nn1116",
+          "note": "Todorov & Jordan (2002) Nat Neurosci 5:1226 — optimal feedback control of motor tasks"
+        },
+        {
+          "doi": "10.1016/S0959-4388(99)00016-5",
+          "note": "Kawato (1999) Curr Opin Neurobiol 9:718 — internal model hypothesis"
+        },
+        {
+          "doi": "10.1523/JNEUROSCI.14.5.3208.1994",
+          "note": "Shadmehr & Mussa-Ivaldi (1994) J Neurosci 14:3208 — learning dynamics of reaching"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\neuroscience-control-theory\\b-motor-control-internal-models.yaml"
     },
     {
       "id": "b-neural-diversity-ecosystem-stability",
@@ -9198,6 +10134,60 @@
       "file": "cross-domain\\neuroscience-statistics\\b-bayesian-brain-predictive-processing.yaml"
     },
     {
+      "id": "b-spike-sorting-blind-source-separation",
+      "title": "Spike sorting — decomposing extracellular recordings into contributions from individual neurons — is mathematically identical to blind source separation (ICA/cocktail party problem), with Bayesian spike sorters implementing probabilistic mixture models over waveform shapes and interspike interval statistics.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "EXTRACELLULAR RECORDING MIXING MODEL: A recording electrode at position x measures a weighted sum of spike waveforms from N nearby neurons:\n\n  y(t) = Σᵢ Aᵢ · sᵢ(t) + noise\n\nwhere Aᵢ = mixing matrix entry (spatial weight), sᵢ(t) = binary spike train of neuron i. This is the BSS mixing model.\nICA SOLU",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-spike-sorting-drift-correction-manifold"
+      ],
+      "communication_gap": "Neuroscientists developing spike sorters rarely read the BSS literature. Signal processing researchers do not engage with neuroscience spike sorting benchmarks. The mathematical isomorphism is noted in Lewicki (1998) but the fields remain largely separate. Deep learning spike sorters (Kilosort 2, YASS) rediscovered mixture-model approaches from the ML literature.\n",
+      "translation_table": [
+        {
+          "field_a_term": "spike waveform template (neuroscience)",
+          "field_b_term": "source signal basis function (signal processing)",
+          "note": "Each neuron's waveform is the source signal; its detection across electrodes provides the unmixing"
+        },
+        {
+          "field_a_term": "electrode recording (neuroscience)",
+          "field_b_term": "mixture observation (blind source separation)",
+          "note": "Multiple tetrode or silicon probe channels provide the equivalent of multiple microphones"
+        },
+        {
+          "field_a_term": "neuron isolation / cluster assignment",
+          "field_b_term": "source recovery in BSS",
+          "note": "Assigning spikes to neurons = assigning observations to source components"
+        },
+        {
+          "field_a_term": "interspike interval refractory period",
+          "field_b_term": "temporal structure constraint on source",
+          "note": "The refractory period (no two spikes <1ms apart) is a statistical constraint that helps BSS algorithms"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1162/neco.1995.7.6.1129",
+          "note": "Bell & Sejnowski (1995) Neural Comput 7:1129 — ICA infomax algorithm"
+        },
+        {
+          "doi": "10.1016/0165-0270(96)00052-4",
+          "note": "Fee et al. (1996) J Neurosci Methods 69:175 — early spike sorting approach"
+        },
+        {
+          "doi": "10.1101/061481",
+          "note": "Pachitariu et al. (2016) bioRxiv — Kilosort Bayesian spike sorter"
+        },
+        {
+          "note": "Lewicki (1998) Network 9:R53 — BSS review connecting to neuroscience"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\neuroscience-statistics\\b-spike-sorting-blind-source-separation.yaml"
+    },
+    {
       "id": "b-kolmogorov-complexity-explanation",
       "title": "The best scientific theory is the shortest program that computes the observed data — Kolmogorov complexity K(x) formalises Occam's razor as data compression, making scientific explanation equivalent to finding the minimum description length (MDL) model, and overfitting identical to using a description that is longer than necessary.\n",
       "source_domain": "",
@@ -9589,6 +10579,64 @@
       "file": "cross-domain\\physics-biology\\b-brownian-motion-cell-diffusion.yaml"
     },
     {
+      "id": "b-cochlear-mechanics-hearing",
+      "title": "The mammalian cochlea is a hydromechanical frequency analyzer governed by Navier-Stokes fluid dynamics and outer hair cell electromotility implementing a biological active feedback amplifier near a Hopf bifurcation, providing 40-60 dB of gain with remarkable frequency selectivity through a piezoelectric-like molecular mechanism, bridging fluid mechanics, biophysics, and nonlinear dynamics.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The mammalian cochlea is a hydromechanical frequency analyzer — a tapered fluid- filled tube where each position resonates to a specific frequency (place theory, von Békésy 1961 Nobel). Basilar membrane vibration amplitude follows a traveling wave governed by Navier-Stokes equations for viscous flow",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-cochlear-active-amplification-hopf-bifurcation"
+      ],
+      "communication_gap": "Von Békésy's cochlear mechanics is taught in biophysics and audiology but not in fluid mechanics or nonlinear dynamics courses. The Hopf bifurcation connection was made by theoretical physicists (Eguiluz, Ospeck, Choe, Hudspeth, Magnasco 2000) and has not yet been fully integrated into the audiology literature.\n",
+      "translation_table": [
+        {
+          "field_a_term": "basilar membrane traveling wave",
+          "field_b_term": "Navier-Stokes solution for viscous flow in tapered channel",
+          "note": "BM mechanics is exactly the hydrodynamics problem of an elastic plate in viscous fluid"
+        },
+        {
+          "field_a_term": "outer hair cell electromotility (prestin motor)",
+          "field_b_term": "piezoelectric transducer (electrical → mechanical displacement)",
+          "note": "prestin is the only known biological piezoelectric; basis of cochlear amplifier"
+        },
+        {
+          "field_a_term": "spontaneous otoacoustic emissions (SOAEs)",
+          "field_b_term": "limit cycle oscillations near a Hopf bifurcation",
+          "note": "SOAEs are faint tones emitted by the ear; arise when active amplification overcorrects"
+        },
+        {
+          "field_a_term": "cochlear tuning (Q_ERB ~ 8-10)",
+          "field_b_term": "quality factor of resonant oscillator: Q = f_0/Δf",
+          "note": "active amplification raises Q far above passive (~1); Hopf mechanism provides frequency sharpening"
+        },
+        {
+          "field_a_term": "basilar membrane compression (1 dB output per 3 dB input)",
+          "field_b_term": "(f - f_c)^{1/3} critical oscillator power law",
+          "note": "cochlear compression = signature of operation near Hopf bifurcation"
+        }
+      ],
+      "references": [
+        {
+          "note": "von Békésy (1960) Experiments in Hearing; McGraw-Hill (Nobel Prize 1961)"
+        },
+        {
+          "doi": "10.1038/35070638",
+          "note": "Hudspeth (2001) Nature 414:170 — Hopf bifurcation and the cochlear amplifier"
+        },
+        {
+          "doi": "10.1152/physrev.00040.2007",
+          "note": "Ashmore (2008) Physiol Rev 88:173 — OHC electromotility and prestin"
+        },
+        {
+          "note": "Keener & Sneyd (2009) Mathematical Physiology; Springer"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\physics-biology\\b-cochlear-mechanics-hearing.yaml"
+    },
+    {
       "id": "b-mechanobiology-continuum-mechanics",
       "title": "Cells sense and respond to mechanical forces through mechanotransduction, and collectively exhibit a jamming phase transition (liquid-to-solid) controlled by cell shape index — making continuum mechanics (stress tensors, viscoelasticity, phase transitions) the quantitative framework for tissue biology from single-cell durotaxis to embryonic morphogenesis.\n",
       "source_domain": "",
@@ -9776,6 +10824,57 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\physics-chemistry\\b-maxwell-boltzmann-chemical-kinetics.yaml"
+    },
+    {
+      "id": "b-statistical-thermodynamics-equilibrium",
+      "title": "Chemical equilibrium (K = exp(-ΔG°/RT)) is derived entirely from statistical thermodynamics: the equilibrium constant equals the ratio of molecular partition functions of products to reactants, making all of macroscopic chemical equilibrium a direct consequence of quantum mechanical energy level statistics.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The equilibrium constant K = exp(-ΔG°/RT) derived from statistical thermodynamics: K = Z_products/Z_reactants where Z = Σ_i exp(-E_i/kT) is the molecular partition function summing over all quantum states. For ideal gases, Z = Z_trans × Z_rot × Z_vib × Z_elec — each factor derived from quantum mecha",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-statistical-thermodynamics-equilibrium-partition-function"
+      ],
+      "communication_gap": "Physical chemistry textbooks teach statistical thermodynamics in separate chapters from chemical equilibrium, obscuring the fact that K is a direct ratio of partition functions. Chemists using K rarely think about quantum energy levels; physicists studying partition functions rarely think about chemical applications.\n",
+      "translation_table": [
+        {
+          "field_a_term": "partition function Z = Σ exp(-E_i/kT)",
+          "field_b_term": "equilibrium constant K (ratio of Z_products/Z_reactants)",
+          "note": "K is dimensionless ratio of product to reactant partition functions"
+        },
+        {
+          "field_a_term": "Boltzmann factor exp(-E_i/kT)",
+          "field_b_term": "relative population of reactant vs product states",
+          "note": "at equilibrium, populations are Boltzmann-weighted"
+        },
+        {
+          "field_a_term": "temperature T (thermal energy scale)",
+          "field_b_term": "van't Hoff factor RT in ΔG° = -RT lnK",
+          "note": "k_B and R differ only by Avogadro's number"
+        },
+        {
+          "field_a_term": "quantum energy levels E_i of molecule",
+          "field_b_term": "thermochemical tables (ΔH°_f, ΔG°_f, S°)",
+          "note": "NIST Webbook tabulates partition-function-derived thermochemical quantities"
+        }
+      ],
+      "references": [
+        {
+          "note": "Boltzmann (1877) — Boltzmann distribution; entropy as log of microstates"
+        },
+        {
+          "note": "Gibbs (1902) Elementary Principles in Statistical Mechanics; Yale University Press"
+        },
+        {
+          "note": "Atkins & de Paula (2010) Physical Chemistry; Oxford University Press"
+        },
+        {
+          "note": "McQuarrie (2000) Statistical Mechanics; University Science Books"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\physics-chemistry\\b-statistical-thermodynamics-equilibrium.yaml"
     },
     {
       "id": "b-transition-state-theory-kinetics",
@@ -11139,6 +12238,58 @@
       "file": "cross-domain\\physics-information\\b-landauer-information-thermodynamics.yaml"
     },
     {
+      "id": "b-dislocations-crystal-plasticity",
+      "title": "Dislocations (line defects in crystalline lattices) are the microscopic mechanism of plastic deformation in metals — dislocation glide requires far less stress than shearing a perfect crystal (Taylor 1934), connecting continuum plastic flow mechanics to atomic-scale crystal structure through the dislocation density tensor.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "PERFECT CRYSTAL PROBLEM: The theoretical shear strength of a perfect crystal is τ_theory = G/2π ≈ G/6, where G is the shear modulus. For copper, τ_theory ≈ 4 GPa. Observed yield stress: ~1 MPa — a factor of 1000 lower.\nDISLOCATION RESOLUTION (Taylor, Orowan, Polyani 1934): A dislocation is a line de",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-dislocation-based-plasticity-hea-alloys"
+      ],
+      "communication_gap": "Materials scientists and condensed matter physicists know dislocation theory well. Continuum mechanicians working on plasticity often treat it as a black box without microscopic justification. Crystal plasticity finite element methods (CPFEM) bridge both but require expertise in both fields.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Burgers vector b (crystallography)",
+          "field_b_term": "plastic strain increment per dislocation glide event",
+          "note": "The Burgers vector is both the topological invariant of the defect and the unit of plastic deformation"
+        },
+        {
+          "field_a_term": "dislocation density rho (density of line defects per m^2)",
+          "field_b_term": "internal variable in continuum plasticity theory",
+          "note": "rho appears in hardening laws; equivalent to backstress in kinematic hardening models"
+        },
+        {
+          "field_a_term": "Peierls-Nabarro stress (lattice friction)",
+          "field_b_term": "yield stress in continuum plasticity",
+          "note": "τ_PN sets the single-crystal yield stress before work hardening; polycrystal yield requires Taylor factor"
+        },
+        {
+          "field_a_term": "dislocation core structure",
+          "field_b_term": "strain energy density at singularity",
+          "note": "Core energy must be regularised in continuum field theories — exactly as elastic field theories regularise point sources"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1098/rspa.1934.0106",
+          "note": "Taylor (1934) Proc R Soc A 145:362 — first dislocation theory of plasticity"
+        },
+        {
+          "note": "Orowan (1934) Z Phys 89:634 — independent dislocation proposal"
+        },
+        {
+          "note": "Peierls (1940) Proc Phys Soc 52:34 — Peierls stress derivation"
+        },
+        {
+          "note": "Hirth & Lothe (1982) Theory of Dislocations, Wiley — comprehensive treatment"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\physics-materials-science\\b-dislocations-crystal-plasticity.yaml"
+    },
+    {
       "id": "b-noether-theorem-conservation-laws",
       "title": "Every differentiable symmetry of the action of a physical system corresponds to a conservation law — Noether's theorem is the deepest known connection between the geometry of symmetry groups and the conservation laws of physics.\n",
       "source_domain": "",
@@ -11887,6 +13038,60 @@
       ],
       "last_reviewed": "2026-05-04",
       "file": "cross-domain\\physics-social\\b-ising-social-dynamics.yaml"
+    },
+    {
+      "id": "b-percolation-rumor-spreading",
+      "title": "Rumour and misinformation spreading on social networks maps exactly onto bond percolation on the contact network via the SIR epidemic model — with the percolation threshold p_c → 0 for scale-free networks, meaning any viral meme can reach the giant component of social attention regardless of initial conditions.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "SIR RUMOUR MODEL (Daley & Kendall 1965): Individuals are Susceptible (haven't heard), Infected (spreading), Recovered (heard but no longer spreading). Rate equations:\n\n  dS/dt = -βSI\n  dI/dt = βSI - γI\n  dR/dt = γI\n\nFinal outbreak size R(∞)/N = 1 - e^(-R₀·R(∞)/N) where R₀ = β/γ.\nBOND PERCOLATION MAP",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-misinformation-emotional-valence-persistence"
+      ],
+      "communication_gap": "Social media researchers and social psychologists who study misinformation rarely use percolation theory. Network scientists publishing in physics journals derive epidemic thresholds without connecting to the empirical social science literature on misinformation content effects.\n",
+      "translation_table": [
+        {
+          "field_a_term": "bond percolation threshold p_c (physics)",
+          "field_b_term": "epidemic threshold R_0 = 1 (epidemiology) / virality threshold (social science)",
+          "note": "All three are the same phase transition in disguise; p_c = 1/⟨k⟩ = 1/R_0 on regular random graph"
+        },
+        {
+          "field_a_term": "giant connected component (percolation)",
+          "field_b_term": "global information cascade (social media)",
+          "note": "Information reaches global scale iff spreading event is above percolation threshold"
+        },
+        {
+          "field_a_term": "transmission probability T (percolation)",
+          "field_b_term": "virality rate / share probability (social science)",
+          "note": "Emotional content of news increases T; this is the mechanism for misinformation advantage"
+        },
+        {
+          "field_a_term": "network degree distribution P(k) (network science)",
+          "field_b_term": "follower distribution on social platforms",
+          "note": "Scale-free follower distributions imply p_c -> 0; any content can go viral given right initial seed"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1093/imamat/1.1.42",
+          "note": "Daley & Kendall (1965) IMA J Appl Math 1:42 — original rumour spreading model"
+        },
+        {
+          "doi": "10.1126/science.aap9559",
+          "note": "Vosoughi et al. (2018) Science 359:1146 — false news spreads faster than true"
+        },
+        {
+          "doi": "10.1103/PhysRevE.69.066130",
+          "note": "Moreno et al. (2004) Phys Rev E 69:066130 — percolation mapping of rumour spreading"
+        },
+        {
+          "note": "Goffman & Newill (1964) Nature 204:225 — information spread as epidemic"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\physics-social-science\\b-percolation-rumor-spreading.yaml"
     },
     {
       "id": "b-schelling-phase-separation",
@@ -12840,6 +14045,62 @@
       "file": "cross-domain\\social-science-information\\b-cultural-memes-shannon-entropy.yaml"
     },
     {
+      "id": "b-privacy-differential-privacy",
+      "title": "Differential privacy provides an information-theoretic guarantee — epsilon bounds the log-likelihood ratio an adversary can achieve distinguishing any individual's data — creating a mathematically precise privacy-utility tradeoff that is dual to Neyman-Pearson hypothesis testing, bridging social privacy norms to information theory and statistical decision theory.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Differential privacy (Dwork et al. 2006): a mechanism M satisfies epsilon-DP if for any adjacent datasets D, D' differing by one record: P[M(D)∈S] ≤ exp(epsilon) × P[M(D')∈S]. This is a formal guarantee of individual privacy in statistical databases. The privacy-utility tradeoff: higher epsilon → le",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-differential-privacy-hypothesis-testing-connection"
+      ],
+      "communication_gap": "Privacy law and social science define privacy in terms of contextual integrity, norms, and legal concepts with no mathematical precision. Information theorists and cryptographers developed DP with mathematical rigor but limited connection to social concepts of harm and contextual expectation. Policy deployment (Census, Apple) required bridging these communities.\n",
+      "translation_table": [
+        {
+          "field_a_term": "individual privacy (social norm)",
+          "field_b_term": "epsilon-differential privacy (information-theoretic bound)",
+          "note": "DP translates the vague social concept of privacy into a quantitative bound"
+        },
+        {
+          "field_a_term": "sensitive database record",
+          "field_b_term": "one-element difference in adjacent datasets D, D'",
+          "note": "DP protects any single individual's contribution"
+        },
+        {
+          "field_a_term": "privacy budget epsilon",
+          "field_b_term": "log-likelihood ratio bound in hypothesis test",
+          "note": "exp(epsilon) = maximum Neyman-Pearson distinguishing advantage"
+        },
+        {
+          "field_a_term": "noise-adding mechanism (Laplace, Gaussian)",
+          "field_b_term": "randomized test with controlled error probabilities",
+          "note": "both achieve the desired epsilon by calibrating noise to sensitivity"
+        },
+        {
+          "field_a_term": "privacy loss accounting (composition)",
+          "field_b_term": "information-theoretic capacity bound under composition",
+          "note": "sequential DP queries compose; total epsilon grows with number of queries"
+        }
+      ],
+      "references": [
+        {
+          "note": "Dwork et al. (2006) ICALP — Calibrating Noise to Sensitivity in Private Data Analysis"
+        },
+        {
+          "note": "Dwork & Roth (2014) Found Trends Theor Comput Sci — The Algorithmic Foundations of Differential Privacy"
+        },
+        {
+          "note": "Vadhan (2017) in Tutorials on the Foundations of Cryptography"
+        },
+        {
+          "note": "Apple (2017) Differential Privacy Overview — production deployment description"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\social-science-information-theory\\b-privacy-differential-privacy.yaml"
+    },
+    {
       "id": "b-auction-theory-mechanism-design",
       "title": "Mechanism design reverses game theory — designing incentive structures so that rational self-interest produces socially optimal outcomes",
       "source_domain": "",
@@ -13296,6 +14557,65 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\social-science-physics\\b-opinion-dynamics-ising.yaml"
+    },
+    {
+      "id": "b-traffic-flow-fluid-dynamics",
+      "title": "Vehicular traffic flow obeys fluid-dynamic conservation laws: the LWR model maps vehicle density to fluid density and velocity to flow velocity, traffic jams propagate as shock waves satisfying the Rankine-Hugoniot condition, and phantom traffic jams arise from the same Turing-like linear instability that creates stop-and-go waves in supply chains, pedestrian crowds, and ant trails.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Vehicular traffic flow obeys fluid-dynamic conservation laws. The LWR model: d(rho)/dt + d(rho×v)/dx = 0 (conservation of vehicles) with a fundamental diagram v(rho) relating velocity to density. Traffic jams = shock waves propagating backward at wave speed c = dq/drho (Rankine-Hugoniot condition fo",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-traffic-flow-turing-instability-stop-go"
+      ],
+      "communication_gap": "Lighthill & Whitham (1955) were fluid dynamicists applying their expertise to a social science problem. Traffic engineering developed largely independently in civil engineering departments, rediscovering many fluid mechanics results. The nonlinear dynamics community (Helbing, Nagel) reconnected traffic science to physics in the 1990s but many traffic engineers still use empirical models without awareness of the fluid mechanics foundation.\n",
+      "translation_table": [
+        {
+          "field_a_term": "vehicle density rho (vehicles/km)",
+          "field_b_term": "fluid density rho (kg/m^3)",
+          "note": "conservation of vehicles maps exactly to conservation of mass"
+        },
+        {
+          "field_a_term": "traffic flow q = rho × v (vehicles/hour)",
+          "field_b_term": "fluid flux J = rho × v (kg/m^2/s)",
+          "note": "identical conservation law d(rho)/dt + d(q)/dx = 0"
+        },
+        {
+          "field_a_term": "traffic jam (stationary high-density region)",
+          "field_b_term": "shock wave (discontinuity in density/velocity)",
+          "note": "Rankine-Hugoniot: jam propagates backward at speed c = (q2-q1)/(rho2-rho1)"
+        },
+        {
+          "field_a_term": "free-flow to congested phase transition",
+          "field_b_term": "supersonic to subsonic flow transition (analogous to car entering jam)",
+          "note": "critical density rho_c analogous to sonic point; LWR is a first-order conservation law"
+        },
+        {
+          "field_a_term": "driver reaction time tau (1-2 seconds)",
+          "field_b_term": "relaxation time in second-order traffic model (viscosity analog)",
+          "note": "tau determines instability growth rate and stop-and-go wave formation threshold"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1098/rspa.1955.0089",
+          "note": "Lighthill & Whitham (1955) Proc R Soc A 229:317 — kinematic wave theory"
+        },
+        {
+          "doi": "10.1287/opre.4.1.42",
+          "note": "Richards (1956) Oper Res 4:42 — shock waves on highways"
+        },
+        {
+          "note": "Kerner & Konhauser (1993) Phys Rev E 48:R2335 — three-phase traffic theory"
+        },
+        {
+          "doi": "10.1103/RevModPhys.73.1067",
+          "note": "Helbing (2001) Rev Mod Phys 73:1067 — traffic and related self-driven particle systems"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\social-science-physics\\b-traffic-flow-fluid-dynamics.yaml"
     },
     {
       "id": "b-survey-causal-inference",

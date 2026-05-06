@@ -1,0 +1,83 @@
+id: b-enzyme-allostery-conformational
+title: >
+  Allosteric enzyme regulation follows the Monod-Wyman-Changeux (MWC) model —
+  cooperative T↔R conformational equilibrium governed by the Hill equation —
+  a mathematical framework identical to cooperative binding in hemoglobin, ion
+  channel gating, and gene expression switch behaviour.
+status: established
+fields:
+  - biochemistry
+  - chemistry
+  - molecular-biology
+  - biophysics
+  - pharmacology
+bridge_claim: >
+  ALLOSTERY DEFINITION: A ligand binding at one site changes activity at a
+  distant active site via conformational change. Cannot be explained by direct
+  steric blockade.
+
+  MWC MODEL (Monod-Wyman-Changeux 1965):
+  Oligomeric enzyme exists in two conformational states:
+  - T (tense/inactive): low affinity, low activity
+  - R (relaxed/active): high affinity, high activity
+  Equilibrium: T ⇌ R with allosteric constant L = [T]/[R]
+
+  Fractional saturation:
+    Ȳ = α(1+α)ⁿ⁻¹ + Lcα(1+cα)ⁿ⁻¹ / [(1+α)ⁿ + L(1+cα)ⁿ]
+
+  where α = [S]/K_R, c = K_R/K_T, n = number of subunits.
+
+  HILL EQUATION APPROXIMATION:
+    v = v_max · [S]ⁿ / (K_½ⁿ + [S]ⁿ)
+
+  n = Hill coefficient: n=1 (Michaelis-Menten, no cooperativity), n>1
+  (positive cooperativity, sigmoidal), n<1 (negative cooperativity).
+
+  ISOMORPHISMS:
+  1. Hemoglobin: O₂ binding — same MWC T↔R transition with n=2.8 Hill coefficient
+  2. Ion channel gating: Monod-Wyman-Changeux applied to voltage-gated K+ channels
+  3. Transcription factor: TF with cooperative DNA binding shows Hill-type response
+  4. Receptor pharmacology: Hill-Langmuir isotherm for drug binding is identical
+
+  CHEMICAL PHYSICS FOUNDATION:
+  The T↔R equilibrium is a two-state system — Ising model for proteins.
+  Partition function Z = (1+α)ⁿ + L(1+cα)ⁿ is formally a 1D Ising model
+  with external field α. All cooperative binding phenomena are Ising models
+  with different effective fields.
+translation_table:
+  - field_a_term: allosteric constant L = T/R equilibrium (biochemistry)
+    field_b_term: Boltzmann factor for two-state system (statistical mechanics)
+    note: L = exp(ΔG_TR / kT) — the MWC model is literally a statistical mechanical two-state partition function
+  - field_a_term: Hill coefficient n (biochemistry)
+    field_b_term: cooperativity / sharpness of switch
+    note: n can be derived from the MWC model as n_eff = n·L/(1+L) — depends on allosteric constant
+  - field_a_term: R state (relaxed, active) / T state (tense, inactive)
+    field_b_term: open / closed channel states (biophysics)
+    note: MWC applies directly to ion channels with voltage as the allosteric effector
+  - field_a_term: conformational change upon ligand binding
+    field_b_term: induced fit vs. conformational selection (structural biology)
+    note: MWC = conformational selection (pre-existing equilibrium); KNF = induced fit (sequential)
+related_unknowns:
+  - u-allostery-long-range-communication-mechanism
+  - u-cooperativity-protein-oligomerisation
+related_hypotheses:
+  - h-allostery-entropic-communication-pathway
+cross_pollination_opportunities:
+  - Ising model renormalisation group analysis applied to cooperative binding predicts cooperative behaviour at different concentration scales
+  - Machine learning of allosteric networks from MD simulation trajectories has been borrowed from social network analysis
+  - Drug design exploiting allosteric sites (rather than active sites) reduces competition with substrate — emerging pharmaceutical strategy
+communication_gap: >
+  Biochemists learn the MWC model and Hill equation as empirical tools without
+  recognising the Ising model connection. Statistical physicists working on
+  two-state systems rarely engage with the allosteric enzyme literature.
+  The bridge is noted by Changeux & Edelstein (2005) in Science but remains
+  underexploited for drug design.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1016/0022-2836(65)90184-3"
+    note: Monod et al. (1965) J Mol Biol 12:88 — original MWC model
+  - note: Hill (1910) J Physiol 40:iv — Hill equation for cooperative binding
+  - doi: "10.1021/bi00829a011"
+    note: Koshland et al. (1966) Biochemistry 5:365 — KNF sequential model
+  - doi: "10.1002/prot.20330"
+    note: Gunasekaran et al. (2004) Proteins 57:433 — allostery without conformational change

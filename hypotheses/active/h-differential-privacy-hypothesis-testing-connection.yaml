@@ -1,0 +1,38 @@
+id: h-differential-privacy-hypothesis-testing-connection
+title: >
+  Differential privacy (epsilon, delta) is dual to hypothesis testing: epsilon
+  controls the Type I + Type II error tradeoff for any test distinguishing
+  adjacent datasets, and the hockey-stick divergence E_alpha = max(P(M(D)∈S) -
+  alpha × P(M(D')∈S)) provides the tight characterization of (epsilon, delta)-DP
+  in terms of Neyman-Pearson optimal hypothesis testing theory.
+status: active
+priority: high
+impact_score: 0.78
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+unknowns_addressed:
+  - u-differential-privacy-utility-tight-bound
+evidence_links:
+  - note: "Dwork et al. (2006) ICALP — original differential privacy definition"
+    type: supporting
+    confidence: 0.90
+  - note: "Kairouz et al. (2015) - composition theorem via moments accountant"
+    type: supporting
+    confidence: 0.75
+  - doi: "10.48550/arXiv.1905.02383"
+    type: supporting
+    confidence: 0.70
+    note: "Dong et al. (2019) - f-DP: tight characterization via hypothesis testing tradeoff functions"
+proposed_tests:
+  - description: >
+      Implement f-DP accounting for the Gaussian mechanism applied to 100 counting
+      queries and compare tight privacy cost (f-DP) vs approximate accounting (moments
+      accountant). Measure: does f-DP give tighter epsilon by >20% for composition of
+      50+ queries?
+    prediction: "f-DP gives epsilon estimates 20-40% tighter than moments accountant for 50-query composition, enabling the same privacy level with 20-40% more utility in practice."
+related_disciplines:
+  - information-theory
+  - statistics
+  - privacy
+  - computer-science

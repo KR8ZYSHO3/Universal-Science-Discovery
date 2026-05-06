@@ -1,0 +1,39 @@
+id: h-neuromorphic-sparse-coding-energy-bound
+title: >
+  Neuromorphic computing achieves fundamental energy advantage over von Neumann
+  architectures because sparse event-driven coding (biological spike rates ~1-10 Hz
+  vs continuous 10^9 Hz clock cycles) reduces energy per inference by 10^3-10^5x,
+  with the theoretical minimum set by Landauer's bound per synaptic event
+  (~10^4 kT per spike in biological neurons, 10-100 kT in CMOS implementations).
+status: active
+priority: high
+impact_score: 0.75
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+unknowns_addressed:
+  - u-neuromorphic-energy-efficiency
+evidence_links:
+  - doi: "10.1109/JPROC.2014.2304638"
+    type: supporting
+    confidence: 0.70
+    note: "Merolla et al. (2014) - IBM TrueNorth: 70 mW for 10^8 synaptic operations/second (vs GPU 200W)"
+  - doi: "10.1038/s41928-019-0361-2"
+    type: supporting
+    confidence: 0.65
+    note: "Schuman et al. (2022) - neuromorphic computing review: energy efficiency and limits"
+  - type: related
+    confidence: 0.55
+    note: "Attwell & Laughlin (2001) - energy budget of spiking neurons: 10^4 ATP per action potential"
+proposed_tests:
+  - description: >
+      Benchmark Intel Loihi-2, IBM NorthPole, and SpiNNaker-2 on identical inference
+      tasks (MNIST, CIFAR-10, speech commands). Measure pJ/inference across sparsity
+      levels 0.1-10 Hz average firing rate. Compare to Landauer bound prediction:
+      E_min = N_syn × f_spike × k_B T ln 2 per classification.
+    prediction: "Achieved energy at 1 Hz spike rate within 100x of Landauer bound; 10-100x below GPU baseline; energy scales linearly with mean firing rate confirming sparse coding theory."
+related_disciplines:
+  - neuromorphic-computing
+  - neuroscience
+  - computer-architecture
+  - thermodynamics

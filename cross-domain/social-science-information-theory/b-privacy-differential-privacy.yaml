@@ -1,0 +1,67 @@
+id: b-privacy-differential-privacy
+title: >
+  Differential privacy provides an information-theoretic guarantee — epsilon bounds
+  the log-likelihood ratio an adversary can achieve distinguishing any individual's
+  data — creating a mathematically precise privacy-utility tradeoff that is dual to
+  Neyman-Pearson hypothesis testing, bridging social privacy norms to
+  information theory and statistical decision theory.
+status: established
+fields:
+  - social-science
+  - information-theory
+  - statistics
+  - computer-science
+  - privacy-law
+bridge_claim: >
+  Differential privacy (Dwork et al. 2006): a mechanism M satisfies epsilon-DP if for
+  any adjacent datasets D, D' differing by one record:
+  P[M(D)∈S] ≤ exp(epsilon) × P[M(D')∈S]. This is a formal guarantee of individual
+  privacy in statistical databases. The privacy-utility tradeoff: higher epsilon →
+  less privacy, more utility. DP is information-theoretic: epsilon bounds the mutual
+  information leaked about any individual. Applications: Apple, Google, US Census use DP.
+  The same mathematics (log-likelihood ratio bounds) appears in hypothesis testing
+  theory (Neyman-Pearson lemma) — distinguishing adjacent databases is equivalent
+  to hypothesis testing between P and Q.
+translation_table:
+  - field_a_term: individual privacy (social norm)
+    field_b_term: epsilon-differential privacy (information-theoretic bound)
+    note: DP translates the vague social concept of privacy into a quantitative bound
+  - field_a_term: sensitive database record
+    field_b_term: one-element difference in adjacent datasets D, D'
+    note: DP protects any single individual's contribution
+  - field_a_term: privacy budget epsilon
+    field_b_term: log-likelihood ratio bound in hypothesis test
+    note: exp(epsilon) = maximum Neyman-Pearson distinguishing advantage
+  - field_a_term: noise-adding mechanism (Laplace, Gaussian)
+    field_b_term: randomized test with controlled error probabilities
+    note: both achieve the desired epsilon by calibrating noise to sensitivity
+  - field_a_term: privacy loss accounting (composition)
+    field_b_term: information-theoretic capacity bound under composition
+    note: sequential DP queries compose; total epsilon grows with number of queries
+related_unknowns:
+  - u-differential-privacy-utility-tight-bound
+related_hypotheses:
+  - h-differential-privacy-hypothesis-testing-connection
+cross_pollination_opportunities:
+  - >
+    US Census Bureau deployment (2020 Census) revealed that geographic queries require
+    much higher epsilon than expected for acceptable utility — a direct applied
+    consequence of the privacy-utility tradeoff that requires information-theoretic
+    analysis to resolve.
+  - >
+    Federated learning (Google, Apple) uses local differential privacy: each device
+    adds noise before sending gradients. Combining DP-SGD with information-theoretic
+    capacity bounds (mutual information between gradient and private data) could
+    tighten privacy guarantees for ML training.
+communication_gap: >
+  Privacy law and social science define privacy in terms of contextual integrity,
+  norms, and legal concepts with no mathematical precision. Information theorists
+  and cryptographers developed DP with mathematical rigor but limited connection
+  to social concepts of harm and contextual expectation. Policy deployment (Census,
+  Apple) required bridging these communities.
+last_reviewed: "2026-05-06"
+references:
+  - note: "Dwork et al. (2006) ICALP — Calibrating Noise to Sensitivity in Private Data Analysis"
+  - note: "Dwork & Roth (2014) Found Trends Theor Comput Sci — The Algorithmic Foundations of Differential Privacy"
+  - note: "Vadhan (2017) in Tutorials on the Foundations of Cryptography"
+  - note: "Apple (2017) Differential Privacy Overview — production deployment description"

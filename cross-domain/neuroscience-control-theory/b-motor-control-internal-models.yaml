@@ -1,0 +1,68 @@
+id: b-motor-control-internal-models
+title: >
+  The brain implements forward and inverse internal models for motor control that are
+  mathematically identical to the Kalman filter and Linear Quadratic Regulator (LQR)
+  of control engineering; the cerebellum implements forward model prediction while
+  the motor cortex implements inverse model control, bridging neuroscience and
+  optimal control theory.
+status: established
+fields:
+  - neuroscience
+  - control-theory
+  - motor-control
+  - computational-neuroscience
+bridge_claim: >
+  The brain implements internal models (forward and inverse models) for motor control.
+  Forward model: given efference copy of motor command u, predict sensory outcome
+  ŷ = f(u). Inverse model: given desired outcome y*, compute required command u* = f⁻¹(y*).
+  The cerebellum implements forward models for motor prediction (Wolpert et al. 1998).
+  Optimal feedback control (Todorov & Jordan 2002): the motor system minimizes a cost
+  function J = E[∫(u'Ru + x'Qx)dt] — linear quadratic regulation (LQR) in control theory.
+  The state estimator needed for LQR is the Kalman filter: the neural Kalman filter
+  uses efference copy + sensory feedback weighted by noise covariances.
+  This bridges neuroscience (cerebellar computation, Purkinje cell learning) to control
+  engineering (LQR, Kalman filter, optimal control).
+translation_table:
+  - field_a_term: efference copy (copy of motor command)
+    field_b_term: control input u in state-space model ẋ = Ax + Bu
+    note: efference copy is the biological u; used by forward model for prediction
+  - field_a_term: "forward model (cerebellum): ŷ = f(u)"
+    field_b_term: "Kalman filter prediction step: x̂_{k|k-1} = Ax̂_{k-1} + Bu_k"
+    note: cerebellum implements one-step-ahead prediction of sensory state
+  - field_a_term: "inverse model (motor cortex + SMA): u* = f⁻¹(y*)"
+    field_b_term: "LQR control law: u* = -K x̂ (linear feedback of state estimate)"
+    note: both compute control command from desired state; both are optimal under quadratic cost
+  - field_a_term: climbing fiber error signal (inferior olive → cerebellum)
+    field_b_term: "Kalman innovation: y_k - Cx̂_{k|k-1} (prediction error)"
+    note: climbing fiber encodes mismatch between predicted and actual sensory outcome
+  - field_a_term: Purkinje cell firing rate adaptation (LTD)
+    field_b_term: "Kalman gain update: K_k = P_{k|k-1}C'(CP_{k|k-1}C'+R)^{-1}"
+    note: cerebellar learning adjusts the internal model parameters analogous to Kalman gain
+related_unknowns:
+  - u-forward-model-cerebellum-learning-rule
+related_hypotheses:
+  - h-cerebellum-lqr-forward-model-implementation
+cross_pollination_opportunities:
+  - >
+    Rehabilitation robotics (exoskeleton control) uses LQR/Kalman principles from control
+    engineering; adapting these to patient-specific motor deficits could use knowledge
+    of cerebellar lesion effects on forward model update rates.
+  - >
+    MODULAR MULTIPLE MODEL architecture from control engineering (multiple internal
+    models competing via mixture of experts) directly inspired neural MOSAIC model
+    (Wolpert & Kawato 1998) for context-dependent motor control.
+communication_gap: >
+  Motor neuroscientists and control engineers work in separate literatures (Nature
+  Neuroscience vs IEEE Transactions on Automatic Control) and rarely cross-cite.
+  The language barrier is substantial: engineers use state-space notation while
+  neuroscientists use biological terminology, obscuring mathematical equivalences.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1126/science.280.5368.1880"
+    note: "Wolpert et al. (1998) Science 280:1880 — cerebellar internal models"
+  - doi: "10.1038/nn1116"
+    note: "Todorov & Jordan (2002) Nat Neurosci 5:1226 — optimal feedback control of motor tasks"
+  - doi: "10.1016/S0959-4388(99)00016-5"
+    note: "Kawato (1999) Curr Opin Neurobiol 9:718 — internal model hypothesis"
+  - doi: "10.1523/JNEUROSCI.14.5.3208.1994"
+    note: "Shadmehr & Mussa-Ivaldi (1994) J Neurosci 14:3208 — learning dynamics of reaching"
