@@ -1,0 +1,83 @@
+id: b-voter-model-opinion-dynamics
+title: >
+  The voter model (Clifford–Sudbury 1973) is exactly solvable on any graph and
+  shows that consensus time, coexistence probability, and polarization dynamics
+  depend on spatial dimension and network topology in ways that match empirical
+  political polarization patterns.
+status: established
+fields:
+  - physics
+  - statistical-mechanics
+  - social-science
+  - political-science
+  - complex-networks
+bridge_claim: >
+  The voter model: each agent holds one of two opinions (0 or 1); at each time step,
+  a random agent copies a random neighbor. This is exactly solvable via duality
+  with coalescing random walks. Key results: (1) In d ≤ 2 (including all finite
+  networks), consensus (all-0 or all-1) occurs with probability 1 — coexistence
+  is transient; (2) In d > 2 (or on expander graphs), coexistence persists
+  indefinitely; (3) Consensus time T_N ∝ N log N in d = 2 (mean-field-like
+  networks), T_N ∝ N² in d = 1 (chain), T_N ∝ N in complete graph; (4) On
+  random networks with community structure (modular topology), effective
+  dimensionality increases → slow consensus dynamics → persistent opinion
+  coexistence between communities. The noisy voter model (agents switch opinion
+  spontaneously at rate ε) has a unique stationary state with fluctuations
+  ∝ 1/√(Nε) — the "voter noise" contribution to opinion diversity. Empirically:
+  political polarization in societies with modular social networks (echo chambers)
+  persists on timescales T ~ N²/community_size, explaining why algorithmic
+  recommendation systems (which increase network modularity) extend polarization
+  timescales by decades. The voter model thus maps the physics of stochastic
+  interacting particles directly onto quantitative predictions for political dynamics.
+translation_table:
+  - field_a_term: voter model agent copying random neighbor
+    field_b_term: social influence — individuals adopt opinions from their network
+  - field_a_term: coalescing random walk dual process
+    field_b_term: genealogy of opinion spread — tracks which agent's opinion dominates
+  - field_a_term: consensus (absorbing state, all spins identical)
+    field_b_term: political convergence or ideological monoculture
+  - field_a_term: coexistence (T → ∞, no consensus)
+    field_b_term: persistent political polarization in large societies
+  - field_a_term: consensus time T_N ∝ N log N (d=2)
+    field_b_term: timescale for political opinion cycles in social networks
+  - field_a_term: modular graph topology (community structure)
+    field_b_term: social echo chambers and filter bubbles
+  - field_a_term: spontaneous opinion flip rate ε (noisy voter)
+    field_b_term: independent opinion formation rate outside social influence
+  - field_a_term: spatial dimension d
+    field_b_term: effective social network dimension (expander vs lattice-like)
+related_unknowns:
+  - u-political-polarization-network-topology
+related_hypotheses:
+  - h-voter-model-echo-chamber-polarization-timescale
+cross_pollination_opportunities:
+  - >
+    Social media algorithm design: using voter model predictions to quantify
+    how recommendation system changes (graph rewiring) affect polarization
+    timescale — translating a physics result into platform policy guidance.
+  - >
+    Electoral prediction: applying the noisy voter model to multi-party systems
+    (partisan voter model with 3+ states) to predict election outcome distributions
+    from social network topology data.
+  - >
+    Intervention design: identifying minimum perturbation (random rewiring,
+    opinion leader targeting) to push a modular network from the coexistence
+    phase to the consensus-capable regime — physics of opinion change campaigns.
+communication_gap: >
+  Clifford & Sudbury (1973) published in Biometrika as a model of territorial
+  competition in ecology (not sociology). The social interpretation was developed
+  by physicists (Sood, Redner, Vazquez, Eguíluz) in physics journals. Political
+  scientists and sociologists studying polarization rarely cite the voter model
+  literature. The exact solution via coalescing random walks is not taught in
+  social science programs, despite providing quantitative predictions testable
+  against longitudinal survey data.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.2307/2334555"
+    note: Clifford & Sudbury (1973) A model for spatial conflict. Biometrika 60:581
+  - doi: "10.1103/PhysRevLett.94.178701"
+    note: Sood & Redner (2005) Voter model on heterogeneous graphs. Phys Rev Lett 94:178701
+  - doi: "10.1088/1751-8113/41/43/435003"
+    note: Vazquez & Eguíluz (2008) Analytical solution of the voter model on uncorrelated networks. J Phys A 41:435003
+  - doi: "10.1007/s10955-007-9395-9"
+    note: Mobilia et al. (2007) On the role of zealotry in the voter model. J Stat Phys 128:447

@@ -1,0 +1,39 @@
+id: h-reusable-rocket-guidance-limits
+title: >
+  The guidance and control accuracy limit for propulsive rocket landing is set by
+  sensor noise in the terminal descent phase (~50m altitude), with GPS-denied
+  precision achievable to <1m CEP using optical flow + LIDAR fusion, and
+  turnaround time limits dominated by heat shield inspection rather than propulsion.
+status: active
+priority: medium
+impact_score: 0.68
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+unknowns_addressed:
+  - u-reusable-rocket-precision
+evidence_links:
+  - type: supporting
+    note: "SpaceX Falcon 9 Block 5: demonstrated <1m landing accuracy on ASDS and 18-flight reuse — precision limit not yet structurally constraining"
+    confidence: 0.72
+  - type: related
+    note: "Blackmore (2016) lossless convexification of powered descent guidance: real-time optimal trajectory generation achievable on flight computers"
+    confidence: 0.75
+  - type: related
+    note: "Johnson et al. (2018) NASA TRN (terrain relative navigation): optical flow achieves 1m accuracy on Mars — applicable to rocket terminal descent"
+    confidence: 0.65
+proposed_tests:
+  - description: >
+      Hardware-in-the-loop test: run optical flow + LIDAR sensor fusion algorithm
+      on flight computer hardware (Zynq FPGA) using simulated terminal descent
+      imagery from 200m to 0m. Measure CEP under simulated GPS outage and engine
+      plume interference (1% terrain obscuration). Target: <0.5m CEP, <10ms latency.
+  - description: >
+      Fleet reliability analysis: compile all Falcon 9 Block 5 landing attempts
+      (N>200). Fit failure mode distribution (Weibull). Identify whether landing
+      failure rate is decreasing with flight count (aging) or stable. Compute
+      minimum viable turn-around time from structural inspection requirements.
+related_disciplines:
+  - aerospace-engineering
+  - guidance-navigation-control
+  - systems-engineering

@@ -1,5 +1,5 @@
 {
-  "count": 250,
+  "count": 262,
   "items": [
     {
       "id": "b-grokking-criticality",
@@ -1540,6 +1540,66 @@
       "file": "cross-domain\\biology-mathematics\\b-game-theory-immune-evasion.yaml"
     },
     {
+      "id": "b-population-genetics-diffusion",
+      "title": "The Wright-Fisher model of allele frequency evolution under drift and selection maps exactly onto a Fokker-Planck diffusion equation — Kimura's fixation probability formula and the stationary beta distribution are exact solutions, unifying probability theory and evolutionary genetics.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The Wright-Fisher model: a population of N diploid individuals; each generation, 2N gene copies sampled from previous generation (binomial sampling = genetic drift). For large N, the allele frequency p(t) follows the Fokker-Planck (diffusion) equation: ∂f/∂t = −∂/∂p[M(p)f] + ½∂²/∂p²[V(p)f], where dr",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-nearly-neutral-theory-diffusion-boundary"
+      ],
+      "communication_gap": "Kimura's diffusion approximation was developed by a geneticist (with formal physics training) writing primarily for mathematical geneticists. Population geneticists routinely apply the diffusion framework but do not always connect it to the broader Fokker-Planck literature in physics and stochastic processes. Conversely, physicists studying stochastic dynamics rarely know that Kimura's fixation formula is an exact solution to their standard equation. The connection to Dirichlet processes (Bayesian nonparametrics) via the Ewens sampling formula is known in mathematical statistics but not well-known in evolutionary biology.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Fokker-Planck diffusion equation ∂f/∂t = −∂[Mf]/∂p + ½∂²[Vf]/∂p²",
+          "field_b_term": "Wright-Fisher diffusion for allele frequency evolution"
+        },
+        {
+          "field_a_term": "drift coefficient M(p) = sp(1−p)",
+          "field_b_term": "natural selection pressure on allele frequency"
+        },
+        {
+          "field_a_term": "diffusion coefficient V(p) = p(1−p)/N",
+          "field_b_term": "genetic drift (sampling noise inversely proportional to population size)"
+        },
+        {
+          "field_a_term": "absorbing boundaries at p=0 and p=1",
+          "field_b_term": "allele loss (p=0) or fixation (p=1) — irreversible evolutionary events"
+        },
+        {
+          "field_a_term": "Kimura fixation probability formula",
+          "field_b_term": "probability that a new mutation eventually spreads to fixation"
+        },
+        {
+          "field_a_term": "beta distribution stationary state",
+          "field_b_term": "allele frequency spectrum at mutation-drift-selection equilibrium"
+        },
+        {
+          "field_a_term": "effective population size N_e (harmonic mean over bottlenecks)",
+          "field_b_term": "effective diffusion constant — sets balance between drift and selection"
+        }
+      ],
+      "references": [
+        {
+          "note": "Wright (1931) Evolution in Mendelian populations. Genetics 16:97"
+        },
+        {
+          "doi": "10.2307/3211856",
+          "note": "Kimura (1964) Diffusion models in population genetics. J Appl Probab 1:177"
+        },
+        {
+          "note": "Ewens (2004) Mathematical Population Genetics, 2nd ed. Springer"
+        },
+        {
+          "note": "Crow & Kimura (1970) An Introduction to Population Genetics Theory. Harper & Row"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\biology-mathematics\\b-population-genetics-diffusion.yaml"
+    },
+    {
       "id": "b-replicator-equations-evolutionary-dynamics",
       "title": "The replicator equation ẋᵢ = xᵢ(fᵢ - f̄) governs strategy frequencies in evolutionary game theory, population genetics, and reinforcement learning — its trajectories on the probability simplex converge to Nash equilibria (evolutionary stable strategies), and the Price equation provides a unified mathematical framework for all levels of selection simultaneously.\n",
       "source_domain": "",
@@ -1841,6 +1901,68 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\biology-physics\\b-circadian-clocks-nonlinear-oscillators.yaml"
+    },
+    {
+      "id": "b-membrane-curvature-vesicle-formation",
+      "title": "Lipid membrane shapes — from red blood cell discocytes to endocytic vesicles — are governed by the Helfrich bending energy functional, connecting elastic continuum mechanics to cell biology and protein-sculpted membrane remodelling.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Lipid bilayer membranes resist bending with bending modulus κ ≈ 10–20 k_BT. The Helfrich bending energy is F = ½κ∫(2H − c₀)²dA + κ_G∫K dA, where H is the mean curvature, K is the Gaussian curvature, c₀ is the spontaneous curvature (set by membrane asymmetry), and κ_G is the Gaussian modulus. Minimiz",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-bar-domain-curvature-sensing-threshold"
+      ],
+      "communication_gap": "Helfrich's 1973 paper appeared in a biophysics journal but was largely ignored by cell biologists for two decades. The experimentally accessible prediction (vesicle shape diagrams) was confirmed by Seifert's group in the 1990s, but the connection to membrane trafficking proteins only became appreciated with the discovery of BAR domains (McMahon & Gallop 2005). Cell biologists continue to describe endocytosis mechanistically without invoking the elastic mechanics framework that unifies these processes.\n",
+      "translation_table": [
+        {
+          "field_a_term": "mean curvature H = ½(κ₁ + κ₂)",
+          "field_b_term": "local membrane shape at each point of the bilayer"
+        },
+        {
+          "field_a_term": "spontaneous curvature c₀",
+          "field_b_term": "membrane compositional asymmetry / BAR domain curvature preference"
+        },
+        {
+          "field_a_term": "bending modulus κ (J)",
+          "field_b_term": "membrane stiffness determining vesicle fluctuation amplitude"
+        },
+        {
+          "field_a_term": "Gaussian curvature K = κ₁κ₂",
+          "field_b_term": "topological curvature — integral over closed surface = 4π (Gauss-Bonnet)"
+        },
+        {
+          "field_a_term": "area-difference elasticity (ADE) model",
+          "field_b_term": "RBC shape diagram parameterized by reduced volume and area difference"
+        },
+        {
+          "field_a_term": "stomatocyte↔discocyte↔echinocyte transitions",
+          "field_b_term": "osmotic stress responses and disease-related RBC morphology changes"
+        },
+        {
+          "field_a_term": "critical radius for tubulation (R_c = √(κ/2σ))",
+          "field_b_term": "minimum neck radius for vesicle budding or membrane tubule formation"
+        }
+      ],
+      "references": [
+        {
+          "note": "Helfrich (1973) Elastic properties of lipid bilayers. Z Naturforsch 28c:693"
+        },
+        {
+          "doi": "10.1080/00018739700101488",
+          "note": "Seifert (1997) Configurations of fluid membranes and vesicles. Adv Phys 46:13"
+        },
+        {
+          "doi": "10.1038/nrm1784",
+          "note": "Zimmerberg & Kozlov (2006) How proteins produce cellular membrane curvature. Nat Rev Mol Cell Biol 7:9"
+        },
+        {
+          "doi": "10.1038/s41467-019-10346-6",
+          "note": "Bhaskara et al. (2019) Curvature induction and membrane remodeling by FAM134B. Nat Commun 10:2347"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\biology-physics\\b-membrane-curvature-vesicle-formation.yaml"
     },
     {
       "id": "b-protein-folding-energy-landscape",
@@ -2204,6 +2326,67 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\chemistry-engineering\\b-pem-hydrogen-economy.yaml"
+    },
+    {
+      "id": "b-graph-theory-molecular-properties",
+      "title": "Molecular graphs (atoms as vertices, bonds as edges) encode chemical structure through topological indices correlated with physical properties, and the characteristic polynomial of the adjacency matrix yields Hückel MO energies — bridging graph spectral theory to computational chemistry.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "A molecule is represented as a graph G = (V, E) where vertices are heavy atoms and edges are chemical bonds. Three bridges: (1) Topological indices — the Wiener index W = Σ_{i<j} d(i,j) (sum of all pairwise distances) correlates with boiling point of alkanes (r² > 0.97, Wiener 1947); Zagreb indices ",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-topological-index-drug-bioavailability-prediction"
+      ],
+      "communication_gap": "Wiener (1947) was a chemist; Hückel (1931) was a physicist-chemist — their graph results were not connected to formal graph theory for decades. The mathematical theory of chemical graph theory (Trinajstić, Gutman, Randić) developed in the 1970s–1990s in chemistry journals, unaware of parallel developments in algebraic graph theory. The NP-hardness connection (graph isomorphism) was only articulated by theoretical computer scientists. GNNs for molecular property prediction rediscover topological indices as trainable features without citing the classical chemical graph theory literature.\n",
+      "translation_table": [
+        {
+          "field_a_term": "graph adjacency matrix A_{ij}",
+          "field_b_term": "molecular connectivity matrix (A_{ij}=1 if atoms i,j bonded)"
+        },
+        {
+          "field_a_term": "eigenvalues of A (graph spectrum)",
+          "field_b_term": "Hückel MO energy levels ε_k = α + λ_k β"
+        },
+        {
+          "field_a_term": "characteristic polynomial det(xI − A)",
+          "field_b_term": "secular determinant in Hückel MO theory"
+        },
+        {
+          "field_a_term": "Wiener index W = Σ d(i,j)",
+          "field_b_term": "topological descriptor correlating with boiling point and molar volume"
+        },
+        {
+          "field_a_term": "graph isomorphism problem",
+          "field_b_term": "molecular equivalence / stereoisomer identification"
+        },
+        {
+          "field_a_term": "Randić connectivity index χ = Σ_{uv} (deg(u)·deg(v))^{-1/2}",
+          "field_b_term": "branching index correlating with octanol-water partition coefficient"
+        },
+        {
+          "field_a_term": "graph planarity (Kuratowski's theorem)",
+          "field_b_term": "planarity condition required for classical Hückel theory"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1021/ja01193a005",
+          "note": "Wiener (1947) Structural determination of paraffin boiling points. J Am Chem Soc 69:17"
+        },
+        {
+          "note": "Hückel (1931) Quantentheoretische Beiträge zum Benzolproblem. Z Phys 70:204"
+        },
+        {
+          "note": "Trinajstić (1992) Chemical Graph Theory, 2nd ed. CRC Press"
+        },
+        {
+          "doi": "10.1021/ja00856a001",
+          "note": "Randić (1975) On characterization of molecular branching. J Am Chem Soc 97:6609"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\chemistry-mathematics\\b-graph-theory-molecular-properties.yaml"
     },
     {
       "id": "b-reaction-diffusion-pattern-formation",
@@ -3103,6 +3286,68 @@
       "file": "cross-domain\\computer-science-mathematics\\b-complexity-phase-transitions.yaml"
     },
     {
+      "id": "b-randomized-algorithms-probabilistic-method",
+      "title": "The probabilistic method (Erdős) proves combinatorial existence by showing random objects have a desired property with positive probability; randomized algorithms exploit this computationally, and derandomization bridges the two via conditional expectations, unifying combinatorics and algorithm design.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The probabilistic method (Erdős 1947): to prove that a combinatorial object with property P exists, construct a suitable probability space, show the random object lacks property P with probability < 1. No explicit construction needed — existence follows from probability. This is a pure mathematical ",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-jl-lemma-optimal-dimension-reduction"
+      ],
+      "communication_gap": "Erdős worked primarily in combinatorics; the algorithmic implications were developed by the theory of computing community (Rabin, Solovay, Strassen, Motwani) beginning in the 1970s. The unification through derandomization (Nisan, Wigderson, Alon) is a major achievement of theoretical computer science. Applied machine learning practitioners routinely use Johnson–Lindenstrauss projections and randomized SVD without knowing the combinatorial probabilistic method foundations.\n",
+      "translation_table": [
+        {
+          "field_a_term": "probabilistic existence proof (Pr[P holds] > 0)",
+          "field_b_term": "expected-case guarantee in randomized algorithm",
+          "note": "both rely on random variable analysis over the same probability space"
+        },
+        {
+          "field_a_term": "Lovász Local Lemma (sparse bad events can all be avoided)",
+          "field_b_term": "Moser–Tardos constructive proof (algorithmic LLL gives polynomial construction)"
+        },
+        {
+          "field_a_term": "Chernoff bound (exponential concentration of sums)",
+          "field_b_term": "high-probability guarantee in randomized rounding algorithms"
+        },
+        {
+          "field_a_term": "second moment method (Var[X] ≤ E[X²])",
+          "field_b_term": "analysis of collision probability in hashing algorithms"
+        },
+        {
+          "field_a_term": "random graph G(n,p) (Erdős–Rényi)",
+          "field_b_term": "average-case model for network algorithm analysis"
+        },
+        {
+          "field_a_term": "method of conditional expectations",
+          "field_b_term": "derandomization — turning probabilistic proof into deterministic algorithm"
+        },
+        {
+          "field_a_term": "Johnson–Lindenstrauss lemma (dimension reduction)",
+          "field_b_term": "random projection preprocessing in machine learning pipelines"
+        }
+      ],
+      "references": [
+        {
+          "note": "Alon & Spencer (2016) The Probabilistic Method, 4th ed. Wiley"
+        },
+        {
+          "doi": "10.1090/conm/026/737400",
+          "note": "Johnson & Lindenstrauss (1984) Extensions of Lipschitz maps into a Hilbert space. Contemp Math 26:189"
+        },
+        {
+          "note": "Motwani & Raghavan (1995) Randomized Algorithms. Cambridge University Press"
+        },
+        {
+          "doi": "10.1007/BF02579385",
+          "note": "Raghavan & Thompson (1987) Randomized rounding. Combinatorica 7:365"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\computer-science-mathematics\\b-randomized-algorithms-probabilistic-method.yaml"
+    },
+    {
       "id": "b-sat-phase-transition",
       "title": "Random 3-SAT undergoes a sharp satisfiability phase transition at clause-to-variable ratio α ≈ 4.267 — the computational hardness peak maps onto a spin-glass phase transition (replica-symmetry breaking), linking P vs. NP to the statistical physics of disordered systems.\n",
       "source_domain": "",
@@ -3685,6 +3930,65 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\developmental-biology-physics\\b-morphogen-gradients-diffusion.yaml"
+    },
+    {
+      "id": "b-biogeochemical-cycles-thermodynamic-disequilibrium",
+      "title": "Life maintains Earth's atmosphere in extreme thermodynamic disequilibrium — the simultaneous presence of O₂ and CH₄ is a detectable biosignature — connecting ecology (biosphere activity) to atmospheric chemistry through Prigogine's dissipative structure theory.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "proposed",
+      "bridge_claim": "Thermodynamic equilibrium of Earth's atmosphere (if life were absent) would yield a CO₂-dominated atmosphere similar to Mars or Venus, with negligible O₂ and CH₄. The simultaneous presence of O₂ (21%) and CH₄ (~1.8 ppm) represents a chemical disequilibrium: these gases react spontaneously (CH₄ + 2O₂",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-atmospheric-disequilibrium-biosignature-exoplanets"
+      ],
+      "communication_gap": "Lovelock trained as a chemist-inventor; ecologists regarded the Gaia hypothesis as teleological and resisted it. Atmospheric chemists and climate scientists engaged with the chemistry but not the thermodynamic framing. Prigogine's non-equilibrium thermodynamics was developed in the physics and chemistry communities and rarely cited in ecology or astrobiology literature. Krissansen-Totton et al. (2018) provided the first rigorous thermodynamic calculation in a planetary science context.\n",
+      "translation_table": [
+        {
+          "field_a_term": "dissipative structure (Prigogine, far-from-equilibrium ordered system)",
+          "field_b_term": "biosphere-atmosphere coupled system maintained by solar flux"
+        },
+        {
+          "field_a_term": "Gibbs free energy of atmospheric disequilibrium ΔG_atm",
+          "field_b_term": "quantitative biosignature strength (distinguishes inhabited from uninhabited planets)"
+        },
+        {
+          "field_a_term": "atmospheric equilibrium composition (thermodynamic minimum)",
+          "field_b_term": "abiotic reference state (Mars/Venus-like CO₂ atmosphere)"
+        },
+        {
+          "field_a_term": "O₂–CH₄ chemical disequilibrium pair",
+          "field_b_term": "primary atmospheric biosignature detectable by remote spectroscopy"
+        },
+        {
+          "field_a_term": "biogeochemical cycling rate (e.g., GPP, methanogenesis rate)",
+          "field_b_term": "disequilibrium maintenance rate — quantifies ecosystem contribution"
+        },
+        {
+          "field_a_term": "entropy production rate of the biosphere",
+          "field_b_term": "metabolic dissipation rate — maximum entropy production principle"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1016/0004-6981(72)90071-4",
+          "note": "Lovelock (1972) Gaia as seen through the atmosphere. Atmos Environ 6:579"
+        },
+        {
+          "doi": "10.1111/j.2153-3490.1974.tb01946.x",
+          "note": "Lovelock & Margulis (1974) Atmospheric homeostasis by and for the biosphere. Tellus 26:2"
+        },
+        {
+          "doi": "10.1126/sciadv.aao5747",
+          "note": "Krissansen-Totton et al. (2018) Disequilibrium biosignatures over Earth history. Sci Adv 4:eaao5747"
+        },
+        {
+          "doi": "10.1126/science.201.4358.777",
+          "note": "Prigogine (1978) Time, structure, and fluctuations. Science 201:777"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\ecology-chemistry\\b-biogeochemical-cycles-thermodynamic-disequilibrium.yaml"
     },
     {
       "id": "b-stoichiometry-liebig-minimum",
@@ -5773,6 +6077,66 @@
       "file": "cross-domain\\engineering-mathematics\\b-signal-processing-fourier-analysis.yaml"
     },
     {
+      "id": "b-antenna-theory-electromagnetic-radiation",
+      "title": "All wireless communication reduces to applied Maxwell equations — the Hertzian dipole radiation formula, Friis transmission equation, and phased array beam steering follow from Maxwell's equations with the same mathematics as Bragg diffraction in crystallography.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The Hertzian dipole (oscillating electric dipole moment p(t) = p₀cos(ωt)) radiates power P = μ₀ω⁴p₀²/(12πc³) — derived directly from Maxwell's equations via the retarded potential formalism. Radiation resistance R_rad = 80π²(l/λ)² Ω relates physical antenna dimensions to radiated power efficiency. T",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-massive-mimo-channel-capacity-maxwell-limit"
+      ],
+      "communication_gap": "Antenna theory developed in electrical engineering departments largely separate from physics departments despite being applied electrodynamics. The Bragg diffraction connection to phased arrays is known to physicists but rarely mentioned in antenna engineering textbooks (Balanis, Mailloux). Similarly, condensed matter physicists studying metamaterials and antenna engineers designing phased arrays address nearly identical mathematical problems without cross-citation.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Maxwell's equations (∇×E = −∂B/∂t, ∇×H = J + ∂D/∂t)",
+          "field_b_term": "governing equations for all antenna radiation and reception"
+        },
+        {
+          "field_a_term": "retarded potential A(r,t) = μ₀/4π ∫ J(r',t_ret)/|r−r'| dV'",
+          "field_b_term": "radiated field from current distribution in antenna element"
+        },
+        {
+          "field_a_term": "radiation resistance R_rad (power dissipated as radiation)",
+          "field_b_term": "impedance matching parameter for antenna efficiency"
+        },
+        {
+          "field_a_term": "phased array interference condition (Bragg equivalent)",
+          "field_b_term": "beam steering direction in MIMO antenna arrays"
+        },
+        {
+          "field_a_term": "Friis equation (free-space path loss)",
+          "field_b_term": "link budget calculation for any wireless communication system"
+        },
+        {
+          "field_a_term": "reciprocity theorem (Lorentz reciprocity)",
+          "field_b_term": "transmit and receive antenna patterns are identical"
+        },
+        {
+          "field_a_term": "diffraction limit (θ ≈ λ/D)",
+          "field_b_term": "antenna beamwidth inversely proportional to aperture size"
+        }
+      ],
+      "references": [
+        {
+          "note": "Hertz (1887) Über die Ausbreitung der elektrischen Kraft. Ann Phys 267:421"
+        },
+        {
+          "note": "Balanis (2016) Antenna Theory: Analysis and Design, 4th ed. Wiley"
+        },
+        {
+          "doi": "10.1109/JRPROC.1946.234568",
+          "note": "Friis (1946) A note on a simple transmission formula. Proc IRE 34:254"
+        },
+        {
+          "note": "Mailloux (2005) Phased Array Antenna Handbook, 2nd ed. Artech House"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\engineering-physics\\b-antenna-theory-electromagnetic-radiation.yaml"
+    },
+    {
       "id": "b-chaos-control-systems",
       "title": "Nonlinear control systems with time delays or saturation exhibit Lorenz-type chaos and Hopf bifurcations — the strange attractors and Lyapunov exponents of nonlinear dynamics are the precise engineering tools for analysing when PID controllers, power grids, and feedback loops transition from stable operation to chaotic failure.\n",
       "source_domain": "",
@@ -7856,6 +8220,65 @@
       "file": "cross-domain\\mathematics-biology\\b-renormalization-biological-scaling.yaml"
     },
     {
+      "id": "b-tda-protein-structure",
+      "title": "Persistent homology applied to protein atomic coordinates tracks topological features (voids, tunnels, loops) across length scales via Betti numbers, providing a geometry-independent structural fingerprint that detects allosteric cavities and folding intermediates invisible to sequence analysis.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The alpha complex of a protein's atomic coordinates (each atom as a point cloud) carries topological information at all length scales simultaneously. Persistent homology tracks how topological features — β₀ (connected components), β₁ (loops/tunnels), β₂ (enclosed voids) — are born and die as the fil",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-persistent-homology-allosteric-tunnels"
+      ],
+      "communication_gap": "Topological data analysis was developed in pure mathematics (Edelsbrunner, Carlsson, Zomorodian) in a computational geometry context. Structural biologists trained in X-ray crystallography and cryo-EM have limited exposure to algebraic topology. The first cross-disciplinary papers (Xia & Wei 2014, Cang & Wei 2017) appeared in biomedical engineering journals rather than structural biology journals, limiting their uptake by the primary audience.\n",
+      "translation_table": [
+        {
+          "field_a_term": "simplicial filtration (alpha complex at radius ε)",
+          "field_b_term": "protein structure at a given resolution length scale",
+          "note": "growing ε reveals progressively coarser structural features"
+        },
+        {
+          "field_a_term": "β₀ (number of connected components)",
+          "field_b_term": "number of disconnected structural domains at scale ε"
+        },
+        {
+          "field_a_term": "β₁ (number of independent loops/tunnels)",
+          "field_b_term": "tunnels and channels through protein structure (allosteric access paths)"
+        },
+        {
+          "field_a_term": "β₂ (number of enclosed voids)",
+          "field_b_term": "internal cavities and hydrophobic cores"
+        },
+        {
+          "field_a_term": "persistence diagram (birth–death pairs)",
+          "field_b_term": "multi-scale structural fingerprint of the protein"
+        },
+        {
+          "field_a_term": "bottleneck distance between diagrams",
+          "field_b_term": "structural dissimilarity metric independent of alignment"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1007/s00454-002-2885-2",
+          "note": "Edelsbrunner et al. (2002) Topological persistence and simplification. Discrete Comput Geom 28:511"
+        },
+        {
+          "doi": "10.1002/jnm.1974",
+          "note": "Xia & Wei (2014) Persistent homology analysis of protein structure. Int J Numer Method Biomed Eng 30:814"
+        },
+        {
+          "doi": "10.1371/journal.pcbi.1005780",
+          "note": "Cang & Wei (2017) TopologyNet for protein–ligand binding affinity prediction. PLOS Comput Biol 13:e1005780"
+        },
+        {
+          "note": "Kovacev-Nikolic et al. (2016) Using persistent homology and dynamical distances to analyze protein binding. Mol Based Math Biol 4:1"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\mathematics-biology\\b-tda-protein-structure.yaml"
+    },
+    {
       "id": "b-topology-morphogenesis",
       "title": "Topological defects in condensed-matter physics — liquid crystal disclinations, magnetic vortices — are the same mathematical objects that organise physical forces during embryonic organ formation.\n",
       "source_domain": "",
@@ -8847,6 +9270,68 @@
       "file": "cross-domain\\mathematics-neuroscience\\b-dynamical-systems-neural-oscillations.yaml"
     },
     {
+      "id": "b-spectral-graph-theory-connectome",
+      "title": "Graph Laplacian eigenmodes of the structural connectome define the brain's harmonic resonances — resting-state fMRI networks align with low-frequency Laplacian eigenvectors, bridging spectral graph theory to systems neuroscience.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The graph Laplacian L = D − A (D = degree matrix, A = adjacency matrix) encodes all structural connectivity of a network. Its spectral decomposition Lψ_k = λ_k ψ_k produces eigenmodes ψ_k ordered by spatial frequency: ψ_1 (constant, λ₁ = 0) is the DC mode; ψ_2 (algebraic connectivity, λ₂ = Fiedler v",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-structural-eigenmode-functional-network-correspondence"
+      ],
+      "communication_gap": "Spectral graph theory is standard in algebraic combinatorics and network science but was not applied to neural connectomes until Atasoy et al. (2016). Neuroscientists trained in connectivity analysis (DTI, resting-state fMRI) do not routinely compute Laplacian eigendecompositions. The mathematical concept of \"graph harmonics\" (analogous to Fourier modes on a lattice) was not in the neuroscience vocabulary until this bridge was explicitly drawn.\n",
+      "translation_table": [
+        {
+          "field_a_term": "graph Laplacian L = D − A",
+          "field_b_term": "structural connectivity matrix of the neural connectome"
+        },
+        {
+          "field_a_term": "eigenvalue λ_k (Laplacian spectrum)",
+          "field_b_term": "spatial frequency of the k-th brain harmonic mode"
+        },
+        {
+          "field_a_term": "eigenvector ψ_k (Laplacian eigenmode)",
+          "field_b_term": "brain activity pattern at frequency k (structural harmonic)"
+        },
+        {
+          "field_a_term": "algebraic connectivity λ₂ (Fiedler value)",
+          "field_b_term": "synchronization threshold — minimum coupling for global coherence"
+        },
+        {
+          "field_a_term": "graph partitioning (Fiedler vector bisection)",
+          "field_b_term": "hemispheric or large-scale brain network segregation"
+        },
+        {
+          "field_a_term": "spectral gap (λ₂/λ_max)",
+          "field_b_term": "balance between integration and segregation in brain networks"
+        },
+        {
+          "field_a_term": "heat kernel exp(−tL) (diffusion on graph)",
+          "field_b_term": "propagation of activity along structural white matter paths"
+        }
+      ],
+      "references": [
+        {
+          "note": "Chung (1997) Spectral Graph Theory. American Mathematical Society"
+        },
+        {
+          "doi": "10.1038/ncomms10340",
+          "note": "Atasoy et al. (2016) Human brain networks function in connectome-specific harmonic waves. Nat Commun 7:10340"
+        },
+        {
+          "doi": "10.1016/j.neuroimage.2013.09.033",
+          "note": "Abdelnour et al. (2014) Network diffusion accurately models the relationship between structural and functional connectivity. NeuroImage 90:335"
+        },
+        {
+          "doi": "10.1016/j.neuroimage.2016.04.036",
+          "note": "Robinson et al. (2016) Eigenmodes of brain activity. NeuroImage 142:79"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\mathematics-neuroscience\\b-spectral-graph-theory-connectome.yaml"
+    },
+    {
       "id": "b-ergodic-theory-statistical-mechanics",
       "title": "Birkhoff's ergodic theorem provides the rigorous mathematical foundation for Boltzmann's ergodic hypothesis, justifying ensemble averages in statistical mechanics",
       "source_domain": "",
@@ -9760,6 +10245,69 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\neuroscience-ecology\\b-neural-diversity-ecosystem-stability.yaml"
+    },
+    {
+      "id": "b-bci-signal-decoding",
+      "title": "Brain-computer interfaces decode motor intentions from cortical population activity using linear decoders (Wiener filter) and Kalman state-space models — Fisher information in the neural population code sets the fundamental accuracy bound, connecting information theory to neural prosthetics engineering.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "BCIs decode intended movement from neural population activity recorded by electrode arrays. Linear decoding: ŷ = Wx + b where x ∈ R^N is the spike rate vector from N neurons, y is decoded kinematics (position, velocity), and W is found by least squares (Moore-Penrose pseudoinverse). The optimal line",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-neural-manifold-bci-decoder-generalization"
+      ],
+      "communication_gap": "Neural prosthetics engineering developed at the intersection of neuroscience and biomedical engineering. The fundamental information-theoretic formulation (Fisher information bound on decoding) is standard in statistics and signal processing but was applied to BCIs primarily by Shenoy's group at Stanford. Clinical neuroscientists developing BCI devices often implement Kalman filtering as a \"black box\" without connecting it to the Cramér-Rao information theory that explains why it is optimal. The channel capacity bound for BCIs remains underexplored relative to the rapidly advancing empirical decoding results.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Fisher information matrix I(θ) of neural population",
+          "field_b_term": "fundamental decoding accuracy bound for any BCI algorithm"
+        },
+        {
+          "field_a_term": "Cramér-Rao bound Var[θ̂] ≥ I^{-1}(θ)",
+          "field_b_term": "minimum achievable decoding error in neural prosthetics"
+        },
+        {
+          "field_a_term": "Wiener filter (optimal linear MMSE estimator)",
+          "field_b_term": "linear decoder mapping spike rates to kinematic variables"
+        },
+        {
+          "field_a_term": "Kalman filter (recursive Bayesian estimation)",
+          "field_b_term": "continuous BCI decoder with temporal dynamics and noise model"
+        },
+        {
+          "field_a_term": "signal subspace (PCA / factor analysis of neural activity)",
+          "field_b_term": "low-dimensional neural manifold containing decoded movement information"
+        },
+        {
+          "field_a_term": "channel capacity C = ½log₂(1 + SNR)",
+          "field_b_term": "maximum BCI throughput in bits/second from a neural population"
+        },
+        {
+          "field_a_term": "population vector P = Σ r_i c_i (preferred direction weighting)",
+          "field_b_term": "Georgopoulos decoder — original motor cortex direction readout"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1126/science.3749885",
+          "note": "Georgopoulos et al. (1986) Neuronal population coding of movement direction. Science 233:1416"
+        },
+        {
+          "doi": "10.1016/j.neuron.2013.01.006",
+          "note": "Shenoy et al. (2013) Cortical control of arm movements. Neuron 77:212"
+        },
+        {
+          "doi": "10.1162/089976606775093882",
+          "note": "Wu et al. (2006) Bayesian population decoding of motor cortical activity. Neural Comput 18:80"
+        },
+        {
+          "doi": "10.1038/s41586-023-06502-7",
+          "note": "Willett et al. (2023) A high-performance speech neuroprosthesis. Nature 620:1031"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\neuroscience-engineering\\b-bci-signal-decoding.yaml"
     },
     {
       "id": "b-neural-control-theory",
@@ -12359,6 +12907,69 @@
       "file": "cross-domain\\physics-economics\\b-kinetic-theory-wealth-distribution.yaml"
     },
     {
+      "id": "b-minority-game-market-microstructure",
+      "title": "The minority game (Challet–Zhang) is an exactly solvable model of financial market competition whose phase transition at critical ratio α_c = P/N reproduces the efficient market boundary — spin glass theory via the replica method provides the analytic solution.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The minority game (Challet & Zhang 1997): N agents repeatedly choose between two options (buy/sell); agents in the minority win — capturing the essence of financial competition: if everyone does the same thing, nobody profits. The key parameter is α = P/N where P = 2^m is the number of distinct mark",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-minority-game-hft-phase-transition"
+      ],
+      "communication_gap": "Statistical physicists (Challet, Zhang, Coolen) published minority game results in physics journals (Physica A, PRL) with replica method notation unfamiliar to economists. Economists familiar with game theory and market microstructure rarely read Physica A. The finance literature on market efficiency remained largely unaware of the exact phase transition result for two decades, despite its direct relevance to the EMH debate.\n",
+      "translation_table": [
+        {
+          "field_a_term": "spin glass (disordered magnetic system with quenched disorder)",
+          "field_b_term": "financial market with heterogeneous strategy-holding agents",
+          "note": "quenched disorder = irreversible strategy assignments at game start"
+        },
+        {
+          "field_a_term": "replica method (spin glass analytic solution)",
+          "field_b_term": "exact solution of minority game equilibrium statistics",
+          "note": "replica trick averages over strategy disorder to compute global market statistics"
+        },
+        {
+          "field_a_term": "paramagnetic phase (disordered spins, T > T_c)",
+          "field_b_term": "efficient market phase (random fluctuations, no exploitable patterns)"
+        },
+        {
+          "field_a_term": "spin glass phase (frozen disorder, T < T_c)",
+          "field_b_term": "herding/trend phase (persistent patterns, exploitable inefficiency)"
+        },
+        {
+          "field_a_term": "critical temperature T_c",
+          "field_b_term": "α_c = P/N (strategies per agent) — EMH boundary"
+        },
+        {
+          "field_a_term": "volatility in spin glass phase",
+          "field_b_term": "excess volatility in financial markets (volatility puzzle)"
+        },
+        {
+          "field_a_term": "frustration (competing interactions in spin glass)",
+          "field_b_term": "conflicting strategies among agents — no stable equilibrium"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1016/S0378-4371(97)00419-6",
+          "note": "Challet & Zhang (1997) Emergence of cooperation and organization in an evolutionary game. Physica A 246:407"
+        },
+        {
+          "doi": "10.1103/PhysRevLett.82.2203",
+          "note": "Savit et al. (1999) Minority games and the structure of complex information. Phys Rev Lett 82:2203"
+        },
+        {
+          "note": "Coolen (2005) The Mathematical Theory of Minority Games. Oxford University Press"
+        },
+        {
+          "note": "Challet, Marsili & Zhang (2004) Minority Games. Oxford University Press"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\physics-economics\\b-minority-game-market-microstructure.yaml"
+    },
+    {
       "id": "b-quantum-sensing-fundamental-limits",
       "title": "Quantum metrology achieves Heisenberg-limited sensitivity — quantum sensors beat classical noise floors by exploiting entanglement and squeezing",
       "source_domain": "",
@@ -13773,6 +14384,73 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\physics-social-science\\b-schelling-phase-separation.yaml"
+    },
+    {
+      "id": "b-voter-model-opinion-dynamics",
+      "title": "The voter model (Clifford–Sudbury 1973) is exactly solvable on any graph and shows that consensus time, coexistence probability, and polarization dynamics depend on spatial dimension and network topology in ways that match empirical political polarization patterns.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The voter model: each agent holds one of two opinions (0 or 1); at each time step, a random agent copies a random neighbor. This is exactly solvable via duality with coalescing random walks. Key results: (1) In d ≤ 2 (including all finite networks), consensus (all-0 or all-1) occurs with probability",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-voter-model-echo-chamber-polarization-timescale"
+      ],
+      "communication_gap": "Clifford & Sudbury (1973) published in Biometrika as a model of territorial competition in ecology (not sociology). The social interpretation was developed by physicists (Sood, Redner, Vazquez, Eguíluz) in physics journals. Political scientists and sociologists studying polarization rarely cite the voter model literature. The exact solution via coalescing random walks is not taught in social science programs, despite providing quantitative predictions testable against longitudinal survey data.\n",
+      "translation_table": [
+        {
+          "field_a_term": "voter model agent copying random neighbor",
+          "field_b_term": "social influence — individuals adopt opinions from their network"
+        },
+        {
+          "field_a_term": "coalescing random walk dual process",
+          "field_b_term": "genealogy of opinion spread — tracks which agent's opinion dominates"
+        },
+        {
+          "field_a_term": "consensus (absorbing state, all spins identical)",
+          "field_b_term": "political convergence or ideological monoculture"
+        },
+        {
+          "field_a_term": "coexistence (T → ∞, no consensus)",
+          "field_b_term": "persistent political polarization in large societies"
+        },
+        {
+          "field_a_term": "consensus time T_N ∝ N log N (d=2)",
+          "field_b_term": "timescale for political opinion cycles in social networks"
+        },
+        {
+          "field_a_term": "modular graph topology (community structure)",
+          "field_b_term": "social echo chambers and filter bubbles"
+        },
+        {
+          "field_a_term": "spontaneous opinion flip rate ε (noisy voter)",
+          "field_b_term": "independent opinion formation rate outside social influence"
+        },
+        {
+          "field_a_term": "spatial dimension d",
+          "field_b_term": "effective social network dimension (expander vs lattice-like)"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.2307/2334555",
+          "note": "Clifford & Sudbury (1973) A model for spatial conflict. Biometrika 60:581"
+        },
+        {
+          "doi": "10.1103/PhysRevLett.94.178701",
+          "note": "Sood & Redner (2005) Voter model on heterogeneous graphs. Phys Rev Lett 94:178701"
+        },
+        {
+          "doi": "10.1088/1751-8113/41/43/435003",
+          "note": "Vazquez & Eguíluz (2008) Analytical solution of the voter model on uncorrelated networks. J Phys A 41:435003"
+        },
+        {
+          "doi": "10.1007/s10955-007-9395-9",
+          "note": "Mobilia et al. (2007) On the role of zealotry in the voter model. J Stat Phys 128:447"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\physics-social-science\\b-voter-model-opinion-dynamics.yaml"
     },
     {
       "id": "b-scaling-laws-cities",
@@ -15236,6 +15914,72 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\social-science-physics\\b-opinion-dynamics-ising.yaml"
+    },
+    {
+      "id": "b-schelling-ising-dynamics",
+      "title": "Schelling's residential segregation model is formally equivalent to an antiferromagnetic Ising model at finite temperature — Glauber dynamics at tolerance T produces the Ising phase diagram, and segregation emerges as a magnetic ordering transition even with mild preferences.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Schelling's segregation model (1971): agents of two types (red/blue) on a grid are \"satisfied\" when at least fraction τ of their neighbors are the same type; unsatisfied agents move to a random empty location. Result: even with τ < 0.5 (mild preference — most agents prefer a mixed neighborhood), the",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-urban-segregation-ising-phase-transition-test"
+      ],
+      "communication_gap": "Schelling (1971) was an economist using spatial thought experiments. The Ising equivalence was demonstrated in 2006 by Vinković (physicist) and Kirman (economist) in PNAS — a rare economics-physics collaboration. Most sociology and urban planning literature on residential segregation still treats Schelling as a game-theoretic or social-dynamic model without invoking the Ising framework that provides its exact analytical solution and universal predictions.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Ising spin s_i = ±1",
+          "field_b_term": "Schelling agent type (red = +1, blue = −1)"
+        },
+        {
+          "field_a_term": "ferromagnetic coupling J > 0",
+          "field_b_term": "preference for same-type neighbors"
+        },
+        {
+          "field_a_term": "temperature T = 1/β",
+          "field_b_term": "inverse tolerance (1/τ) — how strongly agents prefer same-type neighbors"
+        },
+        {
+          "field_a_term": "Glauber dynamics (thermal fluctuation-driven spin flips)",
+          "field_b_term": "Schelling agent relocation (unsatisfied agents move)"
+        },
+        {
+          "field_a_term": "Ising phase transition at T_c (paramagnetic → ferromagnetic)",
+          "field_b_term": "Schelling segregation transition at critical tolerance τ_c"
+        },
+        {
+          "field_a_term": "ordered ferromagnetic phase (aligned domains)",
+          "field_b_term": "segregated residential neighborhoods (like-with-like clusters)"
+        },
+        {
+          "field_a_term": "paramagnetic phase (disordered spins, T > T_c)",
+          "field_b_term": "integrated mixed neighborhoods (high tolerance regime)"
+        },
+        {
+          "field_a_term": "correlation length ξ ∝ |T − T_c|^{−ν}",
+          "field_b_term": "average segregated cluster size near the tolerance transition"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1080/0022250X.1971.9989794",
+          "note": "Schelling (1971) Dynamic models of segregation. J Math Sociol 1:143"
+        },
+        {
+          "doi": "10.1073/pnas.0600362103",
+          "note": "Vinković & Kirman (2006) A physical analogue of the Schelling model. PNAS 103:19261"
+        },
+        {
+          "note": "Mobilia & Georgiev (2005) Ising model equivalence of Schelling. Phys Rev E 71:046102"
+        },
+        {
+          "doi": "10.1103/RevModPhys.81.591",
+          "note": "Castellano et al. (2009) Statistical physics of social dynamics. Rev Mod Phys 81:591"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\social-science-physics\\b-schelling-ising-dynamics.yaml"
     },
     {
       "id": "b-traffic-flow-fluid-dynamics",

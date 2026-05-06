@@ -1,0 +1,80 @@
+id: b-spectral-graph-theory-connectome
+title: >
+  Graph Laplacian eigenmodes of the structural connectome define the brain's
+  harmonic resonances — resting-state fMRI networks align with low-frequency
+  Laplacian eigenvectors, bridging spectral graph theory to systems neuroscience.
+status: established
+fields:
+  - mathematics
+  - graph-theory
+  - spectral-theory
+  - neuroscience
+  - systems-neuroscience
+  - connectomics
+bridge_claim: >
+  The graph Laplacian L = D − A (D = degree matrix, A = adjacency matrix) encodes
+  all structural connectivity of a network. Its spectral decomposition Lψ_k = λ_k ψ_k
+  produces eigenmodes ψ_k ordered by spatial frequency: ψ_1 (constant, λ₁ = 0)
+  is the DC mode; ψ_2 (algebraic connectivity, λ₂ = Fiedler value) encodes
+  the slowest-varying structural gradient. Applied to the human structural connectome
+  (white matter tractography, 360 cortical parcels, N×N matrix): (1) The algebraic
+  connectivity λ₂ determines how efficiently neural synchronization propagates across
+  the connectome; (2) Connectome eigenmodes (Atasoy et al. 2016) decompose any brain
+  activity pattern into a superposition of structural harmonics — the connectome
+  functions as a resonator; (3) Resting-state fMRI networks (DMN, salience, visual)
+  correspond predominantly to the 10–20 lowest-frequency eigenmodes, with spatial
+  correlation > 0.7 between network maps and individual eigenvectors; (4) Individual
+  differences in eigenspectrum predict cognitive performance and disease vulnerability.
+  The mathematical result: the brain's functional activity is constrained to the
+  subspace spanned by low-frequency structural harmonics, with high-frequency modes
+  suppressed by the metabolic cost of fast spatial variation. This directly maps
+  spectral graph theory (pure mathematics) onto systems neuroscience, providing
+  a principled basis for why structural connectivity determines functional organization.
+translation_table:
+  - field_a_term: graph Laplacian L = D − A
+    field_b_term: structural connectivity matrix of the neural connectome
+  - field_a_term: eigenvalue λ_k (Laplacian spectrum)
+    field_b_term: spatial frequency of the k-th brain harmonic mode
+  - field_a_term: eigenvector ψ_k (Laplacian eigenmode)
+    field_b_term: brain activity pattern at frequency k (structural harmonic)
+  - field_a_term: algebraic connectivity λ₂ (Fiedler value)
+    field_b_term: synchronization threshold — minimum coupling for global coherence
+  - field_a_term: graph partitioning (Fiedler vector bisection)
+    field_b_term: hemispheric or large-scale brain network segregation
+  - field_a_term: spectral gap (λ₂/λ_max)
+    field_b_term: balance between integration and segregation in brain networks
+  - field_a_term: heat kernel exp(−tL) (diffusion on graph)
+    field_b_term: propagation of activity along structural white matter paths
+related_unknowns:
+  - u-connectome-harmonics-individual-differences
+related_hypotheses:
+  - h-structural-eigenmode-functional-network-correspondence
+cross_pollination_opportunities:
+  - >
+    Personalized brain stimulation: using individual connectome eigenmodes to
+    predict optimal TMS/tDCS target sites that maximally engage specific
+    resting-state networks by exciting their dominant structural harmonic.
+  - >
+    Psychiatric biomarkers: quantifying eigenspectrum deformation in schizophrenia,
+    depression, and autism as a structural connectome signature independent of
+    parcellation choice — a mathematically principled biomarker.
+  - >
+    Neural mass model reduction: truncating the brain's dynamical equations
+    to the lowest k eigenmodes (analogous to Fourier truncation) as a principled
+    dimensionality reduction for whole-brain modeling.
+communication_gap: >
+  Spectral graph theory is standard in algebraic combinatorics and network science
+  but was not applied to neural connectomes until Atasoy et al. (2016). Neuroscientists
+  trained in connectivity analysis (DTI, resting-state fMRI) do not routinely
+  compute Laplacian eigendecompositions. The mathematical concept of "graph harmonics"
+  (analogous to Fourier modes on a lattice) was not in the neuroscience vocabulary
+  until this bridge was explicitly drawn.
+last_reviewed: "2026-05-06"
+references:
+  - note: Chung (1997) Spectral Graph Theory. American Mathematical Society
+  - doi: "10.1038/ncomms10340"
+    note: Atasoy et al. (2016) Human brain networks function in connectome-specific harmonic waves. Nat Commun 7:10340
+  - doi: "10.1016/j.neuroimage.2013.09.033"
+    note: Abdelnour et al. (2014) Network diffusion accurately models the relationship between structural and functional connectivity. NeuroImage 90:335
+  - doi: "10.1016/j.neuroimage.2016.04.036"
+    note: Robinson et al. (2016) Eigenmodes of brain activity. NeuroImage 142:79

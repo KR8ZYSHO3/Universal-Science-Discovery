@@ -1,68 +1,10 @@
 # Orphan Unknowns — Priority Contribution Targets
 
-These **112** unknowns have no associated hypothesis or bridge edge in the knowledge graph.
+These **54** unknowns have no associated hypothesis or bridge edge in the knowledge graph.
 They are the highest-priority targets for new contributions — add a hypothesis or propose a cross-domain bridge connecting them.
 
 | ID | Title |
 |---|---|
-| `u-graph-algorithm-quantum-speedup` | Which graph algorithms admit quantum speedup beyond classical near-linear time complexity, and what are the practical costs of quantum graph computation? |
-| `u-creative-economy-measurement` | How should the creative economy be measured in national accounts, and does it drive innovation spillovers to other sectors? |
-| `u-degrowth-economic-viability` | Can wealthy economies deliberately degrow GDP while maintaining or improving wellbeing, and what are the macroeconomic mechanisms required? |
-| `u-financialisation-real-economy-effects` | Has the growth of the financial sector relative to GDP produced net economic benefits, or has financialisation harmed real economy investment and growth? |
-| `u-gig-economy-welfare-effects` | What are the net welfare effects of gig economy platforms on workers, consumers, and incumbent industries, and how do regulatory regimes affect these? |
-| `u-innovation-diffusion-s-curve` | Why do some innovations follow S-curve diffusion while others plateau or fail, and can early adoption patterns predict long-run diffusion outcomes? |
-| `u-market-microstructure-price-formation` | What determines the speed and efficiency of price discovery in financial markets, and how does high-frequency trading affect market quality? |
-| `u-multiplier-fiscal-policy` | What is the fiscal multiplier under different economic conditions, and when does government spending crowd out versus crowd in private investment? |
-| `u-pension-demographic-stress` | How will demographic aging affect defined-benefit pension systems, and which reform strategies are fiscally sustainable and politically feasible? |
-| `u-post-scarcity-economics-feasibility` | Can advanced technology enable post-scarcity economics, and what economic institutions are needed when marginal costs approach zero? |
-| `u-supply-chain-resilience-efficiency` | What is the optimal tradeoff between supply chain efficiency and resilience, and how has COVID-19 revealed the limits of just-in-time production? |
-| `u-trade-war-equilibrium` | What is the long-term equilibrium outcome of escalating trade wars, and under what conditions do countries converge to cooperation versus persistent protection? |
-| `u-advanced-fission-proliferation` | Do advanced fission reactor designs (molten salt, fast spectrum, small modular reactors) present materially different nuclear proliferation risks than light-water reactors? |
-| `u-autonomous-vehicle-edge-cases` | How frequent are truly novel edge cases for autonomous vehicles in real-world deployment, and can safety guarantees be established without exhaustive real-world testing? |
-| `u-biodegradable-electronics` | Can biodegradable or transient electronics achieve the electrical performance and environmental lifetime control needed for implantable and disposable devices? |
-| `u-geothermal-subsidence` | What controls surface subsidence and induced seismicity from enhanced geothermal systems, and can they be predicted and mitigated in pre-development assessment? |
-| `u-reusable-rocket-precision` | What are the guidance and control limits for precision propulsive rocket landing, and what failure modes bound reusability turnaround times? |
-| `u-soft-robotics-actuator-lifespan` | What limits the fatigue life of soft pneumatic and hydraulic actuators, and can they achieve the 10^7+ cycle durability required for practical service robots? |
-| `u-turbulent-drag-reduction-limit` | Is there a fundamental physical limit to turbulent drag reduction in pipe and channel flows, and does the maximum drag reduction (MDR) asymptote represent a true physical bound? |
-| `u-urban-air-mobility-noise` | What are the fundamental acoustic limits of electric vertical-takeoff-and-landing (eVTOL) aircraft, and can they achieve community-acceptable noise levels in urban environments? |
-| `u-water-desalination-energy` | How close to the thermodynamic minimum can seawater desalination approach, and what membrane and process innovations are needed to close the gap? |
-| `u-wireless-power-transfer-limit` | What are the fundamental efficiency and range limits of resonant inductive and far-field wireless power transfer, and how does Friis transmission compare to near-field coupling? |
-| `u-crustal-delamination` | When and how does lower crustal delamination occur, and what are its topographic, geochemical, and volcanic consequences? |
-| `u-deep-carbon-storage` | How much carbon is stored in Earth's deep interior, and what controls the long-term geologic carbon cycle between mantle, crust, and atmosphere? |
-| `u-delta-avulsion-prediction` | Can river delta avulsion timing and pathfinding be predicted, and what are the dominant controls on avulsion frequency? |
-| `u-diamond-inclusion-dating` | How reliably do diamond inclusion ages record ancient mantle events, and what biases affect inclusions as windows into deep Earth history? |
-| `u-geomagnetic-excursion-climate` | Do geomagnetic excursions and reversals affect climate by modulating cosmic ray flux and ozone production? |
-| `u-inner-core-anisotropy-origin` | What is the origin of seismic anisotropy in Earth's inner core, and does it record solidification texture or ongoing convection? |
-| `u-karst-aquifer-connectivity` | How are karst aquifer conduit networks organized, and can their connectivity and recharge dynamics be characterized without full cave exploration? |
-| `u-mantle-convection-transitions` | What controls the transition between layered and whole-mantle convection, and can the pattern switch on geologic timescales? |
-| `u-mineral-nucleation-kinetics` | What controls mineral nucleation kinetics in natural fluids, and why do classical nucleation theory predictions fail for many geological systems? |
-| `u-post-perovskite-implications` | What are the dynamical and seismic implications of the post-perovskite phase transition in Earth's D'' layer? |
-| `u-sea-level-fingerprint` | How do sea-level fingerprints from individual ice mass changes allow attribution of observed sea-level trends to specific glacier and ice sheet sources? |
-| `u-sediment-transport-nonlinearity` | What are the nonlinear thresholds and stochastic dynamics governing sediment transport in rivers and their long-term geomorphic effects? |
-| `u-serpentinization-hydrogen` | What is the global flux of abiotic hydrogen produced by serpentinization, and can it support subsurface chemolithotrophs at ocean ridges and in continental settings? |
-| `u-supervolcano-eruption-forecasting` | What are the precursors and timescales of supereruption onset at caldera systems like Yellowstone and Campi Flegrei? |
-| `u-tsunami-submarine-slides` | What are the physics of tsunami generation by submarine landslides, and how does slide rheology control wave amplitude and runup? |
-| `u-xenolith-mantle-bias` | To what extent do mantle xenoliths provide a representative sample of the lithospheric mantle, and what biases are introduced by entrainment and transport? |
-| `u-language-contact-convergence-limit` | What is the maximum degree of structural convergence possible between unrelated contact languages, and what constraints prevent full convergence? |
-| `u-language-death-reversal-feasibility` | Under what conditions can a dying language be successfully revitalised, and what are the cognitive and social prerequisites for sustainable reversal? |
-| `u-prosodic-bootstrapping-acquisition` | Does prosodic structure in infant-directed speech provide bootstrapping cues for syntactic acquisition, and how large is its contribution? |
-| `u-corrosion-mechanism-passivation` | What is the atomic-scale mechanism of passive film breakdown that initiates pitting corrosion? |
-| `u-metamaterial-wave-control` | What physical limits govern negative-index metamaterials for sub-diffraction imaging at optical frequencies? |
-| `u-quasicrystal-stability-origin` | What determines whether a quasicrystalline phase forms versus an approximant crystal in metallic alloys? |
-| `u-radiation-damage-recovery` | What atomic mechanisms drive radiation damage recovery in nuclear materials and can they be accelerated? |
-| `u-shape-memory-alloy-fatigue` | What atomic-scale mechanisms drive functional fatigue in shape-memory alloys after repeated cycling? |
-| `u-abc-conjecture-verification` | Is Mochizuki's proof of the abc conjecture correct and how can it be made verifiable by the community? |
-| `u-banach-space-geometry` | What is the geometry of the space of all Banach spaces under various equivalence relations on their structure? |
-| `u-derived-algebraic-geometry` | What are the fundamental obstructions to extending derived algebraic geometry to characteristic p arithmetic geometry? |
-| `u-descriptive-set-projective-hierarchy` | What are the full regularity properties (measurability, BP, PSP) of sets in the projective hierarchy? |
-| `u-harmonic-analysis-sparse-recovery` | What are the sharp conditions for sparse signal recovery from harmonic measurements with minimal samples? |
-| `u-infinity-category-limits` | What are the fundamental completeness properties of infinity-categories and when do they have all small limits? |
-| `u-model-theory-arithmetic` | What model-theoretic properties distinguish the standard model of arithmetic from non-standard models? |
-| `u-motivic-cohomology-calculations` | Can motivic cohomology groups be computationally determined for all smooth projective varieties? |
-| `u-pseudo-holomorphic-curve-counts` | What determines the well-definedness of pseudo-holomorphic curve counts in symplectic topology? |
-| `u-quantum-group-representation` | What is the complete representation theory of quantum groups at roots of unity and its physical interpretation? |
-| `u-symplectic-capacities` | Are Ekeland-Hofer and Gromov-Witten symplectic capacities equal for all convex bodies? |
-| `u-tropical-geometry-combinatorics` | What is the precise relationship between tropical geometry and the combinatorics of polytopes and matroids? |
 | `u-antibiotic-resistance-rate` | What determines the rate at which antibiotic resistance evolves in clinical settings? |
 | `u-autoimmune-trigger-identification` | What environmental triggers initiate autoimmune disease in genetically susceptible individuals? |
 | `u-blood-brain-barrier-regulation` | What molecular signals dynamically regulate blood-brain barrier permeability in health and disease? |

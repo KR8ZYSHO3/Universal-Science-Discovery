@@ -1,0 +1,77 @@
+id: b-tda-protein-structure
+title: >
+  Persistent homology applied to protein atomic coordinates tracks topological features
+  (voids, tunnels, loops) across length scales via Betti numbers, providing a
+  geometry-independent structural fingerprint that detects allosteric cavities
+  and folding intermediates invisible to sequence analysis.
+status: established
+fields:
+  - mathematics
+  - topology
+  - biology
+  - structural-biology
+  - computational-biology
+bridge_claim: >
+  The alpha complex of a protein's atomic coordinates (each atom as a point cloud)
+  carries topological information at all length scales simultaneously. Persistent
+  homology tracks how topological features — β₀ (connected components), β₁
+  (loops/tunnels), β₂ (enclosed voids) — are born and die as the filtration
+  parameter ε grows. The resulting persistence diagram is a compact,
+  coordinate-free structural fingerprint stable to perturbation (stability theorem:
+  bottleneck distance between diagrams ≤ Hausdorff distance between point clouds).
+  This allows: (1) classifying protein folding intermediates by their Betti number
+  signatures without alignment or sequence homology; (2) identifying allosteric
+  tunnels (β₁ features) that control ligand access but are invisible to RMSD or
+  sequence analysis; (3) comparing protein families across the tree of life by
+  their topological similarity. Cang & Wei (2017) achieved state-of-the-art
+  protein–ligand binding affinity prediction using only persistent homology
+  features — no force field, no structural alignment. The birth-death persistence
+  pairs directly correspond to structurally important cavities confirmed by
+  crystallography.
+translation_table:
+  - field_a_term: simplicial filtration (alpha complex at radius ε)
+    field_b_term: protein structure at a given resolution length scale
+    note: growing ε reveals progressively coarser structural features
+  - field_a_term: β₀ (number of connected components)
+    field_b_term: number of disconnected structural domains at scale ε
+  - field_a_term: β₁ (number of independent loops/tunnels)
+    field_b_term: tunnels and channels through protein structure (allosteric access paths)
+  - field_a_term: β₂ (number of enclosed voids)
+    field_b_term: internal cavities and hydrophobic cores
+  - field_a_term: persistence diagram (birth–death pairs)
+    field_b_term: multi-scale structural fingerprint of the protein
+  - field_a_term: bottleneck distance between diagrams
+    field_b_term: structural dissimilarity metric independent of alignment
+related_unknowns:
+  - u-tda-protein-folding-intermediates
+related_hypotheses:
+  - h-persistent-homology-allosteric-tunnels
+cross_pollination_opportunities:
+  - >
+    Protein engineering: designing enzymes with desired cavity topology
+    by optimizing Betti number profiles across length scales — TDA as a
+    structure-function design tool rather than just an analysis tool.
+  - >
+    Cryo-EM structure comparison: persistent homology provides a natural
+    metric for comparing structures from cryo-EM density maps at different
+    resolutions without requiring full atomic model building.
+  - >
+    Drug discovery: TDA-based screening of protein family members for
+    tunnel topology that enables or excludes specific ligand scaffolds,
+    identifying cryptic binding sites without molecular dynamics simulations.
+communication_gap: >
+  Topological data analysis was developed in pure mathematics (Edelsbrunner,
+  Carlsson, Zomorodian) in a computational geometry context. Structural biologists
+  trained in X-ray crystallography and cryo-EM have limited exposure to algebraic
+  topology. The first cross-disciplinary papers (Xia & Wei 2014, Cang & Wei 2017)
+  appeared in biomedical engineering journals rather than structural biology
+  journals, limiting their uptake by the primary audience.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1007/s00454-002-2885-2"
+    note: Edelsbrunner et al. (2002) Topological persistence and simplification. Discrete Comput Geom 28:511
+  - doi: "10.1002/jnm.1974"
+    note: Xia & Wei (2014) Persistent homology analysis of protein structure. Int J Numer Method Biomed Eng 30:814
+  - doi: "10.1371/journal.pcbi.1005780"
+    note: Cang & Wei (2017) TopologyNet for protein–ligand binding affinity prediction. PLOS Comput Biol 13:e1005780
+  - note: Kovacev-Nikolic et al. (2016) Using persistent homology and dynamical distances to analyze protein binding. Mol Based Math Biol 4:1

@@ -1,0 +1,39 @@
+id: h-av-edge-case-power-law-distribution
+title: >
+  Truly novel edge cases for autonomous vehicles follow a power-law frequency
+  distribution, making exhaustive real-world testing infeasible — safety
+  validation must rely on simulation-based scenario coverage over a defined
+  operational design domain (ODD) with formal coverage proofs.
+status: active
+priority: high
+impact_score: 0.73
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+unknowns_addressed:
+  - u-autonomous-vehicle-edge-cases
+evidence_links:
+  - type: supporting
+    note: "Kalra & Paddock (2016) RAND study: AV requires 11 billion miles to statistically demonstrate safety — infeasible for near-term deployment"
+    confidence: 0.85
+  - type: related
+    note: "Uesato et al. (2018) adversarial scenario generation for AV testing: rare event frequency follows power-law in naturalistic driving data"
+    confidence: 0.68
+  - type: related
+    note: "Thorn et al. (2018) NHTSA AV testing framework: ODD-based safety case approach as alternative to mileage accumulation"
+    confidence: 0.65
+proposed_tests:
+  - description: >
+      Naturalistic driving data analysis: fit rank-frequency distribution of
+      scenario novelty scores (using embedding distance from training distribution)
+      to 500M miles of naturalistic driving data. Test power-law vs. Poisson vs.
+      lognormal fit (AIC/BIC). Estimate tail exponent to bound extrapolation error.
+  - description: >
+      Simulation coverage metric: develop a formal ODD coverage measure based on
+      scenario embedding space volume. Test whether coverage metric predicts
+      real-world disengagement rate across 5 AV companies (using published DMV
+      data). Validate that 99% coverage reduces novel edge cases by predicted factor.
+related_disciplines:
+  - autonomous-systems
+  - safety-engineering
+  - machine-learning

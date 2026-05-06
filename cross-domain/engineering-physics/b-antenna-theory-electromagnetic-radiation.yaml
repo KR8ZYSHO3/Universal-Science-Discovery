@@ -1,0 +1,77 @@
+id: b-antenna-theory-electromagnetic-radiation
+title: >
+  All wireless communication reduces to applied Maxwell equations — the Hertzian
+  dipole radiation formula, Friis transmission equation, and phased array beam
+  steering follow from Maxwell's equations with the same mathematics as Bragg
+  diffraction in crystallography.
+status: established
+fields:
+  - engineering
+  - electrical-engineering
+  - physics
+  - electromagnetism
+  - wireless-communications
+bridge_claim: >
+  The Hertzian dipole (oscillating electric dipole moment p(t) = p₀cos(ωt)) radiates
+  power P = μ₀ω⁴p₀²/(12πc³) — derived directly from Maxwell's equations via the
+  retarded potential formalism. Radiation resistance R_rad = 80π²(l/λ)² Ω relates
+  physical antenna dimensions to radiated power efficiency. The Friis transmission
+  equation P_r/P_t = G_t G_r (λ/4πR)² is the exact solution to Maxwell's equations
+  for two antennas at distance R, connecting transmitted power P_t to received power
+  P_r via gains G. Phased array beam steering: N antennas with phase delays
+  φ_n = (2π/λ)nd·sinθ (d = element spacing) produce constructive interference in
+  direction θ — identically the Bragg diffraction condition for X-ray scattering
+  from a crystal lattice (2d sinθ = nλ), both being consequences of the same
+  interference of waves from a periodic array. Modern MIMO systems and 5G massive
+  MIMO (64–256 antennas) are phased arrays exploiting spatial multiplexing predicted
+  by electromagnetic theory. The effective aperture A_eff = Gλ²/4π relates physical
+  aperture to gain — same as optical aperture-beam divergence relations in wave optics.
+  All of wireless engineering — 5G, Wi-Fi, GPS, radar, satellite communication —
+  is applied Maxwell electrodynamics with antenna theory as the practical interface.
+translation_table:
+  - field_a_term: Maxwell's equations (∇×E = −∂B/∂t, ∇×H = J + ∂D/∂t)
+    field_b_term: governing equations for all antenna radiation and reception
+  - field_a_term: retarded potential A(r,t) = μ₀/4π ∫ J(r',t_ret)/|r−r'| dV'
+    field_b_term: radiated field from current distribution in antenna element
+  - field_a_term: radiation resistance R_rad (power dissipated as radiation)
+    field_b_term: impedance matching parameter for antenna efficiency
+  - field_a_term: phased array interference condition (Bragg equivalent)
+    field_b_term: beam steering direction in MIMO antenna arrays
+  - field_a_term: Friis equation (free-space path loss)
+    field_b_term: link budget calculation for any wireless communication system
+  - field_a_term: reciprocity theorem (Lorentz reciprocity)
+    field_b_term: transmit and receive antenna patterns are identical
+  - field_a_term: diffraction limit (θ ≈ λ/D)
+    field_b_term: antenna beamwidth inversely proportional to aperture size
+related_unknowns:
+  - u-antenna-near-field-quantum-effects
+related_hypotheses:
+  - h-massive-mimo-channel-capacity-maxwell-limit
+cross_pollination_opportunities:
+  - >
+    Quantum antenna theory: at THz and optical frequencies, quantum electrodynamics
+    corrections to classical antenna theory become measurable — connecting wireless
+    engineering to QED at the engineering-physics boundary.
+  - >
+    Crystallography-inspired array design: directly applying Bragg condition
+    analysis tools from X-ray crystallography to optimize antenna array geometries
+    for sidelobe suppression — sharing mathematical toolkits across fields.
+  - >
+    Metamaterial antennas: using negative-index metamaterial elements (bridge
+    u-metamaterial-wave-control) as antenna substrates to achieve electrically
+    small antennas beating the Chu-Wheeler limit — physics enabling new engineering.
+communication_gap: >
+  Antenna theory developed in electrical engineering departments largely separate
+  from physics departments despite being applied electrodynamics. The Bragg
+  diffraction connection to phased arrays is known to physicists but rarely
+  mentioned in antenna engineering textbooks (Balanis, Mailloux). Similarly,
+  condensed matter physicists studying metamaterials and antenna engineers
+  designing phased arrays address nearly identical mathematical problems without
+  cross-citation.
+last_reviewed: "2026-05-06"
+references:
+  - note: Hertz (1887) Über die Ausbreitung der elektrischen Kraft. Ann Phys 267:421
+  - note: "Balanis (2016) Antenna Theory: Analysis and Design, 4th ed. Wiley"
+  - doi: "10.1109/JRPROC.1946.234568"
+    note: Friis (1946) A note on a simple transmission formula. Proc IRE 34:254
+  - note: Mailloux (2005) Phased Array Antenna Handbook, 2nd ed. Artech House
