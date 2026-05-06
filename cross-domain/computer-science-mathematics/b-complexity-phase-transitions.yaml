@@ -1,0 +1,78 @@
+id: b-complexity-phase-transitions
+title: "Computational complexity and phase transitions — NP-hard problem hardness exhibits thermodynamic-like phase transitions governed by the same statistical physics of disordered systems"
+status: proposed
+fields:
+  - computer-science
+  - mathematics
+  - statistical-physics
+  - combinatorics
+  - information-theory
+
+bridge_claim: >
+  Many NP-complete problems (3-SAT, graph coloring, random k-SAT, traveling salesman)
+  exhibit sharp phase transitions in their typical-case hardness as a control parameter
+  varies. In random k-SAT: let α = clauses/variables. Below α_c (SAT phase): almost all
+  instances are satisfiable, easily solved by DPLL. Above α_c (UNSAT phase): almost all
+  instances are unsatisfiable, easily verified. At α ≈ α_c: instances are maximally
+  hard, requiring exponential time for typical solvers. This maps precisely onto a
+  thermodynamic phase transition: the "hard" phase corresponds to a spin glass phase
+  with replica symmetry breaking (RSB). The cavity method (Mézard & Parisi 2001),
+  derived from spin glass theory, provides exact solutions to random instances and
+  predicts the phase diagram. The condensation transition (α_cond) and clustering
+  transition (α_clust) — where solutions cluster into exponentially many islands —
+  are the information-theoretic barriers that make the phase transition region
+  algorithmically hard. Survey propagation, derived from the cavity method, solves
+  random 3-SAT instances near the transition in polynomial time. The deep insight:
+  algorithmic hardness = thermodynamic metastability in the corresponding statistical
+  mechanical model.
+
+translation_table:
+  - field_a_term: "clause-to-variable ratio α"
+    field_b_term: "inverse temperature β (or disorder parameter)"
+    note: "α plays the role of the control parameter that drives the phase transition"
+  - field_a_term: "satisfying assignment (solution)"
+    field_b_term: "low-energy configuration in spin system"
+    note: "Finding a solution = finding a ground state; random walk = thermal fluctuation"
+  - field_a_term: "UNSAT phase (no solutions)"
+    field_b_term: "ordered phase (no ground state entropy)"
+    note: "Above α_c: problem almost surely has no solution; ordered phase has unique ground state"
+  - field_a_term: "clustering of solutions (solution space fragmentation)"
+    field_b_term: "replica symmetry breaking (spin glass phase)"
+    note: "Solutions cluster into exponentially many well-separated basins — makes search hard"
+  - field_a_term: "survey propagation algorithm"
+    field_b_term: "belief propagation on factor graph (message passing)"
+    note: "Derived from cavity method; works at RSB level; solves instances DPLL cannot"
+  - field_a_term: "backtracking plateau in DPLL solver"
+    field_b_term: "metastable trapping in spin glass landscape"
+    note: "Both reflect the same barrier structure in the solution space"
+
+related_unknowns:
+  - u-p-vs-np-geometric-barriers
+
+related_hypotheses:
+  - h-rsg-transition-separates-polynomial-exponential-regimes
+
+cross_pollination_opportunities:
+  - "Use free energy calculations from statistical mechanics to predict the exact satisfiability threshold for k-SAT beyond k=3"
+  - "Design combinatorial optimization algorithms based on finite-temperature statistical mechanics (simulated annealing is the prototype)"
+  - "Apply quantum annealing to the NP-hard phase transition region to test whether quantum tunneling escapes RSB trapping"
+
+communication_gap: >
+  Theoretical computer scientists and statistical physicists have largely separate
+  literature cultures despite deep mathematical connections. The Mézard et al.
+  (2002) Science paper was a landmark bridge publication. Theoretical CS tends
+  to focus on worst-case complexity; statistical physics on typical-case behavior.
+  The cavity method has yet to be fully absorbed into the CS algorithms curriculum.
+  The P vs NP problem is framed as a question about worst-case complexity, while
+  physics approaches address typical-case hardness — different but related questions.
+
+references:
+  - doi: "10.1126/science.1073287"
+    note: "Mézard et al. (2002) Science 297:812 — survey propagation and the cavity method for random k-SAT"
+  - doi: "10.1038/22055"
+    note: "Monasson et al. (1999) Nature 400:133 — determining computational complexity from phase transitions"
+  - note: "Cook (1971) STOC — original NP-completeness paper for SAT"
+  - doi: "10.1073/pnas.0703685104"
+    note: "Krzakala et al. (2007) PNAS 104:10318 — clustering and survey propagation"
+
+last_reviewed: "2026-05-06"

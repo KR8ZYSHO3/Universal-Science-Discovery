@@ -1,157 +1,149 @@
-# USDR Interface Strategy
-## From Git-First to a Planetary Discovery Operating System
+# USDR Interface Program
 
-**"The interface should feel like the control panel for humanity’s collective scientific curiosity."**
+## Purpose
 
----
+This document is the canonical plan for UX, static site, and the future "Discovery OS" interface.
+The interface is always a **view** of the repository — git remains the source of truth.
 
-### Vision
-
-> **Program alignment:** On the overall USDR timeline, interface delivery is summarized in [ROADMAP.md](ROADMAP.md) under **Interface development (cross-cutting)**. This file is the **detailed** interface strategy and stack plan.
-
-The **USDR Interface** will evolve from a simple, trustworthy documentation site into a full **Discovery Operating System** — a beautiful, powerful, AI-augmented environment where researchers, students, and citizen scientists can:
-
-- Explore the frontier of human knowledge
-- Discover high-impact unknowns
-- Collaborate on hypotheses in real time
-- Visualize complex knowledge graphs
-- Use AI agents to accelerate their own research
-
-The interface is **not** the product.  
-The **discovery engine** (the versioned knowledge graph + community) is the product.  
-The interface is the **window** into that engine.
+Interface development runs as a **separate workstream** from discipline content; we do not block
+content growth on UI polish, and we do not sacrifice content quality for UI features.
 
 ---
 
-### Design Philosophy
+## Current State (May 2026)
 
-| Principle              | What It Means |
-|------------------------|---------------|
-| **Git is the Source of Truth** | The web interface is always a view of the Git repository. Never the other way around. |
-| **Progressive Enhancement** | Start simple and beautiful. Add power over time. |
-| **Human + AI Partnership** | The interface makes AI useful without replacing human judgment. |
-| **Scientific Aesthetics** | Clean, calm, inspiring — like a modern research lab, not a social network. |
-| **Accessibility First** | Works for researchers in low-bandwidth regions and on mobile. |
-| **Long-term Ownership** | Users should feel they *own* their contributions and workspace. |
-
----
-
-### Phase 1: Trust & Accessibility (2026–2027)
-
-**Goal**: Make the project feel professional, trustworthy, and easy to explore.
-
-**Core Interface**
-- **Static Site** (MkDocs Material or Docusaurus) auto-generated from the repo
-- Clean navigation by discipline, unknowns, hypotheses, and cross-domain connections
-- Powerful full-text + semantic search
-- Beautiful hypothesis and unknown cards with clear status, priority, and evidence
-- Direct “Contribute” buttons that open GitHub PRs with pre-filled templates
-- Mobile-responsive and fast
-
-**Key Features**
-- “Today’s Most Important Unknowns” homepage section
-- Personalized “Following” feed (track specific unknowns or disciplines)
-- Simple knowledge graph explorer (read-only at first)
-- Clear labeling of AI-assisted content
-
-**Tech Stack**
-- MkDocs Material + custom theme (or Docusaurus 3)
-- GitHub Actions for automatic deployment
-- Algolia or local search (with embeddings)
-
-**Success Metric**  
-Researchers say: “This finally makes open problems visible and actionable.”
+### What's Live (Phase 0 — Static Site)
+- **Dashboard**: `dashboard/index.html` — dark-themed, responsive
+  - Live stats (bridges, unknowns, hypotheses, graph nodes)
+  - D3.js interactive force-directed knowledge graph (1000+ nodes, zoom/pan, click-to-detail)
+  - Lunr.js full-text search across all bridges and unknowns
+  - Pioneers section (13 cards with core contributions)
+  - Breakthrough Gaps section (11 entries with TRL ratings)
+  - AI Co-pilot section with live bridge proposal counts
+  - 1000-node milestone banner
+- **Domain landing pages**: `dashboard/domains/` — 41 auto-generated pages, one per discipline
+- **Explainer pages**: `dashboard/explainers/` — long-form scientific explainers for key bridges
+- **Static JSON API**: `api/v1/` — bridges, unknowns, hypotheses, graph, meta, proposals endpoints
+- **Knowledge graph**: `docs/knowledge_graph.json` — 1042 nodes, 964 edges (578KB)
+- **GitHub Pages deployment**: `https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/`
 
 ---
 
-### Phase 2: Power & Intelligence (2028–2029)
+## Phase 1: Trust & Accessibility (2027)
 
-**Goal**: Turn the interface into a serious research tool.
+**Goal**: Make USDR usable by researchers who don't know GitHub or YAML.
 
-**Major Additions**
-- **Interactive Knowledge Graph** (zoomable, filterable, clickable)
-- **AI Co-Pilot Sidebar** — grounded in the USDR knowledge graph
-  - “Find similar unknowns”
-  - “Suggest experiments for this hypothesis”
-  - “What are the contradictions in this subfield?”
-- **Hypothesis Workspace** — draft, version, and collaborate on hypotheses before submitting to Git
-- **Advanced Filters & Discovery Engine** — “Show me high-impact unknowns with < 5 related papers in the last 3 years”
-- **Contributor Dashboard** — impact metrics, reputation, bounties, recognition
+### P1.1 — Custom Domain
+- Register `usdr.science` or equivalent
+- Configure GitHub Pages CNAME
+- Update all links, preprint, outreach materials
+- **Effort**: 1 day | **Impact**: High (professional credibility)
 
-**Tech Stack**
-- Next.js 15+ (App Router)
-- shadcn/ui + Tailwind + Radix
-- React Flow or Cytoscape.js for graph visualization
-- Vector database (LanceDB or Weaviate) + embeddings
-- GitHub OAuth + fine-grained permissions
-- Open-weight models (via Ollama, Together.ai, or self-hosted) for the co-pilot
+### P1.2 — Submission Portal
+- Web form for submitting bridge proposals without YAML knowledge
+- Fields map to schema fields
+- Generates a GitHub Issue with [BRIDGE] template pre-filled
+- **Technology**: Static HTML form + GitHub API
+- **Effort**: 1 week | **Impact**: High (opens contribution to non-technical researchers)
 
-**Success Metric**  
-Active researchers use USDR multiple times per week as part of their normal workflow.
+### P1.3 — Enhanced Search
+- Semantic search (beyond Lunr.js keyword matching)
+- Filter by domain, status, catalog type
+- "Related bridges" suggestions on each entry page
+- **Technology**: Algolia DocSearch (free for open source) or Meilisearch
+- **Effort**: 1 week | **Impact**: High (core discovery tool)
 
----
+### P1.4 — Individual Entry Pages
+- Permanent URLs for every bridge, unknown, pioneer, breakthrough gap
+- `usdr.science/bridge/percolation-ecology`
+- Auto-generated from YAML via CI
+- Social sharing cards (OpenGraph)
+- **Effort**: 2 weeks | **Impact**: High (linkable, citeable entries)
 
-### Phase 3: Discovery Operating System (2030–2035+)
-
-**Goal**: Become the default environment in which scientific discovery happens.
-
-**Visionary Features**
-- **Personal Discovery Workspace** — private + shared canvases where researchers build their own maps of unknowns
-- **AI Discovery Agents** — autonomous agents that monitor new literature and proactively suggest high-value hypotheses
-- **Hypothesis Simulator** — run lightweight models, simulations, or statistical tests directly in the browser
-- **Collaborative Whiteboards** for hypothesis development (Figma-like but scientific)
-- **Impact & Reputation Layer** — on-chain or verifiable contribution history
-- **Federated Instances** — universities and labs can run their own mirrors while staying synced with the global graph
-- **Voice + Multimodal Interaction** — talk to the co-pilot, upload figures or lab notes
-
-**Long-term Tech Direction**
-- WebAssembly + Rust for high-performance local simulation
-- Decentralized options (IPFS + Ceramic or similar) for true data sovereignty
-- Deep integration with frontier AI labs (grounding models in USDR’s verified knowledge + unknowns)
-
-**Success Metric**  
-USDR becomes a household name in research institutions worldwide — “I found it on USDR” becomes as common as “I read it on arXiv.”
+### P1.5 — Contributor Dashboard
+- GitHub-authenticated contributor profiles
+- Contribution history and impact metrics
+- "Top contributors" leaderboard
+- **Technology**: GitHub OAuth + Pages
+- **Effort**: 2 weeks | **Impact**: Medium (community motivation)
 
 ---
 
-### How the Interface Connects to the Git Backend
+## Phase 2: Interactive Discovery (2028-2029)
 
-```
-┌──────────────────────────────┐
-│        Web Interface         │
-│  (Next.js + Graph + AI)      │
-└──────────────┬───────────────┘
-               │
-               ▼
-┌──────────────────────────────┐
-│     GitHub + Git + DVC       │ ← Source of Truth
-│   (Versioned, Forkable)      │
-└──────────────────────────────┘
-```
+**Goal**: The interface becomes an active discovery tool, not just a browser.
 
-Every change made in the web interface eventually becomes a Git commit (or suggests one).  
-This preserves the decentralized, version-controlled nature of the project while making it dramatically more accessible.
+### P2.1 — AI Co-pilot Integration
+- Chat interface grounded in the USDR knowledge graph
+- "Find bridges connecting [domain] to [domain]"
+- "What are the open unknowns in [field]?"
+- "What breakthrough gap is closest to resolution?"
+- **Technology**: RAG over the YAML catalog + LLM API
+- **Effort**: 4-8 weeks | **Impact**: Transformative
 
----
+### P2.2 — Real-time Literature Integration
+- Daily arXiv OAI-PMH harvest → flag papers that cite USDR bridges
+- Auto-suggest new bridges from abstract analysis
+- "New paper found that may resolve unknown X"
+- **Technology**: Existing `usdr-ingest` + NLP pipeline
+- **Effort**: 2-4 weeks | **Impact**: High
 
-### Why This Phased Approach Works
+### P2.3 — Cross-domain Discovery Engine
+- Interactive "what connects [domain A] to [domain B]?" query
+- Path-finding in the knowledge graph (shortest bridge path)
+- Visualize all bridges between two selected domains
+- **Technology**: D3.js + graph algorithms on existing JSON
+- **Effort**: 2 weeks | **Impact**: High
 
-- **2026–2027**: Build trust and seed high-quality content
-- **2028–2029**: Add power and intelligence once the foundation is solid
-- **2030+**: Create the full Discovery OS once usage and community are mature
-
-This mirrors how the most successful infrastructure projects (Linux, Git, arXiv, Hugging Face) evolved — start with something simple and trustworthy, then layer on sophistication.
-
----
-
-### One-Sentence Vision
-
-**The USDR interface will evolve from a clean documentation site into the most powerful, beautiful, and intelligent environment ever created for exploring and advancing the frontiers of human knowledge.**
+### P2.4 — Collaborative Annotation
+- Comment threads on individual entries (GitHub Discussions integration)
+- "I tested this bridge in my lab" verification markers
+- Expert endorsement system
+- **Effort**: 2-4 weeks | **Impact**: High (community trust)
 
 ---
 
-**This is the interface layer of the most ambitious scientific infrastructure project of our time.**
+## Phase 3: Discovery OS (2030+)
 
-We are building it openly.
+**Goal**: USDR becomes the interface through which researchers interact with all of science.
 
-**Join us.**
+- Experiment planner: "Design an experiment to test this bridge"
+- Simulation integration: run models directly from hypothesis entries
+- Federated network: other institutions run USDR mirrors
+- AI lab integration: models trained with USDR discovery grounding
+- On-chain contribution reputation (optional)
+- Physical Discovery Labs running experiments from USDR hypotheses
+
+---
+
+## Design Principles
+
+1. **Progressive enhancement** — works without JavaScript (static HTML baseline)
+2. **Mobile first** — researchers use phones; the dashboard must work on mobile
+3. **Accessibility** — WCAG 2.1 AA minimum
+4. **Speed** — knowledge graph loads in < 3 seconds on 4G
+5. **Openness** — no paywalls, no accounts required to browse
+6. **Git as truth** — the interface is always derived from the YAML catalog, never the reverse
+
+---
+
+## Technical Stack (Current)
+
+| Layer | Technology | Notes |
+|---|---|---|
+| Content | YAML (schema-validated) | Git-tracked, CI-validated |
+| Build | Python scripts | validate, graph, API, dashboard stats, domain pages, explainers |
+| CI/CD | GitHub Actions | validate.yml, build-graph.yml, pages.yml |
+| Frontend | Vanilla HTML/CSS/JS | D3.js v7, Lunr.js |
+| Hosting | GitHub Pages | Free, CDN-backed |
+| API | Static JSON | `api/v1/` directory |
+| Search | Lunr.js (client-side) | Phase 1 → Algolia |
+
+## Roadmap Alignment
+
+| Roadmap Phase | Interface Deliverable |
+|---|---|
+| Phase 0 (2026) | Static dashboard, domain pages, API, knowledge graph — **COMPLETE** |
+| Phase 1 (2027-2028) | Custom domain, submission portal, semantic search, entry permalinks |
+| Phase 2 (2029-2031) | AI co-pilot, literature integration, discovery engine, collaborative annotation |
+| Phase 3 (2032+) | Discovery OS, federated network, experiment planner |

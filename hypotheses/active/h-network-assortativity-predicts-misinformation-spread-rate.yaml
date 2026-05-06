@@ -1,0 +1,54 @@
+id: h-network-assortativity-predicts-misinformation-spread-rate
+title: >
+  The assortativity coefficient of political belief networks quantitatively predicts
+  the within-community vs between-community information spread rate ratio, such that
+  networks with assortativity r > 0.5 show misinformation spreading 10× faster within
+  communities than between, creating measurable belief divergence within 30 days.
+status: active
+created: "2026-05-06"
+last_updated: "2026-05-06"
+priority: high
+unknowns_addressed:
+  - u-homophily-echo-chamber-causality
+related_disciplines:
+  - social-science
+  - network-science
+  - computational-social-science
+  - political-science
+evidence_links:
+  - type: supporting
+    doi: 10.1103/PhysRevLett.89.208701
+    note: >
+      Newman (2002) — assortativity coefficient formalism; assortative networks
+      have eigengap between within-group and between-group mixing rates that
+      determines information spread asymmetry.
+  - type: related
+    doi: 10.1073/pnas.1816840116
+    note: >
+      Bail et al. (2019) PNAS — Twitter experiment exposing conservatives to
+      liberal content; no attitude change, possible backfire — consistent with
+      inter-community bridge being bottleneck.
+  - type: related
+    doi: 10.1073/pnas.1804840115
+    note: >
+      Guess et al. (2018) — fake news consumption concentrated in high-assortativity
+      political network clusters.
+proposed_tests:
+  - discipline: computational-social-science
+    description: >
+      Collect retweet networks for 20 verified true vs. false news stories on
+      Twitter/X during the 2024 US election. Compute assortativity coefficients
+      for political community labels (LIWC political content score). For each
+      story, measure the fraction of within-community vs between-community
+      retweets as a function of time (0-7 days). Hypothesis: the log-ratio of
+      within/between community spread rate is linearly predicted by the
+      assortativity coefficient r with slope > 5 (r explains >70% of variance
+      in spread asymmetry).
+  - discipline: network-science
+    description: >
+      Construct synthetic random networks with assortativity r ∈ {0, 0.2, 0.4,
+      0.6, 0.8} using the Chung-Lu model with community structure. Simulate SIS
+      epidemic spreading (representing misinformation) and measure R_within /
+      R_between (within vs between community reproduction number). Hypothesis:
+      R_within / R_between = exp(r × C) for constant C determined by community
+      structure, independently of network size for N > 10,000.

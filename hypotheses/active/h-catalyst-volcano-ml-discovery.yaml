@@ -1,0 +1,39 @@
+id: h-catalyst-volcano-ml-discovery
+title: >
+  Machine learning models trained on DFT-computed adsorption energies can identify
+  novel catalysts near the volcano peak for ammonia synthesis with turnover frequencies
+  within 10× of Ru at ambient pressure, by predicting binding energy descriptors beyond
+  the N adsorption energy traditionally used.
+status: active
+created: "2026-05-06"
+last_updated: "2026-05-06"
+priority: high
+unknowns_addressed:
+  - u-catalyst-optimization-volcano-plots
+related_disciplines:
+  - chemistry
+  - materials-science
+  - computational-chemistry
+  - machine-learning
+evidence_links:
+  - type: supporting
+    doi: 10.1126/science.1073947
+    note: >
+      Jacobsen et al. (2001) Science — volcano plot for ammonia synthesis; Ru
+      near the peak; Fe is viable but not optimal; predict CoMo alloys.
+  - type: supporting
+    doi: 10.1038/s41929-019-0293-x
+    note: >
+      Tran & Ulissi (2018) — active learning for catalysis; ML models trained
+      on DFT energies recommend new alloy compositions; 10× speedup in catalyst
+      discovery.
+proposed_tests:
+  - discipline: chemistry
+    description: >
+      Train a graph neural network (GNoME architecture) on Open Catalyst 2020
+      dataset of 264M DFT relaxations. Use the trained model to screen 10,000
+      bimetallic alloy surface configurations for N and H adsorption energies.
+      Identify 20 top candidates near the ammonia synthesis volcano peak.
+      Synthesize top 5 candidates by ALD and measure NH3 production rate at
+      400°C, 10 bar H2:N2 = 3:1. Hypothesis: ≥2 of 5 show TOF > 10^-3 s^-1
+      (within 10× of Ru), validating ML volcano screening.

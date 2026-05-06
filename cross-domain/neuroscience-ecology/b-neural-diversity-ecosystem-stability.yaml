@@ -1,0 +1,76 @@
+id: b-neural-diversity-ecosystem-stability
+title: "Neural circuit diversity and ecosystem stability — May's random matrix stability criterion governs both heterogeneous neural populations and biodiverse food webs"
+status: proposed
+fields:
+  - neuroscience
+  - ecology
+  - mathematics
+  - network-science
+  - statistical-physics
+
+bridge_claim: >
+  The diversity-stability relationship in ecology (May 1972) maps precisely onto neural
+  circuit diversity: heterogeneous neural populations are more robust to perturbation
+  than homogeneous ones, just as biodiverse ecosystems are more stable than monocultures.
+  May's stability criterion: a random ecological community with S species, connectance C,
+  and mean interaction strength σ is stable if σ√(SC) < 1. This derives from random
+  matrix theory (Wigner semicircle law): the largest eigenvalue of the community matrix
+  determines stability, and λ_max ≈ σ√(SC) for large random matrices. The same random
+  matrix stability analysis applies to neural circuits: a network of N neurons with
+  random synaptic weights of variance σ²/N is stable if σ < 1. Heterogeneous neural
+  populations (diverse E/I ratios, timescales, firing thresholds) have lower effective
+  σ and higher stability margins. Inhibitory diversity prevents runaway excitation
+  (analogous to predator diversity controlling prey populations). The balanced
+  excitation-inhibition in cortical circuits is the neural analog of balanced
+  predator-prey biomass in stable food webs.
+
+translation_table:
+  - field_a_term: "community matrix A_ij (species interaction)"
+    field_b_term: "synaptic weight matrix W_ij (neural connectivity)"
+    note: "Both are random matrices; eigenspectrum determines stability of fixed points"
+  - field_a_term: "connectance C (fraction of realized interactions)"
+    field_b_term: "connectivity p (fraction of connected neuron pairs)"
+    note: "Both appear in the stability criterion: λ_max ~ σ√(SC) or σ√(pN)"
+  - field_a_term: "biodiversity (species richness S)"
+    field_b_term: "neural diversity (cell type heterogeneity)"
+    note: "More diverse communities / populations can support more complex dynamics"
+  - field_a_term: "predator-prey balance (top-down control)"
+    field_b_term: "inhibitory interneuron control (E/I balance)"
+    note: "Both prevent runaway growth; loss of predators → prey explosion = loss of inhibition → seizure"
+  - field_a_term: "trophic cascade (keystone species removal)"
+    field_b_term: "disinhibition cascade (PV interneuron loss)"
+    note: "Remove a single control node → cascade instability in both food web and circuit"
+  - field_a_term: "May's stability criterion σ√(SC) < 1"
+    field_b_term: "E/I balance criterion for cortical circuits"
+    note: "Both are conditions on interaction strength × connectivity for linear stability"
+
+related_unknowns:
+  - u-ei-balance-diversity-robustness
+
+related_hypotheses:
+  - h-neural-diversity-stability-random-matrix-prediction
+
+cross_pollination_opportunities:
+  - "Apply food web resilience metrics (return time after perturbation) to neural circuits to quantify robustness to cell loss"
+  - "Test whether the species-diversity curve in ecology has a neural circuit analog in firing rate heterogeneity"
+  - "Use neural circuit tools (optogenetics, patch clamp) to create 'experimental food webs' with controlled connectivity"
+
+communication_gap: >
+  Ecologists and neuroscientists rarely read each other's literature despite sharing
+  stability mathematics. May (1972) was written for ecologists; Sompolinsky et al.
+  (1988) derived the same stability criterion for neural networks without citing May.
+  The connection was partly bridged by Allesina & Tang (2012) who updated May's
+  analysis with structured random matrices. The neuroscience community has not widely
+  adopted ecological stability metrics.
+
+references:
+  - doi: "10.1038/238413a0"
+    note: "May (1972) Nature 238:413 — random matrix stability criterion for ecological communities"
+  - doi: "10.1016/j.cell.2011.09.026"
+    note: "Isaacson & Scanziani (2011) Cell 147:1449 — E/I balance in cortical circuits"
+  - doi: "10.1038/nn.3134"
+    note: "Litwin-Kumar & Doiron (2012) Nat Neurosci 15:1498 — slow fluctuations from heterogeneous networks"
+  - doi: "10.1038/nature10832"
+    note: "Allesina & Tang (2012) Nature 483:205 — stability criteria for complex ecological networks"
+
+last_reviewed: "2026-05-06"
