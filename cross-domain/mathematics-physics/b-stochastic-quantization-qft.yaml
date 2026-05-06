@@ -1,0 +1,96 @@
+id: b-stochastic-quantization-qft
+title: >
+  THE 250th BRIDGE: Parisi-Wu stochastic quantization (1981) maps quantum field theory
+  onto stochastic differential equations by deriving quantum amplitudes as the equilibrium
+  distribution of a Langevin process in fictitious time τ, connecting Itô stochastic
+  calculus (the mathematics of Brownian motion) to the path integral formulation of
+  quantum mechanics — the deepest known bridge between stochastic mathematics and
+  quantum physics.
+status: established
+fields:
+  - mathematics
+  - physics
+  - quantum-field-theory
+  - stochastic-processes
+  - mathematical-physics
+bridge_claim: >
+  Parisi & Wu (1981) proposed that quantum field theory amplitudes can be computed as
+  the equilibrium distribution of a fictitious Markov process in a fifth (Langevin) time
+  τ. The stochastic quantization equation is:
+    ∂φ(x,τ)/∂τ = -δS[φ]/δφ(x,τ) + η(x,τ)
+  where S[φ] is the Euclidean classical action, η is Gaussian white noise with
+  ⟨η(x,τ)η(x',τ')⟩ = 2δ(x-x')δ(τ-τ'), and the equilibrium distribution of this
+  Langevin equation is P[φ] ∝ exp(-S[φ]) — precisely the Euclidean path integral weight.
+  Therefore, quantum vacuum expectation values ⟨O⟩ = ∫Dφ O[φ]exp(-S[φ])/Z are recovered
+  as τ→∞ expectations of the stochastic process. The mathematics: this is the Fokker-Planck
+  equation ∂P/∂τ = -H_FP·P where H_FP is the Fokker-Planck Hamiltonian, with unique
+  stationary state exp(-S[φ]). This connects: Itô stochastic calculus (the rigorous
+  mathematical framework for SDEs, Brownian motion, and stochastic integrals) to quantum
+  field theory (the hardest physical problem — renormalization, gauge theories, non-perturbative
+  phenomena). Nelson (1966) showed Euclidean quantum mechanics is a Euclidean Markov process
+  (stochastic mechanics); Parisi-Wu extended this to field theory. The fluctuation-dissipation
+  theorem connects the noise amplitude (2) to the drift coefficient (1) — the same factor of 2
+  appearing in Einstein's fluctuation-dissipation theorem for Brownian motion, revealing quantum
+  fluctuations and thermal fluctuations as mathematically isomorphic.
+translation_table:
+  - field_a_term: Euclidean action S[φ] in quantum field theory
+    field_b_term: energy function / potential in stochastic dynamics (Lyapunov function)
+    note: S[φ] plays the role of -log P[φ] in the equilibrium distribution — identical to statistical mechanics
+  - field_a_term: Feynman path integral weight exp(-S_E[φ]) (Euclidean)
+    field_b_term: Boltzmann distribution exp(-βE) at inverse temperature β=1
+    note: Wick rotation to imaginary time τ = it maps quantum oscillations to thermal fluctuations
+  - field_a_term: Langevin equation stochastic force η(x,τ) (white noise)
+    field_b_term: thermal noise in Brownian motion / fluctuation-dissipation theorem
+    note: the noise amplitude 2 in ⟨ηη⟩=2δ is the fluctuation-dissipation coefficient (= 2kT in classical case)
+  - field_a_term: Fokker-Planck equation (evolution of probability density in field space)
+    field_b_term: diffusion equation for probability density of particle positions
+    note: both are parabolic PDEs; stochastic quantization Fokker-Planck has field configuration space as state space
+  - field_a_term: equilibrium distribution P∝exp(-S) of Langevin process
+    field_b_term: quantum vacuum = ground state expectation values in Euclidean QFT
+    note: "the fundamental equivalence — quantum vacuum physics = stochastic equilibrium"
+  - field_a_term: Langevin "time" τ (fictitious 5th dimension)
+    field_b_term: Monte Carlo steps in lattice QCD simulation
+    note: stochastic quantization provides theoretical basis for MCMC sampling of lattice gauge fields
+related_unknowns:
+  - u-qft-non-perturbative-regimes
+related_hypotheses:
+  - h-langlands-physics-electric-magnetic-duality
+cross_pollination_opportunities:
+  - >
+    Numerical lattice QCD: stochastic quantization provides the theoretical basis for
+    hybrid Monte Carlo (HMC) algorithms used in lattice gauge theory simulations — the
+    most computationally intensive scientific calculations (billions of CPU-hours annually).
+    The HMC algorithm is literally a discretized Langevin equation; understanding its
+    mathematical properties (ergodicity, mixing time, reversibility) is an SDE problem
+    that directly affects the precision of quark mass and hadron spectrum calculations.
+  - >
+    Machine learning and diffusion models: score-based generative models (Song & Ermon 2019,
+    Ho et al. 2020) learn to reverse a diffusion process (forward SDE: data → noise;
+    reverse SDE: noise → data). The forward diffusion is a Langevin process; the reverse
+    is a score-matched SDE. This is formally identical to stochastic quantization:
+    the score function ∇log P[x] corresponds to -δS/δφ. Diffusion models for images
+    are a practical instantiation of stochastic quantization of the image distribution,
+    connecting deep learning to quantum field theory via SDEs.
+  - >
+    Stochastic quantization provides a framework for understanding quantum mechanics
+    without canonical quantization — Nelson's stochastic mechanics program. This may
+    offer alternative paths to quantum gravity: if spacetime geometry is the equilibrium
+    of a Langevin process in super-space, the fluctuation-dissipation theorem constrains
+    the allowed quantum gravity theories.
+communication_gap: >
+  Parisi & Wu (1981) published in Chinese (Scientia Sinica) and the result was initially
+  unknown in the West; Damgaard & Hüffel (1987) wrote the comprehensive review that
+  brought stochastic quantization to the Western physics community. The connection to
+  modern machine learning (diffusion models) was not recognized until Song & Ermon (2019);
+  the score function = -δS/δφ equivalence to stochastic quantization is mentioned
+  occasionally in machine learning theory papers but has not been systematically developed.
+  The SDE mathematics (Itô calculus, Fokker-Planck operators) is taught in mathematics
+  departments but rarely connected to quantum field theory in physics curricula.
+last_reviewed: "2026-05-06"
+references:
+  - note: Parisi & Wu (1981) — Perturbation theory without gauge fixing; Sci Sin 24:483
+  - doi: "10.1016/0370-1573(87)90144-X"
+    note: Damgaard & Hüffel (1987) — Stochastic quantization; Phys Rep 152:227
+  - doi: "10.1103/PhysRev.150.1079"
+    note: Nelson (1966) — Derivation of the Schrödinger equation from Newtonian mechanics; Phys Rev 150:1079
+  - note: Zinn-Justin (2002) — Quantum Field Theory and Critical Phenomena; Oxford University Press

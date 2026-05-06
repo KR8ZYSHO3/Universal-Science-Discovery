@@ -1,5 +1,5 @@
 {
-  "count": 241,
+  "count": 250,
   "items": [
     {
       "id": "b-grokking-criticality",
@@ -1109,6 +1109,65 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\biology-chemistry\\b-enzyme-allostery-conformational.yaml"
+    },
+    {
+      "id": "b-lipid-bilayer-membrane-thermodynamics",
+      "title": "Lipid bilayer phase transitions from gel to fluid follow Landau free energy theory F = a(T-T_m)phi^2 + b*phi^4, with the transition temperature T_m tunable by lipid composition and cholesterol; membrane permeability and compressibility diverge near T_m in precise analogy to critical phenomena, connecting thermodynamic phase transition physics to membrane biophysics and the Meyer-Overton anesthetic mechanism.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Lipid bilayers undergo gel (Lbeta) to liquid-crystalline (Lalpha) phase transitions at melting temperatures T_m (typically 20-45C for physiological lipids). Below T_m: ordered gel phase with all-trans acyl chains (low lateral diffusion D ~ 10^-10 cm^2/s). Above T_m: disordered liquid crystalline pha",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-anesthesia-consciousness-thalamic-disruption"
+      ],
+      "communication_gap": "Physical chemistry of membranes developed largely in biophysics departments while cell biology treated membranes primarily as protein scaffolds. The critical phenomena analogy was made explicit by Mouritsen's Pink model in the 1980s but has not penetrated cell biology or pharmacology textbooks. Anesthesiology journals rarely cite Landau free energy or phase transition theory.\n",
+      "translation_table": [
+        {
+          "field_a_term": "gel phase (ordered acyl chains, low diffusivity)",
+          "field_b_term": "ordered/crystalline phase in condensed matter",
+          "note": "all-trans acyl chains analogous to crystalline lattice ordering"
+        },
+        {
+          "field_a_term": "liquid crystalline phase (disordered, high lateral diffusion)",
+          "field_b_term": "liquid/disordered phase",
+          "note": "gauche conformers create conformational disorder analogous to thermal disorder in liquids"
+        },
+        {
+          "field_a_term": "melting temperature T_m",
+          "field_b_term": "critical temperature T_c (or T_m in solid-liquid transition)",
+          "note": "T_m increases with chain length (C14:0 < C16:0 < C18:0) and degree of saturation"
+        },
+        {
+          "field_a_term": "membrane isothermal area compressibility modulus K_A",
+          "field_b_term": "isothermal compressibility diverging near phase transition",
+          "note": "both diverge near T_c; fluctuations couple to permeability and cellular signaling"
+        },
+        {
+          "field_a_term": "lipid rafts (liquid ordered Lo phase from cholesterol + sphingomyelin)",
+          "field_b_term": "phase-separated microdomains in a binary mixture",
+          "note": "Lo phase has intermediate properties between gel and liquid disordered phases"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1017/S0033583500000949",
+          "note": "Chapman (1975) — Phase transitions and fluidity characteristics of lipids; Q Rev Biophys 8:185"
+        },
+        {
+          "doi": "10.1016/S0006-3495(84)84040-9",
+          "note": "Mouritsen & Bloom (1984) — Mattress model of lipid-protein interactions; Biophys J 46:141"
+        },
+        {
+          "doi": "10.1146/annurev.biophys.33.110502.133731",
+          "note": "Simons & Vaz (2004) — Model systems, lipid rafts and cell membranes; Annu Rev Biophys 33:269"
+        },
+        {
+          "note": "Overton (1901) — Studien uber die Narkose; Gustav Fischer Verlag"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\biology-chemistry\\b-lipid-bilayer-membrane-thermodynamics.yaml"
     },
     {
       "id": "b-crispr-programmable-genome-editing",
@@ -3249,6 +3308,61 @@
       "file": "cross-domain\\computer-science-neuroscience\\b-transformer-attention-neural-attention.yaml"
     },
     {
+      "id": "b-quantum-supremacy-complexity",
+      "title": "Google's Sycamore quantum processor (2019) demonstrated quantum computational advantage by sampling a random quantum circuit distribution in 200s vs estimated 10,000 classical years, framing the question of quantum advantage as the complexity separation BQP vs BPP and connecting quantum entanglement physics to computational complexity theory.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "proposed",
+      "bridge_claim": "Google's 53-qubit Sycamore processor (Arute et al. 2019) sampled the output distribution of a pseudo-random quantum circuit in 200s, with classical simulation estimated at 10,000 years on Summit supercomputer. The complexity-theoretic interpretation: this demonstrates BQP is likely not contained in ",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-quantum-error-correction-surface-code-overhead-v2"
+      ],
+      "communication_gap": "Complexity theorists and quantum physicists largely work in separate communities despite the quantum supremacy question requiring both. The complexity-theoretic framing (BQP vs BPP) is rarely explained in physics papers; the physics of noise and decoherence is rarely engaged in complexity theory papers. Preskill (2018) coined \"quantum supremacy\" specifically to bridge communities.\n",
+      "translation_table": [
+        {
+          "field_a_term": "quantum entanglement (non-separable multi-qubit state)",
+          "field_b_term": "computational resource enabling BQP separation from BPP",
+          "note": "entanglement is the physical resource; complexity advantage is the computational consequence"
+        },
+        {
+          "field_a_term": "quantum interference (amplitude cancellation in circuit)",
+          "field_b_term": "hardness of classical simulation (exponential amplitude summation)",
+          "note": "constructive/destructive interference is precisely what makes classical simulation hard"
+        },
+        {
+          "field_a_term": "random quantum circuit sampling",
+          "field_b_term": "anticoncentration (output distribution close to uniform, hard to spoof classically)",
+          "note": "anticoncentration property ensures classical simulation requires exponential time"
+        },
+        {
+          "field_a_term": "matrix permanent (BosonSampling)",
+          "field_b_term": "#P-hard problem in computational complexity",
+          "note": "computing Perm(A) for complex A is"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1038/s41586-019-1666-5",
+          "note": "Arute et al. (2019) — Quantum supremacy using a programmable superconducting processor; Nature 574:505"
+        },
+        {
+          "doi": "10.1145/1993636.1993682",
+          "note": "Aaronson & Arkhipov (2011) — The computational complexity of linear optics; STOC"
+        },
+        {
+          "doi": "10.22331/q-2018-08-06-79",
+          "note": "Preskill (2018) — Quantum computing in the NISQ era and beyond; Quantum 2:79"
+        },
+        {
+          "doi": "10.1126/science.abe8770",
+          "note": "Zhong et al. (2020) — Quantum computational advantage using photons; Science 370:1460"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\computer-science-physics\\b-quantum-supremacy-complexity.yaml"
+    },
+    {
       "id": "b-simulated-annealing-stat-mech",
       "title": "The simulated annealing metaheuristic (Kirkpatrick et al. 1983) is a direct algorithmic implementation of statistical-mechanical annealing: the Metropolis acceptance criterion mirrors the Boltzmann factor and the cooling schedule controls convergence to the configuration-space ground state.\n",
       "source_domain": "",
@@ -4428,6 +4542,65 @@
       "file": "cross-domain\\ecology-social-science\\b-common-pool-resources-game-theory.yaml"
     },
     {
+      "id": "b-resilience-theory-adaptive-management",
+      "title": "Holling's ecological resilience theory (1973) — ecosystems have multiple stable states with resilience = basin of attraction width, not proximity to equilibrium — provides the panarchy framework applicable to social-ecological systems, cities, and institutions, connecting the fold bifurcation mathematics of alternative stable states to social tipping points and adaptive management.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Holling (1973) distinguished resilience (ability to absorb disturbance without state change) from stability (return time to equilibrium). The \"ball in cup\" metaphor: the basin of attraction width determines resilience; a narrowing basin predicts catastrophic regime shift even as the system appears s",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-collective-action-ostrom-design-principles-v2"
+      ],
+      "communication_gap": "Holling (1973) published in Annual Review of Ecology and Systematics without citing bifurcation theory or Thom's catastrophe theory (published same year), despite working with the identical mathematics. Gunderson & Holling (2002) Panarchy deliberately avoided mathematical formalism to reach interdisciplinary audiences, at the cost of losing connection to physics and engineering communities who developed the same theory under different names (regime shifts, tipping elements, critical transitions).\n",
+      "translation_table": [
+        {
+          "field_a_term": "ecological resilience (basin of attraction width)",
+          "field_b_term": "institutional resilience (capacity to absorb political/economic shocks)",
+          "note": "both measured by how large a perturbation is needed to flip the system to an alternate state"
+        },
+        {
+          "field_a_term": "fold bifurcation / catastrophic regime shift",
+          "field_b_term": "tipping point in social-ecological system",
+          "note": "same mathematical structure; early warning signals (CSD) applicable to both"
+        },
+        {
+          "field_a_term": "alternative stable states (e.g., clear lake vs turbid lake)",
+          "field_b_term": "institutional bistability (e.g., trust vs distrust equilibria in governance)",
+          "note": "both exhibit hysteresis — transition back requires larger effort than transition forward"
+        },
+        {
+          "field_a_term": "panarchy adaptive cycle (r→K→Ω→α)",
+          "field_b_term": "Schumpeterian creative destruction (growth, accumulation, disruption, innovation)",
+          "note": "Schumpeter's economic cycle maps onto Holling's ecological cycle; similar 4-phase structure"
+        },
+        {
+          "field_a_term": "slow variables (phosphorus loading, fishing pressure)",
+          "field_b_term": "institutional parameters (inequality, social capital, institutional quality)",
+          "note": "slow variables determine the position of the fold bifurcation; hard to change but determine stability"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1146/annurev.es.04.110173.000245",
+          "note": "Holling (1973) — Resilience and stability of ecological systems; Annu Rev Ecol Syst 4:1"
+        },
+        {
+          "note": "Gunderson & Holling (2002) — Panarchy; Island Press"
+        },
+        {
+          "doi": "10.1146/annurev.ecolsys.35.021103.105711",
+          "note": "Folke et al. (2004) — Regime shifts, resilience, and biodiversity in ecosystem management; Annu Rev Ecol Evol Syst 35:557"
+        },
+        {
+          "doi": "10.5751/ES-00650-090205",
+          "note": "Walker et al. (2004) — Resilience, adaptability and transformability; Ecol Soc 9:5"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\ecology-social-science\\b-resilience-theory-adaptive-management.yaml"
+    },
+    {
       "id": "b-species-distribution-maxent",
       "title": "MaxEnt species distribution modelling is the ecological application of Jaynes' maximum entropy principle: given presence-only occurrence data and environmental features, MaxEnt finds the distribution of maximum entropy subject to empirical feature constraints — a result formally identical to a Gibbs distribution and to maximum likelihood estimation in a Poisson point process model.\n",
       "source_domain": "",
@@ -5482,6 +5655,64 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\engineering-mathematics\\b-control-theory-differential-geometry.yaml"
+    },
+    {
+      "id": "b-optimization-algorithms-convex-analysis",
+      "title": "Gradient descent and its variants (Nesterov acceleration, proximal methods, ADMM) derive their convergence guarantees from convex analysis: O(1/t) for convex, O(exp(-t)) for strongly convex, and optimal O(1/t²) for Nesterov momentum — unifying engineering optimization with mathematical analysis of convex functions.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Gradient descent x_{t+1} = x_t - η∇f(x_t) converges at rate O(1/t) for L-smooth convex f (Lipschitz gradient, ‖∇f(x)-∇f(y)‖ ≤ L‖x-y‖) and at rate O(exp(-μt/L)) for μ-strongly convex f (where μ = σ_min(∇²f)). Nesterov's accelerated gradient method (1983) achieves the optimal rate O(L/t²) for smooth c",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-distribution-shift-invariant-risk-minimization"
+      ],
+      "communication_gap": "Nesterov (1983) published the accelerated gradient method in a Russian-language journal (Doklady Akademii Nauk) and the result was unknown in Western machine learning until the late 2000s. Boyd et al. (2011) ADMM monograph in Foundations and Trends made convex optimization accessible to engineers and machine learning practitioners without background in convex analysis. Rockafellar (1970) remains the definitive mathematical reference but is rarely cited by machine learning engineers.\n",
+      "translation_table": [
+        {
+          "field_a_term": "gradient ∇f(x) (smooth function derivative)",
+          "field_b_term": "subgradient ∂f(x) (set-valued, for non-smooth convex f)",
+          "note": "subgradient extends gradient to non-differentiable points; ∂(‖x‖₁) = sign(x) at non-zero"
+        },
+        {
+          "field_a_term": "Lipschitz continuity of gradient (L-smoothness)",
+          "field_b_term": "bound on curvature of f; enables step size η = 1/L convergence guarantee",
+          "note": "L-smoothness is the key regularity condition that makes gradient descent's O(1/t) rate provable"
+        },
+        {
+          "field_a_term": "strong convexity parameter μ (‖x-y‖² ≤ f(x)-f(y)...)",
+          "field_b_term": "condition number κ = L/μ (determines convergence rate)",
+          "note": "well-conditioned problems (small κ) converge exponentially; ill-conditioned problems need preconditioning"
+        },
+        {
+          "field_a_term": "proximal operator prox_{τg}(x) (denoising step)",
+          "field_b_term": "projection onto convex set C (special case g = indicator of C)",
+          "note": "proximal operator generalizes projection; equals soft thresholding for L1 regularization"
+        },
+        {
+          "field_a_term": "Lagrangian duality gap = 0 for convex programs (Slater's condition)",
+          "field_b_term": "strong duality (primal = dual optimal value)",
+          "note": "strong duality fails for non-convex programs; convexity is sufficient for zero duality gap"
+        }
+      ],
+      "references": [
+        {
+          "note": "Nesterov (1983) — A method for solving convex programming problems with convergence rate O(1/k²); Doklady AN USSR 269:543"
+        },
+        {
+          "doi": "10.1561/2200000016",
+          "note": "Boyd et al. (2011) — Distributed optimization and statistical learning via the ADMM; Found Trends Mach Learn 3:1"
+        },
+        {
+          "doi": "10.1561/2400000003",
+          "note": "Parikh & Boyd (2014) — Proximal algorithms; Found Trends Optim 1:127"
+        },
+        {
+          "note": "Rockafellar (1970) — Convex Analysis; Princeton University Press"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\engineering-mathematics\\b-optimization-algorithms-convex-analysis.yaml"
     },
     {
       "id": "b-signal-processing-fourier-analysis",
@@ -7009,6 +7240,59 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\materials-science-biology\\b-biomineralization-crystal-nucleation.yaml"
+    },
+    {
+      "id": "b-gecko-adhesion-van-der-waals",
+      "title": "Gecko adhesion arises from millions of nanoscale setae generating ~10nN van der Waals (dispersion) forces per spatula, with total adhesion (~20N) modeled by JKR contact mechanics (F = 3πwR/2), producing direction-dependent anisotropic and self-cleaning dry adhesion — connecting condensed matter physics (van der Waals interactions) to materials engineering and bio-inspired synthetic adhesives.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Gecko feet contain ~10^9 keratinous setae (100 μm long, 5 μm diameter) each branching into ~100-1000 spatulae (~200 nm wide, 20 nm thick). Each spatula generates adhesion via van der Waals (London dispersion) forces: F ~ 10nN per spatula. Total foot adhesion ~20N, sufficient to support the gecko's w",
+      "open_unknowns": [],
+      "related_hypotheses": [],
+      "communication_gap": "The gecko adhesion mechanism was debated for 150 years (capillary, suction, microlock hypotheses). Autumn et al. (2000, 2002) definitively established van der Waals mechanism using atomic force microscopy and contact angle measurements on single setae — requiring both biology (gecko handling) and physics (surface forces measurement). Materials scientists developed JKR theory (1971) and synthetic adhesive design completely independently of gecko biology; Geim's nanotube adhesive paper (2003) was the first to explicitly apply gecko knowledge to materials engineering.\n",
+      "translation_table": [
+        {
+          "field_a_term": "van der Waals (London dispersion) force per spatula ~10nN",
+          "field_b_term": "Hamaker constant A (material-specific van der Waals interaction energy parameter)",
+          "note": "F_vdW = A·R/(6d²) per JKR; Hamaker constant for keratin-silica ~10^-19 J"
+        },
+        {
+          "field_a_term": "JKR pull-off force F = (3/2)πwR",
+          "field_b_term": "work of adhesion w = γ₁ + γ₂ - γ₁₂ (surface energies)",
+          "note": "JKR theory derived from elasticity + surface energetics; w determines adhesion per contact area"
+        },
+        {
+          "field_a_term": "anisotropic adhesion (strong distally, weak proximally)",
+          "field_b_term": "geometric coupling between drag direction and contact area",
+          "note": "setae angle ~45° creates direction-dependent detachment — a structural amplification of vdW forces"
+        },
+        {
+          "field_a_term": "self-cleaning (particles transfer from setae to substrate)",
+          "field_b_term": "thermodynamic wettability (particle-substrate adhesion > particle-seta adhesion)",
+          "note": "Gecko does not have a cleaning mechanism; self-cleaning is a passive thermodynamic consequence"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1038/35015073",
+          "note": "Autumn et al. (2000) — Adhesive force of a single gecko foot-hair; Nature 405:681"
+        },
+        {
+          "doi": "10.1073/pnas.192252799",
+          "note": "Autumn et al. (2002) — Evidence for van der Waals adhesion in gecko setae; PNAS 99:12252"
+        },
+        {
+          "doi": "10.1098/rspa.1971.0141",
+          "note": "Johnson, Kendall & Roberts (1971) — Surface energy and contact of elastic solids; Proc R Soc A 324:301"
+        },
+        {
+          "doi": "10.1038/nmat762",
+          "note": "Geim et al. (2003) — Microfabricated adhesive mimicking gecko foot-hair; Nat Mater 2:461"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\materials-science-biology\\b-gecko-adhesion-van-der-waals.yaml"
     },
     {
       "id": "b-fracture-mechanics-griffith",
@@ -8737,6 +9021,69 @@
       "file": "cross-domain\\mathematics-physics\\b-renormalization-group-scale-invariance.yaml"
     },
     {
+      "id": "b-stochastic-quantization-qft",
+      "title": "THE 250th BRIDGE: Parisi-Wu stochastic quantization (1981) maps quantum field theory onto stochastic differential equations by deriving quantum amplitudes as the equilibrium distribution of a Langevin process in fictitious time τ, connecting Itô stochastic calculus (the mathematics of Brownian motion) to the path integral formulation of quantum mechanics — the deepest known bridge between stochastic mathematics and quantum physics.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Parisi & Wu (1981) proposed that quantum field theory amplitudes can be computed as the equilibrium distribution of a fictitious Markov process in a fifth (Langevin) time τ. The stochastic quantization equation is:\n  ∂φ(x,τ)/∂τ = -δS[φ]/δφ(x,τ) + η(x,τ)\nwhere S[φ] is the Euclidean classical action, ",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-langlands-physics-electric-magnetic-duality"
+      ],
+      "communication_gap": "Parisi & Wu (1981) published in Chinese (Scientia Sinica) and the result was initially unknown in the West; Damgaard & Hüffel (1987) wrote the comprehensive review that brought stochastic quantization to the Western physics community. The connection to modern machine learning (diffusion models) was not recognized until Song & Ermon (2019); the score function = -δS/δφ equivalence to stochastic quantization is mentioned occasionally in machine learning theory papers but has not been systematically developed. The SDE mathematics (Itô calculus, Fokker-Planck operators) is taught in mathematics departments but rarely connected to quantum field theory in physics curricula.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Euclidean action S[φ] in quantum field theory",
+          "field_b_term": "energy function / potential in stochastic dynamics (Lyapunov function)",
+          "note": "S[φ] plays the role of -log P[φ] in the equilibrium distribution — identical to statistical mechanics"
+        },
+        {
+          "field_a_term": "Feynman path integral weight exp(-S_E[φ]) (Euclidean)",
+          "field_b_term": "Boltzmann distribution exp(-βE) at inverse temperature β=1",
+          "note": "Wick rotation to imaginary time τ = it maps quantum oscillations to thermal fluctuations"
+        },
+        {
+          "field_a_term": "Langevin equation stochastic force η(x,τ) (white noise)",
+          "field_b_term": "thermal noise in Brownian motion / fluctuation-dissipation theorem",
+          "note": "the noise amplitude 2 in ⟨ηη⟩=2δ is the fluctuation-dissipation coefficient (= 2kT in classical case)"
+        },
+        {
+          "field_a_term": "Fokker-Planck equation (evolution of probability density in field space)",
+          "field_b_term": "diffusion equation for probability density of particle positions",
+          "note": "both are parabolic PDEs; stochastic quantization Fokker-Planck has field configuration space as state space"
+        },
+        {
+          "field_a_term": "equilibrium distribution P∝exp(-S) of Langevin process",
+          "field_b_term": "quantum vacuum = ground state expectation values in Euclidean QFT",
+          "note": "the fundamental equivalence — quantum vacuum physics = stochastic equilibrium"
+        },
+        {
+          "field_a_term": "Langevin \"time\" τ (fictitious 5th dimension)",
+          "field_b_term": "Monte Carlo steps in lattice QCD simulation",
+          "note": "stochastic quantization provides theoretical basis for MCMC sampling of lattice gauge fields"
+        }
+      ],
+      "references": [
+        {
+          "note": "Parisi & Wu (1981) — Perturbation theory without gauge fixing; Sci Sin 24:483"
+        },
+        {
+          "doi": "10.1016/0370-1573(87)90144-X",
+          "note": "Damgaard & Hüffel (1987) — Stochastic quantization; Phys Rep 152:227"
+        },
+        {
+          "doi": "10.1103/PhysRev.150.1079",
+          "note": "Nelson (1966) — Derivation of the Schrödinger equation from Newtonian mechanics; Phys Rev 150:1079"
+        },
+        {
+          "note": "Zinn-Justin (2002) — Quantum Field Theory and Critical Phenomena; Oxford University Press"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\mathematics-physics\\b-stochastic-quantization-qft.yaml"
+    },
+    {
       "id": "b-symplectic-geometry-hamiltonian",
       "title": "The phase space of classical mechanics is a symplectic manifold (M, ω) and Hamilton's equations preserve the symplectic form (Liouville's theorem); quantum mechanics is the deformation quantization of this symplectic structure, making symplectic geometry the unifying language of classical and quantum dynamics.\n",
       "source_domain": "",
@@ -8918,6 +9265,61 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\mathematics-quantum-physics\\b-spectral-theory-quantum-mechanics.yaml"
+    },
+    {
+      "id": "b-fair-division-combinatorics",
+      "title": "Envy-free cake cutting for n agents connects Sperner's lemma in combinatorics to fair division in social science: the existence of envy-free allocations for heterogeneous divisible goods follows from topological fixed-point arguments (Sperner-Brouwer), while spectrum allocation, inheritance law, and parliamentary seat apportionment use combinatorial fair division algorithms derived from the same mathematical foundations.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The Steinhaus-Banach I-cut-you-choose procedure (1948) gives an envy-free allocation for n=2 agents. For n=3: the Selfridge-Conway procedure achieves envy-freeness in a finite number of cuts. For n>=3 generally: Stromquist (1980) proved no finite envy-free protocol exists for divisible goods with n>",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-collective-action-ostrom-design-principles-v2"
+      ],
+      "communication_gap": "Fair division mathematics developed in economics and mathematics departments with minimal cross-citation. The combinatorics community (Sperner, Brouwer) developed fixed-point theorems without awareness of fair division applications. Procaccia's work on computational fair division began bridging computer science and economics starting ~2008 but fair division textbooks rarely present the Sperner's lemma connection.\n",
+      "translation_table": [
+        {
+          "field_a_term": "envy-free allocation (no agent prefers another's share)",
+          "field_b_term": "Nash equilibrium in fair division game",
+          "note": "envy-freeness implies stability — no agent has incentive to demand a trade"
+        },
+        {
+          "field_a_term": "Sperner's lemma (labeled triangulation has fully-labeled simplex)",
+          "field_b_term": "existence of envy-free allocation (non-constructive)",
+          "note": "topological combinatorics provides existence proof without an explicit algorithm"
+        },
+        {
+          "field_a_term": "I-cut-you-choose (n=2 protocol)",
+          "field_b_term": "mechanism design for bilateral fair division",
+          "note": "optimal incentive-compatible mechanism for heterogeneous binary division"
+        },
+        {
+          "field_a_term": "EF1 (envy-free up to one item, for discrete goods)",
+          "field_b_term": "approximately fair division of indivisible resources",
+          "note": "EF1 is the best fairness guarantee achievable for indivisible goods in polynomial time"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.2307/1907687",
+          "note": "Steinhaus (1948) — The problem of fair division; Econometrica 16:101"
+        },
+        {
+          "doi": "10.2307/2975028",
+          "note": "Brams & Taylor (1995) — An envy-free cake division protocol; Am Math Mon 102:9"
+        },
+        {
+          "doi": "10.2307/2589304",
+          "note": "Su (1999) — Rental harmony; Sperner's lemma in fair division; Am Math Mon 106:930"
+        },
+        {
+          "doi": "10.1145/2509002",
+          "note": "Procaccia (2013) — Cake cutting; not just child's play; Commun ACM 56:36"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\mathematics-social-science\\b-fair-division-combinatorics.yaml"
     },
     {
       "id": "b-network-formation-graph-theory",
@@ -10117,6 +10519,61 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\neuroscience-physics\\b-neural-avalanches-criticality.yaml"
+    },
+    {
+      "id": "b-memory-consolidation-synaptic-tagging",
+      "title": "Synaptic tagging and capture (Frey & Morris 1997) provides a cellular mechanism for associative memory consolidation: E-LTP sets a molecular \"tag\" at the synapse within minutes, while late LTP requires new protein synthesis from the cell body captured hours later, connecting the neuroscience of plasticity to the psychology of memory encoding and temporal associations.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Long-term potentiation (LTP) has two phases: early LTP (E-LTP, minutes, no new protein synthesis, PKA-dependent) and late LTP (L-LTP, hours to days, requires CREB-dependent transcription and new protein synthesis including Arc, BDNF, Homer). Frey & Morris (1997) demonstrated synaptic tagging and cap",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-sleep-rem-creative-insight-memory"
+      ],
+      "communication_gap": "STC was discovered by Frey & Morris (1997) in rodent hippocampal slices and remained primarily within molecular neuroscience. Cognitive psychologists studying memory consolidation (McGaugh, Nader) rarely cite STC; STC papers rarely cite the behavioral psychology literature on consolidation windows and emotional memory enhancement. Martin, Bhattacharya (behavioral tagging) explicitly bridged the in vitro molecular and behavioral literatures starting ~2003 but the synthesis has not fully reached clinical neuropsychology or educational psychology.\n",
+      "translation_table": [
+        {
+          "field_a_term": "synaptic tag (activated CaMKII at weakly stimulated synapse)",
+          "field_b_term": "memory trace or engram tag (psychology)",
+          "note": "the molecular tag is the physical substrate of the psychological memory trace"
+        },
+        {
+          "field_a_term": "plasticity-related proteins (PRPs — Arc, BDNF, Homer)",
+          "field_b_term": "consolidation signal (psychology) — the process that converts short-term to long-term memory",
+          "note": "PRP synthesis corresponds to the protein synthesis requirement for long-term memory consolidation"
+        },
+        {
+          "field_a_term": "capture of PRPs by tagged synapse",
+          "field_b_term": "associative memory binding (events consolidated together within temporal window)",
+          "note": "STC temporal window (~1-2h) predicts the window for associative memory consolidation"
+        },
+        {
+          "field_a_term": "L-LTP (synaptic weight change persisting >24h)",
+          "field_b_term": "long-term memory formation (days to decades)",
+          "note": "L-LTP is the cellular correlate of long-term memory; requires identical molecular machinery"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1113/jphysiol.1973.sp010273",
+          "note": "Bliss & Lømo (1973) — Long-lasting potentiation of synaptic transmission; J Physiol 232:331"
+        },
+        {
+          "doi": "10.1038/385533a0",
+          "note": "Frey & Morris (1997) — Synaptic tagging and long-term potentiation; Nature 385:533"
+        },
+        {
+          "doi": "10.1146/annurev.neuro.23.1.649",
+          "note": "Martin et al. (2000) — Synaptic plasticity and memory; Annu Rev Neurosci 23:649"
+        },
+        {
+          "doi": "10.1038/nrn3036",
+          "note": "Redondo & Morris (2011) — Making memories last; Nat Rev Neurosci 12:17"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\neuroscience-psychology\\b-memory-consolidation-synaptic-tagging.yaml"
     },
     {
       "id": "b-bayesian-brain-predictive-processing",
@@ -14322,6 +14779,58 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\social-science-mathematics\\b-auction-theory-mechanism-design.yaml"
+    },
+    {
+      "id": "b-condorcet-paradox-voting-cycles",
+      "title": "The Condorcet paradox demonstrates that majority voting on three or more alternatives can produce cyclic collective preferences (A beats B, B beats C, C beats A) even when all individual preferences are transitive — a mathematical impossibility result underlying Arrow's theorem and spatial voting theory, with the median voter theorem providing the single-peaked exception.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Condorcet (1785) showed that pairwise majority voting over three alternatives A, B, C with three voter types (A>B>C, B>C>A, C>A>B) produces majority cycles: A beats B by 2-1, B beats C by 2-1, C beats A by 2-1. This is not a special case: with n>2 alternatives and m voters with random uniform prefer",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-collective-action-ostrom-design-principles-v2"
+      ],
+      "communication_gap": "Condorcet (1785) wrote in French and was largely ignored by English-language political scientists until the 20th century. Arrow (1951) rediscovered the impossibility in an economics framework. Black (1948) independently discovered the median voter theorem and published in the Journal of Political Economy. Social choice theory developed primarily in economics departments (Harvard, Rochester) while political scientists studied voting behavior empirically with minimal awareness of the mathematical impossibility results until the 1970s.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Condorcet winner (beats all others in pairwise majority vote)",
+          "field_b_term": "median voter bliss point (in single-peaked preferences)",
+          "note": "when single-peakedness holds, the Condorcet winner = median voter position"
+        },
+        {
+          "field_a_term": "Condorcet cycle (A>B>C>A majority preferences)",
+          "field_b_term": "intransitive tournament graph (a directed graph with no dominant vertex)",
+          "note": "the majority-preference relation corresponds to a tournament graph; cycles are non-transitive tournaments"
+        },
+        {
+          "field_a_term": "single-peaked preferences (one-dimensional issue space)",
+          "field_b_term": "unimodal probability distribution on the real line",
+          "note": "single-peakedness is the social choice analog of unimodality; guarantees median optimality"
+        },
+        {
+          "field_a_term": "Arrow's impossibility (no ideal SWF)",
+          "field_b_term": "no maximal element in a cyclic preference tournament",
+          "note": "cyclic preferences mean no choice rule can satisfy all fairness axioms simultaneously"
+        }
+      ],
+      "references": [
+        {
+          "note": "Condorcet (1785) — Essai sur l'application de l'analyse à la probabilité des décisions rendues à la pluralité des voix"
+        },
+        {
+          "doi": "10.1086/256963",
+          "note": "Black (1948) — On the rationale of group decision-making; J Polit Econ 56:23"
+        },
+        {
+          "note": "Arrow (1951) — Social Choice and Individual Values; Yale University Press"
+        },
+        {
+          "note": "Downs (1957) — An Economic Theory of Democracy; Harper & Row"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\social-science-mathematics\\b-condorcet-paradox-voting-cycles.yaml"
     },
     {
       "id": "b-social-capital-network-science",

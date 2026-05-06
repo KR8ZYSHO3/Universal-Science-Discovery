@@ -1,6 +1,6 @@
 # Orphan Unknowns — Priority Contribution Targets
 
-These **116** unknowns have no associated hypothesis or bridge edge in the knowledge graph.
+These **112** unknowns have no associated hypothesis or bridge edge in the knowledge graph.
 They are the highest-priority targets for new contributions — add a hypothesis or propose a cross-domain bridge connecting them.
 
 | ID | Title |
@@ -51,7 +51,6 @@ They are the highest-priority targets for new contributions — add a hypothesis
 | `u-quasicrystal-stability-origin` | What determines whether a quasicrystalline phase forms versus an approximant crystal in metallic alloys? |
 | `u-radiation-damage-recovery` | What atomic mechanisms drive radiation damage recovery in nuclear materials and can they be accelerated? |
 | `u-shape-memory-alloy-fatigue` | What atomic-scale mechanisms drive functional fatigue in shape-memory alloys after repeated cycling? |
-| `u-vdw-heterostructure-emergent-phases` | What emergent electronic phases arise in van der Waals heterostructures beyond graphene-hBN systems? |
 | `u-abc-conjecture-verification` | Is Mochizuki's proof of the abc conjecture correct and how can it be made verifiable by the community? |
 | `u-banach-space-geometry` | What is the geometry of the space of all Banach spaces under various equivalence relations on their structure? |
 | `u-derived-algebraic-geometry` | What are the fundamental obstructions to extending derived algebraic geometry to characteristic p arithmetic geometry? |
@@ -86,7 +85,6 @@ They are the highest-priority targets for new contributions — add a hypothesis
 | `u-cerebellum-cognitive-function` | What cognitive functions does the cerebellum perform beyond motor coordination, and what is its computational principle? |
 | `u-default-mode-network-function` | What is the functional role of the default mode network, and why is it suppressed during externally directed tasks? |
 | `u-emotion-discrete-vs-constructed` | Are emotions discrete natural kinds with distinct neural signatures, or are they constructed from more basic affective and cognitive building blocks? |
-| `u-engram-molecular-basis` | What are the molecular and synaptic mechanisms that store specific memories in engram cells, and how are they maintained over decades? |
 | `u-glial-cell-computation` | Do astrocytes perform genuine computational operations on neural signals through tripartite synapses, or is gliotransmission a modulatory background process? |
 | `u-interoception-consciousness-link` | How does interoceptive signalling from body organs contribute to emotional experience and conscious self-awareness? |
 | `u-pain-gate-control-molecular-basis` | What is the molecular identity of the 'gate' in Melzack-Wall gate control theory, and does it correspond to a specific interneuron type in the dorsal horn? |
@@ -102,7 +100,6 @@ They are the highest-priority targets for new contributions — add a hypothesis
 | `u-neutral-atom-qubit-fidelity` | What limits neutral atom qubit gate fidelities, and can they reach the error thresholds required for fault-tolerant quantum computing? |
 | `u-photonic-qc-scalability` | Can photonic quantum computing achieve fault-tolerant scalability given current photon loss rates and deterministic gate requirements? |
 | `u-post-quantum-cryptography-transition` | What is the timeline and risk profile of the transition to post-quantum cryptography, and which current systems are most vulnerable to harvest-now-decrypt-later attacks? |
-| `u-qft-non-perturbative-regimes` | What analytical or computational methods can access the non-perturbative regimes of quantum field theories, particularly strongly coupled gauge theories? |
 | `u-qkd-practical-limits` | What are the practical security limits of quantum key distribution against quantum computer attacks, side channels, and photonic implementation imperfections? |
 | `u-quantum-chaos-scrambling-rates` | What determines quantum information scrambling rates in chaotic systems, and does the Maldacena-Shenker-Stanford bound saturate in black holes and quantum matter? |
 | `u-quantum-memory-coherence-limits` | What are the fundamental limits on quantum memory coherence times in solid-state, atomic, and photonic systems, and how close are current implementations? |
@@ -110,7 +107,6 @@ They are the highest-priority targets for new contributions — add a hypothesis
 | `u-quantum-random-number-true-randomness` | Can quantum random number generators produce certifiably true randomness, and what are the practical limits of device-independent randomness certification? |
 | `u-quantum-repeater-distance-limit` | What is the maximum distance over which quantum entanglement can be distributed using quantum repeaters, and what are the fundamental rate-distance tradeoffs? |
 | `u-quantum-sensing-biological-limits` | Can quantum sensing technologies achieve the sensitivity required to probe biological processes at the single-molecule level in living systems? |
-| `u-quantum-simulation-classical-hardness` | For which quantum systems is classical simulation provably hard, and where does the quantum-classical hardness boundary lie in practice? |
 | `u-quantum-speedup-optimization-np` | Can quantum algorithms provide polynomial or superpolynomial speedups for NP-hard combinatorial optimisation problems? |
 | `u-quantum-thermodynamics-arrow` | Does quantum thermodynamics provide a microscopic derivation of the second law, and does quantum coherence generate or suppress thermodynamic irreversibility? |
 | `u-collective-memory-formation` | How do collective memories of historical events form, persist, and distort across generations, and what factors determine their cultural salience? |
