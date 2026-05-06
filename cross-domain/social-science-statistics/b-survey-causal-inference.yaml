@@ -1,0 +1,53 @@
+id: b-survey-causal-inference
+title: The potential outcomes framework (Rubin) and Pearl's do-calculus provide the statistical foundations for causal inference from survey and observational data, connecting survey methodology to formal causal graph theory
+status: established
+fields:
+  - social-science
+  - statistics
+bridge_claim: >
+  The potential outcomes framework (Rubin 1974): each unit has potential outcomes Y(1) under
+  treatment and Y(0) under control; the causal effect = Y(1) - Y(0), but only one is observed
+  (the fundamental problem of causal inference). Randomised controlled trials (RCTs) solve
+  this by making treatment independent of potential outcomes. Observational surveys use
+  propensity score matching, instrumental variables, regression discontinuity, and difference-
+  in-differences to approximate randomisation. Pearl's do-calculus (2000) provides graphical
+  causal inference via directed acyclic graphs (DAGs), formalising when causal effects are
+  identifiable from observational data using the back-door and front-door criteria. Survey
+  sampling theory (Horvitz-Thompson estimator, design-based inference) maps directly onto
+  this potential outcomes framework: the finite population causal effect is a missing data
+  problem analogous to the causal inference problem. This unification enables design-based
+  causal inference from complex survey data.
+translation_table:
+  - field_a_term: potential outcome Y(t)
+    field_b_term: counterfactual / do-operator do(T=t)
+    note: Both formalise what would happen under an intervention not actually observed
+  - field_a_term: assignment mechanism (SUTVA, ignorability)
+    field_b_term: back-door criterion (no unblocked confounding path)
+    note: Both conditions ensure that observed association equals causal effect
+  - field_a_term: propensity score e(X) = P(T=1|X)
+    field_b_term: inverse probability weighting (IPW)
+    note: Propensity scores reweight the sample to approximate a randomised experiment
+  - field_a_term: instrumental variable Z (exclusion, relevance, independence)
+    field_b_term: front-door criterion in DAG
+    note: Both identify causal effect when direct randomisation is impossible
+related_unknowns:
+  - u-natural-experiment-validity-economics
+  - u-business-cycle-prediction-limits
+related_hypotheses:
+  - h-regression-discontinuity-surveys-local-average-treatment-effect-equivalence
+cross_pollination_opportunities:
+  - Apply DAG tools to survey design to detect and eliminate confounding by design
+  - Use complex survey sampling theory to improve causal inference with administrative data
+  - Extend Pearl's do-calculus to account for survey non-response as a selection mechanism
+communication_gap: >
+  Survey statisticians and causal inference researchers developed parallel frameworks with
+  different vocabularies (design-based vs. model-based; potential outcomes vs. DAGs).
+  Rubin and Pearl rarely cross-cited despite solving related problems. Applied social scientists
+  often use one framework without knowing its connection to the other.
+last_reviewed: "2026-05-06"
+references:
+  - note: "Rubin (1974) — potential outcomes framework for causal inference"
+    doi: "10.1037/h0037350"
+  - note: "Pearl (2000) Causality — do-calculus and DAG-based causal inference"
+  - note: "Angrist & Pischke (2009) Mostly Harmless Econometrics — IV and RD methods"
+  - note: "Imbens & Rubin (2015) Causal Inference for Statistics, Social, and Biomedical Sciences"

@@ -1,0 +1,56 @@
+id: b-transition-state-theory-kinetics
+title: Transition state theory (Eyring 1935) and Kramers' escape rate (1940) unify chemical reaction kinetics, protein conformational dynamics, and ion channel gating as thermally activated first-passage over energy barriers
+status: established
+fields:
+  - physics
+  - chemistry
+bridge_claim: >
+  Transition state theory (Eyring, Evans & Polanyi 1935) describes chemical reactions as
+  passage over a saddle point on the potential energy surface (PES): the rate constant
+  k = (k_B T/h) exp(-ΔG‡/RT), where ΔG‡ is the free energy of the transition state
+  (activated complex) relative to reactants. This is a first-passage time problem: the
+  reaction rate is the rate at which thermal fluctuations drive the system over the energy
+  barrier separating reactants from products. Kramers (1940) solved this problem exactly for
+  Brownian motion in a double-well potential, yielding the same Arrhenius-like rate with
+  corrections for barrier shape and solvent friction. The mathematical framework is universal:
+  protein folding (escape from misfolded local minima), ion channel gating (closed↔open
+  transition), nucleation events, and magnetic reversal all obey the same Kramers escape rate
+  formula. The connection between PES saddle points and macroscopic kinetics is a universal
+  bridge between quantum chemistry and statistical physics.
+translation_table:
+  - field_a_term: transition state (saddle point on PES)
+    field_b_term: free energy barrier ΔG‡
+    note: Same object — the highest-free-energy point on the minimum energy path
+  - field_a_term: Eyring rate k = (kT/h)exp(-ΔG‡/RT)
+    field_b_term: Kramers rate k = (ω_min ω_b / 2πγ)exp(-ΔE/kT)
+    note: Both are Arrhenius forms; Kramers adds friction and barrier curvature corrections
+  - field_a_term: reaction coordinate
+    field_b_term: order parameter / progress variable
+    note: The collective coordinate along which the system moves from reactant to product basin
+  - field_a_term: PES landscape (quantum chemistry, DFT)
+    field_b_term: free energy landscape (statistical mechanics, umbrella sampling)
+    note: Quantum PES averaged over thermal fluctuations gives the free energy surface
+related_unknowns:
+  - u-crystallization-kinetics-nucleation
+  - u-reaction-mechanism-automated-discovery
+related_hypotheses:
+  - h-kramers-turnover-solvent-friction-controls-enzyme-reaction-rates
+cross_pollination_opportunities:
+  - Apply Kramers theory to protein folding rate predictions from PES landscapes
+  - Use ion channel gating data to validate Kramers rate theory in biological systems
+  - Machine learning of PES landscapes to predict reaction rates without quantum chemistry
+communication_gap: >
+  Physical chemists computing PES and biochemists studying enzyme kinetics rarely share
+  mathematical frameworks. Transition state theory is taught in physical chemistry but
+  Kramers theory is taught in statistical physics; the equivalence is rarely emphasised.
+  Biophysicists studying protein folding often reinvent Kramers theory terminology.
+last_reviewed: "2026-05-06"
+references:
+  - note: "Eyring (1935) — transition state theory, activated complex"
+    doi: "10.1063/1.1749604"
+  - note: "Evans & Polanyi (1935) — transition state theory in chemical kinetics"
+    doi: "10.1039/tf9353100875"
+  - note: "Kramers (1940) — Brownian motion and escape over barriers"
+    doi: "10.1016/S0031-8914(40)90098-2"
+  - note: "Hänggi, Talkner & Borkovec (1990) — reaction rate theory review"
+    doi: "10.1103/RevModPhys.62.251"
