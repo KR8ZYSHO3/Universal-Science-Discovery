@@ -1,0 +1,52 @@
+id: h-crn-oscillator-design
+title: >
+  Chemical reaction networks with deficiency δ = 1 and a specific non-weakly-reversible
+  subgraph structure can be systematically designed to function as chemical oscillators
+  with predictable period and amplitude, using deficiency theory as a design principle
+  for synthetic biology.
+status: active
+created: "2026-05-05"
+last_updated: "2026-05-05"
+priority: medium
+related_disciplines:
+  - chemistry
+  - synthetic-biology
+  - mathematics
+  - dynamical-systems
+unknowns_addressed:
+  - u-crn-multistability-biological
+evidence_links:
+  - type: supporting
+    doi: "10.1073/pnas.86.1.67"
+    note: >
+      Feinberg (1989) shows that deficiency one networks with specific linkage class
+      structure can admit exactly one positive steady state or exhibit multiple steady
+      states depending on rate constants — establishing the topological design space
+      for oscillator circuits.
+  - type: supporting
+    doi: "10.1016/0025-5564(77)90023-2"
+    note: >
+      Tyson & Othmer (1978) analysis of the dynamics of feedback networks; Hopf
+      bifurcation conditions for CRNs relate to both topology and kinetics, but
+      deficiency constrains which topologies can oscillate.
+  - type: contradicting
+    note: >
+      Deficiency theory predicts whether multiple steady states are possible but does
+      not guarantee oscillation — Hopf bifurcations require specific kinetic conditions
+      beyond the topological structure. Deficiency ≥ 1 is necessary but not sufficient
+      for oscillation.
+proposed_tests:
+  - discipline: synthetic-biology
+    description: >
+      Use the deficiency one algorithm to design a minimal oscillatory genetic circuit
+      (3-4 genes) that has δ = 1 and the required non-weakly-reversible subgraph
+      for oscillation. Implement the circuit in E. coli and measure oscillation period
+      and amplitude as a function of rate constants (promoter strength, ribosome binding
+      site strength). Test whether the Hopf bifurcation curve in rate-constant space
+      matches the deficiency-theory prediction.
+  - discipline: chemistry
+    description: >
+      Construct an in vitro transcription-translation system (TXTL) implementing the
+      designed oscillator network topology. Measure whether oscillations emerge and
+      characterise their robustness to parameter variation. Compare to a control network
+      with δ = 0 (predicted non-oscillatory by deficiency zero theorem).

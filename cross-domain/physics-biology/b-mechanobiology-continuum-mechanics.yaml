@@ -1,0 +1,127 @@
+id: b-mechanobiology-continuum-mechanics
+title: >
+  Cells sense and respond to mechanical forces through mechanotransduction, and
+  collectively exhibit a jamming phase transition (liquid-to-solid) controlled by
+  cell shape index — making continuum mechanics (stress tensors, viscoelasticity,
+  phase transitions) the quantitative framework for tissue biology from single-cell
+  durotaxis to embryonic morphogenesis.
+status: established
+fields:
+  - physics
+  - biology
+  - biophysics
+  - cell-biology
+  - continuum-mechanics
+  - developmental-biology
+bridge_claim: >
+  Tissues and cells obey continuum mechanics — the same mathematical framework
+  (elasticity theory, fluid dynamics, statistical mechanics of phase transitions)
+  that governs materials science. Key correspondences:
+
+  1. CELL MECHANICS AS CONTINUUM ELASTICITY: A cell exerts traction forces on its
+     substrate describable by a stress tensor σ_ij. The cell's internal cytoskeleton
+     (actin, myosin II) generates active stresses σ^{active}. The substrate deformation
+     field u(r) satisfies Hooke's law ∇·σ = 0 in the linear elastic limit. Cell
+     migration velocity correlates with substrate stiffness (durotaxis: Discher 2005),
+     and the durotaxis direction is the gradient of Young's modulus E — a continuum
+     field theory prediction confirmed quantitatively.
+
+  2. TISSUE VISCOELASTICITY: Embryonic tissue behaves as a Kelvin-Voigt viscoelastic
+     solid (spring in parallel with dashpot): σ = Eε + η(dε/dt). The effective
+     modulus E and viscosity η depend on cell-cell adhesion (cadherins) and actomyosin
+     contractility. The retraction timescale after cutting (laser ablation) directly
+     measures the mechanical parameters of the tissue.
+
+  3. JAMMING TRANSITION (VERTEX MODEL): Bi et al. (2016) showed that dense cell
+     monolayers exhibit a jamming transition controlled by the cell shape index
+
+       q* = perimeter / √area
+
+     Below q* ≈ 3.81 (the value for a regular pentagon), the tissue is rigid (jammed,
+     solid-like); above this threshold, the tissue flows (unjammed, liquid-like). This
+     is a genuine phase transition with a well-defined order parameter (q*). The
+     transition is controlled by the balance between cell-cell adhesion (favouring
+     high perimeter) and cortical tension (favouring low perimeter).
+
+  4. ACTIVE MATTER FORMULATION: Cell monolayers are active polar fluids: each cell
+     generates its own energy (active stress) from ATP. The continuum theory of active
+     nematic or polar fluids (Marchetti et al. 2013) predicts the spontaneous flows
+     and topological defects (+1/2 and -1/2 disclinations) observed in epithelial
+     monolayers. The ±1/2 defects are the nucleation sites for extrusion (cell death)
+     and division (cell birth).
+
+  5. MECHANOSENSING AND STEM CELL DIFFERENTIATION: Engler et al. (2006) showed that
+     mesenchymal stem cells differentiate into neuron, muscle, or bone precursors
+     depending on substrate stiffness (E ≈ 0.1-1 kPa for brain, 8-17 kPa for muscle,
+     25-40 kPa for bone). The cell "reads" the substrate stiffness through actomyosin
+     contractility: YAP/TAZ transcriptional coactivators translocate to the nucleus
+     when cytoskeletal tension is high. Stiffness = a mechanical input variable;
+     differentiation fate = the biological output — a direct transduction channel.
+translation_table:
+  - field_a_term: "Stress tensor σ_ij"
+    field_b_term: "Traction forces exerted by cell on substrate"
+    note: "Measured by traction force microscopy (TFM): compute substrate displacement field, invert via Green's function"
+  - field_a_term: "Young's modulus E (substrate stiffness)"
+    field_b_term: "Mechanosensed property that directs stem cell differentiation"
+    note: "Cells match their own stiffness to the substrate via actomyosin contractility feedback"
+  - field_a_term: "Viscoelastic moduli E, η (Kelvin-Voigt model)"
+    field_b_term: "Tissue rheological parameters governing morphogenetic flows"
+    note: "Measurable by atomic force microscopy (AFM) indentation or optical magnetic twisting cytometry"
+  - field_a_term: "Shape index q* = P/√A (dimensionless)"
+    field_b_term: "Order parameter for jamming transition in epithelial monolayers"
+    note: "q* < 3.81: rigid jammed tissue; q* > 3.81: flowing unjammed tissue; critical value from vertex model energy"
+  - field_a_term: "Active polar/nematic order parameter"
+    field_b_term: "Collective cell migration direction in monolayer"
+    note: "Topological ±1/2 defects in the orientation field = sites of cell death/extrusion (+1/2) and division (-1/2)"
+  - field_a_term: "Durotaxis"
+    field_b_term: "Cell migration directed by stiffness gradient ∇E"
+    note: "Physically: cell generates larger traction on stiffer substrate, net force directs migration up-gradient"
+  - field_a_term: "Phase transition (jamming)"
+    field_b_term: "Epithelial-to-mesenchymal transition (EMT) in cancer invasion"
+    note: "EMT may be a mechanobiological unjamming transition: tumour cells above q* threshold become invasive"
+related_unknowns:
+  - u-cell-jamming-tissue-development
+related_hypotheses:
+  - h-durotaxis-cancer-metastasis
+cross_pollination_opportunities:
+  - >
+    The jamming phase transition in cell monolayers has an exact parallel in the
+    physics of colloidal suspensions and granular materials. The vertex model
+    phase diagram (q* vs. cell polarity noise) could be mapped to the colloidal
+    jamming diagram (packing fraction vs. temperature). This analogy could import
+    decades of soft matter physics results (jamming phase diagrams, shear-banding,
+    avalanche dynamics) into the biology of tissue mechanics.
+  - >
+    Active gel theory (Kruse, Joanny, Jülicher, Prost) gives a continuum field
+    theory for cytoskeletal mechanics. Its predictions (active contractile instabilities,
+    cortical flows, spontaneous symmetry breaking in cell polarity) could be tested
+    in organoids using single-cell force sensors and light-sheet microscopy. This
+    would connect quantitative biophysics directly to developmental biology questions
+    about body axis formation.
+  - >
+    EMT as a jamming/unjamming transition predicts that cancer invasiveness should
+    correlate with shape index q*. Retrospective analysis of histopathological
+    images of tumour biopsies, combined with automated image analysis to extract
+    cell shape indices, would test whether q* is a predictive biomarker for
+    metastatic progression — a clinically actionable prediction from physics.
+communication_gap: >
+  Continuum mechanics and materials science developed entirely separately from cell
+  biology. The field of mechanobiology only emerged explicitly in the 2000s with
+  Discher and Engler's experiments. The vertex model and jamming transition
+  results (Bi et al. 2016) are from the physics literature and are not widely read
+  by developmental biologists who study the same tissue flows using genetic rather
+  than physical approaches. Bridging these communities requires shared experimental
+  infrastructure (traction force microscopy, AFM) and shared mathematical language
+  (continuum mechanics rather than molecular signalling pathway diagrams).
+last_reviewed: "2026-05-05"
+references:
+  - doi: "10.1126/science.1116995"
+    note: "Discher, Janmey & Wang (2005) Science 310:1139 — tissue cells feel and respond to the stiffness of their substrate"
+  - doi: "10.1016/j.cell.2006.06.044"
+    note: "Engler et al. (2006) Cell 126:677 — matrix elasticity directs stem cell lineage specification"
+  - doi: "10.1038/nphys3471"
+    note: "Bi et al. (2016) Nat Phys 12:1085 — motility-driven glass and jamming transitions in biological tissues"
+  - doi: "10.1038/nphys2355"
+    note: "Trepat et al. (2009) Nat Phys 5:426 — physical forces during collective cell migration"
+  - doi: "10.1103/RevModPhys.85.1143"
+    note: "Marchetti et al. (2013) Rev Mod Phys 85:1143 — hydrodynamics of soft active matter"

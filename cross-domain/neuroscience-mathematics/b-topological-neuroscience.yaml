@@ -1,0 +1,141 @@
+id: b-topological-neuroscience
+title: >
+  The geometric and topological structure of neural population activity manifolds
+  can be characterised by algebraic topology — Betti numbers computed via persistent
+  homology reveal the topology of cognitive representations, hippocampal place cells
+  form a topological map of space, and grid cells tile the plane with hexagonal
+  symmetry corresponding to torus topology.
+status: established
+fields:
+  - neuroscience
+  - mathematics
+  - topology
+  - computational-neuroscience
+  - algebraic-topology
+bridge_claim: >
+  Neural activity exists in high-dimensional space (one dimension per neuron), but
+  the activity patterns activated by natural stimuli lie on low-dimensional manifolds.
+  Algebraic topology — specifically persistent homology — can characterise the
+  shape (topology) of these manifolds without knowing the underlying coordinate system.
+
+  KEY RESULTS:
+
+  1. PLACE CELLS AND TOPOLOGICAL MAPPING OF SPACE: Hippocampal place cells are neurons
+     that fire when an animal is in a specific location ("place field"). O'Keefe &
+     Dostrovsky (1971) discovered that a coherent topological map of space is encoded
+     in the activity patterns of place cell populations. Curto & Itskov (2008) showed
+     that the topological structure of the encoded environment (its Betti numbers —
+     number of connected components, holes, voids) can be decoded from the co-firing
+     patterns of place cells using simplicial complex theory. The neural activity encodes
+     the topology of space, not just its metric.
+
+  2. GRID CELLS AND TORUS TOPOLOGY: Grid cells (Moser & Moser 2005, Nobel Prize 2014)
+     fire in a hexagonal lattice pattern as an animal explores a 2D environment.
+     Gardner et al. (2022) showed using persistent homology that the population activity
+     of grid cells lives on a toroidal manifold (the torus T² = S¹ × S¹) rather than
+     a flat 2D surface. The first and second Betti numbers (β₀ = 1, β₁ = 2, β₂ = 1)
+     are exactly those of the torus — a rigorous topological characterisation of the
+     neural code's geometry.
+
+  3. PERSISTENT HOMOLOGY AS A NEURAL DATA ANALYSIS TOOL: Persistent homology (Edelsbrunner
+     et al. 2002) computes topological features (connected components, loops, voids)
+     that persist across a range of distance scales. Applied to neural data:
+     - Build a Vietoris-Rips complex from neural activity vectors
+     - Compute homology groups H_k for each dimension k
+     - Track which topological features "persist" across scales (birth and death radii)
+     - The "barcode" diagram encodes the topological structure of the neural manifold
+
+  4. CONCEPT CELLS AND SEMANTIC TOPOLOGY: Neurons in human medial temporal lobe fire
+     selectively to specific concepts (Jennifer Aniston neuron, Halle Berry neuron —
+     Quiroga et al. 2005). The semantic relationships between concepts (hierarchical,
+     analogical, antonymical) might be encoded in the topology of the concept manifold.
+     If semantic concepts form a topological space with the right structure (e.g. a
+     sphere for binary opposites, a torus for combined feature spaces), topological
+     analysis of concept cell activity could reveal the geometry of semantic memory.
+
+  5. BETTI NUMBERS AS COGNITIVE COMPLEXITY MEASURES: The Betti numbers of a cognitive
+     representation manifold quantify the topological complexity of that representation.
+     β₀ = number of disconnected components; β₁ = number of independent loops; β₂ =
+     number of enclosed voids. Higher-dimensional representations (more complex tasks,
+     richer environments) should have higher Betti numbers. Dabaghian et al. (2012)
+     showed that place cell topology can reconstruct an environment's topology without
+     GPS data — purely from the co-firing patterns.
+
+  6. NEURAL RING CODES: The theory of neural codes (Curto et al.) characterises which
+     patterns of place cell co-firing are "convex position codes" — the firing patterns
+     of convex receptive fields arranged in a topological space. Not all patterns of
+     co-firing are realisable by convex fields; the constraints are topological and
+     computable via Stanley-Reisner ring theory from commutative algebra.
+translation_table:
+  - field_a_term: "Simplicial complex (from co-firing patterns)"
+    field_b_term: "Topological model of the neural code"
+    note: "Two cells form a 1-simplex (edge) if they co-fire; three cells form a 2-simplex (triangle) if they co-fire, etc."
+  - field_a_term: "Betti numbers β_k"
+    field_b_term: "Topological invariants of the encoded cognitive space"
+    note: "β₀ = components, β₁ = loops, β₂ = voids; match the Betti numbers of the represented environment"
+  - field_a_term: "Persistent homology barcode"
+    field_b_term: "Scale-robust topological signature of neural population activity"
+    note: "Long bars = robust topological features; short bars = noise; bars at dimension k encode k-dimensional holes"
+  - field_a_term: "Torus manifold T²"
+    field_b_term: "Population activity geometry of grid cells in 2D environment"
+    note: "The two independent S¹ circles of T² correspond to two spatial periods of the hexagonal grid pattern"
+  - field_a_term: "Euler characteristic χ = Σ (-1)^k β_k"
+    field_b_term: "Topological signature of the neural manifold"
+    note: "For a torus: χ = 0; for a sphere: χ = 2; for a point: χ = 1"
+  - field_a_term: "Neural ring (Stanley-Reisner ring)"
+    field_b_term: "Algebraic characterisation of which co-firing patterns encode convex place fields"
+    note: "Algebraic structure determines which neural codes are geometrically realisable"
+  - field_a_term: "Vietoris-Rips complex"
+    field_b_term: "Topological model built from pairwise neural distances"
+    note: "All cells within distance ε are connected into simplices; varying ε generates the persistence diagram"
+related_unknowns:
+  - u-neural-manifold-topology-cognitive-states
+related_hypotheses:
+  - h-betti-numbers-cognitive-complexity
+cross_pollination_opportunities:
+  - >
+    The discovery that grid cell activity lives on a torus (Gardner et al. 2022) was
+    made without any prior hypothesis from neuroscience — it emerged from applying
+    persistent homology to calcium imaging data. This suggests that other neural
+    circuits encode non-trivial topological structures (spheres? Klein bottles? higher
+    genus surfaces?) that would be invisible to classical neural data analysis (PCA,
+    linear dimensionality reduction). A systematic topological survey of major neural
+    circuits (motor cortex, olfactory bulb, prefrontal cortex) could map the topology
+    of cognitive representations across the brain.
+  - >
+    The neural ring (Curto, Itskov, Vellis, Walker 2013) characterises which co-firing
+    patterns are realisable by convex place fields. Violations of the convexity
+    assumption occur in complex spatial environments (mazes, non-Euclidean rooms). The
+    topological constraints on neural codes could be used diagnostically: if a hippocampal
+    population code violates convexity constraints, this indicates that the encoded space
+    has non-trivial topology (a room with a hole, a graph with loops). This gives a
+    mathematical test for "cognitive map distortion."
+  - >
+    Topological data analysis of neural activity during cognitive tasks (working memory,
+    decision-making, learning) could track how the topology of the neural manifold
+    changes as a function of task performance. During learning, the manifold should
+    simplify (Betti numbers decrease as irrelevant dimensions are pruned). Testing this
+    prediction with high-density calcium imaging in rodents performing spatial and
+    non-spatial tasks would connect topological neuroscience to learning theory.
+communication_gap: >
+  Algebraic topology was developed by mathematicians (Poincaré, Brouwer, Eilenberg)
+  without application to neuroscience in mind. The application of persistent homology
+  to neural data was pioneered by Curto & Itskov (2008) in a computational biology
+  paper that is not widely read by experimental neuroscientists. Most neuroscientists
+  analyse neural population data using PCA or linear decoding, which cannot detect
+  topological structure. The grid cell torus result (Gardner et al. 2022) appeared
+  in Science and received wide attention, but the persistent homology methods required
+  to reproduce it are not in the standard neuroscience toolkit. Topology courses are
+  not taught in neuroscience PhD programs.
+last_reviewed: "2026-05-05"
+references:
+  - doi: "10.1371/journal.pcbi.0040068"
+    note: "Curto & Itskov (2008) PLOS Comput Biol 4:e68 — cell groups reveal structure of stimulus space"
+  - doi: "10.1126/science.abg4894"
+    note: "Gardner et al. (2022) Science 372:eabg4894 — toroidal topology of population activity in grid cells"
+  - doi: "10.1371/journal.pcbi.1002581"
+    note: "Dabaghian et al. (2012) PLOS Comput Biol 8:e1002581 — topological model of hippocampal activity"
+  - doi: "10.1090/bull/1546"
+    note: "Carlsson (2009) Bull AMS 46:255 — topology and data; introduction to persistent homology"
+  - doi: "10.1073/pnas.0500306102"
+    note: "Quiroga et al. (2005) Nature 435:1102 — invariant visual representation by single neurons in human medial temporal lobe"

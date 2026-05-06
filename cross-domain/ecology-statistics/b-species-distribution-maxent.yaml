@@ -1,0 +1,134 @@
+id: b-species-distribution-maxent
+title: >
+  MaxEnt species distribution modelling is the ecological application of Jaynes'
+  maximum entropy principle: given presence-only occurrence data and environmental
+  features, MaxEnt finds the distribution of maximum entropy subject to empirical
+  feature constraints — a result formally identical to a Gibbs distribution and
+  to maximum likelihood estimation in a Poisson point process model.
+status: established
+fields:
+  - ecology
+  - statistics
+  - information-theory
+  - conservation-biology
+  - Bayesian-inference
+bridge_claim: >
+  Jaynes (1957) formulated the maximum entropy (MaxEnt) principle for statistical
+  inference: among all probability distributions consistent with known constraints
+  (expected values of observable features), choose the one of maximum Shannon
+  entropy — the least-committal distribution given the data. Phillips et al. (2006)
+  independently developed the MaxEnt algorithm for species distribution modelling
+  from presence-only occurrence records.
+
+  THE FORMAL IDENTITY:
+
+  Let f_k(x) be environmental features (temperature, rainfall, NDVI, etc.) measured
+  at location x, and let f̄_k = (1/n) Σ f_k(x_i) be their mean over n presence
+  locations. MaxEnt finds the distribution π(x) that:
+
+    maximises H(π) = -Σ_x π(x) log π(x)
+    subject to: Σ_x π(x) f_k(x) = f̄_k for all k, and Σ_x π(x) = 1.
+
+  The solution is the Gibbs/Boltzmann distribution:
+
+    π(x) ∝ exp(Σ_k λ_k f_k(x))
+
+  where λ_k are Lagrange multipliers. This is identical to:
+
+  1. EXPONENTIAL FAMILY MODEL: π(x) is an exponential family distribution with
+     natural parameters λ_k. Maximum entropy = maximum likelihood in the exponential
+     family, a fundamental duality in statistics (Brown 1986).
+
+  2. LOGISTIC REGRESSION: When presence (1) and background (0) data are combined,
+     MaxEnt is equivalent to penalised logistic regression (Renner & Warton 2013).
+     The "presence-only" framing is equivalent to Poisson point process regression
+     (Fithian & Hastie 2013), connecting ecological SDMs to the standard GLM framework.
+
+  3. MAXIMUM LIKELIHOOD UNDER POISSON POINT PROCESS: Elith et al. (2011) showed
+     that MaxEnt is a Poisson point process model: presence locations are a realisation
+     of an inhomogeneous Poisson process with intensity λ(x) = π(x). Maximum likelihood
+     estimation of the Poisson intensity is identical to MaxEnt with appropriately
+     selected background samples.
+
+  4. INFORMATION GEOMETRY: The MaxEnt distribution is the I-projection (information
+     projection) of the uniform distribution onto the constraint surface — the unique
+     point on the exponential family manifold closest (in KL divergence) to the
+     uniform distribution. This is the Pythagorean theorem of information geometry.
+
+  ECOLOGICAL IMPLICATIONS:
+  - The species distribution predicted by MaxEnt is not the "true" niche but the
+    most parsimonious (highest-entropy) distribution consistent with the observed
+    correlations between occurrences and environment.
+  - Regularisation in MaxEnt (L1/L2 penalties on λ_k) is equivalent to using an
+    informative prior (Laplace or Gaussian prior on regression coefficients) in
+    a Bayesian framework.
+  - Transfer to novel climates (climate change projections) extrapolates the
+    exponential family model beyond the training range, a well-understood statistical
+    extrapolation problem (not unique to ecology).
+translation_table:
+  - field_a_term: "Species occurrence locations (presence-only data)"
+    field_b_term: "Observed data points from an inhomogeneous Poisson point process"
+    note: "Background samples in MaxEnt approximate the reference distribution of the point process"
+  - field_a_term: "Environmental features f_k(x)"
+    field_b_term: "Sufficient statistics of the exponential family model"
+    note: "Linear, quadratic, and product features in MaxEnt correspond to mean, variance, and covariance constraints"
+  - field_a_term: "MaxEnt distribution π(x)"
+    field_b_term: "Gibbs/Boltzmann distribution; canonical ensemble in statistical mechanics"
+    note: "Same mathematical form as the Boltzmann distribution in physics: π ∝ exp(-β E(x))"
+  - field_a_term: "Lagrange multipliers λ_k"
+    field_b_term: "Regression coefficients in Poisson log-linear model"
+    note: "Estimated by iterative scaling (MaxEnt) or gradient ascent (logistic regression) — equivalent algorithms"
+  - field_a_term: "Regularisation (L1/L2 penalties)"
+    field_b_term: "Prior distribution on regression coefficients (Laplace/Gaussian prior)"
+    note: "MaxEnt regularisation is MAP estimation in the Bayesian Poisson point process model"
+  - field_a_term: "Habitat suitability score"
+    field_b_term: "Log-intensity of the Poisson point process"
+    note: "Proportional to the log-probability ratio relative to background; equivalent to logistic regression output"
+  - field_a_term: "Climate change range shift projection"
+    field_b_term: "Out-of-sample prediction from a fitted exponential family model"
+    note: "Extrapolation risk: environmental values outside training range may violate linearity assumptions"
+related_unknowns:
+  - u-maxent-species-range-shift-climate
+related_hypotheses:
+  - h-maxent-invasive-species-prediction
+cross_pollination_opportunities:
+  - >
+    The equivalence between MaxEnt and Poisson point process regression means that
+    all tools for regularisation, cross-validation, and uncertainty quantification
+    in GLMs apply directly to species distribution models. In particular, conformal
+    prediction intervals for Poisson regression would give exact coverage guarantees
+    for species range predictions — a much-needed improvement over AUC-based
+    evaluation that tells ecologists nothing about spatial uncertainty.
+  - >
+    Bayesian hierarchical species distribution models (Kéry & Royle 2016) with
+    MaxEnt likelihoods would allow the prior on occurrence rates to reflect
+    biogeographic knowledge (dispersal limits, phylogenetic constraints). This
+    would solve the well-known "overprediction" problem of MaxEnt in geographically
+    restricted species by incorporating a dispersal prior.
+  - >
+    Climate change SDMs assume stationarity of the habitat-occurrence relationship.
+    Transfer learning in machine learning addresses exactly this domain shift problem.
+    Adapting domain adaptation methods (covariate shift correction, importance weighting)
+    from ML to SDMs would give principled methods for projecting future ranges under
+    climatic conditions not represented in training data.
+communication_gap: >
+  Phillips et al. (2006) designed MaxEnt as a practical ecological tool without
+  reference to Jaynes' information-theoretic formulation or exponential family
+  statistics. The ecological SDM literature and the statistical exponential family
+  literature developed independently for decades. The identity was recognised by
+  Elith et al. (2011) and Renner & Warton (2013) but has not fully propagated to
+  practitioners who still treat MaxEnt as a black box. Most ecologists using MaxEnt
+  are unaware that they are fitting a Poisson point process model and that all
+  standard diagnostic tools for Poisson regression apply to their results.
+last_reviewed: "2026-05-05"
+references:
+  - doi: "10.1103/PhysRev.106.620"
+    note: "Jaynes (1957) Phys Rev 106:620 — information theory and statistical mechanics; maximum entropy principle"
+  - doi: "10.1016/j.ecolmodel.2005.03.026"
+    note: "Phillips, Anderson & Schapire (2006) Ecol Model 190:231 — MaxEnt for species distribution modelling"
+  - doi: "10.1111/j.2041-210X.2011.00172.x"
+    note: "Elith et al. (2011) Methods Ecol Evol 2:433 — statistical explanation and calibration of MaxEnt as PPP"
+  - doi: "10.1111/biom.12352"
+    note: "Renner & Warton (2013) Biometrics 69:274 — equivalence of MaxEnt and Poisson point process models"
+  - doi: "10.1111/j.2041-210X.2012.00261.x"
+    note: "Fithian & Hastie (2013) Methods Ecol Evol — finite-sample equivalence of logistic regression and MaxEnt"

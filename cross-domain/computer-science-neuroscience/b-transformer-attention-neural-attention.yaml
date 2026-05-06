@@ -1,0 +1,140 @@
+id: b-transformer-attention-neural-attention
+title: >
+  The transformer's scaled dot-product attention mechanism is a computational
+  formalisation of neural attention theories from cognitive neuroscience — scaled
+  dot-product Q·Kᵀ/√d_k implements a soft winner-take-all competition analogous to
+  cortical inhibitory circuits, while self-attention corresponds to lateral inhibition
+  combined with top-down modulatory feedback.
+status: proposed
+fields:
+  - computer-science
+  - neuroscience
+  - cognitive-science
+  - machine-learning
+  - computational-neuroscience
+bridge_claim: >
+  The transformer attention mechanism (Vaswani et al. 2017):
+
+    Attention(Q, K, V) = softmax(QKᵀ / √d_k) V
+
+  operates on queries Q, keys K, and values V. Each output position attends to all
+  input positions with a weight proportional to the query-key similarity divided by √d_k.
+  This structure maps onto several established theories of neural attention:
+
+  1. FEATURE INTEGRATION THEORY (TREISMAN 1980): Treisman proposed that visual attention
+     is a "glue" that binds separately processed features into unified percepts.
+     The attention matrix in transformers implements exactly this: different heads attend
+     to different feature types (syntax, semantics, position), and multi-head attention
+     aggregates them — a soft binding mechanism across feature spaces.
+
+  2. BIASED COMPETITION (DESIMONE & DUNCAN 1995): Neural attention is implemented as
+     biased competition — stimulus representations in visual cortex compete with each
+     other via mutual inhibition, and top-down signals (from prefrontal cortex) bias
+     the competition toward task-relevant stimuli. The softmax operation in attention
+     implements this competition: all attention weights must sum to 1 (inhibitory normalisation),
+     and larger Q·K values dominate (winner-take-most). Top-down biasing = task-specific
+     query vectors Q.
+
+  3. DIVISIVE NORMALISATION AS ATTENTION: The softmax(QKᵀ / √d_k) operation is exactly
+     divisive normalisation (Carandini & Heeger 2012) applied to similarity scores.
+     Divisive normalisation is the canonical cortical computation, and it implements
+     Bayesian normalisation (computing a probability). Transformer attention is thus
+     a form of Bayesian inference: the attention weights are posterior probabilities
+     over positions given the query.
+
+  4. SELF-ATTENTION = LATERAL INHIBITION + TOP-DOWN: Self-attention (Q = K = V = x,
+     the input sequence) computes each token's representation as a weighted sum over
+     all positions, where weights depend on pairwise similarity. This is mathematically
+     similar to lateral inhibition in cortical circuits (each neuron's activity is
+     suppressed in proportion to its similarity to active neighbours) plus top-down
+     feedback (the query provides context-dependent gating). The self-attention
+     "receptive field" spans the entire context window, whereas cortical lateral
+     inhibition is more local — but both implement competitive normalisation.
+
+  5. SPARSE ATTENTION ↔ WINNER-TAKE-ALL: The full softmax attention is a "soft" WTA.
+     Sparse attention variants (top-k attention, entmax) are harder WTA circuits.
+     Cortical circuits implement near-winner-take-all competition through strong lateral
+     inhibition (interneuron circuits). The degree of sparsity (temperature in softmax)
+     corresponds to the inhibition gain in the cortical circuit.
+
+  6. MULTI-HEAD ATTENTION = MULTIPLE ATTENTIONAL SPOTLIGHTS: Multiple simultaneous
+     attentional spotlights (e.g. auditory streaming, divided attention) correspond to
+     multi-head attention. Each head learns to attend to different aspects of the input —
+     analogous to separate attentional streams for colour, shape, motion, and spatial
+     location in the visual cortex.
+
+  LIMITATIONS OF THE ANALOGY:
+  - Transformer attention is feedforward (one pass); neural attention is recurrent
+    and operates on timescales of 100-500 ms with oscillatory dynamics.
+  - Transformers lack the spatiotemporal structure of cortical attention (saccadic
+    eye movements, spatial attention spotlight); they operate on token sequences.
+  - The biological substrate of the query, key, value decomposition is not identified.
+translation_table:
+  - field_a_term: "Query vector Q"
+    field_b_term: "Task-relevant template or top-down attentional template"
+    note: "In visual cortex: template matching is implemented by multiplicative gain modulation via top-down feedback"
+  - field_a_term: "Key vector K"
+    field_b_term: "Stimulus feature representation in sensory areas"
+    note: "The dot product Q·K measures feature match, analogous to cross-correlation of template and stimulus"
+  - field_a_term: "Softmax normalisation"
+    field_b_term: "Divisive normalisation / winner-take-all competition"
+    note: "Attention weights sum to 1; biologically implemented by inhibitory interneuron pools"
+  - field_a_term: "Value vector V"
+    field_b_term: "Stimulus content to be routed/transmitted"
+    note: "Attended stimulus content is amplified and routed to higher areas; unattended is suppressed"
+  - field_a_term: "Multi-head attention (h parallel heads)"
+    field_b_term: "Multiple parallel attentional streams (feature, spatial, temporal)"
+    note: "Each head = separate attentional spotlight on a different feature subspace"
+  - field_a_term: "Self-attention (Q = K = V)"
+    field_b_term: "Lateral inhibition + contextual modulation within a cortical area"
+    note: "Every token/neuron modulated by every other; long-range in transformers, local in cortex"
+  - field_a_term: "Attention head specialisation"
+    field_b_term: "Feature-selective cortical areas (V4 for colour, MT for motion)"
+    note: "Individual transformer heads show interpretable specialisation (syntactic, positional, semantic)"
+related_unknowns:
+  - u-transformer-attention-biological-plausibility
+related_hypotheses:
+  - h-transformer-neural-attention-alignment
+cross_pollination_opportunities:
+  - >
+    Lindsay (2020) reviewed the biological plausibility of attention models and found
+    that transformers match some but not all neural attention phenomena. Specifically,
+    transformer attention is not recurrent and lacks temporal dynamics. Recurrent
+    transformer variants (Universal Transformer, Hopfield networks) are more biologically
+    plausible. A systematic quantitative comparison between multi-head attention
+    weight matrices and neural attention modulation patterns (measured with multi-electrode
+    arrays) would test how closely transformer attention mimics its biological counterpart.
+  - >
+    Predictive coding networks and transformers have been shown to converge on similar
+    solutions for natural image modelling (Rao & Ballard 1999, ViT). The transformer
+    encoder is formally similar to a single iteration of predictive coding: value vectors
+    are predictions, and attention weights are precision-weighted prediction errors.
+    A unified model that subsumes both frameworks would clarify whether transformers
+    "discovered" a biologically-principled computation.
+  - >
+    The "attention sink" phenomenon (certain tokens receive disproportionate attention)
+    in large language models has an analogue in cortical "spotlight" attention that
+    anchors on task-irrelevant salient stimuli. Studying attentional capture in LLMs
+    versus capture in human psychophysics could identify shared algorithmic principles
+    of competitive attention independent of substrate.
+communication_gap: >
+  The transformer architecture (Vaswani et al. 2017) was developed by machine learning
+  engineers without reference to the neural attention literature (Treisman, Desimone
+  & Duncan, Moran & Desimone 1985). The parallel was noted by Lindsay (2020) in a
+  review article but has not yet led to productive bidirectional exchange. Neuroscientists
+  and ML researchers publish in separate venues (NeurIPS vs. Nature Neuroscience),
+  use incompatible terminology, and have different evaluation criteria (benchmark
+  performance vs. neural data fit). Joint workshops and comparative modelling
+  challenges are needed to translate insights across the divide.
+last_reviewed: "2026-05-05"
+references:
+  - arxiv: "1706.03762"
+    note: "Vaswani et al. (2017) NeurIPS — Attention is All You Need; transformer architecture"
+  - doi: "10.1126/science.229.4717.782"
+    note: "Moran & Desimone (1985) Science 229:782 — selective attention gates visual processing in extrastriate cortex"
+  - doi: "10.1016/0010-0285(80)90005-5"
+    note: "Treisman & Gelade (1980) Cogn Psychol 12:97 — feature integration theory of attention"
+  - doi: "10.1016/j.cub.2019.11.015"
+    note: "Lindsay (2020) Curr Biol 30:R268 — attention in psychology and computational neuroscience"
+  - doi: "10.1016/j.neuron.2001.09.018"
+    note: "Desimone & Duncan (1995, cited review) — neural mechanisms of selective visual attention; biased competition"

@@ -1,0 +1,57 @@
+id: h-mdl-scientific-theory-selection
+title: >
+  Scientific theories selected by expert consensus across the history of physics
+  have systematically shorter description lengths (lower Kolmogorov complexity) than
+  their rejected competitors, validating Occam's razor as a measurable selection
+  pressure in science independent of predictive accuracy.
+status: active
+created: "2026-05-05"
+last_updated: "2026-05-05"
+priority: medium
+related_disciplines:
+  - philosophy-of-science
+  - information-theory
+  - mathematics
+  - history-of-science
+unknowns_addressed:
+  - u-kolmogorov-complexity-computable-approximation
+evidence_links:
+  - type: supporting
+    note: >
+      The history of physics shows successive simplification: Ptolemy's epicycles
+      (hundreds of parameters) → Kepler's laws (3 laws, ~6 parameters) → Newton's
+      gravity (1 law, 2 parameters, predicts all planetary motion). This is compression
+      in action: each successor theory has demonstrably shorter description length
+      for the same observational data.
+  - type: supporting
+    note: >
+      In modern physics, the Standard Model Lagrangian encodes all known particle
+      physics in approximately one printed page. Competing theories (SUSY, technicolour)
+      require longer Lagrangians without confirmed additional predictions — consistent
+      with MDL preferring the Standard Model until new data compels the longer description.
+  - type: contradicting
+    note: >
+      Predictive accuracy (likelihood) may drive theory selection independently of
+      theory complexity. The Copernican vs. Ptolemaic system had roughly equal predictive
+      accuracy with contemporary instrumentation; the Copernican selection may have
+      been driven more by simplicity (shorter description) than accuracy — but this
+      historical argument is not a controlled test.
+proposed_tests:
+  - discipline: philosophy-of-science
+    description: >
+      Select 20 historical theory competitions in physics with clear outcomes (accepted
+      vs. rejected). For each pair of theories, compute a proxy for Kolmogorov complexity
+      using lossless compression of the theory's formal statement (Lempel-Ziv of the
+      mathematical equations and parameters in a standardised encoding). Test whether
+      the selected theory has smaller description length than its competitor in a
+      statistically significant fraction of cases, after controlling for predictive
+      accuracy.
+  - discipline: statistics
+    description: >
+      In a controlled machine learning setting, train neural networks of different
+      architectures on physics datasets (particle physics events, astrophysical
+      observations). Apply MDL model selection (NML or Bayesian with complexity
+      penalty) and compare to AIC and BIC selection. Test whether MDL selection
+      produces models that generalise better to new physics scenarios not in the
+      training distribution, as would be expected if MDL selects for fundamental
+      rather than overfitted representations.
