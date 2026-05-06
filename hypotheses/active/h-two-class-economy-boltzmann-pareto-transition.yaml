@@ -1,0 +1,51 @@
+id: h-two-class-economy-boltzmann-pareto-transition
+title: >
+  Real economies exhibit a two-regime wealth distribution — exponential (Boltzmann-Gibbs)
+  for the lower 90% of the population and Pareto power-law for the top 10% — with a
+  crossover determined by the ratio of income (additive) to capital return (multiplicative)
+  dynamics, and this crossover point predicts country-level Gini coefficient.
+status: active
+created: "2026-05-06"
+last_updated: "2026-05-06"
+priority: medium
+unknowns_addressed:
+  - u-wealth-distribution-universality
+related_disciplines:
+  - economics
+  - physics
+  - statistical-mechanics
+  - complex-systems
+evidence_links:
+  - type: supporting
+    doi: 10.1007/s100510050292
+    note: >
+      Dragulescu & Yakovenko (2000) — empirical fit of US income data showing
+      exponential lower tail and Pareto upper tail; exponential temperature
+      T_eff = mean income of lower class.
+  - type: supporting
+    doi: 10.1016/S0378-4371(00)00205-3
+    note: >
+      Bouchaud & Mézard (2000) — theoretical derivation showing additive (income)
+      + multiplicative (investment) noise produces exponential + power-law composite.
+  - type: related
+    doi: 10.1016/j.physa.2003.01.001
+    note: >
+      Sinha (2003) Physica A — cross-country comparison of income distributions;
+      exponential + Pareto form is robust across Japan, UK, Germany, India.
+proposed_tests:
+  - discipline: economics
+    description: >
+      Obtain income and wealth distribution data for 30 countries from World
+      Inequality Database (WID) spanning 1980-2023. Fit the two-component
+      Boltzmann-Pareto model (exponential lower tail + power law upper tail)
+      to each country-year combination. Extract T_eff (exponential temperature)
+      and α (Pareto exponent). Hypothesis: the fitted Pareto exponent α is
+      negatively correlated (r < -0.5) with capital income share (α ∝ 1/s_K
+      where s_K is capital share), consistent with the Bouchaud-Mézard prediction.
+  - discipline: statistical-mechanics
+    description: >
+      Run agent-based simulations of 10,000 agents with heterogeneous income
+      (Gaussian) and return-on-capital (log-normal) over 1000 time steps. Vary
+      the coefficient of variation of investment returns from 0 to 2. Measure
+      the Pareto exponent α of the resulting wealth distribution and compare
+      to analytical prediction α = 1 + 2⟨r⟩/σ_r² from the Bouchaud-Mézard model.

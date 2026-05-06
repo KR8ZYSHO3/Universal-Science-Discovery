@@ -1,0 +1,76 @@
+id: b-phonons-thermal-conductivity
+title: "Phonons and thermal conductivity — quantized lattice vibrations are the primary heat carriers in non-metallic solids and govern thermoelectric efficiency and CPU thermal management"
+status: established
+fields:
+  - materials-science
+  - physics
+  - condensed-matter
+  - engineering
+  - quantum-mechanics
+
+bridge_claim: >
+  Phonons (quanta of lattice vibration, analogous to photons as quanta of light) are
+  the dominant heat carriers in non-metallic solids. Thermal conductivity κ = (1/3)Cvl
+  where C is volumetric heat capacity, v is mean phonon group velocity, and l is phonon
+  mean free path. The phonon dispersion relation ω(k) — derived from the dynamical
+  matrix D(k) of interatomic force constants — determines all three. Debye model:
+  linear acoustic dispersion ω = v_s|k| gives the T³ heat capacity at low T. Umklapp
+  (U-process) scattering — where phonon momentum is transferred to the lattice by a
+  reciprocal lattice vector G — is the dominant thermal resistance mechanism at high T,
+  giving κ ∝ T⁻¹. The same phonon physics determines: (1) electron-phonon coupling
+  (superconductivity in BCS theory: Cooper pairs form via virtual phonon exchange),
+  (2) thermoelectric figure of merit ZT = S²σT/κ (high ZT requires low κ while
+  maintaining high electrical conductivity σ and Seebeck S), and (3) CPU cooling
+  challenges (thermal interface resistance, heat spreading). Engineering thermal
+  management, from smartphone chips to nuclear reactor fuel rods, depends on
+  quantitative phonon physics.
+
+translation_table:
+  - field_a_term: "phonon dispersion ω(k)"
+    field_b_term: "band structure of thermal transport (analogous to electron bands)"
+    note: "Acoustic branches carry most heat; optical branches carry less due to low group velocity"
+  - field_a_term: "Normal (N) process scattering (momentum conserved)"
+    field_b_term: "elastic scattering (momentum conserving collisions)"
+    note: "N-processes alone do not limit κ; they are thermal but not resistive"
+  - field_a_term: "Umklapp (U) process (momentum transferred to lattice)"
+    field_b_term: "resistive phonon-phonon scattering (thermal resistance)"
+    note: "U-processes give κ ∝ exp(θ_D/aT) at low T, ∝ T⁻¹ at high T"
+  - field_a_term: "mean free path l (average phonon propagation distance)"
+    field_b_term: "electron mean free path in electrical conductivity"
+    note: "Both determined by scattering rate; engineering l via nanostructuring is the thermoelectric design strategy"
+  - field_a_term: "phonon-electron coupling constant λ"
+    field_b_term: "BCS superconducting pairing strength"
+    note: "Strong phonon-electron coupling → high T_c; same constant determines electrical resistivity"
+  - field_a_term: "phononic crystal (periodic nanostructure)"
+    field_b_term: "photonic crystal (periodic optical structure)"
+    note: "Analogous gap engineering: phononic bandgap suppresses thermal conductivity modes"
+
+related_unknowns:
+  - u-phonon-engineering-thermal
+
+related_hypotheses:
+  - h-phonon-glass-electron-crystal-zt-optimization
+
+cross_pollination_opportunities:
+  - "Apply photonic crystal design methods to phononic crystals for ultra-low thermal conductivity materials"
+  - "Use inelastic neutron scattering to measure phonon dispersion and validate first-principles MD predictions"
+  - "Engineer phonon mean free path distributions in thermoelectric materials using superlattice interfaces"
+
+communication_gap: >
+  Phonon physics is taught in solid state physics courses but rarely connected
+  explicitly to thermal engineering education, which often uses empirical κ values
+  without the underlying physical model. The thermoelectric materials community
+  (materials science / chemistry) and the phonon physics community (condensed matter
+  physics) overlap but use different language. The CPU cooling community largely
+  treats thermal conductivity as a bulk material property without engineering the
+  phonon spectrum.
+
+references:
+  - note: "Debye (1912) Ann Phys 344:789 — phonon model and T³ heat capacity"
+  - note: "Peierls (1929) Ann Phys 395:1055 — Umklapp scattering and thermal resistance theory"
+  - doi: "10.1063/1.1524305"
+    note: "Cahill et al. (2003) J Appl Phys 93:793 — nanoscale thermal transport review"
+  - doi: "10.1038/nmat2090"
+    note: "Snyder & Toberer (2008) Nat Mater 7:105 — complex thermoelectric materials and phonon engineering"
+
+last_reviewed: "2026-05-06"

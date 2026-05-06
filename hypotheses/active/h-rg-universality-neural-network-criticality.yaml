@@ -1,0 +1,52 @@
+id: h-rg-universality-neural-network-criticality
+title: >
+  Deep neural networks at the edge of chaos (criticality) exhibit renormalization
+  group fixed-point behavior: representations across network layers correspond to
+  RG flow toward an IR fixed point, and the universality class of the fixed point
+  determines generalization capacity independent of architecture details.
+status: active
+created: "2026-05-06"
+last_updated: "2026-05-06"
+priority: medium
+unknowns_addressed:
+  - u-nonperturbative-rg-completeness
+related_disciplines:
+  - mathematics
+  - physics
+  - computer-science
+  - machine-learning
+  - statistical-mechanics
+evidence_links:
+  - type: supporting
+    doi: 10.1073/pnas.1806579115
+    note: >
+      Mehta & Schwab (2014) — exact RG (variational RG) applied to Ising model
+      and compared to restricted Boltzmann machine; demonstrates layer-by-layer
+      coarse-graining correspondence.
+  - type: supporting
+    doi: 10.1103/PhysRevX.11.011052
+    note: >
+      Erdmenger et al. (2021) — holographic RG flow and deep neural networks;
+      AdS/CFT provides a formal framework for understanding deep network depth as
+      RG scale.
+  - type: related
+    note: >
+      Poole et al. (2016) NIPS — "edge of chaos" in random deep networks: signal
+      propagation criticality at specific weight variance corresponds to RG fixed point.
+proposed_tests:
+  - discipline: machine-learning
+    description: >
+      Train 20 networks of varying width W and depth D on CIFAR-10. At each layer,
+      compute the singular value spectrum of the weight matrix. Hypothesis: networks
+      at the edge of chaos initialization (Poole et al.) show power-law singular
+      value spectra (RG fixed point signature) while overparameterized networks show
+      Marchenko-Pastur spectra. Test whether the power-law exponent is universal
+      across architectures trained to similar test accuracy.
+  - discipline: statistical-mechanics
+    description: >
+      Apply the Wilsonian RG (block-decimation) to a trained ResNet-50 by
+      successively averaging adjacent neurons. Measure if the effective theory
+      after each RG step has lower description length for the training data.
+      Hypothesis: the RG flow converges to a fixed point corresponding to
+      the task-relevant features, with irrelevant operators decaying as predicted
+      by the RG scaling dimensions.

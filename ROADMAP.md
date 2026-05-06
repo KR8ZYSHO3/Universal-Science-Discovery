@@ -39,6 +39,22 @@ The project is recognized as “the most ambitious open science infrastructure p
 
 ---
 
+**Phase 0 Status (May 2026): SUBSTANTIALLY COMPLETE**
+
+| Milestone | Status |
+|---|---|
+| Seeded disciplines (Physics, Biology, CS, + 38 more) | 41 domains |
+| 500+ high-quality structured entries | 1,014 total (192 bridges + 619 unknowns + 203 hypotheses) |
+| Core governance + legal framework | CC BY 4.0 + MIT, CONTRIBUTING.md, CODE_OF_CONDUCT.md |
+| Knowledge graph + search | 1042 nodes, Lunr full-text search, D3.js visualization |
+| Basic contributor infrastructure | Issue templates, PR template, GitHub Discussions |
+| First Unknowns Hackathon | Planned June 2026 (docs/events/hackathon-2026-06.md) |
+| First 50 contributors | Pending public launch |
+
+**Transitioning to Phase 1 work: custom domain, submission portal, arXiv preprint.**
+
+---
+
 ### Interface development (cross-cutting; see INTERFACE.md)
 
 The **canonical plan for UX, static site, and the future “Discovery OS”** is [INTERFACE.md](INTERFACE.md). That document is **longer-term** than most Phase 0 tasks: we do **not** block governance, legal clarity, or seeded content on a polished UI. Git stays the source of truth; the interface is always a **view** of the repo.

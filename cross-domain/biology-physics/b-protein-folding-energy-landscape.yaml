@@ -1,0 +1,76 @@
+id: b-protein-folding-energy-landscape
+title: "Protein folding as a search on a funneled high-dimensional energy landscape — the same mathematical structure describes spin glass physics, neural network loss landscapes, and optimization"
+status: established
+fields:
+  - biology
+  - physics
+  - biochemistry
+  - statistical-mechanics
+  - computer-science
+
+bridge_claim: >
+  Protein folding is a search on a high-dimensional energy landscape E(conformation).
+  The "funnel" landscape hypothesis (Bryngelson & Wolynes 1987): native proteins have
+  evolved funneled energy landscapes that minimize frustration, ensuring kinetic
+  accessibility of the native state. The folding rate k_fold ∝ exp(-ΔG‡/kT) where
+  ΔG‡ is the folding barrier height. Misfolding = falling into a kinetic trap off the
+  main funnel. AlphaFold2 predicts structure by learning the energy landscape implicitly
+  from evolutionary co-variation data (multiple sequence alignment). The same funnel
+  landscape mathematics appears in: spin glass physics (Parisi order parameter q),
+  optimization problems (loss landscape of deep neural networks), and the random energy
+  model of Derrida. The principle of minimal frustration is the biological statement
+  that evolution selected sequences whose energy landscape has a dominant funnel —
+  non-evolved random sequences have glassy, frustrated landscapes. This bridge unifies
+  structural biology, statistical physics of disordered systems, and machine learning.
+
+translation_table:
+  - field_a_term: "energy landscape E(conformation)"
+    field_b_term: "loss landscape L(weights) in neural networks"
+    note: "Both are high-dimensional surfaces; funneled structure ensures efficient minimization"
+  - field_a_term: "native state (global energy minimum)"
+    field_b_term: "optimal solution / trained model minimum"
+    note: "Evolution / training drives the system toward the global or low-loss basin"
+  - field_a_term: "kinetic trap (local minimum)"
+    field_b_term: "saddle point / sharp local minimum in loss landscape"
+    note: "Both represent stuck states; annealing strategies help escape in both domains"
+  - field_a_term: "folding funnel (decreasing entropy toward native state)"
+    field_b_term: "loss funnel (flat wide minima in overparameterized networks)"
+    note: "Wide minima generalize better; flat loss funnels analogize to evolved protein funnels"
+  - field_a_term: "frustration (competing interactions preventing folding)"
+    field_b_term: "spin glass phase (replica symmetry breaking)"
+    note: "Random heteropolymers are spin glasses; evolved proteins minimize frustration"
+  - field_a_term: "evolutionary co-variation (correlated mutations in MSA)"
+    field_b_term: "learned coupling matrix in AlphaFold2 attention"
+    note: "Co-evolution encodes the energy landscape; AlphaFold2 learns this implicitly"
+
+related_unknowns:
+  - u-protein-misfolding-disease-mechanism
+
+related_hypotheses:
+  - h-alphafold-energy-landscape-implicit-learning
+
+cross_pollination_opportunities:
+  - "Apply spin glass replica theory to predict protein aggregation propensity from sequence"
+  - "Use protein folding funnel concepts to design better optimization algorithms for flat loss landscape search"
+  - "Test whether AlphaFold2 attention maps correspond to physical coupling constants in the Potts model"
+
+communication_gap: >
+  Protein biophysics and statistical physics of spin glasses developed largely
+  independently despite sharing energy landscape mathematics. The Bryngelson-Wolynes
+  theoretical framework was known to biophysicists but the spin glass connection
+  (Wolynes's explicit analogy) took decades to be widely appreciated. The AlphaFold2
+  breakthrough was primarily celebrated in structural biology; its connection to
+  energy landscape theory and random matrix theory of co-evolution received less
+  mainstream attention.
+
+references:
+  - doi: "10.1073/pnas.84.21.7524"
+    note: "Bryngelson & Wolynes (1987) PNAS 84:7524 — funneled energy landscape and principle of minimal frustration"
+  - doi: "10.1038/nsb0197-10"
+    note: "Dill & Chan (1997) Nat Struct Biol 4:10 — review of energy landscape theory of protein folding"
+  - doi: "10.1038/s41586-021-03819-2"
+    note: "Jumper et al. (2021) Nature 596:583 — AlphaFold2: structure prediction from evolutionary data"
+  - isbn: "0521814138"
+    note: "Wales (2003) Energy Landscapes — comprehensive treatment of energy landscape theory"
+
+last_reviewed: "2026-05-06"
