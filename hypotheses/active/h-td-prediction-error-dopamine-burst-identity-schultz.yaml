@@ -1,0 +1,53 @@
+id: h-td-prediction-error-dopamine-burst-identity-schultz
+title: >
+  Dopamine neuron firing rate encodes the exact TD prediction error δ_t = r_t +
+  γV(s_{t+1}) − V(s_t) with a linear gain of ~1 spike/s per unit of normalized δ,
+  and the heterogeneity in DA neuron responses (Dabney et al. 2020) encodes the
+  full quantile distribution of future returns — falsifiable by measuring DA neuron
+  responses to systematically varied reward probability distributions.
+status: active
+priority: high
+impact_score: 0.88
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+
+evidence_links:
+  - doi: "10.1126/science.275.5306.1593"
+    type: supporting
+    confidence: 0.95
+    note: "Schultz, Dayan & Montague (1997) Science — definitive demonstration; DA neuron firing matches TD prediction error qualitatively and semiquantitatively"
+  - doi: "10.1523/JNEUROSCI.16-05-01936.1996"
+    type: supporting
+    confidence: 0.85
+    note: "Montague et al. (1996) — theoretical prediction of DA-TD identity before experimental confirmation; one of the best examples of neuroscience prediction from AI"
+  - note: "Dabney et al. (2020) Nature — distributional RL; different DA neurons encode different quantiles of return distribution; extends Schultz 1997 prediction"
+    type: supporting
+    confidence: 0.80
+
+unknowns_addressed:
+  - u-td-learning-dopamine-biological-implementation
+
+proposed_tests:
+  - description: >
+      Train mice on a task with systematically varied reward probability (P = 0.1,
+      0.25, 0.5, 0.75, 0.9) and measure individual VTA DA neuron responses (single-unit
+      recording or calcium imaging) to conditioned stimulus and reward; compute
+      TD prediction error δ from behavioral value estimates; test linearity of
+      firing rate vs. δ with gain coefficient.
+    method: "2-photon DA-specific GCaMP calcium imaging in VTA; 5 reward probability conditions; Bellman equation to compute V(s) from behavior; linear regression: ΔF/F vs. computed δ"
+    prediction: "DA signal ΔF/F = a·δ + b with r² > 0.85 across 5 probability conditions; gain a is consistent across mice (CV < 20%); offset b encodes baseline prediction — confirming quantitative identity"
+  - description: >
+      Test distributional coding: measure 50+ individual DA neurons in the same mouse
+      performing a reward probability task; identify neurons with asymmetric
+      positive/negative gain (optimistic vs. pessimistic DA neurons); test whether
+      the distribution of gain coefficients across neurons matches the implied
+      quantile levels from distributional RL theory.
+    method: "High-density silicon probe (Neuropixels) in VTA; characterize each DA neuron's response curve to reward vs. no-reward; fit asymmetric linear function; compare distribution of quantile levels to uniform prior prediction"
+    prediction: "DA neuron quantile levels uniformly distributed from 0.05 to 0.95 (Dabney et al. 2020 prediction); 80% of neurons show significant asymmetric gain; neuron with median quantile (0.5) shows symmetric response — confirming distributional RL"
+
+related_disciplines:
+  - mathematics
+  - neuroscience
+  - computer-science
+  - computational-neuroscience

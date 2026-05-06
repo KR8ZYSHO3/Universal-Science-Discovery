@@ -1,0 +1,103 @@
+id: b-immune-recognition-statistical-pattern-detection
+title: >
+  The adaptive immune system solves a high-dimensional pattern detection problem
+  using stochastic V(D)J recombination to generate a diverse receptor repertoire,
+  thymic selection to set affinity thresholds, and clonal expansion as a Bayesian
+  posterior update — mathematically equivalent to a noisy channel decoder for
+  self/non-self discrimination.
+status: established
+fields:
+  - immunology
+  - physics
+  - information-theory
+  - statistical-mechanics
+  - mathematics
+bridge_claim: >
+  The adaptive immune system must recognize ~10¹⁵ possible foreign antigens using
+  only ~10⁷ circulating T-cell clones (each with a distinct T-cell receptor, TCR).
+  This is a covering problem: the T-cell repertoire must collectively "cover"
+  pathogen space while avoiding self-peptides. The physics and mathematics of this
+  problem are identical to detection theory and percolation.
+
+  V(D)J recombination: the combinatorial assembly of V, D, J gene segments with
+  junctional diversity (N-nucleotide additions) generates a TCR repertoire of ~10¹⁸
+  possible sequences, of which ~10⁷ survive thymic selection. This is analogous to
+  random code generation in coding theory — the diversity is the code rate.
+
+  Thymic selection enforces an affinity threshold: T-cells with TCR-pMHC binding
+  affinity K_D > ~10 μM (too weak — no survival signal) or K_D < ~1 nM (too strong
+  — deletion for self-tolerance) are eliminated. Only intermediate-affinity clones
+  survive. This is the "Goldilocks" selection criterion — mathematically a window
+  filter on the affinity distribution.
+
+  Perelson & Oster (1979) formalized the covering problem: the T-cell repertoire
+  must cover pathogen "shape space" (a high-dimensional metric space of molecular
+  structures). Using random covering theory, the minimum repertoire size to cover
+  D-dimensional shape space with N_p pathogens at affinity threshold θ is
+  N_T ≥ N_p^(1−α) where α depends on the cross-reactivity radius r. This predicts
+  the ~10⁷ T-cell diversity as a percolation threshold.
+
+  Mora & Bialek (2011) analyzed TCR sequence diversity using maximum entropy
+  inference: P(TCR sequence) is a maximum entropy distribution constrained by
+  observed single-amino-acid frequencies — equivalent to a Potts model in
+  statistical physics (pairwise interactions). The information content of the
+  repertoire (bits of pathogen discrimination capacity) is bounded by Shannon's
+  channel capacity theorem: C = log₂(1 + SNR) bits.
+
+  Clonal selection (Burnet 1959): antigen binding triggers clonal expansion of
+  matching T-cells — a Bayesian posterior update on which pathogens are currently
+  present. The immune system maintains an "immunological memory" (long-lived plasma
+  cells) that stores the posterior from past exposures — equivalent to Bayesian
+  updating with retention of the sufficient statistic.
+translation_table:
+  - field_a_term: V(D)J recombination diversity (~10¹⁸ possible TCR sequences)
+    field_b_term: random code ensemble in Shannon coding theory
+    note: Repertoire diversity is the code rate; thymic selection is the decoder
+  - field_a_term: thymic selection affinity window (1 nM < K_D < 10 μM)
+    field_b_term: likelihood ratio threshold in Neyman-Pearson detection
+    note: Selection implements a decision threshold on TCR-pMHC binding affinity
+  - field_a_term: T-cell repertoire covering pathogen shape space
+    field_b_term: percolation threshold in random covering theory
+    note: Minimum N_T to cover pathogen space is a geometric percolation problem
+  - field_a_term: clonal expansion upon antigen recognition
+    field_b_term: Bayesian posterior update (likelihood × prior)
+    note: Clonal expansion ∝ P(pathogen | TCR binding) — amplifies matching clones
+  - field_a_term: immunological memory (long-lived plasma cells)
+    field_b_term: sufficient statistic of past Bayesian updates
+    note: Memory cells encode the posterior from past infections — compressed experience
+  - field_a_term: self/non-self discrimination
+    field_b_term: binary hypothesis testing in a noisy channel (Shannon)
+    note: Thymic deletion = error correction for false positives (autoimmunity risk)
+related_unknowns:
+  - u-tcr-repertoire-pathogen-space-coverage
+related_hypotheses:
+  - h-tcr-repertoire-percolation-threshold-pathogen-coverage
+cross_pollination_opportunities:
+  - >
+    Deep learning for TCR-antigen binding prediction: sequence-based models
+    (DeepTCR, ERGO, NetTCR) learn the affinity landscape from immunopeptidomics
+    data. Connecting these to the information-theoretic framework of Mora & Bialek
+    could reveal whether trained neural networks recover the maximum entropy
+    distribution — testing the statistical physics model empirically.
+  - >
+    Percolation theory and network immunology: the T-cell repertoire as a network
+    where edges connect cross-reactive TCR-antigen pairs. The giant connected
+    component of this network (covering all pathogens) is a percolation phase
+    transition. Manipulating the percolation threshold via vaccination is a
+    mathematically precise design problem.
+communication_gap: >
+  Theoretical immunology (Perelson, Nowak) uses statistical physics and information
+  theory, but clinical immunologists rarely read physics journals. The maximum
+  entropy / statistical mechanics framework for immune diversity (Mora & Bialek)
+  is published in J Stat Phys but rarely cited in immunology literature. Conversely,
+  the rich experimental data on thymic selection and clonal dynamics in clinical
+  immunology papers is underused by the theoretical physics community. NIH study
+  sections fund immunology and physics separately.
+last_reviewed: "2026-05-06"
+references:
+  - note: Burnet (1959) The Clonal Selection Theory of Acquired Immunity. Cambridge University Press.
+  - doi: "10.1016/S0092-8674(02)00761-7"
+    note: Germain (2002) Cell 109:291 — T-cell development and selection review
+  - note: Perelson & Oster (1979) J Theor Biol 81:645 — shape space and repertoire covering theory
+  - doi: "10.1007/s10955-011-0295-3"
+    note: Mora & Bialek (2011) J Stat Phys 144:268 — maximum entropy model of TCR repertoire

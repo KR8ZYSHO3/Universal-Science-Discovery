@@ -1,0 +1,50 @@
+id: h-natural-language-mildly-context-sensitive-transformer-approximation
+title: >
+  Human natural language belongs to the mildly context-sensitive class (tree-adjoining
+  grammar, O(n⁶) parsing), and transformer LLMs with depth d and width w can approximate
+  arbitrary MCSL languages with O(1/d) error, but cannot exactly compute any non-regular
+  language with bounded-depth fixed-width architecture due to the O(log n) parallelism
+  constraint on Boolean circuit depth.
+status: active
+priority: medium
+impact_score: 0.72
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+
+evidence_links:
+  - type: supporting
+    confidence: 0.80
+    note: "Chomsky (1956) — hierarchy established; Shieber (1985) — Swiss German is not context-free, supporting MCSL characterization of human language"
+  - type: supporting
+    confidence: 0.65
+    note: "Hahn et al. (2020) TACL — transformers with hard attention cannot recognize a^n b^n (non-context-free); with soft attention they approximate it"
+  - type: supporting
+    confidence: 0.60
+    note: "Yao et al. (2021) — transformers simulate pushdown automata with O(n²) attention; implications for CFL recognition extend to TAG/MCSL"
+
+unknowns_addressed:
+  - u-natural-language-complexity-class
+
+proposed_tests:
+  - description: >
+      Measure GPT-4 and Llama-3 performance on systematic samples of MCSL-specific
+      constructions: cross-serial dependencies in Dutch (verb-argument agreement
+      across 3 embedded clauses), English center-embedding at depths 1-5, and
+      scrambling in Turkish. Compute accuracy vs. depth and compare to theoretical
+      predictions for a depth-d transformer.
+    method: "Controlled syntactic probe; 1000 sentences per depth level; log-linear regression of accuracy vs. depth; comparison to O(1/d) error bound prediction"
+    prediction: "Transformer accuracy degrades as ~exp(−depth/d_model) consistent with a finite-depth MCSL approximation; human acceptability degrades faster (cognitive limit at depth 2-3) but transformers maintain >70% accuracy at depth 4-5"
+  - description: >
+      Formal language recognition benchmark: test GPT-4, Claude-3.5, Gemini-1.5 on
+      recognition of a^n b^n c^n (mildly context-sensitive), a^n b^n (context-free),
+      and (ab)^n (regular) for n ranging from 1 to 1000; measure accuracy as function
+      of n and model context window size.
+    method: "Systematic prompting with recognition task; binary accuracy per (language, n, model); log-log regression of accuracy vs. n"
+    prediction: "All models achieve >95% accuracy on (ab)^n for n < 10000; accuracy drops below 50% for a^n b^n at n > context_length/2; accuracy drops below 50% for a^n b^n c^n at n > 100 regardless of context window — consistent with depth limitation"
+
+related_disciplines:
+  - linguistics
+  - mathematics
+  - computer-science
+  - cognitive-science

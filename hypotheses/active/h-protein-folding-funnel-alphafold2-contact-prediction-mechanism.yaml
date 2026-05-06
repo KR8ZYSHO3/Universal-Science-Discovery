@@ -1,0 +1,53 @@
+id: h-protein-folding-funnel-alphafold2-contact-prediction-mechanism
+title: >
+  AlphaFold2's evoformer attention implicitly learns the contact map of the
+  protein energy landscape funnel — specifically, the pairwise coevolution
+  signal in multiple sequence alignments is a compressed representation of the
+  G(Q) funnel slope — and designed proteins with >70% MSA coverage achieve
+  experimental folding rates within 3-fold of AF2-predicted contact predictions.
+status: active
+priority: medium
+impact_score: 0.80
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+
+evidence_links:
+  - doi: "10.1038/s41586-021-03819-2"
+    type: supporting
+    confidence: 0.92
+    note: "Jumper et al. (2021) — AF2 achieves 0.96 Å RMSD; attention heads in evoformer learn pairwise contact information from MSA covariation"
+  - doi: "10.1073/pnas.84.21.7524"
+    type: related
+    confidence: 0.75
+    note: "Bryngelson & Wolynes (1987) — energy landscape theory; funneled landscape is prerequisite for fast, reliable folding; contact map determines funnel shape"
+  - type: supporting
+    confidence: 0.70
+    note: "Morcos et al. (2011) PNAS — direct coupling analysis (DCA) from MSA extracts contact maps from coevolution; AF2 evoformer generalizes DCA with learned attention weights"
+
+unknowns_addressed:
+  - u-protein-folding-alphafold2-de-novo-design-limits
+
+proposed_tests:
+  - description: >
+      For 100 naturally occurring proteins with known folding rates k_f and
+      AF2 confidence (pLDDT > 90), compute the predicted contact map from AF2
+      evoformer attention weights; calculate the "contact order" (average sequence
+      separation of contacts weighted by AF2 attention); test whether contact
+      order predicts log(k_f) with r² > 0.7.
+    method: "100 proteins from Plaxco et al. folding rate database; AF2 inference; evoformer attention extraction; contact order calculation; linear regression log(k_f) vs. contact order"
+    prediction: "Contact order from AF2 evoformer attention predicts log(k_f) with r² = 0.75±0.10 — comparable to experimental contact order (r² ≈ 0.80, Plaxco et al. 1998) — confirming that AF2 encodes the energy landscape funnel slope"
+  - description: >
+      De novo design test: for 50 proteins designed by RFdiffusion + ProteinMPNN
+      with varying MSA depth (10 to 10000 natural homologs), measure experimental
+      expression yield and melting temperature (Tm) vs. AF2 pLDDT confidence score;
+      test whether pLDDT predicts Tm (a proxy for energy landscape depth) as a
+      function of MSA depth.
+    method: "50 designed proteins expressed in E. coli; CD thermal denaturation for Tm; AF2 inference with different MSA depths; regression pLDDT vs. Tm"
+    prediction: "For MSA depth > 100 sequences, pLDDT > 80 predicts Tm > 60°C with sensitivity 75%; for MSA depth < 10 sequences, pLDDT is uncorrelated with Tm — confirming evolutionary coverage threshold"
+
+related_disciplines:
+  - biology
+  - chemistry
+  - biophysics
+  - computational-biology

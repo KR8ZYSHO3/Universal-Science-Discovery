@@ -1,0 +1,50 @@
+id: h-high-entropy-alloy-configurational-entropy-stabilization
+title: >
+  In equimolar CrMnFeCoNi and related Cantor-class HEAs, the −TΔS_mix = R ln(5)·T
+  configurational entropy term dominates the Gibbs free energy at T > 900°C,
+  preventing sigma-phase and Laves-phase precipitation and maintaining single-phase
+  FCC stability — a prediction validated by CALPHAD and falsifiable by differential
+  scanning calorimetry at controlled annealing temperatures.
+status: active
+priority: medium
+impact_score: 0.76
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+
+evidence_links:
+  - doi: "10.1016/j.msea.2003.10.257"
+    type: supporting
+    confidence: 0.85
+    note: "Cantor et al. (2004) — original CrMnFeCoNi HEA showing single-phase FCC above 600°C; consistent with entropy stabilization"
+  - doi: "10.1038/s41578-019-0121-4"
+    type: supporting
+    confidence: 0.80
+    note: "George et al. (2019) Nat Rev Mater — review confirming single-phase stability at elevated T; sigma phase appears below 700°C (regime where enthalpy dominates)"
+  - type: supporting
+    confidence: 0.70
+    note: "CALPHAD calculations (Otto et al. 2013 Acta Mater) — predicted Mn and Cr rich precipitates below 700°C; validated experimentally by annealing + TEM"
+
+unknowns_addressed:
+  - u-high-entropy-alloy-phase-stability-prediction
+
+proposed_tests:
+  - description: >
+      Anneal CrMnFeCoNi at 700, 800, 900, 1000°C for 100 hours each; characterize
+      microstructure by TEM-EDX and XRD; measure configurational entropy of mixing
+      from measured compositions; compare transition temperature to CALPHAD prediction
+      of single-phase → two-phase boundary.
+    method: "Arc-melting; homogenization 1200°C 24h; isothermal annealing at 4 temperatures; TEM-EDX compositional mapping; XRD phase identification; DSC to locate phase transition"
+    prediction: "Single-phase FCC above 900°C; Mn/Cr-rich sigma-phase precipitates below 800°C; transition temperature matches CALPHAD prediction within 50°C, confirming entropy stabilization mechanism"
+  - description: >
+      Vary equimolarity: prepare CrMnFeCoNi with Mn content 0, 5, 10, 20 mol%
+      (other elements adjusted); measure single-phase stability temperature as
+      function of ΔS_mix; test whether stability temperature scales as ΔG_phase =
+      ΔH − TΔS with CALPHAD-predicted ΔH and measured ΔS.
+    method: "6 alloy compositions; identical heat treatment protocol; DSC + TEM characterization; linear regression of T_stability vs. ΔS_mix"
+    prediction: "T_stability = ΔH/ΔS_mix scales linearly with 1/ΔS_mix with slope = ΔH_sigma-FCC ≈ 5 kJ/mol from CALPHAD; R² > 0.95 confirming thermodynamic prediction"
+
+related_disciplines:
+  - materials-science
+  - chemistry
+  - thermodynamics

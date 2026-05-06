@@ -1,0 +1,47 @@
+id: u-td-learning-dopamine-biological-implementation
+title: How does the brain implement the temporal difference prediction error at the circuit level — specifically, how do dopamine neurons compute V(s_{t+1}) − V(s_t) given that they receive no direct projection from a single brain region encoding V(s)?
+status: open
+priority: high
+disciplines:
+  - neuroscience
+  - mathematics
+  - computational-neuroscience
+  - cognitive-science
+  - pharmacology
+summary: >
+  The TD-dopamine identity (Schultz et al. 1997) is established at the behavioral
+  level — DA neuron firing correlates with TD prediction error δ. But the circuit
+  implementation is unknown. The key computational mystery: computing δ_t requires
+  V(s_{t+1}), which is the expected future value of the next state. At the time
+  of the reward, the animal must somehow access its estimate of V(s_{t+1}) —
+  where is this stored and how does it reach VTA dopamine neurons? Proposed circuits:
+  (1) Striatal MSN activity represents V(s) via learned value; D1-MSNs send value
+  information to VTA. (2) Hippocampal predictive representations (place cells,
+  sequence replay) carry V(s_{t+1}) via temporal credit assignment. (3) The
+  cerebellum-like circuit in the basal ganglia computes δ via a dedicated timing
+  circuit. Distributional RL (Dabney 2020) predicts heterogeneous DA neurons encode
+  different quantiles of return distribution — the circuit mechanism for this
+  heterogeneity (different projection targets? different ion channel compositions?)
+  is unknown. Model-based vs. model-free RL circuit separation (hippocampus for
+  model-based, striatum for model-free) is well-established behaviorally but the
+  interface circuit is unknown.
+systematic_gaps:
+  - The circuit projection that carries V(s_{t+1}) to VTA dopamine neurons has not been identified; all afferents to VTA (striatum, prefrontal cortex, brainstem) carry value-related signals but none has been shown to specifically encode the temporal credit assignment signal needed for TD computation.
+  - The time window over which DA neurons integrate value predictions to compute δ — the "eligibility trace" of TD learning — has not been measured at single-neuron resolution; τ is estimated at 1-3 seconds from behavioral data but not validated electrophysiologically.
+  - Distributional coding of the return distribution across DA neuron subtypes has been replicated in mice (Tsutsui-Kimura et al. 2020) but the synaptic mechanism distinguishing optimistic from pessimistic DA neurons (different inputs? different D1/D2 receptor ratios in target MSNs?) is unknown.
+suggested_hypotheses:
+  - >
+    VTA dopamine neurons compute the TD prediction error via a disinhibition circuit —
+    tonically active GABAergic interneurons in the striatum (ChAT interneurons) carry a
+    running V(s) signal that suppresses DA firing; reward-triggered suppression of this
+    inhibition causes the δ > 0 burst, implementing δ = r + γV(s') - V(s) via
+    circuit-level arithmetic.
+related_unknowns:
+  - u-dopamine-circuit-reward-prediction-mechanism
+related_bridges:
+  - b-reinforcement-learning-dopamine
+references:
+  - doi: "10.1126/science.275.5306.1593"
+    note: "Schultz et al. (1997) Science 275:1593"
+  - note: "Sutton & Barto (2018) Reinforcement Learning — TD learning mathematical framework"
+last_reviewed: "2026-05-06"

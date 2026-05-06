@@ -1,0 +1,99 @@
+id: b-phase-diagrams-alloy-design
+title: >
+  Binary and multi-component alloy phase diagrams are thermodynamic predictions of
+  Gibbs free energy minimization — CALPHAD parameterizes G(T,x) from sublattice
+  models, and high-entropy alloys exploit large configurational entropy
+  ΔS_mix = −R Σxᵢ ln(xᵢ) to stabilize single-phase solid solutions.
+status: established
+fields:
+  - materials-science
+  - chemistry
+  - thermodynamics
+  - metallurgy
+  - computational-materials-science
+bridge_claim: >
+  Phase diagrams are maps of thermodynamic equilibrium: for a given composition and
+  temperature, which phase (or mixture of phases) minimizes the total Gibbs free
+  energy G = H − TS? The phase boundary locations follow from the common tangent
+  construction on G(x) curves. This bridges thermodynamic chemistry (G functions)
+  to materials science (phase stability and microstructure).
+
+  For the Fe-C binary system: at high T, austenite (γ-Fe, FCC, up to 2.14 wt% C)
+  is stable; on cooling, the eutectoid reaction at 727°C converts γ to ferrite
+  (α-Fe, BCC) + cementite (Fe₃C) — pearlite microstructure. Martensite forms by
+  diffusionless transformation when cooling is rapid: C atoms are trapped in
+  interstitial sites, creating BCT structure with high hardness. All phase
+  boundaries are predictions of ΔG = 0 between competing phases.
+
+  Hume-Rothery rules (1926) are empirical thermodynamic guidelines for solid
+  solution formation: (1) atomic radii must differ by <15%, (2) crystal structures
+  must match, (3) electronegativities must be similar, (4) valences should be similar.
+  These rules follow from the Miedema model for mixing enthalpy ΔH_mix.
+
+  CALPHAD (Calculation of PHAse Diagrams, Kaufman & Bernstein 1970): parameterize
+  G for each phase using sublattice models and the Redlich-Kister polynomial for
+  excess Gibbs energy: G_excess = x_A x_B Σ_k L_k (x_A − x_B)^k. Parameters are
+  fitted to binary experiments, then combined for ternary/quaternary predictions —
+  enabling computational alloy design without exhaustive experiments.
+
+  High-entropy alloys (HEAs, Cantor et al. 2004; Yeh et al. 2004): alloys with
+  5+ principal elements in near-equimolar ratios. The configurational entropy for
+  n equimolar components: ΔS_mix = −R Σᵢ xᵢ ln(xᵢ) = R ln(n). For n=5:
+  ΔS_mix = 1.61R ≈ 13.4 J/(mol·K). This large entropy term (−TΔS_mix) lowers G
+  of the single-phase solid solution relative to competing intermetallic compounds,
+  stabilizing simple FCC/BCC/HCP structures. The four "core effects" of HEAs
+  (high entropy, severe lattice distortion, sluggish diffusion, cocktail effect)
+  follow directly from multi-component thermodynamics and kinetics.
+translation_table:
+  - field_a_term: Gibbs free energy G = H − TS
+    field_b_term: phase stability criterion — phase with lowest G is stable
+    note: Phase boundaries are loci where ΔG = 0 between two competing phases
+  - field_a_term: common tangent construction
+    field_b_term: phase coexistence rule (two-phase region in phase diagram)
+    note: Tie lines connect phases in equilibrium at the same chemical potential
+  - field_a_term: Hume-Rothery size rule (<15% radius difference)
+    field_b_term: elastic strain energy ΔH_elastic from size mismatch
+    note: Derived from continuum elasticity theory for substitutional defect
+  - field_a_term: CALPHAD Redlich-Kister interaction parameter L_k
+    field_b_term: excess Gibbs energy of mixing (deviation from ideal solution)
+    note: Fitted to binary experiments; enables ternary/quaternary predictions
+  - field_a_term: configurational entropy ΔS_mix = −R Σxᵢ ln(xᵢ)
+    field_b_term: "HEA stabilization: −TΔS_mix lowers G of solid solution"
+    note: At high T, entropy term dominates; at low T, enthalpy terms may drive phase separation
+  - field_a_term: martensite transformation
+    field_b_term: diffusionless first-order phase transition (military transformation)
+    note: Shear-dominated; Bain correspondence relates parent and product crystal structures
+related_unknowns:
+  - u-high-entropy-alloy-phase-stability-prediction
+related_hypotheses:
+  - h-high-entropy-alloy-configurational-entropy-stabilization
+cross_pollination_opportunities:
+  - >
+    Machine-learning interatomic potentials (MLIPs: GAP, NequIP, MACE) trained on
+    DFT calculations can predict G(T,x) for multi-component systems without
+    experimental fitting — potentially replacing CALPHAD databases for systems
+    lacking experimental data (e.g., refractory HEAs for high-temperature applications).
+    Bridging quantum chemistry (DFT), statistical mechanics (free energy calculation),
+    and CALPHAD thermodynamics.
+  - >
+    Pharmaceutical polymorphism is governed by the same Gibbs free energy competition
+    as metallic phase diagrams. Drug molecule crystal forms (polymorphs) have
+    different G(T) and solubility; CALPHAD-like approaches are being applied to
+    pharmaceutical crystal engineering — direct cross-domain transfer from metallurgy
+    to pharmaceutical chemistry.
+communication_gap: >
+  CALPHAD was developed by metallurgists (Kaufman, Hillert, Pelton) and is taught
+  primarily in materials science and metallurgical engineering programs. Chemists
+  studying solution thermodynamics and physicists studying phase transitions use
+  the same Gibbs free energy formalism but different parameterizations. The HEA
+  field emerged partly because materials scientists recognized entropy arguments
+  from statistical thermodynamics — a cross-fertilization that happened within
+  materials science but is still not widely known in physical chemistry departments.
+last_reviewed: "2026-05-06"
+references:
+  - note: Hume-Rothery (1926) J Inst Met 35:295 — empirical rules for solid solution formation
+  - note: "Saunders & Miodownik (1998) CALPHAD: A Comprehensive Guide. Pergamon Press."
+  - doi: "10.1016/j.msea.2003.10.257"
+    note: Cantor et al. (2004) Mater Sci Eng A 375:213 — first report of CrMnFeCoNi HEA
+  - doi: "10.1038/s41578-019-0121-4"
+    note: George et al. (2019) Nat Rev Mater 4:515 — high-entropy alloys review

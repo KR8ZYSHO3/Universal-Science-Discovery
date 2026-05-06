@@ -1,0 +1,104 @@
+id: b-seismic-tomography-inverse-problems
+title: >
+  Seismic tomography infers Earth's 3D velocity structure from P-wave travel times
+  via the same Tikhonov-regularized linear inverse theory used in medical imaging
+  and geophysical prospecting, with adjoint-state methods computing sensitivity
+  kernels efficiently through forward + adjoint wavefield simulations.
+status: established
+fields:
+  - geophysics
+  - mathematics
+  - seismology
+  - inverse-problems
+  - computational-science
+bridge_claim: >
+  Seismic tomography reconstructs the 3D P-wave velocity structure v(x) of Earth's
+  interior from travel time measurements tᵢⱼ = ∫_ray ds/v(x). The ray integral
+  is linearized about a reference model v₀(x): δtᵢⱼ = −∫_ray (δv/v₀²) ds,
+  yielding a linear system d = Gm + ε where d is the vector of travel time
+  residuals, G is the ray-path matrix (sensitivity matrix), m is the vector of
+  velocity perturbations, and ε represents noise.
+
+  This is the canonical discrete linear inverse problem. The normal equations
+  (GᵀG)m = Gᵀd are ill-posed: G has a non-trivial null space (structures that
+  produce zero travel time anomaly — horizontally layered perturbations for
+  vertically propagating rays). Tikhonov regularization: minimize
+  J(m) = ||d − Gm||² + α²||Lm||² where L is a smoothing operator (Laplacian
+  or identity). The regularization parameter α controls the bias-variance trade-off;
+  checkerboard tests assess resolution.
+
+  Key mathematical results: the singular value decomposition G = UΣVᵀ reveals
+  that only model components in the range of Gᵀ (resolved by data) can be
+  estimated; the null space of G is unresolvable regardless of data quality.
+  This is identical to the rank-deficiency problem in CT scanning (Radon transform)
+  and gravity inversion.
+
+  Adjoint-state method (Tromp et al. 2005; Liu & Tromp 2006): computes Fréchet
+  derivatives (sensitivity kernels) K(x) = δtᵢⱼ/δm(x) without computing the
+  full Jacobian G. Instead: (1) run forward simulation from source to receivers;
+  (2) run adjoint simulation backward from receivers; (3) cross-correlate the
+  two wavefields at each point x. The kernel K(x) is the "banana-doughnut" shape
+  — sensitivity is zero along the geometric ray (Fresnel zone effect). Full
+  waveform inversion (FWI) extends this to match entire seismograms rather than
+  just travel times.
+
+  Applications: subducting slabs (Farallon, Tethys) imaged as fast anomalies
+  in the lower mantle; mantle plumes (Hawaii, Iceland) as slow anomalies; the
+  D'' layer at the core-mantle boundary; the inner core anisotropy. These
+  structures cannot be directly observed and are known only through tomographic
+  inversion of seismic data — mathematics makes the invisible Earth interior visible.
+translation_table:
+  - field_a_term: P-wave travel time residual δt
+    field_b_term: data vector d in linear inverse problem d = Gm + ε
+  - field_a_term: 3D velocity perturbation δv/v
+    field_b_term: model vector m to be estimated
+  - field_a_term: ray-path sensitivity matrix G
+    field_b_term: forward operator (Radon-like transform)
+    note: G is sparse — each ray samples only a subset of model cells
+  - field_a_term: Tikhonov regularization α||Lm||²
+    field_b_term: prior information / smoothness constraint on model
+    note: Equivalent to Bayesian inference with Gaussian prior precision α²LᵀL
+  - field_a_term: checkerboard test
+    field_b_term: point spread function / resolution matrix R = G†G
+    note: Recovered checkerboard reveals where R ≈ I (well-resolved) vs. R ≈ 0 (null space)
+  - field_a_term: adjoint-state sensitivity kernel K(x)
+    field_b_term: Fréchet derivative of misfit with respect to model parameter
+    note: Computed by cross-correlating forward and adjoint wavefields — O(1) backward pass
+  - field_a_term: full waveform inversion (FWI)
+    field_b_term: nonlinear iterative gradient descent on waveform misfit
+    note: Same structure as neural network backpropagation — gradient via adjoint method
+related_unknowns:
+  - u-seismic-tomography-null-space-resolution
+related_hypotheses:
+  - h-seismic-adjoint-tomography-resolves-mantle-plumes
+cross_pollination_opportunities:
+  - >
+    Medical CT scanning (computed tomography) and seismic tomography are the same
+    mathematical problem: Radon transform inversion from projection data. Algorithms
+    developed for CT (filtered back-projection, iterative SART, total variation
+    regularization) have been directly applied to seismic tomography. Conversely,
+    the adjoint-state method from geophysics is related to backpropagation in deep
+    learning — all are instances of reverse-mode automatic differentiation.
+  - >
+    Compressed sensing (Candes & Tao 2006): if the model m is sparse in some basis,
+    fewer measurements than Nyquist sampling can exactly recover m via L1 minimization
+    (LASSO). Applying compressed sensing to seismic tomography could reduce the
+    number of earthquakes/stations needed for high-resolution imaging — a direct
+    import from mathematics to geophysics.
+communication_gap: >
+  Inverse problem theory was developed in applied mathematics (Tikhonov 1977,
+  Tarantola 1987) and has parallel developments in geophysics, medical imaging,
+  and remote sensing. Seismologists developed their own regularization methods
+  often unaware of the mathematical literature. The adjoint-state method was
+  well-known in optimal control theory (Pontryagin, 1962) decades before Tromp
+  et al. (2005) derived it for seismology. Journal boundaries between SIAM Journal
+  on Applied Mathematics and Geophysical Journal International maintain the gap.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1029/JB082i002p00239"
+    note: Dziewonski et al. (1977) JGR 82:239 — first global P-wave tomography
+  - note: Tikhonov & Arsenin (1977) Solutions of Ill-Posed Problems. V.H. Winston & Sons.
+  - doi: "10.1111/j.1365-246X.2005.02489.x"
+    note: Tromp, Tape & Liu (2005) Geophys J Int 160:195 — adjoint-state sensitivity kernels for seismology
+  - doi: "10.1016/j.earscirev.2012.02.010"
+    note: Liu & Gu (2012) Earth Sci Rev 112:25 — seismic tomography review

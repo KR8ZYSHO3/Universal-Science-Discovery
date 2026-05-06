@@ -1,0 +1,92 @@
+id: b-radiative-forcing-energy-balance
+title: >
+  Earth's greenhouse effect is governed by the same radiative transfer physics as
+  blackbody emission and molecular spectroscopy — CO2 forcing ΔF = 5.35 ln(C/C₀)
+  W/m² follows directly from Beer-Lambert absorption in the 15 μm bending band, and
+  climate sensitivity is the Planck feedback plus amplifying thermodynamic feedbacks.
+status: established
+fields:
+  - climate-science
+  - physics
+  - atmospheric-science
+  - thermodynamics
+  - spectroscopy
+bridge_claim: >
+  Earth's energy balance is a direct application of blackbody radiation physics.
+  Incoming solar power: S₀/4·(1−α) ≈ 240 W/m² (α ≈ 0.30 planetary albedo).
+  Outgoing longwave radiation: σT_eff⁴ where T_eff ≈ 255 K (effective emission
+  temperature). The greenhouse effect arises because CO₂ absorbs and re-emits
+  infrared radiation in its 15 μm bending vibrational mode (ν₂ band), reducing
+  the effective emission altitude and thereby warming the surface.
+
+  The logarithmic forcing formula ΔF = 5.35 ln(C/C₀) W/m² (Myhre et al. 1998)
+  emerges from Beer-Lambert law: as CO₂ concentration rises, the absorption band
+  saturates at the centre and grows logarithmically in the wings. The same physics
+  governs any molecular absorber with a pressure-broadened Lorentzian line shape.
+
+  Climate sensitivity λ links radiative forcing to temperature: ΔT = λ·ΔF.
+  Without feedbacks: λ₀ = 1/(−dF/dT)|_{Planck} ≈ 0.3 K/(W/m²) [Planck feedback
+  −3.2 W/m²/K is stabilizing]. With feedbacks: λ_eff ≈ 0.8 K/(W/m²) baseline
+  rising to ~3 K/(W/m²) when water vapor (WV feedback +1.8 W/m²/K) and ice-albedo
+  feedback (+0.3 W/m²/K) are included. Equilibrium climate sensitivity (ECS) for
+  CO₂ doubling (ΔF = 3.7 W/m²): ΔT₂ₓ = λ_eff · 3.7 K. CMIP6 range: 2.5–5.7 K.
+
+  The Planck feedback itself is a direct consequence of the Stefan-Boltzmann law:
+  as surface warms by δT, outgoing radiation increases by 4σT³·δT ≈ 3.2 W/m²/K,
+  providing a restoring force. This is the same physics as radiative equilibrium
+  in stellar astrophysics. The uncertainty in ECS is therefore not in the physics
+  of radiation but in the feedbacks — especially cloud feedbacks (−0.42 to +1.2
+  W/m²/K in CMIP6), which are controlled by cloud microphysics and dynamics.
+translation_table:
+  - field_a_term: CO2 greenhouse effect
+    field_b_term: Beer-Lambert absorption in 15 μm ν₂ bending band
+    note: Same molecular physics; forcing is logarithmic because wings broaden as band saturates
+  - field_a_term: radiative forcing ΔF = 5.35 ln(C/C₀) W/m²
+    field_b_term: integrated line absorption in pressure-broadened Lorentzian spectrum
+    note: The coefficient 5.35 W/m² is an empirical fit to line-by-line radiative transfer calculations
+  - field_a_term: Planck feedback (−3.2 W/m²/K)
+    field_b_term: "Stefan-Boltzmann derivative: −dσT⁴/dT = −4σT³ ≈ −3.2 W/m²/K at T=255 K"
+    note: Exact blackbody physics; not a parameterization but a first-principles result
+  - field_a_term: water vapor feedback (+1.8 W/m²/K)
+    field_b_term: "Clausius-Clapeyron: d(ln p_sat)/dT = L/RT² ≈ 7%/K at 280 K"
+    note: Warmer air holds more water vapor, amplifying the greenhouse effect
+  - field_a_term: equilibrium climate sensitivity (ECS)
+    field_b_term: "inverse feedback parameter lambda = 1/(lambda_0_inv - f) where f = sum of feedbacks"
+  - field_a_term: effective emission temperature T_eff = 255 K
+    field_b_term: blackbody temperature at which σT⁴ = absorbed solar flux
+    note: Difference from surface T ≈ 288 K (33 K) is the greenhouse warming
+related_unknowns:
+  - u-climate-ecs-feedback-uncertainty
+related_hypotheses:
+  - h-climate-sensitivity-emergent-constraint-water-vapor
+cross_pollination_opportunities:
+  - >
+    Line-by-line radiative transfer codes (HITRAN database) used in spectroscopy
+    research are the foundation of climate forcing calculations. Spectroscopists
+    rarely publish in climate journals, creating gaps: e.g., CH₄ absorption in the
+    4 μm band is less well characterized than CO₂ and is critical for methane
+    forcing calculations with growing relevance to climate policy.
+  - >
+    Stellar atmosphere physicists studying radiative transfer in stellar interiors
+    use the same Eddington approximation and two-stream method as atmospheric
+    radiative transfer models. Cross-fertilization has led to improvements in
+    both fields, but the communities rarely interact despite sharing mathematical
+    foundations.
+communication_gap: >
+  Climate scientists use forcing and feedback language developed for policy
+  communication, while physicists use spectroscopic language (transition
+  moments, line strengths, pressure broadening). The mathematical connection
+  — that ΔF = 5.35 ln(C/C₀) is a Taylor expansion of the Beer-Lambert law
+  integrated over the HITRAN spectrum — is not taught in either physics or
+  climate courses. Journal siloing between Journal of Geophysical Research
+  (Atmospheres) and Journal of Quantitative Spectroscopy & Radiative Transfer
+  has maintained the gap despite the two fields sharing fundamental physics.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1029/98GL01908"
+    note: Myhre et al. (1998) Geophys Res Lett 25:2715 — ΔF = 5.35 ln(C/C₀) formula
+  - doi: "10.1175/1520-0469(1967)024<0241:TEOTAW>2.0.CO;2"
+    note: Manabe & Wetherald (1967) J Atmos Sci 24:241 — first GCM with water vapor feedback
+  - doi: "10.1029/2019RG000678"
+    note: Sherwood et al. (2020) Rev Geophys 58:e2019RG000678 — ECS assessment, 2.6–3.9 K likely range
+  - note: IPCC AR6 WGI (2021) Chapter 7 — Energy budget and climate feedbacks

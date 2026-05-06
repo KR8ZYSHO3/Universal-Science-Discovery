@@ -1,0 +1,51 @@
+id: h-topological-insulator-majorana-fault-tolerant-qubit
+title: >
+  A topological qubit based on four Majorana zero modes in an InAs/Al heterostructure
+  will achieve a logical qubit coherence time T₁_L > 1 ms at 20 mK — 100x longer
+  than physical transmon qubits — by suppressing quasiparticle poisoning via
+  a superconducting gap Δ > 200 μeV and a topological gap Δ_topo > 100 μeV, with
+  the protection scaling exponentially with system length L as exp(−L/ξ).
+status: active
+priority: high
+impact_score: 0.89
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+
+evidence_links:
+  - doi: "10.1103/PhysRevLett.95.146802"
+    type: supporting
+    confidence: 0.70
+    note: "Kane & Mele (2005) — topological protection framework; exponential gap opening with system length"
+  - doi: "10.1103/RevModPhys.82.3045"
+    type: supporting
+    confidence: 0.75
+    note: "Hasan & Kane (2010) — established theory of topological protection from time-reversal symmetry"
+  - type: contradicting
+    confidence: 0.40
+    note: "Microsoft Quantum (2023) — topological gap protocol results in InAs/Al; initial claims retracted 2021 (Zhang et al. retraction); new 2023 results more conservative but still contested"
+
+unknowns_addressed:
+  - u-topological-insulator-majorana-qubit-scalability
+
+proposed_tests:
+  - description: >
+      Fabricate InAs/Al nanowire device with optimized epitaxial Al thickness (5 nm)
+      and InAs (111) orientation; measure superconducting gap Δ, topological gap Δ_topo,
+      and zero-bias peak splitting as function of magnetic field and gate voltage;
+      perform non-local measurement protocol (simultaneous ZBP at both wire ends
+      with correlated noise) to distinguish MZMs from trivial Andreev bound states.
+    method: "MBE growth InAs/Al; nanowire device fabrication (e-beam lithography); tunnel conductance spectroscopy; non-local cross-correlation measurement at 20 mK"
+    prediction: "ZBPs at both ends of wire appear simultaneously at B_field matching topological phase boundary; cross-correlation coefficient > 0.7 (vs. < 0.3 for trivial ABS); Δ_topo > 100 μeV validated by spectral gap"
+  - description: >
+      Test exponential protection: fabricate MZM devices with wire lengths L = 1, 2, 4, 8 μm;
+      measure quasiparticle poisoning time T_poison as function of L by monitoring
+      fermion parity switching rate; test T_poison ~ exp(L/ξ) with coherence length
+      ξ = ℏv_F/Δ_topo.
+    method: "Devices at 4 lengths; parity switch rate measurement via Coulomb blockade; fit to exponential model; extract ξ from fit"
+    prediction: "T_poison doubles per 200 nm increase in L (ξ ≈ 200 nm for v_F ≈ 3×10⁴ m/s, Δ_topo ≈ 100 μeV); T_poison > 10 μs for L = 4 μm, approaching the threshold for topological qubit operation"
+
+related_disciplines:
+  - physics
+  - materials-science
+  - quantum-computing
