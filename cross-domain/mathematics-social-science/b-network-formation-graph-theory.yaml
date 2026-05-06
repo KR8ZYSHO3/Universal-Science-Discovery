@@ -1,0 +1,92 @@
+id: b-network-formation-graph-theory
+title: >
+  Strategic network formation (Jackson-Wolinsky pairwise stability) connects
+  graph theory to social science: agents form links based on cost-benefit
+  calculations, generating small-world and scale-free topologies from rational
+  decisions, with efficient networks provably different from stable networks
+  due to the tension between individual incentives and social welfare.
+status: established
+fields:
+  - mathematics
+  - graph-theory
+  - economics
+  - social-science
+  - network-science
+bridge_claim: >
+  STRATEGIC NETWORK FORMATION (Jackson & Wolinsky 1996):
+  Agents form links g_ij ∈ {0,1} by mutual consent. Payoff to agent i:
+
+    u_i(g) = Σⱼ δ^d(i,j) - Σⱼ: g_ij=1 c
+
+  where δ ∈ (0,1) = decay factor with distance d(i,j), c = link cost.
+  Pairwise stable network: no agent wants to delete a link and no two
+  agents both want to add a link.
+
+  PAIRWISE STABILITY vs. EFFICIENCY:
+  Efficient network maximises Σᵢ uᵢ(g). Key theorem: there exist regions
+  of (δ, c) where the unique pairwise stable network is empty (no links) or
+  complete (all links), while the efficient network is the star. The star
+  maximises social surplus but no agent has incentive to be the hub — the
+  hub bears connection costs to connect periphery agents who do not
+  reciprocate the full benefit.
+
+  ERDŐS-RÉNYI NULL MODEL:
+  Random graph G(n,p): each edge included independently with probability p.
+  Giant component emerges at p = 1/n — a phase transition in network
+  connectivity. This is the null model against which strategic formation
+  generates structure.
+
+  WATTS-STROGATZ SMALL WORLDS:
+  Rewiring regular lattice with probability p: small-p = high clustering,
+  high path length; large-p = low clustering, low path length; intermediate
+  p produces small-world (low path length + high clustering). Emerges from
+  random rewiring, not strategic formation.
+
+  BARABÁSI-ALBERT PREFERENTIAL ATTACHMENT:
+  New nodes attach to existing nodes with probability ∝ degree k. This
+  generates P(k) ~ k^(-3) scale-free network. Strategic interpretation:
+  agents prefer to link to high-degree nodes (complementarity in connections).
+
+  SOCIAL CAPITAL BRIDGE:
+  Bonding capital = redundant local clusters (high clustering). Bridging
+  capital = long-range bridges between clusters (low path length).
+  Both concepts map directly to graph-theoretic clustering coefficient
+  and betweenness centrality.
+translation_table:
+  - field_a_term: pairwise stable network (economics/game theory)
+    field_b_term: Nash equilibrium of link formation game
+    note: Pairwise stability is stronger than Nash — requires no bilateral deviations, not just unilateral
+  - field_a_term: Erdős-Rényi phase transition (graph theory)
+    field_b_term: emergence of giant component (social network)
+    note: Giant component appears at p = 1/n — threshold at which a connected rumour/disease spreading path exists across the network
+  - field_a_term: degree distribution P(k) (graph theory)
+    field_b_term: social influence distribution (social science)
+    note: Power-law degree distribution implies most influence concentrated in few hubs
+  - field_a_term: clustering coefficient (graph theory)
+    field_b_term: bonding social capital (sociology/economics)
+    note: Redundant local connections = high clustering = bonding capital; Burt's structural holes = low clustering = bridging capital
+related_unknowns:
+  - u-social-capital-measurement
+  - u-trust-network-scale
+related_hypotheses:
+  - h-network-topology-innovation-diffusion
+cross_pollination_opportunities:
+  - Apply spectral graph theory (Laplacian eigenvalues) to measure network efficiency — eigenvalue gap predicts epidemic spreading rate
+  - Network formation game theory applied to co-authorship and citation networks to understand scientific community structure
+  - Random graph models borrowed from physics (configuration model) applied to strategic network formation for tractable equilibrium analysis
+communication_gap: >
+  Graph theorists (mathematics, CS) and social network analysts (sociology,
+  economics) developed largely separate literatures. Jackson's economic
+  network formation theory explicitly bridges these but requires fluency in
+  both game theory and graph theory. The Barabási-Albert model from physics
+  is widely used in social science without connecting to the strategic
+  formation literature.
+last_reviewed: "2026-05-06"
+references:
+  - note: Erdős & Rényi (1959) Publ Math Debrecen 6:290 — random graph theory
+  - doi: "10.1038/30918"
+    note: Watts & Strogatz (1998) Nature 393:440 — small world networks
+  - doi: "10.1016/S0022-0531(96)90030-6"
+    note: Jackson & Wolinsky (1996) J Econ Theory 71:44 — strategic network formation
+  - doi: "10.1126/science.286.5439.509"
+    note: Barabási & Albert (1999) Science 286:509 — preferential attachment

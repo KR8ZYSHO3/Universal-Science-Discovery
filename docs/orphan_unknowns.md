@@ -1,6 +1,6 @@
 # Orphan Unknowns — Priority Contribution Targets
 
-These **206** unknowns have no associated hypothesis or bridge edge in the knowledge graph.
+These **165** unknowns have no associated hypothesis or bridge edge in the knowledge graph.
 They are the highest-priority targets for new contributions — add a hypothesis or propose a cross-domain bridge connecting them.
 
 | ID | Title |
@@ -16,28 +16,12 @@ They are the highest-priority targets for new contributions — add a hypothesis
 | `u-galaxy-angular-momentum` | How is angular momentum transported during galaxy formation to produce the observed diversity of disk sizes? |
 | `u-globular-cluster-formation` | How do globular clusters form and why do they show multiple stellar populations? |
 | `u-magnetic-field-origin-galaxies` | What generates and maintains large-scale magnetic fields in galaxies over Hubble time? |
-| `u-neutron-star-equation-of-state` | What is the equation of state of dense nuclear matter above 2× nuclear saturation density? |
 | `u-primordial-gravitational-waves` | What is the tensor-to-scalar ratio r and what does it imply for inflationary models? |
 | `u-quasar-feedback-mechanism` | How does quasar feedback quench star formation in massive galaxies across cosmic time? |
 | `u-stellar-bh-spin-distribution` | What process sets the spin magnitude distribution of stellar-mass black holes in binary systems? |
-| `u-battery-solid-electrolyte-stability` | What determines the long-term electrochemical stability of solid electrolytes at electrode interfaces, and can this stability be predicted computationally? |
-| `u-antarctic-bottom-water` | What controls Antarctic Bottom Water formation rate and how will it respond to ice sheet freshening? |
-| `u-arctic-amplification-mechanism` | What fraction of Arctic amplification is caused by local feedbacks versus poleward heat transport changes? |
-| `u-climate-sensitivity-tails` | What physical processes determine the long upper tail of equilibrium climate sensitivity distributions? |
-| `u-cloud-seeding-efficacy` | What is the true efficacy of cloud seeding for precipitation enhancement across different cloud types? |
-| `u-deep-ocean-carbon-sequestration` | What fraction of anthropogenic CO2 can be sequestered in the deep ocean on centennial timescales? |
-| `u-ice-sheet-instability-modes` | What are the dominant instability modes of the West Antarctic Ice Sheet under ocean warming? |
-| `u-marine-ice-cliff-instability` | Is marine ice cliff instability a physically realisable mechanism in Antarctica or limited by buttressing? |
-| `u-methane-clathrate-destabilization` | Under what ocean temperature trajectories do seafloor methane clathrates destabilise and contribute to atmospheric methane? |
 | `u-monsoon-bifurcation` | Can the South Asian summer monsoon bifurcate to a permanently weakened state under continued aerosol loading? |
-| `u-ozone-recovery-timeline` | Will Antarctic ozone fully recover by 2070 and what are the confounding factors? |
-| `u-peatland-carbon-dynamics` | How much carbon stored in tropical and boreal peatlands is vulnerable to release under warming and drainage? |
 | `u-polar-vortex-disruption` | What drives sudden stratospheric warming events and their link to extreme cold outbreaks at the surface? |
-| `u-regional-sea-level-acceleration` | What drives regional sea level accelerations that exceed the global mean by factors of 2-5? |
-| `u-sai-side-effects` | What are the regional precipitation and ozone consequences of stratospheric aerosol injection? |
 | `u-stratosphere-troposphere-coupling` | How does stratospheric dynamics modulate the tropospheric jet streams on multi-decadal timescales? |
-| `u-urban-heat-island-nonlinearity` | Are urban heat island effects nonlinear with city size and density, and how do they interact with regional climate? |
-| `u-wildfire-climate-feedback` | What is the net radiative feedback of increasing wildfire frequency and extent under climate change? |
 | `u-sleep-creative-insight` | How does sleep enhance creative problem solving and what stages are critical? |
 | `u-social-cognition-architecture` | What is the neural architecture of social cognition and how does it differ from non-social cognition? |
 | `u-theory-of-mind-substrate` | What is the minimal neural substrate for theory of mind and when does it develop ontogenetically? |
@@ -47,36 +31,25 @@ They are the highest-priority targets for new contributions — add a hypothesis
 | `u-p-vs-np-geometric-barrier` | What geometric or algebraic barriers prevent proof of P != NP, and do known techniques suffice if correctly applied? |
 | `u-program-synthesis-completeness` | Can program synthesis systems automatically generate programs from specifications for any computable function, and what are the practical limits? |
 | `u-robustness-distribution-shift` | What training and architectural modifications make machine learning models robust to real-world distribution shift, and how much robustness is achievable? |
-| `u-cbdc-monetary-policy-implications` | What are the implications of central bank digital currencies for financial stability, monetary policy transmission, and bank disintermediation? |
 | `u-central-bank-independence-effectiveness` | Does central bank independence cause lower inflation, and what are the political economy limits of central bank independence under fiscal dominance? |
 | `u-creative-economy-measurement` | How should the creative economy be measured in national accounts, and does it drive innovation spillovers to other sectors? |
 | `u-cryptocurrency-value-store-viability` | Can cryptocurrencies function as long-term stores of value, and what determines whether any given cryptocurrency survives versus fails? |
 | `u-degrowth-economic-viability` | Can wealthy economies deliberately degrow GDP while maintaining or improving wellbeing, and what are the macroeconomic mechanisms required? |
-| `u-financial-contagion-network-topology` | How does the network topology of interbank lending and asset holdings determine systemic risk, and can pre-crisis network measures predict contagion? |
 | `u-financialisation-real-economy-effects` | Has the growth of the financial sector relative to GDP produced net economic benefits, or has financialisation harmed real economy investment and growth? |
 | `u-gig-economy-welfare-effects` | What are the net welfare effects of gig economy platforms on workers, consumers, and incumbent industries, and how do regulatory regimes affect these? |
 | `u-healthcare-cost-spiral-mechanisms` | What mechanisms drive persistently rising healthcare costs in high-income countries, and which healthcare system structures most effectively contain them? |
-| `u-housing-affordability-structural-causes` | What are the primary structural causes of the housing affordability crisis in high-income cities, and which policy interventions are most effective? |
 | `u-innovation-diffusion-s-curve` | Why do some innovations follow S-curve diffusion while others plateau or fail, and can early adoption patterns predict long-run diffusion outcomes? |
 | `u-market-microstructure-price-formation` | What determines the speed and efficiency of price discovery in financial markets, and how does high-frequency trading affect market quality? |
 | `u-multiplier-fiscal-policy` | What is the fiscal multiplier under different economic conditions, and when does government spending crowd out versus crowd in private investment? |
 | `u-pension-demographic-stress` | How will demographic aging affect defined-benefit pension systems, and which reform strategies are fiscally sustainable and politically feasible? |
-| `u-platform-monopoly-welfare-effects` | Do digital platform monopolies impose net welfare costs on consumers, and what is the appropriate regulatory framework for two-sided markets? |
 | `u-post-scarcity-economics-feasibility` | Can advanced technology enable post-scarcity economics, and what economic institutions are needed when marginal costs approach zero? |
 | `u-sovereign-debt-sustainability` | What determines sovereign debt sustainability thresholds, and how can debt crises be predicted before they occur? |
 | `u-supply-chain-resilience-efficiency` | What is the optimal tradeoff between supply chain efficiency and resilience, and how has COVID-19 revealed the limits of just-in-time production? |
 | `u-trade-war-equilibrium` | What is the long-term equilibrium outcome of escalating trade wars, and under what conditions do countries converge to cooperation versus persistent protection? |
-| `u-universal-basic-income-macro-effects` | What are the macroeconomic effects of universal basic income on labour supply, inflation, innovation, and wellbeing at scale? |
 | `u-advanced-fission-proliferation` | Do advanced fission reactor designs (molten salt, fast spectrum, small modular reactors) present materially different nuclear proliferation risks than light-water reactors? |
 | `u-autonomous-vehicle-edge-cases` | How frequent are truly novel edge cases for autonomous vehicles in real-world deployment, and can safety guarantees be established without exhaustive real-world testing? |
 | `u-biodegradable-electronics` | Can biodegradable or transient electronics achieve the electrical performance and environmental lifetime control needed for implantable and disposable devices? |
-| `u-carbon-capture-regeneration` | What is the minimum thermodynamic energy penalty for CO2 capture and sorbent regeneration, and how close do current materials come to this limit? |
-| `u-fusion-plasma-stability` | What are the remaining plasma instability and confinement barriers to sustained net-energy-gain nuclear fusion at commercial scale? |
 | `u-geothermal-subsidence` | What controls surface subsidence and induced seismicity from enhanced geothermal systems, and can they be predicted and mitigated in pre-development assessment? |
-| `u-green-hydrogen-electrolysis` | What is the fundamental efficiency ceiling for water electrolysis for green hydrogen production, and what electrode degradation mechanisms limit durability? |
-| `u-hypersonic-thermal-protection` | What material systems can provide reliable, reusable thermal protection for hypersonic vehicles at Mach 10–25 over multiple flights? |
-| `u-metamaterial-acoustic-cloaking` | Can acoustic metamaterial cloaks achieve broadband, three-dimensional sound cloaking at practical scales, or are fundamental bandwidth-thickness trade-offs prohibitive? |
-| `u-microplastic-filtration` | What physical and chemical mechanisms enable efficient removal of nanoplastics and microplastics from drinking water and wastewater at scale? |
 | `u-neuromorphic-energy-efficiency` | What are the fundamental energy efficiency limits of neuromorphic computing, and how do they compare to biological neural computation? |
 | `u-quantum-error-correction-overhead` | What is the minimum physical qubit overhead required for fault-tolerant quantum computation at error rates achievable in near-term hardware? |
 | `u-reusable-rocket-precision` | What are the guidance and control limits for precision propulsive rocket landing, and what failure modes bound reusability turnaround times? |
@@ -162,14 +135,8 @@ They are the highest-priority targets for new contributions — add a hypothesis
 | `u-synapse-heterogeneity-function` | What is the functional significance of the enormous molecular heterogeneity of synapses, and does synapse-type diversity encode information? |
 | `u-causation-vs-correlation` | Under what observational study designs and statistical assumptions can causal conclusions be reliably drawn without experimental intervention? |
 | `u-citizen-science-quality` | Under what conditions does citizen science generate data of sufficient quality for peer-reviewed scientific conclusions? |
-| `u-emergence-vs-reduction` | Under what conditions are higher-level scientific explanations genuinely autonomous rather than in-principle reducible to lower-level descriptions? |
-| `u-interdisciplinary-barriers` | What are the structural and epistemic barriers to effective interdisciplinary collaboration, and how can they be systematically reduced? |
-| `u-measurement-theory-foundations` | What is the ontological status of measurement scales, and under what conditions do psychometric measurements quantify genuine psychological attributes? |
-| `u-open-science-incentives` | What incentive structures and institutional reforms would sustainably increase open data sharing, preregistration, and replication in science? |
-| `u-paradigm-shift-prediction` | Are Kuhnian paradigm shifts predictable from anomaly accumulation patterns, and can science-of-science methods detect pre-revolutionary conditions? |
 | `u-publication-bias-correction` | Can publication bias be corrected post-hoc in meta-analyses, and what methods are valid under realistic distributions of true effects? |
 | `u-science-communication-effectiveness` | What communication strategies reliably improve public understanding of scientific evidence and reduce belief in scientific misinformation? |
-| `u-scientific-consensus-formation` | What are the epistemic and social mechanisms by which scientific consensus forms, and under what conditions can consensus be mistaken? |
 | `u-scientific-progress-measure` | How should scientific progress be measured, and do citation counts, replication rates, or predictive accuracy provide valid progress indicators? |
 | `u-theory-ladenness-observation` | In what sense and to what degree are scientific observations theory-laden, and does this threaten the independence of evidence from theory? |
 | `u-bell-loophole-free-implications` | What are the full physical implications of loophole-free Bell inequality violations, and do they definitively rule out all local hidden variable theories? |
@@ -194,20 +161,12 @@ They are the highest-priority targets for new contributions — add a hypothesis
 | `u-collective-action-without-authority` | Under what conditions can groups solve collective action problems without central authority, and how do informal institutions maintain cooperation? |
 | `u-collective-memory-formation` | How do collective memories of historical events form, persist, and distort across generations, and what factors determine their cultural salience? |
 | `u-criminal-justice-deterrence` | What is the evidence that criminal punishment deters crime, and which punishment characteristics (certainty, severity, speed) have the largest effects? |
-| `u-democracy-stability-conditions` | Under what economic, social, and institutional conditions is democracy stable, and what early warning indicators predict democratic backsliding? |
 | `u-economic-inequality-tipping-points` | At what level of economic inequality do self-reinforcing mechanisms kick in to produce permanently elevated inequality, and can policy reverse this? |
 | `u-gender-gap-stem-causes` | What explains persistent gender gaps in STEM participation, and why do gaps vary so widely across countries, disciplines, and historical periods? |
 | `u-genocide-early-warning-validity` | Do genocide early warning systems have sufficient predictive validity and response time to enable preventive intervention? |
-| `u-happiness-set-point` | Do individuals have a hedonic set point that pulls subjective wellbeing back to baseline after life events, and can deliberate activities shift it permanently? |
-| `u-inequality-health-pathway` | Does income inequality causally harm population health beyond individual poverty effects, and what are the specific pathways? |
 | `u-institutional-trust-collapse` | What mechanisms drive rapid collapses in institutional trust, and can early warning signs be identified before collapse occurs? |
 | `u-intergroup-contact-prejudice-reduction` | Under what conditions does intergroup contact reliably reduce prejudice, and can these conditions be engineered in diverse societies at scale? |
-| `u-misinformation-correction-asymmetry` | Why is misinformation often more persistent and spreadable than corrections, and what interventions reliably reduce its effects? |
 | `u-racial-achievement-gap-mechanisms` | What are the causal mechanisms producing persistent racial achievement gaps in education, and which interventions most reliably close them? |
-| `u-social-capital-measurement` | What is the best way to measure social capital, and do different definitions (bonding, bridging, linking) have different effects on economic and social outcomes? |
-| `u-social-media-mental-health-causality` | Does social media use causally increase depression, anxiety, and loneliness in adolescents, and which usage patterns are most harmful? |
 | `u-social-mobility-measurement` | How should intergenerational social mobility be measured, and what policies reliably increase it across different national contexts? |
 | `u-stereotype-formation-persistence` | How do group stereotypes form, persist, and spread, and under what conditions do accurate versus inaccurate stereotypes prevail? |
-| `u-trust-network-scale` | How does interpersonal trust scale from dyadic to community to institutional levels, and when does network structure facilitate or undermine trust formation? |
 | `u-urban-segregation-self-reinforcement` | To what degree does residential racial and economic segregation self-reinforce through school quality, social networks, and political power? |
-| `u-war-onset-prediction` | What variables most reliably predict the onset of interstate and civil wars, and do existing models generalise across historical periods and regions? |

@@ -1,0 +1,84 @@
+id: b-algorithmic-game-theory-internet
+title: >
+  Algorithmic game theory analyses internet protocols, ad auctions, and
+  platform economics as games with strategic self-interested agents —
+  computing Nash equilibria for BGP routing, quantifying the price of
+  anarchy for selfish routing, and implementing Vickrey-Clarke-Groves
+  mechanisms at planetary scale in sponsored search auctions.
+status: established
+fields:
+  - computer-science
+  - economics
+  - game-theory
+  - network-science
+  - mechanism-design
+bridge_claim: >
+  CLASSICAL PROBLEM: Internet protocols (BGP routing, TCP congestion control)
+  are designed for cooperative agents, but actual Internet is composed of
+  self-interested autonomous systems (ASes) that may deviate for competitive
+  advantage.
+
+  PRICE OF ANARCHY (Koutsoupias & Papadimitriou 1999):
+    PoA = max_Nash equilibrium { C(σ) } / C(σ*)
+
+  where C(σ) = social cost at Nash equilibrium σ, C(σ*) = social optimum.
+  For selfish routing on networks with linear latency functions: PoA ≤ 4/3
+  (Roughgarden & Tardos 2002). For polynomial latencies: PoA grows without
+  bound.
+
+  VCG MECHANISMS (sponsored search):
+  Google/Meta/X ad auctions run Vickrey-Clarke-Groves mechanisms:
+  - Each advertiser bids value-per-click v_i
+  - Winner i pays the externality they impose: p_i = next highest bid
+  - VCG is incentive-compatible (truthful bidding is dominant strategy)
+  - Revenue = ΣP_i = value extracted from advertisers
+
+  This implements mechanism design theory (Myerson, Vickrey, Hurwicz)
+  at ~10^12 auctions per year. The GSP (Generalised Second Price) auction
+  used in practice is not VCG but approximately incentive compatible.
+
+  BGP AS GAME:
+  Each AS announces routes to maximise its own traffic routing preferences.
+  BGP stability = Nash equilibrium of the routing game. Safety (no routing
+  loops) = game-theoretic property. Gao-Rexford conditions for BGP
+  convergence are game-theoretic stability conditions.
+
+  COMPUTATIONAL COMPLEXITY:
+  Computing Nash equilibria is PPAD-complete (Papadimitriou 1994) —
+  almost certainly not in P. This means finding optimal internet protocols
+  under strategic behaviour requires approximation algorithms.
+translation_table:
+  - field_a_term: Nash equilibrium (game theory)
+    field_b_term: stable routing state / BGP convergence (networking)
+    note: BGP converges iff the routing game has a Nash equilibrium reachable by best-response dynamics
+  - field_a_term: Price of Anarchy (game theory)
+    field_b_term: efficiency loss from selfish routing vs. traffic engineering
+    note: PoA bounds how much worse Internet routing is than centrally optimised routing
+  - field_a_term: VCG mechanism (mechanism design)
+    field_b_term: second-price sealed-bid ad auction (internet advertising)
+    note: GSP auction in sponsored search is VCG-like; theoretical analysis predicts approximately-truthful equilibria
+  - field_a_term: dominant strategy equilibrium (game theory)
+    field_b_term: incentive-compatible protocol (computer science)
+    note: A protocol is incentive-compatible if honest participation is a dominant strategy — the computational counterpart of dominant strategy Nash equilibrium
+related_unknowns:
+  - u-platform-competition-algorithmic-markets
+  - u-mechanism-design-distributed-systems
+related_hypotheses:
+  - h-price-of-anarchy-internet-routing-empirical
+cross_pollination_opportunities:
+  - Liquid democracy / Quadratic Voting mechanisms from political economy can be analysed using AGT complexity bounds
+  - Algorithmic fairness (ML allocation) shares mechanism design structure with VCG auctions
+  - Blockchain smart contracts are self-executing mechanisms — AGT provides the incentive analysis
+communication_gap: >
+  Computer scientists and economists developed game-theoretic analysis of
+  the Internet largely independently in the early 2000s. The two communities
+  now interact through venues like ACM EC and WWW, but undergraduate CS
+  programs rarely teach mechanism design and economics programs rarely teach
+  computational complexity.
+last_reviewed: "2026-05-06"
+references:
+  - note: Nisan et al. (2007) Algorithmic Game Theory, Cambridge UP
+  - doi: "10.1007/3-540-48413-4_58"
+    note: Koutsoupias & Papadimitriou (1999) STACS — original price of anarchy
+  - note: Varian (2007) J Econ Perspect 21:191 — Google ad auction mechanism
+  - note: Roughgarden (2002) Proceedings 34th STOC — tight PoA bounds for selfish routing
