@@ -1,0 +1,120 @@
+id: b-free-energy-principle-stat-mech
+title: >
+  Friston's free energy principle — biological systems minimise variational
+  free energy F = E_q[log q(s) − log p(s,o)] — is formally identical to
+  variational inference in machine learning and to Helmholtz free energy in
+  thermodynamics, unifying perception, action, homeostasis, and learning.
+status: proposed
+fields:
+  - cognitive-science
+  - physics
+  - neuroscience
+  - machine-learning
+  - thermodynamics
+  - theoretical-biology
+
+bridge_claim: >
+  Friston (2010) proposed that all biological self-organisation can be
+  understood as the minimisation of variational free energy F, where:
+
+    F = E_q[log q(s)] − E_q[log p(s,o)]
+      = KL[q(s) || p(s|o)] − log p(o)
+
+  Here q(s) is the organism's internal model of hidden states s, p(s,o) is a
+  generative model of states and observations o. Minimising F simultaneously
+  minimises the KL-divergence between the internal model and the true
+  posterior (perception = Bayesian inference) and maximises the log-evidence
+  for the organism's model (action = active inference).
+
+  This is formally identical to variational Bayesian inference (Beal 2003):
+  F is the evidence lower bound (ELBO) in variational autoencoders and the
+  loss function of variational inference algorithms. The "free energy" is not
+  a metaphor — it is the same mathematical object.
+
+  The thermodynamic connection is equally precise. The Helmholtz free energy
+  A = U − TS (internal energy minus temperature times entropy) arises from
+  statistical mechanics as the minimum work required to change a system's
+  state. Variational free energy has the same structure: F = accuracy − complexity,
+  where accuracy = −E_q[log p(o|s)] (like internal energy, measures fit) and
+  complexity = KL[q(s) || p(s)] (like −TS, penalises model complexity).
+
+  The bridge implies: biological organisms are thermodynamic engines that
+  maintain their non-equilibrium structure by minimising a free energy
+  functional. Perception corresponds to gradient descent on F w.r.t. internal
+  states; action corresponds to gradient descent on F w.r.t. external states
+  (changing the world to match predictions). Learning corresponds to updating
+  the generative model parameters.
+
+  Key implication: the brain is not a passive observer but an active inference
+  machine that generates predictions and updates them to minimise surprise
+  (−log p(o)). This resolves the "binding problem" (unified percepts arise
+  because F is minimised jointly) and explains predictive coding (prediction
+  errors are the gradients of F propagated up cortical hierarchies).
+
+translation_table:
+  - field_a_term: "Variational free energy F (cognitive science)"
+    field_b_term: "Helmholtz free energy A = U − TS (thermodynamics)"
+    note: "Both are upper bounds on surprise/non-equilibrium free energy; minimisation drives the system"
+  - field_a_term: "KL-divergence KL[q || p] (complexity penalty)"
+    field_b_term: "Entropy cost −TS in free energy"
+    note: "Both penalise deviation from equilibrium/prior; information-geometric equivalent"
+  - field_a_term: "Accuracy −E_q[log p(o|s)] (model fit)"
+    field_b_term: "Internal energy U (energy of current state)"
+    note: "Both measure the cost of the current configuration"
+  - field_a_term: "Perception (inference about hidden states)"
+    field_b_term: "Equilibration (relaxation to minimum free energy state)"
+    note: "Both correspond to gradient descent on free energy w.r.t. internal variables"
+  - field_a_term: "Action (changing the world to match predictions)"
+    field_b_term: "Work (changing external state to reduce free energy)"
+    note: "Both are free-energy-minimising operations on the environment"
+  - field_a_term: "Generative model p(s,o)"
+    field_b_term: "Hamiltonian H(x) defining the energy landscape"
+    note: "Both specify the structure of the free energy functional"
+  - field_a_term: "Active inference (minimise F by acting)"
+    field_b_term: "Dissipative structure (maintain order by exporting entropy)"
+    note: "Prigogine: living systems maintain low entropy by coupling to environment"
+
+related_hypotheses:
+  - h-free-energy-aging
+
+cross_pollination_opportunities:
+  - >
+    The free energy principle provides a formal bridge between thermodynamic
+    efficiency and neural computation. Measuring the metabolic cost of
+    Bayesian inference in neural tissue (using 2-photon imaging and
+    calorimetry) would test whether the brain operates near the Landauer
+    limit for prediction-error minimisation.
+  - >
+    Variational autoencoders (VAEs) in machine learning implement the same
+    ELBO objective as the free energy principle. The latent space of a trained
+    VAE is formally equivalent to the brain's internal model. Comparing the
+    geometry of VAE latent spaces with neural representational geometry
+    (via RSA or probing classifiers) tests the mathematical bridge directly.
+  - >
+    Psychiatric conditions (schizophrenia, depression, anxiety) can be
+    modelled as failures of precision-weighted prediction error minimisation.
+    The free energy framework makes quantitative predictions about
+    which parameters (prior precision, likelihood precision, learning rate)
+    are dysregulated — testable with computational psychiatry models.
+
+communication_gap: >
+  Friston's work is published primarily in neuroscience journals (Nature
+  Reviews Neuroscience, Journal of Neuroscience) and is cited mainly within
+  that field. Thermodynamicists and statistical physicists are largely unaware
+  of the free energy principle. Machine learning researchers know variational
+  inference (ELBO) but the cognitive neuroscience literature uses different
+  notation. The philosophical framing ("everything is free energy minimisation")
+  alienates physicists who prefer minimal formal claims. Beal's (2003) PhD
+  thesis making the variational Bayes / Helmholtz connection explicit is widely
+  cited in ML but rarely by neuroscientists.
+
+last_reviewed: "2026-05-06"
+
+references:
+  - doi: "10.1038/nrn2787"
+    note: "Friston (2010) Nat Rev Neurosci 11:127 — free energy principle review"
+  - note: "Helmholtz (1882) Wissenschaftliche Abhandlungen, Vol. 2 — free energy formulation"
+  - note: "Beal (2003) Variational Algorithms for Approximate Bayesian Inference, PhD thesis, UCL"
+  - note: "Parr, Pezzulo & Friston (2022) Active Inference: The Free Energy Principle in Mind, Brain, and Behavior (MIT Press)"
+  - doi: "10.48550/arXiv.1312.6114"
+    note: "Kingma & Welling (2013) Auto-Encoding Variational Bayes — ELBO / VAE formulation"

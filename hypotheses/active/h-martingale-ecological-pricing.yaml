@@ -1,0 +1,63 @@
+id: h-martingale-ecological-pricing
+title: >
+  Ecosystem services in an informationally efficient natural capital market
+  would follow martingale price processes; observed non-martingale behaviour
+  (systematic underpricing) quantifies the information deficit — the gap
+  between the market's public channel and the full ecological information
+  channel capacity.
+status: active
+priority: high
+impact_score: 0.76
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+
+evidence_links:
+  - doi: "10.2307/2325486"
+    type: supporting
+    confidence: 0.7
+    note: "Fama (1970) — EMH as martingale property; applies to any informationally efficient price process"
+  - type: supporting
+    note: "Costanza et al. (1997) Nature — ecosystem services valued at ~$33T/yr; current markets capture <1% of true value, indicating massive information deficit"
+  - type: related
+    note: "Dasgupta (2021) The Economics of Biodiversity (HM Treasury review) — natural capital markets fail due to information asymmetry, not preference"
+  - type: related
+    note: "Cover & Thomas (2006) — channel capacity sets maximum extractable information; Kelly criterion in ecological context"
+
+unknowns_addressed:
+  - u-natural-capital-market-efficiency
+  - u-ecosystem-service-pricing-information
+
+proposed_tests:
+  - description: >
+      Test martingale property in existing ecosystem service markets: collect
+      time-series of carbon credit prices (EU ETS, California Cap-and-Trade,
+      Voluntary Carbon Market), water quality credits, and biodiversity offset
+      prices. Apply variance ratio tests and mutual information estimators to
+      test whether price processes are martingales.
+    method: "Variance ratio tests (Lo-MacKinlay); non-parametric mutual information estimation (KSG estimator) between lagged returns; spectral analysis for persistent cycles"
+    prediction: "Non-martingale behaviour (positive autocorrelation at lags 1-12 months) in voluntary carbon markets; weaker deviations in compliance markets; deviation magnitude correlates with market liquidity and information disclosure requirements"
+  - description: >
+      Quantify the information deficit: compare the mutual information
+      I(price_{t+k}; ecological indicators_{t}) between ecosystem service
+      prices and simultaneously measured ecological state variables (satellite
+      land cover, water quality sensors, biodiversity surveys). The channel
+      capacity gap between ecological information and market prices measures
+      the systematic underpricing.
+    method: "Satellite time-series (MODIS, Sentinel) + ecosystem service price time-series; transfer entropy from ecological to price signals; partial information decomposition"
+    prediction: "Transfer entropy from ecological state to ecosystem service prices is near-zero for current markets; significant transfer entropy from price to ecological state (market is lagging indicator, not leading)"
+  - description: >
+      Intervention study: test whether mandatory real-time ecological
+      disclosure (continuous satellite monitoring linked to carbon credit
+      issuance) reduces non-martingale behaviour in carbon markets. Compare
+      price process statistics before and after policy intervention.
+    method: "Difference-in-differences analysis of markets with vs. without mandatory remote sensing disclosure; martingale test statistics as outcome variable"
+    prediction: "Markets with mandatory real-time disclosure show 50% reduction in autocorrelation magnitude vs. voluntary markets; variance ratio approaches 1.0 within 2 years of implementation"
+
+related_disciplines:
+  - economics
+  - information-theory
+  - ecology
+  - environmental-science
+  - finance
+  - policy-science

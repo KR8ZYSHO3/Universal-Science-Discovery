@@ -1,6 +1,6 @@
 # USDR Citation Index
 
-**804 total citations · 548 unique references · 124 cited in 2+ bridges**
+**846 total citations · 570 unique references · 128 cited in 2+ bridges**
 
 ## Most Cross-Domain Papers
 
@@ -9,6 +9,7 @@ Papers cited across the highest number of different bridges — the most influen
 | Bridges | Title | DOI |
 |---|---|---|
 | 5 | Castellano et al. (2009) — Ising models of social dynamics provide framework for... | [DOI](10.1103/RevModPhys.81.591) |
+| 4 | Friston (2010) — free energy principle: biological homeostasis = continuous free... | [DOI](10.1038/nrn2787) |
 | 4 |  | [DOI](10.1103/PhysRev.106.620) |
 | 4 | WBE derives 3/4 from area-preserving branching — the recursion relation is struc... | [DOI](10.1126/science.276.5309.122) |
 | 4 | Berut et al. (2012) — Landauer limit verified experimentally at k_B T ln 2 ~ 3 z... | [DOI](10.1038/nature10872) |
@@ -47,6 +48,7 @@ Papers cited across the highest number of different bridges — the most influen
 | 2 | Lindsay (2020) review: transformer attention and divisive normalisation share th... | [DOI](10.1016/j.cub.2019.11.015) |
 | 2 | C. elegans PAR polarisation kinetics characterised quantitatively — demonstrates... | [DOI](10.7554/eLife.30606) |
 | 2 | Farmer & Foley (2009) propose LV-type agent dynamics for markets | [DOI](10.1038/460685a) |
+| 2 | Fama (1970) — EMH as martingale property; applies to any informationally efficie... | [DOI](10.2307/2325486) |
 | 2 | Wilkinson & Pickett (2009) — Spirit Level: near-threshold relationship between i... | [DOI](10.1136/bmj.b1235) |
 | 2 | Pickett & Wilkinson (2015) — causal review of income inequality and health | [DOI](10.1016/j.socscimed.2013.02.002) |
 | 2 | Marmot (2005) — status syndrome: social gradient in health operates across full ... | [DOI](10.1126/science.1126216) |
@@ -56,8 +58,6 @@ Papers cited across the highest number of different bridges — the most influen
 | 2 | Waddington (1942) — canalization concept | [DOI](10.1038/150563a0) |
 | 2 | Kirschner & Gerhart (1998) — theoretical framework for evolvability via modulari... | [DOI](10.1073/pnas.95.15.8420) |
 | 2 | Rutherford & Lindquist (1998) — Hsp90 buffers cryptic variation, demonstrating c... | [DOI](10.1038/38593) |
-| 2 | Brockett (1972) Lie algebra rank condition for controllability — depth structure | [DOI](10.1137/0310021) |
-| 2 | OGY control theory: systems near bifurcation boundaries show critical slowing do... | [DOI](10.1103/PhysRevLett.64.1196) |
 
 ## Citation Network
 
@@ -67,4 +67,4 @@ The full citation data is available at [`docs/citation_index.json`](citation_ind
 
 ## All Unique References
 
-The catalog currently references **548 unique papers/books**.
+The catalog currently references **570 unique papers/books**.
