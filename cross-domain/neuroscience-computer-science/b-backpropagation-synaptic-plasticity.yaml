@@ -1,0 +1,82 @@
+id: b-backpropagation-synaptic-plasticity
+title: >
+  The backpropagation algorithm (Rumelhart et al. 1986) computes error gradients
+  by the chain rule propagated backward through a network, while biological
+  synaptic plasticity implements credit assignment by mechanisms (feedback
+  alignment, predictive coding) that may approximate or equal backprop without
+  requiring the biologically implausible weight transport step.
+status: proposed
+fields:
+  - neuroscience
+  - synaptic-plasticity
+  - computer-science
+  - deep-learning
+  - computational-neuroscience
+bridge_claim: >
+  Backpropagation (Rumelhart, Hinton & Williams 1986) is an efficient algorithm
+  for computing gradients of a loss function with respect to all parameters in a
+  multilayer neural network via the chain rule: δ_l = (W_{l+1}^T δ_{l+1}) ⊙ f'(z_l).
+  This requires backward propagation of error signals through synaptic weight
+  matrices transposed — the weight transport problem: biological neurons cannot
+  access the transposed forward weights to perform the backward pass. Despite this,
+  Lillicrap et al. (2016) showed that random feedback weights (feedback alignment)
+  achieve similar gradient alignment and learning performance, suggesting backprop
+  is not uniquely required. Sacramento et al. (2018) showed that predictive coding
+  networks — a biologically plausible hierarchical model with top-down prediction
+  and bottom-up error signals — compute exact backpropagation gradients in the
+  limit of fast prediction dynamics. Whittington & Bogacz (2019) proved the
+  equivalence formally. Spike-timing-dependent plasticity (STDP) and neuromodulator-
+  gated plasticity may implement the local credit assignment step. Whether the
+  cortex implements something equivalent to backpropagation is one of the central
+  open questions connecting deep learning theory to neuroscience.
+translation_table:
+  - field_a_term: backward error signal δ_l
+    field_b_term: prediction error signal in predictive coding (bottom-up residual)
+    note: top-down predictions generate residuals that propagate like backprop errors
+  - field_a_term: weight transport (W^T in backward pass)
+    field_b_term: symmetric feedback connections (the biologically implausible step)
+    note: feedback alignment replaces W^T with random B; predictive coding uses separate pathways
+  - field_a_term: learning rate × gradient (gradient descent step)
+    field_b_term: LTP/LTD magnitude determined by neuromodulator concentration
+  - field_a_term: loss function L(output, target)
+    field_b_term: reward prediction error (dopaminergic signal)
+    note: RL with backprop maps onto actor-critic with dopaminergic credit assignment
+  - field_a_term: multilayer network architecture
+    field_b_term: cortical hierarchy (V1 → V2 → V4 → IT in ventral visual stream)
+  - field_a_term: gradient vanishing / exploding in deep networks
+    field_b_term: credit assignment problem across many synaptic layers in time
+related_unknowns:
+  - u-biological-backpropagation-mechanism
+related_hypotheses:
+  - h-predictive-coding-implements-backprop
+cross_pollination_opportunities:
+  - >
+    Predictive coding (Rao & Ballard 1999; Friston 2005) is a theory of cortical
+    function that has been shown to compute exact backpropagation gradients.
+    Deep learning researchers have recently adopted predictive coding architectures
+    as alternatives to standard backprop that require less global coordination.
+    Testing whether such architectures match cortical response properties (V1 end-
+    stopping, surround suppression) would simultaneously test the computational
+    theory and inspire new neural network designs.
+  - >
+    Target propagation (Lee et al. 2015) and local learning rules (Nokland 2016)
+    are biologically inspired backprop alternatives that distribute credit assignment
+    more locally. Understanding their convergence guarantees mathematically would
+    inform both deep learning engineering and computational neuroscience models
+    of multi-area learning.
+communication_gap: >
+  The 1986 Rumelhart et al. Nature paper was written for AI researchers and did
+  not engage with neuroscience. The biological plausibility literature grew in
+  computational neuroscience journals (Neural Computation, PLOS Comput Biol) that
+  deep learning engineers rarely read. The formal equivalence proofs (Sacramento
+  2018, Whittington 2019) are technically demanding and have not yet influenced
+  experimental neuroscientists designing plasticity experiments.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1038/323533a0"
+    note: Rumelhart et al. (1986) — Learning representations by back-propagating errors; Nature 323:533
+  - doi: "10.1038/ncomms13276"
+    note: Lillicrap et al. (2016) — Random synaptic feedback weights support error backpropagation; Nat Commun 7:13276
+  - note: Sacramento et al. (2018) — Dendritic cortical microcircuits approximate the backpropagation algorithm; NeurIPS
+  - doi: "10.1016/j.tics.2019.03.001"
+    note: Whittington & Bogacz (2019) — Theories of error back-propagation in the brain; Trends Cogn Sci 23:235

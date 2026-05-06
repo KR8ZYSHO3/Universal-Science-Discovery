@@ -1,6 +1,6 @@
 # USDR Citation Index
 
-**1216 total citations · 786 unique references · 170 cited in 2+ bridges**
+**1264 total citations · 815 unique references · 171 cited in 2+ bridges**
 
 ## Most Cross-Domain Papers
 
@@ -10,13 +10,13 @@ Papers cited across the highest number of different bridges — the most influen
 |---|---|---|
 | 8 | Castellano et al. review connects voter model to spatial ecology | [DOI](10.1103/RevModPhys.81.591) |
 | 6 | Berut et al. (2012) — Landauer limit verified experimentally at k_B T ln 2 ~ 3 z... | [DOI](10.1038/nature10872) |
+| 5 | Friston (2010) — free energy principle: biological homeostasis = continuous free... | [DOI](10.1038/nrn2787) |
 | 5 | WBE derives 3/4 from area-preserving branching — the recursion relation is struc... | [DOI](10.1126/science.276.5309.122) |
+| 5 |  | [DOI](10.1103/PhysRev.106.620) |
 | 5 | Beggs & Plenz (2003) — original neural avalanche paper establishing critical exp... | [DOI](10.1523/JNEUROSCI.23-35-11167.2003) |
 | 4 | Maynard Smith & Price (1973) — ESS and cyclical dynamics in zero-sum games | [DOI](10.1038/246015a0) |
-| 4 | Friston (2010) — free energy principle: biological homeostasis = continuous free... | [DOI](10.1038/nrn2787) |
 | 4 | Turing (1952) — original prediction λ ∝ √(D/k) | [DOI](10.1098/rstb.1952.0012) |
 | 4 | May (1972) provides stability criterion for LV-type competitive systems | [DOI](10.1038/238413a0) |
-| 4 |  | [DOI](10.1103/PhysRev.106.620) |
 | 4 | Newman (2002) proves the mathematical equivalence — FSS must apply if the equiva... | [DOI](10.1103/PhysRevE.66.016128) |
 | 4 | Bak, Tang & Wiesenfeld (1987) — BTW sandpile predicts τ = 3/2 (mean field) | [DOI](10.1103/PhysRevLett.59.381) |
 | 4 | Barabási & Albert (1999) - scale-free networks fragile to targeted hub attack; g... | [DOI](10.1126/science.286.5439.509) |
@@ -67,4 +67,4 @@ The full citation data is available at [`docs/citation_index.json`](citation_ind
 
 ## All Unique References
 
-The catalog currently references **786 unique papers/books**.
+The catalog currently references **815 unique papers/books**.

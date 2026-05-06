@@ -1,0 +1,80 @@
+id: b-random-matrix-portfolio-optimization
+title: >
+  Random matrix theory (Marchenko-Pastur law) identifies which eigenvalues of a
+  financial covariance matrix carry genuine correlation signal versus statistical
+  noise, providing an objective criterion for cleaning the matrix and dramatically
+  improving Markowitz mean-variance portfolio optimization out-of-sample.
+status: established
+fields:
+  - mathematics
+  - random-matrix-theory
+  - mathematical-finance
+  - portfolio-optimization
+  - statistical-physics
+bridge_claim: >
+  The sample covariance matrix of N financial return series of length T has
+  most eigenvalues distributed according to the Marchenko-Pastur law — the
+  asymptotic distribution of eigenvalues of a random Wishart matrix when N/T = q
+  is fixed. The bulk of eigenvalues lies within [λ_min, λ_max] = (1 ± √q)²/T
+  and carries no information beyond random noise. Eigenvalues outside this bulk
+  correspond to genuine market-wide or sector correlations. Laloux et al. (1999)
+  and Plerou et al. (1999) showed that in empirical financial data, approximately
+  95% of covariance matrix eigenvalues are indistinguishable from random noise.
+  Cleaning the covariance matrix — replacing noise eigenvalues with their
+  Marchenko-Pastur average while preserving signal eigenvalues — dramatically
+  improves Markowitz portfolio optimization out-of-sample by reducing the
+  condition number and estimation error. This is identical to the optimal signal
+  processing problem: separate signal from noise using a theoretically derived
+  null distribution. RMT provides what no amount of historical data alone can:
+  an objective, model-free criterion for the information content of correlations.
+translation_table:
+  - field_a_term: Wishart random matrix eigenvalue distribution
+    field_b_term: null distribution of financial correlation matrix eigenvalues
+    note: Marchenko-Pastur law gives exact analytic form
+  - field_a_term: eigenvalues outside Marchenko-Pastur bulk
+    field_b_term: genuine market factors (market mode, sector modes)
+    note: largest eigenvalue ≈ market beta; next few ≈ sector correlations
+  - field_a_term: eigenvalue cleaning (replace bulk with MP average)
+    field_b_term: regularized covariance matrix for portfolio optimization
+    note: reduces estimation error; equivalent to Ledoit-Wolf shrinkage in limit
+  - field_a_term: ratio q = N/T (matrix aspect ratio)
+    field_b_term: curse of dimensionality parameter in finance (assets / observations)
+    note: larger q = more noise; modern portfolios have q close to or above 1
+  - field_a_term: Tracy-Widom distribution (largest eigenvalue fluctuations)
+    field_b_term: statistical significance threshold for market-wide shocks
+  - field_a_term: free probability theory (addition/multiplication of random matrices)
+    field_b_term: composition of risk factors in multi-asset portfolios
+related_unknowns:
+  - u-rmt-noise-signal-separation-finance
+related_hypotheses:
+  - h-eigenvalue-cleaning-portfolio-performance
+cross_pollination_opportunities:
+  - >
+    The same Marchenko-Pastur analysis applies to any high-dimensional covariance
+    estimation problem: gene expression data, neural population recordings, fMRI
+    connectivity matrices. Neuroscientists and genomicists face identical
+    curse-of-dimensionality problems and would benefit from RMT cleaning of their
+    correlation matrices — a transfer that has begun (Bhomick et al.) but is
+    not yet standard practice.
+  - >
+    Dynamic RMT: tracking how eigenvalues move in and out of the Marchenko-Pastur
+    bulk over time captures the emergence and dissolution of collective market
+    behavior (e.g., correlations spike during crises when all eigenvalues collapse
+    to the market mode). This is a quantitative measure of systemic risk.
+communication_gap: >
+  RMT was developed in nuclear physics (Wigner, Dyson) for modeling heavy nucleus
+  energy levels and imported to finance by physicists (Laloux, Potters, Bouchaud
+  at the Santa Fe Institute and École Normale). Financial economists were initially
+  resistant to physics imports but Ledoit-Wolf shrinkage — an independently derived
+  statistical approach that converges to RMT cleaning in the large-N limit — is now
+  standard. The physics derivation is cleaner and more principled but less known
+  among practitioners trained in econometrics.
+last_reviewed: "2026-05-06"
+references:
+  - note: Marchenko & Pastur (1967) — Distribution of eigenvalues for some sets of random matrices; Mat Sb 72:507
+  - doi: "10.1103/PhysRevLett.83.1467"
+    note: Laloux et al. (1999) — Noise dressing of financial correlation matrices; Phys Rev Lett 83:1467
+  - doi: "10.1103/PhysRevLett.83.1471"
+    note: Plerou et al. (1999) — Universal and nonuniversal properties of cross correlations in financial data; Phys Rev Lett 83:1471
+  - doi: "10.1016/S0047-259X(03)00096-4"
+    note: Ledoit & Wolf (2004) — A well-conditioned estimator for large-dimensional covariance matrices; J Multivar Anal 88:365

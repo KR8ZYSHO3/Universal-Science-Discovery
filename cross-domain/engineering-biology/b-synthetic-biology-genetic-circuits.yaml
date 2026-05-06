@@ -1,0 +1,87 @@
+id: b-synthetic-biology-genetic-circuits
+title: >
+  Synthetic biology applies electronic circuit design principles to genetic
+  systems — using transcription factors as NOT/AND/NOR gates, implementing the
+  repressilator (genetic ring oscillator) and toggle switch (genetic flip-flop),
+  and employing transfer functions and Bode plots from control theory to engineer
+  programmable living systems.
+status: established
+fields:
+  - engineering
+  - electrical-engineering
+  - control-theory
+  - biology
+  - synthetic-biology
+  - molecular-biology
+bridge_claim: >
+  Elowitz & Leibler (2000) and Gardner et al. (2000) — published simultaneously
+  in Nature — demonstrated that gene regulatory networks can be engineered to
+  implement electronic circuit functions. The repressilator (Elowitz & Leibler)
+  is a synthetic genetic ring oscillator: three genes (tetR, lacI, cI) mutually
+  repress in a cycle (A represses B, B represses C, C represses A), producing
+  sustained oscillations analogous to a 3-stage ring oscillator in electronics.
+  The toggle switch (Gardner et al.) implements a bistable latch (flip-flop): two
+  mutually repressing genes with two stable steady states, switchable by transient
+  inducer pulses. The engineering formalism applies directly: transfer function
+  (input promoter activity → output protein level), Hill functions as nonlinear
+  gain elements, Bode plots for frequency response of genetic filters, Boolean
+  logic operations (NOR gates from transcriptional repression, AND gates from
+  split proteins). The BioBrick standard (iGEM, 2003) is the biological equivalent
+  of electronic component libraries — standardized, composable genetic parts.
+  Andrianantoandro et al. (2006) and Cameron et al. (2014) have since demonstrated
+  cascades, classifiers, and memory circuits, establishing synthetic biology as
+  an engineering discipline operating on genetic substrates.
+translation_table:
+  - field_a_term: NOT gate (inverter)
+    field_b_term: transcriptional repressor (e.g. TetR represses P_tet promoter)
+    note: protein A represses gene B = A is a NOT gate for B
+  - field_a_term: AND gate
+    field_b_term: split intein / split protein requiring both fragments for activity
+    note: output only when both inputs present simultaneously
+  - field_a_term: ring oscillator (3-stage NOT chain)
+    field_b_term: repressilator (3-gene mutual repression cycle)
+    note: Elowitz & Leibler (2000); period set by protein degradation rates
+  - field_a_term: flip-flop / bistable latch
+    field_b_term: genetic toggle switch (mutual repression bistability)
+    note: Gardner et al. (2000); two stable states encode binary memory
+  - field_a_term: component library (standardized electronic parts)
+    field_b_term: BioBrick registry (standardized genetic parts with defined interfaces)
+  - field_a_term: transfer function (input-output gain and phase)
+    field_b_term: dose-response curve of a genetic promoter (Hill function)
+related_unknowns:
+  - u-genetic-circuit-crosstalk-noise
+related_hypotheses:
+  - h-biological-computing-turing-completeness
+cross_pollination_opportunities:
+  - >
+    Biological noise (gene expression stochasticity) introduces fundamental limits
+    on circuit fidelity that have no direct analog in electronic circuits where
+    thermal noise is negligible at room temperature. Stochastic circuit theory
+    (Swain et al. 2002) and information-theoretic channel capacity analysis of
+    genetic circuits (Cheong et al. 2011) import communications engineering into
+    synthetic biology — quantifying how much information a signaling pathway can
+    transmit despite molecular noise.
+  - >
+    Optogenetic actuators (Boyden et al. 2005) provide light-gated inputs to
+    genetic circuits at millisecond timescales — fast enough for real-time feedback
+    control. Importing control theory feedback design (PID controllers, model
+    predictive control) into synthetic biology with optogenetic actuation enables
+    closed-loop control of gene expression, cell fate, and metabolic flux.
+communication_gap: >
+  Electrical engineering and control theory training is not part of standard biology
+  PhD programs. The formalisms of transfer functions and Bode plots appear in the
+  synthetic biology literature but are rarely derived from first principles for
+  biological audiences. Conversely, most electrical engineers are unaware that their
+  circuit formalism has been implemented in DNA. The iGEM (International Genetically
+  Engineered Machine) competition has done more than any academic program to bridge
+  this gap through engineering-focused biological design education.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1038/35002125"
+    note: Elowitz & Leibler (2000) — A synthetic oscillatory network of transcriptional regulators (repressilator); Nature 403:335
+  - doi: "10.1038/35002131"
+    note: Gardner et al. (2000) — Construction of a genetic toggle switch in Escherichia coli; Nature 403:339
+  - doi: "10.1038/msb4100073"
+    note: Andrianantoandro et al. (2006) — Synthetic biology; new engineering rules for an emerging discipline; Mol Syst Biol 2:2006.0028
+  - doi: "10.1126/science.1252749"
+    note: Cameron et al. (2014) — Tunable protein degradation in bacteria; Science 346:1258829
