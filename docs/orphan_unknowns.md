@@ -1,6 +1,6 @@
 # Orphan Unknowns — Priority Contribution Targets
 
-These **324** unknowns have no associated hypothesis or bridge edge in the knowledge graph.
+These **300** unknowns have no associated hypothesis or bridge edge in the knowledge graph.
 They are the highest-priority targets for new contributions — add a hypothesis or propose a cross-domain bridge connecting them.
 
 | ID | Title |
@@ -99,7 +99,6 @@ They are the highest-priority targets for new contributions — add a hypothesis
 | `u-predator-prey-oscillation-damping` | Why do observed predator-prey cycles in nature dampen, shift phase, or stop, contrary to Lotka-Volterra predictions of persistent oscillations? |
 | `u-range-shift-pace-climate-change` | Can species track climate change fast enough to avoid extinction, and what determines the rate of range shifts? |
 | `u-species-abundance-distribution` | Why do species abundance distributions follow log-normal or log-series patterns across ecosystems, and what does this reveal about assembly rules? |
-| `u-automation-employment-equilibrium` | Will automation and AI cause persistent unemployment, or will labour markets adapt through new job creation and sectoral reallocation? |
 | `u-behavioral-economics-policy-effectiveness` | Which behavioural economics interventions (nudges) generalise robustly across cultural and institutional contexts, and which fail to replicate? |
 | `u-business-cycle-prediction-limits` | What are the fundamental limits of macroeconomic forecasting, and why do professional forecasters systematically fail to predict recessions in advance? |
 | `u-cbdc-monetary-policy-implications` | What are the implications of central bank digital currencies for financial stability, monetary policy transmission, and bank disintermediation? |
@@ -168,46 +167,28 @@ They are the highest-priority targets for new contributions — add a hypothesis
 | `u-supervolcano-eruption-forecasting` | What are the precursors and timescales of supereruption onset at caldera systems like Yellowstone and Campi Flegrei? |
 | `u-tsunami-submarine-slides` | What are the physics of tsunami generation by submarine landslides, and how does slide rheology control wave amplitude and runup? |
 | `u-xenolith-mantle-bias` | To what extent do mantle xenoliths provide a representative sample of the lithospheric mantle, and what biases are introduced by entrainment and transport? |
-| `u-bilingual-cognitive-advantage-replication` | Does bilingualism confer measurable cognitive advantages in executive function, and why have many key findings failed to replicate? |
-| `u-creole-genesis-mechanism` | What grammatical and social mechanisms produce creole languages from contact situations, and is there a universal creole prototype? |
 | `u-endangered-language-documentation-priority` | What documentation strategies best preserve endangered languages for future linguistic and cultural research, and how should priorities be set? |
 | `u-gesture-language-interface` | What is the cognitive and neural relationship between gesture and speech, and does gesture play a constitutive role in language production and comprehension? |
 | `u-historical-reconstruction-limit` | What is the temporal limit of reliable linguistic reconstruction, and can proto-language families beyond 10,000 years be validly inferred? |
-| `u-language-acquisition-poverty-stimulus` | Does the logical problem of language acquisition (poverty of the stimulus) require innate grammatical knowledge, or can it be solved by statistical learning? |
 | `u-language-contact-convergence-limit` | What is the maximum degree of structural convergence possible between unrelated contact languages, and what constraints prevent full convergence? |
 | `u-language-death-reversal-feasibility` | Under what conditions can a dying language be successfully revitalised, and what are the cognitive and social prerequisites for sustainable reversal? |
-| `u-language-evolution-emergence` | How and when did language evolve in the hominin lineage, and what were the anatomical, neural, and social preconditions? |
 | `u-language-model-meaning-vs-human` | Do large language models have genuine semantic understanding of language meaning, or do they manipulate form without accessing meaning? |
-| `u-language-thought-interface` | Is language necessary for abstract thought, or can complex reasoning occur in pre-linguistic or non-linguistic representational formats? |
-| `u-language-universals-typology` | Which linguistic features are truly universal across all human languages, and what explains the implicational universals observed in typological surveys? |
 | `u-metaphor-universality` | Are conceptual metaphors universal across languages and cultures, or are they culturally specific constructions reflecting local experience? |
 | `u-pragmatic-inference-neural-basis` | What neural mechanisms support pragmatic inference (implicature, irony, indirect speech), and why are these mechanisms impaired in autism spectrum conditions? |
 | `u-prosodic-bootstrapping-acquisition` | Does prosodic structure in infant-directed speech provide bootstrapping cues for syntactic acquisition, and how large is its contribution? |
-| `u-prosody-meaning-mapping` | How are the acoustic properties of prosody (pitch, duration, rhythm) systematically mapped to meaning, and how is this mapping acquired? |
-| `u-recursion-uniquely-human` | Is syntactic recursion uniquely human and essential for language, or do non-human animals possess recursive cognitive mechanisms? |
-| `u-semantic-change-prediction` | What mechanisms drive lexical semantic change over time, and can computational models predict which word meanings will shift? |
 | `u-semantic-compositionality-limits` | To what extent is natural language meaning compositional, and where do non-compositional constructions require fundamentally different processing? |
 | `u-signed-language-neural-substrate` | Do signed languages engage the same or different neural substrates as spoken languages, and what does this reveal about language universality? |
-| `u-syntax-innateness-evidence` | Is there a genetically specified universal grammar, and what is the evidence for or against Chomsky's poverty of the stimulus argument? |
-| `u-tonal-language-cognitive-effects` | Does speaking a tonal language confer cognitive differences in pitch processing, and does this interact with absolute pitch ability? |
 | `u-writing-system-cognition-effects` | Do different writing systems (alphabetic, syllabic, logographic) produce measurable differences in reading processes and cognitive architecture? |
 | `u-2d-material-defect-transport` | How do point defects and grain boundaries in 2D materials limit carrier mobility? |
-| `u-battery-dendrite-nucleation` | What determines the nucleation site and growth direction of lithium dendrites in battery anodes? |
 | `u-biomineralisation-control` | How do organisms control polymorph selection and crystallographic texture during biomineralisation? |
 | `u-corrosion-mechanism-passivation` | What is the atomic-scale mechanism of passive film breakdown that initiates pitting corrosion? |
-| `u-entropy-stabilized-ceramics` | How does configurational entropy stabilise single-phase multi-principal-component oxides at room temperature? |
 | `u-ferroelectric-fatigue-mechanism` | What causes ferroelectric fatigue (loss of switchable polarisation) under repeated electric cycling? |
-| `u-grain-boundary-segregation` | How does solute segregation to grain boundaries control polycrystalline material failure? |
-| `u-high-tc-superconductivity-mechanism` | What is the pairing mechanism in cuprate high-temperature superconductors above 77 K? |
-| `u-hydrogen-embrittlement-pathway` | What is the dominant mechanism of hydrogen embrittlement in high-strength steels? |
-| `u-metallic-glass-crystallisation` | What determines the nucleation kinetics and crystallisation pathways in metallic glasses? |
 | `u-metamaterial-wave-control` | What physical limits govern negative-index metamaterials for sub-diffraction imaging at optical frequencies? |
 | `u-perovskite-stability-degradation` | What are the dominant degradation mechanisms limiting perovskite solar cell lifetime to under 20 years? |
 | `u-phonon-engineering-thermal` | Can phonon dispersion be engineered to achieve near-zero thermal conductivity in crystalline materials? |
 | `u-piezoelectric-biopolymers` | Can biological polymers like collagen and cellulose be tuned to achieve technologically relevant piezoelectric coefficients? |
 | `u-quasicrystal-stability-origin` | What determines whether a quasicrystalline phase forms versus an approximant crystal in metallic alloys? |
 | `u-radiation-damage-recovery` | What atomic mechanisms drive radiation damage recovery in nuclear materials and can they be accelerated? |
-| `u-room-temperature-superconductivity` | What materials architecture would achieve ambient-pressure room-temperature superconductivity? |
 | `u-self-healing-polymer-mechanism` | What is the molecular mechanism enabling autonomous self-healing in non-covalent polymer networks? |
 | `u-shape-memory-alloy-fatigue` | What atomic-scale mechanisms drive functional fatigue in shape-memory alloys after repeated cycling? |
 | `u-thermoelectric-zt-limit` | Is there a fundamental upper limit to thermoelectric figure-of-merit zT and what materials approach it? |
@@ -240,12 +221,10 @@ They are the highest-priority targets for new contributions — add a hypothesis
 | `u-autoimmune-trigger-identification` | What environmental triggers initiate autoimmune disease in genetically susceptible individuals? |
 | `u-blood-brain-barrier-regulation` | What molecular signals dynamically regulate blood-brain barrier permeability in health and disease? |
 | `u-cancer-immunoediting` | How does tumour immunoediting shape the neoantigen landscape and what drives immune escape? |
-| `u-cancer-stem-cell-hierarchy` | Is cancer stem cell hierarchy fixed or plastic and what determines transition between states? |
 | `u-cardiac-regeneration-barriers` | Why do adult mammalian cardiomyocytes fail to regenerate after myocardial infarction? |
 | `u-chronic-pain-sensitization` | What drives the transition from acute to chronic pain via central sensitization? |
 | `u-hearing-regeneration-mammals` | Why do mammals fail to regenerate cochlear hair cells after noise or drug-induced loss? |
 | `u-immune-aging-rejuvenation` | What drives age-related immune decline (immunosenescence) and can it be pharmacologically reversed? |
-| `u-immunotherapy-nonresponders` | Why do most solid tumour patients not respond to PD-1/PD-L1 checkpoint blockade? |
 | `u-long-covid-mechanism` | What are the pathological mechanisms driving long COVID symptoms persisting beyond 12 weeks? |
 | `u-lymphatic-system-brain` | How does the glymphatic-lymphatic system clear metabolic waste from the brain and what impairs this in aging? |
 | `u-mrna-vaccine-durability` | What limits the durability of immunity from mRNA vaccines and can formulation changes extend it? |
@@ -262,7 +241,6 @@ They are the highest-priority targets for new contributions — add a hypothesis
 | `u-telomere-aging-causality` | Does telomere shortening causally drive aging or is it a biomarker of other aging processes? |
 | `u-type2-diabetes-reversal` | What is the mechanism of type 2 diabetes remission following bariatric surgery or very low calorie diets? |
 | `u-vaccine-adjuvant-mechanism` | How do vaccine adjuvants enhance adaptive immune responses at the cellular and molecular level? |
-| `u-attention-neural-mechanisms` | What are the neural circuit mechanisms by which top-down attention selects and enhances sensory signals, and does attention act by gain, timing, or noise reduction? |
 | `u-brain-organoid-validity` | How well do cerebral organoids model human brain development and disease, and what are the limits of their validity as research models? |
 | `u-cerebellum-cognitive-function` | What cognitive functions does the cerebellum perform beyond motor coordination, and what is its computational principle? |
 | `u-default-mode-network-function` | What is the functional role of the default mode network, and why is it suppressed during externally directed tasks? |
@@ -277,10 +255,8 @@ They are the highest-priority targets for new contributions — add a hypothesis
 | `u-emergence-vs-reduction` | Under what conditions are higher-level scientific explanations genuinely autonomous rather than in-principle reducible to lower-level descriptions? |
 | `u-interdisciplinary-barriers` | What are the structural and epistemic barriers to effective interdisciplinary collaboration, and how can they be systematically reduced? |
 | `u-measurement-theory-foundations` | What is the ontological status of measurement scales, and under what conditions do psychometric measurements quantify genuine psychological attributes? |
-| `u-model-selection-validity` | Are AIC, BIC, and MDL genuinely measuring predictive accuracy or model simplicity, and when do they give misleading guidance? |
 | `u-open-science-incentives` | What incentive structures and institutional reforms would sustainably increase open data sharing, preregistration, and replication in science? |
 | `u-paradigm-shift-prediction` | Are Kuhnian paradigm shifts predictable from anomaly accumulation patterns, and can science-of-science methods detect pre-revolutionary conditions? |
-| `u-peer-review-validity` | Does peer review reliably filter low-quality and incorrect science, and what alternative gatekeeping mechanisms might perform better? |
 | `u-publication-bias-correction` | Can publication bias be corrected post-hoc in meta-analyses, and what methods are valid under realistic distributions of true effects? |
 | `u-science-communication-effectiveness` | What communication strategies reliably improve public understanding of scientific evidence and reduce belief in scientific misinformation? |
 | `u-scientific-consensus-formation` | What are the epistemic and social mechanisms by which scientific consensus forms, and under what conditions can consensus be mistaken? |

@@ -4,6 +4,10 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 ## Last updated
 
+- 2026-05-06 - **Comprehensive audit + PATH_TO_SUCCESS strategic roadmap**: Python script audit (10 scripts), 5 HIGH severity fixes applied (propose_bridges return bug, find_orphan_unknowns Unicode crash + missing-file guard, generate_api bare except, build_citation_index bare except + wrong timestamp). Schema validation: all 1,000+ records PASS. Quality audit: 0 errors, 0 warnings. Created CODE_AUDIT.md, PATH_TO_SUCCESS.md. Updated README.md (current stats, Catalog Types section, Quick Start, Scripts reference, status badges). Updated DOC_MAP.md (catalog types, scripts, GitHub Actions tables). Next priorities: arXiv preprint submission, Reddit r/OpenScience post, custom domain.
+
+- 2026-05-06 - **Wave 10 — 1000-node milestone, 13 pioneers, bridges 171-180**: 1,000 nodes reached. 10 new bridges (b-171 to b-180). Added Einstein and Lovelace pioneer profiles (13 total). 11 breakthrough gaps. Dashboard health fixes. Knowledge graph: 1,000 nodes, 910 edges. API: 619 unknowns, 180 bridges, 173 hypotheses. Validates clean.
+
 - 2026-05-06 - **Wave 3 — Lunr.js full-text search + bridges 101-105 + 5 new hypotheses**: Dashboard catalog search upgraded to Lunr.js inverted index (fetches bridges.json + unknowns.json at load; indexes title, bridge_claim, systematic_gaps, domains; shows result snippets; click-to-highlight in graph). 5 new fully-citable bridges: b-zipf-optimal-coding (#101, linguistics↔information-theory, Zipf/Mandelbrot/Shannon/Piantadosi; **established**), b-crystallography-group-theory (#102, materials-science↔mathematics, Schoenflies/Shechtman/Penrose; **established**), b-free-energy-principle-stat-mech (#103, cognitive-science↔physics, Friston/Helmholtz/Beal/Kingma-Welling; **proposed**), b-tensegrity-cytoskeleton (#104, engineering↔biology, Fuller/Ingber/Wang-Butler-Ingber; **established**), b-efficient-markets-martingale (#105, economics↔information-theory, Fama/Samuelson/Cover-Thomas/Lo; **established**). 4 new cross-domain directories (linguistics-information, materials-science-mathematics, cognitive-science-physics, economics-information). 5 new hypotheses (h-zipf-optimal-coding-universality, h-tensegrity-cancer-mechanics, h-free-energy-aging, h-crystallographic-protein-folding, h-martingale-ecological-pricing). Knowledge graph rebuilt: 771 nodes (+20), 647 edges (+28). API updated: 544 unknowns, 105 bridges, 121 hypotheses. Validates clean.
 
 - 2026-05-05 - **THE 100-BRIDGE MILESTONE — Bridges 85-100 (751+ nodes)**: 16 new fully-citable bridges completing the first 100 cross-domain mathematical bridges: b-symplectic-geometry-mechanics (#85, mathematics↔physics, Arnold/Weyl/Dirac/Kontsevich; established), b-bayesian-brain-predictive-processing (#86, neuroscience↔statistics, Helmholtz/Weiss/Knill-Pouget/Friston; established), b-reaction-network-graph-theory (#87, chemistry↔mathematics, Horn-Jackson/Feinberg deficiency theory; established), b-species-distribution-maxent (#88, ecology↔statistics, Jaynes/Phillips/Elith/Renner-Warton; established), b-mechanobiology-continuum-mechanics (#89, physics↔biology, Discher/Engler/Bi-jamming; established), b-transformer-attention-neural-attention (#90, computer-science↔neuroscience, Vaswani/Treisman/Lindsay; proposed), b-knot-theory-dna-topology (#91, mathematics↔biology, Crick/Adams/Vologodskii; established), b-dissipative-structures-economic-cycles (#92, economics↔physics, Prigogine/Kondratiev/Georgescu-Roegen; proposed), b-cultural-memes-shannon-entropy (#93, social-science↔information-theory, Dawkins/Shannon/Henrich; proposed), b-chaos-control-systems (#94, engineering↔physics, Lorenz/Strogatz/OGY; established), b-kolmogorov-complexity-explanation (#95, philosophy-of-science↔information-theory, Kolmogorov/Solomonoff/Rissanen; established), b-topological-neuroscience (#96, neuroscience↔mathematics, Curto-Itskov/Gardner/Dabaghian; established), b-navier-stokes-atmospheric-dynamics (#97, climate-science↔mathematics, Charney/Holton/Lorenz/Kolmogorov; established), b-mirror-neurons-aesthetic-empathy (#98, art-and-cognition↔neuroscience, Rizzolatti/Gallese-Freedberg/Mori; proposed), b-representation-theory-particles (#99, quantum-physics↔mathematics, Wigner/Weyl/Georgi; established), b-replicator-equations-evolutionary-dynamics (#100, biology↔mathematics, Taylor-Jonker/Maynard-Smith/Price/Hofbauer-Sigmund; established). 14 new cross-domain directories. 16 new unknowns + 16 new hypotheses. Knowledge graph rebuilt: 751 nodes, 619 edges. Dashboard updated to 100 bridges. API: 534 unknowns, 100 bridges, 116 hypotheses. Validates clean.
@@ -41,17 +45,20 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 - 2026-05-04 — GitHub Pages live + dashboard deployed at [kr8zysho3.github.io/…/dashboard/](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/)
 - 2026-05-03 — Contributor hub visual refresh, CI green, all docs wired.
 
-## Catalog state
+## Catalog state (Wave 10 — 2026-05-06)
 
 | Type | Count | Directory |
 |------|-------|-----------|
-| Unknowns | 544 | `unknowns-catalog/` |
-| Hypotheses | 121 | `hypotheses/active/` |
-| Bridges | 105 | `cross-domain/` |
-| Pre-formal observations | 1 | `phenomenology/` |
-| Knowledge graph nodes | 771 | `docs/knowledge_graph.json` |
-| Knowledge graph edges | 647 | `docs/knowledge_graph.json` |
-| Schemas | 4 | `schemas/` (unknown, hypothesis, bridge, phenomenon) |
+| Unknowns | **619** | `unknowns-catalog/` |
+| Hypotheses | **173** | `hypotheses/active/` |
+| Bridges | **180** | `cross-domain/` |
+| Pioneers | **13** | `pioneers/` |
+| Breakthrough gaps | **11** | `breakthrough-gaps/` |
+| Pre-formal observations | **4** | `phenomenology/` |
+| Knowledge graph nodes | **1,000** | `docs/knowledge_graph.json` |
+| Knowledge graph edges | **910** | `docs/knowledge_graph.json` |
+| Schemas | **6** | `schemas/` (unknown, hypothesis, bridge, phenomenon, pioneer, breakthrough_gap) |
+| Scientific domains | **41** | `unknowns-catalog/` subdirs + `dashboard/domains/` |
 
 ### Bridge network (cross-domain connections)
 
@@ -102,12 +109,19 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 | b-opinion-dynamics-ising | social-science ↔ statistical-physics | proposed |
 | b-aesthetic-complexity-information | aesthetics ↔ mathematics ↔ cognitive-science | proposed |
 
+## Current milestone
+
+**Wave 10 complete — 1,000-node milestone reached.**
+
+Content build sprint (Waves 1–10) is done. Focus shifts to discoverability, community growth, and quality maintenance.
+
 ## Current focus
 
-- **Content seeding**: running arXiv harvests (q-bio, cond-mat:stat-mech, nlin, bio-ph) to seed unknowns, hypotheses, and bridges.
-- **Bridge discovery**: every harvest is checked against the bridge-discovery prompt in `docs/prompts/bridge_discovery.md`.
-- **Contributor discoverability**: GitHub Issues to be created from open unknowns (next action).
-- **Schema discipline**: all YAML validated by `scripts/validate_schemas.py` on every PR.
+- **arXiv preprint**: `docs/preprint/usdr_preprint.md` is ready; next step is PDF conversion and submission to cs.DL.
+- **Community outreach**: Reddit r/OpenScience post ready at `docs/outreach/reddit_openscience_post.md`.
+- **Custom domain**: evaluate usdr.science / crossdomainscience.org.
+- **External contributors**: recruit first 3 domain experts (physicist, biologist, CS researcher) using `docs/outreach/researcher_pitch.md`.
+- **Schema discipline**: all YAML validated by `scripts/validate_schemas.py` on every PR — CI green.
 
 ## Active git branches / PRs
 
@@ -128,9 +142,9 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 ## Next actions (max 5)
 
-- Create GitHub Issues from the most compelling open unknowns for contributor discoverability.
-- Write `u-quantum-biology-decoherence` — the open question raised by b-quantum-biology-navigation.
-- Run a `q-bio:q-bio:TO` (tissues and organs) harvest to seed the topology-morphogenesis bridge further.
-- Update the developer dashboard stat counts after each PR that adds catalog entries.
-- Keep `schemas/unknown.yaml`, `schemas/hypothesis.yaml`, `schemas/bridge.yaml` in sync when adding new optional fields.
+1. **Submit arXiv preprint** — convert `docs/preprint/usdr_preprint.md` to PDF, submit to cs.DL + cross-list q-bio.QM, physics.soc-ph. See `docs/PATH_TO_SUCCESS.md` for steps.
+2. **Post to Reddit r/OpenScience** — post is ready at `docs/outreach/reddit_openscience_post.md`. Best time: Tuesday–Thursday 9–11am EST.
+3. **Register custom domain** — check usdr.science / sciencebridges.org; configure GitHub Pages CNAME.
+4. **Enable GitHub Discussions** — seed "Introduce yourself", "Bridge proposals", "Open questions" threads.
+5. **Bridge 300 orphan unknowns** — run `python scripts/find_orphan_unknowns.py` to see the list; propose 5–10 bridges connecting the most isolated domains.
 

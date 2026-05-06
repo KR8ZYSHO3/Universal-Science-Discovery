@@ -1,0 +1,33 @@
+name: "Bug Report"
+description: "Report an error in the catalog, dashboard, or scripts"
+title: "[BUG] "
+labels: ["bug"]
+body:
+  - type: dropdown
+    id: bug_type
+    attributes:
+      label: Type of bug
+      options:
+        - Incorrect citation or reference
+        - Schema validation error
+        - Dashboard/UI bug
+        - Script error
+        - Factual error in a bridge entry
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: file
+    attributes:
+      label: Affected file or entry
+      placeholder: "e.g. cross-domain/physics-ecology/b-percolation-ecology.yaml"
+  - type: textarea
+    id: description
+    attributes:
+      label: What's wrong?
+    validations:
+      required: true
+  - type: textarea
+    id: fix
+    attributes:
+      label: Suggested fix (if known)

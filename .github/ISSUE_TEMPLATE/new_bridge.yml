@@ -1,0 +1,74 @@
+name: "New Bridge Proposal"
+description: "Propose a new cross-domain mathematical bridge"
+title: "[BRIDGE] "
+labels: ["bridge-proposal", "needs-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for proposing a bridge! A bridge connects two scientific domains through shared mathematical structure.
+        **Not sure if your idea qualifies?** A bridge needs an explicit mathematical translation table, not just a vague analogy.
+  - type: input
+    id: domain_a
+    attributes:
+      label: Domain A
+      placeholder: "e.g. Physics, Ecology, Economics"
+    validations:
+      required: true
+  - type: input
+    id: domain_b
+    attributes:
+      label: Domain B
+      placeholder: "e.g. Information Theory, Network Science, Mathematics"
+    validations:
+      required: true
+  - type: textarea
+    id: bridge_claim
+    attributes:
+      label: Bridge Claim
+      description: "One sentence stating the mathematical connection"
+      placeholder: "The [mathematical structure] in [Domain A] is formally equivalent to [mathematical structure] in [Domain B]."
+    validations:
+      required: true
+  - type: textarea
+    id: translation_table
+    attributes:
+      label: Translation Table (at least 3 rows)
+      description: "Map concepts from Domain A to Domain B"
+      placeholder: |
+        | Domain A | Domain B |
+        |---|---|
+        | Concept A1 | Concept B1 |
+        | Concept A2 | Concept B2 |
+        | Concept A3 | Concept B3 |
+    validations:
+      required: true
+  - type: textarea
+    id: references
+    attributes:
+      label: Key References
+      description: "Real citations (DOI preferred). No fabricated references."
+      placeholder: "Author (Year) Journal. DOI: ..."
+    validations:
+      required: true
+  - type: dropdown
+    id: status
+    attributes:
+      label: Status
+      options:
+        - established (mathematically proven, empirically validated)
+        - proposed (theoretically sound, not yet tested)
+        - speculative (interesting idea, needs more work)
+    validations:
+      required: true
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I have checked this bridge doesn't already exist in the catalog
+          required: true
+        - label: My citations are real (not fabricated)
+          required: true
+        - label: The connection is mathematical, not just an analogy
+          required: true

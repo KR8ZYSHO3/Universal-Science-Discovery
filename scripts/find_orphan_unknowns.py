@@ -8,16 +8,28 @@ These are the highest-priority targets for new contributions.
 Usage:
     python scripts/find_orphan_unknowns.py
 """
+import io
 import json
+import sys
 from pathlib import Path
+
+# Ensure stdout handles Unicode on Windows (cp1252 terminal can't encode ≥)
+if sys.stdout.encoding and sys.stdout.encoding.lower() not in ("utf-8", "utf-8-sig"):
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
 
 ROOT = Path(__file__).parent.parent
 
 
 def main() -> list[dict]:
-    graph = json.loads(
-        (ROOT / "docs" / "knowledge_graph.json").read_text(encoding="utf-8")
-    )
+    graph_path = ROOT / "docs" / "knowledge_graph.json"
+    if not graph_path.exists():
+        print("ERROR: docs/knowledge_graph.json not found. Run build_graph.py first.")
+        sys.exit(1)
+    try:
+        graph = json.loads(graph_path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError) as exc:
+        print(f"ERROR: could not read knowledge_graph.json: {exc}")
+        sys.exit(1)
     nodes: list[dict] = graph["nodes"]
     edges: list[dict] = graph["edges"]
 

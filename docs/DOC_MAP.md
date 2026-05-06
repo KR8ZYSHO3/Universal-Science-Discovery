@@ -2,6 +2,10 @@
 
 This map is the Phase 0 traceability layer. When you change a guiding document, update the corresponding behaviors (rules, templates, or this map) in the same change.
 
+**Last updated:** 2026-05-06 — reflects Wave 10 state (1,000 nodes, 180 bridges, 6 catalog types).
+
+## Policy documents
+
 | Guiding document | What it governs | Concrete behaviors |
 |------------------|-----------------|----------------------|
 | [VISION_AND_SCOPE.md](VISION_AND_SCOPE.md) | Mission, boundaries, what belongs in-repo | README framing; issue labels; scope checks in AGENTS and Cursor rules |
@@ -22,6 +26,42 @@ This map is the Phase 0 traceability layer. When you change a guiding document, 
 | [UAT_INGEST.md](UAT_INGEST.md) | Manual acceptance checks for `usdr-ingest` | Implements [DATA_PLAN.md](DATA_PLAN.md) QA; automated checks in `packages/ingest/tests` |
 | [DEV_DASHBOARD.md](DEV_DASHBOARD.md) | Meta checklist: active branches, shipped items, blockers | Edits [.planning/STATE.md](../.planning/STATE.md); optional sync to Canvas via `scripts/sync-dashboard-from-state.py`; [HTML dashboard](../dashboard/index.html) + [dashboard/README.md](../dashboard/README.md) for browser use |
 | [GSD_INTEGRATION.md](GSD_INTEGRATION.md) | Optional get-shit-done / spec-driven workflows in Cursor | Boundaries vs [METHODOLOGY.md](METHODOLOGY.md), [DATA_PLAN.md](DATA_PLAN.md), [LEGAL.md](../LEGAL.md); does not replace contributor onboarding |
+| [PATH_TO_SUCCESS.md](PATH_TO_SUCCESS.md) | Strategic roadmap: discoverability, community growth, long-term sustainability | arXiv preprint submission; outreach; custom domain; external contributor recruitment |
+| [CODE_AUDIT.md](CODE_AUDIT.md) | Python script audit findings and fix history | Script quality standards; HIGH severity issues fixed; MEDIUM/LOW backlog |
+
+## Catalog types and schemas
+
+| Catalog | Directory | Schema | Purpose |
+|---------|-----------|--------|---------|
+| Bridges | `cross-domain/` | `schemas/bridge.yaml` | Mathematical/conceptual links between disciplines; must have translation table, status, and DOI references |
+| Unknowns | `unknowns-catalog/` | `schemas/unknown.yaml` | Named research gaps organized by domain |
+| Hypotheses | `hypotheses/` | `schemas/hypothesis.yaml` | Testable, falsifiable hypotheses linked to unknowns |
+| Pioneers | `pioneers/` | `schemas/pioneer.yaml` | Profiles of researchers who seed cross-domain bridges |
+| Breakthrough Gaps | `breakthrough-gaps/` | `schemas/breakthrough_gap.yaml` | High-impact cross-domain problems whose solution would reshape science |
+| Pre-formal Observations | `phenomenology/` | `schemas/phenomenon.yaml` | Raw observations not yet triaged to an unknown |
+
+## Scripts and their purposes
+
+| Script | Purpose | CI? |
+|--------|---------|-----|
+| `scripts/validate_schemas.py` | Validate all catalog YAML against JSON Schema | ✅ (validate.yml) |
+| `scripts/build_graph.py` | Build `docs/knowledge_graph.json` | ✅ (build-graph.yml) |
+| `scripts/generate_api.py` | Generate static JSON API under `api/v1/` | ✅ (build-graph.yml) |
+| `scripts/update_dashboard_stats.py` | Patch stat counters in `dashboard/index.html` | ✅ (build-graph.yml) |
+| `scripts/generate_domain_pages.py` | Per-domain HTML pages under `dashboard/domains/` | ✅ (pages.yml) |
+| `scripts/generate_explainers.py` | Bridge explainer HTML pages under `dashboard/explainers/` | ✅ (pages.yml) |
+| `scripts/propose_bridges.py` | Propose novel bridge candidates | Manual |
+| `scripts/find_orphan_unknowns.py` | List unknowns with no graph connections | Manual |
+| `scripts/audit_quality.py` | Flag low-quality catalog entries | Manual |
+| `scripts/build_citation_index.py` | Extract and rank cross-referenced papers | Manual |
+
+## GitHub Actions workflows
+
+| Workflow | Trigger | What it does |
+|----------|---------|--------------|
+| `.github/workflows/validate.yml` | Push / PR to `main` | Runs `validate_schemas.py`; blocks merge on failure |
+| `.github/workflows/build-graph.yml` | Push to `main` | Rebuilds knowledge graph, generates API, updates dashboard stats |
+| `.github/workflows/pages.yml` | Push to `main` | Deploys `dashboard/` to GitHub Pages |
 
 ## Supporting files (see manifest)
 
