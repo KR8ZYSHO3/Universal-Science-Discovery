@@ -742,6 +742,54 @@
       pointer-events: none; opacity: .65;
     }
 
+    /* ── GRAPH FILTER BUTTONS ──────────────────────────────── */
+    .graph-filters {
+      display: flex; align-items: center; flex-wrap: wrap;
+      gap: .25rem; margin-bottom: .75rem;
+    }
+    .filter-btn {
+      background: transparent;
+      border: 1px solid var(--fc, #4f9cf9);
+      color: var(--fc, #4f9cf9);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-family: var(--font);
+      transition: background .15s, opacity .15s;
+      margin: 0 0.1rem;
+    }
+    .filter-btn.active { background: color-mix(in srgb, var(--fc) 15%, transparent); }
+    .filter-btn:not(.active) { opacity: 0.4; }
+    .filter-btn:focus-visible { outline: 2px solid var(--fc); outline-offset: 2px; }
+
+    /* ── EDGE TYPE LEGEND ──────────────────────────────────── */
+    .edge-legend {
+      position: absolute; bottom: 1.2rem; right: 1.2rem;
+      background: rgba(6,13,26,.82);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: .65rem .9rem;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      pointer-events: none;
+      z-index: 5;
+    }
+    .edge-legend-title {
+      font-size: .68rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; color: var(--muted);
+      margin-bottom: .35rem;
+    }
+    .edge-item {
+      display: flex; align-items: center; gap: .45rem;
+      font-size: .73rem; color: var(--text);
+      margin-top: .28rem;
+    }
+    .edge-swatch {
+      width: 22px; height: 3px; border-radius: 2px;
+      flex-shrink: 0; display: inline-block;
+    }
+
     /* ── NODE DETAIL PANEL ──────────────────────────────────── */
     .node-panel {
       position: absolute;
@@ -1344,6 +1392,12 @@
         <span id="kg-node-count">645</span> nodes &nbsp;·&nbsp;
         <span id="kg-edge-count">472</span> edges<span id="kg-top-node"></span>
       </div>
+      <div class="graph-filters" role="group" aria-label="Node type filters">
+        <button class="filter-btn active" data-type="bridge" style="--fc:#4f9cf9">● Bridges</button>
+        <button class="filter-btn active" data-type="unknown" style="--fc:#f97316">● Unknowns</button>
+        <button class="filter-btn active" data-type="hypothesis" style="--fc:#22d3b8">● Hypotheses</button>
+        <button class="filter-btn active" data-type="phenomenon" style="--fc:#a78bfa">● Phenomena</button>
+      </div>
       <div id="graph-container">
         <svg id="kg-svg" aria-label="Knowledge graph force-directed visualization"></svg>
         <div id="kg-legend">
@@ -1351,6 +1405,13 @@
           <div class="kg-legend-item"><div class="kg-legend-dot" style="background:#f97316"></div>Unknown</div>
           <div class="kg-legend-item"><div class="kg-legend-dot" style="background:#22d3b8"></div>Hypothesis</div>
           <div class="kg-legend-item"><div class="kg-legend-dot" style="background:#a78bfa"></div>Phenomenon</div>
+        </div>
+        <div class="edge-legend" aria-label="Edge relation types">
+          <div class="edge-legend-title">Connections</div>
+          <div class="edge-item"><span class="edge-swatch" style="background:#4f9cf9"></span>addresses_unknown</div>
+          <div class="edge-item"><span class="edge-swatch" style="background:#22d3b8"></span>suggests_hypothesis</div>
+          <div class="edge-item"><span class="edge-swatch" style="background:#f97316"></span>related_bridge</div>
+          <div class="edge-item"><span class="edge-swatch" style="background:#a78bfa"></span>cross_pollination</div>
         </div>
         <div class="kg-zoom-hint">scroll to zoom · drag to pan · click node for details</div>
         <div id="kg-tooltip" class="kg-tooltip hidden"></div>
@@ -2517,6 +2578,10 @@
           return nodeIds.has(s) && nodeIds.has(t);
         });
 
+        /* Quick node lookup by id */
+        var nodeMap = {};
+        nodes.forEach(function (n) { nodeMap[n.id] = n; });
+
         /* stats bar */
         var nc = (data.meta && data.meta.node_count) ? data.meta.node_count : nodes.length;
         var ec = (data.meta && data.meta.edge_count)  ? data.meta.edge_count  : edges.length;
@@ -2589,6 +2654,75 @@
                 d.fx = null; d.fy = null;
               })
           );
+
+        /* ── FILTER TOGGLES ─────────────────────────────────── */
+        var activeTypes = new Set(['bridge', 'unknown', 'hypothesis', 'phenomenon']);
+        var focusNodeId = null;
+
+        function applyFilterOpacity() {
+          node.style('opacity', function (d) {
+            return activeTypes.has(d.type) ? 1 : 0.05;
+          }).style('pointer-events', function (d) {
+            return activeTypes.has(d.type) ? 'all' : 'none';
+          });
+          link.style('opacity', function (d) {
+            var srcNode = nodeMap[typeof d.source === 'object' ? d.source.id : d.source];
+            var tgtNode = nodeMap[typeof d.target === 'object' ? d.target.id : d.target];
+            var srcType = srcNode ? srcNode.type : undefined;
+            var tgtType = tgtNode ? tgtNode.type : undefined;
+            return (activeTypes.has(srcType) && activeTypes.has(tgtType)) ? 0.3 : 0.02;
+          });
+          node.attr('stroke', 'rgba(255,255,255,0.14)').attr('stroke-width', 1);
+        }
+
+        function highlightNeighborhood(nodeId) {
+          focusNodeId = nodeId;
+          var neighbors = new Set([nodeId]);
+          edges.forEach(function (e) {
+            var src = typeof e.source === 'object' ? e.source.id : e.source;
+            var tgt = typeof e.target === 'object' ? e.target.id : e.target;
+            if (src === nodeId) neighbors.add(tgt);
+            if (tgt === nodeId) neighbors.add(src);
+          });
+
+          node.style('opacity', function (d) {
+            if (!activeTypes.has(d.type)) return 0.05;
+            return neighbors.has(d.id) ? 1 : 0.1;
+          }).style('pointer-events', function (d) {
+            return activeTypes.has(d.type) ? 'all' : 'none';
+          });
+
+          link.style('opacity', function (d) {
+            var src = typeof d.source === 'object' ? d.source.id : d.source;
+            var tgt = typeof d.target === 'object' ? d.target.id : d.target;
+            return (src === nodeId || tgt === nodeId) ? 0.8 : 0.05;
+          });
+
+          node.attr('stroke', function (d) {
+            return d.id === nodeId ? '#fff' : 'rgba(255,255,255,0.14)';
+          }).attr('stroke-width', function (d) {
+            return d.id === nodeId ? 2 : 1;
+          });
+        }
+
+        function resetHighlight() {
+          focusNodeId = null;
+          applyFilterOpacity();
+        }
+
+        document.querySelectorAll('.filter-btn').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var type = btn.dataset.type;
+            btn.classList.toggle('active');
+            if (activeTypes.has(type)) activeTypes.delete(type);
+            else activeTypes.add(type);
+            if (focusNodeId) {
+              highlightNeighborhood(focusNodeId);
+            } else {
+              applyFilterOpacity();
+            }
+          });
+        });
 
         /* ── NODE DETAIL PANEL ──────────────────────────────── */
         var panelEl   = document.getElementById('node-detail-panel');
@@ -2815,9 +2949,12 @@
           if (e.key === 'Escape' && panelEl && panelEl.classList.contains('open')) closePanel();
         });
 
-        /* click on SVG background closes panel */
+        /* click on SVG background closes panel and resets highlights */
         svgEl.addEventListener('click', function (e) {
-          if (e.target === svgEl || e.target.tagName === 'svg') closePanel();
+          if (e.target === svgEl || e.target.tagName === 'svg') {
+            closePanel();
+            resetHighlight();
+          }
         });
 
         /* node click */
@@ -2825,6 +2962,7 @@
           event.stopPropagation();
 
           svg.selectAll('circle').classed('selected', function (n) { return n.id === d.id; });
+          highlightNeighborhood(d.id);
 
           openPanel(d);
           contentEl.innerHTML = '<div class="panel-loading">Loading…</div>';
