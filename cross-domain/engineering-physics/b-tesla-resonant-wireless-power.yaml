@@ -1,0 +1,83 @@
+id: b-tesla-resonant-wireless-power
+title: >
+  Resonant inductive coupling between two LC circuits at the same frequency —
+  first demonstrated by Tesla (1891–1900) and formalised by coupled-mode theory —
+  underlies modern wireless power transfer: from Qi charging in 2 billion devices
+  to medical implants and electric vehicle charging.
+status: established
+fields:
+  - electrical-engineering
+  - physics
+  - electromagnetism
+  - power-electronics
+bridge_claim: >
+  Two LC circuits tuned to the same resonant frequency ω₀ = 1/√(LC) exchange
+  energy efficiently via mutual inductance M, even without a direct electrical
+  connection. The coupled-mode theory (CMT) description:
+
+    ȧ₁ = (jω₀ - κ₁)a₁ + jka₂ + F
+    ȧ₂ = (jω₀ - κ₂)a₂ + jka₁
+
+  where aᵢ are mode amplitudes, κᵢ = ωᵢ/2Qᵢ are loss rates, and k = ωM/2√(L₁L₂)
+  is the coupling rate. Maximum power transfer efficiency:
+
+    η = k²Q²/(1 + k²Q²)    where Q = ω₀L/R = quality factor
+
+  Tesla achieved this with his magnifying transmitter (1899–1900) at Wardenclyffe,
+  transmitting electrical power wirelessly. The MIT Witricity group (Kurs et al. 2007)
+  demonstrated 60W over 2m at 40% efficiency, citing Tesla's resonant coupling
+  principle. Modern Qi (15W, <10mm range) and WPT systems (EV charging, 85–93%
+  efficiency at 10–40cm) operate on this exact principle.
+
+  KEY PHYSICS:
+  1. QUALITY FACTOR Q: high-Q resonators (low loss) dramatically increase
+     efficiency; modern systems achieve Q ≈ 100–1000 using ferrite cores or
+     Litz wire to minimise skin-effect losses.
+  2. COUPLING COEFFICIENT k = M/√(L₁L₂): falls as k ∝ (d/r)³ for coils
+     separated by distance d; the figure of merit kQ determines efficiency.
+  3. IMPEDANCE MATCHING: maximum power transfer requires impedance matching
+     between source, resonators, and load — identical to RF engineering.
+  4. ELECTROMAGNETIC SAFETY: near-field (non-radiative) coupling concentrates
+     energy between coils without propagating EM radiation, making it safer
+     than far-field wireless power at comparable frequencies.
+translation_table:
+  - field_a_term: resonant frequency ω₀ = 1/√(LC)
+    field_b_term: operating frequency of Qi / WPT system (100–200 kHz)
+    note: Both transmitter and receiver must be tuned to the same resonant frequency for efficient coupling
+  - field_a_term: quality factor Q = ω₀L/R
+    field_b_term: coil efficiency figure of merit
+    note: Higher Q means less energy lost per oscillation cycle; modern coils achieve Q = 100–500
+  - field_a_term: coupling coefficient k = M/√(L₁L₂)
+    field_b_term: spatial alignment sensitivity of wireless charger
+    note: k decreases rapidly with distance; Qi pads are designed for k > 0.2
+  - field_a_term: figure of merit kQ
+    field_b_term: overall WPT system efficiency parameter
+    note: η ≈ (kQ)² / (1 + (kQ)²); engineering goal is to maximise kQ
+  - field_a_term: mutual inductance M
+    field_b_term: coil geometry / coupling factor
+    note: M depends on coil geometry, separation, and alignment; designed to be maximised at target distance
+related_unknowns:
+  - u-wpt-efficiency-biological-tissue-interaction
+related_hypotheses:
+  - h-resonant-wpt-ev-charging-grid-integration
+cross_pollination_opportunities:
+  - Apply metamaterial resonators (negative permeability) to extend the effective coupling range beyond the 3D dipole scaling
+  - Use Tesla's Wardenclyffe Earth-ionosphere resonance concept (Schumann resonances) to explore global power distribution
+  - Apply coupled-mode theory formalism from photonics (whispering-gallery resonators) to improve WPT efficiency
+  - Investigate biological tissue dielectric properties to design implantable medical device WPT with minimal heating
+communication_gap: >
+  Electrical engineers designing Qi chargers rarely cite Tesla's 1899 Colorado
+  Springs experiments; physicists studying coupled-mode theory rarely discuss
+  consumer power electronics. The MIT Witricity 2007 paper bridged the two but
+  the historical connection to Tesla's work remains under-acknowledged. Conversely,
+  popular accounts of Tesla often describe his wireless power visions without the
+  rigorous coupled-mode theory that explains why resonant coupling is efficient.
+last_reviewed: "2026-05-06"
+references:
+  - note: Tesla, N. (1900). The Problem of Increasing Human Energy. Century Magazine. June 1900. -- Tesla's description of resonant wireless power transmission experiments at Colorado Springs
+  - doi: 10.1126/science.1143254
+    note: "Kurs et al. (2007). Wireless power transfer via strongly coupled magnetic resonances. Science 317:83–86."
+  - doi: 10.1109/TPEL.2010.2073493
+    note: "Sample et al. (2011). Analysis, experimental results, and range adaptation of magnetically coupled resonators for wireless power transfer. IEEE Trans. Power Electron. 26:3254."
+  - doi: 10.1109/TPEL.2015.2453127
+    note: "Zhong, W.X. & Hui, S.Y.R. (2016). Maximum energy efficiency tracking for wireless power transfer systems. IEEE Trans. Power Electron. 31:5654."

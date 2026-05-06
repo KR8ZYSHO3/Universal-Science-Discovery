@@ -1,0 +1,86 @@
+id: b-immune-network-idiotypic
+title: >
+  Jerne's immune network theory (1974) — antibodies recognising other antibodies
+  (idiotypes) form a self-regulating scale-free network whose attractor dynamics
+  implement immune memory and self-tolerance — is formally equivalent to a Hopfield
+  associative memory network; immunological disorders correspond to network bifurcations.
+status: proposed
+fields:
+  - immunology
+  - network-science
+  - computational-biology
+  - nonlinear-dynamics
+  - systems-biology
+bridge_claim: >
+  Jerne (1974) proposed that the immune system is a network: antibodies (idiotypes)
+  can be recognised by other antibodies (anti-idiotypes) as if they were foreign
+  antigens. This creates a network of mutual recognition where antibody concentrations
+  influence each other — an immune network.
+
+  MATHEMATICAL STRUCTURE:
+  The idiotypic network is described by coupled ODEs:
+
+    dxᵢ/dt = cᵢ f(Σⱼ Jᵢⱼ xⱼ) - dᵢ xᵢ + sᵢ
+
+  where xᵢ = concentration of idiotype i, Jᵢⱼ = stimulation by j on i (network
+  edges), f = sigmoidal activation function, dᵢ = death rate, sᵢ = source rate.
+  This is structurally identical to a Hopfield network (bridge b-hopfield-spin-glass):
+  the network has energy minima = immune attractors.
+
+  NETWORK TOPOLOGY:
+  - Scale-free degree distribution -- a few "central" idiotypes are highly connected
+    (IgM, IgG classes with broad anti-idiotypic reactivity).
+  - Self-tolerance -- the healthy immune state is an attractor of the network
+    dynamics; self-antigens are "represented" by idiotypes in the network.
+  - Autoimmunity = bifurcation -- perturbation of the idiotypic network (infection,
+    molecular mimicry) can shift the system to an attractor where self-reactive
+    clones are amplified — a dynamical systems interpretation of autoimmune disease.
+
+  CLINICAL APPLICATIONS:
+  - Anti-idiotypic vaccines -- an anti-idiotype mimics the antigen's shape and can
+    act as a vaccine without the antigen itself.
+  - Immunotherapy -- manipulating network attractors to restore self-tolerance.
+  - Lupus, RA, MS -- may correspond to unhealthy network attractors.
+translation_table:
+  - field_a_term: idiotype network node xᵢ
+    field_b_term: antibody clone concentration
+    note: Each node in the idiotypic network is a clonotype defined by its variable region sequence
+  - field_a_term: network edge Jᵢⱼ
+    field_b_term: paratope-idiotope recognition strength
+    note: Structural complementarity between antibody paratope and idiotope determines coupling strength
+  - field_a_term: network attractor (energy minimum)
+    field_b_term: immune memory state / homeostatic set point
+    note: The healthy immune system occupies a stable attractor; perturbations (infection, vaccination) shift it
+  - field_a_term: bifurcation / attractor transition
+    field_b_term: autoimmune disease onset / immune dysregulation
+    note: Autoimmunity may correspond to bifurcation to a pathological attractor where self-reactive clones are stable
+  - field_a_term: scale-free hub nodes
+    field_b_term: natural antibodies (broadly reactive IgM antibodies)
+    note: Highly connected idiotype hubs modulate the entire network, analogous to hub nodes in social networks
+related_unknowns:
+  - u-idiotypic-network-clinical-validation
+related_hypotheses:
+  - h-autoimmune-disease-idiotypic-attractor-bifurcation
+cross_pollination_opportunities:
+  - Apply network community detection to identify functional modules in the idiotypic network (natural vs adaptive immunity)
+  - Use attractor landscape analysis (Waddington potential) to design therapeutic interventions that steer the immune network back to a healthy attractor
+  - Sequence-based reconstruction of idiotypic networks from B-cell repertoire sequencing (BCR-seq) data
+  - Apply the Hopfield network memory capacity result to estimate how many antigens the idiotypic network can simultaneously "remember"
+communication_gap: >
+  Jerne's network theory was highly influential in theoretical immunology in the
+  1980s-90s but fell out of favour as molecular immunology focused on antigen-specific
+  mechanisms. The mathematical framework (attractor dynamics, network topology)
+  was developed primarily by mathematical biologists (Perelson, Varela, Stewart)
+  rather than experimental immunologists. Modern B-cell repertoire sequencing now
+  makes it feasible to reconstruct idiotypic networks empirically — but the
+  theoretical framework developed 30 years ago is rarely cited in current
+  immunoinformatics papers.
+last_reviewed: "2026-05-06"
+references:
+  - doi: 10.1016/S0020-7519(74)80093-X
+    note: "Jerne, N.K. (1974). Towards a network theory of the immune system. Ann. Immunol. (Inst. Pasteur) 125C:373–389."
+  - doi: 10.1016/0165-2478(89)90133-5
+    note: "Perelson, A.S. (1989). Immune network theory. Immunol. Rev. 110:5–36."
+  - doi: 10.1016/0167-5699(91)90106-A
+    note: "Varela, F.J. & Coutinho, A. (1991). Second generation immune networks. Immunol. Today 12:159–166."
+  - note: Stewart, J. & Varela, F.J. (1991). Morphogenesis in shape-space. J. Theor. Biol. 153:477–498. -- Attractor dynamics in idiotypic networks

@@ -1,0 +1,92 @@
+id: b-shannon-entropy-genetic-information
+title: >
+  DNA is a digital information storage medium whose structure, redundancy, and
+  mutation dynamics are quantitatively captured by Shannon's information theory —
+  the genetic code is a natural error-correcting code whose properties minimize
+  the cost of single-nucleotide substitutions.
+status: established
+fields:
+  - information-theory
+  - molecular-biology
+  - genetics
+  - evolutionary-biology
+bridge_claim: >
+  Shannon's (1948) framework maps onto molecular genetics with striking precision.
+  The DNA alphabet has size q = 4 (A, T, G, C), so the maximum entropy per position
+  is log₂(4) = 2 bits. The information content of a genome of length L is:
+
+    I_genome = Σᵢ H(position i) bits ≤ 2L bits
+
+  The genetic code (64 codons → 20 amino acids + 3 stop codons) has redundancy
+  R = 1 - H(codons)/log₂(64), which acts as an error-correcting code: synonymous
+  mutations (same amino acid) are "corrected" at the protein level. Freeland & Hurst
+  (1998) showed the standard genetic code is near-optimal among all possible codon
+  tables for minimizing the average change in amino acid physicochemical properties
+  per single-base substitution — a natural error-correcting property.
+
+  DNA replication is a noisy communication channel with error rate ε ≈ 10⁻⁹ per base
+  per replication (after proofreading). The Shannon capacity of this channel determines
+  the maximum heritable information per genome. Natural selection acts as a channel
+  that preferentially transmits high-fitness sequences, effectively increasing the
+  signal-to-noise ratio in the population.
+
+  KEY CONNECTIONS:
+
+  1. SEQUENCE CONSERVATION AS INFORMATION: highly conserved positions carry high
+     information (low entropy); variable positions carry low information. This provides
+     a model-free way to identify functionally important sites.
+
+  2. MUTATION AS CHANNEL NOISE: the mutation rate μ per site per generation is the
+     bit error rate of the DNA replication channel. Mutational robustness = channel
+     coding efficiency.
+
+  3. GENETIC CODE OPTIMALITY: the degeneracy pattern of the genetic code
+     (e.g., all synonymous codons for Leu, Val, etc. differ only in the 3rd position)
+     minimises the phenotypic impact of the most common replication errors — a natural
+     linear block code.
+
+  4. SHANNON ENTROPY AND BINDING SITES: transcription factor binding sites have
+     information content I = 2L - H (bits) where H is the per-position entropy across
+     known binding sequences. This quantifies the specificity of recognition.
+translation_table:
+  - field_a_term: alphabet size q
+    field_b_term: nucleotide bases (A, T, G, C)
+    note: q = 4 for DNA/RNA; q = 20 for amino acid sequences
+  - field_a_term: Shannon entropy H(X)
+    field_b_term: sequence variability per position
+    note: High-entropy positions are variable (evolutionarily unconstrained); low-entropy positions are conserved
+  - field_a_term: channel noise / bit error rate
+    field_b_term: mutation rate per base per generation
+    note: Both quantify the probability of a symbol being changed during transmission/replication
+  - field_a_term: redundancy / error-correcting code
+    field_b_term: genetic code degeneracy (synonymous codons)
+    note: Synonymous codons provide natural redundancy that buffers the phenotype against single-base errors
+  - field_a_term: channel capacity C
+    field_b_term: maximum heritable information per genome
+    note: Shannon's theorem bounds how much information can survive noisy replication and selection
+related_unknowns:
+  - u-genetic-code-information-optimality
+related_hypotheses:
+  - h-genetic-code-error-correcting-design
+cross_pollination_opportunities:
+  - Apply channel coding theory (turbo codes, LDPC) to understand the effective error-correction capacity of the genetic code
+  - Use mutual information between sequence positions to identify epistatic interactions without knowing the phenotype
+  - Design synthetic genetic codes with higher information density by optimizing codon usage for a target amino acid alphabet
+  - Apply data compression algorithms to genome sequences as a model-free measure of biological complexity
+communication_gap: >
+  Information theorists rarely study biology; molecular biologists rarely apply
+  Shannon's framework quantitatively. The formal equivalence between DNA replication
+  and a noisy channel is acknowledged in bioinformatics but rarely taught as a
+  founding principle. The error-correcting interpretation of the genetic code
+  (Freeland & Hurst 1998) is a landmark result that remains outside standard
+  genetics curricula.
+last_reviewed: "2026-05-06"
+references:
+  - note: Shannon, C.E. (1948). A Mathematical Theory of Communication. Bell Syst. Tech. J. 27:379–423. -- Original information theory paper
+  - note: Gatlin, L.L. (1972). Information Theory and the Living System. Columbia University Press. -- First systematic application of Shannon entropy to biological sequences
+  - doi: 10.1007/s002390010011
+    note: "Freeland, S.J. & Hurst, L.D. (1998). The genetic code is one in a million. J. Mol. Evol. 47:238–248."
+  - doi: 10.1038/nrg1419
+    note: "Adami, C. (2004). Information theory in molecular biology. Nat. Rev. Genet. 5:880–888."
+  - url: https://doi.org/10.1093/nar/18.20.6097
+    note: "Schneider & Stephens (1990) — sequence logos for information-theoretic visualization of binding-site specificity"
