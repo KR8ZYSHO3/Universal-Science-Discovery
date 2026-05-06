@@ -1,0 +1,67 @@
+id: b-evolutionary-algorithms-natural-computation
+title: >
+  Genetic algorithms and evolutionary strategies are computational implementations of
+  Darwinian evolution — variation-selection-inheritance applied to candidate solutions —
+  with formal equivalences to Fisher's fundamental theorem and population genetics.
+status: established
+fields:
+  - computer-science
+  - biology
+  - mathematics
+  - evolutionary-theory
+bridge_claim: >
+  Holland's genetic algorithm (1975) implements natural selection on populations of
+  candidate solutions: selection (fitness proportionate reproduction), crossover (genetic
+  recombination), and mutation (random bit flips). The schema theorem states that short,
+  above-average schemata (building blocks) grow at exponential rate r(H) ≈ f(H)/f̄,
+  formally equivalent to Fisher's fundamental theorem (df̄/dt = σ²_w, variance in fitness).
+  Evolutionary strategies (ES, Rechenberg), genetic programming (Koza), and neuroevolution
+  (NEAT, Stanley) all implement variation-selection-inheritance on different representations.
+  The no-free-lunch theorem (Wolpert & Macready 1997) — no algorithm outperforms random
+  search averaged over all problems — is the computational analogue of Fisher's result
+  that natural selection requires a fitness landscape not random with respect to phenotype.
+translation_table:
+  - field_a_term: candidate solution (chromosome)
+    field_b_term: organism genotype
+    note: Encoded representation of a solution; both subject to selection and variation
+  - field_a_term: fitness function
+    field_b_term: reproductive success
+    note: Objective function in optimisation = Darwinian fitness; both determine propagation rate
+  - field_a_term: crossover (two-parent recombination)
+    field_b_term: sexual recombination / meiosis
+    note: Combines building blocks from two parents; disrupts tight schemata
+  - field_a_term: schema theorem
+    field_b_term: Fisher's fundamental theorem of natural selection
+    note: Both state that above-average variants grow at a rate proportional to their excess fitness
+  - field_a_term: mutation rate
+    field_b_term: genomic mutation rate per generation
+    note: Optimal mutation rate (1/L for binary strings) parallels Eigen's error threshold in molecular evolution
+related_unknowns:
+  - u-evolutionary-algorithms-replicator-dynamics
+related_hypotheses:
+  - h-schema-theorem-replicator-equivalence
+cross_pollination_opportunities:
+  - >
+    Evolutionary drug resistance: antibiotic resistance evolution in bacteria is a
+    natural genetic algorithm. The same schema theorem analysis applies: resistance
+    mutations are building blocks; combination therapy disrupts high-fitness schemata
+    by requiring simultaneous mutations at multiple loci. This reframes combination
+    therapy design as a genetic algorithm landscape analysis problem.
+  - >
+    Protein design as evolutionary algorithm: directed evolution (Arnold Nobel 2018)
+    is explicitly a genetic algorithm run in the lab. Theoretical GA results on optimal
+    mutation rates and crossover operators should transfer directly to directed evolution
+    protocol design.
+communication_gap: >
+  Computer science evolutionary algorithm courses rarely engage with theoretical
+  population genetics; evolutionary biology courses rarely mention genetic algorithms.
+  The formal equivalence is known in evolutionary computation but not widely taught
+  as a two-way bridge that enriches both fields.
+last_reviewed: "2026-05-06"
+references:
+  - note: "Holland, J.H. (1975). Adaptation in Natural and Artificial Systems. University of Michigan Press."
+  - note: "Goldberg, D.E. (1989). Genetic Algorithms in Search, Optimization, and Machine Learning. Addison-Wesley."
+  - doi: 10.1109/4235.585893
+    note: "Wolpert, D.H. & Macready, W.G. (1997). No free lunch theorems for optimization. IEEE Trans Evol Comput 1:67."
+  - doi: 10.1162/106365602320169811
+    note: "Stanley, K.O. & Miikkulainen, R. (2002). Evolving neural networks through augmenting topologies. Evol Comput 10:99."
