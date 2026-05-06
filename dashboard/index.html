@@ -1166,7 +1166,7 @@
       <div class="pill-row" aria-label="Highlights">
         <span class="pill live"><span class="d"></span> Phase 0 · Foundation 2026</span>
         <span class="pill">100 cross-domain bridges</span>
-        <span class="pill">508 unknowns · 90 hypotheses · 1 pre-formal observation</span>
+        <span class="pill">544 unknowns · 116 hypotheses · 1 pre-formal observation</span>
         <span class="pill">Git-native · Open source</span>
       </div>
 
@@ -1188,15 +1188,15 @@
           <div class="lbl">Contributors</div>
         </div>
         <div class="stat-card">
-          <div class="n" id="stat-hyp">84</div>
+          <div class="n" id="stat-hyp">116</div>
           <div class="lbl">Active Hypotheses</div>
         </div>
         <div class="stat-card">
-          <div class="n" id="stat-unk">508</div>
+          <div class="n" id="stat-unk">544</div>
           <div class="lbl">Tracked Unknowns</div>
         </div>
         <div class="stat-card">
-          <div class="n" id="stat-bridges">84</div>
+          <div class="n" id="stat-bridges">100</div>
           <div class="lbl">Cross-domain Bridges</div>
         </div>
         <div class="stat-card">
@@ -2411,13 +2411,24 @@
     var tipEl  = document.getElementById('kg-tooltip');
     if (!svgEl) return;
 
-    var kgPaths = ['../docs/knowledge_graph.json', 'knowledge_graph.json', 'docs/knowledge_graph.json'];
+    /* Build absolute path from current page location for GitHub Pages compatibility */
+    var _base = window.location.href.replace(/\/[^\/]*$/, '/').replace(/\/dashboard\/$/, '/');
+    var kgPaths = [
+      _base + 'api/v1/graph.json',
+      _base + 'docs/knowledge_graph.json',
+      '../api/v1/graph.json',
+      '../docs/knowledge_graph.json',
+      'knowledge_graph.json',
+      'docs/knowledge_graph.json'
+    ];
     (function tryNextPath(paths) {
       if (!paths.length) {
         if (window.location.protocol === 'file:') {
           renderFallback('Run a local server to see the interactive graph:<br><code>python -m http.server 8765</code>');
         } else {
-          renderFallback('Could not load knowledge_graph.json — all paths failed.');
+          renderFallback('Graph data is loading\u2026 if this persists, '
+            + '<a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/" '
+            + 'style="color:var(--accent)" target="_blank" rel="noopener">try the GitHub Pages version</a>.');
         }
         return;
       }
