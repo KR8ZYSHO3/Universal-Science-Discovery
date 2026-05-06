@@ -2,6 +2,8 @@
 
 **Authors:** KR8ZYSHO3 and Contributors (Universal Science Discovery Repository)
 
+**Version:** v1.0 — May 2026
+
 **Suggested categories:** cs.DL (primary) · q-bio.QM · physics.soc-ph (cross-list)
 
 **Repository:** <https://github.com/KR8ZYSHO3/Universal-Science-Discovery>
@@ -17,16 +19,17 @@ version-controlled catalog of scientific unknowns, hypotheses, and cross-domain
 mathematical bridges. Unlike traditional literature databases that index what is known,
 USDR explicitly catalogs what remains unknown — structured as machine-readable YAML
 entries governed by formal JSON Schema validation. The repository currently contains
-approximately 632 entries across 22 scientific domains, including 54 cross-domain
-bridges that formalise mathematical correspondences between fields that rarely
-communicate. We describe the schema design, the knowledge graph structure (633 nodes,
-443 edges), and the AI co-pilot tooling that automatically surfaces novel bridge
-candidates by analysing domain connectivity gaps. USDR is designed as collaborative
-infrastructure: all entries are version-controlled, peer-reviewable via pull requests,
-and linked to primary literature. We discuss the epistemological rationale for
-explicitly tracking unknowns, the governance model for maintaining quality at scale, and
-the roadmap toward 10,000+ entries with institutional partnerships. The repository is
-available at <https://github.com/KR8ZYSHO3/Universal-Science-Discovery>.
+750+ entries across 22 scientific domains, including 100 cross-domain bridges that
+formalise mathematical correspondences between fields that rarely communicate, 544 open
+unknowns across 22 disciplines, and 116 falsifiable hypotheses. We describe the schema
+design, the knowledge graph structure (761 nodes), and the AI co-pilot tooling that
+automatically surfaces novel bridge candidates by analysing domain connectivity gaps.
+USDR is designed as collaborative infrastructure: all entries are version-controlled,
+peer-reviewable via pull requests, and linked to primary literature. We discuss the
+epistemological rationale for explicitly tracking unknowns, the governance model for
+maintaining quality at scale, and the roadmap toward 10,000+ entries with institutional
+partnerships. The repository is available at
+<https://github.com/KR8ZYSHO3/Universal-Science-Discovery>.
 
 ---
 
@@ -206,9 +209,9 @@ graph from all YAML entries by reading `id`, `type`, and cross-reference fields
 (`related_unknowns`, `related_bridges`, `related_hypotheses`, `unknowns_addressed`).
 The resulting graph is serialised to `docs/knowledge_graph.json` and contains:
 
-- **633 nodes** representing individual entries (unknowns, hypotheses, bridges, and
+- **751 nodes** representing individual entries (unknowns, hypotheses, bridges, and
   phenomena).
-- **443 edges** representing explicit cross-references between entries.
+- Edges representing explicit cross-references between entries.
 
 Nodes carry type metadata enabling graph-theoretic analysis of domain connectivity,
 bridge coverage, and orphan identification. The graph is rebuilt on every CI run;
@@ -224,13 +227,12 @@ rebuilt deterministically from the source files.
 
 | Metric | Value |
 |--------|-------|
-| Total entries | ~632 |
-| Unknowns | ~498 |
-| Hypotheses | ~80 |
-| Bridges | 54 |
+| Total entries | ~760 |
+| Unknowns | 544 |
+| Hypotheses | 116 |
+| Bridges | 100 |
 | Domains | 22 |
-| Knowledge graph nodes | 633 |
-| Knowledge graph edges | 443 |
+| Knowledge graph nodes | 761 |
 | Domain pairs evaluated for bridge gaps | 561 |
 
 ---
@@ -530,16 +532,16 @@ universality class proofs is not in the standard reading list for conservation b
 ## 8. Current Status and Roadmap
 
 **8.1 Phase 0 status.** The repository has completed its initial seeding phase with
-approximately 632 entries across 22 domains. The governance infrastructure is live:
+approximately 760 entries across 22 domains. The governance infrastructure is live:
 schema validation CI, pull request templates, contribution guidelines, and the AI
 co-pilot tooling suite are all operational. The contributor dashboard
 (`dashboard/index.html`) provides a guided entry point for new contributors. The
 knowledge graph is built deterministically from source YAML and published as a
 queryable JSON artifact.
 
-The 54 cross-domain bridges span 29 domain pair directories. The majority (38 of 54)
-carry `status: proposed`, indicating community recognition of a plausible connection
-without yet a published cross-disciplinary validation. Three bridges carry `status:
+The 100 cross-domain bridges span multiple domain pair directories. The majority carry
+`status: proposed`, indicating community recognition of a plausible connection without
+yet a published cross-disciplinary validation. Several bridges carry `status:
 established`: b-spin-glass-neural-networks, b-turing-reaction-diffusion, and
 b-landauer-information-thermodynamics. The established bridges serve as calibration
 examples for the review process.
@@ -579,7 +581,7 @@ first-class, version-controlled, schema-validated objects linked to primary lite
 gap documentation; (iii) git-native community governance that applies the same peer
 review mechanism to knowledge claims that software engineering applies to code.
 
-The current 632 entries across 22 domains are a seed, not a completion. The value of
+The current 760+ entries across 22 domains are a seed, not a completion. The value of
 the repository will scale with community participation: each new unknown registered
 makes the frontier more visible; each new bridge identified makes cross-domain discovery
 more likely; each new hypothesis proposed with falsification criteria moves a question
@@ -587,6 +589,16 @@ from informal community knowledge to a testable, citable record.
 
 We invite researchers in all scientific disciplines to contribute. The frontier is not
 as invisible as it appears — it is simply not yet indexed.
+
+---
+
+## Data and Code Availability
+
+All catalog data, scripts, and the dashboard are available at
+<https://github.com/KR8ZYSHO3/Universal-Science-Discovery> under CC BY 4.0 (catalog)
+and MIT (code) licenses. The knowledge graph is published as a static JSON API at
+`api/v1/graph.json` and can be queried directly via GitHub Pages at
+<https://kr8zysho3.github.io/Universal-Science-Discovery/api/v1/graph.json>.
 
 ---
 
@@ -698,11 +710,11 @@ DOI: 10.1103/PhysRevLett.59.381.
 ---
 
 *Word count (main text, excluding title block, abstract, and references): approximately
-4,600 words.*
+4,800 words.*
 
-*Data availability: All YAML source files, schemas, scripts, and the knowledge graph
-are available under CC BY 4.0 at
-<https://github.com/KR8ZYSHO3/Universal-Science-Discovery>.*
+*Data and Code Availability: All catalog data, scripts, and the dashboard are available
+at <https://github.com/KR8ZYSHO3/Universal-Science-Discovery> under CC BY 4.0 (catalog)
+and MIT (code) licenses.*
 
 *Competing interests: None declared.*
 

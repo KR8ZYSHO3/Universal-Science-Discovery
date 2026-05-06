@@ -99,6 +99,13 @@ Add `--dry-run` to summarize requests without writing files. Tests use recorded 
 
 **Developer dashboard:** [https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/)
 
+## License
+
+Catalog content (YAML entries, documentation): [CC BY 4.0](LICENSE)  
+Code (scripts, dashboard): [MIT](LICENSE-CODE)
+
+© 2026 Universal Science Discovery Repository Contributors
+
 ## AI-assisted work in this repo
 
 Project-specific Cursor guidance is in [cursorrules](cursorrules) (import or symlink into `.cursor/rules/` per your editor setup).
