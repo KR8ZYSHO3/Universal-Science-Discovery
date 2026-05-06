@@ -14,8 +14,12 @@ from collections import defaultdict
 ROOT = Path(__file__).parent.parent
 
 def load_yaml(p):
-    try: return yaml.safe_load(p.read_text(encoding="utf-8")) or {}
-    except: return {}
+    try:
+        return yaml.safe_load(p.read_text(encoding="utf-8")) or {}
+    except Exception as exc:
+        import sys
+        print(f"  WARNING: could not parse {p}: {exc}", file=sys.stderr)
+        return {}
 
 def extract_citations(entry_id, entry_type, data):
     """Extract all references from a catalog entry."""
@@ -102,8 +106,9 @@ def main():
     ranked = sorted(citation_map.values(), key=lambda x: -x["count"])
 
     # Generate JSON output
+    from datetime import date
     output = {
-        "generated": str(Path(__file__).stat().st_mtime),
+        "generated": date.today().isoformat(),
         "total_citations": len(all_citations),
         "unique_references": len(citation_map),
         "cross_domain_papers": [r for r in ranked if r["count"] >= 2],

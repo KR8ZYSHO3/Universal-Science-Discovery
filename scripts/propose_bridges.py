@@ -94,7 +94,7 @@ def _breakthrough_gap_proposals(existing: set[str]) -> list[dict]:
     proposals: list[dict] = []
     gaps_dir = ROOT / "breakthrough-gaps"
     if not gaps_dir.exists():
-        return gaps_dir
+        return proposals
     for p in gaps_dir.glob("bg-*.yaml"):
         try:
             d = _yaml_load(p)
