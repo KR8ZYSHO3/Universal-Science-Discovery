@@ -1,0 +1,64 @@
+id: b-fracture-mechanics-griffith
+title: >
+  Griffith's fracture criterion bridges atomic surface energy (materials science) and
+  macroscopic structural failure (engineering) by equating the elastic strain energy
+  release rate to the cost of creating new crack surfaces.
+status: established
+fields:
+  - materials-science
+  - engineering
+  - physics
+  - mathematics
+bridge_claim: >
+  Griffith (1921) derived the critical stress for crack propagation: σ_f = √(2Eγ/πa),
+  where E is Young's modulus, γ is specific surface energy, and a is half-crack length.
+  This equates the macroscopic (continuum mechanics) energy release rate G = πσ²a/E to
+  the microscopic (atomic) surface creation cost 2γ. Irwin's stress intensity factor
+  K = σ√(πa) characterises the singular stress field at the crack tip; fracture toughness
+  K_Ic is a material property. Fatigue crack growth follows the Paris law da/dN = C(ΔK)^m.
+  This framework bridges: materials science (surface energy, atomic bonding, crack initiation),
+  solid mechanics (stress fields, elastic energy), and engineering design (safety factors,
+  damage tolerance, maintenance schedules). Every structural engineering safety calculation
+  — from aircraft fuselages to nuclear pressure vessels — uses this bridge.
+translation_table:
+  - field_a_term: specific surface energy γ (J/m²)
+    field_b_term: material's resistance to crack initiation (materials science)
+    note: Atomic bonding energy per unit area; varies by crystallography and environment
+  - field_a_term: stress intensity factor K_I
+    field_b_term: loading severity at crack tip (engineering)
+    note: Combines applied stress and crack geometry; universal across geometries at same K
+  - field_a_term: fracture toughness K_Ic (MPa·m^0.5)
+    field_b_term: critical K_I at fracture; material property
+    note: "The bridge quantity: determined by materials science, used directly in engineering design"
+  - field_a_term: Paris law exponent m
+    field_b_term: fatigue crack growth rate per load cycle
+    note: Empirical law; m=2-4 for metals; set by microstructure and crack-tip plasticity
+related_unknowns:
+  - u-2d-material-defect-transport
+related_hypotheses:
+  - h-griffith-crack-2d-material-defects
+cross_pollination_opportunities:
+  - >
+    Fracture mechanics of biological tissues: bone, tendon, and nacre have fracture
+    toughnesses far exceeding what their mineral constituents would predict. Biological
+    toughening mechanisms (crack deflection, sacrificial bonds, mineral bridging) could
+    inspire next-generation composite designs by reverse-engineering the biological bridge.
+  - >
+    Molecular dynamics-informed fracture mechanics: MD simulations can compute γ at
+    specific grain boundaries and defects, feeding directly into Griffith-Irwin calculations.
+    This closes the scale gap between atomic simulations and engineering predictions
+    without empirical calibration factors.
+communication_gap: >
+  Griffith's original paper went largely unread for 30 years because it appeared in
+  a pure mathematics journal. The Irwin-Orowan reformulation brought it to engineers.
+  Today materials scientists measure γ without connecting it to K_Ic, and engineers
+  use K_Ic without knowing the atomic origin — the bridge between scales is known but
+  not routinely taught as a single coherent framework.
+last_reviewed: "2026-05-06"
+references:
+  - doi: 10.1098/rsta.1921.0006
+    note: "Griffith, A.A. (1921). The phenomena of rupture and flow in solids. Phil Trans R Soc A 221:163."
+  - note: "Irwin, G.R. (1957). Analysis of stresses and strains near the end of a crack traversing a plate. J Appl Mech 24:361."
+  - doi: 10.1115/1.3656900
+    note: "Paris, P. & Erdogan, F. (1963). A critical analysis of crack propagation laws. J Basic Eng 85:528."
+  - note: "Anderson, T.L. (2017). Fracture Mechanics: Fundamentals and Applications (4th ed.). CRC Press."

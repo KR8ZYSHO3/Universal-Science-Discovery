@@ -1,0 +1,66 @@
+id: b-protein-interaction-robustness
+title: >
+  The human protein-protein interaction network is scale-free, making it robust to
+  random protein loss but fragile to targeted hub removal — the same robustness-fragility
+  tradeoff that governs all scale-free networks.
+status: established
+fields:
+  - biology
+  - network-science
+  - medicine
+bridge_claim: >
+  The human protein-protein interaction (PPI) network has degree distribution P(k) ∝ k^(−γ)
+  with γ ≈ 2.4, the signature of a scale-free network grown by preferential attachment.
+  Essential proteins (those whose knockout is lethal) are enriched at high-degree hubs.
+  Network percolation theory predicts that scale-free networks are robust to random
+  node removal (the giant connected component persists) but fragile to targeted removal
+  of the highest-degree nodes. This predicts: (a) random mutations tolerated; (b) hub
+  mutations disproportionately lethal; (c) hub proteins are the best drug targets for
+  disrupting disease modules, but hub targeting also risks high off-target toxicity
+  (many edges to essential processes). The same topological duality governs internet
+  routing, power grids, and financial networks — the scale-free robustness-fragility
+  tradeoff is a universal consequence of the degree distribution, not a specific property
+  of biology.
+translation_table:
+  - field_a_term: protein interaction hub (high-degree node)
+    field_b_term: internet router or power grid substation (high-degree node)
+    note: Structural equivalence — both follow scale-free degree distribution
+  - field_a_term: essential protein (lethal knockout)
+    field_b_term: critical infrastructure node
+    note: Biological essentiality maps onto network critical node; both identified by betweenness centrality
+  - field_a_term: percolation threshold p_c
+    field_b_term: mutation load threshold for viable organism
+    note: Below p_c fraction of removed proteins, giant connected component collapses
+  - field_a_term: drug target hub protein
+    field_b_term: congestion control bottleneck
+    note: Both exploit hub fragility for disruption, with corresponding off-target effects
+related_unknowns:
+  - u-protein-protein-interaction-design
+related_hypotheses:
+  - h-ppi-hub-targeting-cancer
+cross_pollination_opportunities:
+  - >
+    Network immunisation strategies from epidemiology applied to drug target selection:
+    acquaintance immunisation (targeting friends-of-random-nodes) selects partial hubs
+    more efficiently than random selection but avoids the highest-degree hubs where
+    off-target toxicity is highest.
+  - >
+    Synthetic lethality as targeted edge removal: CRISPR screens for synthetic lethal
+    gene pairs exploit network redundancy — pairs of non-hub proteins whose simultaneous
+    removal is lethal because they form a minimal path connecting essential processes.
+    Network topology predicts synthetic lethal pairs from path analysis.
+communication_gap: >
+  Network science and molecular biology publish in different journals. The scale-free
+  network framework was applied to PPIs by Barabási's group but has not fully integrated
+  into clinical pharmacology, where drug target selection is still dominated by pathway
+  analysis rather than network topology.
+last_reviewed: "2026-05-06"
+references:
+  - doi: 10.1126/science.286.5439.509
+    note: "Barabási, A-L. & Albert, R. (1999). Emergence of scaling in random networks. Science 286:509."
+  - doi: 10.1038/35075138
+    note: "Jeong, H. et al. (2001). Lethality and centrality in protein networks. Nature 411:41."
+  - doi: 10.1038/35019019
+    note: "Albert, R. et al. (2000). Error and attack tolerance of complex networks. Nature 406:378."
+  - doi: 10.1073/pnas.0701361104
+    note: "Goh, K-I. et al. (2007). The human disease network. PNAS 104:8685."
