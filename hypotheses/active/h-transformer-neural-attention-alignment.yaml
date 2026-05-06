@@ -1,0 +1,54 @@
+id: h-transformer-neural-attention-alignment
+title: >
+  Transformer attention heads trained on naturalistic language and vision tasks develop
+  representations that are quantitatively aligned with neural attention modulation
+  patterns in primate visual cortex, with multi-head diversity corresponding to the
+  functional specialisation of cortical attention areas.
+status: active
+created: "2026-05-05"
+last_updated: "2026-05-05"
+priority: medium
+related_disciplines:
+  - computer-science
+  - neuroscience
+  - machine-learning
+  - computational-neuroscience
+unknowns_addressed:
+  - u-transformer-attention-biological-plausibility
+evidence_links:
+  - type: supporting
+    arxiv: "2302.07087"
+    note: >
+      Schrimpf et al. (2021) Brain-Score framework: transformer models predict neural
+      responses in ventral visual stream with higher accuracy than feedforward CNNs,
+      suggesting the attention mechanism contributes to biological plausibility.
+  - type: supporting
+    doi: "10.1016/j.cub.2019.11.015"
+    note: >
+      Lindsay (2020) review: transformer attention and divisive normalisation share
+      the key property of normalised, input-dependent gating — but quantitative
+      comparisons to single-unit neural data are lacking.
+  - type: contradicting
+    note: >
+      The temporal dynamics of neural attention (100-300 ms oscillatory modulation,
+      saccadic resets, sustained vs. transient attention components) have no counterpart
+      in the static attention weights of standard feedforward transformers. If temporal
+      dynamics are essential to neural attention function, the static transformer
+      model is a poor proxy.
+proposed_tests:
+  - discipline: computational-neuroscience
+    description: >
+      Record multi-electrode array data from macaque V4 and MT during a cued spatial
+      attention task. Extract the attention modulation index (AMI) for each neuron.
+      Process the same stimuli through ViT (Vision Transformer) and extract attention
+      weights for each head. Compute the correlation between attention weights and
+      neural AMI across stimulus positions. Test whether the correlation exceeds that
+      for CNN feature map activations (the current baseline for neural predictivity).
+  - discipline: machine-learning
+    description: >
+      Train a recurrent transformer (Universal Transformer with memory) on a temporal
+      attention task (cued target detection in a video sequence). Compare the temporal
+      profile of attention weights to the temporal profile of neural modulation (PSTH
+      aligned to cue onset) from macaque electrophysiology. Test whether recurrent
+      transformers match the ~150 ms latency of attentional modulation better than
+      feedforward transformers.

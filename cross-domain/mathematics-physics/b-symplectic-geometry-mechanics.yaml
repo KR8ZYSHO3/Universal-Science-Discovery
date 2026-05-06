@@ -1,0 +1,131 @@
+id: b-symplectic-geometry-mechanics
+title: >
+  Hamilton's equations are flows on a symplectic manifold (M, ω), Noether's theorem
+  is the statement that Hamiltonian symmetries preserve the symplectic form, and
+  quantum mechanics is the deformation quantization of the classical symplectic
+  structure — making symplectic geometry the exact mathematical language of mechanics
+  at every scale from classical to quantum.
+status: established
+fields:
+  - mathematics
+  - differential-geometry
+  - classical-mechanics
+  - quantum-mechanics
+  - mathematical-physics
+bridge_claim: >
+  Classical mechanics is entirely captured by symplectic geometry: the phase space
+  (q, p) of a mechanical system is a symplectic manifold (M, ω) where ω = dq ∧ dp
+  is the symplectic 2-form. Hamilton's equations
+
+    ṗ = -∂H/∂q,  q̇ = ∂H/∂q
+
+  are precisely the flow of the Hamiltonian vector field X_H defined by ω(X_H, ·) = dH.
+  The symplectic form is the central geometric object; every classical result in
+  mechanics translates to a statement about (M, ω).
+
+  KEY IDENTITIES:
+
+  1. NOETHER'S THEOREM AS SYMPLECTIC GEOMETRY: A continuous symmetry of H generates
+     a conserved quantity via the moment map μ: M → g* (where g is the Lie algebra
+     of the symmetry group). The conservation law is exactly ω(X_H, X_G) = 0, which
+     says the Hamiltonian flow preserves the symplectic form. This reformulation
+     makes Noether's theorem a statement about the geometry of the phase space, not
+     about differential equations.
+
+  2. LAGRANGIAN SUBMANIFOLDS = CLASSICAL TRAJECTORIES: A submanifold L ⊂ M is
+     Lagrangian if dim(L) = n and ω|_L = 0. Classical trajectories of a conservative
+     system are Lagrangian submanifolds of the extended phase space. This gives a
+     global (coordinate-free) characterisation of what a classical solution is.
+
+  3. SYMPLECTIC REDUCTION = CONSTRAINT ELIMINATION: When a Lie group G acts
+     on M with moment map μ, the reduced phase space is μ^{-1}(0)/G. This is the
+     mathematically precise version of "eliminating constraints" in constrained
+     mechanical systems (Dirac constraint quantisation). Reduction preserves the
+     symplectic structure.
+
+  4. QUANTISATION = DEFORMATION: Quantum mechanics is the deformation quantization
+     of (M, ω): the algebra of classical observables C^∞(M) is deformed to the
+     non-commutative algebra of quantum operators where [q̂, p̂] = iℏ. The Weyl
+     quantisation map W: C^∞(M) → B(L²(ℝ^n)) is an ℏ-deformation of the Poisson
+     bracket {f, g} = ω^{-1}(df, dg). In the ℏ → 0 limit, the commutator [Â, B̂]/(iℏ)
+     converges to the Poisson bracket {A, B}, recovering classical mechanics exactly.
+
+  5. LIOUVILLE'S THEOREM AS SYMPLECTIC VOLUME PRESERVATION: The phase space volume
+     form ω^n / n! (the Liouville measure) is preserved by Hamiltonian flows —
+     Liouville's theorem from statistical mechanics is exactly the statement that
+     Hamiltonian vector fields are divergence-free in the symplectic volume form.
+     This is the geometric foundation of statistical mechanics.
+
+  6. KAM THEORY: The Kolmogorov-Arnold-Moser theorem — that most invariant tori of
+     an integrable system survive small perturbations — is a theorem about the
+     persistence of Lagrangian tori in the symplectic manifold under perturbation.
+     The Arnol'd conjecture (proved by Floer) is a symplectic topology result that
+     gives a lower bound on the number of fixed points of a Hamiltonian diffeomorphism.
+translation_table:
+  - field_a_term: "Symplectic manifold (M, ω)"
+    field_b_term: "Phase space of a mechanical system"
+    note: "Coordinates (q^i, p_i) are Darboux coordinates; ω = Σ dq^i ∧ dp_i globally"
+  - field_a_term: "Hamiltonian vector field X_H"
+    field_b_term: "Hamilton's equations of motion"
+    note: "ι_{X_H} ω = dH; the flow of X_H is the time evolution of the mechanical system"
+  - field_a_term: "Lagrangian submanifold"
+    field_b_term: "Classical trajectory (solution to equations of motion)"
+    note: "The graph of dS (Hamilton's principal function) is a Lagrangian submanifold"
+  - field_a_term: "Moment map μ: M → g*"
+    field_b_term: "Conserved quantities via Noether's theorem"
+    note: "Components of μ are the conserved charges associated to the symmetry group G"
+  - field_a_term: "Symplectic reduction μ^{-1}(0)/G"
+    field_b_term: "Constraint elimination in Dirac's theory"
+    note: "First-class constraints generate gauge symmetries; reduction removes them"
+  - field_a_term: "Deformation quantisation (ℏ-parameter)"
+    field_b_term: "Transition from classical to quantum mechanics"
+    note: "Poisson bracket {f,g} deforms to commutator [f̂,ĝ]/(iℏ) as ℏ → 0"
+  - field_a_term: "Symplectic volume ω^n / n!"
+    field_b_term: "Liouville measure in statistical mechanics"
+    note: "Preserved by Hamiltonian flow; foundation of the equiprobability of phase space microstates"
+related_unknowns:
+  - u-symplectic-quantization-semiclassical
+related_hypotheses:
+  - h-symplectic-quantization-new-prediction
+cross_pollination_opportunities:
+  - >
+    Floer homology — a symplectic topology invariant — counts pseudoholomorphic curves
+    in the symplectic manifold. These curves encode quantum corrections to classical
+    trajectories. Importing Floer-theoretic methods into quantum field theory could
+    provide new non-perturbative results in gauge theories, connecting string topology
+    to path integrals.
+  - >
+    Symplectic integrators (Störmer-Verlet, leapfrog) exactly preserve the discrete
+    symplectic form and therefore have much better long-term energy conservation than
+    standard Runge-Kutta methods. Engineering and astrophysical N-body simulations
+    have widely adopted symplectic integration, but molecular dynamics in chemistry
+    and biophysics has been slower to adopt it. Systematic benchmarking of symplectic
+    vs non-symplectic integrators in protein folding simulations is an under-explored
+    application.
+  - >
+    The Arnol'd conjecture (every Hamiltonian diffeomorphism has at least as many
+    fixed points as the sum of Betti numbers of M) was the key motivation for Floer's
+    invention of Floer homology. It remains open whether the full Arnol'd conjecture
+    holds for all symplectic manifolds; its resolution would have direct implications
+    for the topology of classical periodic orbits in Hamiltonian systems.
+communication_gap: >
+  Arnold (1978) demonstrated that classical mechanics can be entirely reformulated
+  in symplectic language, but physics textbooks still teach Hamilton's equations as
+  differential equations without the geometric context. The symplectic geometry
+  literature (Guillemin, Sternberg, McDuff, Salamon) is written for mathematicians.
+  The deformation quantization connection (Kontsevich 1997 formality theorem, Fields
+  Medal 1998) is essentially unknown to most physicists outside mathematical physics.
+  The result is that physicists reinvent symplectic results in coordinate language
+  while mathematicians prove theorems unconnected to physical intuition.
+last_reviewed: "2026-05-05"
+references:
+  - note: "Arnold (1978) Mathematical Methods of Classical Mechanics (Springer) — definitive treatment of symplectic mechanics"
+    url: "https://link.springer.com/book/10.1007/978-1-4757-2063-1"
+  - doi: "10.1007/BF01209016"
+    note: "Weyl (1931) — quantization and group theory; early deformation quantization"
+  - note: "Dirac (1964) Lectures on Quantum Mechanics (Yeshiva UP) — constraint quantization and symplectic reduction"
+    url: "https://store.doverpublications.com/0486417131.html"
+  - doi: "10.1023/A:1021693402513"
+    note: "Kontsevich (2003) Lett Math Phys 66:157 — deformation quantization of Poisson manifolds; Fields Medal result"
+  - note: "McDuff & Salamon (2017) Introduction to Symplectic Topology, 3rd ed. (Oxford) — modern reference"
+    url: "https://oxford.universitypressscholarship.com/view/10.1093/oso/9780198794899.001.0001/oso-9780198794899"
