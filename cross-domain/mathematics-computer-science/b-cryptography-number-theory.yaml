@@ -1,0 +1,98 @@
+id: b-cryptography-number-theory
+title: >
+  Modern cryptography is applied number theory: RSA security rests on the hardness
+  of integer factorization, elliptic curve cryptography on the discrete logarithm
+  problem over finite fields, and post-quantum cryptography on the shortest vector
+  problem in integer lattices — each translating a mathematical hardness assumption
+  into a practical security guarantee.
+status: established
+fields:
+  - mathematics
+  - number-theory
+  - computer-science
+  - cryptography
+  - algebra
+  - complexity-theory
+bridge_claim: >
+  RSA (Rivest, Shamir, Adleman 1978): public key e, private key d, modulus n = pq
+  (product of two large primes). Key relationship: ed ≡ 1 (mod φ(n)) where
+  φ(n) = (p-1)(q-1) is Euler's totient function. Encryption: c = m^e (mod n);
+  decryption: m = c^d (mod n). Security relies on the hardness of integer factorization:
+  given n, finding p and q requires (conjecturally) sub-exponential time
+  exp(O((log n)^{1/3}(log log n)^{2/3})) via the General Number Field Sieve (GNFS).
+  A 2048-bit RSA key requires ~2^{112} GNFS operations — computationally infeasible
+  classically but vulnerable to quantum computers (Shor 1994).
+
+  Elliptic curve cryptography (ECC): an elliptic curve E: y² = x³ + ax + b over
+  a finite field F_p (p prime) forms an abelian group under the chord-and-tangent
+  law. The elliptic curve discrete logarithm problem (ECDLP): given P, Q on E with
+  Q = kP, find k. Best known algorithm is Pollard's rho in O(√p) time — exponential
+  in key size. 256-bit ECC provides ~128-bit security, equivalent to 3072-bit RSA,
+  but with 12× smaller keys. Used in Bitcoin (secp256k1), TLS 1.3 (X25519, P-256).
+
+  Shor's algorithm (1994): quantum algorithm for integer factorization running in
+  O((log n)³) time — polynomial in the input size, breaking RSA, Diffie-Hellman,
+  and ECDLP simultaneously. The algorithm uses the quantum Fourier transform to find
+  the period r of f(x) = a^x (mod n), from which factors are extracted via GCD.
+  A 4096-qubit fault-tolerant quantum computer would break 2048-bit RSA in hours.
+
+  Post-quantum cryptography (NIST PQC standardization 2022): lattice-based schemes
+  (CRYSTALS-Kyber for KEM, CRYSTALS-Dilithium for signatures) rely on the hardness
+  of the Learning With Errors (LWE) problem: given A, b = As + e (mod q) with
+  small error vector e, find s. LWE is conjectured hard for both classical and quantum
+  computers. SPHINCS+ (hash-based signatures) relies only on hash function security.
+  Code-based cryptography (BIKE, HQC) rests on decoding random linear codes.
+translation_table:
+  - field_a_term: Euler's totient function φ(n) = |(Z/nZ)*|
+    field_b_term: RSA key space size / group order in RSA
+    note: the group structure of (Z/nZ)* under multiplication is the foundation of RSA correctness
+  - field_a_term: discrete logarithm problem (DLP) in Z_p*
+    field_b_term: Diffie-Hellman key exchange security assumption
+    note: DH security requires DLP hardness; Pohlig-Hellman reduces DLP to prime-order subgroups
+  - field_a_term: elliptic curve group law (chord-and-tangent, point at infinity)
+    field_b_term: ECC cryptographic operations (scalar multiplication Q = kP)
+    note: group structure enables public key cryptography with smaller key sizes than RSA
+  - field_a_term: lattice (integer linear combinations of basis vectors in R^n)
+    field_b_term: LWE / NTRU post-quantum cryptographic keys
+    note: hardness of shortest vector problem (SVP) in high-dimensional lattices is the PQC security foundation
+  - field_a_term: quantum Fourier transform (QFT over Z_N)
+    field_b_term: Shor's period-finding algorithm (breaks RSA and DLP)
+    note: QFT computes DFT over Z_N in O(log² N) quantum gates vs. O(N log N) classical FFT
+related_unknowns:
+  - u-lwe-hardness-proof-quantum-reduction
+related_hypotheses:
+  - h-kyber-lwe-parameter-quantum-security-margin
+cross_pollination_opportunities:
+  - >
+    Algebraic geometry codes (Goppa codes, Algebraic Geometry codes from curves):
+    the intersection of algebraic geometry and coding theory produced codes achieving
+    the Gilbert-Varshamov bound (Tsfasman-Vlăduţ-Zink 1982). These codes are now
+    used in post-quantum cryptography (McEliece cryptosystem based on Goppa codes).
+    The Weil conjectures (proved by Deligne 1974) on zeta functions of varieties over
+    finite fields directly determine the parameters of algebraic geometry codes —
+    connecting deep number theory to practical error-correcting codes.
+  - >
+    Isogeny-based cryptography (SIKE — broken 2022, but follow-on work continues):
+    isogenies between elliptic curves provide a mathematical structure that resists
+    both classical and quantum attacks (Shor's algorithm doesn't apply). The
+    mathematical theory (Tate's theorem, endomorphism rings of supersingular elliptic
+    curves) is deep algebraic number theory from the 1960s-70s being applied to
+    post-quantum security — a 50-year delayed translation.
+communication_gap: >
+  Number theory was considered the purest of pure mathematics — G.H. Hardy famously
+  celebrated its uselessness. The RSA paper (1978) imported Euler's totient theorem
+  (1763) directly into practical communication security 215 years after its statement.
+  Elliptic curves were studied by Fermat, Euler, and Abel for intrinsic mathematical
+  interest; their application to cryptography (Miller 1985, Koblitz 1987) came 200 years
+  later. NIST PQC standardization required number theorists, computer scientists,
+  and security engineers to collaborate — communities that rarely share publications,
+  conferences, or even mathematical vocabulary.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1145/359340.359342"
+    note: "Rivest, Shamir & Adleman (1978) A method for obtaining digital signatures and public-key cryptosystems; Commun ACM 21:120"
+  - doi: "10.1016/S0022-0000(85)80036-X"
+    note: "Miller (1985) Use of elliptic curves in cryptography; J Comput Syst Sci 31:469"
+  - doi: "10.1109/SFCS.1994.365700"
+    note: "Shor (1994) Algorithms for quantum computation — discrete logarithms and factoring; FOCS 35:124"
+  - note: NIST (2022) PQC Standardization Round 3 Finalists and Selected Algorithms — NIST IR 8413

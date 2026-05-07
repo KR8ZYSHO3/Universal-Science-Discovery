@@ -1,6 +1,6 @@
 # USDR Citation Index
 
-**3753 total citations · 2609 unique references · 446 cited in 2+ bridges**
+**3801 total citations · 2640 unique references · 446 cited in 2+ bridges**
 
 ## Most Cross-Domain Papers
 
@@ -49,15 +49,15 @@ Papers cited across the highest number of different bridges — the most influen
 | 3 | Kahneman & Tversky (1979) established λ ≈ 2.25 empirically in WEIRD samples | [DOI](10.2307/1914185) |
 | 3 | Armstrong McKay et al. (2022) — Tipping elements in the Earth system; Science 37... | [DOI](10.1126/science.abn7950) |
 | 3 | Arute et al. (2019) — 53-qubit Sycamore at 20 cycles; XEB = 0.224% (above classi... | [DOI](10.1038/s41586-019-1666-5) |
+| 3 | May (1976) Nature 261:459 — simple mathematical models exhibit chaos; period-dou... | [DOI](10.1038/261459a0) |
 | 3 | Wagner et al. (2004) - sleep promotes insight into hidden mathematical rule (num... | [DOI](10.1126/science.1205106) |
 | 3 | Dietz et al. (2003) Science 302:1907 — commons governance empirical tests | [DOI](10.1126/science.1091015) |
 | 3 | Brockett (1972) — Lie algebra controllability condition (basis for bracket depth... | [DOI](10.1137/0310021) |
 | 3 |  | [DOI](10.1002/j.1538-7305.1948.tb01338.x) |
+| 3 |  | [DOI](10.1175/1520-0469(1963)020<0130:DNF>2.0.CO;2) |
+| 3 | OGY control theory: systems near bifurcation boundaries show critical slowing do... | [DOI](10.1103/PhysRevLett.64.1196) |
 | 3 | Pendry (2000) — theoretical foundation for metamaterial lensing | [DOI](10.1103/PhysRevLett.85.3966) |
 | 3 | Gale & Shapley (1962) — DA algorithm; proven stable in O(n²); man-optimal stable... | [DOI](10.2307/2312726) |
-| 3 | Cahill et al. (2003) — review of thermal transport in nanostructures; interface ... | [DOI](10.1063/1.1524305) |
-| 3 | Saw et al. 2017 — topological defects in epithelia determine cell fate; establis... | [DOI](10.1126/science.aar5663) |
-| 3 | Lustig et al. (2007) — CS-MRI demonstrated at 8× undersampling for cardiac MRI; ... | [DOI](10.1002/mrm.21391) |
 
 ## Citation Network
 
@@ -67,4 +67,4 @@ The full citation data is available at [`docs/citation_index.json`](citation_ind
 
 ## All Unique References
 
-The catalog currently references **2609 unique papers/books**.
+The catalog currently references **2640 unique papers/books**.

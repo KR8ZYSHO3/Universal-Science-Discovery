@@ -1,0 +1,101 @@
+id: b-sensory-adaptation-weber-fechner
+title: >
+  Sensory perception bridges neuroscience and physics through Weber-Fechner psychophysics:
+  the nervous system compresses physical stimulus intensity logarithmically (Fechner) or
+  as a power law (Stevens), with the neural implementation explained by efficient
+  coding theory — sensory neurons maximize mutual information between stimuli and
+  responses given metabolic constraints, naturally producing logarithmic compression.
+status: established
+fields:
+  - neuroscience
+  - psychophysics
+  - physics
+  - information-theory
+  - sensory-biology
+  - cognitive-science
+bridge_claim: >
+  Weber's law (1834): the just noticeable difference ΔS for a stimulus of intensity S
+  is proportional to S: ΔS/S = k (Weber fraction, constant per modality). For brightness,
+  k ≈ 0.02; for weight, k ≈ 0.02; for sound frequency, k ≈ 0.003. Weber's law is a
+  consequence of the signal-to-noise ratio of sensory channels scaling with baseline intensity.
+
+  Fechner's law (1860): integrating Weber's law, the perceived sensation magnitude
+  Ψ = k·log(S/S₀) — a logarithmic relationship between physical stimulus intensity
+  and perceptual magnitude. This implies that equal ratios of physical intensity produce
+  equal differences in perceived magnitude (decibel scale for sound is a Fechner scale).
+
+  Stevens' power law (1957): Ψ = k·Sⁿ (power law, not logarithmic). Exponent n varies
+  by modality: electric shock n = 3.5 (supralinear — pain amplified), brightness n = 0.33
+  (compressive — prevents overload), weight n = 1.45, temperature n = 1.6. Power law is
+  a better empirical fit for most modalities and is scale-invariant (ratio of sensations
+  is independent of unit choice).
+
+  Neural implementation — shunting adaptation: firing rate r(S) = r_max·S^n/(S^n + σ^n)
+  (Naka-Rushton equation) produces divisive normalization — response is normalized by
+  the overall activity level, creating gain control that compresses the dynamic range.
+  Logarithmic compression emerges when σ ≫ S₀ (in the linear range) or from
+  adaptation: r(t) ∝ r₀/(1 + S·τ_adapt) — firing rate decreases as adaptation grows.
+
+  Efficient coding hypothesis (Barlow 1961): sensory neurons should maximize mutual
+  information I(stimulus; response) subject to metabolic (spike rate) constraints.
+  If the stimulus distribution is log-normal (natural images, sound levels), the
+  optimal encoder is logarithmic — exactly Fechner's law. Simoncelli & Olshausen (2001)
+  showed that V1 simple cells implement efficient coding of natural image statistics.
+  Lateral inhibition (Hartline, Nobel 1967): retinal ganglion cells inhibit neighbors,
+  creating center-surround receptive fields that amplify contrast at edges (Mach bands)
+  and decorrelate the neural code — another efficient coding mechanism.
+translation_table:
+  - field_a_term: Weber fraction ΔS/S = k (psychophysics)
+    field_b_term: signal-to-noise ratio SNR = signal/(noise ∝ signal) = constant (physics)
+    note: Weber's law is the perceptual manifestation of multiplicative (Poisson-like) neural noise
+  - field_a_term: Fechner's law Ψ = k·log(S/S₀)
+    field_b_term: decibel scale dB = 10·log₁₀(P/P₀) for sound/power (engineering acoustics)
+    note: decibel scale is exactly a Fechner scale — engineering independently discovered Fechner's law
+  - field_a_term: Stevens' power law Ψ = k·Sⁿ (n ≠ 1)
+    field_b_term: power-law scaling in physics (fractal dimension, scaling relations near critical points)
+    note: power laws are scale-invariant; Stevens' law implies perception has no preferred reference point
+  - field_a_term: shunting inhibition / divisive normalization (neural gain control)
+    field_b_term: automatic gain control (AGC) in radio receivers and amplifiers (engineering)
+    note: both dynamically adjust sensitivity to match dynamic range to current signal level
+  - field_a_term: efficient coding / mutual information maximization (Barlow 1961)
+    field_b_term: channel capacity theorem (Shannon 1948) — optimal encoder maximizes I(X;Y)
+    note: efficient coding applies Shannon's channel capacity theory to biological neural codes
+  - field_a_term: center-surround receptive field (lateral inhibition — retinal ganglion)
+    field_b_term: high-pass spatial filter / edge detection (image processing, signal processing)
+    note: lateral inhibition is the biological implementation of a spatial high-pass filter
+related_unknowns:
+  - u-weber-fechner-stevens-unifying-neural-mechanism
+related_hypotheses:
+  - h-efficient-coding-natural-statistics-sensory-cortex-universality
+cross_pollination_opportunities:
+  - >
+    Predictive coding theory (Rao & Ballard 1999, Clark 2013): the brain sends top-down
+    predictions to sensory areas, with bottom-up signals carrying only prediction errors.
+    This is an efficient coding scheme that achieves maximum compression — only the
+    unexpected information is transmitted. Under predictive coding, sensory adaptation
+    is explained as updating the prediction (prior) to match the current context,
+    reducing prediction error automatically. This framework connects Bayesian inference,
+    information theory, and sensory adaptation into a unified computational theory.
+  - >
+    Sensory substitution devices (Bach-y-Rita): information from one sensory modality
+    can be recoded for delivery via another (vision through tactile display). The
+    fact that the brain remaps to use the recoded information efficiently — within weeks
+    of training — suggests that efficient coding is a learned optimization, not a fixed
+    hardware property. This has direct engineering implications for brain-machine
+    interfaces and sensory prosthetics.
+communication_gap: >
+  Weber and Fechner were 19th-century physiologists; Stevens was a 20th-century
+  psychologist. The information-theoretic interpretation (Barlow 1961) came from
+  a biologist writing at the intersection of cybernetics and neuroscience — a community
+  that largely dissolved after the 1960s. Modern computational neuroscience (efficient
+  coding, predictive coding) developed in the 1990s-2000s without strong connection
+  to the classical psychophysics literature. Engineering (automatic gain control,
+  logarithmic amplifiers) developed the same principles independently for radio and
+  audio engineering. These three communities rarely cross-cite.
+last_reviewed: "2026-05-06"
+references:
+  - note: Weber (1834) De Pulsu, Resorptione, Auditu et Tactu. Koehler, Leipzig
+  - note: Fechner (1860) Elemente der Psychophysik. Breitkopf und Härtel, Leipzig
+  - doi: "10.1037/h0046500"
+    note: "Stevens (1957) On the psychophysical law; Psychol Rev 64:153"
+  - note: Barlow (1961) Possible principles underlying the transformation of sensory messages; in Rosenblith (ed.) Sensory Communication. MIT Press

@@ -1,0 +1,109 @@
+id: b-enzyme-engineering-directed-evolution
+title: >
+  Directed evolution bridges chemistry and biology by applying Darwinian selection
+  to proteins in the laboratory: iterative cycles of random mutagenesis, screening,
+  and selection have produced enzymes with enhanced stability, altered specificity,
+  and novel catalytic activities — including reactions no natural enzyme performs —
+  with machine learning now compressing the experimental search space 100-fold.
+status: established
+fields:
+  - chemistry
+  - biochemistry
+  - biology
+  - molecular-biology
+  - computational-chemistry
+  - protein-engineering
+bridge_claim: >
+  Directed evolution (Frances Arnold, Nobel Prize 2018) applies the logic of Darwinian
+  evolution to proteins in vitro: create genetic diversity (mutagenesis), express the
+  protein library, screen/select for the desired function, take the best variants,
+  and repeat. This iterative process navigates the protein fitness landscape without
+  requiring understanding of structure-function relationships.
+
+  Library creation methods: error-prone PCR (3-7 mutations/gene per round, library
+  size ~10⁷); DNA shuffling (Stemmer 1994 — recombine beneficial mutations from
+  multiple parents via random fragmentation and reassembly); site-saturation mutagenesis
+  (all 20 amino acids at target positions). Screening methods: colorimetric assays
+  (most direct, ~10⁴/day), fluorescence-activated cell sorting (FACS, ~10⁷/day),
+  phage display (10⁹-10¹² selection pressure). Selection vs. screening: selection
+  (survival = catalytic activity) scales to enormous libraries; screening requires
+  individual measurement.
+
+  Industrial applications: Humira (adalimumab) — phage-displayed antibody optimized
+  for affinity to TNF-α (annual sales ~$20B). Sitagliptin (Januvia) synthesis —
+  Codexis evolved an ω-transaminase over 11 rounds (mutations at 27 positions) to
+  accept the prositagliptin ketone with 25,000-fold improved activity, replacing a
+  rhodium-catalyzed asymmetric hydrogenation and eliminating heavy metal waste.
+  Subtilisin variants (Novozymes) — cold-active subtilases for laundry detergents:
+  evolved for stability at 20°C, replacing hot-water washing.
+
+  Computational enzyme design (Baker lab, Rosetta): de novo design of enzymes
+  catalyzing reactions with no natural enzyme. Kemp elimination (2008): theozyme design
+  + Rosetta sequence optimization → 8 active designs from 59 tested, initial kcat/Km
+  ~1000× below evolved enzymes. Diels-Alder cycloaddition (2010): designed Diels-
+  Alderase (DA_20_00 — no homology to natural proteins) catalyzes [4+2] cycloaddition.
+  Subsequent directed evolution improved Rosetta designs 10-100×, demonstrating
+  hybrid design-evolution workflow.
+
+  Machine learning for directed evolution: large-scale deep mutational scanning (DMS)
+  — measuring fitness of all single-point mutants (~20×L variants for protein of
+  length L) — trains fitness predictors (ProteinBERT, EVmutation). ProteinMPNN designs
+  sequences for a given backbone structure. ESM-IF + DMS data compresses experimental
+  search: predict top 1% of variants from a library of 10⁸ using model predictions,
+  screening only ~10⁵ — 1000× reduction in experimental cost.
+translation_table:
+  - field_a_term: random mutagenesis library (10⁷ protein variants)
+    field_b_term: chemical library (HTS compound collection, 10⁶ molecules)
+    note: both sample diversity for function; protein evolution is more efficient because mutations are correlated via sequence-function landscape
+  - field_a_term: FACS screening (protein activity → cell survival)
+    field_b_term: high-throughput screening (HTS) in drug discovery (biochemical assay)
+    note: directed evolution exploits in vivo coupling of genotype to phenotype — eliminates resynthesis step
+  - field_a_term: DNA shuffling (in vitro recombination of beneficial mutations)
+    field_b_term: sexual recombination (biological mechanism for combining beneficial mutations)
+    note: Stemmer explicitly modeled DNA shuffling on sexual recombination; both escape Muller's ratchet
+  - field_a_term: fitness landscape (protein sequence → activity mapping)
+    field_b_term: energy landscape (molecular conformation → free energy mapping)
+    note: protein fitness landscapes can be rugged (multiple local optima) or smooth (single funnel) — determines evolvability
+  - field_a_term: theozyme (transition state analog defining optimal active site geometry)
+    field_b_term: pharmacophore (3D arrangement of functional groups for drug binding)
+    note: both define the geometric and electronic constraints that the molecular scaffold must satisfy
+related_unknowns:
+  - u-protein-fitness-landscape-epistasis-ruggedness
+related_hypotheses:
+  - h-ml-directed-evolution-navigates-epistatic-fitness-landscape
+cross_pollination_opportunities:
+  - >
+    Zero-shot enzyme design from structure: AlphaFold2 (2021) predicts protein
+    structure with near-experimental accuracy; ProteinMPNN designs sequences for
+    target structures. The emerging workflow — design backbone geometry with Rosetta/
+    RFdiffusion, predict sequence with ProteinMPNN, predict structure with AlphaFold2,
+    screen computationally with ML fitness model, then test only the top 100 designs
+    experimentally — could reduce directed evolution from 10+ rounds to 1-2 rounds of
+    wet lab work, dramatically accelerating enzyme engineering for pharmaceuticals,
+    biofuels, and biosensors.
+  - >
+    Directed evolution of RNA enzymes (ribozymes): applying the same iterated
+    mutagenesis + selection workflow to RNA instead of protein could produce ribozymes
+    with novel catalytic activities not found in nature, testing the boundaries of
+    RNA world chemistry and potentially discovering RNA enzymes with pharmaceutical
+    applications (ribozyme therapeutics for gene silencing without protein off-targets).
+communication_gap: >
+  Directed evolution developed at the interface of chemistry and biology but was
+  initially resisted by both communities. Chemists valued rational mechanism-based
+  design; the idea of "directed" Darwinian evolution seemed to abandon chemical
+  understanding. Molecular biologists were skeptical that a few hundred mutations
+  could produce new function. Arnold's early papers were rejected before acceptance.
+  Computational protein design (Baker lab) and directed evolution (Arnold lab) operated
+  largely independently until the ML-assisted fusion in the late 2010s. Industrial
+  enzyme engineering (Novozymes, Codexis) is published in applied chemistry journals
+  while academic directed evolution appears in Science, Nature, and PNAS — creating
+  a secondary gap between industrial practice and academic theory.
+last_reviewed: "2026-05-06"
+references:
+  - note: Arnold (2018) Nobel Lecture — Directed evolution — bringing new chemistry to life; Nobel Foundation
+  - doi: "10.1002/chem.19990050826"
+    note: Reetz & Jaeger (1999) Directed evolution of enantioselective enzymes; Chem Eur J 5:1308
+  - doi: "10.1126/science.1188934"
+    note: Savile et al. (2010) Biocatalytic asymmetric synthesis of chiral amines; Science 329:305
+  - doi: "10.1126/science.aaf1698"
+    note: Huang et al. (2016) De novo design of a four-fold symmetric TIM-barrel protein; Science 352:1285
