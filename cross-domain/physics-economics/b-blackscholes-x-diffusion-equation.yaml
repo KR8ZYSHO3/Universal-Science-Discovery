@@ -1,0 +1,41 @@
+id: b-blackscholes-x-diffusion-equation
+title: >
+  Black-Scholes x Heat diffusion equation — option pricing as Brownian motion
+status: proposed
+fields:
+  - economics
+  - physics
+  - mathematics
+bridge_claim: >
+  The Black-Scholes partial differential equation for option pricing is mathematically
+  identical to the heat diffusion equation after a change of variables; option price maps
+  to temperature, log-price maps to position, and volatility squared maps to thermal
+  diffusivity — enabling physicists' Green's function methods and Fourier analysis to
+  price financial derivatives analytically.
+translation_table:
+  - field_a_term: option price C(S,t) (finance)
+    field_b_term: temperature field T(x,t) (heat equation)
+    note: After the substitution tau = T-t, x = ln(S/K), the Black-Scholes PDE becomes the standard heat equation
+  - field_a_term: volatility sigma (finance)
+    field_b_term: sqrt(2 * thermal diffusivity) (physics)
+    note: Volatility sets the rate at which the probability distribution of log-prices spreads, exactly as thermal diffusivity spreads heat
+  - field_a_term: risk-neutral pricing measure Q (finance)
+    field_b_term: Feynman-Kac path integral (physics)
+    note: The risk-neutral expectation of discounted payoff is the path-integral solution to the heat equation with appropriate boundary conditions
+  - field_a_term: Black-Scholes delta hedge (finance)
+    field_b_term: gradient of temperature field (physics)
+    note: The delta (dC/dS) plays the role of the temperature gradient in the heat equation formulation
+communication_gap: >
+  Financial economists derived Black-Scholes in 1973 using Ito calculus without recognizing
+  the heat equation equivalence; physicists independently applied diffusion theory to finance
+  (econophysics) from the 1990s, creating a second derivation tradition that financial
+  professionals were slow to adopt despite its computational advantages.
+cross_pollination_opportunities:
+  - Apply physics heat kernel methods (Green's functions for complex geometries) to price path-dependent options with barriers and complex payoff structures
+  - Use statistical physics of non-equilibrium systems to model fat-tailed return distributions beyond Black-Scholes Gaussian assumptions
+related_unknowns:
+  - u-blackscholes-x-diffusion-equation
+references:
+  - doi: "10.1086/260062"
+    note: "Black & Scholes (1973) - The pricing of options and corporate liabilities; J Political Economy 81:637"
+last_reviewed: "2026-05-07"
