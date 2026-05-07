@@ -1,0 +1,53 @@
+id: b-air-traffic-control-queueing-theory
+title: >
+  Air traffic control capacity and delay are governed by queueing theory, with
+  runway throughput following Little's law (L = lambda * W) and delay scaling
+  nonlinearly with utilisation via the Pollaczek-Khinchine formula — making
+  airport capacity management a direct engineering application of stochastic
+  process theory.
+status: proposed
+fields:
+  - engineering
+  - mathematics
+  - operations-research
+  - statistics
+bridge_claim: >
+  An airport runway is a single-server queue: arriving aircraft (customers) are
+  served at rate mu (landings/hour), and arrivals follow a Poisson process at
+  rate lambda. Queueing theory provides exact results: Little's law L = lambda * W
+  relates the average number of aircraft in the holding pattern to average delay W,
+  regardless of the service time distribution. The M/G/1 queue (general service
+  time) predicts that delay scales as W ~ rho^2 / (2*mu*(1-rho)) where rho = lambda/mu
+  is utilisation, becoming unbounded as rho → 1 — explaining why airports experience
+  catastrophic delay cascades as utilisation approaches capacity. The bridge is
+  non-trivial and operational: FAA and Eurocontrol use queuing theory for strategic
+  flow management, but the connection to fundamental stochastic process theory
+  (renewal theory, Palm calculus, Wiener-Hopf factorisation) is rarely made explicit.
+  Multi-server queues (M/M/c) model parallel runways; network queues model terminal
+  airspace; the Burke theorem governs the stochastic independence of departure streams —
+  each result from queueing theory has a direct air traffic management interpretation.
+translation_table:
+  - field_a_term: arrival rate lambda (Poisson process)
+    field_b_term: aircraft landing request rate (flights per hour)
+    note: Poisson arrival is a good approximation for unscheduled general aviation
+  - field_a_term: service rate mu (exponential or general)
+    field_b_term: runway capacity (operations per hour under standard separation)
+    note: mu depends on wake vortex separation requirements — heavy/medium/light aircraft mix
+  - field_a_term: utilisation rho = lambda/mu
+    field_b_term: runway load factor (fraction of capacity used)
+    note: Delay ~ rho^2 / (1 - rho); above ~85% utilisation, delays grow faster than linear
+  - field_a_term: "Little's law: L = lambda * W"
+    field_b_term: holding stack size = arrival rate times average holding time
+    note: A model-free, distribution-free result — applies to all queuing disciplines
+cross_pollination_opportunities:
+  - Apply fluid queue approximations to model en-route sector capacity and predict sector congestion under various traffic scenarios
+  - Use heavy-traffic approximations (diffusion limits) to design buffer zones that prevent cascade delays across connected airports
+  - Transfer M/G/k queueing results to model parallel processing in data centres using the same mathematical framework
+last_reviewed: "2026-05-07"
+references:
+  - doi: 10.1287/opre.9.3.383
+    note: Little (1961) — a proof for the queuing formula L = lambda W
+  - doi: 10.1145/3338765
+    note: Cao et al. (2019) — air traffic management and queueing theory
+  - doi: 10.1287/trsc.2013.0478
+    note: Jacquillat & Odoni (2015) — an integrated scheduling and operations approach to airport congestion mitigation

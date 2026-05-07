@@ -1,0 +1,53 @@
+id: b-kelp-forest-trophic-cascade-amplification
+title: >
+  Kelp forest trophic cascades — where sea otter removal triggers urchin population
+  explosions that overgraze kelp — are network-theoretic cascade failures with
+  amplification coefficients predictable from the interaction network's eigenvalue
+  structure, making marine trophic dynamics a natural experiment in structured network
+  fragility.
+status: proposed
+fields:
+  - ecology
+  - network-science
+  - complex-systems
+bridge_claim: >
+  The classical kelp forest trophic cascade (Paine 1969; Estes & Palmisano 1974)
+  demonstrates that removing a keystone predator (sea otter) can cause catastrophic
+  regime shifts through indirect effects: otters eat urchins, urchins eat kelp,
+  so otter removal → urchin explosion → kelp deforestation → biodiversity collapse.
+  Network science provides the quantitative framework: the food web is a directed
+  interaction network where nodes are trophic species and edges are trophic interaction
+  strengths (consumption rates). The stability of the network is determined by the
+  largest eigenvalue of the community matrix (May's random matrix result). Keystone
+  species are defined network-theoretically as nodes whose removal maximally increases
+  the dominant eigenvalue, destabilising the network. The cascade amplification
+  factor — how much a perturbation at one node amplifies through the network — is
+  given by the operator norm of the community matrix resolvent. This mathematical
+  framework predicts which trophic cascades will be strong vs. weak, how many trophic
+  levels the cascade will propagate, and the recovery dynamics after the keystone
+  is reintroduced — all from measurable interaction strengths.
+translation_table:
+  - field_a_term: dominant eigenvalue lambda_max of community matrix
+    field_b_term: ecosystem stability threshold (May stability criterion)
+    note: lambda_max < 0 for stable community; removal of keystone increases lambda_max
+  - field_a_term: network operator norm (resolvent)
+    field_b_term: cascade amplification factor
+    note: How much a trophic perturbation is amplified before it decays — determines cascade severity
+  - field_a_term: hub node (high betweenness centrality)
+    field_b_term: keystone species (disproportionate ecosystem impact per unit biomass)
+    note: Both are defined by their network position, not their abundance
+  - field_a_term: network percolation (node removal)
+    field_b_term: species extirpation and secondary extinctions
+    note: The cascade of secondary extinctions follows percolation theory on the food web
+cross_pollination_opportunities:
+  - Measure trophic interaction strengths in kelp forest food webs and fit community matrix eigenvalue models to predict cascade severity before interventions
+  - Apply network resilience theory to design marine protected area networks that maximise community matrix stability
+  - Use food web network topology to predict which species reintroductions (beyond sea otters) would most effectively restore kelp forest stability
+last_reviewed: "2026-05-07"
+references:
+  - doi: 10.1126/science.185.4156.1058
+    note: Estes & Palmisano (1974) — sea otters as keystone species in kelp forest communities
+  - doi: 10.1038/238413a0
+    note: May (1972) — will a large complex system be stable? (random matrix threshold)
+  - doi: 10.1038/ncomms12141
+    note: Rohr et al. (2014) — structural and functional heterogeneity of food web interaction strengths
