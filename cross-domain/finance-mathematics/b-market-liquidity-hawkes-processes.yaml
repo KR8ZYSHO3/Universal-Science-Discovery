@@ -1,0 +1,37 @@
+id: b-market-liquidity-hawkes-processes
+title: "High-frequency order-book dynamics and market liquidity exhibit self-exciting behaviour best described by the Hawkes process: each trade event increases the instantaneous probability of subsequent trades via a power-law kernel, making the arrival of market orders a mutually exciting point process whose branching ratio eta = integral of kernel determines whether liquidity cascades (flash crash) or mean-reverts"
+status: established
+fields:
+  - finance
+  - mathematics
+  - economics
+bridge_claim: "The arrival of limit and market orders on an electronic exchange follows a multivariate Hawkes process N_i(t) with intensity lambda_i(t) = mu_i + sum_j integral_{-inf}^t phi_{ij}(t-s) dN_j(s), where phi_{ij} are power-law excitation kernels; the critical branching ratio eta measures how close the market is to an endogenous liquidity crisis; empirical calibration to order-book data shows eta ~ 0.9 for liquid markets, explaining why small exogenous shocks can trigger flash crashes as the system crosses eta = 1 (supercritical regime)."
+translation_table:
+  - field_a_term: "market order arrival rate lambda(t) (finance)"
+    field_b_term: "conditional intensity of a Hawkes point process (mathematics)"
+    note: "Each order arrival increases the probability of further orders within milliseconds via the self-excitation kernel"
+  - field_a_term: "order book depth (bid-ask spread and volume at each level) (finance)"
+    field_b_term: "background intensity mu and kernel amplitude in Hawkes process (mathematics)"
+    note: "Deeper order books correspond to lower excitation amplitude; thin books give near-critical Hawkes branching"
+  - field_a_term: "liquidity crisis / flash crash (finance)"
+    field_b_term: "supercritical branching process explosion (eta > 1) (mathematics)"
+    note: "Flash crashes occur when the Hawkes branching ratio crosses 1, producing order-book avalanches"
+  - field_a_term: "bid-ask spread mean-reversion (finance)"
+    field_b_term: "subcritical Hawkes process stationary state (eta < 1) (mathematics)"
+    note: "Subcritical branching guarantees eventual return to equilibrium; spread width is related to eta"
+related_unknowns:
+  - u-market-microstructure-hawkes-calibration
+related_hypotheses:
+  - h-hawkes-process-liquidity-flash-crash
+cross_pollination_opportunities:
+  - "Using goodness-of-fit tests from point process theory (residual analysis, K-function) to validate Hawkes order-book models and detect structural regime changes"
+  - "Applying Hawkes branching ratio monitoring as a real-time market fragility indicator for circuit-breaker trigger algorithms"
+communication_gap: "Quantitative finance professionals calibrate Hawkes processes to match observed order-book statistics while probabilists study Hawkes processes as abstract random processes; systematic methods for non-stationary and non-parametric Hawkes inference have not been fully adopted in operational trading risk systems."
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1088/1742-5468/2011/12/P12028"
+    note: "Bacry et al. (2012) - non-parametric kernel estimation for symmetric Hawkes processes applied to high-frequency financial data"
+  - doi: "10.1007/s00780-015-0282-y"
+    note: "Hardiman et al. (2013) - critical reflexivity in financial markets: a Hawkes process analysis"
+  - doi: "10.1142/S2010326314500094"
+    note: "Filimonov & Sornette (2012) - quantifying reflexivity in financial markets: toward a prediction of flash crashes"
