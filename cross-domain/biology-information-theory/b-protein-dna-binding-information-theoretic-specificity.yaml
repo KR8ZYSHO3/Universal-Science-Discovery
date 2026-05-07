@@ -1,0 +1,50 @@
+id: b-protein-dna-binding-information-theoretic-specificity
+title: >
+  The sequence specificity of protein-DNA binding is quantified by information theory:
+  the sequence logo information content (bits) equals the reduction in positional
+  entropy, and the total information in a binding site predicts the number of sites
+  in a genome.
+status: established
+fields:
+  - molecular-biology
+  - information-theory
+bridge_claim: >
+  Schneider & Stephens (1990) showed that transcription factor binding sites can be
+  quantified as information in bits: the information content Ri = 2 − H(position),
+  where H is Shannon entropy over the four nucleotide frequencies. The total information
+  in a binding site equals log₂(genome_size / number_of_sites), which is precisely
+  the information needed to locate the sites in the genome. This derives from the
+  channel capacity analogy: the protein must decode enough information from the DNA
+  sequence to locate its binding sites against background.
+translation_table:
+  - field_a_term: transcription factor binding specificity (molecular biology)
+    field_b_term: mutual information between protein and DNA sequence (information theory)
+    note: High specificity = high mutual information = low-entropy (conserved) positions in the logo
+  - field_a_term: position weight matrix (molecular biology)
+    field_b_term: log-likelihood ratio / information weight (information theory)
+    note: PWM entries are log(p_observed/p_background) — pointwise mutual information
+  - field_a_term: number of TF binding sites in genome (molecular biology)
+    field_b_term: channel capacity constraint (information theory)
+    note: R_total ≈ log₂(G/n) — the genome acts as a noisy channel locating n sites
+  - field_a_term: binding affinity / KD (molecular biology)
+    field_b_term: log-probability / free energy in information-theoretic channel (information theory)
+    note: ΔG = -RT·Ri (binding free energy proportional to information content per site)
+related_unknowns:
+  - u-tf-cooperativity-information-integration
+related_hypotheses:
+  - h-information-content-predicts-binding-site-number
+cross_pollination_opportunities:
+  - Using channel-capacity bounds to predict the maximum number of distinct TF binding sites a proteome can discriminate
+  - Applying rate-distortion theory to understand how cells tolerate mutations in binding sites
+communication_gap: >
+  Molecular biologists and information theorists interact mainly through bioinformatics;
+  the deeper theoretical connection (genome as communication channel) is well-developed
+  by Schneider but is not standard in molecular biology curricula or textbooks.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1093/nar/18.20.6097"
+    note: Schneider & Stephens (1990) — sequence logos and information content of binding sites
+  - doi: "10.1006/jtbi.2000.2174"
+    note: Schneider (2000) — information content of individual genetic sequences
+  - doi: "10.1093/nar/gky1013"
+    note: Stormo (2013) — DNA binding sites — representation and discovery
