@@ -1,0 +1,55 @@
+id: b-exoplanet-spectral-retrieval-bayesian
+title: "Exoplanet atmospheric composition is inferred by Bayesian spectral retrieval: the posterior P(θ|d) over temperature-pressure profile and molecular abundances is sampled via nested sampling or MCMC"
+status: established
+fields:
+  - astronomy
+  - statistics
+  - atmospheric-science
+bridge_claim: >
+  Atmospheric retrieval solves the inverse problem: given a transit or emission
+  spectrum d (flux vs. wavelength) observed by HST/JWST, infer the atmospheric
+  state vector θ = {T(P), X_H₂O, X_CO₂, X_CH₄, ...} (temperature-pressure
+  profile and molecular abundances). The forward model M(θ) computes the
+  synthetic spectrum via line-by-line radiative transfer through the atmosphere.
+  Bayes' theorem gives P(θ|d) ∝ L(d|θ)·π(θ) where L is the likelihood
+  (chi-squared between observed and modeled spectrum) and π(θ) is the prior.
+  The posterior is high-dimensional (~30 parameters) and sampled using nested
+  sampling (MultiNest) or MCMC (emcee). This is formally identical to Bayesian
+  inversion problems in geophysics and medical imaging, with the same
+  identifiability issues, parameter degeneracies, and model comparison via
+  Bayes factors.
+translation_table:
+  - field_a_term: "transit depth spectrum F_in(λ)/F_out(λ)"
+    field_b_term: "data vector d in the Bayesian likelihood L(d|θ)"
+    note: "JWST provides ~100-1000 spectral channels; each wavelength is one datum"
+  - field_a_term: "T-P profile T(P) (temperature as function of pressure)"
+    field_b_term: "high-dimensional parameter subspace θ_T requiring regularization"
+    note: "Typical parameterization: 5-10 nodes with monotonicity prior to prevent non-physical profiles"
+  - field_a_term: "molecular abundance X_i (volume mixing ratio)"
+    field_b_term: "model parameter with log-uniform prior over ~8 orders of magnitude"
+    note: "Log-uniform prior reflects prior ignorance over orders-of-magnitude range"
+  - field_a_term: "nested sampling evidence Z = ∫L(θ)π(θ)dθ"
+    field_b_term: "Bayesian model evidence for model comparison (clear vs. cloudy atmosphere)"
+    note: "Bayes factor Z₁/Z₂ quantifies evidence for clouds, hazes, or specific molecular detections"
+related_unknowns:
+  - u-exoplanet-spectral-retrieval
+related_hypotheses:
+  - h-exoplanet-spectral-retrieval-bayesian
+cross_pollination_opportunities:
+  - "Machine learning accelerated retrieval: neural network emulators of the forward model reduce the ~10⁴ forward model calls needed per retrieval to milliseconds, using techniques from scientific machine learning directly applicable to atmospheric physics and statistics."
+  - "Atmospheric characterization of rocky planets: JWST's sensitivity requires retrievals with more complex cloud models, chemical disequilibrium, and surface reflectance — all expanding the statistical challenge and requiring advanced Bayesian model selection tools from statistics."
+communication_gap: >
+  Astronomers who perform retrieval analyses use MultiNest or emcee as black-box
+  samplers without typically engaging with the broader statistical literature on
+  high-dimensional Bayesian inversion, regularization, and identifiability. The
+  same inverse problem structure appears in geophysical tomography and medical
+  imaging CT reconstruction, and insights from those fields (compressed sensing,
+  total variation regularization) are underexplored in atmospheric retrieval.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1086/680119"
+    note: "Madhusudhan & Seager (2009) A temperature and abundance retrieval method for exoplanet atmospheres. ApJ 707:24"
+  - doi: "10.1093/mnras/stx3021"
+    note: "Buchner et al. (2014) X-ray spectral modelling of the AGN obscuring region. A&A 564:A125"
+  - doi: "10.3847/1538-4357/ab48e6"
+    note: "Tsiaras et al. (2019) Water vapour in the atmosphere of the habitable-zone eight-Earth-mass planet K2-18b. Nat Astron 3:1086"

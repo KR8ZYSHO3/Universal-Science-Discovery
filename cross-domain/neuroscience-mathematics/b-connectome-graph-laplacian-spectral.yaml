@@ -1,0 +1,51 @@
+id: b-connectome-graph-laplacian-spectral
+title: "Connectome topology encodes functional brain states via graph Laplacian eigenspectra: the spectral gap predicts synchronization capacity and network segregation"
+status: established
+fields:
+  - neuroscience
+  - mathematics
+  - network-science
+bridge_claim: >
+  The connectome—the complete wiring diagram of neural connections—is a weighted undirected
+  graph G=(V,E,W) whose Laplacian L=D-W has eigenvalues 0=λ₁≤λ₂≤...≤λₙ. The algebraic
+  connectivity λ₂ (Fiedler value) quantifies synchronization capacity: large λ₂ implies
+  rapid information spreading, while small λ₂ indicates modular segregation. The eigenvectors
+  of L define natural functional clusters (spectral communities) that correspond to
+  empirically measured resting-state networks. The spectral radius λₙ bounds maximum
+  propagation speed. Brain disorders (schizophrenia, Alzheimer's) systematically shift
+  the eigenspectrum toward smaller λ₂, linking white-matter tractography changes to
+  functional deficits via algebraic graph theory.
+translation_table:
+  - field_a_term: "white-matter fiber tract weights W_{ij}"
+    field_b_term: "edge weights in the symmetric weighted graph adjacency matrix"
+    note: "Diffusion MRI tractography gives W_{ij}; graph theory then applies directly"
+  - field_a_term: "resting-state functional network (DMN, visual, motor)"
+    field_b_term: "spectral community from Fiedler eigenvectors of graph Laplacian"
+    note: "Spectral clustering using first k eigenvectors of L partitions connectome into functional communities"
+  - field_a_term: "neural synchronization capacity"
+    field_b_term: "algebraic connectivity λ₂ (Fiedler value)"
+    note: "λ₂ determines the rate of consensus in diffusive processes on the graph"
+  - field_a_term: "long-range white-matter hub regions"
+    field_b_term: "nodes with high eigenvector centrality in the graph Laplacian"
+    note: "Hubs have disproportionate influence on low-frequency Laplacian modes"
+related_unknowns:
+  - u-connectome-spectral-laplacian
+related_hypotheses:
+  - h-connectome-graph-laplacian-spectral
+cross_pollination_opportunities:
+  - "Spectral graph theory tools (heat kernels, random walks on graphs) from mathematics can quantify connectome robustness to stroke or surgical lesion, predicting post-lesion functional deficits from pre-surgical tractography alone."
+  - "Graph signal processing: neural activity time-series can be decomposed into graph Fourier modes on the connectome, separating fast local fluctuations from slow global modes — a mathematically principled alternative to ICA for fMRI denoising."
+communication_gap: >
+  Neuroimaging researchers use tractography and graph metrics (clustering coefficient,
+  path length) without applying the full spectral machinery from algebraic graph theory.
+  The Fiedler value and spectral gap are standard tools in network mathematics but rarely
+  appear in neuroscience journal articles, partly because tractography data require
+  thresholding decisions that affect eigenspectra, creating methodological uncertainty.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1371/journal.pcbi.1000395"
+    note: "Bullmore & Sporns (2009) Complex brain networks — graph theory analysis of structural and functional systems. Nature Rev Neurosci 10:186"
+  - doi: "10.1093/brain/awq263"
+    note: "Honey et al. (2010) Can structure predict function in the human brain? Brain 133:2121"
+  - doi: "10.1016/j.neuroimage.2013.05.041"
+    note: "Zalesky et al. (2010) Whole-brain anatomical networks — graph spectral analysis. NeuroImage 54:1132"

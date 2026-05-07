@@ -1,0 +1,25 @@
+id: h-black-scholes-heat-equation
+title: "Fractional Black-Scholes PDE with Lévy stable log-return distribution (α-stable, α<2) produces option smiles consistent with market implied volatility surfaces, outperforming the normal Black-Scholes model out-of-sample"
+status: active
+priority: medium
+impact_score: 0.67
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: wave-40-agent
+unknowns_addressed:
+  - u-black-scholes-heat-equation
+related_disciplines:
+  - finance
+  - mathematics
+  - probability
+evidence_links:
+  - type: supporting
+    doi: "10.1086/260062"
+    note: "Black & Scholes (1973) original option pricing model"
+    confidence: 0.90
+  - type: related
+    note: "Carr & Wu (2003) The finite moment log-stable process and option pricing. J Finance 58:753"
+    confidence: 0.70
+proposed_tests:
+  - description: "Fit α-stable parameter to S&P 500 daily log-return distribution using characteristic function estimation; price 1M, 3M, 1Y options via fractional PDE (solved by FFT); compare implied volatility smile to market smile using root-mean-square error out-of-sample."
+  - description: "Derive analytical Green's function for fractional Black-Scholes PDE using Lévy-Khintchine representation and test convergence to Black-Scholes formula as α→2."

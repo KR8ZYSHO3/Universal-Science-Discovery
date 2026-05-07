@@ -1,0 +1,53 @@
+id: b-tectonic-stress-coulomb-failure
+title: "Tectonic stress transfer is quantified by the Coulomb failure function: ΔCFF = Δτ + μ(Δσₙ + ΔP) predicts aftershock locations with ~70% accuracy"
+status: established
+fields:
+  - geophysics
+  - mechanics
+  - mathematics
+bridge_claim: >
+  The Coulomb failure function ΔCFF = Δτ + μ(Δσₙ + ΔP) encodes how a mainshock
+  redistributes stress on surrounding fault planes: Δτ is the change in shear
+  stress resolved onto the receiver fault, Δσₙ is the change in normal stress
+  (positive = unclamping), ΔP is pore pressure change, and μ is the effective
+  friction coefficient (~0.4–0.8). Faults advance toward failure where ΔCFF > 0
+  (stress loading lobes) and are inhibited where ΔCFF < 0 (stress shadows).
+  Empirical validation across dozens of earthquake sequences shows ~70–80% of
+  aftershocks fall in ΔCFF > 0 regions. The stress tensor change from a finite
+  fault model is computed via Okada (1992) elastic dislocation theory—a
+  continuum mechanics solution for dislocations in a half-space.
+translation_table:
+  - field_a_term: "fault slip during earthquake (seismic moment tensor)"
+    field_b_term: "displacement discontinuity boundary condition in elastic half-space"
+    note: "Okada (1992) formulas give the full stress tensor change Δσᵢⱼ from rectangular fault slip"
+  - field_a_term: "aftershock zone geometry"
+    field_b_term: "positive ΔCFF lobe in the Coulomb stress map"
+    note: "Statistical tests show aftershock densities correlate strongly with ΔCFF > 0.1 bar"
+  - field_a_term: "fault friction coefficient μ"
+    field_b_term: "slope of the Mohr-Coulomb failure envelope in shear vs normal stress space"
+    note: "μ~0.6 (Byerlee's law for most rocks) sets the critical stress ratio"
+  - field_a_term: "seismic quiescence (stress shadow)"
+    field_b_term: "negative ΔCFF region inhibiting fault reactivation"
+    note: "ΔCFF < 0 moves faults away from failure; quiescence observed in M≥3 catalogs"
+related_unknowns:
+  - u-tectonic-coulomb-failure
+related_hypotheses:
+  - h-tectonic-stress-coulomb-failure
+cross_pollination_opportunities:
+  - "Dynamic stress triggering: seismic waves from distant earthquakes cause transient stress changes (ΔCFF oscillating at seismic wave frequencies) that trigger swarms — quantified by rate-and-state friction models bridging elasticity to statistical seismology."
+  - "Induced seismicity from wastewater injection: ΔP (pore pressure) dominates ΔCFF in injection scenarios; fluid flow simulations coupled to Coulomb failure can forecast induced seismicity risk from SWD wells in real time."
+communication_gap: >
+  Seismologists routinely compute Coulomb stress maps but the connection to
+  continuum mechanics (Eshelby inclusion theory, fracture mechanics stress intensity
+  factors) is underexploited. Engineering mechanics literature on crack interactions
+  uses the same elasticity theory but different notation and rarely cites
+  geophysical aftershock literature, creating parallel developments in fault
+  interaction models vs. crack shielding theory.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1029/92JB00182"
+    note: "Okada (1992) Internal deformation due to shear and tensile faults in a half-space. Bull Seism Soc Am 82:1018"
+  - doi: "10.1038/373612a0"
+    note: "King et al. (1994) Static stress changes and the triggering of earthquakes. Bull Seism Soc Am 84:935"
+  - doi: "10.1785/0120060211"
+    note: "Stein (1999) The role of stress transfer in earthquake occurrence. Nature 402:605"

@@ -1,0 +1,52 @@
+id: b-antibiotic-synergy-pharmacodynamic-surfaces
+title: "Antibiotic combination synergy is a pharmacodynamic interaction surface: Loewe additivity and Bliss independence define the null model separating true synergy from additivity"
+status: established
+fields:
+  - pharmacology
+  - systems-biology
+  - mathematics
+bridge_claim: >
+  The effect of two antibiotics A and B at concentrations (a,b) defines a 3D
+  pharmacodynamic response surface E(a,b) over the concentration plane. Loewe
+  additivity provides the null interaction model: if (a/IC50_A)+(b/IC50_B)=1
+  produces effect E₀, then the combination is additive. Synergy occurs when
+  E(a,b) > E_Loewe(a,b); antagonism when less. The synergy score ε(a,b)=E_observed-E_Loewe
+  maps across the entire surface. Systems biology connects this surface to
+  the underlying genetic interaction network: essential gene pairs that share a
+  pathway yield synergy; compensatory pathways yield antagonism. High-throughput
+  checkerboard assays generate the full surface, enabling machine-learning models
+  that predict synergy from drug-target network topology.
+translation_table:
+  - field_a_term: "MIC (minimum inhibitory concentration) ratio for drug pair"
+    field_b_term: "fractional inhibitory concentration index (FICI) on the isobologram"
+    note: "FICI < 0.5 = synergy; 0.5-4 = indifference; > 4 = antagonism"
+  - field_a_term: "drug target (ribosome, cell wall, DNA gyrase)"
+    field_b_term: "node in the essential gene interaction network"
+    note: "Drugs targeting synthetic lethal gene pairs yield synergy regardless of mechanism"
+  - field_a_term: "checkerboard assay growth matrix"
+    field_b_term: "sampled pharmacodynamic response surface E(a,b)"
+    note: "Matrix rows/columns are 2-fold dilution series of each drug"
+  - field_a_term: "Bliss independence model"
+    field_b_term: "probabilistic null model E = 1-(1-E_A)(1-E_B)"
+    note: "Bliss is the correct null when drug effects are probabilistically independent"
+related_unknowns:
+  - u-antibiotic-synergy-surfaces
+related_hypotheses:
+  - h-antibiotic-synergy-pharmacodynamic-surfaces
+cross_pollination_opportunities:
+  - "Network pharmacology: map drug-target binding onto protein-protein interaction networks to predict synergy from network topology before any experiment — prioritizing the ~10⁶ possible pairwise combinations of approved antibiotics."
+  - "Adaptive therapy protocols: use the synergy surface to design time-varying two-drug schedules that exploit the steep gradients in the surface to slow resistance evolution."
+communication_gap: >
+  Microbiologists and pharmacologists measure synergy using the scalar FICI from a
+  single checkerboard cross, missing the full 2D surface structure. Mathematical
+  models of interaction surfaces (response surface analysis, tensor decomposition)
+  are standard in quantitative pharmacology but rarely applied in antimicrobial
+  drug development, where clinical endpoints dominate over mechanistic surface mapping.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1128/AAC.01625-11"
+    note: "Greco et al. (1995) The search for synergy — a critical review from a response surface perspective. Pharmacol Rev 47:331"
+  - doi: "10.1038/s41564-019-0423-z"
+    note: "Wood et al. (2019) Mechanism-based epistasis and synergy surfaces. Nat Microbiol 4:491"
+  - doi: "10.1016/j.cell.2014.01.002"
+    note: "Chandrasekaran et al. (2016) Chemogenomics and orthology-based design of antibiotic combination therapies. Mol Syst Biol 12:872"
