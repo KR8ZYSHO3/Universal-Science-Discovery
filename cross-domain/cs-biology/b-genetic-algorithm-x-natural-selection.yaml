@@ -1,0 +1,42 @@
+id: b-genetic-algorithm-x-natural-selection
+title: >
+  Genetic algorithms x Natural selection — evolution as optimization
+status: proposed
+fields:
+  - computer-science
+  - biology
+  - evolutionary-biology
+bridge_claim: >
+  Genetic algorithms (mutation, crossover, selection on fitness) are a direct mathematical
+  abstraction of natural selection; Holland's schema theorem proves that GAs implicitly
+  sample an exponential number of schemata simultaneously (building block hypothesis),
+  explaining why evolution efficiently searches high-dimensional fitness landscapes that
+  are intractable for gradient-based methods.
+translation_table:
+  - field_a_term: chromosome / binary string (genetic algorithm)
+    field_b_term: genome / DNA sequence (evolutionary biology)
+    note: The GA chromosome encodes a solution; the biological genome encodes a phenotype — both are subject to heritable variation
+  - field_a_term: fitness function f(x) (genetic algorithm)
+    field_b_term: reproductive fitness W (biology)
+    note: Selection pressure in both cases preferentially propagates high-fitness individuals; the fitness landscape concept is shared
+  - field_a_term: crossover / recombination operator (GA)
+    field_b_term: sexual recombination / meiosis (biology)
+    note: Both shuffle genetic material between parent solutions, generating novel combinations unexplored by single-parent variation
+  - field_a_term: schema / building block (GA theory)
+    field_b_term: linkage disequilibrium / epistatic block (population genetics)
+    note: Schemata with above-average fitness grow exponentially; analogous to favorable haplotype blocks spreading in a population
+communication_gap: >
+  Computer scientists developing GAs from the 1960s-70s drew explicit inspiration from
+  biology but the mathematical formalism (schema theorem, No Free Lunch) diverged from
+  population genetics (Price equation, Fisher's fundamental theorem); cross-disciplinary
+  collaboration between EC researchers and evolutionary biologists is growing but remains
+  fragmented.
+cross_pollination_opportunities:
+  - Apply GA schema theory to identify minimal functional gene modules in synthetic biology circuits that are robust to mutational perturbation
+  - Use population genetics' coalescent theory to analyze convergence and diversity maintenance in large-scale evolutionary computation
+related_unknowns:
+  - u-genetic-algorithm-x-natural-selection
+references:
+  - doi: "10.1016/0004-3702(94)90132-5"
+    note: "Mitchell et al. (1994) - When will a genetic algorithm outperform hill climbing? A survey; AI Journal"
+last_reviewed: "2026-05-07"

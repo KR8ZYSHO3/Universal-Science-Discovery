@@ -1,0 +1,37 @@
+id: b-compressed-sensing-x-sparse-recovery
+title: >
+  Compressed sensing x Sparse signal recovery — underdetermined systems and L1 minimization
+status: proposed
+fields:
+  - computer-science
+  - mathematics
+  - signal-processing
+bridge_claim: >
+  Compressed sensing proves that a sparse signal in R^n can be exactly recovered from
+  O(k log n) random linear measurements (far fewer than n) by L1 minimization; this connects
+  the restricted isometry property (RIP) of random matrices to convex optimization geometry,
+  enabling MRI acceleration by 10x and single-pixel camera architectures.
+translation_table:
+  - field_a_term: sparsity k in signal space (signal processing)
+    field_b_term: number of non-zero coefficients in a basis (mathematics)
+    note: A signal is k-sparse if at most k of its n basis coefficients are nonzero; sparsity is the key structural assumption
+  - field_a_term: random measurement matrix Φ (compressed sensing)
+    field_b_term: random linear map satisfying RIP (mathematics)
+    note: Gaussian or Bernoulli random matrices satisfy the RIP with overwhelming probability, guaranteeing recovery
+  - field_a_term: L1 minimization / LASSO (optimization)
+    field_b_term: convex relaxation of L0 sparse constraint (mathematics)
+    note: L1 is the tightest convex surrogate for sparsity; the L1 ball's geometry causes solutions to be corner-sparse
+communication_gap: >
+  Signal processing engineers and pure mathematicians studying convex geometry worked in
+  isolation until Candès, Romberg, and Tao (2006) and Donoho (2006) simultaneously showed
+  that L1 minimization achieves exact sparse recovery — a result with implications neither
+  community had fully anticipated.
+cross_pollination_opportunities:
+  - Apply compressed sensing theory to accelerate MRI protocols by designing non-Cartesian k-space sampling patterns that satisfy RIP conditions
+  - Use sparse recovery algorithms to solve inverse problems in tomography, seismology, and astronomical imaging where measurement budgets are limited
+related_unknowns:
+  - u-compressed-sensing-x-sparse-recovery
+references:
+  - doi: "10.1109/TIT.2006.871582"
+    note: "Candès & Tao (2006) - Near-optimal signal recovery from random projections; IEEE Trans Inf Theory 52:5406"
+last_reviewed: "2026-05-07"
