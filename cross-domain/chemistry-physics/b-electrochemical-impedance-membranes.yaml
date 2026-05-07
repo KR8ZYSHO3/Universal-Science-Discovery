@@ -1,0 +1,77 @@
+id: b-electrochemical-impedance-membranes
+title: >
+  Electrochemical impedance spectroscopy maps directly onto equivalent-circuit models
+  of biological membranes — the Hodgkin-Huxley ionic conductances are impedance
+  elements, enabling label-free biosensing of living cells with the same formalism
+  used to study corroding metal electrodes.
+status: established
+fields:
+  - chemistry
+  - physics
+  - biophysics
+  - neuroscience
+bridge_claim: >
+  Electrochemical impedance spectroscopy (EIS) applies a small AC voltage
+  V(omega) = V0 exp(i*omega*t) and measures complex impedance Z(omega) = Z' + iZ''.
+  The Nyquist plot (Z'' vs Z') displays a semicircle whose radius equals the
+  charge-transfer resistance R_ct and whose high-frequency intercept gives solution
+  resistance R_s.
+
+  Biological membranes are precisely described by the same equivalent-circuit language:
+  membrane capacitance C_m ≈ 1 μF/cm², membrane resistance R_m ≈ 10⁴ Ω·cm², and
+  voltage-gated channel conductances that are frequency-dependent. The Hodgkin-Huxley
+  (1952) model translates directly: ionic conductances g_Na, g_K, g_L are impedance
+  elements whose frequency response encodes channel gating kinetics.
+
+  This equivalence is operationally exploited in impedance-based biosensors (RTCA
+  platform, Giaever and Keese 1991): changes in cell adhesion or cytoskeletal
+  integrity shift Z(omega) measurably within minutes. Brain electrocorticography
+  (ECoG) uses impedance spectra of cortical tissue correlated with neural activity.
+
+  The bridge is non-trivial because electrochemists developed EIS for corroding metal
+  electrodes, while electrophysiologists independently derived the HH model from
+  voltage-clamp experiments — both solved the same mathematical problem (frequency-
+  domain response of RC networks with nonlinear elements) without recognising the
+  shared formalism.
+translation_table:
+  - field_a_term: charge-transfer resistance R_ct
+    field_b_term: membrane ion-channel resistance R_m
+    note: Both represent resistive impedance to ion flow across an interface
+  - field_a_term: double-layer capacitance C_dl
+    field_b_term: membrane capacitance C_m (~1 μF/cm²)
+    note: Lipid bilayer acts as a parallel-plate capacitor just as the electric double layer does
+  - field_a_term: Warburg impedance (diffusion-limited, ~sqrt(i*omega) dependence)
+    field_b_term: diffusion-limited ion transport through cytoplasm or cell-substrate cleft
+    note: Identical frequency dependence in both systems
+  - field_a_term: Nyquist semicircle radius
+    field_b_term: membrane resistance R_m (inversely proportional to channel open probability)
+    note: Drug toxicity or channel blockade shifts semicircle radius measurably
+  - field_a_term: high-frequency intercept R_s
+    field_b_term: extracellular solution resistance
+    note: Sets baseline; used to normalize cell-substrate impedance measurements
+related_unknowns:
+  - u-eis-channel-gating-mechanistic-link
+related_hypotheses:
+  - h-eis-hodgkin-huxley-parameter-extraction
+cross_pollination_opportunities:
+  - >
+    Real-time cell analysis (RTCA) could be extended to map Hodgkin-Huxley parameters
+    (g_Na activation/inactivation time constants) from multi-frequency impedance sweeps
+    on excitable cell lines without patch clamp.
+  - >
+    EIS of cortical organoids could non-invasively track maturation of voltage-gated
+    channel expression and network synchronisation as a drug-screening readout.
+communication_gap: >
+  EIS was developed by the electrochemical corrosion community and remains primarily
+  published in electrochemistry journals (J Electrochem Soc, Electrochim Acta). The
+  Hodgkin-Huxley tradition publishes in physiology and neuroscience journals. Both use
+  circuit analogies but rarely cite each other. Biosensor researchers who bridge both
+  communities are a small, specialized group.
+last_reviewed: "2026-05-06"
+references:
+  - note: "Macdonald (1987) Impedance Spectroscopy — Wiley; foundational EIS reference"
+  - doi: "10.1113/jphysiol.1952.sp004764"
+    note: "Hodgkin & Huxley (1952) J Physiol 117:500 — quantitative model of membrane conductances"
+  - doi: "10.1073/pnas.88.17.7896"
+    note: "Giaever & Keese (1991) PNAS 88:7896 — impedance-based cell biosensing"
+  - note: "Cole (1972) Membranes, Ions and Impulses — University of California Press"

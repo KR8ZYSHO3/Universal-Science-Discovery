@@ -1,0 +1,51 @@
+id: h-bat-echolocation-neural-matched-filter-implementation
+title: >
+  The inferior colliculus of echolocating bats implements a neural matched filter
+  optimally tuned to the species-specific FM sweep waveform — neurons with delay-
+  tuned delay-period responses functionally equivalent to radar matched filters —
+  and this implementation is sufficient to account for the 2-3 mm range resolution
+  measured behaviorally.
+status: active
+created: "2026-05-06"
+last_updated: "2026-05-06"
+priority: medium
+related_disciplines:
+  - neuroscience
+  - physics
+  - sensory-biology
+unknowns_addressed:
+  - u-whale-song-information-content-localization
+evidence_links:
+  - type: supporting
+    doi: "10.1126/science.441058"
+    note: >
+      Simmons (1979) showed that big brown bat range discrimination of 0.75 mm
+      approaches the physical limit for FM sweep bandwidth — consistent with matched
+      filter processing achieving delta_R = c/2B.
+  - type: supporting
+    note: >
+      Suga & O'Neill (1979) Science: FM-FM neurons in mustached bat auditory cortex
+      are tuned to specific echo delays relative to emitted pulse — direct neural
+      correlate of delay-line coincidence detection, analogous to Jeffress ITD detector.
+  - type: contradicting
+    note: >
+      Some bat behaviors (target glint discrimination, object shape encoding) exceed
+      what a simple matched filter can achieve — suggesting additional neural processing
+      beyond the matched filter (possibly involving two-glint interference or spectral
+      analysis of FM echoes).
+proposed_tests:
+  - discipline: neuroscience
+    description: >
+      Record from inferior colliculus neurons in big brown bat (Eptesicus fuscus)
+      during playback of FM sweeps matched to natural calls vs. spectrally reversed
+      (anti-chirp) sweeps. Test whether response magnitude and latency are higher
+      for the natural chirp — consistent with matched filter tuning. Compute the
+      theoretical matched filter output for each waveform and compare to measured
+      neural response to assess whether neurons approach optimal detection.
+  - discipline: physics
+    description: >
+      Model the bat auditory periphery (basilar membrane filter bank) as a bank of
+      bandpass filters. Compute the output of each filter for natural FM sweeps.
+      Show analytically that the delay between peak filter responses encodes target
+      range with resolution delta_R = c/2B. Compare to published neural delay
+      tuning data from mustached bat IC to test quantitative agreement.

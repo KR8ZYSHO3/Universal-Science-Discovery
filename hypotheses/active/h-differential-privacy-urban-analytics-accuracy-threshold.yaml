@@ -1,0 +1,49 @@
+id: h-differential-privacy-urban-analytics-accuracy-threshold
+title: >
+  A privacy budget of epsilon ≤ 1 (strong differential privacy) is sufficient to
+  produce accurate city-scale traffic flow models from cellular mobility data, with
+  model error below 10% for flows aggregated at 500-meter spatial resolution —
+  resolving the accuracy-privacy tradeoff at operationally useful precision.
+status: active
+created: "2026-05-06"
+last_updated: "2026-05-06"
+priority: medium
+related_disciplines:
+  - engineering
+  - social-science
+  - computer-science
+  - urban-planning
+unknowns_addressed:
+  - u-smart-city-equity-algorithmic-routing
+evidence_links:
+  - type: supporting
+    note: >
+      Mir et al. (2013) showed that differentially private traffic flow queries
+      with epsilon=1 achieve <15% mean absolute error for highway segment counts
+      at hourly aggregation — close to the 10% threshold at coarser spatial resolution.
+  - type: supporting
+    note: >
+      Duchi et al. (2014) established minimax optimal rates for local differential
+      privacy, showing that accuracy scales as sqrt(n) / epsilon — larger populations
+      permit stronger privacy with fixed accuracy, suggesting city-scale data
+      (millions of probes) can sustain epsilon ≤ 1.
+  - type: contradicting
+    note: >
+      The Laplace mechanism noise scales with sensitivity / epsilon; for fine-grained
+      OD (origin-destination) matrix estimation (n² cells for n zones), the sensitivity
+      may be too high for epsilon=1 to achieve useful accuracy at small zone granularity.
+proposed_tests:
+  - discipline: computer-science
+    description: >
+      Use the Microsoft Research open dataset of cellular mobility traces (Cabspotting,
+      or equivalent) to simulate DP noise injection at epsilon in [0.1, 0.5, 1, 2, 10].
+      Fit a gravity model traffic flow prediction to the noisy data. Measure mean absolute
+      percentage error (MAPE) of flow predictions against ground-truth counts at 500m,
+      1km, and 2km spatial resolutions. Identify the epsilon threshold at which MAPE
+      drops below 10% for each resolution.
+  - discipline: urban-planning
+    description: >
+      Survey city transportation planners in 5 cities to establish their minimum
+      acceptable prediction accuracy for traffic signal timing decisions. Benchmark
+      this against the achievable accuracy at epsilon ≤ 1 to determine whether
+      strong DP is compatible with operational planning requirements.
