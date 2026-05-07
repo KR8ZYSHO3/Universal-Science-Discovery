@@ -4,6 +4,35 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 ## Last updated
 
+- 2026-05-07 — **Full audit + documentation update (868 bridges, 3,072 nodes)**:
+  Comprehensive project audit following Waves 57-67 and OpenAlex Wave OA-1.
+
+  **Current catalog state:**
+  - Bridges: 868 cross-domain bridges
+  - Unknowns: 1,151
+  - Hypotheses: 1,019
+  - Pioneers: 18 (18 scientific pioneers)
+  - Breakthrough gaps: 12
+  - Graph nodes: 3,072 (from `docs/knowledge_graph.json`)
+  - Graph edges: 3,259 (from `docs/knowledge_graph.json`)
+  - Schema errors: 0 (all records pass `scripts/validate_schemas.py`)
+  - Orphan unknowns: 0 (all 1,151 unknowns connected to bridges or hypotheses)
+
+  **Recent milestones achieved:**
+  - 800-bridge milestone crossed (Wave 62)
+  - 1,000-hypothesis milestone crossed (Wave 66/67)
+  - 3,000-node graph milestone crossed (Wave 65)
+  - OpenAlex automation live: weekly cron job (`.github/workflows/harvest-openalex.yml`)
+  - 9 bridge stubs in `drafts/bridges/` awaiting review
+  - PubMed + Semantic Scholar harvesters built and run
+
+  **Current focus:**
+  1. Continue bridge building toward 1,000
+  2. arXiv preprint submission (author: Brandon Shoemaker)
+  3. Promote `drafts/bridges/` stubs to full bridges
+  4. Improve dashboard graph loading reliability
+  5. Contributor on-ramps (good-first-issues, QUICK_START_CONTRIBUTING.md)
+
 - 2026-05-07 - **Waves 44+45 — THE 600-BRIDGE MILESTONE! 602 bridges, 2,413 graph nodes**: Two waves added 24 new cross-domain bridges (578 → 602), crossing the 600-bridge milestone. Wave 44 (12 bridges): allometric scaling/metabolic geometry, magma fragmentation rheology, epidemiological-demographic transition, quantum entanglement/tensor networks, mutualistic nestedness/robustness, chromatic aberration/dispersion, social learning/cultural transmission, nonlinear optics/solitons, cellular automata universality, Klausmeier dryland vegetation, aerosol nucleation/cloud formation, game-theoretic honest signaling. Wave 45 (12 bridges): MEG inverse source localization, antifreeze proteins/ice crystal habit, gene networks/Waddington landscape, Hawking radiation/Unruh effect, pharmacokinetics/compartmental ODE, ocean acidification/carbonate chemistry, neuroimaging connectivity/graphical models, topological quantum computing/anyons, forest succession/intermediate disturbance, origami mathematics/computational fold, xenobiotic metabolism/CYP450 kinetics, kin selection/Price equation. 24 unknowns + 24 hypotheses added. Graph rebuilt: **2,413 nodes, 2,571 edges**. Dashboard updated with 600-bridge gold milestone banner. All schemas validate clean. STATE.md updated.
 
 - 2026-05-06 - **Wave 20 — THE 300-BRIDGE MILESTONE**: 14 new bridges (287-300) covering glymphatic CSF fluid dynamics (Navier-Stokes/Biot), Wasserstein optimal transport for cell differentiation (Schiebinger/La Manno), biomimetic SLIP locomotion (Full/Lighthill/Dickinson), Li-ion electrochemistry and solid-state batteries (Goodenough/Peled/Janek), network centrality and social influence (Freeman/Bonacich/PageRank), dislocation Taylor/Hall-Petch/Orowan mechanics, loss aversion evolutionary psychology (Kahneman-Tversky/Laibson), geometric measure theory minimal surfaces (Douglas/Almgren/Federer), ecosystem fold bifurcation early warning signals (May/Scheffer/Dakos), Goemans-Williamson SDP MAX-CUT (UGC), SNARE neurotransmitter pharmacology (Südhof), Daubechies wavelet/JPEG-2000 (Mallat/Donoho-Johnstone), urban superlinear/sublinear scaling laws (Bettencourt/Barthelemy), complex systems emergence (Anderson/Tononi/Simon). Dashboard updated with 300-bridge milestone banner. 14 new unknowns + 14 new hypotheses. Validates clean. Graph rebuild pending.
@@ -49,18 +78,18 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 - 2026-05-04 — GitHub Pages live + dashboard deployed at [kr8zysho3.github.io/…/dashboard/](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/)
 - 2026-05-03 — Contributor hub visual refresh, CI green, all docs wired.
 
-## Catalog state (Waves 44+45 — 2026-05-07)
+## Catalog state (2026-05-07 — post Waves 57-67 + OA-1)
 
 | Type | Count | Directory |
 |------|-------|-----------|
-| Unknowns | **957** | `unknowns-catalog/` |
-| Hypotheses | **825** | `hypotheses/active/` |
-| Bridges | **602** | `cross-domain/` |
-| Pioneers | **13** | `pioneers/` |
+| Unknowns | **1,151** | `unknowns-catalog/` |
+| Hypotheses | **1,019** | `hypotheses/active/` |
+| Bridges | **868** | `cross-domain/` |
+| Pioneers | **18** | `pioneers/` |
 | Breakthrough gaps | **12** | `breakthrough-gaps/` |
 | Pre-formal observations | **4** | `phenomenology/` |
-| Knowledge graph nodes | **2,413** | `docs/knowledge_graph.json` |
-| Knowledge graph edges | **2,571** | `docs/knowledge_graph.json` |
+| Knowledge graph nodes | **3,072** | `docs/knowledge_graph.json` |
+| Knowledge graph edges | **3,259** | `docs/knowledge_graph.json` |
 | Schemas | **6** | `schemas/` (unknown, hypothesis, bridge, phenomenon, pioneer, breakthrough_gap) |
 | Scientific domains | **55+** | `unknowns-catalog/` subdirs + `dashboard/domains/` |
 
@@ -115,18 +144,17 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 ## Current milestone
 
-**Wave 20 complete — 300-bridge milestone reached!**
+**Wave 67 complete — 868 bridges, 3,072 graph nodes, 1,019 hypotheses**
 
-The repository has crossed the 300 cross-domain bridge threshold. All 14 bridges in Wave 20 carry full bridge_claim, translation tables, related unknowns, hypotheses, real DOI references, and communication_gap analysis.
+The repository has crossed the 800-bridge threshold (Wave 62), the 1,000-hypothesis threshold (Wave 66/67), and the 3,000-node graph milestone (Wave 65). OpenAlex automation is live with a weekly cron job. Nine bridge stubs sit in `drafts/bridges/` awaiting promotion.
 
 ## Current focus
 
-- **arXiv preprint**: `docs/preprint/usdr_preprint.md` is ready; next step is PDF conversion and submission to cs.DL.
+- **arXiv preprint**: `docs/preprint/usdr_preprint.md` is ready; next step is PDF conversion and submission to cs.DL (author: Brandon Shoemaker).
+- **Bridge count toward 1,000**: promote `drafts/bridges/` stubs; continue wave-based build.
+- **Dashboard graph reliability**: D3 interactive graph must load consistently on GitHub Pages.
+- **Contributor on-ramps**: good-first-issues, `docs/QUICK_START_CONTRIBUTING.md`.
 - **Community outreach**: Reddit r/OpenScience post ready at `docs/outreach/reddit_openscience_post.md`.
-- **Custom domain**: evaluate usdr.science / crossdomainscience.org.
-- **External contributors**: recruit first 3 domain experts (physicist, biologist, CS researcher) using `docs/outreach/researcher_pitch.md`.
-- **Schema discipline**: all YAML validated by `scripts/validate_schemas.py` on every PR — CI green.
-- **Database integration**: OpenAlex harvester live; PubMed and Semantic Scholar next
 
 ## Active git branches / PRs
 
@@ -147,11 +175,11 @@ The repository has crossed the 300 cross-domain bridge threshold. All 14 bridges
 
 ## Next actions (max 5)
 
-1. **Submit arXiv preprint** — convert `docs/preprint/usdr_preprint.md` to PDF, submit to cs.DL + cross-list q-bio.QM, physics.soc-ph. See `docs/PATH_TO_SUCCESS.md` for steps.
-2. **Post to Reddit r/OpenScience** — post is ready at `docs/outreach/reddit_openscience_post.md`. Best time: Tuesday–Thursday 9–11am EST.
-3. **Register custom domain** — check usdr.science / sciencebridges.org; configure GitHub Pages CNAME.
-4. **Enable GitHub Discussions** — seed "Introduce yourself", "Bridge proposals", "Open questions" threads.
-5. **Bridge 300 orphan unknowns** — run `python scripts/find_orphan_unknowns.py` to see the list; propose 5–10 bridges connecting the most isolated domains.
+1. **Submit arXiv preprint** — convert `docs/preprint/usdr_preprint.md` to PDF, submit to cs.DL + cross-list q-bio.QM, physics.soc-ph. Author: Brandon Shoemaker. See `docs/PATH_TO_SUCCESS.md` for steps.
+2. **Promote `drafts/bridges/` stubs** — 9 stubs from OpenAlex harvest ready; promote to full bridges with translation tables and DOIs.
+3. **Post to Reddit r/OpenScience** — post ready at `docs/outreach/reddit_openscience_post.md`. Best time: Tuesday–Thursday 9–11am EST.
+4. **Register custom domain** — check usdr.science / sciencebridges.org; configure GitHub Pages CNAME.
+5. **Enable GitHub Discussions** — seed "Introduce yourself", "Bridge proposals", "Open questions" threads.
 
 
 ## Wave 52+53 Milestone — 2026-05-07

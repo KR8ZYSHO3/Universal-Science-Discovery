@@ -4,10 +4,10 @@
 
 **The open-source knowledge engine for scientific unknowns and cross-domain discovery**
 
-[![Bridges](https://img.shields.io/badge/bridges-650-6366f1?style=flat-square)](cross-domain/)
-[![Unknowns](https://img.shields.io/badge/unknowns-981-22c55e?style=flat-square)](unknowns-catalog/)
-[![Hypotheses](https://img.shields.io/badge/hypotheses-849-f59e0b?style=flat-square)](hypotheses/)
-[![Graph Nodes](https://img.shields.io/badge/graph_nodes-2514-ec4899?style=flat-square)](docs/knowledge_graph.json)
+[![Bridges](https://img.shields.io/badge/bridges-868-6366f1?style=flat-square)](cross-domain/)
+[![Unknowns](https://img.shields.io/badge/unknowns-1151-22c55e?style=flat-square)](unknowns-catalog/)
+[![Hypotheses](https://img.shields.io/badge/hypotheses-1019-f59e0b?style=flat-square)](hypotheses/)
+[![Graph Nodes](https://img.shields.io/badge/graph_nodes-3072-ec4899?style=flat-square)](docs/knowledge_graph.json)
 [![License: CC BY 4.0](https://img.shields.io/badge/catalog-CC%20BY%204.0-blue?style=flat-square)](LICENSE)
 [![License: MIT](https://img.shields.io/badge/code-MIT-green?style=flat-square)](LICENSE)
 [![CI](https://img.shields.io/github/actions/workflow/status/KR8ZYSHO3/Universal-Science-Discovery/validate.yml?style=flat-square&label=CI)](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/actions)
@@ -39,10 +39,10 @@ A git-native, schema-validated, community-governed catalog of scientific unknown
 
 | Metric | Count | Notes |
 |--------|-------|-------|
-| **Cross-domain bridges** | **650** | Mathematical connections between fields that rarely communicate |
-| **Open unknowns** | **981** | Named, structured research gaps across 40+ disciplines |
-| **Falsifiable hypotheses** | **849** | Testable claims linked to specific unknowns |
-| **Knowledge graph nodes** | **2,514** | Interconnected across 2,678 edges |
+| **Cross-domain bridges** | **868** | Mathematical connections between fields that rarely communicate |
+| **Open unknowns** | **1,151** | Named, structured research gaps across 55+ disciplines |
+| **Falsifiable hypotheses** | **1,019** | Testable claims linked to specific unknowns |
+| **Knowledge graph nodes** | **3,072** | Interconnected across 3,259 edges |
 | **Pioneer profiles** | **18** | Scientists whose work seeded cross-domain bridges |
 | **Breakthrough gaps** | **12** | High-priority problems that would reshape entire fields |
 | **Orphan unknowns** | **0** | All unknowns connected to bridges or hypotheses |
