@@ -1,0 +1,51 @@
+id: b-wound-healing-cell-migration-chemotaxis
+title: >
+  Wound healing requires coordinated cell migration driven by chemotaxis gradients,
+  mapping tissue repair to the Keller-Segel model of biophysical chemotaxis and
+  connecting wound closure dynamics to active matter physics.
+status: established
+fields:
+  - cell-biology
+  - biophysics
+  - active-matter-physics
+bridge_claim: >
+  Cell migration during wound healing follows Keller-Segel-type chemotaxis up gradients
+  of growth factors (EGF, PDGF, VEGF); the collective motion of epithelial sheets at
+  wound edges is described by active matter models where cell polarity, traction forces,
+  and intercellular tension produce a traveling wave of closure with velocity v ~ sqrt(D_c *
+  chi * nabla c) where D_c is cell diffusivity, chi is chemotactic sensitivity, and
+  c is chemoattractant concentration, making wound closure rate a measurable biophysical
+  observable.
+translation_table:
+  - field_a_term: growth factor gradient (cell biology)
+    field_b_term: chemoattractant field c(x,t) in Keller-Segel model (biophysics)
+    note: PDGF and EGF gradients at wound edges drive directed cell migration via chemotaxis
+  - field_a_term: cell migration velocity (cell biology)
+    field_b_term: drift velocity in chemotaxis equation v = chi * grad(c) (biophysics)
+    note: Log-sensing chemotaxis (proportional to grad ln c) describes fibroblast migration in wound healing
+  - field_a_term: epithelial collective migration (cell biology)
+    field_b_term: active polar fluid / active matter physics (physics)
+    note: Epithelial sheets at wound edges behave as active matter with polar order and topological defects
+  - field_a_term: wound closure rate (clinical measure)
+    field_b_term: traveling wave speed in the Fisher-KPP equation (mathematics)
+    note: Wound closure follows a pulled traveling wave with speed 2*sqrt(r*D) where r is proliferation rate
+related_unknowns:
+  - u-wound-healing-collective-migration-coordination
+related_hypotheses:
+  - h-active-matter-wound-closure-optimization
+cross_pollination_opportunities:
+  - Using active matter theory to design scaffold geometries that optimize wound closure rates
+  - Applying Keller-Segel model fitting to wound healing assay data to measure chemotactic parameters non-invasively
+communication_gap: >
+  Cell biologists study wound healing through biochemical signaling pathways while
+  biophysicists develop active matter and chemotaxis models; the quantitative connection
+  between molecular signaling (growth factor gradients) and physical tissue mechanics
+  (traction forces, collective migration) is rarely made explicit in either community.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1016/0022-5193(71)90050-6"
+    note: Keller & Segel (1971) - model for chemotaxis; original chemotaxis PDE
+  - doi: "10.1016/j.cell.2011.05.014"
+    note: Trepat et al. (2011) - physical forces during collective cell migration in wound healing
+  - doi: "10.1038/nphys2733"
+    note: Ladoux & Mège (2017) - mechanobiology of collective cell behaviour
