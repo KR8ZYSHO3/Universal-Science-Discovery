@@ -1,0 +1,35 @@
+id: b-vegetation-patterns-klausmeier-model
+title: "Regular spatial patterns in dryland vegetation (bands, spots, labyrinths) arise from a Turing instability in a reaction-diffusion PDE system where plant biomass activates water infiltration locally while water diffuses faster than plants, as described by the Klausmeier model ∂u/∂t = u^2*v - mu + d*∂^2u/∂x^2 and ∂v/∂t = a - v - u^2*v + ∂^2v/∂x^2"
+fields:
+  - ecology
+  - mathematics
+  - physics
+bridge_claim: "Klausmeier (1999) showed that vegetation-water feedbacks produce a reaction-diffusion system exhibiting Turing instability: plants (u) use water (v) and enhance local infiltration (positive feedback), while water diffuses faster than plants (D_v >> D_u); linear stability analysis shows the uniform steady state destabilizes at a critical rainfall parameter a_c, producing periodic patterns with wavelength λ = 2π/k* where k* maximizes Re[σ(k)], exactly the Turing mechanism applied to dryland ecology."
+translation_table:
+  - field_a_term: "vegetation biomass density u(x,t) (ecology)"
+    field_b_term: "activator species in Turing reaction-diffusion system (mathematics)"
+    note: "Plants are the slow-diffusing activator; local plant density enhances water infiltration (self-activation)"
+  - field_a_term: "soil water content v(x,t) (ecology)"
+    field_b_term: "inhibitor species in Turing RD system (mathematics)"
+    note: "Water is the fast-diffusing inhibitor; consumed by plants, depleted in vegetated patches"
+  - field_a_term: "rainfall parameter a (ecology)"
+    field_b_term: "control parameter driving the Turing bifurcation (mathematics)"
+    note: "Decreasing a (drought) shifts the system through the Turing instability threshold a_c"
+  - field_a_term: "vegetation band migration upslope in arid regions (ecology)"
+    field_b_term: "traveling wave solution of the Klausmeier PDE on an incline (mathematics)"
+    note: "Advection term in water equation creates traveling band patterns moving against the slope"
+status: established
+communication_gap: "Ecologists observe vegetation patterns in remote sensing data and attribute them to grazing or hydrology while mathematicians study reaction-diffusion pattern formation; the Klausmeier model directly bridges both but is taught primarily in theoretical ecology and mathematical biology, rarely connecting to remote sensing or land management."
+cross_pollination_opportunities:
+  - "Using satellite-observed vegetation pattern wavelength to infer soil water diffusivity and rainfall variability without direct measurement in inaccessible dryland ecosystems"
+  - "Applying Turing instability theory to detect early warning signals of desertification: pattern wavelength and regularity decrease before the critical transition to bare ground"
+references:
+  - doi: "10.1126/science.284.5421.1826"
+    note: "Klausmeier (1999) Science - Regular stripes in arid vegetation: Turing mechanism in ecology"
+  - doi: "10.1890/ES14-00305.1"
+    note: "Rietkerk & van de Koppel (2008) - regular pattern formation in real ecosystems"
+  - doi: "10.1007/s11538-006-9138-5"
+    note: "van der Stelt et al. (2013) - stability analysis of Klausmeier vegetation model"
+related_unknowns:
+  - u-dryland-vegetation-pattern-formation
+last_reviewed: "2026-05-07"

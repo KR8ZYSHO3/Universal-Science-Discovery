@@ -1,0 +1,37 @@
+id: h-tensor-network-entanglement-phase-boundary
+title: "The boundary between classically simulable and quantumly advantageous many-body systems corresponds precisely to a phase transition in entanglement entropy from area-law to logarithmic scaling, and this transition can be detected by monitoring tensor network bond dimension scaling as a function of system size"
+status: active
+priority: high
+impact_score: 0.85
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - doi: "10.1103/RevModPhys.77.259"
+    type: supporting
+    confidence: 0.80
+    note: "Vidal (2007) - MERA efficiently represents critical systems with logarithmic entanglement"
+  - doi: "10.1103/PhysRevLett.91.147902"
+    type: supporting
+    confidence: 0.85
+    note: "Vidal (2003) - MPS efficient for area-law states; bond dimension polynomial in entanglement entropy"
+  - type: related
+    note: "Hastings (2007) - proof of area law for 1D gapped systems implies polynomial MPS representation"
+
+unknowns_addressed:
+  - u-entanglement-tensor-network-complexity
+
+proposed_tests:
+  - description: >
+      Compute bond dimension χ required to represent ground states of 1D quantum models at and away from
+      criticality (quantum Ising model at g = 1), measuring how χ scales with system size L. Test whether
+      the crossover from polynomial (area law) to exponential (volume law) χ scaling occurs exactly at the
+      quantum phase transition.
+    method: "DMRG + TEBD simulations of quantum Ising and XXZ models; measure χ(L) scaling with truncation error < 10^-10"
+    prediction: "χ ~ L^0 for gapped phases; χ ~ L^(c/6) at critical point; χ ~ exp(L) for excited states"
+
+related_disciplines:
+  - quantum-physics
+  - mathematics
+  - condensed-matter

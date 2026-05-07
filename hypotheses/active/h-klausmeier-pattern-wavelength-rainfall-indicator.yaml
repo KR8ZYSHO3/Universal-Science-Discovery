@@ -1,0 +1,36 @@
+id: h-klausmeier-pattern-wavelength-rainfall-indicator
+title: "The characteristic wavelength λ of dryland vegetation bands measured by satellite remote sensing encodes the soil water diffusivity D_w via λ = 2π/k* = 2π/√(f(D_w,m,a)) where k* is the Turing instability wavenumber, enabling non-invasive estimation of soil hydraulic properties from satellite imagery without ground surveys"
+status: active
+priority: high
+impact_score: 0.73
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - doi: "10.1126/science.284.5421.1826"
+    type: supporting
+    confidence: 0.70
+    note: "Klausmeier (1999) Science - vegetation band model; wavelength depends on water diffusivity"
+  - doi: "10.1890/ES14-00305.1"
+    type: supporting
+    confidence: 0.65
+    note: "Rietkerk et al. (2008) - regular patterns in real dryland ecosystems; satellite observations"
+  - type: related
+    note: "Barbier et al. (2006) - self-organized vegetation patterning as a fingerprint of climate and human impact"
+
+unknowns_addressed:
+  - u-dryland-vegetation-pattern-formation
+
+proposed_tests:
+  - description: >
+      Compare spectral analysis of vegetation pattern wavelength from Sentinel-2 imagery at 10 dryland sites
+      with known soil water diffusivity from field campaigns. Test whether predicted λ = 2π/k*(D_w) from
+      Klausmeier model linearization matches observed λ within ±30%.
+    method: "FFT spectral analysis of NDVI imagery + comparison to Klausmeier k*(D_w) prediction + soil hydraulic measurement"
+    prediction: "Observed pattern wavelength should correlate with √(D_w) with r > 0.7 across sites with different soil texture"
+
+related_disciplines:
+  - ecology
+  - mathematics
+  - remote-sensing
