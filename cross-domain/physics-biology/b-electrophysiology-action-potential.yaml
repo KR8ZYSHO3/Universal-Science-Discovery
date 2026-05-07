@@ -1,0 +1,82 @@
+id: b-electrophysiology-action-potential
+title: >
+  The Hodgkin-Huxley equations translate membrane biophysics into a nonlinear dynamical
+  system identical in structure to van der Pol oscillators, and the cable equation
+  governing AP propagation is the same parabolic PDE that describes heat conduction
+  and diffusion — myelination as topology-optimised insulation achieving 100× velocity gain.
+status: established
+fields:
+  - physics
+  - biology
+  - neuroscience
+  - biophysics
+bridge_claim: >
+  The Hodgkin-Huxley (HH) model describes the action potential using a membrane
+  circuit: C_m dV/dt = -g_Na m³h(V-E_Na) - g_K n⁴(V-E_K) - g_L(V-E_L) + I_ext.
+  Each conductance variable (m, h, n) obeys a first-order kinetic equation
+  dx/dt = α_x(V)(1-x) - β_x(V)x with voltage-dependent rates measured by Hodgkin
+  and Huxley using voltage clamp in the squid giant axon. The system is a
+  four-dimensional nonlinear ODE that exhibits a stable limit cycle (the action
+  potential), threshold behaviour (an unstable manifold separates resting from firing),
+  and refractoriness (h gate inactivation). AP propagation along an axon is governed
+  by the cable equation: ∂V/∂t = (d/4R_i)∂²V/∂x² + I_ion/C_m — mathematically
+  identical to the heat equation with a source term, first derived for submarine
+  telegraph cables by Lord Kelvin (1855). Conduction velocity θ ∝ √d for unmyelinated
+  axons vs. θ ∝ d for myelinated axons (saltatory conduction at nodes of Ranvier),
+  because myelin acts as a distributed capacitor that increases the effective space
+  constant. Myelination by oligodendrocytes (CNS) or Schwann cells (PNS) achieves
+  a 100-fold velocity increase at the same axon diameter — an evolutionary optimisation
+  of signal transmission speed per unit wiring volume.
+translation_table:
+  - field_a_term: cable equation (∂V/∂t = (d/4R_i)∂²V/∂x²)
+    field_b_term: axon AP propagation (spatial spread of depolarisation)
+    note: Identical PDE to heat conduction; Lord Kelvin derived it for the transatlantic telegraph cable
+  - field_a_term: space constant λ = √(r_m/r_i) (passive cable)
+    field_b_term: electrotonic length of dendrites and axon initial segment
+    note: Determines how far a subthreshold signal decays exponentially before becoming negligible
+  - field_a_term: nonlinear oscillator limit cycle
+    field_b_term: action potential waveform (depolarisation → repolarisation → hyperpolarisation)
+    note: HH equations are topologically equivalent to van der Pol oscillator in reduced 2D models (FitzHugh-Nagumo)
+  - field_a_term: conduction velocity θ ∝ d (myelinated)
+    field_b_term: saltatory conduction — current jumps between nodes of Ranvier
+    note: Myelin wraps increase λ dramatically; AP regenerates only at unmyelinated nodes
+  - field_a_term: voltage clamp (command voltage, measure current)
+    field_b_term: ionic channel characterisation (separate Na⁺, K⁺ conductance kinetics)
+    note: Hodgkin-Huxley used Cole's voltage clamp to isolate individual conductance time courses
+related_unknowns:
+  - u-myelination-conduction-velocity-optimality
+related_hypotheses:
+  - h-myelination-optimal-axon-diameter-conduction-velocity
+cross_pollination_opportunities:
+  - >
+    Axon diameter optimisation: apply cable-equation theory to predict the
+    optimal myelination strategy for neuronal arbors with known branching geometry;
+    test predictions against electron microscopy measurements of g-ratio
+    (myelin thickness / axon diameter) in different brain regions and species.
+  - >
+    Computational neuroprosthetics: use HH-based models to predict the minimum
+    electrical stimulation parameters (pulse width, amplitude) needed for reliable
+    AP generation in specific fibre types without damaging current densities;
+    apply to cochlear implant, deep brain stimulation, and retinal prosthetic design.
+  - >
+    Disease mechanism prediction: multiple sclerosis attacks myelin; use the cable
+    equation to predict conduction velocity as a function of demyelination extent,
+    and compare with clinical evoked potential latencies to create a quantitative
+    biomarker of lesion severity.
+communication_gap: >
+  Electrophysiology is taught primarily in neuroscience and biophysics programmes;
+  the mathematical equivalence to cable theory and nonlinear dynamical systems is
+  rarely emphasised to biologists, who learn the HH model phenomenologically.
+  Electrical engineers who know cable theory and transmission lines rarely connect
+  their expertise to axonal conduction. The myelination optimality argument (minimise
+  wiring cost for given velocity) is known in theoretical neuroscience but seldom
+  taught to neurologists or MS researchers.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1113/jphysiol.1952.sp004764"
+    note: "Hodgkin & Huxley (1952) J Physiol 117:500 — the complete HH model of the action potential"
+  - doi: "10.1098/rspb.1946.0024"
+    note: "Hodgkin & Rushton (1946) Proc R Soc B 133:444 — electrical constants of a crustacean nerve fibre; cable theory"
+  - note: "Koch, C. (1999) Biophysics of Computation. Oxford University Press — comprehensive treatment of cable theory and compartmental models"
+  - doi: "10.1038/nrn2781"
+    note: "Nave (2010) Nat Rev Neurosci 11:275 — myelination and axon integrity; oligodendrocyte biology"

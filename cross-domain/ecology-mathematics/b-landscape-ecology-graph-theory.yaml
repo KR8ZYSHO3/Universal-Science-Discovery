@@ -1,0 +1,75 @@
+id: b-landscape-ecology-graph-theory
+title: >
+  Landscape ecology's analysis of habitat connectivity maps directly onto weighted graph
+  theory, enabling circuit-theoretic gene flow prediction, least-cost corridor design,
+  and percolation-theoretic thresholds for landscape connectivity collapse.
+status: established
+fields:
+  - landscape-ecology
+  - graph-theory
+  - conservation-biology
+  - spatial-statistics
+  - network-science
+bridge_claim: >
+  Landscape ecology studies how spatial heterogeneity affects ecological processes.
+  Habitat patches become graph nodes; dispersal corridors become weighted edges where
+  weights represent dispersal resistance (inverse of habitat quality, road mortality rate,
+  etc.). Least-cost path algorithms (Dijkstra's on a resistance surface) predict animal
+  movement routes and inform wildlife corridor design — used for the Yellowstone to Yukon
+  Conservation Initiative. McRae et al. (2008) introduced circuit theory: treating the
+  landscape as an electrical resistance network, where effective resistance between nodes
+  equals the expected commute time of a random walk. Circuit theory predicts gene flow
+  and connectivity more realistically than least-cost paths because it accounts for
+  all paths simultaneously (as current spreads through all parallel resistors), not just
+  the single optimal path. Percolation theory predicts a critical habitat proportion
+  p_c ≈ 0.59 for a square grid (site percolation threshold) below which long-range
+  connectivity collapses — directly applicable to habitat fragmentation thresholds.
+  With & Crist (1995) confirmed empirically that species movement changes qualitatively
+  near this threshold, validating the mathematical percolation model in ecology.
+translation_table:
+  - field_a_term: habitat patch
+    field_b_term: graph node
+    note: Node attributes include patch area, quality, population size
+  - field_a_term: dispersal corridor / matrix permeability
+    field_b_term: edge weight (resistance to dispersal)
+    note: Resistance surfaces combine land cover, roads, slope, human density
+  - field_a_term: least-cost path
+    field_b_term: shortest path in weighted graph (Dijkstra's algorithm)
+    note: Standard in Circuitscape software for corridor planning
+  - field_a_term: effective resistance between patches
+    field_b_term: random walk commute time / gene flow predictor
+    note: McRae (2006) proved equivalence between circuit resistance and random walk commute time
+  - field_a_term: percolation threshold p_c ≈ 0.59
+    field_b_term: critical proportion of suitable habitat for landscape connectivity
+    note: With & Crist (1995) showed empirical confirmation of percolation threshold in arthropods
+related_unknowns:
+  - u-wildlife-corridor-percolation-threshold
+related_hypotheses:
+  - h-circuit-theory-outperforms-lcp-gene-flow-prediction
+cross_pollination_opportunities:
+  - Apply spectral graph theory (Fiedler value / algebraic connectivity) to rank
+    landscape elements by their contribution to connectivity — targeting conservation
+    investment where it most increases the Fiedler eigenvalue
+  - Use temporal graph models to track connectivity under climate-driven habitat shifts —
+    predicting when species ranges become disconnected before the threshold is crossed
+  - Apply tensor network decompositions (from quantum information) to multi-species
+    resistance surfaces to efficiently compute population-level connectivity for thousands
+    of species simultaneously
+communication_gap: >
+  Landscape ecologists are trained in spatial statistics and GIS; graph theorists and
+  circuit theory experts are mathematicians and physicists. The Circuitscape software
+  (McRae) made circuit theory accessible to ecologists without mathematical training,
+  but the underlying mathematical theory (random walks, spectral graph theory) is
+  rarely taught in ecology graduate programs. Conservation planners who implement
+  corridor projects often use the tools without understanding the graph-theoretic
+  foundation, limiting their ability to extend methods to new problems.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1890/0012-9658(2001)082[1205:HAAPCE]2.0.CO;2"
+    note: "Urban & Keitt (2001) — Landscape connectivity: a graph-theoretic perspective, Ecology 82:1205"
+  - doi: "10.1890/07-1861.1"
+    note: "McRae et al. (2008) — Using circuit theory to model connectivity in ecology, Ecology 89:2712"
+  - doi: "10.2307/1941982"
+    note: "With & Crist (1995) — Critical thresholds in species responses to landscape structure, Ecology 76:2446"
+  - doi: "10.2307/3544927"
+    note: "Taylor et al. (1993) — Connectivity is a vital element of landscape structure, Oikos 68:571"

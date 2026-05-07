@@ -1,0 +1,73 @@
+id: b-algorithmic-fairness-social-choice
+title: >
+  Formal impossibility theorems in algorithmic fairness — showing that demographic parity,
+  equalized odds, and calibration cannot simultaneously hold when base rates differ —
+  are mathematical analogs of Arrow's impossibility theorem in social choice theory.
+status: established
+fields:
+  - machine-learning
+  - social-science
+  - mathematics
+  - law-and-policy
+  - statistics
+bridge_claim: >
+  Algorithmic fairness seeks criteria that trained classifiers should satisfy to avoid
+  discrimination. Three prominent criteria conflict when base rates differ across groups:
+  (1) demographic parity P(Ŷ=1|A=0) = P(Ŷ=1|A=1); (2) equalized odds
+  P(Ŷ=1|Y=y,A=a) = const across groups; (3) calibration P(Y=1|Ŷ=1,A=a) = Ŷ.
+  Chouldechova (2017) and Kleinberg et al. (2017) proved these three criteria are
+  mutually incompatible when base rates P(Y=1|A=0) ≠ P(Y=1|A=1) — an impossibility
+  theorem. This is a direct mathematical analog of Arrow's (1951) impossibility theorem
+  in social choice: no voting system satisfying Pareto efficiency, independence of
+  irrelevant alternatives, and non-dictatorship exists. Both theorems show that
+  reasonable-seeming axioms are collectively inconsistent. Counterfactual fairness
+  (Kusner 2017) takes a causal approach: Ŷ is fair if its value would be unchanged in
+  a counterfactual world where A was different, holding all non-descendants of A fixed —
+  this connects to the potential outcomes framework in causal inference. The fairness-
+  accuracy tradeoff (imposing fairness constraints reduces accuracy) is an empirical
+  manifestation of the impossibility, requiring explicit value trade-offs that are
+  fundamentally political rather than technical.
+translation_table:
+  - field_a_term: Arrow's impossibility theorem (social choice)
+    field_b_term: Chouldechova-Kleinberg fairness impossibility
+    note: Both show that a collection of seemingly reasonable axioms is mutually inconsistent
+  - field_a_term: voting rule / aggregation mechanism
+    field_b_term: classifier / risk score algorithm
+    note: Both aggregate individual-level information into a social or individual decision
+  - field_a_term: Pareto efficiency (no one can be better off without making someone worse off)
+    field_b_term: accuracy-fairness Pareto frontier
+    note: Fairness constraints push classifiers off the Pareto frontier of raw accuracy
+  - field_a_term: independence of irrelevant alternatives
+    field_b_term: path-independence of fairness measure to feature set
+    note: Adding irrelevant protected features can change fairness metric values — a form of IIA failure
+  - field_a_term: Nash bargaining solution (maximize product of utilities)
+    field_b_term: fairness-accuracy trade-off optimization with Pareto-weighted objective
+    note: Nash bargaining applied to fairness-accuracy frontier selects a specific operating point
+related_unknowns:
+  - u-fairness-impossibility-optimal-tradeoff
+related_hypotheses:
+  - h-causal-fairness-resolves-impossibility-tradeoffs
+cross_pollination_opportunities:
+  - Formalise the political-philosophy literature on distributive justice (Rawls, Sen)
+    as constraints in a multi-objective fairness optimization framework — connecting
+    normative political theory to algorithmic design
+  - Apply the Gibbard-Satterthwaite theorem (strategic voting) to algorithm manipulation
+    by individuals who game their features to change classifier output
+  - Use the Price equation (from evolutionary biology via Bridge 413) to analyse how
+    fairness criteria affect the long-term evolution of population feature distributions
+    when individuals respond to the classifier
+communication_gap: >
+  Machine learning researchers rarely engage with formal social choice theory; political
+  philosophers and social choice theorists rarely read NeurIPS or FAccT. The legal
+  concept of disparate impact (US law) predates the mathematical fairness impossibility
+  theorems by 30 years but is not recognized by ML researchers as an Arrow-like
+  constraint. Policy discussions on AI fairness rarely cite the impossibility theorems,
+  leading to demands for solutions that are mathematically unachievable.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1089/big.2016.0047"
+    note: "Chouldechova (2017) — Fair prediction with disparate impact, Big Data 5:153"
+  - doi: "10.4230/LIPIcs.ITCS.2017.43"
+    note: "Kleinberg, Mullainathan & Raghavan (2017) — Inherent trade-offs in algorithmic fairness, ITCS"
+  - note: "Kusner et al. (2017) — Counterfactual fairness, NeurIPS 30"
+  - note: "Barocas, Hardt & Narayanan (2019) Fairness and Machine Learning, fairmlbook.org"

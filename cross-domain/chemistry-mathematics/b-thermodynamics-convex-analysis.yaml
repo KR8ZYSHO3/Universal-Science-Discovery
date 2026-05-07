@@ -1,0 +1,78 @@
+id: b-thermodynamics-convex-analysis
+title: >
+  Classical thermodynamics is a special case of convex duality: the Legendre transform
+  relating U(S,V,N) to Helmholtz and Gibbs free energies is identical to the
+  Legendre-Fenchel transform in convex analysis, and thermodynamic stability conditions
+  are equivalent to convexity constraints on the fundamental relation.
+status: established
+fields:
+  - chemistry
+  - mathematics
+  - physics
+bridge_claim: >
+  The fundamental thermodynamic relation dU = TdS - PdV + μdN expresses internal
+  energy U as a function of extensive variables (S, V, N). The thermodynamic potentials
+  are Legendre transforms: Helmholtz free energy A(T,V,N) = U - TS (transform in S,
+  replacing S with T = ∂U/∂S); Gibbs free energy G(T,P,N) = U - TS + PV (full
+  Legendre transform). This is precisely the Legendre-Fenchel transform of convex
+  analysis (Rockafellar 1970): for a convex function f, its conjugate f*(y) = sup_x[y·x - f(x)].
+  Thermodynamic stability requires U(S,V,N) to be convex: ∂²U/∂S² = T/C_V > 0
+  (thermal stability, heat capacity C_V > 0), ∂²U/∂V² = -∂P/∂V|_S > 0 (mechanical
+  stability, isothermal compressibility κ_T > 0). These are exactly the conditions
+  for U to be a convex function of its arguments. The Gibbs-Duhem relation
+  SdT - VdP + Ndμ = 0 follows from Euler's theorem for homogeneous functions.
+  Jaynes's maximum entropy principle (1957) re-derives all of thermodynamics as
+  Bayesian inference: equilibrium maximises entropy S = -k_B Σ p_i ln p_i subject
+  to energy constraint ⟨E⟩ = U — a constrained convex optimisation problem whose
+  Lagrange multiplier is precisely inverse temperature β = 1/k_BT.
+translation_table:
+  - field_a_term: Legendre-Fenchel transform (convex analysis)
+    field_b_term: thermodynamic potential (Helmholtz, Gibbs, enthalpy)
+    note: Each thermodynamic potential is the Legendre transform of U with respect to one or more extensive variables
+  - field_a_term: convexity of f (f'' ≥ 0)
+    field_b_term: thermodynamic stability (positive heat capacity, positive compressibility)
+    note: Phase transitions occur at boundaries of the convex region; Maxwell equal-area construction is the convex envelope
+  - field_a_term: conjugate variable pair (x, y = ∂f/∂x)
+    field_b_term: conjugate thermodynamic pair (S,T), (V,P), (N,μ)
+    note: Each Legendre transform swaps one extensive variable for its conjugate intensive variable
+  - field_a_term: constrained optimisation with Lagrange multiplier
+    field_b_term: maximum entropy principle (Jaynes) — entropy maximised at fixed ⟨E⟩
+    note: Lagrange multiplier β = ∂S/∂E = 1/k_BT is inverse temperature
+  - field_a_term: Euler's theorem for homogeneous functions
+    field_b_term: Gibbs-Duhem relation SdT - VdP + Ndμ = 0
+    note: Thermodynamic potentials are first-order homogeneous in extensive variables; Gibbs-Duhem follows from Euler's theorem
+related_unknowns:
+  - u-thermodynamics-convex-geometry-non-equilibrium
+related_hypotheses:
+  - h-thermodynamics-non-convex-regions-phase-coexistence
+cross_pollination_opportunities:
+  - >
+    Non-equilibrium thermodynamics via convex geometry: extend the Legendre-transform
+    framework to non-equilibrium steady states using Masuda-Sasa theory and contact
+    geometry; predict whether the convex duality structure persists for driven systems
+    such as active matter and metabolic networks.
+  - >
+    Machine learning as statistical mechanics: the training of neural networks minimises
+    a loss function (free energy analogue); apply convex analysis to characterise the
+    loss landscape geometry, predict phase transitions (double descent, grokking),
+    and design learning rate schedules using thermodynamic intuition.
+  - >
+    Chemical process optimisation: formulate multi-component distillation column design
+    as convex programming using Gibbs free energy minimisation; use duality theorems
+    to identify the thermodynamic limits on separation efficiency before engineering
+    detailed designs.
+communication_gap: >
+  Thermodynamics is taught to chemists, chemical engineers, and physicists using
+  19th-century notation (exact differentials, Maxwell relations) that obscures the
+  underlying convex geometry. Convex analysis is a pure mathematics and operations
+  research topic; the isomorphism with thermodynamics is known to mathematical
+  physicists (e.g. Wightman 1979) but not taught in chemistry or engineering curricula.
+  Jaynes's Bayesian re-foundation of statistical mechanics is known to information
+  theorists but not routinely to physical chemists.
+last_reviewed: "2026-05-06"
+references:
+  - note: "Callen, H.B. (1985) Thermodynamics and an Introduction to Thermostatistics, 2nd ed. Wiley."
+  - note: "Rockafellar, R.T. (1970) Convex Analysis. Princeton University Press."
+  - doi: "10.1103/PhysRev.106.620"
+    note: "Jaynes, E.T. (1957) Phys Rev 106:620 — information theory and statistical mechanics; maximum entropy principle"
+  - note: "Wightman, A.S. (1979) Convexity and the Notion of Equilibrium State in Thermodynamics and Statistical Mechanics. In Israel (1979) Convexity in the Theory of Lattice Gases."

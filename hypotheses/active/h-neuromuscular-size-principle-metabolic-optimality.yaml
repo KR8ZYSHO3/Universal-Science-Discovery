@@ -1,0 +1,51 @@
+id: h-neuromuscular-size-principle-metabolic-optimality
+title: >
+  Henneman's size principle (slow-twitch S motor units recruited before FR before FF)
+  is the optimal recruitment strategy that minimises total metabolic energy expenditure
+  per unit force-time integral across all submaximal contractions — and violations
+  of orderly recruitment observed in some tasks (reverse recruitment) are predicted
+  by the optimisation when metabolic cost includes task-specific penalty terms.
+status: active
+priority: medium
+impact_score: 0.68
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+
+evidence_links:
+  - doi: "10.1152/jn.1965.28.3.560"
+    type: supporting
+    confidence: 0.85
+    note: "Henneman et al. (1965) — orderly recruitment demonstrated; physiological basis in motor neuron input resistance"
+  - type: supporting
+    note: "Heckman & Enoka (2012) Compr Physiol — review of motor unit recruitment; size principle holds across most voluntary contractions"
+  - type: related
+    note: "Nardone et al. (1989) — reverse recruitment of fast units in eccentric contractions; possible exception to size principle"
+
+unknowns_addressed:
+  - u-neuromuscular-control-redundancy-resolution
+
+proposed_tests:
+  - description: >
+      Formulate motor unit recruitment as a constrained optimisation:
+      minimise ΣᵢEᵢ·rᵢ (energy rate × duty cycle for unit i) subject to
+      F_target = Σᵢfᵢ(rᵢ) (force equation from Hill's model). Solve numerically
+      for the optimal recruitment order across the full force range.
+      Compare to Henneman recruitment order using motor unit physiological parameters
+      (twitch force, contraction speed, fatigue index) from cat medial gastrocnemius data.
+    method: "Constrained optimisation (quadratic programming) + comparison to cat motor unit data"
+    prediction: "Optimal recruitment order matches Henneman size principle for submaximal contractions (< 80% MVC); deviations occur only near maximum force"
+  - description: >
+      High-density EMG decomposition during slow ramp contractions and eccentric
+      loading in human tibialis anterior. Identify individual motor unit recruitment
+      thresholds and test whether reverse-recruitment units (fast units recruited
+      early) have lower threshold than expected by force rank — and whether this
+      is predicted by adding an eccentric-specific cost term to the optimisation.
+    method: "High-density surface EMG decomposition (convolutive blind source separation) + biomechanical analysis"
+    prediction: "Reverse-recruited units during eccentric contractions are those with highest eccentric force advantage; predicted by optimisation with eccentric efficiency term"
+
+related_disciplines:
+  - neuroscience
+  - engineering
+  - biomechanics
+  - physiology

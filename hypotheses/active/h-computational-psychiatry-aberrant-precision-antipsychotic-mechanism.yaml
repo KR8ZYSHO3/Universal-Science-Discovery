@@ -1,0 +1,55 @@
+id: h-computational-psychiatry-aberrant-precision-antipsychotic-mechanism
+title: >
+  Antipsychotic drugs (D2 antagonists) reduce psychotic symptoms by lowering
+  the dopaminergic precision-weighting signal — reducible to a single parameter
+  ω_DA in the hierarchical Bayesian model — and their therapeutic efficacy across
+  patients is quantitatively predicted by the degree to which they normalise
+  precision-weighted prediction error updating in computational task assays.
+status: active
+priority: high
+impact_score: 0.80
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+
+evidence_links:
+  - doi: "10.1176/appi.ajp.160.1.13"
+    type: supporting
+    confidence: 0.75
+    note: "Kapur (2003) — aberrant salience hypothesis; D2 blockade reduces aberrant salience; supports precision-weighting interpretation"
+  - doi: "10.1093/schbul/sbv190"
+    type: supporting
+    confidence: 0.70
+    note: "Adams et al. (2016) — precision-weighting model of psychosis; prediction that antipsychotics normalise precision ratio"
+  - doi: "10.1371/journal.pcbi.1004695"
+    type: related
+    confidence: 0.65
+    note: "Huys et al. (2016) — computational psychiatry framework; learning rate parameters as drug targets"
+
+unknowns_addressed:
+  - u-computational-psychiatry-treatment-response-prediction
+
+proposed_tests:
+  - description: >
+      Administer a hierarchical Bayesian learning task (volatile reversal learning)
+      to first-episode psychosis patients before and after 6 weeks of antipsychotic
+      treatment. Fit the hierarchical Gaussian filter model (Mathys et al. 2011)
+      to choice data; extract the precision ratio ω = σ_prior/σ_likelihood.
+      Test whether reduction in ω from pre- to post-treatment correlates with
+      PANSS positive symptom reduction (r > 0.5).
+    method: "Computational task + HGF model fitting + PANSS symptom rating + Spearman correlation"
+    prediction: "ω reduction predicts PANSS positive symptom reduction with r > 0.5; ω at baseline predicts eventual treatment response"
+  - description: >
+      Randomised crossover study: administer haloperidol (high D2 affinity),
+      quetiapine (lower D2 affinity), and placebo to healthy volunteers;
+      measure precision ratio ω from reversal learning task 4h post-dose.
+      Test whether drug-induced ω reduction is proportional to D2 receptor
+      occupancy (measured by PET in a parallel arm).
+    method: "Crossover RCT + computational task + PET D2 occupancy + Pearson correlation"
+    prediction: "ω reduction is linearly proportional to D2 occupancy (r > 0.7); minimum D2 occupancy threshold (≈ 65%) needed for detectable ω reduction"
+
+related_disciplines:
+  - neuroscience
+  - psychiatry
+  - pharmacology
+  - engineering
