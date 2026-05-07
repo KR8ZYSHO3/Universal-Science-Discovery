@@ -1,0 +1,39 @@
+id: h-metadynamics-collective-variables-protein-allostery
+title: >
+  Metadynamics simulations using graph-neural-network-derived collective variables will
+  identify the allosteric communication pathways in therapeutic targets (kinases, GPCRs)
+  inaccessible to conventional MD, enabling structure-based design of allosteric inhibitors
+  with 100-fold selectivity improvements over orthosteric drugs.
+status: active
+priority: high
+impact_score: 0.78
+created: "2026-05-06"
+last_updated: "2026-05-06"
+related_disciplines:
+  - computational-chemistry
+  - biophysics
+  - drug-discovery
+unknowns_addressed:
+  - u-md-force-field-transferability-accuracy-limit
+evidence_links:
+  - doi: 10.1073/pnas.202427399
+    type: supporting
+    confidence: 0.72
+    note: Laio & Parrinello (2002) metadynamics enables sampling of rare conformational transitions inaccessible to standard MD
+  - doi: 10.1002/jcc.540130812
+    type: supporting
+    confidence: 0.65
+    note: Kumar et al. (1992) WHAM — foundation for combining biased simulations into free energy profiles
+proposed_tests:
+  - description: >
+      Apply GNN-derived collective variables (trained on MD trajectories of 50 kinases)
+      to metadynamics simulation of ABL1 kinase. Compare computed allosteric pocket
+      free energy profiles against experimental data from HDX-MS and NMR chemical shift
+      perturbation experiments. Prediction: GNN-CV metadynamics identifies the same
+      allosteric sites as experiment in 4/5 test kinases not in the training set.
+  - description: >
+      Prospective design: use allosteric pocket identified by metadynamics in KRAS G12C
+      beyond the Switch II pocket to design 5 candidate allosteric fragments. Test
+      binding and allosteric inhibition by SPR and NanoBRET. Prediction: ≥2/5 fragments
+      show selective allosteric inhibition (IC50 < 10 μM allosteric, > 100 μM competing
+      with GTP at active site).

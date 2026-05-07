@@ -1,0 +1,37 @@
+id: h-isogeometric-analysis-superior-convergence-thin-shells
+title: >
+  Isogeometric analysis using NURBS basis functions achieves provably superior convergence
+  rates compared to standard polynomial FEM for thin-shell problems and problems with
+  smooth curved boundaries — eliminating the geometrical approximation error that limits
+  engineering FEM accuracy for aerodynamic surfaces.
+status: active
+priority: medium
+impact_score: 0.65
+created: "2026-05-06"
+last_updated: "2026-05-06"
+related_disciplines:
+  - applied-mathematics
+  - engineering
+  - computational-mechanics
+unknowns_addressed:
+  - u-fem-adaptivity-optimal-mesh-refinement
+evidence_links:
+  - note: "Cottrell, Hughes & Bazilevs (2009). Isogeometric Analysis. Wiley. — Founding text demonstrating NURBS FEM"
+    type: supporting
+    confidence: 0.75
+  - note: "Hughes (2000). The Finite Element Method. Dover. — Standard FEM theory providing the comparison baseline"
+    type: related
+    confidence: 0.80
+proposed_tests:
+  - description: >
+      Benchmark IGA vs. standard FEM on the Scordelis-Lo roof (thin shell) and curved
+      Timoshenko beam problems using identical degrees of freedom count. Measure
+      L2 and H1 error norms as a function of mesh refinement. Prediction: IGA achieves
+      k+1 convergence in L2 vs. k for FEM (where k is polynomial degree) for these
+      problems due to exact geometry representation.
+  - description: >
+      Industrial benchmark: IGA simulation of turbine blade under thermal-structural
+      loading vs. standard FEM with commercial meshing tool. Compare (a) model preparation
+      time, (b) accuracy against experimental strain gauge data, (c) stress concentration
+      at leading edge. Prediction: IGA eliminates 60-80% of meshing time while matching
+      or exceeding FEM accuracy at the curved leading edge.
