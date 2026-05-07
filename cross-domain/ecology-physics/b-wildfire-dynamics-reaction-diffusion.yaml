@@ -1,0 +1,77 @@
+id: b-wildfire-dynamics-reaction-diffusion
+title: >
+  Wildfire spread is a reaction-diffusion system: heat release (reaction front) coupled
+  to heat transport (diffusion via radiation and convection), with climate-fire-atmosphere
+  feedbacks producing pyroconvective plumes that drive fire spread exceeding 1 km/min.
+status: established
+fields:
+  - ecology
+  - physics
+  - fluid-dynamics
+  - climate-science
+  - atmospheric-science
+bridge_claim: >
+  Wildfire spread is mathematically a reaction-diffusion system: fuel (vegetation)
+  acts as a reactant; heat acts as the diffusing species; the fire front propagates
+  as a traveling wave with speed determined by the balance of reaction rate (combustion)
+  and diffusion (heat transport by radiation and convection). Rothermel's semi-empirical
+  model (1972): rate of spread R = I_R·ξ(1+φ_w+φ_s)/(ρ_b·ε·Q_ig) where I_R is
+  reaction intensity, ξ is propagating flux ratio, φ_w (wind factor) and φ_s (slope
+  factor) are corrective terms, ρ_b bulk density, ε effective heating number, Q_ig
+  heat of ignition. This model underlies operational fire behavior tools (FARSITE).
+  Fire-atmosphere coupling: pyroconvection occurs when fire heat release drives
+  convective updrafts → creates its own wind field → dramatically accelerates spread.
+  The 2018 Camp Fire (Paradise, CA) exhibited pyroconvective spread at >1 km/min.
+  WRF-SFIRE couples the Weather Research and Forecasting model with surface fire
+  spread for coupled fire-atmosphere prediction. The fire perimeter as a reaction
+  front has fractal dimension D ≈ 1.3 in complex terrain (Clark et al. 2004).
+  Climate-fire feedback: warming → drought → fuel accumulation → more fire → CO₂
+  release → more warming — a positive feedback loop accelerating both climate change
+  and fire risk. Abatzoglou & Williams (2016) attribute 55% of the increase in
+  Western US burned area (1984-2015) to anthropogenic climate change.
+translation_table:
+  - field_a_term: fire front propagation
+    field_b_term: traveling wave in reaction-diffusion equation
+    note: fire spreads as a self-sustaining wave; front speed = c = 2√(D·k)
+  - field_a_term: fuel load (biomass per area)
+    field_b_term: reactant concentration in reaction-diffusion system
+    note: vegetation density and moisture set the reaction rate
+  - field_a_term: heat transport by radiation + convection
+    field_b_term: diffusion coefficient D in reaction-diffusion equation
+    note: determines how far the heat front preheats fuels ahead of the flame
+  - field_a_term: pyroconvection (fire-driven convective column)
+    field_b_term: Rayleigh-Bénard convection with reactive source term
+    note: strong enough to create its own mesoscale circulation; fire makes its own weather
+  - field_a_term: fire perimeter fractal dimension D ≈ 1.3
+    field_b_term: fractal dimension of reaction front in heterogeneous medium
+    note: terrain and fuel heterogeneity create fractal fire shapes; D > 1 means non-Euclidean spread
+related_unknowns:
+  - u-pyroconvection-prediction-coupled-fire-atmosphere-models
+related_hypotheses:
+  - h-climate-fire-feedback-accelerates-beyond-linear-projections
+cross_pollination_opportunities:
+  - >
+    Pattern formation theory (Turing instabilities, spiral waves) could explain
+    fire spotting (long-range ember transport creating spot fires ahead of the main
+    front) as a reaction-diffusion instability — potentially enabling prediction of
+    spot fire probability from meteorological and fuel conditions.
+  - >
+    The physics of fire front propagation (particularly the role of turbulent
+    convection in heat transport) is directly analogous to detonation waves and
+    flame propagation in combustion engineering — cross-disciplinary tools (DNS of
+    turbulent combustion) could improve wildfire spread models.
+communication_gap: >
+  Fire ecologists who study post-fire vegetation recovery and fire regimes rarely
+  engage with the atmospheric physics of pyroconvection. Fire behavior analysts
+  who use Rothermel's model operationally often do not engage with the reaction-
+  diffusion theory underlying it. Climate scientists modeling fire-atmosphere
+  feedbacks often treat fire as a simple carbon flux without the fluid mechanics.
+last_reviewed: "2026-05-07"
+references:
+  - note: Rothermel (1972) A mathematical model for predicting fire spread in wildland fuels; USDA Forest Service Res. Paper INT-115
+  - doi: "10.1071/WF03043"
+    note: Clark et al. (2004) Coupled atmosphere-fire model convective feedback in wildfire simulations; Int J Wildland Fire 13:313
+  - doi: "10.1073/pnas.1607171113"
+    note: Abatzoglou & Williams (2016) Impact of anthropogenic climate change on wildfire across western US forests; PNAS 113:11770
+  - doi: "10.1071/WF06143"
+    note: Sullivan (2009) Wildland surface fire spread modelling — a review; Int J Wildland Fire 18:349
