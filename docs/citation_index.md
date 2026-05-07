@@ -1,6 +1,6 @@
 # USDR Citation Index
 
-**3151 total citations · 2223 unique references · 345 cited in 2+ bridges**
+**3224 total citations · 2261 unique references · 368 cited in 2+ bridges**
 
 ## Most Cross-Domain Papers
 
@@ -22,6 +22,7 @@ Papers cited across the highest number of different bridges — the most influen
 | 4 | Cohen et al. (2000) — proves p_c = 0 for scale-free networks (γ≤3), implying arb... | [DOI](10.1103/PhysRevLett.85.4626) |
 | 4 | Bohigas et al. (1984) — Bohigas-Giannoni-Schmit conjecture: chaotic quantum syst... | [DOI](10.1103/PhysRevLett.52.1) |
 | 4 | Maynard Smith & Price (1973) — ESS and cyclical dynamics in zero-sum games | [DOI](10.1038/246015a0) |
+| 4 | Xie et al. (2013) showed 60% faster amyloid-β clearance during sleep vs. wakeful... | [DOI](10.1126/science.1241224) |
 | 4 | Gonze et al. (2005) - quantitative Kuramoto model of SCN fits synchrony data wit... | [DOI](10.1529/biophysj.104.058388) |
 | 4 | Hardin (1968) Science 162:1243 — tragedy of the commons baseline | [DOI](10.1126/science.162.3859.1243) |
 | 4 | Scheffer et al. (2009) theoretical prediction of EWS from CSD near fold bifurcat... | [DOI](10.1038/nature08227) |
@@ -34,12 +35,12 @@ Papers cited across the highest number of different bridges — the most influen
 | 4 | Landauer (1961) — irreversibility and heat generation in computation | [DOI](10.1147/rd.53.0183) |
 | 4 | Engel et al. (2007) observe coherence signatures consistent with quantum transpo... | [DOI](10.1038/nature05678) |
 | 3 | Tononi (2004) IIT — quantitative emergence measure; not connected to RG formalis... | [DOI](10.1186/1471-2202-5-42) |
+| 3 | Singer-Nicolson model describes proteins embedded in 2D fluid membrane | [DOI](10.1126/science.175.4023.720) |
 | 3 | Bryngelson & Wolynes (1987) — principle of minimal frustration: evolved sequence... | [DOI](10.1073/pnas.84.21.7524) |
 | 3 | Jumper et al. (2021) — AlphaFold2 architecture uses multiple sequence alignment ... | [DOI](10.1038/s41586-021-03819-2) |
 | 3 | Gardner et al. (2000) Nature 403:339 — toggle switch as testbed circuit | [DOI](10.1038/35002131) |
 | 3 | Felsenstein (1981) — likelihood pruning; GTR model formulation | [DOI](10.1007/BF01734359) |
 | 3 | Price (1970) establishes the general decomposition applicable to cultural traits | [DOI](10.1038/227520a0) |
-| 3 | Xie et al. (2013) showed 60% faster amyloid-β clearance during sleep vs. wakeful... | [DOI](10.1126/science.1241224) |
 | 3 | Albert et al. (2000) Nature 406:378 — demonstrates targeted hub removal is catas... | [DOI](10.1038/35019019) |
 | 3 |  | [DOI](10.1103/RevModPhys.85.1143) |
 | 3 | Kahneman & Tversky (1979) established λ ≈ 2.25 empirically in WEIRD samples | [DOI](10.2307/1914185) |
@@ -57,7 +58,6 @@ Papers cited across the highest number of different bridges — the most influen
 | 3 | Clark (2013) Behav Brain Sci — predictive coding framework motivating the precis... | [DOI](10.1017/S0140525X12000477) |
 | 3 | Amit et al. (1985) Phys Rev A 32:1007 — AGS capacity theorem | [DOI](10.1103/PhysRevA.32.1007) |
 | 3 | Crooks (1999) — Crooks fluctuation theorem; tighter and more statistically effic... | [DOI](10.1103/PhysRevE.60.2721) |
-| 3 |  | [DOI](10.1063/1.1749604) |
 
 ## Citation Network
 
@@ -67,4 +67,4 @@ The full citation data is available at [`docs/citation_index.json`](citation_ind
 
 ## All Unique References
 
-The catalog currently references **2223 unique papers/books**.
+The catalog currently references **2261 unique papers/books**.

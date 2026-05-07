@@ -1,0 +1,29 @@
+id: u-fem-adaptivity-optimal-mesh-refinement
+title: What is the optimal adaptive mesh refinement strategy for FEM that achieves the best convergence rate for problems with singularities, and can machine learning automate this?
+status: open
+priority: medium
+disciplines:
+  - applied-mathematics
+  - engineering
+  - computational-science
+summary: >
+  Adaptive finite element methods (AFEM) refine the mesh locally based on a posteriori
+  error estimators, achieving optimal convergence rates for problems with corner singularities,
+  cracks, and boundary layers that would require infeasible uniform refinement. The
+  mathematical theory (Dörfler marking, quasi-orthogonality, convergence of AFEM) was
+  completed in the 2000s for elliptic problems but remains open for time-dependent,
+  nonlinear, and coupled multiphysics problems. Practical engineering codes use heuristic
+  error indicators (Zienkiewicz-Zhu stress recovery) rather than mathematically proven
+  estimators. Machine learning-based mesh adaptation (graph neural networks predicting
+  optimal refinement) is an emerging direction but lacks theoretical guarantees and
+  generalization across problem types.
+systematic_gaps:
+  - Optimal convergence theory for AFEM applied to time-dependent Navier-Stokes equations
+    with turbulence is not established.
+  - Transfer learning of optimal mesh refinement strategies across different PDE types
+    has not been demonstrated.
+  - Isogeometric AFEM (hp-adaptive NURBS refinement) lacks the complete theoretical
+    convergence proofs available for standard polynomial FEM.
+related_bridges:
+  - b-finite-element-method-pde
+last_reviewed: "2026-05-06"

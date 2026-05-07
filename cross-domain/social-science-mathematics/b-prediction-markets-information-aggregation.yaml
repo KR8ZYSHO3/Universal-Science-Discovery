@@ -1,0 +1,64 @@
+id: b-prediction-markets-information-aggregation
+title: Hanson's logarithmic market scoring rule is a proper scoring rule that implements Bayesian belief aggregation as a market mechanism — linking information theory to political economy
+status: established
+fields:
+  - social-science
+  - mathematics
+bridge_claim: >
+  Prediction markets are a social mechanism that converts dispersed private information into
+  publicly observable probabilities. Arrow-Debreu contingent claims theory proves that in
+  complete markets, the equilibrium price of an asset paying $1 if event X occurs equals
+  the market-consensus probability P(X) — a direct bridge between financial economics and
+  probability theory. Hanson's LMSR (logarithmic market scoring rule) implements this
+  with a cost function C(q) = b·log(Σⱼexp(qⱼ/b)), yielding prices pᵢ = exp(qᵢ/b)/Σⱼexp(qⱼ/b)
+  — a softmax function familiar from machine learning. LMSR is a proper scoring rule
+  (maximized in expectation by truthful reporting) and maintains bounded market maker loss.
+  The no-trade theorem (Milgrom-Stokey 1982) provides the theoretical paradox: if all priors
+  are common knowledge, no agent has incentive to trade — yet prediction markets demonstrably
+  aggregate information, implying agents have genuinely private signals.
+translation_table:
+  - field_a_term: Arrow-Debreu contingent claim price (economics)
+    field_b_term: posterior probability (Bayesian statistics)
+    note: In complete markets with rational agents, asset price = probability — market as Bayesian aggregator
+  - field_a_term: LMSR cost function C(q) (mechanism design)
+    field_b_term: log partition function (statistical physics / ML)
+    note: C(q) = b·log(Σexp(qᵢ/b)) is exactly the free energy / log-sum-exp from statistical mechanics
+  - field_a_term: softmax pricing (prediction markets)
+    field_b_term: Boltzmann distribution (statistical physics)
+    note: LMSR prices are a Boltzmann distribution over outcomes with b playing the role of temperature
+  - field_a_term: proper scoring rule (statistics)
+    field_b_term: incentive-compatible mechanism (mechanism design)
+    note: A mechanism where truthful revelation is a dominant strategy — connects scoring rules to revelation principle
+  - field_a_term: no-trade theorem (Milgrom-Stokey)
+    field_b_term: efficient market hypothesis (finance)
+    note: Both predict that no profits can be made from commonly known information — but both are violated empirically
+related_unknowns:
+  - u-prediction-market-thin-market-accuracy-limits
+related_hypotheses:
+  - h-lmsr-automated-market-maker-dominates-polls-epistemic-accuracy
+cross_pollination_opportunities:
+  - >
+    LMSR's mathematical equivalence to the softmax / Boltzmann distribution suggests that
+    techniques from statistical physics (mean-field approximations, replica method for
+    disordered systems) could analyze market equilibria in prediction markets with correlated
+    private information — an unexplored connection between physics and market design.
+  - >
+    Forecasting tournaments (Good Judgment Project, Metaculus) generate large calibration
+    datasets. Machine learning models trained to replicate the best forecasters' reasoning
+    could be combined with LMSR market makers to create scalable belief aggregation systems
+    for policy-relevant questions.
+communication_gap: >
+  Market design economists publish in American Economic Review and Journal of Political
+  Economy; statisticians studying proper scoring rules publish in Journal of the Royal
+  Statistical Society and Annals of Statistics. Machine learning researchers rediscovered
+  LMSR-equivalent loss functions (cross-entropy, softmax) independently. These three
+  communities have largely parallel literatures on the same mathematical structure.
+last_reviewed: "2026-05-06"
+references:
+  - doi: 10.2307/2295952
+    note: "Arrow (1964). The role of securities in the optimal allocation of risk-bearing. Rev Econ Stud 31:91."
+  - note: "Hanson (2003). Combinatorial information market design. J Polit 17:107."
+  - doi: 10.1257/0895330041371321
+    note: "Wolfers & Zitzewitz (2004). Prediction markets. J Econ Perspect 18:107."
+  - doi: 10.1016/0022-0531(82)90046-1
+    note: "Milgrom & Stokey (1982). Information, trade and common knowledge. J Econ Theory 26:17."
