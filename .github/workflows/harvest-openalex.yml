@@ -1,0 +1,68 @@
+name: Weekly OpenAlex Harvest
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'  # Every Monday at 6am UTC
+  workflow_dispatch:       # Allow manual trigger
+
+jobs:
+  harvest:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install pyyaml jsonschema
+
+      - name: Run OpenAlex bridge scan
+        run: |
+          python scripts/harvesters/harvest_openalex.py \
+            --bridge-scan \
+            --top 15 \
+            --output drafts/openalex_candidates.json
+
+      - name: Run OpenAlex stub generator
+        run: |
+          python scripts/harvesters/generate_bridge_stubs.py \
+            --input drafts/openalex_candidates.json \
+            --output drafts/bridges/ \
+            --top 10 \
+            --min-citations 1000
+
+      - name: Run PubMed harvest
+        run: |
+          python scripts/harvesters/harvest_pubmed.py \
+            --bridge-scan \
+            --top 15 \
+            --output drafts/pubmed_candidates.json
+
+      - name: Commit harvested candidates
+        run: |
+          git config user.name "USDR Harvest Bot"
+          git config user.email "bot@usdr.science"
+          git add drafts/
+          git diff --staged --quiet && echo "No new candidates" && exit 0
+          BRANCH="bot/harvest-$(date +%Y%m%d)"
+          git checkout -b "$BRANCH"
+          git commit -m "bot: weekly OpenAlex + PubMed harvest — new bridge candidates in drafts/ [skip ci]"
+          git push origin "$BRANCH"
+          gh pr create \
+            --title "bot: weekly harvest — new bridge candidates" \
+            --body "Automated weekly harvest from OpenAlex and PubMed. Review drafts/openalex_candidates.json and drafts/bridges/ for new bridge candidates." \
+            --base main \
+            --head "$BRANCH"
+          sleep 5
+          gh pr merge --squash --delete-branch
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
