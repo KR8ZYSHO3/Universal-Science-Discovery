@@ -1,0 +1,47 @@
+id: u-phylogenetic-placement-long-branch-attraction-correction
+title: >
+  What is the best method for correcting long-branch attraction (LBA) artefacts
+  in maximum likelihood and Bayesian phylogenetic inference, and when do
+  model violations (rate heterogeneity, compositional heterogeneity, saturation)
+  produce systematic biases that cannot be corrected by more complex
+  substitution models?
+status: open
+priority: medium
+disciplines:
+  - phylogenetics
+  - evolutionary-biology
+  - statistics
+  - bioinformatics
+summary: >
+  Long-branch attraction (LBA) is a systematic phylogenetic artefact where taxa
+  with long branches (high substitution rates or deep divergences) are incorrectly
+  inferred as sister taxa regardless of their true phylogenetic position, because
+  convergent substitutions (homoplasy) accumulate on long branches. Felsenstein
+  (1978) originally characterised LBA for parsimony. Maximum likelihood and
+  Bayesian methods reduce LBA but do not eliminate it, especially under model
+  misspecification. Key situations where LBA is most severe: (1) reconstruction of
+  deep metazoan/animal phylogeny where some branches (e.g., nematodes) are
+  anomalously fast-evolving; (2) ancient horizontal gene transfer detection where
+  transferred genes appear sister to distantly related taxa; (3) viral phylogenetics
+  with extreme rate variation. Proposed remedies — CAT mixture models, heterotachy
+  models, codon substitution models, removal of fast-evolving sites — partially
+  alleviate but don't eliminate LBA. Whether any computable statistic can reliably
+  detect LBA in a specific dataset (rather than in simulations) remains unsolved.
+systematic_gaps:
+  - A principled statistical test for whether a specific phylogenetic inference suffers from LBA (not relying on simulation with assumed true tree) has not been developed.
+  - The conditions under which CAT mixture models (Lartillot & Philippe 2004) eliminate LBA vs. merely reduce it have not been empirically characterised across diverse taxonomic groups.
+  - The interaction between compositional heterogeneity (non-stationarity of base frequencies across the tree) and LBA has not been systematically mapped.
+suggested_hypotheses:
+  - >
+    Topological incongruence between partitioned analyses (nuclear vs. mitochondrial
+    genes vs. retrotransposon markers) provides a quantitative indicator of LBA
+    severity that correlates with branch-length contrast ratio across taxon pairs —
+    testable across a benchmark set of known phylogenies with varying rate heterogeneity.
+related_bridges:
+  - b-phylogenetics-maximum-likelihood
+references:
+  - doi: "10.1007/BF01734359"
+    note: Felsenstein (1981) J Mol Evol 17:368 — pruning algorithm
+  - doi: "10.1186/1471-2148-7-214"
+    note: Drummond & Rambaut (2007) BMC Evol Biol 7:214 — BEAST
+last_reviewed: "2026-05-06"

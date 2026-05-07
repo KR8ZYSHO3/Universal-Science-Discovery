@@ -1,6 +1,6 @@
 # USDR Citation Index
 
-**3001 total citations · 2151 unique references · 304 cited in 2+ bridges**
+**3073 total citations · 2188 unique references · 321 cited in 2+ bridges**
 
 ## Most Cross-Domain Papers
 
@@ -28,11 +28,13 @@ Papers cited across the highest number of different bridges — the most influen
 | 4 | Newman (2002) proves the mathematical equivalence — FSS must apply if the equiva... | [DOI](10.1103/PhysRevE.66.016128) |
 | 4 | Bak, Tang & Wiesenfeld (1987) — BTW sandpile predicts τ = 3/2 (mean field) | [DOI](10.1103/PhysRevLett.59.381) |
 | 4 | Beggs & Plenz (2003) — original neural avalanche paper establishing critical exp... | [DOI](10.1523/JNEUROSCI.23-35-11167.2003) |
+| 4 | Engler et al. (2006) show cells migrate toward stiffer substrates and that stiff... | [DOI](10.1016/j.cell.2006.06.044) |
 | 4 | Landauer (1961) — irreversibility and heat generation in computation | [DOI](10.1147/rd.53.0183) |
 | 3 | Tononi (2004) IIT — quantitative emergence measure; not connected to RG formalis... | [DOI](10.1186/1471-2202-5-42) |
 | 3 | Bryngelson & Wolynes (1987) — principle of minimal frustration: evolved sequence... | [DOI](10.1073/pnas.84.21.7524) |
 | 3 | Jumper et al. (2021) — AlphaFold2 architecture uses multiple sequence alignment ... | [DOI](10.1038/s41586-021-03819-2) |
 | 3 | Gardner et al. (2000) Nature 403:339 — toggle switch as testbed circuit | [DOI](10.1038/35002131) |
+| 3 | Felsenstein (1981) — likelihood pruning; GTR model formulation | [DOI](10.1007/BF01734359) |
 | 3 | Price (1970) establishes the general decomposition applicable to cultural traits | [DOI](10.1038/227520a0) |
 | 3 | Xie et al. (2013) showed 60% faster amyloid-β clearance during sleep vs. wakeful... | [DOI](10.1126/science.1241224) |
 | 3 |  | [DOI](10.1103/RevModPhys.85.1143) |
@@ -42,6 +44,7 @@ Papers cited across the highest number of different bridges — the most influen
 | 3 | Wagner et al. (2004) - sleep promotes insight into hidden mathematical rule (num... | [DOI](10.1126/science.1205106) |
 | 3 | Dietz et al. (2003) Science 302:1907 — commons governance empirical tests | [DOI](10.1126/science.1091015) |
 | 3 | Brockett (1972) — Lie algebra controllability condition (basis for bracket depth... | [DOI](10.1137/0310021) |
+| 3 | Pendry (2000) — theoretical foundation for metamaterial lensing | [DOI](10.1103/PhysRevLett.85.3966) |
 | 3 | Cahill et al. (2003) — review of thermal transport in nanostructures; interface ... | [DOI](10.1063/1.1524305) |
 | 3 | Saw et al. 2017 — topological defects in epithelia determine cell fate; establis... | [DOI](10.1126/science.aar5663) |
 | 3 |  | [DOI](10.1038/30918) |
@@ -55,9 +58,6 @@ Papers cited across the highest number of different bridges — the most influen
 | 3 | Challet & Zhang (1997) - MG phase transition at alpha_c analogous to error thres... | [DOI](10.1016/S0378-4371(97)00419-6) |
 | 3 | Bennett (1973) — theoretical demonstration that reversible computation has zero ... | [DOI](10.1147/rd.173.0525) |
 | 3 | Taylor (1934) — original phenomenological derivation; α treated as empirical fit... | [DOI](10.1098/rspa.1934.0106) |
-| 3 | Kane & Mele (2005) — topological protection framework; exponential gap opening w... | [DOI](10.1103/PhysRevLett.95.146802) |
-| 3 | Vosoughi et al. (2018) Science: false news spreads faster and more broadly than ... | [DOI](10.1126/science.aap9559) |
-| 3 | Bettencourt et al. (2007) — β ≈ 1.15 for GDP and patents across US, European, Ch... | [DOI](10.1073/pnas.0610172104) |
 
 ## Citation Network
 
@@ -67,4 +67,4 @@ The full citation data is available at [`docs/citation_index.json`](citation_ind
 
 ## All Unique References
 
-The catalog currently references **2151 unique papers/books**.
+The catalog currently references **2188 unique papers/books**.

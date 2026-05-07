@@ -1,0 +1,111 @@
+id: b-mechanobiology-cellular-force-sensing
+title: >
+  Cells function as living force transducers — integrin-ECM adhesion clusters convert
+  piconewton-scale mechanical loads into gene-expression programs via talin unfolding,
+  YAP/TAZ nuclear translocation, and durotactic migration, making biophysics and cell
+  biology inseparable accounts of the same mechanochemical signalling system.
+status: established
+fields:
+  - physics
+  - biology
+  - biophysics
+  - cell-biology
+  - cancer-biology
+bridge_claim: >
+  Mechanobiology unifies soft-matter physics with cell biology by showing that cells
+  actively sense, generate, and respond to mechanical forces across length scales from
+  nanometres to tissues. The key physical mechanism is mechanotransduction — the
+  conversion of mechanical signals into biochemical ones.
+
+  Focal adhesions are the molecular machines: integrin heterodimers span the plasma
+  membrane and bind ECM proteins (fibronectin, collagen) on one side and, via
+  adaptor proteins talin, vinculin, and paxillin, connect to the actin cytoskeleton
+  inside. Talin behaves as a molecular spring: under forces F ~ 10 pN, cryptic
+  vinculin-binding sites are exposed by forced unfolding of the rod domain
+  (Yao et al. 2014 by magnetic tweezers). This is a classic polymer physics
+  problem — forced domain unfolding follows the worm-like chain model.
+
+  YAP and TAZ are mechanosensitive transcription factors regulated by the Hippo
+  pathway. On soft substrates (E ~ 0.1–1 kPa, matching brain tissue), actomyosin
+  tension is low, YAP/TAZ remain cytoplasmic (inactivated). On stiff substrates
+  (E ~ 10–40 kPa, matching muscle or pre-fibrotic tumour stroma), tension is high,
+  YAP/TAZ translocate to the nucleus and drive proliferation and differentiation
+  programs (Dupont et al. 2011). This is a biological implementation of a
+  mechanical threshold detector.
+
+  Traction force microscopy (TFM) quantifies this: cells cultured on elastic
+  substrates with embedded fluorescent beads exert 10–100 nPa stresses measurable
+  by tracking bead displacements and solving the inverse elasticity problem.
+  Engler et al. (2006) showed that mesenchymal stem cells differentiate into
+  neurons on soft (~1 kPa) substrates, myocytes on medium (~10 kPa) substrates,
+  and osteoblasts on stiff (~40 kPa) substrates — substrate stiffness alone,
+  with identical chemistry, determines cell fate.
+
+  Durotaxis (Lo et al. 2000): cells migrate up stiffness gradients. This is
+  analogous to chemotaxis but driven by mechanical rather than chemical gradients.
+  Tumour stroma stiffening (desmoplasia, E increasing from ~0.2 kPa to ~2–20 kPa
+  in breast cancer) exploits durotaxis to direct cancer cell invasion.
+
+  The physics underpinning: cell contractility is driven by myosin-II motor
+  activity (non-equilibrium, consumes ATP). The force balance between
+  cell-generated tension and ECM stiffness k determines the equilibrium focal
+  adhesion size, actin stress fibre organisation, and nuclear shape —
+  all derivable from active gel theory (Kruse et al. 2005).
+translation_table:
+  - field_a_term: elastic modulus E of substrate (Pa)
+    field_b_term: biochemical differentiation cue for stem cells
+    note: stiffness alone recapitulates lineage-specific soluble factor signals
+  - field_a_term: piconewton force on talin rod domain
+    field_b_term: allosteric exposure of vinculin-binding site (mechanochemical switch)
+    note: F ~ 10 pN is the physiological operating range of talin as measured by FRET tension sensors
+  - field_a_term: worm-like chain model of protein domain unfolding
+    field_b_term: mechanotransduction signal initiation at focal adhesions
+    note: same polymer physics framework applied to protein mechanics
+  - field_a_term: elastic traction stress field (nPa scale)
+    field_b_term: cell migration directionality (durotaxis)
+    note: traction force microscopy measures the physical quantity that determines biological behaviour
+  - field_a_term: active gel theory (non-equilibrium polar fluid with motor activity)
+    field_b_term: actin cytoskeleton organisation and stress fibre formation
+    note: actomyosin cortex is a paradigmatic active matter system
+  - field_a_term: stiffness gradient in ECM
+    field_b_term: chemotaxis-analogue (durotaxis) driving cancer invasion
+    note: desmoplasia creates a mechanical gradient that cancer cells follow
+  - field_a_term: Hookean spring constant k of focal adhesion-ECM composite
+    field_b_term: YAP/TAZ nuclear localisation and mechanosensing threshold
+    note: YAP/TAZ nuclear fraction follows a sigmoidal function of substrate stiffness
+related_unknowns:
+  - u-yap-taz-stiffness-sensing-mechanism-molecular
+related_hypotheses:
+  - h-ecm-stiffness-cancer-invasion-threshold
+cross_pollination_opportunities:
+  - >
+    Synthetic ECM hydrogels with tunable stiffness gradients (polyacrylamide,
+    GelMA) now allow recapitulation of the tumour mechanical microenvironment
+    in vitro. Combining TFM with spatial transcriptomics would map gene expression
+    as a function of local mechanical stress within a single tumour organoid —
+    a direct test of whether stiffness gradients drive spatial heterogeneity of
+    tumour phenotype.
+  - >
+    Active inference frameworks from theoretical neuroscience (free-energy
+    minimisation) may provide a formal description of how cells "decide" to
+    migrate based on mechanical cues — connecting mechanobiology to
+    predictive-coding theories of cellular behaviour.
+communication_gap: >
+  Mechanobiology sits at the intersection of soft-matter physics, biophysics, and
+  cell biology — three communities with distinct journals (Physical Review Letters,
+  Biophysical Journal, Cell) and funding silos (NSF Physics, NIH Cell Biology).
+  Physicists model cells as active gels but rarely track specific signalling pathways.
+  Cell biologists measure YAP/TAZ but rarely solve the elasticity equations.
+  The field only cohered after Engler et al. (2006) and Dupont et al. (2011) made
+  the mechanical→biochemical link experimentally clear. Cancer biology has been
+  slow to incorporate stiffness as a first-class parameter alongside genetics.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1016/j.cell.2006.06.044"
+    note: Engler et al. (2006) Cell 126:677 — substrate stiffness directs stem cell differentiation
+  - doi: "10.1126/science.260.5111.1124"
+    note: Wang et al. (1993) Science 260:1124 — mechanical stress controls cell growth
+  - doi: "10.1038/nature10137"
+    note: Dupont et al. (2011) Nature 474:179 — YAP/TAZ as transducers of matrix stiffness
+  - doi: "10.1016/j.tcb.2011.04.005"
+    note: Trepat & Fredberg (2011) Trends Cell Biol 21:638 — cell mechanics and traction forces

@@ -1,0 +1,119 @@
+id: b-financial-markets-nonequilibrium
+title: >
+  Financial markets are paradigmatic non-equilibrium systems — price returns
+  exhibit the inverse cubic law (alpha ~ 3 fat tails), volatility clustering
+  maps to GARCH/Heston stochastic-volatility dynamics, the square-root market
+  impact law is a non-equilibrium flow phenomenon, and the continuous double
+  auction is a far-from-equilibrium steady state, making econophysics the
+  application of non-equilibrium statistical mechanics to capital markets.
+status: established
+fields:
+  - economics
+  - physics
+  - finance
+  - statistical-mechanics
+  - complexity-science
+bridge_claim: >
+  Financial markets violate equilibrium assumptions in ways that non-equilibrium
+  statistical mechanics can describe quantitatively. The core bridge is between
+  statistical physics of complex systems and the empirical "stylised facts" of
+  financial returns.
+
+  Stylised fact 1 — Fat-tailed return distributions: daily and high-frequency
+  price returns r_t = ln(P_t/P_{t-1}) are not Gaussian. The tail of the
+  cumulative distribution follows a power law:
+    P(|r| > x) ~ x^{-α},  α ≈ 3 (the "inverse cubic law")
+  Gopikrishnan et al. (1999) established α ≈ 3 across multiple markets, time scales,
+  and decades — a universal exponent analogous to a critical exponent in physics.
+  α ≈ 3 places financial returns outside the Lévy stable distribution basin
+  (which requires α < 2) but within the finite-variance universality class.
+
+  Stylised fact 2 — Volatility clustering: while returns r_t are nearly uncorrelated
+  (efficient market), |r_t| (volatility) is strongly autocorrelated with slow decay.
+  GARCH(1,1) (Engle 1982, Bollerslev 1986):
+    σ²_t = ω + α r²_{t-1} + β σ²_{t-1}
+  with α + β ≈ 1 (integrated GARCH, IGARCH) capturing long memory.
+  The Heston stochastic volatility model: dσ²_t = κ(θ - σ²_t)dt + ξ σ_t dW_t
+  (mean-reverting Cox-Ingersoll-Ross process for variance) gives option prices
+  with the implied volatility smile — impossible under Black-Scholes (which assumes
+  constant σ). Mapping: the Heston model is a bivariate diffusion in a non-equilibrium
+  potential; the stationary distribution of σ² is an inverse-gamma, whose tails
+  generate the observed fat tails in returns.
+
+  Stylised fact 3 — Market impact / square root law: a large trade of volume Q
+  moves price by ΔP ~ σ √(Q/V) where V is daily volume and σ is daily volatility
+  (Almgren et al. 2005). This sublinear (concave) impact law is a non-equilibrium
+  property of the order flow: the order book is a complex far-from-equilibrium
+  queue with renewal dynamics. The √Q law implies that large traders face a
+  fundamental cost — market impact — that grows sublinearly. Optimal execution
+  (Almgren-Chriss model) minimises the sum of market impact and timing risk.
+
+  Market microstructure: at tick level (milliseconds), bid-ask spread dynamics
+  follow an Ornstein-Uhlenbeck process with noise ~ 1 bp. The continuous double
+  auction (CDA) — where bids and asks are submitted and matched continuously —
+  is a far-from-equilibrium process maintained by the continuous flow of orders.
+  Statistical physics models (zero-intelligence models of order flow by Farmer,
+  Geanakoplos et al. 2005) show that the bid-ask spread, market depth, and price
+  volatility emerge from order arrival and cancellation rates without any optimising
+  behaviour — analogous to driven diffusive systems.
+
+  Bouchaud-Potters programme: Theory of Financial Risk (2003) systematically
+  applies random matrix theory (to correlations in portfolios), extreme value
+  theory (to tail risks), and non-equilibrium theory (to order flow) to financial
+  problems — making econophysics a coherent research programme rather than
+  a metaphor.
+translation_table:
+  - field_a_term: price return fat tail exponent alpha ~ 3 (inverse cubic law)
+    field_b_term: critical exponent of non-equilibrium stationary distribution
+    note: universal across markets, time scales, decades — treated as universality class in physics
+  - field_a_term: volatility clustering (autocorrelation of |r_t|)
+    field_b_term: intermittency in turbulence (clustering of high-activity events)
+    note: same phenomenological structure; both described by multifractal cascades
+  - field_a_term: GARCH(1,1) model (σ²_t = ω + α r²_{t-1} + β σ²_{t-1})
+    field_b_term: discrete-time approximation to Heston stochastic volatility diffusion
+    note: GARCH is the econometric tool; Heston is the physics-style continuous SDE
+  - field_a_term: market impact ΔP ~ sqrt(Q/V) (square root law)
+    field_b_term: non-equilibrium order flow dynamics (concave impact from order book depth)
+    note: √Q law implies orders are not price-takers; market is far from equilibrium during large trades
+  - field_a_term: bid-ask spread (minimum price increment)
+    field_b_term: energy gap in a driven lattice gas model of the order book
+    note: CDA microstructure models use driven diffusive system analogies
+  - field_a_term: random matrix theory (Marchenko-Pastur distribution of noise eigenvalues)
+    field_b_term: separation of signal from noise in portfolio correlation matrices
+    note: physics random matrix theory directly applicable to financial covariance matrices
+related_unknowns:
+  - u-financial-market-impact-model-universal-mechanism
+related_hypotheses:
+  - h-inverse-cubic-law-agent-heterogeneity-mechanism
+cross_pollination_opportunities:
+  - >
+    The maximum entropy approach (Jaynes, Econophysics) applied to the distribution
+    of trade sizes and inter-trade times would derive the fat-tail and clustering
+    properties from minimal information constraints — analogous to deriving the
+    Boltzmann distribution from maximum entropy. This would provide a statistical
+    mechanics foundation for market microstructure without assuming agent rationality.
+  - >
+    Non-equilibrium work theorems (Jarzynski equality, Crooks fluctuation theorem)
+    from statistical physics could be applied to financial markets: the "work"
+    done by price impact during large trades, and the "dissipation" into market
+    maker losses, may satisfy analogous fluctuation relations. This would connect
+    market efficiency to thermodynamic irreversibility.
+communication_gap: >
+  Econophysics emerged in the mid-1990s (Mantegna & Stanley 1995, Nature)
+  when physicists trained in statistical mechanics began applying their methods
+  to financial data. The reception from economists was mixed to hostile —
+  economists have their own well-developed theory of financial markets
+  (efficient market hypothesis, stochastic calculus, option pricing theory)
+  and viewed physicists as naive about market mechanisms. Economists do not
+  read Physical Review E; physicists do not read the Journal of Finance. The
+  main bridge journals (Quantitative Finance, founded 2001) partially bridge
+  this gap. Risk practitioners (quants) have absorbed much of the econophysics
+  toolkit (random matrix theory, heavy-tail distributions, market impact modelling)
+  without formal academic recognition of the cross-disciplinary transfer.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1103/PhysRevE.60.5305"
+    note: Gopikrishnan et al. (1999) Phys Rev E 60:5305 — inverse cubic law for financial returns
+  - note: Mantegna & Stanley (1999) Introduction to Econophysics. Cambridge University Press
+  - note: Almgren et al. (2005) Risk 18:58 — direct estimation of market impact (square root law)
+  - note: Bouchaud & Potters (2003) Theory of Financial Risk and Derivative Pricing, 2nd ed. Cambridge University Press

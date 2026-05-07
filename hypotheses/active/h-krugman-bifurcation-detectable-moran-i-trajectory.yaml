@@ -1,0 +1,51 @@
+id: h-krugman-bifurcation-detectable-moran-i-trajectory
+title: >
+  The Krugman core-periphery bifurcation produces a detectable early-warning
+  signature in the time series of Moran's I spatial autocorrelation coefficient
+  — specifically, critical slowing down (increasing lag-1 autocorrelation of
+  Moran's I) and increasing variance of Moran's I — preceding regional income
+  divergence events by 3-5 years.
+status: active
+priority: medium
+impact_score: 0.65
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+related_disciplines:
+  - spatial-economics
+  - economic-geography
+  - statistics
+  - regional-science
+unknowns_addressed:
+  - u-spatial-autocorrelation-economic-convergence-causality
+evidence_links:
+  - doi: "10.1086/261763"
+    type: related
+    confidence: 0.70
+    note: Krugman (1991) — bifurcation dynamics; critical slowing down expected near bifurcation point
+  - doi: "10.1126/science.1219805"
+    type: related
+    confidence: 0.60
+    note: Scheffer et al. (2012) Science — early warning signals for critical transitions; established for ecological systems
+proposed_tests:
+  - description: >
+      Compute annual Moran's I for NUTS-3 EU regional GDP per capita (1990-2023,
+      Eurostat ARDECO database). Compute lag-1 autocorrelation (AR1) and variance
+      of Moran's I using a 10-year rolling window. Test for increasing AR1 and
+      variance in the 3-5 years preceding identified divergence episodes
+      (2000-2003 Eastern enlargement, 2008-2013 post-crisis divergence, 2020-2022 COVID).
+    method: >
+      Moran's I time series + rolling window AR1 estimation + Kendall tau test
+      for trend; bootstrap confidence intervals for significance
+    prediction: >
+      Kendall tau > 0.4 (positive trend in AR1) and tau > 0.3 (positive trend in
+      variance) in pre-divergence windows; not present in stable or convergence periods.
+  - description: >
+      Cross-national replication using US county-level income data (BEA Regional
+      Economic Accounts, 1969-2023) testing for early-warning signals preceding
+      the post-2000 divergence between coastal metros and rural hinterlands.
+    method: "Same rolling-window Moran's I AR1 test; spatial weight matrix: queen contiguity"
+    prediction: Detectable early warning 2-4 years before the ~2005 divergence inflection
+related_disciplines:
+  - spatial-economics
+  - complexity-science

@@ -1,61 +1,129 @@
 id: b-symplectic-geometry-hamiltonian
 title: >
-  The phase space of classical mechanics is a symplectic manifold (M, ω) and Hamilton's
-  equations preserve the symplectic form (Liouville's theorem); quantum mechanics is
-  the deformation quantization of this symplectic structure, making symplectic geometry
-  the unifying language of classical and quantum dynamics.
+  Hamiltonian mechanics lives on a symplectic manifold where the 2-form omega
+  generates evolution, Liouville's theorem is phase-space volume conservation,
+  Arnold-Liouville integrability creates KAM tori, and Gromov's non-squeezing
+  theorem sets a topological obstruction to phase-space compression — making
+  symplectic geometry the natural mathematical language of classical and
+  quantum mechanics.
 status: established
 fields:
   - mathematics
-  - symplectic-geometry
+  - physics
+  - differential-geometry
   - classical-mechanics
-  - quantum-mechanics
-  - numerical-methods
+  - dynamical-systems
 bridge_claim: >
-  Phase space of a classical mechanical system is a symplectic manifold (M, ω) where
-  ω = Σ dp_i ∧ dq_i. Hamilton's equations ṗ = -∂H/∂q, q̇ = ∂H/∂p preserve ω
-  (Liouville's theorem: phase space volume is conserved by Hamiltonian flow).
-  Symplectic integrators (leapfrog, Verlet) preserve this structure numerically —
-  critical for long-time molecular dynamics and celestial mechanics simulations.
-  Floer homology (infinite-dimensional Morse theory on the loop space of M) is
-  symplectic topology's deepest tool, counting pseudoholomorphic curves.
-  Quantum mechanics = deformation quantization of the symplectic structure:
-  {f,g}_Poisson → (i/ħ)[f̂,ĝ] as ħ → 0.
+  Symplectic geometry provides the rigorous mathematical foundation for
+  Hamiltonian mechanics, revealing deep geometric structures that constrain
+  the dynamics of physical systems from atomic scales to planetary orbits.
+
+  Symplectic manifold: a symplectic manifold (M, ω) is a smooth even-dimensional
+  manifold M equipped with a closed (dω = 0) non-degenerate 2-form ω. The
+  non-degeneracy condition means ω^n ≠ 0 (the 2n-form ω∧ω∧...∧ω is a
+  volume form). Darboux's theorem: locally, every symplectic manifold looks
+  like ℝ²ⁿ with ω = Σᵢ dqᵢ ∧ dpᵢ. This is the mathematical statement that
+  locally there is no distinction between different symplectic manifolds —
+  all the physics is in the global topology.
+
+  Hamilton's equations as geometry: given a Hamiltonian H: M → ℝ, the
+  Hamiltonian vector field X_H is defined by ι_{X_H}ω = dH (contraction of
+  ω with X_H equals the differential of H). In local Darboux coordinates:
+    dqᵢ/dt = ∂H/∂pᵢ,  dpᵢ/dt = -∂H/∂qᵢ
+  The flow of X_H preserves ω (Cartan's formula: ℒ_{X_H}ω = d(ι_{X_H}ω) + ι_{X_H}dω = d(dH) + 0 = 0).
+  A flow that preserves ω is a symplectomorphism.
+
+  Liouville's theorem: since symplectic flow preserves ω, it preserves the
+  volume form ω^n = dq₁∧dp₁∧...∧dqₙ∧dpₙ. Phase space volume is conserved
+  under Hamiltonian evolution — foundational for statistical mechanics
+  (Boltzmann's equal a priori probabilities, the microcanonical ensemble).
+  This is Liouville's theorem, which proves that Hamiltonian systems cannot
+  be volume-contracting (no attractors in classical Hamiltonian mechanics).
+
+  Arnold-Liouville theorem: if an n-degree-of-freedom Hamiltonian system
+  has n independent first integrals F₁,...,Fₙ in involution ({Fᵢ,Fⱼ} = 0),
+  then the motion is confined to invariant n-tori Tⁿ in phase space.
+  Action-angle coordinates (I, θ) exist globally on each torus: I = const,
+  θ increases uniformly. This classifies integrable systems completely and
+  provides the starting point for KAM (Kolmogorov-Arnold-Moser) theory:
+  most tori survive small perturbations of an integrable Hamiltonian —
+  explaining the stability of the solar system.
+
+  Gromov's non-squeezing theorem (1985): a symplectic embedding of the ball
+  B²ⁿ(r) into the symplectic cylinder Z²ⁿ(R) = B²(R) × ℝ²ⁿ⁻² requires r ≤ R.
+  This is a topological obstruction: despite the fact that B²ⁿ(r) has the
+  same volume as any region in Z²ⁿ(R) for R >> r, it cannot be squeezed
+  through a narrow cylinder symplectically. Liouville's theorem prevents volume
+  compression but allows arbitrary shape deformation; Gromov's theorem prevents
+  even shape distortion — a much stronger constraint. In mechanics: no symplectic
+  map can compress the projection of a phase-space region onto any 2D
+  position-momentum plane below its original area.
+
+  Quantum connection: quantisation replaces the Poisson bracket {F,G} with
+  (1/iℏ)[F̂,Ĝ]. The symplectic structure of phase space is the classical limit
+  of quantum commutation relations. Deformation quantisation makes this precise:
+  the algebra of observables is a deformation of the Poisson algebra with
+  deformation parameter ℏ. The uncertainty principle ΔqΔp ≥ ℏ/2 is the
+  quantum manifestation of the classical non-squeezing theorem.
 translation_table:
-  - field_a_term: symplectic form ω = Σ dp_i ∧ dq_i
-    field_b_term: canonical commutation relations [q̂_i, p̂_j] = iħδ_ij
-    note: quantization replaces Poisson bracket with commutator divided by iħ
-  - field_a_term: Hamiltonian flow preserving ω (Liouville)
-    field_b_term: unitary quantum time evolution preserving inner products
-    note: unitarity is the quantum analog of symplectic volume preservation
-  - field_a_term: symplectic integrator (leapfrog, Verlet)
-    field_b_term: Trotter-Suzuki decomposition for quantum simulation
-    note: both preserve the algebraic structure of time evolution exactly
-  - field_a_term: Floer homology of loop space
-    field_b_term: path integral quantization over all trajectories
-    note: Floer theory can be seen as a Morse theory analog of the Feynman path integral
+  - field_a_term: symplectic 2-form ω = Σ dqᵢ ∧ dpᵢ
+    field_b_term: fundamental phase-space measure in statistical mechanics (Liouville measure)
+    note: invariance of ω under Hamiltonian flow is Liouville's theorem
+  - field_a_term: Hamiltonian vector field X_H (ι_{X_H}ω = dH)
+    field_b_term: Hamilton's equations of motion (dq/dt = ∂H/∂p, dp/dt = -∂H/∂q)
+    note: geometric definition; coordinate-free; specialises to standard form in Darboux coordinates
+  - field_a_term: symplectomorphism (diffeomorphism preserving ω)
+    field_b_term: canonical transformation (preserving Poisson brackets)
+    note: same concept; different terminology across mathematics and physics
+  - field_a_term: Arnold-Liouville action-angle coordinates (I, θ)
+    field_b_term: adiabatic invariant I = ∮ p dq / 2π in classical mechanics
+    note: action variables are adiabatic invariants; angle variables are cyclic
+  - field_a_term: KAM tori (surviving invariant tori under perturbation)
+    field_b_term: stability of near-integrable Hamiltonian systems (solar system stability)
+    note: KAM theory proves that most tori survive if the perturbation is small enough
+  - field_a_term: Gromov non-squeezing (ball in cylinder obstruction)
+    field_b_term: phase space area inequality (stronger than Liouville volume conservation)
+    note: non-squeezing is the classical analogue of the Heisenberg uncertainty principle
+  - field_a_term: Poisson bracket {F,G} = Σ(∂F/∂qᵢ ∂G/∂pᵢ - ∂F/∂pᵢ ∂G/∂qᵢ)
+    field_b_term: quantum commutator [F̂,Ĝ]/iℏ (deformation quantisation)
+    note: Dirac's quantisation rule; symplectic geometry underlies quantum mechanics
 related_unknowns:
-  - u-symplectic-quantization-gap
+  - u-symplectic-topology-classical-quantum-correspondence-limits
 related_hypotheses:
-  - h-deformation-quantization-symplectic-bridge
+  - h-gromov-nonsqueezing-quantum-uncertainty-derivation
 cross_pollination_opportunities:
   - >
-    Symplectic integrators for molecular dynamics (NAMD, GROMACS, AMBER) preserve
-    physical conserved quantities over million-step simulations — a direct mathematical
-    benefit transferred from pure geometry to computational chemistry and biophysics.
+    Symplectic integrators (Störmer-Verlet, Ruth-Forest, RATTLE) are numerical
+    integration schemes that exactly preserve the symplectic structure of the
+    flow (ω is conserved to machine precision), unlike standard Runge-Kutta methods.
+    This makes them qualitatively superior for long-time integration of Hamiltonian
+    systems (no artificial energy drift) — relevant for N-body simulations in
+    astrophysics and molecular dynamics. The mathematics → computational physics
+    transfer is underappreciated in applied numerics curricula.
   - >
-    Floer homology tools (pseudoholomorphic curves) now appear in mirror symmetry
-    (Fukaya category), connecting symplectic topology to algebraic geometry and
-    string theory in unexpected ways.
+    Floer homology (Floer 1988) assigns a homology group to a symplectic manifold
+    from its periodic orbits (solutions of Hamilton's equations). This connects
+    symplectic topology to algebraic topology and provides invariants of
+    Hamiltonian systems that are topological rather than dynamical. Applications
+    in string theory and mirror symmetry have driven enormous mathematical
+    development, but the physics motivation and the mathematical structure remain
+    in separate communities.
 communication_gap: >
-  Classical mechanics and quantum mechanics are taught in separate courses with
-  different mathematical language (Lagrangian/Hamiltonian vs Hilbert space operators).
-  The symplectic geometry unification is standard in mathematical physics but rarely
-  reaches computational scientists who implement molecular dynamics.
+  Symplectic geometry was developed as pure mathematics (Elie Cartan, 1920s;
+  Darboux 1880s) without explicit awareness of its relevance to mechanics.
+  Arnold's "Mathematical Methods of Classical Mechanics" (1974, English 1978)
+  made the connection explicit and accessible, but required graduate mathematics
+  expertise that most physicists lacked. Most physics graduate programmes teach
+  Hamiltonian mechanics in Lagrangian/Newtonian notation without mentioning
+  differential forms. Gromov's non-squeezing theorem (1985) appeared in Inventiones
+  Mathematicae (pure mathematics) and its physical interpretation took years to
+  become standard. The uncertainty-principle connection is sometimes noted in
+  textbooks but rarely developed rigorously. Classical mechanics and differential
+  geometry remain institutionally separated in most universities.
 last_reviewed: "2026-05-06"
 references:
-  - note: "Arnold (1978) Mathematical Methods of Classical Mechanics; Springer"
-  - note: "Weyl (1931) The Theory of Groups and Quantum Mechanics; Dover"
-  - doi: "10.4310/jdg/1214442477"
-    note: "Floer (1988) J Differ Geom 28:513 — Floer homology construction"
-  - note: "Leimkuhler & Reich (2004) Simulating Hamiltonian Dynamics; Cambridge"
+  - note: Arnold (1989) Mathematical Methods of Classical Mechanics, 2nd ed. Springer, New York
+  - doi: "10.1007/BF01388806"
+    note: Gromov (1985) Invent Math 82:307 — non-squeezing theorem
+  - note: McDuff & Salamon (2017) Introduction to Symplectic Topology, 3rd ed. Oxford University Press
+  - note: Hofer & Zehnder (1994) Symplectic Invariants and Hamiltonian Dynamics. Birkhauser, Basel

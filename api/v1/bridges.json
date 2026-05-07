@@ -1,5 +1,5 @@
 {
-  "count": 315,
+  "count": 326,
   "items": [
     {
       "id": "b-grokking-criticality",
@@ -1789,6 +1789,69 @@
       "file": "cross-domain\\biology-mathematics\\b-game-theory-immune-evasion.yaml"
     },
     {
+      "id": "b-phylogenetics-maximum-likelihood",
+      "title": "Phylogenetic tree inference is maximum likelihood estimation over a combinatorial parameter space of tree topologies and branch lengths under Markov nucleotide substitution models — Felsenstein's pruning algorithm makes the likelihood tractable, and Bayesian MCMC extensions unify evolutionary biology with probabilistic graphical models and molecular clocks.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Phylogenetics is a formally defined statistical inference problem: given aligned DNA (or protein) sequences from n taxa, find the evolutionary tree topology τ and branch lengths t that maximise the probability of observing the data:\n  L(τ, t | data) = P(data | τ, t, model)\nThe model is a continuous-",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-gtr-model-adequate-metazoan-divergence-estimation"
+      ],
+      "communication_gap": "Felsenstein (1981) published in J Mol Evol, a specialist journal inaccessible to most mathematicians and statisticians. The equivalence between phylogenetic pruning and the forward algorithm for HMMs was not noted until the late 1990s, causing independent development of computational methods in both fields. Bayesian phylogenetics (MrBayes 2001) was initially resisted by some systematists sceptical of Bayesian methods — a philosophical dispute from statistics that delayed adoption. The BEAST software (Drummond & Rambaut 2007) democratised Bayesian molecular-clock analysis but is still regarded as a specialised bioinformatics tool rather than a Bayesian graphical model by the statistics community.\n",
+      "translation_table": [
+        {
+          "field_a_term": "evolutionary tree topology τ",
+          "field_b_term": "combinatorial latent variable in a probabilistic graphical model",
+          "note": "the tree is a rooted or unrooted graph; posterior over τ is MCMC-sampled"
+        },
+        {
+          "field_a_term": "nucleotide substitution rate matrix Q",
+          "field_b_term": "instantaneous generator of continuous-time Markov chain",
+          "note": "transition probabilities P(t) = e^{Qt} derived by matrix exponentiation"
+        },
+        {
+          "field_a_term": "Felsenstein pruning algorithm (likelihood on tree)",
+          "field_b_term": "forward algorithm on a tree-structured hidden Markov model",
+          "note": "identical dynamic programming structure; different combinatorial space"
+        },
+        {
+          "field_a_term": "branch length t (substitutions per site)",
+          "field_b_term": "evolutionary time × rate (molecular clock: t = r × T)",
+          "note": "calibrated to absolute time using fossil age constraints on internal nodes"
+        },
+        {
+          "field_a_term": "MCMC posterior sampling over tree topologies and branch lengths",
+          "field_b_term": "Bayesian inference in a high-dimensional discrete+continuous space",
+          "note": "requires specialised topology proposal moves not needed for continuous parameters"
+        },
+        {
+          "field_a_term": "relaxed molecular clock (log-normal rate variation across branches)",
+          "field_b_term": "hierarchical Bayesian model with branch-specific rate hyperparameters",
+          "note": "allows rate variation while preserving identifiability via shrinkage prior"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1007/BF01734359",
+          "note": "Felsenstein (1981) J Mol Evol 17:368 — pruning algorithm for phylogenetic likelihood"
+        },
+        {
+          "note": "Jukes & Cantor (1969) in Munson & Kern (eds) Mammalian Protein Metabolism, pp 21-132"
+        },
+        {
+          "doi": "10.1186/1471-2148-7-214",
+          "note": "Drummond & Rambaut (2007) BMC Evol Biol 7:214 — BEAST software for Bayesian phylogenetics"
+        },
+        {
+          "note": "Zuckerkandl & Pauling (1965) J Theor Biol 8:357 — molecular clock hypothesis"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\biology-mathematics\\b-phylogenetics-maximum-likelihood.yaml"
+    },
+    {
       "id": "b-population-genetics-diffusion",
       "title": "The Wright-Fisher model of allele frequency evolution under drift and selection maps exactly onto a Fokker-Planck diffusion equation — Kimura's fixation probability formula and the stationary beta distribution are exact solutions, unifying probability theory and evolutionary genetics.\n",
       "source_domain": "",
@@ -2152,6 +2215,70 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\biology-physics\\b-active-matter-cytoskeletal.yaml"
+    },
+    {
+      "id": "b-bioluminescence-quantum-yield",
+      "title": "Bioluminescence converts chemical energy to photons via the luciferin-luciferase reaction with quantum yields up to 0.88, the highest of any biochemical process — the excited-state electronic structure of oxyluciferin determines emission wavelength, and luciferase active-site polarity tunes colour, bridging photochemistry, quantum optics, and molecular evolution of light production.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Bioluminescence is the biological implementation of chemiluminescence — conversion of chemical bond energy directly to photons without thermal intermediates (no blackbody radiation). The key physical quantity is the quantum yield Φ = photons emitted / molecules reacted, which is the product of the e",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-bioluminescence-coevolution-visual-system-deep-sea"
+      ],
+      "communication_gap": "Bioluminescence research is distributed across marine biology (deep-sea surveys), biochemistry (luciferin-luciferase mechanism), photochemistry (excited-state quantum chemistry), and biotechnology (reporter applications) — with each community rarely engaging the others. The quantum chemistry of the excited-state mechanism (whether enolate or keto tautomer of oxyluciferin emits, which affects the predicted emission wavelength) was actively debated for decades partly because chemists and biochemists used different experimental systems and terminology. Marine bioluminescence ecologists rarely read photochemistry journals. Biotechnology applications of luciferase (BLI imaging, BRET biosensors) are developed without systematic engagement with the quantum yield physics that determines assay sensitivity.\n",
+      "translation_table": [
+        {
+          "field_a_term": "quantum yield Φ = photons / reactions",
+          "field_b_term": "luminescence efficiency of reporter assay",
+          "note": "high Φ is essential for sensitive gene expression and ATP quantification assays"
+        },
+        {
+          "field_a_term": "electronically excited singlet state S₁ of oxyluciferin",
+          "field_b_term": "photon-emitting intermediate in luciferin oxidation pathway",
+          "note": "formed by two-electron oxidative decarboxylation; the chemical mechanism producing the S1 state is still debated"
+        },
+        {
+          "field_a_term": "solvatochromism (emission wavelength shift with dielectric environment)",
+          "field_b_term": "colour tuning by luciferase active-site polarity",
+          "note": "same physics as solvatochromic dyes; explains emission colour diversity without luciferin chemical changes"
+        },
+        {
+          "field_a_term": "seawater blue transmission window (λ_min absorption ~ 480 nm)",
+          "field_b_term": "convergent evolution of blue bioluminescence in deep-sea organisms",
+          "note": "physical constraint (optical transmission) drives evolutionary selection of emission wavelength"
+        },
+        {
+          "field_a_term": "pH-gated luciferase inhibition/activation",
+          "field_b_term": "mechanical-to-chemical signal transduction in dinoflagellates",
+          "note": "acidification from mechanical deformation switches on bioluminescence — a pH-sensitive quantum yield switch"
+        },
+        {
+          "field_a_term": "BRET (bioluminescence resonance energy transfer)",
+          "field_b_term": "FRET analogue using bioluminescence donor instead of fluorescent donor",
+          "note": "eliminates need for external excitation light source; enables in vivo protein interaction monitoring"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1002/jcp.1030300104",
+          "note": "McElroy (1947) J Cell Comp Physiol 30:11 — first characterisation of firefly luciferin-luciferase reaction"
+        },
+        {
+          "note": "Seliger & McElroy (1960) Arch Biochem Biophys 88:136 — quantum yield measurement (Phi ~ 0.88)"
+        },
+        {
+          "doi": "10.1007/s00018-002-8437-7",
+          "note": "Viviani (2002) Cell Mol Life Sci 59:2029 — bioluminescence biochemistry review"
+        },
+        {
+          "doi": "10.1146/annurev-marine-120308-081028",
+          "note": "Haddock et al. (2010) Annu Rev Mar Sci 2:443 — bioluminescence in the ocean"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\biology-physics\\b-bioluminescence-quantum-yield.yaml"
     },
     {
       "id": "b-circadian-clocks-nonlinear-oscillators",
@@ -3070,6 +3197,68 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\chemistry-mathematics\\b-reaction-network-graph-theory.yaml"
+    },
+    {
+      "id": "b-colloidal-systems-soft-matter",
+      "title": "Colloidal dispersions are a model system where DLVO electrostatic-van der Waals competition controls stability, hard-sphere entropy drives a purely athermal fluid-crystal phase transition at phi = 0.494, and colloidal glasses at phi = 0.64 are experimental realisations of the glass transition, making colloidal physics the bridge between chemistry and condensed-matter statistical mechanics.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Colloidal systems (particle diameter 1 nm – 1 μm) are large enough to be imaged by optical microscopy and small enough to undergo Brownian motion, making them ideal model systems for testing statistical-mechanical theories that are otherwise inaccessible at the atomic scale.\nDLVO theory (Derjaguin, ",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-dlvo-failure-short-range-attractions-gels"
+      ],
+      "communication_gap": "Colloidal chemistry developed as an applied field (pigments, foods, pharmaceuticals, coatings) largely independently of the condensed-matter statistical mechanics that provides its theoretical foundation. The entropy-driven crystallisation result (Pusey & van Megen 1986) appeared in Nature but took years to percolate into chemistry textbooks. The glass transition work by van Blaaderen and Wiltzius (1995) using confocal microscopy appeared in Nature but is not yet standard in physical chemistry curricula. The DLVO framework is well-known in colloid chemistry but its connection to Debye-Hückel theory (electrolyte physics) is rarely made explicit in either field's pedagogy.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Debye screening length κ⁻¹ (controlled by salt concentration)",
+          "field_b_term": "effective range of inter-particle repulsion (controls phase behaviour)",
+          "note": "chemistry variable (ionic strength) directly maps to physics control parameter of phase diagram"
+        },
+        {
+          "field_a_term": "Hamaker constant A (van der Waals attraction strength)",
+          "field_b_term": "depth of interaction potential well U_min",
+          "note": "A is a material chemistry property; U_min / kT determines colloidal stability ratio W"
+        },
+        {
+          "field_a_term": "volume fraction φ (particle packing)",
+          "field_b_term": "order parameter of colloidal fluid-crystal transition",
+          "note": "φ = 0.494 (freezing) and φ = 0.545 (melting) are universal for hard spheres"
+        },
+        {
+          "field_a_term": "colloidal crystal (FCC opal)",
+          "field_b_term": "photonic crystal with bandgap in visible spectrum",
+          "note": "lattice spacing d ~ 200-400 nm comparable to visible wavelengths"
+        },
+        {
+          "field_a_term": "random close-packing φ ≈ 0.64",
+          "field_b_term": "colloidal glass transition (structural arrest)",
+          "note": "accessible to direct imaging by confocal microscopy unlike atomic glasses"
+        },
+        {
+          "field_a_term": "PMMA sphere with steric stabilisation (polymer brush)",
+          "field_b_term": "hard-sphere model particle (no attractive interactions)",
+          "note": "chemically synthesised colloidal model for theoretical hard-sphere system"
+        }
+      ],
+      "references": [
+        {
+          "note": "Derjaguin & Landau (1941) Acta Physicochim USSR 14:633 — DLVO theory (electrostatic part)"
+        },
+        {
+          "note": "Verwey & Overbeek (1948) Theory of the Stability of Lyophobic Colloids. Elsevier, Amsterdam"
+        },
+        {
+          "doi": "10.1038/320340a0",
+          "note": "Pusey & van Megen (1986) Nature 320:340 — hard-sphere fluid-crystal and glass transitions"
+        },
+        {
+          "note": "Russel, Saville & Schowalter (1989) Colloidal Dispersions. Cambridge University Press"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\chemistry-physics\\b-colloidal-systems-soft-matter.yaml"
     },
     {
       "id": "b-polymer-physics-scaling-laws",
@@ -6605,6 +6794,68 @@
       "file": "cross-domain\\economics-physics\\b-dissipative-structures-economic-cycles.yaml"
     },
     {
+      "id": "b-financial-markets-nonequilibrium",
+      "title": "Financial markets are paradigmatic non-equilibrium systems — price returns exhibit the inverse cubic law (alpha ~ 3 fat tails), volatility clustering maps to GARCH/Heston stochastic-volatility dynamics, the square-root market impact law is a non-equilibrium flow phenomenon, and the continuous double auction is a far-from-equilibrium steady state, making econophysics the application of non-equilibrium statistical mechanics to capital markets.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Financial markets violate equilibrium assumptions in ways that non-equilibrium statistical mechanics can describe quantitatively. The core bridge is between statistical physics of complex systems and the empirical \"stylised facts\" of financial returns.\nStylised fact 1 — Fat-tailed return distributio",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-inverse-cubic-law-agent-heterogeneity-mechanism"
+      ],
+      "communication_gap": "Econophysics emerged in the mid-1990s (Mantegna & Stanley 1995, Nature) when physicists trained in statistical mechanics began applying their methods to financial data. The reception from economists was mixed to hostile — economists have their own well-developed theory of financial markets (efficient market hypothesis, stochastic calculus, option pricing theory) and viewed physicists as naive about market mechanisms. Economists do not read Physical Review E; physicists do not read the Journal of Finance. The main bridge journals (Quantitative Finance, founded 2001) partially bridge this gap. Risk practitioners (quants) have absorbed much of the econophysics toolkit (random matrix theory, heavy-tail distributions, market impact modelling) without formal academic recognition of the cross-disciplinary transfer.\n",
+      "translation_table": [
+        {
+          "field_a_term": "price return fat tail exponent alpha ~ 3 (inverse cubic law)",
+          "field_b_term": "critical exponent of non-equilibrium stationary distribution",
+          "note": "universal across markets, time scales, decades — treated as universality class in physics"
+        },
+        {
+          "field_a_term": "volatility clustering (autocorrelation of |r_t|)",
+          "field_b_term": "intermittency in turbulence (clustering of high-activity events)",
+          "note": "same phenomenological structure; both described by multifractal cascades"
+        },
+        {
+          "field_a_term": "GARCH(1,1) model (σ²_t = ω + α r²_{t-1} + β σ²_{t-1})",
+          "field_b_term": "discrete-time approximation to Heston stochastic volatility diffusion",
+          "note": "GARCH is the econometric tool; Heston is the physics-style continuous SDE"
+        },
+        {
+          "field_a_term": "market impact ΔP ~ sqrt(Q/V) (square root law)",
+          "field_b_term": "non-equilibrium order flow dynamics (concave impact from order book depth)",
+          "note": "√Q law implies orders are not price-takers; market is far from equilibrium during large trades"
+        },
+        {
+          "field_a_term": "bid-ask spread (minimum price increment)",
+          "field_b_term": "energy gap in a driven lattice gas model of the order book",
+          "note": "CDA microstructure models use driven diffusive system analogies"
+        },
+        {
+          "field_a_term": "random matrix theory (Marchenko-Pastur distribution of noise eigenvalues)",
+          "field_b_term": "separation of signal from noise in portfolio correlation matrices",
+          "note": "physics random matrix theory directly applicable to financial covariance matrices"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1103/PhysRevE.60.5305",
+          "note": "Gopikrishnan et al. (1999) Phys Rev E 60:5305 — inverse cubic law for financial returns"
+        },
+        {
+          "note": "Mantegna & Stanley (1999) Introduction to Econophysics. Cambridge University Press"
+        },
+        {
+          "note": "Almgren et al. (2005) Risk 18:58 — direct estimation of market impact (square root law)"
+        },
+        {
+          "note": "Bouchaud & Potters (2003) Theory of Financial Risk and Derivative Pricing, 2nd ed. Cambridge University Press"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\economics-physics\\b-financial-markets-nonequilibrium.yaml"
+    },
+    {
       "id": "b-wealth-distribution-statistical-mechanics",
       "title": "The Boltzmann-Gibbs exponential wealth distribution arising from entropy maximization subject to wealth conservation is the economic analog of the Maxwell-Boltzmann energy distribution in statistical mechanics: mean wealth is the economic \"temperature,\" wealth exchanges are binary collisions, and the Lorenz curve is the cumulative distribution function of kinetic energy.\n",
       "source_domain": "",
@@ -7667,6 +7918,70 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\engineering-physics\\b-chaos-control-systems.yaml"
+    },
+    {
+      "id": "b-metamaterials-negative-refraction",
+      "title": "Metamaterials with simultaneously negative permittivity and permeability achieve negative refractive index — Veselago's 1968 theoretical prediction, Pendry's 2000 perfect-lens proposal, and the NIMS experimental demonstration unify electromagnetic theory, photonics engineering, and transformation optics into a single framework for controlling light beyond natural material limits.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Metamaterials are engineered electromagnetic media with properties absent in any naturally occurring material. Their defining feature is the ability to achieve negative values of both electric permittivity ε and magnetic permeability μ simultaneously, resulting in a negative refractive index n < 0.\n",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-metasurface-flat-lens-diffraction-limited-visible"
+      ],
+      "communication_gap": "Veselago (1968) published in Soviet Physics Uspekhi during the Cold War — his paper was largely unknown in the West until Pendry's 2000 PRL cited it explicitly. The gap between Veselago's theoretical prediction and experimental confirmation was 32 years, partly due to the journal being in Russian and partly because the engineering community saw no route to implementation. Pendry (2000) published in Physical Review Letters (physics) while the experimental demonstration by Smith et al. (2000) appeared simultaneously — an unusual physics-engineering synchronisation. The transformation optics framework (Pendry et al. 2006) appeared simultaneously with an independent derivation by Leonhardt (2006), both in Science. Electrical engineering antenna communities and photonics communities developed metamaterial research somewhat separately from the condensed-matter physics community.\n",
+      "translation_table": [
+        {
+          "field_a_term": "negative permittivity ε < 0 (plasma frequency)",
+          "field_b_term": "thin wire array at sub-plasma frequency (engineering implementation)",
+          "note": "metals have ε < 0 below plasma frequency; wire arrays tune effective plasma frequency"
+        },
+        {
+          "field_a_term": "negative permeability μ < 0 (magnetic resonance)",
+          "field_b_term": "split-ring resonator (SRR) array at resonant frequency",
+          "note": "no natural material has μ < 0 at optical frequencies; SRRs engineer it"
+        },
+        {
+          "field_a_term": "negative refractive index n = -√(εμ) < 0",
+          "field_b_term": "backwards-wave medium (phase velocity antiparallel to energy flow)",
+          "note": "experimentally verified by Snell's law angle measurements at microwave frequencies"
+        },
+        {
+          "field_a_term": "evanescent wave amplification (growing exponential in n=-1 slab)",
+          "field_b_term": "sub-diffraction imaging (Pendry perfect lens)",
+          "note": "evanescent waves carry spatial frequencies beyond k=ω/c — sub-diffraction information"
+        },
+        {
+          "field_a_term": "coordinate transformation in Maxwell's equations",
+          "field_b_term": "engineered ε(r)/μ(r) tensor profile (transformation optics)",
+          "note": "material recipe for any desired electromagnetic functionality derived from geometry"
+        },
+        {
+          "field_a_term": "electromagnetic cloaking (coordinate transformation routes waves around object)",
+          "field_b_term": "anisotropic metamaterial shell with spatially varying ε/μ",
+          "note": "first demonstrated at microwave; optical cloaking constrained by material losses"
+        }
+      ],
+      "references": [
+        {
+          "note": "Veselago (1968) Sov Phys Usp 10:509 — theoretical prediction of negative refractive index"
+        },
+        {
+          "doi": "10.1103/PhysRevLett.85.3966",
+          "note": "Pendry (2000) Phys Rev Lett 85:3966 — perfect lens via negative refraction"
+        },
+        {
+          "doi": "10.1103/PhysRevLett.84.4184",
+          "note": "Smith et al. (2000) Phys Rev Lett 84:4184 — first experimental n<0 metamaterial"
+        },
+        {
+          "doi": "10.1126/science.1125907",
+          "note": "Pendry et al. (2006) Science 312:1780 — transformation optics and electromagnetic cloaking"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\engineering-physics\\b-metamaterials-negative-refraction.yaml"
     },
     {
       "id": "b-metamaterials-negative-refractive-index",
@@ -11828,51 +12143,66 @@
     },
     {
       "id": "b-symplectic-geometry-hamiltonian",
-      "title": "The phase space of classical mechanics is a symplectic manifold (M, ω) and Hamilton's equations preserve the symplectic form (Liouville's theorem); quantum mechanics is the deformation quantization of this symplectic structure, making symplectic geometry the unifying language of classical and quantum dynamics.\n",
+      "title": "Hamiltonian mechanics lives on a symplectic manifold where the 2-form omega generates evolution, Liouville's theorem is phase-space volume conservation, Arnold-Liouville integrability creates KAM tori, and Gromov's non-squeezing theorem sets a topological obstruction to phase-space compression — making symplectic geometry the natural mathematical language of classical and quantum mechanics.\n",
       "source_domain": "",
       "target_domain": "",
       "status": "established",
-      "bridge_claim": "Phase space of a classical mechanical system is a symplectic manifold (M, ω) where ω = Σ dp_i ∧ dq_i. Hamilton's equations ṗ = -∂H/∂q, q̇ = ∂H/∂p preserve ω (Liouville's theorem: phase space volume is conserved by Hamiltonian flow). Symplectic integrators (leapfrog, Verlet) preserve this structure n",
+      "bridge_claim": "Symplectic geometry provides the rigorous mathematical foundation for Hamiltonian mechanics, revealing deep geometric structures that constrain the dynamics of physical systems from atomic scales to planetary orbits.\nSymplectic manifold: a symplectic manifold (M, ω) is a smooth even-dimensional mani",
       "open_unknowns": [],
       "related_hypotheses": [
-        "h-deformation-quantization-symplectic-bridge"
+        "h-gromov-nonsqueezing-quantum-uncertainty-derivation"
       ],
-      "communication_gap": "Classical mechanics and quantum mechanics are taught in separate courses with different mathematical language (Lagrangian/Hamiltonian vs Hilbert space operators). The symplectic geometry unification is standard in mathematical physics but rarely reaches computational scientists who implement molecular dynamics.\n",
+      "communication_gap": "Symplectic geometry was developed as pure mathematics (Elie Cartan, 1920s; Darboux 1880s) without explicit awareness of its relevance to mechanics. Arnold's \"Mathematical Methods of Classical Mechanics\" (1974, English 1978) made the connection explicit and accessible, but required graduate mathematics expertise that most physicists lacked. Most physics graduate programmes teach Hamiltonian mechanics in Lagrangian/Newtonian notation without mentioning differential forms. Gromov's non-squeezing theorem (1985) appeared in Inventiones Mathematicae (pure mathematics) and its physical interpretation took years to become standard. The uncertainty-principle connection is sometimes noted in textbooks but rarely developed rigorously. Classical mechanics and differential geometry remain institutionally separated in most universities.\n",
       "translation_table": [
         {
-          "field_a_term": "symplectic form ω = Σ dp_i ∧ dq_i",
-          "field_b_term": "canonical commutation relations [q̂_i, p̂_j] = iħδ_ij",
-          "note": "quantization replaces Poisson bracket with commutator divided by iħ"
+          "field_a_term": "symplectic 2-form ω = Σ dqᵢ ∧ dpᵢ",
+          "field_b_term": "fundamental phase-space measure in statistical mechanics (Liouville measure)",
+          "note": "invariance of ω under Hamiltonian flow is Liouville's theorem"
         },
         {
-          "field_a_term": "Hamiltonian flow preserving ω (Liouville)",
-          "field_b_term": "unitary quantum time evolution preserving inner products",
-          "note": "unitarity is the quantum analog of symplectic volume preservation"
+          "field_a_term": "Hamiltonian vector field X_H (ι_{X_H}ω = dH)",
+          "field_b_term": "Hamilton's equations of motion (dq/dt = ∂H/∂p, dp/dt = -∂H/∂q)",
+          "note": "geometric definition; coordinate-free; specialises to standard form in Darboux coordinates"
         },
         {
-          "field_a_term": "symplectic integrator (leapfrog, Verlet)",
-          "field_b_term": "Trotter-Suzuki decomposition for quantum simulation",
-          "note": "both preserve the algebraic structure of time evolution exactly"
+          "field_a_term": "symplectomorphism (diffeomorphism preserving ω)",
+          "field_b_term": "canonical transformation (preserving Poisson brackets)",
+          "note": "same concept; different terminology across mathematics and physics"
         },
         {
-          "field_a_term": "Floer homology of loop space",
-          "field_b_term": "path integral quantization over all trajectories",
-          "note": "Floer theory can be seen as a Morse theory analog of the Feynman path integral"
+          "field_a_term": "Arnold-Liouville action-angle coordinates (I, θ)",
+          "field_b_term": "adiabatic invariant I = ∮ p dq / 2π in classical mechanics",
+          "note": "action variables are adiabatic invariants; angle variables are cyclic"
+        },
+        {
+          "field_a_term": "KAM tori (surviving invariant tori under perturbation)",
+          "field_b_term": "stability of near-integrable Hamiltonian systems (solar system stability)",
+          "note": "KAM theory proves that most tori survive if the perturbation is small enough"
+        },
+        {
+          "field_a_term": "Gromov non-squeezing (ball in cylinder obstruction)",
+          "field_b_term": "phase space area inequality (stronger than Liouville volume conservation)",
+          "note": "non-squeezing is the classical analogue of the Heisenberg uncertainty principle"
+        },
+        {
+          "field_a_term": "Poisson bracket {F,G} = Σ(∂F/∂qᵢ ∂G/∂pᵢ - ∂F/∂pᵢ ∂G/∂qᵢ)",
+          "field_b_term": "quantum commutator [F̂,Ĝ]/iℏ (deformation quantisation)",
+          "note": "Dirac's quantisation rule; symplectic geometry underlies quantum mechanics"
         }
       ],
       "references": [
         {
-          "note": "Arnold (1978) Mathematical Methods of Classical Mechanics; Springer"
+          "note": "Arnold (1989) Mathematical Methods of Classical Mechanics, 2nd ed. Springer, New York"
         },
         {
-          "note": "Weyl (1931) The Theory of Groups and Quantum Mechanics; Dover"
+          "doi": "10.1007/BF01388806",
+          "note": "Gromov (1985) Invent Math 82:307 — non-squeezing theorem"
         },
         {
-          "doi": "10.4310/jdg/1214442477",
-          "note": "Floer (1988) J Differ Geom 28:513 — Floer homology construction"
+          "note": "McDuff & Salamon (2017) Introduction to Symplectic Topology, 3rd ed. Oxford University Press"
         },
         {
-          "note": "Leimkuhler & Reich (2004) Simulating Hamiltonian Dynamics; Cambridge"
+          "note": "Hofer & Zehnder (1994) Symplectic Invariants and Hamiltonian Dynamics. Birkhauser, Basel"
         }
       ],
       "last_reviewed": "2026-05-06",
@@ -12177,6 +12507,70 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\mathematics-social-science\\b-replicator-dynamics-ess.yaml"
+    },
+    {
+      "id": "b-spatial-statistics-geographic-inequality",
+      "title": "Tobler's first law, Moran's I spatial autocorrelation, and Kriging formalise geographic proximity effects that economic geography rediscovered independently as agglomeration externalities — Krugman's core-periphery bifurcation is a phase transition in the same spatial autocorrelation parameter space.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Spatial statistics and economic geography have independently developed formal frameworks for the same underlying phenomenon: proximity creates autocorrelation in socioeconomic outcomes, and self-reinforcing mechanisms can lock in geographic inequality. The mathematical bridge runs between Moran's I ",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-krugman-bifurcation-detectable-moran-I-trajectory"
+      ],
+      "communication_gap": "Geostatistics developed in the mining and petroleum industry (Krige 1951, Matheron 1963) independently of spatial econometrics (Anselin 1988) and economic geography (Krugman 1991). The identity between Kriging and Gaussian process regression was not widely recognised in statistics until the 2000s (Rasmussen & Williams 2006). Economists rarely cite Moran (1950) or Tobler (1970). Regional scientists use spatial econometrics but rarely engage with geostatistical variogram theory. The Krugman bifurcation is rarely framed as a phase transition in statistical physics language, despite the identical mathematics.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Moran's I spatial autocorrelation coefficient",
+          "field_b_term": "agglomeration intensity in economic geography",
+          "note": "both measure the degree to which high values cluster near high values"
+        },
+        {
+          "field_a_term": "spatial weight matrix wᵢⱼ",
+          "field_b_term": "transport cost matrix Tᵢⱼ in trade models",
+          "note": "both formalise the decay of interaction strength with distance"
+        },
+        {
+          "field_a_term": "variogram γ(h) in geostatistics",
+          "field_b_term": "distance decay of economic spillovers (localisation of knowledge)",
+          "note": "variogram fit determines the range of spatial dependence — economic geography's knowledge spillover radius"
+        },
+        {
+          "field_a_term": "Kriging interpolation (BLUP of unobserved locations)",
+          "field_b_term": "counterfactual regional income prediction in policy evaluation",
+          "note": "Kriging gives the best linear estimate of what income would be absent a policy intervention"
+        },
+        {
+          "field_a_term": "critical transport cost T* (Krugman bifurcation)",
+          "field_b_term": "spatial phase transition from dispersion to agglomeration",
+          "note": "same mathematics as second-order phase transition; symmetry breaking selects the core region"
+        },
+        {
+          "field_a_term": "spatial lag model ρ parameter",
+          "field_b_term": "Tobler spatial autocorrelation in economic outcome variables",
+          "note": "ρ > 0 means neighbours' income predicts own income — formalised Tobler's law"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.2307/143141",
+          "note": "Tobler (1970) Econ Geogr 46:234 — first law of geography"
+        },
+        {
+          "doi": "10.1093/biomet/37.1-2.17",
+          "note": "Moran (1950) Biometrika 37:17 — spatial autocorrelation statistic"
+        },
+        {
+          "doi": "10.1086/261763",
+          "note": "Krugman (1991) J Polit Econ 99:483 — increasing returns and economic geography"
+        },
+        {
+          "note": "Anselin (1988) Spatial Econometrics. Kluwer Academic Publishers, Dordrecht"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\mathematics-social-science\\b-spatial-statistics-geographic-inequality.yaml"
     },
     {
       "id": "b-radiation-biophysics-let",
@@ -12749,6 +13143,76 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\neuroscience-engineering\\b-neural-control-theory.yaml"
+    },
+    {
+      "id": "b-neuroprosthetics-adaptive-control",
+      "title": "Neuroprosthetics closes the sensorimotor loop by decoding motor intention from neural populations via Kalman-filter and RNN decoders, delivering intracortical microstimulation sensory feedback, and using online adaptive algorithms to compensate neural drift — the Cramer-Rao bound on Fisher information in the neural code sets the fundamental decoding limit bridging neuroscience and control theory.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Neuroprosthetics is the engineering discipline of closing the sensorimotor loop with a brain-machine interface — decoding neural signals as control commands for prosthetic limbs and feeding sensory information back to the brain. It requires integration of neural coding theory, optimal estimation the",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-manifold-hypothesis-m1-latent-dynamics-decoder-generalisation"
+      ],
+      "communication_gap": "Neuroprosthetics research spans neuroscience (neural coding, plasticity), engineering (signal processing, control theory, device design), and clinical medicine (neurosurgery, rehabilitation). The academic literature is split across Nature Neuroscience, IEEE Transactions on Neural Systems, and Lancet. Neural coding theory (Fisher information, population vector decoding) was developed in computational neuroscience largely independently of the control engineering tradition (Kalman filtering, adaptive estimation). BrainGate collaborations are unusual in combining these communities. Adaptive decoding methods that are standard in control engineering (recursive least squares, online EM) have only recently been applied to neural decoders, despite being optimal. The Cramér-Rao bound analysis of the neural code (Seung & Sompolinsky 1993) is well-known in computational neuroscience but rarely cited in BCI engineering papers.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Kalman filter (optimal linear state estimator)",
+          "field_b_term": "neural decoder (motor intention → prosthetic command)",
+          "note": "exact Bayesian posterior for linear-Gaussian model; dominant BCI decoder architecture"
+        },
+        {
+          "field_a_term": "state-space model (x_{t+1} = Ax_t + w_t, y_t = Cx_t + q_t)",
+          "field_b_term": "kinematic state (position/velocity) predicted from firing rate observations",
+          "note": "C matrix is the neural tuning curve matrix; estimated during calibration session"
+        },
+        {
+          "field_a_term": "intracortical microstimulation (ICMS)",
+          "field_b_term": "artificial tactile sensation (closing the sensory feedback loop)",
+          "note": "current pulse trains in S1 evoke localised percepts; frequency/amplitude encode intensity"
+        },
+        {
+          "field_a_term": "online EM algorithm (adaptive decoder parameter update)",
+          "field_b_term": "Bayesian recursive estimation for non-stationary neural tuning",
+          "note": "same algorithm as online Kalman filter identification; prevents performance degradation"
+        },
+        {
+          "field_a_term": "Fisher information J(θ) in neural population",
+          "field_b_term": "Cramér-Rao bound on decoding accuracy",
+          "note": "fundamental limit independent of decoder choice; set by neural code properties"
+        },
+        {
+          "field_a_term": "LSTM recurrent neural network decoder",
+          "field_b_term": "sequence model capturing trajectory dynamics in M1 population",
+          "note": "captures non-Markovian dynamics and coarticulation that linear Kalman filter misses"
+        },
+        {
+          "field_a_term": "electrode array impedance increase (glial encapsulation)",
+          "field_b_term": "non-stationarity requiring adaptive decoder update",
+          "note": "biotic tissue response (neuroscience) → engineering system drift → adaptive control need"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1038/nature11076",
+          "note": "Hochberg et al. (2012) Nature 485:372 — BrainGate2 robotic arm control by tetraplegic patients"
+        },
+        {
+          "doi": "10.1016/S0140-6736(12)61816-9",
+          "note": "Collinger et al. (2013) Lancet 381:557 — high-performance neuroprosthetic arm"
+        },
+        {
+          "doi": "10.1126/scitranslmed.aaf8083",
+          "note": "Flesher et al. (2016) Sci Transl Med 8:361ra141 — ICMS sensory feedback for object discrimination"
+        },
+        {
+          "doi": "10.1038/s41586-023-06139-4",
+          "note": "Willett et al. (2023) Nature 620:1031 — 62 words/minute speech BCI via neural manifold decoding"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\neuroscience-engineering\\b-neuroprosthetics-adaptive-control.yaml"
     },
     {
       "id": "b-spike-coding-neuromorphic",
@@ -13614,6 +14078,71 @@
       "file": "cross-domain\\neuroscience-psychology\\b-memory-consolidation-synaptic-tagging.yaml"
     },
     {
+      "id": "b-social-neuroscience-group-behavior",
+      "title": "The mentalizing network (mPFC/TPJ/pSTS), social pain circuitry (dACC), and oxytocin-modulated trust form a neurobiological substrate for group-level social dynamics — social neuroscience makes the mechanisms of tribal economics, in-group cooperation, and social exclusion measurable as brain states.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Social neuroscience formalises the neural mechanisms underlying social behaviour that economists, sociologists, and political scientists have described at the group level, creating a multi-level account of cooperation, conflict, and inequality.\nMentalizing network (Theory of Mind): three core region",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-social-pain-dACC-health-outcomes-mediation"
+      ],
+      "communication_gap": "Social neuroscience emerged from neuroscience (looking for brain bases of social behaviour) while social science developed macro-level theories without neural constraint. Economists built formal models of trust and cooperation (game theory) without biological grounding. The Kosfeld et al. (2005) oxytocin paper appeared in Nature and created enormous media and scientific attention, but social scientists were often sceptical of reductionism — behavioural economics and social neuroscience have only partially integrated. The mirror neuron controversy has made neuroscientists cautious about strong claims, while social scientists interpret this as the entire bridging programme being suspect. The social baseline theory has not penetrated mainstream sociology or political science.\n",
+      "translation_table": [
+        {
+          "field_a_term": "mPFC/TPJ/pSTS mentalizing network activation",
+          "field_b_term": "Theory of Mind capacity (social understanding of others' beliefs)",
+          "note": "fMRI localisation of a cognitive capacity studied for decades in developmental psychology"
+        },
+        {
+          "field_a_term": "dACC activation during social exclusion",
+          "field_b_term": "social pain (psychological experience of ostracism)",
+          "note": "bridges neuroscience measurement to social psychological construct"
+        },
+        {
+          "field_a_term": "oxytocin receptor density in nucleus accumbens and amygdala",
+          "field_b_term": "in-group trust level in public goods games (economics)",
+          "note": "neuropeptide system maps onto economic game-theoretic parameter"
+        },
+        {
+          "field_a_term": "mirror neuron discharge pattern (observation + execution)",
+          "field_b_term": "imitation learning and cultural transmission rate",
+          "note": "contested: direct neuroscience-level explanation of anthropological observation"
+        },
+        {
+          "field_a_term": "allostatic load reduction with social proximity (right PFC)",
+          "field_b_term": "health benefits of social integration (epidemiology)",
+          "note": "social baseline theory mechanistically explains Holt-Lunstad meta-analysis results"
+        },
+        {
+          "field_a_term": "parochial altruism (oxytocin increases in-group, decreases out-group cooperation)",
+          "field_b_term": "ethnic homogeneity effects on public goods provision (Putnam 2007)",
+          "note": "same behavioural pattern described at different levels of analysis"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1126/science.1130726",
+          "note": "Frith & Frith (2006) Science 312:1016 — mentalizing network and Theory of Mind"
+        },
+        {
+          "doi": "10.1126/science.1089134",
+          "note": "Eisenberger et al. (2003) Science 302:290 — social exclusion activates dACC (social pain)"
+        },
+        {
+          "doi": "10.1038/nature03701",
+          "note": "Kosfeld et al. (2005) Nature 435:673 — oxytocin increases human trust"
+        },
+        {
+          "doi": "10.1016/j.copsyc.2014.12.013",
+          "note": "Coan & Sbarra (2015) Curr Opin Psychol 1:15 — social baseline theory"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\neuroscience-social-science\\b-social-neuroscience-group-behavior.yaml"
+    },
+    {
       "id": "b-bayesian-brain-predictive-processing",
       "title": "The brain implements approximate Bayesian inference — perception equals likelihood times prior divided by evidence — and neural populations encode probability distributions, making predictive processing (Helmholtz's unconscious inference) a formal instantiation of Bayes' theorem in cortical circuits.\n",
       "source_domain": "",
@@ -14377,6 +14906,76 @@
       "file": "cross-domain\\physics-biology\\b-flagellar-motor-rotary-mechanics.yaml"
     },
     {
+      "id": "b-mechanobiology-cellular-force-sensing",
+      "title": "Cells function as living force transducers — integrin-ECM adhesion clusters convert piconewton-scale mechanical loads into gene-expression programs via talin unfolding, YAP/TAZ nuclear translocation, and durotactic migration, making biophysics and cell biology inseparable accounts of the same mechanochemical signalling system.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Mechanobiology unifies soft-matter physics with cell biology by showing that cells actively sense, generate, and respond to mechanical forces across length scales from nanometres to tissues. The key physical mechanism is mechanotransduction — the conversion of mechanical signals into biochemical one",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-ecm-stiffness-cancer-invasion-threshold"
+      ],
+      "communication_gap": "Mechanobiology sits at the intersection of soft-matter physics, biophysics, and cell biology — three communities with distinct journals (Physical Review Letters, Biophysical Journal, Cell) and funding silos (NSF Physics, NIH Cell Biology). Physicists model cells as active gels but rarely track specific signalling pathways. Cell biologists measure YAP/TAZ but rarely solve the elasticity equations. The field only cohered after Engler et al. (2006) and Dupont et al. (2011) made the mechanical→biochemical link experimentally clear. Cancer biology has been slow to incorporate stiffness as a first-class parameter alongside genetics.\n",
+      "translation_table": [
+        {
+          "field_a_term": "elastic modulus E of substrate (Pa)",
+          "field_b_term": "biochemical differentiation cue for stem cells",
+          "note": "stiffness alone recapitulates lineage-specific soluble factor signals"
+        },
+        {
+          "field_a_term": "piconewton force on talin rod domain",
+          "field_b_term": "allosteric exposure of vinculin-binding site (mechanochemical switch)",
+          "note": "F ~ 10 pN is the physiological operating range of talin as measured by FRET tension sensors"
+        },
+        {
+          "field_a_term": "worm-like chain model of protein domain unfolding",
+          "field_b_term": "mechanotransduction signal initiation at focal adhesions",
+          "note": "same polymer physics framework applied to protein mechanics"
+        },
+        {
+          "field_a_term": "elastic traction stress field (nPa scale)",
+          "field_b_term": "cell migration directionality (durotaxis)",
+          "note": "traction force microscopy measures the physical quantity that determines biological behaviour"
+        },
+        {
+          "field_a_term": "active gel theory (non-equilibrium polar fluid with motor activity)",
+          "field_b_term": "actin cytoskeleton organisation and stress fibre formation",
+          "note": "actomyosin cortex is a paradigmatic active matter system"
+        },
+        {
+          "field_a_term": "stiffness gradient in ECM",
+          "field_b_term": "chemotaxis-analogue (durotaxis) driving cancer invasion",
+          "note": "desmoplasia creates a mechanical gradient that cancer cells follow"
+        },
+        {
+          "field_a_term": "Hookean spring constant k of focal adhesion-ECM composite",
+          "field_b_term": "YAP/TAZ nuclear localisation and mechanosensing threshold",
+          "note": "YAP/TAZ nuclear fraction follows a sigmoidal function of substrate stiffness"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1016/j.cell.2006.06.044",
+          "note": "Engler et al. (2006) Cell 126:677 — substrate stiffness directs stem cell differentiation"
+        },
+        {
+          "doi": "10.1126/science.260.5111.1124",
+          "note": "Wang et al. (1993) Science 260:1124 — mechanical stress controls cell growth"
+        },
+        {
+          "doi": "10.1038/nature10137",
+          "note": "Dupont et al. (2011) Nature 474:179 — YAP/TAZ as transducers of matrix stiffness"
+        },
+        {
+          "doi": "10.1016/j.tcb.2011.04.005",
+          "note": "Trepat & Fredberg (2011) Trends Cell Biol 21:638 — cell mechanics and traction forces"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\physics-biology\\b-mechanobiology-cellular-force-sensing.yaml"
+    },
+    {
       "id": "b-mechanobiology-continuum-mechanics",
       "title": "Cells sense and respond to mechanical forces through mechanotransduction, and collectively exhibit a jamming phase transition (liquid-to-solid) controlled by cell shape index — making continuum mechanics (stress tensors, viscoelasticity, phase transitions) the quantitative framework for tissue biology from single-cell durotaxis to embryonic morphogenesis.\n",
       "source_domain": "",
@@ -14623,6 +15222,74 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\physics-chemistry\\b-maxwell-boltzmann-chemical-kinetics.yaml"
+    },
+    {
+      "id": "b-nmr-quantum-coherence",
+      "title": "Nuclear magnetic resonance is quantum coherence engineering at room temperature — the Bloch equations describe spin dynamics, Fourier transform spectroscopy extracts chemical structure, and 2D NMR correlation experiments exploit many-body quantum coherence to determine protein structures, making NMR the applied science where quantum mechanics became a routine analytical tool.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "NMR spectroscopy is the most successful application of quantum coherence in chemistry, underpinning both structural determination of molecules and MRI in medicine. Its physical basis is the manipulation of nuclear spin quantum states.\nPhysical foundation: nuclei with non-zero spin I (¹H: I=½, ¹³C: I",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-solid-state-nmr-amyloid-structure-mechanism"
+      ],
+      "communication_gap": "NMR developed in physics departments (Bloch at Stanford, Purcell at Harvard, both Nobel 1952) but migrated entirely to chemistry and medicine within a decade. The quantum mechanical density matrix description of NMR (Abragam 1961, Ernst's 1987 textbook) is standard in NMR spectroscopy but rarely taught in physics quantum mechanics courses, creating a gap where physicists approaching NMR must re-learn their own quantum mechanics in unfamiliar notation. MRI is clinically indispensable (>100 million scans/year globally) but the physics and quantum engineering behind it are largely invisible to radiologists and clinicians. The 2003 Nobel Prize to Lauterbur and Mansfield specifically acknowledged the medical impact of the physics-to-chemistry-to-medicine translation that NMR represents.\n",
+      "translation_table": [
+        {
+          "field_a_term": "nuclear spin quantum state |m⟩ (I=½: |α⟩, |β⟩)",
+          "field_b_term": "chemical shift resonance line in NMR spectrum",
+          "note": "energy gap between states = Larmor frequency = chemical shift position in spectrum"
+        },
+        {
+          "field_a_term": "T₁ longitudinal relaxation (spin-lattice)",
+          "field_b_term": "recovery time after perturbation (determines pulse repetition rate)",
+          "note": "T₁ ranges from milliseconds (small molecules) to seconds (large proteins)"
+        },
+        {
+          "field_a_term": "T₂ transverse relaxation (spin-spin dephasing)",
+          "field_b_term": "linewidth of NMR resonance (Δν = 1/πT₂)",
+          "note": "large molecules tumble slowly → fast T₂ relaxation → broad lines → size limit for NMR"
+        },
+        {
+          "field_a_term": "Hahn spin echo (180° refocusing pulse)",
+          "field_b_term": "T₂ measurement free of B₀ inhomogeneity contributions",
+          "note": "original quantum coherence refocusing — prototype for all refocusing in quantum information"
+        },
+        {
+          "field_a_term": "density matrix coherence ρ_{mn} off-diagonal element",
+          "field_b_term": "observable NMR signal (magnetisation rotating at Larmor frequency)",
+          "note": "only single-quantum coherences (Δm=1) are directly observable; multi-quantum coherences used in 2D experiments"
+        },
+        {
+          "field_a_term": "NOE (through-space, r⁻⁶ distance dependence)",
+          "field_b_term": "distance restraints in 3D protein structure determination",
+          "note": "NOESY cross-peaks give r < 5Å between proton pairs → structural restraints"
+        },
+        {
+          "field_a_term": "gradient field G encoding spatial position as frequency",
+          "field_b_term": "k-space Fourier encoding in MRI",
+          "note": "same Fourier relationship as spectroscopy but over centimetre scale"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1103/PhysRev.70.460",
+          "note": "Bloch et al. (1946) Phys Rev 70:460 — Bloch equations for NMR spin dynamics"
+        },
+        {
+          "doi": "10.1103/PhysRev.80.580",
+          "note": "Hahn (1950) Phys Rev 80:580 — spin echo discovery"
+        },
+        {
+          "note": "Ernst, Bodenhausen & Wokaun (1987) Principles of NMR in One and Two Dimensions. Oxford University Press"
+        },
+        {
+          "note": "Wüthrich (1986) NMR of Proteins and Nucleic Acids. Wiley-Interscience"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\physics-chemistry\\b-nmr-quantum-coherence.yaml"
     },
     {
       "id": "b-reaction-rate-transition-state",
@@ -18430,6 +19097,70 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\social-science-biology\\b-cultural-evolution-memetics.yaml"
+    },
+    {
+      "id": "b-urban-ecology-ses",
+      "title": "Urban ecosystems are novel socio-ecological assemblages governed by Ostrom's polycentric SES framework — heat islands shift phenology, intermediate disturbance maximises biodiversity, and green infrastructure delivers ecosystem services quantifiable in economic terms, making urban ecology the laboratory for coupled human-nature systems theory.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Urban ecology bridges ecology and social science by studying cities as coupled socio-ecological systems (SES) where human governance decisions and ecological processes co-evolve and are mutually determining.\nUrban ecosystems as novel assemblages: cities create ecological communities with no natural ",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-green-infrastructure-urban-cooling-nonlinear-threshold"
+      ],
+      "communication_gap": "Ecology developed in natural systems (forests, grasslands, oceans) and urban ecology was not recognised as a legitimate sub-discipline until the late 1990s (McDonnell & Pickett 1990 first influential urban ecology synthesis). Social scientists (urban planners, sociologists, economists) built their urban models without ecological inputs. Ostrom's SES framework was developed from studies of fisheries and irrigation systems — its application to urban green infrastructure was not systematic until Elmqvist et al. (2013). Green infrastructure valuation remains contested because ecologists and economists use different units, time horizons, and uncertainty frameworks. The concept of \"nature-based solutions\" (EU policy language) has helped bridge planning and ecology but lacks rigorous ecological theory.\n",
+      "translation_table": [
+        {
+          "field_a_term": "urban heat island intensity (ΔT_urban-rural)",
+          "field_b_term": "phenological advancement (days per °C of warming)",
+          "note": "UHI provides a natural experiment for climate change phenological effects"
+        },
+        {
+          "field_a_term": "impervious surface cover (ISC %)",
+          "field_b_term": "urbanisation gradient (ecological stress axis)",
+          "note": "ISC is the standard physical measure of urbanisation used in ecology studies"
+        },
+        {
+          "field_a_term": "species richness along urbanisation gradient",
+          "field_b_term": "intermediate disturbance hypothesis (peaked diversity curve)",
+          "note": "maximum diversity at intermediate ISC; high ISC selects for urban-adapted specialists"
+        },
+        {
+          "field_a_term": "Ostrom's polycentric governance system",
+          "field_b_term": "distributed urban green infrastructure management (community gardens, street tree stewardship)",
+          "note": "polycentric governance outperforms central control for local ecological knowledge"
+        },
+        {
+          "field_a_term": "ecosystem service valuation ($/year/hectare)",
+          "field_b_term": "urban planning cost-benefit analysis for green vs. grey infrastructure",
+          "note": "bridges ecological measurement to economic decision framework"
+        },
+        {
+          "field_a_term": "luxury effect (vegetation cover correlated with household income)",
+          "field_b_term": "environmental justice dimension of urban biodiversity distribution",
+          "note": "connects ecological pattern to social inequality — biodiversity as equity issue"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1111/j.1461-0248.2008.01202.x",
+          "note": "McDonnell & Hahs (2008) Ecol Lett 11:1290 — urbanisation gradient and ecological responses"
+        },
+        {
+          "doi": "10.1126/science.1150195",
+          "note": "Grimm et al. (2008) Science 319:756 — global change and the ecology of cities"
+        },
+        {
+          "doi": "10.1126/science.1172133",
+          "note": "Ostrom (2009) Science 325:419 — polycentric SES framework"
+        },
+        {
+          "note": "Elmqvist et al. (2013) Urbanization, Biodiversity and Ecosystem Services. Springer, Dordrecht"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\social-science-ecology\\b-urban-ecology-ses.yaml"
     },
     {
       "id": "b-cultural-memes-shannon-entropy",

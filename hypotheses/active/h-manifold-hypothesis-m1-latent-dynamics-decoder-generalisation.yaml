@@ -1,0 +1,60 @@
+id: h-manifold-hypothesis-m1-latent-dynamics-decoder-generalisation
+title: >
+  Motor cortex population activity during reaching lies on a low-dimensional
+  (d ~ 6-12) smooth manifold embedded in the full neural state space, and
+  neuroprosthetic decoders trained to operate in this manifold subspace
+  show >2x improvement in robustness to neuron loss and inter-session
+  non-stationarity compared to full-space Kalman filter decoders.
+status: active
+priority: high
+impact_score: 0.81
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+related_disciplines:
+  - neuroprosthetics
+  - computational-neuroscience
+  - control-theory
+  - biomedical-engineering
+unknowns_addressed:
+  - u-neuroprosthetic-decoder-long-term-stability-mechanisms
+evidence_links:
+  - doi: "10.1038/nature11076"
+    type: supporting
+    confidence: 0.75
+    note: Hochberg et al. (2012) Nature — BrainGate2; motor cortex decoding performance
+  - doi: "10.1038/s41586-023-06139-4"
+    type: supporting
+    confidence: 0.80
+    note: Willett et al. (2023) Nature — neural manifold decoding for speech BCI; 62 wpm
+  - doi: "10.1038/nn.4042"
+    type: supporting
+    confidence: 0.75
+    note: Gallego et al. (2017) Nat Neurosci — neural manifolds in motor cortex; stable across sessions
+proposed_tests:
+  - description: >
+      In BrainGate2 participants (or rhesus macaque reaching task):
+      compare Kalman filter decoder (full 96-channel space) vs. GPFA-subspace
+      decoder (d=10 latent dimensions) vs. LFADS decoder (recurrent neural network
+      latent dynamics). Metrics: offline decoding R² for held-out sessions;
+      performance degradation as function of simulated electrode dropout (randomly
+      remove 10%, 20%, 30%, 50% of channels). Test: GPFA/LFADS decoders degrade
+      more gracefully than full-space Kalman filter.
+    method: >
+      Offline neural data analysis; simulated electrode dropout; Gaussian process
+      factor analysis (GPFA) dimensionality estimation; cross-validated R² comparison
+    prediction: >
+      Manifold decoder R² at 30% electrode dropout: 0.72±0.08 (manifold) vs.
+      0.51±0.09 (Kalman); manifold decoder inter-session stability (same-session
+      vs. next-session R²) degrades by 8±3% vs. 22±5% for Kalman filter.
+  - description: >
+      Online closed-loop experiment: implement GPFA-based online manifold decoder
+      in BrainGate participant; compare cursor control performance (bits/minute,
+      path efficiency) over 30 sessions against same participant's Kalman filter
+      performance. Test: is manifold decoder more stable over sessions?
+    method: "Randomised crossover: 3-session blocks Kalman vs. manifold decoder; primary endpoint bits/minute"
+    prediction: Manifold decoder shows <5% performance decline from session 1-10; Kalman shows 15-25% decline
+related_disciplines:
+  - neuroprosthetics
+  - computational-neuroscience
+  - biomedical-engineering
