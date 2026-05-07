@@ -1,0 +1,42 @@
+id: h-pagerank-spectral-gap-spam-detection
+title: >
+  The spectral gap of the Google matrix, not alpha, is the fundamental parameter
+  controlling PageRank spam resistance; link farms create near-zero spectral gap
+  exploits predictable from Markov chain theory
+status: active
+priority: medium
+impact_score: 0.70
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: wave-62-agent
+unknowns_addressed:
+  - u-pagerank-x-markov-chain
+related_disciplines:
+  - computer_science
+  - mathematics
+  - network_science
+evidence_links:
+  - type: supporting
+    doi: "10.1016/S0169-7552(98)00110-X"
+    note: "Brin & Page (1998) - PageRank via Markov chain stationary distribution; teleportation ensures irreducibility"
+    confidence: 0.85
+  - type: related
+    note: "Langville & Meyer (2006) - Google's PageRank and Beyond; spectral analysis of Google matrix convergence"
+    confidence: 0.80
+  - type: supporting
+    note: "Lempel & Moran (2001) - SALSA vs PageRank; hub/authority decomposition sensitive to link farm manipulation"
+    confidence: 0.72
+proposed_tests:
+  - description: >
+      Construct controlled web graph topologies (Erdos-Renyi, scale-free, bipartite
+      hub-and-spoke, link farm) and measure the spectral gap lambda_2 of the Google
+      matrix as a function of link farm size and alpha; test whether spam detection
+      accuracy correlates with spectral gap rather than alpha.
+    method: "Synthetic web graphs; power iteration convergence measurement; adversarial link farm insertion; spam detection accuracy vs spectral gap"
+    prediction: "Spam detection accuracy drops below 90% when link farm creates |lambda_2| > 0.9 independent of alpha; smaller alpha delays but does not prevent exploitation"
+  - description: >
+      Measure empirical spectral gap of web subgraphs (Common Crawl) before and after
+      known spam campaigns; validate Markov mixing time as predictor of ranking
+      manipulation susceptibility.
+    method: "Common Crawl web graph snapshot analysis; SPAM track benchmark for known spam pages; spectral analysis vs. spam identification rate"
+    prediction: "Web graph spectral gap decreased by >30% during known 2008-2012 link spam era; recovery tracks Google Penguin update implementation"
