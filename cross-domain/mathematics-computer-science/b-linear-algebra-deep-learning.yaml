@@ -1,0 +1,83 @@
+id: b-linear-algebra-deep-learning
+title: >
+  Deep neural networks are compositions of linear maps (weight matrices) and
+  nonlinear activations whose training dynamics are governed, in the infinite-width
+  limit, by the Neural Tangent Kernel — reducing deep learning to kernel regression
+  and connecting it to spectral linear algebra, Jacobian conditioning, and
+  random matrix theory.
+status: established
+fields:
+  - mathematics
+  - computer-science
+  - machine-learning
+  - linear-algebra
+bridge_claim: >
+  A deep neural network f(x) = σ(W_L · σ(W_{L-1} · ... · σ(W_1 x))) is
+  architecturally a composition of linear maps (weight matrices Wᵢ ∈ ℝ^{n×m})
+  and pointwise nonlinearities. Backpropagation computes ∂L/∂Wᵢ via the chain
+  rule, which at each layer involves the Jacobian J_{ij} = ∂yᵢ/∂xⱼ — a matrix
+  whose conditioning determines gradient signal propagation and vanishing/exploding
+  gradient pathology. Batch normalization explicitly controls Jacobian conditioning.
+  The Neural Tangent Kernel (Jacot et al. 2018): in the limit of infinite network
+  width, gradient descent on any deep network is governed by the fixed kernel
+  k(x,x') = ⟨∇_θ f(x,θ), ∇_θ f(x,θ')⟩, making training equivalent to kernel
+  regression with a fixed infinite-dimensional feature map. This reduces deep
+  learning dynamics to linear algebra in function space. The singular value
+  spectrum of weight matrices follows the Marchenko-Pastur law from random matrix
+  theory when weights are near-random — deviations from this law (heavy-tailed
+  spectral distributions) diagnose whether a layer has learned structured representations.
+  Saxe et al. (2014) solved linear network learning analytically via SVD, revealing
+  that layers learn independent modes sequentially — a prediction validated
+  empirically and explaining curriculum learning.
+translation_table:
+  - field_a_term: weight matrix W ∈ ℝ^{m×n}
+    field_b_term: linear transformation in the network layer
+    note: The fundamental building block — a matrix multiplication followed by a nonlinearity
+  - field_a_term: Jacobian J = ∂y/∂x
+    field_b_term: gradient propagation operator (per-layer)
+    note: Conditioning of J determines gradient flow; poorly conditioned J → vanishing/exploding gradients
+  - field_a_term: singular value decomposition (SVD)
+    field_b_term: layer-wise learning dynamics in linear networks
+    note: Saxe et al. showed linear networks learn via sequential SVD mode acquisition
+  - field_a_term: kernel function k(x,x')
+    field_b_term: Neural Tangent Kernel governing infinite-width training
+    note: NTK converts gradient descent on a deep network into kernel regression
+  - field_a_term: Marchenko-Pastur distribution
+    field_b_term: random matrix null hypothesis for weight matrix spectra
+    note: Deviations from MP law indicate layers have learned structured information
+  - field_a_term: condition number κ(W) = σ_max/σ_min
+    field_b_term: gradient stability metric for network layers
+    note: Batch norm, layer norm, and spectral norm all reduce κ to stabilize training
+related_unknowns:
+  - u-ntk-finite-width-corrections
+  - u-feature-learning-beyond-ntk-regime
+related_hypotheses:
+  - h-ntk-deep-learning-kernel-regression
+cross_pollination_opportunities:
+  - Use NTK theory to analytically predict generalization error for small networks
+    before training, enabling architecture search without empirical trials
+  - Apply heavy-tailed random matrix theory (Tracy-Widom statistics) to identify
+    individual layers that are underperforming or near collapse during training
+  - Design initialization schemes that place all Jacobians in a universally
+    well-conditioned regime (orthogonal initialization) using QR decomposition
+  - Test whether biological neural circuits implement operations analogous to
+    batch normalization (divisive normalization in V1) as a conditioning mechanism
+communication_gap: >
+  Linear algebra and random matrix theory are taught in mathematics departments
+  that rarely interact with machine learning groups. The NTK paper (Jacot 2018)
+  appeared at NeurIPS but its implications for kernel methods and functional
+  analysis are still being absorbed by the broader linear algebra community.
+  Many ML practitioners use linear algebra tools (SVD, eigendecomposition) without
+  awareness of the deeper random matrix theory results that characterize typical
+  random weights — and many mathematicians who work on random matrices are unaware
+  of the practical training diagnostics this theory enables.
+last_reviewed: "2026-05-06"
+references:
+  - note: "Rumelhart, Hinton & Williams (1986) — backpropagation and the chain rule"
+    doi: "10.1038/323533a0"
+  - note: "Jacot, Gabriel & Hongler (2018) — Neural Tangent Kernel"
+    doi: "10.48550/arXiv.1806.07572"
+  - note: "Saxe, McClelland & Ganguli (2014) — exact learning dynamics in linear networks"
+    doi: "10.48550/arXiv.1312.6120"
+  - note: "Martin & Mahoney (2021) — heavy-tailed self-regularization in deep learning"
+    doi: "10.5555/3454287.3454403"

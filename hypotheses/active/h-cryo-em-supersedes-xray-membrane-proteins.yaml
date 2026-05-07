@@ -1,0 +1,47 @@
+id: h-cryo-em-supersedes-xray-membrane-proteins
+title: >
+  For membrane proteins with molecular weight >200 kDa, cryo-EM single-particle
+  analysis now routinely achieves higher resolution than X-ray crystallography
+  for native-like structural states — making crystallography obsolete for this
+  protein class while remaining superior for small, rigid proteins where cryo-EM
+  faces orientational sampling limitations.
+status: active
+priority: medium
+impact_score: 0.73
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+evidence_links:
+  - doi: "10.1107/S0907444903009812"
+    type: related
+    confidence: 0.75
+    note: "Taylor (2003) — X-ray phase problem review, noting limitations for membrane proteins"
+  - type: supporting
+    confidence: 0.85
+    note: "Henderson et al. (2012, J Mol Biol) — cryo-EM achieves atomic resolution for bacteriorhodopsin"
+  - type: supporting
+    confidence: 0.80
+    note: "Cheng (2018, Cell) — cryo-EM at atomic resolution: revolution and prospects"
+unknowns_addressed:
+  - u-crystallography-phase-problem-ab-initio
+proposed_tests:
+  - description: >
+      Systematic comparison: select 50 membrane proteins with known crystal
+      structures determined at <2.5 Å. Determine the same proteins by cryo-EM
+      single-particle analysis using current best-practice hardware (Titan Krios
+      G4, Falcon4 detector, cryoSPARC). Compare resolution, map quality (CC with
+      atomic model), and model accuracy (R_free equivalent) between methods.
+    method: "Parallel X-ray and cryo-EM structure determination, FSC-based resolution estimation, model-to-map CC"
+    prediction: "Cryo-EM achieves equal or better resolution than X-ray for >70% of membrane proteins >200 kDa"
+  - description: >
+      Identify membrane proteins for which cryo-EM consistently fails to achieve
+      <3.5 Å resolution after ≥500,000 particle micrographs: test whether failure
+      correlates with molecular weight <100 kDa, preferred orientation, or
+      conformational flexibility — characterizing the cryo-EM resolution floor.
+    method: "Retrospective analysis of EMDB entries with >100k particles; correlation analysis with MW, flexibility metrics"
+    prediction: "Failure rate >50% for proteins <100 kDa; preferred orientation and flexibility predict failure independent of MW"
+related_disciplines:
+  - structural-biology
+  - physics
+  - chemistry
+  - computational-biology

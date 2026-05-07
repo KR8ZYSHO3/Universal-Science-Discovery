@@ -1,0 +1,83 @@
+id: b-xray-crystallography-structure
+title: >
+  Bragg's law nλ = 2d sinθ bridges X-ray physics (diffraction from crystal planes)
+  to chemical structure determination (electron density maps via Fourier inversion),
+  with the phase problem as the central mathematical obstacle whose solutions
+  (isomorphous replacement, anomalous diffraction, molecular replacement) enabled
+  the determination of insulin, vitamin B12, and DNA double helix structures.
+status: established
+fields:
+  - physics
+  - chemistry
+  - structural-biology
+  - crystallography
+bridge_claim: >
+  Bragg's law nλ = 2d sinθ (1913) established that X-rays constructively interfere
+  when the path length difference 2d sinθ equals an integer multiple of the
+  wavelength — a purely physical result about wave diffraction from periodic
+  planes with spacing d. The structure factor F_{hkl} = Σⱼ fⱼ exp(2πi(hxⱼ+kyⱼ+lzⱼ))
+  is the Fourier transform of the electron density at reciprocal lattice point (hkl),
+  where fⱼ is the atomic scattering factor (proportional to atomic number Z).
+  X-ray detectors measure intensities I_{hkl} = |F_{hkl}|² but lose the phase φ —
+  the phase problem. Its solution required chemistry-driven innovations: isomorphous
+  replacement (introduce heavy atoms as phase references), anomalous diffraction
+  (SAD/MAD using wavelength-dependent anomalous scattering near absorption edges),
+  and molecular replacement (use known structures as phase templates). The electron
+  density map ρ(x,y,z) = (1/V)ΣF_{hkl}exp(-2πi(hx+ky+lz)) is then a chemical
+  readout of 3D atomic positions. Nobel Prizes across 60 years (Laue 1914, Bragg
+  1915, Hodgkin 1964, Watson-Crick via Franklin's data 1962) mark the progressive
+  fusion of physics and chemistry. Cryo-EM now challenges X-ray crystallography
+  for membrane proteins by avoiding the crystallization requirement.
+translation_table:
+  - field_a_term: Bragg diffraction condition nλ = 2d sinθ
+    field_b_term: reciprocal lattice vector (hkl) indexing crystal planes
+    note: Physics gives the condition; crystallography converts angles to (hkl) Miller indices
+  - field_a_term: structure factor F_{hkl} (Fourier coefficient)
+    field_b_term: electron density Fourier component at reciprocal lattice point
+    note: F is measured (amplitude) but phase is lost — the central challenge of crystallography
+  - field_a_term: Fourier transform (continuous)
+    field_b_term: crystallographic Fourier synthesis (electron density map)
+    note: The discrete Fourier sum over Miller indices gives the continuous electron density
+  - field_a_term: anomalous dispersion (near absorption edge)
+    field_b_term: SAD/MAD phasing method
+    note: Wavelength-dependent f'' component provides phase information without isomorphous replacement
+  - field_a_term: Patterson function P(u,v,w) = |F|² transform
+    field_b_term: vector map of interatomic distances (heavy atom location)
+    note: Patterson map locates heavy atom positions without phases — first step of MIR/SIR
+  - field_a_term: R-factor = Σ|F_obs - F_calc|/ΣF_obs
+    field_b_term: crystallographic refinement convergence metric
+    note: R_free (cross-validated) distinguishes model improvement from overfitting
+related_unknowns:
+  - u-crystallography-phase-problem-ab-initio
+  - u-cryo-em-resolution-limit-flexible-proteins
+related_hypotheses:
+  - h-cryo-em-supersedes-xray-membrane-proteins
+cross_pollination_opportunities:
+  - Apply machine learning phase prediction (deep learning on Patterson maps) to
+    solve the phase problem ab initio for novel crystal classes without experimental
+    phasing — purely mathematical prediction of crystallographic phases
+  - Use cryo-EM as a ground truth to validate and improve X-ray crystallographic
+    models of membrane proteins in detergent micelles vs. native lipid bilayers
+  - Develop serial femtosecond crystallography (SFX) at X-ray free electron lasers
+    (XFELs) to capture enzyme reaction intermediates at picosecond resolution —
+    bridging static structure determination to dynamic chemical mechanism
+  - Port crystallographic real-space refinement algorithms to cryo-ET subtomogram
+    averaging to improve resolution of macromolecular complexes in situ
+communication_gap: >
+  Physicists who study X-ray diffraction from the wave optics perspective rarely
+  interact with structural biologists who use it to determine protein structures.
+  The mathematical infrastructure (reciprocal space, Fourier methods, Bayesian
+  refinement) is shared but has developed independently in each community, with
+  parallel but disconnected literatures in Acta Crystallographica (chemistry/biology)
+  and Physical Review (physics). The Nobel history spans Physics (Laue, Bragg)
+  and Chemistry (Hodgkin) committees — reflecting the genuine disciplinary boundary.
+last_reviewed: "2026-05-06"
+references:
+  - note: "Bragg (1913) — The Diffraction of Short Electromagnetic Waves by a Crystal"
+    doi: "10.1098/rspa.1913.0084"
+  - note: "Blow & Crick (1959) — The treatment of errors in the isomorphous replacement method"
+    doi: "10.1107/S0365110X59000299"
+  - note: "Taylor (2003) — The phase problem"
+    doi: "10.1107/S0907444903009812"
+  - note: "Drenth (2007) — Principles of Protein X-ray Crystallography (textbook reference)"
+    url: "https://link.springer.com/book/10.1007/978-0-387-33746-6"

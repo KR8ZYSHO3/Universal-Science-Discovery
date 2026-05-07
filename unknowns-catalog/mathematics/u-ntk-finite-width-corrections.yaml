@@ -1,0 +1,44 @@
+id: u-ntk-finite-width-corrections
+title: >
+  How do finite-width corrections to the Neural Tangent Kernel (NTK) govern feature
+  learning, and what is the precise boundary between the NTK (lazy training) regime
+  and the mean-field (feature learning) regime as a function of network width,
+  learning rate, and initialization scale?
+status: open
+priority: high
+disciplines:
+  - mathematics
+  - machine-learning
+  - functional-analysis
+  - probability-theory
+summary: >
+  The Neural Tangent Kernel (Jacot et al. 2018) proves that in the infinite-width
+  limit under gradient descent with appropriate learning rate scaling (η ~ 1/N),
+  the kernel k_t(x,x') is constant throughout training and the network performs
+  kernel regression with k_∞ as the kernel. This is the "lazy training" or NTK
+  regime where the network does not learn features — weights barely move from
+  initialization. However, practical deep learning uses finite-width networks with
+  large learning rates (μP or "maximal update parametrization"), which induces the
+  "feature learning" (mean-field or μP) regime where the NTK evolves during training.
+  Yang & Hu (2021) showed that maximal feature learning requires learning rate
+  η ~ 1 and weight initialization σ ~ 1/√N for the first layer. The theoretical
+  boundary between regimes is characterized by the NTK fluctuation scale δk/k,
+  which is O(1/√N) in the NTK regime and O(1) in the feature learning regime.
+  Open question: what functional form do the O(1/N) corrections to the NTK take,
+  and do they explain empirical phenomena like the neural collapse phenomenon,
+  grokking, and emergent capabilities at scale?
+systematic_gaps:
+  - Exact O(1/N) correction to the NTK for multi-layer architectures and non-standard activations
+  - Theoretical characterization of the NTK-to-μP crossover as a function of depth and width simultaneously
+  - Whether the NTK regime or feature learning regime better describes practical transformers at scale
+  - Connection between NTK evolution during training and the empirical neural collapse phenomenon
+suggested_hypotheses:
+  - h-ntk-deep-learning-kernel-regression
+related_bridges:
+  - b-linear-algebra-deep-learning
+references:
+  - doi: "10.48550/arXiv.1806.07572"
+    note: "Jacot et al. (2018) — Neural Tangent Kernel"
+  - doi: "10.48550/arXiv.2012.04729"
+    note: "Yang & Hu (2021) — Feature learning in infinite-width neural networks (μP)"
+last_reviewed: "2026-05-06"

@@ -1,0 +1,46 @@
+id: h-silicon-photonics-dfb-laser-integration
+title: >
+  Heterogeneous integration of InP-based DFB lasers onto silicon photonic platforms
+  via die-to-wafer bonding will achieve coupling efficiency >80% and wall-plug
+  efficiency >25% at 85°C within 5 years, making co-packaged optics economically
+  viable for 100-Tbps switch ASICs by 2030.
+status: active
+priority: high
+impact_score: 0.77
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+evidence_links:
+  - doi: "10.1109/PROC.1963.2706"
+    type: supporting
+    confidence: 0.85
+    note: "Kroemer (1963) — double heterostructure enabling room-temperature CW laser operation"
+  - doi: "10.1103/PhysRevLett.9.366"
+    type: related
+    confidence: 0.70
+    note: "Hall et al. (1962) — original semiconductor laser diode demonstration"
+  - type: related
+    confidence: 0.75
+    note: "Liang & Bowers (2010, Nat Photonics) — recent progress in lasers on silicon review"
+unknowns_addressed:
+  - u-vcsel-silicon-photonics-integration-limit
+proposed_tests:
+  - description: >
+      Fabricate 200 InP DFB laser chips integrated with Si PIC via BCB wafer bonding;
+      measure coupling efficiency (insertion loss between InP active region and Si
+      waveguide), threshold current, slope efficiency, and wall-plug efficiency at
+      25°C and 85°C (to simulate junction temperature in CPO environment).
+    method: "BCB bonding process, LPCVD Si waveguide, L-I-V characterization, thermal chuck measurement"
+    prediction: "Coupling efficiency >80% (loss <1 dB), wall-plug >25% at 25°C, >20% at 85°C"
+  - description: >
+      Reliability test per Telcordia GR-468-CORE: 2000-hour accelerated aging at
+      85°C, 85% RH for 100 bonded DFB laser devices. Fit log-normal lifetime
+      distribution. Test: does median lifetime extrapolated to 25°C exceed 10⁷ hours
+      (FIT rate <100)?
+    method: "Accelerated aging with L-I-V monitoring every 168h, Arrhenius extrapolation, Weibull lifetime model"
+    prediction: "Median lifetime >10⁸ hours at 25°C; FIT rate <50 — meeting optical transceiver reliability requirements"
+related_disciplines:
+  - photonics
+  - electrical-engineering
+  - materials-science
+  - physics

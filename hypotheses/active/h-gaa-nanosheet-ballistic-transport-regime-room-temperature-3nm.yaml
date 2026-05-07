@@ -1,0 +1,52 @@
+id: h-gaa-nanosheet-ballistic-transport-regime-room-temperature-3nm
+title: >
+  Gate-all-around nanosheet silicon transistors at the 3nm node (Samsung/TSMC,
+  2022-2024) operate in the quasi-ballistic transport regime at room temperature
+  (backscattering ratio r < 0.3), and their ON-current is within a factor of 2
+  of the Landauer ballistic limit — making further ON-current improvement require
+  materials changes (SiGe, III-V), not gate geometry improvements.
+status: active
+priority: high
+impact_score: 0.75
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+unknowns_addressed:
+  - u-2d-material-fet-contact-resistance-scaling-below-1nm
+evidence_links:
+  - type: supporting
+    note: "Jeong et al. (2023) IEEE IEDM — Samsung 3GAE (3nm GAA) device characteristics: ON-current 1850 µA/µm at VDD=0.75V; theoretical Landauer limit for Si (100) orientation, 3 subbands: ~3500 µA/µm — actual device is ~53% of ballistic limit, consistent with backscattering r ≈ 0.47"
+    confidence: 0.70
+  - type: supporting
+    note: "Lundstrom & Jeong (2013) Nanoscale Transistors — MIT textbook: at 5nm gate length, mean free path in Si ≈ 5-10 nm (comparable to channel), so fraction of ballistic transmission T ≈ λ/(λ+L) ≈ 0.5-0.7 — consistent with quasi-ballistic operation"
+    confidence: 0.78
+  - type: contradicting
+    note: "Contact resistance (R_c ≈ 50-100 Ω·µm for Si in 3nm node) may limit ON-current more than channel scattering — distinguishing contact vs. channel contribution requires van der Pauw measurement on devices with varied contact spacing, which is not published for 3nm node"
+    confidence: 0.65
+  - type: supporting
+    note: "TSMC N3E characterization (2023 VLSI Symposium) — nMOS ION = 1350 µA/µm; SiGe pMOS ION = 1450 µA/µm; SiGe enhancement of hole mobility (2× over Si) increases ION closer to ballistic limit, consistent with materials engineering being the next scaling lever"
+    confidence: 0.72
+proposed_tests:
+  - description: >
+      Measurement of the virtual source injection velocity v_T = ION/(Q_inv) in
+      3nm GAA nanosheet transistors (requires mobile charge density Q_inv from
+      split C-V measurement on long-channel devices). Compare v_T with the thermal
+      injection velocity v_T_thermal = √(2k_BT/πm*) ≈ 1.2×10⁷ cm/s for Si
+      (Lundstrom virtual source model). Backscattering ratio r = 1 - v_T/v_T_thermal.
+      Prediction: r ≈ 0.3-0.5 for 3nm Si nanosheet, indicating quasi-ballistic
+      transport; SiGe channels (with lower m* for holes) will show r ≈ 0.2-0.3,
+      confirming materials engineering as the primary remaining lever.
+  - description: >
+      Benchmarking 3nm Si GAA vs. 3nm SiGe GAA vs. InGaAs (III-V) heterostructure
+      FET (research device, L_G = 7nm) on a common ON-current vs. OFF-current
+      plane, normalized to the Landauer ballistic limit for each material
+      (G_0 × M × T, with M computed from subband structure and T measured from
+      ON-current at known Q_inv). Prediction: InGaAs approaches 80% of ballistic
+      limit (low m*, high v_T_thermal) while Si 3nm GAA is at 50-55%, demonstrating
+      quantitatively that materials change (not gate geometry) is required for
+      next-generation ON-current improvement.
+related_disciplines:
+  - engineering
+  - physics
+  - semiconductor-physics
+  - materials-science

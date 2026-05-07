@@ -1,0 +1,98 @@
+id: b-statistical-mechanics-opinion
+title: >
+  The Ising model of opinion dynamics maps social consensus formation onto
+  ferromagnetic phase transitions (T < T_c → ordered consensus; T > T_c →
+  disordered pluralism), while bounded-confidence models predict opinion clustering
+  and polarization — bridging statistical mechanics with quantitative social science.
+status: established
+fields:
+  - physics
+  - social-science
+  - statistical-mechanics
+  - complexity-science
+  - political-science
+bridge_claim: >
+  The voter model and Ising model provide a rigorous statistical mechanics framework
+  for opinion dynamics. In the Ising opinion model, agents (spins) hold binary opinion
+  σ_i = ±1 (yes/no, left/right, agree/disagree), aligned by social influence J
+  (ferromagnetic coupling — conformity pressure) and disturbed by social noise T
+  (independent thinking / contrarianism). The Hamiltonian H = -J·Σ_{⟨ij⟩} σ_i·σ_j
+  maps to a magnet, and the mean-field phase transition at T_c = zJ/k_B (z = coordination
+  number) separates: T < T_c → consensus (spontaneous magnetization, majority opinion)
+  and T > T_c → disorder (paramagnetic phase, no majority).
+
+  The Sznajd model (2000) adds social validation: pairs of agreeing neighbors
+  convince their neighbors (outflow rule). This produces consensus faster than the
+  Ising model and more realistically captures "social proof" dynamics. The critical
+  noise level above which consensus cannot be maintained is lower in Sznajd than
+  Ising — reflecting stronger social homophily.
+
+  Bounded confidence models (Deffuant-Weisbuch 2000): agents have continuous opinions
+  x_i ∈ [0,1] and only interact if |x_i - x_j| < ε (confidence bound). The
+  dynamics dx_i/dt = μ·(x_j - x_i)·Θ(ε - |x_i - x_j|) lead to opinion clustering:
+  for large ε (open-minded agents), consensus; for small ε (closed-minded), multiple
+  clusters (polarization). The number of clusters scales as 1/(2ε) — a quantitative
+  prediction of polarization as a function of social open-mindedness.
+
+  Structural balance theory (Heider 1946, formalized by Cartwright-Harary 1956):
+  signed social networks (friend/enemy) evolve toward balance — all triangles have
+  an even number of negative edges ("enemy of my enemy is my friend"). The balanced
+  state corresponds to complete bipartition into two antagonistic groups — the
+  statistical mechanics ground state of a frustrated antiferromagnet. Janus graphs
+  (Traag et al. 2010) quantify the energy of unbalanced triads.
+translation_table:
+  - field_a_term: spin σ_i = ±1 (up/down)
+    field_b_term: binary opinion of agent i (yes/no, liberal/conservative)
+  - field_a_term: ferromagnetic coupling J (tendency to align)
+    field_b_term: social influence / conformity pressure between neighbors
+  - field_a_term: social noise temperature T
+    field_b_term: rate of independent opinion change / contrarianism
+  - field_a_term: phase transition at T_c (order-disorder)
+    field_b_term: tipping point between consensus and pluralism
+  - field_a_term: spontaneous magnetization ⟨σ⟩ ≠ 0 (ordered phase)
+    field_b_term: majority consensus emerging from a homogeneous initial distribution
+  - field_a_term: confidence bound ε in Deffuant-Weisbuch model
+    field_b_term: psychological latitude of acceptance (Sheriff's social judgment theory)
+  - field_a_term: structural balance (all triangles positive)
+    field_b_term: social network ground state (two opposing camps)
+related_unknowns:
+  - u-opinion-dynamics-empirical-calibration-social-media-networks
+related_hypotheses:
+  - h-bounded-confidence-epsilon-polarization-social-media-filter-bubbles
+cross_pollination_opportunities:
+  - >
+    Empirical calibration of opinion dynamics models requires social media data
+    (Twitter/X political opinion networks, Reddit community structures). Physicists
+    developing models need sociologists and political scientists to validate that the
+    abstract "opinion" variable corresponds to measurable political positions.
+    Collaboration between statistical physicists and computational social scientists
+    could produce predictive models of polarization dynamics validated against
+    longitudinal survey data.
+  - >
+    Network topology profoundly affects opinion dynamics: scale-free networks
+    (hubs) can freeze opinion dynamics, while small-world networks accelerate
+    consensus. The connection between empirical social network structure (measured
+    from phone contact graphs, Facebook friend networks) and the effective J and T
+    parameters of Ising opinion models requires collaboration between sociologists
+    measuring network structure and statistical physicists formalizing the mean-field
+    approximation on heterogeneous graphs.
+communication_gap: >
+  Statistical physics models of social dynamics (sociophysics) are published in
+  journals like Physica A, Physical Review E, and Int J Mod Phys C — largely
+  invisible to social scientists. Sociologists and political scientists are skeptical
+  of physics analogies for human behavior (agency, deliberation, institutional
+  context are absent from Ising-type models). The opinion dynamics literature
+  (Castellano et al. 2009 Rev Mod Phys review) is extensive but rarely cited in
+  political science. Bounded confidence models were developed by engineers (Deffuant,
+  Weisbuch) and are known in complex systems but not in mainstream social science.
+  Structural balance theory, though originating in social psychology (Heider 1946),
+  has been formalized using graph theory that is not standard in sociology.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1142/S0129183108012954"
+    note: "Galam (2008) Int J Mod Phys C 19:409 — sociophysics: a review of Galam models"
+  - doi: "10.1142/S0129183100000936"
+    note: "Sznajd-Weron & Sznajd (2000) Int J Mod Phys C 11:1157 — opinion evolution in closed community (Sznajd model)"
+  - note: "Deffuant et al. (2000) Adv Complex Syst 3:87 — mixing beliefs among interacting agents (bounded confidence)"
+  - doi: "10.1103/RevModPhys.81.591"
+    note: "Castellano et al. (2009) Rev Mod Phys 81:591 — statistical physics of social dynamics (comprehensive review)"

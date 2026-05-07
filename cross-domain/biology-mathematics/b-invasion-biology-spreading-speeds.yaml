@@ -1,0 +1,90 @@
+id: b-invasion-biology-spreading-speeds
+title: >
+  Fisher's reaction-diffusion equation and the Kolmogorov-Petrovsky-Piskunov theorem
+  set the asymptotic spreading speed c* = 2√(rD) for invasive species, while
+  integrodifference equations with fat-tailed dispersal kernels predict accelerating
+  invasions — unifying mathematical wave propagation theory with invasion biology.
+status: established
+fields:
+  - biology
+  - mathematics
+  - ecology
+  - applied-mathematics
+bridge_claim: >
+  The spread of invasive species is governed by the same mathematics as reaction-
+  diffusion traveling waves. Fisher (1937) and Kolmogorov-Petrovsky-Piskunov (KPP,
+  1937) independently showed that the equation ∂N/∂t = rN(1-N/K) + D∇²N —
+  combining logistic population growth with Fickian diffusion — admits traveling
+  wave solutions N(x,t) = N(x - ct) for all speeds c ≥ c* = 2√(rD). The minimum
+  speed c* is selected by initial conditions with compact support (localized invasion
+  front), making it the observable spreading speed for biological invasions.
+
+  Integrodifference equations (IDEs) generalize this to organisms with discrete
+  generations: N_{t+1}(x) = ∫ k(x-y) f(N_t(y)) dy, where k is the dispersal
+  kernel and f is the growth function. Kot et al. (1996) showed that for thin-tailed
+  kernels (finite moment generating function), the spreading speed is given by
+  c* = min_s [ln(r·M_k(s))/s] where M_k(s) = ∫ e^{sx} k(x)dx is the moment
+  generating function. For fat-tailed kernels (e.g., power-law or Cauchy), M_k(s)
+  diverges for all s > 0, and there is no constant spreading speed — instead,
+  invasions accelerate through time. This explains observed power-law spread of
+  chestnut blight, Dutch elm disease, and zebra mussels.
+
+  Stratified dispersal (rare long-distance events — RLDE) superimposes a jump
+  process on local diffusion: occasional long-range propagules (birds carrying seeds,
+  ballast water transport) create satellite colonies ahead of the main front. The
+  effective spreading speed of stratified dispersal is determined by the establishment
+  probability of satellite colonies times the RLDE rate — a quantity tractable
+  through branching process theory in mathematics.
+translation_table:
+  - field_a_term: reaction rate r (per capita growth rate at low density)
+    field_b_term: population growth parameter in logistic equation
+  - field_a_term: diffusion constant D (mean squared displacement per unit time / 2d)
+    field_b_term: local dispersal intensity of organism per generation
+  - field_a_term: minimum wave speed c* = 2√(rD)
+    field_b_term: asymptotic invasion front velocity observable in field surveys
+  - field_a_term: dispersal kernel k(x) (probability distribution of displacement)
+    field_b_term: wave packet shape in dispersive wave equation
+  - field_a_term: fat-tailed kernel (power-law, Cauchy) → divergent M_k(s)
+    field_b_term: superdiffusive process → accelerating spread (no constant speed)
+  - field_a_term: pulled wave (speed set by leading edge dynamics)
+    field_b_term: invasive spread controlled by low-density growth at front
+  - field_a_term: pushed wave (speed set by interior dynamics)
+    field_b_term: Allee effect — invasion stalls unless population exceeds threshold
+related_unknowns:
+  - u-invasion-fat-tailed-dispersal-empirical-detection
+related_hypotheses:
+  - h-rlde-satellite-colony-invasion-acceleration-branching-process
+cross_pollination_opportunities:
+  - >
+    Mathematical theory of pushed vs. pulled waves (Stokes 1976, van Saarloos 2003)
+    predicts that Allee effects convert pulled invasions to pushed ones — changing
+    not just the speed but the genetic composition of the spreading wave. Population
+    geneticists could test this prediction (lower genetic diversity at invasion
+    front in pushed vs. pulled waves) using whole-genome sequencing of invasion
+    fronts in well-documented invasions (cane toads in Australia, kudzu in the
+    southeastern US).
+  - >
+    Climate change is shifting the geographic range of invasive species. IDE models
+    with time-varying r(t) and D(t) (from climate projections) could predict
+    future invasion rates — requiring collaboration between mathematical ecologists
+    and climate modelers. The key unknown is whether dispersal kernels are fat-
+    tailed enough to produce accelerating invasions in novel climate conditions.
+communication_gap: >
+  Mathematical PDE theory of traveling waves (published in Ann Math, J Diff Eq,
+  SIAM J Math Anal) uses functional analysis and existence proofs inaccessible
+  to most ecologists. Invasion biologists publish in Ecology, Biological Invasions,
+  and Global Change Biology, where mathematical rigor is less central. The KPP
+  theorem (1937, in Russian in Bulletin of Moscow State University) took decades
+  to enter Western ecology literature. Fat-tailed dispersal and IDE theory were
+  not widely known to ecologists until Kot et al. (1996) — despite the mathematics
+  being known to probabilists for decades. Empiricists measuring invasion fronts
+  rarely have access to the statistical tools needed to distinguish constant-speed
+  from accelerating invasions.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1111/j.1469-1809.1937.tb02153.x"
+    note: "Fisher (1937) Ann Eugen 7:355 — the wave of advance of advantageous genes (original spreading-speed derivation)"
+  - note: "Kolmogorov, Petrovsky & Piskunov (1937) Bull Univ Moscow 1:1 — étude de l'équation de la diffusion avec croissance de la quantité de matière et son application à un problème biologique"
+  - doi: "10.2307/2265698"
+    note: "Kot et al. (1996) Ecology 77:2027 — dispersal data and the spread of invading organisms"
+  - note: "Shigesada & Kawasaki (1997) Biological Invasions: Theory and Practice — Oxford University Press"

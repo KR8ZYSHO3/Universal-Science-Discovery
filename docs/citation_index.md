@@ -1,6 +1,6 @@
 # USDR Citation Index
 
-**3319 total citations · 2332 unique references · 377 cited in 2+ bridges**
+**3488 total citations · 2456 unique references · 396 cited in 2+ bridges**
 
 ## Most Cross-Domain Papers
 
@@ -8,7 +8,7 @@ Papers cited across the highest number of different bridges — the most influen
 
 | Bridges | Title | DOI |
 |---|---|---|
-| 9 | Castellano et al. review connects voter model to spatial ecology | [DOI](10.1103/RevModPhys.81.591) |
+| 10 | Castellano et al. review connects voter model to spatial ecology | [DOI](10.1103/RevModPhys.81.591) |
 | 6 | Barabási & Albert (1999) - scale-free networks fragile to targeted hub attack; g... | [DOI](10.1126/science.286.5439.509) |
 | 6 | Turing (1952) — original prediction λ ∝ √(D/k) | [DOI](10.1098/rstb.1952.0012) |
 | 6 | Friston (2010) — free energy principle: biological homeostasis = continuous free... | [DOI](10.1038/nrn2787) |
@@ -43,6 +43,7 @@ Papers cited across the highest number of different bridges — the most influen
 | 3 | Gardner et al. (2000) Nature 403:339 — toggle switch as testbed circuit | [DOI](10.1038/35002131) |
 | 3 | Felsenstein (1981) — likelihood pruning; GTR model formulation | [DOI](10.1007/BF01734359) |
 | 3 | Price (1970) establishes the general decomposition applicable to cultural traits | [DOI](10.1038/227520a0) |
+| 3 | Jeong et al. (2001) — hub lethality in yeast interactome | [DOI](10.1038/35075138) |
 | 3 | Albert et al. (2000) Nature 406:378 — demonstrates targeted hub removal is catas... | [DOI](10.1038/35019019) |
 | 3 |  | [DOI](10.1103/RevModPhys.85.1143) |
 | 3 | Kahneman & Tversky (1979) established λ ≈ 2.25 empirically in WEIRD samples | [DOI](10.2307/1914185) |
@@ -51,13 +52,12 @@ Papers cited across the highest number of different bridges — the most influen
 | 3 | Wagner et al. (2004) - sleep promotes insight into hidden mathematical rule (num... | [DOI](10.1126/science.1205106) |
 | 3 | Dietz et al. (2003) Science 302:1907 — commons governance empirical tests | [DOI](10.1126/science.1091015) |
 | 3 | Brockett (1972) — Lie algebra controllability condition (basis for bracket depth... | [DOI](10.1137/0310021) |
+| 3 |  | [DOI](10.1002/j.1538-7305.1948.tb01338.x) |
 | 3 | Pendry (2000) — theoretical foundation for metamaterial lensing | [DOI](10.1103/PhysRevLett.85.3966) |
 | 3 | Cahill et al. (2003) — review of thermal transport in nanostructures; interface ... | [DOI](10.1063/1.1524305) |
 | 3 | Saw et al. 2017 — topological defects in epithelia determine cell fate; establis... | [DOI](10.1126/science.aar5663) |
 | 3 | Lustig et al. (2007) — CS-MRI demonstrated at 8× undersampling for cardiac MRI; ... | [DOI](10.1002/mrm.21391) |
 | 3 |  | [DOI](10.1038/30918) |
-| 3 | Aucott et al. (2013) PTLDS symptom burden and functional impairment — establishe... | [DOI](10.3389/fmed.2013.00057) |
-| 3 | Amit et al. (1985) Phys Rev A 32:1007 — AGS capacity theorem | [DOI](10.1103/PhysRevA.32.1007) |
 
 ## Citation Network
 
@@ -67,4 +67,4 @@ The full citation data is available at [`docs/citation_index.json`](citation_ind
 
 ## All Unique References
 
-The catalog currently references **2332 unique papers/books**.
+The catalog currently references **2456 unique papers/books**.
