@@ -1,0 +1,90 @@
+id: b-green-chemistry-atom-economy
+title: >
+  Anastas-Warner's 12 Principles of Green Chemistry and Trost's atom economy metric
+  (AE = MW(product)/ΣMW(all products) × 100%) provide a quantitative engineering
+  framework for reaction design that bridges organic synthesis with industrial
+  process efficiency and life cycle environmental impact assessment.
+status: established
+fields:
+  - chemistry
+  - engineering
+  - environmental-science
+  - chemical-engineering
+bridge_claim: >
+  Green chemistry (Anastas & Warner 1998) recasts synthetic chemistry as an
+  engineering optimization problem with environmental constraints. The 12 Principles
+  define a design space: Atom Economy (Principle 2), catalysis (Principle 9), and
+  renewable feedstocks (Principle 7) are quantitatively tractable metrics; safer
+  solvents (Principle 5) and inherently safer chemistry (Principle 12) are
+  qualitative but increasingly quantified through HSP (Hansen solubility parameters)
+  and CHEM21 solvent selection guides.
+
+  Atom economy (Trost 1991): AE = MW(desired product) / ΣMW(all products) × 100%.
+  A Diels-Alder [4+2] cycloaddition has AE = 100% (all atoms incorporated into
+  product). Grignard reactions: AE ≈ 50-70% (MgBrOH is waste). Wittig reaction:
+  AE ≈ 30% (triphenylphosphine oxide is a stoichiometric byproduct — motivating
+  development of catalytic Wittig alternatives, HWE, Julia-Kocienski). AE ignores
+  stoichiometry (if excess reagent is used) and solvents — hence E-factor is complementary.
+
+  E-factor (Sheldon 1992): E = kg waste / kg product. Pharmaceuticals: E = 25-100
+  (high value, complex multi-step synthesis, stoichiometric reagents). Bulk chemicals:
+  E < 5 (continuous catalytic processes). Fine chemicals: E = 5-50. The relationship
+  AE × (1 + E) = 1 + AE·(stoichiometric excess) shows that catalytic reactions
+  (where catalyst is not consumed) can approach E-factor = 0 in theory.
+
+  CO₂ as a feedstock (Leitner 1999): supercritical CO₂ (T_c = 31.1°C, P_c = 73.8 bar)
+  is a non-toxic, non-flammable solvent with tunable density that replaces chlorinated
+  solvents. Carboxylation reactions (CO₂ + epoxides → polycarbonates; CO₂ + H₂ →
+  methanol via Cu/ZnO catalysis) incorporate CO₂ as a carbon feedstock — turning
+  a greenhouse gas waste into a reactant, simultaneously addressing Principles 1, 7, and 9.
+translation_table:
+  - field_a_term: atom economy AE (%) — fraction of reactant atoms in desired product
+    field_b_term: process yield efficiency in chemical engineering mass balance
+  - field_a_term: E-factor (kg waste / kg product)
+    field_b_term: specific waste load in industrial process design
+  - field_a_term: catalytic cycle (catalyst regenerated, not consumed)
+    field_b_term: closed-loop process with zero net reagent consumption
+  - field_a_term: stoichiometric reagent (consumed in reaction)
+    field_b_term: open-loop process with linear material throughput
+  - field_a_term: life cycle assessment (LCA) of synthetic route
+    field_b_term: full system boundary environmental engineering analysis
+  - field_a_term: supercritical CO₂ (Tc = 31.1°C, Pc = 73.8 bar)
+    field_b_term: benign process solvent with tunable solvation properties
+  - field_a_term: inherently safer chemistry (Principle 12)
+    field_b_term: intrinsic safety design in process engineering (Kletz 1978)
+related_unknowns:
+  - u-green-chemistry-pharmaceutical-e-factor-continuous-flow
+related_hypotheses:
+  - h-co2-feedstock-polycarbonate-cascade-net-carbon-neutral
+cross_pollination_opportunities:
+  - >
+    Continuous flow chemistry (microreactors) enables safer handling of hazardous
+    intermediates (Principle 12) by minimizing inventory — chemical engineers with
+    process intensification expertise could collaborate with synthetic chemists to
+    redesign batch pharmaceutical processes as continuous processes, reducing
+    E-factors from >50 to <5. The constraint is that flow chemistry requires
+    homogeneous solutions — triggering new chemistry challenges in solubility.
+  - >
+    Machine learning for reaction prediction (Coley et al. 2019) trained on atom-
+    economical reactions could bias retrosynthesis planners toward green routes
+    without requiring explicit green chemistry rules — requires collaboration
+    between computational chemists, ML researchers, and process engineers evaluating
+    real-world implementability of proposed routes.
+communication_gap: >
+  Organic chemistry and chemical engineering have historically been separate academic
+  departments with different journals (JACS, Angewandte for chemistry; AIChE J,
+  Chem Eng Sci for engineering) and conferences. Green chemistry principles are
+  taught in chemistry departments but E-factor and LCA are primarily used by
+  process engineers in industry. The 12 Principles are qualitative enough to appeal
+  to academic chemists but quantitative implementation (solvent selection tools,
+  mass intensity calculations) requires engineering training. Industrial chemists
+  computing E-factors rarely engage with the synthetic chemistry literature proposing
+  fundamentally different routes.
+last_reviewed: "2026-05-06"
+references:
+  - note: "Anastas & Warner (1998) Green Chemistry: Theory and Practice — Oxford University Press (12 Principles)"
+  - doi: "10.1126/science.254.5037.1471"
+    note: "Trost (1991) Science 254:1471 — the atom economy: a search for synthetic efficiency"
+  - note: "Sheldon (1992) Chem Ind 23:903 — organic synthesis: past, present and future (E-factor introduced)"
+  - doi: "10.1126/science.284.5421.1780"
+    note: "Leitner (1999) Science 284:1780 — supercritical carbon dioxide as a green reaction medium"

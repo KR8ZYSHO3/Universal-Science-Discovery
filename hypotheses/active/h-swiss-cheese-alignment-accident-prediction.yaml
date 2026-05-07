@@ -1,0 +1,47 @@
+id: h-swiss-cheese-alignment-accident-prediction
+title: >
+  Accidents in safety-critical systems can be predicted prospectively by measuring
+  the temporal correlation of latent condition indicators (near-miss rate, procedure
+  deviation rate, organizational safety climate score) across defensive layers —
+  accidents occurring when these indicators co-exceed threshold simultaneously,
+  consistent with the Swiss Cheese model's hole-alignment mechanism.
+status: active
+priority: high
+impact_score: 0.84
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+evidence_links:
+  - doi: "10.1136/bmj.320.7237.781"
+    type: supporting
+    confidence: 0.75
+    note: "Helmreich (2000) — CRM and accident prevention in aviation"
+  - type: related
+    confidence: 0.65
+    note: "Reason (1997, BMJ) — Addressing the human error problem: from blame to systems"
+  - type: related
+    confidence: 0.70
+    note: "Wiegmann & Shappell (2003) — Human factors analysis of aviation accidents (HFACS)"
+unknowns_addressed:
+  - u-human-error-organizational-accident-boundary
+proposed_tests:
+  - description: >
+      Retrospective analysis of aviation safety reports (ASRS database, n>500,000
+      reports 1988-2024): construct time series of near-miss rates, maintenance
+      deviation rates, and organizational safety climate indicators (derived from
+      report text via NLP). Test whether cross-layer temporal covariance in the
+      30-day window before accidents exceeds that in matched control windows.
+    method: "NLP classification of ASRS reports, temporal covariance analysis, matched case-control design"
+    prediction: "Cross-layer indicator covariance is 2× higher in 30-day pre-accident windows vs. matched controls"
+  - description: >
+      Prospective monitoring study in 20 high-acuity ICUs: weekly measurement of
+      near-miss rate, protocol deviation rate, staff burnout score, and equipment
+      check failure rate. Test whether multivariate threshold-crossing model predicts
+      adverse events in the following 2-week window (AUC > 0.75).
+    method: "Prospective observational, structured near-miss reporting, multivariate threshold model, AUC validation"
+    prediction: "Four-layer threshold model predicts adverse events with AUC=0.78 vs. AUC=0.59 for single-layer predictor"
+related_disciplines:
+  - safety-science
+  - organizational-psychology
+  - engineering
+  - epidemiology

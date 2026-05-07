@@ -1,0 +1,44 @@
+id: u-rate-distortion-optimal-neural-codes
+title: >
+  Do sensory neural codes in the brain operate near the Shannon rate-distortion
+  limit for natural stimuli, and if so, what distortion metric do biological
+  neural circuits implicitly optimize?
+status: open
+priority: medium
+disciplines:
+  - engineering
+  - neuroscience
+  - information-theory
+  - computational-neuroscience
+summary: >
+  Efficient coding theory (Barlow 1961, Attneave 1954) predicts that sensory
+  neural codes should remove statistical redundancy from natural stimuli, approaching
+  optimal information transmission. This was supported by linear ICA models of V1
+  Gabor filters. Rate-distortion theory (Shannon 1959) provides a stronger framework:
+  for any distortion measure d(x,x̂), the minimum number of bits to represent a
+  source with distortion ≤ D is R(D) = min I(X;X̂). The question of whether
+  biological neural codes operate near R(D) for natural images/sounds requires
+  knowing the implicit distortion metric — is it pixel MSE (JPEG assumption),
+  perceptual distance (SSIM), or task-relevant distortion (classification error)?
+  Human visual perception departs dramatically from MSE: the visual system is
+  highly sensitive to phase structure and insensitive to magnitude spectrum changes
+  that dramatically alter MSE. Measuring the actual information content of neural
+  representations and comparing to the R(D) bound with a matched distortion
+  metric requires: (1) high-dimensional neural recordings sufficient to estimate
+  I(X;X̂); (2) a principled choice of distortion function; (3) computation of
+  the R(D) bound for natural image statistics.
+systematic_gaps:
+  - Empirical measurement of I(X;X̂) for V1, V4, IT responses to natural images at sufficient neural population scale
+  - Principled derivation of the perceptual distortion metric D from psychophysics
+  - Whether the distortion metric changes across cortical hierarchy (V1 low-level vs. IT categorical)
+  - Whether the neural code is closer to R(D) for evolutionarily ancient (olfactory, auditory) vs. newer (visual) sensory systems
+suggested_hypotheses:
+  - h-shannon-optimal-compression-biological-codes
+related_bridges:
+  - b-information-theory-data-compression
+references:
+  - doi: "10.1002/j.1538-7305.1959.tb03905.x"
+    note: "Shannon (1959) — rate-distortion theorem"
+  - doi: "10.1073/pnas.0307752101"
+    note: "Simoncelli & Olshausen (2001) — natural image statistics and neural representation"
+last_reviewed: "2026-05-06"

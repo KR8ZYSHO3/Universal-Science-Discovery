@@ -1,0 +1,50 @@
+id: h-tad-boundary-disruption-ctcf-site-oncogene-activation-quantitative
+title: >
+  Deletion or methylation of CTCF binding sites at TAD boundaries separating
+  proto-oncogenes from their endogenous enhancers will activate those oncogenes
+  proportionally to the Hi-C contact frequency increase between the gene and the
+  newly accessible enhancer — providing a quantitative model for boundary disruption
+  oncogenesis.
+status: active
+priority: critical
+impact_score: 0.83
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+unknowns_addressed:
+  - u-chromatin-loop-extrusion-speed-processivity-in-vivo
+evidence_links:
+  - type: supporting
+    note: "Hnisz et al. (2016) Science 351:1454 — deletion of CTCF binding sites at TAD boundaries in T-ALL activates TAL1, LMO2, and MYCN proto-oncogenes; Hi-C shows increased contact frequency between these genes and enhancers in the adjacent TAD; consistent with a linear contact-expression relationship"
+    confidence: 0.85
+  - type: supporting
+    note: "Flavahan et al. (2016) Nature 529:110 — IDH mutation causes CpG methylation at CTCF sites, boundary insulation loss, PDGFRA activation in glioma — mechanism: methylation blocks CTCF binding → TAD fusion → ectopic enhancer-promoter contact"
+    confidence: 0.83
+  - type: contradicting
+    note: "Despang et al. (2019) Nat Genet 51:1016 — deletion of individual CTCF sites at the Bmp7-Pax3 TAD boundary in mouse causes only minor expression changes despite measurable Hi-C insulation loss — suggesting redundancy in TAD boundary elements and non-linear contact-expression relationship"
+    confidence: 0.60
+  - type: contradicting
+    note: "Nora et al. (2017) Cell 169:930 — acute CTCF depletion (auxin-inducible degron) eliminates most TAD boundaries but causes modest transcriptional changes — questioning whether TADs are directly causal for gene regulation vs. coincidental with it"
+    confidence: 0.65
+proposed_tests:
+  - description: >
+      CRISPRi-dCas9 targeting of CTCF binding motif at the TAD boundary between
+      MYCN and its endogenous super-enhancer in neuroblastoma cells (known CTCF
+      boundary at chr2:16.0-16.1 Mb). Dose-response: titrate CRISPRi occupancy
+      at CTCF site vs. MYCN expression (RT-qPCR) and MYCN-enhancer contact frequency
+      (Hi-C or Micro-C at 1-kb resolution). Prediction: linear relationship between
+      CTCF occupancy reduction (0-100%) and log(MYCN expression increase), with slope
+      determined by the contact frequency change in Hi-C.
+  - description: >
+      Pan-cancer analysis of CTCF binding site mutations (from PCAWG dataset, >2500
+      cancer whole genomes) at annotated TAD boundaries. Test: CTCF mutations at TAD
+      boundaries within 500 kb of known oncogenes are enriched vs. CTCF mutations
+      at non-boundary sites (expectation under neutral model). If CTCF boundary
+      disruption drives oncogene activation, boundary mutations should show positive
+      selection in cancer. Prediction: odds ratio >3 for CTCF boundary mutations
+      within 500 kb of TOP200 oncogenes vs. same-distance background.
+related_disciplines:
+  - biology
+  - biophysics
+  - molecular-biology
+  - oncology

@@ -1,0 +1,52 @@
+id: h-bounded-confidence-epsilon-polarization-social-media-filter-bubbles
+title: >
+  Social media algorithmic curation effectively reduces the confidence bound ε in
+  Deffuant-Weisbuch opinion dynamics by decreasing cross-partisan exposure, and
+  the post-2010 polarization increase in the US is quantitatively consistent with
+  a reduction of effective ε from ~0.35 to ~0.20 as estimated from network homophily
+  metrics.
+status: active
+priority: high
+impact_score: 0.77
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+unknowns_addressed:
+  - u-opinion-dynamics-empirical-calibration-social-media-networks
+evidence_links:
+  - type: supporting
+    note: "Bail et al. (2018) PNAS 115:9216 — exposure to opposing views on Twitter did NOT reduce polarization (contrary to filter bubble hypothesis); suggests ε is already low enough that exposure without engagement does not change opinions — consistent with DW model where agents ignore distant opinions"
+    confidence: 0.70
+  - type: supporting
+    note: "Pew Research (2014-2022) partisan ideological gap increasing in US — percentage of Democrats with consistently liberal views rose from 17% (2004) to 36% (2022); percentage of Republicans with consistently conservative views from 10% to 38% — consistent with bimodal opinion distribution expected from low-ε DW model"
+    confidence: 0.73
+  - type: contradicting
+    note: "Guess et al. (2023) Science 381:eabp9364 — Facebook algorithm reduced exposure to like-minded content in 2020 election experiment; no significant reduction in political polarization (ANES measures) — suggests ε mechanism is correct (engagement with cross-partisan content doesn't help if ε < |opinion difference|) but algorithmic curation is not the primary driver"
+    confidence: 0.68
+  - type: contradicting
+    note: "Network homophily in Twitter political networks has been approximately stable 2012-2020 (Bakshy et al. 2015 Science) — retweet network partisan sorting has not dramatically increased even as polarization measured by surveys increased — suggesting effective ε reduction is not primarily mediated by network structure"
+    confidence: 0.62
+proposed_tests:
+  - description: >
+      Estimate effective ε from two independent sources for US politics 2008-2022:
+      (1) cross-partisan political discussion probability from CCES survey data
+      (Do you regularly talk with people who disagree with you politically?) → ε_survey;
+      (2) cross-partisan sharing rate from Twitter retweet network data → ε_network.
+      Fit DW model with estimated ε to predict number of distinct opinion clusters.
+      Compare predicted cluster count (1/2ε) with observed number of distinct political
+      preference clusters from ANES multi-dimensional scaling of issue positions.
+      Prediction: ε_survey ≈ ε_network ≈ 0.20 in 2022, predicting ~2.5 clusters
+      (consistent with observed strong bimodal distribution + small moderate cluster).
+  - description: >
+      Cross-national comparison: estimate ε for 20 democracies from cross-partisan
+      media consumption data (Reuters Institute Digital News Report) and fit DW model
+      to predict each country's polarization level (Pew Research global polarization
+      survey). Countries with proportional representation (multiple parties, ε estimated
+      from coalition formation willingness) should show higher cluster number in surveys.
+      Prediction: ε explains ≥40% of variance in polarization measures across countries
+      after controlling for electoral system type.
+related_disciplines:
+  - social-science
+  - physics
+  - computational-social-science
+  - political-science

@@ -1,0 +1,95 @@
+id: b-synaptic-plasticity-hebbian-learning
+title: >
+  Hebb's postulate, formalized as Hebbian correlation learning (ΔW = η·xᵢ·xⱼ),
+  requires BCM sliding-threshold stabilization and is mechanistically implemented
+  by NMDA-receptor coincidence detection and spike-timing-dependent plasticity —
+  bridging the statistical physics of associative memory with molecular neuroscience.
+status: established
+fields:
+  - neuroscience
+  - physics
+  - statistical-mechanics
+  - computational-neuroscience
+bridge_claim: >
+  Hebb's (1949) postulate — "neurons that fire together wire together" — is formally
+  expressed as ΔW_{ij} = η·xᵢ·xⱼ, a correlation-based learning rule that
+  strengthens synaptic weight W_{ij} when pre-synaptic activity xⱼ and post-synaptic
+  activity xᵢ co-occur. This rule is mathematically equivalent to performing gradient
+  ascent on the sum of squared projections onto principal components (Oja 1982),
+  connecting synaptic plasticity to principal component analysis.
+
+  Pure Hebbian learning is unstable: weights grow without bound unless constrained.
+  The BCM rule (Bienenstock-Cooper-Munro 1982) provides physical stabilization:
+  ΔW_{ij} = η·xⱼ·xᵢ·(xᵢ - θ_M), where θ_M is a sliding modification threshold
+  that tracks the time-averaged postsynaptic activity θ_M ∝ ⟨xᵢ²⟩. When xᵢ > θ_M,
+  LTP (long-term potentiation); when xᵢ < θ_M, LTD (long-term depression). The
+  sliding threshold implements homeostatic metaplasticity — a feedback mechanism
+  preventing runaway potentiation or permanent silencing.
+
+  At the molecular level, the NMDA receptor is a coincidence detector that implements
+  Hebbian co-activity detection: it requires both glutamate binding (presynaptic
+  activity) and postsynaptic depolarization (relief of Mg²⁺ block) to open,
+  admitting Ca²⁺ and triggering downstream kinase cascades (CaMKII → LTP,
+  phosphatase activation → LTD) depending on Ca²⁺ amplitude.
+
+  Spike-timing-dependent plasticity (STDP; Markram et al. 1997, Bi & Poo 1998)
+  refines this to millisecond precision: ΔW depends on the timing difference
+  Δt = t_post - t_pre. For Δt > 0 (causal: post fires after pre): LTP with
+  amplitude A_+ · exp(-Δt/τ_+). For Δt < 0 (acausal): LTD with A_- · exp(Δt/τ_-).
+  The Pfister-Gerstner (2006) triplet model replaces the pair interaction with triplets
+  of spikes, explaining the frequency dependence of plasticity and the fact that
+  natural image statistics predict the receptive field structure of V1 neurons.
+translation_table:
+  - field_a_term: Hebbian synaptic weight update ΔW = η·xᵢ·xⱼ
+    field_b_term: Hopfield network energy minimization / Boltzmann machine learning
+  - field_a_term: BCM sliding threshold θ_M ∝ ⟨xᵢ²⟩
+    field_b_term: homeostatic feedback / self-organized criticality regulation
+  - field_a_term: NMDA receptor Mg²⁺ voltage gate (coincidence detection)
+    field_b_term: AND gate in Boolean logic / multiplicative nonlinearity
+  - field_a_term: LTP (long-term potentiation, Ca²⁺ → CaMKII)
+    field_b_term: increase in coupling constant in statistical physics
+  - field_a_term: STDP causal window (Δt > 0) → LTP
+    field_b_term: temporal asymmetry in learning rule / predictive coding
+  - field_a_term: STDP acausal window (Δt < 0) → LTD
+    field_b_term: anti-Hebbian suppression of non-predictive correlations
+  - field_a_term: triplet STDP (Pfister-Gerstner 2006)
+    field_b_term: higher-order correlations in statistical learning theory
+related_unknowns:
+  - u-stdp-natural-stimuli-in-vivo-plasticity-rules
+related_hypotheses:
+  - h-bcm-sliding-threshold-homeostatic-metaplasticity-cortical-map
+cross_pollination_opportunities:
+  - >
+    Statistical mechanics of neural networks (Amit-Gutfreund-Sompolinsky 1987,
+    Hopfield 1982) shows that Hebbian learning creates associative memories as
+    energy minima with storage capacity α_c ≈ 0.138·N patterns. Modern
+    transformer attention heads implement a form of Hopfield-like retrieval.
+    Connecting biological STDP rules to the energy landscapes of large language
+    models could clarify what biological constraints on learning are relevant
+    for AI architectures.
+  - >
+    BCM theory predicts that visual deprivation (monocular deprivation) shifts
+    θ_M down → lower threshold → increased LTP → enables amblyopia recovery
+    in adults. Pharmacological manipulation of CaMKII and mGluR5 to artificially
+    shift θ_M could enable adult plasticity windows, requiring collaboration
+    between computational neuroscientists formulating BCM predictions and
+    molecular biologists engineering the molecular implementation.
+communication_gap: >
+  The BCM rule and statistical physics of neural networks are published in
+  journals like Physical Review Letters and Neural Computation, while the
+  molecular neuroscience of NMDA receptors and CaMKII is in J Neuroscience,
+  Neuron, and Nature Neuroscience. Computational neuroscientists rarely attend
+  the same conferences as molecular neurobiologists. The Hopfield network
+  (1982) and its connection to spin glasses (Amit et al. 1987) is known in
+  physics but not widely understood by molecular neuroscientists. The STDP
+  literature (mostly in experimental neuroscience) is rarely connected to
+  the statistical learning theory community despite having deep formal links.
+last_reviewed: "2026-05-06"
+references:
+  - note: "Hebb (1949) The Organization of Behavior — Wiley (original postulate)"
+  - doi: "10.1523/JNEUROSCI.02-01-00032.1982"
+    note: "Bienenstock et al. (1982) J Neurosci 2:32 — theory for the development of neuron selectivity (BCM rule)"
+  - doi: "10.1126/science.275.5297.213"
+    note: "Markram et al. (1997) Science 275:213 — regulation of synaptic efficacy by coincidence of postsynaptic APs and EPSPs (STDP discovery)"
+  - doi: "10.1523/JNEUROSCI.26-38-09673.2006"
+    note: "Pfister & Gerstner (2006) J Neurosci 26:9673 — triplets of spikes in a model of spike timing-dependent plasticity"

@@ -1,0 +1,91 @@
+id: b-graph-theory-protein-networks
+title: >
+  Protein-protein interaction networks are scale-free graphs (P(k) ∝ k^{-γ},
+  γ ≈ 2.5) whose hub proteins are essential (lethal when deleted), whose modules
+  correspond to functional complexes detectable by the Louvain algorithm, and
+  whose bridging proteins (high betweenness centrality) are preferential drug targets
+  — directly translating graph-theoretic concepts into biological and pharmacological
+  predictions.
+status: established
+fields:
+  - mathematics
+  - biology
+  - network-science
+  - graph-theory
+  - systems-biology
+bridge_claim: >
+  The yeast interactome (~6,000 proteins, ~80,000 interactions, Jeong et al. 2001)
+  follows a scale-free degree distribution P(k) ∝ k^{-γ} with γ ≈ 2.5 — identical
+  mathematically to the WWW, citation networks, and power grids. Graph theory
+  directly predicts biological consequences: hub proteins (high degree k) are
+  statistically essential for viability — deleting them is lethal — while deleting
+  non-hub proteins is usually tolerated, exactly as removing hubs fragments
+  scale-free networks while random node deletion does not. Barabási-Oltvai (2004)
+  distinguished "party hubs" (interact simultaneously, form stable complexes)
+  from "date hubs" (interact sequentially, regulate information flow between modules).
+  Alon et al. (1999, 2002) identified network motifs — feedforward loops (FFL),
+  autoregulation, bi-fans — as statistically over-represented subgraphs in
+  transcription factor networks, each with a defined regulatory function.
+  Community detection (Louvain algorithm, Blondel et al. 2008) applied to PPI
+  networks identifies protein complexes and functional modules with precision
+  matching biochemical co-immunoprecipitation results. Spectral graph theory:
+  the leading eigenvectors of the PPI Laplacian identify functional modules,
+  while proteins with high betweenness centrality are bottleneck bridges between
+  modules — and these are preferentially enriched among approved drug targets.
+translation_table:
+  - field_a_term: degree distribution P(k) (graph theory)
+    field_b_term: protein interaction degree (interactome topology)
+    note: Scale-free degree distribution means hubs dominate connectivity — as in many real networks
+  - field_a_term: hub node (high degree)
+    field_b_term: essential protein (lethal when deleted)
+    note: Jeong et al. showed 60-70% of yeast proteins with k > 15 are essential
+  - field_a_term: betweenness centrality (shortest path routing)
+    field_b_term: bottleneck protein / drug target enrichment
+    note: High betweenness proteins are in the information flow paths between modules — target-rich
+  - field_a_term: network motif (over-represented subgraph)
+    field_b_term: regulatory circuit (feedforward loop, autoregulation)
+    note: Alon's motifs are graph-theoretic patterns that implement specific regulatory functions
+  - field_a_term: community detection (modularity Q)
+    field_b_term: protein complex / functional module identification
+    note: Louvain algorithm recapitulates known complexes (ribosome, proteasome, spliceosome)
+  - field_a_term: graph Laplacian spectrum (spectral graph theory)
+    field_b_term: functional module boundaries in PPI networks
+    note: Spectral clustering of PPI Laplacian matches biochemical complex boundaries
+related_unknowns:
+  - u-ppi-scale-free-topology-functional-necessity
+  - u-hub-protein-lethality-causal-mechanism
+related_hypotheses:
+  - h-hub-lethality-protein-network-drug-targets
+cross_pollination_opportunities:
+  - Apply graph neural networks (GNNs) to the PPI network to predict protein function
+    from local neighborhood topology — test whether graph topology alone predicts
+    GO term annotation as accurately as sequence homology
+  - Use spectral gap theory (algebraic connectivity λ₂) to predict network
+    robustness of PPI networks to perturbation — comparing predicted λ₂ threshold
+    to empirical viability data across deletion libraries
+  - Apply graphlet frequency analysis (Przulj 2004) to compare PPI network local
+    topology across species — testing whether evolution preserves network motifs
+    across species with divergent sequences
+  - >
+    Develop PPI network-aware drug combination strategies: target two hub proteins
+    in different communities to achieve synergistic disruption of network information
+    flow without compensatory rerouting
+communication_gap: >
+  Graph theorists and network scientists publish in Physical Review Letters and
+  Nature Physics; systems biologists publish in Molecular Systems Biology and
+  Nature Methods. The mathematical properties of scale-free networks (proof of
+  their fragility to hub attack, formal spectral gap bounds) are known to
+  mathematicians but rarely applied quantitatively in drug target selection, where
+  practitioners use heuristic centrality metrics without formal guarantees.
+  Conversely, biologists have increasingly rich PPI datasets that could test
+  graph-theoretic predictions about network evolution that remain unverified.
+last_reviewed: "2026-05-06"
+references:
+  - note: "Jeong et al. (2001) — Lethality and centrality in protein networks"
+    doi: "10.1038/35075138"
+  - note: "Alon et al. (1999) — Broad patterns of gene expression revealed by clustering analysis of tumor and normal colon tissues (motifs)"
+    doi: "10.1038/44935"
+  - note: "Barabasi & Oltvai (2004) — Network biology: understanding the cell's functional organization"
+    doi: "10.1038/nrg1272"
+  - note: "Blondel et al. (2008) — Fast unfolding of communities in large networks (Louvain)"
+    doi: "10.1088/1742-5468/2008/10/P10008"

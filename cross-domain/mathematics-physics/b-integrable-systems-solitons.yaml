@@ -1,0 +1,105 @@
+id: b-integrable-systems-solitons
+title: >
+  The inverse scattering transform (Gardner-Greene-Kruskal-Miura 1967) solves the
+  KdV equation exactly via N-soliton solutions, with Lax pair integrability providing
+  infinitely many conservation laws — unifying Liouville integrable systems theory
+  with soliton physics and optical fiber communications.
+status: established
+fields:
+  - mathematics
+  - physics
+  - applied-mathematics
+  - optics
+  - nonlinear-dynamics
+bridge_claim: >
+  A soliton is a solitary wave that maintains its shape and speed after collisions
+  with other solitons — emerging intact from interactions with only a phase shift.
+  This remarkable particle-like behavior was discovered numerically by Zabusky &
+  Kruskal (1965) for the Korteweg-de Vries (KdV) equation: u_t + 6uu_x + u_xxx = 0
+  (shallow water waves, ion acoustic waves in plasma). The exact N-soliton solutions
+  were found by Gardner-Greene-Kruskal-Miura (1967) via the inverse scattering
+  transform (IST) — the nonlinear analog of the Fourier transform.
+
+  The IST procedure: (1) map initial condition u(x,0) to scattering data
+  {eigenvalues κ_n, norming constants c_n, reflection coefficient R(k)} of the
+  associated Schrödinger operator L = -d²/dx² + u(x,t); (2) evolve scattering data
+  trivially in time: κ_n constant, c_n(t) = c_n(0)·exp(4κ_n³t); (3) reconstruct
+  u(x,t) from scattering data via the Gel'fand-Levitan-Marchenko integral equation.
+  Each bound state eigenvalue κ_n corresponds to one soliton with amplitude 2κ_n²
+  and speed 4κ_n². This exact analytic solution of a nonlinear PDE is the central
+  mathematical achievement.
+
+  Mathematical integrability: the KdV equation has infinitely many conserved
+  quantities I_n = ∫ P_n(u, u_x, ...) dx — demonstrated by the existence of a
+  Lax pair (L, A): operators satisfying L_t = [L, A] = LA - AL. The Lax equation
+  means L undergoes isospectral deformation — its eigenvalues are conserved. Liouville
+  integrability for N-body systems: N degrees of freedom with N independent conserved
+  quantities {I_n, I_m} = 0 in involution (Poisson bracket vanishing). The Toda
+  lattice, nonlinear Schrödinger equation (NLS), and sine-Gordon equation are all
+  integrable with known Lax pairs.
+
+  Optical fiber solitons (Hasegawa & Tappert 1973): the NLS equation iψ_z +
+  (β₂/2)ψ_tt + γ|ψ|²ψ = 0 governs pulse propagation in optical fibers, where
+  β₂ is group velocity dispersion and γ is the Kerr nonlinearity coefficient.
+  When anomalous dispersion (β₂ < 0) balances self-phase modulation (γ > 0),
+  bright soliton solutions ψ(z,t) = √(P₀)·sech(t/T₀)·exp(iz/2L_D) propagate
+  without distortion. Soliton optical communications: trans-oceanic fiber links
+  (Mollenauer et al. 1988) demonstrated GbE transmission using soliton pulses
+  that reshape themselves after amplification.
+translation_table:
+  - field_a_term: Fourier transform (linear wave decomposition)
+    field_b_term: inverse scattering transform (nonlinear wave decomposition into solitons)
+  - field_a_term: plane wave e^{ikx} (Fourier eigenfunction)
+    field_b_term: soliton u_n(x) = 2κ_n²·sech²(κ_n(x-x_n)) (IST eigenfunction)
+  - field_a_term: eigenvalue κ_n of Schrödinger operator L = -∂² + u
+    field_b_term: soliton amplitude and speed parameter
+  - field_a_term: Lax pair (L, A) satisfying L_t = [L, A]
+    field_b_term: conserved Hamiltonian structure / infinite symmetry algebra
+  - field_a_term: Liouville integrability (N conserved quantities in involution)
+    field_b_term: exact solvability of N-soliton dynamics
+  - field_a_term: group velocity dispersion β₂ in optical fiber
+    field_b_term: dispersive term u_xxx in KdV (broadens pulse)
+  - field_a_term: Kerr nonlinearity γ|ψ|² (self-phase modulation)
+    field_b_term: nonlinear term 6uu_x in KdV (steepens pulse)
+  - field_a_term: soliton compression (anomalous dispersion + nonlinearity balance)
+    field_b_term: shape-preserving nonlinear wave — dispersion exactly cancelled
+related_unknowns:
+  - u-integrability-breaking-perturbations-soliton-stability-realistic-systems
+related_hypotheses:
+  - h-quantum-solitons-bethe-ansatz-connection-quantum-inverse-scattering
+cross_pollination_opportunities:
+  - >
+    The Bethe ansatz (1931 for quantum spin chains, Lieb-Liniger 1963 for Bose gas)
+    is the quantum analog of the classical IST — exact solution of quantum many-body
+    problems through the same spectral data structure. Connecting classical soliton
+    solutions (IST) to quantum solitons (Bethe ansatz) via second quantization
+    requires collaboration between mathematical physicists in integrable systems and
+    condensed matter theorists studying exactly solvable models (XXZ chain, Hubbard
+    model). This would unify two traditions of exact solutions.
+  - >
+    Machine learning for PDE solutions (physics-informed neural networks, PINNs)
+    trained on soliton dynamics could interpolate between integrable and non-integrable
+    regimes — finding approximate conservation laws in nearly-integrable systems.
+    Applied mathematicians developing PINNs for nonlinear waves could provide
+    numerically discovered approximate integrals of motion that guide analytical
+    perturbation theory approaches.
+communication_gap: >
+  Classical soliton theory and integrable systems are studied in applied mathematics
+  departments (SIAM J Math Anal, Commun Math Phys, Nonlinearity) using PDE analysis,
+  while optical solitons are studied in photonics and electrical engineering (Optics
+  Letters, J Lightwave Technol, Optics Express). The Lax pair formalism is taught
+  in mathematical physics courses but not in optics engineering curricula. The
+  connection between the NLS soliton and KdV integrability (both are IST-solvable)
+  is well known in the mathematical community but not widely recognized by optical
+  engineers deploying fiber soliton communications. Condensed matter physicists
+  using the Bethe ansatz rarely engage with classical IST literature despite the
+  deep mathematical connection.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1103/PhysRevLett.19.1095"
+    note: "Gardner et al. (1967) Phys Rev Lett 19:1095 — method for solving the Korteweg-de Vries equation (inverse scattering transform)"
+  - doi: "10.1103/PhysRevLett.15.240"
+    note: "Zabusky & Kruskal (1965) Phys Rev Lett 15:240 — interaction of 'solitons' in a collisionless plasma (soliton naming)"
+  - doi: "10.1063/1.1654120"
+    note: "Hasegawa & Tappert (1973) Appl Phys Lett 23:142 — transmission of stationary nonlinear optical pulses in dispersive dielectric fibers"
+  - note: "Ablowitz & Segur (1981) Solitons and the Inverse Scattering Transform — SIAM (mathematical reference)"

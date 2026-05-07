@@ -1,0 +1,100 @@
+id: b-dna-mechanics-chromatin
+title: >
+  DNA as a semiflexible polymer (persistence length l_p ≈ 50 nm, worm-like chain
+  model) and chromatin loop extrusion by cohesin/CTCF generating topologically
+  associating domains bridges polymer physics and structural biology to explain
+  3D genome organization and gene regulation.
+status: established
+fields:
+  - biology
+  - physics
+  - biophysics
+  - molecular-biology
+  - polymer-physics
+bridge_claim: >
+  DNA is a semiflexible polymer characterized by its persistence length l_p ≈ 50 nm
+  (150 bp) — the length scale over which thermal fluctuations bend the molecule by
+  ~1 radian. At scales shorter than l_p, DNA behaves as a rigid rod; at scales
+  much longer than l_p, it is a random coil with ⟨r²⟩ = 2l_p·L (worm-like chain,
+  WLC). Single-molecule experiments (Bustamante et al. 1994, optical tweezers on
+  λ-phage DNA) confirmed WLC with l_p = 50 nm and torsional stiffness C ≈ 90 nm.
+
+  DNA topology is governed by the White-Calugareanu theorem: Lk = Tw + Wr, where
+  Lk (linking number, integer, topological invariant), Tw (twist, local helical
+  winding), and Wr (writhe, global supercoiling measure). Overwinding (positive
+  supercoiling ahead of replication fork) and underwinding (negative supercoiling
+  behind) are resolved by topoisomerases: type I changes Lk by ±1, type II by ±2
+  (passing one duplex through another). This is essential for DNA replication — without
+  topoisomerases, the helical structure creates an insurmountable torsional barrier.
+
+  Chromatin organization: 147 bp of DNA wraps 1.65 turns around a histone octamer
+  (H2A, H2B, H3, H4)₂ to form a nucleosome. The bending energy stored is ~40 kBT
+  per nucleosome (extremely high — explains why histone acetylation / chromatin
+  remodeling is required for transcription factor access). The 30-nm fiber (solenoid
+  or zigzag) further compacts DNA.
+
+  At the megabase scale, chromatin loops (~100 kb-1 Mb) are extruded by the cohesin
+  complex with CTCF as a boundary element (Fudenberg et al. 2016 loop extrusion model).
+  Hi-C contact maps reveal topologically associating domains (TADs) — insulated
+  chromosomal neighborhoods where genes interact primarily within the domain.
+  The loop extrusion mechanism is supported by single-molecule visualization of
+  cohesin sliding on DNA (Kim et al. 2019). TAD boundaries correlate with gene
+  expression boundaries: disrupting CTCF binding sites changes gene regulation and
+  can activate proto-oncogenes (Hnisz et al. 2016).
+translation_table:
+  - field_a_term: DNA persistence length l_p = 50 nm
+    field_b_term: bending stiffness κ = k_BT·l_p in Kratky-Porod WLC Hamiltonian
+  - field_a_term: mean-squared end-to-end distance ⟨r²⟩ = 2l_p·L (WLC)
+    field_b_term: "diffusion of a random walker: ⟨r²⟩ = 2D·t with D = v·l_p"
+  - field_a_term: linking number Lk (topological invariant of closed DNA)
+    field_b_term: winding number / topological charge in field theory
+  - field_a_term: writhe Wr = Lk - Tw (supercoiling)
+    field_b_term: geometric phase (Berry phase analog) of a polymer
+  - field_a_term: topoisomerase II (changes Lk by ±2)
+    field_b_term: topology-changing operator in knot theory
+  - field_a_term: nucleosome bending energy ≈ 40 kBT
+    field_b_term: activation barrier in a statistical mechanical system
+  - field_a_term: cohesin loop extrusion (CTCF boundaries)
+    field_b_term: active (non-equilibrium) polymer loop formation by molecular motors
+  - field_a_term: topologically associating domain (TAD)
+    field_b_term: phase-separated compartment in a block copolymer system
+related_unknowns:
+  - u-chromatin-loop-extrusion-speed-processivity-in-vivo
+related_hypotheses:
+  - h-tad-boundary-disruption-ctcf-site-oncogene-activation-quantitative
+cross_pollination_opportunities:
+  - >
+    Polymer physics theory of confinement (DNA in nuclei, bacterial chromosomes
+    in 1-2 µm cells) predicts conformational properties that can now be tested
+    by super-resolution microscopy (ORCA-FISH, multiplexed imaging). Polymer
+    physicists (developing field-theoretic simulations of chromatin) should
+    collaborate with cell biologists measuring TAD positions in single cells
+    to test whether the equilibrium polymer model or an active loop extrusion
+    model better explains observed contact frequencies.
+  - >
+    Topoisomerase II inhibitors (doxorubicin, etoposide) are front-line chemotherapy
+    agents that trap the enzyme-DNA covalent complex. The quantitative relationship
+    between supercoiling stress, topoisomerase trapping probability, and cell death
+    requires polymer physics input (supercoiling buildup kinetics) — collaboration
+    between biophysicists modeling DNA mechanics and oncologists designing dosing
+    schedules could optimize therapeutic windows.
+communication_gap: >
+  DNA polymer physics (published in J Chem Phys, Macromolecules, Biophys J) uses
+  Kratky-Porod model and path integral formulations inaccessible to most molecular
+  biologists. Molecular biologists doing chromatin biology (Cell, Nature, Science)
+  rarely engage with the polymer physics literature. The topological language
+  (writhe, linking number, White-Calugareanu) requires training in knot theory that
+  most biologists lack. Hi-C data analysis borrows from statistical physics (mean-field
+  compartment models) but the connection is rarely made explicit. Loop extrusion
+  theory was proposed by polymer physicists (Alipour-Marko 2012) but only adopted
+  by cell biologists after direct experimental visualization.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1126/science.265.5178.1599"
+    note: "Bustamante et al. (1994) Science 265:1599 — entropic elasticity of λ-phage DNA (WLC experimental validation)"
+  - doi: "10.2307/2373093"
+    note: "White (1969) Am J Math 91:693 — self-linking and the Gauss integral in higher dimensions (Lk=Tw+Wr)"
+  - doi: "10.1016/j.celrep.2016.04.085"
+    note: "Fudenberg et al. (2016) Cell Rep 15:2038 — formation of chromosomal domains by loop extrusion"
+  - doi: "10.1126/science.295.5558.1306"
+    note: "Dekker et al. (2002) Science 295:1306 — capturing chromosome conformation (Hi-C precursor)"

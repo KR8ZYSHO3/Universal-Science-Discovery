@@ -1,0 +1,83 @@
+id: b-information-theory-data-compression
+title: >
+  Shannon's source coding theorem establishes that the entropy H of a source is
+  the fundamental limit of lossless compression, while rate-distortion theory
+  provides the optimal lossy compression bound R(D) — limits that Huffman coding,
+  arithmetic coding, and Lempel-Ziv algorithms approach through distinct mathematical
+  strategies, and that JPEG/MP3 operate near in practice.
+status: established
+fields:
+  - engineering
+  - mathematics
+  - information-theory
+  - computer-science
+bridge_claim: >
+  Shannon's source coding theorem (1948) proves that a source with entropy H bits/
+  symbol can be losslessly compressed to H bits/symbol on average but not below —
+  setting an absolute mathematical lower bound on any lossless compression algorithm.
+  Huffman coding (1952) achieves the optimal prefix-free code with expected length
+  H ≤ L_Huffman < H+1 bits/symbol; arithmetic coding approaches H exactly.
+  Lempel-Ziv algorithms (LZ77, LZ78, 1977) are universal compressors that achieve
+  H asymptotically without knowing the source distribution — a remarkable
+  convergence result. Practical systems (LZW in GIF, DEFLATE in ZIP/PNG, Burrows-
+  Wheeler + Huffman in bzip2) implement these mathematical results in engineering
+  pipelines. For lossy compression, Shannon's rate-distortion theorem (1959)
+  establishes R(D) = min I(X;X̂) subject to E[d(x,x̂)] ≤ D as the minimum
+  bits needed to encode a source with distortion ≤ D — JPEG and JPEG-2000
+  (wavelet-based) operate near this curve for photographic images. The bridge is
+  that compression engineering is applied information theory: every practical codec
+  is an approximation algorithm for a mathematically exact limit.
+translation_table:
+  - field_a_term: entropy H(X) = -Σ p(x) log p(x)
+    field_b_term: theoretical minimum bits/symbol for lossless compression
+    note: Shannon proved no compressor can beat H bits/symbol on average
+  - field_a_term: prefix-free (Kraft inequality) code
+    field_b_term: Huffman code tree
+    note: Huffman's greedy algorithm achieves the optimal prefix-free code with expected length < H+1
+  - field_a_term: universal source coding
+    field_b_term: Lempel-Ziv algorithms (LZ77, LZ78)
+    note: LZ algorithms adapt to unknown source statistics and converge to H asymptotically
+  - field_a_term: rate-distortion function R(D)
+    field_b_term: compression ratio vs. perceptual quality tradeoff in JPEG/MP3
+    note: The R(D) curve is the Pareto frontier that real codecs attempt to approach
+  - field_a_term: mutual information I(X;X̂)
+    field_b_term: information retained after lossy coding
+    note: Rate-distortion minimizes mutual information subject to a distortion constraint
+  - field_a_term: channel capacity C
+    field_b_term: maximum throughput of a compressed data channel
+    note: Source coding (compression) and channel coding (error correction) together achieve C − H overhead
+related_unknowns:
+  - u-rate-distortion-optimal-neural-codes
+  - u-universal-compression-structured-data-limits
+related_hypotheses:
+  - h-shannon-optimal-compression-biological-codes
+cross_pollination_opportunities:
+  - Test whether the human visual system operates near the rate-distortion curve for
+    natural images — comparing neural compression efficiency (measured via fMRI
+    encoding models) to JPEG-2000 performance on matched image sets
+  - Apply arithmetic coding ideas to DNA storage systems where the source
+    distribution is known — enabling provably optimal encoding of genomic data
+  - Use LZ complexity (Lempel-Ziv complexity measure) as an empirical entropy
+    estimator for neural spike trains and EEG signals
+  - Design compression algorithms for scientific data (HEP collider output,
+    genomics BAM files) using domain-specific source models that approach H
+    more closely than general-purpose compressors
+communication_gap: >
+  Shannon's original papers are mathematically dense and rarely read by working
+  software engineers. The connection between the mathematical rate-distortion theorem
+  and the engineering design of codecs like HEVC or Opus is mediated by decades
+  of lossy compression research that is not taught in either pure mathematics or
+  standard computer science curricula. Information theorists who prove new bounds
+  rarely implement codecs; codec engineers rarely read Shannon's original 1959
+  rate-distortion paper. This gap has slowed the adoption of theoretically optimal
+  approaches (e.g., asymmetric numeral systems replacing Huffman in modern codecs).
+last_reviewed: "2026-05-06"
+references:
+  - note: "Shannon (1948) — A Mathematical Theory of Communication"
+    doi: "10.1002/j.1538-7305.1948.tb01338.x"
+  - note: "Huffman (1952) — A Method for the Construction of Minimum-Redundancy Codes"
+    doi: "10.1109/JRPROC.1952.273898"
+  - note: "Ziv & Lempel (1977) — universal algorithm for sequential data compression"
+    doi: "10.1109/TIT.1977.1055714"
+  - note: "Shannon (1959) — Coding theorems for a discrete source with a fidelity criterion"
+    doi: "10.1002/j.1538-7305.1959.tb03905.x"
