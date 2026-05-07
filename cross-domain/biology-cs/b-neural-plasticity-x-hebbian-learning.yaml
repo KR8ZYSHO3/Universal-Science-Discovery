@@ -1,0 +1,60 @@
+id: b-neural-plasticity-x-hebbian-learning
+title: >
+  Neural Plasticity x Hebbian Learning — spike-timing dependent plasticity as correlation detector
+status: proposed
+fields:
+  - neuroscience
+  - computer_science
+  - biology
+bridge_claim: >
+  Spike-timing dependent plasticity (STDP) implements a temporal Hebbian learning rule:
+  synapses strengthen when pre-synaptic spikes precede post-synaptic spikes (causal),
+  and weaken for reverse order; STDP is mathematically equivalent to online gradient
+  descent on a temporal prediction error, linking biological plasticity to machine learning.
+translation_table:
+  - field_a_term: STDP learning window Δw(Δt)
+    field_b_term: Temporal credit assignment kernel
+    note: >
+      The asymmetric STDP window (potentiation for Δt>0, depression for Δt<0) implements
+      a causal filter that detects predictive pre→post spike ordering, equivalent to
+      the eligibility trace in reinforcement learning.
+  - field_a_term: Long-term potentiation (LTP)
+    field_b_term: Weight increase by gradient descent
+    note: >
+      NMDA receptor-mediated LTP requires coincident pre- and post-synaptic activity
+      (Hebb's rule); mathematically this is the positive term in the gradient of a
+      prediction error loss function.
+  - field_a_term: Long-term depression (LTD)
+    field_b_term: Weight decrease (anti-Hebbian term)
+    note: >
+      LTD for reversed spike order (post before pre) provides the anti-Hebbian term
+      needed for stable learning; without it, Hebbian learning diverges (runaway
+      potentiation).
+  - field_a_term: Homeostatic synaptic scaling
+    field_b_term: Weight normalization / L2 regularization
+    note: >
+      Synaptic scaling (global up/down regulation of all synapses to maintain target
+      firing rate) is equivalent to L2 regularization in neural networks, preventing
+      saturation of synaptic weights.
+communication_gap: >
+  Computational neuroscientists derived STDP learning rules from biology in the 1990s;
+  machine learning developed backpropagation independently; the connection (STDP ≈
+  online gradient descent) was made by Xie & Seung (2000) but remains underutilized
+  in deep learning architectures.
+cross_pollination_opportunities:
+  - >
+    Implement STDP-like local learning rules in neuromorphic hardware to train
+    spiking neural networks without global backpropagation — enabling energy-efficient
+    on-chip learning.
+  - >
+    Use STDP's causal asymmetry to develop temporal causal inference algorithms
+    that identify cause-before-effect relationships in multivariate time series.
+  - >
+    Apply homeostatic plasticity principles (synaptic scaling) to stabilize training
+    of deep neural networks, replacing batch normalization with biologically motivated alternatives.
+related_unknowns:
+  - u-neural-plasticity-x-hebbian-learning
+references:
+  - doi: "10.1523/JNEUROSCI.18-24-10464.1998"
+    note: "Bi & Poo (1998) — Synaptic modifications in cultured hippocampal neurons; J Neurosci 18:10464"
+last_reviewed: "2026-05-07"
