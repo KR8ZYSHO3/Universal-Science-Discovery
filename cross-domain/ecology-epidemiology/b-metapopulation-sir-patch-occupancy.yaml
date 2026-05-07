@@ -1,0 +1,59 @@
+id: b-metapopulation-sir-patch-occupancy
+title: >
+  Levins metapopulation patch-occupancy dynamics are formally equivalent to multi-patch SIR
+  epidemic models: colonization rate maps to infection transmission, local extinction maps to
+  recovery, and the rescue effect in ecology is mathematically identical to importation of
+  infection across population patches
+status: established
+fields:
+  - epidemiology
+  - ecology
+  - mathematical-biology
+bridge_claim: >
+  The Levins metapopulation equation dp/dt = c·p·(1-p) - e·p (p = fraction of occupied patches,
+  c = colonization rate, e = extinction rate) is structurally identical to the mean-field SIR
+  patch-infection equation dI/dt = β·I·(1-I)/N - γ·I; the metapopulation equilibrium p* = 1 - e/c
+  maps directly to the epidemic endemic equilibrium, and the extinction threshold e > c mirrors
+  the epidemic threshold R₀ = β/γ < 1, unifying spatial ecology and infectious disease epidemiology
+  through shared nonlinear patch-dynamics mathematics.
+translation_table:
+  - field_a_term: "fraction of occupied patches p (ecology)"
+    field_b_term: "prevalence of infected sub-populations I/N (epidemiology)"
+    note: "Both track the fraction of a set of discrete units in the 'active' state; the governing ODEs are algebraically identical at mean-field level"
+  - field_a_term: "colonization rate c (ecology)"
+    field_b_term: "transmission rate β (epidemiology)"
+    note: "c describes the rate at which empty patches become occupied via propagule rain; β describes the rate at which susceptible patches become infected via contact with infectious patches"
+  - field_a_term: "local extinction rate e (ecology)"
+    field_b_term: "recovery/clearance rate γ (epidemiology)"
+    note: "e is the rate at which occupied patches go locally extinct; γ is the rate at which infected patches recover and become susceptible again"
+  - field_a_term: "rescue effect — immigration reducing local extinction probability (ecology)"
+    field_b_term: "importation of infection reducing local extinction of outbreak (epidemiology)"
+    note: "In both systems, connectivity between patches prevents local stochastic extinction; the rescue effect in ecology and epidemic importation are the same phenomenon"
+  - field_a_term: "metapopulation viability threshold c/e > 1 (ecology)"
+    field_b_term: "epidemic persistence threshold R₀ = β/γ > 1 (epidemiology)"
+    note: "Both represent the condition for a positive equilibrium state; below threshold the system collapses to extinction/disease-free equilibrium"
+communication_gap: >
+  Ecologists and epidemiologists developed metapopulation and SIR models in parallel through the
+  1970s–1990s without cross-citation; Levins (1969) predates the formal SIR spatial extension
+  literature, and ecologists rarely cite the epidemiological literature on patch models. The
+  shared mathematical structure is acknowledged in theoretical ecology and mathematical biology
+  reviews but is not part of standard training in either field.
+cross_pollination_opportunities:
+  - "Applying metapopulation incidence-function models (Hanski 1994) to estimate epidemic R₀ from
+    spatial occupancy data without case-count surveillance, useful in data-sparse settings"
+  - "Using epidemic final-size relations and generation-time distributions from SIR theory to
+    predict colonization speed and species range expansion in fragmented landscapes"
+  - "Adapting stochastic metapopulation extinction theory (quasi-stationary distributions) to
+    model stochastic epidemic fadeout in island and network-structured populations"
+references:
+  - doi: "10.1038/227458a0"
+    note: "Levins (1969) — Some demographic and genetic consequences of environmental heterogeneity for biological control; original metapopulation patch-occupancy model"
+  - doi: "10.1086/283427"
+    note: "Hanski & Gyllenberg (1993) — Two general metapopulation models and the core-satellite species hypothesis; formal analysis of patch dynamics"
+  - doi: "10.1098/rspb.2003.2343"
+    note: "Keeling & Rohani (2002) — Estimating spatial coupling in epidemiological systems; bridges SIR spatial models with patch occupancy"
+  - doi: "10.1016/j.tpb.2004.01.001"
+    note: "Hess (1996) — Disease in metapopulation models: implications for conservation; direct mapping of SIR onto Levins framework"
+related_unknowns:
+  - u-metapopulation-epidemic-threshold-fragmented-landscape
+last_reviewed: "2026-05-07"
