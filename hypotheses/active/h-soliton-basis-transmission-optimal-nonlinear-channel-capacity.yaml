@@ -1,0 +1,45 @@
+id: h-soliton-basis-transmission-optimal-nonlinear-channel-capacity
+title: >
+  Nonlinear Fourier transform (NFT) based transmission using the soliton basis
+  will achieve capacity closer to the nonlinear Shannon limit than conventional
+  WDM-DSP systems in the high-power regime, because NFT decouples nonlinear
+  channel interactions into independent soliton eigenvalue channels.
+status: active
+priority: medium
+impact_score: 0.72
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - type: supporting
+    confidence: 0.65
+    note: "Turitsyn et al. (2017) Nature Photonics: NFT-based transmission demonstrated over 2000 km; first experimental validation of nonlinear spectral domain modulation"
+  - type: supporting
+    confidence: 0.60
+    note: "The NLS equation is exactly integrable; NFT transforms it into decoupled linear channels (continuous and discrete spectrum) — in principle zero nonlinear crosstalk"
+  - type: supporting
+    confidence: 0.55
+    note: "Tavakkolnia & Safari (2017): NFT capacity analysis shows potential for gains in high-SNR regime where conventional WDM is nonlinearity-limited"
+  - type: contradicting
+    confidence: 0.65
+    note: "Amplifier noise breaks the integrability of the NLS equation — the NFT channel model with noise is approximate; the noise-to-soliton interaction degrades performance"
+
+unknowns_addressed:
+  - u-fiber-nonlinearity-capacity-limit-shannon
+
+proposed_tests:
+  - description: >
+      Experimental comparison of NFT-based and conventional WDM transmission over
+      a 5000 km re-circulating loop. Vary launch power from -3 to +6 dBm.
+      Measure: bit error rate (BER), mutual information, and spectral efficiency.
+      Test whether NFT outperforms WDM at high launch power where nonlinearity
+      limits WDM but where NFT should thrive.
+    method: "Re-circulating loop with EDFA amplification; coherent detection; NFT modulation of discrete eigenvalue spectrum vs. DP-16QAM WDM; BER and MI measurement"
+    prediction: "NFT achieves higher MI than WDM at launch power > +2 dBm over 5000 km; cross-over point exists where NFT advantage appears; NFT spectral efficiency within 20% of nonlinear Shannon limit"
+
+related_disciplines:
+  - telecommunications
+  - physics
+  - information-theory
+  - nonlinear-optics
