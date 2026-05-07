@@ -1,0 +1,61 @@
+id: b-neuronal-avalanches-soc-power-law
+title: >
+  Neuronal avalanches - cascades of neural activity with power-law size
+  distributions - are proposed to arise from self-organised criticality:
+  the cortex tunes itself to a critical point that maximises dynamic range,
+  information capacity, and inter-area coordination, making SOC statistical
+  physics the quantitative framework for understanding brain-wide signal propagation.
+status: contested
+fields:
+  - neuroscience
+  - statistical-physics
+bridge_claim: >
+  Beggs & Plenz (2003) showed that LFP activity in cultured cortical slices
+  exhibits avalanches with size distributions P(s) ~ s^{-3/2} and duration
+  distributions P(T) ~ T^{-2}, matching the mean-field predictions of
+  directed percolation at criticality. The branching ratio sigma (average
+  number of neurons activated per active neuron) is ~1.0, the critical value.
+  SOC models (sandpile automata, branching processes) predict these exponents,
+  suggesting the cortex self-organises to a critical state. At criticality,
+  theoretical analysis predicts maximal dynamic range (ability to detect weak
+  and strong stimuli), maximal susceptibility (response to inputs), and maximal
+  information transmission. The bridge is contested because (1) sub-sampling
+  of recorded neurons can generate apparent power laws, (2) the exponents are
+  inconsistent across brain states, and (3) directed percolation may not be
+  the right universality class. Statistical physics provides the framework
+  for testing these predictions rigorously.
+translation_table:
+  - field_a_term: critical branching process (statistical physics)
+    field_b_term: cortical network at sigma = 1 (neuroscience)
+    note: Sigma ~ 1 in anesthetised and awake cortex; deviation from 1 correlates with brain state
+  - field_a_term: power-law avalanche size distribution P(s) ~ s^{-3/2} (statistical physics)
+    field_b_term: local field potential avalanche size histogram (neuroscience)
+    note: Exponent -3/2 is mean-field directed percolation; deviations indicate finite-size or sub-sampling effects
+  - field_a_term: dynamic range Delta (statistical physics)
+    field_b_term: range of stimulus intensities over which the cortex discriminates (neuroscience)
+    note: Theoretical maximum of Delta occurs at sigma = 1; measured dynamic range peaks near criticality
+  - field_a_term: universality class (statistical physics)
+    field_b_term: invariance of avalanche exponents across recording methods and brain states (neuroscience)
+    note: "Contested: different electrode arrays and species give different exponents"
+communication_gap: >
+  Neuroscientists import SOC vocabulary without fully engaging with the
+  statistical physics machinery for testing universality class and excluding
+  confounds; statistical physicists rarely account for biophysical constraints
+  (refractoriness, synaptic depression) that modify the critical point.
+cross_pollination_opportunities:
+  - Apply finite-size scaling analysis from statistical physics to neural
+    avalanche data to extract true critical exponents independent of sub-sampling
+  - Use renormalisation group methods to predict how avalanche exponents
+    change between different brain states (sleep, awake, anesthesia)
+  - Transfer Kibble-Zurek scaling (how a system traverses a critical point)
+    to predict neural dynamics during anesthetic transitions
+related_unknowns:
+  - u-neuronal-avalanche-soc-universality-class
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1523/JNEUROSCI.23-35-11167.2003"
+    note: Beggs & Plenz (2003) - neuronal avalanches in neocortical circuits; foundational paper
+  - doi: "10.1103/PhysRevLett.76.5357"
+    note: Bak & Tang (1988) - self-organized criticality; original SOC framework
+  - doi: "10.1371/journal.pcbi.1002119"
+    note: Priesemann et al. (2014) - spike avalanches in vivo suggest a driven, slightly subcritical brain state

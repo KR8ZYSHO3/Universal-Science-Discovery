@@ -1,0 +1,61 @@
+id: b-semiconductor-doping-fermi-level-chemical-potential
+title: >
+  Semiconductor doping is a chemical potential engineering problem: the Fermi
+  level is the electrochemical potential of electrons, and donor/acceptor
+  impurities shift it by changing the electron chemical potential exactly
+  as pH is shifted by acid/base additions, unifying solid-state physics,
+  thermodynamics, and electrochemistry through the single concept of
+  electron chemical potential.
+status: established
+fields:
+  - materials-science
+  - thermodynamics
+bridge_claim: >
+  In thermodynamic equilibrium, the Fermi level E_F is the chemical potential
+  of electrons: E_F = dG/dN|_{T,P,N_other}. Donor impurities donate electrons
+  to the conduction band, raising E_F toward the conduction band minimum (n-type);
+  acceptor impurities accept electrons from the valence band, lowering E_F
+  toward the valence band maximum (p-type). The carrier density is exponential
+  in (E_F - E_C) / kT (electrons) and (E_V - E_F) / kT (holes), analogous to
+  the Boltzmann distribution for any species in a thermodynamic potential well.
+  The p-n junction is a chemical potential step: electrons flow from high mu
+  (n-type) to low mu (p-type), creating a built-in potential that equilibrates
+  chemical potentials across the junction, exactly as a concentration cell
+  in electrochemistry. This thermodynamic unification shows that solar cell
+  efficiency limits (Shockley-Queisser) are thermodynamic Carnot-like bounds.
+translation_table:
+  - field_a_term: chemical potential mu_e = E_F (thermodynamics)
+    field_b_term: Fermi level in semiconductor (materials science)
+    note: E_F is literally the chemical potential of electrons; both obey dG/dN = mu
+  - field_a_term: acid-base equilibrium shifting pH (thermodynamics)
+    field_b_term: donor/acceptor doping shifting Fermi level (materials science)
+    note: Donor adds electrons (raises E_F), like acid adds protons (lowers pH) - exact chemical potential analogy
+  - field_a_term: concentration cell EMF = (kT/e) ln(c_1/c_2) (thermodynamics)
+    field_b_term: p-n junction built-in potential V_bi (materials science)
+    note: V_bi = (kT/e) ln(N_D N_A / n_i^2) is the Nernst equation for electron chemical potential difference
+  - field_a_term: Gibbs free energy minimum at equilibrium (thermodynamics)
+    field_b_term: Fermi level equalisation across interfaces at thermal equilibrium (materials science)
+    note: Flat Fermi level in equilibrium is the semiconductor expression of dG = 0
+communication_gap: >
+  Semiconductor physicists learn band diagrams without connecting them explicitly
+  to thermodynamic potential theory; thermodynamicists rarely study semiconductor
+  devices. The Fermi level as chemical potential is stated but not developed in
+  most solid-state physics textbooks, disconnecting semiconductor engineering
+  from physical chemistry and electrochemistry.
+cross_pollination_opportunities:
+  - Apply electrochemical potential formalism to model defect formation energies
+    in semiconductor heterojunctions using DFT + thermodynamics
+  - Transfer Nernst equation thinking to design semiconductor photoelectrochemical
+    cells for water splitting with optimal band alignment
+  - Use chemical potential engineering principles to design novel doping strategies
+    for wide-bandgap semiconductors (GaN, diamond) by analogy with solution chemistry
+related_unknowns:
+  - u-semiconductor-doping-fermi-level-pinning
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1103/PhysRevB.37.2934"
+    note: Van de Walle & Martin (1987) - theoretical study of band offsets at semiconductor interfaces
+  - doi: "10.1103/PhysRevLett.84.1812"
+    note: Neugebauer & Van de Walle (1999) - chemical potential dependence of defect formation energies in GaN
+  - doi: "10.1017/CBO9780511805523"
+    note: Sze & Ng (2007) - Physics of Semiconductor Devices; Fermi level and chemical potential
