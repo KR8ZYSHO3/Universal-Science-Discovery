@@ -1,0 +1,55 @@
+id: b-homophily-assortative-mixing
+title: >
+  Social network homophily — the tendency for similar individuals to form ties —
+  is quantified as assortativity mixing in network science, and the configuration
+  model provides a null distribution against which observed homophily can be tested,
+  revealing whether similarity clustering is driven by choice, opportunity, or
+  network structure.
+status: proposed
+fields:
+  - social-science
+  - network-science
+  - statistics
+  - sociology
+bridge_claim: >
+  "Birds of a feather flock together" — homophily is one of the most robust
+  findings in social science (McPherson et al. 2001). Network science formalises
+  this as assortativity: the Pearson correlation coefficient r of node attribute
+  values across connected pairs. The configuration model (Newman 2002) provides
+  the exact null hypothesis: it generates random graphs with the same degree
+  sequence as the observed network, enabling statistical tests for whether observed
+  attribute correlations exceed what would arise from degree heterogeneity alone.
+  This is non-trivial: high-degree hubs tend to connect to each other (degree
+  assortativity), which can masquerade as attribute homophily. The configuration
+  model corrects for this. The bridge predicts that social phenomena driven by
+  homophily (opinion polarisation, health behavior clustering, language change)
+  can be modeled as information diffusion on assortatively mixed networks with
+  predictable spreading dynamics. The critical community structure detected by
+  modularity maximisation is directly related to assortative mixing patterns,
+  connecting community detection algorithms to social science theories of group
+  identity.
+translation_table:
+  - field_a_term: assortativity coefficient r
+    field_b_term: social homophily index
+    note: "r = 1: perfect homophily; r = 0: random mixing; r = -1: perfect heterophily (bipartite)"
+  - field_a_term: configuration model null
+    field_b_term: baseline expected homophily from degree sequence alone
+    note: Corrects for the structural tendency of hubs to interconnect
+  - field_a_term: modularity Q = sum_ij [A_ij - k_i*k_j/(2m)] delta(c_i, c_j)
+    field_b_term: within-group tie excess relative to random expectation
+    note: Community structure is precisely the network-science operationalisation of social group cohesion
+  - field_a_term: spreading threshold on assortative network
+    field_b_term: social contagion threshold for behavior change
+    note: Assortative mixing creates echo chambers that lower the threshold for opinion cascades within communities
+cross_pollination_opportunities:
+  - Apply configuration model tests to social network datasets to separate choice homophily from induced homophily (meeting opportunities)
+  - Use assortative mixing theory to predict which health behaviors are most likely to cluster by race, income, or age and design targeted interventions
+  - Model opinion polarisation as a Schelling segregation process on an assortatively mixed network and derive analytical conditions for polarisation bifurcation
+last_reviewed: "2026-05-07"
+references:
+  - doi: 10.1146/annurev.soc.27.1.415
+    note: "McPherson et al. (2001) - Birds of a feather: homophily in social networks"
+  - doi: 10.1103/PhysRevE.67.026126
+    note: Newman (2003) — mixing patterns in networks
+  - doi: 10.1103/PhysRevE.70.056131
+    note: Newman (2004) — detecting community structure in networks
