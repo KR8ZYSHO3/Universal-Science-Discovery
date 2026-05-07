@@ -1,0 +1,62 @@
+id: b-enzyme-allostery-monod-wyman-changeux-model
+title: >
+  Enzyme allostery — the regulation of enzyme activity by molecules binding at
+  sites remote from the active site — is formalized by the Monod-Wyman-Changeux
+  (MWC) model from biophysics, which treats the enzyme as a two-state
+  thermodynamic system whose T (tense/inactive) ↔ R (relaxed/active) equilibrium
+  is shifted by ligand binding, explaining cooperative kinetics and sigmoidal
+  dose-response curves.
+status: established
+fields:
+  - biochemistry
+  - biophysics
+  - structural-biology
+bridge_claim: >
+  The MWC model for an n-subunit enzyme with allosteric constant L = [T₀]/[R₀]:
+  saturation function Y = α(1+α)^{n-1} + Lc·α(1+cα)^{n-1} / [(1+α)^n + L(1+cα)^n]
+  where α = [A]/K_R (ligand/active-site affinity), c = K_R/K_T < 1 (allosteric
+  ratio). Cooperativity coefficient h (Hill slope) = n·(1-f)/[f+(1-f)/n] where
+  f = fraction in R state at half-saturation. The free energy difference between
+  T and R states: ΔG_allosteric = -kT·lnL. Allostery is a thermodynamic ensemble
+  phenomenon: all conformations exist at equilibrium; the allosteric effector shifts
+  the Boltzmann weights between T and R. This bridges biochemical enzyme kinetics
+  (Hill coefficients, sigmoid curves) to statistical thermodynamics (partition
+  functions, free energy landscapes) and information theory (allosteric communication
+  = information channel between regulatory and active sites with channel capacity
+  C = log₂(1 + SNR)).
+translation_table:
+  - field_a_term: allosteric transition T↔R (biochemistry)
+    field_b_term: two-state thermodynamic equilibrium with Boltzmann weights (biophysics)
+    note: The T/R ratio is exp(-ΔG/kT); effectors shift ΔG and thus the equilibrium
+  - field_a_term: Hill coefficient n_H (biochemistry)
+    field_b_term: apparent cooperativity from multi-state Boltzmann system (biophysics)
+    note: n_H measures deviation from Michaelis-Menten; MWC explains it without invoking concerted binding
+  - field_a_term: allosteric effector (biochemistry)
+    field_b_term: external field biasing a two-state partition function (biophysics)
+    note: Activator stabilizes R state; inhibitor stabilizes T state; thermodynamics predicts magnitude
+  - field_a_term: sigmoidal dose-response curve (biochemistry)
+    field_b_term: logistic function from two-state Boltzmann partition (biophysics)
+    note: Hill equation is an approximation to MWC; exact sigmoidal shape follows from the full MWC partition function
+related_unknowns:
+  - u-allosteric-communication-pathways-protein-structure-dynamics
+related_hypotheses:
+  - h-dynamic-allostery-entropy-driven-conformational-selection
+cross_pollination_opportunities:
+  - Applying the MWC framework to design allosteric biosensors and synthetic switches in synthetic biology using engineered protein conformational changes
+  - Using statistical mechanics of the MWC model to predict the maximum sensitivity (information capacity) of allosteric signaling networks
+communication_gap: >
+  Biochemists measuring enzyme kinetics and biophysicists modeling protein
+  conformational ensembles share the MWC framework but often present it at different
+  mathematical levels; the modern "statistical mechanical" view of allostery
+  (every protein is always in all conformations; ligands shift populations) is
+  fully accepted in biophysics but is only slowly replacing "induced fit" language
+  in biochemistry education; information-theoretic approaches to allosteric
+  communication capacity are an emerging frontier.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1016/S0022-2836(65)80285-6"
+    note: Monod, Wyman & Changeux (1965) - on the nature of allosteric transitions (original MWC paper)
+  - doi: "10.1016/j.jmb.2012.08.021"
+    note: Changeux & Edelstein (2005) - allosteric mechanisms of signal transduction (review)
+  - doi: "10.1126/science.1207598"
+    note: Motlagh et al. (2014) - the ensemble nature of allostery (statistical mechanics view)

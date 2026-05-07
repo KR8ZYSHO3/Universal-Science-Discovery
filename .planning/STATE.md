@@ -126,6 +126,7 @@ The repository has crossed the 300 cross-domain bridge threshold. All 14 bridges
 - **Custom domain**: evaluate usdr.science / crossdomainscience.org.
 - **External contributors**: recruit first 3 domain experts (physicist, biologist, CS researcher) using `docs/outreach/researcher_pitch.md`.
 - **Schema discipline**: all YAML validated by `scripts/validate_schemas.py` on every PR — CI green.
+- **Database integration**: OpenAlex harvester live; PubMed and Semantic Scholar next
 
 ## Active git branches / PRs
 

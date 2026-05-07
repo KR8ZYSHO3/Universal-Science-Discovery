@@ -1,0 +1,37 @@
+id: b-number-field-sieve-cryptographic-hardness
+title: "The number field sieve (NFS) algorithm achieves sub-exponential complexity L_n[1/3, c] = exp((c+o(1)) * (ln n)^{1/3} * (ln ln n)^{2/3}) for integer factorization, establishing the precise complexity-theoretic boundary on RSA and discrete logarithm hardness that makes modern public-key cryptography quantifiably secure against classical computation while simultaneously defining the cryptanalytic target for quantum speedup"
+status: established
+fields:
+  - mathematics
+  - computer-science
+  - cryptography
+bridge_claim: "The NFS algorithm for factoring n applies algebraic number theory (number fields with rings of integers, ideal factorization in class groups) to the combinatorial sieve: it finds pairs (a,b) such that F(a,b) and G(a,b) are both B-smooth (have all prime factors < B), then uses Gaussian elimination over GF(2) to find a combination whose product is a perfect square in Z, giving a non-trivial factor via gcd; the complexity L_n[1/3, c] is determined by the smoothness probability (related to the prime number theorem for number fields) and the linear algebra cost (related to the rank of the factor base matrix); this establishes the concrete hardness of RSA as a function of key size n in a mathematically rigorous way."
+translation_table:
+  - field_a_term: "smooth number (all prime factors < B) in NFS sieve (mathematics)"
+    field_b_term: "B-smooth integer in the sieving step of integer factorization (computer science)"
+    note: "Smoothness probability psi(x,B)/x ~ rho(u) (u = log x / log B) from analytic number theory sets the algorithm cost"
+  - field_a_term: "number field and ring of integers O_K in NFS (mathematics)"
+    field_b_term: "algebraic structure providing two different factorization maps to Z (mathematics)"
+    note: "Two polynomial maps from Z to smooth factorizations; algebraic number field provides the second map enabling square root step"
+  - field_a_term: "RSA modulus n = p*q (cryptography)"
+    field_b_term: "integer factorization problem input (mathematics)"
+    note: "Security of RSA is equivalent to hardness of factoring n; NFS cost gives the concrete bit security as a function of |n|"
+  - field_a_term: "lattice sieving in the NFS factor base (mathematics)"
+    field_b_term: "lattice-based combinatorial optimization over Z^2 (mathematics)"
+    note: "Modern NFS uses lattice sieving (Lenstra) to enumerate (a,b) pairs efficiently; same lattice geometry as LLL reduction"
+related_unknowns:
+  - u-integer-factoring-quantum-classical-boundary
+related_hypotheses:
+  - h-nfs-rsa-concrete-security-boundary
+cross_pollination_opportunities:
+  - "Using algebraic geometry methods (Riemann-Roch over function fields) to analyze the number field sieve in finite field discrete logarithm settings (index calculus)"
+  - "Applying NFS complexity analysis to calibrate the minimum RSA and ECC key sizes that remain secure against projected near-term quantum computers using Shor's algorithm"
+communication_gap: "Number theorists develop and analyze the NFS mathematically while cryptographic standards bodies translate complexity results into concrete key-size recommendations; the gap between theoretical L_n[1/3,c] asymptotics and the actual practical record factorizations that drive NIST key-size recommendations is not always transparent to either community."
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1007/3-540-49264-X_1"
+    note: "Lenstra & Lenstra (1993) - development of the number field sieve (foundational NFS reference)"
+  - doi: "10.1007/s00145-002-0148-6"
+    note: "Coppersmith (1993) - modifications to the number field sieve (NFS complexity analysis)"
+  - doi: "10.1145/3386134"
+    note: "Bardet et al. (2020) - record discrete logarithm and factorization; NFS benchmark"

@@ -1,0 +1,33 @@
+id: h-crowd-dynamics-lane-formation-critical-density
+title: "Bidirectional pedestrian flow in a corridor will spontaneously form stable lanes (> 2 clearly separated streams) at density > 2 persons/m^2, with the lane formation order parameter growing as (rho - rho_c)^{0.5} consistent with a mean-field phase transition, and this critical density will be reproduced to within 20% by the Helbing social force model with default parameters"
+status: active
+priority: high
+impact_score: 0.72
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+evidence_links:
+  - doi: "10.1103/PhysRevE.51.4282"
+    type: supporting
+    confidence: 0.70
+    note: "Helbing & Molnar (1995) — social force model predicts lane formation; foundational support"
+  - doi: "10.1038/438439a"
+    type: supporting
+    confidence: 0.65
+    note: "Helbing et al. (2007) — empirical crowd disaster analysis; density-dependent flow regimes"
+  - type: related
+    note: "Kretz et al. (2006) — experimental study of pedestrian flow in a corridor"
+unknowns_addressed:
+  - u-crowd-dynamics-panic-transitions
+proposed_tests:
+  - description: >
+      Conduct controlled bidirectional pedestrian experiments in a 10m x 2m corridor at densities
+      0.5, 1.0, 1.5, 2.0, 2.5, 3.0 persons/m^2 (N=30 subjects per density level, 5 trials each).
+      Track pedestrian positions at 25 Hz with overhead camera. Compute lane-order parameter as
+      cross-stream position variance normalized by corridor width. Fit power law (rho - rho_c)^beta.
+    method: "Overhead video tracking at 25 Hz + lane order parameter + power-law critical density fit"
+    prediction: "Lane formation onset at rho_c = 2.0±0.5 persons/m^2; order parameter follows (rho - rho_c)^{0.5} mean-field exponent"
+related_disciplines:
+  - physics
+  - social-science
+  - complex-systems

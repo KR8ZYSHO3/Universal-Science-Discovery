@@ -110,6 +110,26 @@ The project is recognized as “the most ambitious open science infrastructure p
 
 ---
 
+## Data Source Integration Roadmap
+
+### Active
+- **arXiv** (OAI-PMH) — physics, CS, math, biology preprints
+
+### 90-Day Plan (Phase 0 completion)
+- **OpenAlex** ✅ harvester built (`scripts/harvesters/harvest_openalex.py`) — cross-domain concept pair scanning
+- **PubMed/NCBI** — biomedical literature for medicine/neuroscience bridges
+- **Semantic Scholar** — AI-extracted concept tagging at scale
+- **CrossRef** — DOI verification and reference list extraction
+
+### Phase 1 Targets
+- **NASA ADS** — astronomy/astrophysics
+- **INSPIRE-HEP** — high-energy physics
+- **Wikidata** — structured concept facts for translation tables
+
+See `docs/DATA_SOURCES.md` for full integration architecture.
+
+---
+
 ### Interface development (cross-cutting; see INTERFACE.md)
 
 The **canonical plan for UX, static site, and the future “Discovery OS”** is [INTERFACE.md](INTERFACE.md). That document is **longer-term** than most Phase 0 tasks: we do **not** block governance, legal clarity, or seeded content on a polished UI. Git stays the source of truth; the interface is always a **view** of the repo.

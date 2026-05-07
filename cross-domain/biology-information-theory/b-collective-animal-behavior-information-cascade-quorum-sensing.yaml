@@ -1,0 +1,61 @@
+id: b-collective-animal-behavior-information-cascade-quorum-sensing
+title: >
+  Collective animal behaviors — fish schooling, bird murmurations, insect swarms —
+  use information cascade and quorum sensing mechanisms that bridge biology and
+  information theory: individuals integrate local signals to make collective
+  decisions whose speed, accuracy, and robustness are governed by the same
+  signal detection and information aggregation principles as engineered sensor networks.
+status: established
+fields:
+  - biology
+  - information-theory
+  - collective-behavior
+bridge_claim: >
+  Quorum sensing in bacteria: the threshold concentration S_q where gene expression
+  switches satisfies ∂F/∂S = 0 (hill function bistability), giving a sharp
+  collective switch at population density N > N_q. For animal groups, the
+  voter model with noise η gives collective decision accuracy ∝ N^(1/2) (wisdom
+  of crowds, central limit theorem). Information cascade: individual i copies the
+  apparent majority when its private signal p_i < p* (threshold), leading to
+  herding. The mutual information I(collective decision; true state) =
+  H(collective) - H(collective|true state) is maximized at intermediate group
+  size for correlated noise (noise correlates information flow), showing a
+  fundamental trade-off: larger groups gather more private signals but collective
+  errors amplify. Criticality hypothesis: fish schools operate near the critical
+  point of a phase transition (susceptibility χ → ∞), maximizing information
+  transfer across the group.
+translation_table:
+  - field_a_term: quorum threshold in bacterial collective behavior (biology)
+    field_b_term: decision threshold in Bayesian information aggregation (information theory)
+    note: Quorum sensing implements a maximum-likelihood decision rule at population level
+  - field_a_term: fish school alignment and cohesion (biology)
+    field_b_term: synchronization / noise reduction through averaging (information theory)
+    note: N-fish alignment reduces orientation noise by √N; mutual information with true predator direction increases
+  - field_a_term: information cascade / herding (biology)
+    field_b_term: incorrect Bayesian updating from correlated private signals (information theory)
+    note: Cascade collapse (all follow one) is the biology-information equivalent of rational herding failure
+  - field_a_term: criticality in animal groups (biology)
+    field_b_term: maximum information transmission near phase transition (information theory)
+    note: At criticality correlation length → ∞; group transfers information maximally efficiently
+related_unknowns:
+  - u-collective-decision-accuracy-predator-evasion-fitness-tradeoff
+related_hypotheses:
+  - h-criticality-hypothesis-animal-groups-optimal-information-transfer
+cross_pollination_opportunities:
+  - Applying channel capacity theory to constrain how much information a collective can transmit given individual sensor noise and correlation structure
+  - Designing distributed robotic swarms using quorum-sensing and voter-model principles from collective biology
+communication_gap: >
+  Collective behavior biologists studying schooling fish and information theorists
+  studying distributed detection and information cascades share mathematical
+  frameworks (voter models, Bayesian aggregation, criticality), but the explicit
+  channel capacity analysis of animal collectives is underdeveloped; the criticality
+  hypothesis (Bialek et al.) is the most prominent bridge but remains contested
+  in empirical tests.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1073/pnas.1118633109"
+    note: Bialek et al. (2012) - statistical mechanics for natural flocks of birds (criticality)
+  - doi: "10.1126/science.1230020"
+    note: Rosenthal et al. (2015) - revealing the hidden networks of interaction in mobile animal groups
+  - doi: "10.1006/jtbi.1998.0628"
+    note: Sumpter (2006) - the principles of collective animal behaviour
