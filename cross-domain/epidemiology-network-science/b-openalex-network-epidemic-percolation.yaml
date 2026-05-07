@@ -1,0 +1,69 @@
+id: b-openalex-network-epidemic-percolation
+title: >
+  Epidemic spread on contact networks is mathematically equivalent to bond percolation,
+  where infection probability plays the role of bond occupation probability and the
+  epidemic threshold corresponds to the percolation transition — enabling network
+  topology to predict outbreak potential before any pathogen-specific parameters
+  are measured.
+status: proposed
+fields:
+  - epidemiology
+  - network-science
+  - statistical-physics
+  - public-health
+bridge_claim: >
+  Huang et al. (2020, 51 k citations) documented the clinical features of SARS-CoV-2,
+  revealing explosive network-mediated spread through close-contact clusters. Network
+  science and statistical physics provide the theoretical foundation for this behavior:
+  the SIR epidemic process on a contact network is exactly equivalent to bond
+  percolation where each edge is "occupied" (transmits infection) with probability
+  T = 1 - exp(-beta/gamma). The epidemic threshold R_0 = 1 corresponds to the
+  percolation threshold p_c where a giant connected component first emerges. Below p_c
+  (R_0 < 1) only finite outbreak clusters occur; above p_c (R_0 > 1) a macroscopic
+  epidemic spanning a finite fraction of the population emerges. Network heterogeneity
+  (superspreaders, degree-correlated contact patterns) dramatically lowers p_c in
+  power-law degree distributions, explaining the observed 20/80 rule where 20% of
+  cases cause 80% of transmissions. This mapping allows network reconstruction from
+  outbreak data and, crucially, targeted vaccination strategies that remove high-degree
+  nodes with disproportionate efficiency — analogous to destroying network hubs to
+  prevent percolation.
+translation_table:
+  - field_a_term: bond occupation probability p
+    field_b_term: transmission probability T = 1 - exp(-beta*tau)
+    note: The probability that an infected contact transmits to a susceptible neighbour
+  - field_a_term: percolation threshold p_c
+    field_b_term: epidemic threshold R_0 = 1
+    note: The critical point below which only finite clusters (outbreaks) occur
+  - field_a_term: giant connected component
+    field_b_term: epidemic (infecting O(N) individuals)
+    note: Above threshold, a macroscopic fraction of the population is reached
+  - field_a_term: degree distribution P(k)
+    field_b_term: contact degree distribution (number of contacts per person)
+    note: Power-law tails dramatically lower the percolation threshold
+  - field_a_term: targeted site removal (immunisation of hubs)
+    field_b_term: ring vaccination / targeted vaccination of superspreaders
+    note: Removing high-degree nodes most efficiently fragments the giant component
+related_unknowns:
+  - u-network-threshold-epidemic-spread
+related_hypotheses:
+  - h-sars-cov2-network-percolation
+cross_pollination_opportunities:
+  - Reconstruct transmission networks from genomic data and measure degree distributions to predict epidemic thresholds prospectively
+  - Apply explosive percolation theory to model discontinuous epidemic transitions from overdispersed transmission (high k-parameter negative binomial distributions)
+  - Use network motif analysis to identify superspreader node types from clinical contact-tracing data
+  - Design network-aware vaccine allocation algorithms treating the epidemic threshold as a percolation threshold to be engineered
+communication_gap: >
+  Epidemiologists are trained in compartmental models (SIR/SEIR) without network
+  topology; network scientists and physicists rarely engage with empirical contact
+  data from outbreak investigations. The percolation-epidemic equivalence was
+  established theoretically but has not fully penetrated public health practice.
+  During COVID-19, most policy models used homogeneous mixing assumptions,
+  missing the network structure that drives superspreading events.
+last_reviewed: "2026-05-07"
+references:
+  - doi: 10.1016/s0140-6736(20)30183-5
+    note: Huang et al. (2020) Clinical features of COVID-19 — 51,666 citations; primary reference
+  - doi: 10.1103/PhysRevLett.86.3200
+    note: Newman et al. (2001) — random graphs with arbitrary degree distributions and percolation
+  - doi: 10.1103/PhysRevE.66.016128
+    note: Newman (2002) — spread of epidemic disease on networks

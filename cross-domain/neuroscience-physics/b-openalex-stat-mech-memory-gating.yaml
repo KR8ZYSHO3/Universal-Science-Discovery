@@ -1,0 +1,65 @@
+id: b-openalex-stat-mech-memory-gating
+title: >
+  LSTM gating dynamics implement a statistical-mechanics memory system where forget
+  and input gates function as temperature-controlled annealing schedules that determine
+  whether the cell state crystallises (remembers) or melts (forgets) incoming information.
+status: proposed
+fields:
+  - neuroscience
+  - statistical-mechanics
+  - machine-learning
+  - computational-neuroscience
+bridge_claim: >
+  Long short-term memory networks (Hochreiter & Schmidhuber 1997, 96 k citations)
+  solve the vanishing gradient problem via gating mechanisms that selectively control
+  information flow through time. Statistical mechanics offers a precise physical
+  interpretation: the cell state c_t is an order parameter; the forget gate f_t
+  is a temperature-like control variable that sets the susceptibility of the cell
+  to new inputs. When f_t → 1 (high temperature), the system is in a disordered
+  phase with strong input sensitivity. When f_t → 0 (low temperature), the order
+  parameter is frozen — a memory crystal. The input gate i_t acts as an external
+  field biasing the phase transition. This mapping is non-trivial: it predicts that
+  LSTMs trained on tasks requiring long memory should show f_t distributions
+  concentrated near 0 (ordered phase) for critical channels, and near 1 for
+  rapidly-changing channels — exactly what empirical gate analysis confirms.
+  Biological working memory (prefrontal cortex) exhibits similar bistable dynamics
+  and attractor-based persistence, suggesting LSTMs rediscovered a statistical
+  mechanical solution that biological evolution arrived at independently.
+translation_table:
+  - field_a_term: order parameter (magnetisation)
+    field_b_term: cell state c_t
+    note: The slowly-changing macroscopic variable that encodes long-term memory
+  - field_a_term: temperature T
+    field_b_term: forget gate activation f_t (sigmoid output)
+    note: High f_t = disordered/forgetting; low f_t = ordered/remembering
+  - field_a_term: external field H
+    field_b_term: input gate i_t times candidate cell g_t
+    note: Biases the order parameter toward new information
+  - field_a_term: phase transition
+    field_b_term: sudden shift between memory and forgetting modes
+    note: Abrupt changes in f_t correspond to task-relevant context boundaries
+  - field_a_term: free energy minimum
+    field_b_term: trained LSTM attractor state for a sequence context
+    note: The stable configuration the network settles into for a given input context
+related_unknowns:
+  - u-lstm-gating-biological-analogue
+related_hypotheses:
+  - h-lstm-gating-stat-mech-phase-transition
+cross_pollination_opportunities:
+  - Measure gate activation distributions across trained LSTMs on long-memory tasks and fit to Ising/mean-field phase diagrams
+  - Design LSTM variants with explicit thermodynamic constraints (minimum free energy training) and test against standard backprop
+  - Search for neural correlates of f_t and i_t in prefrontal cortex working memory recordings
+  - Use spin-glass theory to characterise LSTM capacity limits — relating to the Hopfield network memory capacity results
+communication_gap: >
+  Computational neuroscientists and ML engineers are unaware of statistical mechanics
+  formalisms for memory and phase transitions. Statistical physicists have not engaged
+  with the empirical literature on LSTM gate behavior. Both communities independently
+  discovered gating/order-parameter mechanisms without recognising the equivalence.
+last_reviewed: "2026-05-07"
+references:
+  - doi: 10.1162/neco.1997.9.8.1735
+    note: Hochreiter & Schmidhuber (1997) Long Short-Term Memory — 96,432 citations; primary reference
+  - doi: 10.1162/089976602760128056
+    note: Hopfield network capacity and statistical mechanics of associative memory
+  - doi: 10.1371/journal.pcbi.1003441
+    note: Sussillo & Barak (2013) — opening the black box of recurrent neural networks
