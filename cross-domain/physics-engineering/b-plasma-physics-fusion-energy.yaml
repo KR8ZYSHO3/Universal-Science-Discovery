@@ -1,0 +1,126 @@
+id: b-plasma-physics-fusion-energy
+title: >
+  Plasma confinement physics — MHD equilibrium, instability theory, and the
+  Lawson criterion — directly determines engineering requirements for fusion
+  reactors: the safety factor q, energy confinement time τ_E, and plasma-facing
+  material constraints are all derivable from first-principles plasma physics
+  and now validated by ITER design and NIF ignition.
+status: established
+fields:
+  - plasma-physics
+  - nuclear-engineering
+  - magnetohydrodynamics
+  - materials-science
+bridge_claim: >
+  Plasma confinement for fusion energy requires solving the magnetohydrodynamic
+  (MHD) equilibrium equation ∇p = J × B, where pressure gradient is balanced
+  by the magnetic force. In a tokamak, this demands nested toroidal magnetic
+  flux surfaces. The safety factor q = rB_φ/(RB_θ), the ratio of toroidal to
+  poloidal field contributions, must be irrational at all radii to avoid
+  resonant surfaces where field lines close on themselves after a finite number
+  of toroidal transits — closure allows magnetic islands to grow, terminating
+  confinement via tearing modes (m=1 kink instability, m/n rational resonances).
+
+  Lawson (1957) derived the engineering criterion for net energy gain from
+  plasma physics first principles: the product nτ_E T (plasma density times
+  energy confinement time times temperature) must exceed 3×10²¹ m⁻³·s·keV for
+  D-T fusion. This single dimensionless product encodes the competition between
+  fusion power density (∝ n²⟨σv⟩T) and energy loss rate (∝ n·T/τ_E).
+
+  ITER (under construction, Cadarache): engineered to achieve Q=10 (500 MW
+  fusion from 50 MW heating) at n=10²⁰ m⁻³, T=15 keV, τ_E=3.7 s. The
+  engineering challenge maps exactly onto plasma physics constraints:
+  (1) First wall materials must withstand 10 MW/m² heat flux — derived from
+  energy confinement and geometric dilution;
+  (2) Tritium breeding ratio > 1 from Li-6 blankets — derived from fusion
+  neutron flux calculation;
+  (3) Superconducting magnets at 13.5 T — derived from MHD stability limits
+  requiring B > threshold for β = 2μ₀p/B² < β_max (Troyon limit).
+
+  NIF (National Ignition Facility) achieved fusion ignition in August 2022
+  (Abu-Shawareb et al. 2022): Q > 1 for inertial confinement fusion, the first
+  time in history. The target physics — laser ablation drives shock
+  compression, central hot spot ignition, alpha-particle self-heating, burn
+  wave propagation — is all derived from plasma physics. Engineering translated
+  this into 192 laser beams delivering 2.05 MJ to a 2.2 mm gold hohlraum.
+
+  Key instabilities that engineering must suppress:
+  - Kink mode (m=1): requires q > 1 (Kruskal-Shafranov condition)
+  - Ballooning modes: requires pressure gradient below critical β threshold
+  - Tearing modes: require resistivity < threshold → drives need for ECCD
+  - Edge-localized modes (ELMs): periodic bursts that erode the first wall →
+    drives need for resonant magnetic perturbations (RMPs) in ITER
+
+  The bridge is complete: plasma physics provides the theory, engineering
+  provides the implementation. Every engineering specification in ITER or NIF
+  has a direct plasma physics derivation.
+translation_table:
+  - field_a_term: "MHD equilibrium ∇p = J × B (plasma physics)"
+    field_b_term: "Pressure balance design specification for coil and blanket geometry"
+    note: Determines aspect ratio, plasma shape, and plasma-facing component loads
+  - field_a_term: "Safety factor q = rB_φ/RB_θ must be irrational (MHD theory)"
+    field_b_term: "Toroidal field coil current profile programming in tokamak operation"
+    note: q-profile is actively controlled to avoid rational surfaces
+  - field_a_term: "Lawson criterion nτ_E T > 3×10²¹ m⁻³·s·keV"
+    field_b_term: "Target plasma parameters: n, T, confinement time for reactor design"
+    note: The fundamental engineering target derived from D-T cross-section physics
+  - field_a_term: "Energy confinement time τ_E (plasma physics scaling)"
+    field_b_term: "Thermal insulation performance metric for the reactor vessel"
+    note: τ_E ∝ B^0.15 n^0.41 P^{-0.69} R^{1.97} (IPB98y2 H-mode scaling)
+  - field_a_term: "Beta limit β_max (Troyon limit β_N = β/(I/aB))"
+    field_b_term: "Maximum achievable plasma pressure → sets magnetic field requirement"
+    note: Higher B allows higher absolute pressure for same β_N
+  - field_a_term: "Alpha particle self-heating (born at 3.5 MeV in D-T)"
+    field_b_term: "Ignition condition — plasma heating exceeds all losses without external power"
+    note: NIF achieved ignition via alpha-heating cascade in 2022
+related_unknowns:
+  - u-plasma-turbulence-transport-barrier-formation-mechanism
+related_hypotheses:
+  - h-iter-q10-ignition-margin-sufficient-commercial-fusion
+cross_pollination_opportunities:
+  - >
+    Plasma turbulence is the dominant transport mechanism limiting τ_E. The
+    gyrokinetic equations describing turbulence are formally identical to
+    certain fluid equations in atmospheric science. Numerical methods developed
+    for weather prediction (spectral methods, adaptive mesh refinement) could
+    improve fusion plasma simulation codes, reducing the uncertainty in τ_E
+    predictions for DEMO (the demonstration power plant following ITER).
+  - >
+    Plasma-facing materials under neutron bombardment accumulate helium bubbles
+    and transmutation products — a materials science problem with no current
+    solution for 14 MeV fusion neutrons. Collaboration between plasma physics
+    and radiation damage materials science is needed: the irradiation environment
+    is defined by plasma physics, but the solution requires materials innovation.
+  - >
+    Machine learning for plasma control: the high-dimensional plasma state must
+    be controlled in real time to avoid disruptions (rapid quench events). This
+    is a reinforcement learning problem where the reward function is derived from
+    plasma physics (avoid MHD instabilities, maintain confinement). DeepMind's
+    2022 tokamak control paper demonstrated the viability of this approach.
+communication_gap: >
+  Plasma physics is taught as a physics discipline (MHD, kinetic theory) while
+  fusion engineering is taught as nuclear engineering. The communities publish
+  in Nuclear Fusion and Physics of Plasmas (physics) vs. Fusion Engineering and
+  Design (engineering), with limited cross-citation. The Lawson criterion is
+  widely known in both communities, but deeper connections — the derivation of
+  engineering tolerances from instability growth rates, the mapping of
+  confinement scaling onto reactor design — are less systematically taught
+  across the divide.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1088/0370-1301/70/1/303"
+    note: >
+      Lawson (1957) Some criteria for a power producing thermonuclear reactor,
+      Proc Phys Soc B 70:6 — the fundamental nτ_E T criterion
+  - note: >
+      Wesson (2011) Tokamaks, 4th ed., Oxford — comprehensive plasma physics and
+      engineering text; derives all instability criteria and engineering requirements
+  - doi: "10.1103/PhysRevLett.129.075001"
+    note: >
+      Abu-Shawareb et al. (2022) Lawson criterion for ignition exceeded in an
+      inertial confinement fusion experiment, Phys Rev Lett 129:075001 —
+      NIF ignition result, Q>1 for ICF for first time
+  - note: >
+      Freidberg (2007) Plasma Physics and Fusion Energy, Cambridge — bridges
+      plasma physics theory to engineering design; covers MHD equilibrium,
+      stability, and Lawson criterion

@@ -1,0 +1,56 @@
+id: u-natural-gradient-selection-convergence-rate-fitness-landscape
+title: >
+  What is the quantitative convergence rate advantage of natural (Shahshahani-
+  geometric) selection over Euclidean-gradient selection on realistic fitness
+  landscapes, and does the information-geometric speed limit (Fisher information
+  bound) correctly predict observed rates of adaptation in laboratory evolution
+  experiments?
+status: open
+priority: high
+disciplines:
+  - evolutionary-biology
+  - information-geometry
+  - population-genetics
+  - mathematics
+summary: >
+  Amari's information geometry shows that natural gradient descent on a
+  statistical manifold converges faster than Euclidean gradient descent because
+  it follows geodesics rather than Euclidean straight lines. The Shahshahani
+  metric on allele frequency space is the identical structure in population
+  genetics. Frank (2012) derives that the rate of mean fitness increase equals
+  the Fisher information about the selective environment.
+
+  However, the quantitative convergence advantage — how much faster natural
+  selection is vs. "Euclidean evolution" on realistic rugged fitness landscapes
+  — has not been computed. On smooth fitness landscapes, the advantage can be
+  analytically calculated. On epistatic, multimodal, or high-dimensional
+  landscapes (realistic for many-locus evolution), the comparison requires
+  simulation or empirical validation.
+
+  Laboratory evolution experiments (LTEE in E. coli, yeast fitness landscapes)
+  provide time series of fitness trajectories that could in principle be compared
+  against the information-geometric Fisher information bound. If observed
+  adaptation rates approach the theoretical maximum, this would validate the
+  information-geometric framework for evolution.
+systematic_gaps:
+  - The Fisher information speed limit for multi-locus adaptation has not been
+    computed for realistic epistatic fitness landscapes (NK model, empirical
+    fitness landscapes from protein engineering).
+  - No laboratory evolution experiment has been explicitly designed to test
+    whether adaptation rates approach the Fisher information bound.
+  - The equivalence between natural gradient in ML and natural selection has
+    not been exploited to import convergence rate theorems from ML optimization
+    theory into population genetics.
+  - The effect of genetic drift (finite population size) on the information-
+    geometric framework has not been systematically analysed — drift perturbs
+    the manifold trajectory.
+suggested_hypotheses:
+  - h-natural-gradient-selection-reaches-fitness-optimum-faster-than-euclidean
+related_bridges:
+  - b-information-geometry-evolutionary-fitness
+references:
+  - doi: "10.1111/j.1420-9101.2012.02641.x"
+    note: Frank (2012) J Evol Biol 25:2377 — Fisher information and Price equation
+  - doi: "10.1162/089976698300017746"
+    note: Amari (1998) Neural Comput 10:251 — natural gradient convergence theory
+last_reviewed: "2026-05-06"

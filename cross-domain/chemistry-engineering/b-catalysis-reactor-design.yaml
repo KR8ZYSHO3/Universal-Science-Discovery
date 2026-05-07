@@ -1,0 +1,134 @@
+id: b-catalysis-reactor-design
+title: >
+  The Langmuir-Hinshelwood mechanism — reactants adsorb on catalyst surfaces
+  and react there, with rate determined by surface coverage isotherms — and
+  the Sabatier volcano principle — optimal catalysts bind intermediates with
+  intermediate affinity — provide the molecular-scale physical chemistry that
+  underpins macroscale chemical reactor design equations (CSTR, PFR, Damköhler
+  number), bridging surface science to industrial process engineering.
+status: established
+fields:
+  - physical-chemistry
+  - chemical-engineering
+  - surface-science
+  - catalysis
+  - materials-science
+bridge_claim: >
+  Heterogeneous catalysis — where reactants in gas or liquid phase react on a
+  solid catalyst surface — is the foundation of the modern chemical industry
+  (Haber-Bosch ammonia synthesis, Fischer-Tropsch, catalytic cracking, automotive
+  catalytic converters). The physical chemistry of surface reactions determines
+  engineering reactor design at every scale.
+
+  Langmuir (1918) derived the adsorption isotherm: the fractional surface coverage
+  of species A is θ_A = K_A·P_A / (1 + K_A·P_A + K_B·P_B), where K is the
+  adsorption equilibrium constant and P is partial pressure. The Langmuir-
+  Hinshelwood mechanism assumes the surface reaction between adsorbed species
+  A* and B* is rate-limiting: r = k·θ_A·θ_B. This gives a non-monotonic rate
+  vs. concentration curve — rate decreases at high A concentration because A
+  displaces B from the surface. The volcano plot for CO oxidation over metals
+  (rate vs. CO binding energy) is a direct consequence: too weak binding (poor
+  adsorption, low θ_CO) or too strong binding (surface poisoning, low θ_O)
+  both reduce rate.
+
+  Sabatier principle (1902): the optimal catalyst binds reaction intermediates
+  with intermediate affinity — strong enough to activate the bond, weak enough
+  to release the product. This "Goldilocks" principle, formalised as the Brønsted-
+  Evans-Polanyi (BEP) relationship, explains volcano plots: activity peaks at
+  intermediate binding energy. Nørskov et al. (2002) used DFT calculations to
+  predict the optimal binding energy for ammonia synthesis catalysts, discovering
+  that Ru sits near the volcano peak — explaining why Ru replaces Fe in modern
+  catalysts.
+
+  Reactor design equations translate surface kinetics to industrial scale:
+  (CSTR) Continuous Stirred Tank Reactor: perfect mixing, steady state gives
+    X = τ · r(C_A) / C_A0  where τ = V/F₀ (residence time) and X is conversion.
+  (PFR) Plug Flow Reactor: no axial mixing, dF_A/dV = r_A, integrated to give
+    V = F_A0 ∫ dX/(-r_A).
+  The Damköhler number Da = (reaction rate)/(convective transport rate) governs
+  the conversion in flow reactors: Da >> 1 gives high conversion (reaction-limited);
+  Da << 1 gives low conversion (transport-limited).
+
+  The Weisz-Prater criterion determines whether internal diffusion limits the
+  observed reaction rate in porous catalyst pellets: Φ_WP = r_obs·R²/(D_eff·C_s).
+  If Φ_WP > 1, diffusion limits the rate — the catalyst interior is starved of
+  reactant. This bridges molecular surface kinetics (r_obs) to pellet geometry
+  (R) and diffusion (D_eff), informing catalyst pellet design.
+
+  The complete bridge: quantum chemistry (DFT of binding energies) → surface
+  kinetics (Langmuir-Hinshelwood rate) → intrinsic kinetics parameters (k, K)
+  → reactor design equations (CSTR/PFR with Langmuir rate expression) →
+  industrial reactor sizing and operating conditions. Each step is quantitative
+  and the chain is now routinely used for rational catalyst and reactor design.
+translation_table:
+  - field_a_term: "Adsorption equilibrium constant K_A (surface chemistry)"
+    field_b_term: "Binding energy parameter in reactor rate expression"
+    note: K_A = exp(-ΔG_ads/RT) — determined by DFT or temperature-programmed desorption
+  - field_a_term: "Surface coverage θ_A (Langmuir isotherm)"
+    field_b_term: "Concentration of active surface species in reactor model"
+    note: Langmuir isotherm bridges gas-phase concentration to surface concentration
+  - field_a_term: "Sabatier principle (intermediate binding energy optimal)"
+    field_b_term: "Catalyst screening criterion for process development"
+    note: Volcano plot from BEP relations allows rational prediction of best catalyst
+  - field_a_term: "Damköhler number Da = reaction/transport rate"
+    field_b_term: "Reactor operating regime: kinetic (Da<<1) vs. transport-limited (Da>>1)"
+    note: Da determines whether a larger reactor or faster catalyst is needed
+  - field_a_term: "Weisz-Prater criterion Φ_WP (internal diffusion limitation)"
+    field_b_term: "Catalyst pellet design criterion: optimise particle size vs. surface area"
+    note: Smaller pellets increase D_eff but increase pressure drop; optimum exists
+  - field_a_term: "Brønsted-Evans-Polanyi (BEP) relationship (activation energy vs. binding energy)"
+    field_b_term: "Quantitative prediction of catalyst turnover frequency from binding energy"
+    note: "BEP: ΔE_act = α·ΔE_bind + β — allows DFT screening of catalysts before synthesis"
+related_unknowns:
+  - u-sabatier-volcano-principle-multi-step-cascade-reaction-design
+related_hypotheses:
+  - h-dft-bep-relationship-enables-quantitative-catalyst-design-before-synthesis
+cross_pollination_opportunities:
+  - >
+    Machine learning potential energy surfaces: DFT calculations of adsorption
+    energies are expensive (hours per calculation). Machine learning interatomic
+    potentials (MLIPs) trained on DFT data can screen millions of candidate
+    catalysts in minutes, exploring the full composition space of bimetallic
+    and high-entropy alloy catalysts. This combines materials informatics with
+    the Sabatier/BEP framework for accelerated catalyst discovery.
+  - >
+    Microkinetic modeling bridges surface science to reactor design quantitatively:
+    a full set of elementary steps (adsorption, surface reactions, desorption)
+    with DFT-calculated rate constants can be integrated into CSTR/PFR equations.
+    This "first-principles reactor design" avoids empirical rate expressions and
+    allows prediction of reactor performance for novel catalysts before experimental
+    testing.
+  - >
+    Electrocatalysis (fuel cells, CO₂ reduction, water splitting): the same
+    Sabatier/BEP framework applies to electrochemical reactions where the
+    effective binding energy is tuned by electrode potential. The Nørskov
+    computational hydrogen electrode (CHE) method maps electrochemical free
+    energies onto the same volcano plot framework, creating a unified physical
+    chemistry for heterogeneous and electrocatalysis.
+communication_gap: >
+  Surface chemists (studying adsorption, binding energies, elementary steps)
+  publish in Journal of Catalysis, ACS Catalysis, and Surface Science; chemical
+  engineers designing reactors publish in Chemical Engineering Science, AIChE
+  Journal, and Industrial & Engineering Chemistry Research. The curricula diverge:
+  surface chemistry is a physical chemistry course, reactor design is a chemical
+  engineering course. The quantitative connection — using DFT binding energies
+  directly in reactor design equations via microkinetic models — has been
+  established only in the last 20 years and is not yet standard in either
+  community's textbooks.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1021/ja02242a004"
+    note: >
+      Langmuir (1918) The adsorption of gases on plane surfaces of glass, mica and
+      platinum, J Am Chem Soc 40:1361 — Langmuir isotherm and surface kinetics
+  - note: >
+      Sabatier (1902) Comptes Rendus 134:514 — original statement of optimal
+      intermediate binding strength for catalysis (Sabatier principle)
+  - note: >
+      Levenspiel (1999) Chemical Reaction Engineering, 3rd ed., Wiley — standard
+      text covering CSTR, PFR, Damköhler number, and Weisz-Prater criterion
+  - doi: "10.1006/jcat.2002.3543"
+    note: >
+      Nørskov et al. (2002) Universality in heterogeneous catalysis,
+      J Catal 209:275 — DFT-based BEP relationships and volcano plots for
+      ammonia synthesis; rational prediction of Ru as optimal catalyst

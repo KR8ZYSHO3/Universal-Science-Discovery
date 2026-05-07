@@ -1,0 +1,63 @@
+id: h-hippocampal-place-cell-population-topology-reflects-navigated-space-topology
+title: >
+  The persistent homology of hippocampal CA1 place cell co-firing patterns
+  correctly encodes the topological invariants (Betti numbers β₀, β₁, β₂) of
+  the navigated environment — circle (β₁=1), torus (β₁=β₂=1), figure-eight
+  (β₁=2) — reliably and independently of changes in firing field locations or
+  remapping, providing a topology-native read-out of the cognitive map.
+status: active
+priority: medium
+impact_score: 0.76
+created: "2026-05-06"
+last_updated: "2026-05-06"
+related_disciplines:
+  - computational-neuroscience
+  - algebraic-topology
+  - systems-neuroscience
+unknowns_addressed:
+  - u-persistent-homology-neural-manifold-geometry-vs-topology-decoupling
+evidence_links:
+  - doi: "10.1073/pnas.1506407112"
+    type: supporting
+    confidence: 0.80
+    note: >
+      Giusti et al. (2015) PNAS 112:13455 — β₁ topology detected in hippocampal
+      place cells on circular track; topology matched track geometry
+  - doi: "10.1090/bull/1554"
+    type: supporting
+    confidence: 0.70
+    note: >
+      Curto et al. (2017) — clique topology theory predicts topological invariants
+      are decodable from place cell patterns; mathematical framework supports hypothesis
+proposed_tests:
+  - description: >
+      Multi-environment navigation experiment: record CA1 place cells in a single
+      mouse navigating four environments — (A) linear track (β₁=0), (B) circular
+      track (β₁=1), (C) figure-eight track (β₁=2), (D) two-room environment
+      connected by corridor (β₁=1, distinct from circular). Apply persistent
+      homology to co-firing clique complex for each environment. Test: does the
+      detected Betti number β₁ match the environment topology in all four cases?
+    method: >
+      Tetrode or Neuropixels recording, N≥50 place cells; Vietoris-Rips filtration
+      on pairwise correlation matrix; Ripser for persistent homology computation;
+      statistical significance via Poisson-spiking null model shuffle.
+    prediction: >
+      β₁ = 0 for linear track, β₁ = 1 for circular, β₁ = 2 for figure-eight,
+      β₁ = 1 for two-room environment. Topological signature stable across
+      at least 20 minutes of navigation and consistent across remapping events
+      (firing field relocation without topology change).
+  - description: >
+      Test topology preservation during global remapping (same environment,
+      different time): record during two sessions in the same circular track
+      separated by 24 hours. Global remapping changes firing field locations
+      but should preserve topology (β₁=1). Test: does persistent homology
+      correctly detect β₁=1 in both sessions despite completely different
+      individual firing fields?
+    method: >
+      Compare persistence diagrams between session 1 and session 2 using
+      bottleneck distance; test whether the β₁ feature (born at ε₁, dies at ε₂)
+      has consistent birth-death coordinates despite remapping.
+    prediction: >
+      β₁=1 detected in both sessions with bottleneck distance between persistence
+      diagrams < 0.1 (normalised); birth-death coordinates of the β₁ loop
+      vary by < 20% between sessions despite complete remapping of firing fields.

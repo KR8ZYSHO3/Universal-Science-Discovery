@@ -1,0 +1,124 @@
+id: b-stochastic-population-extinction
+title: >
+  The stochastic logistic model — adding demographic stochasticity (Brownian
+  noise ∝ population size) to the deterministic logistic equation — yields
+  a mean extinction time exponential in carrying capacity K, formalising the
+  minimum viable population concept and underpinning IUCN Red List extinction
+  risk categories through the mathematics of quasi-stationary distributions
+  and Fokker-Planck diffusion.
+status: established
+fields:
+  - ecology
+  - mathematics
+  - population-genetics
+  - conservation-biology
+  - stochastic-processes
+bridge_claim: >
+  The deterministic logistic model dN/dt = rN(1-N/K) has a stable equilibrium
+  at N=K. In a finite population, demographic stochasticity — random variation
+  in individual birth and death events — drives fluctuations around K and
+  ultimately causes extinction. The stochastic logistic model is:
+    dN = rN(1-N/K)dt + σN dW
+  where W is a Wiener process (Brownian motion) and σ² is the demographic
+  variance per individual per unit time.
+
+  Lande (1993) derived the mean extinction time for this model:
+    T_ext ≈ (1/r) · exp(2rK/σ²)
+  This is exponential in K — the carrying capacity acts as a "potential barrier."
+  Populations with K above the minimum viable population (MVP) threshold have
+  astronomically long expected persistence times; below it, extinction is rapid.
+
+  The diffusion approximation (Kimura 1964, applied to population genetics)
+  maps the stochastic logistic to a Fokker-Planck equation:
+    ∂f/∂t = -∂/∂N [A(N)f] + (1/2)∂²/∂N² [B(N)f]
+  where A(N) = rN(1-N/K) (drift) and B(N) = σ²N² (diffusion). The
+  quasi-stationary distribution (QSD) is the stationary solution conditional
+  on non-extinction — it represents the long-term population size distribution
+  for populations that have not yet gone extinct.
+
+  Melbourne & Hastings (2008) demonstrated that demographic stochasticity
+  alone (without environmental stochasticity) causes extinction in Tribolium
+  flour beetle populations following exactly the predicted exponential
+  dependence on K. This is a rare controlled experimental test of extinction
+  mathematics.
+
+  Extinction debt (Tilman et al. 1994; Ovaskainen & Meerson 2010): habitat
+  fragmentation reduces K by reducing patch area. The exponential relationship
+  between T_ext and K means small reductions in K produce enormous reductions
+  in persistence time — populations become "living dead" (committed to
+  extinction by past habitat loss, but not yet extinct). This creates the
+  phenomenon of time-lagged biodiversity loss after deforestation.
+
+  IUCN Red List criteria (Criteria E) directly use quantitative extinction
+  probability thresholds (≥50% in 10 years or 3 generations for Critically
+  Endangered) that are computed from population viability analysis (PVA) models
+  implementing exactly this mathematical framework.
+translation_table:
+  - field_a_term: "Carrying capacity K (ecology)"
+    field_b_term: "Potential well depth in the extinction barrier — determines T_ext"
+    note: T_ext ≈ exp(2rK/σ²)/r — small changes in K cause huge changes in persistence
+  - field_a_term: "Intrinsic growth rate r (population ecology)"
+    field_b_term: "Inverse of characteristic demographic time — sets timescale of fluctuations"
+    note: High-r species recover faster from low abundance but same extinction mathematics applies
+  - field_a_term: "Demographic stochasticity σ² (individual birth/death variance)"
+    field_b_term: "Diffusion coefficient in Fokker-Planck equation B(N) = σ²N²"
+    note: Demographic stochasticity scales as N² in population-level variance
+  - field_a_term: "Quasi-stationary distribution (QSD) of population size"
+    field_b_term: "Long-run population size distribution conditional on survival"
+    note: The QSD characterises populations that persist for long times
+  - field_a_term: "Minimum viable population (MVP)"
+    field_b_term: "Threshold K below which T_ext < conservation time horizon"
+    note: MVP is the inflection point in the exp(K) relationship
+  - field_a_term: "Extinction debt (delayed extinction from habitat loss)"
+    field_b_term: "Subcritical relaxation: population below new K but T_ext still long"
+    note: The time lag between habitat loss and extinction can be centuries for large K
+related_unknowns:
+  - u-extinction-debt-lag-time-empirical-quantification-fragmented-landscapes
+related_hypotheses:
+  - h-extinction-time-exponential-k-demographic-stochasticity-confirmed
+cross_pollination_opportunities:
+  - >
+    The quasi-stationary distribution framework from mathematics has not been
+    consistently applied in conservation biology. Computing QSDs for real
+    species' population models (conditioned on non-extinction) would give
+    more realistic estimates of population viability than the current PVA
+    approach, and could be implemented in standard conservation software.
+  - >
+    Extinction debt quantification: remote sensing now provides time series of
+    habitat area at landscape scale. Combining habitat loss time series with
+    the mathematical prediction T_ext ≈ exp(2rK/σ²)/r — where K ∝ habitat
+    area — gives a spatially explicit map of extinction debt across the tropics.
+    This is a direct application of stochastic population mathematics to
+    real-time biodiversity monitoring.
+  - >
+    The Fokker-Planck approach can incorporate spatial structure (metapopulation
+    models) by adding migration terms. Mathematical advances in multi-dimensional
+    Fokker-Planck equations (developed for statistical physics and finance) can
+    be imported to improve spatially explicit extinction risk assessments.
+communication_gap: >
+  The stochastic diffusion approach to extinction (Lande, Kimura) is published
+  in ecology and population genetics journals respectively, with limited
+  cross-citation to the stochastic processes literature (Gardiner's Handbook,
+  Van Kampen's Stochastic Processes). Conservation biologists using PVA
+  software (VORTEX, RAMAS) implement these models without knowledge of the
+  underlying mathematical theory. Mathematicians developing new results on
+  quasi-stationary distributions rarely cite ecology literature.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1086/285580"
+    note: >
+      Lande (1993) Risks of population extinction from demographic and environmental
+      stochasticity and random catastrophes, Am Nat 142:911 —
+      derives T_ext ≈ exp(2rK/σ²)/r for stochastic logistic model
+  - doi: "10.1016/j.tree.2010.05.008"
+    note: >
+      Ovaskainen & Meerson (2010) Stochastic models of population extinction,
+      Trends Ecol Evol 25:643 — reviews mathematical approaches to extinction
+  - doi: "10.1038/nature07265"
+    note: >
+      Melbourne & Hastings (2008) Extinction risk depends strongly on factors
+      contributing to stochasticity, Nature 454:100 — experimental test with beetles
+  - doi: "10.2307/1308256"
+    note: >
+      Shaffer (1981) Minimum population sizes for species conservation,
+      BioScience 31:131 — introduces MVP concept in conservation biology

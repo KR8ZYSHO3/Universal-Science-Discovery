@@ -1,0 +1,137 @@
+id: b-percolation-network-robustness
+title: >
+  Percolation theory — the second-order phase transition from isolated clusters
+  to a giant connected component at threshold p_c = 1/⟨k⟩ on Erdős-Rényi graphs
+  — quantifies network robustness: scale-free networks (Barabási-Albert, P(k)∝k^{-γ})
+  are robust to random failures but fragile to targeted hub attacks, with p_c→0
+  as N→∞, transforming network resilience engineering into a percolation problem.
+status: established
+fields:
+  - mathematics
+  - statistical-physics
+  - network-science
+  - computer-science
+  - epidemiology
+bridge_claim: >
+  Percolation theory, originally developed for porous media and ferromagnetism,
+  describes the emergence of large-scale connectivity in random structures.
+
+  Site percolation on a network: each node is "occupied" (functional) with
+  probability p and removed with probability 1-p. Below a critical threshold
+  p_c, only small clusters exist with size distribution P(s) ∝ s^{-τ}. Above
+  p_c, a giant connected component (GCC) of size O(N) emerges — a second-order
+  (continuous) phase transition with correlation length ξ ∝ |p - p_c|^{-ν}.
+
+  For Erdős-Rényi (ER) random graphs (edges placed independently with
+  probability c/N): p_c = 1/c = 1/⟨k⟩ where ⟨k⟩ is mean degree. At p_c,
+  the GCC size scales as N^{2/3} (critical fluctuations). This critical point
+  was discovered by Erdős & Rényi (1960) in their study of random graph evolution
+  — the "double jump" at ⟨k⟩ = 1.
+
+  For scale-free networks with degree distribution P(k) ∝ k^{-γ} (Barabási-
+  Albert preferential attachment): the percolation threshold p_c is determined
+  by the ratio of the first two moments of the degree distribution:
+    p_c = 1 / (⟨k²⟩/⟨k⟩ - 1)
+  For γ ≤ 3 (as in many real networks: internet γ≈2.2, WWW γ≈2.1), ⟨k²⟩ diverges
+  as N→∞, making p_c → 0: scale-free networks are essentially robust to random
+  failures because even after removing almost all nodes, the hubs maintain
+  global connectivity.
+
+  Cohen et al. (2000) proved this result and derived the converse: targeted
+  attacks removing high-degree nodes (hubs) are catastrophic for scale-free
+  networks. Removing only ~5% of the highest-degree nodes destroys the GCC.
+  This is the "robust yet fragile" property: resilient to random failures,
+  vulnerable to targeted attacks.
+
+  The network dismantling problem (Morone & Makse 2015): find the minimum set
+  of nodes whose removal destroys the GCC. This is equivalent to the optimal
+  attack problem and is NP-hard (related to min vertex cut). Belief propagation
+  on the network gives near-optimal solutions in polynomial time, applying
+  message-passing algorithms from statistical physics (cavity method) to network
+  engineering.
+
+  Applications:
+  - Internet infrastructure: AS-level internet has p_c ≈ 0 for random failures
+    but is vulnerable to coordinated attacks on tier-1 providers
+  - Power grids: cascading failures propagate via percolation; grids need
+    p > p_c to maintain bulk connectivity after local failures
+  - Epidemiology: vaccination targeting high-degree nodes reduces R_eff below
+    1 with far fewer doses than random vaccination — herd immunity threshold
+    becomes (1-p_c) for targeted vaccination vs. 1-1/R₀ for random
+  - Drug targets: proteins with high network centrality (betweenness, degree)
+    are essential hubs — their removal via drugs is equivalent to targeted
+    network dismantling
+translation_table:
+  - field_a_term: "Percolation threshold p_c (statistical physics)"
+    field_b_term: "Critical fraction of nodes that must remain functional for network connectivity"
+    note: p_c → 0 for scale-free networks with γ ≤ 3 — essentially immune to random failures
+  - field_a_term: "Giant connected component (GCC) emergence (percolation)"
+    field_b_term: "System-wide connectivity enabling global communication or cascading failure"
+    note: GCC = functional backbone of the network
+  - field_a_term: "Second-order phase transition at p_c (criticality)"
+    field_b_term: "Sudden collapse of network function as failures approach p_c"
+    note: Network fails abruptly, not gradually, at the percolation threshold
+  - field_a_term: "Degree distribution P(k) ∝ k^{-γ} (scale-free network)"
+    field_b_term: "Hub-dominated topology: few nodes have most connections"
+    note: Hubs dominate connectivity; removing them catastrophically disrupts the GCC
+  - field_a_term: "Belief propagation / cavity method (statistical physics)"
+    field_b_term: "Near-optimal network dismantling algorithm (engineering)"
+    note: Message-passing on factor graphs solves NP-hard dismantling problem approximately
+  - field_a_term: "Targeted immunisation of high-degree nodes (epidemiology)"
+    field_b_term: "Equivalent to hub removal in network dismantling"
+    note: Vaccinating hubs exploits scale-free fragility to efficiently block epidemic spread
+related_unknowns:
+  - u-percolation-phase-transition-interdependent-networks-cascading-failures
+related_hypotheses:
+  - h-targeted-hub-vaccination-achieves-herd-immunity-fewer-doses-scale-free
+cross_pollination_opportunities:
+  - >
+    Multilayer network percolation: infrastructure systems (power grid, internet,
+    water) are interdependent — failure of one layer triggers failures in others.
+    Buldyrev et al. (2010) showed that interdependent percolation produces
+    a first-order (abrupt) transition even for ER graphs, far more dangerous
+    than the second-order single-network transition. Engineering interdependent
+    resilience requires the mathematics of multilayer percolation, which is
+    largely unexploited in infrastructure planning.
+  - >
+    Biological network robustness: metabolic networks, protein-protein interaction
+    networks, and gene regulatory networks are all scale-free or near-scale-free.
+    Percolation analysis of these networks predicts essential genes (whose removal
+    destroys metabolic connectivity) and drug targets. Systematic comparison of
+    predicted vs. measured essential genes across organisms tests the percolation
+    prediction.
+  - >
+    Network medicine: disease-gene networks and drug-target networks have
+    scale-free topologies. Percolation theory predicts that diseases localised
+    in network neighborhoods (disease modules) are robust drug targets —
+    therapeutic strategies targeting hub proteins within the disease module
+    dismantle the disease subgraph without destroying global network function.
+communication_gap: >
+  Percolation theory was developed by mathematical physicists and published in
+  Physical Review Letters and Journal of Statistical Physics. Network science
+  applied this to social and technological networks (Barabási, Watts) in Science
+  and Nature. The epidemiology community independently developed the concept of
+  targeted vaccination without full awareness of the percolation framework.
+  Infrastructure engineers design resilience criteria from engineering standards
+  (N-1 reliability) without awareness of percolation theory's predictions about
+  scale-free fragility. The three communities rarely cite each other.
+last_reviewed: "2026-05-06"
+references:
+  - note: >
+      Erdős & Rényi (1960) On the evolution of random graphs,
+      Publ Math Inst Hung Acad Sci 5:17 — discovers the phase transition in
+      random graph connectivity (the "double jump")
+  - doi: "10.1038/35019019"
+    note: >
+      Albert, Jeong & Barabási (2000) Error and attack tolerance of complex networks,
+      Nature 406:378 — demonstrates scale-free robustness to random failures and
+      fragility to targeted hub attacks
+  - doi: "10.1103/PhysRevLett.85.4626"
+    note: >
+      Cohen, Erez, ben-Avraham & Havlin (2000) Resilience of the Internet to random
+      breakdowns, Phys Rev Lett 85:4626 — derives p_c = 0 for scale-free networks
+      analytically
+  - doi: "10.1038/nature14603"
+    note: >
+      Morone & Makse (2015) Influence maximisation in complex networks through optimal
+      percolation, Nature 524:65 — belief propagation for optimal network dismantling
