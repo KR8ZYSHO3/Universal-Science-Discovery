@@ -1,0 +1,24 @@
+id: h-neural-plasticity-x-hebbian-learning
+title: Three-factor STDP rules (pre × post × dopamine reward signal) implement an unbiased estimator of the policy gradient in model-free reinforcement learning for spike timings within a 200ms eligibility trace window, enabling reward-modulated STDP to solve delayed-reward tasks impossible for two-factor Hebbian rules
+status: active
+priority: high
+impact_score: 0.80
+created: '2026-05-07'
+last_updated: '2026-05-07'
+author: wave-66-agent
+unknowns_addressed:
+  - u-neural-plasticity-x-hebbian-learning
+related_disciplines:
+  - neuroscience
+  - computer_science
+  - biology
+evidence_links:
+  - type: supporting
+    doi: "10.1523/JNEUROSCI.18-24-10464.1998"
+    note: "Bi & Poo (1998) — STDP in hippocampal neurons; established the temporal learning window"
+    confidence: 0.81
+  - type: related
+    note: "Froemke & Dan (2002) — Spike-timing-dependent synaptic modification induced by natural spike trains; Nature 416:433"
+    confidence: 0.74
+proposed_tests:
+  - description: Train a recurrent spiking neural network with three-factor STDP (eligibility trace τ_e = 20ms, 100ms, 200ms) on a delayed-match-to-sample task with reward delivered 0.5s after correct response; compare performance to two-factor STDP (no reward modulation) and to BPTT-trained equivalent network; measure whether network activity in the delay period encodes task-relevant information as predicted by the policy gradient interpretation.
