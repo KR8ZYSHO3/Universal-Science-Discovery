@@ -1,0 +1,29 @@
+id: u-black-scholes-heat-equation
+title: "What is the correct PDE generalization of Black-Scholes for markets with jumps, stochastic volatility, and transaction costs, and does it retain the heat-equation structure?"
+status: open
+priority: medium
+disciplines:
+  - mathematics
+  - finance
+  - probability
+summary: >
+  The Black-Scholes PDE assumes constant volatility and continuous trading, yielding
+  a heat equation. Real markets exhibit stochastic volatility (VIX mean-reverting),
+  price jumps (Lévy processes), transaction costs, and feedback effects. Extensions
+  like Heston (stochastic vol), Bates (stochastic vol + jumps), and SABR models
+  each modify the PDE differently. The Heston model adds a second parabolic PDE
+  for variance v(t): ∂C/∂t + ½σ²S²C_SS + ρσ_v√v·SC_Sv + ½v·C_vv + rSC_S + κ(θ-v)C_v - rC = 0.
+  Whether this coupled system has analytical solutions via heat-equation transforms
+  for all parameter ranges is an open problem. More fundamentally, with transaction
+  costs the problem becomes a quasi-variational inequality, departing completely
+  from the linear PDE framework.
+systematic_gaps:
+  - "Analytical solutions to the Heston PDE under all parameter regimes (including Feller condition violation) are not fully classified."
+  - "The connection between rough volatility models (Volterra fractional Brownian motion, H<1/2) and fractional PDEs has not been fully established."
+  - "Whether a universal 'natural' PDE framework exists for option pricing under market microstructure noise is unknown."
+related_bridges:
+  - b-black-scholes-heat-equation
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1086/260062"
+    note: "Black & Scholes (1973) The pricing of options and corporate liabilities"

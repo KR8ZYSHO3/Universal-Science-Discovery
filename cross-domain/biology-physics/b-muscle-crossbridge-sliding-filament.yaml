@@ -1,0 +1,53 @@
+id: b-muscle-crossbridge-sliding-filament
+title: "Muscle force generation is a stochastic cross-bridge cycle: Huxley's rate equations for myosin attachment/detachment map onto a driven Markov chain whose ensemble average gives the force-velocity curve"
+status: established
+fields:
+  - biophysics
+  - mechanics
+  - statistical-physics
+bridge_claim: >
+  The Huxley (1957) sliding filament model describes myosin head binding to actin
+  as a continuous-time Markov process: a myosin head at position x relative to
+  the nearest actin site transitions from unbound to bound at rate f(x) and
+  back at rate g(x), with x changing at the sliding velocity v. Each bound head
+  contributes a force kx (linear spring model). The ensemble-average force per
+  head is F=∫kx·n(x)dx where n(x) is the proportion of bound heads, governed
+  by the PDE ∂n/∂t = f(1-n) - gn - v·∂n/∂x (advection-reaction equation).
+  Steady-state n(x;v) gives the force-velocity (Hill) curve F(v) = F₀(1-v/v_max)
+  / (1+v/v_c). This is mathematically equivalent to a 1D driven Markov chain on
+  a periodic lattice with asymmetric rates — the same framework used for molecular
+  motor models in non-equilibrium statistical mechanics.
+translation_table:
+  - field_a_term: "myosin cross-bridge power stroke (biophysics)"
+    field_b_term: "forward transition in asymmetric Markov chain consuming one ATP"
+    note: "ATP hydrolysis provides the free energy that makes the chain non-equilibrium (breaks detailed balance)"
+  - field_a_term: "Hill force-velocity curve F(v)"
+    field_b_term: "current-force relationship of a driven non-equilibrium Markov motor"
+    note: "Both show the same hyperbolic form; parameters determined by rate constants f(x), g(x)"
+  - field_a_term: "isometric force F₀ (at v=0)"
+    field_b_term: "stall force of molecular motor — maximum force at zero velocity"
+    note: "Stall force is reached when ATP free energy exactly balances mechanical work done"
+  - field_a_term: "twitch tension transients after length step"
+    field_b_term: "non-equilibrium relaxation of the Markov chain to new steady state"
+    note: "Multi-exponential relaxation reflects multiple time constants in f(x), g(x) rate functions"
+related_unknowns:
+  - u-muscle-crossbridge-kinetics
+related_hypotheses:
+  - h-muscle-crossbridge-sliding-filament
+cross_pollination_opportunities:
+  - "Optical tweezers measurements of single myosin step sizes and dwell times directly probe the individual stochastic trajectories of the Markov chain, connecting ensemble (bulk mechanics) to single-molecule statistical mechanics."
+  - "Non-equilibrium efficiency: the Curzon-Ahlborn efficiency at maximum power output from molecular motor theory applies to cross-bridge mechanics, potentially explaining why muscle efficiency peaks (~25%) at intermediate velocities rather than at isometric or unloaded conditions."
+communication_gap: >
+  Muscle physiologists derive the Hill curve empirically and use Huxley's
+  rate equations without connecting to the broader framework of molecular
+  motors and non-equilibrium statistical mechanics. The mathematical equivalence
+  between muscle cross-bridge theory and Brownian ratchet models was established
+  in the 1990s biophysics literature but is not standard teaching in physiology.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1016/0301-4622(57)90060-4"
+    note: "Huxley AF (1957) Muscle structure and theories of contraction. Prog Biophys Biophys Chem 7:255"
+  - doi: "10.1098/rspb.1938.0050"
+    note: "Hill AV (1938) The heat of shortening and the dynamic constants of muscle. Proc R Soc B 126:136"
+  - doi: "10.1126/science.271.5245.70"
+    note: "Finer et al. (1994) Single myosin molecule mechanics — piconewton forces and nanometre steps. Nature 368:113"

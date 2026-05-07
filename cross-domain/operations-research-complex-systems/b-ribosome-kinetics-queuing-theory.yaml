@@ -1,0 +1,54 @@
+id: b-ribosome-kinetics-queuing-theory
+title: "Ribosome translation kinetics on mRNA is a totally asymmetric simple exclusion process (TASEP): a driven lattice gas equivalent to a 1D queuing system with site exclusion"
+status: established
+fields:
+  - molecular-biology
+  - operations-research
+  - statistical-physics
+bridge_claim: >
+  The totally asymmetric simple exclusion process (TASEP) models ribosomes
+  moving along mRNA: each ribosome occupies ℓ codons, enters at the 5' end
+  at rate α (initiation), hops forward at rate β(i) (translation elongation at
+  codon i), and exits at the 3' end at rate γ (termination). In the homogeneous
+  case (β uniform), the steady-state is solved exactly: the current (protein
+  production rate) J depends on the boundary rates α, γ and the bulk density ρ
+  via J=ρ(1-ρ)β. Three phases exist: low-density (α limits), high-density
+  (γ limits), and maximal-current (β limits). This is the exact continuum-limit
+  of the M/M/1/K queuing model: ribosomes are customers, codons are servers,
+  mRNA is the service lane. Ribosome traffic jams (queuing) at slow codons
+  (codon-usage bias) directly reduce protein yield, connecting traffic flow theory
+  to gene expression optimization.
+translation_table:
+  - field_a_term: "ribosome initiation rate α (biology)"
+    field_b_term: "customer arrival rate λ in queuing theory"
+    note: "5'UTR structure and Kozak sequence strength determine α — analogous to queue arrival intensity"
+  - field_a_term: "codon translation rate β(i) (codon-specific)"
+    field_b_term: "service rate μᵢ at server i in a tandem queue"
+    note: "Rare codons with low β slow the entire ribosome queue — analogous to bottleneck server"
+  - field_a_term: "ribosome density on mRNA ρ(x)"
+    field_b_term: "occupancy profile along the tandem queue"
+    note: "Dense pileup upstream of slow codons = queue buildup upstream of slow server"
+  - field_a_term: "protein production rate J"
+    field_b_term: "throughput of the queuing network"
+    note: "TASEP current J = ρ(1-ρ)·β_min at the bottleneck codon"
+related_unknowns:
+  - u-ribosome-kinetics-queuing
+related_hypotheses:
+  - h-ribosome-kinetics-queuing-theory
+cross_pollination_opportunities:
+  - "Codon optimization for synthetic biology: traffic flow theory predicts that placing rare codons early in the CDS (near initiation) reduces ribosome jamming and maximizes protein yield — a design principle from operations research directly applicable to gene synthesis."
+  - "mRNA lifetime and decay: ribosome density ρ(x) influences mRNA stability (ribosomes protect from nucleases); TASEP model predictions for ρ(x) can be compared to ribosome profiling data to infer which codons are translation bottlenecks in vivo."
+communication_gap: >
+  Molecular biologists who study translation efficiency use codon adaptation indices
+  and ribosome profiling data without typically knowing TASEP theory or queuing
+  network mathematics. Operations researchers who study tandem queues are unaware
+  that their models have exact solutions applicable to gene expression. The connection
+  was made by physicists (Shaw et al. 2003) but remains siloed in biophysics journals.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1103/PhysRevE.68.021910"
+    note: "Shaw et al. (2003) Totally asymmetric exclusion process with extended objects — a model for protein synthesis. Phys Rev E 68:021910"
+  - doi: "10.1126/science.1168978"
+    note: "Ingolia et al. (2009) Genome-wide analysis in vivo of translation with nucleotide resolution using ribosome profiling. Science 324:218"
+  - doi: "10.1007/BF01007938"
+    note: "MacDonald et al. (1968) Kinetics of biopolymerization on nucleic acid templates. Biopolymers 6:1"
