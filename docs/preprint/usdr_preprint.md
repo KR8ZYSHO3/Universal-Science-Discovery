@@ -19,12 +19,13 @@ version-controlled catalog of scientific unknowns, hypotheses, and cross-domain
 mathematical bridges. Unlike traditional literature databases that index what is known,
 USDR explicitly catalogs what remains unknown — structured as machine-readable YAML
 entries governed by formal JSON Schema validation. The repository currently contains
-1,700+ entries across 40+ scientific domains, including 350+ cross-domain bridges that
-formalise mathematical correspondences between fields that rarely communicate, 689+ open
-unknowns across 40+ disciplines, 556 falsifiable hypotheses, 11 pioneer profiles, and
-11 breakthrough gap analyses. We describe the schema design, the knowledge graph
-structure (~1,700+ nodes), and the AI co-pilot tooling that automatically surfaces novel
-bridge candidates by analysing domain connectivity gaps.
+2,500+ entries across 40+ scientific domains, including **413 cross-domain bridges** that
+formalise mathematical correspondences between fields that rarely communicate (surpassing
+the 400-bridge milestone in Wave 29, May 2026), 790 open unknowns across 60+ disciplines,
+657 falsifiable hypotheses, 12 pioneer profiles, and 12 breakthrough gap analyses. We
+describe the schema design, the knowledge graph structure (~1,887 nodes, 1,984 edges,
+0 orphan unknowns), and the AI co-pilot tooling that automatically surfaces novel bridge
+candidates by analysing domain connectivity gaps.
 USDR is designed as collaborative infrastructure: all entries are version-controlled,
 peer-reviewable via pull requests, and linked to primary literature. We discuss the
 epistemological rationale for explicitly tracking unknowns, the governance model for
@@ -224,20 +225,22 @@ validation on every pull request. Validation failures block merge. This ensures 
 every entry in the main branch is schema-conformant and that the knowledge graph can be
 rebuilt deterministically from the source files.
 
-**3.5 Current statistics.** As of May 2026:
+**3.5 Current statistics.** As of May 6, 2026 (Wave 29 — 400-bridge milestone):
 
 | Metric | Value |
 |--------|-------|
-| Total entries | ~950 |
-| Unknowns | 598 |
-| Hypotheses | 544 |
-| Bridges | 300 |
-| Pioneers | 11 |
-| Breakthrough gaps | 11 |
-| Domain landing pages | 41 |
-| Domains | 22 |
-| Knowledge graph nodes | ~1,700+ |
-| Domain pairs evaluated for bridge gaps | 561 |
+| Total entries | ~2,500+ |
+| Unknowns | 790 |
+| Hypotheses | 657 |
+| Bridges | **413** (400-bridge milestone reached) |
+| Pioneers | 12 |
+| Breakthrough gaps | 12 |
+| Domain landing pages | 160+ |
+| Domains | 40+ |
+| Knowledge graph nodes | 1,887 |
+| Knowledge graph edges | 1,984 |
+| Orphan unknowns | 0 |
+| Domain pairs evaluated for bridge gaps | 700+ |
 
 **3.6 Pioneer and Breakthrough Gap Catalogs.** The repository maintains two
 specialized catalog types that complement the core unknowns-bridges-hypotheses triad.
@@ -565,10 +568,17 @@ Lunr full-text search, and an interactive knowledge graph visualization. The kno
 graph is built deterministically from source YAML and published as a queryable JSON
 artifact, currently containing approximately 1,700+ nodes and 1,700+ edges.
 
-The 350+ cross-domain bridges span 150+ domain-pair landing pages. The majority carry
-`status: proposed`, indicating community recognition of a plausible connection without
-yet a published cross-disciplinary validation. Several bridges carry `status:
-established`: b-spin-glass-neural-networks, b-turing-reaction-diffusion,
+**The 400-bridge milestone** was reached in Wave 29 (May 6, 2026) with bridges 399–410
+spanning stochastic gene expression noise (Kelly-criterion bet-hedging), the scientific
+method itself as a meta-bridge (Popper/Kuhn/Lakatos/Jaynes), Hodgkin-Huxley
+electrophysiology, thermodynamics as convex duality, complexity economics (Arthur/
+Schumpeter), neuromuscular biomechanics (Huxley/Hill/Henneman), TKNN topological
+condensed matter, allelopathy and the Ehrlich-Raven coevolutionary ratchet, computational
+psychiatry digital biomarkers, LOB market microstructure, population-vector motor cortex,
+and PKS/NRPS natural product drug discovery. The **413 cross-domain bridges** now span
+160+ domain-pair landing pages. The majority carry `status: established`, indicating
+confirmed cross-disciplinary validation. Notable established bridges include
+b-spin-glass-neural-networks, b-turing-reaction-diffusion,
 b-landauer-information-thermodynamics, and bridges in wave 9 covering Brownian motion
 in cell biology, simulated annealing, random matrix portfolio theory, ecological
 stoichiometry, biomineralization, cascade failures in interdependent networks, graph

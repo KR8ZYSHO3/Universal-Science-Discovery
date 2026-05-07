@@ -1,0 +1,80 @@
+id: b-topology-condensed-matter
+title: >
+  Topological quantum matter is classified by homotopy groups and Chern numbers —
+  the integer Hall conductance σ_xy = (e²/h)C₁ is a topological invariant of the
+  occupied band bundle, and the tenfold Altland-Zirnbauer symmetry classification
+  maps condensed matter physics onto K-theory.
+status: established
+fields:
+  - mathematics
+  - physics
+  - condensed-matter
+bridge_claim: >
+  The quantum Hall effect (von Klitzing 1980) revealed that electrical conductance
+  can be quantised to integer multiples of e²/h with precision better than 10⁻⁹,
+  robust to disorder and sample imperfections. The mathematical explanation
+  (TKNN: Thouless-Kohmoto-Nightingale-den Nijs 1982) identifies the Hall conductance
+  as a Chern number: σ_xy = (e²/h)C₁, where C₁ = (1/2π)∫_{BZ} Ω_k d²k is the
+  integral of the Berry curvature Ω_k = -2 Im⟨∂_kx u_k|∂_ky u_k⟩ over the
+  Brillouin zone. C₁ ∈ ℤ is a topological invariant — it cannot change without
+  closing the band gap. The physical picture: the ground state wavefunction defines
+  a U(1) bundle over the Brillouin zone torus; C₁ is the first Chern class of this
+  bundle, a quantity from algebraic topology. The tenfold way (Altland-Zirnbauer 1997):
+  Hamiltonians are classified by three discrete symmetries — time reversal T (T²=±1),
+  particle-hole symmetry C (C²=±1), and sublattice/chiral symmetry S — giving 10
+  symmetry classes. In each class and spatial dimension d, the topological invariants
+  take values in ℤ, ℤ₂, or 0, forming the periodic table of topological insulators
+  and superconductors. Topological order (Wen 2004): systems with long-range quantum
+  entanglement exhibit ground-state degeneracy on a torus and anyonic quasiparticle
+  excitations with fractional statistics — beyond classification by local order parameters.
+translation_table:
+  - field_a_term: first Chern number C₁ (principal U(1) bundle over T²)
+    field_b_term: quantised Hall conductance σ_xy = νe²/h (ν ∈ ℤ)
+    note: TKNN proved this exact equality; C₁ counts the number of edge states by bulk-boundary correspondence
+  - field_a_term: Berry phase γ = ∮ A_k·dk (holonomy of bundle connection)
+    field_b_term: Aharonov-Bohm phase of electron in magnetic flux (physical Berry phase)
+    note: Berry curvature integrated over BZ gives Chern number; Berry phase around a loop is physically measurable
+  - field_a_term: K-theory classification of vector bundles
+    field_b_term: tenfold-way periodic table of topological insulators and superconductors
+    note: Kitaev (2009) derived the full classification using K-theory of Clifford algebras
+  - field_a_term: homotopy group π_n(classifying space)
+    field_b_term: topological invariant in n-dimensional system (ℤ or ℤ₂)
+    note: Different symmetry classes have different classifying spaces; πd determines which invariants exist
+  - field_a_term: topological order (long-range entanglement, anyons)
+    field_b_term: fractional quantum Hall effect — quasiparticles with charge e/3, anyonic statistics
+    note: FQH states are not captured by band topology; they require many-body topological field theory (Chern-Simons)
+related_unknowns:
+  - u-topological-order-non-abelian-anyons-fault-tolerant
+related_hypotheses:
+  - h-topology-chern-number-predicts-edge-state-count
+cross_pollination_opportunities:
+  - >
+    Topological quantum computing: non-Abelian anyons in ν=5/2 FQH states or
+    Kitaev's Majorana chain can store quantum information non-locally; use K-theory
+    classification to identify which physical systems can host non-Abelian anyons
+    and design braiding protocols for fault-tolerant logic gates.
+  - >
+    Topological photonics: design photonic crystals with broken time-reversal symmetry
+    (via magneto-optical effects) or sublattice symmetry breaking to realise topological
+    edge states for light — unidirectional waveguides immune to backscattering defects.
+  - >
+    Topological classification of biological networks: apply the tenfold-way framework
+    to gene regulatory networks treated as Hamiltonians; test whether biological
+    networks exhibit topologically non-trivial phases that are robust to perturbations
+    analogous to disorder in solid-state systems.
+communication_gap: >
+  Algebraic topology (fibre bundles, Chern classes, K-theory) is graduate mathematics
+  taught in pure mathematics departments with no connection to condensed matter physics.
+  Experimental condensed matter physicists measure quantum Hall conductance without
+  necessarily understanding the Chern number proof. Topological field theory (Chern-Simons)
+  bridges the two but requires both high-energy physics and differential geometry,
+  creating a high entry barrier that limits cross-fertilisation.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1103/PhysRevLett.45.494"
+    note: "Klitzing et al. (1980) Phys Rev Lett 45:494 — discovery of the integer quantum Hall effect; Nobel Prize 1985"
+  - doi: "10.1103/PhysRevLett.49.405"
+    note: "Thouless et al. (1982) Phys Rev Lett 49:405 — TKNN invariant; quantised Hall conductance as Chern number"
+  - doi: "10.1103/PhysRevB.55.1142"
+    note: "Altland & Zirnbauer (1997) Phys Rev B 55:1142 — non-standard symmetry classes; tenfold way classification"
+  - note: "Wen, X.G. (2004) Quantum Field Theory of Many-Body Systems. Oxford University Press — topological order and fractional quantum Hall"

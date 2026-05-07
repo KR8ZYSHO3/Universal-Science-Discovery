@@ -1,0 +1,55 @@
+id: h-stochastic-gene-expression-bet-hedging-optimal-noise
+title: >
+  The Fano factor of fitness-relevant bacterial promoters is tuned by natural
+  selection to match the temporal variance of their ecological environment —
+  specifically, promoters controlling stress-response genes in high-variance
+  environments will exhibit significantly higher Fano factors than orthologous
+  promoters in stable environments, with the optimal F predicted by the Kelly
+  criterion applied to the environmental power spectrum.
+status: active
+priority: high
+impact_score: 0.82
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+
+evidence_links:
+  - doi: "10.1126/science.1070919"
+    type: supporting
+    confidence: 0.80
+    note: "Elowitz et al. (2002) showed gene-specific differences in noise level, consistent with selective tuning"
+  - doi: "10.1371/journal.pbio.0040309"
+    type: supporting
+    confidence: 0.75
+    note: "Raj et al. (2006) showed bursty transcription is gene-specific; burst size varies systematically"
+  - type: related
+    note: "Kussell & Leibler (2005) Science 309:2075 — phenotypic switching rates can be tuned to match environmental switching rates; Kelly criterion analogy"
+
+unknowns_addressed:
+  - u-stochastic-gene-expression-bet-hedging-quantitative
+
+proposed_tests:
+  - description: >
+      Compare Fano factors of identical reporter genes integrated at the same
+      chromosomal locus in E. coli strains isolated from high-variance (soil
+      with antibiotic exposure) vs. low-variance (stable gut) environments.
+      Measure single-cell fluorescence distributions by flow cytometry; extract
+      F and burst size b by fitting the Beta-binomial compound Poisson model.
+      Correlate F with temporal variance of nutrient/antibiotic concentrations
+      in the source environment estimated from metagenomic time series.
+    method: "Single-cell fluorescence + flow cytometry + maximum likelihood Beta-binomial fitting"
+    prediction: "F_soil >> F_gut for stress-response promoters; no difference for housekeeping genes"
+  - description: >
+      Synthetic noise engineering: design a library of promoter variants with
+      programmed Fano factors spanning F = 1 to F = 50 (by tuning TATA box and
+      -35 spacing to adjust k_on/k_off). Compete each variant against F=1
+      control in fluctuating antibiotic environments with known temporal variance.
+      Test whether the winning variant's F matches the Kelly-criterion prediction.
+    method: "Competitive fitness assay (barcoded strains) in chemostat with programmed antibiotic fluctuations"
+    prediction: "Winning F = (1 + CV²_env)/2 where CV_env is the environmental coefficient of variation"
+
+related_disciplines:
+  - molecular-biology
+  - evolutionary-biology
+  - biophysics
+  - ecology

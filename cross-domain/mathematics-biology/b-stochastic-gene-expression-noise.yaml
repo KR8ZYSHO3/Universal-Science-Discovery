@@ -1,0 +1,76 @@
+id: b-stochastic-gene-expression-noise
+title: >
+  Stochastic gene expression is governed by the same master-equation noise physics
+  that describes photon counting and radioactive decay — intrinsic shot noise (1/√N)
+  plus extrinsic cell-to-cell variation — and bursty transcription (Fano factor > 1)
+  enables biological bet-hedging as a mathematically optimal risk-diversification strategy.
+status: established
+fields:
+  - mathematics
+  - biology
+  - biophysics
+bridge_claim: >
+  Gene expression is a stochastic birth-death process: the two-state promoter (ON/OFF)
+  obeys a master equation dP(n,t)/dt = k_on·P(n,OFF) - k_off·P(n,ON) + production and
+  degradation terms. Intrinsic noise (fluctuations within a single cell from random
+  molecular events) scales as 1/√⟨N⟩ — identical to Poisson shot noise in photon
+  detection. The Fano factor F = σ²/μ > 1 signals bursty (super-Poissonian) transcription:
+  promoters fire in bursts of mean size b = k_on/(k_off), each burst producing ~b mRNAs.
+  Extrinsic noise, captured by decomposition Noise_total² = Noise_intrinsic² + Noise_extrinsic²
+  (Swain et al. 2002), arises from cell-to-cell heterogeneity in global regulators.
+  The functional consequence is bet-hedging: a clonal bacterial population facing
+  uncertain environments maintains phenotypic diversity through stochastic gene switching,
+  identical to the Kelly criterion in portfolio theory — variance in individual fitness
+  is traded for long-run geometric growth of the population.
+translation_table:
+  - field_a_term: master equation (probability distribution over copy number)
+    field_b_term: promoter switching kinetics (ON/OFF transcription)
+    note: The two-state promoter master equation is analytically solvable and yields a Beta-binomial compound-Poisson mRNA distribution
+  - field_a_term: shot noise (Poisson, F=1)
+    field_b_term: constitutive transcription (single state, no bursting)
+    note: Unregulated promoters show near-Poisson statistics; regulated promoters show F >> 1
+  - field_a_term: Fano factor F = σ²/μ
+    field_b_term: transcriptional burst size (b = k_on/k_off)
+    note: F > 1 in bursty genes such as β-globin; F ~ 1 in housekeeping genes
+  - field_a_term: noise decomposition (intrinsic + extrinsic)
+    field_b_term: dual-reporter assay (two-colour fluorescent proteins from identical loci)
+    note: Elowitz et al. (2002) used two differently coloured reporters to separate intrinsic from extrinsic noise
+  - field_a_term: Kelly criterion / geometric mean maximisation
+    field_b_term: bet-hedging via stochastic switching
+    note: Both strategies sacrifice arithmetic-mean performance to maximise long-run geometric growth under uncertainty
+related_unknowns:
+  - u-stochastic-gene-expression-bet-hedging-quantitative
+related_hypotheses:
+  - h-stochastic-gene-expression-bet-hedging-optimal-noise
+cross_pollination_opportunities:
+  - >
+    Synthetic noise engineering: design promoters with programmable Fano factors
+    (via tunable k_on/k_off) to test bet-hedging theory quantitatively — predict
+    optimal F for a given environmental variance and verify with serial dilution
+    competition assays in fluctuating media.
+  - >
+    Single-cell RNA sequencing noise atlas: use scRNA-seq Fano factor profiles
+    across thousands of genes to classify each promoter into Poisson vs. bursty
+    regimes, then correlate with evolutionary conservation as a proxy for
+    bet-hedging selection pressure.
+  - >
+    Noise-based drug resistance prediction: model antibiotic tolerance in bacterial
+    populations as a stochastic switching process; use master-equation fits to
+    single-cell expression data to predict phenotypic heterogeneity and hence
+    the probability of treatment failure before drug exposure.
+communication_gap: >
+  Stochastic processes and master equations are standard graduate mathematics and
+  physics curricula but rarely appear in molecular biology training. Conversely,
+  biologists studying transcription regulation seldom frame their work in terms of
+  Fano factors or noise decomposition. The bet-hedging—Kelly-criterion connection
+  is essentially unknown outside mathematical biology and evolutionary theory.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1126/science.1070919"
+    note: "Elowitz et al. (2002) Science 297:1183 — first dual-reporter separation of intrinsic and extrinsic noise in E. coli"
+  - doi: "10.1371/journal.pbio.0040309"
+    note: "Raj et al. (2006) PLoS Biol 4:e309 — single-molecule FISH reveals transcriptional bursting; Fano factor quantification"
+  - doi: "10.1038/nature02106"
+    note: "Paulsson (2004) Nature 427:415 — noise in genetic regulatory networks; master equation framework and noise decomposition"
+  - doi: "10.1073/pnas.162041399"
+    note: "Swain et al. (2002) PNAS 99:12795 — intrinsic and extrinsic contributions to stochasticity in gene expression"

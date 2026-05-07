@@ -1,0 +1,50 @@
+id: h-order-book-square-root-impact-universal-liquidity
+title: >
+  The square-root market impact law ΔP ∝ σ√(Q/V_daily) is a universal consequence
+  of limit order book liquidity replenishment dynamics — independent of asset class,
+  market, or time period — and deviations from the square-root scaling predict
+  impending liquidity crises when the exponent drops below 0.5.
+status: active
+priority: high
+impact_score: 0.77
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+
+evidence_links:
+  - type: supporting
+    confidence: 0.80
+    note: "Almgren et al. (2005) J Risk — empirical confirmation of square root impact law for large institutional orders in US equities"
+  - doi: "10.1214/09-AAP682"
+    type: supporting
+    confidence: 0.75
+    note: "Cont et al. (2010) — LOB model with Poisson replenishment derives square root scaling from first principles"
+  - note: "Tóth et al. (2011) J Eur Econ Assoc — square root law across 16 equity markets and 1B trades; consistent with LOB model"
+    type: supporting
+    confidence: 0.85
+
+unknowns_addressed:
+  - u-order-book-flash-crash-phase-transition-mechanism
+
+proposed_tests:
+  - description: >
+      Analyse 5 years of execution reports for large institutional orders (≥ $10M)
+      across US equities, European equities, FX, and bond markets. Fit the impact
+      model ΔP = Y·σ·(Q/V)^δ with free exponent δ. Test whether δ = 0.5 across
+      all asset classes (universality) and whether pre-flash-crash periods show
+      measurably lower δ (impact becomes more linear, indicating LOB shallowing).
+    method: "Regression of market impact vs. trade size across asset classes + time-varying parameter estimation"
+    prediction: "δ = 0.5 ± 0.05 across all asset classes in normal conditions; δ drops toward 0.3-0.4 in the 30 minutes before flash crash events"
+  - description: >
+      Real-time LOB criticality monitor: implement a rolling estimator of the
+      market impact exponent δ from intraday order flow data; backtest as an early
+      warning signal for the 2010 Flash Crash, 2013 GBP crash, and 2015 ETF crash.
+      Test whether δ < 0.4 in the 10-minute window before each crash event.
+    method: "Rolling regression on LOB data + event study around 3 flash crash events"
+    prediction: "δ < 0.4 in the 10 minutes before all three identified flash crash events; false alarm rate < 5% in non-crash periods"
+
+related_disciplines:
+  - econophysics
+  - finance
+  - physics
+  - mathematics

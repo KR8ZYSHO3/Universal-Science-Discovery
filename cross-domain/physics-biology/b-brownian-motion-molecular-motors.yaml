@@ -1,0 +1,67 @@
+id: b-brownian-motion-molecular-motors
+title: >
+  Einstein's Brownian motion formalism (1905) sets the thermal noise floor that molecular
+  motors (kinesin, dynein, myosin V) must overcome to perform directed mechanical work,
+  connecting statistical physics of diffusion to the mechanochemistry of the cytoskeleton.
+status: established
+fields:
+  - statistical-physics
+  - biophysics
+  - cell-biology
+  - nanotechnology
+bridge_claim: >
+  Einstein's 1905 derivation of Brownian motion gives ⟨x²⟩ = 2Dt with diffusion
+  coefficient D = k_BT/(6πηr) (Stokes-Einstein relation), quantifying thermal noise as
+  a function of temperature, viscosity, and particle size. This is the same thermal bath
+  in which molecular motors operate. Kinesin walks processively along microtubules with
+  8 nm steps driven by ATP hydrolysis (ΔG_ATP ≈ 80 zJ per step), operating against thermal
+  forces with stall force ~6 pN. Thermodynamic efficiency η = F·δ/ΔG_ATP ≈ 25–50%.
+  The fluctuation theorems of Jarzynski (1997) and Crooks (1999) extend equilibrium
+  thermodynamics to driven small systems, allowing free energy differences to be extracted
+  from nonequilibrium work distributions — directly measured on single molecules using
+  optical tweezers (Nobel 2018). The bridge is that the physics of diffusion and
+  fluctuations is not merely a background nuisance for biology but the operating regime
+  that biological nanomachines have evolved to exploit.
+translation_table:
+  - field_a_term: mean squared displacement ⟨x²⟩ = 2Dt
+    field_b_term: root-mean-square stepping deviation of motor position
+    note: Thermal noise sets the positional uncertainty that motor stepping must overcome
+  - field_a_term: Stokes drag coefficient 6πηr
+    field_b_term: viscous load on motor cargo
+    note: Determines how fast a motor must step to overcome diffusion
+  - field_a_term: Boltzmann factor exp(-ΔG/k_BT)
+    field_b_term: ATP hydrolysis rate vs. reverse transition probability
+    note: Detailed balance / Crooks fluctuation theorem relate forward and reverse motor rates
+  - field_a_term: Jarzynski equality ⟨exp(-W/k_BT)⟩ = exp(-ΔF/k_BT)
+    field_b_term: free-energy measurement from optical-tweezer pulling experiments
+    note: Allows ΔG of protein folding / motor cycle to be measured from irreversible pulls
+  - field_a_term: pN force at nanometre scale
+    field_b_term: kinesin stall force ~6 pN, myosin V ~2 pN
+    note: Optical tweezers directly measure these forces confirming Einstein-scale physics
+related_unknowns:
+  - u-kinesin-thermal-noise-efficiency
+related_hypotheses:
+  - h-molecular-motor-efficiency-fluctuation-theorem
+cross_pollination_opportunities:
+  - Use kinesin mutants with altered step size to test whether thermodynamic efficiency
+    scales with step-force product as predicted by fluctuation theorems
+  - Apply renormalization group methods from statistical physics to multi-motor cargo
+    transport to predict emergent force-velocity curves
+  - Design synthetic molecular motors using the Stokes-Einstein framework to specify
+    required ATP-equivalent energy input for directed transport at target velocities
+communication_gap: >
+  Cell biologists typically learn Michaelis-Menten kinetics and do not engage with
+  non-equilibrium statistical mechanics; statistical physicists do not routinely read
+  Cell or Nature Cell Biology. The mathematical language of fluctuation theorems
+  (Crooks, Jarzynski) is not taught in biophysics courses, and the experimental
+  techniques (optical tweezers) are physically specialized enough to create an
+  instrumentation barrier between the communities.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1002/andp.19053220806"
+    note: "Einstein (1905) — Brownian motion, Ann. Phys. 17:549; derivation of ⟨x²⟩=2Dt"
+  - note: "Howard (2001) Mechanics of Motor Proteins and the Cytoskeleton, Sinauer"
+  - doi: "10.1038/348348a0"
+    note: "Block et al. (1990) — Bead movement by single kinesin molecules studied with optical tweezers, Nature 348:348"
+  - doi: "10.1103/PhysRevLett.78.2690"
+    note: "Jarzynski (1997) — Nonequilibrium equality for free energy differences, Phys Rev Lett 78:2690"

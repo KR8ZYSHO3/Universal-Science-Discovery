@@ -1,0 +1,52 @@
+id: h-motor-cortex-rotational-dynamics-initial-condition-mechanism
+title: >
+  Motor cortex preparatory activity sets the initial condition of a rotational
+  dynamical system (dx/dt = Ax, A skew-symmetric) that generates the muscle
+  activation pattern as a temporal readout — causally required for movement,
+  not epiphenomenal, and generalisable across voluntary movement types beyond arm reaching.
+status: active
+priority: high
+impact_score: 0.82
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+
+evidence_links:
+  - doi: "10.1038/nature11129"
+    type: supporting
+    confidence: 0.80
+    note: "Churchland et al. (2012) — rotational dynamics in M1 during reaching; low-dimensional structure; correlation with muscle EMG"
+  - doi: "10.1038/nn.3643"
+    type: supporting
+    confidence: 0.75
+    note: "Cunningham & Yu (2014) — dimensionality of neural population dynamics; manifold hypothesis validated"
+  - type: related
+    note: "Kaufman et al. (2014) Nature Neurosci — preparatory activity orthogonal to movement activity; consistent with initial condition model"
+
+unknowns_addressed:
+  - u-motor-cortex-population-dynamics-motor-programs
+
+proposed_tests:
+  - description: >
+      Test causal necessity: deliver optogenetic perturbations to M1 during the
+      preparatory period (specifically targeting the rotation plane using closed-loop
+      optogenetics) to deflect the initial condition away from the planned movement
+      trajectory. If rotational dynamics are causal, perturbations should reliably
+      alter movement direction/speed in a predictable direction; if epiphenomenal,
+      perturbations should have minimal effect.
+    method: "Closed-loop optogenetic perturbation during preparatory period + kinematics analysis + population vector decoding"
+    prediction: "Perturbations shifting initial condition by angle Δθ in neural space produce movement errors of angle ~Δθ in task space; recovery requires re-initialisation"
+  - description: >
+      Generalisation test: record M1 population activity during 5 voluntary movement
+      types (reaching, grasping, writing, rhythmic drumming, speech articulation via
+      laryngeal motor cortex). Fit a linear dynamical system dx/dt = Ax to each;
+      test whether A is skew-symmetric (rotational) across all movement types, and
+      whether the rotation frequency predicts movement duration.
+    method: "Neuropixels population recording + linear dynamical system fitting + eigenvalue analysis of A"
+    prediction: "Skew-symmetric component of A dominates (> 70% of variance) across all movement types; rotation period correlates with movement duration (r > 0.8)"
+
+related_disciplines:
+  - neuroscience
+  - mathematics
+  - motor-control
+  - biomedical-engineering

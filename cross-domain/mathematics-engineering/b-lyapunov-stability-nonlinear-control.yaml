@@ -1,0 +1,67 @@
+id: b-lyapunov-stability-nonlinear-control
+title: >
+  Lyapunov's stability theory (1892) provides the mathematical framework unifying
+  nonlinear control engineering, passivity-based design, and automated stability
+  verification via sum-of-squares semidefinite programming.
+status: established
+fields:
+  - dynamical-systems-theory
+  - control-engineering
+  - optimization
+  - applied-mathematics
+bridge_claim: >
+  Lyapunov stability (1892) characterises stability of ẋ = f(x) through existence of
+  a Lyapunov function V(x) > 0 with V̇(x) ≤ 0. Finding such functions is the central
+  challenge in nonlinear control. The bridge to engineering is threefold: (1) classical
+  Bode/Routh-Hurwitz results are the linear special case where V = xᵀPx (quadratic
+  forms); (2) passivity-based control exploits an energy-inspired Lyapunov function —
+  if a system dissipates energy (storage function S satisfying Ṡ ≤ uᵀy), then passive
+  controllers stabilize it by composition — a modular guarantee engineers can exploit
+  without solving the full nonlinear problem; (3) sum-of-squares (SOS) programming
+  (Parrilo 2000, Prajna & Papachristodoulou 2004) converts "does a polynomial Lyapunov
+  function exist?" into a semidefinite program solvable in polynomial time, enabling
+  automated computer-verified stability proofs for complex engineering systems.
+  Mathematics supplied the abstract structure; engineering supplied the computational
+  demand that drove algorithmic Lyapunov function synthesis.
+translation_table:
+  - field_a_term: Lyapunov function V(x) > 0, V̇ ≤ 0
+    field_b_term: control Lyapunov function / energy-like certificate
+    note: Engineers seek V that doubles as a storage function for passivity-based design
+  - field_a_term: eigenvalues of linearization Df(x*) all Re(λ) < 0
+    field_b_term: Routh-Hurwitz stability criterion / gain and phase margin (Bode)
+    note: Linear engineering criteria are the infinitesimal / frequency-domain faces of Lyapunov
+  - field_a_term: invariance principle (LaSalle)
+    field_b_term: convergence despite V̇ = 0 on invariant set — important for adaptive control
+    note: LaSalle's extension used routinely in adaptive and output-feedback control proofs
+  - field_a_term: sum-of-squares decomposition p(x) = σᵢ²(x)
+    field_b_term: SOS semidefinite program searching polynomial Lyapunov certificates
+    note: Converts a non-convex existence question to a convex SDP — the core algorithmic bridge
+  - field_a_term: storage function / dissipation inequality
+    field_b_term: passivity-based controller — interconnected passive subsystems are stable
+    note: Compositional stability guarantee that enables modular control design
+related_unknowns:
+  - u-lyapunov-function-discovery-automation
+related_hypotheses:
+  - h-sos-lyapunov-global-nonpolynomial
+cross_pollination_opportunities:
+  - Extend SOS methods beyond polynomial dynamics to neural-network-controlled systems —
+    certify stability of learned controllers using Lyapunov neural networks
+  - Use passivity decomposition to design stable multi-agent robotic systems from
+    certified passive subsystems without global system analysis
+  - Apply interval arithmetic and verified numerics to provide machine-checked Lyapunov
+    proofs for safety-critical control software (aircraft, autonomous vehicles)
+communication_gap: >
+  Pure mathematicians studying dynamical systems and control engineers share the
+  Lyapunov vocabulary in principle but operate in separate journals (SIAM Journal on
+  Control, IEEE TAC, Automatica vs. Journal of Differential Equations). The SOS
+  connection to semidefinite programming emerged from optimization researchers
+  (Parrilo's MIT thesis) rather than either community. Nonlinear control engineers
+  often use Lyapunov proofs as formal rituals rather than as guides to design;
+  mathematicians often prove existence theorems without addressing computability.
+last_reviewed: "2026-05-06"
+references:
+  - note: "Lyapunov (1892) The General Problem of the Stability of Motion, transl. Fuller (1992), Int J Control 55:531"
+  - note: "Khalil (2002) Nonlinear Systems, 3rd ed., Prentice Hall — standard graduate text"
+  - note: "Bode (1945) Network Analysis and Feedback Amplifier Design, Van Nostrand"
+  - doi: "10.1109/CDC.2004.1428908"
+    note: "Prajna & Papachristodoulou (2004) — Analysis of switched and hybrid systems using SOS, CDC 2004"
