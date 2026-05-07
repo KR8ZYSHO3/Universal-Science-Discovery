@@ -1,0 +1,25 @@
+id: u-gnn-expressiveness-beyond-wl
+title: What architectural modifications allow graph neural networks to exceed the 1-WL expressiveness bound, and at what computational cost relative to the gain in practical task performance?
+status: open
+priority: medium
+disciplines:
+  - machine-learning
+  - combinatorics
+  - computer-science
+summary: >
+  Standard message-passing GNNs are bounded by 1-WL graph isomorphism power, meaning
+  they cannot distinguish certain non-isomorphic graphs (e.g., regular graphs with
+  the same degree sequence). Proposed solutions include k-GNNs (exponential cost),
+  random node features, positional encodings, and subgraph GNNs. Key unknowns:
+  (1) what is the practical expressiveness gap (how often does 1-WL failure matter
+  for real molecular or social graph datasets), (2) what is the minimum computational
+  overhead needed to exceed 1-WL while maintaining scalability, (3) is there a
+  hierarchy of graph properties (planarity, tree-width) that maps to a hierarchy
+  of GNN architectures?
+systematic_gaps:
+  - No systematic benchmark comparing expressiveness improvements to task performance on real graphs
+  - The gap between theoretical 1-WL equivalence and practical performance is poorly understood
+  - Subgraph GNNs are more expressive but their combinatorial enumeration cost limits scalability
+related_bridges:
+  - b-gnn-weisfeiler-lehman-isomorphism
+last_reviewed: "2026-05-07"
