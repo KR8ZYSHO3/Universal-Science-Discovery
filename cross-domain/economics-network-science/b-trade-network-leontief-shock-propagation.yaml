@@ -1,0 +1,57 @@
+id: b-trade-network-leontief-shock-propagation
+title: >
+  The Leontief input-output model of inter-industry production is a weighted
+  directed network whose spectral properties determine how supply shocks
+  propagate across the global economy, making network percolation theory
+  the natural language for systemic trade risk and macroeconomic fragility.
+status: established
+fields:
+  - economics
+  - network-science
+bridge_claim: >
+  The Leontief model represents the economy as a matrix A where A_ij = purchases
+  by industry i from industry j per unit output. Total output vector x satisfies
+  x = Ax + d (final demand d), solved as x = (I-A)^{-1} d (Leontief inverse).
+  Each column of (I-A)^{-1} gives the full upstream supply chain requirement
+  per unit of final demand - this is the network's Green's function. A shock
+  to sector j propagates with amplitude proportional to the j-th column of
+  (I-A)^{-1}. Network science reframes this: the spectral radius rho(A) < 1
+  for stability; hubs (high in-degree sectors) are systemically important nodes;
+  percolation thresholds determine when local shocks cascade globally. The 2011
+  Tohoku earthquake caused supply-chain cascades well-predicted by Leontief
+  network centrality, validating the bridge empirically.
+translation_table:
+  - field_a_term: Leontief input-output matrix A (economics)
+    field_b_term: weighted adjacency matrix of production network (network science)
+    note: A_ij is the fraction of sector i's input sourced from sector j
+  - field_a_term: Leontief inverse (I-A)^{-1} (economics)
+    field_b_term: all-pairs weighted reachability matrix / Green's function (network science)
+    note: Encodes full upstream propagation of any sectoral shock
+  - field_a_term: spectral radius rho(A) (economics)
+    field_b_term: percolation threshold / stability boundary (network science)
+    note: rho(A) < 1 required for convergence; proximity to 1 indicates fragility
+  - field_a_term: systemic importance / upstream centrality (economics)
+    field_b_term: betweenness centrality / PageRank of production network (network science)
+    note: High-centrality sectors transmit shocks most broadly; identified by network topology
+communication_gap: >
+  Economists apply Leontief models in industry and policy analysis without using
+  network-theoretic tools (spectral analysis, percolation, community detection);
+  network scientists rarely access detailed input-output tables. The shared
+  mathematical object (weighted directed graph) is not yet standardly acknowledged.
+cross_pollination_opportunities:
+  - Apply network percolation theory to World Input-Output Database (WIOD) to
+    map global supply-chain fragility and identify systemic bottleneck sectors
+  - Transfer epidemic spreading models (SIR on networks) to model propagation
+    of demand shocks through production networks
+  - Use community detection to identify tightly coupled production clusters
+    that amplify or dampen cross-border shock propagation
+related_unknowns:
+  - u-global-trade-leontief-systemic-shock-threshold
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.2307/1928145"
+    note: Leontief (1941) - The Structure of American Economy; original input-output model
+  - doi: "10.1146/annurev-economics-080213-041625"
+    note: Acemoglu et al. (2016) - networks and the macroeconomy; Leontief as network
+  - doi: "10.1038/nature09014"
+    note: Schweitzer et al. (2009) - economic networks; interdependence and fragility
