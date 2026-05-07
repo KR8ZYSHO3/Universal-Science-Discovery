@@ -1,0 +1,37 @@
+id: b-riboswitch-rna-aptamer-allosteric
+title: >
+  Riboswitches function as RNA-based allosteric switches: the aptamer domain folds around a small-molecule ligand to trigger a global conformational change in the expression platform that controls transcription termination or translation initiation, with switching thermodynamics described by a two-state partition function
+status: established
+fields:
+  - molecular-biology
+  - biophysics
+bridge_claim: >
+  A riboswitch is a cis-acting mRNA element that couples small-molecule sensing (aptamer domain with K_d 1 nM - 1 μM) to genetic control (expression platform alternating between ON/OFF secondary structures) through allosteric conformational switching; the switching probability is P_ON = 1/(1 + [L]/K_d exp(-ΔΔG_fold/RT)) where ΔΔG_fold is the free energy difference between aptamer-bound and apo expression platform conformations, directly mapping riboswitch biology onto the thermodynamic two-state allosteric model from biophysics and RNA folding theory.
+translation_table:
+  - field_a_term: "riboswitch aptamer domain (molecular biology)"
+    field_b_term: "RNA receptor with ligand-binding pocket and nanomolar affinity constant K_d (biophysics)"
+    note: "Aptamer domain binds cognate ligand with high selectivity; K_d determines the ligand concentration range for switching"
+  - field_a_term: "expression platform secondary structure switching (molecular biology)"
+    field_b_term: "conformational transition between two RNA secondary structure minima on folding energy landscape (biophysics)"
+    note: "Expression platform adopts terminator hairpin (OFF) or anti-terminator (ON) depending on whether aptamer is bound"
+  - field_a_term: "riboswitch switching threshold [L]_50 (molecular biology)"
+    field_b_term: "ligand concentration at which P_ON = 0.5, determined by K_d and ΔΔG_fold (biophysics)"
+    note: "[L]_50 = K_d * exp(ΔΔG_fold/RT); cooperative riboswitches have Hill coefficient n > 1 producing sharper switching"
+  - field_a_term: "cotranscriptional folding kinetics (molecular biology)"
+    field_b_term: "RNA folding pathway competition during transcription elongation (biophysics)"
+    note: "Riboswitch function depends on folding rate versus transcription rate; thermodynamic equilibrium assumption breaks down when folding is slow"
+communication_gap: >
+  Molecular biologists study riboswitch genetic regulation through in vivo reporter assays while biophysicists measure RNA folding thermodynamics by single-molecule FRET and calorimetry; quantitative models connecting in vitro folding thermodynamics to in vivo switching efficiency at physiological metabolite concentrations are rarely validated experimentally.
+cross_pollination_opportunities:
+  - "Using single-molecule FRET to visualize aptamer conformational changes in real time during transcription elongation, resolving the kinetic competition between folding and transcription"
+  - "Designing synthetic riboswitches with programmable switching thresholds for metabolic engineering by rational engineering of aptamer K_d and ΔΔG_fold using RNA secondary structure prediction tools"
+references:
+  - doi: "10.1038/415610a"
+    note: "Nahvi et al. (2002) - genetic control by a metabolite binding mRNA"
+  - doi: "10.1126/science.1099776"
+    note: "Winkler & Breaker (2005) - riboswitches and the role of noncoding RNAs in bacterial gene control"
+related_unknowns:
+  - u-riboswitch-cotranscriptional-folding-kinetics
+related_hypotheses:
+  - h-riboswitch-kinetic-proofreading-cotranscriptional
+last_reviewed: "2026-05-07"
