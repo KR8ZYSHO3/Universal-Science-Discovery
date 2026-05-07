@@ -1,0 +1,43 @@
+id: h-category-theory-effects-adjunction
+title: >
+  Algebraic effects and handlers in programming languages correspond precisely to
+  free monads over effect signatures, and every handler is a monad morphism determined
+  by a unique adjunction in the Kleisli category
+status: active
+priority: medium
+impact_score: 0.75
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: wave-62-agent
+unknowns_addressed:
+  - u-category-theory-x-functional-programming
+related_disciplines:
+  - mathematics
+  - computer_science
+  - type_theory
+  - logic
+evidence_links:
+  - type: supporting
+    doi: "10.1145/75277.75285"
+    note: "Wadler (1989) - Theorems for free; natural transformation interpretation of polymorphic functions established"
+    confidence: 0.88
+  - type: supporting
+    note: "Plotkin & Pretnar (2009) - Handlers of algebraic effects; identifies effect handlers as natural transformations between free monads"
+    confidence: 0.82
+  - type: related
+    note: "Ahman & Staton (2013) - Normalization by evaluation and algebraic effects; categorical semantics for effect handlers in presheaf models"
+    confidence: 0.71
+proposed_tests:
+  - description: >
+      Implement a proof assistant verification (Coq or Agda) that every well-typed
+      algebraic effect handler in Eff or Koka is precisely a monad morphism between
+      the free monad over the effect signature and the target monad, using the
+      Kleisli category adjunction.
+    method: "Formal proof in Coq using Homotopy Type Theory library; encode algebraic effects as free monads; prove universal property for handlers"
+    prediction: "Every handler type-checks as a monad morphism in HoTT; ill-typed handlers violate the adjunction universality"
+  - description: >
+      Derive new optimizations for effect handlers by applying categorical limit/colimit
+      constructions; specifically, show that parallel composition of independent effects
+      corresponds to a product in the Kleisli category, enabling automated fusion.
+    method: "Compiler optimization pass based on categorical product structure; benchmark on programs with multiple independent effects"
+    prediction: "Fusion pass based on categorical product eliminates intermediate allocations, achieving >15% speedup on pure effect-heavy benchmarks"

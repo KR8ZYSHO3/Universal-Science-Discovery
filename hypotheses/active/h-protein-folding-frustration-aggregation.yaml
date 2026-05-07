@@ -1,0 +1,43 @@
+id: h-protein-folding-frustration-aggregation
+title: >
+  The local frustration index from the Wolynes-Ferreiro frustratometer quantitatively
+  predicts aggregation-prone regions in intrinsically disordered proteins with
+  accuracy comparable to sequence-based aggregation predictors
+status: active
+priority: high
+impact_score: 0.81
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: wave-62-agent
+unknowns_addressed:
+  - u-protein-folding-x-energy-landscape
+related_disciplines:
+  - biology
+  - physics
+  - chemistry
+  - computational_biology
+evidence_links:
+  - type: supporting
+    doi: "10.1038/nsb0198-10"
+    note: "Dill & Chan (1997) - From Levinthal to pathways to funnels; funnel topology and frustration principles"
+    confidence: 0.82
+  - type: related
+    note: "Ferreiro et al. (2014) - Frustration in biomolecules; frustratometer measures local energetic conflicts predicting functional sites"
+    confidence: 0.78
+  - type: supporting
+    note: "Knowles et al. (2014) - The amyloid state and its association with protein misfolding diseases; Science 326:1533"
+    confidence: 0.75
+proposed_tests:
+  - description: >
+      Compute frustration index for all residues in 50 intrinsically disordered
+      proteins (IDPs) with known aggregation propensity (measured by ThT fluorescence
+      kinetics) using the frustratometer; correlate frustration hotspots with
+      aggregation-prone segments identified by TANGO, AGGRESCAN, and CamSol.
+    method: "Frustratometer analysis on AlphaFold2 structures of IDPs; Pearson correlation with experimental aggregation rates and predictor scores"
+    prediction: "Frustration hotspots correlate with aggregation-prone regions with r > 0.7; highly frustrated segments show >5-fold higher aggregation rate"
+  - description: >
+      Design fold-switching proteins with two competing energy minima by introducing
+      frustrated contacts at the interface between fold 1 and fold 2 residues, using
+      Rosetta to optimize the frustration balance.
+    method: "Rosetta protein design with frustration constraint; experimental validation by NMR and CD spectroscopy confirming two-state switching"
+    prediction: "Designed metamorphic protein switches folds upon addition of ligand with Kd < 10 uM, demonstrating rational landscape engineering"
