@@ -1,0 +1,41 @@
+id: b-optimal-transport-x-machine-learning
+title: Optimal transport ↔ Machine learning — Wasserstein distance as probability metric
+status: proposed
+fields:
+- mathematics
+- computer_science
+bridge_claim: The Wasserstein distance (earth mover's distance) from optimal transport theory provides a geometrically meaningful
+  metric on probability distributions that captures spatial structure; Wasserstein GANs use it as the training loss, and it
+  is now the standard distance for generative modeling, domain adaptation, and distribution shift detection.
+translation_table:
+- field_a_term: Wasserstein-1 distance W₁(μ,ν) (earth mover's distance, OT)
+  field_b_term: WGAN critic loss (machine learning)
+  note: WGAN replaces JS divergence with W₁; training signal flows even when distributions have disjoint support
+- field_a_term: optimal transport plan γ* (joint distribution minimising expected cost)
+  field_b_term: data-generating coupling between real and generated distributions
+  note: The Monge-Kantorovich transport plan describes the optimal matching between real and fake samples
+- field_a_term: Kantorovich duality (W₁ = max_{‖f‖_Lip≤1} E_μ[f] - E_ν[f])
+  field_b_term: WGAN critic function f (1-Lipschitz neural network)
+  note: WGAN critic implements the Kantorovich dual via weight clipping or gradient penalty
+- field_a_term: Sinkhorn regularised OT (entropic regularisation with parameter ε)
+  field_b_term: Sinkhorn loss for differentiable OT in machine learning
+  note: Sinkhorn algorithm provides O(n²/ε²) approximation; now standard in differentiable OT
+cross_pollination_opportunities:
+- Apply Wasserstein barycentres to federated learning — computing the average model across clients in distribution space rather
+  than parameter space, preserving distributional structure of heterogeneous client data.
+- Use OT-based distributional robustness (Wasserstein ball uncertainty sets) for robust optimization in operations research
+  — minimise worst-case loss over distributions within Wasserstein distance ε of the training distribution.
+communication_gap: Optimal transport theory (Monge 1781, Kantorovich 1942) was developed in pure mathematics and operations
+  research. Generative models (GANs) were developed in deep learning research (Goodfellow 2014). The connection was made by
+  Arjovsky et al. (2017) in the WGAN paper, which introduced Wasserstein distance to the machine learning community — bridging
+  a 200-year-old mathematical problem and a 3-year-old deep learning architecture.
+related_unknowns:
+- u-optimal-transport-x-machine-learning
+related_hypotheses:
+- h-optimal-transport-x-machine-learning
+last_reviewed: '2026-05-07'
+references:
+- doi: 10.48550/arXiv.1701.07875
+  note: Arjovsky, Chintala & Bottou (2017) — Wasserstein GAN; ICML 2017
+- doi: 10.48550/arXiv.1306.0895
+  note: 'Cuturi (2013) — Sinkhorn distances: lightspeed computation of OT; NeurIPS 2013'

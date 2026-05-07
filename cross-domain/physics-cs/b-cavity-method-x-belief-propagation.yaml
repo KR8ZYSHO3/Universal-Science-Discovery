@@ -1,0 +1,42 @@
+id: b-cavity-method-x-belief-propagation
+title: Cavity method ↔ Belief propagation — Bethe-Peierls approximation as message passing
+status: proposed
+fields:
+- physics
+- computer_science
+bridge_claim: The cavity method of spin glass theory (Mézard & Parisi) and the belief propagation algorithm in graphical models
+  are identical mathematical objects; the Bethe free energy approximation corresponds to loopy BP on factor graphs, and replica
+  symmetry breaking corresponds to the existence of multiple fixed points in BP.
+translation_table:
+- field_a_term: cavity field h_{i→j} (field at site i excluding site j's influence)
+  field_b_term: message μ_{i→j}(xᵢ) in belief propagation (marginal belief sent from i to j)
+  note: Cavity field is the log-ratio of BP messages for binary variables; exactly equivalent
+- field_a_term: Bethe free energy F_Bethe (approximation via local factor graph structure)
+  field_b_term: free energy approximation used in loopy BP (sum-product algorithm)
+  note: BP fixed points are exactly the stationary points of the Bethe free energy
+- field_a_term: replica symmetry (RS) solution — unique Gibbs measure
+  field_b_term: unique fixed point of belief propagation messages
+  note: RS ↔ unique BP fixed point; RSB ↔ multiple BP fixed points (frustration, glassy phase)
+- field_a_term: survey propagation (SP) for random SAT — generalised BP with surveys
+  field_b_term: warning propagation on factor graph near SAT-UNSAT threshold
+  note: SP exploits RSB structure to solve random 3-SAT near the threshold more efficiently than BP
+cross_pollination_opportunities:
+- Apply survey propagation (from spin glass cavity method) to industrial SAT and constraint optimisation problems near phase
+  transitions — SP outperforms DPLL and clause learning on random 3-SAT near the satisfiability threshold.
+- Use the correspondence between replica symmetry breaking and BP message non-uniqueness to detect hard phases in Bayesian
+  inference problems — detecting when posterior marginals cannot be computed efficiently by variational inference.
+communication_gap: Spin glass theory (Edwards-Anderson 1975, Parisi 1980) was developed in condensed matter physics; belief
+  propagation (Pearl 1982, 1988) was developed in artificial intelligence for Bayesian networks. Both communities worked on
+  the same mathematical objects (factor graphs, message passing on graphs) for two decades without significant cross-citation.
+  The explicit identification was made by Mézard & Montanari (2009) in the book 'Information, Physics, and Computation', which
+  bridged statistical physics and computer science.
+related_unknowns:
+- u-cavity-method-x-belief-propagation
+related_hypotheses:
+- h-cavity-method-x-belief-propagation
+last_reviewed: '2026-05-07'
+references:
+- doi: 10.1126/science.1073287
+  note: Mézard & Montanari (2002) — analytic and algorithmic solution of random satisfiability problems; Science 297:812
+- doi: 10.1002/j.1538-7305.1988.tb00880.x
+  note: Pearl (1988) — probabilistic reasoning in intelligent systems; Morgan Kaufmann

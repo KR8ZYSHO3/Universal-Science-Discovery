@@ -1,0 +1,42 @@
+id: b-reservoir-computing-x-dynamical-systems
+title: Reservoir computing ↔ Dynamical systems — echo state networks as kernel machines
+status: proposed
+fields:
+- computer_science
+- physics
+bridge_claim: Reservoir computing (echo state networks, liquid state machines) projects input time series through a fixed
+  high-dimensional recurrent network (the reservoir) operating near the edge of chaos; only the readout weights are trained,
+  exploiting the kernel trick in function space — connecting neuromorphic computing to dynamical systems at the criticality
+  boundary.
+translation_table:
+- field_a_term: reservoir (fixed random recurrent network) in echo state network
+  field_b_term: kernel function mapping inputs to high-dimensional feature space
+  note: 'The reservoir implements an implicit kernel: inner product in reservoir state space'
+- field_a_term: spectral radius ρ(W) of reservoir weight matrix
+  field_b_term: proximity to edge of chaos (criticality parameter)
+  note: ρ < 1 gives stable (non-chaotic) dynamics; ρ ≈ 0.9 is optimal for memory-nonlinearity trade-off
+- field_a_term: echo state property (input history determines current state)
+  field_b_term: fading memory property of dynamical systems (recent past dominates)
+  note: Echo state property guarantees unique reservoir response for any input history
+- field_a_term: readout linear regression (only trained component)
+  field_b_term: kernel machine linear classifier on projected features
+  note: Training only the linear readout is equivalent to kernel ridge regression
+cross_pollination_opportunities:
+- Design physical reservoir computers using chaotic optical systems, mechanical oscillators, or quantum systems as reservoirs
+  — exploiting physical dynamics as computation substrate for ultra-low-energy inference at the edge.
+- Use Lyapunov exponent analysis from dynamical systems theory to optimise reservoir spectral radius for specific temporal
+  tasks — maximum short-term memory at ρ ≈ 1, maximum nonlinear computation at edge of chaos.
+communication_gap: Echo state networks (Jaeger 2001) and liquid state machines (Maass 2002) were developed simultaneously
+  and independently in neuro-inspired computing, while kernel methods and SVM theory were developed in statistical learning
+  theory. The identification of reservoirs as implicit kernel machines was not formalised until Hermans & Schrauwen (2012),
+  despite the mathematical equivalence being visible in the original formulations.
+related_unknowns:
+- u-reservoir-computing-x-dynamical-systems
+related_hypotheses:
+- h-reservoir-computing-x-dynamical-systems
+last_reviewed: '2026-05-07'
+references:
+- doi: 10.1162/089976602760407955
+  note: Jaeger & Haas (2004) — harnessing nonlinearity with echo state networks; Science 304:78
+- doi: 10.1126/science.1091277
+  note: Maass, Natschläger & Markram (2002) — liquid state machines; Neural Comput 14:2531
