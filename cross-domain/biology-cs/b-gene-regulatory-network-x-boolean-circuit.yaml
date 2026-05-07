@@ -1,0 +1,43 @@
+id: b-gene-regulatory-network-x-boolean-circuit
+title: Gene regulatory networks ↔ Boolean circuits — transcription factor logic as AND/OR gates
+status: proposed
+fields:
+- biology
+- computer_science
+bridge_claim: 'Transcription factor combinatorics implement Boolean logic: cooperative binding is AND, competitive binding
+  is NOT, and OR gates arise from redundant enhancers; Kauffman''s NK random Boolean network model shows that developmental
+  gene networks operate near the critical (chaotic-to-ordered) phase transition for maximum evolvability.'
+translation_table:
+- field_a_term: cooperative transcription factor binding (both TFs required for activation)
+  field_b_term: Boolean AND gate (output 1 iff both inputs 1)
+  note: Synergistic activation requires cofactor TF binding within same enhancer module
+- field_a_term: competitive/repressive TF binding (repressor blocks activator)
+  field_b_term: Boolean NOT/NAND gate (repressor inverts activator logic)
+  note: Repressor-activator competition implements NOT; combined with AND gives NAND — universal gate
+- field_a_term: shadow enhancer (redundant enhancer elements for same target gene)
+  field_b_term: Boolean OR gate (output 1 if any input is 1)
+  note: Redundant enhancers are OR logic gates; increase robustness to enhancer mutation
+- field_a_term: NK random Boolean network (N genes, K inputs per gene)
+  field_b_term: random Boolean circuit of N gates with in-degree K
+  note: 'Kauffman''s NK model: ordered phase (K < 2), critical (K = 2), chaotic (K > 2)'
+cross_pollination_opportunities:
+- Apply Boolean circuit complexity theory (circuit depth vs. expressivity trade-offs) to understand why gene regulatory networks
+  use hierarchical transcription factor cascades — cascades increase circuit depth enabling complex spatiotemporal patterns
+  with few TFs.
+- Use NK Boolean network criticality analysis to classify cancer gene regulatory networks — cancer cells may operate in the
+  chaotic phase (K > 2), explaining transcriptional heterogeneity and epigenetic plasticity in tumour progression.
+communication_gap: Boolean network models of gene regulation (Kauffman 1969) were developed in theoretical biology and ignored
+  by molecular geneticists for decades, who viewed abstract Boolean models as over-simplified. Molecular biologists studying
+  transcription factor logic in Drosophila (Levine, Mann, Small) developed enhancer logic rules empirically without reference
+  to Boolean circuit theory. The synthesis required systems biology (Davidson 2001) to formalise gene regulatory network logic
+  diagrams.
+related_unknowns:
+- u-gene-regulatory-network-x-boolean-circuit
+related_hypotheses:
+- h-gene-regulatory-network-x-boolean-circuit
+last_reviewed: '2026-05-07'
+references:
+- doi: 10.1016/0022-5193(69)90015-0
+  note: Kauffman (1969) — metabolic stability and epigenesis in randomly constructed genetic nets; J Theor Biol 22:437
+- doi: 10.1016/j.cell.2002.09.005
+  note: Davidson et al. (2002) — gene regulatory network for sea urchin endomesoderm specification; Science

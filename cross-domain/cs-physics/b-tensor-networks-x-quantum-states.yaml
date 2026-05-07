@@ -1,0 +1,41 @@
+id: b-tensor-networks-x-quantum-states
+title: Tensor networks ↔ Quantum many-body states — MPS as entanglement compression
+status: proposed
+fields:
+- physics
+- computer_science
+bridge_claim: Matrix product states (MPS) and tensor network contractions provide an efficient classical representation of
+  quantum many-body states with limited entanglement; the DMRG algorithm is a tensor network optimization that scales polynomially
+  for 1D gapped systems — connecting quantum information theory to classical simulation algorithms.
+translation_table:
+- field_a_term: matrix product state (MPS) for 1D quantum system
+  field_b_term: low-rank tensor decomposition of the quantum state amplitude array
+  note: MPS bond dimension χ bounds entanglement entropy S ≤ log₂(χ); efficient iff S = O(1)
+- field_a_term: entanglement entropy S = -Tr[ρ_A log ρ_A] of subsystem A
+  field_b_term: Schmidt rank (number of nonzero singular values in bipartition)
+  note: Area law S = O(1) for gapped 1D systems ↔ efficient MPS approximation
+- field_a_term: DMRG (density matrix renormalization group) algorithm
+  field_b_term: alternating least squares on MPS tensor network (numerical optimisation)
+  note: DMRG is a tensor network optimization; White's 1992 DMRG is equivalent to MPS variational compression
+- field_a_term: PEPS (projected entangled pair states) for 2D systems
+  field_b_term: 2D tensor network with contraction complexity NP-hard in general
+  note: 'PEPS contraction is #P-hard; area law holds in 2D but MPS fails — PEPS is the natural extension'
+cross_pollination_opportunities:
+- Apply tensor network contraction algorithms (belief propagation on factor graphs, Vidal's TEBD) to classical statistical
+  mechanics problems — the partition function of a 2D Ising model is a tensor network contraction tractable via TMRG.
+- Use quantum circuit tensor network simulation (MPS simulation of shallow circuits) to benchmark near-term quantum computers
+  — circuits with limited entanglement are classically simulable up to bond dimension χ = 2^(S/2).
+communication_gap: DMRG was invented by White (1992) as a numerical renormalisation group technique in condensed matter physics;
+  matrix product states were developed by Fannes, Nachtergaele & Werner (1992) in quantum information theory. The equivalence
+  of DMRG and MPS was recognised only around 2004-2007 (Verstraete & Cirac), enabling cross-fertilisation that produced the
+  tensor network method unifying quantum information and condensed matter simulation.
+related_unknowns:
+- u-tensor-networks-x-quantum-states
+related_hypotheses:
+- h-tensor-networks-x-quantum-states
+last_reviewed: '2026-05-07'
+references:
+- doi: 10.1103/RevModPhys.77.259
+  note: Vidal (2007) — entanglement renormalisation; PRL 99:220405 — MERA tensor network
+- doi: 10.1103/PhysRevLett.69.2863
+  note: White (1992) — density matrix formulation for quantum renormalization groups; PRL 69:2863
