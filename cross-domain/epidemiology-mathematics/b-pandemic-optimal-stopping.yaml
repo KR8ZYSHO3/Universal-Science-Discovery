@@ -1,0 +1,35 @@
+id: b-pandemic-optimal-stopping
+title: "Optimal epidemic intervention timing is an optimal stopping problem where the decision to implement NPIs minimizes total social cost, with the threshold case count derived from the ratio of NPI costs to transmission reduction benefit"
+fields:
+  - epidemiology
+  - mathematics
+  - public-health
+bridge_claim: "The decision to implement non-pharmaceutical interventions (NPIs) during a growing epidemic is an optimal stopping problem with value function V(I, t) = min_{tau} E[C(I, t, tau)], where the optimal stopping threshold I* = alpha / (beta * delta_R) balances NPI cost alpha against transmission reduction beta*delta_R, predicting that early interventions are optimal whenever epidemic growth rate r > r_threshold."
+translation_table:
+  - field_a_term: "epidemic incidence I(t) on day t of outbreak"
+    field_b_term: "state variable in optimal stopping problem"
+    note: "Incidence is the observable; the stopping rule specifies at which I(t) to intervene"
+  - field_a_term: "NPIs (lockdowns, school closures, mask mandates)"
+    field_b_term: "control action in stochastic optimal control formulation"
+    note: "NPI implementation corresponds to stopping the uncontrolled epidemic process and switching to controlled dynamics"
+  - field_a_term: "reproduction number R0 -> Rc under NPI"
+    field_b_term: "drift coefficient change in SIR stochastic process"
+    note: "NPIs reduce beta, changing Brownian drift from positive (growing epidemic) to negative (declining)"
+  - field_a_term: "herd immunity threshold HIT = 1 - 1/R0"
+    field_b_term: "terminal boundary condition in finite-horizon optimal stopping"
+    note: "Interventions before HIT is reached can avoid the full epidemic; stopping late (I > HIT S0) is suboptimal"
+status: proposed
+communication_gap: "Public health officials make intervention decisions based on epidemiological thresholds and political considerations while decision theorists study optimal stopping; the formal connection between epidemic decision-making and optimal stopping theory is underexplored in both public health training and decision theory curricula."
+cross_pollination_opportunities:
+  - "Developing real-time optimal stopping algorithms for epidemic intervention that incorporate uncertainty in R0 and case ascertainment using Sequential Monte Carlo"
+  - "Applying regret minimization theory (minimax regret) to epidemic interventions under model uncertainty, providing robust decision rules without requiring a specific epidemic model"
+references:
+  - doi: "10.1098/rsif.2020.0435"
+    note: "Alvarez et al. (2020) J R Soc Interface - optimal lockdown in the SIR model: cost-benefit analysis"
+  - doi: "10.1073/pnas.2014347118"
+    note: "Berger et al. (2020) PNAS - optimal testing and containment decisions under uncertainty"
+  - doi: "10.1017/S0266466606060294"
+    note: "Chick (2005) - Bayesian sequential clinical trial design as optimal stopping"
+related_unknowns:
+  - u-pandemic-intervention-timing-optimal-uncertainty
+last_reviewed: "2026-05-07"
