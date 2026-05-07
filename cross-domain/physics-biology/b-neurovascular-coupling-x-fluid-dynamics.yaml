@@ -1,0 +1,46 @@
+id: b-neurovascular-coupling-x-fluid-dynamics
+title: >
+  Neurovascular coupling x Fluid dynamics - BOLD signal as Hagen-Poiseuille flow
+status: proposed
+fields:
+  - neuroscience
+  - physics
+  - fluid_mechanics
+  - biophysics
+bridge_claim: >
+  The BOLD fMRI signal arises from neurovascular coupling where neural activity triggers
+  astrocyte-mediated vasodilation, increasing cerebral blood flow via Hagen-Poiseuille
+  dynamics (Q proportional to r^4 delta P / eta L); the extreme r^4 radius sensitivity
+  means small vessel diameter changes (5-10%) produce large cerebral blood flow changes
+  (20-40%), connecting the neuroscience measurement of neural activity to fluid dynamics
+  and making fMRI sensitivity fundamentally a fluid mechanical problem.
+translation_table:
+  - field_a_term: BOLD signal change in fMRI (neuroscience measurement)
+    field_b_term: Hagen-Poiseuille flow rate change Q proportional to r^4 (fluid dynamics)
+    note: The nonlinear r^4 sensitivity amplifies small vessel diameter changes into large BOLD signals; 7% radius change gives 31% flow change
+  - field_a_term: astrocyte end-feet mediating neurovascular coupling (neuroscience)
+    field_b_term: boundary condition control of fluid flow in cylindrical tube (fluid mechanics)
+    note: Astrocytes contact both neurons and blood vessels; they transduce neural activity into vasodilation via Ca2+ signaling - boundary condition control
+  - field_a_term: cerebral blood flow (CBF) autoregulation (physiology)
+    field_b_term: flow regulation in pipe network with pressure-dependent resistance (fluid mechanics)
+    note: Cerebral autoregulation maintains constant CBF across blood pressure range; it maps to pressure-dependent tube compliance in Hagen-Poiseuille
+  - field_a_term: hemodynamic response function (HRF) in fMRI analysis (neuroscience)
+    field_b_term: impulse response of a fluid dynamic low-pass filter (fluid mechanics)
+    note: The HRF is the fluid dynamic response of the cerebrovascular system to a neural impulse; its shape is determined by vascular compliance and viscosity
+communication_gap: >
+  Neuroscientists developing fMRI analysis (Ogawa et al. 1990) and fluid dynamicists
+  studying vascular flow built separate frameworks; the biophysical models of the BOLD
+  response (Buxton et al. 1998, Friston et al. 2000) incorporate Hagen-Poiseuille
+  mechanics but most neuroscientists use the HRF as a statistical model without deriving
+  it from first principles — meaning fluid dynamic improvements (accounting for vessel
+  geometry heterogeneity, turbulence at high flow) have not fully entered fMRI
+  methodology.
+cross_pollination_opportunities:
+  - Apply computational fluid dynamics (CFD) simulations of cerebrovascular networks to model the spatiotemporal point-spread function of the BOLD response, improving fMRI spatial resolution beyond current voxel limits
+  - Use microfluidic models of cerebrovascular networks to test neurovascular coupling hypotheses in controlled geometry, deriving the quantitative relationship between vasodilation and BOLD signal for different vessel types
+related_unknowns:
+  - u-neurovascular-coupling-x-fluid-dynamics
+references:
+  - doi: "10.1152/physrev.00061.2017"
+    note: "Attwell et al. (2017) - What is a pericyte? J Cereb Blood Flow Metab — neurovascular coupling and BOLD signal fluid dynamics"
+last_reviewed: "2026-05-07"

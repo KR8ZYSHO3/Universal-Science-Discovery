@@ -1,0 +1,40 @@
+id: h-metabolic-network-hub-essentiality-scaling
+title: >
+  Metabolic hub degree follows a universal power law across all domains of life,
+  and hub essentiality correlates with preferential attachment age measured by
+  phylogenetic depth
+status: active
+priority: medium
+impact_score: 0.75
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: wave-63-agent
+unknowns_addressed:
+  - u-scale-free-network-x-metabolic
+related_disciplines:
+  - biology
+  - mathematics
+  - network_science
+  - systems_biology
+evidence_links:
+  - type: supporting
+    doi: "10.1038/35015116"
+    note: "Jeong et al. (2000) - Scale-free metabolic networks; hub degree correlates with gene essentiality"
+    confidence: 0.80
+  - type: related
+    note: "Ravasz et al. (2002) - Hierarchical organization of modularity in metabolic networks; Science 297:1551"
+    confidence: 0.74
+proposed_tests:
+  - description: >
+      Analyze metabolic networks from all 8000+ organisms in the BIGG database;
+      fit degree distributions to power law, log-normal, and exponential-cutoff models
+      using maximum likelihood; test whether the power-law exponent gamma is universal
+      (within statistical error) across bacteria, archaea, and eukaryotes.
+    method: "BIGG metabolic network reconstruction; NetworkX degree analysis; MLE power law fit with Kolmogorov-Smirnov test; phylogenetic ANOVA"
+    prediction: "Power-law exponent gamma = 2.2 +/- 0.3 is universal across all domains of life; log-normal fits slightly better for eukaryotes but power law is not rejected"
+  - description: >
+      Test preferential attachment hypothesis by correlating metabolite connectivity
+      degree with phylogenetic depth (estimated age of metabolite from ancestral
+      metabolome reconstructions); predict k ~ age^0.5 for preferential attachment.
+    method: "KEGG ancestral metabolome reconstruction; phylogenetic dating of metabolite first appearance; Spearman correlation of k vs estimated age"
+    prediction: "Metabolite degree k correlates with phylogenetic age with r > 0.6; ATP, NADH, pyruvate are among the oldest and most connected metabolites"

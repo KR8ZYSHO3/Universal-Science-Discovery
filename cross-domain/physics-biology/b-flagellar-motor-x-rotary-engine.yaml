@@ -1,0 +1,46 @@
+id: b-flagellar-motor-x-rotary-engine
+title: >
+  Bacterial flagellar motor x Rotary engine - proton gradient as mechanical torque
+status: proposed
+fields:
+  - biology
+  - physics
+  - biophysics
+  - thermodynamics
+bridge_claim: >
+  The bacterial flagellar motor converts the transmembrane proton-motive force (delta
+  mu_H+ = -RTln([H+]_in/[H+]_out) - F*delta_psi) into rotational torque at 100-300 Hz
+  with near 100% thermodynamic efficiency near stall; it is a biological implementation
+  of an electrochemical rotary engine where each proton that traverses the stator
+  contributes a fixed angular step (~26 protons per revolution), making it the most
+  efficient molecular machine known and an existence proof that near-Carnot efficiency
+  is achievable in noisy biological systems.
+translation_table:
+  - field_a_term: proton-motive force PMF = delta_psi - (RT/F) * delta_pH (biophysics)
+    field_b_term: electrochemical potential difference driving electrochemical work (thermodynamics)
+    note: PMF is the electrochemical gradient that powers the motor; it plays the role of voltage in an electromechanical transducer
+  - field_a_term: stator protein MotA/MotB conducting protons (microbiology)
+    field_b_term: stator winding of electric motor converting current to torque (engineering)
+    note: Each stator unit is a proton channel that exchanges a proton for a discrete angular step, analogous to coil-winding torque generation
+  - field_a_term: flagellar motor torque-speed curve (biophysics)
+    field_b_term: torque-speed characteristic of DC motor (electrical engineering)
+    note: The flagellar motor shows a linear torque-speed relationship analogous to the DC motor characteristic; stall torque ~ 1200 pN nm
+  - field_a_term: flagellar motor stall efficiency near 100% (biophysics)
+    field_b_term: Carnot efficiency limit for reversible engine (thermodynamics)
+    note: Near stall, the motor operates reversibly (near thermodynamic equilibrium) approaching Carnot efficiency; at high speed efficiency drops
+communication_gap: >
+  Microbiologists studying flagellar motility and engineers designing rotary motors
+  developed parallel frameworks for torque generation; Berg and colleagues (1973, 2003)
+  established the flagellar motor as a proton-driven rotary engine, and thermodynamic
+  analysis (Meister & Berg 1987) derived near-Carnot efficiency near stall — but the
+  design principles (stepwise proton coupling, near-Carnot operation, torque-speed
+  linearity) have not been systematically imported into synthetic molecular motor design.
+cross_pollination_opportunities:
+  - Apply DC motor design principles (stator geometry, rotor-stator coupling) to engineer synthetic flagellar motors with tunable speed-torque characteristics for synthetic biology applications
+  - Use fluctuation theorem analysis of flagellar motor stepping to measure the entropy production per revolution and test whether biological motors approach the Landauer limit for information processing
+related_unknowns:
+  - u-flagellar-motor-x-rotary-engine
+references:
+  - doi: "10.1098/rsif.2006.0133"
+    note: "Berg (2003) - The rotary motor of bacterial flagella; Annu Rev Biochem 72:19 — torque-speed and efficiency analysis"
+last_reviewed: "2026-05-07"

@@ -1,0 +1,45 @@
+id: h-epigenetic-attractor-scrnaseq-landscape
+title: >
+  RNA velocity vector fields from scRNA-seq data accurately recover the Waddington
+  attractor landscape, with predicted barrier heights correlated with reprogramming
+  efficiency across cell type pairs
+status: active
+priority: high
+impact_score: 0.82
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: wave-63-agent
+unknowns_addressed:
+  - u-epigenetic-landscape-x-attractor
+related_disciplines:
+  - biology
+  - mathematics
+  - dynamical_systems
+  - developmental_biology
+evidence_links:
+  - type: supporting
+    doi: "10.1126/science.1167609"
+    note: "Huang et al. (2009) - Cancer attractors; cell types as attractors of GRN dynamics"
+    confidence: 0.81
+  - type: supporting
+    note: "Bergen et al. (2020) - Generalizing RNA velocity to transient cell states through dynamical modeling; Nat Biotechnol — scVelo"
+    confidence: 0.78
+  - type: related
+    note: "Weinreb et al. (2018) - Fundamental limits on dynamic inference from single-cell snapshots; PNAS — limitations of RNA velocity for landscape reconstruction"
+    confidence: 0.72
+proposed_tests:
+  - description: >
+      Reconstruct the Waddington landscape from scRNA-seq time-course data during
+      mouse embryonic stem cell differentiation using RNA velocity (dynamo) and
+      potential energy estimation (VITAE); compare predicted barrier heights between
+      attractor pairs to measured Yamanaka reprogramming efficiency from published
+      literature for the same cell type pairs.
+    method: "Dynamo RNA velocity on ESC differentiation time-course; Freidlin-Wentzell quasi-potential estimation; Spearman correlation with reprogramming efficiency"
+    prediction: "Predicted quasi-potential barriers correlate with reprogramming efficiency with r > 0.65 across 15+ cell type pairs; direct transdifferentiation routes match predicted heteroclinic orbits"
+  - description: >
+      Test whether the rotational (non-gradient) component of the RNA velocity field
+      predicts non-Waddington cell cycle behavior; measure the rotational flux
+      magnitude as a function of cell cycle phase and compare to chromatin accessibility
+      changes.
+    method: "ATAC-seq + scRNA-seq multi-modal data; decompose velocity field into gradient and rotational components; correlate rotational flux with CDK activity"
+    prediction: "Rotational flux magnitude peaks at G1/S and G2/M transitions; gradient component dominates during differentiation, rotational during proliferation"
