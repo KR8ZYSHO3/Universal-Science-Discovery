@@ -1,0 +1,64 @@
+id: h-extinction-time-exponential-k-demographic-stochasticity-confirmed
+title: >
+  The mean extinction time formula T_ext ≈ exp(2rK/σ²)/r from the stochastic
+  logistic model correctly predicts (within one order of magnitude) the observed
+  extinction waiting times in laboratory populations of model organisms across
+  a range of K and σ² values, validating the mathematical framework underlying
+  IUCN minimum viable population assessments.
+status: active
+priority: high
+impact_score: 0.82
+created: "2026-05-06"
+last_updated: "2026-05-06"
+related_disciplines:
+  - conservation-biology
+  - population-ecology
+  - mathematics
+  - stochastic-processes
+unknowns_addressed:
+  - u-extinction-debt-lag-time-empirical-quantification-fragmented-landscapes
+evidence_links:
+  - doi: "10.1038/nature07265"
+    type: supporting
+    confidence: 0.75
+    note: >
+      Melbourne & Hastings (2008) — experimental test in Tribolium; exponential
+      dependence of T_ext on K confirmed; demographic stochasticity dominant
+  - doi: "10.1086/285580"
+    type: supporting
+    confidence: 0.65
+    note: Lande (1993) — derives T_ext formula analytically; validated in concept
+  - doi: "10.1016/j.tree.2010.05.008"
+    type: related
+    confidence: 0.60
+    note: Ovaskainen & Meerson (2010) — review of extinction mathematics and evidence
+proposed_tests:
+  - description: >
+      Multi-treatment mesocosm experiment with C. elegans: establish populations
+      at K = 50, 100, 200, 400, 800 nematodes (controlled by food level),
+      σ² estimated from control populations at each K. Monitor daily for
+      extinction. Replicate each K treatment 50 times. Test: does T_ext scale
+      as exp(2rK/σ²) across the 4-fold range in K? Predicted T_ext spans ~3
+      orders of magnitude for 4-fold change in K.
+    method: >
+      Automated population counting (flow cytometry or optical density);
+      K and r estimated from logistic growth curves; σ² from neutral drift
+      experiments. Kaplan-Meier survival analysis of extinction waiting times.
+    prediction: >
+      T_ext increases exponentially with K; the ratio of T_ext at K=800 vs.
+      K=50 is ≥100 (predicted ~e^{2rΔK/σ²} ≈ 10³ for typical parameters).
+      T_ext formula accurate within 2-fold for each K treatment.
+  - description: >
+      Re-analysis of published long-term population monitoring data for island
+      bird populations (British Trust for Ornithology Island Monitoring database,
+      Hawaii bird surveys). For islands where historical habitat area is known
+      (proxy for K), test whether time since habitat reduction predicts current
+      extinction hazard using the T_ext formula.
+    method: >
+      Extract K estimates from island area-species relationships (species-area
+      exponent z); estimate σ² from population size variance in stable periods;
+      compute predicted T_ext; compare to observed extinction rate via logistic
+      regression of extinction probability vs. T_ext^{-1}.
+    prediction: >
+      Species with predicted T_ext < 50 years show 10× higher extinction rate
+      than species with T_ext > 500 years in the monitoring period.

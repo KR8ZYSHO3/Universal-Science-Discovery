@@ -1,0 +1,62 @@
+id: h-compressed-sensing-mri-10x-scan-time-reduction-clinical-safety
+title: >
+  Compressed sensing MRI with undersampling by factor 10× (acquiring 10% of
+  k-space measurements required by Nyquist) achieves diagnostic image quality
+  equivalent to fully-sampled MRI for cardiac, neurological, and musculoskeletal
+  indications when the image reconstruction uses ℓ₁-wavelet minimisation, as
+  validated in randomised controlled clinical trials.
+status: active
+priority: high
+impact_score: 0.88
+created: "2026-05-06"
+last_updated: "2026-05-06"
+related_disciplines:
+  - medical-imaging
+  - mathematics
+  - signal-processing
+  - clinical-medicine
+unknowns_addressed:
+  - u-rip-constant-optimal-measurement-matrix-deterministic-construction
+evidence_links:
+  - doi: "10.1002/mrm.21391"
+    type: supporting
+    confidence: 0.80
+    note: >
+      Lustig et al. (2007) — CS-MRI demonstrated at 8× undersampling for cardiac
+      MRI; image quality indistinguishable by radiologists from fully-sampled
+  - type: supporting
+    confidence: 0.85
+    note: >
+      FDA 510(k) clearance of compressed sensing MRI products (Signa Premier 2017,
+      Skyra CS 2018) indicates regulatory acceptance of clinical equivalence
+  - doi: "10.1109/TIT.2006.871582"
+    type: supporting
+    confidence: 0.90
+    note: Candès et al. (2006) — theoretical guarantee for exact recovery from m=O(k log n) measurements
+proposed_tests:
+  - description: >
+      Randomised non-inferiority trial: 200 patients requiring knee MRI
+      randomised to standard fully-sampled MRI (8-minute scan) vs. CS-MRI
+      (10× undersampled, 50-second scan) with ℓ₁-wavelet reconstruction.
+      Primary endpoint: radiologist diagnostic accuracy for ACL tear, meniscal
+      tear, and cartilage defects. Non-inferiority margin: sensitivity/specificity
+      within 5% of standard MRI.
+    method: >
+      Double-blind read by 3 musculoskeletal radiologists; arthroscopy or
+      surgical finding as ground truth where available; inter-reader agreement
+      (κ statistic).
+    prediction: >
+      CS-MRI (10×) achieves sensitivity/specificity within 3% of standard MRI
+      for all three pathologies; scan time reduction from 8 min to <1 min;
+      radiologist preference for CS-MRI due to reduced motion artifact.
+  - description: >
+      Paediatric neuroimaging study: 100 children (5-12 years) requiring brain
+      MRI under sedation. CS-MRI vs. standard MRI for white matter lesion
+      detection, hydrocephalus quantification, and tumour characterisation.
+      Primary benefit: reduced sedation duration reduces procedural risk.
+    method: >
+      Retrospective comparison of sedation duration; quality metrics (SNR, sharpness,
+      lesion conspicuity) scored by neuroradiologists.
+    prediction: >
+      CS-MRI (8×) reduces sedation duration by ≥50% with equivalent diagnostic
+      quality; reduction in sedation-related adverse events in the CS arm.

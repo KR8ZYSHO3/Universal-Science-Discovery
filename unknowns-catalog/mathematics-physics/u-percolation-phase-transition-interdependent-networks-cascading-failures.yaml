@@ -1,0 +1,56 @@
+id: u-percolation-phase-transition-interdependent-networks-cascading-failures
+title: >
+  In interdependent networks (e.g. power grid ↔ internet), where failure of
+  nodes in one network triggers failures in the other, the percolation transition
+  becomes first-order (abrupt) — what determines the critical coupling strength
+  between network layers below which the transition reverts to second-order, and
+  can this threshold be engineered to prevent catastrophic infrastructure cascades?
+status: open
+priority: high
+disciplines:
+  - network-science
+  - statistical-physics
+  - infrastructure-engineering
+  - mathematics
+summary: >
+  Buldyrev et al. (2010, Nature) showed that two interdependent ER networks
+  (where each node in network A depends on a node in network B) exhibit a
+  first-order percolation transition — the GCC collapses discontinuously and
+  catastrophically, unlike the second-order (continuous) transition in a single
+  network. The 2003 Italian blackout (which cascaded into internet failures)
+  is the empirical exemplar.
+
+  The first-order transition emerges because interdependency creates positive
+  feedback: failures in A propagate to B (B nodes whose A-partner failed are
+  removed), which propagates back to A, causing a cascade. The cascade stops
+  only at a new stable GCC or at total collapse.
+
+  Open questions: (1) For partially interdependent networks (fraction q of nodes
+  have interdependency links), there is a critical q* below which the transition
+  reverts to second-order — q* is known analytically for ER networks but not for
+  scale-free or empirical infrastructure networks. (2) What network design
+  strategies (limiting interdependency degree, geographic clustering constraints,
+  adding redundant paths) raise q* and reduce cascade risk? (3) The theory
+  assumes random failures; real infrastructure has correlated failures (common
+  cause: weather, cyberattack) that may lower q* substantially.
+systematic_gaps:
+  - q* has been computed for ER-ER and SF-SF interdependent pairs but not for
+    real infrastructure network topologies (power grid + telecom + water).
+  - Cascading failure models do not account for temporal dynamics (recovery,
+    load redistribution timescales) — the static percolation model is a worst
+    case that may overestimate cascade risk.
+  - Optimal design of interdependency links (assortative vs. disassortative
+    coupling between network layers) to maximise q* has not been solved.
+  - Empirical validation against historical cascade events (2003 Italy, 2006
+    European blackout, 2021 Texas winter storm) has not been done with the
+    quantitative percolation framework.
+suggested_hypotheses:
+  - h-targeted-hub-vaccination-achieves-herd-immunity-fewer-doses-scale-free
+related_bridges:
+  - b-percolation-network-robustness
+references:
+  - doi: "10.1038/nature08932"
+    note: Buldyrev et al. (2010) Nature 464:1025 — interdependent network percolation
+  - doi: "10.1038/35019019"
+    note: Albert et al. (2000) Nature 406:378 — scale-free robustness/fragility
+last_reviewed: "2026-05-06"

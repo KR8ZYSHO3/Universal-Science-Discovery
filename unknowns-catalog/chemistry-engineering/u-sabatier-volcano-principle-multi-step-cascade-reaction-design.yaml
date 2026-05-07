@@ -1,0 +1,61 @@
+id: u-sabatier-volcano-principle-multi-step-cascade-reaction-design
+title: >
+  Does the Sabatier volcano principle — optimal catalyst binds intermediates
+  with intermediate affinity — extend to multi-step cascade reactions (e.g.
+  CO₂ reduction to methanol: CO₂→CO→HCHO→CH₃OH) where different steps have
+  conflicting optimal binding energies, and can DFT-based multi-dimensional
+  volcano plots predict optimal bifunctional or tandem catalyst designs?
+status: open
+priority: medium
+disciplines:
+  - physical-chemistry
+  - catalysis
+  - chemical-engineering
+  - computational-chemistry
+summary: >
+  The Sabatier principle and Brønsted-Evans-Polanyi (BEP) relationships give
+  a one-dimensional volcano plot for single-step reactions: activity peaks at
+  intermediate binding energy. For the Haber-Bosch synthesis (N₂ + 3H₂ → 2NH₃),
+  the volcano axis is N* binding energy and Ru sits near the peak.
+
+  Multi-step cascade reactions (CO₂ reduction to hydrocarbons, glycerol
+  oxidation, sequential hydrogenation) involve multiple intermediates with
+  different optimal binding energies for each step. The conventional volcano
+  analysis fails because the optimal catalyst for step A (e.g., CO₂ → CO, needs
+  moderate CO* binding) conflicts with the optimal for step B (CO → CH₄, needs
+  moderate CH* binding).
+
+  For CO₂ reduction to methanol (a promising e-fuel reaction), DFT studies
+  (Peterson et al. 2010, Nørskov group) show the multi-step pathway has
+  competing requirements: HCOO* vs. COOH* binding determines selectivity;
+  CO* binding determines activity for the first step; CHO* binding determines
+  the rate-limiting step for methanol vs. methane selectivity. No single-metal
+  catalyst optimises all steps simultaneously.
+
+  Bifunctional catalysts (two different active sites in proximity) could
+  potentially solve this by having site A optimised for step 1 and site B for
+  step 2. Whether a theoretical framework (multi-dimensional volcano plots,
+  constrained optimisation of binding energy descriptors) can predict the
+  optimal bifunctional composition is an open design question.
+systematic_gaps:
+  - Multi-dimensional volcano plots (2 or more binding energy descriptors)
+    have been computed for a few reactions (ORR, CO₂R) but not systematically
+    validated against experimental catalytic activity across material families.
+  - The optimal spatial proximity of bifunctional sites (Ångström vs. nm scale)
+    for tandem catalysis has not been theoretically derived from reaction
+    diffusion equations coupled to microkinetic models.
+  - Machine learning of multi-step reaction networks from DFT data to predict
+    the full activity-selectivity landscape has not been demonstrated beyond
+    3-intermediate pathways.
+  - Whether scaling relations (correlations among binding energies of related
+    intermediates, e.g. *CO and *CHO both scale with *C binding) impose
+    fundamental limits on multi-step volcano optimisation is unresolved.
+suggested_hypotheses:
+  - h-dft-bep-relationship-enables-quantitative-catalyst-design-before-synthesis
+related_bridges:
+  - b-catalysis-reactor-design
+references:
+  - doi: "10.1006/jcat.2002.3543"
+    note: Nørskov et al. (2002) J Catal 209:275 — DFT volcano plots and BEP
+  - note: Levenspiel (1999) Chemical Reaction Engineering — reactor design
+last_reviewed: "2026-05-06"

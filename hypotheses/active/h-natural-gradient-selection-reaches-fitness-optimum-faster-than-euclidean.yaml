@@ -1,0 +1,56 @@
+id: h-natural-gradient-selection-reaches-fitness-optimum-faster-than-euclidean
+title: >
+  Natural selection following the Shahshahani (Fisher information metric)
+  geometry reaches a fitness optimum in systematically fewer generations than
+  a hypothetical "Euclidean" evolution process with the same gradient magnitude,
+  and the speedup factor is quantitatively predicted by the condition number
+  of the Fisher information matrix at the starting allele frequency.
+status: active
+priority: medium
+impact_score: 0.72
+created: "2026-05-06"
+last_updated: "2026-05-06"
+related_disciplines:
+  - evolutionary-biology
+  - information-geometry
+  - population-genetics
+unknowns_addressed:
+  - u-natural-gradient-selection-convergence-rate-fitness-landscape
+evidence_links:
+  - doi: "10.1111/j.1420-9101.2012.02641.x"
+    type: supporting
+    confidence: 0.70
+    note: Frank (2012) J Evol Biol 25:2377 — Price equation in Fisher information geometry
+  - doi: "10.1162/089976698300017746"
+    type: supporting
+    confidence: 0.65
+    note: Amari (1998) — natural gradient convergence rate theory; translates directly
+proposed_tests:
+  - description: >
+      Agent-based simulation of allele frequency dynamics under selection on
+      NK fitness landscapes (N=20 loci, K=2-5). Compare: (A) natural selection
+      (exact Shahshahani geometry); (B) "Euclidean evolution" (gradient descent
+      with Euclidean rather than Fisher metric). Measure time to reach within
+      10% of the global optimum fitness. Test: natural selection is faster by a
+      factor ≈ κ(G)/1 where κ(G) is the condition number of the Fisher matrix.
+    method: >
+      Python simulation with Wright-Fisher model; compute exact Fisher information
+      matrix at each generation; compare convergence curves across 10³ replicate
+      landscapes.
+    prediction: >
+      Natural selection converges in ~2-5× fewer generations than Euclidean
+      evolution on high-dimensional, epistatic landscapes. The speedup correlates
+      with κ(G) — condition number of the Fisher matrix.
+  - description: >
+      Test in E. coli LTEE data (Lenski et al.): does the observed rate of
+      fitness increase (generations 1-50,000) lie below the Fisher information
+      upper bound computed from estimated population allele frequencies and
+      selection coefficients? A rate consistently at the bound would support the
+      information-geometric speed limit theory.
+    method: >
+      Re-analysis of published LTEE allele frequency time series; compute Fisher
+      information matrix at each timepoint; compare dW̄/dt to F(θ; environment).
+    prediction: >
+      Observed adaptation rate ≤ Fisher information bound at all timepoints;
+      the ratio (rate)/(bound) is approximately constant, suggesting evolution
+      is operating near the information-geometric speed limit.

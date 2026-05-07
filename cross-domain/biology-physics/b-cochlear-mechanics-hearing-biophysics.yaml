@@ -1,0 +1,135 @@
+id: b-cochlear-mechanics-hearing-biophysics
+title: >
+  The cochlea performs biological Fourier analysis via a graded-stiffness
+  basilar membrane that decomposes sound into frequency components (von Békésy
+  traveling wave), and active outer hair cell electromotility via prestin
+  amplifies this mechanical signal 40-100× through a Hopf bifurcation
+  mechanism that produces otoacoustic emissions and achieves sub-thermal
+  noise sensitivity — violating naive equipartition theorem expectations.
+status: established
+fields:
+  - biophysics
+  - auditory-neuroscience
+  - nonlinear-dynamics
+  - mechanobiology
+  - acoustics
+bridge_claim: >
+  The cochlea is the biological implementation of a traveling-wave frequency
+  analyzer. It is 35 mm long and tonotopically organized: the base (near the
+  oval window) responds to high frequencies (20 kHz) and the apex to low
+  frequencies (20 Hz). This frequency mapping arises from a graded mechanical
+  structure: basilar membrane (BM) stiffness k(x) ∝ e^{-αx} decreases 100-fold
+  from base to apex, while mass m(x) increases, making the local resonance
+  frequency ω(x) = √(k(x)/m(x)) decrease exponentially from base to apex.
+
+  Von Békésy (1960, Nobel Prize 1961) established the traveling wave: a sound-
+  induced pressure wave travels from base to apex along the BM, growing in
+  amplitude and slowing in phase velocity until it reaches the characteristic
+  frequency location, where it peaks and then abruptly stops. This produces
+  the tonotopic map measured in vivo.
+
+  The passive BM is too broadly tuned to explain behavioural frequency
+  discrimination (~2 Hz at 1 kHz — better than 0.2%). Active amplification
+  by outer hair cells (OHCs) is required. OHC electromotility was discovered
+  in 1985 (Brownell et al.): OHCs change length (somatic motility, ±5% at
+  up to 100 kHz) when their membrane potential changes. The molecular motor is
+  prestin (Zheng et al. 2000), a voltage-sensitive membrane protein that acts
+  as a piezoelectric-like actuator — the only known example of a mammalian
+  protein driving acoustic-frequency cellular motility.
+
+  The key biophysics: the OHC amplifier operates at the Hopf bifurcation
+  (Eguíluz et al. 2000; Hudspeth 2008). A dynamical system at a Hopf
+  bifurcation (the transition between a stable fixed point and a limit cycle)
+  acts as a critical oscillator with two exceptional properties:
+  (1) Compressive nonlinearity: response ∝ stimulus^(1/3) over a wide range
+      (~40 dB), producing the 3:1 compression observed in BM measurements;
+  (2) Infinite sensitivity at resonance: infinitesimal stimulus produces finite
+      response in the critical limit — the cochlea achieves sensitivity within
+      a factor of ~10 of the quantum limit at threshold.
+
+  Sub-thermal noise sensitivity: at 1 kHz, the BM displacement threshold is
+  ~0.3 nm — less than the RMS Brownian motion of a BM segment (~1 nm at 310 K
+  from equipartition theorem). The active OHC system achieves sub-thermal
+  sensitivity by phase-locking the noise-driven response and actively amplifying
+  only coherent (signal-correlated) inputs — violating naive equipartition
+  expectations for a passive system.
+
+  Otoacoustic emissions (OAEs): as a consequence of active nonlinear mechanics,
+  the cochlea radiates sound back into the ear canal. Spontaneous OAEs (~40%
+  of normal-hearing individuals), distortion product OAEs (DPOAEs, measured
+  clinically for newborn hearing screening), and transiently evoked OAEs are
+  all predicted by the Hopf bifurcation model. The cochlea is a nonlinear
+  oscillator that both detects and generates sound.
+translation_table:
+  - field_a_term: "Basilar membrane stiffness gradient k(x) ∝ e^{-αx} (cochlear mechanics)"
+    field_b_term: "Spatial frequency filter bank for sound decomposition"
+    note: Graded stiffness implements continuous Fourier analysis along the cochlear length
+  - field_a_term: "Hopf bifurcation parameter μ (nonlinear dynamics)"
+    field_b_term: "Gain of the OHC cochlear amplifier relative to critical point"
+    note: μ = 0 at critical point; negative μ (damped) passive cochlea; positive μ (unstable)
+  - field_a_term: "Compressive nonlinearity: response ∝ stimulus^{1/3} (Hopf critical)"
+    field_b_term: "40 dB cochlear compression measured in BM velocity vs. SPL"
+    note: 1/3 power law is the universal signature of Hopf critical oscillation
+  - field_a_term: "Prestin voltage-sensitive motor protein (molecular biology)"
+    field_b_term: "Active force actuator providing cycle-by-cycle BM amplification"
+    note: Only prestin-based somatic motility can operate at acoustic frequencies in mammals
+  - field_a_term: "Equipartition theorem: ⟨½kx²⟩ = ½k_BT at equilibrium"
+    field_b_term: "Thermal noise floor for passive BM — exceeded by active cochlea"
+    note: Active cochlea achieves sensitivity below thermal noise by active noise reduction
+  - field_a_term: "Otoacoustic emission (OAE)"
+    field_b_term: "Diagnostic biomarker for OHC function — used in newborn hearing screening"
+    note: OAEs are the physical proof that the cochlea is a nonlinear active oscillator
+related_unknowns:
+  - u-cochlear-hopf-bifurcation-active-hair-bundle-vs-somatic-motility
+related_hypotheses:
+  - h-prestin-somatic-motility-primary-cochlear-amplification-mechanism-mammals
+cross_pollination_opportunities:
+  - >
+    Nonlinear dynamics tools from engineering (Floquet theory, normal form
+    analysis of Hopf bifurcations) are not routinely applied in auditory
+    neuroscience. Systematic bifurcation analysis of cochlear models at the
+    Hopf critical point would predict the exact form of two-tone suppression,
+    combination tones, and otoacoustic emission spectra — testable against
+    psychoacoustic data and providing a quantitative theory of cochlear nonlinearity.
+  - >
+    Cochlear implants currently bypass the BM entirely, delivering electrical
+    stimulation to spiral ganglion neurons. A biomimetic cochlear implant that
+    reproduces the compressive Hopf amplification before neural stimulation
+    could dramatically improve pitch discrimination and speech understanding in
+    noise. The Hopf bifurcation model provides the circuit equations for such
+    a processor.
+  - >
+    Hearing loss via OHC damage (noise-induced, ototoxic, age-related) is the
+    most common sensory disability. The prestin molecular motor is the key
+    target. DFT-based molecular dynamics simulation of prestin conformational
+    changes could guide design of small-molecule agonists that restore partial
+    OHC function after damage — bridging the cochlear physics to drug discovery.
+communication_gap: >
+  Auditory neuroscience (publishing in the Journal of Neuroscience, Hearing
+  Research, JARO) focuses on neural coding and auditory cortex; cochlear
+  biophysics is a specialty sub-field known mainly to bioengineers and
+  biophysicists (publishing in Biophysical Journal, JASA). The nonlinear
+  dynamics community (Hopf bifurcation, dynamical systems) rarely reads
+  auditory journals. The prestin molecular biology is published in Nature and
+  Cell but the connection to Hopf oscillator dynamics is rarely made in
+  molecular biology papers. Clinical audiology uses OAEs diagnostically without
+  awareness of the underlying Hopf bifurcation theory.
+last_reviewed: "2026-05-06"
+references:
+  - note: >
+      von Békésy (1960) Experiments in Hearing, McGraw-Hill — Nobel Prize work
+      establishing the traveling wave theory of cochlear mechanics
+  - doi: "10.1016/j.neuron.2008.07.012"
+    note: >
+      Hudspeth (2008) Making an effort to listen: mechanical amplification by
+      myosin molecules and ion channels, Neuron 59:530 — Hopf bifurcation
+      model of the cochlear amplifier
+  - doi: "10.1038/35013657"
+    note: >
+      Zheng et al. (2000) Prestin is the motor protein of cochlear outer hair cells,
+      Nature 405:149 — discovery of prestin as the OHC somatic motor
+  - doi: "10.1103/PhysRevLett.84.5232"
+    note: >
+      Eguíluz et al. (2000) Essential nonlinearities in hearing,
+      Phys Rev Lett 84:5232 — Hopf bifurcation model of the cochlear amplifier,
+      predicts 1/3 power compression and OAEs

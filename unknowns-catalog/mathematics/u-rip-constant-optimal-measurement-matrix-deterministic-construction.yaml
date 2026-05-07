@@ -1,0 +1,52 @@
+id: u-rip-constant-optimal-measurement-matrix-deterministic-construction
+title: >
+  Do deterministic measurement matrices satisfying the Restricted Isometry
+  Property (RIP) with optimal O(k log n/k) measurements exist, and can they
+  be constructed explicitly (not via random matrix arguments), enabling
+  hardware-efficient compressed sensing implementations?
+status: open
+priority: medium
+disciplines:
+  - mathematics
+  - signal-processing
+  - computer-science
+  - applied-mathematics
+summary: >
+  Random matrices (Gaussian, Bernoulli, subsampled Hadamard) satisfy the RIP
+  with the optimal measurement count m = O(k log n/k) with high probability.
+  However, random matrices require storing all m×n entries and are difficult
+  to implement in hardware (FPGA, ASIC) where structured matrices are preferred.
+
+  Deterministic constructions of RIP matrices with m = O(k² log n) exist
+  (e.g., from algebraic geometry codes, Reed-Solomon codes, chirp sequences),
+  but none achieves the optimal O(k log n/k) bound. The "coherence barrier"
+  (μ ≥ √((n-m)/(m(n-1)))) means any deterministic matrix must have coherence
+  limited by this bound, and the best known constructions have μ ~ k^{-1/2},
+  giving m ~ k² rather than m ~ k log n.
+
+  Whether the optimal O(k log n) bound is achievable deterministically is an
+  open problem in compressed sensing theory. A positive resolution would
+  enable: (1) hardware-efficient compressed sensing cameras and radars;
+  (2) provably secure sensing matrices for privacy-preserving measurements;
+  (3) explicit constructions with additional algebraic structure (cyclic,
+  sparse) for efficient encoding/decoding algorithms.
+systematic_gaps:
+  - No deterministic construction achieves RIP with δ_k < 1/√2 for m < k²
+    — the coherence barrier appears fundamental but has not been proven to be.
+  - The existence of "almost deterministic" constructions (derandomisation of
+    random constructions) approaching O(k log n) with O(log log n) random bits
+    is unexplored.
+  - Connections to extremal graph theory (Ramsey numbers, expander graphs)
+    and the RIP condition have not been fully exploited for deterministic constructions.
+  - Whether the RIP constant δ_{2k} < √2-1 (sufficient for exact ℓ₁ recovery)
+    can be achieved deterministically for any m = o(k²) is unknown.
+suggested_hypotheses:
+  - h-compressed-sensing-mri-10x-scan-time-reduction-clinical-safety
+related_bridges:
+  - b-compressed-sensing-sparse-recovery
+references:
+  - doi: "10.1109/TIT.2006.871582"
+    note: Candès et al. (2006) IEEE Trans Inf Theory 52:489 — RIP framework
+  - doi: "10.1109/TIT.2006.885507"
+    note: Donoho (2006) IEEE Trans Inf Theory 52:1289 — compressed sensing
+last_reviewed: "2026-05-06"

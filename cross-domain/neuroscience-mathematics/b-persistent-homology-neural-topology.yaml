@@ -1,0 +1,136 @@
+id: b-persistent-homology-neural-topology
+title: >
+  Topological data analysis via persistent homology — tracking connected
+  components, loops, and voids in simplicial complexes built from neural
+  co-firing patterns across filtration scales — reveals topology-native
+  structure in hippocampal population codes that geometry-based methods miss,
+  providing a direct mathematical tool for understanding how neural manifolds
+  encode behaviorally relevant variables.
+status: established
+fields:
+  - computational-neuroscience
+  - algebraic-topology
+  - mathematics
+  - data-science
+  - cognitive-neuroscience
+bridge_claim: >
+  Topological data analysis (TDA) applies algebraic topology to data clouds.
+  The key tool is persistent homology: given a set of points (neurons), build
+  a growing sequence of simplicial complexes (Čech or Vietoris-Rips filtration)
+  by adding edges when neuron pair distances fall below threshold ε, triangles
+  when triples are all within ε, etc. Track topological invariants — Betti
+  numbers β₀ (connected components), β₁ (1-cycles/loops), β₂ (2-cycles/voids)
+  — as ε increases. Features that persist over a wide range of ε are robust
+  topological structure; short-lived features are noise. The output is a
+  persistence diagram: a scatter plot of (birth, death) pairs for each
+  topological feature.
+
+  Applied to neural data, the simplicial complex is built from neural
+  co-activation patterns: neurons i, j form an edge if they co-fire above
+  threshold; neurons i, j, k form a 2-simplex (triangle) if they all co-fire;
+  etc. This is the clique complex of the functional connectivity graph.
+
+  Giusti et al. (2015) applied TDA to hippocampal place cell recordings from
+  freely foraging rodents. The clique complex of place cell co-firing showed
+  significant β₁ homology — one-dimensional loops — that matched the circular
+  topology of the physical environment (a linear track has β₁ = 0; a circular
+  track has β₁ = 1). The neural topology reflected the topology of the
+  navigated space without any knowledge of the animal's position.
+
+  Curto et al. (2017) developed clique topology theory: the pattern of
+  simplicial cliques in a neural code determines which stimuli can be decoded
+  (the "convex position" problem). This predicts that hippocampal neural codes
+  should have the topology of the space being represented, regardless of the
+  specific geometry (firing field shapes). The topology is a robust, geometry-
+  independent signature of the coded variable.
+
+  Temporal persistence diagrams track how β₀ and β₁ change during learning,
+  sleep, and memory consolidation. Recent work (Ziegler et al. 2018) showed
+  that CA1 population topology stabilises during learning and is replayed during
+  sleep, with persistent topological features correlating with memory performance.
+
+  The broader significance: neural manifold hypothesis (Cunningham & Yu 2014)
+  proposes that neural populations evolve on low-dimensional manifolds.
+  Persistent homology quantifies the topology of these manifolds model-free —
+  it does not assume linear subspaces (PCA) or any specific geometry. It
+  discovers the intrinsic topology of neural activity.
+
+  Carlsson (2009) review established TDA as a general mathematical framework:
+  persistent homology is functorial, stable under perturbations, and provides
+  a complete invariant of the topology of a data cloud at all scales simultaneously.
+translation_table:
+  - field_a_term: "Betti numbers β₀, β₁, β₂ (algebraic topology)"
+    field_b_term: "Connected components, loops, voids in the neural co-firing complex"
+    note: β₁ > 0 indicates a loop in the neural population code — e.g. circular track
+  - field_a_term: "Filtration parameter ε (persistent homology)"
+    field_b_term: "Co-firing threshold for including neural pairs in the simplicial complex"
+    note: Persistent features across a wide range of ε are robust neural topology
+  - field_a_term: "Persistence diagram (birth-death pairs)"
+    field_b_term: "Multi-scale topological fingerprint of the neural population code"
+    note: Points far from the diagonal = long-lived topological features = true signal
+  - field_a_term: "Clique complex of co-firing graph (mathematics)"
+    field_b_term: "Functional connectivity complex of neural ensemble"
+    note: Cliques in co-firing graph = simplices in the neural topological complex
+  - field_a_term: "Bottleneck distance between persistence diagrams"
+    field_b_term: "Metric comparing neural topology across sessions, animals, or brain states"
+    note: Stable metric on topological signatures — allows statistical testing
+  - field_a_term: "Euler characteristic χ = β₀ - β₁ + β₂ (topology)"
+    field_b_term: "Topological summary statistic of neural population code"
+    note: Cheaper to compute than full persistent homology; useful as a rapid screening statistic
+related_unknowns:
+  - u-persistent-homology-neural-manifold-geometry-vs-topology-decoupling
+related_hypotheses:
+  - h-hippocampal-place-cell-population-topology-reflects-navigated-space-topology
+cross_pollination_opportunities:
+  - >
+    TDA of EEG and fMRI data: functional connectivity matrices from EEG/MEG and
+    fMRI produce graphs amenable to persistent homology analysis. Topological
+    biomarkers (persistent β₁) have been proposed for Alzheimer's disease,
+    epilepsy, and schizophrenia — conditions where neural connectivity is
+    disrupted. TDA provides model-free signatures that complement graph-theoretic
+    measures (clustering coefficient, path length).
+  - >
+    Mapper algorithm (Singh, Mémoli, Carlsson 2007): a TDA-based dimensionality
+    reduction that preserves topological structure, producing a simplicial complex
+    summary of high-dimensional neural data. Mapper can reveal the circular
+    organisation of head direction cells, the toroidal structure of grid cells,
+    and the manifold topology of motor cortex — without prior knowledge of the
+    coded variable. This is a general discovery tool for neural population geometry.
+  - >
+    Sheaf theory (Robinson 2014) extends TDA to incorporate local geometric
+    information (not just topology) on the neural manifold. Neural sheaves — where
+    each neuron carries a local data vector — can model how information is
+    propagated across the population. This is more powerful than persistent
+    homology alone and connects to opinion dynamics models in social science
+    (Ghrist & Hansen 2021).
+communication_gap: >
+  Algebraic topology (persistent homology, simplicial complexes, Betti numbers)
+  is graduate mathematics taught in algebraic topology courses. Neuroscientists
+  analysing population codes typically use PCA, UMAP, or riemannian geometry
+  (not algebraic topology). The TDA community publishes in Foundations of
+  Computational Mathematics and SIAM Journal on Applied and Computational
+  Topology, with limited reach to Neuron, Nature Neuroscience, or Journal of
+  Neuroscience. The Giusti et al. (2015) PNAS paper is the canonical bridge
+  paper but has been primarily cited within the computational neuroscience
+  community, not absorbed into mainstream systems neuroscience.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1073/pnas.1506407112"
+    note: >
+      Giusti, Pastalkova, Curto & Itskov (2015) Clique topology reveals intrinsic
+      geometric structure in neural correlations, PNAS 112:13455 —
+      first demonstration of β₁ topology in hippocampal place cell population
+  - doi: "10.1090/bull/1554"
+    note: >
+      Curto, Itskov, Veliz-Cuba & Youngs (2017) The neural ring: an algebraic
+      tool for analyzing the intrinsic structure of neural codes,
+      Bull Am Math Soc 54:201 — clique topology and decodability theory
+  - doi: "10.1038/s41467-018-04508-5"
+    note: >
+      Ziegler, Bhatt, Bhatt et al. (2018) Topological organization of the
+      entorhinal cortex, Nat Commun 9:5270 — topology of EC population codes
+      and memory consolidation
+  - doi: "10.1090/S0273-0979-09-01249-X"
+    note: >
+      Carlsson (2009) Topology and data, Bull Am Math Soc 46:255 —
+      foundational review of persistent homology and TDA for data analysis
