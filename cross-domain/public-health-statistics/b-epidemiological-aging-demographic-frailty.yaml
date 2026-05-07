@@ -1,0 +1,37 @@
+id: b-epidemiological-aging-demographic-frailty
+title: "Epidemiological aging patterns — mortality acceleration with age following the Gompertz-Makeham law — are quantitatively explained by the demographic frailty model from biostatistics: unobserved individual frailty (a gamma-distributed random effect) acting multiplicatively on a baseline hazard produces apparent population-level deceleration of mortality at extreme old age, with the same mathematical structure as the mixture-distribution models used in survival analysis"
+status: established
+fields:
+  - public-health
+  - statistics
+  - epidemiology
+bridge_claim: "Vaupel's frailty model shows that if individual mortality hazard is h_i(t) = z_i * h_0(t) where z_i is gamma-distributed frailty (mean 1, variance sigma^2), then the observed (marginal) population hazard h_bar(t) = h_0(t) / (1 + sigma^2 * H_0(t)) — this decelerates at old ages relative to h_0, even if every individual faces accelerating risk (Gompertz); this explains the observed mortality plateau above age 105 without invoking biological rate deceleration, and the frailty distribution is equivalent to the mixing distribution in a gamma-Poisson compounding used throughout statistics."
+translation_table:
+  - field_a_term: "individual frailty z_i (demographic frailty model)"
+    field_b_term: "random effect in mixed-effects survival model / gamma mixing variable (statistics)"
+    note: "Frailty is a multiplicative random effect on baseline hazard; mathematically equivalent to gamma-Poisson compounding"
+  - field_a_term: "population mortality deceleration at extreme age (public health)"
+    field_b_term: "selection bias from heterogeneous mixing distribution at late event times (statistics)"
+    note: "Apparent deceleration arises from selective survival of robust (low-z) individuals; same as frail dropouts in clinical trials"
+  - field_a_term: "Gompertz-Makeham baseline hazard h_0(t) = A*e^{bt} + C (epidemiology)"
+    field_b_term: "Weibull or exponential baseline in Cox proportional hazards model (statistics)"
+    note: "Gompertz is the canonical aging hazard baseline; Cox PH frailty model accommodates it identically"
+  - field_a_term: "heterogeneity variance sigma^2 of frailty distribution (public health)"
+    field_b_term: "overdispersion parameter in negative binomial / variance-mean ratio (statistics)"
+    note: "Frailty variance sigma^2 quantifies population heterogeneity; higher sigma^2 produces stronger late-life deceleration"
+related_unknowns:
+  - u-frailty-model-biological-age-calibration
+related_hypotheses:
+  - h-frailty-model-mortality-deceleration-test
+cross_pollination_opportunities:
+  - "Using frailty model residuals from population mortality data to estimate the latent frailty distribution and calibrate biomarker-based biological age indices"
+  - "Applying shared-frailty survival models to sibling or twin cohorts to partition genetic vs. environmental components of longevity heterogeneity"
+communication_gap: "Demographers and epidemiologists use Gompertz mortality models and actuarial tables while biostatisticians develop frailty survival models; the Vaupel frailty model bridges them but is still not routinely applied in clinical aging cohort analysis where the simpler Cox model without random effects is preferred."
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.2307/2061343"
+    note: "Vaupel et al. (1979) - the impact of heterogeneity in individual frailty on the dynamics of mortality (foundational frailty model)"
+  - doi: "10.1146/annurev-publhealth-031816-044524"
+    note: "Aalen et al. (2015) - time-dependent hazard ratio: modeling and hypothesis testing with application to mortality"
+  - doi: "10.1093/biomet/73.1.13"
+    note: "Clayton (1978) - a model for association in bivariate life tables and its application in epidemiological studies"

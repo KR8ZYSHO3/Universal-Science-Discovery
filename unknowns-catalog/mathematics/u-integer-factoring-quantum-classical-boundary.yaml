@@ -1,0 +1,26 @@
+id: u-integer-factoring-quantum-classical-boundary
+title: "At what integer size n does Shor's quantum algorithm on a fault-tolerant quantum computer become faster than the number field sieve on the best classical supercomputer, and what circuit depth and physical qubit count is required to break RSA-2048 within one year of quantum computation?"
+status: open
+priority: critical
+disciplines:
+  - mathematics
+  - computer-science
+  - quantum-computing
+  - cryptography
+summary: >
+  Shor's algorithm runs in poly(log n) time for factoring n on a fault-tolerant quantum computer, while
+  NFS requires sub-exponential L_n[1/3,c] time classically. But practical quantum advantage requires
+  enough logical qubits with sufficient gate fidelity. Key unknowns: (1) what is the precise crossover
+  size n* above which a fault-tolerant quantum computer with known physical parameters outperforms the
+  best projected NFS implementation (considering hardware improvements on both sides)? (2) How many
+  physical qubits per logical qubit are required for Shor's algorithm on RSA-2048 at surface code
+  threshold, given realistic gate error rates of 0.1%? (3) Does the quantum speedup for discrete
+  logarithm in pairing-friendly elliptic curves (used in post-quantum candidates) follow the same
+  crossover analysis as RSA?
+systematic_gaps:
+  - Precise resource estimates for Shor's algorithm depend on magic state distillation overhead which varies across fault-tolerant architectures
+  - Classical NFS algorithmic improvements (lattice sieving, GPU linear algebra) continue to push classical performance; crossover point is a moving target
+  - Post-quantum cryptographic migration planning requires the crossover estimate but NIST guidance does not specify a single concrete number
+related_bridges:
+  - b-number-field-sieve-cryptographic-hardness
+last_reviewed: "2026-05-07"

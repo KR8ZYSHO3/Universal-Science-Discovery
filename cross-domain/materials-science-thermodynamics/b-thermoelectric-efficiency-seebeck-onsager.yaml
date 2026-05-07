@@ -1,0 +1,37 @@
+id: b-thermoelectric-efficiency-seebeck-onsager
+title: "Thermoelectric efficiency is governed by the dimensionless figure of merit zT = S^2 sigma T / kappa, where the Seebeck coefficient S, electrical conductivity sigma, and thermal conductivity kappa are related by the Onsager reciprocal relations of irreversible thermodynamics — the same phenomenological framework that unifies thermoelectric, Peltier, and Thomson effects as off-diagonal elements of a generalized transport coefficient matrix"
+status: established
+fields:
+  - materials-science
+  - thermodynamics
+  - condensed-matter-physics
+bridge_claim: "The Onsager formalism writes the heat flux J_Q and electric current J_e as J_e = L_11 * (-grad mu / T) + L_12 * (-grad T / T^2) and J_Q = L_21 * (-grad mu / T) + L_22 * (-grad T / T^2), where Onsager symmetry requires L_12 = L_21 (= T * sigma * S); the zT figure of merit emerges as zT = L_12^2 / (L_11 * L_22 - L_12^2), and the Carnot-relative thermoelectric efficiency eta/eta_C = (sqrt(1+zT)-1)/(sqrt(1+zT)+T_C/T_H) is derived purely from the Onsager matrix without invoking material-specific models, making it universally applicable to any coupled heat-charge transport material."
+translation_table:
+  - field_a_term: "Seebeck coefficient S (thermopower) (materials science)"
+    field_b_term: "off-diagonal Onsager coefficient L_12 / (T * sigma) in transport matrix (thermodynamics)"
+    note: "S measures the voltage generated per unit temperature gradient; S = L_12 / (T * L_11) in Onsager notation"
+  - field_a_term: "power factor S^2 sigma (materials science)"
+    field_b_term: "squared off-diagonal Onsager coefficient L_12^2 / (T^2 * L_11) (thermodynamics)"
+    note: "Power factor is the electrical power output per temperature gradient; directly proportional to L_12^2"
+  - field_a_term: "thermal conductivity kappa = kappa_e + kappa_L (materials science)"
+    field_b_term: "diagonal thermal transport coefficient L_22 (thermodynamics)"
+    note: "Electronic (kappa_e = L_T*T, Wiedemann-Franz) and lattice (kappa_L) contributions enter L_22 additively"
+  - field_a_term: "figure of merit zT (materials science)"
+    field_b_term: "coupling coefficient (L_12^2 / L_11*L_22 in Onsager matrix) (thermodynamics)"
+    note: "zT is the coupling strength of the off-diagonal Onsager terms relative to the diagonal; zT = 1 at 50% Carnot efficiency"
+related_unknowns:
+  - u-thermoelectric-zt-theoretical-limit
+related_hypotheses:
+  - h-thermoelectric-phonon-glass-electron-crystal
+cross_pollination_opportunities:
+  - "Using Onsager formalism to derive exact thermodynamic bounds on multi-stage cascaded thermoelectric systems operating between multiple heat reservoirs"
+  - "Applying Boltzmann transport equation from condensed matter to compute Onsager L_ij coefficients from first-principles band structures for new thermoelectric materials"
+communication_gap: "Materials scientists optimize thermoelectrics empirically by trial-and-error synthesis while thermodynamicists work with abstract Onsager theory; the connection between zT and Onsager coupling is textbook knowledge in thermoelectrics but thermodynamic upper bounds on zT (beyond the Carnot limit argument) are not routinely cited in synthesis papers."
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1103/PhysRev.37.405"
+    note: "Onsager (1931) - reciprocal relations in irreversible processes I (foundational Onsager paper)"
+  - doi: "10.1126/science.1155592"
+    note: "Snyder & Toberer (2008) - complex thermoelectric materials (zT optimization review)"
+  - doi: "10.1063/1.1723226"
+    note: "Ioffe (1957) - semiconductor thermoelements and thermoelectric cooling (zT figure of merit)"

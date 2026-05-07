@@ -1,0 +1,57 @@
+id: b-quantum-error-threshold-fault-tolerant-computing
+title: >
+  The quantum fault-tolerance threshold theorem connects quantum error correction
+  to information theory: if the physical error rate per gate p is below a threshold
+  p_th (typically ~1% for surface codes), arbitrarily long quantum computations
+  can be performed reliably by concatenating error-correcting codes, with overhead
+  growing only polylogarithmically in computation length.
+status: established
+fields:
+  - quantum-computing
+  - quantum-information-theory
+  - computer-science
+bridge_claim: >
+  For a concatenated code of level k with physical error rate p and threshold p_th,
+  the logical error rate scales as p_L = p_th·(p/p_th)^{2^k}. Each level of
+  concatenation doubles the exponent, so after k = log₂(log(1/ε)/log(1/p_th))
+  levels, logical error rate drops below ε. For a surface code on a 2D grid with
+  distance d, the logical error rate is p_L ≈ (p/p_th)^{⌈d/2⌉}, requiring
+  O(d²) physical qubits per logical qubit. The threshold p_th arises from a
+  mapping to a 2D random-bond Ising model: fault tolerance corresponds to the
+  ferromagnetic phase, and p_th is the critical temperature of that phase
+  transition — directly bridging quantum computation to statistical mechanics
+  and the phase transition theory of information thresholds.
+translation_table:
+  - field_a_term: physical qubit error rate p (quantum computing)
+    field_b_term: noise rate below threshold / subcritical disorder (information theory)
+    note: The fault-tolerance threshold is analogous to a percolation or Ising critical point
+  - field_a_term: fault-tolerance threshold p_th (quantum computing)
+    field_b_term: critical error rate / channel capacity threshold (information theory)
+    note: Below p_th, error correction wins over error accumulation; above it, errors dominate
+  - field_a_term: logical qubit encoded in surface code (quantum computing)
+    field_b_term: codeword in quantum error-correcting code (information theory)
+    note: The surface code is a topological code where logical operators are non-contractible loops
+  - field_a_term: syndrome measurement (quantum computing)
+    field_b_term: parity check matrix measurement (information theory)
+    note: Syndrome extraction is the quantum analog of classical syndrome decoding in LDPC codes
+related_unknowns:
+  - u-practical-quantum-error-correction-below-surface-code-threshold
+related_hypotheses:
+  - h-topological-quantum-codes-optimal-threshold-constant-overhead
+cross_pollination_opportunities:
+  - Applying belief-propagation LDPC decoding algorithms from classical coding theory to quantum error correction to reduce decoder latency
+  - Using the mapping between surface code threshold and 2D Ising criticality to predict threshold improvements from correlated noise models
+communication_gap: >
+  Quantum computing engineers designing error correction hardware and information
+  theorists studying channel capacity share the threshold theorem framework, but
+  the full LDPC-to-quantum-LDPC translation (especially for finite-rate codes)
+  was only achieved in 2022 (Panteleev-Kalachev), showing a persistent gap between
+  classical coding theory and quantum error correction despite shared mathematics.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1103/PhysRevA.52.R2493"
+    note: Shor (1995) - fault-tolerant quantum computation (original threshold concept)
+  - doi: "10.1103/PhysRevLett.85.910"
+    note: Knill et al. (2001) - threshold accuracy for quantum computation
+  - doi: "10.1103/PhysRevA.86.032324"
+    note: Wang et al. (2012) - surface code quantum computing (practical threshold ~1%)

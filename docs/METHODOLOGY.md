@@ -24,3 +24,28 @@ Before labeling work as a **finding**:
 
 - Place generated tables, figures, and exports that belong in version control under [artifacts/](../artifacts/) with a short README note on how they were produced.
 - Prefer deterministic scripts in [scripts/](../scripts/) over one-off undocumented steps.
+
+---
+
+## Data Harvesting
+
+The harvest-to-unknown pipeline integrates external scientific databases to surface bridge candidates and open questions.
+
+### Pipeline stages
+
+1. **API query** — A harvester script in `scripts/harvesters/` queries an external source (e.g., OpenAlex, PubMed) for papers matching a cross-domain concept pair (e.g., "Percolation theory" + "Ecology"). Only metadata and abstracts are retrieved; full paper text is never ingested.
+
+2. **Abstract analysis** — The harvester reconstructs the abstract, extracts concept tags, and computes citation counts. It records a `bridge_hint` field encoding the two-field span.
+
+3. **Candidate YAML stub** — Promising papers are serialized to a JSON staging file under `drafts/` (e.g., `drafts/openalex_candidates.json`). Each entry carries source attribution (DOI, API source, harvest date) to satisfy `docs/ETHICS_REPRODUCIBILITY_AND_DATA.md`.
+
+4. **Human expert review** — A domain expert reads the stub, evaluates scientific plausibility, updates confidence levels, and converts the entry to a structured YAML record.
+
+5. **Merge to main** — Reviewed records are promoted to `cross-domain/` (bridges) or `unknowns-catalog/` (open questions) via a normal PR. CI validates schema before merge. No harvested stub reaches `main` without human sign-off.
+
+### Traceability
+
+- Every merged record retains `source:` and `doi:` fields linking back to the originating paper.
+- Harvest scripts are deterministic: re-running with the same concept pair and `--top` value reproduces the same candidate list (modulo upstream API updates).
+- See `docs/DATA_SOURCES.md` for the full catalog of integrated and planned sources.
+

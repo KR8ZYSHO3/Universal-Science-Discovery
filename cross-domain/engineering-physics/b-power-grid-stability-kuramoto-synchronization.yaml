@@ -1,0 +1,58 @@
+id: b-power-grid-stability-kuramoto-synchronization
+title: >
+  Power grid stability maps mathematically onto the Kuramoto model of coupled
+  oscillators from physics: generators are phase oscillators coupled by transmission
+  lines, and synchrony corresponds to the grid-locked state; the critical coupling
+  strength for synchronization determines the grid's stability margin against
+  cascading failures.
+status: established
+fields:
+  - electrical-engineering
+  - physics
+  - complex-systems
+bridge_claim: >
+  The swing equation for a synchronous generator: M·d²δᵢ/dt² + D·dδᵢ/dt =
+  Pᵢ - ∑_j K_ij·sin(δᵢ - δⱼ) is structurally identical to the Kuramoto model
+  dθᵢ/dt = ωᵢ + ∑_j K_ij·sin(θⱼ - θᵢ) for phase oscillators. In both models,
+  synchrony (all dδᵢ/dt → constant) occurs when coupling K > K_c where
+  K_c = 2/(πg(0)N) (g(ω) = frequency distribution). The order parameter
+  r·e^{iψ} = (1/N)∑exp(iθᵢ) distinguishes synchronized (r → 1) from
+  incoherent (r → 0) states. Grid cascades (blackouts) are equivalent to
+  loss of phase locking in the Kuramoto model when a line trips and reduces K
+  below K_c. The North American grid's 60 Hz synchrony is maintained precisely
+  because N generators are Kuramoto-coupled with sufficient K; frequency
+  deviations (df/dt) are the early-warning signal of approaching K_c.
+translation_table:
+  - field_a_term: generator rotor angle δᵢ (electrical engineering)
+    field_b_term: Kuramoto phase oscillator θᵢ (physics)
+    note: Both represent the phase of a periodic oscillator; swing equation = second-order Kuramoto model
+  - field_a_term: transmission line admittance Y_ij (electrical engineering)
+    field_b_term: coupling constant K_ij (physics)
+    note: Line susceptance determines coupling strength; loss of a line reduces K locally
+  - field_a_term: grid synchrony at 60/50 Hz (electrical engineering)
+    field_b_term: synchronized state of Kuramoto model (r ≈ 1) (physics)
+    note: All generators lock to the same frequency; Kuramoto order parameter r measures synchrony
+  - field_a_term: cascading blackout / frequency collapse (electrical engineering)
+    field_b_term: desynchronization transition in Kuramoto model (physics)
+    note: Blackouts are the grid-scale manifestation of the Kuramoto phase transition losing coherence
+related_unknowns:
+  - u-power-grid-cascading-failure-early-warning-signals
+related_hypotheses:
+  - h-distributed-renewable-generators-kuramoto-stability-different-grid-topology
+cross_pollination_opportunities:
+  - Using Kuramoto model mean-field analysis to design minimum-coupling requirements for stable integration of distributed renewable energy sources
+  - Applying synchronization stability theory from physics to optimize grid topology for resilience against targeted attacks
+communication_gap: >
+  Power systems engineers use the swing equation for grid stability analysis while
+  physicists study the Kuramoto model for synchronization; the mathematical equivalence
+  was recognized in the 2000s and has driven fruitful cross-disciplinary work on
+  complex network synchronization, but many grid stability textbooks do not present
+  the Kuramoto framework, leaving the connection underexploited in engineering education.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1063/1.4745197"
+    note: Dörfler & Bullo (2012) - synchronization and transient stability in power networks (Kuramoto-grid bridge)
+  - doi: "10.1038/nphys2535"
+    note: Motter et al. (2013) - spontaneous synchrony in power-grid networks
+  - doi: "10.1103/RevModPhys.77.137"
+    note: Acebrón et al. (2005) - Kuramoto model review
