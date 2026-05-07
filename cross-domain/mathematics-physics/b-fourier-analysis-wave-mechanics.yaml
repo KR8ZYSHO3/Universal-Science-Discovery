@@ -1,0 +1,72 @@
+id: b-fourier-analysis-wave-mechanics
+title: "Fourier Analysis and Wave Mechanics — decomposition of functions into sinusoidal components connects PDE solutions, signal processing, and quantum uncertainty"
+status: established
+fields:
+  - mathematics
+  - physics
+  - signal-processing
+  - quantum-mechanics
+  - applied-mathematics
+
+bridge_claim: >
+  The Fourier transform F(ω) = ∫f(t)e^{-iωt}dt decomposes any square-integrable
+  function into sinusoidal components, establishing a bijective correspondence between
+  the time domain and frequency domain. Parseval's theorem asserts energy conservation:
+  ∫|f(t)|²dt = (1/2π)∫|F(ω)|²dω — the total energy is identical in both representations.
+  The Heisenberg–Weyl uncertainty principle σ_t·σ_ω ≥ ½ derives from the
+  Cauchy–Schwarz inequality applied to conjugate Fourier pairs, meaning no function can
+  be simultaneously arbitrarily concentrated in time and frequency. The wave equation
+  ∂²u/∂t² = c²∇²u admits plane wave solutions e^{i(kx−ωt)} with dispersion relation
+  ω = ck; normal mode decomposition expresses solutions in bounded domains as
+  superpositions of Laplacian eigenfunctions (standing waves in instruments, waveguides,
+  quantum wells). The discrete Fourier transform (DFT) computed via the Fast Fourier
+  Transform (FFT) algorithm (Cooley & Tukey 1965) reduces complexity from O(N²) to
+  O(N log N), enabling modern signal processing, MRI reconstruction, audio/video
+  compression, and spectroscopy. The Fourier transform is the mathematical skeleton
+  connecting classical wave physics, quantum mechanics, and digital signal processing.
+
+translation_table:
+  - field_a_term: "Fourier transform F(ω) = ∫f(t)e^{-iωt}dt"
+    field_b_term: "spectral decomposition of a wave field into normal modes"
+    note: "The abstract L² isomorphism concretely corresponds to measuring a signal's frequency content"
+  - field_a_term: "Parseval's theorem (energy conservation between domains)"
+    field_b_term: "conservation of wave energy density integrated over all frequencies"
+    note: "Unitary nature of the Fourier transform; essential for radiometry and power spectral density"
+  - field_a_term: "uncertainty principle σ_t·σ_ω ≥ ½"
+    field_b_term: "trade-off between temporal resolution and frequency resolution"
+    note: "In quantum mechanics becomes Δx·Δp ≥ ℏ/2; in signal processing sets limits for filter design"
+  - field_a_term: "FFT algorithm O(N log N) complexity"
+    field_b_term: "efficient numerical computation of spectral content"
+    note: "Cooley–Tukey divide-and-conquer reduces N² multiplications; foundational to all digital DSP"
+  - field_a_term: "dispersion relation ω = ck"
+    field_b_term: "phase velocity of plane waves in a medium"
+    note: "Non-trivial dispersion (ω not proportional to k) causes wave-packet spreading (group velocity ≠ phase velocity)"
+  - field_a_term: "Laplacian eigenfunctions (normal modes)"
+    field_b_term: "standing waves in bounded domain (instrument, waveguide, quantum well)"
+    note: "Quantisation in quantum mechanics arises from boundary conditions on ψ; same mathematics as vibrating drum"
+
+related_unknowns: []
+related_hypotheses: []
+
+cross_pollination_opportunities:
+  - "Apply wavelet transforms (localized Fourier analysis) to non-stationary signals such as EEG and gravitational wave transients"
+  - "Use the FFT structure to design quantum algorithms — the quantum Fourier transform is central to Shor's factoring algorithm"
+  - "Explore compressive sensing (Candès & Tao 2006): sparse signals recoverable with far fewer measurements than Nyquist requires, exploiting sparsity in the Fourier basis"
+
+communication_gap: >
+  Mathematicians emphasise the abstract L² Hilbert space framework and functional
+  analysis; physicists use Fourier decomposition as a practical computational tool;
+  engineers focus on DFT/FFT implementation. Students often learn these three
+  perspectives in isolation, missing the unifying conceptual thread from Fourier
+  (1822) through Shannon sampling theory to quantum field theory mode expansions.
+
+references:
+  - doi: "10.1090/S0273-0979-04-01007-4"
+    note: "Folland & Sitaram (1997) J Fourier Anal Appl 3:207 — uncertainty principles survey"
+  - doi: "10.1090/S0025-5718-1965-0178586-1"
+    note: "Cooley & Tukey (1965) Math Comput 19:297 — FFT algorithm"
+  - doi: "10.1119/1.10660"
+    note: "Griffiths (2017) Introduction to Quantum Mechanics — Fourier methods in QM"
+  - note: "Fourier (1822) Théorie Analytique de la Chaleur — original decomposition of heat equation solutions"
+
+last_reviewed: "2026-05-06"

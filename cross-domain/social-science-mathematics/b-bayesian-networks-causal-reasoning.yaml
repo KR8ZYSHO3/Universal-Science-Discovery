@@ -1,0 +1,72 @@
+id: b-bayesian-networks-causal-reasoning
+title: "Bayesian Networks and Causal Reasoning — directed graphical models, d-separation, and Pearl's do-calculus formalise the distinction between correlation and causation"
+status: established
+fields:
+  - mathematics
+  - social-science
+  - statistics
+  - computer-science
+  - epidemiology
+
+bridge_claim: >
+  A Bayesian network (BN) is a directed acyclic graph (DAG) in which nodes represent
+  random variables and edges encode conditional dependencies. The joint distribution
+  factorises as P(X₁,…,Xₙ) = ∏P(Xᵢ|parents(Xᵢ)), enabling efficient inference in
+  high-dimensional spaces. The d-separation criterion (Pearl 1988) reads conditional
+  independence from graph structure: node sets A and B are independent given C if
+  every path between A and B is blocked by C — either through a chain or fork
+  (conditioning on a collider opens a path, not blocks it). Pearl's do-calculus (2000)
+  provides a complete formal framework for causal inference: the intervention do(X=x)
+  is an operation that severs incoming edges to X, distinct from the observational
+  conditioning P(Y|X=x). The backdoor criterion identifies a sufficient adjustment set
+  to estimate the causal effect P(Y|do(X=x)) from observational data. Counterfactuals
+  extend the framework: P(Y_x=y|X=x', Y=y') — the probability that Y would be y had
+  X been set to x, given that we actually observed X=x' and Y=y'. These tools are
+  foundational to causal epidemiology, programme evaluation in economics, and
+  algorithmic fairness. The Spirtes–Glymour–Scheines (SGS) PC algorithm recovers DAG
+  structure from data under the Markov and faithfulness assumptions.
+
+translation_table:
+  - field_a_term: "directed acyclic graph (DAG)"
+    field_b_term: "causal diagram encoding researcher assumptions about data-generating process"
+    note: "DAGs in social science encode the investigator's causal model; topology determines identifiability"
+  - field_a_term: "do-calculus intervention do(X=x)"
+    field_b_term: "randomised controlled trial or policy intervention"
+    note: "do(X=x) emulates an RCT by breaking confounding paths; observational P(Y|X=x) ≠ P(Y|do(X=x))"
+  - field_a_term: "backdoor criterion"
+    field_b_term: "identification of sufficient confounders to control for in regression"
+    note: "A set Z satisfies the backdoor criterion if it blocks all back-door paths from X to Y"
+  - field_a_term: "d-separation (conditional independence)"
+    field_b_term: "partial correlation equals zero after controlling for a set of variables"
+    note: "Graphical test replaces algebraic independence checks; faithfulness assumption makes this empirically testable"
+  - field_a_term: "counterfactual P(Y_x=y|evidence)"
+    field_b_term: "individual treatment effect — would this patient have recovered on drug X?"
+    note: "Counterfactuals require structural causal model (SCM) with noise variables; non-parametric identification is harder"
+  - field_a_term: "collider bias (opening a path by conditioning on a collider)"
+    field_b_term: "selection bias or Berkson's paradox in observational studies"
+    note: "Conditioning on a collider induces spurious correlation — a major source of bias in clinical and social research"
+
+related_unknowns: []
+related_hypotheses: []
+
+cross_pollination_opportunities:
+  - "Apply do-calculus to interpret machine learning model explanations causally — feature importance ≠ causal effect"
+  - "Use DAG-based confounder selection in genomic epidemiology (Mendelian randomisation as natural do(X) experiment)"
+  - "Combine BNs with reinforcement learning (causal RL) to learn policies that generalise across interventional distributions"
+
+communication_gap: >
+  Probabilistic graphical models were developed in the AI/computer science community
+  (Pearl, Lauritzen) while causal inference methodology developed separately in
+  epidemiology (Greenland, Robins) and econometrics (Heckman, Angrist). These
+  traditions use different notation and emphasise different identifiability conditions.
+  Pearl's (2000) unification in Causality was a landmark but remains incompletely
+  adopted across social science disciplines, partly due to resistance to explicit
+  causal DAG specification.
+
+references:
+  - note: "Pearl (1988) Probabilistic Reasoning in Intelligent Systems — BNs and d-separation"
+  - note: "Pearl (2000) Causality — do-calculus, counterfactuals, and causal inference"
+  - note: "Spirtes, Glymour & Scheines (2000) Causation, Prediction, Search — PC algorithm"
+  - note: "Peters, Janzing & Schölkopf (2017) Elements of Causal Inference — modern treatment"
+
+last_reviewed: "2026-05-06"

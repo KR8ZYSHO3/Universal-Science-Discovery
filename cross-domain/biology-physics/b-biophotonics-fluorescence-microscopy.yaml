@@ -1,0 +1,77 @@
+id: b-biophotonics-fluorescence-microscopy
+title: "Biophotonics and Fluorescence Microscopy — photophysics of excited states connects super-resolution imaging, FRET distance measurement, and genetically encoded reporters"
+status: established
+fields:
+  - biophysics
+  - cell-biology
+  - optics
+  - physics
+  - molecular-biology
+
+bridge_claim: >
+  Fluorescence proceeds through a Jablonski cycle: photon absorption promotes a
+  molecule from S0 to S1 (~1 fs), vibrational relaxation dissipates energy (ps),
+  and fluorescent emission follows (ns). The Stokes shift — emitted photon lower
+  energy than absorbed — allows spectral separation of excitation and emission,
+  enabling fluorescence microscopy to image specific molecules against a dark
+  background. Förster resonance energy transfer (FRET) exploits near-field dipole–
+  dipole coupling: donor transfers energy to acceptor at rate k_T = (1/τ_D)(R₀/r)⁶,
+  where R₀ is the Förster radius (~2–10 nm). FRET efficiency is exquisitely sensitive
+  to distance r, making it a molecular ruler for 2–10 nm structural changes — used
+  to track protein conformational changes in living cells. Super-resolution microscopy
+  circumvents the Abbe diffraction limit (d = λ/2NA ≈ 200 nm) by exploiting
+  photoswitchable fluorophores: STED microscopy (Hell & Wichmann 1994, Nobel 2014)
+  uses a depletion doughnut beam to suppress peripheral fluorescence, achieving
+  20–50 nm resolution. PALM/STORM exploit stochastic single-molecule localization —
+  localisation precision σ_loc = σ_PSF/√N ≈ 10–20 nm. Lattice light-sheet
+  microscopy (Betzig 2014) images entire zebrafish brains at 300 nm resolution and
+  1 Hz. Green fluorescent protein (GFP, Nobel 2008) and its variants provide
+  genetically encoded, cell-specific fluorescent reporters — transforming cell biology
+  into a quantitative, live-imaging science.
+
+translation_table:
+  - field_a_term: "Stokes shift (emission redshifted vs. absorption)"
+    field_b_term: "vibrational energy dissipation before fluorescence"
+    note: "Enables spectral separation of excitation and emission; fundamental to signal-to-noise in microscopy"
+  - field_a_term: "FRET efficiency E = 1/(1+(r/R₀)⁶)"
+    field_b_term: "distance between donor and acceptor fluorophores (2–10 nm)"
+    note: "Used to measure protein–protein distances, conformational changes, and binding events in live cells"
+  - field_a_term: "STED depletion beam (stimulated emission depletion)"
+    field_b_term: "suppression of fluorescence outside the focal minimum"
+    note: "Doughnut-shaped STED beam forces molecules to ground state; only sub-diffraction-limited spot fluoresces"
+  - field_a_term: "PALM/STORM single-molecule localisation"
+    field_b_term: "stochastic activation and precise centroid fitting of individual fluorophores"
+    note: "σ_loc = σ_PSF/√N; requires sparse activation so individual PSFs do not overlap"
+  - field_a_term: "GFP chromophore (p-hydroxybenzylideneimidazolinone)"
+    field_b_term: "genetically encoded fluorescent tag for specific proteins in live cells"
+    note: "Beta-barrel scaffold autocatalytically forms chromophore; >200 variants cover the visible spectrum"
+  - field_a_term: "Abbe diffraction limit d = λ/2NA"
+    field_b_term: "classical resolution limit of light microscopy (~200–250 nm)"
+    note: "Super-resolution methods circumvent this by exploiting fluorophore photophysics, not optics alone"
+
+related_unknowns: []
+related_hypotheses: []
+
+cross_pollination_opportunities:
+  - "Combine FRET sensors with optogenetics to simultaneously monitor and control signalling pathways with nanometre precision"
+  - "Apply machine learning (deep learning deconvolution) to lattice light-sheet data to further improve spatiotemporal resolution in systems imaging"
+  - "Develop CRISPR-tagged endogenous proteins with split-fluorescent protein systems to avoid overexpression artefacts in quantitative imaging"
+
+communication_gap: >
+  Optical physicists and photochemists who develop fluorescent probes and microscopy
+  methods typically publish in optics journals; cell biologists who use the instruments
+  read biology journals. Nobel Prize-level breakthroughs (STED 2014, GFP 2008) have
+  started bridging these communities, but many biologists treat super-resolution
+  microscopes as black boxes and few physicists appreciate the cell biology questions
+  that motivate instrument development.
+
+references:
+  - doi: "10.1364/OL.19.000780"
+    note: "Hell & Wichmann (1994) Opt Lett 19:780 — first STED proposal"
+  - doi: "10.1126/science.1127344"
+    note: "Betzig et al. (2006) Science 313:1642 — PALM super-resolution"
+  - doi: "10.1039/b809862j"
+    note: "Tsien (2008) Nobel Lecture — GFP development and fluorescent protein engineering"
+  - note: "Förster (1948) Ann Phys 2:55 — original FRET theory and Förster radius"
+
+last_reviewed: "2026-05-06"

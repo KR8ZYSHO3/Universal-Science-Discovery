@@ -1,0 +1,81 @@
+id: b-statistical-mechanics-information-theory
+title: "Statistical Mechanics and Information Theory — Boltzmann entropy and Shannon entropy are formally identical; Jaynes maximum entropy derives equilibrium, Landauer links erasure to thermodynamics"
+status: established
+fields:
+  - physics
+  - mathematics
+  - information-theory
+  - thermodynamics
+  - statistical-mechanics
+
+bridge_claim: >
+  The Boltzmann entropy S = k_B ln W and Shannon entropy H = −Σpᵢ log pᵢ are
+  mathematically identical after substituting k_B and adjusting the logarithm base.
+  Boltzmann counts microstates W consistent with a macrostate; Shannon measures
+  uncertainty over a probability distribution — both quantify missing information
+  about a system's microstate. Jaynes (1957) formalised this by deriving the
+  canonical ensemble from the maximum entropy principle: the equilibrium distribution
+  P(Eᵢ) ∝ e^{−βEᵢ} uniquely maximises H subject to the constraint ⟨E⟩ = U.
+  The partition function Z = Σ e^{−βEᵢ} is the moment-generating function of the
+  energy distribution: −∂ln Z/∂β = ⟨E⟩, and higher cumulants give fluctuations.
+  Mutual information I(X;Y) = H(X) − H(X|Y) quantifies statistical correlations
+  between two systems — formally equivalent to the free energy difference between a
+  correlated and an uncorrelated system. The fluctuation-dissipation theorem
+  (Callen & Welton 1951) states that equilibrium fluctuations determine linear
+  response to perturbation — connecting the same information content measured by
+  Shannon entropy to observable transport coefficients. Landauer's principle (1961)
+  establishes the thermodynamic cost of information processing: erasing one bit of
+  information requires dissipating at least k_BT ln 2 ≈ 3×10⁻²¹ J of heat into the
+  environment, directly linking logical irreversibility to the second law. Bennett
+  (1973) showed that reversible computation can avoid this cost in principle. Together,
+  these results make statistical mechanics a special case of Bayesian inference and
+  information theory the language of thermodynamic irreversibility.
+
+translation_table:
+  - field_a_term: "Boltzmann entropy S = k_B ln W"
+    field_b_term: "Shannon entropy H = −Σpᵢ log pᵢ (with k_B replacing log base)"
+    note: "Identical expressions; W = 1/p for uniform distributions gives S = k_B·H·ln2 exactly"
+  - field_a_term: "maximum entropy principle (canonical ensemble)"
+    field_b_term: "least-biased probability assignment consistent with known constraints"
+    note: "Jaynes (1957): thermodynamic equilibrium is the maximum-ignorance distribution given energy conservation"
+  - field_a_term: "partition function Z = Σ e^{−βEᵢ}"
+    field_b_term: "moment-generating function of the energy distribution"
+    note: "All thermodynamic quantities follow from derivatives of ln Z; analogous to the cumulant-generating function in probability theory"
+  - field_a_term: "mutual information I(X;Y)"
+    field_b_term: "thermodynamic free energy gain from correlations"
+    note: "I(X;Y) = F_correlated − F_uncorrelated in units of k_BT; measures usefulness of correlation for prediction"
+  - field_a_term: "fluctuation-dissipation theorem"
+    field_b_term: "linear response from equilibrium correlations"
+    note: "Dissipation (viscosity, conductivity) = equilibrium fluctuations (noise); no additional information needed"
+  - field_a_term: "Landauer limit k_BT ln 2 per bit erased"
+    field_b_term: "minimum heat dissipated per irreversible logical operation"
+    note: "Modern CPUs dissipate ~10⁶ × Landauer limit per operation; near-Landauer operation requires reversible logic gates"
+
+related_unknowns: []
+related_hypotheses: []
+
+cross_pollination_opportunities:
+  - "Use maximum entropy methods for Bayesian inference in complex biological systems where the Hamiltonian is unknown (MaxEnt models of neural population activity, protein sequence covariation)"
+  - "Explore Maxwell's demon experiments (Toyabe et al. 2010) as direct empirical tests of Landauer's principle — information erasure measured in real colloidal systems"
+  - "Apply free-energy principles (Friston) to neuroscience: the brain as an inference engine minimising surprise (free energy), directly connecting statistical mechanics to cognition"
+
+communication_gap: >
+  Statistical mechanics and information theory developed in parallel communities
+  (Boltzmann/Gibbs in physics; Shannon/Wiener in electrical engineering) using
+  similar mathematical structures without substantial cross-citation until Jaynes
+  (1957) and later the Maximum Entropy formalism. Many physicists remain unfamiliar
+  with the full scope of information-theoretic interpretations of thermodynamics,
+  and many information theorists are unaware of how closely their machinery mirrors
+  statistical mechanics. The connection to Bayesian inference (thermodynamic free
+  energy = Bayesian evidence) remains underappreciated outside specialist communities.
+
+references:
+  - note: "Boltzmann (1877) Wien Ber 76:373 — entropy and counting microstates"
+  - doi: "10.1002/j.1538-7305.1948.tb01338.x"
+    note: "Shannon (1948) Bell Syst Tech J 27:379 — mathematical theory of communication"
+  - doi: "10.1103/PhysRev.106.620"
+    note: "Jaynes (1957) Phys Rev 106:620 — information theory and statistical mechanics"
+  - doi: "10.1147/rd.53.0183"
+    note: "Landauer (1961) IBM J Res Dev 5:183 — irreversibility and heat generation in computing"
+
+last_reviewed: "2026-05-06"
