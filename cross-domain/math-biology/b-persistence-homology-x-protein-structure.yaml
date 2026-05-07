@@ -1,0 +1,45 @@
+id: b-persistence-homology-x-protein-structure
+title: >
+  Persistent homology x Protein structure - topological data analysis of folded chains
+status: proposed
+fields:
+  - mathematics
+  - biology
+  - topology
+  - structural_biology
+bridge_claim: >
+  Persistent homology (TDA) captures multi-scale topological features (loops = beta-barrels,
+  voids = hydrophobic cores) in protein contact networks and 3D atomic coordinates that are
+  invisible to RMSD or distance-based metrics; persistence diagrams of alpha-helices,
+  beta-sheets, and binding pockets encode structural class with greater than 90% accuracy
+  and are robust to conformational noise — making topology a new geometric language for
+  protein structure-function relationships.
+translation_table:
+  - field_a_term: protein alpha-helix backbone geometry (structural biology)
+    field_b_term: 1-cycle (loop) in Vietoris-Rips filtration of atomic coordinates (topology)
+    note: Alpha-helices appear as persistent H1 classes (loops) in TDA; their persistence encodes helix length and stability
+  - field_a_term: protein beta-barrel hydrophobic core (structural biology)
+    field_b_term: 2-cycle (void) in H2 of protein atomic point cloud (topology)
+    note: Beta-barrels produce persistent H2 generators (voids); persistence lifetime correlates with barrel stability
+  - field_a_term: protein RMSD (root mean square deviation) distance metric (bioinformatics)
+    field_b_term: bottleneck distance between persistence diagrams (mathematics)
+    note: Bottleneck/Wasserstein distance between persistence diagrams is more sensitive to functionally relevant structural changes than RMSD
+  - field_a_term: protein contact map (bioinformatics)
+    field_b_term: 1-skeleton of simplicial complex / filtered graph (topology)
+    note: The protein contact map is the 1-skeleton; TDA extends this to higher simplices capturing higher-order structural features
+communication_gap: >
+  Structural biologists characterizing proteins by crystallography/NMR and topologists
+  developing persistent homology (Edelsbrunner et al. 2000) worked in separate fields;
+  the application of TDA to proteins (Xia and Wei 2014) is recent and protein databases
+  (PDB) are not routinely analyzed with TDA tools — representing a large underexploited
+  opportunity since AlphaFold2-predicted structures number in the hundreds of millions
+  and topological analysis scales well.
+cross_pollination_opportunities:
+  - Apply persistent homology to AlphaFold2 structural databases to discover new protein fold classes based on topological rather than sequence similarity, potentially revealing evolutionary relationships invisible to BLAST
+  - Use persistence landscapes (functional summaries of persistence diagrams) as topological fingerprints for machine learning protein-function prediction, bypassing alignment-based methods
+related_unknowns:
+  - u-persistence-homology-x-protein-structure
+references:
+  - doi: "10.1038/s41598-020-67423-w"
+    note: "Xia & Wei (2014/2020) - Persistent homology analysis of protein structure, flexibility and folding; Int J Numer Method Biomed Eng"
+last_reviewed: "2026-05-07"

@@ -1,0 +1,43 @@
+id: h-chemotaxis-adam-optimizer-equivalence
+title: >
+  The E. coli methylation adaptation circuit is mathematically equivalent to the
+  Adam optimizer with specific beta parameters, and replacing Adam with the exact
+  biological circuit will improve convergence on non-stationary loss landscapes
+status: active
+priority: medium
+impact_score: 0.73
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: wave-62-agent
+unknowns_addressed:
+  - u-bacterial-chemotaxis-x-gradient-descent
+related_disciplines:
+  - biology
+  - computer_science
+  - biophysics
+  - optimization
+evidence_links:
+  - type: supporting
+    doi: "10.1038/nrm1503"
+    note: "Wadhams & Armitage (2004) - E. coli chemotaxis molecular mechanism; adaptation circuit is exact temporal gradient integrator"
+    confidence: 0.82
+  - type: related
+    note: "Kingma & Ba (2014) - Adam: A method for stochastic optimization; exponential moving averages of gradient and squared gradient"
+    confidence: 0.88
+  - type: supporting
+    note: "Sontag (2003) - Adaptation and regulation with signal detection implies internal model; integral feedback = methylation"
+    confidence: 0.75
+proposed_tests:
+  - description: >
+      Derive the exact differential equations for the E. coli chemotaxis adaptation
+      circuit (CheR methylation, CheB demethylation) and map to continuous-time
+      optimizer equations; identify beta_1 and beta_2 equivalent parameters for
+      Adam; test the resulting bio-Adam optimizer on benchmark ML tasks.
+    method: "Mathematical derivation from chemotaxis ODE model; implementation in PyTorch; benchmark on MNIST, CIFAR-10, and non-stationary regression tasks"
+    prediction: "Bio-Adam with adaptation-derived beta parameters outperforms standard Adam by >5% on non-stationary tasks where gradient statistics change over time"
+  - description: >
+      Test whether perfect adaptation (the defining property of the chemotaxis
+      circuit) as a constraint on optimizers prevents loss of plasticity — a known
+      failure mode of deep networks trained with Adam where gradient norms collapse.
+    method: "Long-horizon training experiment on 1000-task continual learning benchmark; measure gradient norm statistics and test accuracy over tasks"
+    prediction: "Adaptation-constrained optimizer maintains non-zero gradient effective rank throughout training; Adam shows >40% effective rank collapse after 500 tasks"

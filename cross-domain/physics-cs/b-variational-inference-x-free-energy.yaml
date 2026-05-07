@@ -1,0 +1,44 @@
+id: b-variational-inference-x-free-energy
+title: >
+  Variational inference x Free energy minimization - Bayesian inference as thermodynamics
+status: proposed
+fields:
+  - computer_science
+  - physics
+  - statistical_mechanics
+  - machine_learning
+bridge_claim: >
+  Variational Bayesian inference minimizes the variational free energy F = E[log q] -
+  E[log p] (equivalent to maximizing the ELBO), which is identical to the Helmholtz free
+  energy F = U - TS in statistical mechanics; the approximate posterior q is the Boltzmann
+  distribution at effective temperature set by prior strength, making variational inference
+  a form of statistical mechanical equilibration and deep learning (VAEs, normalizing flows)
+  an application of thermodynamic free energy minimization.
+translation_table:
+  - field_a_term: approximate posterior q(z|x) (Bayesian inference)
+    field_b_term: Boltzmann equilibrium distribution exp(-E/kT)/Z (statistical mechanics)
+    note: The variational posterior minimizing free energy is the Boltzmann distribution; the temperature T is set by prior strength
+  - field_a_term: KL divergence KL(q||p) (variational inference)
+    field_b_term: relative entropy / Kullback-Leibler divergence in non-equilibrium thermodynamics (stat mech)
+    note: The KL divergence is the excess free energy above the true minimum; it quantifies distance from Boltzmann equilibrium
+  - field_a_term: evidence lower bound ELBO = E_q[log p(x,z)] - E_q[log q(z|x)] (ML)
+    field_b_term: negative Helmholtz free energy F = -U + TS (thermodynamics)
+    note: Maximizing ELBO equals minimizing Helmholtz free energy; the expected log-likelihood maps to negative internal energy U
+  - field_a_term: variational parameters phi (neural network weights in amortized inference)
+    field_b_term: order parameter in Landau theory / control parameter in stat mech (physics)
+    note: Optimizing variational parameters corresponds to finding the order parameter that minimizes free energy
+communication_gap: >
+  Statistical physicists developed free energy minimization as a thermodynamic optimization
+  principle while Bayesian statisticians independently developed variational inference as an
+  approximation to posterior computation; the connection was made explicit by Hinton and
+  Zemel (1994) with Helmholtz machines and later by the free energy principle (Friston 2010),
+  but practical machine learning (VAEs) rarely cites the statistical mechanics literature.
+cross_pollination_opportunities:
+  - Apply renormalization group flow equations from statistical mechanics to design annealing schedules for variational inference that escape local free energy minima
+  - Use spin glass replica method to analyze the capacity and expressiveness of variational autoencoders, predicting the phase transition between underfitting and overfitting regimes
+related_unknowns:
+  - u-variational-inference-x-free-energy
+references:
+  - doi: "10.1162/neco.1995.7.5.1022"
+    note: "Hinton & Zemel (1994) - Autoencoders, minimum description length and Helmholtz free energy; NeurIPS 7"
+last_reviewed: "2026-05-07"

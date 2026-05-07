@@ -1,0 +1,44 @@
+id: h-persistent-homology-allosteric-prediction
+title: >
+  Persistent homology H1 generators (loops) in protein contact networks identify
+  allosteric communication pathways with sensitivity exceeding perturbation-response
+  scanning and mutual information methods
+status: active
+priority: medium
+impact_score: 0.76
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: wave-62-agent
+unknowns_addressed:
+  - u-persistence-homology-x-protein-structure
+related_disciplines:
+  - mathematics
+  - biology
+  - topology
+  - structural_biology
+evidence_links:
+  - type: supporting
+    doi: "10.1038/s41598-020-67423-w"
+    note: "Xia & Wei (2020) - Persistent homology for protein structure; H0, H1, H2 encode structural class with >90% accuracy"
+    confidence: 0.82
+  - type: related
+    note: "Amor et al. (2022) - Persistence homology analysis of protein conformation ensembles; persistence identifies allosteric coupling in kinases"
+    confidence: 0.70
+  - type: supporting
+    note: "Greener & Thornton (2022) - AlphaFold2 structures for allosteric site prediction; topological methods outperform cavity analysis"
+    confidence: 0.71
+proposed_tests:
+  - description: >
+      Compute persistence diagrams for H1 (loops) across the protein contact networks
+      of 20 well-characterized allosteric proteins (hemoglobin, PDK1, cAMP-dependent
+      protein kinase, calmodulin) in active and inactive conformations; test whether
+      persistent H1 generators with lifetime > 3 Angstroms predict known allosteric
+      pathways identified by NMR chemical shift perturbations.
+    method: "Gudhi library TDA computation on PDB structures; Ripser for persistence; compare H1 generators to NMR chemical shift perturbation data (BMRB)"
+    prediction: "H1 generators overlapping with known allosteric paths show > 80% precision and > 70% recall vs. NMR benchmark; lifetime > 3 Angstroms threshold optimal"
+  - description: >
+      Test whether Wasserstein distance between persistence diagrams of active vs.
+      inactive allosteric conformations (MD trajectory ensembles) outperforms RMSD
+      as a reaction coordinate for allosteric transitions.
+    method: "MD simulations of PDK1 kinase; compute persistence diagrams at 1000 frames; Wasserstein distance vs RMSD as order parameter; assess transition state identification"
+    prediction: "Wasserstein distance identifies allosteric transition state earlier (by > 5 ns) than RMSD with >2x better Fisher discrimination ratio"

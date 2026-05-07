@@ -1,0 +1,45 @@
+id: h-income-boltzmann-condensation-threshold
+title: >
+  Real economies above a critical capital return rate r > g (Piketty condition)
+  undergo a Bose-Einstein-like wealth condensation transition with a predictable
+  Pareto exponent determined by the saving propensity distribution
+status: active
+priority: medium
+impact_score: 0.75
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: wave-62-agent
+unknowns_addressed:
+  - u-entropy-maximization-x-income-distribution
+related_disciplines:
+  - physics
+  - economics
+  - statistical_mechanics
+  - econophysics
+evidence_links:
+  - type: supporting
+    doi: "10.1140/epjb/e2002-00346-7"
+    note: "Dragulescu & Yakovenko (2001) - Exponential income distribution from random exchange; condensation from saving propensity"
+    confidence: 0.80
+  - type: related
+    note: "Piketty (2013) - Capital in the 21st Century; r > g drives wealth concentration, consistent with condensation prediction"
+    confidence: 0.72
+  - type: supporting
+    note: "Chatterjee & Chakrabarti (2007) - Kinetic exchange models for income and wealth distributions; critical lambda_c derivation"
+    confidence: 0.76
+proposed_tests:
+  - description: >
+      Analyze 50-year time series of Gini coefficients and capital return rates for
+      30 OECD countries; test whether the temporal onset of power-law tails in the
+      top income distribution correlates with the crossing of the r > g threshold
+      (Piketty condition), and whether the Pareto exponent alpha = 1 + 1/lambda_c
+      matches the saving propensity distribution.
+    method: "World Inequality Database income distribution data; capital return rates from Piketty replication data; Pareto exponent estimation by MLE"
+    prediction: "Countries with r > g for >10 consecutive years show Pareto tails with exponent alpha < 2; countries with r < g show exponential upper tail"
+  - description: >
+      Build an agent-based model calibrated to US income data (1970-2024) with
+      heterogeneous saving propensities drawn from empirical surveys; identify
+      the critical lambda_c from the simulation and test whether the transition
+      matches the observed change in Gini coefficient after 1980.
+    method: "Agent-based model (Mesa Python); 10^5 agents; calibrate to PSID survey data; compute Gini, Pareto exponent, and condensate fraction over time"
+    prediction: "Condensation transition occurs at lambda_c ~ 0.85 (matching 85% effective saving propensity of top 1%); Gini crosses 0.5 at transition"

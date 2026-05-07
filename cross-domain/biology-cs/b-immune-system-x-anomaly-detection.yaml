@@ -1,0 +1,45 @@
+id: b-immune-system-x-anomaly-detection
+title: >
+  Immune system x Anomaly detection - negative selection as one-class classification
+status: proposed
+fields:
+  - biology
+  - computer_science
+  - immunology
+  - machine_learning
+bridge_claim: >
+  The adaptive immune system's negative selection process (deleting T-cells that recognize
+  self-antigens in the thymus) is computationally equivalent to one-class classification
+  and anomaly detection; the remaining T-cell repertoire is trained on self to recognize
+  non-self, implementing the artificial immune system (AIS) algorithm — a biological
+  precedent for unsupervised anomaly detection where the training data consists only of
+  normal examples and novelty detection requires no labeled anomalies.
+translation_table:
+  - field_a_term: thymic negative selection deleting self-reactive T-cells (immunology)
+    field_b_term: one-class classification trained on normal data, rejecting outliers (machine learning)
+    note: Negative selection is exactly one-class SVM / isolation forest trained on self-antigens; T-cells that fire on self are eliminated
+  - field_a_term: MHC-peptide complex (self-antigen presentation) (immunology)
+    field_b_term: training data point in feature space (machine learning)
+    note: MHC-peptides are the feature vectors that define the self distribution; the T-cell receptor is the classifier
+  - field_a_term: T-cell receptor hypervariable complementarity-determining regions (immunology)
+    field_b_term: detector strings / random feature vectors in Forrest et al. AIS (computer science)
+    note: The V(D)J recombination generates random detectors analogous to random projections for anomaly detection
+  - field_a_term: clonal selection and expansion upon antigen recognition (immunology)
+    field_b_term: online learning / adaptive anomaly detection updating the model (machine learning)
+    note: Clonal expansion is reinforcement of detectors that found anomalies — equivalent to online updating of the anomaly detector
+communication_gap: >
+  Immunologists studying thymic selection and computer scientists developing anomaly
+  detection algorithms worked in isolation; Forrest et al. (1994) explicitly formalized
+  the connection via artificial immune systems, but mainstream machine learning (one-class
+  SVM, autoencoders for anomaly detection) rarely cites immunological negative selection
+  as the biological precursor — missing potential insights from somatic hypermutation as
+  a model for continual learning.
+cross_pollination_opportunities:
+  - Apply somatic hypermutation and affinity maturation (iterative refinement of B-cell receptors) as a biological template for evolutionary optimization of anomaly detectors in cybersecurity
+  - Use the idiotypic network theory (B-cells recognizing other B-cells) as inspiration for multi-layer anomaly detection systems with internal consistency checking
+related_unknowns:
+  - u-immune-system-x-anomaly-detection
+references:
+  - doi: "10.1162/neco.1994.6.6.1064"
+    note: "Forrest et al. (1994) - Self-nonself discrimination in a computer; IEEE Symp Security and Privacy — AIS paper"
+last_reviewed: "2026-05-07"
