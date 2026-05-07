@@ -1,0 +1,40 @@
+id: h-lorenz-attractor-seasonal-forecast-skill
+title: >
+  The observed skill of subseasonal-to-seasonal (S2S) forecasts beyond the 2-week
+  Lorenz predictability limit arises from the low-dimensional attractor of large-scale
+  atmospheric modes (MJO, quasi-stationary waves) that have Lyapunov exponents 3-5x
+  smaller than the full atmospheric attractor, predicting that S2S skill scales
+  inversely with the MJO amplitude Lyapunov exponent (lambda_MJO ~ 0.15 per day).
+status: active
+priority: medium
+impact_score: 0.75
+created: "2026-05-07"
+last_updated: "2026-05-07"
+related_disciplines:
+  - meteorology
+  - dynamical-systems
+  - climate-science
+unknowns_addressed:
+  - u-atmospheric-predictability-limit-extended
+evidence_links:
+  - doi: "10.1175/BAMS-D-13-00231.1"
+    type: supporting
+    confidence: 0.68
+    note: >
+      Palmer (2014) argues for ensemble approaches and stochastic parameterization
+      to capture nonlinear atmospheric dynamics; supports attractor-based understanding
+      of predictability limits and skill sources.
+  - doi: "10.1175/1520-0469(1969)026<0636:APPF>2.0.CO;2"
+    type: supporting
+    confidence: 0.72
+    note: >
+      Lorenz (1969) original atmospheric predictability paper; establishes the
+      theoretical framework for scale-dependent error growth that underlies the
+      proposed multi-scale Lyapunov exponent hypothesis.
+proposed_tests:
+  - description: >
+      Compute finite-time Lyapunov exponents from ECMWF reanalysis ERA5 data
+      separately for (1) full atmospheric state and (2) MJO-filtered large-scale
+      circulation; test whether lambda_MJO is 3-5x smaller than lambda_full and
+      whether S2S forecast skill (ACC at week 3-4) across 100 winters correlates
+      inversely with the instantaneous lambda_MJO in the initialization period.

@@ -1,0 +1,52 @@
+id: b-quantum-walks-random-walks
+title: >
+  Quantum walks generalize classical random walks by allowing quantum superposition
+  of paths, achieving quadratically faster spreading (sigma ~ t vs t^1/2) and
+  providing the computational primitive for quantum speedup in graph algorithms.
+status: established
+fields:
+  - quantum-computing
+  - probability-theory
+  - algorithm-theory
+bridge_claim: >
+  The discrete-time quantum walk on a line replaces the classical coin flip (probability
+  distribution P(x,t) satisfying the diffusion equation) with a unitary coin operator
+  C acting on a qubit; the resulting interference between amplitudes produces ballistic
+  spreading sigma(t) ~ t (vs diffusive sigma ~ t^1/2 classically), enabling the
+  quantum walk search algorithm to find a marked node in O(sqrt(N)) steps on a
+  graph of N nodes, giving a quadratic speedup over the classical O(N) random walk
+  hitting time and placing quantum walk algorithms at the heart of Grover search.
+translation_table:
+  - field_a_term: position probability distribution P(x,t) (classical random walk)
+    field_b_term: quantum amplitude psi(x,t) with P = |psi|^2 (quantum walk)
+    note: Amplitudes interfere; the absolute square gives probabilities, enabling coherent speedup
+  - field_a_term: transition matrix T (random walk)
+    field_b_term: unitary walk operator U = S*(C⊗I) (quantum walk)
+    note: U replaces stochastic T; unitarity ensures probability conservation without decoherence
+  - field_a_term: mixing time / hitting time (random walk)
+    field_b_term: "quantum walk speedup: O(sqrt(N)) vs O(N) hitting time"
+    note: Quadratic speedup arises from ballistic vs diffusive spreading of quantum amplitudes
+  - field_a_term: Markov chain stationary distribution (probability)
+    field_b_term: quantum walk eigenstate / uniform superposition (quantum computing)
+    note: Quantum walks lack a stationary distribution (unitary dynamics); approximating eigenstates is the analog
+related_unknowns:
+  - u-quantum-walk-decoherence-practical-speedup
+related_hypotheses:
+  - h-quantum-walk-spatial-search-optimal
+cross_pollination_opportunities:
+  - Applying quantum walk algorithms to graph isomorphism and network centrality problems on near-term quantum hardware
+  - Using classical random walk theory (mixing time bounds, spectral gap) to predict where quantum walks achieve the largest speedups
+communication_gap: >
+  Probabilists developing Markov chain mixing time theory and quantum information
+  theorists studying quantum algorithms use parallel mathematical structures but
+  rarely collaborate; the Szegedy quantization theorem (2004) that formally derives
+  quantum walk speedup from the classical spectral gap is known to quantum computing
+  experts but not widely taught in probability courses.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.48550/arXiv.quant-ph/0012090"
+    note: Aharonov et al. (2001) - quantum walks on graphs, original discrete-time model
+  - doi: "10.1145/1060590.1060639"
+    note: Szegedy (2004) - quantum speed-up of Markov chain based algorithms
+  - doi: "10.1103/PhysRevLett.102.180501"
+    note: Childs et al. (2009) - universal computation by multi-particle quantum walk

@@ -1,0 +1,39 @@
+id: h-kauffman-network-criticality-cell-types
+title: >
+  Mammalian gene regulatory networks operate at the critical point between ordered
+  and chaotic dynamics in Kauffman Boolean network theory (mean K = 2 inputs per
+  gene), predicting that the number of attractors (cell types) scales as the square
+  root of gene number N, consistent with the observed ~200 human cell types for N ~ 20,000 genes.
+status: active
+priority: medium
+impact_score: 0.71
+created: "2026-05-07"
+last_updated: "2026-05-07"
+related_disciplines:
+  - systems-biology
+  - computer-science
+  - mathematical-biology
+unknowns_addressed:
+  - u-regulatory-network-attractor-enumeration
+evidence_links:
+  - doi: "10.1126/science.161.3843.802"
+    type: supporting
+    confidence: 0.65
+    note: >
+      Kauffman (1969) shows that random Boolean networks with K=2 inputs have
+      approximately sqrt(N) attractors; for N=20,000 genes this predicts ~141
+      attractors, consistent with ~200 observed mammalian cell types.
+  - doi: "10.1371/journal.pcbi.1000702"
+    type: related
+    confidence: 0.58
+    note: >
+      Saez-Rodriguez et al. (2011) Boolean model of T-cell signaling correctly
+      predicts stable cell states; supports Boolean framework for mammalian cell
+      state modeling.
+proposed_tests:
+  - description: >
+      Construct Boolean network model of human hematopoietic regulatory network
+      (TRANSFAC ChIP-seq data, ~500 transcription factors); enumerate attractors
+      using SAT-solver approach; compare number of attractors to known HSC
+      differentiation states (~15 defined hematopoietic cell types) and test
+      whether attractor number scales as sqrt(500) = ~22 as predicted.

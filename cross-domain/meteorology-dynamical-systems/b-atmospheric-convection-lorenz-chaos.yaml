@@ -1,0 +1,53 @@
+id: b-atmospheric-convection-lorenz-chaos
+title: >
+  Lorenz derived his famous chaotic attractor from a three-mode truncation of the
+  Navier-Stokes equations for Rayleigh-Benard convection, making atmospheric
+  convection the physical origin of deterministic chaos and the butterfly effect
+  in weather prediction.
+status: established
+fields:
+  - meteorology
+  - dynamical-systems
+  - fluid-mechanics
+bridge_claim: >
+  Lorenz (1963) truncated the Oberbeck-Boussinesq equations for thermal convection
+  in a fluid layer heated from below to three Fourier modes (X, Y, Z), obtaining
+  dX/dt = sigma*(Y-X), dY/dt = X*(r-Z)-Y, dZ/dt = X*Y - b*Z; for sigma = 10,
+  b = 8/3, r = 28 this system exhibits a strange attractor with positive Lyapunov
+  exponent lambda_1 ~ 0.9 nat/s, establishing that deterministic atmospheric equations
+  produce unpredictable trajectories and setting the fundamental predictability horizon
+  of weather forecasting at approximately 10-14 days.
+translation_table:
+  - field_a_term: Rayleigh number Ra = g*alpha*DeltaT*H^3/(nu*kappa) (fluid mechanics)
+    field_b_term: control parameter r = Ra/Ra_c in Lorenz equations (dynamical systems)
+    note: Convection onset at Ra_c; chaos appears at r ~ 24.74 in the Lorenz model
+  - field_a_term: convective overturning cells (meteorology)
+    field_b_term: trajectory on the Lorenz strange attractor (dynamical systems)
+    note: The two lobes of the Lorenz attractor correspond to the two possible convective circulation directions
+  - field_a_term: weather predictability horizon (meteorology)
+    field_b_term: inverse of maximum Lyapunov exponent 1/lambda_1 (dynamical systems)
+    note: Lyapunov exponent sets the error doubling time; finite precision limits forecast horizon
+  - field_a_term: ensemble weather forecasting (meteorology)
+    field_b_term: probability distribution evolution on attractor (dynamical systems)
+    note: Ensemble spread tracks the divergence of nearby trajectories on the chaotic attractor
+related_unknowns:
+  - u-atmospheric-predictability-limit-extended
+related_hypotheses:
+  - h-lorenz-attractor-seasonal-forecast-skill
+cross_pollination_opportunities:
+  - Using Koopman operator theory (data-driven dynamical systems) to construct more accurate reduced-order weather models
+  - Applying attractor dimension analysis to determine the minimum number of degrees of freedom needed to capture synoptic-scale weather
+communication_gap: >
+  Meteorologists develop weather forecasting systems empirically while dynamical
+  systems theorists analyze attractors abstractly; after Lorenz (1963) the two
+  communities developed separately, and modern operational weather forecasting still
+  rarely uses the geometric attractor framework from dynamical systems theory
+  explicitly, despite its fundamental relevance.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1175/1520-0469(1963)020<0130:DNF>2.0.CO;2"
+    note: Lorenz (1963) - deterministic nonperiodic flow; original Lorenz attractor paper
+  - doi: "10.1175/1520-0469(1969)026<0636:APPF>2.0.CO;2"
+    note: Lorenz (1969) - atmospheric predictability as revealed by naturally occurring analogues
+  - doi: "10.1175/BAMS-D-13-00231.1"
+    note: Palmer (2014) - towards probabilistic earth-system modelling using ensemble forecasting

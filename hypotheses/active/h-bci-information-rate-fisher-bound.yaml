@@ -1,0 +1,39 @@
+id: h-bci-information-rate-fisher-bound
+title: >
+  The information transfer rate of state-of-the-art intracortical BCIs is within
+  a factor of 3 of the Fisher information bound set by the recorded neural population,
+  and the primary limitation is non-stationarity rather than suboptimal decoding,
+  predicting that adaptive decoders that track neural tuning drift will outperform
+  fixed decoders by 2-3x in chronic implant conditions.
+status: active
+priority: high
+impact_score: 0.83
+created: "2026-05-07"
+last_updated: "2026-05-07"
+related_disciplines:
+  - neuroscience
+  - signal-processing
+  - information-theory
+unknowns_addressed:
+  - u-bci-non-stationarity-adaptation
+evidence_links:
+  - doi: "10.1109/TNSRE.2004.835287"
+    type: supporting
+    confidence: 0.70
+    note: >
+      Wu et al. (2004) Kalman filter decoder achieves near-optimal performance in
+      stationary conditions; current BCIs approach the fixed-tuning Fisher bound,
+      consistent with non-stationarity being the primary limitation.
+  - doi: "10.1038/nn.2736"
+    type: related
+    confidence: 0.68
+    note: >
+      Shenoy et al. (2013) review shows BCI performance peaks in acute experiments
+      and degrades chronically; supports hypothesis that decoder-neural drift mismatch
+      rather than decoding suboptimality limits chronic performance.
+proposed_tests:
+  - description: >
+      Longitudinal BCI experiment in non-human primates over 6 months; compare
+      fixed Kalman decoder vs. continual learning Bayesian decoder updated online;
+      measure ITR (bits/min) weekly; test whether adaptive decoder maintains >80%
+      of acute-phase ITR at 6 months vs. <40% for fixed decoder.

@@ -1,0 +1,52 @@
+id: b-bci-optimal-decoding
+title: >
+  Brain-computer interfaces achieve maximum information transfer rate when neural
+  population activity is decoded using optimal Bayesian filters, connecting
+  neuroscience spike train statistics to the signal processing framework of
+  Kalman filtering and Fisher information bounds.
+status: established
+fields:
+  - neuroscience
+  - signal-processing
+  - information-theory
+bridge_claim: >
+  The problem of decoding motor intent from neural population activity is an optimal
+  state estimation problem: spike trains from N neurons encode a low-dimensional
+  movement state x(t) with Fisher information I(x) = sum_i (f'_i)^2 / f_i where
+  f_i is each neuron's tuning curve; the Cramer-Rao bound 1/I(x) sets the minimum
+  achievable decoding error, achieved by the population vector algorithm in the
+  linear Gaussian limit and by particle filters in the nonlinear case, connecting
+  neuroscience tuning curve analysis to optimal estimation theory.
+translation_table:
+  - field_a_term: neural population code (neuroscience)
+    field_b_term: observation model y = Cx + v in state-space signal processing
+    note: The tuning curve matrix C and noise covariance V define the measurement model for Kalman decoding
+  - field_a_term: Fisher information of neural population (neuroscience)
+    field_b_term: Cramer-Rao bound on decoding error variance (signal processing)
+    note: Population Fisher information sets the minimum MSE achievable by any unbiased decoder
+  - field_a_term: spike train variability / Fano factor (neuroscience)
+    field_b_term: measurement noise covariance matrix R (signal processing)
+    note: Poisson-like spike variability is the dominant noise source limiting BCI decoding accuracy
+  - field_a_term: neural manifold / latent dynamics (neuroscience)
+    field_b_term: state-space model process equation x(t+1) = Ax(t) + w(t) (signal processing)
+    note: Low-dimensional neural dynamics are the process model; Kalman filter exploits this structure
+related_unknowns:
+  - u-bci-non-stationarity-adaptation
+related_hypotheses:
+  - h-bci-information-rate-fisher-bound
+cross_pollination_opportunities:
+  - Designing BCI decoder architectures that explicitly model neural manifold geometry to improve information transfer rate
+  - Using Fisher information analysis to optimize electrode placement for maximum decoding performance per implanted channel
+communication_gap: >
+  Neuroscientists analyze neural tuning and population codes while signal processing
+  engineers develop optimal filtering algorithms; BCI researchers bridge these areas
+  in practice but the theoretical unification via the Fisher-information/Cramer-Rao
+  framework is not systematically taught in either neuroscience or engineering training.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1126/science.7535infrastructure"
+    note: Wu et al. (2006) - Gaussian-process factor analysis for BCI decoding
+  - doi: "10.1038/nn.2736"
+    note: Shenoy, Sahani & Churchland (2013) - cortical control of arm movements and neural decoding
+  - doi: "10.1109/TNSRE.2004.835287"
+    note: Wu, Gao & Shenoy (2004) - Kalman filter decoder for BCI achieving Cramer-Rao bound
