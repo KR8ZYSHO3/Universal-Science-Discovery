@@ -1,0 +1,31 @@
+id: h-rna-boltzmann-ensemble-functional-structure-selection
+title: >
+  Functional RNA structures are thermodynamically selected to be near the
+  free-energy minimum AND have low base-pair probability variance in the
+  Boltzmann ensemble (high structural certainty), while non-functional RNAs
+  of the same sequence composition show systematically higher ensemble variance.
+status: active
+created: "2026-05-07"
+priority: medium
+impact_score: 0.70
+related_disciplines:
+  - RNA-biology
+  - statistical-mechanics
+unknowns_addressed:
+  - u-rna-folding-pseudoknot-partition-function
+evidence_links:
+  - doi: "10.1021/bi00413a004"
+    type: supporting
+    confidence: 0.65
+    note: "McCaskill 1990 – partition function enables base-pair probability computation; ensemble analysis"
+  - doi: "10.1016/j.jmb.2006.01.048"
+    type: supporting
+    confidence: 0.60
+    note: "Tinoco & Bustamante – thermodynamic stability and RNA function correlation"
+proposed_tests:
+  - description: >
+      Compute base-pair probability matrices for 500 functional RNAs (from Rfam)
+      and 500 length-matched random sequences with the same dinucleotide composition.
+      Define ensemble variance as the mean over all pairs (i,j) of P_ij(1−P_ij).
+      Test whether functional RNAs have significantly lower ensemble variance than
+      random controls using a Wilcoxon signed-rank test.

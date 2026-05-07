@@ -1,0 +1,31 @@
+id: h-targeted-vaccination-percolation-optimality
+title: >
+  Targeted vaccination of the top-k% highest-degree individuals in a contact
+  network reduces the giant-component size (and therefore final epidemic size)
+  by a factor at least 3× greater than random vaccination at the same coverage,
+  for all real-world contact networks with degree-distribution variance ⟨k²⟩/⟨k⟩² > 5.
+status: active
+created: "2026-05-07"
+priority: high
+impact_score: 0.87
+related_disciplines:
+  - epidemiology
+  - network-science
+unknowns_addressed:
+  - u-sir-percolation-temporal-network-threshold
+evidence_links:
+  - doi: "10.1103/PhysRevLett.86.3200"
+    type: supporting
+    confidence: 0.80
+    note: "Pastor-Satorras & Vespignani – targeted immunisation dramatically reduces threshold on scale-free networks"
+  - doi: "10.1103/PhysRevE.66.016128"
+    type: supporting
+    confidence: 0.75
+    note: "Newman (2002) – percolation analysis of targeted node removal efficiency"
+proposed_tests:
+  - description: >
+      Simulate SIR epidemics (β, γ varied over realistic ranges) on 10 empirical
+      contact networks (SocioPatterns datasets). Compare final epidemic size under
+      random vs. degree-targeted vaccination at 5%, 10%, 20% coverage. Compute
+      efficacy ratio and test whether it exceeds 3× for all networks with
+      ⟨k²⟩/⟨k⟩² > 5 at 95% confidence.
