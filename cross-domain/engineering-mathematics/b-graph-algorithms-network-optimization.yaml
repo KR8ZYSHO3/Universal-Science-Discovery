@@ -1,0 +1,104 @@
+id: b-graph-algorithms-network-optimization
+title: >
+  Graph theory provides the mathematical foundation for network optimization in
+  engineering: Dijkstra's shortest path, the max-flow min-cut theorem, and the
+  traveling salesman problem's Christofides approximation translate directly into
+  GPS routing, logistics supply chains, VLSI circuit routing, and telecommunications
+  network design.
+status: established
+fields:
+  - engineering
+  - operations-research
+  - mathematics
+  - graph-theory
+  - combinatorial-optimization
+  - computer-science
+bridge_claim: >
+  Graph algorithms represent one of the most direct translations of mathematical
+  theory into engineering practice:
+
+  Shortest path: Dijkstra (1959) — O(E log V) with binary heap for non-negative
+  edge weights, solving the single-source shortest path problem exactly. Bellman-Ford
+  (1958) — O(VE), handles negative weights and detects negative cycles. Floyd-Warshall
+  (1962) — O(V³), all-pairs shortest paths via dynamic programming (DP state: d[i][j][k] =
+  shortest path from i to j using vertices {1..k} as intermediates). A* algorithm =
+  Dijkstra + admissible heuristic h(n) ≤ actual cost — powers GPS routing in
+  OpenStreetMap, Google Maps.
+
+  Maximum flow — min-cut theorem (Menger 1927, Ford-Fulkerson 1956): the maximum
+  flow from source s to sink t in a capacitated network equals the minimum cut
+  capacity separating s from t (min over all s-t cuts: Σ_e∈cut c(e)). Ford-Fulkerson
+  method: augment along augmenting paths in residual graph; Edmonds-Karp refinement
+  uses BFS for augmenting paths → O(VE²). Applications: network bandwidth allocation,
+  image segmentation (Boykov-Kolmogorov 2004), bipartite matching (König's theorem:
+  max matching = min vertex cover — a special case of max-flow min-cut).
+
+  Minimum spanning tree: Kruskal's algorithm — sort edges by weight, add greedily
+  (skip if creates cycle using union-find), O(E log E). Prim's algorithm — grow
+  tree from seed vertex, add minimum-weight edge with one endpoint in tree,
+  O(E log V) with priority queue. Applications: network cabling cost minimization,
+  cluster analysis (single-linkage hierarchical clustering = MST).
+
+  Traveling salesman problem (TSP): NP-hard (Karp 1972). Christofides algorithm
+  (1976): MST + minimum weight perfect matching on odd-degree vertices + Euler tour
+  shortcutting → approximation ratio 3/2 (still best known for metric TSP after 47
+  years, until Karlin-Klein-Gharan 2021 gave 3/2 - ε). Applications: logistics
+  routing, DNA sequencing (shotgun sequencing assembly), PCB drilling.
+
+  Network simplex method for minimum-cost flow: O(V² · E) but extremely fast in
+  practice — backbone of LP solvers for transportation and supply chain optimization.
+translation_table:
+  - field_a_term: graph G = (V, E) with edge weights w(e)
+    field_b_term: transportation network (nodes = cities/hubs, edges = routes, weights = cost/distance)
+    note: graph abstraction loses geographic information but gains algorithmic tractability
+  - field_a_term: Dijkstra's shortest path (greedy, priority queue)
+    field_b_term: GPS route planning (A* with Euclidean distance heuristic)
+    note: A* is Dijkstra + heuristic; same O(E log V) complexity, much faster in practice
+  - field_a_term: max-flow min-cut theorem (network flow = minimum separator)
+    field_b_term: network capacity planning (bottleneck link = minimum cut)
+    note: min-cut identifies the bandwidth bottleneck; max-flow gives achievable throughput
+  - field_a_term: minimum spanning tree (MST)
+    field_b_term: network cabling / backbone design (minimize wire cost, maintain connectivity)
+    note: MST minimizes total edge weight while keeping graph connected — direct cable cost model
+  - field_a_term: TSP (find minimum-weight Hamiltonian cycle)
+    field_b_term: vehicle routing / delivery optimization (minimize fuel cost over all stops)
+    note: real logistics uses VRPTW (TSP + time windows + multiple vehicles); NP-hard core
+  - field_a_term: bipartite matching (max matching via augmenting paths)
+    field_b_term: job assignment / shift scheduling (workers ↔ tasks)
+    note: "König's theorem: max matching = min vertex cover in bipartite graphs"
+related_unknowns:
+  - u-tsp-approximation-barrier-metric
+related_hypotheses:
+  - h-christofides-tight-example-construction
+cross_pollination_opportunities:
+  - >
+    Quantum graph algorithms: Grover's algorithm provides O(√N) speedup for unstructured
+    search, enabling O(√VE) quantum Dijkstra on certain graph representations. Quantum
+    minimum spanning tree algorithms (Durr et al. 2004) run in O(√(VE)) quantum time
+    vs. O(E log V) classically. Whether quantum speedups are achievable for TSP remains
+    a major open question — the best quantum TSP algorithm still requires exponential
+    space.
+  - >
+    Graph neural networks (GNNs) for combinatorial optimization: message-passing GNNs
+    can learn heuristics for TSP and vehicle routing that outperform Christofides on
+    specific instance distributions in polynomial time. The mathematical connection
+    between GNN expressivity (Weisfeiler-Leman graph isomorphism hierarchy) and
+    approximation algorithm guarantees is an active research frontier.
+communication_gap: >
+  Graph algorithms developed in both mathematics (combinatorics, graph theory) and
+  computer science (algorithms and complexity). Operations research adopted these
+  results but maintains separate journals (Management Science, Operations Research)
+  from theoretical computer science (STOC, FOCS). Engineering practice often uses
+  proprietary solver implementations (CPLEX, Gurobi) without direct engagement
+  with the underlying algorithmic literature. The 2021 Karlin-Klein-Gharan improvement
+  on Christofides was a 47-year-delayed breakthrough that received little engineering
+  press coverage despite its foundational implications.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1007/BF01386390"
+    note: "Dijkstra (1959) A note on two problems in connexion with graphs; Numer Math 1:269"
+  - doi: "10.4153/CJM-1956-045-5"
+    note: "Ford & Fulkerson (1956) Maximal flow through a network; Can J Math 8:399"
+  - doi: "10.1007/BF01447886"
+    note: "Menger (1927) Zur allgemeinen Kurventheorie; Math Ann 96:154"
+  - note: Christofides (1976) Worst-case analysis of a new heuristic for the travelling salesman problem; Carnegie Mellon University Report
