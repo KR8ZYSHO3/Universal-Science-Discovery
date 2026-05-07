@@ -1,0 +1,37 @@
+id: b-combinatorial-optimization-spin-glass
+title: >
+  Hard combinatorial optimization problems (k-SAT, graph coloring, TSP) exhibit phase transitions in solution difficulty that map precisely onto spin glass energy landscape topology, with the satisfiability threshold corresponding to the spin glass phase boundary
+status: established
+fields:
+  - computer-science
+  - statistical-physics
+bridge_claim: >
+  Random k-SAT and related NP-hard combinatorial optimization problems undergo a sharp phase transition at a critical clause-to-variable ratio α_c where the fraction of satisfiable instances drops from ~1 to ~0: this transition corresponds to the replica-symmetry-breaking transition in a Ising spin glass with N spins, where the energy landscape shatters into exponentially many metastable states separated by large barriers, explaining both the algorithmic hardness and the origin of the satisfiability threshold using tools from statistical physics of disordered systems.
+translation_table:
+  - field_a_term: "satisfying assignment in k-SAT (computer science)"
+    field_b_term: "ground state configuration of Ising spin glass (statistical physics)"
+    note: "Each Boolean variable maps to an Ising spin; clauses map to plaquette interactions; solution = zero-energy ground state"
+  - field_a_term: "clause-to-variable ratio α in random k-SAT (computer science)"
+    field_b_term: "inverse temperature × interaction strength controlling spin glass phases (statistical physics)"
+    note: "α controls the constraint density; α_c corresponds to the spin glass phase transition point"
+  - field_a_term: "algorithmic hardness / exponential search time (computer science)"
+    field_b_term: "rough energy landscape with exponentially many metastable states separated by barriers (statistical physics)"
+    note: "Hard instances near α_c correspond to spin glass phase where simple annealing gets trapped in local minima"
+  - field_a_term: "survey propagation algorithm (computer science)"
+    field_b_term: "belief propagation on a factor graph in the cavity method (statistical physics)"
+    note: "SP is derived from the 1-RSB cavity method of spin glass theory; it succeeds near threshold where DPLL fails"
+communication_gap: >
+  Computer scientists study worst-case complexity classes while statistical physicists analyse average-case behavior of disordered systems; the cavity method / replica method from spin glass theory is underutilized in algorithm design despite providing exact predictions for average-case hardness.
+cross_pollination_opportunities:
+  - "Using spin glass phase diagrams to predict the exact satisfiability threshold for 3-SAT and higher k, guiding algorithm design near the threshold"
+  - "Applying message-passing algorithms derived from cavity method to NP-hard problems in logistics and circuit design"
+references:
+  - doi: "10.1126/science.1073287"
+    note: "Mézard et al. (2002) - analytic and algorithmic solution of random satisfiability problems via survey propagation"
+  - doi: "10.1016/j.tcs.2006.08.023"
+    note: "Krzakala et al. (2007) - Gibbs states and the set of solutions of random constraint satisfaction problems"
+related_unknowns:
+  - u-spin-glass-optimization-hardness-phase-transition
+related_hypotheses:
+  - h-replica-symmetry-breaking-algorithm-hardness
+last_reviewed: "2026-05-07"

@@ -1,0 +1,37 @@
+id: b-price-theory-walrasian-tatonnement
+title: >
+  Walrasian tâtonnement is a price adjustment dynamical system whose convergence to competitive equilibrium is guaranteed by Lyapunov stability theory when all markets satisfy gross substitutability, providing rigorous mathematical foundations for general equilibrium price theory
+status: established
+fields:
+  - economics
+  - mathematics
+bridge_claim: >
+  Walras's tâtonnement process (prices rise when excess demand > 0, fall when < 0) is a continuous-time ODE dp_i/dt = k_i * z_i(p) where z_i is the excess demand for good i; global convergence to Walrasian equilibrium (z_i = 0 for all i) is proven via the Lyapunov function V(p) = Σ z_i(p)^2 / 2, which is non-increasing under tâtonnement when gross substitutability holds (∂z_i/∂p_j > 0 for i≠j), bridging supply-demand equilibrium theory in economics with Lyapunov stability analysis in dynamical systems mathematics.
+translation_table:
+  - field_a_term: "Walrasian equilibrium price vector p* (economics)"
+    field_b_term: "fixed point of the tâtonnement ODE system (mathematics)"
+    note: "p* solves z(p*) = 0; tâtonnement is the gradient flow converging to this fixed point under GS"
+  - field_a_term: "excess demand function z_i(p) (economics)"
+    field_b_term: "vector field of the price adjustment ODE (mathematics)"
+    note: "Excess demand defines the direction and speed of price adjustment; GS ensures z is a contraction"
+  - field_a_term: "gross substitutability condition ∂z_i/∂p_j > 0 (economics)"
+    field_b_term: "sign condition on the Jacobian ensuring Lyapunov stability (mathematics)"
+    note: "GS is a sufficient condition for the Lyapunov function to be strictly decreasing along tâtonnement paths"
+  - field_a_term: "market clearing (economics)"
+    field_b_term: "equilibrium of the ODE system (mathematics)"
+    note: "Market clearing z_i = 0 ∀i is the equilibrium of the tâtonnement dynamical system"
+communication_gap: >
+  Economists state tâtonnement convergence theorems verbally or with informal arguments while dynamical systems mathematicians apply Lyapunov theory routinely; the explicit Lyapunov function construction for tâtonnement is known in mathematical economics but rarely presented to economics students who learn general equilibrium theory.
+cross_pollination_opportunities:
+  - "Applying Lyapunov stability analysis to non-tâtonnement price adjustment dynamics (best-response dynamics, replicator dynamics) in game-theoretic models of oligopoly and mechanism design"
+  - "Using Lyapunov methods to analyze stability of algorithmic price-setting mechanisms in online markets and auction platforms"
+references:
+  - doi: "10.2307/1907353"
+    note: "Arrow & Hurwicz (1958) - on the stability of the competitive equilibrium"
+  - doi: "10.1016/0304-4068(74)90024-5"
+    note: "Smale (1976) - a convergent process of price adjustment and global Newton methods"
+related_unknowns:
+  - u-walrasian-tatonnement-convergence-without-gs
+related_hypotheses:
+  - h-tatonnement-convergence-diagonal-dominance
+last_reviewed: "2026-05-07"
