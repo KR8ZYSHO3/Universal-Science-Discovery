@@ -1,0 +1,35 @@
+id: b-hodgkin-huxley-conductance
+title: "The Hodgkin-Huxley equations describe action potential generation as a system of nonlinear ODEs where ion channel conductances follow voltage-dependent gating kinetics, reducing neural excitability to measurable biophysical parameters"
+fields:
+  - neuroscience
+  - physics
+
+bridge_claim: "Action potential generation in squid giant axon (and all neurons) is quantitatively described by C_m * dV/dt = -g_Na * m^3 * h * (V - E_Na) - g_K * n^4 * (V - E_K) - g_L * (V - E_L) + I, where m, h, n are voltage-dependent gating variables following first-order kinetics with rate constants measured by voltage clamp."
+translation_table:
+  - field_a_term: "membrane capacitance C_m charging/discharging"
+    field_b_term: "parallel RC circuit with nonlinear conductance branches"
+    note: "C_m ~ 1 muF/cm^2 for biological membranes; time constant tau = RC sets spike width"
+  - field_a_term: "Na+ channel activation gate m"
+    field_b_term: "dm/dt = alpha_m(V)(1-m) - beta_m(V)m; tau_m ~ 0.5 ms at -40 mV"
+    note: "m^3 nonlinearity causes threshold-like sodium current activation (cooperative gating)"
+  - field_a_term: "Na+ channel inactivation gate h"
+    field_b_term: "dh/dt = alpha_h(V)(1-h) - beta_h(V)h; tau_h ~ 5 ms at -40 mV"
+    note: "h provides refractory period; h closes slowly after Na+ influx, preventing re-excitation"
+  - field_a_term: "K+ channel activation gate n"
+    field_b_term: "dn/dt = alpha_n(V)(1-n) - beta_n(V)n; tau_n ~ 5 ms at -50 mV"
+    note: "n^4 nonlinearity delays K+ current; repolarizes membrane and produces afterhyperpolarization"
+status: established
+communication_gap: "The Hodgkin-Huxley model is taught in both neuroscience and biophysics but the connection between voltage-clamp measurements, Nernst potentials, and the full nonlinear dynamics is rarely integrated; computational neuroscience treats it as a black box while biophysicists focus on individual channel kinetics without connecting to whole-neuron computation."
+cross_pollination_opportunities:
+  - "Reduced HH models (FitzHugh-Nagumo, Morris-Lecar) capture essential bifurcation structure (saddle-node vs Hopf) enabling analytical prediction of excitability classes from channel composition"
+  - "Single-channel patch clamp data on stochastic gating can be integrated with deterministic HH framework using Markov models to predict population-level noise properties"
+references:
+  - doi: "10.1113/jphysiol.1952.sp004764"
+    note: "Hodgkin & Huxley (1952) J Physiol - original HH model quantitatively describing action potential"
+  - doi: "10.1113/jphysiol.1952.sp004717"
+    note: "Hodgkin & Huxley (1952) J Physiol - voltage clamp measurements of Na and K conductances"
+  - doi: "10.1007/s00422-007-0178-y"
+    note: "Izhikevich (2007) Dynamical Systems in Neuroscience - bifurcation analysis of HH and reduced models"
+related_unknowns:
+  - u-hodgkin-huxley-channel-heterogeneity-neuron-diversity
+last_reviewed: "2026-05-07"

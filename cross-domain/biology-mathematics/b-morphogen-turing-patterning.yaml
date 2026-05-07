@@ -1,0 +1,35 @@
+id: b-morphogen-turing-patterning
+title: "Turing's reaction-diffusion mechanism explains how uniform morphogen distributions spontaneously break symmetry to generate periodic spatial patterns when an activator diffuses slower than its inhibitor, with pattern wavelength lambda = 2*pi * sqrt(D_u/sigma) set by diffusion coefficients"
+fields:
+  - biology
+  - mathematics
+
+bridge_claim: "In a two-component reaction-diffusion system du/dt = D_u * nabla^2 u + f(u,v), dv/dt = D_v * nabla^2 v + g(u,v), a homogeneous steady state that is stable to uniform perturbations becomes unstable to spatial perturbations when D_v/D_u > gamma (Turing instability condition), generating self-organized patterns with wavelength lambda ~ 2*pi*sqrt(D_u/alpha) observed in skin pigmentation, digit formation, and palate rugae."
+translation_table:
+  - field_a_term: "activator-inhibitor short-range activation / long-range inhibition"
+    field_b_term: "Turing instability condition: D_v >> D_u and f_u > 0, g_v < 0"
+    note: "Pattern formation requires activator to be locally autocatalytic (f_u > 0) and inhibited by faster-diffusing inhibitor"
+  - field_a_term: "pattern wavelength in digit/stripe patterning"
+    field_b_term: "lambda = 2*pi / k_max where k_max maximizes Re(sigma(k))"
+    note: "k_max from dispersion relation of linearized RD system; observed stripe spacing ~ lambda"
+  - field_a_term: "morphogen gradient Bicoid/Nodal"
+    field_b_term: "source term or spatially varying parameter in RD equations"
+    note: "Pre-patterning gradients modulate local RD parameters, selecting which Turing mode is expressed"
+  - field_a_term: "finger/digit spacing in limb development"
+    field_b_term: "Turing wavelength controlled by BMP/Wnt activator-inhibitor pair"
+    note: "Shyer et al. (2018) demonstrated BMP-Wnt RD mechanism in chick digit patterning"
+status: established
+communication_gap: "Developmental biologists identify molecular components of patterning while mathematicians analyze RD equations; connecting measured morphogen diffusion coefficients and reaction rates to observed pattern wavelengths via the Turing dispersion relation is rarely done quantitatively in developmental biology papers."
+cross_pollination_opportunities:
+  - "Measuring in vivo diffusion coefficients of BMP and Wnt in developing limb buds using FCS/FRAP to directly test the Turing instability condition D_v/D_u > gamma"
+  - "Synthetic biology Turing patterns: engineering genetic circuits with activator-inhibitor topology to generate programmable spatial patterns in bacterial colonies"
+references:
+  - doi: "10.1098/rstb.1952.0012"
+    note: "Turing (1952) - The chemical basis of morphogenesis: original RD theory paper"
+  - doi: "10.1126/science.aai7830"
+    note: "Shyer et al. (2017) Science - Turing mechanism for digit patterning via BMP-WNT"
+  - doi: "10.1038/nrm2763"
+    note: "Kondo & Miura (2010) Nat Rev Mol Cell Biol - reaction-diffusion model as a framework for understanding biological pattern formation"
+related_unknowns:
+  - u-turing-patterning-3d-robustness
+last_reviewed: "2026-05-07"

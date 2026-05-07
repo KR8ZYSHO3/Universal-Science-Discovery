@@ -1,0 +1,28 @@
+id: h-stdp-homeostatic-scaling-weight-stability
+title: "Multiplicative STDP combined with synaptic scaling maintains log-normally distributed synaptic weights that match observed in vivo distributions in cortical neurons"
+status: active
+priority: medium
+impact_score: 0.71
+created: "2026-05-07"
+last_updated: "2026-05-07"
+related_disciplines:
+  - neuroscience
+  - computational-neuroscience
+  - physics
+unknowns_addressed:
+  - u-stdp-synaptic-weight-saturation
+evidence_links:
+  - doi: "10.1016/j.neuron.2006.09.015"
+    type: supporting
+    confidence: 0.75
+    note: "Turrigiano (2008) - synaptic scaling homeostatically adjusts all weights proportionally, preserving relative strengths"
+  - doi: "10.1371/journal.pbio.0030068"
+    type: supporting
+    confidence: 0.70
+    note: "Song et al. (2005) - multiplicative STDP produces log-normal weight distributions matching cortical data"
+proposed_tests:
+  - description: >
+      Simulate a network of 1000 neurons with multiplicative STDP and synaptic scaling.
+      Measure the steady-state weight distribution and compare Kolmogorov-Smirnov
+      statistic against log-normal fit. Prediction: KS p > 0.05 for log-normal,
+      p < 0.001 for normal distribution.
