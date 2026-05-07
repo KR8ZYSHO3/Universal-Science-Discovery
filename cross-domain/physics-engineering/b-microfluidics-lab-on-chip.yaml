@@ -1,0 +1,81 @@
+id: b-microfluidics-lab-on-chip
+title: >
+  Microfluidics bridges physics and engineering: low Reynolds number flow, Peclet-
+  dominated diffusion, electroosmosis, dielectrophoresis, and droplet generation
+  enable lab-on-chip systems for single-cell RNA-seq (10x Genomics), CRISPR
+  screening, and point-of-care diagnostics.
+status: established
+fields:
+  - physics
+  - engineering
+  - fluid-dynamics
+  - biotechnology
+  - medical-devices
+bridge_claim: >
+  At the microscale (channel dimensions L ~ 1-100 μm), fluid physics is dominated
+  by viscosity: Reynolds number Re = ρvL/η << 1 — flow is laminar, deterministic,
+  and fully predictable by Stokes equations. The Péclet number Pe = vL/D >> 1 for
+  macromolecules: advection dominates diffusion along the channel, so mixing is
+  slow (diffusion only across streamlines) — enabling extremely reproducible flow
+  patterns. Electroosmotic flow (EOF): when channel walls bear surface charge
+  (PDMS, glass — negatively charged at pH > 3), an electric double layer forms.
+  Applied electric field E → Helmholtz-Smoluchowski flow v_eo = -εζE/η (ζ = zeta
+  potential, ε = permittivity, η = viscosity) — pumping without moving parts.
+  Dielectrophoresis (DEP): non-uniform electric field ∇E² exerts force on
+  polarizable particles F_DEP = 2πr³ε_m Re[f_CM]∇E² (Clausius-Mossotti factor
+  f_CM = (ε_p - ε_m)/(ε_p + 2ε_m)) — frequency-dependent sorting of live/dead
+  cells, cancer vs. normal cells. Droplet microfluidics (digital microfluidics):
+  immiscible fluid droplets (water-in-oil) generated at T-junction or co-flow
+  nozzle — picoliter reactors at 10,000/s rate. Application: Drop-seq (Macosko
+  2015) / 10× Genomics droplet-seq — each droplet contains one cell + one
+  barcoded bead → mRNA captured → single-cell RNA-seq at scale. Organ-on-chip:
+  PDMS microchannels with human cells recapitulating tissue-level physiology —
+  lung chip, gut chip, kidney chip for drug testing without animal models.
+translation_table:
+  - field_a_term: Re << 1 (Stokes flow regime)
+    field_b_term: viscous force dominates inertia → laminar, fully predictable flow
+    note: no turbulence; no mixing by chaotic advection; flow is time-reversible (Stokes paradox)
+  - field_a_term: Péclet number Pe = vL/D
+    field_b_term: ratio of advective to diffusive transport; Pe >> 1 → diffusion-limited mixing
+    note: small molecules (D ~ 10⁻⁹ m²/s) diffuse across 10 μm channel in 0.1 s; proteins slower
+  - field_a_term: electroosmotic flow (EOF)
+    field_b_term: electrostatic pump driven by electric double layer (EDL) interaction with applied field
+    note: plug-like velocity profile (unlike Poiseuille parabolic) — advantageous for electrophoresis
+  - field_a_term: dielectrophoresis (DEP) force F_DEP ∝ ∇E²
+    field_b_term: label-free cell sorting by dielectric properties (Re[f_CM])
+    note: frequency-tunable — cancer cells have different membrane capacitance than normal cells
+  - field_a_term: droplet microfluidics (W/O emulsions)
+    field_b_term: picoliter reaction vessels; Poisson statistics determine cell encapsulation rate
+    note: droplet size controlled by flow rates and channel geometry; barcoded beads enable cell identification
+related_unknowns:
+  - u-droplet-microfluidics-cell-viability-encapsulation-efficiency
+related_hypotheses:
+  - h-organ-on-chip-predicts-drug-toxicity-better-than-animal-models
+cross_pollination_opportunities:
+  - >
+    Acoustic microfluidics: ultrasonic standing waves create acoustic radiation force
+    that sorts particles by size and density (acoustophoresis) — complements DEP
+    and provides label-free, contact-free cell manipulation. Physics of acoustic
+    radiation pressure (Gorkov potential) maps onto microfluidic engineering.
+  - >
+    Microfluidic neuroscience: compartmentalized chambers (axon-soma chambers via
+    Taylor et al. 2005) allow studying axon biology and axon-glia interactions in
+    isolation — a direct engineering application of fluid physics to cell biology
+    questions about neurodegeneration and circuit assembly.
+communication_gap: >
+  Physicists who study Stokes flow, electroosmosis, and dielectrophoresis rarely
+  work in biology or medicine. Biologists who use 10× Genomics for single-cell
+  RNA-seq rarely engage with the fluid physics that makes droplet generation work.
+  Clinicians who want point-of-care diagnostics rarely interact with the microfluidics
+  engineers who design the assay formats. The device→clinical translation gap
+  is compounded by regulatory challenges that neither group is trained to navigate.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1103/RevModPhys.77.977"
+    note: Squires & Quake (2005) Microfluidics — fluid physics at the nanoliter scale; Rev Mod Phys 77:977
+  - doi: "10.1146/annurev.fluid.36.050802.122124"
+    note: Stone et al. (2004) Engineering flows in small devices — microfluidics toward a lab-on-a-chip; Annu Rev Fluid Mech 36:381
+  - doi: "10.1038/nature01322"
+    note: Whitesides (2006) The origins and the future of microfluidics; Nature 442:368
+  - doi: "10.1016/j.cell.2015.05.002"
+    note: Macosko et al. (2015) Highly parallel genome-wide expression profiling of individual cells using nanoliter droplets; Cell 161:1202

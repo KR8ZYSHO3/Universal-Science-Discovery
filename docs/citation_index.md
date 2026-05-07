@@ -1,6 +1,6 @@
 # USDR Citation Index
 
-**4038 total citations · 2811 unique references · 457 cited in 2+ bridges**
+**4134 total citations · 2887 unique references · 460 cited in 2+ bridges**
 
 ## Most Cross-Domain Papers
 
@@ -8,7 +8,7 @@ Papers cited across the highest number of different bridges — the most influen
 
 | Bridges | Title | DOI |
 |---|---|---|
-| 10 | Castellano et al. review connects voter model to spatial ecology | [DOI](10.1103/RevModPhys.81.591) |
+| 11 | Castellano et al. review connects voter model to spatial ecology | [DOI](10.1103/RevModPhys.81.591) |
 | 8 | Jaynes (1957) — maximum entropy formulation reproduces the same stability condit... | [DOI](10.1103/PhysRev.106.620) |
 | 7 | Jarzynski (1997) — theoretical derivation; exact for any protocol including irre... | [DOI](10.1103/PhysRevLett.78.2690) |
 | 6 | Barabási & Albert (1999) - scale-free networks fragile to targeted hub attack; g... | [DOI](10.1126/science.286.5439.509) |
@@ -67,4 +67,4 @@ The full citation data is available at [`docs/citation_index.json`](citation_ind
 
 ## All Unique References
 
-The catalog currently references **2811 unique papers/books**.
+The catalog currently references **2887 unique papers/books**.

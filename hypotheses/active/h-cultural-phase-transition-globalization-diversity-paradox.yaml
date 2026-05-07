@@ -1,0 +1,47 @@
+id: h-cultural-phase-transition-globalization-diversity-paradox
+title: >
+  Globalization increases cultural interaction but may paradoxically sustain or
+  increase cultural diversity by raising the effective q/F ratio (trait diversity
+  per feature) — exposing populations to more cultural options rather than
+  homogenizing them — a testable prediction of the Axelrod phase transition in
+  empirical World Values Survey data.
+status: active
+priority: medium
+impact_score: 0.69
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - type: supporting
+    confidence: 0.62
+    note: "Inglehart & Welzel (2005): World Values Survey shows persistent cross-national cultural clusters (Protestant Europe, Catholic Europe, Confucian, Islamic) despite decades of globalization — consistent with frozen multicultural state"
+  - type: supporting
+    confidence: 0.58
+    note: "Globalization may increase q (number of cultural trait variants) by exposing populations to more options — which in Axelrod's model can push q/F above the phase transition threshold, maintaining diversity"
+  - type: supporting
+    confidence: 0.55
+    note: "Language revitalization movements (Welsh, Māori) show that minority languages can survive globalization — consistent with frozen multicultural state once critical mass is achieved"
+  - type: contradicting
+    confidence: 0.50
+    note: "Globalization reduces F (number of culturally relevant features) by making some distinctions irrelevant (dress, food, media consumption are globalizing) — this could lower q/F and push toward monoculture"
+
+unknowns_addressed:
+  - u-axelrod-model-empirical-validation-cultural-diversity
+
+proposed_tests:
+  - description: >
+      Using World Values Survey waves 1981-2022, compute pairwise cultural distance
+      between countries as Euclidean distance in 40-dimensional WVS feature space.
+      Fit a stochastic Axelrod model to the WVS interaction structure (trade flows
+      as interaction probability proxy). Test whether the observed pattern (persistent
+      cultural clusters, not monoculture) is consistent with the q/F > q_c/F
+      prediction. Compute trajectories of cultural distance over time.
+    method: "WVS data (n = 90 countries, 7 waves); PCA of 40 cultural dimensions; pairwise distance matrix; Axelrod model fitting via ABC (approximate Bayesian computation)"
+    prediction: "Best-fit Axelrod model has q/F > 1.5 (multicultural phase); predicted cultural distance trajectories match observed WVS trends; internet-era waves (post-2010) show stable or increasing cultural distances"
+
+related_disciplines:
+  - cultural-dynamics
+  - sociology
+  - complex-systems
+  - political-science

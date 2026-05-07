@@ -1,0 +1,45 @@
+id: h-flagellar-motor-stator-assembly-pmf-dependent-mechanosensing
+title: >
+  Flagellar motor stator assembly is a mechanosensitive process: stators are recruited
+  from a cytoplasmic pool in response to load (torque demand), with PMF controlling
+  the free energy of stator-peptidoglycan binding — making the motor a biological
+  torque sensor that self-optimizes stator number for current mechanical load.
+status: active
+priority: medium
+impact_score: 0.72
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - type: supporting
+    confidence: 0.78
+    note: "Lele et al. (2013) Nature Chemical Biology: sudden motor speed change triggers rapid stator exchange — stator number responds to load within seconds"
+  - type: supporting
+    confidence: 0.72
+    note: "Tipping et al. (2013): reducing PMF reduces stator number reversibly; restoring PMF recruits stators — PMF controls stator binding thermodynamics"
+  - type: supporting
+    confidence: 0.68
+    note: "Beeby et al. (2016) PNAS: evolutionary variation in stator number (H. pylori has 17 stators vs. E. coli 11) correlates with viscosity of native environment — suggesting adaptation of stator number to load"
+  - type: contradicting
+    confidence: 0.4
+    note: "The precise mechanism of load sensing (does FliG or C-ring deform under load to signal stator recruitment?) has not been directly demonstrated; may be a simpler PMF-only effect"
+
+unknowns_addressed:
+  - u-flagellar-motor-stator-number-regulation-pmf
+
+proposed_tests:
+  - description: >
+      Single-motor experiment: attach 200 nm bead to hook-truncated flagellum.
+      Suddenly increase viscosity (glycerol addition) to increase load.
+      Simultaneously measure: motor speed (optical trap), stator number (by
+      step-wise speed increases, each step ≈ 1 stator), and intracellular PMF
+      (TMRM fluorescence). Test whether stator recruitment follows load change
+      or PMF change first.
+    method: "Optical trap + TIRF stator counting + TMRM PMF measurement; time resolution <1s; step detection algorithm for stator number"
+    prediction: "Load increase triggers stator recruitment within 10s; stator number increases before PMF changes; removing load reduces stator number; PMF modulation shifts set-point but doesn't eliminate load response"
+
+related_disciplines:
+  - biophysics
+  - microbiology
+  - motor-proteins

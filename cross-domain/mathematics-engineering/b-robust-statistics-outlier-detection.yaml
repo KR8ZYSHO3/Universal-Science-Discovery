@@ -1,0 +1,79 @@
+id: b-robust-statistics-outlier-detection
+title: >
+  Robust statistics bridges mathematics and engineering: Huber's M-estimators,
+  the 50% breakdown point of least trimmed squares, and RANSAC (Random Sample
+  Consensus) provide principled methods for fitting models to corrupted data —
+  enabling reliable computer vision, GPS, robotics, and fraud detection.
+status: established
+fields:
+  - mathematics
+  - engineering
+  - statistics
+  - computer-vision
+  - data-science
+bridge_claim: >
+  Classical statistics (OLS, sample mean) is fragile: a single outlier can
+  arbitrarily corrupt the estimate. Robust statistics provides estimators with
+  bounded influence on any data point. Huber (1964) M-estimator: minimize
+  Σρ(rᵢ/σ) where the loss function ρ(x) = x²/2 for |x| < k (quadratic near
+  center), k|x| - k²/2 for |x| ≥ k (linear in tails). This Huber loss
+  interpolates between L₂ (k→∞, OLS) and L₁ (k→0, median absolute deviation).
+  Influence function IF(x; T, F) = lim_{ε→0} (T(F_ε) - T(F))/ε measures the
+  sensitivity of an estimator T to a single observation. Bounded IF → robust.
+  Breakdown point ε*: the fraction of data that can be corrupted before the
+  estimator fails. OLS has ε* = 0 (one outlier suffices to destroy it); sample
+  median has ε* = 50%; LTS (Least Trimmed Squares: minimize sum of h smallest
+  squared residuals) achieves ε* = (n-h)/n → 50% for h = ⌊n/2⌋ + 1.
+  RANSAC (Fischler & Bolles 1981): randomly sample minimal subset of points,
+  fit model, count inliers (within threshold τ), repeat. After N iterations,
+  probability of finding a clean subset ≥ 1 - (1-p^m)^N where p is inlier
+  fraction and m is minimum sample size. RANSAC is the dominant algorithm for
+  robust geometric estimation in computer vision (fundamental matrix, homography,
+  essential matrix estimation). S-estimators, MM-estimators (combine high
+  breakdown point with high efficiency near Gaussian) complete the toolkit.
+translation_table:
+  - field_a_term: Huber loss ρ(x) (quadratic + linear tails)
+    field_b_term: robust regression objective; M-estimator with tuning constant k
+    note: k = 1.345 gives 95% asymptotic efficiency vs. OLS at Gaussian; adjustable
+  - field_a_term: breakdown point ε* = 50%
+    field_b_term: half the data can be replaced by arbitrary values without corrupting the estimate
+    note: LTS and repeated median achieve 50%; impossible to exceed 50% in symmetric estimation
+  - field_a_term: influence function IF(x; T, F)
+    field_b_term: first-order sensitivity of estimator T to a point mass at x
+    note: bounded IF → robust; IF of sample mean is unbounded (linear in x)
+  - field_a_term: RANSAC (Random Sample Consensus)
+    field_b_term: model fitting algorithm tolerating up to 50% outliers via random hypothesis testing
+    note: RANSAC does not require the model, data distribution, or outlier fraction to be known a priori
+  - field_a_term: MM-estimator (S-step + M-step)
+    field_b_term: robust regression combining 50% breakdown with 95% Gaussian efficiency
+    note: gold standard for robust regression; Yohai (1987); implemented in R's lmrob
+related_unknowns:
+  - u-ransac-optimal-sampling-strategy-non-uniform-inlier-distribution
+related_hypotheses:
+  - h-robust-statistics-deep-learning-improves-noisy-label-training
+cross_pollination_opportunities:
+  - >
+    Deep learning robustness: replacing the L₂ loss with Huber loss for training
+    neural networks improves robustness to label noise. Extending to robust loss
+    functions with formal breakdown point guarantees (Menon et al. 2020) could
+    provide certified robustness for safety-critical AI systems.
+  - >
+    Sensor fusion: RANSAC and robust regression for GPS/IMU fusion in autonomous
+    vehicles — when some sensors are degraded (multipath, spoofing), robust
+    estimation maintains positioning accuracy. The breakdown point sets a theoretical
+    guarantee on the fraction of compromised sensors that can be tolerated.
+communication_gap: >
+  Mathematical statisticians who develop robust estimators (breakdownpoint theory,
+  asymptotics) rarely engage with computer vision engineers who use RANSAC daily.
+  The deep learning community largely rediscovers robust loss functions (Huber loss
+  is widely used in object detection regression heads) without engaging with the
+  formal robust statistics theory. Practitioners in fraud detection and anomaly
+  detection rarely cite the mathematical literature on breakdown points.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1214/aoms/1177703732"
+    note: Huber (1964) Robust estimation of a location parameter; Ann Math Stat 35:73
+  - note: Hampel et al. (1986) Robust Statistics — The Approach Based on Influence Functions; Wiley
+  - doi: "10.1145/358669.358692"
+    note: Fischler & Bolles (1981) Random sample consensus — a paradigm for model fitting with applications to image analysis; Commun ACM 24:381
+  - note: Rousseeuw & Leroy (1987) Robust Regression and Outlier Detection; Wiley

@@ -1,0 +1,80 @@
+id: b-phylogeography-coalescent-theory
+title: >
+  The coalescent (Kingman 1982) bridges ecology and mathematics by providing a
+  probabilistic framework for tracing gene genealogies backward in time — enabling
+  phylogeography to reconstruct population histories, out-of-Africa migration,
+  and species range shifts from genetic data.
+status: established
+fields:
+  - ecology
+  - mathematics
+  - population-genetics
+  - evolutionary-biology
+  - phylogeography
+bridge_claim: >
+  Kingman's coalescent (1982) describes the stochastic process by which genetic
+  lineages trace back to common ancestors. For a sample of n sequences, the rate
+  of coalescence of the last pair from k lineages is C(k,2)/N_e where N_e is the
+  effective population size. Expected time between k and k-1 lineages:
+  E[T_k] = 2N_e/[k(k-1)] generations. Total time to most recent common ancestor:
+  E[T_MRCA] ≈ 2N_e(1 - 1/n) → 2N_e for large samples. Phylogeography (Avise et al.
+  1987): combines gene trees with geographic distribution to infer population history.
+  Statistical phylogeography (Knowles & Maddison 2002): tests null model of panmixia
+  against structured genealogy using coalescent simulation. The isolation-with-migration
+  (IM) model (Hey & Nielsen 2004): simultaneously estimates divergence time (T),
+  migration rates (m), and population sizes (N) from multilocus data using MCMC
+  under the coalescent. Human out-of-Africa: mitochondrial Eve at ~150-200 kya
+  (most recent common ancestor of all human mtDNA); Y-chromosome Adam at ~200-300
+  kya (different genealogies for different loci, consistent with bottleneck models).
+  Species distribution modeling + coalescent: past climate refugia (LGM, ~21 kya)
+  predicted by ecological niche models match phylogeographic breaks — the geographic
+  fingerprint of glacial isolation.
+translation_table:
+  - field_a_term: coalescent rate C(k,2)/N_e
+    field_b_term: "ecological analog: contact rate between k lineages in population of size N_e"
+    note: like predator-prey contact rate; N_e parameterizes the stochastic process
+  - field_a_term: effective population size N_e
+    field_b_term: ecological carrying capacity under genetic drift (not census size)
+    note: N_e ≈ 4/3 × census size for sexual diploids; bottlenecks dramatically reduce N_e
+  - field_a_term: time to MRCA (E[T_MRCA] ≈ 2N_e)
+    field_b_term: coalescent depth measures historical population structure and bottlenecks
+    note: deeply diverged gene trees (large T_MRCA) indicate large ancestral N_e or subdivision
+  - field_a_term: phylogeographic break
+    field_b_term: geographic discontinuity in gene tree topology correlating with landscape barriers
+    note: mountain ranges, rivers, and climate barriers leave signatures in gene genealogies
+  - field_a_term: isolation-with-migration (IM) model
+    field_b_term: structured coalescent with post-divergence gene flow parameters
+    note: estimates when two populations split and how much gene flow occurred afterward
+related_unknowns:
+  - u-human-expansion-routes-coalescent-ancient-dna
+related_hypotheses:
+  - h-lgm-refugia-predict-phylogeographic-breaks-globally
+cross_pollination_opportunities:
+  - >
+    Ancient DNA (aDNA) provides direct genetic observations at known time points,
+    transforming phylogeography from inference-only to direct observation. The
+    coalescent provides the likelihood framework for integrating aDNA with modern
+    samples — enabling precise estimation of divergence times, migration events,
+    and admixture without assuming the coalescent rate is constant through time.
+  - >
+    Eco-evolutionary dynamics: combining species distribution models (SDMs) with
+    coalescent-based demographic inference to predict future phylogeographic
+    responses to climate change — where will genetic refugia form under 2-4°C
+    warming? The mathematical coalescent framework makes these predictions quantitative.
+communication_gap: >
+  Mathematical population geneticists who develop coalescent theory rarely engage
+  with empirical ecologists who do species distribution modeling or biogeography.
+  Phylogeographers use coalescent methods operationally (BEAST, IMa, msprime)
+  without engaging with the mathematical derivations. Conservation biologists
+  who identify management units for endangered species rarely use formal coalescent
+  inference for defining evolutionarily significant units.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1016/0304-4149(82)90011-4"
+    note: Kingman (1982) The coalescent; Stoch Proc Appl 13:235
+  - doi: "10.1146/annurev.es.18.110187.002421"
+    note: Avise et al. (1987) Intraspecific phylogeography — the mitochondrial DNA bridge between population genetics and systematics; Annu Rev Ecol Syst 18:489
+  - doi: "10.1534/genetics.103.024182"
+    note: Hey & Nielsen (2004) Multilocus methods for estimating population sizes, migration rates and divergence time; Genetics 167:395
+  - doi: "10.1038/325031a0"
+    note: Cann et al. (1987) Mitochondrial DNA and human evolution; Nature 325:31
