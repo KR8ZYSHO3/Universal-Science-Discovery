@@ -1,0 +1,23 @@
+id: u-market-microstructure-hawkes-calibration
+title: "Can a non-stationary multivariate Hawkes process with time-varying kernel parameters provide real-time early-warning indicators of flash-crash risk, and what is the minimum data window needed for reliable branching-ratio estimation on a live order book?"
+status: open
+priority: high
+disciplines:
+  - finance
+  - mathematics
+  - statistics
+summary: >
+  The Hawkes process provides a mathematically rigorous model of order-book microstructure, but practical
+  real-time application to flash-crash detection faces calibration challenges. Key unknowns: (1) what minimum
+  data window (in milliseconds of order-book events) gives a reliable MLE estimate of the branching ratio eta
+  with confidence interval narrow enough to trigger circuit-breaker decisions, (2) do non-parametric kernel
+  estimators (Bacry et al.) outperform exponential kernel approximations for real-time liquidity risk, and
+  (3) do Hawkes model parameters (mu, phi) exhibit non-stationarity correlated with macroeconomic announcements
+  in ways that invalidate stationary calibration in high-stakes trading periods?
+systematic_gaps:
+  - Proprietary order-book data at millisecond resolution is not publicly available for systematic model comparison
+  - Non-stationary Hawkes estimation methods are computationally expensive; real-time inference algorithms are not mature
+  - Empirical evidence that branching ratio eta is a leading indicator of flash crashes (rather than a coincident one) is weak
+related_bridges:
+  - b-market-liquidity-hawkes-processes
+last_reviewed: "2026-05-07"

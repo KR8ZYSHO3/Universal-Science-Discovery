@@ -1,0 +1,33 @@
+id: h-hawkes-process-liquidity-flash-crash
+title: "The Hawkes branching ratio eta estimated from the last 10 minutes of limit order book data will be a statistically significant leading indicator (AUC > 0.75 for ROC curve) of flash crash events defined as > 2% price decline within 60 seconds, based on backtesting against S&P 500 E-mini futures order book data from 2010–2023"
+status: active
+priority: high
+impact_score: 0.77
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+evidence_links:
+  - doi: "10.1007/s00780-015-0282-y"
+    type: supporting
+    confidence: 0.65
+    note: "Hardiman et al. (2013) — eta close to 1 in S&P futures; qualitative association with flash crash"
+  - doi: "10.1142/S2010326314500094"
+    type: supporting
+    confidence: 0.60
+    note: "Filimonov & Sornette (2012) — Hawkes branching ratio as reflexivity measure; near-critical behavior before flash crashes"
+  - type: related
+    note: "CFTC-SEC report (2010) — May 6 flash crash analysis; order book dynamics and liquidity withdrawal"
+unknowns_addressed:
+  - u-market-microstructure-hawkes-calibration
+proposed_tests:
+  - description: >
+      For E-mini S&P 500 futures tick data, estimate eta via MLE Hawkes calibration on rolling 10-minute
+      windows. Label flash crash events (>2% drawdown in 60s). Compute ROC AUC for eta as a binary
+      classifier of flash crash occurrence within the next 30 minutes. Compare to VIX and bid-ask spread
+      baselines.
+    method: "Rolling Hawkes MLE on tick data; ROC analysis for flash crash prediction; comparison to VIX and spread baselines"
+    prediction: "Hawkes eta achieves AUC > 0.75 on held-out flash crash test set; outperforms VIX and spread by > 0.05 AUC"
+related_disciplines:
+  - finance
+  - mathematics
+  - statistics

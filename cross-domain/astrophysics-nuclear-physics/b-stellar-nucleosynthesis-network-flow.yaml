@@ -1,0 +1,37 @@
+id: b-stellar-nucleosynthesis-network-flow
+title: "Stellar nucleosynthesis proceeds through a reaction network of hundreds of isotopes connected by nuclear reactions, and the relative abundances of elements produced can be computed by solving the same maximum-flow and steady-state flux equations used in metabolic network analysis and chemical engineering yield problems"
+status: established
+fields:
+  - astrophysics
+  - nuclear-physics
+  - network-science
+bridge_claim: "The abundance evolution of nuclides in a stellar burning zone is governed by a coupled ODE network dY_i/dt = sum_j lambda_{ji} Y_j - Y_i sum_k lambda_{ik}, where Y_i are molar abundances and lambda are reaction rates from nuclear physics; this is formally identical to the flux-balance analysis (FBA) formulation of metabolic networks, and the same sparse-matrix solvers, sensitivity analysis, and quasi-steady-state approximations are applicable; the r-process neutron-capture path is the nuclear analog of a bottleneck edge in a max-flow graph."
+translation_table:
+  - field_a_term: "nuclear reaction rate lambda_{ij} (Gamow factor * Maxwell-Boltzmann integral) (nuclear physics)"
+    field_b_term: "edge flux in a directed flow network (network science)"
+    note: "Each nuclear reaction is an edge; its capacity is the temperature- and density-dependent rate coefficient"
+  - field_a_term: "isotope abundance Y_i (astrophysics)"
+    field_b_term: "node concentration in metabolic network steady state (network science)"
+    note: "Abundance evolves by conservation: production minus destruction fluxes, identical to metabolic FBA node balance"
+  - field_a_term: "waiting point isotope at neutron magic number (astrophysics)"
+    field_b_term: "rate-limiting bottleneck node in flow network (network science)"
+    note: "Nuclides with long beta-decay half-lives are bottlenecks that determine the r-process path and abundance peaks"
+  - field_a_term: "nuclear statistical equilibrium (NSE) at high T (astrophysics)"
+    field_b_term: "thermodynamic equilibrium / maximum entropy steady state (network science)"
+    note: "NSE is the maximum entropy distribution of nuclides given conserved proton and neutron numbers, analogous to detailed balance"
+related_unknowns:
+  - u-stellar-nucleosynthesis-r-process-site
+related_hypotheses:
+  - h-r-process-neutron-star-merger-dominant
+cross_pollination_opportunities:
+  - "Applying metabolic flux analysis tools (sensitivity matrices, principal component analysis) to stellar nucleosynthesis networks to identify the reactions most responsible for observed elemental abundance uncertainty"
+  - "Using graph-theoretic betweenness centrality to identify key isotope nodes whose reaction rate uncertainties most propagate to observable abundance ratios"
+communication_gap: "Nuclear astrophysicists build large custom ODE solvers for reaction networks while network scientists and systems biologists use general-purpose flux analysis software; cross-pollination is limited by the domain-specific notation (Gamow window, Q-values, waiting points) not familiar to network theorists."
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1146/annurev.astro.46.060407.145207"
+    note: "Arnould et al. (2007) - the r-process of stellar nucleosynthesis: astrophysics and nuclear physics achievements and mysteries"
+  - doi: "10.1086/309265"
+    note: "Burbidge et al. (1957) - synthesis of the elements in stars (B2FH: foundational nucleosynthesis network paper)"
+  - doi: "10.1103/RevModPhys.93.015002"
+    note: "Cowan et al. (2021) - origin of the heaviest elements: the rapid neutron-capture process (r-process review)"
