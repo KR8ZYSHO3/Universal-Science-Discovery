@@ -1,0 +1,64 @@
+id: b-computational-irreducibility-wolfram-rule110
+title: >
+  Wolfram's computational irreducibility principle states that the only way
+  to determine the future state of certain simple computational systems
+  (notably Rule 110 cellular automata, which is Turing-complete) is to
+  run them step by step - no shortcut exists - connecting the halting
+  problem in computability theory to the limits of mathematical prediction
+  in physical and complex systems.
+status: contested
+fields:
+  - computer-science
+  - mathematics
+bridge_claim: >
+  Rule 110 is a one-dimensional cellular automaton (1D CA) with 2 states
+  and a specific local rule. Cook (2004) proved it is Turing-complete: it
+  can simulate any Turing machine. This means no algorithm can predict
+  its state at time T faster than running T steps of the CA - it is
+  computationally irreducible (Wolfram 2002). The bridge to mathematics
+  is via undecidability: if Rule 110 can simulate any computation, then
+  deciding whether a Rule 110 initial condition ever reaches a specific
+  state is equivalent to the halting problem - undecidable. Wolfram
+  extrapolates to claim that many physical systems (weather, biological
+  evolution, economics) are computationally irreducible, implying no
+  mathematical shortcut (closed-form prediction) exists. This is contested
+  because: (1) physical systems may have symmetries that reduce computational
+  cost, (2) approximation (rather than exact simulation) may be practically
+  sufficient, and (3) the mapping from physical systems to Turing-complete CAs
+  may not preserve relevant dynamics.
+translation_table:
+  - field_a_term: Turing completeness (computer science)
+    field_b_term: Rule 110 can simulate any computation (mathematics)
+    note: Cook (2004) proved Rule 110 Turing-complete; key step in computational irreducibility argument
+  - field_a_term: halting problem undecidability (computer science)
+    field_b_term: no algorithm decides Rule 110 future state faster than simulation (mathematics)
+    note: Undecidability of halting -> no shortcut for computationally irreducible systems
+  - field_a_term: computational complexity class P vs. EXPTIME (computer science)
+    field_b_term: difference between predictable vs. irreducible physical systems (mathematics)
+    note: Computationally reducible systems have poly-time predictions; irreducible require exp-time simulation
+  - field_a_term: computational equivalence principle (computer science)
+    field_b_term: claim that all sufficiently complex systems are equivalent in computational power (mathematics)
+    note: Wolfram's most contested claim; not proven; relies on universality of Rule 110 and similar CAs
+communication_gap: >
+  Computer scientists focus on formal computational complexity bounds (P, NP,
+  PSPACE) while Wolfram's framework uses informal language that is contested
+  in complexity theory; mathematicians studying cellular automata prove formal
+  results (universality, undecidability) that are rarely communicated to the
+  broad scientific community as limits on physical prediction.
+cross_pollination_opportunities:
+  - Apply computational complexity theory to formalise which physical systems
+    are computationally irreducible vs. reducible with rigorous complexity bounds
+  - Use Rule 110 and other universal CAs as test systems for machine learning
+    approaches to sequence prediction to probe the limits of neural network shortcuts
+  - Transfer undecidability arguments to ecology and economics to identify
+    which macroscopic observables remain predictable despite microscale irreducibility
+related_unknowns:
+  - u-computational-irreducibility-physical-systems-scope
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.3138/9781442637085"
+    note: Wolfram (2002) - A New Kind of Science; computational irreducibility and Rule 110
+  - doi: "10.1007/978-3-642-55385-4_1"
+    note: Cook (2004) - universality in elementary cellular automata; Rule 110 Turing completeness proof
+  - doi: "10.1145/3321486"
+    note: "Aaronson (2020) - computational complexity: a modern approach (selected chapters)"
