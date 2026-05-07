@@ -1,0 +1,56 @@
+id: b-ml-generalization-pac-learning-vc-dimension
+title: >
+  Machine learning generalization — the ability of a model to perform well on unseen
+  data — is formalized by PAC learning theory and bounded by the Vapnik-Chervonenkis
+  (VC) dimension: a hypothesis class is PAC-learnable if and only if it has finite
+  VC dimension, providing a mathematical foundation for why learning is or is not possible.
+status: established
+fields:
+  - computer-science
+  - mathematics
+  - statistical-learning-theory
+bridge_claim: >
+  PAC (Probably Approximately Correct) learning: a hypothesis class H is ε-δ
+  PAC-learnable if for all ε,δ > 0 there exists a sample complexity
+  m ≥ (1/ε)[ln|H| + ln(1/δ)] (finite H) such that with probability ≥ 1-δ,
+  any ERM learner returns h with error ≤ ε. For infinite H, the VC dimension
+  d_VC = VC(H) replaces ln|H|: m ≥ (d_VC·ln(1/ε) + ln(1/δ))/ε (upper bound).
+  The fundamental theorem of statistical learning: H is PAC-learnable iff
+  d_VC(H) < ∞. For neural networks, d_VC ≈ O(W·log W) (W = parameters), but
+  modern overparameterized networks generalize despite d_VC >> m, a phenomenon
+  explained by implicit regularization, flatness, and the double-descent curve —
+  revealing that VC bounds are loose for deep learning.
+translation_table:
+  - field_a_term: generalization error (machine learning)
+    field_b_term: true risk R(h) minus empirical risk R_emp(h) (statistical learning theory)
+    note: Generalization gap is bounded by VC/Rademacher complexity via uniform convergence theorems
+  - field_a_term: overfitting (machine learning)
+    field_b_term: high variance / low bias regime in bias-variance tradeoff (mathematics)
+    note: VC theory quantifies when empirical risk is a poor proxy for true risk
+  - field_a_term: model complexity (machine learning)
+    field_b_term: VC dimension d_VC or Rademacher complexity (mathematics)
+    note: VC dimension is the formal complexity measure determining the PAC sample complexity
+  - field_a_term: train/test split (machine learning)
+    field_b_term: empirical vs true risk estimation (statistics)
+    note: Test set provides unbiased estimate of true risk; PAC theory bounds the required test size
+related_unknowns:
+  - u-generalization-overparameterized-neural-networks-theory
+related_hypotheses:
+  - h-implicit-regularization-sgd-explains-deep-learning-generalization
+cross_pollination_opportunities:
+  - Applying PAC-Bayesian bounds to quantify uncertainty in deep learning predictions for high-stakes applications
+  - Using algorithmic stability theory (sensitivity of output to single training point) as alternative to VC bounds for modern architectures
+communication_gap: >
+  PAC learning theory was developed by Valiant (1984) and formalized by VC theory
+  in the 1970s-80s; it became the dominant theoretical framework for ML generalization,
+  but the success of deep learning has exposed fundamental gaps between VC-dimension
+  predictions and empirical behavior, creating an active bridge problem between
+  theoretical computer science, statistics, and deep learning practitioners.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1145/1968.1972"
+    note: Valiant (1984) - A theory of the learnable (original PAC paper)
+  - doi: "10.1109/TIT.1971.1054643"
+    note: Vapnik & Chervonenkis (1971) - on the uniform convergence of relative frequencies (VC theory)
+  - doi: "10.1126/science.1238411"
+    note: Shalev-Shwartz & Ben-David (2014) - Understanding Machine Learning (textbook reference)

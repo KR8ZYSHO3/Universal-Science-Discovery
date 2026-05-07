@@ -1,0 +1,57 @@
+id: b-social-mobility-markov-chain-transition-matrix
+title: >
+  Social mobility across income or occupational classes is modeled as a Markov
+  chain with a transition matrix P_{ij} representing the probability of moving
+  from class i to class j across generations; the Markov eigenvalue structure
+  determines long-run mobility rates, steady-state distributions, and whether
+  a society converges to meritocracy or reproduces inequality.
+status: established
+fields:
+  - sociology
+  - mathematics
+  - economics
+bridge_claim: >
+  Let x_t be the class distribution vector at generation t; then x_{t+1} = P·x_t
+  where P is a row-stochastic transition matrix (P_{ij} ≥ 0, ∑_j P_{ij} = 1).
+  The long-run (steady-state) distribution π satisfies π = π·P (left eigenvector
+  for eigenvalue λ=1). The second eigenvalue λ₂ determines convergence rate:
+  |x_t - π| ~ |λ₂|^t, so the "persistence of inequality" is measured by |λ₂|
+  (close to 1 = slow convergence, high persistence; close to 0 = rapid mixing).
+  Intergenerational income elasticity (IGE) ≈ 1 - 1/T where T = mixing time.
+  Chetty's empirical mobility matrices confirm non-Markovian features (path
+  dependence) in practice, extending the model to higher-order Markov chains
+  and questioning the memorylessness assumption.
+translation_table:
+  - field_a_term: intergenerational mobility rate (sociology)
+    field_b_term: spectral gap 1-λ₂ of transition matrix (mathematics)
+    note: Faster societal mixing corresponds to larger spectral gap; slower mobility to λ₂ → 1
+  - field_a_term: class distribution across generations (sociology)
+    field_b_term: iterated matrix-vector product x_t = P^t·x_0 (mathematics)
+    note: Class shares evolve by repeated application of the transition matrix
+  - field_a_term: steady-state class distribution (sociology)
+    field_b_term: stationary distribution π of Markov chain (mathematics)
+    note: If P is ergodic, the class distribution converges to π regardless of starting state
+  - field_a_term: intergenerational income elasticity IGE (sociology)
+    field_b_term: rate of convergence to stationary distribution (mathematics)
+    note: High IGE means slow convergence; IGE ≈ 0.5 in US, 0.2 in Scandinavia
+related_unknowns:
+  - u-non-markovian-social-mobility-multigenerational-effects
+related_hypotheses:
+  - h-wealth-concentration-slows-markov-mixing-time-poverty-traps
+cross_pollination_opportunities:
+  - Applying Markov chain Monte Carlo methods to simulate counterfactual redistribution policies and their effect on long-run class distributions
+  - Using entropy production in the Markov chain to quantify "wasted potential" from inequality and compare societies
+communication_gap: >
+  Sociologists and economists measuring social mobility use transition matrices
+  empirically but often interpret them without Markov chain theory; mathematicians
+  studying Markov mixing times and ergodic theory rarely apply their results to
+  sociological data; the explicit spectral-gap analysis of real mobility matrices
+  is a productive frontier that remains underexplored.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1257/aer.104.5.141"
+    note: Chetty et al. (2014) - Where is the Land of Opportunity? (empirical US mobility matrices)
+  - doi: "10.1093/restud/rds048"
+    note: Blanden et al. (2013) - intergenerational mobility and the Markov property
+  - doi: "10.1093/acprof:oso/9780195049015.001.0001"
+    note: Shorrocks (1978) - the measurement of mobility (mathematical mobility indices)

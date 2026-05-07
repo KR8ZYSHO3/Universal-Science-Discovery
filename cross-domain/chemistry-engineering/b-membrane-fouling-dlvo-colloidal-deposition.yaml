@@ -1,0 +1,54 @@
+id: b-membrane-fouling-dlvo-colloidal-deposition
+title: >
+  Membrane fouling by colloidal particles is governed by DLVO theory from colloid
+  chemistry, where the interplay of van der Waals attraction and electrostatic
+  double-layer repulsion determines whether particles deposit on membrane surfaces
+  and cause flux decline.
+status: established
+fields:
+  - membrane-science
+  - colloid-chemistry
+  - chemical-engineering
+bridge_claim: >
+  DLVO theory (Derjaguin-Landau-Verwey-Overbeek) predicts colloid stability via
+  the total interaction energy V_T = V_vdW + V_EDL, where van der Waals attraction
+  V_vdW ≈ -A_H·a/(6h) (A_H = Hamaker constant, a = particle radius, h = separation)
+  and electrostatic repulsion V_EDL ≈ 64πεa(kT/ze)²·tanh²(zeψ/4kT)·exp(-κh)
+  (κ = Debye-Hückel parameter). Membrane fouling rate is controlled by whether
+  V_T has an energy barrier: when ionic strength increases (κ increases), the barrier
+  collapses and rapid coagulative fouling occurs. The critical flux in membrane
+  filtration maps directly onto the critical coagulation concentration in colloid
+  science, bridging filtration engineering and DLVO colloid chemistry.
+translation_table:
+  - field_a_term: membrane fouling layer (membrane science)
+    field_b_term: colloidal aggregate / sediment (colloid chemistry)
+    note: Both result from particle deposition when repulsive energy barrier is overcome
+  - field_a_term: critical flux (membrane science)
+    field_b_term: critical coagulation concentration (colloid chemistry)
+    note: Both represent the threshold beyond which irreversible deposition dominates
+  - field_a_term: transmembrane pressure (membrane science)
+    field_b_term: applied force overcoming energy barrier (colloid chemistry)
+    note: TMP drives particles through the DLVO energy barrier to deposit on membrane surface
+  - field_a_term: cake resistance Rc (membrane science)
+    field_b_term: aggregate packing structure / fractal dimension (colloid chemistry)
+    note: Cake layer compressibility is governed by inter-particle DLVO forces in the deposit
+related_unknowns:
+  - u-membrane-fouling-prediction-mixed-colloid-systems
+related_hypotheses:
+  - h-dlvo-extension-non-dlvo-forces-membrane-fouling
+cross_pollination_opportunities:
+  - Using zeta-potential and Hamaker constant measurements to predict fouling propensity before membrane filtration
+  - Engineering membrane surface chemistry (grafted polymers, surface charge) using DLVO design principles to minimize fouling
+communication_gap: >
+  Membrane engineers focus on flux, pressure, and cleaning protocols while colloid
+  chemists focus on suspension stability and coagulation kinetics; DLVO theory from
+  the 1940s underpins both but cross-disciplinary collaboration remains limited,
+  particularly for complex natural organic matter systems where extended DLVO is needed.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1021/es00098a012"
+    note: Elimelech & O'Melia (1990) - kinetics of deposition of colloidal particles in porous media
+  - doi: "10.1016/S0376-7388(97)00109-X"
+    note: Bowen & Jenner (1995) - theoretical descriptions of membrane filtration of colloids
+  - doi: "10.1016/j.memsci.2006.02.030"
+    note: Brant & Childress (2004) - assessing short-range membrane-colloid interactions using surface energetics
