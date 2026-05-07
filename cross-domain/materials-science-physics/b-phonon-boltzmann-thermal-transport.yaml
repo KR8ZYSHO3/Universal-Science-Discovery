@@ -1,0 +1,66 @@
+id: b-phonon-boltzmann-thermal-transport
+title: >
+  Thermal conductivity of crystalline solids is quantitatively predicted by
+  the phonon Boltzmann transport equation (BTE): κ = (1/3)∫C(ω)v(ω)λ(ω)dω,
+  where acoustic phonons are the heat carriers and three-phonon Umklapp
+  scattering is the primary resistive process, directly connecting lattice
+  dynamics to macroscopic heat flow.
+status: established
+fields:
+  - condensed-matter-physics
+  - materials-science
+  - thermodynamics
+bridge_claim: >
+  Phonons—quantised lattice vibrations—carry heat in insulators and
+  semiconductors exactly as molecules carry heat in gases. The phonon BTE
+  (Peierls 1929) describes their out-of-equilibrium distribution under a
+  temperature gradient: ∂n_λ/∂t + v_λ·∇T(∂n_λ/∂T) = (∂n_λ/∂t)|_scatt.
+  Thermal conductivity κ is obtained by linearising and solving: κ =
+  (1/NkΩ)Σ_λ C_λ v²_λ τ_λ, where C_λ is the mode heat capacity, v_λ the
+  group velocity, and τ_λ the relaxation time from three-phonon Umklapp
+  processes. First-principles BTE calculations (Broido 2007) using density-
+  functional perturbation theory predict κ for Si, Ge, and diamond to within
+  5% of experiment—demonstrating that lattice dynamics and kinetic theory
+  are sufficient to explain macroscopic thermal transport.
+translation_table:
+  - field_a_term: "Phonon mode λ = (q, s) (wavevector, branch)"
+    field_b_term: "Gas molecule in kinetic theory"
+    note: "Both obey Bose-Einstein (phonons) / Maxwell-Boltzmann (classical) equilibrium distributions"
+  - field_a_term: "Phonon group velocity v_λ = ∂ω/∂q"
+    field_b_term: "Molecular velocity in kinetic theory"
+    note: "Determines the diffusion rate of heat; dispersive bands give wavelength-dependent velocities"
+  - field_a_term: "Phonon-phonon Umklapp scattering (three-phonon)"
+    field_b_term: "Molecular collision in kinetic theory (momentum-non-conserving)"
+    note: "Umklapp restores crystal momentum with a reciprocal lattice vector G ≠ 0, providing thermal resistance"
+  - field_a_term: "Phonon mean free path λ = v_λ τ_λ"
+    field_b_term: "Mean free path between molecular collisions"
+    note: "Both set the length scale over which heat diffuses; nano-structuring below λ reduces κ"
+related_unknowns:
+  - u-phonon-mean-free-path-nanostructured-materials
+related_hypotheses:
+  - h-phonon-mfp-spectrum-thermal-conductivity-engineering
+cross_pollination_opportunities:
+  - >
+    Phonon mean-free-path spectroscopy (using ultrafast laser heating at varying
+    modulation frequencies) can map the κ(λ) spectrum, enabling targeted
+    nanostructure design that scatters only long-mean-free-path phonons while
+    preserving charge transport.
+  - >
+    Machine-learning interatomic potentials trained on DFT phonon force constants
+    can accelerate first-principles BTE calculations to screen thermoelectric
+    material libraries orders-of-magnitude faster than DFT alone.
+communication_gap: >
+  Kinetic theorists and materials scientists use different notations (kinetic
+  theory uses collision integrals; solid-state physics uses second quantisation).
+  The equivalence was established by Peierls (1929) and Callaway (1959) but
+  textbook treatments of each field rarely cross-reference the other.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1103/PhysRevLett.99.185901"
+    note: "Broido et al. (2007) PRL – first-principles phonon BTE gives κ for Si and Ge within 5% of experiment"
+  - doi: "10.1103/PhysRev.113.1046"
+    note: "Callaway (1959) PR – model thermal conductivity from phonon relaxation times"
+  - doi: "10.1016/j.physrep.2018.02.004"
+    note: "McGaughey et al. (2019) Physics Reports – phonon transport in nanostructured materials"
+  - doi: "10.1038/s41578-018-0018-2"
+    note: "Snyder & Toberer – complex thermoelectric materials; phonon engineering"
