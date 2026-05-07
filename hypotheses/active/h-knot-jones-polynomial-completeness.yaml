@@ -1,0 +1,43 @@
+id: h-knot-jones-polynomial-completeness
+title: >
+  The colored Jones polynomial (all colors simultaneously) is a complete invariant
+  of prime knots up to mirror image, with knot detection rate exceeding 99.9% for
+  knots with fewer than 20 crossings
+status: active
+priority: medium
+impact_score: 0.71
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: wave-63-agent
+unknowns_addressed:
+  - u-knot-theory-x-quantum-gravity
+related_disciplines:
+  - mathematics
+  - physics
+  - topology
+  - quantum_gravity
+evidence_links:
+  - type: supporting
+    doi: "10.1007/BF01217730"
+    note: "Witten (1989) - Quantum field theory and the Jones polynomial; Chern-Simons generates Jones polynomial"
+    confidence: 0.88
+  - type: related
+    note: "Dasbach & Lin (2007) - On the Jones polynomial of closed 3-braids; known pairs with identical Jones polynomial"
+    confidence: 0.75
+  - type: supporting
+    note: "Freedman et al. (2003) - Topological quantum computation; Jones polynomial computation via anyonic braiding"
+    confidence: 0.80
+proposed_tests:
+  - description: >
+      Systematically compute colored Jones polynomials at all colors r = 2, 3, ..., 15
+      for all prime knots with up to 20 crossings (Rolfsen table + extended tables);
+      test whether any two distinct prime knots share identical colored Jones
+      polynomials at all computed colors.
+    method: "SnapPy/Knotpy automated computation; computer cluster for r > 10; comparison across complete knot database; Mathematica KnotTheory package"
+    prediction: "No counterexample (two distinct prime knots with identical colored Jones at all r <= 15) found up to 20 crossings; suggests but does not prove completeness"
+  - description: >
+      Test whether the Jones polynomial distinguishes mutant knots (knots differing
+      by a Conway mutation) using the full colored Jones polynomial at r = 4, where
+      standard Jones (r = 2) fails for all known cases.
+    method: "Compute r = 4 colored Jones for all known Conway mutation pairs (Kinoshita-Terasaka, Conway knot, etc.); test for equality"
+    prediction: "Colored Jones at r = 4 distinguishes >90% of known mutation pairs where r = 2 Jones polynomial is identical; Conway knot distinguished at r <= 6"

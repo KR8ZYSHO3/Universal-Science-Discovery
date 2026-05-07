@@ -1,0 +1,46 @@
+id: b-nucleation-x-first-passage
+title: >
+  Nucleation theory x First passage time - crystal nucleation as rare event
+status: proposed
+fields:
+  - chemistry
+  - physics
+  - mathematics
+  - stochastic_processes
+bridge_claim: >
+  Crystal nucleation from a supersaturated solution is a rare event governed by first-
+  passage time theory; the classical nucleation theory rate J = Z * A * exp(-delta_G*/kT)
+  (where Z is the Zeldovich factor, A is the attachment rate, and delta_G* is the free
+  energy barrier) is a first-passage rate over the free energy barrier delta_G*, exactly
+  computed as the inverse of the mean first-passage time (MFPT) from sub-critical to
+  super-critical nucleus — connecting phase transition kinetics to the mathematical
+  theory of stochastic processes and Kramers' escape rate theory.
+translation_table:
+  - field_a_term: nucleation rate J = Z * A * exp(-delta_G*/kT) (classical nucleation theory)
+    field_b_term: inverse mean first-passage time over free energy barrier (Kramers theory)
+    note: J is the MFPT inverse for the process crossing the critical nucleus size; delta_G* is the barrier height in Kramers' formula
+  - field_a_term: Zeldovich factor Z (classical nucleation theory)
+    field_b_term: curvature of free energy barrier at saddle point (Kramers theory)
+    note: Z = sqrt(|d^2 G/dn^2| / (2 pi kT)) at n* — the barrier curvature that appears in Kramers' rate formula
+  - field_a_term: critical nucleus size n* (nucleation theory)
+    field_b_term: saddle point of free energy landscape (stochastic dynamics)
+    note: n* is the saddle point where the barrier tops; nuclei below n* are subcritical (dissolve), above n* grow (committed nucleus)
+  - field_a_term: induction time tau_ind before first nucleation event (experiments)
+    field_b_term: mean first-passage time (MFPT) for rare barrier-crossing event (mathematics)
+    note: Experimental induction time = MFPT; its exponential distribution confirms Poisson nucleation process with rate J
+communication_gap: >
+  Physical chemists developing classical nucleation theory (Volmer & Weber 1926,
+  Becker & Doring 1935) and mathematicians developing first-passage time theory and
+  Kramers' escape rate (Kramers 1940) built parallel frameworks; the equivalence
+  between CNT and Kramers theory was made rigorous by Hanggi et al. (1990), but
+  modern nucleation experiments (microfluidic droplet arrays, cryo-EM of prenucleation
+  clusters) rarely frame results in first-passage time language.
+cross_pollination_opportunities:
+  - Apply forward flux sampling (FFS) and transition path sampling from rare event methods to measure nucleation rates in systems where CNT fails (non-classical nucleation, two-step mechanisms)
+  - Use large deviation theory (mathematical framework for rare events) to compute nucleation rates beyond Kramers theory, capturing non-Gaussian fluctuations in modern nucleation experiments
+related_unknowns:
+  - u-nucleation-x-first-passage
+references:
+  - doi: "10.1063/1.1744102"
+    note: "Turnbull & Fisher (1949) - Rate of nucleation in condensed systems; J Chem Phys 17:71 — CNT applied to crystallization"
+last_reviewed: "2026-05-07"

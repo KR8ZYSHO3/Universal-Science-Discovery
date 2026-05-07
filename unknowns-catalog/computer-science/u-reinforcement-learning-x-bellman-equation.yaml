@@ -1,0 +1,27 @@
+id: u-reinforcement-learning-x-bellman-equation
+title: >
+  Does the Bellman optimality equation have a unique solution for infinite-horizon
+  deep RL with function approximation, and what conditions prevent divergence?
+status: open
+priority: high
+disciplines:
+  - computer_science
+  - mathematics
+  - control_theory
+  - optimization
+summary: >
+  Q-learning with function approximation (DQN, TD-learning) can diverge even with
+  linear function approximators — the deadly triad (off-policy learning, function
+  approximation, bootstrapping) identified by Sutton & Barto. The Bellman operator
+  is a contraction in the tabular case, guaranteeing convergence, but with neural
+  network function approximation the projection step breaks the contraction. The
+  conditions under which deep RL converges to a solution of the HJB equation (rather
+  than diverging or finding local optima) are not fully characterized, representing
+  a major gap between RL theory and practice.
+systematic_gaps:
+  - The precise conditions on the function approximator class that guarantee convergence of deep Q-learning to the true Q* have not been established beyond linear approximation
+  - The relationship between the deadly triad instability and the existence of multiple fixed points of the Bellman operator under neural approximation has not been characterized
+  - Whether distributional RL (C51, QR-DQN) avoids the convergence issues of point-estimate Q-learning due to better preservation of the Bellman contraction property has not been proved
+related_bridges:
+  - b-reinforcement-learning-x-bellman-equation
+last_reviewed: "2026-05-07"

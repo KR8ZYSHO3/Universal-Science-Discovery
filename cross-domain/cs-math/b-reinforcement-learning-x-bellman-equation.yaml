@@ -1,0 +1,45 @@
+id: b-reinforcement-learning-x-bellman-equation
+title: >
+  Reinforcement learning x Bellman equation - optimal control as dynamic programming
+status: proposed
+fields:
+  - computer_science
+  - mathematics
+  - control_theory
+  - optimization
+bridge_claim: >
+  Reinforcement learning (Q-learning, policy gradients, TD-learning) solves the Bellman
+  optimality equation V*(s) = max_a [R(s,a) + gamma E[V*(s')]] via function approximation;
+  this connects RL to Bellman's dynamic programming principle, the Hamilton-Jacobi-Bellman
+  PDE of continuous optimal control, and Pontryagin's maximum principle — making deep RL
+  a computational approach to classical variational control theory that scales to
+  high-dimensional state spaces via neural function approximation.
+translation_table:
+  - field_a_term: Q-function Q(s,a) in Q-learning (reinforcement learning)
+    field_b_term: value function V*(x) in optimal control / HJB equation (control theory)
+    note: Q(s,a) is the action-value function; the Bellman optimality equation Q*(s,a) = R + gamma max Q*(s',a') is the discrete HJB equation
+  - field_a_term: temporal difference error delta = r + gamma V(s') - V(s) (RL)
+    field_b_term: Hamiltonian H(x, u, p) in Pontryagin maximum principle (control theory)
+    note: TD error is the discrete residual of the HJB equation; policy gradient methods compute the Hamiltonian gradient with respect to control u
+  - field_a_term: discount factor gamma in RL (reinforcement learning)
+    field_b_term: time horizon / interest rate in discounted LQR (control theory)
+    note: Gamma = exp(-rho dt) where rho is the continuous discount rate; gamma -> 1 corresponds to infinite-horizon undiscounted optimal control
+  - field_a_term: actor-critic architecture (RL)
+    field_b_term: state-costate decomposition in Pontryagin maximum principle (control theory)
+    note: Critic = value function = costate variable (Lagrange multiplier for dynamics); actor = policy = control law derived from Hamiltonian
+communication_gap: >
+  Bellman (1957) developed dynamic programming for control theory and Watkins (1989)
+  developed Q-learning independently in AI; the connection was clear in early RL work
+  (Sutton & Barto 1988) but the explicit identification of deep RL with HJB PDEs and
+  Pontryagin's principle was systematized only later — enabling continuous control
+  algorithms (DDPG, SAC) that directly import optimal control theory into the RL
+  framework.
+cross_pollination_opportunities:
+  - Apply HJB PDE analysis to prove convergence and sample efficiency bounds for deep RL algorithms, using viscosity solution theory to handle non-smooth value functions
+  - Use model predictive control (MPC) from control theory as a structured policy class in RL, combining the sample efficiency of model-based methods with the optimality of Bellman-based planning
+related_unknowns:
+  - u-reinforcement-learning-x-bellman-equation
+references:
+  - doi: "10.1007/BF00992696"
+    note: "Watkins & Dayan (1992) - Q-learning; Machine Learning 8:279 — proves convergence of Q-learning to Bellman optimum"
+last_reviewed: "2026-05-07"

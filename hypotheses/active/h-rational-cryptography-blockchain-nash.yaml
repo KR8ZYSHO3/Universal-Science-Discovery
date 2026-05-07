@@ -1,0 +1,43 @@
+id: h-rational-cryptography-blockchain-nash
+title: >
+  Bitcoin mining with selfish mining strategy is a Nash equilibrium for all pool
+  sizes above 25% hashrate, and the game-theoretic security threshold is lower
+  than the computational security threshold of 51%
+status: active
+priority: medium
+impact_score: 0.76
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: wave-63-agent
+unknowns_addressed:
+  - u-game-theory-x-cryptography
+related_disciplines:
+  - economics
+  - computer_science
+  - mathematics
+  - cryptography
+evidence_links:
+  - type: supporting
+    doi: "10.1007/3-540-44647-8_1"
+    note: "Goldreich (2001) - Foundations of cryptography; computational security definitions"
+    confidence: 0.82
+  - type: related
+    note: "Eyal & Sirer (2014) - Majority is not enough: Bitcoin mining is vulnerable; FC 2014 — selfish mining Nash equilibrium"
+    confidence: 0.85
+  - type: supporting
+    note: "Sapirshtein et al. (2016) - Optimal selfish mining strategies in Bitcoin; FC 2016 — optimal strategy for all hashrates"
+    confidence: 0.82
+proposed_tests:
+  - description: >
+      Construct a complete game-theoretic model of Bitcoin mining with selfish
+      mining strategies for N = 2, 3, ..., 10 pools; compute Nash equilibria for
+      all hashrate distributions; determine the minimum hashrate threshold alpha*
+      above which selfish mining strictly dominates honest mining.
+    method: "Stochastic game formulation; linear programming for equilibrium computation; Monte Carlo simulation for finite-time horizon; cross-validation with Sapirshtein et al."
+    prediction: "Selfish mining Nash equilibrium threshold is alpha* = 0.25 (25%); below 25% honest mining is Nash equilibrium; above 25% selfish mining dominates"
+  - description: >
+      Test whether the game-theoretic and computational security thresholds diverge
+      in proof-of-stake protocols (Ethereum, Cardano) by computing Nash equilibria
+      for stake-weighted voting games and comparing to the 33% BFT threshold.
+    method: "Ethereum validator game model with stake distribution from on-chain data; Nash equilibrium analysis for validator coalitions; compare 25% Nash threshold to 33% Casper FFG threshold"
+    prediction: "PoS protocols have game-theoretic security threshold at 33% stake matching the BFT threshold (unlike Bitcoin's 25% game-theory vs 51% computational gap)"

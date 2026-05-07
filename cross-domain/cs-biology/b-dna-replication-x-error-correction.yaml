@@ -1,0 +1,46 @@
+id: b-dna-replication-x-error-correction
+title: >
+  DNA replication x Error-correcting codes - polymerase proofreading as channel coding
+status: proposed
+fields:
+  - biology
+  - computer_science
+  - information_theory
+  - molecular_biology
+bridge_claim: >
+  DNA replication achieves an error rate of approximately 10^-9 per base through a
+  three-stage error-correction pipeline (polymerase insertion selectivity 10^-5,
+  3'to5' exonuclease proofreading 10^-2, post-replication mismatch repair 10^-3)
+  that is functionally analogous to concatenated error-correcting codes in communication
+  theory; the proofreading step is equivalent to syndrome decoding, and the overall
+  architecture mirrors turbo codes or LDPC codes achieving near-Shannon-capacity
+  error correction.
+translation_table:
+  - field_a_term: DNA polymerase nucleotide selectivity (1 error per 10^5 bases) (biochemistry)
+    field_b_term: raw channel capacity / first-stage code rate in concatenated code (information theory)
+    note: Polymerase selectivity is the inner code; it provides a first reduction in error rate before proofreading
+  - field_a_term: 3 prime to 5 prime exonuclease proofreading (biochemistry)
+    field_b_term: syndrome decoding / error correction in outer code (information theory)
+    note: Proofreading detects and removes mismatched bases analogous to syndrome decoding; it checks consistency of the newly synthesized strand
+  - field_a_term: mismatch repair (MMR) pathway (molecular biology)
+    field_b_term: iterative belief propagation / second decoding pass in turbo/LDPC codes (information theory)
+    note: MMR is a third coding layer that catches errors escaping proofreading; the three-layer architecture mirrors concatenated coding gain
+  - field_a_term: DNA replication fidelity Q = product of three error rate reductions (molecular biology)
+    field_b_term: coding gain of concatenated error-correcting code (information theory)
+    note: The multiplicative error reduction (10^-5 x 10^-2 x 10^-3 = 10^-10) mirrors concatenated coding gain compounding individual stage gains
+communication_gap: >
+  Molecular biologists studying DNA replication mechanisms (Kornberg 1956, Brutlag &
+  Kornberg 1972) and information theorists developing error-correcting codes (Shannon
+  1948, Gallager 1962) built parallel frameworks for high-fidelity transmission; Hopfield
+  (1974) and Ninio (1975) introduced kinetic proofreading connecting the fields, but the
+  quantitative equivalence with turbo/LDPC codes and the information-theoretic capacity
+  of the DNA replication channel has not been fully worked out.
+cross_pollination_opportunities:
+  - Apply channel capacity theory to compute the maximum replication fidelity achievable with a given energy budget (ATP per proofreading event), predicting evolutionary optima for mutation rates
+  - Use LDPC code design principles (check matrix sparsity, iterative decoding) to design synthetic error-correction pathways in synthetic biology that approach DNA replication fidelity
+related_unknowns:
+  - u-dna-replication-x-error-correction
+references:
+  - doi: "10.1146/annurev.biochem.74.082803.133250"
+    note: "Kunkel & Erie (2005) - DNA mismatch repair; Annu Rev Biochem 74:681 — three-stage error correction pipeline"
+last_reviewed: "2026-05-07"
