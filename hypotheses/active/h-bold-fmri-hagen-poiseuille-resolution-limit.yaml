@@ -1,0 +1,45 @@
+id: h-bold-fmri-hagen-poiseuille-resolution-limit
+title: >
+  The fundamental spatial resolution limit of BOLD fMRI is 300-500 micrometers due
+  to Hagen-Poiseuille r^4 sensitivity creating a vascular point-spread function
+  that cannot be overcome by increasing field strength alone
+status: active
+priority: medium
+impact_score: 0.74
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: wave-63-agent
+unknowns_addressed:
+  - u-neurovascular-coupling-x-fluid-dynamics
+related_disciplines:
+  - neuroscience
+  - physics
+  - fluid_mechanics
+  - biophysics
+evidence_links:
+  - type: supporting
+    doi: "10.1152/physrev.00061.2017"
+    note: "Attwell et al. (2017) - What is a pericyte; neurovascular coupling review with fluid dynamics"
+    confidence: 0.78
+  - type: related
+    note: "Ogawa et al. (1990) - Oxygenation-sensitive contrast in MRI of rodent brain; first BOLD signal — fluid dynamic origin"
+    confidence: 0.85
+  - type: supporting
+    note: "Duvernoy et al. (1981) - Cortical blood vessels of the human brain; capillary architecture data for fluid model"
+    confidence: 0.74
+proposed_tests:
+  - description: >
+      Build a computational fluid dynamics model of cortical vasculature using
+      realistic vessel network geometry from two-photon microscopy data; compute
+      the BOLD point-spread function (PSF) as the spatial spread of blood flow
+      changes in response to a localized neural activation; predict the fundamental
+      resolution limit at 7T and 11.7T.
+    method: "VESGEN vascular network model from Blinder et al. (2013) two-photon data; Hagen-Poiseuille network flow solver; BOLD PSF from simulated vasodilation; validate against 7T laminar fMRI data"
+    prediction: "BOLD PSF half-maximum width = 350 +/- 80 micrometers at 7T due to upstream conducted vasodilation; field strength increase above 7T has <10% effect on PSF width"
+  - description: >
+      Measure the BOLD point-spread function directly using high-resolution 7T fMRI
+      of V1 retinotopic maps with high-contrast (1 deg) checkerboard annuli, comparing
+      measured PSF to CFD predictions; test whether the r^4 floor on spatial resolution
+      is experimentally confirmed.
+    method: "7T fMRI in human V1 with 0.8mm isotropic voxels; retinotopic mapping; Gaussian PSF fitting; comparison to CFD prediction"
+    prediction: "Measured BOLD PSF FWHM = 2.1 +/- 0.4 mm (matching CFD 350 um + 1.7 mm from hemodynamic dispersion); does not improve proportionally with voxel size below 0.8mm"

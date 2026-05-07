@@ -1,0 +1,46 @@
+id: b-neural-ode-x-dynamical-systems
+title: >
+  Neural ODEs x Dynamical systems - continuous-depth networks as flow maps
+status: proposed
+fields:
+  - computer_science
+  - mathematics
+  - dynamical_systems
+  - machine_learning
+bridge_claim: >
+  Neural ordinary differential equations (Chen et al. 2018) define network depth as
+  continuous time in an ODE system dh/dt = f(h,t,theta); the network learns a vector
+  field whose flow map transforms inputs to outputs at arbitrary time horizons, making
+  deep learning a problem of learning dynamical systems — and enabling adaptive
+  computation depth, continuous normalizing flows, and latent dynamical models that
+  connect neural network expressiveness to the Hartman-Grobman theorem of dynamical
+  systems theory.
+translation_table:
+  - field_a_term: ResNet residual connection h_{l+1} = h_l + f(h_l) (deep learning)
+    field_b_term: Euler discretization of ODE dh/dt = f(h) (numerical methods/math)
+    note: A ResNet with small residuals is an Euler-discretized ODE; the continuous limit is a Neural ODE with learned vector field f
+  - field_a_term: network depth L (deep learning)
+    field_b_term: integration time T in ODE solver (mathematics)
+    note: Depth maps to time; continuous networks have adaptive depth via ODE solver step size, equivalent to adaptive time-step integration
+  - field_a_term: learned neural network parameters theta (machine learning)
+    field_b_term: vector field parameters of a parameterized dynamical system (dynamical systems)
+    note: Training a Neural ODE = finding the vector field (dynamical system) whose trajectories fit the data distribution
+  - field_a_term: normalizing flow for density estimation (generative modeling)
+    field_b_term: continuous diffeomorphism / flow map of a smooth vector field (differential geometry)
+    note: Continuous normalizing flows are Neural ODEs for density estimation; the flow map provides exact log-likelihood via instantaneous change-of-variables
+communication_gap: >
+  Deep learning researchers developing ResNets (He et al. 2015) and mathematicians
+  studying dynamical systems theory built separate frameworks for iterated transformations;
+  Chen et al. (2018) recognized ResNets as Euler-method ODEs, enabling the continuous
+  limit — but the full implications (Lyapunov stability for generalization, bifurcations
+  in network behavior as depth increases, chaos as overfitting) are still being worked out
+  at the intersection of deep learning theory and dynamical systems.
+cross_pollination_opportunities:
+  - Apply Lyapunov stability theory to analyze Neural ODE generalization — stable attractors correspond to robust classifiers, and unstable fixed points explain adversarial examples
+  - Use bifurcation theory to predict phase transitions in Neural ODE behavior as training depth increases, explaining grokking and double descent phenomena
+related_unknowns:
+  - u-neural-ode-x-dynamical-systems
+references:
+  - doi: "10.48550/arXiv.1806.07366"
+    note: "Chen et al. (2018) - Neural ordinary differential equations; NeurIPS 2018 — introduces Neural ODEs as continuous-depth networks"
+last_reviewed: "2026-05-07"
