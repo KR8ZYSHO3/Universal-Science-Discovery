@@ -1,0 +1,42 @@
+id: b-cell-division-x-branching-process
+title: Cell division ↔ Branching process — tumor growth as Galton-Watson process
+status: proposed
+fields:
+- biology
+- mathematics
+bridge_claim: Tumor clonal evolution is a Galton-Watson branching process where each cancer cell independently divides, dies,
+  or differentiates with fixed probabilities; extinction probability (tumor elimination), survival probability (progression),
+  and clone size distribution are all exactly computable from branching process theory.
+translation_table:
+- field_a_term: cancer cell division (produces two daughter cells)
+  field_b_term: reproduction event in Galton-Watson process (one individual → k offspring)
+  note: Division probability p_d ≡ P(offspring = 2); death probability p_0 ≡ P(offspring = 0)
+- field_a_term: tumour extinction (all cancer cells die before establishing)
+  field_b_term: Galton-Watson extinction (probability q = smallest fixed point of PGF)
+  note: Extinction probability q satisfies q = G(q) where G is the offspring PGF; q < 1 iff E[offspring] > 1
+- field_a_term: clonal dynamics (mutant cell founder effect in tumour)
+  field_b_term: family size distribution in supercritical branching process
+  note: Clone size distribution follows power law at criticality (E[offspring] = 1)
+- field_a_term: driver mutation fitness advantage s (increases net division rate)
+  field_b_term: supercritical branching parameter m = E[offspring] = 1 + s
+  note: Establishment probability of driver clone ≈ 2s for small s (Fisher-Haldane result)
+cross_pollination_opportunities:
+- Use multi-type branching processes (Bellman-Harris) to model clonal evolution with multiple driver mutations — exact computation
+  of time-to-detection and mutational order probabilities for cancer early detection.
+- Apply branching process theory to microbial population dynamics — antibiotic resistance evolution can be modelled as a two-type
+  branching process (sensitive/resistant), computing exact resistance emergence probabilities from mutation rates and population
+  size.
+communication_gap: Galton-Watson processes were developed by Victorian mathematicians (Galton 1873) to study family name extinction;
+  modern branching process theory is a probability textbook topic. Cancer biologists developed the clonal evolution theory
+  (Nowell 1976) using mutation accumulation language without reference to branching processes. The connection was made rigorously
+  by Nowak et al. (2002) and Michor et al. (2004), but is still not standard in cancer biology textbooks.
+related_unknowns:
+- u-cell-division-x-branching-process
+related_hypotheses:
+- h-cell-division-x-branching-process
+last_reviewed: '2026-05-07'
+references:
+- doi: 10.1073/pnas.1010978107
+  note: Tomasetti & Vogelstein (2015) — variation in cancer risk via branching process theory; Science
+- doi: 10.1126/science.1235122
+  note: Tomasetti et al. (2013) — cancer evolution as branching process; PNAS

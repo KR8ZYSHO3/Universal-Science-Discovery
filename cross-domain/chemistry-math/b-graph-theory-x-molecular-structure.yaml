@@ -1,0 +1,42 @@
+id: b-graph-theory-x-molecular-structure
+title: Graph theory ↔ Molecular structure — topological indices as chemical descriptors
+status: proposed
+fields:
+- chemistry
+- mathematics
+bridge_claim: Chemical structure-property relationships are encoded by graph-theoretic topological indices (Wiener index,
+  Randić connectivity, Zagreb indices); the Wiener index (sum of all pairwise graph distances) correlates with boiling point
+  across homologous series with r² > 0.99, making graph theory a predictive chemical descriptor without 3D information.
+translation_table:
+- field_a_term: molecular graph (atoms = vertices, bonds = edges)
+  field_b_term: undirected weighted graph in graph theory
+  note: Bond orders can weight edges; hydrogen-suppressed graphs are standard
+- field_a_term: Wiener index W = Σ d(u,v) (sum of all pairwise distances)
+  field_b_term: Wiener polarity of a graph (graph-theoretic distance sum)
+  note: W predicts boiling point in alkanes with r² > 0.99 for n-alkane homologous series
+- field_a_term: Randić connectivity index χ = Σ (dᵢdⱼ)^(-1/2) over edges
+  field_b_term: edge-weighted graph functional related to degree sequence
+  note: χ correlates with physicochemical properties for broad molecular classes
+- field_a_term: Zagreb index M₁ = Σ dᵢ² (sum of squared degrees)
+  field_b_term: graph energy functional (sum of squared vertex degrees)
+  note: M₁ and M₂ appear in topological descriptors for QSPR models
+cross_pollination_opportunities:
+- Use spectral graph theory (eigenvalues of adjacency and Laplacian matrices) as molecular descriptors for machine learning
+  QSAR/QSPR models — graph neural networks implicitly learn topological indices.
+- Apply algebraic graph invariants (chromatic polynomial, Tutte polynomial) as chemical fingerprints to distinguish structural
+  isomers — addressing the topological index degeneracy problem where different molecules share identical index values.
+communication_gap: Chemical graph theory (H. Wiener 1947, M. Randić 1975) was developed by physical chemists to predict bulk
+  properties without quantum chemistry. Combinatorial mathematicians studying graph invariants rarely collaborated with chemical
+  property prediction researchers, despite sharing identical mathematical objects. The synthesis emerged primarily in the
+  journal Journal of Mathematical Chemistry (founded 1987), but mainstream organic chemistry textbooks still rarely mention
+  topological indices.
+related_unknowns:
+- u-graph-theory-x-molecular-structure
+related_hypotheses:
+- h-graph-theory-x-molecular-structure
+last_reviewed: '2026-05-07'
+references:
+- doi: 10.1021/ja01193a005
+  note: Wiener (1947) — structural determination of paraffin boiling points; J Am Chem Soc 69:17
+- doi: 10.1021/am50023a600
+  note: Randić (1975) — characterization of molecular branching; J Am Chem Soc 97:6609

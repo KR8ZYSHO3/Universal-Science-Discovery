@@ -1,0 +1,37 @@
+id: b-satisfiability-x-constraint-propagation
+title: Boolean satisfiability ↔ Constraint propagation — arc consistency as logical deduction
+status: proposed
+fields:
+- computer_science
+- mathematics
+bridge_claim: Arc consistency algorithms (AC-3) in constraint satisfaction problems perform the same logical deduction as
+  unit propagation in DPLL SAT solvers; both compute the fixpoint of a constraint propagation operator, connecting the CSP
+  and SAT communities through a shared algebraic structure.
+translation_table:
+- field_a_term: arc consistency (AC-3) in CSP — remove domain values violating binary constraints
+  field_b_term: unit propagation in DPLL SAT — assign forced literals, simplify clauses
+  note: Both are fixpoint computations of a constraint propagation operator
+- field_a_term: CSP domain value removal (pruning infeasible assignments)
+  field_b_term: SAT unit clause simplification (forced literal propagation)
+  note: Domain reduction in CSP ≡ clause shortening in SAT
+- field_a_term: backtracking search in CSP (explore domain combinations)
+  field_b_term: DPLL branching (split on variable assignment)
+  note: Both implement systematic exhaustive search with propagation
+cross_pollination_opportunities:
+- Use CSP arc-consistency preprocessing techniques (path consistency, k-consistency) to improve SAT preprocessing in industrial
+  solvers — reducing clause count before search.
+- Apply SAT-based proof systems (DRAT proofs) to certify CSP solutions, enabling verified constraint solving for safety-critical
+  applications.
+communication_gap: The CSP and SAT communities evolved from different roots — CSP from AI planning and scheduling (1970s),
+  SAT from computational complexity theory. The mathematical equivalence of unit propagation and arc consistency was not formalised
+  until the late 1990s, despite decades of parallel development of very similar algorithms in separate conference venues.
+related_unknowns:
+- u-satisfiability-x-constraint-propagation
+related_hypotheses:
+- h-satisfiability-x-constraint-propagation
+last_reviewed: '2026-05-07'
+references:
+- doi: 10.1145/321356.321362
+  note: Davis, Putnam, Logemann & Loveland (1962) — DPLL algorithm; J ACM 9:394
+- doi: 10.1016/0004-3702(77)90007-8
+  note: Mackworth (1977) — consistency in networks of constraints (AC-3)

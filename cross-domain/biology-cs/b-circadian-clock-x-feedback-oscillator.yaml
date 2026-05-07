@@ -1,0 +1,41 @@
+id: b-circadian-clock-x-feedback-oscillator
+title: Circadian clock ↔ Feedback oscillator — TTFL as relaxation oscillator
+status: proposed
+fields:
+- biology
+- computer_science
+bridge_claim: The transcription-translation feedback loop (TTFL) of circadian clocks (CLOCK-BMAL1/PER-CRY) is a biological
+  relaxation oscillator whose period is set by protein degradation time constants; it is mathematically equivalent to a van
+  der Pol oscillator with negative feedback delay, enabling entrainment analysis using control theory.
+translation_table:
+- field_a_term: CLOCK-BMAL1 transcriptional activator complex (circadian biology)
+  field_b_term: positive feedback arm of oscillator circuit (control engineering)
+  note: CLOCK-BMAL1 activates PER/CRY expression — the positive phase of the oscillator
+- field_a_term: PER-CRY repressor complex (circadian biology)
+  field_b_term: negative feedback element with time delay τ (control engineering)
+  note: PER-CRY represses CLOCK-BMAL1; delay τ ≈ 6-8 hours (protein synthesis/degradation)
+- field_a_term: CKIε/δ phosphorylation rate of PER protein (circadian biology)
+  field_b_term: nonlinear damping coefficient μ in van der Pol oscillator
+  note: CKI phosphorylation rate sets period; mutations change period from 20 to 28 hours
+- field_a_term: light pulse entrainment (via CRY degradation pathway)
+  field_b_term: phase resetting curve (PRC) input to forced oscillator
+  note: Light input shifts PRC; jet lag is transient due to oscillator damping
+cross_pollination_opportunities:
+- Apply Floquet theory and phase sensitivity analysis (infinitesimal phase response curve, iPRC) from nonlinear oscillator
+  theory to predict optimal light/drug timing for circadian resynchronisation in shift workers and cancer chronotherapy.
+- Use control theory (H-infinity robust control) to design synthetic feedback circuits with temperature-compensated periods
+  — a key circadian property unexplained by simple Goodwin oscillator models.
+communication_gap: Circadian biology developed as a molecular genetics field; the TTFL was discovered by genetic screens (Hall,
+  Rosbash, Young — Nobel 2017) without reference to oscillator circuit theory. Control engineers studying biological oscillators
+  (Goodwin 1965, Goldbeter 1995) worked in applied mathematics journals rarely read by circadian biologists, who focused on
+  identifying molecular components rather than circuit dynamics.
+related_unknowns:
+- u-circadian-clock-x-feedback-oscillator
+related_hypotheses:
+- h-circadian-clock-x-feedback-oscillator
+last_reviewed: '2026-05-07'
+references:
+- doi: 10.1016/j.cell.2017.05.015
+  note: Takahashi (2017) — transcriptional architecture of the mammalian circadian clock; Nature Rev Genet
+- doi: 10.1016/S0006-3495(65)86707-X
+  note: Goodwin (1965) — oscillatory behaviour in enzymatic control processes; Adv Enzyme Regul 3:425
