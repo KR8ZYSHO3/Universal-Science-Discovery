@@ -1,0 +1,45 @@
+id: h-histone-code-combinatorial-specificity-exceeds-single-mark-models
+title: >
+  Combinatorial histone PTM patterns (pairs and triplets of marks) predict gene
+  expression levels with significantly higher accuracy than single-mark models,
+  and the combinatorial interactions are non-additive (synergistic or antagonistic)
+  for at least 30% of mark pairs measured genome-wide.
+status: active
+priority: medium
+impact_score: 0.74
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - doi: "10.1038/35053702"
+    type: supporting
+    confidence: 0.72
+    note: "Strahl & Allis (2000) histone code hypothesis: combinatorial marks are read as a code; initial evidence from individual mark-function correlations"
+  - type: supporting
+    confidence: 0.68
+    note: "Karlic et al. (2010): combinatorial histone mark models (random forest) predict gene expression with R²~0.7, outperforming single-mark models (R²~0.5) — 40% variance explained by combinations"
+  - type: supporting
+    confidence: 0.65
+    note: "H3K4me3 + H3K27me3 bivalency at developmental genes (Bernstein 2006) is combinatorial regulation — neither mark alone predicts the poised state"
+  - type: contradicting
+    confidence: 0.5
+    note: "Landt et al. (2012) ENCODE: histone marks are highly correlated genome-wide; separating combinatorial specificity from collinearity is statistically challenging"
+
+unknowns_addressed:
+  - u-ptm-crosstalk-code-histone-combinatorial-regulation
+
+proposed_tests:
+  - description: >
+      Measure the binding affinity (ITC or MST) of engineered dual-domain reader
+      proteins (tandem bromodomain-chromodomain) to nucleosomes bearing single vs.
+      double PTMs (e.g., H3K4me3 alone, H3K27ac alone, H3K4me3+H3K27ac together).
+      Test additivity: is ΔG(combo) = ΔG(mark1) + ΔG(mark2), or is there synergy?
+    method: "Chemical synthesis of modified histone peptides; nucleosome reconstitution; ITC binding thermodynamics; thermodynamic additivity test"
+    prediction: "At least 40% of tested dual-PTM combinations show non-additive binding (|ΔΔG| > 0.5 kcal/mol); synergistic pairs include H3K4me3+H3K27ac (active promoter signature)"
+
+related_disciplines:
+  - epigenetics
+  - biochemistry
+  - structural-biology
+  - genomics

@@ -1,0 +1,45 @@
+id: h-dependent-types-industrial-systems-programming-feasibility
+title: >
+  Dependent type systems (beyond Rust's affine types) are feasible for industrial
+  systems programming — specifically that a language combining Rust-style ownership
+  with Martin-Löf dependent types will compile with acceptable overhead and enable
+  verification of security-critical properties without full proof assistant burden.
+status: active
+priority: medium
+impact_score: 0.76
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - type: supporting
+    confidence: 0.70
+    note: "Rust demonstrates that affine types (a restriction of linear types) compile to zero-overhead code — extending to dependent types may be feasible with type erasure"
+  - type: supporting
+    confidence: 0.65
+    note: "ATS (Applied Type System, Xi 2007) and Idris 2 have demonstrated dependent types in systems programming; Idris 2 compiles to C with competitive performance for functional programs"
+  - type: supporting
+    confidence: 0.60
+    note: "Liquid Haskell (Vazou 2014) adds refinement types to Haskell with SMT-solver checking — a practical approach to lightweight dependent typing in industrial use"
+  - type: contradicting
+    confidence: 0.6
+    note: "Type checking with dependent types is undecidable in general; practical systems require restricting the type language; finding the right restriction for systems programming is unsolved"
+
+unknowns_addressed:
+  - u-hott-univalence-axiom-computational-interpretation
+
+proposed_tests:
+  - description: >
+      Implement a cryptographic library (TLS handshake) in a language with
+      dependent types (Idris 2 or Lean 4 with FFI to C). Measure: lines of
+      proof obligation vs. specification vs. implementation; compilation time;
+      runtime overhead vs. C baseline; and security properties verified
+      (no buffer overflow, correct protocol state machine).
+    method: "Implement TLS 1.3 handshake; formal specification as dependent types; measure LoC, compilation time, binary size, benchmarks vs. OpenSSL"
+    prediction: "Dependent-typed implementation verifies security properties; runtime overhead <10% vs. C; proof overhead <2x implementation LoC"
+
+related_disciplines:
+  - computer-science
+  - programming-languages
+  - formal-verification
+  - mathematics
