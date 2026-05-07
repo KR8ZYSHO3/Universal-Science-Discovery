@@ -37,8 +37,8 @@ def replace_stat_id(html: str, stat_id: str, new_value: int) -> str:
 
 
 def replace_pill_bridges(html: str, new_value: int) -> str:
-    """Replace 'N cross-domain bridges' in pill text."""
-    pattern = r'(\d+) cross-domain bridges'
+    """Replace 'N[+] cross-domain bridges' in pill text (handles trailing + suffix)."""
+    pattern = r'\d+\+? cross-domain bridges'
     result, n = re.subn(pattern, rf'{new_value} cross-domain bridges', html)
     if n == 0:
         print("  WARNING: pill 'cross-domain bridges' not found in HTML", file=sys.stderr)
