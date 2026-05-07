@@ -1,0 +1,55 @@
+id: b-thermodynamics-x-information-theory
+title: >
+  Thermodynamics x Information Theory — entropy as the universal currency
+status: proposed
+fields:
+  - physics
+  - computer-science
+  - information-theory
+bridge_claim: >
+  Boltzmann's thermodynamic entropy S = k_B ln Omega and Shannon's information entropy
+  H = -sum p_i log p_i are the same mathematical object; physical heat dissipation and
+  information erasure are two faces of the same phenomenon, unified by Landauer's principle.
+translation_table:
+  - field_a_term: Thermodynamic entropy (Boltzmann)
+    field_b_term: Shannon entropy (information bits)
+    note: >
+      S/k_B = H * ln 2; the Boltzmann constant is just a unit conversion factor between
+      joules/kelvin and bits.
+  - field_a_term: Landauer erasure (kT ln 2 per bit)
+    field_b_term: Minimum heat cost of computation
+    note: >
+      Every irreversible bit erasure dissipates at least kT ln 2 approximately 2.9 zJ
+      at room temperature — verified experimentally.
+  - field_a_term: Maxwell's demon paradox
+    field_b_term: Measurement and feedback control
+    note: >
+      The demon's memory must be erased, costing energy >= kT ln 2 per bit —
+      information has thermodynamic weight.
+  - field_a_term: Free energy F = U - TS
+    field_b_term: Minimum description length (MDL)
+    note: >
+      Minimizing free energy is equivalent to finding the shortest description of a
+      system — connects thermodynamics to algorithmic information theory.
+communication_gap: >
+  Shannon deliberately omitted physical interpretation when naming 'entropy' on
+  von Neumann's advice; this obscured the connection for decades until Landauer and
+  Bennett formalized it in the 1960s-80s.
+cross_pollination_opportunities:
+  - >
+    Design energy-efficient computing architectures using reversible logic gates that
+    approach the Landauer limit.
+  - >
+    Apply thermodynamic free energy minimization to Bayesian inference (variational
+    free energy / active inference framework).
+  - >
+    Use information-theoretic entropy bounds to predict phase transition points in
+    physical systems.
+related_unknowns:
+  - u-landauer-limit-neuronal-computation
+references:
+  - doi: "10.1147/rd.53.0183"
+    note: "Landauer (1961) — irreversibility and heat generation in the computing process; foundational paper"
+  - doi: "10.1103/PhysRevLett.108.120602"
+    note: "Berut et al. (2012) — experimental verification of Landauer's principle at single-bit level"
+last_reviewed: "2026-05-07"
