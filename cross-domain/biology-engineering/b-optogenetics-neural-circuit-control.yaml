@@ -1,0 +1,83 @@
+id: b-optogenetics-neural-circuit-control
+title: >
+  Optogenetics bridges biology and engineering: viral delivery of algal channelrhodopsin-2
+  and archaeal halorhodopsin to specific neuron types enables millisecond-precision
+  optical control of neural circuits, culminating in the first human vision restoration
+  trial in 2021.
+status: established
+fields:
+  - biology
+  - engineering
+  - neuroscience
+  - biotechnology
+  - gene-therapy
+bridge_claim: >
+  Optogenetics (Boyden & Deisseroth 2005) uses light-gated ion channels from
+  microorganisms to control neural activity with millisecond precision. Engineering
+  components: (1) Actuators: channelrhodopsin-2 (ChR2, from Chlamydomonas reinhardtii)
+  ΓÇö blue light (470 nm) opens non-selective cation channel ΓåÆ NaΓü║/KΓü║ influx ΓåÆ
+  depolarization ΓåÆ action potential. Halorhodopsin (NpHR) ΓÇö yellow light (580 nm)
+  pumps ClΓü╗ inward ΓåÆ hyperpolarization ΓåÆ silence. (2) Delivery: AAV (adeno-associated
+  virus) vectors with cell-type-specific promoters ΓÇö CaMKII╬▒ for glutamatergic neurons,
+  GAD1/2 for GABAergic neurons, Th for dopaminergic. AAV9 crosses the blood-brain
+  barrier; AAV-PHP.eB achieves whole-brain transduction after IV injection. (3)
+  Control: fiber optic implants (multimode fiber, 200 ╬╝m) deliver light to
+  specific brain regions; patterned stimulation via DMD or SLM achieves spatial
+  multiplexing. Chemogenetics (DREADDs ΓÇö Designer Receptors Exclusively Activated
+  by Designer Drugs): hM3Dq (Gq-coupled, activating) and hM4Di (Gi-coupled, inhibiting)
+  mutant muscarinic receptors activated by clozapine-N-oxide (CNO) ΓÇö non-invasive
+  but slow (minutes) vs. optogenetics (ms). Applications: basolateral amygdala
+  stimulation drives fear memory; VTA dopamine neuron activation drives reward;
+  DBS-like striatal stimulation modulates movement. First human trial (Sahel 2021,
+  Nat Med): AAV-ChrimsonR delivery to retinal ganglion cells in retinitis pigmentosa
+  ΓÇö patient partially restored vision (detected motion and objects).
+translation_table:
+  - field_a_term: ChR2 (channelrhodopsin-2)
+    field_b_term: genetically encoded optical neural activator; light-gated NaΓü║/KΓü║ channel
+    note: retinal cofactor (all-trans retinal, endogenous in brain) isomerizes on photon absorption ΓåÆ channel opens
+  - field_a_term: AAV serotype specificity (AAV9, PHP.eB)
+    field_b_term: viral vector engineering for targeted gene delivery
+    note: capsid protein variants determine tropism; PHP.eB was developed by directed evolution
+  - field_a_term: cell-type-specific promoter (CaMKII, GAD, Th)
+    field_b_term: genetic targeting ΓÇö opsin expressed only in desired cell type
+    note: specificity achieved by promoter + AAV serotype combination; can be further restricted by Cre recombinase
+  - field_a_term: fiber optic implant (light delivery)
+    field_b_term: photonic engineering ΓÇö coupling coherent light to brain tissue
+    note: scattering and absorption limit depth (< 1 mm from fiber tip); gradient-index lens for multiphoton
+  - field_a_term: DREADD (hM3Dq, hM4Di)
+    field_b_term: pharmacological neural control; ligand-gated synthetic receptor
+    note: CNO ΓåÆ active CNO metabolite clozapine (Gomez 2017) ΓåÆ crosses BBB ΓåÆ activates DREADD; slow but non-invasive
+related_unknowns:
+  - u-optogenetics-human-therapeutic-scale-delivery
+related_hypotheses:
+  - h-optogenetic-restoration-vision-scales-to-complex-percepts
+cross_pollination_opportunities:
+  - >
+    Closed-loop optogenetics: real-time neural recording (electrophysiology or
+    calcium imaging) to trigger stimulation based on detected neural patterns ΓÇö
+    implementing feedback control theory in neural circuits. Applications include
+    seizure abortio (detect ictal pattern ΓåÆ suppress with halorhodopsin) and
+    Parkinson's DBS optimization.
+  - >
+    All-optical interrogation: two-photon calcium imaging + two-photon optogenetics
+    (soma-targeted opsins: ChRmine, CoChR) enables simultaneous reading and writing
+    of neural activity at single-cell resolution ΓÇö the neuroscience analog of
+    reading/writing single qubits in a quantum computer.
+communication_gap: >
+  Neuroscientists who use optogenetics experimentally focus on circuit-level questions
+  (which neurons drive behavior) without engaging with the engineering challenges
+  (light scattering in tissue, heat deposition, immune responses to viral vectors,
+  fiber implant trauma). Biomedical engineers developing light delivery systems
+  rarely engage with the neuroscience circuit questions that motivate the tool.
+  The human therapy translation gap ΓÇö from mouse circuit experiments to human gene
+  therapy ΓÇö requires regulatory, ethical, and manufacturing expertise beyond either
+  field.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1038/nn1525"
+    note: Boyden et al. (2005) Millisecond-timescale, genetically targeted optical control of neural activity; Nat Neurosci 8:1263
+  - note: Deisseroth (2011) Optogenetics; Sci Am 303:48
+  - doi: "10.1073/pnas.0700293104"
+    note: Armbruster et al. (2007) Evolving the lock to fit the key to create a family of G protein-coupled receptors potently activated by an inert ligand; PNAS 104:5163
+  - doi: "10.1038/s41591-021-01351-4"
+    note: Sahel et al. (2021) Partial recovery of visual function in a blind patient after optogenetic therapy; Nat Med 27:1223

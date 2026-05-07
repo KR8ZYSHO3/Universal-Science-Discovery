@@ -1,0 +1,50 @@
+id: b-reaction-diffusion-spatial-ecology
+title: >
+  Spatial patterns in ecology (animal coat markings, vegetation bands, predator-prey
+  patches) emerge from Turing reaction-diffusion instabilities, mapping ecological
+  population dynamics onto the mathematics of activator-inhibitor systems.
+status: established
+fields:
+  - ecology
+  - mathematics
+  - biophysics
+bridge_claim: >
+  Turing's 1952 reaction-diffusion mechanism, in which a slowly diffusing activator
+  and a rapidly diffusing inhibitor produce spontaneous spatial pattern from uniform
+  conditions, maps directly onto spatial ecology: prey species (activator) and
+  predator or resource competition (inhibitor) with different diffusion rates generate
+  the Klausmeier model for vegetation patterns and Levin-Segel model for phytoplankton
+  patchiness, predicting wavelength lambda = 2*pi*sqrt(D_u/|sigma_11|).
+translation_table:
+  - field_a_term: activator concentration u(x,t) (reaction-diffusion)
+    field_b_term: prey or plant biomass density (ecology)
+    note: Fast-growing, locally self-enhancing species plays the activator role
+  - field_a_term: inhibitor concentration v(x,t) (reaction-diffusion)
+    field_b_term: predator density or soil water (ecology)
+    note: Slowly-reproducing, long-range suppressor plays the inhibitor role
+  - field_a_term: Turing instability condition d > (b+d)^2/4ac (mathematics)
+    field_b_term: diffusion-driven instability in predator-prey systems (ecology)
+    note: Pattern emerges when inhibitor diffuses sufficiently faster than activator
+  - field_a_term: pattern wavelength lambda proportional to sqrt(D/sigma)
+    field_b_term: spatial periodicity of vegetation stripes or animal coats
+    note: Observed stripe spacing in tiger bush vegetation matches Turing wavelength predictions
+related_unknowns:
+  - u-turing-pattern-selection-ecology
+related_hypotheses:
+  - h-vegetation-stripe-turing-instability
+cross_pollination_opportunities:
+  - Measuring predator-prey diffusion coefficients in field data to test quantitative Turing wavelength predictions
+  - Applying reaction-diffusion pattern control (boundary conditions, parameter gradients) to design ecological corridors
+communication_gap: >
+  Mathematicians study reaction-diffusion equations analytically while ecologists
+  model spatial dynamics empirically; Turing patterns in ecology were only seriously
+  proposed in the 1990s (Levin & Segel 1976 was ahead of its time) and the quantitative
+  link between diffusion parameters and observed pattern wavelengths is rarely tested.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1098/rstb.1952.0012"
+    note: Turing (1952) - chemical basis of morphogenesis, original reaction-diffusion theory
+  - doi: "10.1086/282272"
+    note: Levin & Segel (1976) - hypothesis for origin of plankton patchiness via diffusive instability
+  - doi: "10.1038/35078232"
+    note: Klausmeier (1999) - regular and irregular patterns in semiarid vegetation
