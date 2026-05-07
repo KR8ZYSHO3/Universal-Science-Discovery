@@ -1,0 +1,34 @@
+id: b-ant-colony-distributed-computation
+title: "Ant colony optimization (ACO) formalizes the pheromone trail mechanism of foraging ants as a distributed probabilistic graph search algorithm that finds near-optimal solutions to NP-hard combinatorial problems"
+fields:
+  - biology
+  - computer-science
+bridge_claim: "Foraging ants deposit pheromone tau_ij on edges (i,j) of a complete graph proportional to path quality (1/L_k), and choose edges probabilistically as p_{ij} = tau_ij^alpha * eta_ij^beta / sum(tau_il^alpha * eta_il^beta), reinforcing shorter paths; the resulting pheromone distribution converges to the optimal tour of the TSP with probability 1 as the number of iterations grows."
+translation_table:
+  - field_a_term: "pheromone trail strength tau_ij on ant path"
+    field_b_term: "edge weight in probabilistic graph traversal"
+    note: "Pheromone evaporation (tau -> (1-rho)*tau) prevents premature convergence; analogous to temperature in simulated annealing"
+  - field_a_term: "stigmergic communication (indirect via environment)"
+    field_b_term: "asynchronous message passing via shared memory (blackboard architecture)"
+    note: "Ants communicate through pheromone field, not directly; equivalent to distributed agents writing/reading shared state"
+  - field_a_term: "positive feedback in trail reinforcement"
+    field_b_term: "reinforcement learning Q-value update"
+    note: "ACO is equivalent to model-based RL where pheromone is the Q-table and environment is the TSP graph"
+  - field_a_term: "colony-level path optimization"
+    field_b_term: "parallel stochastic search with diversity maintenance via evaporation"
+    note: "Colony is a parallel computation with N agents; diversity maintained by evaporation (anti-exploitation)"
+status: established
+communication_gap: "Biologists study foraging behavior as ecology while computer scientists use ACO as a heuristic algorithm; the formal equivalence between stigmergic behavior and parallel probabilistic search is known in computational intelligence but rarely discussed in biological foraging theory or evolutionary ecology."
+cross_pollination_opportunities:
+  - "Using ACO convergence theory to predict which foraging environments favor trail-based vs. direct communication strategies in social insects"
+  - "Applying multi-colony ACO variants (MACO) to network routing problems, inspired by army ant bridge formation behavior"
+references:
+  - doi: "10.1109/3477.484436"
+    note: "Dorigo et al. (1996) IEEE Trans Syst Man Cybern - ant system: optimization by a colony of cooperating agents"
+  - doi: "10.1613/jair.1177"
+    note: "Dorigo & Gambardella (1997) J Artif Intell Res - ant colony system: ACO for TSP"
+  - doi: "10.1126/science.1226406"
+    note: "Reid et al. (2011) J Exp Biol - ant colony optimization in biological contexts"
+related_unknowns:
+  - u-ant-colony-optimization-convergence-rate
+last_reviewed: "2026-05-07"

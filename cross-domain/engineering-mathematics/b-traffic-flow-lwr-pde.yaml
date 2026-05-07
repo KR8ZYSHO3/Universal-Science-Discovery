@@ -1,0 +1,35 @@
+id: b-traffic-flow-lwr-pde
+title: "The Lighthill-Whitham-Richards (LWR) traffic flow model treats vehicle density as a conserved quantity obeying a first-order hyperbolic PDE, predicting shock wave formation, traffic jam propagation speed, and stop-and-go wave dynamics using fluid mechanical methods"
+fields:
+  - engineering
+  - mathematics
+  - physics
+bridge_claim: "Vehicle traffic obeys the conservation law d_rho/d_t + d_q/d_x = 0 where q = rho * v(rho) is the flow-density fundamental diagram, generating shock waves (traffic jams) that propagate at the Rankine-Hugoniot speed w = (q_R - q_L)/(rho_R - rho_L), with rarefaction waves describing acceleration out of jams."
+translation_table:
+  - field_a_term: "vehicle density rho(x,t) [vehicles/km]"
+    field_b_term: "conserved density in inviscid Burgers/LWR equation"
+    note: "Vehicle count is conserved (no creation/annihilation on freeway); rho satisfies a conservation law"
+  - field_a_term: "fundamental diagram q = rho * v(rho)"
+    field_b_term: "flux function F(rho) in hyperbolic conservation law"
+    note: "Greenshields q = v_f * rho * (1 - rho/rho_max); Greenberg, Newell-Daganzo fundamental diagrams differ"
+  - field_a_term: "traffic shock wave (stop-and-go jam)"
+    field_b_term: "Rankine-Hugoniot discontinuity in density field"
+    note: "Jam propagates upstream at w = Delta_q / Delta_rho; typical w ~ -20 km/h for freeway traffic"
+  - field_a_term: "capacity drop at freeway merge/bottleneck"
+    field_b_term: "rarefaction fan transitioning from uncongested to congested branch"
+    note: "Capacity drop corresponds to lower flow on congested branch of fundamental diagram"
+status: established
+communication_gap: "Traffic engineers use empirical fundamental diagrams and microsimulation while applied mathematicians study conservation laws; the formal connection between measured flow-density curves and LWR shock wave theory is established in transportation research but rarely taught as part of fluid mechanics curricula."
+cross_pollination_opportunities:
+  - "Designing variable speed limits and ramp metering using LWR optimal control theory to prevent shock wave formation at bottlenecks"
+  - "Applying second-order traffic models (Aw-Rascle-Zhang) that include traffic pressure (anisotropy) to explain phantom jams not captured by first-order LWR"
+references:
+  - doi: "10.1098/rspa.1955.0089"
+    note: "Lighthill & Whitham (1955) Proc R Soc - kinematic waves I: theory of traffic flow"
+  - doi: "10.1287/opre.4.1.42"
+    note: "Richards (1956) Oper Res - shock waves on the highway"
+  - doi: "10.1007/s11235-020-00700-3"
+    note: "Daganzo (1995) Transportation Research B - Daganzo fundamental diagram and cell transmission model"
+related_unknowns:
+  - u-traffic-phantom-jam-nucleation-mechanism
+last_reviewed: "2026-05-07"
