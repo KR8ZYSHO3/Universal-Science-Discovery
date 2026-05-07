@@ -1,0 +1,42 @@
+id: b-graph-neural-network-x-spectral-graph-theory
+title: >
+  Graph neural networks x Spectral graph theory — convolution on irregular domains
+status: proposed
+fields:
+  - computer-science
+  - mathematics
+  - machine-learning
+bridge_claim: >
+  Graph convolutional networks perform convolution in the spectral domain of the graph
+  Laplacian; filters are polynomials of eigenvalues (spectral filters), and message passing
+  is equivalent to diffusion on the graph governed by the heat kernel — connecting deep
+  learning to spectral graph theory and enabling principled generalization from regular
+  grids to arbitrary graph topologies.
+translation_table:
+  - field_a_term: graph Laplacian L = D - A (graph theory)
+    field_b_term: discretized Laplace-Beltrami operator on manifold (differential geometry)
+    note: The graph Laplacian generalizes the continuous Laplacian; its eigenvectors are the graph Fourier basis analogous to Fourier modes on a torus
+  - field_a_term: spectral filter h(lambda_i) (graph neural network)
+    field_b_term: function of Laplacian eigenvalues (spectral graph theory)
+    note: GCN filters are polynomials of L applied in the spectral domain; Chebyshev polynomial filters localize computation to k-hop neighborhoods
+  - field_a_term: message passing / neighborhood aggregation (GNN)
+    field_b_term: diffusion on graph via heat equation (graph theory / physics)
+    note: Each GNN layer is one step of a discretized diffusion process; the number of layers controls the diffusion radius
+  - field_a_term: graph isomorphism (graph theory)
+    field_b_term: Weisfeiler-Leman graph isomorphism test (combinatorics)
+    note: Standard message-passing GNNs are bounded in power by the 1-WL test; more powerful GNNs require higher-order WL hierarchies
+communication_gap: >
+  Graph theorists studying spectral properties and machine learning researchers developing
+  neural architectures developed related tools without much cross-pollination; spectral graph
+  theory frameworks for GNNs emerged in 2013-2016, but the deeper connections to Riemannian
+  geometry and diffusion PDEs on manifolds are still being developed by a small interdisciplinary
+  community.
+cross_pollination_opportunities:
+  - Apply spectral graph theory bounds on graph bandwidth and diameter to certify GNN expressiveness limits for specific graph families used in molecular property prediction
+  - Use graph heat kernel methods from spectral geometry to design GNNs with provably multi-scale feature aggregation for heterogeneous biological networks
+related_unknowns:
+  - u-graph-neural-network-x-spectral-graph-theory
+references:
+  - doi: "10.48550/arXiv.1609.02907"
+    note: "Kipf & Welling (2017) - Semi-supervised classification with graph convolutional networks; arXiv:1609.02907"
+last_reviewed: "2026-05-07"

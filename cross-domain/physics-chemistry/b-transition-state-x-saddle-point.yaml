@@ -1,0 +1,42 @@
+id: b-transition-state-x-saddle-point
+title: >
+  Transition state theory x Saddle point optimization — reaction rate as barrier crossing
+status: proposed
+fields:
+  - physics
+  - chemistry
+  - mathematics
+bridge_claim: >
+  The chemical reaction rate in transition state theory is determined by the flux through
+  the saddle point of the potential energy surface (the transition state); this is
+  mathematically equivalent to finding the minimum energy path on a high-dimensional
+  landscape via saddle point optimization — connecting quantum chemistry to optimization
+  theory and establishing that machine learning loss landscape saddle points have direct
+  analogs in molecular reaction kinetics.
+translation_table:
+  - field_a_term: transition state / saddle point (chemistry)
+    field_b_term: saddle point in optimization landscape (mathematics)
+    note: The transition state is the lowest-energy saddle point on the potential energy surface between reactant and product minima
+  - field_a_term: activation energy Ea (chemistry)
+    field_b_term: barrier height at saddle point (optimization)
+    note: The Arrhenius activation energy is the energy difference between the saddle point and the reactant minimum
+  - field_a_term: minimum energy path / reaction coordinate (chemistry)
+    field_b_term: gradient flow path through saddle point (mathematics)
+    note: The IRC (intrinsic reaction coordinate) follows steepest descent from saddle point to products/reactants, analogous to gradient flow in optimization
+  - field_a_term: rate constant k = A * exp(-Ea/RT) (Eyring theory)
+    field_b_term: escape rate from metastable basin (Kramers theory)
+    note: Kramers' escape rate theory is the stochastic generalization of transition state theory, connecting chemistry to Langevin dynamics
+communication_gap: >
+  Physical chemists developing transition state theory and applied mathematicians developing
+  saddle point optimization work with the same energy landscape geometry; the connection
+  to machine learning loss landscapes (where saddle points govern training dynamics) was
+  drawn explicitly only in 2014-2020, opening a new research direction.
+cross_pollination_opportunities:
+  - Apply nudged elastic band (NEB) and transition state finding algorithms from chemistry to find saddle points in neural network loss landscapes to understand training dynamics
+  - Use Kramers escape rate theory to predict the timescale of catastrophic forgetting in neural networks trained on sequential tasks
+related_unknowns:
+  - u-transition-state-x-saddle-point
+references:
+  - doi: "10.1063/1.1749604"
+    note: "Eyring (1935) - The activated complex in chemical reactions; J Chem Phys 3:107"
+last_reviewed: "2026-05-07"
