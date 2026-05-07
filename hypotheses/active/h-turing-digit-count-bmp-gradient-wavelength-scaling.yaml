@@ -1,0 +1,48 @@
+id: h-turing-digit-count-bmp-gradient-wavelength-scaling
+title: >
+  The Turing pattern wavelength in mouse limb digit formation scales as λ ∝ √(D_BMP/f_Sox9)
+  with D_BMP and f_Sox9 independently measurable by in vivo FRAP and optogenetic
+  perturbation, predicting digit number as a function of limb bud width L as
+  N_digits = L/λ — directly testable by BMP2 dosage titration that rescales λ and
+  changes digit count.
+status: active
+priority: high
+impact_score: 0.81
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+unknowns_addressed:
+  - u-turing-morphogen-identity-in-vivo-diffusion-measurement
+evidence_links:
+  - type: supporting
+    note: "Sheth et al. (2012) Science 338:1476 — reducing Hox gene dose progressively decreases digit number from 5 to 1 in a manner consistent with Turing wavelength scaling: as BMP gradient is modified, wavelength increases and digit number decreases. Quantitatively consistent with λ ∝ (BMP diffusion/Sox9 activation)^{1/2}."
+    confidence: 0.78
+  - type: supporting
+    note: "Raspopovic et al. (2014) Science 345:566 — validated Turing model with Sox9/BMP/Wnt interactions that reproduces digit patterning in mouse limb; parameters fit to embryonic data predict correct number of digits as function of limb bud width"
+    confidence: 0.80
+  - type: related
+    note: "Miura et al. (2006) — in vitro limb mesenchyme condensation produces Turing-like periodic patterns with wavelength measurable by time-lapse imaging; scaling with cell density consistent with Turing prediction"
+    confidence: 0.70
+  - type: contradicting
+    note: "Alternative models (clock-and-wavefront, positional information relay) can also produce periodic digit patterns without Turing instability; distinguishing Turing from these models requires measurement of diffusion coefficients, not just pattern wavelength"
+    confidence: 0.60
+proposed_tests:
+  - description: >
+      In vivo FRAP of fluorescently-tagged BMP2 and GFP-Sox9 in E11.5 mouse limb
+      buds (electroporation of fluorescent constructs). Measure: D_BMP2 and D_Sox9
+      effective diffusion coefficients by fluorescence recovery curves. Compute
+      theoretical λ = 2π√(D_BMP2/f_Sox9) using measured D values and f_Sox9 from
+      optogenetic Sox9 perturbation experiments. Compare predicted λ to observed digit
+      spacing (100–150 μm). Success criterion: predicted λ within 20% of observed.
+  - description: >
+      BMP2-soaked bead implantation titration in chick wing bud: implant beads releasing
+      BMP2 at 0.5×, 1×, 2×, 4× physiological concentration. Measure digit spacing by
+      Alcian Blue staining at HH35. Plot digit spacing vs. BMP2 dose. Test: λ ∝
+      √(D_BMP/f_Sox9) predicts λ ∝ [BMP2]^{−1/2} (since f_Sox9 increases with BMP2
+      suppressing Sox9 expression). If Turing model is correct, digit spacing should
+      decrease as √(1/[BMP2]) — distinguishable from positional information predictions.
+related_disciplines:
+  - developmental-biology
+  - biophysics
+  - mathematical-biology
+  - genetics
