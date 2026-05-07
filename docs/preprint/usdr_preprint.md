@@ -1,8 +1,8 @@
 # Universal Science Discovery Repository: Open Infrastructure for Tracking Scientific Unknowns and Cross-Domain Mathematical Bridges
 
-**Authors:** KR8ZYSHO3 and Contributors (Universal Science Discovery Repository)
+**Authors:** Brandon Shoemaker and Contributors (Universal Science Discovery Repository)
 
-**Version:** v1.0 — May 2026
+**Version:** v1.1 — May 2026
 
 **Suggested categories:** cs.DL (primary) · q-bio.QM · physics.soc-ph (cross-list)
 
@@ -19,13 +19,13 @@ version-controlled catalog of scientific unknowns, hypotheses, and cross-domain
 mathematical bridges. Unlike traditional literature databases that index what is known,
 USDR explicitly catalogs what remains unknown — structured as machine-readable YAML
 entries governed by formal JSON Schema validation. The repository currently contains
-2,500+ entries across 40+ scientific domains, including **413 cross-domain bridges** that
+2,300+ entries across 40+ scientific domains, including **578 cross-domain bridges** that
 formalise mathematical correspondences between fields that rarely communicate (surpassing
-the 400-bridge milestone in Wave 29, May 2026), 790 open unknowns across 60+ disciplines,
-657 falsifiable hypotheses, 12 pioneer profiles, and 12 breakthrough gap analyses. We
-describe the schema design, the knowledge graph structure (~1,887 nodes, 1,984 edges,
-0 orphan unknowns), and the AI co-pilot tooling that automatically surfaces novel bridge
-candidates by analysing domain connectivity gaps.
+the 400-bridge milestone in Wave 29, May 2026 and continuing to grow), 933 open unknowns
+across 60+ disciplines, 801 falsifiable hypotheses, 13 pioneer profiles, and 12 breakthrough
+gap analyses. We describe the schema design, the knowledge graph structure (~2,341 nodes,
+2,499 edges, 0 orphan unknowns), and the AI co-pilot tooling that automatically surfaces
+novel bridge candidates by analysing domain connectivity gaps.
 USDR is designed as collaborative infrastructure: all entries are version-controlled,
 peer-reviewable via pull requests, and linked to primary literature. We discuss the
 epistemological rationale for explicitly tracking unknowns, the governance model for
@@ -225,27 +225,27 @@ validation on every pull request. Validation failures block merge. This ensures 
 every entry in the main branch is schema-conformant and that the knowledge graph can be
 rebuilt deterministically from the source files.
 
-**3.5 Current statistics.** As of May 6, 2026 (Wave 29 — 400-bridge milestone):
+**3.5 Current statistics.** As of May 7, 2026 (Wave 29+ — 578-bridge milestone):
 
 | Metric | Value |
 |--------|-------|
-| Total entries | ~2,500+ |
-| Unknowns | 790 |
-| Hypotheses | 657 |
-| Bridges | **413** (400-bridge milestone reached) |
-| Pioneers | 12 |
+| Total entries | ~2,300+ |
+| Unknowns | 933 |
+| Hypotheses | 801 |
+| Bridges | **578** |
+| Pioneers | 13 |
 | Breakthrough gaps | 12 |
 | Domain landing pages | 160+ |
 | Domains | 40+ |
-| Knowledge graph nodes | 1,887 |
-| Knowledge graph edges | 1,984 |
+| Knowledge graph nodes | 2,341 |
+| Knowledge graph edges | 2,499 |
 | Orphan unknowns | 0 |
 | Domain pairs evaluated for bridge gaps | 700+ |
 
 **3.6 Pioneer and Breakthrough Gap Catalogs.** The repository maintains two
 specialized catalog types that complement the core unknowns-bridges-hypotheses triad.
 
-*Pioneer profiles* (`pioneers/`) document eleven scientists whose work created
+*Pioneer profiles* (`pioneers/`) document thirteen scientists whose work created
 foundational cross-domain bridges — figures such as Claude Shannon, Norbert Wiener,
 and Alan Turing, whose contributions simultaneously defined multiple fields. Each entry
 records the pioneer's key cross-domain insight, the mathematical object they introduced,
@@ -254,7 +254,7 @@ unresolved. Pioneer entries serve an onboarding function: they illustrate, throu
 historically validated examples, what a genuine mathematical bridge looks like — grounding
 the quality standard for new entries.
 
-*Breakthrough gap analyses* (`breakthrough-gaps/`) catalog eleven scientific transition
+*Breakthrough gap analyses* (`breakthrough-gaps/`) catalog twelve scientific transition
 zones where evidence is converging toward a major discovery but the decisive
 cross-disciplinary experiment or theoretical unification has not yet occurred. Each entry
 specifies the competing hypotheses, the data already in hand, the missing measurement or
@@ -558,15 +558,15 @@ universality class proofs is not in the standard reading list for conservation b
 
 ## 8. Current Status and Roadmap
 
-**8.1 Phase 0 status.** The repository has completed its initial seeding phase with
-approximately 950 entries across 22 domains. The governance infrastructure is live:
-schema validation CI, pull request templates, contribution guidelines, and the AI
-co-pilot tooling suite are all operational. The contributor dashboard
-(`dashboard/index.html`) provides a guided entry point for new contributors, including
-a searchable pioneers section (11 cards), a breakthrough gaps section (11 entries),
-Lunr full-text search, and an interactive knowledge graph visualization. The knowledge
-graph is built deterministically from source YAML and published as a queryable JSON
-artifact, currently containing approximately 1,700+ nodes and 1,700+ edges.
+**8.1 Phase 0 status.** The repository has completed its initial seeding phase and
+continues to grow, now containing approximately 2,300+ entries across 22 domains. The
+governance infrastructure is live: schema validation CI, pull request templates,
+contribution guidelines, and the AI co-pilot tooling suite are all operational. The
+contributor dashboard (`dashboard/index.html`) provides a guided entry point for new
+contributors, including a searchable pioneers section (13 cards), a breakthrough gaps
+section (12 entries), Lunr full-text search, and an interactive knowledge graph
+visualization. The knowledge graph is built deterministically from source YAML and
+published as a queryable JSON artifact, currently containing 2,341 nodes and 2,499 edges.
 
 **The 400-bridge milestone** was reached in Wave 29 (May 6, 2026) with bridges 399–410
 spanning stochastic gene expression noise (Kelly-criterion bet-hedging), the scientific
@@ -575,8 +575,8 @@ electrophysiology, thermodynamics as convex duality, complexity economics (Arthu
 Schumpeter), neuromuscular biomechanics (Huxley/Hill/Henneman), TKNN topological
 condensed matter, allelopathy and the Ehrlich-Raven coevolutionary ratchet, computational
 psychiatry digital biomarkers, LOB market microstructure, population-vector motor cortex,
-and PKS/NRPS natural product drug discovery. The **413 cross-domain bridges** now span
-160+ domain-pair landing pages. The majority carry `status: established`, indicating
+and PKS/NRPS natural product drug discovery. The repository has since grown to **578
+cross-domain bridges** spanning 160+ domain-pair landing pages. The majority carry `status: established`, indicating
 confirmed cross-disciplinary validation. Notable established bridges include
 b-spin-glass-neural-networks, b-turing-reaction-diffusion,
 b-landauer-information-thermodynamics, and bridges in wave 9 covering Brownian motion
@@ -620,7 +620,7 @@ first-class, version-controlled, schema-validated objects linked to primary lite
 gap documentation; (iii) git-native community governance that applies the same peer
 review mechanism to knowledge claims that software engineering applies to code.
 
-The current 950+ entries across 22 domains are a seed, not a completion. The value of
+The current 2,300+ entries across 22 domains are a seed, not a completion. The value of
 the repository will scale with community participation: each new unknown registered
 makes the frontier more visible; each new bridge identified makes cross-domain discovery
 more likely; each new hypothesis proposed with falsification criteria moves a question
@@ -757,7 +757,7 @@ and MIT (code) licenses.*
 
 *Competing interests: None declared.*
 
-*Author contributions: KR8ZYSHO3 designed the repository architecture, schemas, and
+*Author contributions: Brandon Shoemaker designed the repository architecture, schemas, and
 tooling. Contributors listed in `CONTRIBUTORS.md` provided domain-specific entries.
 This paper was drafted with AI writing assistance; all citations have been verified
 against primary sources or marked "to verify" where confirmation is pending.*
