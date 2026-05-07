@@ -1,0 +1,56 @@
+id: h-replicator-rl-convergence
+title: >
+  Multi-agent reinforcement learning systems with policy gradient updates converge
+  to evolutionarily stable strategies (rather than arbitrary Nash equilibria) when
+  the learning rate schedule mimics natural selection timescales — that is, when
+  the population diversity update is slow relative to within-agent adaptation.
+status: active
+created: "2026-05-05"
+last_updated: "2026-05-05"
+priority: medium
+related_disciplines:
+  - machine-learning
+  - biology
+  - mathematics
+  - game-theory
+unknowns_addressed:
+  - u-replicator-dynamics-prebiotic-origin
+evidence_links:
+  - type: supporting
+    doi: "10.1073/pnas.97.17.9430"
+    note: >
+      Sutton et al. (2000) policy gradient theorem: the update rule Δπ ∝ π · ∇V
+      is exactly the replicator dynamics in the policy space. Therefore multi-agent
+      policy gradient converges to the same fixed points as replicator dynamics —
+      which includes Nash equilibria but preferentially reaches ESS under certain
+      initialisation and learning rate conditions.
+  - type: supporting
+    arxiv: "1901.08106"
+    note: >
+      Balduzzi et al. (2018) game theory of gradient-based learning: gradient
+      descent on zero-sum games cycles rather than converges; evolutionary dynamics
+      (replicator) provides a framework for convergent multi-agent learning.
+  - type: contradicting
+    note: >
+      In practice, multi-agent RL systems often cycle near Nash equilibria (gradient
+      cycling) rather than converging to ESS — the replicator dynamics prediction is
+      for the continuous-time limit, while RL uses discrete updates with finite step
+      sizes. Discretisation errors may prevent convergence to ESS even if the
+      continuous theory predicts it.
+proposed_tests:
+  - discipline: machine-learning
+    description: >
+      Implement policy gradient multi-agent RL in the Rock-Paper-Scissors game and
+      multiple 2×2 coordination games. Test convergence properties for different
+      learning rate schedules: fast (both agents adapt at equal speed), slow-population
+      (agent population adapts slowly relative to each agent's own learning), and
+      evolutionary (population update uses replicator equation explicitly). Test
+      whether the slow-population schedule converges to the ESS (uniform 1/3 mix
+      for RPS) while the fast schedule cycles.
+  - discipline: mathematics
+    description: >
+      Prove (or disprove) that the discrete policy gradient update with step size
+      η and replicator structure converges to an ESS for potential games when
+      η < η_c (critical learning rate that prevents cycling). Derive η_c as a function
+      of the payoff matrix eigenvalues. Test whether the derived η_c matches the
+      empirically observed convergence threshold in numerical simulations.

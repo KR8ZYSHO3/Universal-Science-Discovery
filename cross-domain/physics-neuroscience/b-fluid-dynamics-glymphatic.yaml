@@ -1,0 +1,75 @@
+id: b-fluid-dynamics-glymphatic
+title: >
+  Navier-Stokes fluid dynamics and Biot poroelastic theory govern cerebrospinal
+  fluid flow through the brain's glymphatic system, where arterial pulsations
+  drive bulk CSF clearance of amyloid-β and tau via perivascular channels lined
+  with aquaporin-4 water channels on astrocyte endfeet.
+status: established
+fields:
+  - physics
+  - neuroscience
+  - fluid-dynamics
+  - neurology
+  - biophysics
+bridge_claim: >
+  The brain's glymphatic system is a fluid hydraulic machine governed by
+  classical fluid mechanics. Arterial pulsations (cardiac cycle, ~1 Hz) create
+  oscillatory pressure gradients ΔP ≈ 2–4 mmHg that drive CSF through the
+  perivascular space (Virchow-Robin spaces, ~20 μm diameter). The Navier-Stokes
+  equations describe bulk flow u = -(k/μ)∇P through the brain parenchyma where
+  k is Darcy permeability (~10⁻¹⁸ m²) and μ is CSF viscosity (~0.7 mPa·s).
+  The medium is poroelastic: the Biot consolidation model accounts for
+  solid-fluid coupling, giving the time-scale τ = L²μ/(k·E) for fluid to
+  drain through an elastic matrix of Young's modulus E. Aquaporin-4 (AQP4)
+  channels on astrocyte endfeet set the effective hydraulic conductivity.
+  Failure of nocturnal glymphatic clearance (which increases ~60% during sleep)
+  leads to accumulation of amyloid-β and tau — the hallmarks of Alzheimer's
+  disease. This makes neurodegeneration, at a fundamental level, a problem in
+  porous media fluid dynamics and hydraulic engineering.
+translation_table:
+  - field_a_term: Navier-Stokes pressure gradient ∇P
+    field_b_term: CSF driving force from arterial pulsation
+    note: Cardiac-cycle pulsatility is the primary pump; respiratory oscillations secondary
+  - field_a_term: Darcy permeability k of porous medium
+    field_b_term: hydraulic conductance of perivascular space and parenchyma
+    note: AQP4 channel density is the biological knob controlling effective k
+  - field_a_term: Biot poroelastic coupling coefficient
+    field_b_term: brain tissue viscoelasticity coupling fluid and solid deformation
+    note: Brain has G' ≈ 1 kPa, orders of magnitude softer than engineering materials
+  - field_a_term: Reynolds number Re = ρUL/μ
+    field_b_term: CSF flow regime (Re << 1, purely Stokes flow)
+    note: Perivascular Re ~ 10⁻³ — viscous forces dominate completely; no turbulence
+  - field_a_term: oscillatory boundary layer (Womersley number Wo)
+    field_b_term: pulsatile CSF flow profile through perivascular channels
+    note: Wo = R√(ω/ν) ~ 0.1 in perivascular spaces — quasi-steady approximation valid
+related_unknowns:
+  - u-glymphatic-csf-clearance-sleep-deprivation-rate
+related_hypotheses:
+  - h-csf-pulsatile-flow-amyloid-clearance-sleep-deprivation
+cross_pollination_opportunities:
+  - >
+    Microfluidic phantoms of the perivascular space could test Biot model
+    predictions for CSF flow rates and AQP4 conductivity: engineering could
+    produce the validation system for the neuroscience model.
+  - >
+    Drug delivery: if glymphatic flow is a bulk convective highway, intrathecal
+    drugs could be routed to specific brain regions by timed arterial pulsation
+    enhancement — a pharmacological hydraulic engineering problem.
+communication_gap: >
+  Fluid mechanics and neuroscience rarely intersect at the journal level.
+  The glymphatic hypothesis (Nedergaard 2013) was published in Science but
+  largely ignored by the fluid dynamics community until ~2018 when biophysicists
+  started applying Biot theory. Neuroscientists lack training in poroelastic
+  modeling; fluid mechanicists lack access to in-vivo brain imaging data. The
+  two-photon microscopy and phase-contrast MRI methods are niche tools
+  unfamiliar to most physicists.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1126/scitranslmed.3003748"
+    note: "Iliff et al. (2012) A paravascular pathway facilitates CSF flow through the brain parenchyma. Sci Transl Med 4:147ra111"
+  - doi: "10.1126/science.1240672"
+    note: "Nedergaard (2013) Garbage truck of the brain. Science 340:1529"
+  - doi: "10.1038/s41467-018-07318-3"
+    note: "Mestre et al. (2018) Flow of cerebrospinal fluid is driven by arterial pulsations and is reduced in hypertension. Nat Commun 9:4878"
+  - doi: "10.1063/1.1712886"
+    note: "Biot (1941) General theory of three-dimensional consolidation. J Appl Phys 12:155"

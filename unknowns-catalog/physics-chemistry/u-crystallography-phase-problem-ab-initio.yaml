@@ -1,0 +1,45 @@
+id: u-crystallography-phase-problem-ab-initio
+title: >
+  Can the crystallographic phase problem be solved ab initio for large macromolecules
+  (>100 kDa) using only measured intensities |F_{hkl}|², without experimental
+  phasing or molecular replacement, through computational approaches combining
+  direct methods, charge flipping, and machine learning?
+status: open
+priority: medium
+disciplines:
+  - physics-chemistry
+  - structural-biology
+  - mathematics
+  - computational-chemistry
+summary: >
+  X-ray crystallography measures intensities I_{hkl} = |F_{hkl}|² but loses
+  the phase φ_{hkl} — the phase problem. For small molecules (<1000 atoms),
+  direct methods (Karle-Hauptman inequalities, triplet relationships from the
+  Sayre equation) solve the phase problem ab initio using probabilistic constraints
+  on electron density positivity and atomicity. For macromolecules, the ratio of
+  observations (reflections) to parameters (atomic coordinates) is too low for
+  direct methods — experimental phasing (MIR, SAD/MAD) or molecular replacement
+  (using homologous structures) is required. This limits structure determination
+  to proteins with known homologs or that can be derivatized with heavy atoms.
+  Emerging approaches: charge flipping (Oszlanyi & Suto 2004) works for some
+  intermediate-size structures; density modification with NCS averaging; deep
+  learning phase prediction (Hoffmann & Grudinin 2022 applied neural networks to
+  phase prediction); AlphaFold2-enabled molecular replacement (nearly eliminating
+  the phase problem for proteins with predicted structures). Open question: can
+  the phase problem be solved purely computationally for novel fold proteins
+  without AlphaFold homologs?
+systematic_gaps:
+  - Fundamental information-theoretic limit on ab initio phasing as a function of data completeness and resolution
+  - Whether deep learning can generalize phase prediction to genuinely novel topologies not in the PDB
+  - Combination of cryo-EM density envelopes with crystallographic amplitudes to provide phase priors
+  - Phase problem difficulty as a function of crystal symmetry (space group) and non-crystallographic symmetry
+suggested_hypotheses:
+  - h-cryo-em-supersedes-xray-membrane-proteins
+related_bridges:
+  - b-xray-crystallography-structure
+references:
+  - doi: "10.1107/S0907444903009812"
+    note: "Taylor (2003) — the phase problem in crystallography"
+  - doi: "10.1107/S0108767303027569"
+    note: "Oszlanyi & Suto (2004) — charge flipping algorithm"
+last_reviewed: "2026-05-06"

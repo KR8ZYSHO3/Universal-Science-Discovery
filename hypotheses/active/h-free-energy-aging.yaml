@@ -1,0 +1,61 @@
+id: h-free-energy-aging
+title: >
+  Biological aging is partly a failure of free energy minimisation: as
+  cellular prediction models accumulate errors (protein misfolding, epigenetic
+  drift, metabolic dysregulation), the metabolic cost of maintaining
+  homeostasis exceeds available free energy, triggering senescence cascades.
+status: active
+priority: high
+impact_score: 0.79
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+
+evidence_links:
+  - doi: "10.1038/nrn2787"
+    type: supporting
+    confidence: 0.65
+    note: "Friston (2010) — free energy principle: biological homeostasis = continuous free energy minimisation"
+  - type: supporting
+    note: "López-Otín et al. (2013) Cell — hallmarks of aging include proteostasis loss, epigenetic alterations, metabolic dysregulation — all quantifiable as prediction model degradation"
+  - type: related
+    note: "Mitteldorf (2019) — aging as information loss in regulatory networks; compatible with free energy framework"
+  - type: related
+    note: "Schrödinger (1944) What is Life? — life maintains low entropy by consuming free energy; aging = declining capacity to do so"
+
+unknowns_addressed:
+  - u-aging-information-loss-mechanism
+
+proposed_tests:
+  - description: >
+      Measure the metabolic cost of homeostatic regulation in young vs. aged
+      cells: use 13C-metabolic flux analysis to measure the fraction of
+      cellular ATP consumed in proteostasis (chaperone activity, proteasome)
+      vs. productive biosynthesis. Test whether aged cells spend a higher
+      fraction of ATP on error-correction.
+    method: "13C-isotope tracing; quantitative proteomics of chaperones/proteasome; seahorse metabolic flux analysis across cell age (passage number and in vivo age)"
+    prediction: "Aged cells (passage >40 or from old donors): ≥30% of ATP spent on proteostasis vs. ≤15% in young; higher ratio predicts shorter replicative lifespan"
+  - description: >
+      Epigenetic clock as free energy proxy: test whether the rate of
+      epigenetic drift (measured by DNA methylation clocks, e.g. Horvath
+      clock) correlates with the free energy cost of transcriptional
+      regulation. In free energy terms, epigenetic drift = accumulating
+      prediction errors in the gene regulatory model.
+    method: "RRBS or EPIC array methylation; Horvath clock acceleration; cross-reference with chromatin accessibility (ATAC-seq) and transcription factor binding costs"
+    prediction: "Tissues with higher transcriptional regulation complexity show faster epigenetic clock acceleration under proteostatic stress (heat shock, oxidative stress)"
+  - description: >
+      Senescence trigger as free energy threshold: test whether cellular
+      senescence is triggered when the metabolic cost of homeostasis exceeds
+      a threshold fraction of total cellular ATP. Pharmacologically tune
+      proteostasis load (proteasome inhibitors, Hsp90 inhibitors) and measure
+      the threshold for senescence induction.
+    method: "Senescence-associated β-galactosidase assay; p21/p16 qPCR; titrated proteasome/Hsp90 inhibition dose-response; ATP:ADP ratio measurement"
+    prediction: "Senescence triggered when homeostasis ATP cost exceeds ~40% of total; threshold shifts with caloric restriction (extends lifespan by raising the threshold)"
+
+related_disciplines:
+  - gerontology
+  - cell-biology
+  - thermodynamics
+  - cognitive-science
+  - systems-biology
+  - metabolic-biology

@@ -1,0 +1,99 @@
+id: b-neural-avalanches-criticality
+title: >
+  Spontaneous neuronal activity in the cortex exhibits power-law avalanche statistics
+  matching mean-field critical branching process predictions, suggesting the brain
+  operates at the edge of a second-order phase transition — a state that maximises
+  dynamic range, information transmission, and computational repertoire simultaneously.
+status: established
+fields:
+  - neuroscience
+  - physics
+  - statistical-mechanics
+  - computational-neuroscience
+bridge_claim: >
+  Self-organised criticality (SOC): Bak, Tang & Wiesenfeld (1987) discovered that many
+  open dissipative systems naturally evolve toward a critical state characterised by
+  power-law distributions, without fine-tuning of parameters. The canonical example
+  is the sandpile model — adding grains one at a time produces avalanches of all sizes
+  following P(s) ∝ s^(-τ) with τ = 1.5 (mean-field) or τ ≈ 1.25 (2D).
+
+  Beggs & Plenz (2003): spontaneous LFP bursts in cortical organotypic cultures and
+  acute slices show neuronal avalanche distributions P(s) ∝ s^(-3/2) and P(T) ∝ T^(-2)
+  — exactly the mean-field critical branching process exponents. The branching ratio
+  σ = average number of neurons activated by one neuron = 1.0 at criticality.
+
+  Why these specific exponents? A branching process (each activated neuron activates
+  σ others independently) has three phases: σ < 1 (subcritical, avalanches die quickly),
+  σ = 1 (critical, P(s) ∝ s^(-3/2) by Galton-Watson theory), σ > 1 (supercritical,
+  explosive cascades). The cortex, by maintaining σ ≈ 1, occupies the critical point.
+
+  Computational advantages at criticality (Kinouchi & Copelli 2006): the dynamic range
+  of a neural network (range of input intensities it can discriminate) is maximised at
+  the critical branching ratio — spanning 5-6 orders of magnitude vs. 1-2 for sub/
+  supercritical networks. Similarly, information transmission (Fisher information about
+  input) and the diversity of activation patterns (pattern entropy) peak at criticality.
+
+  Physiological evidence for criticality:
+  - Power-law avalanche distributions in awake animals (LFP, MEA recordings)
+  - Scaling relations between exponents (not just individual power laws) — "crackling noise"
+  - Deviation toward subcriticality under anaesthesia (confirmed by Priesemann et al.)
+  - Deviation toward supercriticality in seizure states
+  - Critical slowing down in transitions between brain states (sleep-wake transitions)
+
+  The physics connection: the critical brain sits at the boundary of a continuous phase
+  transition in a universality class related to directed percolation (non-equilibrium)
+  rather than the Ising universality class (equilibrium). This has implications for
+  which order parameters and correlation length divergences are expected.
+translation_table:
+  - field_a_term: branching ratio σ (average recruits per active neuron)
+    field_b_term: criticality order parameter of the branching process
+  - field_a_term: neuronal avalanche (cascade of correlated activations)
+    field_b_term: cluster in percolation theory / avalanche in sandpile model
+  - field_a_term: power-law P(s) ∝ s^(-3/2) (avalanche size distribution)
+    field_b_term: mean-field critical branching process exponent (Galton-Watson)
+  - field_a_term: subcritical cortex (σ < 1, anaesthesia, slow-wave sleep)
+    field_b_term: subcritical phase (finite correlation length, exponential decay)
+  - field_a_term: supercritical cortex (σ > 1, seizure, epilepsy)
+    field_b_term: supercritical phase (runaway cascades, divergent cluster size)
+  - field_a_term: synaptic plasticity (homeostatic maintenance of σ ≈ 1)
+    field_b_term: self-organised criticality (parameter-free critical state maintenance)
+  - field_a_term: dynamic range of sensory cortex (input discrimination range)
+    field_b_term: susceptibility peak at the critical point
+related_unknowns:
+  - u-neural-criticality-consciousness-substrate
+related_hypotheses:
+  - h-neural-avalanche-criticality-dynamic-range
+cross_pollination_opportunities:
+  - >
+    The renormalisation group (RG) approach from physics can classify the universality
+    class of the neural critical point — whether it belongs to directed percolation,
+    branching process, or a new universality class. Experimentally measuring all four
+    critical exponents (τ, α, γ, ν) and verifying the scaling relations would
+    definitively place neural criticality in its universality class.
+  - >
+    Deep learning networks trained near the 'edge of chaos' (critical weight
+    initialization) show superior gradient propagation and learning capacity.
+    Whether artificial neural networks share the same critical branching statistics
+    as biological networks is an untested bridge between computational neuroscience
+    and deep learning theory.
+communication_gap: >
+  Statistical physics of phase transitions and SOC was developed in physics
+  departments by condensed matter physicists (Bak, Kadanoff, Wilson). Neuroscientists
+  studying cortical dynamics had no exposure to these concepts until Beggs & Plenz
+  (2003) explicitly applied them. Even then, the neuroscience community was
+  sceptical because: (1) power laws can arise from many mechanisms beyond SOC,
+  (2) the specific exponents were not universally reproduced, and (3) the physiological
+  mechanism maintaining σ ≈ 1 (synaptic homeostasis) was identified much later.
+  The connection remains contested because verifying SOC universality class requires
+  multiple scaling exponents — a standard requirement in physics but unfamiliar to
+  most neuroscientists.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1523/JNEUROSCI.5601-03.2003"
+    note: "Beggs & Plenz (2003) J Neurosci 23:11167 — neural avalanches in cortical cultures"
+  - doi: "10.1038/nphys1746"
+    note: "Chialvo (2010) Nat Phys 6:744 — emergent complex neural dynamics at criticality"
+  - doi: "10.1177/1073858412440101"
+    note: "Shew & Plenz (2013) Neuroscientist 19:88 — functional benefits of criticality"
+  - doi: "10.1371/journal.pcbi.1003985"
+    note: "Priesemann et al. (2014) PLoS Comput Biol 10:e1003985 — in vivo cortex subcritical"

@@ -1,0 +1,80 @@
+id: b-electrochemistry-battery-technology
+title: >
+  Li-ion battery operation is governed by electrochemical thermodynamics
+  (Nernst equation, Butler-Volmer kinetics) and solid-state physics (lithium
+  chemical potential in intercalation compounds), with the solid electrolyte
+  interphase (SEI) as a nano-engineered passivation layer whose chemistry
+  determines cycle life, and solid-state batteries replacing liquid electrolytes
+  with Li₇La₃Zr₂O₁₂ (LLZO) to eliminate dendrite failure modes.
+status: established
+fields:
+  - chemistry
+  - engineering
+  - electrochemistry
+  - materials-science
+  - energy-storage
+  - solid-state-physics
+bridge_claim: >
+  Li-ion batteries are electrochemical engines whose performance reduces
+  entirely to electrode thermodynamics and kinetics. Cathode half-reaction:
+  Li₁₋ₓCoO₂ + xLi⁺ + xe⁻ ↔ LiCoO₂ (E°≈+4.1 V vs Li/Li⁺). Anode:
+  C₆ + xLi⁺ + xe⁻ ↔ LiₓC₆ (E°≈+0.1 V vs Li/Li⁺). Cell voltage determined by
+  lithium chemical potential difference: V = (μ_Li^cathode - μ_Li^anode)/F,
+  where F = 96,485 C/mol. The Nernst equation gives concentration dependence:
+  E = E° - (RT/nF)ln(Q). Rate capability (power density) is governed by
+  Butler-Volmer kinetics at electrode surfaces: j = j₀[exp(αFη/RT) -
+  exp(-(1-α)Fη/RT)] where η is overpotential and j₀ is exchange current density.
+  The solid electrolyte interphase (SEI) — discovered by Peled (1979) — forms
+  spontaneously on graphite anodes by solvent reduction (EC → Li₂CO₃ +
+  ethylene); this ~10 nm amorphous layer is both a ion-conducting membrane and
+  an electronic insulator. SEI growth is the primary cause of capacity fade.
+  Solid-state batteries replace liquid electrolytes with Li₇La₃Zr₂O₁₂ (LLZO,
+  ionic conductivity ~10⁻³ S/cm), eliminating dendrite nucleation at the
+  Li metal anode, enabling energy density > 500 Wh/kg (vs ~250 for liquid Li-ion).
+translation_table:
+  - field_a_term: lithium chemical potential μ_Li in electrode
+    field_b_term: open-circuit voltage of battery cell
+    note: Voltage is a direct thermodynamic measurement of the Li chemical potential difference
+  - field_a_term: Butler-Volmer exchange current density j₀
+    field_b_term: maximum charge/discharge rate (C-rate capability)
+    note: j₀ depends exponentially on activation energy; low j₀ limits fast charging
+  - field_a_term: SEI ionic conductivity σ_Li
+    field_b_term: internal resistance increase and cycle life degradation
+    note: SEI grows as √t (diffusion-limited); thicker SEI = higher resistance
+  - field_a_term: Li⁺ transference number t₊ in electrolyte
+    field_b_term: concentration polarization and power fade
+    note: In liquid electrolytes t₊ ≈ 0.4; single-ion conductors give t₊ = 1
+  - field_a_term: dendrite nucleation criterion (tip electric field)
+    field_b_term: battery short-circuit failure mode
+    note: LLZO eliminates dendrites by mechanical shear modulus G > 8.5 GPa (Monroe-Newman)
+related_unknowns:
+  - u-solid-state-battery-sei-interface-resistance-origin
+related_hypotheses:
+  - h-llzo-single-ion-conductor-eliminates-dendrite-nucleation
+cross_pollination_opportunities:
+  - >
+    Cryo-electron microscopy (cryo-EM) used in structural biology to image
+    proteins at atomic resolution could characterise SEI atomic structure
+    in situ — a direct import of biological imaging tools into battery engineering.
+  - >
+    The electrochemistry of lithium intercalation is formally equivalent to
+    hydrogen storage in metal-organic frameworks: the same Butler-Volmer and
+    Fickian diffusion equations apply, enabling cross-domain materials search.
+communication_gap: >
+  Battery science sits at the intersection of solid-state physics, electrochemistry,
+  and materials engineering — no single academic department owns it. Electrochemists
+  rarely engage with the solid-state physics community developing LLZO, and
+  materials engineers often lack deep electrochemical thermodynamics training.
+  Industrial battery research is proprietary, hiding results from academic
+  researchers. The field also splits between inorganic chemistry (cathode
+  materials) and polymer chemistry (electrolytes), with limited cross-talk.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1021/cm901452z"
+    note: "Goodenough & Kim (2010) Challenges for rechargeable Li batteries. Chem Mater 22:587"
+  - doi: "10.1038/35104644"
+    note: "Tarascon & Armand (2001) Issues and challenges facing rechargeable lithium batteries. Nature 414:359"
+  - doi: "10.1149/1.2128859"
+    note: "Peled (1979) The electrochemical behavior of alkali and alkaline earth metals in nonaqueous battery systems. J Electrochem Soc 126:2047"
+  - doi: "10.1038/nenergy.2016.141"
+    note: "Janek & Zeier (2016) A solid future for battery development. Nat Energy 1:16141"

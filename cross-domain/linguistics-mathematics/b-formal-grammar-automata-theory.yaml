@@ -1,0 +1,98 @@
+id: b-formal-grammar-automata-theory
+title: >
+  Chomsky's hierarchy of formal grammars (regular, context-free, context-sensitive,
+  recursively enumerable) is isomorphic to a hierarchy of computational automata
+  (finite state machines, pushdown automata, linear-bounded automata, Turing machines),
+  and natural human language sits above context-free in the mildly context-sensitive class.
+status: established
+fields:
+  - linguistics
+  - mathematics
+  - computer-science
+  - cognitive-science
+  - formal-language-theory
+bridge_claim: >
+  Chomsky (1956, 1959) identified a hierarchy of formal languages classified by the
+  computational power required to generate or recognize them. The four levels and
+  their automaton equivalences:
+  — Type 3 (Regular): right-linear grammars → finite state automata (FSA).
+    Languages: a^n b^n is NOT regular; English morphology (suffixation) is approximately
+    regular. Memory: O(1) — no stack, no unbounded storage.
+  — Type 2 (Context-Free, CFL): context-free grammars (CFG) → pushdown automata (PDA).
+    Languages: a^n b^n (one center-embedding). English syntax is approximately CFL:
+    noun phrases, verb phrases are recursively defined. Memory: O(n) stack.
+  — Type 1 (Context-Sensitive): CSG → linear-bounded automata (LBA).
+    Memory: O(n) tape. Cross-serial dependencies in Swiss German (verb-argument
+    agreement across embedded clauses) require Type 1.
+  — Type 0 (Recursively Enumerable): unrestricted grammars → Turing machines.
+
+  The crucial finding: natural language is NOT Type 2. Evidence: (1) cross-serial
+  dependencies in Swiss German (Shieber 1985) require context-sensitivity; (2)
+  center-embedding ("the rat the cat the dog chased killed ate the malt") is
+  structurally valid context-free but cognitively unprocessable — suggesting human
+  language processing is limited by working memory, not grammar. Joshi et al. (1975)
+  defined "mildly context-sensitive languages" (MCSL): tree-adjoining grammars (TAG)
+  and combinatory categorial grammars (CCG) generate the correct class — polynomial
+  parsing but more expressive than CFL.
+
+  Modern connection: Transformer language models (BERT, GPT) implicitly learn a
+  mixture of regular (attention patterns ≈ FSA), context-free (nested attention),
+  and possibly mildly context-sensitive statistics. Hahn et al. (2020) prove
+  transformers with hard attention cannot recognize a^n b^n; with soft attention
+  they approximate it arbitrarily well — they occupy a non-standard position in
+  the hierarchy. The Church-Turing thesis implies any computable grammar corresponds
+  to a Turing machine; human language, being computable, is therefore a restriction
+  of Turing-complete grammars constrained by cognitive resources.
+translation_table:
+  - field_a_term: phrase structure grammar (CFG)
+    field_b_term: pushdown automaton (stack machine)
+    note: Every CFG has an equivalent PDA; CYK algorithm parses in O(n³)
+  - field_a_term: regular expression (morphological rule)
+    field_b_term: finite state automaton (FSA)
+    note: English morphology (pluralization, past tense) is efficiently modeled as FSA
+  - field_a_term: center-embedded relative clause
+    field_b_term: stack depth in pushdown automaton
+    note: Human working memory limits stack depth to ~2-3 levels empirically
+  - field_a_term: tree-adjoining grammar (TAG)
+    field_b_term: mildly context-sensitive language (O(n⁶) parsing)
+    note: TAG captures cross-serial dependencies while remaining polynomially parseable
+  - field_a_term: transformer attention head
+    field_b_term: approximate finite state transducer
+    note: Each attention head learns approximately a relation between positions — a soft FSA
+  - field_a_term: V(D)J recombination in immunology (analogy)
+    field_b_term: stochastic context-free grammar for receptor generation
+    note: Immune receptor diversity modeled as SCFG; cross-domain connection to immunology
+related_unknowns:
+  - u-natural-language-complexity-class
+related_hypotheses:
+  - h-natural-language-mildly-context-sensitive-transformer-approximation
+cross_pollination_opportunities:
+  - >
+    Probabilistic context-free grammars (PCFGs) developed in NLP are formally
+    identical to stochastic grammars used in computational biology for RNA secondary
+    structure prediction — the CYK algorithm parses both. The two communities
+    developed these methods independently and cross-fertilization has improved both
+    RNA structure prediction (covariance models, Eddy 1994) and statistical parsing.
+  - >
+    Quantum formal language theory: quantum finite automata (QFA) can recognize
+    certain non-regular languages with constant memory, potentially giving a new
+    complexity-theoretic characterization of natural language. Connection between
+    quantum computing and linguistics remains largely unexplored.
+communication_gap: >
+  Chomsky's original hierarchy was developed in linguistics for theoretical syntax,
+  but the computational automaton equivalences were worked out by computer scientists
+  (Rabin & Scott 1959, Hopcroft & Ullman 1979). Linguists largely abandoned formal
+  language theory after the "cognitive revolution" in favor of minimalist syntax;
+  computer scientists use it for compiler theory. The empirical question of where
+  natural language sits in the hierarchy — requiring careful corpus analysis and
+  psycholinguistic experiments — falls between the two fields with no natural
+  disciplinary home.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1109/TIT.1956.1056813"
+    note: Chomsky (1956) IRE Trans Inf Theory 2:113 — the original hierarchy paper
+  - note: Joshi, Levy & Takahashi (1975) JACM 22:130 — tree-adjoining grammars and mildly context-sensitive languages
+  - note: Hopcroft, Motwani & Ullman (2006) Introduction to Automata Theory, Languages, and Computation. Pearson.
+  - note: Manning & Schütze (1999) Foundations of Statistical Natural Language Processing. MIT Press.
+  - doi: "10.1162/ling_a_00400"
+    note: Shieber (1985) Linguistics & Philosophy — evidence that Swiss German is not context-free

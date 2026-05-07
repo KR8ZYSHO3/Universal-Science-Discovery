@@ -1,0 +1,53 @@
+id: h-myelination-optimal-axon-diameter-conduction-velocity
+title: >
+  The observed g-ratio distribution of myelinated axons across mammalian species
+  and fibre types represents the solution to a constrained optimisation problem
+  (maximise conduction velocity per unit axon volume) predicted by the cable
+  equation, and deviations from g_optimal ≈ 0.6 reflect specific metabolic
+  or developmental constraints that can be predicted quantitatively.
+status: active
+priority: medium
+impact_score: 0.70
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+
+evidence_links:
+  - doi: "10.1113/jphysiol.1951.sp004802"
+    type: supporting
+    confidence: 0.75
+    note: "Rushton (1951) J Physiol 115:101 — derived g_optimal ≈ 0.6 from cable theory; empirical data clustered near this value"
+  - doi: "10.1038/nrn2781"
+    type: supporting
+    confidence: 0.65
+    note: "Nave (2010) reviewed myelin biology; g-ratio variation in disease linked to conduction slowing consistent with cable prediction"
+  - type: related
+    note: "Wang et al. (2008) J Neurosci — g-ratio varies with activity in developing axons; suggests developmental plasticity towards optimal value"
+
+unknowns_addressed:
+  - u-myelination-conduction-velocity-optimality
+
+proposed_tests:
+  - description: >
+      Collect electron microscopy g-ratio measurements from published datasets
+      spanning ≥20 mammalian species across motor, sensory, and autonomic fibres.
+      Implement a three-compartment cable model (axon + periaxonal space + myelin)
+      with species-specific axoplasm resistivity. Compute predicted g_optimal for
+      each fibre type and compare to measured distribution.
+    method: "Meta-analysis of published EM g-ratio data + cable-equation numerical optimisation"
+    prediction: "Measured g-ratio deviates from predicted optimal by < 10% in motor and sensory fibres; larger deviations in autonomic fibres (different cost function)"
+  - description: >
+      Measure g-ratios in remyelinating MS lesions at different stages of recovery
+      using in vivo g-ratio MRI (magnetisation transfer + diffusion MRI). Compare
+      remyelination g-ratio trajectory to cable-equation prediction for the axon
+      diameters present in each lesion. Test whether g-ratio converges toward 0.6
+      or toward a different value consistent with the reduced myelination capacity
+      of remyelinating oligodendrocytes.
+    method: "Longitudinal g-ratio MRI in MS patients during remyelination + cable model comparison"
+    prediction: "Remyelinating axons converge to g < 0.6 (thinner myelin than optimal) due to OPC immaturity; conduction velocity recovers sub-optimally"
+
+related_disciplines:
+  - neuroscience
+  - biophysics
+  - mathematics
+  - neurology

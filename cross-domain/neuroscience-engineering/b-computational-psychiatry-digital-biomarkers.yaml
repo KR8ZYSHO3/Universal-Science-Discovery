@@ -1,0 +1,83 @@
+id: b-computational-psychiatry-digital-biomarkers
+title: >
+  Computational psychiatry uses Bayesian brain models to explain psychosis (aberrant
+  salience — excess dopamine random salience attribution), depression (reduced positive
+  learning rate), and OCD (stuck prior updating), while smartphone digital biomarkers
+  provide continuous ecological monitoring that replaces episodic clinical assessment.
+status: established
+fields:
+  - neuroscience
+  - engineering
+  - psychiatry
+  - computer-science
+bridge_claim: >
+  Computational psychiatry applies mathematical models of brain computation to explain
+  the mechanisms of psychiatric symptoms and guide treatment. The aberrant salience
+  hypothesis (Kapur 2003): excess synaptic dopamine causes random salience attribution
+  to irrelevant stimuli — delusions are the cognitive explanatory framework the brain
+  constructs to explain unexpected saliency. The Bayesian formulation (Adams et al. 2016):
+  psychosis involves abnormal precision weighting — the prior is given too much precision
+  (high prior:likelihood ratio), causing delusions to be maintained despite disconfirming
+  evidence. Formally, if the posterior is P(hypothesis|data) ∝ P(data|hypothesis)·P(hypothesis)^w,
+  delusions correspond to w >> 1 (pathologically high prior weighting). Depression is
+  modelled as reduced positive learning rate α⁺ (for rewarding outcomes) with intact or
+  increased negative learning rate α⁻ (for aversive outcomes) — computational anhedonia
+  (Huys et al. 2016). OCD: compulsive behaviour follows from underestimated state
+  transition uncertainty (Bayesian agent that overbelieves the world is deterministic).
+  Digital biomarkers close the measurement gap: smartphone accelerometer, GPS traces,
+  keystroke dynamics, and voice features passively sample behaviour at ecological timescale,
+  predicting mood episodes in bipolar disorder days before clinical relapse (Torous 2018).
+translation_table:
+  - field_a_term: Bayesian precision (inverse variance of prior)
+    field_b_term: dopaminergic gain (D2 receptor occupancy modulates prediction error weighting)
+    note: Antipsychotics block D2 receptors — reducing aberrant salience by lowering the dopaminergic precision signal
+  - field_a_term: learning rate α (temporal difference learning)
+    field_b_term: differential positive/negative reinforcement learning in depression
+    note: α⁺ < α⁻ in depression; ketamine restores α⁺ to normal within hours, predicting rapid antidepressant effect
+  - field_a_term: ecological momentary assessment (EMA)
+    field_b_term: passive smartphone sensing (GPS, accelerometer, screen time, keystroke)
+    note: EMA captures real-world behaviour continuously vs. retrospective weekly clinic assessment
+  - field_a_term: anomaly detection (signal processing)
+    field_b_term: digital biomarker early warning system for bipolar relapse
+    note: GPS radius of gyration drops days before manic episodes; accelerometer activity rises before mania, falls before depression
+  - field_a_term: hierarchical Bayesian model
+    field_b_term: computational phenotyping — inferring latent psychiatric state from behavioural time series
+    note: Individual learning rate parameters estimated from behavioural tasks form the computational phenotype
+related_unknowns:
+  - u-computational-psychiatry-treatment-response-prediction
+related_hypotheses:
+  - h-computational-psychiatry-aberrant-precision-antipsychotic-mechanism
+cross_pollination_opportunities:
+  - >
+    Personalised dosing from computational phenotype: use individual α⁺/α⁻ learning
+    rate estimates (from computerised reversal learning tasks) to predict antidepressant
+    treatment response before administering drugs; trial a precision psychiatry
+    protocol where computational phenotype guides first-line medication selection.
+  - >
+    Digital twin for bipolar disorder: build a patient-specific Bayesian dynamical
+    model trained on longitudinal smartphone data; use the model to predict when
+    a mood episode will occur and trigger an adaptive intervention (medication
+    adjustment, crisis hotline contact) before clinical symptoms emerge.
+  - >
+    Cross-disorder computational nosology: fit the same hierarchical Bayesian model
+    to behavioural data from patients with schizophrenia, bipolar disorder, OCD,
+    and depression; cluster patients by computational phenotype rather than DSM
+    diagnosis; test whether computational clusters predict treatment response better
+    than categorical diagnosis.
+communication_gap: >
+  Psychiatry is taught as a clinical discipline; computational neuroscience is a
+  research speciality with little clinical integration. Engineers who build smartphone
+  sensing systems and machine learning classifiers rarely collaborate with psychiatrists.
+  The Bayesian brain framework is known to cognitive neuroscientists but has not entered
+  psychiatric training or clinical practice. Regulatory agencies have not yet approved
+  any digital biomarker for psychiatric use, limiting translation despite strong research evidence.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1176/appi.ajp.160.1.13"
+    note: "Kapur (2003) Am J Psychiatry 160:13 — aberrant salience hypothesis of psychosis; dopamine and delusion formation"
+  - doi: "10.1093/schbul/sbv190"
+    note: "Adams et al. (2016) Schizophr Bull 42:971 — computational psychiatry of psychosis; precision-weighting model"
+  - doi: "10.1371/journal.pcbi.1004695"
+    note: "Huys et al. (2016) PLoS Comput Biol 12:e1004695 — computational psychiatry: the brain as a hierarchical generative model"
+  - doi: "10.1002/wps.20508"
+    note: "Torous et al. (2018) World Psychiatry 17:241 — smartphone digital biomarkers for mental health monitoring"

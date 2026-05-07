@@ -23,8 +23,12 @@ ROOT = Path(__file__).parent.parent
 API_DIR = ROOT / "api" / "v1"
 
 def load_yaml(p):
-    try: return yaml.safe_load(p.read_text(encoding="utf-8")) or {}
-    except: return {}
+    try:
+        return yaml.safe_load(p.read_text(encoding="utf-8")) or {}
+    except Exception as exc:
+        import sys
+        print(f"  WARNING: could not parse {p}: {exc}", file=sys.stderr)
+        return {}
 
 def write_json(path, data):
     path.parent.mkdir(parents=True, exist_ok=True)

@@ -1,0 +1,37 @@
+id: h-quantum-graph-bfs-speedup
+title: >
+  Quantum walk-based graph algorithms provide provable quadratic speedup for
+  element distinctness and triangle finding, but no superpolynomial speedup
+  exists for generic BFS/SSSP due to lower bounds from quantum query complexity.
+status: active
+priority: high
+impact_score: 0.78
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+unknowns_addressed:
+  - u-graph-algorithm-quantum-speedup
+evidence_links:
+  - type: supporting
+    note: "Ambainis (2007) quantum walk gives O(N^{2/3}) element distinctness vs O(N) classically — provable quadratic speedup"
+    confidence: 0.90
+  - type: supporting
+    note: "Belovs (2012) learned graph technique gives O(N^{35/27}) triangle detection — below classical Ω(N^{4/3})"
+    confidence: 0.80
+  - type: related
+    note: "Childs & Kothari (2010) SSSP has no superpolynomial quantum speedup under OR-oracle model"
+    confidence: 0.70
+proposed_tests:
+  - description: >
+      Implement quantum walk-based triangle detection on a quantum simulator
+      (Qiskit/Cirq) for graphs of N=20–100 vertices. Compare query complexity
+      empirically against classical algorithms. Verify the O(N^{35/27}) scaling.
+  - description: >
+      Prove or disprove: does APSP admit any super-quadratic quantum speedup?
+      Apply adversary method (Høyer et al.) to derive a query lower bound for
+      all-pairs shortest paths on N-vertex graphs. If lower bound matches classical
+      O(N^3), superpolynomial speedup is ruled out.
+related_disciplines:
+  - quantum-computing
+  - algorithm-theory
+  - graph-theory

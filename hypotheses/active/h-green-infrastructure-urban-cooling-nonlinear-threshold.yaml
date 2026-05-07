@@ -1,0 +1,56 @@
+id: h-green-infrastructure-urban-cooling-nonlinear-threshold
+title: >
+  Urban tree canopy cover exhibits a nonlinear threshold effect on heat island
+  intensity: cooling effect is negligible below ~15% canopy cover, then increases
+  rapidly between 15-30% (cooperative evapotranspiration), then plateaus above
+  40%, consistent with a percolation-like transition in connected canopy
+  enabling coherent evapotranspiration across the urban landscape.
+status: active
+priority: medium
+impact_score: 0.68
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+related_disciplines:
+  - urban-ecology
+  - urban-climatology
+  - landscape-ecology
+  - sustainability-science
+unknowns_addressed:
+  - u-urban-biodiversity-governance-regime-causality
+evidence_links:
+  - doi: "10.1111/j.1461-0248.2008.01202.x"
+    type: related
+    confidence: 0.55
+    note: McDonnell & Hahs (2008) — urbanisation gradient studies; impervious cover vs. biodiversity
+  - doi: "10.1126/science.1150195"
+    type: related
+    confidence: 0.50
+    note: Grimm et al. (2008) — urban ecology including UHI effects
+proposed_tests:
+  - description: >
+      Cross-sectional analysis of 50 US cities using: LiDAR-derived tree canopy
+      cover (% per census block); Landsat LST (land surface temperature) from
+      USGS; NOAA weather station air temperature for UHI calculation.
+      Fit: piecewise linear regression (structural change test at threshold canopy %),
+      Gaussian process regression, and theoretical percolation model.
+      Test: is threshold canopy cover E* statistically significant and consistent
+      with percolation prediction (E*_perc ~ 0.59 for 2D lattice percolation
+      but modified by canopy geometry)?
+    method: >
+      LiDAR + Landsat LST + weather station data; Bayesian structural change point
+      test for threshold in canopy vs. temperature relationship
+    prediction: >
+      Threshold E* = 20±5% canopy cover; UHI reduction accelerates 3-fold between
+      15-30% canopy; plateau above 35-40%; R² improves by >0.15 using piecewise
+      vs. linear model
+  - description: >
+      Longitudinal analysis: identify 10 US cities that increased canopy cover
+      from <15% to >25% between 2000-2020 using NLCD time series. Compare UHI
+      trend against matched control cities with stable canopy. Test: UHI improvement
+      disproportionate (nonlinear) in cities crossing threshold.
+    method: Difference-in-differences with matched controls; remote sensing time series
+    prediction: Cities crossing 15% threshold show 1.2-1.8°C greater UHI reduction than linear prediction
+related_disciplines:
+  - urban-ecology
+  - urban-climatology

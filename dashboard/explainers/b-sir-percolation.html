@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Epidemiology ↔ Network Science: The SIR epidemic model is bond percolation on a contact network | USDR Explainer</title>
+  <meta name="description" content="The SIR epidemic model is bond percolation on a contact network"/>
+
+  <!-- Open Graph / social sharing -->
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="Epidemiology ↔ Network Science: The SIR epidemic model is bond percolation on a contact network"/>
+  <meta property="og:description" content="The SIR epidemic model is bond percolation on a contact network"/>
+  <meta property="og:url" content="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/explainers/b-sir-percolation.html"/>
+  <meta property="og:site_name" content="Universal Science Discovery Repository"/>
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:title" content="The SIR epidemic model is bond percolation on a contact network"/>
+  <meta name="twitter:description" content="The SIR epidemic model is bond percolation on a contact network"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"/>
+
+  <style>
+    /* ── Reset & tokens ───────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0d1117;
+      --bg-card:   #161b22;
+      --bg-hover:  #1c2230;
+      --border:    #30363d;
+      --text:      #e6edf3;
+      --text-dim:  #8b949e;
+      --accent:    #58a6ff;
+      --accent2:   #3fb950;
+      --accent3:   #f78166;
+      --accent4:   #d2a8ff;
+      --warn:      #e3b341;
+      --radius:    10px;
+      --font:      'Inter', system-ui, sans-serif;
+      --mono:      'JetBrains Mono', monospace;
+      --max-w:     860px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* ── Nav ──────────────────────────────────────────────────────────── */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13,17,23,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .topbar a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: opacity .15s;
+    }
+    .topbar a:hover { opacity: .75; }
+    .topbar-sep { color: var(--border); }
+    .topbar-title { color: var(--text-dim); font-size: 0.85rem; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+    /* ── Layout ───────────────────────────────────────────────────────── */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* ── Hero ─────────────────────────────────────────────────────────── */
+    .hero {
+      padding: 2.5rem 0 2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2.5rem;
+    }
+    .hero-domain {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+    .hero-title {
+      font-size: clamp(1.35rem, 3vw, 1.8rem);
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: center;
+    }
+
+    /* ── Badges ───────────────────────────────────────────────────────── */
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.65rem;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: .05em;
+    }
+    .badge-established { background: rgba(63,185,80,.18); color: var(--accent2); border: 1px solid rgba(63,185,80,.35); }
+    .badge-proposed    { background: rgba(88,166,255,.18); color: var(--accent);  border: 1px solid rgba(88,166,255,.35); }
+    .badge-contested   { background: rgba(227,179,65,.18); color: var(--warn);    border: 1px solid rgba(227,179,65,.35); }
+    .badge-stale       { background: rgba(139,148,158,.18);color: var(--text-dim);border: 1px solid rgba(139,148,158,.35); }
+
+    .field-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .field-tag {
+      background: rgba(88,166,255,.12);
+      color: var(--accent);
+      border: 1px solid rgba(88,166,255,.25);
+      padding: 0.15rem 0.55rem;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 500;
+    }
+
+    /* ── Sections ─────────────────────────────────────────────────────── */
+    section { margin-bottom: 2.5rem; }
+
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    h2 .icon { font-size: 1.1rem; }
+
+    p { color: var(--text-dim); margin-bottom: 0.8rem; }
+    p:last-child { margin-bottom: 0; }
+
+    /* ── Card ─────────────────────────────────────────────────────────── */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.5rem;
+    }
+
+    /* ── Key insight callout ──────────────────────────────────────────── */
+    .insight {
+      background: linear-gradient(135deg, rgba(88,166,255,.08) 0%, rgba(63,185,80,.06) 100%);
+      border: 1px solid rgba(88,166,255,.3);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.5rem;
+    }
+    .insight p { color: var(--text); }
+
+    /* ── Translation table ────────────────────────────────────────────── */
+    .table-wrap { overflow-x: auto; border-radius: var(--radius); }
+    .translation-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+    .translation-table thead tr {
+      background: rgba(88,166,255,.12);
+    }
+    .translation-table th {
+      padding: 0.7rem 1rem;
+      text-align: left;
+      font-weight: 600;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    .translation-table td {
+      padding: 0.65rem 1rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      vertical-align: top;
+    }
+    .translation-table tr:last-child td { border-bottom: none; }
+    .translation-table tr:nth-child(odd) { background: rgba(255,255,255,.02); }
+    .translation-table tr:hover { background: var(--bg-hover); }
+    .note-cell { color: var(--text-dim) !important; font-size: 0.82rem; }
+
+    /* ── References ───────────────────────────────────────────────────── */
+    .ref-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .ref-list li {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.6rem 0.9rem;
+      font-size: 0.84rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      align-items: center;
+    }
+    .ref-list a { color: var(--accent); text-decoration: none; }
+    .ref-list a:hover { text-decoration: underline; }
+    .ref-note { color: var(--text-dim); }
+
+    /* ── Open questions ───────────────────────────────────────────────── */
+    .opp-list, ul { padding-left: 1.3rem; display: flex; flex-direction: column; gap: 0.5rem; }
+    .opp-list li, ul li { color: var(--text-dim); font-size: 0.9rem; }
+    code { font-family: var(--mono); font-size: 0.82rem; background: rgba(88,166,255,.12); color: var(--accent); padding: 0.1rem 0.4rem; border-radius: 4px; }
+
+    /* ── Footer ───────────────────────────────────────────────────────── */
+    .explainer-footer {
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+      margin-top: 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+    .explainer-footer p { font-size: 0.8rem; color: var(--text-dim); margin: 0; }
+    .explainer-footer a { color: var(--accent); text-decoration: none; }
+
+    /* ── Responsive ───────────────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .container { padding: 1.5rem 1rem 3rem; }
+      .hero-title { font-size: 1.25rem; }
+      .translation-table th, .translation-table td { padding: 0.5rem 0.7rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="topbar">
+  <a href="../../dashboard/index.html">← Dashboard</a>
+  <span class="topbar-sep">|</span>
+  <a href="index.html">All Explainers</a>
+  <span class="topbar-sep">|</span>
+  <span class="topbar-title">The SIR epidemic model is bond percolation on a contact network</span>
+</nav>
+
+<div class="container">
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-domain">Epidemiology ↔ Network Science</div>
+    <h1 class="hero-title">The SIR epidemic model is bond percolation on a contact network — the epidemic threshold 1/R₀ equals the percolation threshold p_c, and herd immunity is the destruction of the giant connected component of susceptible individuals.</h1>
+    <div class="hero-meta">
+      <span class="badge badge-established">ESTABLISHED</span>
+      <div class="field-tags"><span class="field-tag">epidemiology</span> <span class="field-tag">network-science</span> <span class="field-tag">statistical-physics</span> <span class="field-tag">mathematical-biology</span></div>
+    </div>
+  </header>
+
+  <!-- Overview -->
+  <section id="overview">
+    <h2><span class="icon">🔭</span> Overview</h2>
+    <div class="card">
+      <p>The classic SIR (Susceptible-Infected-Recovered) compartmental epidemic model maps exactly onto bond percolation on the underlying contact network. Each person is a node; each potentially infectious contact is a bond that is &quot;occupied&quot; with probability T = 1 - exp(-β/γ), the transmissibility. An epidemic outbreak occurs if and only if a giant percolating cluster exists in the bond-occupied contact network.
+The critical condition R₀ = 1 (epidemic threshold) is identical to the percolation threshold condition: T_c = 1/⟨k²/k - k⟩ for a network with degree distribution p_k, where ⟨k⟩ and ⟨k²⟩ are the first and second moments of the degree sequence.
+Scale-free networks (power-law degree distributions p_k ~ k^{-γ} with γ ≤ 3) have ⟨k²⟩ → ∞, driving the percolation threshold p_c → 0. This means epidemics can spread on scale-free contact networks at arbitrarily low transmissibility — explaining why sexually transmitted infections persist in heterogeneous human contact networks.
+Vaccination = targeted node removal to destroy the giant connected component. Random vaccination requires removing a fraction 1 - 1/κ where κ = ⟨k²⟩/⟨k⟩ (the network&#x27;s epidemic spreading parameter). Targeted vaccination of high-degree hubs is far more efficient, reducing the required fraction dramatically.
+Herd immunity is not simply the condition R_eff &lt; 1 in a homogeneous mixing model; it is the percolation condition that no giant connected component of susceptibles spans the network — a geometric condition that depends on network structure, not just population-averaged transmissibility.</p>
+    </div>
+  </section>
+
+  <!-- Mathematical Bridge -->
+  <section id="math-bridge">
+    <h2><span class="icon">⚙️</span> The Mathematical Bridge</h2>
+    <div class="insight">
+      <p>
+        This bridge connects <strong>Epidemiology</strong>
+        and <strong>Network Science</strong>
+        through shared mathematical structure.
+         Status: Established connection.
+      </p>
+    </div>
+  </section>
+
+  <!-- Translation Table -->
+  <section id="translation">
+    <h2><span class="icon">↔️</span> Translation Table</h2>
+<div class="table-wrap">
+<table class="translation-table">
+  <thead>
+    <tr>
+      <th>Domain A Term</th>
+      <th>Domain B Term</th>
+      <th>Note</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr><td>susceptible individual</td><td>unoccupied lattice site in the percolation problem</td><td class="note-cell">Each susceptible person is a node that can be reached by the epidemic</td></tr>
+<tr><td>infectious contact (transmission event)</td><td>occupied bond in bond percolation</td><td class="note-cell">A bond is occupied with probability T = transmissibility</td></tr>
+<tr><td>epidemic threshold (R₀ = 1)</td><td>percolation threshold (bond occupancy p = p_c)</td><td class="note-cell">Both are the critical conditions for a spanning cluster / macroscopic outbreak</td></tr>
+<tr><td>final epidemic size</td><td>size of the giant connected component S</td><td class="note-cell">In the infinite-size limit both are exact via the same self-consistency equation</td></tr>
+<tr><td>basic reproduction number R₀</td><td>network epidemic spreading parameter κ = ⟨k²⟩/⟨k⟩</td><td class="note-cell">R₀ = T·κ for a network SIR model</td></tr>
+<tr><td>herd immunity threshold</td><td>node fraction removed to destroy the giant component</td><td class="note-cell">Must account for network heterogeneity — not simply 1 - 1/R₀</td></tr>
+<tr><td>random vaccination</td><td>random node removal (site percolation)</td><td class="note-cell">Effective but inefficient on scale-free networks</td></tr>
+<tr><td>targeted hub vaccination</td><td>targeted high-degree node removal (acquaintance immunisation)</td><td class="note-cell">Disrupts giant component with far fewer removed nodes</td></tr>
+<tr><td>scale-free contact network (γ ≤ 3)</td><td>network with diverging ⟨k²⟩ → zero percolation threshold</td><td class="note-cell">Explains persistence of STIs and why scale-free networks are epidemic-prone</td></tr>
+  </tbody>
+</table>
+</div></section>
+
+  <!-- Communication Gap -->
+  <section id="comm-gap">
+    <h2><span class="icon">🗺️</span> Why Hasn't This Been Unified?</h2>
+    <div class="card"><p>Compartmental SIR models (Kermack-McKendrick) predate network science by six decades. Epidemiologists trained on ODEs often view network models as complex extensions requiring simulation, not as exact instances of a solved problem in statistical physics. The percolation connection was formalized by Newman (2002) and Pastor-Satorras &amp; Vespignani (2001) but remains underutilized in public health modeling. The fields publish in non-overlapping journals (PLOS Pathogens, Epidemiology vs. Physical Review E, Journal of Statistical Physics).</p></div>
+  </section>
+
+  <!-- Cross-pollination opportunities -->
+  <section id="opportunities">
+    <h2><span class="icon">🌱</span> Cross-Pollination Opportunities</h2><ul class="opp-list"><li>Percolation theory provides exact analytic results for epidemic final sizes on arbitrary networks via probability generating functions — a tool largely absent from standard epidemiology curricula. Introducing generating-function methods into public health modeling could replace simulation-heavy approaches for outbreak prediction.</li>
+<li>The equivalence allows import of finite-size scaling from statistical physics: for finite populations the epidemic threshold is smeared over a range ΔR₀ ~ N^{-1/ν}, where ν is the percolation correlation-length exponent. This gives analytic corrections to threshold estimates from small-population outbreak data — relevant for zoonotic spillover events in limited animal reservoirs.</li>
+<li>Multiplex networks (people connected across multiple contact types — household, workplace, social) map onto correlated bond percolation on multiplex graphs. Percolation theory predicts abrupt (first-order) epidemic transitions in multiplex networks, in contrast to the continuous transition in single-layer networks. This has implications for COVID-style pandemics involving simultaneous household and workplace transmission layers.</li></ul></section>
+
+  <!-- Open Questions -->
+  <section id="open-questions">
+    <h2><span class="icon">❓</span> Open Questions</h2><ul><li>Unknown: <code>u-network-epidemic-threshold-heterogeneity</code></li>
+<li>Hypothesis: <code>h-scale-free-epidemic-threshold-vaccination</code></li></ul></section>
+
+  <!-- References -->
+  <section id="references">
+    <h2><span class="icon">📚</span> References</h2>
+    <ul class="ref-list"><li><a href="https://doi.org/10.1103/PhysRevE.66.016128" target="_blank" rel="noopener">DOI:10.1103/PhysRevE.66.016128</a>&nbsp;·&nbsp;<span class="ref-note">Newman (2002) — exact mapping of SIR to bond percolation with generating functions</span></li>
+<li><a href="https://doi.org/10.1103/PhysRevLett.86.3200" target="_blank" rel="noopener">DOI:10.1103/PhysRevLett.86.3200</a>&nbsp;·&nbsp;<span class="ref-note">Pastor-Satorras &amp; Vespignani (2001) — epidemic spreading on scale-free networks, p_c → 0</span></li>
+<li><span class="ref-note">Anderson &amp; May (1991) Infectious Diseases of Humans. Oxford University Press.</span></li>
+<li><a href="https://doi.org/10.1098/rsif.2005.0051" target="_blank" rel="noopener">DOI:10.1098/rsif.2005.0051</a>&nbsp;·&nbsp;<span class="ref-note">Keeling &amp; Eames (2005) Networks and epidemic models — J R Soc Interface 2:295</span></li></ul>
+  </section>
+
+  <!-- Footer -->
+  <footer class="explainer-footer">
+    <p>Bridge ID: <code>b-sir-percolation</code> · Last reviewed: 2026-05-06</p>
+    <p>
+      <a href="../../dashboard/index.html">← Back to Dashboard</a> ·
+      <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery" target="_blank" rel="noopener">GitHub</a>
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>

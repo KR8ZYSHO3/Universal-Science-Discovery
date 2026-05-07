@@ -1,0 +1,54 @@
+id: h-topo-ii-inhibitor-transcription-coupled-dna-damage-selectivity
+title: >
+  Topoisomerase II inhibitors (doxorubicin, etoposide) kill tumor cells primarily
+  through transcription-coupled double-strand breaks (at highly expressed oncogenes
+  with high TOPO2 density) rather than replication-coupled breaks, explaining why
+  they are active against slowly-dividing tumors and predicting that transcriptomics-
+  based TOPO2 occupancy predicts tumor cell sensitivity.
+status: active
+priority: high
+impact_score: 0.80
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+unknowns_addressed:
+  - u-knot-invariants-rna-tertiary-structure-topology
+evidence_links:
+  - type: supporting
+    note: "Nitiss (2009) Nat Rev Cancer 9:338 — topo II inhibitor-induced DSBs co-localize with transcription start sites of highly expressed genes (ChIP-seq in etoposide-treated cells); actively transcribed loci show 3-10× higher cleavage complex density than silent loci"
+    confidence: 0.82
+  - type: supporting
+    note: "Pommier et al. (2010) Chem Biol 17:421 — TOPO2 cleavage complex (drug-stabilized) forms at sites of negative supercoiling behind RNAPII; slowly dividing tumors (breast cancer) are equally sensitive to etoposide as fast-dividing (because transcription coupling, not replication coupling, dominates)"
+    confidence: 0.79
+  - type: contradicting
+    note: "Replication fork collision with topo II cleavage complex produces DSBs orders of magnitude more lethal than transcription-coupled breaks (per DSB) — arguing that replication-coupled breaks, though fewer, dominate cytotoxicity even if transcription-coupled breaks are more frequent"
+    confidence: 0.60
+  - type: supporting
+    note: "Carpenter & Porter (2004) — tumor cells with amplified MYC or ERBB2 show increased topo II occupancy at those loci and increased sensitivity to topo II inhibitors; TOPO2A amplification (found in HER2+ breast cancer) correlates with anthracycline sensitivity"
+    confidence: 0.76
+proposed_tests:
+  - description: >
+      TOPO2 ChIP-seq in 50 cancer cell lines (CCLE panel) combined with etoposide
+      IC50 measurements. Hypothesis: TOPO2 occupancy at the top 100 most-expressed
+      genes (RNA-seq RPKM) predicts etoposide IC50 better than (1) proliferation rate
+      (Ki67 staining), (2) replication licensing score (MCM2 expression), or (3) total
+      TOPO2A expression level. Use random forest regression with LOOCV. Prediction:
+      TOPO2 occupancy at expressed genes is the best single predictor (R² > 0.5 for
+      log IC50 prediction), demonstrating transcription coupling as the primary
+      sensitivity determinant.
+  - description: >
+      Compare topological state of DNA at MYC locus vs. silent HOXA locus in MCF7
+      cells (breast cancer, MYC amplified) using a modified TopoSeq approach (nick
+      ligation chemistry to detect supercoiling density genome-wide). Measure change
+      in supercoiling density at MYC vs. HOXA after 30 min etoposide treatment (time
+      when cleavage complexes accumulate but before cell death). Prediction: negative
+      supercoiling density increases 3-5× at MYC (where RNAPII density is high and
+      topo II cannot resolve all supercoiling) vs. <1.5× at HOXA — confirming
+      transcription-dependent supercoil accumulation as the mechanism of site-specific
+      cleavage complex trapping.
+related_disciplines:
+  - mathematics
+  - chemistry
+  - molecular-biology
+  - oncology
+  - pharmacology

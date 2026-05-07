@@ -1,0 +1,56 @@
+id: h-turing-pattern-wavelength-experimental-test
+title: >
+  The spacing of vertebrate digit primordia is set by the Turing wavelength
+  λ = 2π√(D_A/k) of the BMP-Sox9 reaction-diffusion system, and perturbing D_A
+  (activator diffusivity) or k (degradation rate) independently should shift
+  digit spacing by the predicted √-factor quantitatively.
+status: active
+created: "2026-05-06"
+last_updated: "2026-05-06"
+priority: high
+related_disciplines:
+  - developmental-biology
+  - physics
+  - biophysics
+  - mathematical-biology
+unknowns_addressed:
+  - u-morphogen-gradient-robustness-scaling
+evidence_links:
+  - type: supporting
+    doi: "10.1126/science.1225394"
+    note: Müller et al. (2012) — quantitative test of Turing wavelength for Nodal/Lefty in zebrafish gastrulation
+  - type: supporting
+    doi: "10.1126/science.1226804"
+    note: Raspopovic et al. (2014) Science — Turing BMP-Sox9-Wnt network generates correct digit spacing in mouse
+  - type: related
+    doi: "10.1098/rstb.1952.0012"
+    note: Turing (1952) — original prediction λ ∝ √(D/k)
+  - type: contradicting
+    note: >
+      Green & Sharpe (2015) Development argue the limb bud is not a simple
+      reaction-diffusion system: the clock-and-wavefront mechanism may co-exist with
+      Turing patterning, and the two mechanisms have not been fully distinguished
+      by perturbation experiments.
+proposed_tests:
+  - discipline: developmental-biology
+    description: >
+      Use CRISPR to generate mouse embryos with hypomorphic alleles of the BMP type I
+      receptor (BMPR1A), reducing BMP signaling strength k (faster effective degradation).
+      Measure digit spacing in heterozygous and homozygous embryos by micro-CT.
+      Test whether digit spacing increases as k^{-1/2} (the Turing prediction).
+      Control: rescue with exogenous BMP protein should shift spacing back toward
+      wild-type proportional to BMP concentration^{-1/2}.
+  - discipline: biophysics
+    description: >
+      Measure Sox9 protein diffusivity D_A in limb bud mesenchyme by single-particle
+      tracking (SPT) or FRAP in live mouse embryo slices. Compare to BMP diffusivity
+      from FRAP. Test whether D_BMP / D_Sox9 >> 1 as required for Turing instability
+      (inhibitor must diffuse faster than activator). This is the first step in
+      verifying the mechanism: without D_I >> D_A, the Turing mechanism cannot operate.
+  - discipline: mathematical-biology
+    description: >
+      Numerical simulation of the BMP-Sox9-Wnt Turing network (Raspopovic et al. 2014
+      equations) across a range of parameter values. Map the phase diagram of patterned
+      vs. unpatterned states. Predict quantitatively: for what range of D_Sox9/D_BMP
+      does the system produce 5 digits (vs. 4 or 6)? Compare to naturally occurring
+      polydactyly and oligodactyly variants as evolutionary tests of the model.

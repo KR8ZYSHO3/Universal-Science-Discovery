@@ -1,0 +1,44 @@
+id: h-shannon-optimal-compression-biological-codes
+title: >
+  Primary sensory cortex neural codes (V1, A1) operate within a factor of 2 of
+  the Shannon rate-distortion bound for natural stimuli when distortion is measured
+  using a perceptual metric matched to the sensory system's known behavioral
+  sensitivity, implying that evolution has driven neural coding efficiency close
+  to the theoretical optimum.
+status: active
+priority: medium
+impact_score: 0.71
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+evidence_links:
+  - doi: "10.1002/j.1538-7305.1959.tb03905.x"
+    type: related
+    confidence: 0.95
+    note: "Shannon (1959) — rate-distortion theorem providing the theoretical bound"
+  - type: supporting
+    note: "Simoncelli & Olshausen (2001, Annu Rev Neurosci) — natural image statistics suggest V1 Gabor filters are near-optimal linear codes"
+  - type: related
+    note: "Fairhall et al. (2001, Nature) — efficiency of information transmission in fly H1 neuron"
+unknowns_addressed:
+  - u-rate-distortion-optimal-neural-codes
+proposed_tests:
+  - description: >
+      Record N=1000+ V1 neurons in awake macaque via Neuropixels probes during
+      passive viewing of natural images. Compute I(X;Ŷ) between stimuli and neural
+      responses using MINE (mutual information neural estimation). Compare to R(D)
+      computed for natural image statistics with SSIM as distortion metric.
+      Test: is I(X;Ŷ) within a factor of 2 of R(D_perception)?
+    method: "Neuropixels recording, MINE mutual information estimator, SSIM-R(D) computation via Blahut-Arimoto"
+    prediction: "V1 code is within 2-fold of R(D_SSIM); IT cortex code is within 2-fold of R(D_categorical)"
+  - description: >
+      Compare neural coding efficiency (I/R ratio) across cortical hierarchy (V1 → V4 → IT)
+      using matched natural image sets. Test: does coding efficiency increase up the hierarchy
+      as distortion metric shifts from low-level (MSE) to high-level (categorical)?
+    method: "Multi-area simultaneous Neuropixels, encoding model I(X;Ŷ), R(D) for matched distortion metrics"
+    prediction: "Efficiency ratio I/R increases monotonically from V1 to IT with progressively matched metrics"
+related_disciplines:
+  - information-theory
+  - computational-neuroscience
+  - visual-neuroscience
+  - engineering

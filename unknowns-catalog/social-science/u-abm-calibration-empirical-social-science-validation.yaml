@@ -1,0 +1,53 @@
+id: u-abm-calibration-empirical-social-science-validation
+title: >
+  How should agent-based models be calibrated, validated, and falsified against
+  empirical social science data, given that the mapping between ABM agent rules
+  and measurable individual behaviors is underdetermined and emergent outcomes
+  are sensitive to rule specification?
+status: open
+priority: high
+disciplines:
+  - social-science
+  - mathematics
+  - complexity-science
+  - statistics
+summary: >
+  Agent-based models (ABMs) produce emergent macro-level patterns from micro-level
+  agent rules, but calibration and validation face deep challenges. The fundamental
+  problem: many different combinations of agent rules can produce the same emergent
+  macro-pattern (equifinality). This makes ABMs difficult to falsify in the strong
+  sense — an observed macro-pattern (e.g., Pareto wealth distribution, segregation)
+  does not uniquely identify the underlying micro-rules. Furthermore, ABM agent
+  parameters are rarely directly measurable: "preference for same-type neighbors"
+  in Schelling's model is a theoretical construct not available from survey data
+  without independent validation. History matching (HM) and approximate Bayesian
+  computation (ABC) offer partial solutions: ABC generates parameter samples that
+  produce simulated outcomes within tolerance ε of observed data. However, ABMs
+  with >10 parameters require millions of model evaluations, making ABC computationally
+  expensive. Validation criteria are also contested: should ABMs reproduce (a) only
+  the target aggregate statistics they were designed for, (b) cross-validation on
+  held-out data, (c) out-of-sample prediction (e.g., ABM calibrated on pre-COVID
+  data predicts COVID-era behavior), or (d) mechanism validation (individual rules
+  match behavior lab experiments)?
+systematic_gaps:
+  - Standard validation protocol for social science ABMs analogous to k-fold
+    cross-validation in machine learning.
+  - "Identifiability analysis: what macro-observables constrain what micro-parameters?"
+  - "Behavioral calibration: connecting ABM agent rules to experimentally measured
+    decision-making heuristics from behavioral economics."
+  - Out-of-sample forecasting track record of ABMs vs. equation-based models for
+    social outcomes (elections, market crashes, civil conflict).
+suggested_hypotheses:
+  - >
+    ABMs calibrated via ABC on pre-2020 US political geography data (county-level
+    vote shares, demographic sorting) will perform worse than structural equation
+    models at predicting 2022 midterm geographic outcomes — demonstrating that
+    ABM flexibility leads to overfitting to calibration data unless strong
+    theoretical constraints are imposed on agent rule specification.
+related_bridges:
+  - b-agent-based-modeling-emergent-institutions
+references:
+  - note: "Epstein & Axtell (1996) Growing Artificial Societies — MIT Press"
+  - doi: "10.1073/pnas.1210719109"
+    note: "Farmer & Foley (2009) Nature 460:685 — the economy needs agent-based modelling"
+last_reviewed: "2026-05-06"

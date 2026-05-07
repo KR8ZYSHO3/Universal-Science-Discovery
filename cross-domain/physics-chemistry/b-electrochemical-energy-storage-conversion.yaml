@@ -1,0 +1,97 @@
+id: b-electrochemical-energy-storage-conversion
+title: >
+  Electrochemical energy devices — fuel cells, electrolyzers, and redox flow batteries
+  — bridge electrochemistry and thermodynamics: the Gibbs free energy change
+  ΔG = -nFE determines theoretical efficiency, while Butler-Volmer kinetics and
+  Ohmic losses set practical limits, unifying chemical reaction thermodynamics with
+  electrical energy conversion.
+status: established
+fields:
+  - physics
+  - thermodynamics
+  - chemistry
+  - electrochemistry
+  - materials-science
+  - energy-engineering
+bridge_claim: >
+  Fuel cells convert chemical energy directly to electrical energy via electrochemical
+  reactions, bypassing the Carnot efficiency limit that constrains heat engines.
+  For the hydrogen fuel cell: H₂ + ½O₂ → H₂O, ΔG° = -237.1 kJ/mol.
+  The maximum thermodynamic efficiency is η_max = ΔG/ΔH = 237.1/285.8 = 83%
+  (vs. Carnot at ~60% for 800°C SOFC and ~40% for 80°C PEM).
+
+  The Nernst equation gives cell voltage as a function of concentration:
+  E = E° - (RT/nF) ln Q, where E° = -ΔG°/nF = 1.23V for hydrogen oxidation.
+  Butler-Volmer kinetics: j = j₀[exp(αFη/RT) - exp(-(1-α)Fη/RT)] describes
+  overpotential η losses at each electrode — the kinetic penalty for finite current.
+  At practical current densities, activation overpotential (electrode kinetics),
+  Ohmic losses (membrane resistance), and mass transport losses reduce actual
+  efficiency to 50-60%.
+
+  PEM fuel cells: Nafion membrane (sulfonated PTFE) conducts H⁺ at ~0.1 S/cm
+  while blocking electrons and gases. Pt nanoparticles (~2-3 nm on carbon black)
+  catalyze both hydrogen oxidation reaction (HOR) and oxygen reduction reaction
+  (ORR — the kinetically limiting step, 100× slower than HOR). ORR kinetics:
+  the 4-electron pathway (O₂ → 2H₂O) is desired; 2-electron pathway (O₂ → H₂O₂)
+  wastes energy and degrades the membrane.
+
+  Electrolyzers (reverse fuel cells): apply voltage > 1.23V to split H₂O → H₂ + ½O₂.
+  Thermodynamic efficiency η = ΔH/(nFV_applied); practical PEM electrolyzers operate
+  at 1.8-2.0V (overpotential of 0.6-0.8V) with 70-80% efficiency for green hydrogen.
+
+  Redox flow batteries (RFBs): separate power (stack) from energy (tank volume),
+  enabling independent scaling. Vanadium RFB: V²⁺/V³⁺ anolyte and VO²⁺/VO₂⁺ catholyte,
+  E° = 1.26V. Energy density ~25 Wh/L, vs. ~200 Wh/L for Li-ion, but unlimited
+  cycle life (electrolyte is never consumed).
+translation_table:
+  - field_a_term: Gibbs free energy change ΔG (chemical thermodynamics)
+    field_b_term: maximum electrical work W_max = nFE (electrochemistry)
+    note: ΔG = -nFE is the fundamental equation linking thermodynamics and electrochemistry
+  - field_a_term: enthalpy of reaction ΔH (total heat content)
+    field_b_term: higher heating value (HHV) of fuel (total chemical energy content)
+    note: efficiency η = ΔG/ΔH; fuel cell is more efficient than combustion because ΔG < ΔH
+  - field_a_term: electrode overpotential η (kinetic penalty)
+    field_b_term: internal resistance voltage drop (circuit analogy)
+    note: Butler-Volmer η reduces E from E° = 1.23V to ~0.7V at practical current densities
+  - field_a_term: Nernst equation (equilibrium potential vs. concentration)
+    field_b_term: open-circuit voltage (OCV) of battery at given state of charge
+    note: both express thermodynamic driving force as function of species activities
+  - field_a_term: exchange current density j₀ (Butler-Volmer parameter)
+    field_b_term: electrocatalyst activity (Tafel slope, turnover frequency)
+    note: j₀ encodes catalyst quality; Pt has high j₀ for HOR, poor for ORR — drives Pt-alloy research
+related_unknowns:
+  - u-pem-fuel-cell-pt-catalyst-degradation-mechanism
+related_hypotheses:
+  - h-single-atom-catalyst-orr-selectivity-4e
+cross_pollination_opportunities:
+  - >
+    Materials informatics for electrocatalyst discovery: the Sabatier principle (volcano
+    plot) predicts that the optimal catalyst has intermediate adsorbate binding energy —
+    neither too weak (poor activation) nor too strong (surface poisoning). DFT-computed
+    binding energies of O*, OH*, and OOH* intermediates screen thousands of alloy
+    compositions computationally; machine learning potentials (NequIP, MACE) reduce
+    DFT cost by 100-1000× — enabling high-throughput screening for Pt-free ORR catalysts.
+  - >
+    Proton-coupled electron transfer (PCET) theory bridges quantum chemistry and
+    electrochemistry: the Marcus-Levich-Dogonadze theory of electron transfer in
+    solution (Marcus Nobel 1992) extended to coupled proton-electron transfer predicts
+    kinetic isotope effects and pH dependence of electrocatalytic rates — connecting
+    quantum tunneling of protons to macroscopic electrode kinetics.
+communication_gap: >
+  Thermodynamics (19th century, Carnot-Kelvin-Gibbs tradition) and electrochemistry
+  (Faraday-Nernst tradition) developed largely independently. Physical chemistry
+  courses teach Nernst equation without connecting it to Butler-Volmer kinetics, which
+  appears in electrochemical engineering courses. Materials scientists developing
+  catalysts rarely engage with the thermodynamic efficiency framework; energy economists
+  modeling hydrogen supply chains rarely understand the catalyst kinetics that constrain
+  practical efficiency. The hydrogen economy discourse spans physics, chemistry, materials
+  science, and economics — rarely synthesized in a single analytical framework.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1080/14786443908562514"
+    note: "Grove (1839) On voltaic series and the combination of gases by platinum; Philos Mag 14:127"
+  - note: Appleby & Foulkes (1989) Fuel Cell Handbook. Van Nostrand Reinhold
+  - doi: "10.1149/2.015205jes"
+    note: "Skyllas-Kazacos et al. (2011) Progress in flow battery research and development; J Electrochem Soc 158:R55"
+  - doi: "10.1126/science.1103197"
+    note: "Turner (2004) Sustainable hydrogen production; Science 305:972"

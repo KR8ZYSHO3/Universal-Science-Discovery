@@ -1,0 +1,50 @@
+id: h-hub-lethality-protein-network-drug-targets
+title: >
+  Proteins with betweenness centrality in the top 5% of the human PPI network
+  are enriched among approved drug targets at odds ratio >3 relative to proteins
+  in the bottom 50% of betweenness, and this enrichment is independent of protein
+  abundance, tissue expression, and Y2H detection bias — reflecting genuine
+  functional centrality in biological information flow.
+status: active
+priority: high
+impact_score: 0.81
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+evidence_links:
+  - doi: "10.1038/35075138"
+    type: supporting
+    confidence: 0.75
+    note: "Jeong et al. (2001) — hub lethality in yeast interactome"
+  - doi: "10.1038/nrg1272"
+    type: supporting
+    confidence: 0.80
+    note: "Barabasi & Oltvai (2004) — network biology and drug targets"
+  - doi: "10.1088/1742-5468/2008/10/P10008"
+    type: related
+    confidence: 0.75
+    note: "Blondel et al. (2008) — Louvain community detection"
+unknowns_addressed:
+  - u-ppi-scale-free-topology-functional-necessity
+proposed_tests:
+  - description: >
+      Compute betweenness centrality on the BioPlex 3.0 AP-MS human PPI network
+      (N=8,000 proteins, 118,000 interactions, controlled for detection bias via
+      AP-MS balanced design). Test enrichment of approved drug targets (DrugBank
+      curated) in top vs. bottom betweenness centiles using logistic regression
+      controlling for protein abundance (HPA), tissue specificity (GTEx), and
+      network degree.
+    method: "Network centrality computation (igraph), logistic regression with covariates, bootstrap confidence intervals"
+    prediction: "Betweenness centrality OR >3.0 (95% CI does not include 1.0) for drug targets vs. non-targets"
+  - description: >
+      CRISPR screen in 5 cancer cell lines: knockout top-200 betweenness-centrality
+      proteins vs. matched 200 random proteins vs. 200 essential proteins (positive
+      control). Measure differential proliferation by NGS pooled screen. Test whether
+      betweenness predicts essentiality better than degree or expression level.
+    method: "Pooled CRISPR-Cas9 screen, MAGeCK analysis, AUC for essentiality prediction"
+    prediction: "Betweenness-ranked prediction AUC=0.72 vs. degree AUC=0.63, expression AUC=0.67"
+related_disciplines:
+  - systems-biology
+  - drug-discovery
+  - network-science
+  - mathematics

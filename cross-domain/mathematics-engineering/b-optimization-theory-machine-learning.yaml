@@ -1,0 +1,87 @@
+id: b-optimization-theory-machine-learning
+title: >
+  Convex optimization theory (KKT conditions, strong duality, convergence rates for
+  gradient descent) provides the mathematical foundation for machine learning training,
+  while empirical ML discoveries — the dominance of saddle points over local minima in
+  high dimensions and the lottery ticket hypothesis — require extending classical theory
+  beyond convexity.
+status: established
+fields:
+  - mathematics
+  - engineering
+  - computer-science
+  - machine-learning
+bridge_claim: >
+  Convex optimization: minimize f(x) subject to x in C (convex set). The Lagrangian
+  L(x,lambda,mu) = f(x) + lambda^T h(x) + mu^T g(x) and dual function g(lambda,mu) =
+  inf_x L satisfy strong duality (primal = dual) under Slater's condition.
+  KKT conditions are necessary and sufficient: stationarity, primal feasibility, dual
+  feasibility, complementary slackness.
+
+  Gradient descent convergence: for L-smooth, mu-strongly convex f, the iterates satisfy
+  ||x_t - x*||² ≤ (1 - mu/L)^t ||x_0 - x*||² — geometric convergence rate determined
+  by the condition number kappa = L/mu. Momentum (Nesterov) achieves the optimal rate
+  O(1/t²) for smooth convex problems.
+
+  The Adam optimizer (Kingma and Ba 2015): adaptive learning rates for each parameter
+  (scaled by EMA of squared gradients) plus momentum. Convergence on non-convex
+  stochastic objectives is not guaranteed by classical theory — Adam converges on
+  smooth non-convex functions at rate O(1/sqrt(T)) to a stationary point, not necessarily
+  a global minimum.
+
+  Neural network loss landscapes: in high dimensions (millions of parameters), local
+  minima are almost non-existent — instead, saddle points dominate (Dauphin et al. 2014).
+  At a saddle point, the Hessian has both positive and negative eigenvalues; gradient
+  descent escapes saddle points when perturbed by noise (SGD noise helps). This empirical
+  discovery explains why SGD works despite non-convexity — the loss landscape is not
+  the adversarial non-convex case that classical theory fears.
+
+  Lottery ticket hypothesis (Frankle and Carlin 2019): randomly initialized dense neural
+  networks contain sparse subnetworks (winning tickets) that can be trained in isolation
+  to full accuracy. This suggests neural networks are dramatically over-parameterized and
+  that the true solution structure is sparse — connecting to compressed sensing and
+  L1 regularization theory.
+translation_table:
+  - field_a_term: KKT stationarity condition
+    field_b_term: zero-gradient condition at neural network training convergence
+    note: KKT is necessary at any local minimum; sufficient only for convex problems
+  - field_a_term: condition number kappa = L/mu
+    field_b_term: learning rate sensitivity — large kappa requires small learning rate for stability
+    note: Adam mitigates large kappa by adapting per-parameter learning rates
+  - field_a_term: Lagrange multiplier lambda
+    field_b_term: regularization coefficient (L2 regularization = Lagrange constraint on norm)
+    note: L2 regularization is equivalent to adding a quadratic constraint to the primal
+  - field_a_term: saddle point (indefinite Hessian)
+    field_b_term: dominant critical point type in high-dimensional neural network loss landscape
+    note: "Dauphin (2014): fraction of negative Hessian eigenvalues tracks loss value"
+  - field_a_term: L1 regularization (sparse solution)
+    field_b_term: winning ticket subnetwork (sparse trained-in-isolation subnetwork)
+    note: Lottery ticket hypothesis has connections to compressed sensing and L1-induced sparsity
+related_unknowns:
+  - u-neural-network-loss-landscape-global-structure
+related_hypotheses:
+  - h-lottery-ticket-sparse-subnetwork-universality
+cross_pollination_opportunities:
+  - >
+    Non-convex optimization guarantees for neural networks: can manifold-structure
+    assumptions on the loss landscape (e.g., benign non-convexity, no spurious local
+    minima) be proved for specific architectures (two-layer networks, transformers)?
+    This is an active mathematical frontier.
+  - >
+    Quantum optimization algorithms (QAOA, VQE) for ML training: quantum annealing
+    may escape saddle points more efficiently than gradient-based methods — a potential
+    speedup if quantum hardware scales.
+communication_gap: >
+  Convex optimization was developed by operations research and applied mathematics
+  communities (Boyd and Vandenberghe textbook published 2004) largely before deep
+  learning became dominant. Deep learning practitioners rarely use classical
+  optimization convergence proofs in practice. The theoretical ML community has
+  tried to bridge this gap but key questions (why does SGD generalize well? what
+  is the correct convergence notion for non-convex neural networks?) remain open,
+  keeping the communities somewhat separated.
+last_reviewed: "2026-05-06"
+references:
+  - note: "Boyd & Vandenberghe (2004) Convex Optimization. Cambridge University Press"
+  - note: "Kingma & Ba (2015) ICLR — Adam optimizer"
+  - note: "Dauphin et al. (2014) NeurIPS 27 — saddle points in high-dimensional optimization"
+  - note: "Frankle & Carlin (2019) ICLR — lottery ticket hypothesis"

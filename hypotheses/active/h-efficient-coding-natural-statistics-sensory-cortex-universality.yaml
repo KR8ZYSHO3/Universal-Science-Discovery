@@ -1,0 +1,59 @@
+id: h-efficient-coding-natural-statistics-sensory-cortex-universality
+title: >
+  The efficient coding hypothesis holds universally across all primary sensory cortices
+  (V1, A1, S1) and all vertebrate species tested: the neural code in each area is
+  optimally matched (via evolution and development) to the statistical structure of
+  the natural stimuli for that sensory modality, minimizing redundancy and maximizing
+  mutual information under metabolic constraints.
+status: active
+priority: medium
+impact_score: 0.76
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+
+evidence_links:
+  - doi: "10.1038/381607a0"
+    type: supporting
+    confidence: 0.85
+    note: "Olshausen & Field (1996) Nature — sparse coding of natural images produces Gabor-like V1 simple cell receptive fields matching Barlow's prediction; ICA of natural images gives V1 basis functions"
+  - doi: "10.1162/neco.1997.9.7.1483"
+    type: supporting
+    confidence: 0.80
+    note: "Bell & Sejnowski (1997) Neural Comput — ICA of natural sounds produces auditory filter shapes matching A1 tuning curves — efficient coding predicts A1 properties"
+  - doi: "10.1016/j.neuron.2007.09.034"
+    type: supporting
+    confidence: 0.75
+    note: "Simoncelli & Olshausen (2001 Annual Review) — review of efficient coding predictions for V1, V2, MT; predictions match in 85% of cases tested"
+  - type: contradicting
+    confidence: 0.60
+    note: "Carandini et al. (2005) J Neurosci — some V1 properties (end-stopping, non-classical surround) are not predicted by efficient coding of second-order statistics alone; higher-order statistics and predictive coding may be required"
+
+unknowns_addressed:
+  - u-weber-fechner-stevens-unifying-neural-mechanism
+
+proposed_tests:
+  - description: >
+      Train a sparse autoencoder on natural videos from the species-specific visual
+      environment of six vertebrate species (human, macaque, mouse, zebrafish, pigeon,
+      eagle) and compare the learned filters to single-unit recordings from V1 of each
+      species. Predict that species with different visual ecologies (eagles: high acuity,
+      small field; zebrafish: panoramic, UV-sensitive) should have efficient codes
+      matched to their natural image statistics.
+    method: "Natural video recording using body-mounted cameras; sparse autoencoder training with L1 sparsity penalty; compare learned filter properties (spatial frequency tuning, orientation selectivity, aspect ratio) to electrophysiological recordings from V1 of each species using 2D Gabor fit"
+    prediction: "Learnt filters match V1 receptive fields within 20% for spatial frequency and orientation distributions in all 6 species; inter-species differences in filter properties predict inter-species differences in visual ecology (resolution vs. field of view)"
+  - description: >
+      Deprive neonatal animals (ferrets, cats) of patterned visual experience during
+      the critical period and compare V1 filter properties to animals raised with
+      structured natural images vs. white noise stimulation. Efficient coding predicts
+      that white-noise-reared animals should develop random, non-Gabor-like receptive
+      fields; natural-image-reared animals should develop Gabor-like filters.
+    method: "Monocular rearing with controlled visual environment; single-unit recordings at P60; reverse correlation receptive field mapping; compare to Gabor template matching and sparse coding predictions"
+    prediction: "Natural-image-reared animals have Gabor-like V1 filters with orientation selectivity ≥ 70% of normal; white-noise-reared animals show ≤ 30% orientation selectivity — confirming that visual statistics drive V1 development"
+
+related_disciplines:
+  - neuroscience
+  - information-theory
+  - psychophysics
+  - computational-neuroscience
+  - evolutionary-biology

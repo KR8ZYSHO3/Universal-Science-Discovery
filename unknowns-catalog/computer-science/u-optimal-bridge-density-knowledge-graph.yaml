@@ -1,0 +1,63 @@
+id: u-optimal-bridge-density-knowledge-graph
+title: >
+  What is the minimum number of cross-domain bridges required for a scientific
+  knowledge graph to exhibit "giant component" connectivity, enabling any domain
+  to reach any other within 2-3 bridge steps?
+status: open
+priority: high
+disciplines:
+  - network-science
+  - information-theory
+  - science-of-science
+  - graph-theory
+  - epistemology
+summary: >
+  In network percolation theory, a random graph develops a giant connected component
+  — a single cluster spanning almost all nodes — when the mean degree ⟨k⟩ exceeds
+  the critical threshold p_c = 1/⟨k⟩ (Erdős–Rényi threshold). Applied to the USDR
+  scientific knowledge graph, the analogous question is: what density of cross-domain
+  bridge entries is required for the graph to exhibit giant-component connectivity,
+  such that any scientific domain can reach any other through a chain of at most 2–3
+  bridge steps?
+
+  This unknown has both theoretical and operational dimensions. Theoretically, the
+  knowledge graph is not random (Erdős–Rényi) but scale-free (Barabási–Albert), with
+  hub nodes (information entropy, phase transitions, percolation, variational
+  principles) that disproportionately increase connectivity. Scale-free networks
+  exhibit giant components at much lower mean bridge density than random graphs, but
+  the exact threshold depends on the degree distribution exponent γ. For γ < 3 (as
+  observed in most scale-free networks), the threshold approaches zero — meaning any
+  finite bridge density eventually produces a giant component — but the practical
+  threshold for "navigable" connectivity (diameter ≤ 3) is non-trivial.
+
+  Operationally, the USDR knowledge graph currently has ~860 nodes and ~135+ bridges.
+  Whether this is sufficient for any-to-any domain reachability in ≤ 3 steps is
+  an empirical question that can be answered by computing the diameter and giant
+  component size of the current graph, and simulating the addition of bridges
+  prioritized by hub-node connectivity contribution.
+
+systematic_gaps:
+  - The degree distribution exponent γ of the USDR knowledge graph has not been measured, so it is unknown whether the graph is in the scale-free regime (γ < 3) or intermediate (γ ≈ 3) where logarithmic corrections matter.
+  - The minimum bridge count and placement strategy (random vs. hub-targeted) for achieving diameter ≤ 3 across all domain pairs has not been computed for the current graph.
+  - Whether cross-domain hub nodes (phase transitions, information entropy, percolation) are sufficient to provide backbone connectivity, or whether many small-degree bridges are also required, has not been quantified.
+  - The relationship between bridge "quality" (formal translation table completeness) and its contribution to navigable connectivity has not been modeled.
+
+suggested_hypotheses:
+  - A hub-targeted bridge addition strategy (prioritizing bridges that connect to high-degree nodes) achieves giant-component connectivity at 3–5× fewer total bridges than a random addition strategy, due to the scale-free structure of the knowledge graph.
+  - The current USDR graph (~860 nodes, ~135 bridges) is below the giant-component threshold for domain-level nodes, and adding ~50 hub-targeted bridges would reduce the mean cross-domain distance from >5 steps to ≤3 steps.
+
+related_unknowns:
+  - u-hawking-channel-capacity
+  - u-maxwell-shannon-channel-near-capacity
+
+related_bridges:
+  - b-knowledge-overload-findability
+
+references:
+  - doi: "10.1126/science.286.5439.509"
+    note: "Barabási & Albert (1999) Emergence of scaling in random networks. Science 286:509"
+  - note: "Erdős P & Rényi A (1960) On the evolution of random graphs. Publ Math Inst Hung Acad Sci 5:17-61"
+  - note: "Cohen R et al. (2000) Resilience of the Internet to random breakdowns. Phys Rev Lett 85:4626"
+  - note: "Watts DJ & Strogatz SH (1998) Collective dynamics of small-world networks. Nature 393:440-442"
+
+last_reviewed: "2026-05-06"

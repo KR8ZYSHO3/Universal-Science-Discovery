@@ -1,0 +1,86 @@
+id: b-optimal-foraging-calculus-variations
+title: >
+  Charnov's marginal value theorem — the optimal forager leaves a patch when
+  instantaneous gain rate equals the habitat average — is derived from the
+  calculus of variations (Lagrangian optimisation), making patch exploitation
+  mathematically identical to optimal stopping problems in finance and drug
+  dosing interval optimisation.
+status: established
+fields:
+  - mathematics
+  - calculus-of-variations
+  - ecology
+  - behavioural-ecology
+  - economics
+  - operations-research
+bridge_claim: >
+  Marginal value theorem (Charnov 1976): an optimal forager should leave a
+  patch when the instantaneous rate of energy gain f'(t) equals the average
+  rate for the habitat E*:
+
+    f'(t*) = E* = E[g(t)] / (T + t*)
+
+  where t* = optimal residence time, T = mean travel time between patches,
+  g(t) = gain function (concave, diminishing returns).
+
+  This is derived by calculus of variations — maximise:
+
+    J = ∫₀^∞ [g(t) - E* · t] dt  subject to g''(t) < 0 (concave gain)
+
+  The Euler-Lagrange condition ∂L/∂g - d/dt(∂L/∂g') = 0 yields f'(t*) = E*.
+
+  MATHEMATICAL ISOMORPHISMS:
+  1. Optimal stopping (Secretary Problem / Bellman equation): stop when current
+     payoff equals the continuation value E[future payoff] — identical structure
+     to MVT.
+  2. Drug dosing intervals (pharmacokinetics): give next dose when plasma
+     concentration falls to threshold — Michaelis-Menten kinetics create
+     equivalent diminishing-returns gain function.
+  3. Economic marginal utility: consumer optimises by equating marginal utility
+     of good i to shadow price λ — the Lagrangian multiplier is exactly E*.
+  4. Inventory theory (economic order quantity): reorder when inventory reaches
+     reorder point where marginal holding cost = marginal stockout cost — same
+     variational structure.
+
+  The non-trivial insight: the same calculus of variations framework that
+  optimises rocket trajectories and control systems governs animal foraging,
+  drug scheduling, and portfolio rebalancing.
+translation_table:
+  - field_a_term: patch gain function g(t) (ecology)
+    field_b_term: objective functional in calculus of variations
+    note: Concavity of g(t) is the diminishing returns assumption required for a unique optimum
+  - field_a_term: marginal gain f'(t) = dg/dt
+    field_b_term: Euler-Lagrange gradient condition
+    note: Optimality requires first-order stationarity of the variational problem
+  - field_a_term: habitat average E* (optimal foraging)
+    field_b_term: Lagrange multiplier lambda (constrained optimisation)
+    note: E* is the shadow price of time — exactly the Lagrangian multiplier in the variational formulation
+  - field_a_term: patch residence time t* (ecology)
+    field_b_term: optimal stopping time (stochastic control)
+    note: Both problems seek a threshold policy where action changes when marginal value hits threshold
+  - field_a_term: travel time T between patches
+    field_b_term: transaction cost / switching cost (economics)
+    note: High travel time = high switching cost; lowers optimal frequency of patch switching / portfolio rebalancing
+related_unknowns:
+  - u-optimal-foraging-stochastic-environments
+  - u-patch-choice-memory-updating
+related_hypotheses:
+  - h-marginal-value-theorem-stochastic-extension
+cross_pollination_opportunities:
+  - Apply dynamic programming (HJB equation) to foraging under uncertainty — stochastic travel times produce the same structure as real options pricing
+  - Translate pharmacokinetic optimal dosing intervals to MVT to use foraging literature's predator-prey extensions
+  - Use MVT framework to optimise sampling protocols in fieldwork (when to move sensor arrays)
+  - Apply to machine learning hyperparameter search — exploration-exploitation as foraging patch choice
+communication_gap: >
+  Ecologists learn MVT as a graphical theorem in behavioural ecology without
+  deriving it from calculus of variations. Applied mathematicians working on
+  optimal stopping do not know that MVT is an instance of their problem. The
+  formalisation in McNamara & Houston (1986) bridges this but remains in
+  specialist literature.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1016/0040-5809(76)90007-5"
+    note: Charnov (1976) Theor Popul Biol 9:129 — original marginal value theorem
+  - note: MacArthur & Pianka (1966) Am Nat 100:603 — optimal diet theory precursor
+  - note: Stephens & Krebs (1986) Foraging Theory, Princeton UP — comprehensive treatment
+  - note: McNamara & Houston (1986) J Theor Biol 122:281 — dynamic programming extension

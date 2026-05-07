@@ -1,0 +1,83 @@
+id: b-ecosystem-resilience-bifurcation
+title: >
+  Ecosystem regime shifts (lake eutrophication, savanna-forest, coral bleaching)
+  are fold bifurcations (saddle-node) in nonlinear dynamical systems where
+  hysteresis creates alternative stable states, and critical slowing down near
+  the fold produces measurable early warning signals — rising autocorrelation
+  and variance — validated empirically for 85 lake and fisheries transitions.
+status: established
+fields:
+  - ecology
+  - physics
+  - nonlinear-dynamics
+  - bifurcation-theory
+  - environmental-science
+  - complex-systems
+bridge_claim: >
+  Many ecosystems are bistable: they have two alternative stable states
+  (clear/turbid lake, forest/savanna, coral/algae reef) separated by an
+  unstable equilibrium. The dynamics are captured by dx/dt = f(x,p) where
+  x is ecosystem state and p is a control parameter (nutrient loading, grazing
+  pressure, temperature). A fold (saddle-node) bifurcation occurs when two
+  equilibria (stable + unstable) collide and annihilate at a critical parameter
+  value p_c. The system then jumps abruptly to the only remaining stable state.
+  Crucially, this creates hysteresis: recovery requires p to decrease below a
+  lower fold p_c', not just return below p_c (p_c' < p_c). Near a fold
+  bifurcation, the dominant eigenvalue of df/dx approaches zero — the system
+  recovers from perturbations increasingly slowly. This "critical slowing down"
+  (CSD) produces measurable early warning signals (EWS): (1) variance σ²
+  increases as σ² ∝ (p_c - p)^(-1/2); (2) lag-1 autocorrelation AR(1) → 1;
+  (3) skewness changes sign at the transition. Scheffer et al. (2009) predicted
+  EWS theoretically; Dakos et al. (2012) validated in 85 empirical time series
+  from lakes, fisheries, and climate records using AR(1) as the EWS indicator.
+  This directly connects ecology's resilience concept (Holling 1973) with
+  mathematical bifurcation theory and statistical physics near phase transitions.
+translation_table:
+  - field_a_term: fold (saddle-node) bifurcation at parameter p_c
+    field_b_term: tipping point — threshold of no return in ecosystem management
+    note: Fold bifurcations are generic (codimension-1) — mathematically inevitable in bistable systems
+  - field_a_term: hysteresis loop (different p needed for transition vs. recovery)
+    field_b_term: irreversibility of eutrophication / deforestation
+    note: Hysteresis width = management cost of restoration relative to prevention
+  - field_a_term: dominant eigenvalue λ₁ → 0 near bifurcation
+    field_b_term: critical slowing down — ecosystem recovery time diverges
+    note: Measured as τ_recovery = -1/λ₁; detectable 10+ years before the transition
+  - field_a_term: variance σ² ∝ (p_c - p)^(-γ) diverges near fold
+    field_b_term: increasing variance in lake turbidity / chlorophyll before eutrophication
+    note: Fluctuation-dissipation theorem connects variance and relaxation time
+  - field_a_term: alternative stable states in potential V(x) = -∫f(x)dx
+    field_b_term: Holling's resilience — depth of basin of attraction around stable state
+    note: Basin depth = ΔV; Holling's concept is exactly the potential well in the normal form
+related_unknowns:
+  - u-ecosystem-tipping-point-early-warning-false-positive-rate
+related_hypotheses:
+  - h-critical-slowing-down-universal-ews-ecosystem-tipping-fold-bifurcation
+cross_pollination_opportunities:
+  - >
+    Statistical physics renormalization group analysis of ecosystem EWS data:
+    if universal exponents govern variance and autocorrelation near fold
+    bifurcations regardless of ecosystem type, this would confirm the universality
+    class of ecological transitions — a purely physical test with policy implications.
+  - >
+    Network-level EWS: computing spectral gap of the ecological interaction
+    network as ecosystems approach tipping points may yield better leading
+    indicators than single-species variance, connecting algebraic graph theory
+    to ecosystem monitoring.
+communication_gap: >
+  Ecology's resilience concept (Holling 1973) was formulated qualitatively
+  decades before bifurcation theory entered ecological modelling. Applied
+  ecologists managing fisheries and lakes rarely read nonlinear dynamics
+  journals; theoretical physicists working on bifurcation theory do not read
+  ecology journals. The Scheffer group (Wageningen) is one of the few that
+  actively bridges both communities. Policy-makers managing ecosystems are
+  generally unaware of EWS methods; even where EWS are computed they are
+  rarely used for proactive management decisions.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1038/269471a0"
+    note: "May (1977) Thresholds and breakpoints in ecosystems with a multiplicity of stable states. Nature 269:471"
+  - doi: "10.1038/nature08227"
+    note: "Scheffer et al. (2009) Early-warning signals for critical transitions. Nature 461:53"
+  - doi: "10.1371/journal.pone.0041010"
+    note: "Dakos et al. (2012) Methods for detecting early warnings of critical transitions in time series illustrated using simulated ecological data. PLoS ONE 7:e41010"
+  - note: "Strogatz (1994) Nonlinear Dynamics and Chaos. Addison-Wesley"

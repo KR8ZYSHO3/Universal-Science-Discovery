@@ -1,0 +1,122 @@
+id: b-reaction-network-graph-theory
+title: >
+  Chemical reaction networks are directed hypergraphs whose steady-state multiplicity
+  and oscillatory behavior are entirely determined by the network topology via the
+  Feinberg-Horn-Jackson deficiency theory — making graph-theoretic invariants (deficiency
+  number, linkage classes, strong linkage) the decisive predictors of chemical dynamics.
+status: established
+fields:
+  - chemistry
+  - mathematics
+  - graph-theory
+  - dynamical-systems
+  - biochemistry
+bridge_claim: >
+  A chemical reaction network (CRN) is a directed graph whose nodes are "complexes"
+  (multisets of species, e.g. A + 2B) and edges are reactions. The Feinberg-Horn-Jackson
+  (FHJ) deficiency theory (1972) provides a complete classification of which network
+  topologies can admit multiple steady states, oscillations, or complex dynamics.
+
+  THE DEFICIENCY NUMBER δ:
+
+    δ = n - l - s
+
+  where n = number of distinct complexes, l = number of linkage classes (connected
+  components of the underlying undirected graph), and s = dimension of the stoichiometric
+  subspace (rank of the stoichiometric matrix). The deficiency is a topological
+  invariant of the network, not of the rate constants.
+
+  DEFICIENCY ZERO THEOREM (Horn & Jackson 1972): Any CRN with δ = 0 and a weakly
+  reversible topology admits a unique positive steady state that is thermodynamically
+  stable (complex-balanced equilibrium) regardless of rate constant values. The
+  network topology alone, not the kinetics, guarantees uniqueness and stability.
+
+  DEFICIENCY ONE THEOREM (Feinberg 1987): A CRN with δ = 1, in which each linkage
+  class has its own deficiency (δ_l ≤ 1), can admit at most one positive steady
+  state per stoichiometric compatibility class — regardless of kinetic rates.
+
+  MULTISTABILITY REQUIREMENTS: Multiple steady states require δ ≥ 2, or a non-weakly-
+  reversible topology, or a stoichiometric structure that allows the system to exit
+  the "complex-balanced" regime. The lac operon (genetic switch), bistable signalling
+  cascades (e.g. MAPK), and the mitotic oscillator all have deficiency ≥ 1 and
+  non-weakly-reversible subnetworks — their multistability is topologically inevitable.
+
+  GRAPH-THEORETIC TOOLS FROM NETWORK SCIENCE:
+  - Strongly connected components of the CRN graph = persistent reaction cycles
+  - Spanning forests of the complex graph = steady-state flux distributions
+  - Matrix-tree theorem applied to the Kirchhoff matrix of the complex graph = algebraic
+    formula for steady-state concentrations (the "CRNT" tree formula)
+  - Spectral graph theory of the Laplacian of the CRN = stability eigenvalues
+
+  The SAME graph-theoretic tools used to analyse web graphs, social networks, and
+  electrical circuits apply without modification to predict chemical dynamics.
+translation_table:
+  - field_a_term: "Complex (multiset of species, e.g. A + 2B)"
+    field_b_term: "Node in the reaction graph"
+    note: "Distinct complexes = distinct nodes; same species appearing in different reactions create different nodes"
+  - field_a_term: "Reaction A + B → C + D"
+    field_b_term: "Directed edge from node (A+B) to node (C+D)"
+    note: "Edge weight = rate constant; reversible reaction = pair of antiparallel edges"
+  - field_a_term: "Linkage class"
+    field_b_term: "Connected component of the undirected complex graph"
+    note: "Represents a self-contained reaction subsystem with its own conservation laws"
+  - field_a_term: "Deficiency δ = n - l - s"
+    field_b_term: "Topological complexity measure of the reaction network"
+    note: "δ = 0 guarantees unique stable equilibrium (thermodynamic); δ ≥ 1 allows multistability or oscillation"
+  - field_a_term: "Weakly reversible network"
+    field_b_term: "Strongly connected directed graph (every node on a cycle)"
+    note: "Weakly reversible + δ = 0 = complex-balanced equilibrium exists"
+  - field_a_term: "Stoichiometric subspace"
+    field_b_term: "Image of the incidence matrix of the directed complex graph"
+    note: "Constrains which steady states are reachable from given initial conditions"
+  - field_a_term: "Oscillatory CRN (e.g. Brusselator, Oregonator)"
+    field_b_term: "CRN graph with a Hopf bifurcation structure: non-weakly-reversible, δ ≥ 1"
+    note: "Stability of steady states determined by eigenvalues of Jacobian; Hopf criterion is algebraic in rate constants"
+related_unknowns:
+  - u-crn-multistability-biological
+related_hypotheses:
+  - h-crn-oscillator-design
+cross_pollination_opportunities:
+  - >
+    The FHJ deficiency theory gives a purely topological guarantee of uniqueness
+    or multistability without computing rate constants. This could be used as a
+    pre-filter in synthetic biology: before engineering a genetic circuit, check
+    whether the reaction graph topology permits or forbids bistability. Most current
+    synthetic biology design tools do not exploit deficiency theory — integrating
+    it would reduce failed designs dramatically.
+  - >
+    Network science has developed efficient algorithms for identifying strongly
+    connected components (Tarjan's algorithm, O(V+E)), community detection, and
+    motif enumeration. Applying these tools to large metabolic networks (KEGG, BiGG)
+    would classify each metabolic subnetwork by its deficiency and predict which
+    subsystems are capable of multistability — a systematic map of which metabolic
+    pathways can bistably switch, directly relevant to understanding metabolic
+    diseases and cancer metabolism.
+  - >
+    The algebraic combinatorics of spanning trees of the CRN graph give an exact
+    formula for steady-state concentrations under mass-action kinetics. This is a
+    direct application of the Matrix-Tree Theorem (Kirchhoff's theorem) from
+    graph theory. The formula connects the magnitudes of steady-state concentrations
+    to ratios of reaction rate constants in a way that could be exploited for
+    parameter estimation from metabolomics data.
+communication_gap: >
+  Feinberg (1972) and Horn & Jackson (1972) published their deficiency theory in
+  applied mathematics journals (Arch Rational Mech Anal) not read by chemists or
+  biologists. The theory requires graph theory and linear algebra notation unfamiliar
+  to most chemists. Chemical reaction network theory (CRNT) remained a speciality
+  of mathematical chemistry for 30 years until the systems biology era (2000-present)
+  began connecting it to biological networks. Most synthetic biologists who design
+  genetic circuits remain unaware that the circuit topology alone determines whether
+  bistability is achievable.
+last_reviewed: "2026-05-05"
+references:
+  - doi: "10.1007/BF00251225"
+    note: "Horn & Jackson (1972) Arch Rational Mech Anal 47:81 — deficiency zero theorem; complex-balanced equilibria"
+  - doi: "10.1007/BF00251226"
+    note: "Feinberg (1972) Arch Rational Mech Anal 49:187 — chemical reaction network theory; deficiency and dynamics"
+  - note: "Érdi & Tóth (1989) Mathematical Models of Chemical Reactions (Manchester UP) — comprehensive treatment"
+    url: "https://www.mup.ac.uk/9780719022081"
+  - doi: "10.1073/pnas.86.1.67"
+    note: "Feinberg (1989) Proc Natl Acad Sci 86:67 — necessary and sufficient conditions for complex balance"
+  - doi: "10.1137/0152013"
+    note: "Feinberg (1991) SIAM J Appl Math — multiple steady states and deficiency one networks"

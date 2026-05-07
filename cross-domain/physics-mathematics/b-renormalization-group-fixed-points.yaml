@@ -1,0 +1,91 @@
+id: b-renormalization-group-fixed-points
+title: >
+  Wilson's renormalization group maps RG flow in coupling-constant space onto a
+  dynamical system whose fixed points — classified by their eigenvalue spectrum —
+  determine universality classes of critical phenomena, making the mathematics of
+  continuous-group flows and fixed-point stability the exact language for the physics
+  of second-order phase transitions independent of microscopic details.
+status: established
+fields:
+  - physics
+  - mathematics
+  - statistical-mechanics
+  - field-theory
+bridge_claim: >
+  The renormalization group (Wilson 1971) provides the deepest explanation of
+  universality: why systems as microscopically different as magnets, binary fluids,
+  and liquid-gas transitions near their critical points share identical critical
+  exponents. The RG procedure integrates out short-wavelength (high-momentum)
+  degrees of freedom at scale Λ → Λ/b, generating an effective Hamiltonian for
+  long-wavelength modes. Iterating this transformation defines a flow in the space
+  of coupling constants g = (r, u, v, ...): dg_i/d(ln L) = β_i(g), where L is
+  the observation length scale and β_i is the beta function.
+
+  Fixed points β_i(g*) = 0 are the mathematically central objects. The stability
+  matrix M_{ij} = ∂β_i/∂g_j|_{g*} has eigenvalues y_k (RG eigenvalues). Relevant
+  perturbations (y_k > 0) grow under RG flow and define the universality class;
+  irrelevant ones (y_k < 0) vanish — this is why microscopic details do not matter.
+  The critical exponents are determined entirely by y_k at the fixed point:
+  ν = 1/y_t (correlation length), η = 2 - y_h + 2 (anomalous dimension).
+
+  The Gaussian fixed point (g* = 0) controls mean-field theory and is stable above
+  the upper critical dimension d_c (d_c = 4 for the Ising universality class).
+  Below d_c, the Wilson-Fisher fixed point at g* = O(ε) (ε = 4-d) controls the
+  true critical behavior. The ε-expansion gives critical exponents as series in ε:
+  η = ε²/54 + O(ε³), ν = 1/2 + ε/12 + O(ε²) for the Ising universality class.
+  Crossover between fixed points explains the gradual change of effective exponents
+  as a system is tuned between d=3 and d=4.
+translation_table:
+  - field_a_term: coupling constant flow g(L) under block-spin transformation
+    field_b_term: trajectory in a dynamical system ẋ = f(x)
+    note: The beta function β(g) plays the role of the vector field f(x)
+  - field_a_term: RG fixed point g* where β(g*) = 0
+    field_b_term: equilibrium point of a dynamical system
+  - field_a_term: RG eigenvalue y_k (eigenvalue of stability matrix at g*)
+    field_b_term: Lyapunov exponent classifying stability of a fixed point
+  - field_a_term: relevant operator (y_k > 0) — grows under RG iteration
+    field_b_term: unstable direction in phase space (positive Lyapunov exponent)
+  - field_a_term: irrelevant operator (y_k < 0) — shrinks under RG iteration
+    field_b_term: stable direction in phase space (negative Lyapunov exponent)
+  - field_a_term: universality class (same fixed point, same critical exponents)
+    field_b_term: basin of attraction of a fixed point in parameter space
+  - field_a_term: upper critical dimension d_c (Gaussian FP becomes stable)
+    field_b_term: bifurcation point (fixed-point stability changes as parameter varies)
+  - field_a_term: ε-expansion (perturbation theory around d=4)
+    field_b_term: center-manifold reduction near a bifurcation
+related_unknowns:
+  - u-rg-fixed-points-non-wilson-fisher-universality-classes
+related_hypotheses:
+  - h-rg-epsilon-expansion-convergence-nonperturbative-corrections
+cross_pollination_opportunities:
+  - >
+    Mathematicians developing rigorous renormalization group theory (Gallavotti,
+    Bricmont, Kupiainen) using cluster expansion methods could provide convergence
+    proofs for the ε-expansion that physicists use as an asymptotic series.
+    Connecting constructive QFT methods to the functional RG (Wetterich equation)
+    could establish rigorous non-perturbative bounds on critical exponents.
+  - >
+    Machine learning RG (Mehta-Schwab 2014 correspondence between RG and
+    variational autoencoders) could be formalized using the fixed-point language:
+    training a deep network is a flow in weight space, and optimal representations
+    may correspond to fixed points of a learning-theory RG. This requires
+    collaboration between statistical physicists and machine learning theorists.
+communication_gap: >
+  The RG is published primarily in physics journals (Phys Rev B, Rev Mod Phys,
+  Nucl Phys B) using physicists' notation (path integrals, Feynman diagrams) that
+  is opaque to most mathematicians. The rigorous mathematical treatment (Balaban,
+  Gallavotti, Bricmont) uses constructive field theory methods that are unknown
+  to most physicists. The dynamical systems framing of RG fixed points — central
+  to the physics community since Wilson — is rarely stated explicitly in mathematics
+  textbooks on dynamical systems, despite being a natural application. Funding
+  structures separate condensed matter physics from pure mathematics, limiting
+  cross-pollination.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1016/0370-1573(74)90023-4"
+    note: "Wilson & Kogut (1974) Phys Rep 12:75 — the renormalization group and the ε expansion (comprehensive review)"
+  - doi: "10.1103/PhysRevB.4.3174"
+    note: "Wilson (1971) Phys Rev B 4:3174 — renormalization group and critical phenomena I: block spin formulation"
+  - doi: "10.1103/RevModPhys.46.597"
+    note: "Fisher (1974) Rev Mod Phys 46:597 — the renormalization group in the theory of critical behavior"
+  - note: "Goldenfeld (1992) Lectures on Phase Transitions and the Renormalization Group — Addison-Wesley (textbook treatment)"

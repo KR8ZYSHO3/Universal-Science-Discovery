@@ -1,0 +1,53 @@
+id: h-hopf-bifurcation-power-grid-stability
+title: >
+  The proximity of a power grid to its nearest Hopf bifurcation in the synchronisation
+  parameter space (line impedance, generator inertia, load) can be estimated in real
+  time from network-wide frequency measurements, providing an early warning indicator
+  for grid instability 5-15 minutes before voltage collapse.
+status: active
+created: "2026-05-05"
+last_updated: "2026-05-05"
+priority: high
+related_disciplines:
+  - engineering
+  - physics
+  - nonlinear-dynamics
+  - control-theory
+unknowns_addressed:
+  - u-chaos-transition-engineering-systems
+evidence_links:
+  - type: supporting
+    doi: "10.1103/PhysRevLett.64.1196"
+    note: >
+      OGY control theory: systems near bifurcation boundaries show critical slowing
+      down (autocorrelation increases, variance increases). These statistical signatures
+      of proximity to bifurcation have been observed in power systems before cascading
+      failures.
+  - type: supporting
+    doi: "10.1109/TPWRS.2012.2208140"
+    note: >
+      Susuki & Mezic (2011) Koopman mode analysis of power system dynamics reveals
+      coherent oscillatory modes that precede instability — early warning signatures
+      consistent with Hopf bifurcation proximity.
+  - type: contradicting
+    note: >
+      Modern power grids are large (thousands of buses), heterogeneous, and subject
+      to stochastic demand fluctuations. Distinguishing Hopf bifurcation signatures
+      from ordinary stochastic fluctuations requires statistical methods that may not
+      achieve sufficient sensitivity and specificity for operational use.
+proposed_tests:
+  - discipline: engineering
+    description: >
+      Using the IEEE 118-bus test system in real-time simulation (RTDS), systematically
+      reduce generator inertia (simulating renewable penetration) toward the Hopf
+      bifurcation boundary. Compute the maximal Lyapunov exponent λ₁ from 30-second
+      frequency measurement windows. Test whether λ₁ → 0 as the system approaches
+      the bifurcation boundary, giving 5-15 minutes warning before instability onset.
+  - discipline: engineering
+    description: >
+      Analyse the North American Eastern Interconnect PMU (phasor measurement unit)
+      frequency data from 2003-2010, including the 2003 Northeast blackout. Apply
+      critical slowing down indicators (lag-1 autocorrelation, variance) to 5-minute
+      rolling windows. Test whether these indicators showed statistically significant
+      increases in the 30-60 minutes before the 2003 cascade failure compared to
+      non-failure days.

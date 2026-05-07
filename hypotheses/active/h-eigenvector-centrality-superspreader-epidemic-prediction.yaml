@@ -1,0 +1,49 @@
+id: h-eigenvector-centrality-superspreader-epidemic-prediction
+title: >
+  Eigenvector centrality of the contact network, computed from mobile phone
+  proximity data at the start of an epidemic, predicts individual superspreader
+  status (contributing >80% of secondary cases) with AUC > 0.80, outperforming
+  degree centrality, betweenness centrality, and demographic risk factors.
+status: active
+priority: high
+impact_score: 0.85
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+
+evidence_links:
+  - doi: "10.2307/3033543"
+    type: related
+    confidence: 0.60
+    note: "Freeman (1977) — theoretical framework for centrality measures; no epidemic validation"
+  - type: supporting
+    note: "Lloyd-Smith et al. (2005) Nature — individual variation in R₀ follows negative binomial (k~0.1 for SARS); superspreading is a small fraction of nodes — consistent with high-centrality nodes being superspreaders"
+  - type: related
+    note: "Epidemic threshold β·λ₁(A)/γ = 1 means λ₁ and its eigenvector determine epidemic outcome; eigenvector components directly give susceptibility ranking"
+
+unknowns_addressed:
+  - u-network-centrality-temporal-dynamics-influence
+
+proposed_tests:
+  - description: >
+      Retrospective analysis of COVID-19 contact tracing data from South Korea
+      (KCDC, n > 5000 confirmed cases with contact tracing) to compute who-
+      infected-whom network, estimate eigenvector centrality from pre-epidemic
+      mobile phone call records, and test AUC of centrality vs. observed
+      secondary case count.
+    method: "Eigenvector centrality from anonymised call detail records (social network proxy); ROC analysis of centrality vs. > 5 secondary cases criterion; comparison to degree, betweenness, age, occupation"
+    prediction: "Eigenvector centrality AUC > 0.80 for identifying the 20% of individuals responsible for >80% of transmission; 15+ percentage points above degree centrality alone"
+  - description: >
+      Prospective study: compute eigenvector centrality from Bluetooth proximity
+      sensors (30-second intervals) in a controlled community (university campus,
+      n ~ 5000 students) during an influenza season; identify the top 10%
+      by centrality and randomly assign to early vaccination; measure
+      reduction in campus-wide attack rate.
+    method: "Randomized controlled trial design; primary endpoint: campus attack rate in centrality-targeted vs. random vaccination arms; secondary: R_eff reduction"
+    prediction: "Targeting top-10% eigenvector centrality nodes for vaccination reduces campus R_eff by >30% — larger than targeting by degree centrality (20% reduction)"
+
+related_disciplines:
+  - social-science
+  - mathematics
+  - network-science
+  - epidemiology

@@ -1,0 +1,85 @@
+id: b-phylogenetic-comparative-pgls
+title: >
+  Phylogenetic generalised least squares (PGLS) corrects for the non-
+  independence of closely related species by modelling trait covariance as
+  proportional to shared branch length on the phylogenetic tree, bridging
+  evolutionary biology to multivariate statistics through the variance-
+  covariance structure of trait evolution under Brownian motion.
+status: established
+fields:
+  - evolutionary-biology
+  - statistics
+  - phylogenetics
+  - comparative-biology
+  - ecology
+bridge_claim: >
+  PROBLEM: Closely related species share evolutionary history — a regression
+  of body mass on metabolic rate across 100 mammal species treats data as
+  100 independent observations, but phylogenetic correlation inflates type I
+  error rates dramatically.
+
+  PGLS SOLUTION (Grafen 1989, Freckleton 2002):
+  Model trait covariance as C = σ² × V where V_ij = shared branch length
+  between species i and j from the phylogenetic tree. Under Brownian motion
+  evolution, traits evolve as a random walk on the tree, and the covariance
+  structure is exactly V.
+
+  GLS ESTIMATOR:
+    β̂_PGLS = (X'V⁻¹X)⁻¹ X'V⁻¹y
+
+  This is the standard GLS estimator with V as the phylogenetic covariance
+  matrix — a standard statistical tool applied with evolutionary structure.
+
+  BLOMBERG'S K STATISTIC (phylogenetic signal):
+    K = (observed MSE₀/MSE) / (expected MSE₀/MSE under Brownian motion)
+
+  K = 1: trait evolution consistent with Brownian motion
+  K < 1: species more different than expected (niche divergence)
+  K > 1: more conserved than expected (phylogenetic constraint)
+
+  PAGEL'S LAMBDA:
+  Transform the variance-covariance matrix V → λV + (1-λ)I. When λ=1:
+  full Brownian motion; when λ=0: no phylogenetic signal (OLS is appropriate).
+  MLE of λ simultaneously estimates the amount of phylogenetic correction needed.
+
+  KEY INSIGHT: the phylogenetic tree is a precision matrix in the GLS —
+  a structured regularisation of the regression that encodes evolutionary
+  relatedness.
+translation_table:
+  - field_a_term: phylogenetic covariance matrix V (evolutionary biology)
+    field_b_term: variance-covariance matrix in GLS (statistics)
+    note: V encodes the expected covariance between species under Brownian motion on the tree
+  - field_a_term: Brownian motion model of trait evolution
+    field_b_term: random walk / Gaussian process prior on trait values
+    note: Brownian motion is equivalent to a Gaussian process with linear covariance kernel = time to MRCA
+  - field_a_term: Blomberg K (phylogenetic signal)
+    field_b_term: intraclass correlation coefficient
+    note: K measures the proportion of trait variance explained by phylogenetic relatedness — analogous to ICC in mixed models
+  - field_a_term: Pagel lambda transformation
+    field_b_term: variance components estimation in mixed models
+    note: Lambda is estimated by REML/MLE — equivalent to estimating the random effects variance component in a linear mixed model
+related_unknowns:
+  - u-phylogenetic-signal-lability
+  - u-convergent-evolution-statistical-detection
+related_hypotheses:
+  - h-phylogenetic-signal-metabolic-rate-conservation
+cross_pollination_opportunities:
+  - Apply spatial autocovariance models (SAR, CAR) to phylogenetic data — phylogenetic distance as a non-Euclidean spatial metric
+  - Extend to multivariate phylogenetic regression using Wishart distribution as matrix GLS
+  - Use Gaussian process regression with tree-based kernel for phylogenetically aware machine learning
+communication_gap: >
+  Evolutionary biologists learn phylogenetic methods as a specialist toolkit
+  (PGLS, ancestral state reconstruction) without recognising they are GLS
+  with a structured covariance. Statisticians working on spatial statistics
+  and covariance-structured regression rarely engage with the phylogenetics
+  literature where these methods were independently developed.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1086/284325"
+    note: Felsenstein (1985) Am Nat 125:1 — phylogenetically independent contrasts
+  - doi: "10.1098/rstb.1989.0106"
+    note: Grafen (1989) Phil Trans R Soc B 326:119 — PGLS original derivation
+  - doi: "10.1554/0014-3820(2003)057[0717:TPAGSM]2.0.CO;2"
+    note: Blomberg et al. (2003) Evolution 57:717 — K statistic
+  - doi: "10.1086/303577"
+    note: Freckleton et al. (2002) Am Nat 160:712 — Pagel lambda estimation

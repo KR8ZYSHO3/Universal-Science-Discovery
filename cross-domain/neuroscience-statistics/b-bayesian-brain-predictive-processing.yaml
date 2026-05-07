@@ -1,0 +1,139 @@
+id: b-bayesian-brain-predictive-processing
+title: >
+  The brain implements approximate Bayesian inference — perception equals likelihood
+  times prior divided by evidence — and neural populations encode probability
+  distributions, making predictive processing (Helmholtz's unconscious inference)
+  a formal instantiation of Bayes' theorem in cortical circuits.
+status: established
+fields:
+  - neuroscience
+  - statistics
+  - cognitive-science
+  - Bayesian-inference
+  - computational-neuroscience
+bridge_claim: >
+  Helmholtz (1867) proposed that perception is "unconscious inference" — the brain
+  uses prior knowledge to resolve ambiguous sensory input. This informal insight
+  has been formalised into the Bayesian brain hypothesis: sensory perception is
+  the computation of the posterior
+
+    P(cause | sensation) ∝ P(sensation | cause) × P(cause)
+
+  where P(cause) is the prior expectation and P(sensation | cause) is the likelihood
+  of the sensory input given a hypothesised cause.
+
+  FORMAL CORRESPONDENCES:
+
+  1. PERCEPTION = BAYESIAN INFERENCE: Weiss et al. (2002) showed that the perceived
+     direction and speed of moving stimuli (including classic visual illusions) are
+     exactly predicted by a Bayesian observer with a prior favouring slow motions.
+     The "slow motion prior" is the neural prior P(speed = slow). Psychophysical
+     data fits Bayesian optimal observers with surprising precision across modalities
+     (vision, touch, audition, multisensory integration).
+
+  2. DIVISIVE NORMALIZATION = BAYESIAN NORMALIZATION: The divisive normalization
+     operation ubiquitous in cortical neurons — response = input / (gain + Σ inputs)
+     — is the neural implementation of computing a normalized probability distribution.
+     Carandini & Heeger (2012) showed divisive normalization is the canonical neural
+     computation; Bayesian normalization (dividing by the evidence P(sensation))
+     explains why the brain uses this seemingly arbitrary nonlinearity.
+
+  3. ATTENTION = PRECISION WEIGHTING: Friston's Free Energy Principle formalises
+     attention as the precision weighting of prediction errors — the inverse variance
+     (precision = 1/σ²) of the sensory likelihood. When attention is directed to a
+     stimulus, its precision weight is increased, amplifying the prediction error
+     signal that drives perceptual updating. This maps directly onto the Fisher
+     information of the sensory channel.
+
+  4. PREDICTION ERRORS = SURPRISE SIGNALS: The difference between predicted and
+     actual sensory input (residual = observation - prediction) is the Bayesian
+     prediction error. In the brain, this is computed by superficial pyramidal cells
+     in cortical layer II/III, which project bottom-up; predictions are carried by
+     deep layers projecting top-down. The laminar structure of cortex implements
+     the message-passing algorithm for approximate Bayesian inference.
+
+  5. HALLUCINATIONS AND PRIORS: Psychotic hallucinations arise when the prior
+     dominates over the likelihood — the brain "hallucinates" a percept that matches
+     its prior regardless of incoming sensory evidence. Predictive processing predicts
+     this: increased prior precision (relative to likelihood) causes perception to
+     be driven by top-down priors alone. This generates a testable pharmacological
+     prediction: drugs that reduce likelihood precision (e.g. sensory deprivation or
+     ketamine, which blocks NMDA receptors that carry prediction errors) should
+     increase hallucination rates.
+
+  6. NEURAL POPULATION CODES AS PROBABILITY DISTRIBUTIONS: Knill & Pouget (2004)
+     proposed that neural population activity represents a probability distribution —
+     the posterior over the underlying variable. The mean firing rate encodes the
+     mean of the posterior; the width of the population activity pattern encodes
+     posterior variance. The Cramér-Rao bound constrains how precisely any neural
+     code can represent a parameter given its Fisher information.
+translation_table:
+  - field_a_term: "Prior P(cause)"
+    field_b_term: "Neural prior — baseline expectation from past experience and top-down context"
+    note: "Encoded in the synaptic weights of top-down connections in cortical hierarchies"
+  - field_a_term: "Likelihood P(sensation | cause)"
+    field_b_term: "Sensory evidence carried by bottom-up afferent signals"
+    note: "Precision-weighted prediction errors in layer II/III superficial pyramidal cells"
+  - field_a_term: "Posterior P(cause | sensation)"
+    field_b_term: "Percept — the brain's inferred cause of the sensory input"
+    note: "Approximately computed by loopy belief propagation in cortical circuits"
+  - field_a_term: "Bayesian updating (prior → posterior)"
+    field_b_term: "Perceptual learning — prior is updated by prediction errors over time"
+    note: "Corresponds to Hebbian-like synaptic changes driven by persistent prediction error"
+  - field_a_term: "Precision (inverse variance 1/σ²)"
+    field_b_term: "Attention — relative gain of prediction error signals"
+    note: "High-precision likelihood = high attention to sensory channel; modulated by ACh and NE neuromodulators"
+  - field_a_term: "Prediction error (residual)"
+    field_b_term: "Surprise signal — ascending from lower to higher cortical areas"
+    note: "Minimizing prediction error = perception + action; Free Energy Principle of Friston (2005)"
+  - field_a_term: "Bayesian model selection (evidence)"
+    field_b_term: "Perceptual hypothesis testing — why does the brain choose one interpretation over another?"
+    note: "Model evidence = log marginal likelihood; the brain minimises free energy ≈ surprisal"
+related_unknowns:
+  - u-bayesian-brain-prior-encoding
+related_hypotheses:
+  - h-predictive-processing-psychosis
+cross_pollination_opportunities:
+  - >
+    The computational psychiatry programme (Huys et al., Adams et al.) uses Bayesian
+    inference models to classify psychiatric disorders by the abnormal prior and
+    precision parameters that explain their symptoms. Schizophrenia = reduced
+    likelihood precision; autism = overly precise sensory likelihood (reduced prior
+    influence); depression = negatively biased prior over outcomes. This framework
+    unifies diagnosis with mechanistic computational models, making psychiatric
+    diagnosis analogous to parameter estimation in a generative model.
+  - >
+    Variational Bayes (VB), the dominant approximate inference algorithm in machine
+    learning, is mathematically identical to Friston's free energy minimization.
+    Both minimise an upper bound on surprise (KL divergence between approximate and
+    true posterior). The brain as a variational inference machine would naturally
+    use the same algorithmic shortcuts (mean-field factorisation, Laplace approximation)
+    as VB in ML — testable by comparing the computational signatures of each
+    approximation against psychophysical data.
+  - >
+    The "prior over causes" in visual perception should be measurable through
+    psychophysical reverse-correlation experiments combined with generative model
+    fitting. The fitted prior would provide a window into the statistics of the
+    visual environment that shaped the prior during development — connecting
+    perceptual ecology to neural coding theory.
+communication_gap: >
+  Helmholtz's insight (1867) predated Bayesian statistics; the formal Bayesian
+  brain formulation arrived with Knill & Pouget (2004) and Friston (2005) but remains
+  specialised literature in computational neuroscience. Most experimental neuroscientists
+  record single neurons rather than measuring population-level probabilistic codes;
+  the statistical framework requires population recordings and Bayesian model fitting
+  that most labs lack. The free energy principle literature (Friston) is mathematically
+  dense and has a reputation for being difficult to interpret, slowing adoption
+  by the experimental community.
+last_reviewed: "2026-05-05"
+references:
+  - note: "Helmholtz (1867) Handbuch der physiologischen Optik — unconscious inference and perception as hypothesis testing"
+    url: "https://archive.org/details/handbuchderphysi00helm"
+  - doi: "10.1038/nn741"
+    note: "Weiss, Simoncelli & Adelson (2002) Nat Neurosci 5:598 — motion perception as Bayesian inference; slow-speed prior"
+  - doi: "10.1016/j.tins.2004.10.007"
+    note: "Knill & Pouget (2004) Trends Neurosci 27:712 — neural population codes as probability distributions"
+  - doi: "10.1098/rstb.2005.1622"
+    note: "Friston (2005) Phil Trans R Soc B 360:1023 — free energy principle and predictive processing"
+  - doi: "10.1038/nrn3136"
+    note: "Carandini & Heeger (2012) Nat Rev Neurosci 13:51 — divisive normalization as canonical computation"

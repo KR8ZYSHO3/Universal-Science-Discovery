@@ -1,0 +1,50 @@
+id: h-dislocation-density-taylor-hardening-md-validation
+title: >
+  Molecular dynamics simulations using machine-learning interatomic potentials
+  (MLIPs) at scales > 10⁷ atoms will quantitatively reproduce Taylor hardening
+  (τ = τ₀ + αGb√ρ) and Hall-Petch scaling (σ_y = σ₀ + k_y/√d) from first
+  principles without fitting to experimental data, establishing α and k_y as
+  computable from atomic interactions alone.
+status: active
+priority: medium
+impact_score: 0.79
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+
+evidence_links:
+  - doi: "10.1098/rspa.1934.0106"
+    type: related
+    confidence: 0.55
+    note: "Taylor (1934) — original phenomenological derivation; α treated as empirical fitting parameter"
+  - doi: "10.1088/0370-1301/64/9/303"
+    type: related
+    confidence: 0.60
+    note: "Hall (1951) — Hall-Petch relation empirical; k_y mechanism (pile-up stress concentration) not fully derived"
+  - type: supporting
+    note: "Zepeda-Ruiz et al. (2017) Nature — MLIP MD of dislocation dynamics in Ta at 10⁸ atoms showed qualitative Taylor hardening; quantitative comparison to experiment not attempted"
+
+unknowns_addressed:
+  - u-dislocation-avalanche-statistical-mechanics-plasticity
+
+proposed_tests:
+  - description: >
+      Run MLIP MD simulations of FCC Cu single crystals with controlled
+      dislocation densities ρ = 10¹⁰ to 10¹⁵ m⁻² at constant strain rate
+      10⁸/s; extract Taylor coefficient α = (τ - τ₀)/(Gb√ρ) and compare
+      to experimental values α = 0.3–0.5 for Cu.
+    method: "VASP + DeePMD or MACE potential; Dislocation Extraction Algorithm (DXA) to count ρ; direct stress measurement from virial stress tensor"
+    prediction: "α computed from MLIP MD is within 20% of experimentally measured α for Cu without any fitting to mechanical data; result is transferable to Ni, Al predictions"
+  - description: >
+      Test Hall-Petch from first principles: simulate polycrystalline Cu with
+      grain sizes d = 5, 10, 20, 50 nm using Voronoi tessellation in LAMMPS
+      with MLIP potential; measure yield stress σ_y(d) and fit to Hall-Petch
+      to extract k_y; compare to experimental k_y = 0.14 MPa·m^0.5 for Cu.
+    method: "Polycrystalline MD with LAMMPS + MLIP; constant strain rate tensile deformation; 0.2% offset yield stress extraction"
+    prediction: "Hall-Petch k_y from MLIP simulation is within 30% of experiment for d > 10 nm; deviations at d < 10 nm confirm the inverse Hall-Petch breakdown regime (softening by grain boundary sliding)"
+
+related_disciplines:
+  - materials-science
+  - physics
+  - computational-physics
+  - metallurgy

@@ -1,0 +1,60 @@
+id: u-cryo-em-resolution-limit-radiation-damage-versus-detector-efficiency
+title: >
+  What is the fundamental resolution limit of single-particle cryo-EM —
+  specifically, is it set by radiation damage (maximum electron dose before
+  structural damage) or by the quantum efficiency of direct electron detectors,
+  and can phase plates or new detector technologies push cryo-EM reliably below
+  1 Å resolution for small proteins?
+status: open
+priority: medium
+disciplines:
+  - structural-biology
+  - electron-microscopy
+  - materials-science
+  - quantum-optics
+summary: >
+  Cryo-EM has achieved 1.22 Å resolution for apoferritin (Nakane et al. 2020),
+  approaching X-ray crystallography resolution for large, stable, symmetric
+  proteins. For small proteins (<100 kDa) and membrane proteins, resolution is
+  typically 2-5 Å — insufficient for drug design-quality structures.
+
+  Two fundamental limits constrain cryo-EM resolution: (1) Radiation damage:
+  electrons deposit energy in the sample (critical dose ~20 e⁻/Å²), causing
+  structural damage before a complete dataset is acquired. Higher dose improves
+  signal-to-noise but exceeds the damage threshold — creating the "dose
+  fractionation" problem. (2) Detector detective quantum efficiency (DQE):
+  current direct electron detectors (Gatan K3, FEI Falcon) have DQE ~0.65 at
+  spatial frequency 0 — 35% of electron signal is lost as noise. Ideal DQE=1.
+
+  Phase plates (Volta phase plate, Zernike phase plate) enhance low-spatial-
+  frequency contrast for small particles, potentially enabling structure
+  determination of proteins as small as 15 kDa. But phase plates introduce
+  phase errors and contamination that currently limit their practical performance.
+
+  Whether sub-1 Å cryo-EM is fundamentally achievable for small proteins, or
+  whether the dose-damage trade-off creates an absolute resolution barrier below
+  ~1.2 Å, is an open question with major implications for structural pharmacology.
+systematic_gaps:
+  - Rigorous information-theoretic analysis of the maximum achievable resolution
+    given a fixed total electron dose and the dose-response curve of radiation
+    damage for different molecule types has not been published.
+  - The relationship between particle size, symmetry, and achievable resolution
+    (at a given particle number) has been empirically characterised but not
+    derived from first principles information theory.
+  - New detector designs (event-driven detectors, 4D-STEM pixelated detectors
+    for ptychography) have not been systematically compared to direct detectors
+    for single-particle cryo-EM in terms of achievable resolution per unit dose.
+  - >-
+    Cryo-EM at 300 kV vs. 100 kV — lower voltage increases scattering cross-section
+    (more contrast) but increases radiation damage; the optimal voltage for sub-1 Å
+    cryo-EM has not been determined.
+suggested_hypotheses:
+  - h-cryo-em-membrane-protein-structures-without-detergent-native-lipid-bilayer
+related_bridges:
+  - b-electron-microscopy-materials-characterization
+references:
+  - doi: "10.1126/science.1247675"
+    note: Kühlbrandt (2014) Science 343:1443 — cryo-EM resolution revolution
+  - doi: "10.1016/j.cell.2015.03.043"
+    note: Cheng (2015) Cell 161:450 — cryo-EM at crystallographic resolution
+last_reviewed: "2026-05-06"

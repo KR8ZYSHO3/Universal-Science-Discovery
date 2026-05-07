@@ -1,0 +1,104 @@
+id: b-metapopulation-dynamics-patch-theory
+title: >
+  Levins' metapopulation model and Hanski's incidence function model connect
+  island biogeography theory to dynamic landscape ecology, replacing the static
+  species-area relationship with a mechanistic extinction-colonisation balance governed
+  by the metapopulation capacity — the dominant eigenvalue of the landscape connectivity matrix.
+status: established
+fields:
+  - ecology
+  - mathematics
+  - conservation-biology
+  - biogeography
+bridge_claim: >
+  MacArthur & Wilson (1963, 1967) island biogeography: species number on an island S
+  follows a species-area relationship S = cA^z (z ≈ 0.25 for oceanic islands). Species
+  richness represents a dynamic equilibrium between immigration from mainland and local
+  extinction. This was a static, non-mechanistic framework.
+
+  Levins (1969) metapopulation model: a network of habitat patches, each occupied with
+  probability pᵢ. For a system of N identical patches with global dispersal:
+  dp/dt = cp(1-p) - ep
+  where c is colonisation rate (per occupied patch per empty patch per unit time) and
+  e is local extinction rate (per occupied patch per unit time). At equilibrium:
+  p* = 1 - e/c — the fraction of occupied patches. The metapopulation persists only
+  when c > e (colonisation exceeds extinction). This is an occupancy model, not an
+  abundance model — it tracks presence/absence, not population size.
+
+  Hanski's incidence function model (1994): generalises Levins by incorporating patch
+  area Aᵢ (affecting extinction rate eᵢ ∝ 1/Aᵢ^x) and isolation dᵢⱼ (affecting
+  colonisation cᵢ ∝ Σⱼ pⱼ exp(-αdᵢⱼ)√Aⱼ). Applied to the Glanville fritillary
+  butterfly in Åland archipelago, Finland — the most thoroughly studied metapopulation,
+  with 40+ years of annual surveys of ~4000 patches.
+
+  The metapopulation capacity λ_M (Ovaskainen & Hanski 2001): define the landscape matrix
+  M with Mᵢⱼ = cᵢⱼ (colonisation from j to i); λ_M = dominant eigenvalue of M.
+  Extinction threshold: the metapopulation persists iff λ_M > e/c (extinction rate /
+  colonisation rate). This is analogous to the percolation threshold in network theory
+  and the R₀ = 1 threshold in epidemiology.
+
+  Key insight: λ_M depends on the configuration of patches (size, location, connectivity),
+  not just total area. A compact network of medium patches can have higher λ_M than
+  the same total area in isolated large patches. This has direct implications for
+  conservation planning — minimum viable metapopulation analysis must use λ_M, not
+  just area.
+
+  Climate change application: as climate changes, habitat patches shift position. If the
+  metapopulation cannot track the climate velocity by dispersal (limited c), extinction
+  debt accumulates. The metric for climate vulnerability is λ_M (current) - λ_M (future):
+  the change in metapopulation capacity as patches disappear or become unsuitable.
+
+  Mathematical connection: the metapopulation capacity is the largest eigenvalue of a
+  matrix — exactly analogous to: R₀ in SIR epidemiology (dominant eigenvalue of the
+  next-generation matrix), the Perron-Frobenius eigenvalue in Markov chains, and the
+  algebraic connectivity (Fiedler eigenvalue) in graph theory. The mathematical machinery
+  of spectral graph theory applies directly to metapopulation persistence.
+translation_table:
+  - field_a_term: habitat patch i (area, quality, location)
+    field_b_term: node in a graph (with weight = area)
+  - field_a_term: colonisation rate cᵢⱼ (dispersal from j to i)
+    field_b_term: edge weight in dispersal graph
+  - field_a_term: local extinction rate eᵢ (per patch)
+    field_b_term: decay rate of node occupancy
+  - field_a_term: metapopulation capacity λ_M (dominant eigenvalue)
+    field_b_term: spectral radius of the colonisation matrix (Perron-Frobenius eigenvalue)
+  - field_a_term: persistence threshold λ_M > e/c
+    field_b_term: R₀ > 1 threshold in epidemiology (SIR model)
+  - field_a_term: extinction debt (committed but delayed extinction)
+    field_b_term: transient behaviour after parameter shift below threshold
+  - field_a_term: species-area relationship (static, MacArthur-Wilson)
+    field_b_term: equilibrium of metapopulation at θ = 0 dispersal (degenerate case)
+related_unknowns:
+  - u-metapopulation-climate-velocity-extinction-debt
+related_hypotheses:
+  - h-metapopulation-capacity-climate-refugia-network
+cross_pollination_opportunities:
+  - >
+    Network theory methods (betweenness centrality, bridge nodes) can identify patches
+    that are disproportionately important for metapopulation persistence — analogous to
+    hubs in social or transport networks. "Stepping stone" patches with high betweenness
+    centrality in the dispersal graph merit priority conservation even if small.
+  - >
+    Urban ecology application: urban green spaces form metapopulations of woodland birds,
+    pollinators, and reptiles. The metapopulation capacity of urban green space networks
+    can be computed from GIS data; optimising the λ_M of urban park networks gives
+    quantitative biodiversity targets for city planning.
+communication_gap: >
+  Island biogeography (MacArthur & Wilson) was published in Ecology and as a monograph —
+  accessible to ecologists. Levins (1969) published in Bulletin of the Entomological
+  Society of America — an obscure journal that delayed uptake by a decade. Hanski's
+  work (Finnish Academy, published in Nature, American Naturalist, and Oikos) brought
+  metapopulation theory to mainstream ecology but required 20+ years of long-term
+  empirical data to convince sceptical ecologists. The metapopulation capacity eigenvalue
+  formulation is mathematically advanced (linear algebra of large sparse matrices) and
+  uncommon in ecological training. Conservation practitioners rarely perform eigenvalue
+  calculations and rely on surrogate metrics (area, buffer zones) that MCA shows are
+  inferior to λ_M.
+last_reviewed: "2026-05-06"
+references:
+  - note: "Levins (1969) Bull Entomol Soc Am 15:237 — metapopulation model"
+  - doi: "10.1086/285744"
+    note: "Hanski (1994) Am Nat 144:646 — incidence function model"
+  - note: "Hanski (1999) Metapopulation Ecology. Oxford University Press"
+  - doi: "10.1086/303056"
+    note: "Ovaskainen & Hanski (2001) Am Nat 158:538 — metapopulation capacity"

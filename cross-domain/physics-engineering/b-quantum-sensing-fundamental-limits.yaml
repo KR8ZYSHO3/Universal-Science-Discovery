@@ -1,0 +1,61 @@
+id: b-quantum-sensing-fundamental-limits
+title: Quantum metrology achieves Heisenberg-limited sensitivity — quantum sensors beat classical noise floors by exploiting entanglement and squeezing
+status: established
+fields:
+  - physics
+  - engineering
+bridge_claim: >
+  The Heisenberg uncertainty principle ΔxΔp ≥ ℏ/2 sets a fundamental sensitivity limit
+  for all measurements. Classical sensors are limited by shot noise (standard quantum limit,
+  SQL): sensitivity scales as 1/√N for N independent measurements. Quantum sensors
+  using entangled or squeezed states achieve Heisenberg scaling: sensitivity ∝ 1/N,
+  a √N improvement. LIGO measures spacetime strain h = ΔL/L ~ 10⁻²¹ using squeezed
+  light states that redistribute quantum noise from the measured quadrature to the
+  unmeasured one, beating the SQL. Atom interferometer gravimeters achieve 10⁻⁹ g
+  sensitivity. The engineering of quantum sensors requires understanding quantum
+  information theory — quantum Fisher information sets the ultimate sensitivity bound
+  (Cramér-Rao bound).
+translation_table:
+  - field_a_term: Heisenberg uncertainty principle ΔxΔp ≥ ℏ/2
+    field_b_term: fundamental noise floor of any physical sensor
+    note: Sets the standard quantum limit (SQL) that classical sensors asymptotically approach
+  - field_a_term: squeezed light (reduced phase noise, enhanced amplitude noise)
+    field_b_term: redistributing sensor noise from measured to unmeasured quadrature
+    note: LIGO uses squeezed vacuum injection to beat shot noise at high frequencies
+  - field_a_term: N-particle entangled GHZ state
+    field_b_term: Heisenberg-limited sensor with 1/N phase sensitivity
+    note: N-fold improvement over classical 1/sqrt(N) scaling
+  - field_a_term: quantum Fisher information F_Q
+    field_b_term: maximum achievable precision (quantum Cramér-Rao bound 1/sqrt(F_Q))
+    note: F_Q = N for separable states; F_Q = N^2 for maximally entangled GHZ states
+related_unknowns:
+  - u-genetic-circuit-crosstalk-noise
+related_hypotheses:
+  - h-heisenberg-limited-sensing-biological
+cross_pollination_opportunities:
+  - >
+    Quantum error correction (QEC) techniques developed for quantum computing are directly
+    applicable to quantum sensing: protecting coherence against decoherence in sensors
+    parallels protecting logical qubits in computers. QEC-enhanced sensors could push
+    beyond the Heisenberg limit in the presence of correlated noise — a direct technology
+    transfer from quantum computing to sensing.
+  - >
+    MEMS gyroscopes and accelerometers in smartphones are classical analogs of atom
+    interferometers. The engineering principles of noise reduction, vibration isolation,
+    and drift compensation are shared. Quantum sensing specialists and MEMS engineers
+    rarely interact despite solving analogous sensitivity-optimization problems.
+communication_gap: >
+  Quantum optics, atomic physics, and gravitational wave astronomy each developed
+  quantum sensing techniques independently. The unifying theoretical framework of
+  quantum Fisher information and quantum Cramér-Rao bounds was formalized in the 2000s
+  but is not standard training in any single engineering discipline.
+last_reviewed: "2026-05-06"
+references:
+  - doi: 10.1103/PhysRevD.23.1693
+    note: "Caves, C.M. (1981). Quantum-mechanical noise in an interferometer. Phys Rev D 23:1693."
+  - doi: 10.1103/PhysRevLett.116.061102
+    note: "Abbott et al. [LIGO] (2016). Observation of gravitational waves. Phys Rev Lett 116:061102."
+  - doi: 10.1103/RevModPhys.89.035002
+    note: "Degen et al. (2017). Quantum sensing. Rev Mod Phys 89:035002."
+  - doi: 10.1126/science.1104149
+    note: "Giovannetti, Lloyd & Maccone (2004). Quantum-enhanced measurements. Science 306:1330."

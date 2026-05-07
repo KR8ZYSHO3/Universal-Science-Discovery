@@ -1,0 +1,87 @@
+id: b-matching-theory-labor-markets
+title: >
+  The Gale-Shapley deferred acceptance algorithm solves stable matching in O(n²) and
+  directly describes real labor market clearing mechanisms — medical residency match,
+  school choice, and kidney exchange — making market design a branch of applied
+  combinatorics.
+status: established
+fields:
+  - mathematics
+  - social-science
+  - economics
+  - game-theory
+bridge_claim: >
+  Stable matching (Gale-Shapley 1962): given preference lists of n workers and n firms,
+  the deferred acceptance (DA) algorithm produces a stable matching — one in which no
+  worker-firm pair mutually prefer each other over their current assignments — in O(n²)
+  steps. Worker-proposing DA is worker-optimal; firm-proposing DA is firm-optimal.
+
+  Roth's insight (Nobel Prize 2012): real markets use matching mechanisms that can be
+  evaluated for stability, incentive-compatibility, and efficiency. The National Residency
+  Matching Program (NRMP) for medical residency was mathematically equivalent to the
+  firm-proposing DA algorithm before Roth's analysis — and switching to worker-proposing
+  DA improved resident welfare with no loss of stability.
+
+  School choice: the Boston mechanism (immediate acceptance) is not strategy-proof —
+  students have incentives to misreport preferences. Deferred acceptance is strategy-
+  proof for students (reporting truthfully is a dominant strategy), making it preferable
+  on incentive-compatibility grounds even when it does not maximize efficiency.
+
+  Kelso and Crawford (1982): labor markets with complementarities require the gross
+  substitutes condition for competitive equilibrium to exist. The Shapley-Shubik (1972)
+  assignment game shows that with transferable utility, the set of competitive equilibria
+  equals the core of the cooperative game — a deep duality between competitive and
+  cooperative solution concepts.
+
+  Monopsony: when a single firm is the only buyer of labor, the wage falls below the
+  marginal product and employment below the efficient level — a market structure whose
+  prevalence in local labor markets (hospitals, school districts) matches the predictions
+  of matching models with limited outside options.
+translation_table:
+  - field_a_term: stable matching (no blocking pair)
+    field_b_term: labor market equilibrium (no mutually beneficial unsatisfied worker-firm pair)
+    note: Stability is the market-design analog of Nash equilibrium for matching problems
+  - field_a_term: deferred acceptance algorithm, O(n²)
+    field_b_term: NRMP residency match, school assignment mechanism
+    note: Real institutions implement a mathematical algorithm — often without knowing it
+  - field_a_term: strategy-proof mechanism (truthful reporting is dominant strategy)
+    field_b_term: incentive-compatible market design
+    note: DA is strategy-proof for the proposing side; Boston mechanism is not
+  - field_a_term: gross substitutes condition (Kelso-Crawford)
+    field_b_term: condition for competitive equilibrium existence with worker complementarities
+    note: Violated when firms value workers as complements — equilibrium may not exist
+  - field_a_term: Shapley-Shubik assignment game core
+    field_b_term: set of competitive equilibrium wages
+    note: Core = competitive equilibria — cooperative and competitive concepts coincide
+  - field_a_term: monopsony (single buyer)
+    field_b_term: wage below marginal product, employment below efficient level
+    note: Predicts observed wage suppression in geographically isolated labor markets
+related_unknowns:
+  - u-matching-markets-dynamic-stability
+related_hypotheses:
+  - h-da-mechanism-welfare-improving-redesign
+cross_pollination_opportunities:
+  - >
+    Dynamic matching markets (workers and firms arrive and depart over time) require
+    generalizing the static Gale-Shapley framework — an open mathematical problem with
+    direct relevance to gig-economy platform design and real-time ride-sharing assignment.
+  - >
+    Algorithmic fairness in school choice: measuring demographic disparities in
+    assignment outcomes across different matching mechanisms using tools from
+    combinatorics and social-choice theory.
+communication_gap: >
+  Gale and Shapley published in the American Mathematical Monthly as a mathematical
+  puzzle (1962). The economic significance was recognized only by Roth (1984), who
+  connected it to real NRMP data. Mathematicians rarely read economics journals, and
+  economists rarely read combinatorics literature. The 2012 Nobel Prize substantially
+  raised mutual awareness but the two communities still publish in separate venues.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.2307/2312726"
+    note: "Gale & Shapley (1962) Am Math Mon 69:9 — deferred acceptance algorithm"
+  - doi: "10.1086/261272"
+    note: "Roth (1984) J Polit Econ 92:991 — NRMP as stable matching"
+  - doi: "10.2307/1913392"
+    note: "Kelso & Crawford (1982) Econometrica 50:1483 — labor markets with complementarities"
+  - doi: "10.1007/BF01753437"
+    note: "Shapley & Shubik (1972) Int J Game Theory 1:111 — assignment game"

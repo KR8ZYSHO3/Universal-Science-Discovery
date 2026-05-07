@@ -1,0 +1,47 @@
+id: h-face-recognition-fusiform-holistic-coding
+title: >
+  The fusiform face area implements holistic face coding via a population code in which
+  identity is represented as a trajectory through a high-dimensional eigenface space,
+  and the perceptual inversion effect is explained by disruption of the learned principal
+  component axes when face parts are presented in non-canonical spatial relationships.
+status: active
+created: "2026-05-06"
+last_updated: "2026-05-06"
+priority: medium
+unknowns_addressed:
+  - u-face-recognition-substrate
+related_disciplines:
+  - neuroscience
+  - cognitive-science
+  - computational-neuroscience
+evidence_links:
+  - type: supporting
+    doi: 10.1126/science.1177202
+    note: >
+      Chang & Tsao (2017) — face cells in macaque IT encode identity as axis distance
+      in a 50-dimensional face space; linear read-out of identity confirmed.
+  - type: supporting
+    doi: 10.1073/pnas.96.5.2451
+    note: >
+      Kanwisher et al. (1997) — FFA shows face-selective response; inversion reduces
+      FFA response, consistent with disrupted holistic coding.
+  - type: related
+    doi: 10.1016/j.tics.2011.09.011
+    note: >
+      Rossion (2013) — holistic face processing review; composite effect measures
+      holistic coding; disrupted by inversion and part-isolation.
+proposed_tests:
+  - discipline: neuroscience
+    description: >
+      Record multi-electrode arrays in macaque IT during presentation of upright and
+      inverted morph face continua. Fit a linear decoder to the population response.
+      Test whether decoding accuracy for identity and gender drops specifically for
+      inverted faces, and whether the principal component axes of the face space are
+      rotated or compressed under inversion, not merely noisy.
+  - discipline: computational-neuroscience
+    description: >
+      Train a deep convolutional network (VGG-Face or ArcFace) on upright faces.
+      Analyse the penultimate layer representations using PCA. Test the prediction:
+      inversion should reduce the explained variance of the top PCs (holistic axes)
+      while leaving lower PCs (local feature axes) intact — separating holistic
+      from part-based coding computationally.

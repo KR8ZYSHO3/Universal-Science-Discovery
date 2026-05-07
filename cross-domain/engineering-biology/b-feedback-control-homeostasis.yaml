@@ -1,0 +1,77 @@
+id: b-feedback-control-homeostasis
+title: "Feedback control theory and biological homeostasis — integral feedback is the mathematical mechanism guaranteeing perfect adaptation in both engineered PID controllers and glucose regulation"
+status: established
+fields:
+  - engineering
+  - biology
+  - control-theory
+  - systems-biology
+  - mathematics
+
+bridge_claim: >
+  Biological homeostasis (blood glucose, body temperature, pH) implements integral
+  feedback control — mathematically identical to the I term of a PID controller.
+  The integral action guarantees zero steady-state error regardless of disturbance
+  magnitude or type. Yi et al. (2000) proved that perfect adaptation in E. coli
+  chemotaxis requires integral feedback: any system that maintains perfect adaptation
+  under arbitrary constant stimuli must implement integral feedback control. Glucose
+  homeostasis: pancreatic β-cells secrete insulin (response to high glucose),
+  α-cells secrete glucagon (response to low glucose), forming a biological PI
+  controller with setpoint ~5 mM. Integral action is implemented by accumulation
+  of insulin mRNA, providing memory of past glucose deviation. The diabetic failure
+  mode maps exactly onto control theory: T1D = loss of integral action (beta cell
+  destruction → no actuator), T2D = gain reduction (insulin resistance → actuator
+  saturation). Ca²⁺ homeostasis, cell volume regulation, and heat shock response
+  all implement recognizable integral feedback motifs. This bridge allows quantitative
+  closed-loop control design applied to synthetic biology and pharmacological intervention.
+
+translation_table:
+  - field_a_term: "integral gain K_I in PID controller"
+    field_b_term: "transcriptional integration of error signal"
+    note: "Protein accumulation (mRNA, signaling molecules) integrates error over time"
+  - field_a_term: "setpoint (reference signal r(t))"
+    field_b_term: "physiological reference level (e.g., 5 mM blood glucose)"
+    note: "Encoded in receptor binding constants and enzyme Km values"
+  - field_a_term: "error signal e(t) = r(t) - y(t)"
+    field_b_term: "deviation from homeostatic set point"
+    note: "Sensed by receptor occupancy; drives downstream effector response"
+  - field_a_term: "actuator (control signal u(t))"
+    field_b_term: "effector organ (beta cells, kidney tubules, sweat glands)"
+    note: "Converts control signal into physical correction of regulated variable"
+  - field_a_term: "steady-state error (non-zero in P-only control)"
+    field_b_term: "offset from setpoint in proportional-only regulation"
+    note: "Integral action eliminates steady-state error; essential for exact homeostasis"
+  - field_a_term: "actuator saturation (control signal limits)"
+    field_b_term: "insulin resistance (T2D: same insulin signal, less effect)"
+    note: "Saturation causes steady-state error even with integral action — T2D mechanism"
+
+related_unknowns:
+  - u-homeostasis-integral-feedback-synthetic-design
+
+related_hypotheses:
+  - h-integral-feedback-sufficient-perfect-adaptation-living-cells
+
+cross_pollination_opportunities:
+  - "Design synthetic gene circuits that implement PID control for precise metabolite regulation in metabolic engineering"
+  - "Apply root-locus stability analysis to predict conditions for oscillatory homeostasis (e.g., insulin oscillations in T2D)"
+  - "Use control-theoretic robustness metrics to rank the stability of different physiological homeostatic mechanisms"
+
+communication_gap: >
+  Control engineers and biologists rarely collaborate despite deep mathematical
+  connections. Yi et al. (2000) is a landmark paper cited across both fields,
+  but control-theoretic frameworks remain peripheral in most physiology curricula.
+  Medical education teaches homeostasis descriptively without feedback control
+  formalism. The synthetic biology community is the main bridge (Elowitz, Leibler,
+  Khalil & Collins), but pharmacology has largely not adopted control-theoretic drug
+  dosing optimization.
+
+references:
+  - doi: "10.1073/pnas.97.9.4649"
+    note: "Yi et al. (2000) PNAS 97:4649 — perfect adaptation requires integral feedback"
+  - doi: "10.1016/j.cell.2004.08.012"
+    note: "Stelling et al. (2004) Cell 118:675 — robustness of cellular functions"
+  - note: "Aström & Murray (2008) Feedback Systems (Princeton UP, ISBN 0691135762) — textbook connecting control theory and biology"
+  - doi: "10.1006/jtbi.2001.2383"
+    note: "El-Samad et al. (2002) J Theor Biol 214:17 — control-theoretic analysis of temperature compensation"
+
+last_reviewed: "2026-05-06"

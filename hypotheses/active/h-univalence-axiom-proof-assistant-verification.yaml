@@ -1,0 +1,53 @@
+id: h-univalence-axiom-proof-assistant-verification
+title: >
+  A cubical type theory implementation of the univalence axiom in Lean 4 or
+  Agda 2 will allow automated verification of non-trivial results in algebraic
+  topology (e.g., fundamental theorem of algebra, Brouwer fixed-point theorem)
+  at a proof density (characters per proof) competitive with traditional
+  Coq/Isabelle formalizations without UA.
+status: active
+priority: medium
+impact_score: 0.7
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR-AI
+evidence_links:
+  - url: https://homotopytypetheory.org/book/
+    type: supporting
+    confidence: 0.6
+    note: HoTT Book establishes the theoretical framework; many proofs shorter than set-theory analogs
+  - url: https://arxiv.org/abs/1611.02108
+    type: supporting
+    confidence: 0.65
+    note: Cubical type theory provides computational univalence — basis for test
+  - doi: "10.2307/1990929"
+    type: related
+    confidence: 0.5
+    note: Eilenberg & Mac Lane — category theory foundations enable these formalizations
+unknowns_addressed:
+  - u-homotopy-type-theory-computational-foundations
+proposed_tests:
+  - description: >
+      Formalize the van Kampen theorem (fundamental group of a pushout) in
+      Cubical Agda using HoTT higher inductive types, measure proof length
+      (lines of code) and type-checking time, and compare to the classical
+      Coq formalization (Fundamental Group library) which does not use UA.
+    method: Proof assistant formalization (Cubical Agda) + proof metrics
+    prediction: >
+      HoTT proof of van Kampen using higher inductive types should be ≤ 50%
+      of the classical set-theoretic Coq proof in terms of lines, because
+      HoTT makes the topological intuition syntactically transparent.
+  - description: >
+      Benchmark automated tactic search (auto, omega, ring, decide) on 50
+      HoTT-style goals in Lean 4 vs. equivalent classical goals, measuring
+      search time and success rate.
+    method: Lean 4 proof automation benchmark
+    prediction: >
+      HoTT-style goals have higher variance in tactic search time due to
+      proof-relevant computation, but path induction lemmas should be
+      resolved as fast as classical symmetry reasoning.
+related_disciplines:
+  - mathematics
+  - computer-science
+  - type-theory
+  - formal-verification

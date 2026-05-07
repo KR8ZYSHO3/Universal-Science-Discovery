@@ -1,0 +1,56 @@
+id: h-betti-numbers-cognitive-complexity
+title: >
+  The Betti numbers of the neural population activity manifold in prefrontal cortex
+  increase monotonically with working memory load and decrease with cognitive fatigue
+  or aging, providing topological biomarkers of cognitive capacity that are more
+  sensitive than linear dimensionality measures (PCA variance explained).
+status: active
+created: "2026-05-05"
+last_updated: "2026-05-05"
+priority: medium
+related_disciplines:
+  - neuroscience
+  - mathematics
+  - cognitive-science
+  - computational-neuroscience
+unknowns_addressed:
+  - u-neural-manifold-topology-cognitive-states
+evidence_links:
+  - type: supporting
+    doi: "10.1126/science.abg4894"
+    note: >
+      Gardner et al. (2022): grid cells occupy a torus (β₁ = 2, β₂ = 1) — a non-trivial
+      topology demonstrating that persistent homology reveals structure invisible to
+      linear methods. Working memory representations are likely similarly structured
+      but unexplored.
+  - type: supporting
+    doi: "10.1038/s41593-019-0555-4"
+    note: >
+      Cueva & Wei (2018) and related work: recurrent networks trained on navigation
+      tasks spontaneously develop grid-like representations — suggesting that working
+      memory networks trained on high-dimensional tasks should develop complex
+      manifold topologies.
+  - type: contradicting
+    note: >
+      High-dimensional neural manifolds require large numbers of simultaneously recorded
+      neurons to reliably estimate persistent homology (statistical power issue).
+      Current multi-electrode technology may not provide sufficient neuron counts in
+      prefrontal cortex to estimate Betti numbers reliably, making this hypothesis
+      difficult to test with current instrumentation.
+proposed_tests:
+  - discipline: computational-neuroscience
+    description: >
+      Analyse existing high-density calcium imaging datasets from prefrontal cortex
+      (e.g. Ziv et al., Bhatt et al.) during N-back working memory tasks with N = 1,
+      2, 3. Compute persistent homology barcodes for neural population activity
+      at each memory load level. Test whether β₁ (number of 1-dimensional loops in
+      the manifold) increases with N (memory load) and whether the barcode persistence
+      lifetime increases with cognitive engagement.
+  - discipline: neuroscience
+    description: >
+      In a non-human primate performing a spatial working memory task (oculomotor
+      delayed response), record prefrontal population activity with Utah arrays
+      (≥96 channels) during normal performance and after sleep deprivation (cognitive
+      fatigue). Compute persistent homology at each session. Test whether fatigue
+      reduces Betti numbers of the activity manifold below baseline and whether
+      recovery sleep restores the topological complexity.

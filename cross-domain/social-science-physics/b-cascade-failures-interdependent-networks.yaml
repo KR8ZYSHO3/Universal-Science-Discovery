@@ -1,0 +1,81 @@
+id: b-cascade-failures-interdependent-networks
+title: >
+  Interdependent network theory (Buldyrev et al. 2010) shows that mutual
+  dependencies between coupled infrastructure networks (power grid ↔ communication
+  network) convert continuous second-order percolation transitions into abrupt
+  first-order cascades, with direct application to the 2003 Italy blackout and
+  financial systemic risk.
+status: established
+fields:
+  - social-science
+  - infrastructure-systems
+  - physics
+  - network-science
+  - percolation-theory
+bridge_claim: >
+  Standard percolation theory predicts that as nodes fail in a random network,
+  the giant connected component shrinks continuously (second-order phase transition)
+  with a critical threshold p_c = 1/<k> for Erdős-Rényi graphs. Buldyrev et al.
+  (2010) showed that when two networks are interdependent — each node in network A
+  requires a functioning node in network B to operate, and vice versa — the
+  coupled failure dynamics produces a cascade: failure in A disables nodes in B,
+  which disables more nodes in A, which disables more nodes in B... The resulting
+  phase transition is first-order (discontinuous): the giant component collapses
+  abruptly at a critical fraction of initial failures p_c, with no warning in the
+  order parameter. This is qualitatively different from and more dangerous than
+  single-network percolation. The 2003 Italy blackout followed this exact pattern:
+  power grid nodes failed → SCADA communication failed → more power nodes failed.
+  Financial networks exhibit analogous cascades: bank failures → interbank
+  lending failures → more bank failures. Gao et al. (2012) extended the framework
+  to n interdependent networks, finding that fragility increases superlinearly with n.
+translation_table:
+  - field_a_term: percolation threshold p_c (fraction of nodes that can fail before network collapse)
+    field_b_term: systemic risk threshold in infrastructure or financial networks
+    note: lower p_c = more fragile; interdependency dramatically lowers p_c
+  - field_a_term: second-order percolation transition (continuous collapse)
+    field_b_term: gradual degradation of a single isolated network
+  - field_a_term: first-order percolation transition (abrupt collapse)
+    field_b_term: catastrophic cascade failure in interdependent systems
+    note: the key new result — interdependency converts gradual to abrupt failure
+  - field_a_term: giant connected component (GCC)
+    field_b_term: functional core of an infrastructure or financial system
+  - field_a_term: interdependency links (between-network edges)
+    field_b_term: operational dependencies between infrastructure sectors
+    note: e.g., power grid nodes need communication; communication nodes need power
+  - field_a_term: degree of interdependency q (fraction of interdependent nodes)
+    field_b_term: coupling strength between infrastructure sectors
+related_unknowns:
+  - u-cascade-threshold-infrastructure
+related_hypotheses:
+  - h-interdependency-drives-first-order-failure
+cross_pollination_opportunities:
+  - >
+    The 2008 financial crisis exhibited cascade dynamics: bank failures propagated
+    through interbank lending, derivatives, and money market fund networks
+    simultaneously — a multi-layer interdependent system. Applying the Buldyrev
+    framework to financial networks with empirical coupling data could give
+    regulators a quantitative measure of systemic fragility and optimal
+    deleveraging strategies.
+  - >
+    Ecological mutualistic networks (plant-pollinator, host-symbiont) are also
+    interdependent in the Buldyrev sense: the collapse of pollinators cascades to
+    plants and back. Importing percolation-theoretic fragility analysis into
+    community ecology would give conservation biologists quantitative collapse
+    thresholds analogous to the infrastructure p_c.
+communication_gap: >
+  Network physicists publish in Physical Review Letters and Nature Physics;
+  infrastructure engineers and policymakers read IEEE Transactions on Power Systems
+  and IEEE Systems Man Cybernetics. The mathematical formalism of percolation theory
+  is rarely taught in engineering programs. Post-event analyses of major blackouts
+  (Italy 2003, Texas 2021) are conducted by engineering commissions that do not
+  cite the physics literature.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1038/nature08932"
+    note: Buldyrev et al. (2010) — Catastrophic cascade of failures in interdependent networks; Nature 464:1025
+  - doi: "10.1038/nphys2180"
+    note: Gao et al. (2012) — Networks formed from interdependent networks; Nat Phys 8:40
+  - doi: "10.1038/464984a"
+    note: Vespignani (2010) — The fragility of interdependency; Nature 464:984
+  - doi: "10.1038/nphys2727"
+    note: Bashan et al. (2013) — The extreme vulnerability of interdependent spatially embedded networks; Nat Phys 9:667

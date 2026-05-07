@@ -1,0 +1,86 @@
+id: b-synthetic-biology-circuit-design
+title: >
+  Synthetic biology applies electrical engineering design principles to genetic
+  circuits: Gardner's toggle switch (2000) implements bistable flip-flop logic,
+  Elowitz's repressilator (2000) implements a ring oscillator, and retroactivity
+  from circuit loading — analogous to impedance mismatch — requires biological
+  insulator modules to compose circuits without unintended cross-coupling.
+status: established
+fields:
+  - biology
+  - synthetic-biology
+  - engineering
+  - control-theory
+  - systems-biology
+  - genetic-circuits
+bridge_claim: >
+  Synthetic biology (Endy 2005) applies electrical engineering abstraction
+  principles — modularity, standardization, composability — to genetic parts.
+  The toggle switch (Gardner et al. 2000): two mutually repressing genes
+  — dX/dt = α₁/(1+Y^β) - X; dY/dt = α₂/(1+X^γ) - Y — is bistable when
+  β,γ > 1 (cooperativity requirement), identical to a flip-flop circuit.
+  Two attractors correspond to two stable gene expression states switchable
+  by transient chemical or light signals. The repressilator (Elowitz & Leibler
+  2000): three genes in a repression cycle (lacI → tetR → cI → lacI) with
+  period T ≈ 2τ_d(ln2 + 1) depending on mRNA/protein degradation delay —
+  identical to a ring oscillator in digital electronics. Transfer functions,
+  Boolean logic gates (AND, OR, NOT, NAND), and feedback control design
+  (PID regulators) translate directly from electronics to genetic circuits.
+  The retroactivity problem (Del Vecchio et al. 2008): connecting an upstream
+  module to a downstream load changes the upstream dynamics — a gene network
+  analog of impedance mismatch in electronics. Insulator modules (phosphorylation
+  cascades, sigmoidal converters) provide signal isolation analogous to
+  electronic buffers. iGEM BioBrick registry: 50,000+ standardized parts with
+  defined promoter strengths and RBS efficiencies — direct engineering-style
+  parts catalog for biology.
+translation_table:
+  - field_a_term: promoter + ribosome binding site (RBS) + gene + terminator
+    field_b_term: electronic component with defined input/output transfer function
+    note: promoter strength = gain; RBS efficiency = current amplification factor
+  - field_a_term: toggle switch bistability (Hill coefficient β,γ > 1)
+    field_b_term: SR latch (set-reset flip-flop) in digital electronics
+    note: bistability requires sufficient cooperative repression; monotone repressors cannot toggle
+  - field_a_term: repressilator ring oscillator period T
+    field_b_term: ring oscillator period in CMOS (3-inverter ring) T = 6τ_pd
+    note: both depend on the delay per stage; degradation time ~ propagation delay
+  - field_a_term: retroactivity to the input of a module
+    field_b_term: input impedance loading in electronic circuits
+    note: low input impedance (high retroactivity) perturbs the upstream module's dynamics
+  - field_a_term: biological insulator module (phosphorylation cascade)
+    field_b_term: electronic buffer amplifier (high input impedance, low output impedance)
+    note: insulator absorbs retroactivity while faithfully transmitting the signal
+related_unknowns:
+  - u-retroactivity-insulation-genetic-circuits
+related_hypotheses:
+  - h-synthetic-insulator-retroactivity-control
+cross_pollination_opportunities:
+  - >
+    Control theory tools (Bode plots, Nyquist stability criterion) can be
+    applied to genetic feedback circuits to predict oscillation onset and
+    stability margins before constructing them — translating decades of
+    control engineering know-how directly to synthetic biology design.
+  - >
+    Machine learning for genetic circuit design: training models on iGEM
+    registry performance data to predict circuit behavior from sequence
+    features — a transfer of computational tools from deep learning to
+    synthetic biology that could dramatically reduce the design-build-test
+    cycle time.
+communication_gap: >
+  Electrical engineers and molecular biologists study in separate departments
+  with different mathematical training — engineers use Laplace transforms and
+  Bode plots while biologists use differential equations and gene expression
+  assays. Synthetic biology bridged this gap at the level of design metaphors
+  (parts, devices, systems) but the quantitative transfer of control theory
+  tools (e.g., Bode analysis of genetic circuits) remains limited. Retroactivity
+  is known in the field but rarely quantified in published synthetic biology
+  papers, limiting composability of published devices.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1038/35002131"
+    note: "Gardner et al. (2000) Construction of a genetic toggle switch in Escherichia coli. Nature 403:339–342"
+  - doi: "10.1038/35002125"
+    note: "Elowitz & Leibler (2000) A synthetic oscillatory network of transcriptional regulators. Nature 403:335–338"
+  - doi: "10.1038/msb.2008.19"
+    note: "Del Vecchio et al. (2008) Modular cell biology: retroactivity and insulation. Mol Syst Biol 4:161"
+  - doi: "10.1038/nmeth.2926"
+    note: "Brophy & Voigt (2014) Principles of genetic circuit design. Nat Methods 11:508–520"

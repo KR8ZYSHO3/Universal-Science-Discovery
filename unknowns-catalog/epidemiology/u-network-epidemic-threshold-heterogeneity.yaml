@@ -1,0 +1,46 @@
+id: u-network-epidemic-threshold-heterogeneity
+title: How does contact network heterogeneity (temporal dynamics, multi-layer structure, and spatial embedding) modify the epidemic threshold and final outbreak size beyond the static mean-field network approximation?
+status: open
+priority: high
+disciplines:
+  - epidemiology
+  - network-science
+  - statistical-physics
+  - mathematical-biology
+summary: >
+  The mapping of SIR epidemic dynamics to bond percolation on static contact networks
+  provides exact analytic results for the epidemic threshold and final outbreak size.
+  However, real human contact networks are: (1) temporal — contacts are transient and
+  bursty, not static; (2) multi-layer — household, workplace, and social contacts form
+  overlapping network layers with different transmissibilities; (3) spatially embedded —
+  long-range contacts are rare and short-range contacts dominate.
+
+  How each of these realistic features modifies the percolation-based epidemic threshold
+  is not fully resolved. Temporal networks with bursty inter-contact distributions can
+  dramatically slow or accelerate epidemics relative to the static prediction, depending
+  on the burstiness parameter. Multi-layer networks can exhibit abrupt (first-order)
+  percolation transitions — absent in single-layer networks — potentially causing
+  epidemic explosions with no gradual warning. Spatially embedded networks violate
+  mean-field assumptions, and invasion speeds may depend on the percolation correlation
+  length in ways not captured by standard SIR analysis.
+
+  The practically important question: for a given pathogen (known β and γ) and a
+  given empirically measured contact network (temporal, multi-layer), can we compute
+  the epidemic threshold analytically, or only by simulation?
+systematic_gaps:
+  - Exact epidemic threshold for arbitrary temporal contact networks is unknown; only bounds and approximations exist.
+  - The order of the percolation transition (continuous vs. first-order) in multi-layer temporal networks has not been fully characterized.
+  - The effect of spatial embedding on the percolation universality class for epidemics has not been rigorously established.
+  - Whether targeted vaccination strategies derived from static network theory remain optimal for temporal networks is not known.
+suggested_hypotheses:
+  - The epidemic threshold on temporal networks is bounded between the static threshold and the annealed (mean-field) threshold, with burstiness determining position within this range.
+related_unknowns:
+  - u-herd-immunity-network-correction
+related_bridges:
+  - b-sir-percolation
+references:
+  - doi: "10.1103/PhysRevLett.117.228301"
+    note: Holme & Saramäki (2012) review of temporal networks and epidemic spreading
+  - doi: "10.1103/PhysRevLett.111.128701"
+    note: Boccaletti et al. (2014) multilayer networks review — first-order percolation transitions
+last_reviewed: "2026-05-06"

@@ -1,0 +1,37 @@
+id: h-deformation-quantization-symplectic-bridge
+title: >
+  Quantum mechanics is the deformation quantization of classical symplectic mechanics:
+  the non-commutative algebra of quantum observables (A*B - B*A = iħ{A,B}_Poisson)
+  is a formal deformation of the commutative Poisson algebra on phase space, with
+  the symplectic structure ω providing the bracket, and symplectic integrators
+  preserving ω correspond exactly to unitary quantum time evolution.
+status: active
+priority: high
+impact_score: 0.80
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+unknowns_addressed:
+  - u-symplectic-quantization-gap
+evidence_links:
+  - doi: "10.1007/BF01397753"
+    type: supporting
+    confidence: 0.80
+    note: "Weyl (1931) quantization map: functions on phase space -> operators; symplectic structure dictates commutation relations"
+  - note: "Floer (1988) J Differ Geom 28:513 - Floer homology; infinite-dimensional Morse theory on symplectic loop space"
+    type: supporting
+    confidence: 0.70
+  - note: "Leimkuhler & Reich (2004) Simulating Hamiltonian Dynamics - symplectic integrators preserve phase space volume"
+    type: supporting
+    confidence: 0.75
+proposed_tests:
+  - description: >
+      Test symplectic integrator energy conservation over 10^9 steps (solar system
+      simulation): compare leapfrog (symplectic) vs RK4 (non-symplectic). Predict:
+      leapfrog shows bounded energy error O(h^2) indefinitely; RK4 shows secular drift.
+    prediction: "Leapfrog energy error remains <10^-8 after 10^9 steps; RK4 error grows as O(t) confirming non-preservation of symplectic structure."
+related_disciplines:
+  - mathematics
+  - classical-mechanics
+  - quantum-mechanics
+  - numerical-methods

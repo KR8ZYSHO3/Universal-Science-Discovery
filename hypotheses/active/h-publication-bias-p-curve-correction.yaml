@@ -1,0 +1,46 @@
+id: h-publication-bias-p-curve-correction
+title: >
+  Publication bias in meta-analyses can be corrected post-hoc using p-curve analysis
+  combined with PET-PEESE regression, but only when the distribution of true effects
+  is non-zero; for null true effects, p-curve is uninformative and excess significance
+  tests provide the only valid correction.
+status: active
+priority: medium
+impact_score: 0.74
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+related_disciplines:
+  - meta-science
+  - statistics
+  - psychology
+unknowns_addressed:
+  - u-publication-bias-correction
+evidence_links:
+  - doi: "10.1037/a0033242"
+    type: supporting
+    confidence: 0.76
+    note: >
+      Simonsohn et al. (2014) J Exp Psychol Gen — p-curve analysis recovers true
+      effect size when only significant studies published; outperforms trim-and-fill
+      and Egger regression in simulations with heterogeneous effects
+  - doi: "10.1037/met0000014"
+    type: supporting
+    confidence: 0.72
+    note: >
+      Stanley & Doucouliagos (2014) — PET-PEESE method (precision-effect test and
+      precision-effect estimate with standard error): meta-regression on precision removes
+      small-study effects; valid when there is a non-zero true effect
+  - doi: "10.1111/rssa.12498"
+    type: related
+    confidence: 0.65
+    note: >
+      Excess significance test (Ioannidis & Trikalinos): counts studies with p<0.05
+      and compares with expected count given declared effect sizes; does not require
+      distributional assumptions; complements p-curve when true effect distribution unknown
+proposed_tests:
+  - description: >
+      Simulation study: generate 10,000 meta-analyses from known effect size distributions
+      (null, small, medium, large) with publication bias imposed; compare MSE and coverage
+      of true effect for p-curve, PET-PEESE, trim-and-fill, selection models, and
+      excess significance across all combinations.

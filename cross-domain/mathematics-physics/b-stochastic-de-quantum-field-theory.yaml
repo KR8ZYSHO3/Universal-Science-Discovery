@@ -1,0 +1,80 @@
+id: b-stochastic-de-quantum-field-theory
+title: >
+  Parisi-Wu stochastic quantization maps quantum field theory path integrals onto the
+  equilibrium distribution of a Langevin stochastic process in a fictitious fifth
+  (stochastic-time) dimension, with the Onsager-Machlup action as the classical-path
+  analog of the Feynman amplitude, bridging stochastic differential equations and QFT.
+status: established
+fields:
+  - mathematics
+  - physics
+  - stochastic-analysis
+  - quantum-field-theory
+  - statistical-mechanics
+bridge_claim: >
+  The Parisi-Wu (1981) stochastic quantization scheme shows that the quantum expectation
+  values of any field theory ⟨O[φ]⟩ can be obtained as equilibrium averages of a
+  stochastic process: ∂φ/∂τ = −δS/δφ + η(x,τ), where τ is a fictitious fifth dimension
+  ("stochastic time"), S[φ] is the Euclidean action, and η is Gaussian white noise with
+  ⟨η(x,τ)η(x′,τ′)⟩ = 2δ⁴(x−x′)δ(τ−τ′). As τ→∞, the field distribution converges to
+  exp(−S[φ])/Z — the quantum vacuum measure — without requiring gauge fixing.
+
+  Formal correspondence: the Itô stochastic differential equation dX = a(X)dt + b(X)dW
+  (Wiener process W) has a Fokker-Planck dual ∂P/∂t = −∇·(aP) + ½∇²(b²P). In the
+  overdamped Langevin limit, the equilibrium P_eq ∝ exp(−U/kT) is the Boltzmann
+  distribution — which maps to the QFT path integral measure with ℏ → kT. The Stratonovich
+  vs. Itô ambiguity corresponds to different operator ordering prescriptions in the
+  corresponding quantum theory — a concrete mathematical cross-domain mapping.
+
+  The Onsager-Machlup (1953) functional gives the probability of a stochastic path:
+  P[x(t)] ∝ exp(−S_OM[x]/kT), where S_OM = ½∫[(ẋ − F/γ)²/4D] dt. This is the classical
+  statistical mechanics analog of the Feynman path integral with the Euclidean action,
+  with ℏ replaced by kT. The saddle-point approximation of S_OM gives the most-probable
+  path (classical trajectory), while quantum corrections correspond to fluctuations about
+  the saddle-point — exactly the loop expansion of QFT. This mapping makes stochastic
+  calculus a computational laboratory for quantum field theory and vice versa.
+translation_table:
+  - field_a_term: Langevin equation ẋ = −∇U/γ + ξ(t) (overdamped Brownian particle)
+    field_b_term: stochastic quantization flow ∂φ/∂τ = −δS/δφ + η (field in fictitious time)
+  - field_a_term: Fokker-Planck stationary distribution P_eq ∝ exp(−U/kT)
+    field_b_term: quantum path integral measure exp(−S[φ]/ℏ)
+  - field_a_term: thermal fluctuation strength kT
+    field_b_term: quantum fluctuation strength ℏ (Planck constant)
+  - field_a_term: Onsager-Machlup action S_OM (classical stochastic path weight)
+    field_b_term: Feynman Euclidean action S_E (quantum amplitude weight)
+  - field_a_term: Itô vs. Stratonovich prescription (stochastic calculus)
+    field_b_term: normal ordering vs. Weyl ordering (quantum operator ambiguity)
+  - field_a_term: equilibrium time τ→∞ of stochastic process
+    field_b_term: renormalisation group fixed point of quantum field theory
+related_unknowns:
+  - u-stochastic-quantization-non-equilibrium-regimes
+related_hypotheses:
+  - h-onsager-machlup-loop-expansion-qft-thermal-field-theory
+cross_pollination_opportunities:
+  - >
+    Numerical lattice QCD currently uses Hybrid Monte Carlo (HMC) for gauge field
+    configurations. Stochastic quantization (Langevin dynamics on the lattice) offers
+    an alternative that avoids sign problems in finite-density QCD — mathematicians
+    developing SPDE regularity theory (Hairer's regularity structures) may provide
+    convergence proofs needed for rigorous lattice QFT.
+  - >
+    Non-equilibrium stochastic thermodynamics (Jarzynski, Crooks) has direct
+    analogs in non-equilibrium QFT via the Schwinger-Keldysh formalism — the
+    fluctuation theorems of statistical mechanics may correspond to Ward identities
+    in the Keldysh QFT, offering a new route to quantum fluctuation inequalities.
+communication_gap: >
+  Stochastic differential equations are studied in mathematics departments (probability
+  theory, Itô calculus, SPDE theory — journals: Stochastic Processes and their
+  Applications, Ann Probab) essentially independently of quantum field theory
+  (theoretical physics — journals: Phys Rev D, Nucl Phys B). The Parisi-Wu paper
+  appeared in Scientia Sinica (Chinese science journal) in 1981 and took years to
+  propagate. The mathematical community developing regularity structures for SPDEs
+  (Hairer, 2014 Fields Medal) rarely engages with QFT applications. Physicists using
+  the Fokker-Planck formalism rarely cite Itô calculus literature.
+last_reviewed: "2026-05-06"
+references:
+  - note: "Parisi & Wu (1981) Sci Sin 24:483 — stochastic quantization original paper"
+  - doi: "10.1103/PhysRev.91.1505"
+    note: "Onsager & Machlup (1953) Phys Rev 91:1505 — fluctuations and irreversible processes"
+  - note: "Zwanzig (2001) Nonequilibrium Statistical Mechanics — Oxford University Press"
+  - note: "Gardiner (2009) Stochastic Methods: A Handbook for the Natural and Social Sciences — Springer"

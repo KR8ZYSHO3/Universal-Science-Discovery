@@ -1,0 +1,54 @@
+id: h-neural-diversity-stability-random-matrix-prediction
+title: >
+  The stability of cortical neural circuits under random synaptic perturbation follows
+  May's random matrix criterion — circuits with higher interneuron subtype diversity
+  have lower effective interaction variance σ² and require stronger perturbation to
+  destabilize, quantitatively matching theoretical predictions from the Wigner
+  semicircle law.
+status: active
+created: "2026-05-06"
+last_updated: "2026-05-06"
+priority: medium
+unknowns_addressed:
+  - u-ei-balance-diversity-robustness
+related_disciplines:
+  - neuroscience
+  - ecology
+  - mathematics
+  - computational-neuroscience
+evidence_links:
+  - type: supporting
+    doi: 10.1038/238413a0
+    note: >
+      May (1972) Nature — random matrix stability criterion σ√(SC) < 1 for
+      ecological communities; same mathematics applies to neural connectivity matrices.
+  - type: supporting
+    doi: 10.1016/j.cell.2011.09.026
+    note: >
+      Isaacson & Scanziani (2011) Cell — E/I balance in cortical circuits;
+      disrupting balance causes instability consistent with May's criterion.
+  - type: related
+    doi: 10.1038/nn.3134
+    note: >
+      Litwin-Kumar & Doiron (2012) — heterogeneous networks show slower fluctuations
+      and different stability properties than homogeneous networks, consistent with
+      diversity-stability connection.
+proposed_tests:
+  - discipline: neuroscience
+    description: >
+      Using Patch-seq (simultaneous electrophysiology + RNA-seq) in mouse visual
+      cortex, characterize the cell-type composition and connectivity statistics of
+      circuits from animals with genetic knockouts of specific interneuron subtypes
+      (PV-Cre::DTR, SST-Cre::DTR). Measure the variance of spontaneous activity
+      fluctuations as a proxy for stability margin. Hypothesis: circuits with
+      reduced interneuron diversity show higher activity variance and more frequent
+      runaway activity events, with the increase in variance scaling as (σ_reduced -
+      σ_full) ∝ (lost interneuron fraction) as predicted by random matrix theory.
+  - discipline: mathematics
+    description: >
+      Construct random connectivity matrices for circuits with k = 1, 2, 3, 4
+      interneuron subtypes, each with biologically realistic mean and variance of
+      synaptic strengths. Compute the largest real part of eigenvalues Re(λ_max)
+      numerically for 1000 random matrix instances per condition. Hypothesis:
+      Re(λ_max) decreases monotonically with interneuron diversity k, following
+      the Wigner-May scaling Re(λ_max) ∝ σ_eff√(SC) with σ_eff decreasing with k.

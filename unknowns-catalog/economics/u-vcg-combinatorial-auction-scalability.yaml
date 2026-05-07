@@ -1,0 +1,34 @@
+id: u-vcg-combinatorial-auction-scalability
+title: "Can VCG-style incentive-compatible mechanisms scale to combinatorial auctions with thousands of items while remaining computationally tractable, and what is the revenue-complexity tradeoff?"
+status: open
+priority: medium
+disciplines:
+  - mechanism-design
+  - computational-economics
+  - algorithm-theory
+summary: >
+  The VCG mechanism achieves dominant-strategy incentive compatibility and social
+  welfare maximisation, but computing the VCG outcome requires solving a winner
+  determination problem that is NP-hard for combinatorial auctions (exponential in
+  the number of items). Practical spectrum auctions (FCC's CBRS auction) use approximate
+  VCG variants or clock auctions that sacrifice some incentive properties for
+  computational tractability. The core tension: the set of incentive-compatible mechanisms
+  that are simultaneously computationally efficient and approximately welfare-maximising
+  is poorly characterised. Algorithmic mechanism design (Nisan & Ronen 2001) has
+  established impossibility results showing that no polynomial-time mechanism can
+  simultaneously achieve full efficiency and incentive compatibility for combinatorial
+  settings unless P=NP. The practical question is: what is the best achievable
+  approximation ratio for polynomial-time incentive-compatible mechanisms?
+systematic_gaps:
+  - Best approximation ratio for polytime incentive-compatible combinatorial auctions unknown
+  - Whether machine learning approaches can learn near-VCG mechanisms is open
+  - Revenue guarantees for approximate VCG under strategic bidding are not established
+suggested_hypotheses:
+  - Neural network-based mechanism design (RegretNet) can learn near-VCG outcomes for
+    combinatorial settings at polynomial computational cost
+references:
+  - doi: "10.1145/781027.781046"
+    note: "Nisan & Ronen (2001) — algorithmic mechanism design, NP-hardness of VCG"
+  - doi: "10.1145/3219166.3219204"
+    note: "Duetting et al. (2019) — neural network auction design (RegretNet)"
+last_reviewed: "2026-05-06"

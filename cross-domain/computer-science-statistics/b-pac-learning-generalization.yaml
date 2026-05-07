@@ -1,0 +1,82 @@
+id: b-pac-learning-generalization
+title: "PAC learning theory ↔ statistical generalisation — VC dimension as the degrees of freedom of a hypothesis class"
+status: established
+fields:
+  - computer-science
+  - theoretical-machine-learning
+  - statistics
+  - statistical-physics
+  - information-theory
+
+bridge_claim: >
+  PAC (Probably Approximately Correct) learning theory (Valiant 1984) provides a
+  mathematical framework for when a learning algorithm can generalise from training
+  data to unseen examples. A concept class C is PAC-learnable if for any accuracy ε
+  and confidence δ there exists a polynomial-time algorithm that, given m ≥
+  (1/ε)(ln|C| + ln(1/δ)) examples, outputs a hypothesis h with error P(h(x) ≠ c(x)) ≤ ε
+  with probability ≥ 1−δ over the sample draw. The VC dimension d_VC (Vapnik-
+  Chervonenkis 1971) measures the complexity of a hypothesis class H: d_VC is the
+  maximum number of points that H can shatter (correctly classify in all possible
+  labellings). The fundamental theorem of statistical learning establishes that H is
+  PAC-learnable if and only if d_VC is finite, with sample complexity m =
+  Θ(d_VC/ε + log(1/δ)/ε). The VC dimension plays the same role in statistical
+  learning theory as the number of degrees of freedom in classical statistical model
+  selection (AIC, BIC): it counts the effective number of free parameters, bounding
+  overfitting. The bias-variance tradeoff from statistics is the underfitting-
+  overfitting tradeoff in PAC learning. The cross-connection to statistical physics:
+  the VC dimension is analogous to the number of spins in a random-field Ising model,
+  and the PAC sample complexity bound is the statistical mechanics condition for
+  a phase transition from 'overfitting' to 'generalisation'.
+
+translation_table:
+  - field_a_term: "VC dimension d_VC"
+    field_b_term: "effective number of parameters / model complexity"
+    note: "d_VC bounds overfitting exactly as AIC penalises free parameters in classical statistics"
+  - field_a_term: "PAC sample complexity m = O(d_VC/ε)"
+    field_b_term: "statistical sample size for consistent estimation"
+    note: "Both quantify how much data is needed to reliably estimate a model of given complexity"
+  - field_a_term: "shattering (perfectly classifying all 2ⁿ labellings of n points)"
+    field_b_term: "interpolation / memorisation of training data"
+    note: "H shatters n points → H can overfit n points perfectly; analogous to exact interpolation"
+  - field_a_term: "Rademacher complexity"
+    field_b_term: "expected maximum correlation with random noise"
+    note: "Tighter modern complexity measure; analogous to Fisher information in statistics"
+  - field_a_term: "bias-variance tradeoff (underfitting vs overfitting)"
+    field_b_term: "model selection tradeoff (too simple vs too complex)"
+    note: "Identical concept in machine learning and classical statistics; PAC quantifies it exactly"
+  - field_a_term: "double descent phenomenon (test error dips again past interpolation threshold)"
+    field_b_term: "phase transition in statistical physics (disorder-order transition)"
+    note: "Modern DNN behaviour: above d_VC threshold, test error decreases again — a phase transition"
+
+related_unknowns:
+  - u-double-descent-theoretical-explanation-deep-nets
+
+related_hypotheses:
+  - h-deep-learning-implicit-regularisation-as-minimum-description-length
+
+cross_pollination_opportunities:
+  - "Apply statistical mechanics replica method to compute the free energy of the PAC learning problem and derive exact generalisation curves"
+  - "Use random matrix theory (from physics) to compute the VC dimension of neural networks with random weights as a function of architecture"
+  - "Import MDL (minimum description length) theory from statistics into neural architecture search to derive principled depth-width tradeoffs"
+
+communication_gap: >
+  Valiant (computer scientist) and Vapnik-Chervonenkis (statisticians) worked
+  completely independently — Valiant's 1984 paper appeared in Comm ACM (computer
+  science) while VC theory was in Soviet statistics journals. The formal equivalence
+  between VC theory and classical statistics (AIC, BIC) is rarely taught in either
+  machine learning or statistics courses. Statistical physics approaches to learning
+  theory (Gardner, Derrida, Zdeborová) are published in physics journals mostly
+  unknown to machine learning researchers despite solving problems the ML community
+  still treats as open.
+
+references:
+  - doi: "10.1145/1968.1972"
+    note: "Valiant (1984) Commun ACM 27:1134 — PAC learning framework"
+  - note: "Vapnik & Chervonenkis (1971) Theor Prob Appl 16:264 — VC dimension"
+    doi: "10.1137/1116025"
+  - doi: "10.1145/76359.76371"
+    note: "Blumer et al. (1989) J ACM 36:929 — VC dimension and PAC learnability equivalence"
+  - note: "Shalev-Shwartz & Ben-David (2014) Understanding Machine Learning. Cambridge University Press."
+    url: "https://www.cs.huji.ac.il/~shais/UnderstandingMachineLearning/"
+
+last_reviewed: "2026-05-06"

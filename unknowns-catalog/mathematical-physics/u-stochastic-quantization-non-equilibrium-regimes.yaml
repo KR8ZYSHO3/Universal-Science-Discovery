@@ -1,0 +1,53 @@
+id: u-stochastic-quantization-non-equilibrium-regimes
+title: >
+  Can Parisi-Wu stochastic quantization be rigorously extended to non-equilibrium
+  quantum field theories (finite-density QCD, Keldysh formalism, open quantum systems)
+  where the equilibrium Boltzmann fixed point does not exist, and do SPDE regularity
+  structures (Hairer) provide the convergence proofs needed for lattice stochastic
+  quantization?
+status: open
+priority: medium
+disciplines:
+  - mathematical-physics
+  - stochastic-analysis
+  - quantum-field-theory
+  - lattice-gauge-theory
+summary: >
+  Parisi-Wu stochastic quantization was developed for Euclidean (equilibrium) quantum
+  field theories where the path integral measure exp(−S_E) is a positive probability
+  measure. Extension to Minkowski spacetime (real-time QFT) or finite-density QCD
+  faces two obstacles: (1) the Minkowski path integral measure exp(iS_M) is complex
+  (sign problem), so there is no corresponding Boltzmann distribution and the Langevin
+  dynamics does not converge to a real probability distribution; (2) for lattice QCD
+  at finite baryon density, the fermion determinant is complex — "complex Langevin"
+  dynamics (Parisi 1983) sometimes converges to wrong results. The mathematical
+  foundations (convergence proofs, ergodicity theorems) for complex Langevin are
+  incomplete. Separately, Hairer's regularity structures (2014) provide rigorous
+  solution theories for singular SPDEs like the KPZ equation and Φ⁴₃ — but the
+  connection to stochastic quantization of gauge theories (where the SPDE is
+  Yang-Mills-Langevin on a gauge orbit space) has not been rigorously established.
+systematic_gaps:
+  - >-
+    Complex Langevin dynamics for finite-density QCD — convergence criteria and
+    criteria distinguishing correct vs. incorrect fixpoints are not rigorously established;
+    the Nishimura-Aarts correctness criterion is heuristic.
+  - >-
+    Hairer regularity structures have not been applied to Yang-Mills-Langevin dynamics
+    in 4D; the gauge-orbit quotient space introduces non-trivial geometric obstacles.
+  - >-
+    Non-equilibrium stochastic quantization (Keldysh + Langevin hybrid) has not been
+    formulated; it could provide a path to non-equilibrium QFT without real-time
+    Monte Carlo sign problem.
+suggested_hypotheses:
+  - >
+    For gauge theories on the lattice, the Gribov copy ambiguity in Landau gauge
+    fixation causes complex Langevin to converge to incorrect fixed points; Gribov
+    copy-free stochastic gauges (stochastic gauge fixing) will fix the convergence
+    problem and allow finite-density lattice QCD calculations at μ_B > T.
+related_bridges:
+  - b-stochastic-de-quantum-field-theory
+references:
+  - note: "Parisi (1983) Nucl Phys B 180:378 — complex Langevin equations and lattice QCD"
+  - doi: "10.1007/s00222-014-0505-4"
+    note: "Hairer (2014) Invent Math 198:269 — theory of regularity structures"
+last_reviewed: "2026-05-06"

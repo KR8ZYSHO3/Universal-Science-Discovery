@@ -1,0 +1,48 @@
+id: h-eis-hodgkin-huxley-parameter-extraction
+title: >
+  Multi-frequency EIS measurements on voltage-clamped excitable cell monolayers can
+  extract Hodgkin-Huxley channel gating parameters (g_Na, g_K, tau_m, tau_h) with
+  accuracy comparable to patch-clamp, enabling label-free high-throughput ion channel
+  pharmacology screening.
+status: active
+created: "2026-05-06"
+last_updated: "2026-05-06"
+priority: medium
+related_disciplines:
+  - biophysics
+  - chemistry
+  - electrophysiology
+  - pharmacology
+unknowns_addressed:
+  - u-eis-channel-gating-mechanistic-link
+evidence_links:
+  - type: supporting
+    note: >
+      Lindner et al. (2013) demonstrated that frequency-resolved impedance measurements
+      can distinguish passive membrane resistance from active voltage-gated conductance
+      contributions in cardiomyocyte monolayers — proof of concept for parameter extraction.
+  - type: supporting
+    note: >
+      RTCA (Roche Applied Science) platform detects hERG channel block at 10 kHz
+      impedance frequency as a reduction in cell-electrode coupling resistance,
+      demonstrating that channel pharmacology is detectable by EIS.
+  - type: contradicting
+    note: >
+      The ill-posedness of the HH-parameter inverse problem from EIS: without voltage
+      control, measured impedance is a nonlinear convolution of channel kinetics, membrane
+      potential distribution, and cell geometry that may not be uniquely invertible.
+proposed_tests:
+  - discipline: biophysics
+    description: >
+      Culture HL-1 cardiomyocytes (constitutively active Na/K channels) on gold RTCA
+      electrodes. Perform simultaneous EIS (0.1 Hz to 100 kHz, 10 mV RMS AC) and
+      whole-cell patch clamp under voltage clamp. Fit the EIS spectrum to an HH-
+      equivalent circuit model and compare extracted tau_m, tau_h, g_Na with patch-
+      clamp values. Repeat with TTX (Na channel blocker) and 4-AP (K channel blocker)
+      to validate parameter sensitivity.
+  - discipline: pharmacology
+    description: >
+      Screen 50 known hERG channel blockers (varying potency) against RTCA EIS
+      measurements. Test whether the EIS-derived channel resistance change
+      (Delta R_channel) correlates with patch-clamp IC50 values across 3 orders of
+      magnitude of potency — validating EIS as a pharmacological screening surrogate.

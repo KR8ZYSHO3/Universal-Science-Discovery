@@ -1,0 +1,51 @@
+id: h-extinction-debt-master-equation-prediction
+title: >
+  The master equation for stochastic birth-death processes predicts that extinction
+  debt (species committed to extinction despite current positive population size)
+  scales as the ratio of demographic to environmental stochasticity variance, and
+  this ratio can be measured non-invasively from time-series count data.
+status: active
+created: "2026-05-06"
+last_updated: "2026-05-06"
+priority: high
+unknowns_addressed:
+  - u-demographic-stochasticity-extinction-threshold
+related_disciplines:
+  - ecology
+  - mathematics
+  - conservation-biology
+  - probability-theory
+evidence_links:
+  - type: supporting
+    doi: 10.1093/acprof:oso/9780198525257.001.0001
+    note: >
+      Lande et al. (2003) — stochastic population dynamics theory including
+      separation of demographic and environmental stochasticity; provides framework
+      for the hypothesis.
+  - type: supporting
+    doi: 10.1016/j.tree.2010.01.003
+    note: >
+      Traill et al. (2010) — review of minimum viable population estimates;
+      shows empirical MVPs span 100-1000 without mechanistic prediction of threshold.
+  - type: related
+    note: >
+      van Kampen (2007) Stochastic Processes — systematic expansion of master equation
+      in 1/N provides analytic predictions for extinction time as exp(N) × f(sigma_D/sigma_E).
+proposed_tests:
+  - discipline: ecology
+    description: >
+      Obtain 50-year population time-series for 30+ bird and mammal species at
+      various population sizes (5-5000 individuals) from LTER networks. Fit
+      stochastic birth-death process models to each time series using maximum
+      likelihood to extract demographic stochasticity (σ_D²) and environmental
+      stochasticity (σ_E²). Hypothesis: actual extinction events in the dataset
+      are predicted by a threshold ratio σ_E²/σ_D² × N_0 < critical value derived
+      from master equation theory.
+  - discipline: mathematics
+    description: >
+      Derive closed-form expressions for the extinction probability within T
+      generations for a logistic birth-death process with both demographic and
+      environmental stochasticity. Compare analytic predictions to stochastic
+      simulation results for 100 parameter combinations. Hypothesis: the 1/N
+      expansion provides accurate predictions for population sizes N > 20 and
+      the leading-order correction depends only on the ratio σ_D²/σ_E².

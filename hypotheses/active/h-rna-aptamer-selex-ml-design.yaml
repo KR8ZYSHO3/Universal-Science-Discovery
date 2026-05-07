@@ -1,0 +1,40 @@
+id: h-rna-aptamer-selex-ml-design
+title: >
+  RNA aptamer binding affinity and selectivity are governed by three physical principles
+  — shape complementarity, charge complementarity, and base-stacking interactions —
+  that can be parameterized from SELEX-seq data to train structure-conditioned language
+  models that design novel high-affinity aptamers (K_d < 10 nM) with 50× less
+  experimental screening than conventional SELEX.
+status: active
+created: "2026-05-06"
+last_updated: "2026-05-06"
+priority: medium
+unknowns_addressed:
+  - u-rna-aptamer-design-principles
+related_disciplines:
+  - chemistry
+  - biology
+  - biophysics
+  - machine-learning
+evidence_links:
+  - type: supporting
+    doi: 10.1016/j.jmb.2014.06.006
+    note: >
+      Ellington & Szostak (1990) — original SELEX procedure; demonstrates in vitro
+      selection of high-affinity aptamers from random sequence pools.
+  - type: supporting
+    doi: 10.1093/nar/gkz1214
+    note: >
+      Jimenez et al. (2020) — structure-activity relationships in RNA aptamers;
+      binding affinity correlates with predicted 3D structural features.
+proposed_tests:
+  - discipline: chemistry
+    description: >
+      Run SELEX-seq (high-throughput SELEX with next-gen sequencing) for ATP aptamer
+      and VEGF aptamer targets using pools of 10^14 random 40-nt RNA sequences.
+      Train a structure-conditioned transformer model (RNAfold + BERT) on 500,000
+      enriched sequences with measured affinity ranks. Use the trained model to
+      de novo design 200 novel sequences. Synthesize top 20 predictions and measure
+      K_d by biolayer interferometry. Hypothesis: ≥10 of 20 model-designed aptamers
+      show K_d < 10 nM (vs SELEX consensus aptamer K_d ~ 50 nM), and the hit rate
+      (10/20 = 50%) exceeds random SELEX enrichment hit rate (< 1%) by > 50-fold.

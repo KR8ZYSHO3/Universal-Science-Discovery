@@ -1,0 +1,70 @@
+id: b-acoustics-room-design
+title: >
+  Sabine's reverberation formula (T₆₀ = 0.161V/A, 1900) bridges physical wave acoustics
+  with architectural engineering, enabling quantitative concert hall design through
+  measurable psychoacoustic correlates (IACC, early decay time) of perceived sound quality.
+status: established
+fields:
+  - architectural-acoustics
+  - wave-physics
+  - perceptual-psychology
+  - civil-engineering
+  - music
+bridge_claim: >
+  Room acoustics quantifies the interaction between sound waves and architectural
+  geometry. Sabine (1900) measured reverberation time T₆₀ (time for sound to decay
+  60 dB) in Harvard lecture halls and derived T₆₀ = 0.161·V/A where V is room volume
+  and A = Σ αᵢSᵢ is total absorption (αᵢ = absorption coefficient of surface i,
+  Sᵢ = area). This single formula links physics (sound energy decay), materials science
+  (αᵢ from 0 to 1), and architecture (geometry determines V and S). Room resonances
+  (normal modes) at f_n = (c/2)√((nx/Lx)² + (ny/Ly)² + (nz/Lz)²) produce standing
+  waves at low frequencies — a wave mechanics problem directly determining low-frequency
+  coloration in small rooms. Flutter echo (parallel walls) is solved by 5–10° wall
+  splaying — geometric optics. Concert hall quality: Beranek (1962) correlated subjective
+  ratings from 54 halls with measured acoustic parameters, finding that early lateral
+  reflections (quantified by inter-aural cross-correlation IACC < 0.5) produce
+  "spaciousness" — a perceptual-physics bridge that drives modern concert hall design.
+  Anechoic chambers achieve α > 0.99 at f > 50 Hz using geometric wedge absorbers —
+  near-perfect dissipation boundaries for acoustic measurement.
+translation_table:
+  - field_a_term: sound energy decay exp(-t/τ)
+    field_b_term: reverberation time T₆₀ = 6.91τ (engineering specification)
+    note: Physics gives exponential decay; Sabine parameterized this as the practical T₆₀ specification
+  - field_a_term: wave equation ∇²p = (1/c²)∂²p/∂t²
+    field_b_term: normal modes (room resonances) — frequency-domain room behavior
+    note: Eigenfunctions of the wave equation in a rectangular room give the modal structure
+  - field_a_term: impedance mismatch at boundary
+    field_b_term: absorption coefficient α = 1 - |r|² (r = reflection coefficient)
+    note: Materials science determines α; physics determines the relationship to impedance
+  - field_a_term: binaural cross-correlation IACC
+    field_b_term: perceived spaciousness / envelopment in concert halls
+    note: "Beranek's correlation: IACC < 0.5 associated with preferred spaciousness — perceptual physics"
+  - field_a_term: geometric acoustics (ray tracing)
+    field_b_term: room acoustic simulation software (ODEON, CATT-Acoustic)
+    note: High-frequency limit of wave acoustics; used for architectural design before construction
+related_unknowns:
+  - u-concert-hall-acoustic-quality-metrics
+related_hypotheses:
+  - h-room-acoustic-quality-predictable-from-geometry
+cross_pollination_opportunities:
+  - Apply finite-element wave simulation at all frequencies (replacing the Sabine
+    approximation which fails for non-diffuse fields) to non-rectangular hall geometries —
+    requires HPC resources but would validate or correct Beranek-era empirical rules
+  - Use psychoacoustic metrics (IACC, clarity C80, definition D50) as objective functions
+    in topology optimization of concert hall geometry — computational acoustic design
+  - Translate anechoic chamber design principles to MRI bore acoustic isolation —
+    connecting room acoustics engineering to medical device design
+communication_gap: >
+  Architectural acoustics sits in engineering schools; wave physics of room resonances
+  is taught in physics departments; perceptual psychoacoustics is in psychology or
+  music departments. Practicing architects rarely have acoustics training; acoustic
+  consultants are hired late in the design process when major geometry is fixed.
+  The academic literature on psychoacoustics (JASA) and the professional literature
+  on concert hall design rarely cite each other.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.2307/25058007"
+    note: "Sabine (1900) — Reverberation, Am Arch 68:3; founding paper of quantitative room acoustics"
+  - note: "Beranek (1962) Music, Acoustics and Architecture, Wiley — IACC and concert hall correlations"
+  - note: "Kuttruff (2009) Room Acoustics, 5th ed., Spon Press"
+  - note: "Cox & D'Antonio (2004) Acoustic Absorbers and Diffusers, Spon Press"

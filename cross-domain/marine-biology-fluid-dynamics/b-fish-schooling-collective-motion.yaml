@@ -1,0 +1,109 @@
+id: b-fish-schooling-collective-motion
+title: >
+  Fish schooling and bird flocking are active matter phase transitions — the Vicsek
+  model shows that self-propelled particles aligning with neighbors undergo a
+  continuous order-disorder transition at a critical noise threshold, exhibiting
+  long-range order in 2D forbidden by the Mermin-Wagner theorem for equilibrium systems.
+status: established
+fields:
+  - marine-biology
+  - fluid-dynamics
+  - statistical-physics
+  - active-matter-physics
+  - ethology
+bridge_claim: >
+  Fish schools (up to 10⁶ individuals), bird flocks (murmurations of starlings),
+  and insect swarms exhibit coherent collective motion emerging from local interaction
+  rules without central coordination. This is a paradigmatic active matter problem.
+
+  The Vicsek model (1995) is the minimal model: N point particles in 2D move at
+  constant speed v₀. At each timestep, each particle adopts the average direction
+  of all particles within radius r, plus noise η drawn from [-π, π]. As noise η
+  decreases, the system undergoes a phase transition from disordered (random directions,
+  ordered parameter Φ ≈ 0) to ordered collective motion (all particles moving in
+  the same direction, Φ ≈ 1).
+
+  Critical result (Toner & Tu 1995): the ordered phase of this 2D active system
+  has genuine long-range order, violating the Mermin-Wagner theorem which states
+  that continuous symmetries cannot be broken in 2D equilibrium systems at finite
+  temperature. Activity (self-propulsion) changes the universality class, generating
+  giant number fluctuations (ΔN ~ N^{0.8} vs. Poisson ΔN ~ N^{0.5}) observed in
+  bacterial suspensions, vibrated granular rods, and starling flocks.
+
+  Hydrodynamic theory (Toner & Tu 1995): coarse-grained equations for density ρ and
+  velocity field v, with active pressure terms, predict the long-range order and
+  giant fluctuations without reference to microscopic rules. The ordered phase is
+  a new state of matter — the "flocking phase" — with no equilibrium counterpart.
+
+  Empirical validation (Ballerini et al. 2008): tracking 3D positions of ~1000 starlings
+  in a murmuration shows that interaction is topological (each bird interacts with
+  its k ≈ 7 nearest neighbors regardless of distance) rather than metric (fixed
+  radius r). This topological rule makes the flock more robust to predation-induced
+  fragmentation — a specific prediction of topological active matter models.
+
+  Fish schooling adds hydrodynamic interactions: fish sense neighbors via lateral line
+  (pressure waves in water). The vortex wake of a leading fish can assist trailing
+  fish (Liao et al. 2003 — reduction in muscle activity for fish in a Kármán vortex
+  street), coupling fluid dynamics directly to the collective motion.
+translation_table:
+  - field_a_term: individual fish / bird (self-propelled particle)
+    field_b_term: Vicsek particle with constant speed v₀
+  - field_a_term: visual alignment with neighbors
+    field_b_term: ferromagnetic-like alignment interaction with range r
+  - field_a_term: unpredictable predator approach / environmental perturbation
+    field_b_term: noise parameter η in Vicsek model
+  - field_a_term: critical noise threshold (disorder/order transition)
+    field_b_term: continuous phase transition in Vicsek model at η_c
+  - field_a_term: coherent school / murmuration (all moving together)
+    field_b_term: ordered flocking phase (Φ → 1)
+  - field_a_term: dispersed school (panic, fragmentation)
+    field_b_term: disordered phase (Φ → 0)
+  - field_a_term: topological interaction (k = 7 nearest neighbors)
+    field_b_term: Voronoi-cell based interaction (graph topology, not metric disk)
+  - field_a_term: giant number fluctuations in fish school density
+    field_b_term: ΔN ~ N^{0.8} anomalous fluctuations in Toner-Tu theory
+  - field_a_term: hydrodynamic schooling (lateral line, vortex wakes)
+    field_b_term: far-field hydrodynamic interactions between active swimmers
+related_unknowns:
+  - u-fish-schooling-topological-interaction
+related_hypotheses:
+  - h-topological-flocking-predator-evasion
+cross_pollination_opportunities:
+  - >
+    Topological interaction (k nearest neighbors) vs. metric interaction (fixed radius)
+    has different consequences for collective robustness. Empirical tracking of 3D fish
+    schools during predator attacks combined with agent-based simulation could determine
+    whether fish switch interaction rules dynamically — a prediction of adaptive active
+    matter models. This could explain why some species school and others don't.
+  - >
+    Active matter theory predicts a phase diagram in the noise-density plane with
+    distinct phases (disordered, banded/inhomogeneous, ordered). Controlled laboratory
+    experiments with fish in tanks of tunable density and turbulence (noise analogue)
+    could map this phase diagram empirically, providing the first quantitative test
+    of Vicsek-model predictions in a vertebrate system.
+  - >
+    The Kármán vortex street hydrodynamic benefit for trailing fish (Liao et al. 2003)
+    has a CFD/fluid dynamics counterpart: optimal positioning behind a leading swimmer.
+    Importing flow optimization theory (optimal formation, distributed sensing) into
+    fish schooling biology could explain the characteristic diamond lattice structure
+    observed in dense fish schools.
+communication_gap: >
+  Marine biologists study fish schooling as an anti-predator behavior and hydrodynamic
+  efficiency problem; statistical physicists study it as an active matter phase
+  transition; fluid dynamicists study it as a CFD problem in collective swimming.
+  The three communities use different formalisms and rarely cite each other. Empirical
+  data on 3D fish tracking at sufficient density to extract interaction rules became
+  available only recently (stereophotogrammetry, computer vision) — enabling comparison
+  with theoretical predictions that have existed since 1995.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1103/PhysRevLett.75.1226"
+    note: Vicsek et al. (1995) Phys Rev Lett 75:1226 — original Vicsek model of collective motion
+  - doi: "10.1103/PhysRevLett.75.4326"
+    note: Toner & Tu (1995) Phys Rev Lett 75:4326 — hydrodynamic theory, long-range order in 2D active matter
+  - doi: "10.1006/jtbi.2002.3065"
+    note: Couzin et al. (2002) J Theor Biol 218:1 — individual-based model of fish school transitions
+  - doi: "10.1073/pnas.0711437105"
+    note: Ballerini et al. (2008) PNAS 105:1232 — topological interaction in starling flocks (k ≈ 7)
+  - doi: "10.1126/science.1088295"
+    note: Liao et al. (2003) Science — fish exploit Kármán vortex street (hydrodynamic schooling benefit)

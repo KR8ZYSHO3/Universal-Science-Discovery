@@ -1,0 +1,101 @@
+id: b-microelectronics-quantum-confinement
+title: >
+  Sub-10 nm transistor scaling forces quantum confinement effects — tunneling
+  leakage, ballistic transport (Landauer formula), and quantum capacitance — into
+  the engineering design space, bridging quantum physics with semiconductor device
+  engineering at the 3nm node and beyond.
+status: established
+fields:
+  - engineering
+  - physics
+  - semiconductor-physics
+  - quantum-physics
+  - materials-science
+bridge_claim: >
+  Moore's law scaling has brought transistor gate lengths below 10 nm (commercial
+  production: TSMC 3nm node, 2022; Intel 20A/18A, 2024), at which quantum
+  mechanical effects are no longer negligible perturbations but dominate device
+  behavior. Three quantum phenomena define the engineering design challenge:
+
+  (1) Quantum tunneling through gate dielectric: leakage current density
+  J ∝ exp(-2d·√(2m*φ_B)/ℏ), where d is dielectric thickness, m* is the
+  effective mass, and φ_B is the barrier height. For SiO₂, d is limited to ~1.2 nm
+  (3-4 atomic layers) before leakage becomes unacceptable. This drove the transition
+  to high-κ dielectrics (HfO₂, κ = 25 vs. SiO₂ κ = 3.9) — a thicker physical
+  layer with the same equivalent oxide thickness (EOT), reducing tunneling while
+  maintaining gate capacitance.
+
+  (2) Short-channel effects: when gate length L approaches the depletion width,
+  the source and drain electrostatics compete with the gate for channel control
+  (drain-induced barrier lowering, DIBL). FinFET architecture (Hu et al. 1999)
+  uses a 3D silicon fin where the gate wraps three sides — suppressing short-channel
+  effects geometrically. Gate-all-around (GAA) nanosheet transistors (Samsung/TSMC
+  3nm, 2022) extend this with the gate fully encircling the channel, achieving
+  near-ideal electrostatic control.
+
+  (3) Ballistic transport: in short channels (L < mean free path λ_mfp ≈ 10-20 nm
+  for Si at 300K), electrons traverse without scattering. The Landauer formula gives
+  the maximum conductance: G = (2e²/h)·M·T, where M is the number of conducting
+  modes (transverse subbands), T is the transmission probability (T → 1 in ballistic
+  limit), and 2e²/h = G₀ ≈ 77.5 µS is the conductance quantum. Ballistic transport
+  sets a fundamental upper bound on transistor ON-current independent of material
+  mobility — a quantum-mechanical performance ceiling.
+
+  2D materials (MoS₂, WSe₂ FETs with atomic-scale thickness): eliminate the
+  short-channel problem by confining the channel to a single monolayer (0.65 nm),
+  making the effective oxide thickness comparable to the channel thickness regardless
+  of gate geometry. This is currently limited by contact resistance and trap density.
+translation_table:
+  - field_a_term: quantum tunneling probability T = exp(-2d√(2m*φ)/ℏ)
+    field_b_term: gate dielectric leakage current engineering limit
+  - field_a_term: Landauer conductance quantum G₀ = 2e²/h = 77.5 µS
+    field_b_term: maximum ON-current per conducting channel in nanoscale transistor
+  - field_a_term: transmission probability T (Landauer-Büttiker formalism)
+    field_b_term: device ON/OFF ratio (transmission near 1 for ON, near 0 for OFF)
+  - field_a_term: transverse subband quantization (M modes in nanowire/nanosheet)
+    field_b_term: parallel conduction channels in GAA nanosheet transistor
+  - field_a_term: quantum capacitance C_Q = e²·DOS (limits gate control at high density)
+    field_b_term: intrinsic speed limit of transistor switching at GHz-THz frequencies
+  - field_a_term: high-κ dielectric (HfO₂, κ = 25)
+    field_b_term: engineering solution to tunnel leakage — thicker physical layer, same EOT
+  - field_a_term: 2D material monolayer channel (MoS₂, 0.65 nm thick)
+    field_b_term: ultimate short-channel immunity (channel thickness = 1 atomic layer)
+related_unknowns:
+  - u-2d-material-fet-contact-resistance-scaling-below-1nm
+related_hypotheses:
+  - h-gaa-nanosheet-ballistic-transport-regime-room-temperature-3nm
+cross_pollination_opportunities:
+  - >
+    Quantum transport simulations (non-equilibrium Green's function, NEGF method)
+    developed by condensed matter physicists for nanoscale devices are not yet
+    routinely used in industrial TCAD (technology CAD) tools used by semiconductor
+    companies. Bridging the gap between research-level NEGF codes (NEMO5, QTBM)
+    and industrial process simulators (Synopsys Sentaurus) requires physicists and
+    semiconductor engineers to co-develop computationally efficient quantum transport
+    models validated against experimental device characteristics.
+  - >
+    Topological insulator surface states (TSS) have ballistic conduction protected
+    by time-reversal symmetry — T = 1 guaranteed by topology. Using topological
+    surface states as transistor channels (topological FETs) could achieve the
+    Landauer limit while remaining switch-offable via magnetic gating. This requires
+    materials scientists growing topological thin films, device engineers designing
+    gate architectures, and condensed matter theorists computing switching mechanisms.
+communication_gap: >
+  Quantum transport theory (published in Phys Rev B, Nano Lett, using NEGF/Landauer
+  formalism) is developed in physics and electrical engineering departments with
+  significant overlap at places like MIT, Stanford, and ETH. However, industrial
+  semiconductor engineering (published in IEEE Trans Electron Devices, IEDM proceedings)
+  focuses on empirical ITRS roadmap metrics and TCAD simulation rather than first-
+  principles quantum theory. Academic quantum transport researchers are often unaware
+  of the specific constraints (contact resistance, variability, reliability at high
+  field) that dominate industrial device design. The Landauer formula is standard
+  in mesoscopic physics but not in most electrical engineering curricula.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1109/16.791980"
+    note: "Hu et al. (1999) IEEE Trans Electron Devices 46:2320 — FinFET: a self-aligned double-gate MOSFET scalable to 20 nm"
+  - doi: "10.1147/rd.13.0223"
+    note: "Landauer (1957) IBM J Res Dev 1:223 — spatial variation of currents and fields due to localized scatterers in metallic conduction"
+  - doi: "10.1126/science.1102896"
+    note: "Novoselov et al. (2004) Science 306:666 — electric field effect in atomically thin carbon films (graphene FET)"
+  - note: "Sze & Ng (2007) Physics of Semiconductor Devices (3rd ed.) — Wiley (standard reference)"

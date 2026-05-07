@@ -1,0 +1,73 @@
+id: b-stochastic-population-master-equation
+title: "Stochastic population dynamics and the master equation — birth-death processes connect population ecology to statistical physics through shared probability flow mathematics"
+status: established
+fields:
+  - ecology
+  - mathematics
+  - statistical-mechanics
+  - probability-theory
+  - evolutionary-biology
+
+bridge_claim: >
+  Deterministic population models (Lotka-Volterra, logistic) break down at small
+  population sizes where demographic stochasticity dominates. The master equation
+  governs probability flow: dP(n,t)/dt = Σ [T(n|n')P(n',t) - T(n'|n)P(n,t)] where
+  T(n|n') is the transition rate from state n' to n and P(n,t) is the probability
+  of population size n at time t. Birth-death processes are exactly solvable master
+  equations: birth rate b(n) = bn, death rate d(n) = dn + en². Extinction probability
+  = first passage probability to n=0, exactly calculable from detailed balance.
+  In the large-N diffusion limit, the master equation reduces to the Fokker-Planck
+  equation: ∂P/∂t = -∂/∂x[A(x)P] + (1/2)∂²/∂x²[B(x)P], identical to the
+  Kolmogorov forward equation for stochastic differential equations in physics.
+  Genetic drift is a random walk on allele frequency space — the Wright-Fisher
+  diffusion. The fixation probability and time-to-fixation are exactly calculable.
+  This bridge connects community ecology, evolutionary genetics, and stochastic physics
+  through the shared mathematics of probability distributions over discrete states.
+
+translation_table:
+  - field_a_term: "master equation (probability flow over population states)"
+    field_b_term: "Kolmogorov forward equation (stochastic physics)"
+    note: "Identical PDE for probability density; difference is only in interpretation of states"
+  - field_a_term: "birth rate b(n)"
+    field_b_term: "upward transition rate in physical Markov chain"
+    note: "Linear birth: b(n)=bn gives Poisson steady state; nonlinear b modifies distribution"
+  - field_a_term: "demographic stochasticity (N finite effects)"
+    field_b_term: "shot noise in physical systems"
+    note: "Both scale as 1/√N; suppressed in thermodynamic limit but crucial at small N"
+  - field_a_term: "extinction probability (first passage to n=0)"
+    field_b_term: "absorption probability in Markov chain with absorbing state"
+    note: "Exact formula: P_ext = (d/b)^N for simple birth-death process"
+  - field_a_term: "genetic drift (Wright-Fisher diffusion)"
+    field_b_term: "Brownian motion in allele frequency space [0,1]"
+    note: "Diffusion coefficient D = p(1-p)/2N; same as physical diffusion in bounded domain"
+  - field_a_term: "quasi-stationary distribution (conditional on non-extinction)"
+    field_b_term: "quasi-stationary state in metastable physical systems"
+    note: "Determines effective population size and evolutionary dynamics before extinction"
+
+related_unknowns:
+  - u-demographic-stochasticity-extinction-threshold
+
+related_hypotheses:
+  - h-extinction-debt-master-equation-prediction
+
+cross_pollination_opportunities:
+  - "Apply exact master equation solutions from physics to calculate extinction times for small populations of endangered species"
+  - "Use the Fokker-Planck framework to derive analytic approximations for population viability analysis"
+  - "Test whether the moment-closure approximations used in population ecology are consistent with the exact master equation solutions"
+
+communication_gap: >
+  Population ecologists and evolutionary biologists largely work with differential
+  equation models; the master equation formalism is standard in statistical physics
+  but uncommon in ecology courses. Gardiner's Handbook of Stochastic Methods is
+  the bridge text but is rarely cited in ecology. The connection between genetic
+  drift and Brownian motion was recognized by Kimura (1964) but the broader master
+  equation framework is underused in quantitative ecology.
+
+references:
+  - note: "Bartlett (1960) Stochastic Population Models (Methuen, ISBN 0306434512) — foundational ecological text"
+  - note: "Gardiner (2004) Handbook of Stochastic Methods (Springer, ISBN 3540208828) — comprehensive physics treatment"
+  - doi: "10.1093/acprof:oso/9780198525257.001.0001"
+    note: "Lande et al. (2003) Stochastic Population Dynamics in Ecology and Conservation"
+  - note: "van Kampen (2007) Stochastic Processes in Physics and Chemistry (Elsevier, ISBN 0444893490) — definitive reference"
+
+last_reviewed: "2026-05-06"

@@ -1,0 +1,123 @@
+id: b-nmr-quantum-coherence
+title: >
+  Nuclear magnetic resonance is quantum coherence engineering at room temperature —
+  the Bloch equations describe spin dynamics, Fourier transform spectroscopy
+  extracts chemical structure, and 2D NMR correlation experiments exploit
+  many-body quantum coherence to determine protein structures, making NMR the
+  applied science where quantum mechanics became a routine analytical tool.
+status: established
+fields:
+  - physics
+  - chemistry
+  - quantum-mechanics
+  - spectroscopy
+  - structural-biology
+bridge_claim: >
+  NMR spectroscopy is the most successful application of quantum coherence in
+  chemistry, underpinning both structural determination of molecules and MRI in
+  medicine. Its physical basis is the manipulation of nuclear spin quantum states.
+
+  Physical foundation: nuclei with non-zero spin I (¹H: I=½, ¹³C: I=½, ³¹P: I=½,
+  ²H: I=1) possess a magnetic moment μ = γℏI. In an external field B₀ (aligned
+  along z), the energy levels are quantised: E_m = -γℏB₀m, with splitting
+  Δν = γB₀/2π (the Larmor frequency). At 600 MHz spectrometers (14.1 T for ¹H),
+  thermal equilibrium has population difference δ ≈ γℏB₀/2kT ~ 5 × 10⁻⁵ —
+  a tiny but detectable excess in the low-energy (parallel) state.
+
+  Bloch equations describe the evolution of the macroscopic magnetisation M:
+    dMx/dt = γ(M × B)x - Mx/T₂
+    dMy/dt = γ(M × B)y - My/T₂
+    dMz/dt = γ(M × B)z - (Mz - M₀)/T₁
+  T₁ is the longitudinal (spin-lattice) relaxation time (thermal equilibration);
+  T₂ is the transverse (spin-spin) relaxation time (dephasing). The free induction
+  decay (FID) after a 90° pulse is a sum of exponentially damped oscillations
+  at the Larmor frequencies of chemically distinct nuclei. Fourier transform of
+  the FID yields the NMR spectrum — chemical shift δ (in ppm) encodes the
+  local electronic environment (shielding by electron density), coupling constant J
+  encodes through-bond connectivity (scalar coupling), and NOE encodes
+  through-space distance (nuclear Overhauser effect, r⁻⁶ dependence).
+
+  Quantum mechanical description: the density matrix formalism
+    ρ(t) = e^{-iHt/ℏ} ρ(0) e^{iHt/ℏ}
+  where H is the spin Hamiltonian (Zeeman + J-coupling + dipolar + chemical shift).
+  Off-diagonal elements ρ_{mn} (m≠n) are coherences — quantum superpositions
+  of spin states. NMR pulse sequences manipulate coherences precisely: selective
+  pulses create specific coherence transfer pathways; phase cycling selects desired
+  pathways.
+
+  Hahn spin echo (1950): two-pulse sequence (90° - τ - 180° - τ - acquire)
+  refocuses field inhomogeneity dephasing, recovering signal that would otherwise
+  be lost. T₂* (apparent T₂ from FID) vs. T₂ (true transverse relaxation from
+  echo) differ by this mechanism. This is the original quantum error correction
+  trick — the 180° pulse reverses the dephasing phase evolution.
+
+  2D NMR (Ernst, Nobel 1991): a second time dimension t₁ introduced by a second
+  pulse allows correlation of coupled nuclei. COSY correlates J-coupled spins
+  (connectivity); NOESY correlates dipolar-coupled spins (spatial proximity < 5Å);
+  HSQC correlates ¹H with heteronucleus (¹³C or ¹⁵N). Wüthrich's sequential
+  assignment strategy (Nobel 2002) chains these to determine 3D protein structures
+  in solution.
+
+  MRI: spatial encoding using gradient fields G makes Larmor frequency
+  position-dependent: ν(x) = γ(B₀ + G·x)/2π. Fourier inversion of k-space
+  (the collected FID in gradient space) yields a spatial image. Same quantum
+  physics; centimetre-scale anatomy instead of Angstrom-scale molecular structure.
+translation_table:
+  - field_a_term: "nuclear spin quantum state |m⟩ (I=½: |α⟩, |β⟩)"
+    field_b_term: chemical shift resonance line in NMR spectrum
+    note: energy gap between states = Larmor frequency = chemical shift position in spectrum
+  - field_a_term: T₁ longitudinal relaxation (spin-lattice)
+    field_b_term: recovery time after perturbation (determines pulse repetition rate)
+    note: T₁ ranges from milliseconds (small molecules) to seconds (large proteins)
+  - field_a_term: T₂ transverse relaxation (spin-spin dephasing)
+    field_b_term: linewidth of NMR resonance (Δν = 1/πT₂)
+    note: large molecules tumble slowly → fast T₂ relaxation → broad lines → size limit for NMR
+  - field_a_term: Hahn spin echo (180° refocusing pulse)
+    field_b_term: T₂ measurement free of B₀ inhomogeneity contributions
+    note: original quantum coherence refocusing — prototype for all refocusing in quantum information
+  - field_a_term: density matrix coherence ρ_{mn} off-diagonal element
+    field_b_term: observable NMR signal (magnetisation rotating at Larmor frequency)
+    note: only single-quantum coherences (Δm=1) are directly observable; multi-quantum coherences used in 2D experiments
+  - field_a_term: NOE (through-space, r⁻⁶ distance dependence)
+    field_b_term: distance restraints in 3D protein structure determination
+    note: NOESY cross-peaks give r < 5Å between proton pairs → structural restraints
+  - field_a_term: gradient field G encoding spatial position as frequency
+    field_b_term: k-space Fourier encoding in MRI
+    note: same Fourier relationship as spectroscopy but over centimetre scale
+related_unknowns:
+  - u-quantum-coherence-biological-systems-nmr-detectable
+related_hypotheses:
+  - h-solid-state-nmr-amyloid-structure-mechanism
+cross_pollination_opportunities:
+  - >
+    Hyperpolarisation techniques (dynamic nuclear polarisation, DNP; para-hydrogen
+    PHIP; optical pumping) temporarily increase nuclear polarisation by factors of
+    10⁴ over Boltzmann equilibrium, making ¹³C MRS metabolic imaging feasible
+    in clinical settings. This connects quantum coherence engineering (hyperpolarisation
+    physics) to in vivo metabolic monitoring (oncology, cardiology).
+  - >
+    Quantum computing uses NMR as a test bed: Chuang et al. (1998) demonstrated
+    Grover's search algorithm on a 2-qubit NMR quantum computer. The liquid-state
+    NMR quantum computing approach (DiVincenzo criteria analysis) clarified the
+    distinction between quantum coherence and quantum entanglement that matters
+    for computational speedup, bridging chemistry and quantum information science.
+communication_gap: >
+  NMR developed in physics departments (Bloch at Stanford, Purcell at Harvard,
+  both Nobel 1952) but migrated entirely to chemistry and medicine within a decade.
+  The quantum mechanical density matrix description of NMR (Abragam 1961, Ernst's
+  1987 textbook) is standard in NMR spectroscopy but rarely taught in physics
+  quantum mechanics courses, creating a gap where physicists approaching NMR
+  must re-learn their own quantum mechanics in unfamiliar notation. MRI is
+  clinically indispensable (>100 million scans/year globally) but the physics
+  and quantum engineering behind it are largely invisible to radiologists and
+  clinicians. The 2003 Nobel Prize to Lauterbur and Mansfield specifically
+  acknowledged the medical impact of the physics-to-chemistry-to-medicine
+  translation that NMR represents.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1103/PhysRev.70.460"
+    note: Bloch et al. (1946) Phys Rev 70:460 — Bloch equations for NMR spin dynamics
+  - doi: "10.1103/PhysRev.80.580"
+    note: Hahn (1950) Phys Rev 80:580 — spin echo discovery
+  - note: Ernst, Bodenhausen & Wokaun (1987) Principles of NMR in One and Two Dimensions. Oxford University Press
+  - note: Wüthrich (1986) NMR of Proteins and Nucleic Acids. Wiley-Interscience

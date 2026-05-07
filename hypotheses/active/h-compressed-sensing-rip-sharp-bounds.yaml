@@ -1,0 +1,39 @@
+id: h-compressed-sensing-rip-sharp-bounds
+title: >
+  Exact sparse signal recovery from m harmonic measurements of an s-sparse signal
+  requires m ≥ C·s·log(n/s) measurements — and this bound is sharp up to constants
+  — with the restricted isometry property (RIP) of random Fourier matrices
+  achievable with high probability for m ≥ s·polylog(n).
+status: active
+priority: medium
+impact_score: 0.73
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+unknowns_addressed:
+  - u-harmonic-analysis-sparse-recovery
+evidence_links:
+  - type: supporting
+    note: "Candès & Tao (2006) near-optimal signal recovery from random projections: RIP implies exact recovery via L1 minimization with m = O(s log(n/s))"
+    confidence: 0.90
+  - type: supporting
+    note: "Rudelson & Vershynin (2008) random Fourier matrices satisfy RIP: m ≥ Cs log^4 n measurements sufficient — gap to sharp bound unresolved"
+    confidence: 0.80
+  - type: related
+    note: "Bourgain (2014) construction of explicit compressed sensing matrices: deterministic construction achieving m = O(s^2) — below random but no polylog gap"
+    confidence: 0.72
+proposed_tests:
+  - description: >
+      Lower bound proof: construct a signal ensemble for which any decoder using
+      m < s·log(n/s)/C measurements fails with probability > 1/2. Apply Gilbert-Varshamov
+      bound and Varshamov-Tenengolts code construction. Test: matches Candès-Tao
+      upper bound — proving sharpness.
+  - description: >
+      Numerical experiment: measure recovery success rate of LASSO with Fourier
+      measurements as function of m/s·log(n/s) for n = 10⁴, s = 10, 100, 1000.
+      Phase transition should occur at constant C independent of s. Measure C from
+      phase transition location.
+related_disciplines:
+  - harmonic-analysis
+  - compressed-sensing
+  - information-theory

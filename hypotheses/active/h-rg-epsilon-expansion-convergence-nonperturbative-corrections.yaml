@@ -1,0 +1,47 @@
+id: h-rg-epsilon-expansion-convergence-nonperturbative-corrections
+title: >
+  The ε-expansion for critical exponents in the Wilson-Fisher universality class
+  is an asymptotic (not convergent) series with optimal truncation at order ε⁴-ε⁵,
+  and non-perturbative corrections (instantons, renormalon poles) provide the
+  dominant source of error in d=3 predictions, making conformal bootstrap the
+  only route to sub-0.1% precision.
+status: active
+priority: high
+impact_score: 0.72
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+unknowns_addressed:
+  - u-rg-fixed-points-non-wilson-fisher-universality-classes
+evidence_links:
+  - type: supporting
+    note: "Le Guillou & Zinn-Justin (1977) Phys Rev Lett 39:95 — Borel resummation of 6-loop ε-expansion gives ν = 0.6290 ± 0.0025 for Ising (d=3), consistent with Monte Carlo but with asymptotic character demonstrated by sign alternation of high-order coefficients"
+    confidence: 0.78
+  - type: supporting
+    note: "Kompaniets & Panzer (2017) Phys Rev E 96:036101 — 6-loop MS-bar beta function computation confirms asymptotic behavior; optimal truncation at 5-loop"
+    confidence: 0.75
+  - type: supporting
+    note: "Kos et al. (2016) JHEP 2016:036 — conformal bootstrap gives ν = 0.62999 ± 0.00006, η = 0.03631 ± 0.00003 for 3d Ising — 100× more precise than ε-expansion, confirming bootstrap as superior method"
+    confidence: 0.90
+  - type: contradicting
+    note: "Kleinert resummation schemes claim convergent Padé-Borel resummation for ε-expansion at any order — disputed by analysis of large-order behavior using instanton contributions"
+    confidence: 0.40
+proposed_tests:
+  - description: >
+      Compute the 7-loop ε-expansion coefficient for ν in O(N) models using
+      automated diagram generation (Panzer's HyperInt). If the coefficient is
+      larger than the 6-loop coefficient (sign of divergence accelerating), this
+      confirms asymptotic character and validates that conformal bootstrap is
+      necessary for precision. Compare optimal truncation estimate with bootstrap
+      bound at same N.
+  - description: >
+      Apply conformal bootstrap systematically to O(N) models for N = 0, 1, 2, 3, 4
+      (self-avoiding walk, Ising, XY, Heisenberg, and N=4 vector model) and compare
+      precision with best ε-expansion + resummation results. If bootstrap achieves
+      <0.01% precision for all N while ε-expansion remains at >0.1% after optimal
+      truncation, this establishes bootstrap as the dominant tool for critical exponent
+      computation.
+related_disciplines:
+  - physics
+  - mathematics
+  - statistical-mechanics

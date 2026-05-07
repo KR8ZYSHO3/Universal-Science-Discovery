@@ -1,0 +1,29 @@
+id: u-md-force-field-transferability-accuracy-limit
+title: What is the accuracy ceiling of classical and machine-learned force fields for free energy calculations, and how can transferability across chemical space be systematically improved?
+status: open
+priority: high
+disciplines:
+  - computational-chemistry
+  - physical-chemistry
+  - machine-learning
+summary: >
+  Molecular dynamics force field accuracy is the principal limitation on free energy
+  calculation reliability for drug discovery. Classical force fields (AMBER, CHARMM, OPLS)
+  have systematic errors of 1-2 kcal/mol in binding free energies — limiting utility for
+  lead optimization where the relevant differences are 0.3-1 kcal/mol. Machine-learned
+  force fields (ANI, NequIP, MACE) trained on DFT data achieve near-QM accuracy for
+  molecules similar to training data, but their transferability to novel scaffolds and
+  the long-term stability of ML-FF MD trajectories (energy conservation, symplecticity)
+  are poorly characterized. The fundamental question is whether the accuracy floor of any
+  classical or ML force field is set by the Born-Oppenheimer approximation, basis set
+  completeness of training DFT data, or the functional form of the potential.
+systematic_gaps:
+  - No systematic benchmark of ML force field accuracy vs. gold-standard CCSD(T) binding
+    free energies across diverse drug-like molecules in explicit solvent.
+  - Whether ML force fields preserve the symplectic structure needed for long-time MD
+    stability (shadow Hamiltonian, microcanonical ensemble) has not been rigorously tested.
+  - Active learning strategies for ML force field training (selecting informative QM
+    calculations) have not been benchmarked against random sampling for chemical space coverage.
+related_bridges:
+  - b-molecular-dynamics-statistical-sampling
+last_reviewed: "2026-05-06"

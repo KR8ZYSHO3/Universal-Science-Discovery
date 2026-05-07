@@ -1,0 +1,52 @@
+id: h-optimal-transport-waddington-landscape-riemannian-geodesic
+title: >
+  Waddington's epigenetic landscape is formally the Riemannian manifold of the
+  2-Wasserstein space restricted to the gene expression simplex, and cell fate
+  decision points correspond to geodesically conjugate points where multiple
+  W₂ geodesics first intersect — regions of positive Wasserstein curvature
+  detectable from static single-cell RNA-seq snapshots.
+status: active
+priority: medium
+impact_score: 0.81
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+
+evidence_links:
+  - doi: "10.1016/j.cell.2019.01.006"
+    type: supporting
+    confidence: 0.78
+    note: "Schiebinger et al. (2019) demonstrated W₂ OT recovers known developmental trajectories in iPSC reprogramming — qualitative validation"
+  - doi: "10.1038/s41586-018-0414-6"
+    type: supporting
+    confidence: 0.65
+    note: "La Manno et al. (2018) RNA velocity provides local velocity field consistent with geodesic interpretation in several lineages"
+  - type: related
+    note: "Lott-Villani-Sturm theorem (2009): Riemannian manifolds with Ric ≥ K are characterised by W₂ curvature bounds — the mathematical framework for curvature in Wasserstein space is established"
+
+unknowns_addressed:
+  - u-wasserstein-cell-fate-noise-geodesic-uniqueness
+
+proposed_tests:
+  - description: >
+      Compute the sectional curvature of W₂ restricted to the submanifold of
+      single-cell distributions in a well-characterised developmental dataset
+      (haematopoiesis: HSC → myeloid/lymphoid lineages) using displacement
+      interpolation and compare curvature peaks with known fate decision points
+      (GMP/CMP branch, B/T lineage split).
+    method: "Sinkhorn OT with ε → 0; compute displacement interpolation; estimate Alexandrov curvature from triangle comparison; correlate with fate decision markers (GATA1, PU.1 expression)"
+    prediction: "W₂ curvature peaks at known fate decision points with p < 0.01; curvature is measurable from n = 5000 cells per time point"
+  - description: >
+      Test geodesic uniqueness: for pairs of multipotent progenitor cells, compare
+      the entropy of the OT plan γ* (high entropy = many near-optimal plans =
+      non-unique geodesic = multipotency) with gold-standard clonal barcoding data
+      to establish whether OT entropy predicts actual clonal fate heterogeneity.
+    method: "Combining clonal barcoding (CellTagging) with scRNA-seq; compute OT plan entropy per clone; regress against observed clone fate mixing"
+    prediction: "Clones with high OT plan entropy are more fate-mixed (>50% of barcoded progenitors produce ≥2 lineages) with r > 0.6"
+
+related_disciplines:
+  - mathematics
+  - developmental-biology
+  - optimal-transport
+  - genomics
+  - stochastic-processes

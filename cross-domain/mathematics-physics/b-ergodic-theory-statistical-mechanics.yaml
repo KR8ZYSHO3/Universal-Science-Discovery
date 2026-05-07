@@ -1,0 +1,95 @@
+id: b-ergodic-theory-statistical-mechanics
+title: >
+  Birkhoff's ergodic theorem guarantees that time averages equal ensemble averages for
+  measure-preserving dynamical systems, directly justifying Gibbs's statistical mechanics;
+  the KAM theorem identifies the subset of Hamiltonian systems that break ergodicity
+  by preserving invariant tori, explaining why some quantum systems thermalise and
+  others localise.
+status: established
+fields:
+  - mathematics
+  - physics
+  - statistical-mechanics
+bridge_claim: >
+  Boltzmann's ergodic hypothesis (1884) conjectured that a gas molecule would, over
+  infinite time, visit every point on the constant-energy hypersurface in phase space —
+  making the time average of any observable equal to its phase-space average (ensemble
+  average). This is the foundation of statistical mechanics: it justifies replacing
+  exact trajectories with probability distributions. Birkhoff's ergodic theorem (1931)
+  made this rigorous: for any measure-preserving transformation T on a probability space
+  (Ω, μ), the time average (1/N)Σf(Tⁿx) → ∫f dμ almost everywhere, for any integrable f.
+
+  Physical content: a gas at thermal equilibrium explores all accessible microstates
+  (the ergodic hypothesis) so the time-averaged pressure of any specific molecular
+  trajectory equals the Gibbs ensemble-averaged pressure ⟨P⟩ = Σ P_i exp(-βE_i)/Z.
+  This is what makes thermodynamics exact rather than approximate.
+
+  The KAM theorem (Kolmogorov 1954, Arnold 1963, Moser 1962) showed that near-integrable
+  Hamiltonian systems are NOT ergodic: for small perturbations ε < ε_c, most invariant
+  tori of the unperturbed system survive as deformed tori. The critical perturbation
+  ε_c depends on the Diophantine approximation properties of the frequency vector ω.
+  This breaks ergodicity: the trajectory is confined to a lower-dimensional torus,
+  not the full energy surface.
+
+  The physical consequences are profound: KAM tori explain the long-term stability
+  of the Solar System (planets occupy invariant tori that resist chaotic diffusion).
+  The FPUT paradox (Fermi-Pasta-Ulam-Tsingou 1955): a chain of anharmonic oscillators
+  fails to thermalise because normal modes are near-integrable — the first numerical
+  evidence that classical systems can fail to be ergodic.
+
+  The quantum analogue: many-body localisation (MBL) in disordered quantum systems
+  preserves an extensive set of local integrals of motion (LIOMs) that are the quantum
+  equivalent of KAM tori. ETH (eigenstate thermalisation hypothesis) is the quantum
+  ergodic hypothesis; its violation signals the MBL phase. The mapping is: classical
+  ergodicity ↔ quantum ETH; KAM tori ↔ LIOMs; KAM threshold ↔ MBL transition disorder
+  strength. This bridge connects the 1931 ergodic theorem through KAM (1954-62) to
+  2010s condensed matter physics of quantum thermalisation.
+translation_table:
+  - field_a_term: Birkhoff ergodic theorem (time average = ensemble average)
+    field_b_term: Gibbs statistical mechanics (justify ensemble method for gases)
+  - field_a_term: measure-preserving transformation T on phase space
+    field_b_term: Hamiltonian evolution of molecular system (Liouville's theorem)
+  - field_a_term: ergodic system (dense orbit on energy surface)
+    field_b_term: thermalising quantum system (ETH-satisfying, Gibbs state)
+  - field_a_term: KAM invariant torus (preserved by small perturbation)
+    field_b_term: many-body localised phase (LIOMs prevent thermalisation)
+  - field_a_term: KAM threshold perturbation ε_c
+    field_b_term: MBL transition disorder strength W_c
+  - field_a_term: FPUT recurrence (non-thermalising classical chain)
+    field_b_term: quantum scar states (non-thermalising eigenstates)
+  - field_a_term: Lyapunov exponent (rate of ergodic mixing)
+    field_b_term: quantum chaos Lyapunov exponent (OTOC decay rate, MSS-bounded)
+related_unknowns:
+  - u-ergodic-failure-quantum-thermalization
+  - u-quantum-thermodynamics-arrow
+related_hypotheses:
+  - h-kam-nonergodicity-many-body-localization
+cross_pollination_opportunities:
+  - >
+    The MBL transition in disordered quantum circuits can be probed using digital
+    quantum simulators (trapped ions, superconducting qubits), testing whether the
+    quantum KAM-to-ergodic transition has the same universality class as the classical
+    KAM threshold — a direct experimental test of the analogy.
+  - >
+    Statistical mechanics of black holes: Hawking radiation ergodically samples the
+    Hilbert space of a black hole (Page curve); the KAM/MBL connection suggests that
+    near-extremal black holes (near-integrable) may exhibit slow thermalisation,
+    testable through SYK model simulations at small coupling.
+communication_gap: >
+  Ergodic theory developed as pure mathematics in measure theory (Birkhoff, von Neumann,
+  Halmos), while statistical mechanics developed as physics (Boltzmann, Gibbs, Maxwell).
+  The formal connection via Birkhoff's theorem was understood by mathematicians but
+  rarely taught in physics graduate programs. KAM theory was equally siloed in
+  mathematical dynamics and solar system mechanics. The connection to quantum thermalisation
+  and MBL was not appreciated until the 2010s — even though physicists had known about
+  FPUT (1955) and the classical integrability barrier for decades. The fields of
+  ergodic theory, Hamiltonian mechanics, and condensed matter quantum physics rarely
+  cite each other's foundational literature.
+last_reviewed: "2026-05-06"
+references:
+  - note: "Birkhoff (1931) Proc Natl Acad Sci 17:656 — pointwise ergodic theorem"
+    doi: "10.1073/pnas.17.12.656"
+  - note: "Kolmogorov (1954) Dokl Akad Nauk 98:527 — KAM theorem original paper"
+  - note: "Ott (2002) Chaos in Dynamical Systems, 2nd ed. Cambridge University Press"
+  - doi: "10.1103/RevModPhys.83.863"
+    note: "Polkovnikov et al. (2011) Rev Mod Phys 83:863 — thermalisation in isolated quantum systems, ETH review"

@@ -1,0 +1,100 @@
+id: b-knot-theory-dna-topology
+title: >
+  Knot invariants (Alexander, Jones, HOMFLY polynomials) characterize DNA knot and
+  catenane types arising during replication and viral packaging, with topoisomerase
+  II inhibitor chemotherapy agents exploiting the essential unknotting reaction —
+  bridging abstract knot theory with molecular biology and pharmacology.
+status: established
+fields:
+  - mathematics
+  - chemistry
+  - molecular-biology
+  - biochemistry
+  - topology
+bridge_claim: >
+  DNA is a physical implementation of knot theory. Circular DNA molecules (plasmids,
+  viral genomes, mitochondrial DNA) are closed loops that can be knotted or linked
+  (catenated). The topological state is biologically critical: knotted DNA cannot
+  be replicated or transcribed, and catenated daughter chromosomes cannot segregate
+  after replication. Topoisomerases are the biological machines that change DNA
+  topology by passing strands through each other.
+
+  Knot invariants distinguish topological states: Alexander polynomial Δ(t) classifies
+  prime knots up to 8 crossings but fails for some knot pairs (e.g., granny knot vs.
+  square knot — same Alexander polynomial). Jones polynomial V(t) (Jones 1985,
+  discovered via von Neumann algebras) distinguishes more knots and detects chirality
+  (V(t) ≠ V(1/t) for chiral knots). HOMFLY polynomial P(l,m) subsumes both. These
+  invariants are computable from the knot diagram via skein relations — a recursive
+  structure that biologists can apply to gel electrophoresis data.
+
+  Gel electrophoresis separates DNA knots by crossing number: knots with more
+  crossings are more compact and migrate faster. Dean et al. (1985) showed that
+  the electrophoretic bands of bacteriophage P4 DNA correspond to torus knots T(2,n)
+  — the knot type created by the packing geometry of DNA inside the capsid.
+  Calibrating bands against synthetic knot standards (made by site-specific
+  recombination) enables knot identification in biological samples.
+
+  Topoisomerase II inhibitors (doxorubicin/adriamycin, etoposide, novobiocin) trap
+  the enzyme in the covalent cleavage complex — a state where the enzyme has cut
+  both DNA strands and is covalently attached to the 5' ends. This prevents strand
+  religation, causing persistent DSBs (double-strand breaks) proportional to
+  transcriptional activity (most active genes = most topo II = most damage), selectively
+  killing rapidly dividing tumor cells. The writhe formula Wr = (1/4π)∯(dr₁×dr₂)·
+  (r₁-r₂)/|r₁-r₂|³ is the mathematical definition underlying the biological
+  measurement of supercoiling.
+translation_table:
+  - field_a_term: knot K in S³ (mathematical closed curve)
+    field_b_term: closed circular DNA molecule with knotted topology
+  - field_a_term: Alexander polynomial Δ(t) — knot invariant from Seifert matrix
+    field_b_term: electrophoretic mobility pattern of DNA knot (partial fingerprint)
+  - field_a_term: Jones polynomial V(t) — from Temperley-Lieb algebra / von Neumann algebras
+    field_b_term: complete topological fingerprint of DNA knot chirality
+  - field_a_term: skein relation (crossing change relates knot polynomials)
+    field_b_term: topoisomerase reaction (strand passage changes topology by ±1 or ±2)
+  - field_a_term: catenane (two linked but unknotted circles)
+    field_b_term: daughter chromosomes joined after replication (solved by topo II)
+  - field_a_term: torus knot T(2,n)
+    field_b_term: DNA knot created by phage capsid geometry (P4 phage packaging)
+  - field_a_term: writhe Wr (integral formula for supercoiling)
+    field_b_term: superhelical density σ (measured by intercalator titration)
+  - field_a_term: unknotting number u(K) — minimum strand passages to unknot
+    field_b_term: minimum number of topoisomerase II reactions needed for segregation
+related_unknowns:
+  - u-knot-invariants-rna-tertiary-structure-topology
+related_hypotheses:
+  - h-topo-ii-inhibitor-transcription-coupled-dna-damage-selectivity
+cross_pollination_opportunities:
+  - >
+    Mathematicians developing categorification of knot invariants (Khovanov
+    homology, knot Floer homology — finer invariants than Jones polynomial)
+    could provide more powerful tools for distinguishing DNA knot types that
+    Jones polynomial cannot separate. Biologists measuring DNA topology in vivo
+    (topological domains in chromosomes) could provide new mathematical problems
+    about 3D knot configurations in confined volumes.
+  - >
+    RNA tertiary structure involves pseudoknots — topological entanglements not
+    captured by secondary structure diagrams. Knot-theoretic analysis of RNA
+    structure (Reidemeister moves on RNA graphs) could reveal topological constraints
+    on RNA folding that are invisible to current structure prediction algorithms
+    (AlphaFold2 does not model RNA topology). This requires mathematicians skilled
+    in virtual knot theory collaborating with structural biologists.
+communication_gap: >
+  Knot theory is taught in mathematics departments (topology courses) using abstract
+  algebraic machinery (skein relations, Seifert surfaces, homology) inaccessible
+  to biologists. DNA topology is taught in biochemistry using physical intuition
+  (supercoiling, topoisomerases) without formal topological language. The Jones
+  polynomial discovery (1985) emerged from von Neumann algebra theory — quantum
+  groups — entirely within abstract mathematics, but its DNA applications were
+  realized primarily by Sumners and colleagues working at the mathematical
+  biology interface. Most biochemists using gel electrophoresis to characterize
+  DNA knots are unaware of the Jones polynomial or its potential for distinguishing
+  biological knot states.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.2307/1989828"
+    note: "Alexander (1928) Trans Am Math Soc 30:275 — topological invariants of knots and links (Alexander polynomial)"
+  - doi: "10.1090/S0273-0979-1985-15361-3"
+    note: "Jones (1985) Bull Am Math Soc 12:103 — a polynomial invariant for knots via von Neumann algebras (Jones polynomial)"
+  - doi: "10.1016/S0021-9258(18)89554-0"
+    note: "Dean et al. (1985) J Biol Chem 260:4975 — duplex DNA knots produced by Escherichia coli topoisomerase I"
+  - note: "Sumners (1995) Not Am Math Soc 42:528 — lifting the curtain: using topology to probe the hidden action of enzymes"

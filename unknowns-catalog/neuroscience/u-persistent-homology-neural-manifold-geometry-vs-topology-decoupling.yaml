@@ -1,0 +1,60 @@
+id: u-persistent-homology-neural-manifold-geometry-vs-topology-decoupling
+title: >
+  Can persistent homology reliably distinguish the topology of neural population
+  manifolds from their geometry — specifically, can it detect a change in
+  manifold topology (e.g. torus → sphere during learning) independently of
+  changes in manifold curvature, dimensionality, or firing field shape?
+status: open
+priority: medium
+disciplines:
+  - computational-neuroscience
+  - algebraic-topology
+  - mathematics
+  - systems-neuroscience
+summary: >
+  The neural manifold hypothesis proposes that neural population activity
+  evolves on low-dimensional manifolds whose topology reflects the coded
+  variable (circle for head direction, torus for grid cells, etc.). Persistent
+  homology can detect β₁ > 0 (loops) in population activity data without
+  requiring explicit manifold fitting.
+
+  However, persistent homology has known limitations when applied to real
+  neural data: (1) noise and finite sampling degrade topological signals;
+  (2) non-uniform firing rates (irregular sampling of the manifold) distort
+  the filtration; (3) geometry and topology are confounded — a highly curved
+  but simply-connected manifold may produce spurious β₁ features.
+
+  The fundamental question: when persistent homology detects a change in
+  topological features (e.g. β₁ increases after learning), does this reflect
+  a genuine change in the manifold topology (acquired a new loop), or a change
+  in manifold geometry (changed curvature creating a spurious topological signal)?
+  Decoupling these requires either: (a) a normalization of the filtration by
+  estimated manifold curvature, or (b) complementary geometric analysis (geodesic
+  distance, principal curvatures) alongside topological analysis.
+
+  Grid cells in MEC have been shown to have toroidal topology (β₁ = β₂ = 1
+  for the torus, Tocker et al. 2023) — but whether this reflects the topology
+  of the animal's environmental representation or an intrinsic attractor
+  network topology independent of environment is not established.
+systematic_gaps:
+  - The null distribution for persistent homology applied to neural data with
+    realistic noise and non-uniform sampling has not been systematically computed,
+    making statistical significance testing unreliable.
+  - Methods to correct for non-uniform manifold sampling (variable firing rates,
+    place field overlap) in the topological filtration have not been developed.
+  - The relationship between persistent homology and diffusion maps / UMAP
+    dimensionality reduction (commonly used in neuroscience) has not been
+    formally characterised — can UMAP topological distortions create false β₁?
+  - Changes in manifold topology during learning (structural plasticity changing
+    connectivity) vs. remapping (same manifold, different coordinate assignment)
+    have not been distinguished using TDA.
+suggested_hypotheses:
+  - h-hippocampal-place-cell-population-topology-reflects-navigated-space-topology
+related_bridges:
+  - b-persistent-homology-neural-topology
+references:
+  - doi: "10.1073/pnas.1506407112"
+    note: Giusti et al. (2015) PNAS 112:13455 — β₁ in hippocampal place cells
+  - doi: "10.1090/S0273-0979-09-01249-X"
+    note: Carlsson (2009) Bull Am Math Soc 46:255 — TDA foundations
+last_reviewed: "2026-05-06"

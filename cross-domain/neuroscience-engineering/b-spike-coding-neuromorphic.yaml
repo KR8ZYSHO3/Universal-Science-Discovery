@@ -1,0 +1,84 @@
+id: b-spike-coding-neuromorphic
+title: >
+  Biological neurons communicate via discrete action potentials (spikes) at
+  ~10 fJ/spike; neuromorphic chips (Intel Loihi, IBM TrueNorth) implement spiking
+  neural networks in silicon at 3–4 orders of magnitude lower energy than GPU
+  inference, bridging computational neuroscience to ultra-low-power AI hardware.
+status: proposed
+fields:
+  - computational-neuroscience
+  - electrical-engineering
+  - neuromorphic-computing
+  - machine-learning
+bridge_claim: >
+  Biological neural computation uses action potentials (spikes): discrete, all-or-nothing
+  pulses of ~100 mV amplitude and ~1 ms duration. Neurons transmit information via:
+
+  1. RATE CODING: firing rate r(t) encodes stimulus intensity (Adrian 1926).
+     Information = ∫ r log r dt — the rate-coded Fisher information.
+  2. TEMPORAL CODING: precise spike timing carries information beyond rate.
+     The temporal coding capacity can reach C = log₂(1/Δt) bits/spike for
+     timing precision Δt; theoretical limit ~3 bits/spike at Δt ≈ 1 ms.
+
+  NEUROMORPHIC IMPLEMENTATION:
+  - Intel Loihi (2018) -- 128 neuromorphic cores, 131,072 spiking neurons,
+    130 million synapses, 15 pJ/synaptic operation (vs. ~nJ in GPUs).
+  - IBM TrueNorth (2014) -- 4096 cores, 1 million neurons, 256 million synapses,
+    70 mW at 46 billion synaptic operations per second.
+  - Energy comparison -- biological synapse ~10 fJ; neuromorphic chip ~1–100 pJ;
+    GPU/CPU inference ~1–10 nJ per MAC operation.
+
+  LEARNING RULES:
+  - Spike-timing-dependent plasticity (STDP) -- Δw = A⁺ exp(-Δt/τ⁺) if pre before post;
+    Δw = -A⁻ exp(Δt/τ⁻) if post before pre. This Hebbian rule is implemented in
+    neuromorphic hardware as an on-chip learning rule, enabling edge AI learning.
+
+  ENGINEERING IMPACT:
+  - Sparse, event-driven computation -- neuromorphic chips consume power only when
+    spikes are generated — ideal for always-on sensing (keyword spotting, gesture
+    recognition) at <1 mW.
+  - The brain's ~86 billion neurons consuming ~20 W is the engineering target:
+    equivalent to ~250 fJ/operation if matched by silicon.
+translation_table:
+  - field_a_term: action potential (spike)
+    field_b_term: digital event in neuromorphic hardware
+    note: Both are discrete, stereotyped events; information is in timing/rate, not amplitude
+  - field_a_term: firing rate r(t) [Hz]
+    field_b_term: spike count per time window in hardware
+    note: Rate coding maps to a simple histogram; temporal coding maps to precise timestamp registers
+  - field_a_term: synaptic weight w_ij
+    field_b_term: configurable crossbar weight in neuromorphic SRAM
+    note: Biological synapse strength ↔ hardware weight register; STDP updates both
+  - field_a_term: STDP learning rule
+    field_b_term: on-chip local learning in Loihi/TrueNorth
+    note: STDP is local (uses only pre- and post-synaptic spike times), making it hardware-implementable
+  - field_a_term: neural population code
+    field_b_term: spike pattern across neuromorphic core array
+    note: Population coding spreads information across many neurons; maps to parallel core arrays
+related_unknowns:
+  - u-neural-spike-coding-rate-vs-temporal
+related_hypotheses:
+  - h-neuromorphic-chips-edge-ai-energy-advantage
+cross_pollination_opportunities:
+  - Apply information-theoretic spike coding analysis to optimize data compression in neuromorphic sensor networks
+  - Use homeostatic plasticity (biology) to solve the catastrophic forgetting problem in neuromorphic online learning
+  - Bridge dendritic computation (non-linear integration in neuroscience) to multi-layer neuromorphic architectures
+  - Apply axon myelination (biology) — which increases conduction speed to 70 m/s — to inspire fast interconnect design in neuromorphic chips
+communication_gap: >
+  Computational neuroscientists who study spike coding rarely have the hardware
+  design background to implement their models in silicon; chip designers rarely
+  read neuroscience literature. Intel's Loihi team and IBM's TrueNorth team did
+  bridge this gap, but most neuroscience spike coding research is never translated
+  to hardware. Conversely, neuromorphic engineers often use simplified spiking
+  neuron models that omit the dendritic, multi-compartment dynamics that are central
+  to biological neural computation.
+last_reviewed: "2026-05-06"
+references:
+  - doi: 10.1038/354515a0
+    note: "Mahowald, M. & Douglas, R. (1991). A silicon neuron. Nature 354:515–518. — first neuromorphic silicon neuron"
+  - doi: 10.1126/science.1254642
+    note: "Merolla, P.A. et al. (2014). A million spiking-neuron integrated circuit with a scalable communication network. Science 345:668–673. (IBM TrueNorth)"
+  - doi: 10.1109/MM.2018.112130359
+    note: "Davies, M. et al. (2018). Loihi: A neuromorphic manycore processor with on-chip learning. IEEE Micro 38:82–99."
+  - doi: 10.3389/fnins.2018.00774
+    note: "Pfeiffer, M. & Pfeil, T. (2018). Deep learning with spiking neurons: Opportunities and challenges. Front. Neurosci. 12:774."

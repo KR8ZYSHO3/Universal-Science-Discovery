@@ -1,0 +1,58 @@
+id: h-autoimmune-pi-gain-deficiency
+title: >
+  Autoimmune diseases characterized by Treg deficiency (type 1 diabetes, multiple
+  sclerosis) will show a quantifiably lower PI controller integral gain K_i in
+  longitudinal IL-2/Treg blood data, detectable before clinical onset and predictive
+  of disease severity.
+status: active
+created: "2026-05-06"
+last_updated: "2026-05-06"
+priority: medium
+related_disciplines:
+  - immunology
+  - control-theory
+  - systems-biology
+  - clinical-medicine
+unknowns_addressed:
+  - u-immune-treg-pi-control-quantitative
+evidence_links:
+  - type: supporting
+    doi: "10.1371/journal.pcbi.1003122"
+    note: Khailaie et al. (2013) — PI controller model predicts lower K_i in Treg-deficient autoimmunity
+  - type: supporting
+    doi: "10.1186/1752-0509-4-2"
+    note: Busse et al. (2010) — ODE model of IL-2/Treg dynamics predicts oscillatory behavior near stability margin
+  - type: related
+    note: >
+      Jeffrey et al. (2012) J Autoimmun — Treg numbers are reduced in type 1 diabetes
+      patients at diagnosis, consistent with reduced K_i but not yet quantified in
+      control-theoretic terms.
+  - type: contradicting
+    note: >
+      The PI controller model assumes linear dynamics around a stable fixed point.
+      Autoimmune diseases may involve bistability (two stable immune states: tolerant
+      and activated), in which case the PI framework breaks down and a bifurcation
+      theory approach is needed instead.
+proposed_tests:
+  - discipline: immunology
+    description: >
+      Longitudinal cohort study: collect blood samples at monthly intervals from
+      at-risk individuals (HLA-matched first-degree relatives of T1D patients).
+      Measure IL-2 concentration and Treg count (CD4+CD25+FoxP3+ by flow cytometry)
+      at each timepoint. Fit the PI controller ODE model to each subject's IL-2/Treg
+      trajectory. Extract K_i for each subject. Test whether K_i values in pre-disease
+      individuals who later develop T1D are significantly lower than controls.
+  - discipline: systems-biology
+    description: >
+      Perform IL-2 perturbation experiments in humanized mouse models: inject a bolus
+      of exogenous IL-2 and measure the Treg expansion response over 2 weeks. Fit
+      the integral response curve to extract K_i. Compare K_i between wild-type mice,
+      NOD mice (T1D model), and EAE mice (MS model). Test whether disease-prone mice
+      have lower K_i as predicted.
+  - discipline: clinical-medicine
+    description: >
+      Analyze existing longitudinal cytokine datasets from TrialNet (T1D prevention
+      trial with >100,000 at-risk subjects). Extract IL-2 and Treg count trajectories.
+      Fit PI controller model parameters to each subject. Test whether K_i at enrollment
+      predicts time to T1D onset (survival analysis). If K_i is predictive, it could
+      serve as a mechanistic biomarker for intervention trials targeting Treg expansion.

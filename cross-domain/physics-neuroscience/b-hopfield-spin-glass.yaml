@@ -1,0 +1,88 @@
+id: b-hopfield-spin-glass
+title: >
+  Hopfield networks store memories as energy minima of E = -½Σ Wᵢⱼsᵢsⱼ —
+  formally identical to the Ising spin glass Hamiltonian — and their storage
+  capacity ~0.14N and catastrophic forgetting transition are calculated exactly
+  by Parisi's replica method from spin glass theory.
+status: established
+fields:
+  - physics
+  - condensed-matter-physics
+  - computational-neuroscience
+  - machine-learning
+  - statistical-mechanics
+bridge_claim: >
+  The Hopfield network (1982) defines an energy function for a network of N binary
+  neurons sᵢ ∈ {-1, +1} with symmetric weights Wᵢⱼ:
+
+    E = -½ Σᵢ≠ⱼ Wᵢⱼ sᵢ sⱼ
+
+  This is formally identical to the Ising spin glass Hamiltonian used in condensed
+  matter physics, where sᵢ are spin variables and Wᵢⱼ are random exchange couplings.
+
+  HEBB RULE STORAGE: To store p patterns ξ^μ ∈ {-1,+1}^N, set:
+    Wᵢⱼ = (1/N) Σ_μ ξᵢ^μ ξⱼ^μ (Hebbian learning)
+
+  STATISTICAL MECHANICS ANALYSIS:
+  - Free energy F = -kT ln Z, where Z = Σ_{s} exp(-E/kT), maps exactly to the spin
+    glass partition function.
+  - Parisi's replica method (1979) — the exact solution to the Edwards-Anderson
+    spin glass — gives the storage capacity:
+    α_c = p/N = 0.138 (exact), i.e., ~0.14N patterns before catastrophic forgetting.
+  - The phase transition from "working memory" to "spin glass" (disordered)
+    phase is exactly a spin glass phase transition; the order parameter is the
+    Parisi replica symmetry breaking (RSB) parameter.
+
+  MODERN EXTENSION:
+  Dense Hopfield networks (Krotov & Hopfield 2016; Ramsauer et al. 2020) with
+  polynomial / exponential interaction functions have exponential storage capacity
+  (2^(N/2) patterns) and are equivalent to the attention mechanism in transformers.
+
+  This bridge unifies:
+  - Neural memory (neuroscience) ↔ disordered magnets (physics)
+  - Associative memory capacity ↔ spin glass solution
+  - Catastrophic forgetting transition ↔ replica symmetry breaking
+  - Transformer attention ↔ dense Hopfield network retrieval
+translation_table:
+  - field_a_term: spin variable sᵢ ∈ {-1, +1}
+    field_b_term: binary neuron state (inactive / active)
+    note: Ising spins and McCulloch-Pitts neurons have identical mathematical representations
+  - field_a_term: exchange coupling Jᵢⱼ (random, quenched)
+    field_b_term: synaptic weight Wᵢⱼ (set by Hebbian learning)
+    note: In spin glasses Jᵢⱼ is random; in Hopfield networks Wᵢⱼ is structured but mathematically equivalent
+  - field_a_term: replica symmetry breaking (RSB, Parisi order parameter)
+    field_b_term: catastrophic forgetting transition at α > 0.14
+    note: RSB marks the transition from retrieval phase to spin-glass (confused) phase in the Hopfield model
+  - field_a_term: free energy landscape F({m^μ})
+    field_b_term: basin of attraction structure in associative memory
+    note: Memory retrieval = finding a local minimum of the free energy; memories are metastable states
+  - field_a_term: temperature T (thermal noise)
+    field_b_term: neural noise / stochastic firing
+    note: Both parametrise the width of the Boltzmann distribution over configurations
+related_unknowns:
+  - u-hopfield-modern-attention-biological-plausibility
+related_hypotheses:
+  - h-dense-hopfield-transformer-attention-unified
+cross_pollination_opportunities:
+  - Apply replica method to compute the storage capacity of modern deep neural networks with structured weights
+  - Use spin glass phase diagram (T vs α) to understand the temperature-dependent memory retrieval in hippocampal networks
+  - Bridge RSB theory to catastrophic forgetting in continual learning — spin glass physics predicts the forgetting transition
+  - Investigate whether cortical slow-wave sleep (memory consolidation) corresponds to annealing the spin glass from high to low T
+communication_gap: >
+  Hopfield's 1982 paper was primarily read by neuroscientists and computer scientists;
+  the spin glass physics connection became explicit only after Amit, Gutfreund & Sompolinsky
+  (1985) applied the replica method. Statistical mechanics of neural networks became a
+  distinct subfield (published in Physical Review), largely disconnected from both
+  experimental neuroscience and modern machine learning until the 2020 dense Hopfield /
+  transformer connection revived the bridge.
+last_reviewed: "2026-05-06"
+references:
+  - doi: 10.1073/pnas.79.8.2554
+    note: "Hopfield, J.J. (1982). Neural networks and physical systems with emergent collective computational abilities. PNAS 79:2554–2558."
+  - doi: 10.1103/PhysRevA.32.1007
+    note: "Amit, D.J., Gutfreund, H. & Sompolinsky, H. (1985). Spin-glass models of neural networks. Phys. Rev. A 32:1007."
+  - doi: 10.1103/PhysRevLett.43.1754
+    note: "Parisi, G. (1979). Infinite number of order parameters for spin-glasses. Phys. Rev. Lett. 43:1754."
+  - note: Mezard, M., Parisi, G. & Virasoro, M.A. (1987). Spin Glass Theory and Beyond. World Scientific. -- Comprehensive treatment of spin glass physics and its neural network applications
+  - doi: 10.48550/arXiv.2008.02217
+    note: "Ramsauer, H. et al. (2020). Hopfield Networks is All You Need. ICLR 2021. — dense Hopfield ↔ transformer attention"

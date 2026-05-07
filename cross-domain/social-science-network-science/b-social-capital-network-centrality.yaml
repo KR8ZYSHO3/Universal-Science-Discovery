@@ -1,0 +1,87 @@
+id: b-social-capital-network-centrality
+title: >
+  Bourdieu's social capital — resources available through social networks — maps
+  precisely onto network centrality measures: betweenness centrality captures
+  brokerage capital (Burt's structural holes), eigenvector centrality captures
+  prestige capital, and the Gini coefficient of the degree distribution measures
+  inequality in social capital access.
+status: established
+fields:
+  - sociology
+  - network-science
+  - social-science
+  - graph-theory
+  - economics
+bridge_claim: >
+  Bourdieu (1986) defined social capital as "the aggregate of the actual or
+  potential resources which are linked to possession of a durable network of
+  more or less institutionalized relationships of mutual acquaintance and
+  recognition." Network science provides precise mathematical operationalisations:
+
+  1. BETWEENNESS CENTRALITY (Freeman 1977):
+     BC(v) = Σ_{s≠v≠t} σ(s,t|v)/σ(s,t)
+     where σ(s,t) = number of shortest paths between s and t, σ(s,t|v) = those
+     through v. HIGH BC = "structural hole" position (Burt 1992): v is a broker
+     between otherwise disconnected groups → brokerage capital.
+
+  2. EIGENVECTOR CENTRALITY:
+     EC(v) = (1/λ) Σ_{u∈N(v)} EC(u)
+     i.e., eigenvector of the adjacency matrix for eigenvalue λ₁. High EC =
+     connected to high-EC neighbors = prestige capital (being connected to
+     well-connected others). PageRank is a damped version of eigenvector centrality.
+
+  3. CLUSTERING COEFFICIENT:
+     C(v) = (triangles through v) / (possible triangles through v)
+     High clustering = tight-knit communities → bonding capital (Coleman 1988).
+
+  4. DEGREE DISTRIBUTION INEQUALITY:
+     For a social network with degree sequence {kᵢ}, the Gini coefficient of {kᵢ}
+     measures structural inequality in social capital access. Power-law degree
+     distributions (Barabási-Albert scale-free networks) produce high Gini
+     coefficients, corresponding to extreme social capital inequality.
+
+  5. STRUCTURAL HOLES (Burt 1992):
+     Constraint index C(v) = Σⱼ (pᵢⱼ + Σ_q pᵢq pqⱼ)² where p = proportion of
+     investments. Low constraint = many structural holes = high brokerage capital.
+translation_table:
+  - field_a_term: social capital (Bourdieu)
+    field_b_term: network centrality measures (betweenness, eigenvector, clustering)
+    note: Different types of social capital correspond to different centrality measures
+  - field_a_term: brokerage capital / structural holes (Burt)
+    field_b_term: betweenness centrality / low constraint index
+    note: A broker between disconnected groups has high betweenness and low constraint
+  - field_a_term: prestige capital
+    field_b_term: eigenvector centrality / PageRank
+    note: Prestige comes from being connected to prestigious others — the defining property of eigenvector centrality
+  - field_a_term: bonding capital (Coleman — tight-knit communities)
+    field_b_term: clustering coefficient / network modularity
+    note: High clustering coefficient = many triangles = dense local community = bonding capital
+  - field_a_term: social stratification / inequality
+    field_b_term: Gini coefficient of degree distribution
+    note: Scale-free networks have highly unequal degree distributions mirroring social capital inequality
+related_unknowns:
+  - u-social-capital-causal-vs-correlational
+related_hypotheses:
+  - h-structural-holes-income-mobility-mediation
+cross_pollination_opportunities:
+  - Apply network centrality measures to longitudinal social mobility data to test whether betweenness centrality predicts career outcomes
+  - Use temporal network analysis (edge appearance/disappearance) to model social capital accumulation and loss over life course
+  - Bridge social network analysis to economic mobility models (test whether eigenvector centrality predicts intergenerational income transfer)
+  - Apply community detection algorithms (Louvain, spectral clustering) to identify Bourdieu's social "fields" as network modules
+communication_gap: >
+  Sociologists who use Bourdieu's social capital framework rarely quantify networks
+  mathematically; network scientists rarely engage with sociological theory.
+  Surveys measuring social capital (e.g., General Social Survey name-generators)
+  produce data that could be analysed with full network centrality tools but
+  are typically summarised only as degree counts. The full connection between
+  sociology's theoretical concepts and network science's mathematical toolkit
+  was made explicit by Burt (1992) but remains incompletely integrated in
+  either discipline's training.
+last_reviewed: "2026-05-06"
+references:
+  - note: "Bourdieu (1986) The forms of capital. In Handbook of Theory and Research for the Sociology of Education. Greenwood Press. -- social capital theory"
+  - note: "Burt (1992) Structural Holes. Harvard University Press. -- structural holes and brokerage capital"
+  - doi: 10.2307/3033543
+    note: "Freeman, L.C. (1977). A set of measures of centrality based on betweenness. Sociometry 40:35–41."
+  - doi: 10.1038/30918
+    note: "Watts, D.J. & Strogatz, S.H. (1998). Collective dynamics of 'small-world' networks. Nature 393:440–442."

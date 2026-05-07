@@ -1,0 +1,86 @@
+id: b-bioacoustics-sound-production
+title: >
+  Animal sound production and hearing are direct applications of acoustic physics —
+  the Helmholtz resonator equation governs birdsong and vocal tract resonance, bat
+  echolocation achieves near-physical-limit range resolution, and barn owl sound
+  localization exploits interaural time differences with microsecond precision.
+status: established
+fields:
+  - physics
+  - biology
+  - neuroscience
+  - sensory-biology
+bridge_claim: >
+  Sound production in animals implements physical acoustic principles. Crickets
+  stridulate by scraping a plectrum across file teeth — the resonant frequency is
+  determined by file tooth spacing and wing membrane compliance, acting as a driven
+  resonator. Frogs use vocal sac resonance to amplify calls; whales produce sound
+  via laryngeal membranes coupled to complex nasal resonant chambers.
+
+  The Helmholtz resonator equation f₀ = (c/2pi) * sqrt(A / (V*L)) where A is neck
+  cross-sectional area, V is cavity volume, and L is effective neck length governs
+  both engineering resonators and biological vocal structures. Bird syrinx resonance
+  and human vocal tract formants are Helmholtz resonators tuned by muscular adjustment.
+
+  Bat echolocation: frequency-modulated (FM) sweeps from 25-100 kHz provide range
+  resolution delta_R = c / (2B) where B is bandwidth (c = 340 m/s, B ≈ 75 kHz gives
+  delta_R ≈ 2.3 mm). Constant-frequency (CF) bats (horseshoe bats, Rhinolophus) adjust
+  their emitted frequency to compensate for Doppler shift from their own flight speed,
+  keeping the echo within the "acoustic fovea" (sharply tuned basilar membrane region)
+  — Doppler compensation with precision ~0.1 Hz.
+
+  Sound localization: the auditory brainstem computes interaural time difference (ITD)
+  and interaural level difference (ILD) to locate sound sources. The barn owl (Tyto alba)
+  achieves ITD resolution of ~1-2 microseconds — near the theoretical limit set by
+  neural spike timing jitter. The nucleus laminaris (avian homolog of the medial
+  superior olive) implements a delay-line coincidence detector exactly as proposed by
+  Jeffress (1948) — a physical model (delay line + coincidence detector) realized in
+  neural hardware.
+
+  Green's function for sound propagation in the ocean: whale song propagates thousands
+  of kilometers via the SOFAR channel (sound-fixing and ranging — minimum sound velocity
+  at ~1000m depth), which acts as an acoustic waveguide. Blue whale B calls at 15-40 Hz
+  can be detected at basin scales.
+translation_table:
+  - field_a_term: Helmholtz resonator f₀ = (c/2pi) sqrt(A/VL)
+    field_b_term: vocal tract formant frequencies — F1, F2 shaped by tongue and lip position
+    note: Human vowel production is Helmholtz resonator theory applied to a time-varying cavity
+  - field_a_term: radar range resolution delta_R = c / (2B)
+    field_b_term: bat echolocation range resolution delta_R ≈ 2-3 mm
+    note: Bats achieve near-physical-limit range discrimination through wide-bandwidth FM sweeps
+  - field_a_term: Doppler shift f_echo = f_emit * (c + v_target) / (c - v_bat)
+    field_b_term: horseshoe bat Doppler compensation — adjusts call frequency to null own velocity
+    note: CF bats maintain echo frequency in acoustic fovea; measured to 0.1 Hz precision
+  - field_a_term: interaural time difference (ITD) — binaural cue
+    field_b_term: barn owl 1-2 microsecond ITD resolution — near spike-timing limit
+    note: Jeffress model delay-line coincidence detector implemented in nucleus laminaris
+  - field_a_term: SOFAR channel (ocean acoustic waveguide)
+    field_b_term: whale long-range communication — basin-scale song propagation
+    note: Sound velocity minimum at ~1000m depth creates a waveguide confining low-frequency sound
+related_unknowns:
+  - u-whale-song-information-content-localization
+related_hypotheses:
+  - h-bat-echolocation-neural-matched-filter-implementation
+cross_pollination_opportunities:
+  - >
+    Bioinspired sonar: bat echolocation algorithms (FM sweep + autocorrelation processing,
+    CF Doppler compensation) could improve autonomous vehicle radar/lidar by incorporating
+    active Doppler compensation and acoustic fovea-like selective frequency attention.
+  - >
+    Passive acoustic monitoring: automated bat call classification using ML trained on
+    species-specific FM sweep signatures could replace expensive manual survey effort
+    — directly applying echolocation physics to biodiversity monitoring.
+communication_gap: >
+  Bioacoustics spans physics (acoustics, signal processing), biology (animal behavior,
+  neuroscience), and engineering (sonar design). Acoustical Society of America publishes
+  across all three areas but researchers from each discipline primarily attend their
+  own conferences. Bat echolocation researchers (Animal Behaviour, J Exp Biol) and
+  radar/sonar engineers (IEEE) overlap far less than the physics would suggest.
+last_reviewed: "2026-05-06"
+references:
+  - note: "Greenewalt (1968) Bird Song: Acoustics and Physiology. Smithsonian Institution Press"
+  - doi: "10.1126/science.441058"
+    note: "Simmons (1979) Science 204:1336 — bat echolocation target ranging"
+  - doi: "10.1126/science.644324"
+    note: "Knudsen & Konishi (1978) Science 200:795 — barn owl sound localization"
+  - note: "Au (1993) The Sonar of Dolphins. Springer"

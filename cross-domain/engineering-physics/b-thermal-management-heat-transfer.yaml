@@ -1,0 +1,73 @@
+id: b-thermal-management-heat-transfer
+title: >
+  Thermal management engineering deploys Fourier conduction, Newton convection, and
+  Stefan-Boltzmann radiation — the three modes of heat transfer physics — augmented by
+  heat pipes and phase-change materials to solve the semiconductor power density crisis.
+status: established
+fields:
+  - thermal-engineering
+  - thermodynamics
+  - materials-science
+  - semiconductor-physics
+  - energy-systems
+bridge_claim: >
+  Three fundamental physics laws govern all thermal management: (1) Fourier conduction
+  Q = -kA∇T (k = thermal conductivity, W/m·K — copper 385, diamond 2200, air 0.026);
+  (2) Newton convection Q = hA(T_s - T_∞) where h is the heat transfer coefficient
+  (natural convection 2–25, forced liquid 100–20,000 W/m²K); (3) Stefan-Boltzmann
+  radiation Q = εσA(T⁴ - T_surr⁴). Engineering thermal management translates these
+  into the thermal resistance chain R_th = ΔT/Q: laptop CPUs dissipate 15–45 W across
+  R_die (~0.3 K/W) + R_TIM (thermal interface material, ~0.5 K/W) + R_heatspreader +
+  R_heatsink → must keep T_junction < 100°C. Fin analysis extends surface area:
+  efficiency η_f = tanh(mL)/mL where m = √(hP/kA_c) — an eigenvalue problem from
+  the heat equation. Heat pipes are a physics-engineering triumph: liquid-vapor phase
+  change with capillary wicking achieves effective conductivities 10,000× copper, enabling
+  passive heat spreading without pumps. Phase-change materials (PCMs) store latent heat
+  at fixed temperature (paraffin at 37°C for personal cooling, salt hydrates at 58°C for
+  building thermal storage) — a thermodynamics concept applied at civilisational scale for
+  energy buffering.
+translation_table:
+  - field_a_term: thermal conductivity k (Fourier)
+    field_b_term: thermal resistance R_th = L/(kA) per layer in chip package
+    note: Engineers sum resistances in series/parallel; physics gives the k value for each material
+  - field_a_term: Nusselt number Nu = hL/k (dimensionless convection)
+    field_b_term: heat transfer coefficient h for convective cooling specification
+    note: Nu from fluid mechanics correlations (Dittus-Boelter, Churchill-Bernstein) gives engineering h
+  - field_a_term: phase transition latent heat ΔH_fus
+    field_b_term: thermal energy storage capacity of PCM (J/g)
+    note: PCMs store 5–14× more energy per mass than sensible heat at the same ΔT
+  - field_a_term: capillary pressure Δp_cap = 2σcosθ/r (Young-Laplace)
+    field_b_term: maximum heat pipe wick pumping pressure — sets heat transport limit
+    note: Physics of capillarity determines the heat pipe performance envelope
+  - field_a_term: Fin efficiency η_f = tanh(mL)/mL
+    field_b_term: real vs. ideal fin heat dissipation — design parameter for heatsinks
+    note: Eigenfunction of the 1D heat equation in a fin; engineering design charts approximate it
+related_unknowns:
+  - u-heat-pipe-limit-miniaturization
+related_hypotheses:
+  - h-pcm-microencapsulation-enables-chiplet-thermal-buffering
+cross_pollination_opportunities:
+  - Apply phonon engineering (phononic crystals, nanoscale thermal boundary resistance)
+    to design thermal interface materials with direction-selective conductivity —
+    connecting condensed matter physics to electronics packaging
+  - Use topology optimization (from structural engineering) on heatsink geometry to
+    find non-intuitive fin patterns that maximise heat transfer for constrained volume —
+    connecting computational mechanics to thermal engineering
+  - Design phase-change thermal buffers for grid-scale energy storage using thermodynamic
+    databases of salt hydrate PCMs — connecting materials thermodynamics to energy policy
+communication_gap: >
+  Physics courses teach Fourier's law and Stefan-Boltzmann as fundamental principles;
+  mechanical engineering courses teach them as design tools. The connection is acknowledged
+  but the two communities publish in Physical Review B (phonon transport) and ASME
+  Journal of Heat Transfer (engineering correlations) with limited cross-citation.
+  Data center thermal engineering (a $10B/year problem) increasingly requires physics
+  expertise in phonon transport, two-phase flow, and materials science that engineering
+  curricula do not cover adequately.
+last_reviewed: "2026-05-06"
+references:
+  - note: "Incropera et al. (2007) Fundamentals of Heat and Mass Transfer, 6th ed., Wiley"
+  - note: "Faghri (1995) Heat Pipe Science and Technology, Taylor & Francis"
+  - doi: "10.1115/1.1616917"
+    note: "Bar-Cohen et al. (2003) — Direct liquid cooling of high flux micro and nano electronic components, ASME J Electron Packag 125:229"
+  - doi: "10.1016/j.rser.2009.01.003"
+    note: "Sharma et al. (2009) — Review on thermal energy storage with phase change materials, Renew Sustain Energy Rev 13:2438"

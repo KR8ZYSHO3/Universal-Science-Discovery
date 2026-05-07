@@ -1,0 +1,47 @@
+id: h-ntk-deep-learning-kernel-regression
+title: >
+  In the NTK (lazy training) regime, the generalization performance of deep neural
+  networks is fully determined by the eigenspectrum of the Neural Tangent Kernel
+  matrix K_∞ on the training set, and networks exceeding the NTK regime gain
+  additional generalization through feature learning that cannot be captured by
+  any fixed kernel — making the NTK an upper bound on what kernel methods can achieve.
+status: active
+priority: high
+impact_score: 0.82
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+evidence_links:
+  - doi: "10.48550/arXiv.1806.07572"
+    type: supporting
+    confidence: 0.90
+    note: "Jacot et al. (2018) — NTK theorem: infinite-width limit = kernel regression"
+  - doi: "10.48550/arXiv.2012.04729"
+    type: supporting
+    confidence: 0.75
+    note: "Yang & Hu (2021) — maximal update parametrization enables feature learning beyond NTK"
+  - doi: "10.48550/arXiv.1312.6120"
+    type: related
+    confidence: 0.80
+    note: "Saxe et al. (2014) — linear networks learn via sequential SVD mode acquisition"
+unknowns_addressed:
+  - u-ntk-finite-width-corrections
+proposed_tests:
+  - description: >
+      Train matched-width networks (N = 64, 256, 1024, 4096, ∞ via random features)
+      on CIFAR-10 with NTK scaling (η ~ 1/N) vs. μP scaling (η ~ 1). Compare
+      test accuracy and NTK kernel eigenspectrum across widths. Test: does NTK
+      prediction of generalization error converge as N → ∞ for NTK-scaled networks?
+    method: "GPU training, NTK eigenspectrum computation via random projections, kernel regression baseline"
+    prediction: "NTK-scaled networks converge to kernel regression performance at N=4096; μP networks exceed kernel regression at all widths"
+  - description: >
+      Measure the L2 distance ||K_t - K_0||_F between the empirical NTK at step t
+      and at initialization as a function of width N and learning rate η. Test whether
+      the NTK-to-feature-learning crossover occurs at η ~ 1/√N as predicted by
+      mean-field theory.
+    method: "Jacobian computation via autodiff, Frobenius norm tracking across training"
+    prediction: "||K_t - K_0|| = O(η√N) — NTK drift scales with η√N, crossover at η ~ 1/√N"
+related_disciplines:
+  - mathematics
+  - machine-learning
+  - functional-analysis

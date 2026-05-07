@@ -10,7 +10,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/">
   <meta property="og:title" content="Universal Science Discovery Repository — Map the Unknowns">
-  <meta property="og:description" content="A version-controlled, AI-augmented knowledge engine tracking what humanity doesn't yet know. 84+ cross-domain bridges &#9658; 518+ open unknowns &#9658; 22 disciplines &#9658; Open source.">
+  <meta property="og:description" content="A version-controlled, AI-augmented knowledge engine tracking what humanity doesn't yet know. 350+ cross-domain bridges &#9658; 689+ open unknowns &#9658; 1,700+ knowledge graph nodes &#9658; Open source.">
   <meta property="og:image" content="https://opengraph.githubassets.com/1/KR8ZYSHO3/Universal-Science-Discovery">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -19,7 +19,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Universal Science Discovery Repository">
-  <meta name="twitter:description" content="Map the unknowns. Accelerate discovery. 84+ cross-domain bridges connecting physics to biology, neuroscience to climate, mathematics to medicine.">
+  <meta name="twitter:description" content="Map the unknowns. Accelerate discovery. 350+ cross-domain bridges, 689+ open unknowns, 1,700+ node knowledge graph. All open source.">
   <meta name="twitter:image" content="https://opengraph.githubassets.com/1/KR8ZYSHO3/Universal-Science-Discovery">
 
   <!-- SEO -->
@@ -30,6 +30,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <script src="https://unpkg.com/marked@12.0.2/marked.min.js"></script>
+  <script src="https://unpkg.com/lunr/lunr.js"></script>
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <style>
     /* ── TOKENS ─────────────────────────────────────────────── */
@@ -696,6 +697,7 @@
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
     }
+    @keyframes kg-spin { to { transform: rotate(360deg); } }
     #kg-svg { width: 100%; height: 100%; display: block; }
     .kg-links line { stroke-opacity: 1; }
     #kg-legend {
@@ -954,6 +956,19 @@
       font-size: .78rem; color: var(--muted); margin-top: .5rem;
       font-family: var(--mono);
     }
+    .result-snippet {
+      font-size: .78rem; color: var(--muted); line-height: 1.45;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      max-width: 520px; margin-top: .15rem;
+    }
+    .search-result-card { flex-direction: column; align-items: flex-start; }
+    .search-result-card .result-row {
+      display: flex; align-items: center; gap: .65rem; width: 100%;
+    }
+    .search-powered {
+      font-size: .7rem; color: var(--muted); margin-top: .35rem;
+      font-family: var(--mono);
+    }
 
     /* ── DOMAIN FILTER CHIPS ────────────────────────────────── */
     .domain-chips {
@@ -1165,8 +1180,8 @@
 
       <div class="pill-row" aria-label="Highlights">
         <span class="pill live"><span class="d"></span> Phase 0 · Foundation 2026</span>
-        <span class="pill">84 cross-domain bridges</span>
-        <span class="pill">508 unknowns · 90 hypotheses · 1 pre-formal observation</span>
+        <span class="pill">400+ cross-domain bridges</span>
+        <span class="pill">814 unknowns · 681 hypotheses · 4 pre-formal observations</span>
         <span class="pill">Git-native · Open source</span>
       </div>
 
@@ -1178,6 +1193,35 @@
         fields that should be talking to each other but aren't.
       </p>
 
+      <div style="text-align:center; padding:0.75rem 2rem; background:linear-gradient(135deg,rgba(99,102,241,0.15),rgba(168,85,247,0.15)); border:1px solid rgba(168,85,247,0.3); border-radius:12px; margin:1rem auto; max-width:600px;">
+        <span style="font-size:1.1rem; font-weight:600; color:#c4b5fd;">&#x1F389; 1,000+ Knowledge Graph Nodes</span>
+        <span style="color:#94a3b8; font-size:0.9rem; margin-left:0.75rem;">Milestone reached — May 2026</span>
+      </div>
+
+      <div id="milestone-400-bridges" style="text-align:center; padding:1rem 2rem; background:linear-gradient(135deg,rgba(251,191,36,0.18),rgba(245,158,11,0.12)); border:2px solid rgba(251,191,36,0.55); border-radius:14px; margin:1rem auto; max-width:680px; box-shadow:0 0 24px rgba(251,191,36,0.18);">
+        <div style="font-size:1.55rem; font-weight:800; color:#fbbf24; letter-spacing:-0.01em;">&#x1F3C6; 400+ Cross-Domain Bridges</div>
+        <div style="color:#fde68a; font-size:0.95rem; margin-top:0.35rem; font-weight:500;">Wave 29 milestone — May 6&thinsp;2026 &nbsp;&#x00B7;&nbsp; 413 bridges &middot; 790 unknowns &middot; 657 hypotheses &middot; 1,887 graph nodes</div>
+        <div style="color:#94a3b8; font-size:0.82rem; margin-top:0.4rem;">Stochastic gene expression &middot; Scientific method epistemology &middot; Hodgkin-Huxley cable equation &middot; Thermodynamics convex duality &middot; Complexity economics &middot; Neuromuscular Hill equation &middot; TKNN Chern number &middot; Allelopathy coevolution &middot; Computational psychiatry &middot; LOB market microstructure &middot; Population vector motor cortex &middot; PKS/NRPS drug discovery</div>
+      </div>
+
+      <div style="text-align:center; padding:0.85rem 2rem; background:linear-gradient(135deg,rgba(16,185,129,0.15),rgba(5,150,105,0.12)); border:1px solid rgba(16,185,129,0.4); border-radius:12px; margin:0.75rem auto 0.75rem; max-width:640px; box-shadow:0 4px 16px -4px rgba(16,185,129,0.2);">
+        <span style="font-size:1.15rem; font-weight:700; color:#34d399;">🌉 250+ Cross-Domain Bridges</span>
+        <span style="color:#6ee7b7; font-size:0.9rem; margin-left:0.75rem;">Wave 16 · May 2026</span>
+      </div>
+
+      <div style="text-align:center; padding:1rem 2rem; background:linear-gradient(135deg,rgba(251,191,36,0.18),rgba(245,158,11,0.12)); border:2px solid rgba(251,191,36,0.55); border-radius:14px; margin:0.5rem auto 0.75rem; max-width:680px; box-shadow:0 6px 24px -6px rgba(251,191,36,0.35);">
+        <div style="font-size:1.5rem; font-weight:800; color:#fbbf24; letter-spacing:-0.5px;">🎯 300 Cross-Domain Bridges</div>
+        <div style="color:#fde68a; font-size:0.95rem; margin-top:0.3rem; font-weight:600;">THE 300-BRIDGE MILESTONE — Wave 20 · May 2026</div>
+        <div style="color:#fcd34d; font-size:0.8rem; margin-top:0.25rem; opacity:0.85;">Glymphatic fluid dynamics · Wasserstein cell fate · Biomimetic SLIP locomotion · Solid-state batteries · Network centrality · Dislocation mechanics · Behavioral economics evolution · GMT minimal surfaces · Ecosystem bifurcation · SDP MAX-CUT · SNARE pharmacology · Wavelet compression · Urban scaling · Complex systems emergence</div>
+      </div>
+
+      <div style="text-align:center; padding:1.1rem 2rem; background:linear-gradient(135deg,rgba(250,204,21,0.22),rgba(234,179,8,0.16),rgba(251,191,36,0.10)); border:2px solid rgba(250,204,21,0.70); border-radius:16px; margin:0.5rem auto 1.5rem; max-width:720px; box-shadow:0 8px 32px -8px rgba(250,204,21,0.50), 0 0 0 1px rgba(250,204,21,0.15);">
+        <div style="font-size:0.75rem; font-weight:700; letter-spacing:0.15em; color:#fde68a; text-transform:uppercase; margin-bottom:0.3rem; opacity:0.9;">✦ Wave 24 Milestone Achieved · May 2026 ✦</div>
+        <div style="font-size:1.75rem; font-weight:900; color:#fbbf24; letter-spacing:-0.5px; text-shadow:0 0 24px rgba(250,204,21,0.4);">🏆 350+ Cross-Domain Bridges</div>
+        <div style="color:#fef08a; font-size:1rem; margin-top:0.35rem; font-weight:700;">THE 350-BRIDGE MILESTONE</div>
+        <div style="color:#fde68a; font-size:0.82rem; margin-top:0.3rem; opacity:0.90; line-height:1.5;">BCS Cooper pair phonon attraction · Jackson-Wolinsky network formation · Saffman-Delbrück lipid raft phase separation · Galerkin FEM isogeometric analysis · Munk-Wunsch thermohaline turbulence · Wilson-Cowan neural field alpha/gamma waves · Pontryagin bang-bang adaptive cancer therapy · Hanson LMSR prediction markets · Verlet MD metadynamics free energy · Huh lung-on-chip FDA Act · Standard Model SU(3)×SU(2)×U(1) Higgs · Tononi-Cirelli synaptic homeostasis + glymphatic sleep</div>
+      </div>
+
       <div class="stat-deck" aria-label="Repository statistics">
         <div class="stat-card">
           <div class="n dim" id="stat-stars">—</div>
@@ -1188,23 +1232,23 @@
           <div class="lbl">Contributors</div>
         </div>
         <div class="stat-card">
-          <div class="n" id="stat-hyp">84</div>
+          <div class="n" id="stat-hyp">681</div>
           <div class="lbl">Active Hypotheses</div>
         </div>
         <div class="stat-card">
-          <div class="n" id="stat-unk">508</div>
+          <div class="n" id="stat-unk">814</div>
           <div class="lbl">Tracked Unknowns</div>
         </div>
         <div class="stat-card">
-          <div class="n" id="stat-bridges">84</div>
+          <div class="n" id="stat-bridges">434</div>
           <div class="lbl">Cross-domain Bridges</div>
         </div>
         <div class="stat-card">
-          <div class="n" id="stat-phenom">1</div>
+          <div class="n" id="stat-phenom">4</div>
           <div class="lbl">Pre-formal Observations</div>
         </div>
         <div class="stat-card">
-          <div class="n" id="stat-graph-edges">472</div>
+          <div class="n" id="stat-graph-edges">910</div>
           <div class="lbl">Knowledge Graph Edges</div>
         </div>
       </div>
@@ -1232,6 +1276,8 @@
       <a href="explainers/" class="nav-link">Explainers</a>
       <a href="#catalog-search">Search</a>
       <a href="#discovery-engines">Engines</a>
+      <a href="#pioneers">Pioneers</a>
+      <a href="#breakthrough-gaps">Breakthroughs</a>
       <a href="#ai-copilot">AI co-pilot</a>
       <a href="#developer-api">API</a>
       <a href="#knowledge-graph">Knowledge graph</a>
@@ -1284,6 +1330,184 @@
       <div class="engines-grid" id="engines-grid" aria-label="Discovery engines"></div>
     </section>
 
+    <!-- ══════════════════════════════════════════════ PIONEERS -->
+    <section id="pioneers" style="padding:4rem 2rem; background: rgba(255,255,255,0.02);">
+      <h2 style="text-align:center; font-size:2rem; margin-bottom:0.5rem;">Scientific Pioneers</h2>
+      <p style="text-align:center; color:#94a3b8; margin-bottom:2rem;">
+        Foundational scientists whose work seeds cross-domain bridges — including underappreciated contributions ripe for rediscovery.
+      </p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.5rem; max-width:1100px; margin:0 auto;">
+        <!-- Tesla card -->
+        <div style="background:rgba(255,215,0,0.08); border:1px solid rgba(255,215,0,0.3); border-radius:12px; padding:1.5rem;">
+          <div style="font-size:2rem; margin-bottom:0.5rem;">⚡</div>
+          <h3 style="color:#ffd700; margin:0 0 0.5rem;">Nikola Tesla</h3>
+          <p style="color:#94a3b8; font-size:0.9rem; margin:0;">AC power · Wireless energy · Bladeless turbine · Earth-ionosphere resonance</p>
+        </div>
+        <!-- Maxwell card -->
+        <div style="background:rgba(255,215,0,0.08); border:1px solid rgba(255,215,0,0.3); border-radius:12px; padding:1.5rem;">
+          <div style="font-size:2rem; margin-bottom:0.5rem;">🌊</div>
+          <h3 style="color:#ffd700; margin:0 0 0.5rem;">James Clerk Maxwell</h3>
+          <p style="color:#94a3b8; font-size:0.9rem; margin:0;">Unified electromagnetism · Statistical mechanics · Maxwell's demon</p>
+        </div>
+        <!-- Boltzmann card -->
+        <div style="background:rgba(255,215,0,0.08); border:1px solid rgba(255,215,0,0.3); border-radius:12px; padding:1.5rem;">
+          <div style="font-size:2rem; margin-bottom:0.5rem;">🔥</div>
+          <h3 style="color:#ffd700; margin:0 0 0.5rem;">Ludwig Boltzmann</h3>
+          <p style="color:#94a3b8; font-size:0.9rem; margin:0;">S = k ln W · Arrow of time · Statistical foundations</p>
+        </div>
+        <!-- Noether card -->
+        <div style="background:rgba(255,215,0,0.08); border:1px solid rgba(255,215,0,0.3); border-radius:12px; padding:1.5rem;">
+          <div style="font-size:2rem; margin-bottom:0.5rem;">🔮</div>
+          <h3 style="color:#ffd700; margin:0 0 0.5rem;">Emmy Noether</h3>
+          <p style="color:#94a3b8; font-size:0.9rem; margin:0;">Symmetry → conservation laws · Abstract algebra · Gauge invariance</p>
+        </div>
+        <!-- Shannon card -->
+        <div style="background:rgba(255,215,0,0.08); border:1px solid rgba(255,215,0,0.3); border-radius:12px; padding:1.5rem;">
+          <div style="font-size:2rem; margin-bottom:0.5rem;">📡</div>
+          <h3 style="color:#ffd700; margin:0 0 0.5rem;">Claude Shannon</h3>
+          <p style="color:#94a3b8; font-size:0.9rem; margin:0;">Information entropy · Channel capacity · Boolean circuits</p>
+        </div>
+        <!-- Turing card -->
+        <div style="background:rgba(255,215,0,0.08); border:1px solid rgba(255,215,0,0.3); border-radius:12px; padding:1.5rem;">
+          <div style="font-size:2rem; margin-bottom:0.5rem;">🤖</div>
+          <h3 style="color:#ffd700; margin:0 0 0.5rem;">Alan Turing</h3>
+          <p style="color:#94a3b8; font-size:0.9rem; margin:0;">Turing machine · Halting problem · Morphogenesis reaction-diffusion</p>
+        </div>
+        <!-- Feynman card -->
+        <div style="background:rgba(255,215,0,0.08); border:1px solid rgba(255,215,0,0.3); border-radius:12px; padding:1.5rem;">
+          <div style="font-size:2rem; margin-bottom:0.5rem;">⚛️</div>
+          <h3 style="color:#ffd700; margin:0 0 0.5rem;">Richard Feynman</h3>
+          <p style="color:#94a3b8; font-size:0.9rem; margin:0;">QED path integrals · Feynman diagrams · Quantum computing pioneer</p>
+        </div>
+        <!-- McClintock card -->
+        <div style="background:rgba(255,215,0,0.08); border:1px solid rgba(255,215,0,0.3); border-radius:12px; padding:1.5rem;">
+          <div style="font-size:2rem; margin-bottom:0.5rem;">🌽</div>
+          <h3 style="color:#ffd700; margin:0 0 0.5rem;">Barbara McClintock</h3>
+          <p style="color:#94a3b8; font-size:0.9rem; margin:0;">Transposable elements · Genome plasticity · Epigenetic regulation</p>
+        </div>
+        <!-- Darwin card -->
+        <div style="background:rgba(255,215,0,0.08); border:1px solid rgba(255,215,0,0.3); border-radius:12px; padding:1.5rem;">
+          <div style="font-size:2rem; margin-bottom:0.5rem;">🐢</div>
+          <h3 style="color:#ffd700; margin:0 0 0.5rem;">Charles Darwin</h3>
+          <p style="color:#94a3b8; font-size:0.9rem; margin:0;">Natural selection · Common descent · Sexual selection · Earthworm geology</p>
+        </div>
+        <!-- Franklin card -->
+        <div style="background:rgba(255,215,0,0.08); border:1px solid rgba(255,215,0,0.3); border-radius:12px; padding:1.5rem;">
+          <div style="font-size:2rem; margin-bottom:0.5rem;">🔬</div>
+          <h3 style="color:#ffd700; margin:0 0 0.5rem;">Rosalind Franklin</h3>
+          <p style="color:#94a3b8; font-size:0.9rem; margin:0;">Photo 51 · DNA X-ray crystallography · Virus structure · Carbon microstructure</p>
+        </div>
+        <!-- von Neumann card -->
+        <div style="background:rgba(255,215,0,0.08); border:1px solid rgba(255,215,0,0.3); border-radius:12px; padding:1.5rem;">
+          <div style="font-size:2rem; margin-bottom:0.5rem;">🎮</div>
+          <h3 style="color:#ffd700; margin:0 0 0.5rem;">John von Neumann</h3>
+          <p style="color:#94a3b8; font-size:0.9rem; margin:0;">Stored-program computer · Game theory · Quantum formalism · Self-reproducing automata</p>
+        </div>
+        <!-- Einstein card -->
+        <div style="background:rgba(255,215,0,0.08); border:1px solid rgba(255,215,0,0.3); border-radius:12px; padding:1.5rem;">
+          <div style="font-size:2rem; margin-bottom:0.5rem;">🌌</div>
+          <h3 style="color:#ffd700; margin:0 0 0.5rem;">Albert Einstein</h3>
+          <p style="color:#94a3b8; font-size:0.9rem; margin:0;">Special &amp; general relativity · Photoelectric effect · Brownian motion · Bose–Einstein condensate</p>
+        </div>
+        <!-- Lovelace card -->
+        <div style="background:rgba(255,215,0,0.08); border:1px solid rgba(255,215,0,0.3); border-radius:12px; padding:1.5rem;">
+          <div style="font-size:2rem; margin-bottom:0.5rem;">💻</div>
+          <h3 style="color:#ffd700; margin:0 0 0.5rem;">Ada Lovelace</h3>
+          <p style="color:#94a3b8; font-size:0.9rem; margin:0;">First algorithm · General-purpose computing vision · Analytical Engine programming</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════ BREAKTHROUGH GAPS -->
+    <section id="breakthrough-gaps" style="padding:4rem 2rem;">
+      <h2 style="text-align:center; font-size:2rem; margin-bottom:0.5rem;">Breakthrough Gaps</h2>
+      <p style="text-align:center; color:#94a3b8; margin-bottom:2rem;">
+        World-reshaping breakthroughs stalled by cross-domain knowledge gaps. These are the bridges science needs to build.
+      </p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; max-width:1100px; margin:0 auto;">
+        <div style="background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.3); border-radius:12px; padding:1.5rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;">💧</span>
+            <span style="background:rgba(239,68,68,0.2); color:#fca5a5; padding:0.2rem 0.6rem; border-radius:999px; font-size:0.75rem;">TRL 4</span>
+          </div>
+          <h3 style="color:#fca5a5; margin:0 0 0.5rem; font-size:1rem;">Low-Temp Water Splitting</h3>
+          <p style="color:#94a3b8; font-size:0.85rem; margin:0;">Catalyst exists. Scale-up materials science + grid economics bridge missing.</p>
+        </div>
+        <div style="background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.3); border-radius:12px; padding:1.5rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;">⚛️</span>
+            <span style="background:rgba(239,68,68,0.2); color:#fca5a5; padding:0.2rem 0.6rem; border-radius:999px; font-size:0.75rem;">TRL 3</span>
+          </div>
+          <h3 style="color:#fca5a5; margin:0 0 0.5rem; font-size:1rem;">Fault-Tolerant Quantum Computing</h3>
+          <p style="color:#94a3b8; font-size:0.85rem; margin:0;">Error correction theory complete. 1000:1 overhead + cryogenic engineering gaps remain.</p>
+        </div>
+        <div style="background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.3); border-radius:12px; padding:1.5rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;">🧲</span>
+            <span style="background:rgba(239,68,68,0.2); color:#fca5a5; padding:0.2rem 0.6rem; border-radius:999px; font-size:0.75rem;">TRL 2</span>
+          </div>
+          <h3 style="color:#fca5a5; margin:0 0 0.5rem; font-size:1rem;">Room-Temperature Superconductivity</h3>
+          <p style="color:#94a3b8; font-size:0.85rem; margin:0;">High-Tc materials exist. Pairing mechanism beyond BCS unknown.</p>
+        </div>
+        <div style="background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.3); border-radius:12px; padding:1.5rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;">💉</span>
+            <span style="background:rgba(239,68,68,0.2); color:#fca5a5; padding:0.2rem 0.6rem; border-radius:999px; font-size:0.75rem;">TRL 6</span>
+          </div>
+          <h3 style="color:#fca5a5; margin:0 0 0.5rem; font-size:1rem;">Programmable mRNA Medicine</h3>
+          <p style="color:#94a3b8; font-size:0.85rem; margin:0;">Platform proven by COVID vaccines. Tissue targeting + immune tolerance gaps block universal use.</p>
+        </div>
+        <div style="background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.3); border-radius:12px; padding:1.5rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;">🌍</span>
+            <span style="background:rgba(239,68,68,0.2); color:#fca5a5; padding:0.2rem 0.6rem; border-radius:999px; font-size:0.75rem;">TRL 7</span>
+          </div>
+          <h3 style="color:#fca5a5; margin:0 0 0.5rem; font-size:1rem;">Direct Air Carbon Capture</h3>
+          <p style="color:#94a3b8; font-size:0.85rem; margin:0;">Plants operational. 10-20× above thermodynamic minimum energy cost. Sorbent chemistry gap.</p>
+        </div>
+        <div style="background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.3); border-radius:12px; padding:1.5rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;">🧠</span>
+            <span style="background:rgba(239,68,68,0.2); color:#fca5a5; padding:0.2rem 0.6rem; border-radius:999px; font-size:0.75rem;">TRL 5</span>
+          </div>
+          <h3 style="color:#fca5a5; margin:0 0 0.5rem; font-size:1rem;">High-Bandwidth Brain-Computer Interfaces</h3>
+          <p style="color:#94a3b8; font-size:0.85rem; margin:0;">1024-channel implants demonstrated. Biocompatibility, decode algorithms, and wireless bandwidth gaps remain.</p>
+        </div>
+        <div style="background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.3); border-radius:12px; padding:1.5rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;">☀️</span>
+            <span style="background:rgba(239,68,68,0.2); color:#fca5a5; padding:0.2rem 0.6rem; border-radius:999px; font-size:0.75rem;">TRL 4</span>
+          </div>
+          <h3 style="color:#fca5a5; margin:0 0 0.5rem; font-size:1rem;">Commercial Fusion Energy</h3>
+          <p style="color:#94a3b8; font-size:0.85rem; margin:0;">NIF achieved ignition (2022). Plasma instability, tritium breeding, and materials radiation hardness gaps block commercialization.</p>
+        </div>
+        <div style="background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.3); border-radius:12px; padding:1.5rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;">🦠</span>
+            <span style="background:rgba(239,68,68,0.2); color:#fca5a5; padding:0.2rem 0.6rem; border-radius:999px; font-size:0.75rem;">TRL 3</span>
+          </div>
+          <h3 style="color:#fca5a5; margin:0 0 0.5rem; font-size:1rem;">New Antibiotic Classes</h3>
+          <p style="color:#94a3b8; font-size:0.85rem; margin:0;">No novel antibiotic class since 2003. Market failure + novel target identification + phage therapy pathway all blocking.</p>
+        </div>
+        <div style="background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.3); border-radius:12px; padding:1.5rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;">🧬</span>
+            <span style="background:rgba(239,68,68,0.2); color:#fca5a5; padding:0.2rem 0.6rem; border-radius:999px; font-size:0.75rem;">TRL 3</span>
+          </div>
+          <h3 style="color:#fca5a5; margin:0 0 0.5rem; font-size:1rem;">Alzheimer's Disease Mechanism</h3>
+          <p style="color:#94a3b8; font-size:0.85rem; margin:0;">Amyloid antibodies modestly effective. Causal mechanism, glymphatic dysfunction, and BBB delivery gaps unsolved.</p>
+        </div>
+        <div style="background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.3); border-radius:12px; padding:1.5rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;">🌿</span>
+            <span style="background:rgba(239,68,68,0.2); color:#fca5a5; padding:0.2rem 0.6rem; border-radius:999px; font-size:0.75rem;">TRL 3</span>
+          </div>
+          <h3 style="color:#fca5a5; margin:0 0 0.5rem; font-size:1rem;">Artificial Photosynthesis</h3>
+          <p style="color:#94a3b8; font-size:0.85rem; margin:0;">Natural photosynthesis 1-2% efficient. Water oxidation catalyst durability + whole-system integration gaps blocking scale-up.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- ════════════════════════════════════════════ AI CO-PILOT -->
     <section id="ai-copilot">
       <div>
@@ -1294,6 +1518,19 @@
           proposing novel cross-domain connections, and flagging low-quality entries
           for human review.
         </p>
+        <!-- live bridge proposal counter -->
+        <div id="bridge-proposal-counter" style="
+          margin-top:1rem; padding:0.9rem 1.2rem;
+          background:rgba(99,102,241,0.12); border:1px solid rgba(99,102,241,0.35);
+          border-radius:0.75rem; font-size:0.95rem; line-height:1.55;
+          display:inline-block; min-width:200px;">
+          <span id="bpc-loading" style="opacity:0.6">Loading AI proposal counts…</span>
+          <span id="bpc-content" style="display:none">
+            <strong id="bpc-total"></strong> high-priority bridges proposed by AI co-pilot
+            — <strong id="bpc-pioneer"></strong> from pioneer seeds,
+            <strong id="bpc-gap"></strong> from breakthrough gaps
+          </span>
+        </div>
       </div>
       <div class="copilot-grid">
         <div class="copilot-card">
@@ -1356,17 +1593,17 @@
         </a>
         <a href="../api/v1/bridges.json" class="api-endpoint" target="_blank" rel="noopener">
           <code>GET /api/v1/bridges.json</code>
-          <span>All 58 cross-domain bridges with translation tables and references</span>
+          <span>All 250+ cross-domain bridges with translation tables and references</span>
           <span class="api-endpoint-badge">~213 KB</span>
         </a>
         <a href="../api/v1/unknowns.json" class="api-endpoint" target="_blank" rel="noopener">
           <code>GET /api/v1/unknowns.json</code>
-          <span>All 508 open unknowns with domain, status, and file path</span>
+          <span>All 619 open unknowns with domain, status, and file path</span>
           <span class="api-endpoint-badge">~451 KB</span>
         </a>
         <a href="../api/v1/hypotheses.json" class="api-endpoint" target="_blank" rel="noopener">
           <code>GET /api/v1/hypotheses.json</code>
-          <span>All 90 hypotheses with priority, impact score, and evidence links</span>
+          <span>All 173 hypotheses with priority, impact score, and evidence links</span>
           <span class="api-endpoint-badge">~114 KB</span>
         </a>
         <a href="../api/v1/domains.json" class="api-endpoint" target="_blank" rel="noopener">
@@ -1376,8 +1613,8 @@
         </a>
         <a href="../api/v1/graph.json" class="api-endpoint" target="_blank" rel="noopener">
           <code>GET /api/v1/graph.json</code>
-          <span>Full knowledge graph — 663 nodes, 521 edges</span>
-          <span class="api-endpoint-badge">~320 KB</span>
+          <span>Full knowledge graph — 1,000 nodes, 910 edges</span>
+          <span class="api-endpoint-badge">~578 KB</span>
         </a>
         <a href="../api/v1/bridge_proposals.json" class="api-endpoint" target="_blank" rel="noopener">
           <code>GET /api/v1/bridge_proposals.json</code>
@@ -1396,8 +1633,8 @@
         Hover a node to inspect it. Click a node for full details. Drag to reposition. Scroll or pinch to zoom.
       </p>
       <div class="graph-stats-bar" id="kg-stats-bar">
-        <span id="kg-node-count">645</span> nodes &nbsp;·&nbsp;
-        <span id="kg-edge-count">472</span> edges<span id="kg-top-node"></span>
+        <span id="kg-node-count">1000</span> nodes &nbsp;·&nbsp;
+        <span id="kg-edge-count">910</span> edges<span id="kg-top-node"></span>
       </div>
       <div class="graph-filters" role="group" aria-label="Node type filters">
         <button class="filter-btn active" data-type="bridge" style="--fc:#4f9cf9">● Bridges</button>
@@ -1406,6 +1643,13 @@
         <button class="filter-btn active" data-type="phenomenon" style="--fc:#a78bfa">● Phenomena</button>
       </div>
       <div id="graph-container">
+        <div id="kg-loading-spinner" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;z-index:5;pointer-events:none;">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" style="animation:kg-spin 1s linear infinite;" aria-hidden="true">
+            <circle cx="20" cy="20" r="16" stroke="rgba(79,156,249,0.2)" stroke-width="4"/>
+            <path d="M20 4a16 16 0 0 1 16 16" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+          <span style="color:var(--muted);font-size:.82rem;font-family:var(--mono)">Loading knowledge graph…</span>
+        </div>
         <svg id="kg-svg" aria-label="Knowledge graph force-directed visualization"></svg>
         <div id="kg-legend">
           <div class="kg-legend-item"><div class="kg-legend-dot" style="background:#4f9cf9"></div>Bridge</div>
@@ -2394,7 +2638,13 @@
     function nodeColor(d) { return NODE_COLOR[d.type]  || '#6b8aac'; }
     function edgeColor(d) { return EDGE_COLOR[d.relation] || 'rgba(107,138,172,.18)'; }
 
+    function hideSpinner() {
+      var s = document.getElementById('kg-loading-spinner');
+      if (s) s.style.display = 'none';
+    }
+
     function renderFallback(msg) {
+      hideSpinner();
       var c = document.getElementById('graph-container');
       if (!c) return;
       c.innerHTML = '<div class="kg-fallback">'
@@ -2411,13 +2661,24 @@
     var tipEl  = document.getElementById('kg-tooltip');
     if (!svgEl) return;
 
-    var kgPaths = ['../docs/knowledge_graph.json', 'knowledge_graph.json', 'docs/knowledge_graph.json'];
+    /* Build absolute path from current page location for GitHub Pages compatibility */
+    var _base = window.location.href.replace(/\/[^\/]*$/, '/').replace(/\/dashboard\/$/, '/');
+    var kgPaths = [
+      _base + 'api/v1/graph.json',
+      _base + 'docs/knowledge_graph.json',
+      '../api/v1/graph.json',
+      '../docs/knowledge_graph.json',
+      'knowledge_graph.json',
+      'docs/knowledge_graph.json'
+    ];
     (function tryNextPath(paths) {
       if (!paths.length) {
         if (window.location.protocol === 'file:') {
           renderFallback('Run a local server to see the interactive graph:<br><code>python -m http.server 8765</code>');
         } else {
-          renderFallback('Could not load knowledge_graph.json — all paths failed.');
+          renderFallback('Graph data is loading\u2026 if this persists, '
+            + '<a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/" '
+            + 'style="color:var(--accent)" target="_blank" rel="noopener">try the GitHub Pages version</a>.');
         }
         return;
       }
@@ -2431,23 +2692,96 @@
     })(kgPaths);
 
     function handleData(data) {
+        hideSpinner();
         var nodes = data.nodes.map(function (n) { return Object.assign({}, n); });
         var edges = data.edges.map(function (e) { return Object.assign({}, e); });
 
         /* ── BUILD SEARCH INDEX ──────────────────────────────── */
-        var searchIndex = data.nodes.map(function (n) {
+        /* Catalog map: id → enriched entry (title, type, domain, description) */
+        var catalogMap = {};
+        data.nodes.forEach(function (n) {
           var domain = '';
           if (n.fields) {
             domain = Array.isArray(n.fields) ? n.fields.join(', ') : String(n.fields);
           }
-          return {
-            id:         n.id,
-            type:       n.type || 'unknown',
-            title:      n.title || n.id,
-            domain:     domain,
-            searchText: ((n.title || '') + ' ' + n.id + ' ' + domain).toLowerCase()
+          catalogMap[n.id] = {
+            id:          n.id,
+            type:        n.type || 'unknown',
+            title:       (n.title || n.id).replace(/\n/g, ' ').trim(),
+            domain:      domain,
+            description: '',
+            bridge_claim:'',
+            searchText:  ((n.title || '') + ' ' + n.id + ' ' + domain).toLowerCase()
           };
         });
+
+        /* Enrich with bridge_claim and systematic_gaps from API */
+        var _apiBase = (function () {
+          var loc = window.location.href;
+          if (loc.includes('github.io')) return 'https://kr8zysho3.github.io/Universal-Science-Discovery/';
+          if (loc.includes('/dashboard/')) return loc.replace(/dashboard\/.*$/, '');
+          return '../';
+        })();
+
+        var searchIndex = Object.values(catalogMap);
+        var lunrIndex   = null;
+
+        function buildLunrIndex(entries) {
+          if (typeof lunr === 'undefined') return null;
+          return lunr(function () {
+            this.ref('id');
+            this.field('title',       { boost: 10 });
+            this.field('bridge_claim',{ boost: 5  });
+            this.field('description', { boost: 5  });
+            this.field('domain',      { boost: 2  });
+            var self = this;
+            entries.forEach(function (doc) {
+              self.add({
+                id:          doc.id,
+                title:       doc.title,
+                bridge_claim:doc.bridge_claim,
+                description: doc.description,
+                domain:      doc.domain
+              });
+            });
+          });
+        }
+
+        function enrichAndRebuildIndex(bridgesData, unknownsData) {
+          if (bridgesData && bridgesData.items) {
+            bridgesData.items.forEach(function (b) {
+              if (catalogMap[b.id]) {
+                catalogMap[b.id].bridge_claim = (b.bridge_claim || '').substring(0, 400);
+              }
+            });
+          }
+          if (unknownsData && unknownsData.items) {
+            unknownsData.items.forEach(function (u) {
+              if (catalogMap[u.id]) {
+                catalogMap[u.id].description = (u.systematic_gaps || '').substring(0, 400);
+                if (!catalogMap[u.id].domain && u.domain) {
+                  catalogMap[u.id].domain = u.domain;
+                }
+              }
+            });
+          }
+          searchIndex = Object.values(catalogMap);
+          lunrIndex   = buildLunrIndex(searchIndex);
+          if (inputEl) {
+            inputEl.placeholder = 'Search ' + searchIndex.length + ' entries \u2014 titles, claims, domains\u2026';
+          }
+          if (inputEl && inputEl.value.trim()) doSearch(inputEl.value);
+        }
+
+        Promise.all([
+          fetch(_apiBase + 'api/v1/bridges.json').then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; }),
+          fetch(_apiBase + 'api/v1/unknowns.json').then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; })
+        ]).then(function (results) {
+          enrichAndRebuildIndex(results[0], results[1]);
+        });
+
+        /* Build a basic index immediately from graph data while API loads */
+        lunrIndex = buildLunrIndex(searchIndex);
 
         var inputEl      = document.getElementById('catalog-search-input');
         var resultsEl    = document.getElementById('search-results');
@@ -2516,6 +2850,12 @@
           if (countNoteEl) countNoteEl.hidden = true;
         }
 
+        function snippet(text, maxLen) {
+          if (!text) return '';
+          text = text.replace(/\n/g,' ').trim();
+          return text.length > maxLen ? text.substring(0, maxLen) + '\u2026' : text;
+        }
+
         function renderSearchResults(results, total) {
           if (!resultsEl) return;
           resultsEl.innerHTML = '';
@@ -2531,33 +2871,55 @@
             var card = document.createElement('div');
             card.className = 'search-result-card';
             var t = (n.type || 'unknown').toLowerCase();
+            var desc = n.bridge_claim || n.description || '';
+            var snip = snippet(desc, 160);
             card.innerHTML =
-              '<span class="type-badge type-' + t + '">' + typeLabel(t) + '</span>' +
-              '<span class="result-title">' + (n.title || n.id).replace(/</g, '&lt;') + '</span>' +
-              (n.domain ? '<span class="result-domain">' + n.domain.replace(/</g, '&lt;') + '</span>' : '');
+              '<div class="result-row">' +
+                '<span class="type-badge type-' + t + '">' + typeLabel(t) + '</span>' +
+                '<span class="result-title">' + esc(n.title || n.id) + '</span>' +
+                (n.domain ? '<span class="result-domain">' + esc(n.domain) + '</span>' : '') +
+              '</div>' +
+              (snip ? '<div class="result-snippet">' + esc(snip) + '</div>' : '');
+            card.addEventListener('click', function () { highlightNode(n.id); });
             resultsEl.appendChild(card);
           });
           if (countNoteEl) {
             countNoteEl.textContent = (total > results.length)
-              ? 'Showing ' + results.length + ' of ' + total + ' matches.'
-              : total + ' match' + (total === 1 ? '' : 'es') + '.';
+              ? 'Showing ' + results.length + ' of ' + total + ' matches \u2014 powered by Lunr.js'
+              : total + ' match' + (total === 1 ? '' : 'es') + ' \u2014 powered by Lunr.js';
             countNoteEl.hidden = false;
           }
         }
 
         function doSearch(query) {
-          var q = query.toLowerCase().trim();
-          var results = searchIndex;
-          if (activeDomain && activeDomain !== 'all') {
+          var q = query.trim();
+          var domainFilter = (activeDomain && activeDomain !== 'all') ? activeDomain : null;
+
+          if (!q && !domainFilter) { showSearchPlaceholder(); return; }
+
+          var results;
+          if (q && lunrIndex) {
+            /* Lunr full-text search — try exact then wildcard */
+            var lunrResults;
+            try { lunrResults = lunrIndex.search(q); } catch (e) { lunrResults = []; }
+            if (lunrResults.length === 0) {
+              try { lunrResults = lunrIndex.search(q + '*'); } catch (e) { lunrResults = []; }
+            }
+            var idSet = {};
+            lunrResults.forEach(function (r) { idSet[r.ref] = r.score; });
+            results = searchIndex.filter(function (n) { return idSet[n.id] !== undefined; });
+            results.sort(function (a, b) { return (idSet[b.id] || 0) - (idSet[a.id] || 0); });
+          } else {
+            results = searchIndex;
+          }
+
+          if (domainFilter) {
             results = results.filter(function (n) {
-              return (n.domain || '').toLowerCase().includes(activeDomain);
+              return (n.domain || '').toLowerCase().includes(domainFilter);
             });
           }
-          if (!q && activeDomain === 'all') { showSearchPlaceholder(); return; }
-          if (q) {
-            results = results.filter(function (n) { return n.searchText.includes(q); });
-          }
-          renderSearchResults(results.slice(0, 20), results.length);
+
+          renderSearchResults(results.slice(0, 25), results.length);
         }
 
         if (inputEl) {
@@ -2566,6 +2928,36 @@
             clearTimeout(debounceTimer);
             debounceTimer = setTimeout(function () { doSearch(inputEl.value); }, 80);
           });
+        }
+
+        /* Scroll to graph and open detail panel for a node from search results */
+        function highlightNode(nodeId) {
+          var graphSection = document.getElementById('knowledge-graph');
+          if (graphSection) graphSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+          /* Use a small delay so the scroll completes before the panel opens */
+          setTimeout(function () {
+            var d = nodeMap ? nodeMap[nodeId] : null;
+            if (!d) {
+              d = { id: nodeId, type: nodeId.startsWith('b-') ? 'bridge' : nodeId.startsWith('u-') ? 'unknown' : 'hypothesis', title: nodeId };
+            }
+            if (typeof highlightNeighborhood === 'function') highlightNeighborhood(nodeId);
+            if (typeof openPanel === 'function') {
+              openPanel(d);
+              if (contentEl) contentEl.innerHTML = '<div class="panel-loading">Loading\u2026</div>';
+              var type = d.id.startsWith('b-') ? 'bridge' : d.id.startsWith('u-') ? 'unknown' : d.id.startsWith('h-') ? 'hypothesis' : 'phenomenon';
+              if (typeof loadNodeDetails === 'function') {
+                loadNodeDetails(d.id, type).then(function (result) {
+                  if (result && typeof parseYamlFields === 'function' && typeof renderPanel === 'function') {
+                    var fields = parseYamlFields(result.text);
+                    renderPanel(d, fields, result.path, edges);
+                  } else if (contentEl) {
+                    contentEl.innerHTML = '<p class="panel-id">' + esc(d.id) + '</p><p class="panel-title">' + esc(d.title || d.id) + '</p>';
+                  }
+                });
+              }
+            }
+          }, 350);
         }
 
         /* keyboard shortcut: / focuses search */
@@ -2594,6 +2986,8 @@
         var ec = (data.meta && data.meta.edge_count)  ? data.meta.edge_count  : edges.length;
         document.getElementById('kg-node-count').textContent = nc;
         document.getElementById('kg-edge-count').textContent = ec;
+        var sge = document.getElementById('stat-graph-edges');
+        if (sge) sge.textContent = ec;
 
         /* top-connected node */
         var deg = {};
@@ -3132,6 +3526,33 @@
     } else {
       grid.querySelectorAll('.aos').forEach(function (el) { el.classList.add('in'); });
     }
+  })();
+  </script>
+  <script>
+  /* AI Co-pilot — live bridge proposal counter */
+  (function () {
+    var counter = document.getElementById('bridge-proposal-counter');
+    if (!counter) return;
+    var apiUrl = '../api/v1/bridge_proposals.json';
+    fetch(apiUrl)
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+      .then(function (data) {
+        var summary = data.summary || {};
+        var pioneer = summary.pioneer_seed_count != null ? summary.pioneer_seed_count : '?';
+        var gap     = summary.breakthrough_gap_count != null ? summary.breakthrough_gap_count : '?';
+        var total   = (typeof pioneer === 'number' && typeof gap === 'number')
+                      ? (pioneer + gap) : (summary.missing_count || '?');
+        document.getElementById('bpc-total').textContent   = total;
+        document.getElementById('bpc-pioneer').textContent = pioneer;
+        document.getElementById('bpc-gap').textContent     = gap;
+        document.getElementById('bpc-loading').style.display  = 'none';
+        document.getElementById('bpc-content').style.display  = 'inline';
+      })
+      .catch(function () {
+        /* Gracefully degrade — show static text when offline / no server */
+        document.getElementById('bpc-loading').textContent =
+          'AI co-pilot: pioneer seeds + breakthrough-gap bridges awaiting build.';
+      });
   })();
   </script>
 </body>

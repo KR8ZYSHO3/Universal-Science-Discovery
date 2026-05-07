@@ -1,0 +1,51 @@
+id: h-maxent-invasive-species-prediction
+title: >
+  MaxEnt species distribution models trained on pre-invasion occurrence data can
+  predict the realised invasion range of established invasive species with better
+  accuracy than the native range alone, because the MaxEnt distribution encodes
+  the fundamental niche without dispersal constraints present in the native range.
+status: active
+created: "2026-05-05"
+last_updated: "2026-05-05"
+priority: medium
+related_disciplines:
+  - ecology
+  - statistics
+  - conservation-biology
+unknowns_addressed:
+  - u-maxent-species-range-shift-climate
+evidence_links:
+  - type: supporting
+    doi: "10.1111/j.1472-4642.2009.00567.x"
+    note: >
+      Broennimann et al. (2007) and subsequent analyses show that invasive species
+      often occupy similar climatic niches in their introduced range as in their
+      native range — supporting the niche conservatism assumption underlying MaxEnt-
+      based invasion predictions.
+  - type: supporting
+    doi: "10.1111/j.1472-4642.2011.00792.x"
+    note: >
+      Peterson et al. (2011) invasive species distributional ecology: transferred
+      MaxEnt models perform better for species with conserved niches; prediction
+      accuracy varies by taxon and invasion age.
+  - type: contradicting
+    note: >
+      Many invasive species have undergone niche shifts in their introduced range
+      (rapid evolution, phenotypic plasticity, community release from natural enemies)
+      — violating the niche conservatism assumption and causing MaxEnt to systematically
+      underpredict invasion range in these cases.
+proposed_tests:
+  - discipline: ecology
+    description: >
+      Select 50 well-characterised invasive species with ≥ 10 years of established
+      invasion history. For each: fit MaxEnt model to native range occurrence data,
+      project to the introduced region, measure the overlap between the projected
+      suitable range and the realised invaded range (TSS, AUC). Compare prediction
+      accuracy for species with documented niche shifts vs. conserved niches.
+  - discipline: statistics
+    description: >
+      Implement conformal prediction intervals for MaxEnt models and test their
+      coverage (whether the 95% interval contains the true invaded range in 95%
+      of cases). Compare to standard MaxEnt uncertainty estimates (jackknife). Test
+      whether the conformal intervals are systematically smaller for climatically
+      similar native-invaded range pairs.

@@ -1,33 +1,35 @@
-## Summary
+## What does this PR add or change?
 
-What does this PR change?
+<!-- Brief description of the contribution -->
 
-## Motivation / links
+## Checklist
 
-- Related issue(s): (link)
-- Hypothesis / thread (if any):
+### For new bridges
+- [ ] Bridge YAML file created in correct `cross-domain/{domain-a}-{domain-b}/` directory
+- [ ] Bridge ID follows convention: `b-{short-descriptive-name}`
+- [ ] `bridge_claim` field is a single, precise statement of the mathematical connection
+- [ ] `translation_table` has at least 3 rows mapping Domain A concepts to Domain B
+- [ ] `status` is set honestly: `established` / `proposed` / `speculative`
+- [ ] All citations are real (DOIs preferred, no fabricated references)
+- [ ] Related unknown and hypothesis are linked
+- [ ] Schema validation passes: `python scripts/validate_schemas.py`
 
-## Type of change
+### For new unknowns
+- [ ] Unknown YAML created in correct `unknowns-catalog/{domain}/` directory
+- [ ] ID follows convention: `u-{short-descriptive-name}`
+- [ ] Schema validation passes
 
-- [ ] Documentation / governance only
-- [ ] Methods or protocols
-- [ ] Analysis / scripts / artifacts
-- [ ] Tooling / CI
+### For new hypotheses
+- [ ] Hypothesis YAML created in `hypotheses/active/`
+- [ ] ID follows convention: `h-{short-descriptive-name}`
+- [ ] Proposed test is concrete and falsifiable
+- [ ] Schema validation passes
 
-## Methodology and integrity checklist
+### For all contributions
+- [ ] I have not fabricated any citations
+- [ ] Content is original (not copied verbatim from papers)
+- [ ] Speculative content is labeled as `status: speculative` or `status: proposed`
 
-- [ ] **Claims** are labeled per [docs/METHODOLOGY.md](../docs/METHODOLOGY.md) (hypothesis vs finding vs speculation).
-- [ ] **Data** handling follows [docs/ETHICS_REPRODUCIBILITY_AND_DATA.md](../docs/ETHICS_REPRODUCIBILITY_AND_DATA.md); no secrets or restricted raw data committed.
-- [ ] **Provenance:** for new artifacts, paths or steps to reproduce are documented.
-- [ ] **Policy sync:** if guiding docs changed, [docs/DOC_MAP.md](../docs/DOC_MAP.md) and agent surfaces were updated if needed.
-- [ ] **Structure sync:** if paths were added/removed/renamed, [docs/REPOSITORY_MANIFEST.md](../docs/REPOSITORY_MANIFEST.md) was updated in this PR.
-- [ ] **Ingest / envelope:** if changing [`packages/ingest`](../packages/ingest) or [`schemas/ingestion-envelope-1.0.0.json`](../schemas/ingestion-envelope-1.0.0.json), ran `python -m pytest packages/ingest/tests` and skimmed [docs/UAT_INGEST.md](../docs/UAT_INGEST.md) (N/A otherwise).
+## Related issues
 
-## AI assistance
-
-- [ ] I did not rely on generative AI for citations / factual claims, **or**
-- [ ] I verified all citations and factual claims from primary sources after AI assistance.
-
-## Screenshots / logs
-
-N/A or attach below.
+Closes #

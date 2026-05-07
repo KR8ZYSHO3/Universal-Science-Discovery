@@ -1,0 +1,66 @@
+id: b-molecular-dynamics-statistical-sampling
+title: Molecular dynamics is applied Hamiltonian mechanics — symplectic integrators, free energy perturbation, and metadynamics connect statistical mechanics theory to computational drug discovery
+status: established
+fields:
+  - chemistry
+  - mathematics
+bridge_claim: >
+  Molecular dynamics (MD) numerically integrates Hamilton's equations for N-atom systems.
+  The Verlet algorithm r(t+Δt) = 2r(t) - r(t-Δt) + F(t)Δt²/m is a second-order symplectic
+  integrator: it preserves the symplectic structure of phase space (Liouville's theorem)
+  and conserves a shadow Hamiltonian — providing long-time stability absent from non-symplectic
+  methods. Free energy perturbation (Zwanzig 1954): ΔA_{A→B} = -kT·ln⟨exp(-ΔU/kT)⟩_A is
+  an exact statistical mechanics result that bridges thermodynamics to drug binding affinity
+  prediction. Metadynamics (Laio-Parrinello 2002) adds a history-dependent bias
+  V_bias(s,t) = Σ_{t'} W·exp(-|s-s(t')|²/2δs²) to escape free energy minima — a computational
+  realization of adaptive importance sampling theory. WHAM combines umbrella sampling windows
+  via the weighted histogram analysis to reconstruct full free energy profiles along reaction
+  coordinates — connecting statistical estimation theory to chemical kinetics.
+translation_table:
+  - field_a_term: symplectic integrator / Verlet algorithm (mathematics)
+    field_b_term: stable long-time MD simulation (computational chemistry)
+    note: Symplectic integrators conserve a modified Hamiltonian — preventing energy drift that would corrupt thermodynamics
+  - field_a_term: free energy perturbation / Zwanzig formula (statistical mechanics)
+    field_b_term: binding affinity ΔG prediction (drug discovery)
+    note: FEP is the gold standard for computing relative binding free energies — directly used in lead optimization
+  - field_a_term: metadynamics bias potential (adaptive importance sampling)
+    field_b_term: conformational sampling / protein folding pathway (chemistry)
+    note: The time-integrated bias estimates the free energy surface — revealing folding intermediates
+  - field_a_term: weighted histogram analysis (WHAM, statistical estimation)
+    field_b_term: potential of mean force along reaction coordinate (chemistry)
+    note: WHAM combines multiple biased simulations into a statistically optimal free energy profile
+  - field_a_term: Liouville's theorem (Hamiltonian mechanics)
+    field_b_term: phase space volume conservation (statistical mechanics)
+    note: Phase space incompressibility ensures ergodicity and validity of statistical mechanical averages
+related_unknowns:
+  - u-md-force-field-transferability-accuracy-limit
+related_hypotheses:
+  - h-metadynamics-collective-variables-protein-allostery
+cross_pollination_opportunities:
+  - >
+    Riemannian geometry on the statistical manifold (information geometry) provides optimal
+    collective variables for metadynamics — the geodesic distance on the free energy surface
+    is the ideal reaction coordinate. Cross-pollination between differential geometry and
+    computational chemistry could automate reaction coordinate selection.
+  - >
+    Machine learning force fields (ANI, NequIP, MACE) trained on quantum mechanical data
+    achieve near-DFT accuracy at MD speed — combining quantum chemistry, ML, and symplectic
+    integration. The mathematical question of whether these learned potentials preserve the
+    symplectic structure needed for long-time stability remains open.
+communication_gap: >
+  Computational chemists using MD publish in Journal of Chemical Theory and Computation,
+  Journal of Physical Chemistry, and Journal of Chemical Information and Modeling; applied
+  mathematicians studying symplectic integration publish in SIAM Journal on Scientific
+  Computing and Foundations of Computational Mathematics. The mathematical foundations
+  of enhanced sampling methods are rarely discussed in chemistry-focused MD papers, and
+  mathematical integration theory rarely addresses force-field accuracy limitations.
+last_reviewed: "2026-05-06"
+references:
+  - doi: 10.1103/PhysRev.159.98
+    note: "Verlet (1967). Computer 'experiments' on classical fluids. I. Thermodynamical properties of Lennard-Jones molecules. Phys Rev 159:98."
+  - doi: 10.1063/1.1740359
+    note: "Zwanzig (1954). High-temperature equation of state by a perturbation method. I. Nonpolar gases. J Chem Phys 22:1420."
+  - doi: 10.1073/pnas.202427399
+    note: "Laio & Parrinello (2002). Escaping free-energy minima. PNAS 99:12562."
+  - doi: 10.1002/jcc.540130812
+    note: "Kumar et al. (1992). The weighted histogram analysis method for free-energy calculations on biomolecules. J Comput Chem 13:1011."

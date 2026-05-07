@@ -1,0 +1,92 @@
+id: p-boundary-layer-turbine-microfluidics
+title: Tesla bladeless turbine principle applied to microfluidic lab-on-chip devices at sub-millimeter disk spacing
+origin: engineering-observation
+date_observed: "2026-05-06"
+observer: "KR8ZYSHO3"
+status: triaged
+
+description: >
+  Tesla's 1913 bladeless turbine operates by viscous boundary layer adhesion
+  between closely spaced rotating disks. The working fluid is dragged by
+  wall shear stress (τ = μ ∂u/∂y) rather than by blade-fluid momentum exchange.
+  The turbine has known advantages for: high-viscosity fluids (shear stress scales
+  with viscosity), abrasive fluids (no blades to erode), and sterile applications
+  (smooth surfaces easier to clean than bladed geometries).
+
+  Modern micro-fabrication (MEMS, photolithography, laser micromachining) can now
+  produce rotating disk assemblies at sub-millimeter to sub-100-μm spacing with
+  sub-micron surface roughness — a regime Tesla could not access with 1913
+  machining. At these scales, the boundary layer thickness δ ∝ √(μx/ρU) is
+  comparable to the disk spacing, and the viscous-to-inertial force balance
+  changes qualitatively from the macroscale case.
+
+  The specific open question: can the bladeless turbine principle, optimized at
+  the microfluidic scale, outperform conventional micro-pump designs (piezoelectric,
+  electroosmotic, peristaltic) for specific lab-on-chip applications such as:
+  (1) pumping highly viscous or non-Newtonian biological fluids (blood, mucus,
+  cell suspensions) without cell damage; (2) sterile-field microreactors; or
+  (3) miniaturized blood analysis devices where conventional pumps cause
+  hemolysis?
+
+  No systematic study of Tesla turbine geometry at microfluidic scales appears
+  to exist in the literature. There are a handful of computational studies of
+  macro-scale Tesla turbines and a handful of MEMS micropump papers, but not
+  the intersection.
+
+why_anomalous: >
+  The Tesla turbine is occasionally cited in microfluidics literature as a
+  potential pump principle but then dismissed without systematic analysis. The
+  dismissals are qualitative ("low efficiency") but the efficiency argument was
+  developed for macroscale, high-Reynolds-number operation. At Re < 100
+  (microfluidic regime), viscous forces dominate and the efficiency argument
+  may not apply in the same way. The lack of a systematic computational or
+  experimental study at microfluidic scales is surprising given how much
+  attention MEMS pumps receive.
+
+sketch_description: >
+  A disk stack with 10–20 disks at 50–200 μm spacing, each disk 5–20 mm
+  diameter, fabricated from silicon or PDMS by photolithography. Fluid enters
+  through a central port, is dragged outward (or inward, depending on pump
+  vs. turbine mode) by disk rotation, and exits at the periphery. The geometry
+  is radial and axisymmetric. The critical parameter is the disk spacing-to-boundary
+  layer thickness ratio at the target fluid viscosity and flow rate.
+
+candidate_fields:
+  - microfluidics
+  - fluid-mechanics
+  - biomedical-engineering
+  - MEMS
+
+candidate_bridges:
+  - b-boundary-layer-turbine-fluid
+
+analogies:
+  - "A viscometer that also pumps fluid — using viscosity as the working mechanism rather than fighting it"
+  - "Soft-matter fluidics where wall adhesion dominates over inertia — the boundary layer IS the mechanism"
+  - "A viscous coupling in a drivetrain, but operating at sub-millimeter scale to move biological fluids"
+
+review_notes: >
+  TRIAGE (2026-05-06): This is an unexplored regime at the intersection of two
+  established fields (Tesla turbine fluid mechanics + MEMS micropumps).
+
+  WHAT IS ESTABLISHED:
+  - Tesla turbine fluid dynamics at macroscale is well-characterized computationally
+    and experimentally (Rice, 1965; Sengupta & Guha, 2012).
+  - MEMS micropumps using piezoelectric, electroosmotic, and peristaltic principles
+    are mature (Nguyen et al., 2002 review).
+  - Blood and biological fluid pumping at microfluidic scale has specific requirements
+    (shear stress < 5 Pa to avoid hemolysis, sterile surfaces).
+
+  WHAT IS UNKNOWN:
+  - Turbine efficiency and flow characteristics at Re < 100 for disk spacings
+    < 200 μm have not been systematically studied.
+  - Whether the regime change (viscosity-dominated vs. inertia-dominated) changes
+    the relative advantage of the bladeless principle.
+
+  SUGGESTED NEXT STEP: A computational fluid dynamics study (OpenFOAM or COMSOL)
+  of Tesla turbine geometry at disk spacings 50–500 μm, Re = 1–1000, for fluids
+  of varying viscosity (water: 1 mPa·s; blood: 3–4 mPa·s; mucus: 10³–10⁴ mPa·s).
+  Compare performance metrics (flow rate per watt, shear stress at walls) with
+  published MEMS pump benchmarks.
+
+last_reviewed: "2026-05-06"

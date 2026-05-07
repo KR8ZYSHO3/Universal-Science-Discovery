@@ -1,0 +1,106 @@
+id: b-category-theory-functional-programming
+title: >
+  Category theory (Eilenberg & Mac Lane 1945) is the semantic foundation of
+  functional programming: types are objects, functions are morphisms, functors
+  are type constructors, monads are monoids in the category of endofunctors,
+  and the Curry-Howard correspondence makes propositions = types and proofs = programs.
+status: established
+fields:
+  - mathematics
+  - computer-science
+  - type-theory
+  - functional-programming
+bridge_claim: >
+  Category theory — the abstract mathematics of structure-preserving maps —
+  is not merely analogous to functional programming; it is the precise
+  mathematical semantics of statically-typed functional languages.
+
+  1. Category = type system. A category C consists of objects (types in a
+     programming language), morphisms f: A → B (functions from type A to B),
+     identity morphisms id_A (the identity function), and composition g∘f
+     (function composition). All laws of category theory — associativity,
+     identity — are exactly the laws obeyed by types and functions.
+
+  2. Functors = type constructors. A functor F: C → C is a mapping between
+     categories preserving structure. In Haskell, the Functor typeclass
+     (fmap :: (a → b) → F a → F b) captures this exactly: List, Maybe, Tree,
+     IO are functors. The functor laws (fmap id = id, fmap (g∘f) = fmap g ∘ fmap f)
+     are the functor laws of category theory. Functor = "mappable container."
+
+  3. Monads = monoids in the category of endofunctors. A monad is an endofunctor
+     M: C → C with two natural transformations: η: id → M (unit/return) and
+     μ: M∘M → M (join/bind), satisfying associativity and unit laws. This is
+     precisely a monoid object in the monoidal category of endofunctors.
+     In Haskell/Scala: do-notation / for-comprehensions are the concrete
+     programming syntax for monadic composition. Monads unify I/O, state,
+     exceptions, parsers, probability, and non-determinism as computational effects.
+
+  4. Curry-Howard-Lambek correspondence. Propositions = types (Curry-Howard):
+     a proof of proposition P corresponds to a program of type P. Function
+     types A → B correspond to logical implication A ⊃ B. Product types A×B
+     correspond to conjunction A ∧ B. The Lambek extension adds cartesian
+     closed categories as the categorical semantics: a proof in intuitionistic
+     logic = a program in a typed lambda calculus = a morphism in a cartesian
+     closed category. These three are the same thing viewed from three angles.
+
+  5. Applied category theory. Recent extensions: databases as functors
+     (Spivak 2012), machine learning as functors (Fong et al. 2019), quantum
+     computation as dagger compact categories (Abramsky & Coecke 2004),
+     type-safe APIs as natural transformations. Applied category theory is
+     increasingly influential in theoretical computer science and software
+     architecture.
+translation_table:
+  - field_a_term: category object (mathematics)
+    field_b_term: type in a functional programming language
+    note: Int, String, List<A> are objects; the type system is a category
+  - field_a_term: "morphism f: A → B (category theory)"
+    field_b_term: "function f :: A -> B (functional programming)"
+    note: All functions are morphisms; function composition = morphism composition
+  - field_a_term: "functor F: C → D (category theory)"
+    field_b_term: Functor typeclass / type constructor (Haskell/Scala)
+    note: "List, Maybe, IO are functors; fmap = functor action on morphisms"
+  - field_a_term: "natural transformation η: F ⟹ G (category theory)"
+    field_b_term: polymorphic function / parametric function (programming)
+    note: "safeHead :: [a] -> Maybe a is a natural transformation List ⟹ Maybe"
+  - field_a_term: monad (monoid in endofunctors) (category theory)
+    field_b_term: Monad typeclass with return/bind (Haskell IO, State, Parser)
+    note: Monads are the category-theoretic semantics of computational effects
+  - field_a_term: cartesian closed category (mathematics)
+    field_b_term: simply-typed lambda calculus (computer science)
+    note: "Curry-Howard-Lambek: proofs = programs = morphisms in CCC"
+related_unknowns:
+  - u-homotopy-type-theory-computational-foundations
+related_hypotheses:
+  - h-univalence-axiom-proof-assistant-verification
+cross_pollination_opportunities:
+  - >
+    Categorical databases (Functorial Query Language): database schemas and
+    migrations as functors enables formally verified data integration and
+    schema evolution. Spivak's categorical approach has been implemented in
+    the FQL query language, representing a direct application of category
+    theory to database engineering.
+  - >
+    Dependent types from homotopy type theory (HoTT): the univalence axiom
+    (equivalent types are equal) gives a foundation where equality = homotopy.
+    Proof assistants (Agda, Coq, Lean) implementing HoTT could verify
+    mathematical theorems as compiled type-checked programs — connecting
+    formal mathematics directly to software verification.
+communication_gap: >
+  Pure mathematicians (category theory) and software engineers (functional
+  programming) have largely parallel but disconnected communities. Category
+  theory courses rarely mention programming; most programmers learn monads
+  from blog posts without understanding the mathematical foundations. The
+  Haskell community and the applied category theory community (MIT, Topos
+  Institute) are the main bridges. Industry adoption (Scala, Kotlin, Rust)
+  is increasing functional programming use, but the categorical foundations
+  remain opaque to most practitioners.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.2307/1990929"
+    note: Eilenberg & Mac Lane (1945) Trans AMS 58:231 — general theory of natural equivalences
+  - doi: "10.1016/0890-5401(91)90052-4"
+    note: Moggi (1991) Inf Comput 93:55 — notions of computation and monads
+  - url: https://dl.acm.org/doi/10.1145/143165.143169
+    note: Wadler (1992) POPL — the essence of functional programming (monads)
+  - url: https://link.springer.com/book/10.1007/978-1-4757-4721-8
+    note: Mac Lane (1971) Categories for the Working Mathematician — Springer Graduate Texts

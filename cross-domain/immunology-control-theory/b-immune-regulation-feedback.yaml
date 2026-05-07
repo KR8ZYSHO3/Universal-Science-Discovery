@@ -1,0 +1,97 @@
+id: b-immune-regulation-feedback
+title: >
+  The immune system is a proportional-integral (PI) feedback controller — T-regulatory
+  cells implement integral negative feedback on effector T-cell responses, maintaining
+  self-tolerance exactly as a PI controller eliminates steady-state error.
+status: proposed
+fields:
+  - immunology
+  - control-theory
+  - systems-biology
+  - mathematical-biology
+bridge_claim: >
+  Classical feedback control theory provides a precise mathematical framework for immune
+  regulation. The IL-2 / T-regulatory cell (Treg) circuit implements a proportional-
+  integral (PI) control loop maintaining self-tolerance against autoimmunity.
+
+  In control engineering terms: effector T-cells (T_eff) are the plant output to be
+  controlled; Tregs are the controller; IL-2 is the feedback signal; antigen is the
+  reference input (setpoint). The Treg population integrates the IL-2 signal over time
+  (integral action), providing perfect adaptation that drives steady-state T_eff
+  activation to zero in the absence of antigen — analogous to a PI controller
+  eliminating steady-state error.
+
+  Formal equivalence: define e(t) = IL-2 concentration (error signal). Tregs grow in
+  proportion to ∫e(t)dt (integral of IL-2 exposure). Treg suppression of T_eff is
+  proportional to current Treg count (proportional action on the error integral).
+  This is exactly a PI controller with transfer function C(s) = K_p + K_i/s.
+
+  Disease states map to control failure modes:
+  - Autoimmune disease = insufficient integral gain K_i (Treg deficiency or dysfunction)
+    → non-zero steady-state T_eff activation (steady-state error)
+  - Cytokine storm = runaway positive feedback / loss of controller saturation
+    → plant output diverges (IL-6, TNF amplification loop)
+  - Immunodeficiency = insufficient plant gain (lymphopenia) → poor response to antigen
+  - Allergy = miscalibrated setpoint (antigen recognition threshold too low)
+
+  ODE model (Busse et al. 2010): dT_eff/dt = ρ·IL2·T_eff - δ·T_eff - k·T_reg·T_eff;
+  dT_reg/dt = σ·IL2·T_reg - μ·T_reg; dIL2/dt = α·T_eff - β·IL2 - γ·T_reg·IL2.
+  Linear stability analysis predicts oscillatory responses (overshooting immune
+  activation followed by Treg-mediated suppression) matching clinical observations
+  of relapsing-remitting autoimmune disease.
+translation_table:
+  - field_a_term: effector T-cell count T_eff
+    field_b_term: plant output y(t) to be regulated
+  - field_a_term: T-regulatory cell count T_reg
+    field_b_term: controller state (integrator variable)
+  - field_a_term: IL-2 cytokine concentration
+    field_b_term: error signal e(t) = reference - output
+  - field_a_term: antigen load
+    field_b_term: reference input r(t) / setpoint
+  - field_a_term: Treg suppression of T_eff (rate k·T_reg·T_eff)
+    field_b_term: proportional control action u_P(t) = K_p·e(t)
+  - field_a_term: Treg accumulation by IL-2 (integral of cytokine signal)
+    field_b_term: integral control action u_I(t) = K_i∫e(τ)dτ
+  - field_a_term: autoimmune disease (insufficient Treg suppression)
+    field_b_term: steady-state error (controller gain too low)
+  - field_a_term: cytokine storm (IL-6/TNF positive feedback loop)
+    field_b_term: unstable closed-loop system (positive feedback dominates)
+  - field_a_term: immunosuppressive therapy (corticosteroids)
+    field_b_term: adding external negative feedback to stabilize the loop
+related_unknowns:
+  - u-immune-treg-pi-control-quantitative
+related_hypotheses:
+  - h-autoimmune-pi-gain-deficiency
+cross_pollination_opportunities:
+  - >
+    Control theory predicts that integral control produces oscillatory responses
+    when loop delay is present. The relapsing-remitting pattern of diseases like
+    multiple sclerosis and lupus may reflect a delayed integral controller — the
+    time lag between T_eff activation and Treg expansion introduces phase lag
+    causing oscillation. PID tuning methods could optimize therapeutic dosing intervals.
+  - >
+    Adaptive immunity targeting cancer requires calibrating the controller to attack
+    non-self (tumor antigens) while maintaining self-tolerance. Checkpoint inhibitors
+    (anti-PD1, anti-CTLA4) reduce controller gain — in control terms, they decrease K_p.
+    The observed immune-related adverse events (irAEs, autoimmunity) are exactly
+    the predicted consequence of reducing negative feedback gain below the stability margin.
+  - >
+    Robust control theory (H-infinity control) could identify therapeutic interventions
+    that maintain immune regulation across a range of uncertain pathogen loads —
+    the analog of designing a robust controller for a plant with uncertain parameters.
+communication_gap: >
+  Immunologists describe regulatory circuits in terms of cell types and cytokines;
+  control engineers describe them in transfer functions and Bode plots. The conceptual
+  translation is clear but the mathematical formalism rarely crosses disciplinary
+  boundaries. Systems biology occupies the middle ground but rarely uses formal
+  control-theoretic tools (stability margins, Nyquist criterion, robust control).
+  Clinical immunology training does not include feedback control theory.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1371/journal.pcbi.1003122"
+    note: Khailaie et al. (2013) PLOS Comput Biol — PI controller model of IL-2/Treg dynamics
+  - doi: "10.1186/1752-0509-4-2"
+    note: Busse et al. (2010) BMC Syst Biol 4:2 — mathematical model of Treg-mediated tolerance
+  - note: Doyle, Francis & Tannenbaum (2009) Feedback Control Theory. Dover Publications.
+  - doi: "10.1038/msb.2010.32"
+    note: Feinerman et al. (2010) Mol Syst Biol — IL-2 signaling quantification

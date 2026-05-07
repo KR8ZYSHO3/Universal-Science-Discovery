@@ -1,0 +1,76 @@
+id: b-condorcet-paradox-voting-cycles
+title: >
+  The Condorcet paradox demonstrates that majority voting on three or more alternatives
+  can produce cyclic collective preferences (A beats B, B beats C, C beats A) even when
+  all individual preferences are transitive — a mathematical impossibility result
+  underlying Arrow's theorem and spatial voting theory, with the median voter theorem
+  providing the single-peaked exception.
+status: established
+fields:
+  - social-science
+  - mathematics
+  - political-science
+  - economics
+  - game-theory
+bridge_claim: >
+  Condorcet (1785) showed that pairwise majority voting over three alternatives A, B, C
+  with three voter types (A>B>C, B>C>A, C>A>B) produces majority cycles: A beats B by
+  2-1, B beats C by 2-1, C beats A by 2-1. This is not a special case: with n>2
+  alternatives and m voters with random uniform preferences, the probability of a
+  Condorcet cycle approaches 1 as n→∞ (Niemi & Weisberg 1968). The result follows
+  algebraically from the fact that majority-preference is not a transitive relation —
+  it fails to be a total order. Black's median voter theorem (1948) provides the main
+  escape: if all voters have single-peaked preferences on a one-dimensional issue space
+  (each voter has a bliss point with utility decreasing in distance), then the majority
+  preference relation is transitive and equals the preference of the median voter.
+  Arrow's impossibility theorem (1951) generalizes: no social welfare function can
+  simultaneously satisfy unrestricted domain, Pareto efficiency, independence of
+  irrelevant alternatives, and non-dictatorship. The proof uses a "decisive coalition"
+  argument relying on the same combinatorial structure that generates Condorcet cycles.
+  Spatial voting models explain polarization as divergence from median voter equilibrium
+  when parties face primary election incentives.
+translation_table:
+  - field_a_term: Condorcet winner (beats all others in pairwise majority vote)
+    field_b_term: median voter bliss point (in single-peaked preferences)
+    note: when single-peakedness holds, the Condorcet winner = median voter position
+  - field_a_term: Condorcet cycle (A>B>C>A majority preferences)
+    field_b_term: intransitive tournament graph (a directed graph with no dominant vertex)
+    note: the majority-preference relation corresponds to a tournament graph; cycles are non-transitive tournaments
+  - field_a_term: single-peaked preferences (one-dimensional issue space)
+    field_b_term: unimodal probability distribution on the real line
+    note: single-peakedness is the social choice analog of unimodality; guarantees median optimality
+  - field_a_term: Arrow's impossibility (no ideal SWF)
+    field_b_term: no maximal element in a cyclic preference tournament
+    note: cyclic preferences mean no choice rule can satisfy all fairness axioms simultaneously
+related_unknowns:
+  - u-collective-action-without-authority
+related_hypotheses:
+  - h-collective-action-ostrom-design-principles-v2
+cross_pollination_opportunities:
+  - >
+    Computational social choice: algorithms to detect Condorcet winners (or approximate
+    them under noise) have complexity consequences — finding a Condorcet winner is in P,
+    but finding a Kemeny consensus (minimum swap distance to a consistent ranking) is
+    NP-hard. This connects voting theory to computational complexity, with applications
+    to web page ranking (Google's PageRank is a random walk approximation to Condorcet
+    winner in a graph) and preference aggregation in recommender systems.
+  - >
+    Evolutionary biology uses voting models: the Red Queen hypothesis can be formalized
+    as a Condorcet-cycle game between host immune genotypes, pathogen escape genotypes,
+    and host immune recovery — cycling preferences explain coevolutionary arms races
+    without equilibrium convergence.
+communication_gap: >
+  Condorcet (1785) wrote in French and was largely ignored by English-language political
+  scientists until the 20th century. Arrow (1951) rediscovered the impossibility in an
+  economics framework. Black (1948) independently discovered the median voter theorem
+  and published in the Journal of Political Economy. Social choice theory developed
+  primarily in economics departments (Harvard, Rochester) while political scientists
+  studied voting behavior empirically with minimal awareness of the mathematical
+  impossibility results until the 1970s.
+last_reviewed: "2026-05-06"
+references:
+  - note: Condorcet (1785) — Essai sur l'application de l'analyse à la probabilité des décisions rendues à la pluralité des voix
+  - doi: "10.1086/256963"
+    note: Black (1948) — On the rationale of group decision-making; J Polit Econ 56:23
+  - note: Arrow (1951) — Social Choice and Individual Values; Yale University Press
+  - note: Downs (1957) — An Economic Theory of Democracy; Harper & Row

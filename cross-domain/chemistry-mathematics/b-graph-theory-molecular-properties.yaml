@@ -1,0 +1,80 @@
+id: b-graph-theory-molecular-properties
+title: >
+  Molecular graphs (atoms as vertices, bonds as edges) encode chemical structure
+  through topological indices correlated with physical properties, and the
+  characteristic polynomial of the adjacency matrix yields Hückel MO energies —
+  bridging graph spectral theory to computational chemistry.
+status: established
+fields:
+  - chemistry
+  - computational-chemistry
+  - mathematics
+  - graph-theory
+  - spectral-theory
+bridge_claim: >
+  A molecule is represented as a graph G = (V, E) where vertices are heavy atoms
+  and edges are chemical bonds. Three bridges: (1) Topological indices — the Wiener
+  index W = Σ_{i<j} d(i,j) (sum of all pairwise distances) correlates with boiling
+  point of alkanes (r² > 0.97, Wiener 1947); Zagreb indices M₁ = Σ deg(v)²
+  and M₂ = Σ_{uv∈E} deg(u)deg(v) correlate with π-electron energy, octanol-water
+  partition coefficient, and drug bioavailability. (2) Hückel molecular orbital
+  theory — for planar conjugated systems (benzene, naphthalene), the adjacency
+  matrix A of the molecular graph has characteristic polynomial det(xI − A) = Σ a_k x^{n-k}
+  whose roots (eigenvalues λ_k) give the MO energy levels ε_k = α + λ_k β, where α
+  and β are empirical Coulomb and resonance integrals. This is exact for Hückel
+  systems. (3) Graph isomorphism — determining whether two molecular graphs are
+  identical is NP-equivalent to general graph isomorphism (not known NP-complete),
+  but polynomial algorithms exist for molecular graph classes (trees, bounded
+  treewidth). The SMILES and InChI molecular notation systems are graph traversal
+  encodings. This bridges pure mathematics (spectral graph theory, combinatorics,
+  isomorphism complexity) to chemistry (molecular structure, drug design, property
+  prediction) through the molecular graph representation.
+translation_table:
+  - field_a_term: graph adjacency matrix A_{ij}
+    field_b_term: molecular connectivity matrix (A_{ij}=1 if atoms i,j bonded)
+  - field_a_term: eigenvalues of A (graph spectrum)
+    field_b_term: Hückel MO energy levels ε_k = α + λ_k β
+  - field_a_term: characteristic polynomial det(xI − A)
+    field_b_term: secular determinant in Hückel MO theory
+  - field_a_term: Wiener index W = Σ d(i,j)
+    field_b_term: topological descriptor correlating with boiling point and molar volume
+  - field_a_term: graph isomorphism problem
+    field_b_term: molecular equivalence / stereoisomer identification
+  - field_a_term: Randić connectivity index χ = Σ_{uv} (deg(u)·deg(v))^{-1/2}
+    field_b_term: branching index correlating with octanol-water partition coefficient
+  - field_a_term: graph planarity (Kuratowski's theorem)
+    field_b_term: planarity condition required for classical Hückel theory
+related_unknowns:
+  - u-molecular-graph-isomorphism-complexity
+related_hypotheses:
+  - h-topological-index-drug-bioavailability-prediction
+cross_pollination_opportunities:
+  - >
+    Machine learning on molecular graphs: graph neural networks (GNNs) learn
+    generalizations of topological indices end-to-end from molecular graphs —
+    bridging classical chemical graph theory to deep learning for drug discovery.
+  - >
+    Materials informatics: applying graph-based descriptors (originally developed
+    for small molecules) to crystal structures represented as periodic graphs —
+    predicting bulk material properties from structural topology alone.
+  - >
+    Reaction network topology: modeling chemical reaction networks as directed
+    graphs and applying network-theoretic measures (centrality, shortest paths)
+    to identify rate-limiting steps and optimal synthetic routes.
+communication_gap: >
+  Wiener (1947) was a chemist; Hückel (1931) was a physicist-chemist — their graph
+  results were not connected to formal graph theory for decades. The mathematical
+  theory of chemical graph theory (Trinajstić, Gutman, Randić) developed in the
+  1970s–1990s in chemistry journals, unaware of parallel developments in algebraic
+  graph theory. The NP-hardness connection (graph isomorphism) was only articulated
+  by theoretical computer scientists. GNNs for molecular property prediction
+  rediscover topological indices as trainable features without citing the classical
+  chemical graph theory literature.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1021/ja01193a005"
+    note: Wiener (1947) Structural determination of paraffin boiling points. J Am Chem Soc 69:17
+  - note: Hückel (1931) Quantentheoretische Beiträge zum Benzolproblem. Z Phys 70:204
+  - note: Trinajstić (1992) Chemical Graph Theory, 2nd ed. CRC Press
+  - doi: "10.1021/ja00856a001"
+    note: Randić (1975) On characterization of molecular branching. J Am Chem Soc 97:6609

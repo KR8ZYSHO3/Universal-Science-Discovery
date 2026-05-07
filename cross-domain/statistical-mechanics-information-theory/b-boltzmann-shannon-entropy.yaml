@@ -1,0 +1,74 @@
+id: b-boltzmann-shannon-entropy
+title: >
+  Boltzmann's entropy S = k_B ln W and Shannon's entropy H = −Σ p_i log p_i are
+  formally identical — thermodynamic entropy IS the Shannon information entropy of
+  the macroscopic probability distribution over microstates.
+status: established
+fields:
+  - statistical-mechanics
+  - information-theory
+  - thermodynamics
+bridge_claim: >
+  Boltzmann's entropy S = k_B ln W (W = number of equally probable microstates)
+  and Shannon's entropy H = −Σ p_i log p_i (probability distribution over messages)
+  are the same mathematical object up to the Boltzmann constant k_B and a factor of
+  ln 2 (bit vs nat). The equivalence S = k_B ln 2 · H holds exactly when the
+  microstate probability distribution is uniform.
+
+  Jaynes (1957) showed the connection is not coincidental: the correct way to do
+  statistical mechanics is to apply the principle of maximum entropy (MaxEnt) — select
+  the probability distribution over microstates that maximizes Shannon entropy subject
+  to known macroscopic constraints (energy, volume, particle number). This derivation
+  recovers all of equilibrium statistical mechanics from information theory alone,
+  without invoking ergodicity or time-averaging.
+
+  The bridge implies that statistical mechanics IS Bayesian inference about physical
+  systems: the macroscopic thermodynamic state is the least-biased inference given
+  available macroscopic information. The second law of thermodynamics becomes the
+  statement that our information about a system's microstate decreases over time (or
+  equivalently, that the entropy of our probability distribution increases as
+  correlations spread beyond our observational resolution).
+translation_table:
+  - field_a_term: Boltzmann entropy S = k_B ln W
+    field_b_term: Shannon entropy H = −Σ p_i log p_i (uniform distribution)
+    note: "S = k_B ln 2 · H; differ only by units (joules/kelvin vs bits)"
+  - field_a_term: number of microstates W consistent with macrostate
+    field_b_term: number of distinguishable messages of a given probability
+    note: Same combinatorial object — Boltzmann's W is Shannon's code length exponent
+  - field_a_term: thermodynamic equilibrium (maximum entropy state)
+    field_b_term: maximum entropy distribution (MaxEnt principle)
+    note: Jaynes showed equilibrium statistical mechanics = MaxEnt inference
+  - field_a_term: partition function Z = Σ exp(−E_i / k_B T)
+    field_b_term: moment generating function of the energy distribution
+    note: Z encodes all thermodynamic information as a Laplace transform
+  - field_a_term: free energy F = −k_B T ln Z
+    field_b_term: log partition function (cumulant generating function)
+    note: Variational free energy = KL-divergence in variational Bayes
+related_unknowns:
+  - u-boltzmann-shannon-nonequilibrium-bridge
+related_hypotheses:
+  - h-maxent-nonequilibrium-statistical-mechanics
+cross_pollination_opportunities:
+  - >
+    Variational inference in machine learning uses the free energy F = ⟨E⟩ − T·S
+    (evidence lower bound / ELBO) — the same quantity as thermodynamic free energy.
+    This suggests that training a neural network is a form of thermodynamic inference
+    and that statistical mechanics methods (replica theory, cavity method) apply to
+    learning theory.
+  - >
+    Non-equilibrium extensions: the Jarzynski equality and Crooks fluctuation theorem
+    connect work distributions to free energy differences — the information-theoretic
+    content is that the KL-divergence between forward and reverse process distributions
+    equals the dissipated work in units of k_B T.
+communication_gap: >
+  Physics and information theory developed the entropy concept independently (Boltzmann
+  1877 and Shannon 1948 are 71 years apart). Many physicists learn Boltzmann entropy
+  as a physical fact, not as an inference framework. Many information theorists do not
+  know that H is measured in joules/kelvin when multiplied by k_B. Jaynes's unification
+  is underappreciated outside statistical physics.
+last_reviewed: "2026-05-06"
+references:
+  - note: "Boltzmann (1877) Über die Beziehung zwischen dem zweiten Hauptsatze der mechanischen Wärmetheorie. Sitzungsber Akad Wiss Wien 76:373-435"
+  - note: "Shannon (1948) A mathematical theory of communication. Bell Syst Tech J 27:379-423"
+  - note: "Jaynes (1957) Information theory and statistical mechanics I. Phys Rev 106:620-630"
+  - note: "Jaynes (1957) Information theory and statistical mechanics II. Phys Rev 108:171-190"

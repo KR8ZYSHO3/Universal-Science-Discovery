@@ -1,0 +1,106 @@
+id: b-hci-cognitive-load
+title: >
+  Human-computer interaction bridges social science (cognitive psychology) and
+  engineering: Fitts' law, Hick's law, and cognitive load theory provide quantitative
+  design constraints translating working memory limits and motor control psychology
+  into interface engineering specifications for software, devices, and workplaces.
+status: established
+fields:
+  - social-science
+  - cognitive-psychology
+  - engineering
+  - human-computer-interaction
+  - human-factors
+  - user-experience-design
+bridge_claim: >
+  Cognitive load theory (Sweller 1988): working memory has a capacity limit of
+  approximately 7±2 chunks (Miller 1956) and can process 4±1 independent elements
+  simultaneously in more recent estimates (Cowan 2001). Three load types:
+  (1) Intrinsic load: inherent task complexity, determined by element interactivity
+  (number of elements that must be simultaneously considered). (2) Extraneous load:
+  cognitive effort wasted on poor interface design — redundant information, split
+  attention between diagram and text. (3) Germane load: productive cognitive effort
+  building schemas (transferable knowledge structures). Interface design aims to
+  minimize extraneous + intrinsic load while maximizing germane load.
+
+  Fitts' law (1954): the time to move a pointing device to a target of width W at
+  distance D follows T = a + b·log₂(2D/W). The index of difficulty ID = log₂(2D/W)
+  (bits) measures the information content of the pointing task. This law is derived
+  from Shannon's channel capacity theorem: the motor system is an information channel
+  with capacity C = ID/T bits/second. Fitts' law is used to optimize UI element
+  sizing (buttons should be large, placed at screen edges), predict pointing time for
+  accessibility compliance (Fitt's law models cursor control via pointer, eye gaze,
+  or brain-computer interface), and evaluate input device bandwidth.
+
+  Hick's law (Hick 1952, Hyman 1953): reaction time RT = b·log₂(n+1) — increases
+  logarithmically with the number of equally probable choices n. Derived from
+  information theory: RT is proportional to the information gained by the choice
+  (Shannon entropy H = log₂(n) bits for equiprobable options). Applied to UI: menus
+  should be organized hierarchically (depth > breadth for large choice sets, since
+  log₂(n) < log₂(n^{1/k}) × k for k levels with n^{1/k} items per level).
+
+  GOMS model (Card, Moran & Newell 1983): Goals, Operators, Methods, Selection rules
+  — a cognitive architecture that models expert task performance by decomposing tasks
+  into keystroke-level operations (KLM: Keystroke-Level Model). KLM predicts task
+  completion time from: K (key press, 0.2s), P (pointing, Fitts), H (home movement,
+  0.4s), M (mental preparation, 1.35s), R (system response, variable). Accurate to
+  ±20% for expert users — used in industry to compare interface designs pre-prototype.
+
+  Dark patterns (Brignull 2010): UI designs that exploit cognitive biases and working
+  memory limits to manipulate users — confirmshaming ("No, I don't want to save money"),
+  roach motel (easy to subscribe, hard to cancel), hidden costs (revealed late in checkout).
+  GDPR and FTC have begun regulating dark patterns as unfair trade practices.
+translation_table:
+  - field_a_term: working memory capacity (7±2 chunks, Miller 1956)
+    field_b_term: UI chunking / grouping (visual hierarchy reduces simultaneous elements)
+    note: UI design directly maps to cognitive chunk count — good design keeps concurrent elements < 7
+  - field_a_term: Fitts' law index of difficulty ID = log₂(2D/W) (bits)
+    field_b_term: motor channel capacity C = ID/MT (bits/second)
+    note: Fitts' law is Shannon's channel capacity theorem applied to the human motor system
+  - field_a_term: Hick's law RT = b·log₂(n+1) (choice reaction time)
+    field_b_term: "menu depth optimization (hierarchical menu: log depth beats flat breadth)"
+    note: optimal menu structure minimizes RT = Hick time × depth = b·log₂(n^{1/k}) × k
+  - field_a_term: cognitive schema (organized knowledge structure reducing working memory load)
+    field_b_term: UI affordance / convention (familiar interaction pattern requires no deliberate decoding)
+    note: conventional UI patterns (hamburger menu, scroll, pinch-to-zoom) offload working memory to long-term memory
+  - field_a_term: GOMS/KLM task time prediction (expert performance model)
+    field_b_term: "usability specification (measurable target: task time, error rate, learnability)"
+    note: KLM provides pre-implementation performance specifications — testable engineering requirements
+related_unknowns:
+  - u-dark-patterns-cognitive-bias-exploitation-measurement
+related_hypotheses:
+  - h-fitts-law-bci-pointer-information-bandwidth-limit
+cross_pollination_opportunities:
+  - >
+    Neuroimaging of cognitive load (fMRI, fNIRS): prefrontal cortex (PFC) activation
+    scales with working memory load — measurable with portable fNIRS headsets during
+    interface use. Real-time adaptive interfaces that monitor user cognitive load
+    (via pupil dilation as a proxy for mental effort) and adjust information density,
+    interaction complexity, or automation level accordingly could dynamically minimize
+    extraneous load — closing the engineering-psychology feedback loop.
+  - >
+    Accessibility and universal design: Fitts' law makes precise predictions for
+    motor-impaired users (larger pointing error → smaller effective W → higher ID
+    → much longer pointing time). Quantitative HCI models allow designing interfaces
+    that scale to diverse motor abilities, connecting disability science to engineering
+    through a shared mathematical framework (throughput in bits/second as a
+    disability-agnostic performance metric).
+communication_gap: >
+  Cognitive psychology (working memory research, dual-process theory) and engineering
+  (UI design, software engineering) operate in largely separate academic communities.
+  Academic HCI research (CHI conference) bridges these domains but is underfamiliar
+  in both psychology departments (which rarely teach Fitts' law) and software engineering
+  programs (which rarely teach cognitive psychology). Industry UX practice uses Fitts'
+  law and cognitive load theory empirically but rarely engages with their information-
+  theoretic foundations. Dark patterns research (a social science phenomenon of interface
+  manipulation) is studied by behavioral economists and consumer protection researchers
+  who rarely engage with the computational HCI literature on task modeling.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1207/s15516709cog1202_4"
+    note: "Sweller (1988) Cognitive load during problem solving; Cogn Sci 12:257"
+  - doi: "10.1037/h0043158"
+    note: "Miller (1956) The magical number seven, plus or minus two; Psychol Rev 63:81"
+  - doi: "10.1037/h0055392"
+    note: "Fitts (1954) The information capacity of the human motor system in controlling the amplitude of movement; J Exp Psychol 47:381"
+  - note: Card, Moran & Newell (1983) The Psychology of Human-Computer Interaction. Lawrence Erlbaum Associates

@@ -1,0 +1,78 @@
+id: b-circadian-rhythms-neural-oscillators
+title: >
+  Circadian clocks are cell-autonomous delayed negative-feedback oscillators
+  (Goodwin topology) whose ~20,000 SCN neurons synchronize via VIP-mediated
+  coupling — a biological implementation of the Kuramoto coupled-oscillator
+  model, where jet-lag recovery rate is determined by the second eigenvalue of
+  the coupling matrix.
+status: established
+fields:
+  - biology
+  - chronobiology
+  - neuroscience
+  - dynamical-systems
+  - mathematical-biology
+bridge_claim: >
+  Circadian clocks operate via transcription-translation feedback loops (TTFL):
+  CLOCK/BMAL1 heterodimers activate PER/CRY gene transcription; PER/CRY proteins
+  inhibit CLOCK/BMAL1 after a nuclear translocation delay — a delayed negative
+  feedback oscillator. The Goodwin oscillator equations ẋ₁ = v₁/(1+(x₃/K₁)ⁿ) - k₁x₁
+  require the Hill coefficient n > 8 for sustained oscillations, explaining why
+  multiple post-translational modifications (creating effective high cooperativity)
+  are essential for robust rhythms. The suprachiasmatic nucleus (SCN) contains
+  ~20,000 clock-gene-expressing neurons, each an autonomous oscillator with
+  heterogeneous intrinsic periods (~23–25 h). Population synchrony is achieved via
+  VIP (vasoactive intestinal peptide) neuropeptide coupling — mathematically
+  equivalent to a Kuramoto model dθᵢ/dt = ωᵢ + (K/N)Σⱼ sin(θⱼ−θᵢ). The
+  synchronization order parameter R = |⟨e^{iθ}⟩| transitions from 0 to 1 at
+  coupling K > K_c = 2/πg(ω₀). Jet lag is transient desynchronization; the
+  re-entrainment timescale τ ~ 1/Im(λ₂) where λ₂ is the second eigenvalue of
+  the VIP coupling network Laplacian — identical to the consensus convergence
+  time in multi-agent systems theory.
+translation_table:
+  - field_a_term: CLOCK/BMAL1 activator and PER/CRY repressor proteins
+    field_b_term: amplitude and phase variables of a nonlinear oscillator
+    note: protein concentrations encode phase; degradation rates set period
+  - field_a_term: nuclear translocation delay of PER/CRY
+    field_b_term: time delay τ in a delayed differential equation oscillator
+    note: delay is essential for sustained oscillation; τ ≈ 6–8 h in mammals
+  - field_a_term: VIP neuropeptide coupling between SCN neurons
+    field_b_term: sinusoidal coupling term in the Kuramoto model
+    note: VIP binds VPAC2 receptors and resets phase via cAMP-PKA signaling
+  - field_a_term: SCN-wide entrainment to light-dark cycle
+    field_b_term: external forcing of a Kuramoto network above K_c
+    note: light acts on retinohypothalamic tract to phase-shift the SCN oscillator
+  - field_a_term: jet-lag recovery timescale
+    field_b_term: 1/Im(λ₂) — algebraic connectivity of the coupling network
+    note: faster network connectivity → faster resynchronization
+related_unknowns:
+  - u-circadian-desynchrony-disease-mechanisms
+related_hypotheses:
+  - h-kuramoto-scn-resynchronization-rate
+cross_pollination_opportunities:
+  - >
+    Kuramoto model analysis of SCN connectivity predicts that pharmacological
+    enhancement of VIP signaling should accelerate jet-lag recovery proportional
+    to the increase in algebraic connectivity — a testable, quantitative
+    prediction exportable from control theory to chronopharmacology.
+  - >
+    Chronotherapy (timing drug delivery to circadian phase) requires patient-
+    specific phase estimation. Wearable biosensors can estimate SCN phase from
+    skin temperature or cortisol patterns; Kalman filtering (control engineering)
+    provides optimal phase estimation — a direct engineering-to-medicine transfer.
+communication_gap: >
+  Molecular chronobiologists publishing in Cell and Nature focus on gene-knockout
+  phenotypes; mathematical biologists publishing Kuramoto analyses focus on
+  network topology; clinical chronobiologists focus on shift-work health effects.
+  These communities rarely cite each other, so quantitative predictions from
+  network theory about resynchronization have not been translated into drug targets.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1038/343536a0"
+    note: "Hardin et al. (1990) Feedback of the Drosophila period gene product on circadian cycling of its messenger RNA levels. Nature 343:536–540"
+  - doi: "10.1073/pnas.0308709101"
+    note: "Leloup & Goldbeter (2004) Toward a detailed computational model for the mammalian circadian clock. PNAS 101:17228–17233"
+  - doi: "10.1038/nrn2914"
+    note: "Welsh et al. (2010) Suprachiasmatic nucleus: cell autonomy and network properties. Nat Rev Neurosci 11:764–773"
+  - doi: "10.1529/biophysj.104.058388"
+    note: "Gonze et al. (2005) Spontaneous synchronization of coupled circadian oscillators. Biophys J 89:120–129"

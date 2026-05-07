@@ -1,0 +1,83 @@
+id: b-order-book-market-microstructure
+title: >
+  The limit order book is a non-equilibrium stochastic system governed by Poisson
+  order flows — Kyle's lambda (price impact linear in signed flow), the Glosten-Milgrom
+  adverse selection spread, and the square-root market impact law connect queueing
+  theory and statistical physics to market microstructure.
+status: established
+fields:
+  - physics
+  - social-science
+  - economics
+  - mathematics
+bridge_claim: >
+  The limit order book (LOB) is a queue of standing buy (bid) and sell (ask) orders
+  at discrete price levels. Market dynamics are driven by three Poisson processes:
+  limit order arrivals (rate λ_b, λ_a at each price level), market order arrivals
+  (rate μ), and cancellations (rate δ). Cont-Stoikov-Talreja (2010) modelled the
+  LOB as a continuous-time Markov chain and derived analytically the distribution
+  of queue lengths, mid-price changes, and bid-ask spread. Kyle's lambda (1985):
+  in a Bayesian market-maker model where one informed trader and noise traders submit
+  orders, the equilibrium price impact is exactly linear in signed order flow:
+  ΔP = λQ, where λ = σ_v/(2σ_u) is the illiquidity measure (σ_v = fundamental
+  value volatility, σ_u = noise trade volatility). Empirically, the price impact
+  of large trades follows a square root law: ΔP ∝ √(Q/V_daily) — consistent with
+  LOB models where the book is locally linear in quantity. The Glosten-Milgrom model
+  (1985): the bid-ask spread compensates a competitive market maker for the expected
+  adverse selection cost from informed trading; the spread is a sufficient statistic
+  for information asymmetry. High-frequency trading (HFT): co-located servers with
+  microsecond latency provide liquidity (reduce spread) in normal conditions but
+  can amplify instabilities (flash crashes) when correlated order cancellation
+  empties the LOB.
+translation_table:
+  - field_a_term: Poisson queue (arrival rate λ, service rate μ)
+    field_b_term: limit order book (order arrival, cancellation, execution rates)
+    note: LOB is a multi-server queue with state-dependent rates; analytical solutions exist for the exponential model
+  - field_a_term: illiquidity measure λ (Kyle's lambda)
+    field_b_term: price impact per unit signed order flow (bid-ask adverse selection)
+    note: Kyle's lambda is the econophysics analogue of the friction coefficient; higher λ = less liquid market
+  - field_a_term: square root price impact ΔP ∝ √Q
+    field_b_term: empirical market impact law for institutional trades
+    note: Derived from LOB model with replenishment; consistent with meta-order execution data across global equities
+  - field_a_term: information asymmetry (adverse selection)
+    field_b_term: Glosten-Milgrom bid-ask spread = 2·λ·P(informed trader)·E[|v-P||trade]
+    note: Spread is zero in a world with only noise traders; it reflects the cost of providing liquidity to informed agents
+  - field_a_term: correlated failure / phase transition
+    field_b_term: flash crash (LOB drains when HFT market makers withdraw simultaneously)
+    note: The 2010 Flash Crash saw the Dow Jones fall 9% in minutes as correlated HFT cancellations drained liquidity
+related_unknowns:
+  - u-order-book-flash-crash-phase-transition-mechanism
+related_hypotheses:
+  - h-order-book-square-root-impact-universal-liquidity
+cross_pollination_opportunities:
+  - >
+    Optimal execution as a stochastic control problem: use Almgren-Chriss theory
+    (linear temporary impact + permanent impact Kyle's lambda) to derive the optimal
+    trading trajectory that minimises expected execution cost for a large institutional
+    order; test the prediction against real meta-order data using trading records.
+  - >
+    LOB phase diagram: map the Cont-Stoikov-Talreja Markov chain phase diagram
+    (order arrival vs. cancellation rate) to identify parameter regions where the
+    market self-organises near a critical point (diverging susceptibility = flash
+    crash risk); propose a real-time criticality indicator from order book data.
+  - >
+    Regulatory circuit breaker design: use LOB simulation to predict the optimal
+    trading halt duration and price-band width that prevents cascading liquidity
+    withdrawal without exacerbating price discovery; compare US vs. European
+    circuit breaker designs using the model.
+communication_gap: >
+  Financial economics and market microstructure are published in finance journals
+  (Journal of Finance, Review of Financial Studies) that physicists rarely read.
+  The statistical physics of disordered systems and queuing theory is published in
+  physics journals. Econophysics bridges the gap but is treated as peripheral by
+  both finance academics and physics departments. Regulators who design market
+  structure rules rarely engage with the physics or queueing theory literature.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.2307/1913210"
+    note: "Kyle (1985) Econometrica 53:1315 — continuous auctions and insider trading; Kyle's lambda illiquidity measure"
+  - doi: "10.1016/0304-405X(85)90044-3"
+    note: "Glosten & Milgrom (1985) J Financ Econ 14:71 — bid, ask, and transaction prices in a market with asymmetric information"
+  - doi: "10.1214/09-AAP682"
+    note: "Cont et al. (2010) Ann Appl Probab 20:1462 — stochastic model of order book dynamics"
+  - note: "Bouchaud et al. (2018) Trades, Quotes and Prices: Financial Markets Under the Microscope. Cambridge University Press."

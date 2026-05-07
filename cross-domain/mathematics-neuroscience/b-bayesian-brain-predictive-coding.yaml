@@ -1,0 +1,88 @@
+id: b-bayesian-brain-predictive-coding
+title: >
+  Friston's free energy principle — the brain as a hierarchical generative model
+  minimising variational free energy F = KL[q(θ)||p(θ|data)] ≥ −log p(data) —
+  unifies Bayesian inference, predictive coding, perception, action, and attention
+  as gradient descent on surprise, with clinical implications for hallucination and
+  schizophrenia as precision-weighting failures.
+status: established
+fields:
+  - mathematics
+  - neuroscience
+  - cognitive-science
+  - statistics
+  - information-theory
+bridge_claim: >
+  The predictive coding framework (Rao & Ballard 1999) proposes that cortical processing
+  is bidirectional: top-down connections carry predictions x̂_L = f(x_{L+1}) from higher
+  to lower levels, while bottom-up connections carry only prediction errors ε_L = x_L − x̂_L.
+  The hierarchical generative model minimises prediction error by updating higher-level
+  representations: x_{L+1} ← x_{L+1} + η · ∂ε/∂x_{L+1}. This is gradient descent on
+  prediction error, equivalent to variational Bayesian inference.
+
+  Friston's free energy principle (2005, 2010): biological systems — cells, brains,
+  organisms — minimize a variational free energy F = E_q[log q(θ) − log p(θ,data)] =
+  KL[q(θ) || p(θ|data)] − log p(data). Since KL ≥ 0, minimising F minimises −log p(data)
+  (surprise / negative log evidence). The brain simultaneously: (1) updates its internal
+  model q(θ) to better predict sensory data (perception = approximate Bayesian inference),
+  and (2) acts to bring the sensory data in line with predictions (action = active inference),
+  never having to compute the intractable posterior p(θ|data) directly.
+
+  Precision weighting: attention is the modulation of the precision (inverse variance)
+  of prediction errors — high-precision errors from reliable sensory channels get upweighted.
+  Mathematically: ε_L is weighted by the precision matrix Π_L = (Σ_L)^{−1}. Schizophrenia
+  = impaired precision estimation causing runaway prediction errors or excessive top-down
+  suppression; hallucinations = internal predictions so dominant they are not corrected
+  by sensory errors. Active inference naturally produces curiosity (explore/exploit tradeoff)
+  as epistemic value — expected information gain — motivating behaviour to reduce
+  uncertainty about the generative model parameters.
+translation_table:
+  - field_a_term: variational free energy F = KL[q||p] − log p(data)
+    field_b_term: brain's implicit cost function — quantity neural activity minimises
+  - field_a_term: generative model p(data|θ) (probabilistic model of sensory causes)
+    field_b_term: hierarchical cortical predictive model (top-down connections)
+  - field_a_term: prediction error ε_L = x_L − x̂_L
+    field_b_term: superficial pyramidal cell activity (bottom-up "error units")
+  - field_a_term: precision matrix Π_L = Σ_L^{−1} (inverse covariance)
+    field_b_term: attentional gain — neural precision-weighting of prediction errors
+  - field_a_term: variational Bayes update rule (gradient descent on free energy)
+    field_b_term: synaptic plasticity (Hebbian-like learning updating generative model)
+  - field_a_term: active inference (action minimises expected free energy)
+    field_b_term: motor control driven by predicted sensory states, not error
+related_unknowns:
+  - u-predictive-coding-neural-implementation-evidence
+related_hypotheses:
+  - h-precision-weighting-schizophrenia-nmda-receptor
+cross_pollination_opportunities:
+  - >
+    Deep learning architectures (deep Boltzmann machines, variational autoencoders)
+    are mathematically equivalent to hierarchical predictive coding networks —
+    the ELBO (evidence lower bound) in VAEs is exactly −F. Neuroscience predictive
+    coding models and machine learning variational inference could co-develop more
+    biologically constrained deep generative models for time-series data, where
+    the temporal correlations of neural dynamics are currently underexploited.
+  - >
+    Psychedelic drugs (psilocybin, LSD) disrupt precision weighting by acting on
+    serotonin 5-HT2A receptors on apical dendrites of layer V pyramidal cells —
+    the same cells thought to carry high-precision top-down predictions. This
+    neuropharmacology prediction from the free energy framework could be tested
+    with simultaneous drug administration + fMRI predictive coding model inversion.
+communication_gap: >
+  The predictive coding / free energy principle literature is concentrated in a
+  small community around Friston (UCL) and is sometimes criticised as unfalsifiable
+  (too many free parameters). Computational neuroscientists (who use Bayesian models
+  but not FEP) and experimental neuroscientists (who measure neural activity but
+  distrust abstract frameworks) rarely engage deeply with FEP formalism. Statisticians
+  familiar with variational inference rarely read neuroscience journals. The clinical
+  psychiatry implications require simultaneous knowledge of psychopharmacology,
+  computational psychiatry, and Bayesian statistics — crossing five separate fields.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1038/nn0199_79"
+    note: "Rao & Ballard (1999) Nat Neurosci 2:79 — predictive coding in the visual cortex"
+  - doi: "10.1098/rstb.2005.1622"
+    note: "Friston (2005) Philos Trans R Soc B 360:815 — theory of cortical responses"
+  - doi: "10.1017/S0140525X12000477"
+    note: "Clark (2013) Behav Brain Sci 36:181 — whatever next? Predictive brains, situated agents"
+  - doi: "10.1016/j.neubiorev.2016.10.012"
+    note: "Friston et al. (2017) Neurosci Biobehav Rev 77:388 — active inference, curiosity and insight"

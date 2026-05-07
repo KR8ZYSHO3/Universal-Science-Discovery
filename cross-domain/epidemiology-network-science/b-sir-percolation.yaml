@@ -1,0 +1,105 @@
+id: b-sir-percolation
+title: >
+  The SIR epidemic model is bond percolation on a contact network — the epidemic
+  threshold 1/R₀ equals the percolation threshold p_c, and herd immunity is the
+  destruction of the giant connected component of susceptible individuals.
+status: established
+fields:
+  - epidemiology
+  - network-science
+  - statistical-physics
+  - mathematical-biology
+bridge_claim: >
+  The classic SIR (Susceptible-Infected-Recovered) compartmental epidemic model maps
+  exactly onto bond percolation on the underlying contact network. Each person is a
+  node; each potentially infectious contact is a bond that is "occupied" with probability
+  T = 1 - exp(-β/γ), the transmissibility. An epidemic outbreak occurs if and only if
+  a giant percolating cluster exists in the bond-occupied contact network.
+
+  The critical condition R₀ = 1 (epidemic threshold) is identical to the percolation
+  threshold condition: T_c = 1/⟨k²/k - k⟩ for a network with degree distribution p_k,
+  where ⟨k⟩ and ⟨k²⟩ are the first and second moments of the degree sequence.
+
+  Scale-free networks (power-law degree distributions p_k ~ k^{-γ} with γ ≤ 3) have
+  ⟨k²⟩ → ∞, driving the percolation threshold p_c → 0. This means epidemics can spread
+  on scale-free contact networks at arbitrarily low transmissibility — explaining why
+  sexually transmitted infections persist in heterogeneous human contact networks.
+
+  Vaccination = targeted node removal to destroy the giant connected component. Random
+  vaccination requires removing a fraction 1 - 1/κ where κ = ⟨k²⟩/⟨k⟩ (the network's
+  epidemic spreading parameter). Targeted vaccination of high-degree hubs is far more
+  efficient, reducing the required fraction dramatically.
+
+  Herd immunity is not simply the condition R_eff < 1 in a homogeneous mixing model;
+  it is the percolation condition that no giant connected component of susceptibles spans
+  the network — a geometric condition that depends on network structure, not just
+  population-averaged transmissibility.
+translation_table:
+  - field_a_term: susceptible individual
+    field_b_term: unoccupied lattice site in the percolation problem
+    note: Each susceptible person is a node that can be reached by the epidemic
+  - field_a_term: infectious contact (transmission event)
+    field_b_term: occupied bond in bond percolation
+    note: A bond is occupied with probability T = transmissibility
+  - field_a_term: epidemic threshold (R₀ = 1)
+    field_b_term: percolation threshold (bond occupancy p = p_c)
+    note: Both are the critical conditions for a spanning cluster / macroscopic outbreak
+  - field_a_term: final epidemic size
+    field_b_term: size of the giant connected component S
+    note: In the infinite-size limit both are exact via the same self-consistency equation
+  - field_a_term: basic reproduction number R₀
+    field_b_term: network epidemic spreading parameter κ = ⟨k²⟩/⟨k⟩
+    note: R₀ = T·κ for a network SIR model
+  - field_a_term: herd immunity threshold
+    field_b_term: node fraction removed to destroy the giant component
+    note: Must account for network heterogeneity — not simply 1 - 1/R₀
+  - field_a_term: random vaccination
+    field_b_term: random node removal (site percolation)
+    note: Effective but inefficient on scale-free networks
+  - field_a_term: targeted hub vaccination
+    field_b_term: targeted high-degree node removal (acquaintance immunisation)
+    note: Disrupts giant component with far fewer removed nodes
+  - field_a_term: scale-free contact network (γ ≤ 3)
+    field_b_term: network with diverging ⟨k²⟩ → zero percolation threshold
+    note: Explains persistence of STIs and why scale-free networks are epidemic-prone
+related_unknowns:
+  - u-network-epidemic-threshold-heterogeneity
+related_hypotheses:
+  - h-scale-free-epidemic-threshold-vaccination
+cross_pollination_opportunities:
+  - >
+    Percolation theory provides exact analytic results for epidemic final sizes
+    on arbitrary networks via probability generating functions — a tool largely
+    absent from standard epidemiology curricula. Introducing generating-function
+    methods into public health modeling could replace simulation-heavy approaches
+    for outbreak prediction.
+  - >
+    The equivalence allows import of finite-size scaling from statistical physics:
+    for finite populations the epidemic threshold is smeared over a range
+    ΔR₀ ~ N^{-1/ν}, where ν is the percolation correlation-length exponent.
+    This gives analytic corrections to threshold estimates from small-population
+    outbreak data — relevant for zoonotic spillover events in limited animal reservoirs.
+  - >
+    Multiplex networks (people connected across multiple contact types — household,
+    workplace, social) map onto correlated bond percolation on multiplex graphs.
+    Percolation theory predicts abrupt (first-order) epidemic transitions in multiplex
+    networks, in contrast to the continuous transition in single-layer networks.
+    This has implications for COVID-style pandemics involving simultaneous household
+    and workplace transmission layers.
+communication_gap: >
+  Compartmental SIR models (Kermack-McKendrick) predate network science by six decades.
+  Epidemiologists trained on ODEs often view network models as complex extensions
+  requiring simulation, not as exact instances of a solved problem in statistical
+  physics. The percolation connection was formalized by Newman (2002) and
+  Pastor-Satorras & Vespignani (2001) but remains underutilized in public health
+  modeling. The fields publish in non-overlapping journals (PLOS Pathogens,
+  Epidemiology vs. Physical Review E, Journal of Statistical Physics).
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1103/PhysRevE.66.016128"
+    note: Newman (2002) — exact mapping of SIR to bond percolation with generating functions
+  - doi: "10.1103/PhysRevLett.86.3200"
+    note: Pastor-Satorras & Vespignani (2001) — epidemic spreading on scale-free networks, p_c → 0
+  - note: Anderson & May (1991) Infectious Diseases of Humans. Oxford University Press.
+  - doi: "10.1098/rsif.2005.0051"
+    note: Keeling & Eames (2005) Networks and epidemic models — J R Soc Interface 2:295

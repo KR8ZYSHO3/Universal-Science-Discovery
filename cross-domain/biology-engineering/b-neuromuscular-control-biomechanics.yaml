@@ -1,0 +1,82 @@
+id: b-neuromuscular-control-biomechanics
+title: >
+  Muscle contraction (Huxley sliding filament, Hill force-velocity relation) and
+  the neuromuscular control hierarchy (motor unit size principle, spindle reflex loops)
+  constitute a biological servomechanism that engineering control theory can model
+  as a force-controlled actuator with nested feedback loops and nonlinear plant dynamics.
+status: established
+fields:
+  - biology
+  - engineering
+  - neuroscience
+  - biophysics
+bridge_claim: >
+  Skeletal muscle is a molecular motor operating via the sliding filament mechanism
+  (Huxley 1957): myosin S1 heads cycle through attachment to actin, a 5 nm power
+  stroke driven by ATP hydrolysis, and detachment — a Lymn-Taylor cross-bridge cycle.
+  The macroscopic force-velocity relation is Hill's equation:
+  F(v) = F₀(1 - v/v_max)/(1 + v/(k·v_max)), where F₀ is isometric force,
+  v_max ≈ 10 muscle-lengths/s for fast-twitch fibres, and k ≈ 0.25 is an empirical
+  constant. Activation occurs via the neuromuscular junction: motor neuron action
+  potentials release ACh → nicotinic receptors → endplate potential → muscle AP →
+  Ca²⁺ release from sarcoplasmic reticulum → troponin-tropomyosin shift → cross-bridge
+  cycling. The nervous system controls force through rate coding (AP frequency) and
+  recruitment (Henneman's size principle: small slow-twitch S motor units recruited
+  first, then FR, then FF as force demand increases). Spinal reflex loops form
+  engineering feedback controllers: Ia afferents from muscle spindles → α-motor
+  neurons (monosynaptic stretch reflex, gain ≈ 10 N/mm in human soleus), Ib
+  afferents from Golgi tendon organs → inhibitory Ib interneurons (force-limiting
+  protective loop). The entire system is a nested servomechanism: molecular motor
+  → muscle fibre → motor unit pool → spinal reflex → supraspinal motor cortex.
+translation_table:
+  - field_a_term: actuator with nonlinear force-velocity characteristic
+    field_b_term: skeletal muscle with Hill equation F(v)
+    note: Hill equation is a hyperbola; engineering actuators are usually linear or modelled as such
+  - field_a_term: proportional feedback controller (spinal reflex)
+    field_b_term: Ia spindle afferent stretch reflex (monosynaptic)
+    note: The stretch reflex is a velocity and length feedback loop with approximately proportional-derivative gain
+  - field_a_term: force limiting / anti-windup
+    field_b_term: Golgi tendon organ Ib inhibitory reflex
+    note: GTOs protect tendons from excessive force by inhibiting α-motor neurons
+  - field_a_term: recruitment ordering (size principle)
+    field_b_term: Henneman's principle — slow-twitch S → fast-twitch FR → FF recruitment
+    note: Optimises fatigue resistance and efficiency by recruiting the most efficient (slow, oxidative) units first
+  - field_a_term: EMG signal as motor command estimate
+    field_b_term: electromyography decodes motor unit action potentials for force estimation
+    note: High-density surface EMG can decompose individual motor unit firing patterns for BCI and rehabilitation
+related_unknowns:
+  - u-neuromuscular-control-redundancy-resolution
+related_hypotheses:
+  - h-neuromuscular-size-principle-metabolic-optimality
+cross_pollination_opportunities:
+  - >
+    Exoskeleton impedance control: use Hill-equation muscle models to design
+    impedance controllers for lower-limb exoskeletons that feel transparent to
+    the user — match the mechanical impedance of the exoskeleton to the biological
+    limb's Thevenin equivalent impedance as a function of muscle activation state.
+  - >
+    Muscle fatigue prediction: extend the cross-bridge kinetic model to accumulate
+    Pi and ADP as fatigue metabolites, reducing force and v_max; validate against
+    force-velocity measurements during sustained exercise; apply to ergonomic
+    assessment of repetitive industrial tasks.
+  - >
+    High-density EMG decomposition for BCI: use blind source separation (ICA, convolutive
+    models) to decompose surface EMG into individual motor unit spike trains;
+    decode intended force from spike rates using the size principle; implement
+    real-time prosthetic hand control with individual finger dexterity.
+communication_gap: >
+  Muscle physiology is taught in biomedical science with emphasis on biochemistry
+  (cross-bridge kinetics, excitation-contraction coupling) and rarely connected to
+  engineering control theory. Robotics engineers who design actuators do not typically
+  study Hill equations or Henneman's size principle. Rehabilitation engineers who
+  build exoskeletons and prosthetics often use simplified muscle models without
+  connecting to the full neuromuscular control hierarchy.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1016/S0079-6107(57)90048-6"
+    note: "Huxley, A.F. (1957) Prog Biophys Biophys Chem 7:255 — muscle contraction by sliding filaments; cross-bridge model"
+  - doi: "10.1098/rspb.1938.0050"
+    note: "Hill, A.V. (1938) Proc R Soc B 126:136 — heat of shortening and dynamic constants of muscle; Hill equation"
+  - note: "Enoka, R.M. (2015) Neuromechanics of Human Movement, 5th ed. Human Kinetics."
+  - doi: "10.1152/jn.1965.28.3.560"
+    note: "Henneman et al. (1965) J Neurophysiol 28:560 — functional significance of motor unit size; size principle"

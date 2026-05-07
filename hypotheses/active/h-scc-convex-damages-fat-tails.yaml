@@ -1,0 +1,60 @@
+id: h-scc-convex-damages-fat-tails
+title: >
+  The true social cost of carbon is dominated by low-probability, high-magnitude
+  tail events (climate tipping point cascades above 4°C) that give the damage
+  distribution a power-law tail, making the expected SCC at least 3× higher
+  than standard quadratic damage function estimates and rendering near-zero
+  discount rates normatively justified.
+status: active
+priority: critical
+impact_score: 0.9
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR-AI
+evidence_links:
+  - doi: "10.1257/jel.47.4.703"
+    type: supporting
+    confidence: 0.7
+    note: Weitzman dismal theorem — fat tails make expected damages unbounded
+  - doi: "10.1086/685908"
+    type: supporting
+    confidence: 0.75
+    note: Howard & Sterner — damage function meta-analysis shows standard IAMs underestimate
+  - doi: "10.1038/s41586-018-0071-9"
+    type: related
+    confidence: 0.65
+    note: "Lenton et al. (2019) — climate tipping points: too risky to bet against"
+  - doi: "10.1126/science.abn7950"
+    type: supporting
+    confidence: 0.6
+    note: "Armstrong McKay et al. (2022) — exceeding 1.5°C global warming could trigger multiple tipping points"
+unknowns_addressed:
+  - u-climate-damage-function-high-temperature-regime
+proposed_tests:
+  - description: >
+      Monte Carlo SCC calculation coupling a calibrated climate model with
+      heavy-tailed ECS distribution (log-normal + Pareto tail) to the
+      Burke et al. (2015) non-linear damage function, comparing the full
+      distribution of SCC values to the standard Nordhaus/EPA methodology.
+    method: >
+      Monte Carlo simulation (N=100,000) with climate sensitivity sampling from
+      Sherwood et al. (2020) assessed distribution, Burke damage function,
+      Ramsey discount rate r = 0.1-3%
+    prediction: >
+      At δ < 0.5% and η = 2, the 95th percentile SCC exceeds $1,000/tonne,
+      and the expected SCC under the Burke damage function is >3× the Nordhaus
+      estimate, confirming fat-tail dominance.
+  - description: >
+      Systematic inclusion of tipping point interaction network (Kiehl 2011,
+      Armstrong McKay 2022) into DICE-2023 as a Markov jump process, measuring
+      the change in optimal carbon price pathway.
+    method: DICE model extension with stochastic tipping transitions
+    prediction: >
+      Including tipping cascades shifts the optimal carbon price trajectory
+      upward by > 50% relative to baseline DICE, with the premium increasing
+      steeply above 2°C of warming where tipping point probabilities rise.
+related_disciplines:
+  - climate-science
+  - environmental-economics
+  - risk-theory
+  - decision-theory

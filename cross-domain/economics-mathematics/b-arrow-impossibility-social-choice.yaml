@@ -1,0 +1,65 @@
+id: b-arrow-impossibility-social-choice
+title: >
+  Arrow's impossibility theorem proves mathematically that no social welfare function
+  can simultaneously aggregate individual preferences into a consistent collective
+  preference — making rational democratic aggregation provably impossible with ≥3
+  alternatives.
+status: established
+fields:
+  - economics
+  - mathematics
+  - political-science
+  - computer-science
+bridge_claim: >
+  Arrow's impossibility theorem (1951) proves: any social welfare function on ≥3 alternatives
+  satisfying unanimity (Pareto efficiency) and independence of irrelevant alternatives (IIA)
+  must be dictatorial. This is a mathematical theorem with immediate implications for
+  voting systems, multi-criteria decision making, and AI value alignment. The Gibbard-
+  Satterthwaite theorem extends this: every non-dictatorial voting rule with ≥3 alternatives
+  is strategically manipulable. The same impossibility structure appears in: tournament
+  ranking algorithms (Google PageRank violates IIA), social welfare functions in welfare
+  economics, and aggregation of AI reward signals from multiple human evaluators.
+  Arrow's theorem is a bridge between abstract mathematics (order theory, social choice
+  axiomatics) and practical mechanism design across all domains that aggregate preferences.
+translation_table:
+  - field_a_term: social welfare function (aggregation rule)
+    field_b_term: voting system / ranking algorithm
+    note: Any deterministic aggregation of individual rankings is a social welfare function
+  - field_a_term: independence of irrelevant alternatives (IIA)
+    field_b_term: consistency of pairwise comparison outcomes
+    note: Ranking of A vs B should not change if C is added or removed
+  - field_a_term: dictatorship condition
+    field_b_term: single-agent decision (authority rule)
+    note: The only IIA-satisfying unanimous aggregation is to copy one agent's ranking exactly
+  - field_a_term: Condorcet cycle (intransitivity)
+    field_b_term: inconsistent majority preference
+    note: A beats B, B beats C, C beats A — no majority winner; the source of Arrow impossibility
+related_unknowns:
+  - u-behavioral-economics-policy-effectiveness
+related_hypotheses:
+  - h-arrow-impossibility-voting-nudges
+cross_pollination_opportunities:
+  - >
+    AI value alignment: aggregating diverse human value functions into a single
+    AI reward function faces an Arrow impossibility — any aggregation will either
+    violate Pareto efficiency, IIA, or be dictatorial (imposing one value system).
+    This provides a formal impossibility result constraining AI alignment approaches
+    that aggregate human preferences.
+  - >
+    Electoral system design: Arrow's theorem justifies proportional representation
+    systems over winner-take-all alternatives by showing that all winner-take-all
+    systems introduce strategic manipulation (Gibbard-Satterthwaite). Mechanism
+    design theory suggests randomised social choice functions can escape the impossibility.
+communication_gap: >
+  Arrow's theorem is known to economists and political scientists but rarely taught
+  in computer science programs where ranking algorithms (PageRank, collaborative
+  filtering) routinely violate IIA without awareness that this is a consequence of
+  Arrow impossibility. The AI alignment connection is recognised but underdeveloped.
+last_reviewed: "2026-05-06"
+references:
+  - note: "Arrow, K.J. (1951). Social Choice and Individual Values. Wiley."
+  - doi: 10.2307/1914083
+    note: "Gibbard, A. (1973). Manipulation of voting schemes: a general result. Econometrica 41:587."
+  - doi: 10.1016/0022-0531(75)90050-2
+    note: "Satterthwaite, M. (1975). Strategy-proofness and Arrow's conditions. J Econ Theory 10:187."
+  - note: "Sen, A. (1970). Collective Choice and Social Welfare. Holden-Day."

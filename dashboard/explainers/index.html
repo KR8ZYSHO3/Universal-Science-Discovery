@@ -1,152 +1,65 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>USDR Explainers — Long-Form Science Writing</title>
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="USDR Explainers — Where Physics Meets Life">
-  <meta property="og:description" content="Long-form scientific explainers on the most compelling cross-domain bridges in the Universal Science Discovery Repository.">
-  <meta property="og:site_name" content="USDR">
-  <meta name="description" content="Long-form scientific explainers on percolation theory and ecology, spin glass memory, Turing patterns, wealth thermodynamics, and quantum biology.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>USDR Explainers — Bridge Explainer Pages</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"/>
   <style>
-    :root {
-      --bg: #060d1a; --card: #0d1b2e; --border: #1a2d4a; --border-h: rgba(79,156,249,0.28);
-      --text: #ddeeff; --muted: #6b8aac; --accent: #4f9cf9; --teal: #22d3b8; --violet: #a78bfa;
-    }
-    *, *::before, *::after { box-sizing: border-box; }
-    body { background: var(--bg); color: var(--text); font-family: 'Inter', system-ui, sans-serif; max-width: 820px; margin: 0 auto; padding: 2rem 1.5rem 5rem; line-height: 1.7; }
-    nav { margin-bottom: 3rem; }
-    nav a { color: var(--muted); text-decoration: none; margin-right: 1.2rem; font-size: 0.88rem; transition: color 0.2s; }
-    nav a:hover { color: var(--accent); }
-    .page-label { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; }
-    h1 { font-size: 2.4rem; font-weight: 700; line-height: 1.15; color: var(--text); margin-bottom: 0.8rem; }
-    .subtitle { font-size: 1.1rem; color: var(--muted); font-family: 'Lora', Georgia, serif; font-style: italic; margin-bottom: 3rem; max-width: 600px; line-height: 1.6; }
-    .grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
-    @media (min-width: 640px) { .grid { grid-template-columns: 1fr 1fr; } }
-    .card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 12px; padding: 1.5rem;
-      text-decoration: none; color: inherit;
-      display: flex; flex-direction: column; gap: 0.75rem;
-      transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
-    }
-    .card:hover {
-      border-color: var(--border-h);
-      box-shadow: 0 4px 32px rgba(79,156,249,0.1);
-      transform: translateY(-2px);
-    }
-    .card-tag { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
-    .card-title { font-size: 1.05rem; font-weight: 600; line-height: 1.35; color: var(--text); }
-    .card-desc { font-size: 0.9rem; color: var(--muted); font-family: 'Lora', Georgia, serif; font-style: italic; line-height: 1.55; }
-    .card-meta { font-size: 0.8rem; color: var(--muted); margin-top: auto; padding-top: 0.5rem; border-top: 1px solid var(--border); display: flex; gap: 1rem; }
-    .card-meta span { display: flex; align-items: center; gap: 0.3rem; }
-
-    /* Per-card accent colors */
-    .card-physics-ecology .card-tag { color: #4f9cf9; }
-    .card-physics-ecology:hover { border-color: rgba(79,156,249,0.4); box-shadow: 0 4px 32px rgba(79,156,249,0.12); }
-    .card-spin-glass .card-tag { color: #a78bfa; }
-    .card-spin-glass:hover { border-color: rgba(167,139,250,0.4); box-shadow: 0 4px 32px rgba(167,139,250,0.12); }
-    .card-turing .card-tag { color: #22d3b8; }
-    .card-turing:hover { border-color: rgba(34,211,184,0.4); box-shadow: 0 4px 32px rgba(34,211,184,0.12); }
-    .card-wealth .card-tag { color: #fbbf24; }
-    .card-wealth:hover { border-color: rgba(251,191,36,0.4); box-shadow: 0 4px 32px rgba(251,191,36,0.12); }
-    .card-quantum .card-tag { color: #22d3b8; }
-    .card-quantum:hover { border-color: rgba(34,211,184,0.4); box-shadow: 0 4px 32px rgba(34,211,184,0.12); }
-
-    .intro-quote {
-      border-left: 3px solid var(--border-h); padding: 1rem 1.5rem;
-      background: var(--card); border-radius: 0 10px 10px 0;
-      margin: 0 0 3rem; font-size: 1rem; font-style: italic; color: var(--muted);
-      font-family: 'Lora', Georgia, serif; line-height: 1.7;
-    }
-    .section-rule { border: none; border-top: 1px solid var(--border); margin: 3rem 0 2rem; }
-    .footer-links { margin-top: 3rem; display: flex; gap: 1.5rem; flex-wrap: wrap; }
-    .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
-    .footer-links a:hover { color: var(--accent); }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#0d1117;--bg-card:#161b22;--border:#30363d;--text:#e6edf3;--text-dim:#8b949e;--accent:#58a6ff;--radius:10px}
+    body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);padding:2rem 1.5rem;}
+    .topbar{display:flex;align-items:center;gap:.8rem;margin-bottom:2.5rem;padding-bottom:1rem;border-bottom:1px solid var(--border)}
+    .topbar a{color:var(--accent);text-decoration:none;font-size:.85rem;font-weight:500}
+    h1{font-size:1.5rem;font-weight:700;margin-bottom:.5rem}
+    p.sub{color:var(--text-dim);margin-bottom:2rem;font-size:.9rem}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;max-width:1000px}
+    .expl-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:1.2rem;text-decoration:none;color:var(--text);transition:border-color .15s,background .15s;display:flex;flex-direction:column;gap:.5rem}
+    .expl-card:hover{border-color:var(--accent);background:#1c2230}
+    .expl-pair{font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+    .expl-title{font-size:.9rem;font-weight:500;line-height:1.4;color:var(--text)}
+    .badge{display:inline-block;padding:.15rem .55rem;border-radius:20px;font-size:.65rem;font-weight:700;letter-spacing:.05em;width:fit-content}
+    .badge-established{background:rgba(63,185,80,.18);color:#3fb950;border:1px solid rgba(63,185,80,.35)}
+    .badge-proposed{background:rgba(88,166,255,.18);color:#58a6ff;border:1px solid rgba(88,166,255,.35)}
+    .badge-contested{background:rgba(227,179,65,.18);color:#e3b341;border:1px solid rgba(227,179,65,.35)}
+    .badge-stale{background:rgba(139,148,158,.18);color:#8b949e;border:1px solid rgba(139,148,158,.35)}
   </style>
 </head>
 <body>
-
-<nav>
-  <a href="../">← Dashboard</a>
-  <a href="../domains/">Browse Domains</a>
-</nav>
-
-<p class="page-label">USDR Explainers</p>
-<h1>Where Physics Meets Life</h1>
-<p class="subtitle">Long-form science writing on the most surprising cross-domain bridges in the USDR catalog. Written for the scientifically curious — rigorous enough for specialists, readable enough for everyone else.</p>
-
-<div class="intro-quote">
-  "The history of science is the history of discovering that problems we thought were different are secretly the same problem in disguise. These explainers are about five of the best examples we know of."
+<div class="topbar">
+  <a href="../index.html">← Dashboard</a>
+  <span style="color:var(--border)">|</span>
+  <span style="color:var(--text-dim);font-size:.85rem">Bridge Explainers</span>
 </div>
-
+<h1>Bridge Explainer Pages</h1>
+<p class="sub">Deep-dive explanations of key cross-domain mathematical bridges in the USDR catalog.</p>
 <div class="grid">
-
-  <a class="card card-physics-ecology" href="percolation-ecology.html">
-    <span class="card-tag">Physics &rarr; Ecology</span>
-    <div class="card-title">The Threshold at the End of the World: How Statistical Physics Predicts Ecological Collapse</div>
-    <div class="card-desc">A mathematician studying coffee grounds discovered a law that predicts when ecosystems collapse. The magic number is 0.593 — and conservation biologists were measuring it without knowing it existed.</div>
-    <div class="card-meta">
-      <span>8 min read</span>
-      <span>Percolation theory · p<sub>c</sub> · Metapopulations</span>
-    </div>
+  <a class="expl-card" href="b-boltzmann-shannon-entropy.html">
+    <div class="expl-pair">Statistical Mechanics ↔ Information Theory</div>
+    <div class="expl-title">Boltzmann&#x27;s entropy S = k_B ln W and Shannon&#x27;s entropy H = −Σ p_i log p_i are formally identical</div>
+    <span class="badge badge-established">ESTABLISHED</span>
   </a>
-
-  <a class="card card-spin-glass" href="spin-glass-memory.html">
-    <span class="card-tag">Physics &rarr; Neuroscience</span>
-    <div class="card-title">How Physics Explains Why You Can Remember a Face but Not Where You Left Your Keys</div>
-    <div class="card-desc">John Hopfield showed that disordered magnets and human memory are governed by the same equations — and derived a hard limit on how many memories a neural circuit can hold before it starts confabulating.</div>
-    <div class="card-meta">
-      <span>9 min read</span>
-      <span>Spin glass · Hopfield network · &alpha;<sub>c</sub> = 0.138</span>
-    </div>
+  <a class="expl-card" href="b-noether-theorem-conservation-laws.html">
+    <div class="expl-pair">Theoretical Physics ↔ Mathematics</div>
+    <div class="expl-title">Every differentiable symmetry of the action of a physical system corresponds to a conservation law</div>
+    <span class="badge badge-established">ESTABLISHED</span>
   </a>
-
-  <a class="card card-turing" href="turing-patterns.html">
-    <span class="card-tag">Mathematics &rarr; Biology</span>
-    <div class="card-title">Why Zebras Have Stripes: The Same Equation Controls Animal Coats, Fingerprints, and Organ Formation</div>
-    <div class="card-desc">Alan Turing's last published work — a single paper on morphogenesis — explained how uniform tissue spontaneously breaks symmetry to produce spots, stripes, and the branching architecture of lungs and kidneys.</div>
-    <div class="card-meta">
-      <span>8 min read</span>
-      <span>Reaction-diffusion · Activator-inhibitor · Turing instability</span>
-    </div>
+  <a class="expl-card" href="b-maxwell-equations-wave-encoding.html">
+    <div class="expl-pair">Electromagnetism ↔ Information Theory</div>
+    <div class="expl-title">Maxwell&#x27;s equations in free space predict plane wave solutions with the same mathematical form as carrier waves in commu</div>
+    <span class="badge badge-established">ESTABLISHED</span>
   </a>
-
-  <a class="card card-wealth" href="wealth-entropy.html">
-    <span class="card-tag">Physics &rarr; Economics</span>
-    <div class="card-title">Why the Rich Get Richer: How Thermodynamics Explains the Pareto Distribution</div>
-    <div class="card-desc">Treating an economy as a gas of interacting molecules — wealth as energy, transactions as collisions — derives the empirically observed income distribution from first principles and illuminates the physics of redistribution.</div>
-    <div class="card-meta">
-      <span>9 min read</span>
-      <span>Boltzmann-Gibbs · Pareto tail · Econophysics</span>
-    </div>
+  <a class="expl-card" href="b-bcs-superconductivity.html">
+    <div class="expl-pair">Condensed Matter Physics ↔ Quantum Mechanics</div>
+    <div class="expl-title">BCS theory explains conventional superconductivity via phonon-mediated Cooper pairing</div>
+    <span class="badge badge-established">ESTABLISHED</span>
   </a>
-
-  <a class="card card-quantum" href="quantum-life.html">
-    <span class="card-tag">Quantum Physics &rarr; Biology</span>
-    <div class="card-title">Life at the Quantum Edge: Bird Navigation, Enzyme Tunneling, and the Smell of Quantum Mechanics</div>
-    <div class="card-desc">Quantum entanglement guides migratory birds. Quantum tunneling accelerates enzyme catalysis by 100×. Quantum coherence may optimize photosynthesis. Biology exploits quantum mechanics in ways we are only beginning to understand.</div>
-    <div class="card-meta">
-      <span>10 min read</span>
-      <span>Radical pair · Cryptochrome · FMO complex</span>
-    </div>
+  <a class="expl-card" href="b-catalyst-sabatier-principle.html">
+    <div class="expl-pair">Electrochemistry ↔ Materials Science</div>
+    <div class="expl-title">The Sabatier principle (volcano plot) bridges electrochemistry and materials science: optimal catalysts bind reaction in</div>
+    <span class="badge badge-established">ESTABLISHED</span>
   </a>
-
 </div>
-
-<hr class="section-rule">
-
-<p style="color:var(--muted);font-size:0.9rem;">These explainers are drawn from the <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery">Universal Science Discovery Repository</a> — a version-controlled catalog of cross-domain mathematical bridges, open scientific unknowns, and falsifiable hypotheses. Each explainer maps to specific bridge YAML files and open unknowns in the catalog.</p>
-
-<div class="footer-links">
-  <a href="../">Dashboard</a>
-  <a href="../domains/">Browse Domains</a>
-  <a href="../#catalog-search">Search the Catalog</a>
-  <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/tree/main/bridges">Bridge YAMLs on GitHub</a>
-</div>
-
 </body>
 </html>

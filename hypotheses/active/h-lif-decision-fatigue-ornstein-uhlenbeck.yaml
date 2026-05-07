@@ -1,0 +1,49 @@
+id: h-lif-decision-fatigue-ornstein-uhlenbeck
+title: >
+  Decision fatigue arises from depletion of a prefrontal signal-to-noise ratio governed
+  by an Ornstein-Uhlenbeck accumulation process: repeated decisions progressively shift
+  the OU process toward a diffusive (low-drift) regime, and this shift is measurable as
+  a flattening of the interspike interval distribution in prefrontal choice neurons.
+status: active
+created: "2026-05-06"
+last_updated: "2026-05-06"
+priority: high
+unknowns_addressed:
+  - u-decision-fatigue-neural
+related_disciplines:
+  - neuroscience
+  - computational-neuroscience
+  - physics
+  - cognitive-science
+evidence_links:
+  - type: supporting
+    doi: 10.1073/pnas.1018033108
+    note: >
+      Danziger, Levav & Avnaim-Pesso (2011) — parole board decisions degrade
+      systematically over sessions; fatigue reduces deliberation quality.
+  - type: supporting
+    doi: 10.1523/JNEUROSCI.4354-06.2007
+    note: >
+      Gold & Shadlen (2007) — neural integrator models (OU process) describe
+      ramping activity in LIP during decision formation; accumulation parameters
+      predict reaction time and accuracy.
+  - type: related
+    doi: 10.1371/journal.pone.0058331
+    note: >
+      Hare et al. (2009) — prefrontal self-control predicts dietary choice quality;
+      prefrontal fatigue reduces inhibition of default options.
+proposed_tests:
+  - discipline: neuroscience
+    description: >
+      Record from prefrontal cortex (area 46, DLPFC) in macaques performing 200+ trials
+      of a two-option value-based choice task. Fit an OU drift-diffusion model to
+      each 20-trial block. Test whether the drift parameter μ decreases and the noise
+      σ increases across trial blocks, predicting the observed degradation in choice
+      optimality and the predicted flattening of the ISI distribution.
+  - discipline: computational-neuroscience
+    description: >
+      Simulate a leaky integrate-and-fire network with NMDA-mediated reverberant
+      excitation representing the evidence accumulator. Impose a metabolic depletion
+      term that reduces NMDA conductance per decision made. Test whether the effective
+      OU parameters (drift, noise) shift toward the diffusive regime after 50-100
+      simulated decisions, reproducing behavioural decision-fatigue curves.

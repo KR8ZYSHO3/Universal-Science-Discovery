@@ -1,0 +1,83 @@
+id: b-distributed-systems-consensus
+title: >
+  The Fischer-Lynch-Paterson impossibility theorem (1985) proves no deterministic
+  consensus algorithm terminates in asynchronous systems with even one failure;
+  Paxos achieves consensus under fail-stop in 2 message rounds; Byzantine fault
+  tolerance requires 3f+1 processes; the CAP theorem limits distributed systems
+  to two of three properties — mathematical theorems with direct engineering
+  consequences for cloud storage, blockchain, and distributed databases.
+status: established
+fields:
+  - engineering
+  - computer-science
+  - distributed-systems
+  - mathematics
+  - fault-tolerance
+  - blockchain
+bridge_claim: >
+  Fischer-Lynch-Paterson (FLP) impossibility (1985): in an asynchronous system
+  where messages may be delayed arbitrarily and at least one process may fail
+  silently, no deterministic algorithm can guarantee both safety (all processes
+  agree) and liveness (they eventually decide). This is a mathematical theorem
+  with a clean bivalency argument — not an engineering limitation but a logical
+  impossibility analogous to the halting problem. Paxos (Lamport 1989): achieves
+  consensus in fail-stop model using two phases (Prepare + Accept) with a quorum
+  of 2f+1 processes tolerating f crash failures. Safety is guaranteed always;
+  liveness is guaranteed when a stable leader exists (circumventing FLP by
+  requiring eventual synchrony). Byzantine fault tolerance (Lamport-Shostak-Pease
+  1982): adversarial (malicious) failures require 3f+1 processes — with 3f or
+  fewer, the problem is unsolvable regardless of timing. This tight bound is
+  proved by a reduction to a two-army problem. CAP theorem (Brewer 2000, proved
+  by Gilbert & Lynch 2002): a distributed data store can guarantee at most two
+  of {Consistency (linearizability), Availability (every request gets a response),
+  Partition tolerance (network splits are tolerated)}. Real systems choose CP
+  (ZooKeeper, etcd) or AP (Cassandra, CouchDB). PACELC extends CAP to include
+  latency-consistency tradeoffs.
+translation_table:
+  - field_a_term: bivalency argument in FLP
+    field_b_term: diagonalization argument in computability theory
+    note: both construct situations where no fixed answer can be reached by a deterministic algorithm
+  - field_a_term: quorum in Paxos (majority 2f+1)
+    field_b_term: majority voting with f tolerated failures
+    note: quorum intersection property ensures two quorums always share at least one member
+  - field_a_term: Byzantine generals problem (3f+1 bound)
+    field_b_term: error-correcting code distance requirement for Byzantine agreement
+    note: 3f+1 bound is tight; cryptographic authentication reduces to 2f+1 (authenticated Byzantine)
+  - field_a_term: CAP consistency (linearizability)
+    field_b_term: sequential consistency / serializability in database transactions
+    note: linearizability is the strongest consistency model; TCC/EC are weaker alternatives
+  - field_a_term: blockchain Nakamoto consensus (probabilistic finality)
+    field_b_term: Paxos/PBFT deterministic finality with 2f+1 quorum
+    note: Nakamoto consensus sacrifices deterministic safety for open membership and incentive compatibility
+related_unknowns:
+  - u-byzantine-fault-tolerance-practical
+related_hypotheses:
+  - h-cap-theorem-pacelc-extension
+cross_pollination_opportunities:
+  - >
+    Game-theoretic mechanism design (Myerson) can be applied to consensus
+    protocols in adversarial environments (blockchain): rational Byzantine
+    nodes that defect only when profitable require different protocol design
+    than the purely adversarial model — a direct cross-domain bridge to
+    mechanism design and incentive theory.
+  - >
+    Quantum distributed computing: Ben-Or and Hassidim (2005) show quantum
+    communication enables Byzantine agreement with n > 2f (not 3f+1) —
+    quantum resources break the classical impossibility bound, connecting
+    distributed systems theory to quantum information.
+communication_gap: >
+  Distributed systems theory and formal verification research publish in
+  PODC/DISC/FOCS; systems engineering of cloud databases uses different
+  vocabulary (eventual consistency, strong consistency) without always
+  tracing these to the formal theorems. Blockchain developers frequently
+  reinvent consensus mechanisms without awareness of impossibility results
+  from 1985 that constrain their designs. The connection to game theory
+  and Byzantine failures in rational agents is even less well-known.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1145/3149.214121"
+    note: "Fischer et al. (1985) Impossibility of distributed consensus with one faulty process. J ACM 32:374–382"
+  - note: "Lamport (1998/2001) The Part-Time Parliament (Paxos). ACM Trans Comput Syst 16:133–169"
+  - doi: "10.1145/357172.357176"
+    note: "Lamport, Shostak & Pease (1982) The Byzantine generals problem. ACM Trans Comput Syst 4:382–401"
+  - note: "Brewer (2000) Towards robust distributed systems. PODC 2000 keynote; Gilbert & Lynch (2002) Brewers conjecture. ACM SIGACT News 33:51–59"

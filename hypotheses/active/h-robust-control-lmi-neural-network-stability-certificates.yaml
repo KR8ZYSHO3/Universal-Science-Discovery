@@ -1,0 +1,47 @@
+id: h-robust-control-lmi-neural-network-stability-certificates
+title: >
+  Neural network Lyapunov certificates trained with incremental quadratic constraint
+  (IQC) multipliers provide H∞ stability bounds for nonlinear dynamical systems of
+  dimension n ≤ 100 with structured uncertainty, achieving within 15% of SOS-optimal
+  γ while requiring 1000× less computation — enabling real-time certified-safe
+  autonomous vehicle controllers.
+status: active
+priority: medium
+impact_score: 0.72
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+unknowns_addressed:
+  - u-h-infinity-nonlinear-systems-computational-tractability
+evidence_links:
+  - type: supporting
+    note: "Fazlyab et al. (2020) IEEE TAC — neural Lyapunov functions with IQC multipliers certify local stability for n=50 systems; computation 500× faster than SOS at degree 4; global stability not guaranteed"
+    confidence: 0.72
+  - type: supporting
+    note: "Chang et al. (2019) NeurIPS — Lyapunov neural networks for control with formal verification; demonstrated on n=6 inverted pendulum and n=12 drone models; extension to n>50 not validated"
+    confidence: 0.65
+  - type: related
+    note: "Parrilo (2000) PhD thesis — SOS certification scales O(n^{2d}); for n=50, d=4: O(50^8) ≈ 4×10¹³ operations; intractable in real-time (>1 hour vs. 10ms control cycle)"
+    confidence: 0.85
+  - type: contradicting
+    note: "Neural Lyapunov methods can fail at adversarial inputs outside training distribution; SMT-based verification (dReal, Z3) required for formal guarantees but does not scale to n>20 states with continuous dynamics"
+    confidence: 0.70
+proposed_tests:
+  - description: >
+      Benchmark study: for 10 polynomial systems of dimension n ∈ {10, 20, 50, 100}
+      with degree-4 dynamics and 20% parametric uncertainty, compute H∞ performance
+      bound γ using: (a) SOS (ground truth, feasible only for n≤20); (b) neural Lyapunov
+      + IQC (n≤100); (c) linear approximation (n≤100). Report γ_neural/γ_SOS ratio
+      and computation time. Success threshold: γ_neural/γ_SOS < 1.15 for n≤50 with
+      computation time <100ms.
+  - description: >
+      Hardware-in-the-loop test: autonomous vehicle lateral stability controller with
+      H∞ neural Lyapunov certificate (n=80 state vehicle dynamics model with tire
+      uncertainty). Real-time deployment on NVIDIA DRIVE AGX; certificate updated at
+      50 Hz. Test 100 maneuvers at the handling limit (μ-split braking, double lane
+      change). Metric: zero stability violations + certificate computation <10ms.
+related_disciplines:
+  - control-theory
+  - mathematics
+  - engineering
+  - computer-science

@@ -1,0 +1,74 @@
+id: b-fair-division-combinatorics
+title: >
+  Envy-free cake cutting for n agents connects Sperner's lemma in combinatorics to fair
+  division in social science: the existence of envy-free allocations for heterogeneous
+  divisible goods follows from topological fixed-point arguments (Sperner-Brouwer), while
+  spectrum allocation, inheritance law, and parliamentary seat apportionment use combinatorial
+  fair division algorithms derived from the same mathematical foundations.
+status: established
+fields:
+  - mathematics
+  - social-science
+  - combinatorics
+  - topology
+  - game-theory
+  - economics
+bridge_claim: >
+  The Steinhaus-Banach I-cut-you-choose procedure (1948) gives an envy-free allocation
+  for n=2 agents. For n=3: the Selfridge-Conway procedure achieves envy-freeness in a
+  finite number of cuts. For n>=3 generally: Stromquist (1980) proved no finite envy-free
+  protocol exists for divisible goods with n>=3 agents. Su (1999) proved existence of
+  envy-free allocations using Sperner's lemma on a triangulated simplex: label each vertex
+  by the agent's preferred piece; by Sperner's lemma, a fully-labeled simplex exists
+  corresponding to an envy-free allocation — existence proved but no finite algorithm.
+  For discrete (indivisible) goods: Lipton et al. (2004) proved EF1 (envy-free up to one
+  item) allocations always exist and are computable. The combinatorics connection: Sperner's
+  lemma (a combinatorial result about labeled triangulations) provides the existence proof.
+  Applications: spectrum allocation (FCC auctions use fair division mechanisms); inheritance
+  law (German and Israeli law uses I-cut-you-choose); divorce settlements (Knaster procedure);
+  EU fishing quota allocation; congressional seat apportionment (Hamilton, Jefferson methods).
+translation_table:
+  - field_a_term: envy-free allocation (no agent prefers another's share)
+    field_b_term: Nash equilibrium in fair division game
+    note: envy-freeness implies stability — no agent has incentive to demand a trade
+  - field_a_term: Sperner's lemma (labeled triangulation has fully-labeled simplex)
+    field_b_term: existence of envy-free allocation (non-constructive)
+    note: topological combinatorics provides existence proof without an explicit algorithm
+  - field_a_term: I-cut-you-choose (n=2 protocol)
+    field_b_term: mechanism design for bilateral fair division
+    note: optimal incentive-compatible mechanism for heterogeneous binary division
+  - field_a_term: EF1 (envy-free up to one item, for discrete goods)
+    field_b_term: approximately fair division of indivisible resources
+    note: EF1 is the best fairness guarantee achievable for indivisible goods in polynomial time
+related_unknowns:
+  - u-collective-action-without-authority
+related_hypotheses:
+  - h-collective-action-ostrom-design-principles-v2
+cross_pollination_opportunities:
+  - >
+    Truthful mechanism design for fair division (Procaccia & Wang 2014 approximation
+    algorithms for envy-free cake cutting) uses LP relaxation and rounding — connecting
+    to algorithmic game theory and convex optimization. The approximation ratio achievable
+    by truthful algorithms is an open problem combining mechanism design, combinatorics,
+    and algorithm theory.
+  - >
+    Chores division (dividing uniformly undesirable goods — housework, debt, environmental
+    risk) reverses the envy constraint. The mathematics is dual to cake cutting but social
+    applications (household bargaining, Superfund cleanup cost allocation) require different
+    cultural and legal norm analysis.
+communication_gap: >
+  Fair division mathematics developed in economics and mathematics departments with minimal
+  cross-citation. The combinatorics community (Sperner, Brouwer) developed fixed-point
+  theorems without awareness of fair division applications. Procaccia's work on computational
+  fair division began bridging computer science and economics starting ~2008 but fair
+  division textbooks rarely present the Sperner's lemma connection.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.2307/1907687"
+    note: Steinhaus (1948) — The problem of fair division; Econometrica 16:101
+  - doi: "10.2307/2975028"
+    note: Brams & Taylor (1995) — An envy-free cake division protocol; Am Math Mon 102:9
+  - doi: "10.2307/2589304"
+    note: Su (1999) — Rental harmony; Sperner's lemma in fair division; Am Math Mon 106:930
+  - doi: "10.1145/2509002"
+    note: Procaccia (2013) — Cake cutting; not just child's play; Commun ACM 56:36

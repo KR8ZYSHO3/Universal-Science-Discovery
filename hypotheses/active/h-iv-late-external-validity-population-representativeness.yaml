@@ -1,0 +1,53 @@
+id: h-iv-late-external-validity-population-representativeness
+title: >
+  The local average treatment effect (LATE) estimated by instrumental variables
+  is generalizable to the full population when the complier subpopulation is
+  representative on all effect-modifying covariates, and this representativeness
+  is empirically testable by comparing complier covariate distributions to the
+  full sample — enabling LATE-to-ATE extrapolation with quantifiable uncertainty.
+status: active
+priority: medium
+impact_score: 0.76
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+
+evidence_links:
+  - doi: "10.2307/2951620"
+    type: supporting
+    confidence: 0.80
+    note: "Angrist, Imbens & Rubin (1996) — LATE identification theorem; complier analysis framework"
+  - doi: "10.3982/ECTA6551"
+    type: supporting
+    confidence: 0.65
+    note: "Imbens & Wooldridge (2009) — survey of identification strategies including complier characterization"
+  - type: related
+    note: "Aronow & Carnegie (2013) Beyond LATE: Estimation of the average treatment effect with an instrumental variable — formal extrapolation framework"
+
+unknowns_addressed:
+  - u-causal-inference-heterogeneous-treatment-effects-identification
+
+proposed_tests:
+  - description: >
+      In a canonical labor economics IV study (e.g., Card 1995 — college proximity
+      as instrument for education), characterize compliers (those who attend college
+      due to proximity) on observable demographics (race, parental income, geography);
+      compare complier ATE estimate to population ATE from natural experiments with
+      different instruments; test whether LATE differs significantly across instruments
+      targeting different complier subpopulations.
+    method: "Complier mean characterization (Abadie 2003 kappa-weighting); comparison of LATEs from college proximity, tuition cost, and quarter-of-birth instruments for education returns; test H₀: LATE₁ = LATE₂"
+    prediction: "LATEs from different instruments differ by < 20% when complier covariate distributions are similar; LATEs diverge when compliers differ substantially on observed effect modifiers (ability proxy, parental income)"
+  - description: >
+      Mendelian randomization study of BMI on cardiovascular outcomes using
+      genetic instruments: compare LATE from genetic instruments (affecting BMI
+      through different biological pathways) to ATE from weight-loss RCTs;
+      use complier characterization to predict which genetic instrument targets
+      a representative complier population and which does not.
+    method: "UK Biobank MR analysis with multiple independent BMI-associated SNPs as separate instruments; compare IVW-MR LATE across SNP clusters to RCT ATE from bariatric surgery trials"
+    prediction: "Pleiotropic instruments (SNPs affecting BMI through inflammation vs. appetite pathways) produce significantly different LATEs (> 2 SE apart), demonstrating that instrument choice determines external validity"
+
+related_disciplines:
+  - economics
+  - statistics
+  - epidemiology
+  - causal-inference

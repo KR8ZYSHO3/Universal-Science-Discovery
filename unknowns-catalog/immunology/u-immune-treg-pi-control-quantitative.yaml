@@ -1,0 +1,45 @@
+id: u-immune-treg-pi-control-quantitative
+title: Can the IL-2/Treg feedback loop be quantitatively characterized as a PI controller with measurable gain constants, and does controller theory predict observed autoimmune disease dynamics?
+status: open
+priority: medium
+disciplines:
+  - immunology
+  - control-theory
+  - systems-biology
+  - mathematical-biology
+summary: >
+  The conceptual mapping of the IL-2/T-regulatory cell circuit to a PI (proportional-
+  integral) feedback controller is well-motivated theoretically (Khailaie et al. 2013,
+  Busse et al. 2010). However, the quantitative identification of the controller
+  parameters — the proportional gain K_p (Treg suppression strength per unit Treg count)
+  and integral gain K_i (Treg expansion rate per unit IL-2 concentration) — from
+  in vivo experimental data has not been systematically done.
+
+  Without measured gain values, the PI controller framework cannot make quantitative
+  predictions about stability margins (how close is the immune system to the onset of
+  autoimmunity?), oscillation frequencies (do relapsing-remitting diseases oscillate
+  at the predicted frequency?), or optimal drug dosing intervals (how long must
+  immunosuppression be maintained to shift the system to a stable fixed point?).
+
+  Key open questions: (1) Is the IL-2/Treg loop truly an integral controller (does
+  Treg count accumulate as the time-integral of IL-2, as required for PI control),
+  or is the feedback proportional only? (2) What are the effective loop delay times
+  (antigen presentation → T_eff activation → IL-2 production → Treg expansion →
+  suppression), and do these delays cause the predicted oscillatory responses? (3)
+  Can patient-specific controller parameter estimation from blood cytokine and
+  cell-count data predict individual disease trajectories?
+systematic_gaps:
+  - Quantitative measurement of IL-2 sensitivity and Treg expansion kinetics (K_p, K_i) from in vivo data has not been done in a control-theoretic framework.
+  - The effective loop delay in the IL-2/Treg feedback loop has not been measured with sufficient resolution to predict oscillation frequency.
+  - Whether relapsing-remitting autoimmune disease oscillation frequencies match PI controller predictions has not been systematically tested.
+  - Personalized controller parameter estimation from clinical biomarkers has not been attempted.
+suggested_hypotheses:
+  - Patients with type 1 diabetes have reduced K_i (lower Treg expansion per unit IL-2) compared to healthy controls, quantifiable from blood IL-2 and Treg time-series data.
+related_bridges:
+  - b-immune-regulation-feedback
+references:
+  - doi: "10.1371/journal.pcbi.1003122"
+    note: Khailaie et al. (2013) — PI controller model of IL-2/Treg dynamics
+  - doi: "10.1186/1752-0509-4-2"
+    note: Busse et al. (2010) — ODE model of Treg-mediated tolerance
+last_reviewed: "2026-05-06"

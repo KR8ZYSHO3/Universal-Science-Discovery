@@ -1,0 +1,69 @@
+id: h-targeted-hub-vaccination-achieves-herd-immunity-fewer-doses-scale-free
+title: >
+  Targeted vaccination of high-degree nodes (hubs) in scale-free contact
+  networks achieves epidemic suppression (R_eff < 1) with the number of doses
+  equal to O(√N) rather than the O(N·(1-1/R₀)) doses required by random
+  mass vaccination, and this reduction is achievable in practice using acquaintance
+  immunisation (vaccinate a random contact of a random person).
+status: active
+priority: high
+impact_score: 0.88
+created: "2026-05-06"
+last_updated: "2026-05-06"
+related_disciplines:
+  - epidemiology
+  - network-science
+  - mathematics
+  - public-health
+unknowns_addressed:
+  - u-percolation-phase-transition-interdependent-networks-cascading-failures
+evidence_links:
+  - doi: "10.1103/PhysRevLett.85.4626"
+    type: supporting
+    confidence: 0.80
+    note: >
+      Cohen et al. (2000) — proves p_c = 0 for scale-free networks (γ≤3),
+      implying arbitrary fraction of random removal leaves giant component intact;
+      targeted removal achieves p_c with far fewer nodes
+  - doi: "10.1038/35019019"
+    type: supporting
+    confidence: 0.80
+    note: >
+      Albert et al. (2000) Nature 406:378 — demonstrates targeted hub removal
+      is catastrophic for scale-free networks with only ~5% removal
+  - type: related
+    confidence: 0.65
+    note: >
+      Cohen et al. (2003, Phys Rev Lett 91:247901) — acquaintance immunisation
+      achieves near-optimal hub targeting without knowing network structure;
+      simulations confirm dose reduction
+proposed_tests:
+  - description: >
+      Analysis of COVID-19 contact tracing network data (available from South
+      Korea, New Zealand, Iceland contact tracing programs) to characterise
+      the degree distribution. Test: does the contact network have scale-free
+      topology (P(k) ∝ k^{-γ} with γ < 3)? If yes, compute the acquaintance
+      immunisation threshold and compare to the random vaccination herd immunity
+      threshold (1 - 1/R₀ ≈ 0.67-0.75 for delta/omicron).
+    method: >
+      Degree distribution fitting (MLE power law vs. log-normal vs. exponential);
+      percolation threshold computation; comparison to empirical herd immunity
+      thresholds estimated from seroprevalence studies.
+    prediction: >
+      COVID-19 contact networks have γ < 3 (scale-free); acquaintance immunisation
+      threshold is ≤30% of population vs. 67-75% for random vaccination.
+      If γ ≥ 3 (not scale-free), advantage of targeted vaccination is reduced.
+  - description: >
+      Randomised trial of acquaintance immunisation in a closed community (e.g.
+      military base, university campus) for seasonal influenza. Vaccinate N=500
+      individuals selected as: (a) random from population (control); (b) random
+      acquaintance of a random person (acquaintance arm). Compare seasonal
+      influenza attack rate between the two groups.
+    method: >
+      Serological testing pre and post season; comparison of attack rates and
+      secondary attack rates; contact tracing to verify network degree of
+      vaccinated individuals.
+    prediction: >
+      Acquaintance arm achieves ≥30% lower attack rate with same number of
+      vaccine doses as random arm. Acquaintance arm vaccinates individuals with
+      2-3× higher average degree than random arm.

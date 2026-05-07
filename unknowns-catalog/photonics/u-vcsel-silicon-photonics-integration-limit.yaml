@@ -1,0 +1,45 @@
+id: u-vcsel-silicon-photonics-integration-limit
+title: >
+  What is the fundamental limit to integrating III-V semiconductor laser sources
+  (VCSELs, DFB lasers) onto silicon photonics platforms, and can heterogeneous
+  integration achieve the wall-plug efficiency and modulation bandwidth required
+  for co-packaged optics in hyperscale data centers?
+status: open
+priority: high
+disciplines:
+  - photonics
+  - engineering
+  - materials-science
+  - electrical-engineering
+summary: >
+  Silicon photonics leverages CMOS fabrication for low-cost, scalable waveguides,
+  modulators, and detectors, but silicon is an indirect-bandgap semiconductor that
+  cannot efficiently emit light — requiring III-V compound laser sources. Three
+  integration approaches have been pursued: (1) flip-chip bonding (III-V die on
+  Si PIC): high coupling loss (2-3 dB), thermal resistance; (2) wafer bonding (III-V
+  epitaxy on Si wafer + lithography): demonstrated at 90 nm node but with reduced
+  laser performance; (3) direct epitaxial growth of III-V on Si: misfit dislocations
+  (4% lattice mismatch) cause high defect density and short device lifetime, though
+  Ge-on-Si and GaAs on Si buffers have reduced threading dislocation density to ~10⁶/cm².
+  VCSELs at 850 nm (OM4 fiber) dominate short-reach (<300 m) data center links
+  at 25-100 Gbps/lane; DFB lasers at 1310/1550 nm for longer reach. Co-packaged
+  optics (CPO) requires integrating hundreds of laser sources within the package
+  of a switch ASIC — demanding wall-plug efficiency >30% and MTBF >10⁷ hours
+  at elevated temperatures (85°C). The fundamental limits: thermal crosstalk between
+  laser sources, phase noise floor set by spontaneous emission, and the Schawlow-
+  Townes linewidth limit for coherent applications.
+systematic_gaps:
+  - Threading dislocation density threshold below which III-V-on-Si laser lifetime exceeds 10⁷ hours
+  - Thermal resistance modeling for monolithically integrated laser arrays at CPO densities
+  - Whether 2D materials (GaN, GaAs) quantum dot active layers can achieve lower threshold currents with reduced temperature sensitivity
+  - Fundamental coupling efficiency limit between monolithic III-V source and Si waveguide without mode mismatch
+suggested_hypotheses:
+  - h-silicon-photonics-dfb-laser-integration
+related_bridges:
+  - b-semiconductor-lasers-photonics
+references:
+  - doi: "10.1109/PROC.1963.2706"
+    note: "Kroemer (1963) — heterojunction injection lasers"
+  - doi: "10.1038/nphoton.2015.171"
+    note: "Liang & Bowers (2010) — recent progress in lasers on silicon"
+last_reviewed: "2026-05-06"

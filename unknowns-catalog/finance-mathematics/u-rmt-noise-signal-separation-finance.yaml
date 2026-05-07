@@ -1,0 +1,37 @@
+id: u-rmt-noise-signal-separation-finance
+title: How can random matrix theory reliably separate true correlation signal from sampling noise in financial covariance matrices with non-stationary returns?
+status: open
+priority: high
+disciplines:
+  - mathematical-finance
+  - statistics
+  - random-matrix-theory
+summary: >
+  The Marchenko-Pastur law describes the eigenvalue distribution of a purely random
+  covariance matrix. In empirical financial covariance matrices, eigenvalues exceeding
+  the Marchenko-Pastur upper edge are considered signal (true correlations); those
+  within the bulk are noise. However, financial returns are non-stationary: correlations
+  change over time, spike during crises, and vary by regime. Standard RMT cleaning
+  assumes i.i.d. Gaussian returns — violated in practice. Fat-tailed distributions
+  (Student-t, power-law) shift the Marchenko-Pastur bulk, making the signal/noise
+  boundary ambiguous. The problem of robust covariance estimation under heavy tails
+  and non-stationarity remains unsolved in high dimensions.
+systematic_gaps:
+  - No universally accepted method for Marchenko-Pastur threshold correction under
+    non-Gaussian, non-stationary returns.
+  - Dynamic (time-varying) covariance estimation using RMT principles lacks theoretical
+    convergence guarantees.
+  - The appropriate RMT ensemble for financial correlations (Wishart, beta-ensemble,
+    other) has not been empirically determined.
+suggested_hypotheses:
+  - h-eigenvalue-cleaning-portfolio-performance
+references:
+  - doi: 10.1016/S0378-4371(99)00027-4
+    note: Laloux et al. (1999) - RMT applied to financial correlations
+  - doi: 10.1103/PhysRevLett.83.1467
+    note: Plerou et al. (1999) - universal and non-universal properties of financial correlations
+  - doi: 10.1080/14697688.2010.534813
+    note: Bun, Bouchaud & Potters (2017) - cleaning large correlation matrices review
+related_bridges:
+  - b-random-matrix-portfolio-optimization
+last_reviewed: "2026-05-06"

@@ -1,0 +1,54 @@
+id: h-gromov-nonsqueezing-quantum-uncertainty-derivation
+title: >
+  The Heisenberg uncertainty principle Delta_q * Delta_p >= hbar/2 can be
+  derived directly from Gromov's non-squeezing theorem in the semiclassical
+  limit hbar → 0 by identifying the symplectic capacity of the uncertainty
+  ellipsoid with hbar, providing a geometric rather than operator-algebraic
+  proof of the uncertainty principle.
+status: active
+priority: medium
+impact_score: 0.55
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+related_disciplines:
+  - mathematical-physics
+  - symplectic-geometry
+  - quantum-mechanics
+  - functional-analysis
+unknowns_addressed:
+  - u-symplectic-topology-classical-quantum-correspondence-limits
+evidence_links:
+  - doi: "10.1007/BF01388806"
+    type: related
+    confidence: 0.65
+    note: Gromov (1985) — non-squeezing theorem; symplectic capacity c(B^{2n}(r)) = pi*r^2
+  - note: de Gosson (2009) The Symplectic Camel and the Uncertainty Principle — partial derivation connecting Gromov capacity to uncertainty principle
+    type: supporting
+    confidence: 0.60
+proposed_tests:
+  - description: >
+      Mathematical proof: construct a map from the Wigner function W_psi(q,p)
+      of a quantum state psi to a symplectic domain Omega_psi, such that
+      c(Omega_psi) >= hbar (where c is the Gromov capacity). Show that this
+      inequality implies Delta_q * Delta_p >= hbar/2 for any pure state psi.
+      Verify for coherent states (saturate the bound), squeezed states (saturate
+      in one quadrature), and mixed states (strict inequality).
+    method: Symplectic topology + Wigner function analysis; constructive proof
+    prediction: >
+      For coherent states: c(Omega_psi) = pi*hbar exactly (Gromov capacity equals
+      minimum uncertainty area); for squeezed states: c(Omega_psi) = pi*hbar
+      with different Omega shape; for thermal states: c(Omega_psi) > pi*hbar.
+      This recovers uncertainty principle as a special case of non-squeezing.
+  - description: >
+      Numerical test: simulate quantum dynamics of a particle in a double-well
+      potential via Wigner function evolution (quantum Liouville equation) and
+      compute the Gromov capacity of the Wigner distribution support at each
+      timestep. Test: is c(Omega_psi(t)) >= pi*hbar conserved throughout
+      the non-linear quantum dynamics (not just for Gaussian states)?
+    method: Wigner function simulation (split-operator or truncated Wigner); convex hull area computation
+    prediction: c(Omega_psi(t)) >= pi*hbar at all times; equality only for coherent-state initial conditions
+related_disciplines:
+  - mathematical-physics
+  - symplectic-geometry
+  - quantum-information

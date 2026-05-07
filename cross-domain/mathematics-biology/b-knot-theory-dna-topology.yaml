@@ -1,0 +1,135 @@
+id: b-knot-theory-dna-topology
+title: >
+  DNA in cells is topologically non-trivial — replication and transcription create
+  catenanes and knots that must be resolved by topoisomerases — and the knot
+  invariants (linking number, writhe, twist) of circular DNA molecules determine
+  the thermodynamic and enzymatic cost of unknotting, making algebraic topology a
+  quantitative tool in molecular biology.
+status: established
+fields:
+  - mathematics
+  - topology
+  - biology
+  - molecular-biology
+  - biochemistry
+bridge_claim: >
+  DNA is a long polymer, and in cells it is topologically constrained: circular
+  DNA (plasmids, bacterial chromosomes) cannot change its topology without breaking
+  a covalent bond. The central mathematical quantities are:
+
+    Linking number Lk = Tw + Wr (White's formula)
+
+  where Tw (twist) = number of times one strand wraps around the other (= bp/10.5
+  for relaxed B-DNA), and Wr (writhe) = a measure of the coiling of the helix axis
+  in space (supercoiling). The linking number Lk is a topological invariant —
+  unchanged by continuous deformations without strand cleavage.
+
+  TOPOISOMERASES AS TOPOLOGY-CHANGING ENZYMES:
+  - Type I topoisomerases change Lk by ±1 by transiently breaking one strand.
+  - Type II topoisomerases change Lk by ±2 by passing one double-stranded segment
+    through another (strand passage). They can unknot and decatenate DNA.
+
+  The energy of supercoiling is ΔG = RT·K·(Lk - Lk₀)²/N, where K ≈ 1100 kJ/mol,
+  Lk₀ = N/10.5, and N = base pairs. This is a mechanical spring energy associated
+  with the topological state, with quantitative predictions for topoisomerase
+  equilibrium constants.
+
+  KNOT THEORY APPLIED TO DNA:
+  - DNA knots (trefoil knot, figure-eight knot, torus knots) form spontaneously
+    during recombination and replication. Their probability depends on DNA length
+    (Rybenkov et al. 1993: trefoil probability ~ 3% for 10 kb circular DNA).
+  - The knot type (characterised by its crossing number, Alexander polynomial,
+    Jones polynomial) determines how many Type II topoisomerase strand-passage
+    events are required to unknot it. A trefoil (3₁) requires 1 passage; a
+    figure-eight (4₁) requires 2; torus knots (2,n) require (n-1)/2.
+  - The Alexander polynomial Δ(t) of a DNA knot can be computed from gel electrophoresis
+    band patterns — the knot type is experimentally accessible.
+  - Vologodskii (2009) showed that the equilibrium distribution of DNA knot types
+    follows a Boltzmann distribution over knot complexity, with free energy proportional
+    to the minimum crossing number of the knot.
+
+  CATENANES AND CHROMOSOME SEGREGATION:
+  - DNA replication produces interlinked sister chromatids (catenanes) — two circles
+    linked with Lk = (number of remaining interlinks). Resolution requires Type II
+    topoisomerases; failure to resolve causes chromosome missegregation.
+  - The mathematical object is the linking number of two curves, computed by the
+    Gauss integral: Lk(K₁, K₂) = (1/4π) ∮∮ (dr₁ × dr₂)·(r₁-r₂)/|r₁-r₂|³.
+
+  WRITHE AND SUPERCOILING IN GENE REGULATION:
+  - Negative supercoiling (Wr < 0, underwound DNA) promotes strand separation and
+    facilitates transcription initiation. Promoters of highly expressed genes are
+    located in negatively supercoiled domains.
+  - The supercoiling level is maintained by Type II topoisomerases (gyrase introduces
+    negative supercoils; topo IV decatenates and relaxes). This is a topological
+    control system for gene expression.
+translation_table:
+  - field_a_term: "Linking number Lk (topological invariant)"
+    field_b_term: "Total number of times one DNA strand winds around the other"
+    note: "Lk = Tw + Wr; invariant under continuous deformation; changed only by topoisomerases or strand cleavage"
+  - field_a_term: "Writhe Wr (geometric, not topological)"
+    field_b_term: "DNA supercoiling — the coiling of the double helix axis"
+    note: "Wr < 0: negative supercoil (favoured in cells, promotes melting); Wr > 0: positive (inhibits melting)"
+  - field_a_term: "Twist Tw (geometric)"
+    field_b_term: "Base-pair stacking angle / local helix turns"
+    note: "Tw ≈ N/10.5 for relaxed B-DNA at physiological conditions"
+  - field_a_term: "Knot type (3₁ trefoil, 4₁ figure-eight, etc.)"
+    field_b_term: "Topological state of circular DNA after replication or recombination"
+    note: "Resolved by Type II topoisomerase; minimum crossing number = minimum number of strand-passage events needed"
+  - field_a_term: "Alexander polynomial Δ(t)"
+    field_b_term: "Knot invariant measurable from gel electrophoresis band spacing"
+    note: "Different knot types have different migration rates; the polynomial encodes the knot type"
+  - field_a_term: "Catenane (two linked circles)"
+    field_b_term: "Interlinked sister chromatids after DNA replication"
+    note: "Must be resolved by decatenation (Type II topoisomerase) before cell division; failure = missegregation"
+  - field_a_term: "Topoisomerase (enzyme)"
+    field_b_term: "Topological surgery on the DNA manifold"
+    note: "Type I: ±1 Dehn surgery; Type II: ±2 Dehn surgery (strand passage); energy cost = supercoiling free energy"
+related_unknowns:
+  - u-topoisomerase-knot-selection
+related_hypotheses:
+  - h-dna-knot-complexity-aging
+cross_pollination_opportunities:
+  - >
+    The Jones polynomial (1984), discovered in pure knot theory, was initially
+    computed algorithmically. DNA knot type determination by gel electrophoresis
+    provides a biochemical "computer" for evaluating knot invariants — the electrophoresis
+    pattern encodes polynomial information. This connection has been used to infer
+    topoisomerase mechanism (whether they pass strands or change twist) from the
+    pattern of knot types they produce. Conversely, new knot invariants (Khovanov
+    homology, HOMFLYPT polynomial) could potentially distinguish DNA knot types
+    not separable by Alexander polynomial or electrophoresis.
+  - >
+    Chromosome architecture in the nucleus is mediated by topoisomerase II and
+    cohesin/CTCF-mediated loop extrusion. The 3D genome organisation (Hi-C contact
+    maps) reflects the topological state of chromosomal DNA — TAD boundaries coincide
+    with topological domain boundaries. Applying topological data analysis (persistent
+    homology) to Hi-C contact maps could detect topological domain structure beyond
+    what pairwise contact frequency captures.
+  - >
+    Topoisomerase inhibitors (camptothecin → topotecan, irinotecan; etoposide) are
+    major cancer chemotherapy agents. They work by trapping the topoisomerase-DNA
+    complex in the cleavage state, creating permanent strand breaks. Understanding
+    the knot topology of cancer cell DNA (which may be more highly knotted due to
+    replication stress) could identify new targeting strategies.
+communication_gap: >
+  Knot theory developed as pure mathematics from the 1920s (Alexander) through the
+  1980s (Jones polynomial, Thurston geometrization). The connection to DNA was
+  discovered by molecular biologists in the 1970s (Crick 1976, Wang 1971) who
+  needed the concept of linking number; algebraic topology tools arrived in
+  biology much later. Topologists and molecular biologists publish in completely
+  different journals (J Knot Theory vs. PNAS, Mol Cell). The Jones polynomial was
+  discovered in 1984; its relationship to DNA electrophoresis patterns was explored
+  by biophysicists (Vologodskii) but is not widely known in the mathematical
+  topology community.
+last_reviewed: "2026-05-05"
+references:
+  - doi: "10.1073/pnas.73.8.2639"
+    note: "Crick (1976) PNAS 73:2639 — Linking numbers and nucleosomes; first precise treatment of DNA topology"
+  - note: "Bates & Maxwell (2005) DNA Topology (Oxford UP) — comprehensive textbook on DNA topology and topoisomerases"
+    url: "https://global.oup.com/academic/product/dna-topology-9780198567328"
+  - note: "Adams (1994) The Knot Book (Freeman) — accessible introduction to knot theory with DNA applications"
+    url: "https://bookstore.ams.org/knot"
+  - doi: "10.1016/j.plrev.2009.01.007"
+    note: "Vologodskii (2009) Phys Life Rev 6:1 — DNA topology: fundamentals and applications; knot probability theory"
+  - doi: "10.1073/pnas.90.13.5307"
+    note: "Rybenkov et al. (1993) PNAS 90:5307 — probability of DNA knotting depends on length and ionic conditions"

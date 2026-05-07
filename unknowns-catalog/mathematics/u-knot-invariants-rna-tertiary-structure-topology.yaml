@@ -1,0 +1,55 @@
+id: u-knot-invariants-rna-tertiary-structure-topology
+title: >
+  Do RNA tertiary structures contain topologically knotted or pseudoknotted
+  configurations that require knot invariants (beyond secondary structure diagrams)
+  to classify, and do these topological constraints shape RNA evolution and function
+  in ways not captured by current structure prediction algorithms?
+status: open
+priority: high
+disciplines:
+  - mathematics
+  - biology
+  - biophysics
+  - molecular-biology
+  - topology
+summary: >
+  RNA secondary structure (Watson-Crick base pairs) is planar and captured by
+  arc diagrams. RNA pseudoknots — pairs of helices where bases in the loop of
+  one helix pair with bases outside it — are non-planar and cannot be represented
+  in standard secondary structure notation. Pseudoknots are common in functional
+  RNAs: ribosomal frameshifting elements (SARS-CoV-2 frameshifter), ribozymes,
+  and telomerase RNA. The question is whether the full 3D topology of RNA tertiary
+  structures involves mathematical knots (knotted backbone traces) or only
+  pseudoknotted base-pair topology. Computational analysis of PDB structures
+  (Sulkowska et al. 2013) found that protein structures contain slip-knots, while
+  RNA structures are topologically simpler — but the analysis depended on how
+  chain termini are handled. For circular RNAs (circRNAs — biologically abundant,
+  covalently closed), true topological knots could in principle exist. If RNA
+  tertiary structure topology constrains folding pathways, then topological invariants
+  might predict RNA misfolding diseases (certain ribosomopathies, neurological
+  disorders) that current secondary structure models miss. AlphaFold2's RNA
+  extension does not model topology.
+systematic_gaps:
+  - Systematic topological analysis of all RNA structures in PDB using knot
+    invariant computation (after closing chain termini by standard procedures).
+  - Computational search for minimal-crossing-number pseudoknots that are
+    biologically functional (frameshifter efficiency vs. pseudoknot topology).
+  - Experimental test of whether circRNA topology affects translation or
+    protein binding (comparing topological isomers of the same sequence).
+  - Connection between RNA topological genus (of the surface on which secondary
+    structure graph embeds) and tertiary structural complexity.
+suggested_hypotheses:
+  - >
+    Systematic analysis of >5000 RNA 3D structures from the PDB using knotted
+    chain detection algorithms will find ≥10 RNA structures with non-trivial
+    backbone knottedness (trefoil or higher), concentrated in large ribosomal
+    RNAs with buried chain crossings — establishing that RNA knotting is a rare
+    but real phenomenon with functional implications for ribosome assembly kinetics.
+related_bridges:
+  - b-knot-theory-dna-topology
+references:
+  - doi: "10.1090/S0273-0979-1985-15361-3"
+    note: "Jones (1985) Bull Am Math Soc 12:103 — Jones polynomial"
+  - doi: "10.1073/pnas.1205918109"
+    note: "Sulkowska et al. (2012) PNAS 109:E1715 — conservation of complex knotting and slipknotting patterns in proteins"
+last_reviewed: "2026-05-06"

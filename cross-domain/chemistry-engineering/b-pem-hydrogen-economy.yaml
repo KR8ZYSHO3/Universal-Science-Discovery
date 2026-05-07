@@ -1,0 +1,85 @@
+id: b-pem-hydrogen-economy
+title: >
+  Proton exchange membranes (Nafion) enable both PEM electrolysers and PEM fuel cells
+  via proton-selective transport — bridging polymer chemistry to electrochemical
+  engineering to the hydrogen economy, with Faradaic efficiency determined by
+  membrane selectivity and conductivity.
+status: established
+fields:
+  - chemistry
+  - polymer-chemistry
+  - electrochemistry
+  - chemical-engineering
+  - energy-systems
+bridge_claim: >
+  Proton exchange membranes (PEM) — primarily Nafion, a perfluorosulfonated ionomer —
+  are the enabling materials technology for the hydrogen energy cycle. The same
+  membrane enables two complementary devices:
+
+  1. PEM ELECTROLYSER (water splitting):
+     Anode: H₂O → ½O₂ + 2H⁺ + 2e⁻   (OER, ΔE° = +1.23 V)
+     Cathode: 2H⁺ + 2e⁻ → H₂          (HER, ΔE° = 0 V)
+     The membrane transports H⁺ from anode to cathode while blocking gas crossover
+     (O₂/H₂ selectivity > 10⁶). Faradaic efficiency ε_F = I/(I + I_crossover).
+
+  2. PEM FUEL CELL (power generation):
+     Anode: H₂ → 2H⁺ + 2e⁻
+     Cathode: ½O₂ + 2H⁺ + 2e⁻ → H₂O
+     Power density: 1–2 W/cm²; efficiency 50–60% (vs. 35% for combustion).
+
+  MEMBRANE PHYSICS:
+  - Proton conductivity σ ∝ exp(-E_a/kT), with E_a ≈ 0.1–0.2 eV depending on
+    hydration. Nafion's sulfonated groups (-SO₃H) form connected water channels
+    (∼4 nm diameter) through which protons hop via Grotthuss mechanism.
+  - Selectivity S = σ_H⁺/σ_gas -- Nafion achieves S > 10⁶ for H₂ crossover,
+    limiting energy losses to <0.1% at operating current densities.
+  - The polymer-engineering challenge -- maintaining hydration at >80°C while
+    preventing membrane degradation (HO• radical attack on ether linkages).
+
+  ECONOMIC BRIDGE:
+  Green hydrogen cost ($/kg H₂) = f(electrolyser capital, electricity price,
+  membrane lifetime) — a function entirely determined by membrane engineering.
+  Current target: <$2/kg H₂ (US DOE H2@Scale); requires membrane lifetime
+  >80,000 hours — an open materials science challenge.
+translation_table:
+  - field_a_term: perfluorosulfonated ionomer (Nafion)
+    field_b_term: proton exchange membrane in electrolyser/fuel cell
+    note: The same polymer serves as both the PEM electrolyser and fuel cell membrane
+  - field_a_term: Grotthuss proton hopping mechanism
+    field_b_term: membrane ionic conductivity σ (S/cm)
+    note: Protons hop between -SO₃H sites via water molecules; conductivity requires >20% hydration
+  - field_a_term: ion exchange capacity (IEC, meq/g)
+    field_b_term: sulfonation degree, proton conductivity, and swelling
+    note: Higher IEC increases σ but also water uptake and dimensional instability
+  - field_a_term: Faradaic efficiency ε_F
+    field_b_term: fraction of current that produces H₂ (vs. parasitic crossover)
+    note: ε_F = 1 - (crossover current / total current); membrane selectivity directly controls ε_F
+  - field_a_term: membrane electrode assembly (MEA)
+    field_b_term: heart of the PEM device stack
+    note: The MEA (membrane + catalyst layers + gas diffusion layers) determines all device performance metrics
+related_unknowns:
+  - u-nafion-degradation-mechanism-longevity
+related_hypotheses:
+  - h-pem-membrane-beyond-nafion-high-temperature
+cross_pollination_opportunities:
+  - Apply polymer physics (phase separation, hydration thermodynamics) to design next-generation hydrocarbon membranes that replace Nafion
+  - Use electrochemical impedance spectroscopy (EIS) to non-destructively map degradation in real time — an IoT/sensor application
+  - Connect PEM electrolyser efficiency curves to grid-scale hydrogen storage economics models
+  - Apply machine learning to the Sabatier principle (volcano plots) to find improved OER/HER catalysts for PEM electrolysers
+communication_gap: >
+  Polymer chemists designing membranes rarely engage with grid-scale energy economics;
+  energy economists rarely understand the materials science constraints on electrolysis
+  efficiency and membrane lifetime. The pathway from sulfonation chemistry to
+  levelised cost of hydrogen is a multi-domain chain that requires simultaneously
+  optimising polymer structure, device engineering, and energy systems economics —
+  but each community publishes in separate journals with minimal overlap.
+last_reviewed: "2026-05-06"
+references:
+  - doi: 10.1016/S0376-7388(01)00376-6
+    note: "Kreuer, K.D. (2001). On the development of proton conducting polymer membranes for hydrogen and methanol fuel cells. J. Membr. Sci. 185:29–39."
+  - doi: 10.1021/cr0207123
+    note: "Mauritz, K.A. & Moore, R.B. (2004). State of understanding of Nafion. Chem. Rev. 104:4535–4585."
+  - doi: 10.1038/nature11115
+    note: "Debe, M.K. (2012). Electrocatalyst approaches and challenges for automotive fuel cells. Nature 486:43–51."
+  - doi: 10.1126/science.aad4998
+    note: "Seh, Z.W. et al. (2017). Combining theory and experiment in electrocatalysis: Insights into materials design. Science 355:eaad4998."

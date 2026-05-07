@@ -1,0 +1,39 @@
+id: u-wasserstein-cell-fate-noise-geodesic-uniqueness
+title: Are cell differentiation trajectories in Wasserstein space geodesically unique, and does transcriptional noise determine whether a progenitor has a definite fate or a mixed lineage distribution?
+status: open
+priority: medium
+disciplines:
+  - mathematics
+  - developmental-biology
+  - optimal-transport
+  - single-cell-genomics
+  - stochastic-processes
+summary: >
+  Optimal transport theory (Schiebinger et al. 2019) reconstructs cell fate
+  trajectories as geodesics in Wasserstein space W₂. However, W₂ geodesics
+  are not always unique: in positively curved (Alexandrov) regions of Wasserstein
+  space, geodesics may branch, which would correspond to stochastic cell fate
+  commitment. The mathematical question — when are W₂ geodesics unique between
+  two given cell-state distributions? — has direct biological interpretation:
+  unique geodesic = deterministic fate, non-unique = stochastic multipotency.
+  The role of transcriptional noise (RNA splicing variability, gene expression
+  bursting) in determining which "branch" a cell takes is unresolved: is fate
+  a continuous stochastic process or a discrete bifurcation? The entropy
+  regularization parameter ε in Sinkhorn OT models this noise phenomenologically
+  but without mechanistic grounding.
+systematic_gaps:
+  - The curvature of W₂ restricted to the manifold of single-cell gene expression distributions has not been computed for any real developmental dataset; it is unknown whether geodesic non-uniqueness corresponds to observed fate bifurcations.
+  - Whether transcriptional noise is the stochastic mechanism selecting between multiple W₂ geodesics (fate branches) vs. noise being irrelevant to fate and only affecting timing has not been determined.
+  - The optimal entropy regularization ε in Sinkhorn OT for single-cell data has no principled derivation from biological noise levels.
+suggested_hypotheses:
+  - Regions of high curvature in the W₂ geometry of developmental gene expression correspond exactly to observed fate decision points; curvature can be measured from static snapshots and predicts which progenitors are multipotent.
+related_unknowns:
+  - u-rna-velocity-waddington-landscape-geometry
+related_bridges:
+  - b-optimal-transport-cell-differentiation
+references:
+  - doi: "10.1016/j.cell.2019.01.006"
+    note: "Schiebinger et al. (2019) Waddington-OT"
+  - doi: "10.1038/s41586-018-0414-6"
+    note: "La Manno et al. (2018) RNA velocity"
+last_reviewed: "2026-05-06"

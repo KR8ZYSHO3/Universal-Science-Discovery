@@ -1,0 +1,82 @@
+id: b-crispr-diagnostics-point-of-care
+title: "CRISPR Diagnostics and Point-of-Care Testing — SHERLOCK and DETECTR exploit Cas13/Cas12 collateral cleavage for attomolar-sensitivity, paper-based pathogen detection"
+status: established
+fields:
+  - molecular-biology
+  - biomedical-engineering
+  - diagnostics
+  - synthetic-biology
+  - public-health
+
+bridge_claim: >
+  Beyond gene editing, CRISPR-associated nucleases are powerful diagnostic biosensors
+  that exploit the same guide-RNA base-pairing specificity used in genome editing but
+  repurposed for target detection. Two platforms dominate. SHERLOCK (Specific High-
+  sensitivity Enzymatic Reporter unLOCKing, Gootenberg et al. 2017): Cas13a is
+  programmed with a crRNA complementary to the target RNA; upon binding the target,
+  Cas13a undergoes a conformational change that activates its promiscuous trans-
+  cleavage (collateral) RNase activity, degrading all nearby reporter RNA molecules —
+  including a fluorescent reporter linked to a quencher, generating signal. DETECTR
+  (Chen et al. 2018): Cas12a has equivalent collateral ssDNA trans-cleavage activity
+  upon dsDNA target recognition. Both platforms achieve attomolar sensitivity
+  (10⁻¹⁸ M), comparable to or exceeding RT-PCR for some targets, without
+  thermocycling. SHERLOCK v2 adds multiplexing via orthogonal Cas proteins.
+  Amplification steps (NASBA, RPA, LAMP) preceding Cas detection maintain
+  sensitivity without PCR infrastructure. Paper-based lateral flow readout
+  (Myhrvold et al. 2018) eliminates fluorescence readers: streptavidin–FAM reporter
+  accumulates at the test line when cleaved, yielding a visual result. Cost per
+  test: ~$0.61 in resource-limited settings. The CARMEN platform (Myhrvold et al.
+  2018) simultaneously screens for 169 human viruses from a single sample using
+  a microfluidic combinatorial array. Kellner et al. (2019) detected SARS-CoV-2 in
+  45 minutes with 97% sensitivity. This reframes CRISPR as a programmable biosensor
+  rather than merely a genome editor — exploiting identical nuclease properties for
+  diagnosis rather than modification.
+
+translation_table:
+  - field_a_term: "Cas13a collateral trans-cleavage (RNase activity)"
+    field_b_term: "signal amplification step in SHERLOCK assay"
+    note: "Each activated Cas13a cleaves ~1000 reporter molecules/min — massive signal gain without PCR cycling"
+  - field_a_term: "crRNA programmability (20-nt spacer design)"
+    field_b_term: "sequence-specific pathogen detection with rapid reprogramming"
+    note: "New diagnostic can be designed and synthesised in hours when pathogen genome sequence is known"
+  - field_a_term: "lateral flow readout (paper-based)"
+    field_b_term: "instrument-free visual result analogous to pregnancy test"
+    note: "Streptavidin–FAM reporter gives yes/no result without laboratory infrastructure; critical for LMIC deployment"
+  - field_a_term: "isothermal pre-amplification (RPA or LAMP)"
+    field_b_term: "nucleic acid amplification without thermocycler"
+    note: "RPA at 37–42°C; LAMP at 65°C — battery-powered heat source sufficient; removes the PCR cold-chain requirement"
+  - field_a_term: "CARMEN multiplexing (Cas13 combinatorial array)"
+    field_b_term: "simultaneous screening for 169 viruses from one patient sample"
+    note: "Microfluidic array pairs each sample with each CRISPR probe; enables syndromic respiratory panel in resource-limited settings"
+  - field_a_term: "attomolar sensitivity (10⁻¹⁸ M detection limit)"
+    field_b_term: "detection of single-copy pathogen nucleic acid per µL without culture"
+    note: "Orders of magnitude more sensitive than antigen tests; approaches single-molecule detection with amplification"
+
+related_unknowns: []
+related_hypotheses: []
+
+cross_pollination_opportunities:
+  - "Integrate SHERLOCK into wearable microfluidic sensors for continuous environmental pathogen monitoring (water, air)"
+  - "Apply CRISPR diagnostics to non-infectious disease: liquid biopsy detection of cancer-associated mutations in circulating cell-free DNA at attomolar concentrations"
+  - "Develop CRISPR-based food safety testing (E. coli O157, Salmonella) deployable at the farm or abattoir without laboratory infrastructure"
+
+communication_gap: >
+  The CRISPR diagnostics community sits at the intersection of molecular biology,
+  bioengineering, and global health — communities that rarely design research together.
+  The technology was developed primarily in academic research labs (Doudna/Collins)
+  and required pandemic urgency (COVID-19) to accelerate translation into point-of-
+  care products. Regulatory approval pathways for nucleic acid diagnostics are
+  complex and slow; many CRISPR diagnostic advances remain in research stage while
+  inferior PCR-based tests dominate clinical practice.
+
+references:
+  - doi: "10.1126/science.aam9321"
+    note: "Gootenberg et al. (2017) Science 356:438 — SHERLOCK Cas13a diagnostic"
+  - doi: "10.1126/science.aar2731"
+    note: "Chen et al. (2018) Science 360:436 — DETECTR Cas12a diagnostic"
+  - doi: "10.1038/s41596-019-0210-2"
+    note: "Kellner et al. (2019) Nat Protoc 14:2986 — SHERLOCK protocol"
+  - doi: "10.1126/science.aas9192"
+    note: "Myhrvold et al. (2018) Science 360:444 — CARMEN multiplexed virus detection"
+
+last_reviewed: "2026-05-06"

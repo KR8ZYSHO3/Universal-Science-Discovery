@@ -1,0 +1,110 @@
+id: b-phylogenetics-maximum-likelihood
+title: >
+  Phylogenetic tree inference is maximum likelihood estimation over a
+  combinatorial parameter space of tree topologies and branch lengths under
+  Markov nucleotide substitution models — Felsenstein's pruning algorithm makes
+  the likelihood tractable, and Bayesian MCMC extensions unify evolutionary
+  biology with probabilistic graphical models and molecular clocks.
+status: established
+fields:
+  - biology
+  - mathematics
+  - statistics
+  - evolutionary-biology
+  - bioinformatics
+bridge_claim: >
+  Phylogenetics is a formally defined statistical inference problem: given aligned
+  DNA (or protein) sequences from n taxa, find the evolutionary tree topology τ
+  and branch lengths t that maximise the probability of observing the data:
+    L(τ, t | data) = P(data | τ, t, model)
+  The model is a continuous-time Markov chain on the four nucleotide states
+  {A, C, G, T}, with instantaneous rate matrix Q.
+
+  Substitution models range in complexity:
+  - Jukes-Cantor (JC69): all substitutions equally likely, one rate parameter α
+  - Kimura 2-parameter (K80): transitions vs transversions distinguished
+  - GTR (general time-reversible): 6 rate parameters + base frequencies — maximally
+    general reversible model
+  The Markov property on the tree means likelihood factorises over sites.
+
+  Felsenstein's pruning algorithm (1981): computes L(data | tree) via dynamic
+  programming in O(nL) time, where n = number of taxa, L = sequence length.
+  At each internal node, the conditional likelihood vector is computed from
+  children using the transition probability matrix P(t) = e^{Qt}. This is the
+  tree analogue of the forward algorithm for hidden Markov models — the same
+  dynamic programming recursion.
+
+  Bayesian phylogenetics (MrBayes, BEAST): instead of point estimates, sample
+  the posterior:
+    P(τ, t | data) ∝ L(data | τ, t) · P(τ) · P(t)
+  via Markov chain Monte Carlo (Metropolis-Hastings). The tree topology space is
+  discrete and combinatorially large — (2n-3)!! unrooted topologies for n taxa —
+  making direct posterior calculation impossible; MCMC proposes topology moves
+  (nearest-neighbour interchange, subtree pruning-regrafting).
+
+  Molecular clock hypothesis (Zuckerkandl & Pauling 1965): substitution rates
+  are approximately constant across lineages and proportional to time. When
+  calibrated by fossil record age constraints (node dating), the molecular clock
+  converts branch lengths (substitutions/site) to absolute divergence times.
+  BEAST implements relaxed molecular clocks (log-normal rate variation across
+  branches) — a hierarchical Bayesian model.
+
+  Applied impact: SARS-CoV-2 phylogenetic reconstruction from the first ~100
+  sequences (January 2020) characterised the outbreak's origins, mutation rate,
+  and spread within weeks. HIV molecular clock analyses reconstruct transmission
+  histories for forensic epidemiology. Phylogenomics (whole-genome alignments,
+  thousands of genes) has resolved deep animal phylogeny debated for a century.
+translation_table:
+  - field_a_term: evolutionary tree topology τ
+    field_b_term: combinatorial latent variable in a probabilistic graphical model
+    note: the tree is a rooted or unrooted graph; posterior over τ is MCMC-sampled
+  - field_a_term: nucleotide substitution rate matrix Q
+    field_b_term: instantaneous generator of continuous-time Markov chain
+    note: transition probabilities P(t) = e^{Qt} derived by matrix exponentiation
+  - field_a_term: Felsenstein pruning algorithm (likelihood on tree)
+    field_b_term: forward algorithm on a tree-structured hidden Markov model
+    note: identical dynamic programming structure; different combinatorial space
+  - field_a_term: branch length t (substitutions per site)
+    field_b_term: "evolutionary time × rate (molecular clock: t = r × T)"
+    note: calibrated to absolute time using fossil age constraints on internal nodes
+  - field_a_term: MCMC posterior sampling over tree topologies and branch lengths
+    field_b_term: Bayesian inference in a high-dimensional discrete+continuous space
+    note: requires specialised topology proposal moves not needed for continuous parameters
+  - field_a_term: relaxed molecular clock (log-normal rate variation across branches)
+    field_b_term: hierarchical Bayesian model with branch-specific rate hyperparameters
+    note: allows rate variation while preserving identifiability via shrinkage prior
+related_unknowns:
+  - u-phylogenetic-placement-long-branch-attraction-correction
+related_hypotheses:
+  - h-gtr-model-adequate-metazoan-divergence-estimation
+cross_pollination_opportunities:
+  - >
+    Phylogenetic neural networks (PhyloNet, PASTA, graph neural networks on tree
+    structures) use the tree topology as a prior for representation learning of
+    biological sequences — combining the Felsenstein likelihood with deep learning
+    embeddings. This may break the independence-across-sites assumption of standard
+    models by learning coevolving site patterns.
+  - >
+    Phylogenetics of cultural evolution: applying maximum likelihood tree inference
+    to vocabulary cognate matrices (language families), manuscript traditions (stemma
+    codicum), and musical traditions tests whether cultural change obeys Markov
+    substitution dynamics analogous to molecular evolution. Bayesian phylolinguistics
+    (Gray & Atkinson 2003, Indo-European root dating) has already made this bridge.
+communication_gap: >
+  Felsenstein (1981) published in J Mol Evol, a specialist journal inaccessible to
+  most mathematicians and statisticians. The equivalence between phylogenetic pruning
+  and the forward algorithm for HMMs was not noted until the late 1990s, causing
+  independent development of computational methods in both fields. Bayesian
+  phylogenetics (MrBayes 2001) was initially resisted by some systematists sceptical
+  of Bayesian methods — a philosophical dispute from statistics that delayed adoption.
+  The BEAST software (Drummond & Rambaut 2007) democratised Bayesian molecular-clock
+  analysis but is still regarded as a specialised bioinformatics tool rather than
+  a Bayesian graphical model by the statistics community.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1007/BF01734359"
+    note: Felsenstein (1981) J Mol Evol 17:368 — pruning algorithm for phylogenetic likelihood
+  - note: Jukes & Cantor (1969) in Munson & Kern (eds) Mammalian Protein Metabolism, pp 21-132
+  - doi: "10.1186/1471-2148-7-214"
+    note: Drummond & Rambaut (2007) BMC Evol Biol 7:214 — BEAST software for Bayesian phylogenetics
+  - note: Zuckerkandl & Pauling (1965) J Theor Biol 8:357 — molecular clock hypothesis

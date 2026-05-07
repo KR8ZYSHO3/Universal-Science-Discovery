@@ -1,0 +1,89 @@
+id: b-differential-forms-maxwell
+title: >
+  Maxwell's equations expressed in differential form notation — dF = 0 and d*F = J —
+  reveal that classical electromagnetism is a U(1) gauge theory, the Aharonov-Bohm
+  effect is a purely topological phenomenon, and Chern-Weil theory connects curvature
+  forms to topological invariants, unifying differential geometry with physics.
+status: established
+fields:
+  - mathematics
+  - physics
+  - differential-geometry
+  - topology
+bridge_claim: >
+  Maxwell's equations in classical vector notation (div B = 0, curl E = -dB/dt, div D = rho,
+  curl H = J + dD/dt) are rewritten in the language of differential forms on 4-dimensional
+  spacetime as two equations: dF = 0 and d*F = J, where F is the electromagnetic field
+  strength 2-form, *F is its Hodge dual, and J is the 4-current 1-form.
+
+  The equation dF = 0 (Bianchi identity) encodes both Faraday's law and the absence
+  of magnetic monopoles. Since d(dA) = 0, we write F = dA where A is the electromagnetic
+  potential 1-form — gauge freedom is the freedom to replace A by A + df for any scalar
+  function f (exact form, no physical effect since d(df) = 0).
+
+  The Hodge decomposition theorem: any k-form omega on a compact Riemannian manifold
+  decomposes uniquely as omega = d*alpha + delta*beta + gamma, where d*alpha is exact,
+  delta*beta is coexact, and gamma is harmonic (d*gamma = delta*gamma = 0). This is the
+  geometric generalization of the Helmholtz decomposition of vector fields.
+
+  The Aharonov-Bohm effect (1959): an electron traveling around a solenoid carrying
+  magnetic flux Phi accumulates a quantum phase phi = (e/hbar) * ∮ A·dl even where
+  B = curl A = 0 outside the solenoid. This is a purely topological effect — the line
+  integral of A around the loop equals the enclosed flux by Stokes' theorem, but the
+  local field vanishes. Experimentally confirmed by Chambers (1960) and subsequent
+  electron interference experiments — topology directly affects physics.
+
+  Chern-Weil theory: characteristic classes (Chern classes, Pontryagin classes) of
+  fiber bundles are represented by closed differential forms constructed from the
+  curvature of a connection. The first Chern class c1(L) = (1/2pi)[F] — the cohomology
+  class of the field strength 2-form — classifies the topology of the line bundle.
+  In physics: c1 counts the Dirac monopole charge; the second Chern class gives the
+  instanton number in Yang-Mills theory.
+
+  This framework is the natural language of modern gauge theory: the standard model
+  of particle physics is a U(1) x SU(2) x SU(3) gauge theory, all expressed in
+  terms of connection forms and curvature.
+translation_table:
+  - field_a_term: differential 2-form F = dA
+    field_b_term: electromagnetic field tensor F_{mu nu} = partial_mu A_nu - partial_nu A_mu
+    note: Form language makes coordinate independence manifest; tensor components are frame-dependent
+  - field_a_term: Bianchi identity dF = 0
+    field_b_term: no magnetic monopoles (div B = 0) + Faraday's law (curl E = -dB/dt)
+    note: Two Maxwell equations unified into one topological identity
+  - field_a_term: Hodge dual *F
+    field_b_term: electric-magnetic duality (E <-> B under *F in vacuum)
+    note: Hodge dual exchanges field strength with its dual — duality symmetry of vacuum Maxwell equations
+  - field_a_term: Aharonov-Bohm phase (e/hbar) ∮ A·dl
+    field_b_term: holonomy of the U(1) connection around a loop — topological invariant
+    note: Phase is a Wilson loop — fundamental observable in gauge theory
+  - field_a_term: first Chern class c1 in H²(M, Z)
+    field_b_term: magnetic monopole charge (Dirac quantization condition)
+    note: Topology quantizes charge — Dirac's heuristic derivation follows from c1 being integral
+related_unknowns:
+  - u-non-abelian-aharonov-bohm-observable-consequences
+related_hypotheses:
+  - h-chern-simons-theory-topological-quantum-computation
+cross_pollination_opportunities:
+  - >
+    Topological insulators and topological superconductors: band topology classified by
+    Chern numbers (2D) and Z₂ invariants (3D) — the mathematics of characteristic classes
+    directly predicts protected surface states and is now central to condensed matter physics.
+  - >
+    Non-Abelian gauge theories (QCD, electroweak) expressed in terms of curvature forms:
+    the Yang-Mills instanton (self-dual curvature F = *F) is characterized by the second
+    Chern class, connecting topology to the QCD vacuum structure and CP violation.
+communication_gap: >
+  The differential forms approach to electromagnetism is standard in mathematical physics
+  (Misner-Thorne-Wheeler, Nakahara) but is rarely taught in undergraduate physics courses
+  that use Jackson (classical vector notation). Mathematics graduate students learning
+  differential geometry do not typically see the Maxwell equations example until they
+  encounter gauge theory. The Aharonov-Bohm effect, though over 60 years old, is still
+  not in most undergraduate physics curricula despite being one of the cleanest
+  demonstrations that topology enters physics directly.
+last_reviewed: "2026-05-06"
+references:
+  - note: "Misner, Thorne & Wheeler (1973) Gravitation. W.H. Freeman — chapters on differential forms"
+  - doi: "10.1103/PhysRev.115.485"
+    note: "Aharonov & Bohm (1959) Phys Rev 115:485 — topological phase effect"
+  - note: "Nakahara (2003) Geometry, Topology and Physics. IOP Publishing"
+  - note: "Frankel (2012) The Geometry of Physics. Cambridge University Press"

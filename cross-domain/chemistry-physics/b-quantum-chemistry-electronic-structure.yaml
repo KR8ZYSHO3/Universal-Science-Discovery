@@ -1,0 +1,58 @@
+id: b-quantum-chemistry-electronic-structure
+title: >
+  The many-body Schrödinger equation for electrons in molecules is computationally
+  intractable, but density functional theory (DFT) — grounded in the Hohenberg-Kohn
+  theorem that ground state energy is an exact functional of electron density — enables
+  practical first-principles computation of molecular structure, reaction energies,
+  and materials properties, bridging quantum physics to all of chemistry.
+status: established
+fields:
+  - chemistry
+  - physics
+  - quantum-mechanics
+  - computational-chemistry
+  - materials-science
+bridge_claim: >
+  The Schrodinger equation for a molecule is exactly solvable only for H2+.
+  DFT (Hohenberg-Kohn 1964): ground state energy E[rho] is exact functional of
+  electron density rho(r); Kohn-Sham 1965 provides practical self-consistent equations.
+  DFT exchange-correlation functional E_xc[rho] is the key unknown — formally exact
+  but unknown in practice. Jacob's Ladder: LDA to GGA (PBE) to meta-GGA to hybrid
+  (B3LYP) to double hybrid. Bridge: quantum physics (many-body Schrodinger) to
+  practical computational chemistry (DFT, CC) to materials discovery and drug design.
+translation_table:
+  - field_a_term: many-body wavefunction Psi(r1, r2, ..., rN)
+    field_b_term: electron density rho(r) = N integral of |Psi|^2 dr2...drN
+    note: HK theorem reduces N-body problem to 3D density functional
+  - field_a_term: exchange-correlation hole
+    field_b_term: XC functional E_xc[rho]
+    note: key unknown in all DFT approximations
+  - field_a_term: Slater determinant (Hartree-Fock)
+    field_b_term: Kohn-Sham non-interacting reference system
+    note: KS-DFT uses non-interacting electrons with exact-density exchange-correlation potential
+related_unknowns:
+  - u-dft-exchange-correlation-exact-functional
+related_hypotheses:
+  - h-dft-jacob-ladder-convergence-to-accuracy
+cross_pollination_opportunities:
+  - >
+    Machine learning force fields (DeePMD, NequIP, MACE) train on DFT data, enabling
+    molecular dynamics at DFT accuracy at classical MD cost — importing quantum chemistry
+    into materials simulation and drug design.
+  - >
+    Quantum computing VQE (variational quantum eigensolver) can access correlated
+    wavefunctions beyond coupled cluster — connecting quantum computation to the
+    electronic structure hierarchy.
+communication_gap: >
+  DFT was developed by physicists (Hohenberg, Kohn Nobel Prizes) but is primarily
+  used by chemists. The HK theorem and KS equations are standard physics but their
+  implications for chemistry are often not explicitly bridged in curricula.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1103/PhysRev.136.B864"
+    note: "Hohenberg & Kohn (1964) Phys Rev 136:B864"
+  - doi: "10.1103/PhysRev.140.A1133"
+    note: "Kohn & Sham (1965) Phys Rev 140:A1133"
+  - note: "Szabo & Ostlund (1989) Modern Quantum Chemistry; Dover"
+  - doi: "10.1063/1.2148954"
+    note: "Becke (2014) J Chem Phys 140:18A301"

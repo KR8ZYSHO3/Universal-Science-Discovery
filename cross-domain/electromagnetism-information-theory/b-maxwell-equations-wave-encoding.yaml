@@ -1,0 +1,70 @@
+id: b-maxwell-equations-wave-encoding
+title: >
+  Maxwell's equations in free space predict plane wave solutions with the same
+  mathematical form as carrier waves in communications — the electromagnetic spectrum
+  is a physical implementation of Shannon's abstract channel model.
+status: established
+fields:
+  - electromagnetism
+  - information-theory
+  - communications-engineering
+bridge_claim: >
+  Maxwell's equations in free space admit plane wave solutions of the form
+  E = E₀ exp(i(k·r − ωt)), which are identical in mathematical structure to the
+  carrier waves used in all radio, microwave, and optical communications. Shannon's
+  channel capacity theorem C = B log₂(1 + S/N) gives the theoretical maximum
+  information rate for any such wave channel, measured in bits per second.
+
+  The connection is not merely analogical: every radio, WiFi, 5G, and optical
+  fiber system is a Maxwell wave information channel whose design is constrained
+  by Shannon capacity. The electromagnetic spectrum — a physical continuum of
+  frequencies governed by Maxwell's equations — is the physical substrate that
+  realizes Shannon's abstract channel model.
+
+  Nyquist (1924) established the sampling theorem (maximum symbol rate = 2B for
+  bandwidth B), which applies directly to Maxwell wave channels. The entire
+  edifice of modern digital communications — modulation theory, OFDM, MIMO
+  antenna arrays, optical coherent detection — rests on the joint Maxwell-Shannon
+  framework. Engineers who design wireless systems are simultaneously solving
+  Maxwell's equations (propagation, antenna patterns, polarization) and
+  approaching Shannon limits (coding, modulation, capacity).
+translation_table:
+  - field_a_term: plane wave E = E₀ exp(i(k·r − ωt))
+    field_b_term: sinusoidal carrier wave at frequency f = ω/2π
+    note: The Maxwell wave solution is the physical carrier of information
+  - field_a_term: electromagnetic bandwidth B (Hz)
+    field_b_term: channel bandwidth B in Shannon formula C = B log₂(1 + S/N)
+    note: Same quantity — frequency range available for modulation
+  - field_a_term: signal power S / noise power N (Maxwell wave)
+    field_b_term: signal-to-noise ratio S/N in Shannon capacity
+    note: Maxwell propagation loss and Johnson-Nyquist noise set the S/N
+  - field_a_term: polarization states of E-field (2 orthogonal)
+    field_b_term: 2 independent Shannon channels (polarization multiplexing)
+    note: MIMO and polarization-division multiplexing exploit this directly
+  - field_a_term: wave dispersion relation ω(k)
+    field_b_term: group delay and intersymbol interference in digital link
+    note: Dispersive channels require equalization to approach Shannon capacity
+related_unknowns:
+  - u-maxwell-shannon-channel-near-capacity
+related_hypotheses:
+  - h-maxwell-wave-channel-capacity-limit
+cross_pollination_opportunities:
+  - >
+    Designing antenna arrays that approach Shannon MIMO capacity bounds by treating
+    each antenna element as a spatial mode of the Maxwell field — spatial multiplexing
+    as a direct consequence of wave orthogonality.
+  - >
+    Optical fiber capacity: WDM channels are Maxwell frequency modes; approaching
+    Shannon capacity requires joint nonlinear Maxwell (Kerr effect) and information-
+    theoretic (capacity under nonlinear noise) analysis.
+communication_gap: >
+  Electrical engineering splits into "fields and waves" (Maxwell) and "communications
+  and signal processing" (Shannon) in most curricula, creating practitioners who
+  specialize in one but rarely both. The unification is implicit in the best wireless
+  systems design but rarely stated as a foundational principle.
+last_reviewed: "2026-05-06"
+references:
+  - note: "Maxwell (1865) A dynamical theory of the electromagnetic field. Phil Trans R Soc 155:459-512"
+  - note: "Shannon (1948) A mathematical theory of communication. Bell Syst Tech J 27:379-423, 623-656"
+  - note: "Nyquist (1924) Certain factors affecting telegraph speed. AIEE Trans 43:412-422"
+  - note: "Proakis & Salehi (2008) Digital Communications, 5th ed. McGraw-Hill"

@@ -1,0 +1,62 @@
+id: b-optimal-control-cancer-treatment
+title: Pontryagin's maximum principle maps cancer treatment scheduling onto a Hamiltonian optimization problem — adaptive therapy exploits replicator dynamics to engineer evolutionary traps for drug-resistant clones
+status: established
+fields:
+  - mathematics
+  - biology
+bridge_claim: >
+  Pontryagin's maximum principle (1956) provides the mathematical framework for optimal cancer
+  treatment: minimize ∫L(x,u,t)dt subject to ẋ = f(x,u) (tumor dynamics), where x encodes
+  tumor and immune cell counts and u(t) is the drug dose schedule. The optimality condition
+  H(x*,u*,λ*) ≤ H(x*,u,λ*) for all u (Hamiltonian minimization) often yields bang-bang
+  solutions — chemotherapy at maximum dose for a finite period, then cessation — matching the
+  clinical logic of induction therapy. Gatenby et al. (2009) showed that adaptive therapy,
+  which deliberately maintains drug-sensitive clones to suppress resistant ones via competitive
+  exclusion, can extend progression-free survival. The mathematical structure is the replicator
+  equation of evolutionary game theory: dxᵢ/dt = xᵢ[fᵢ(x) - f̄(x)]. Optimal control theory
+  finds evolutionary traps — drug schedules that steer the tumor into a state where all
+  resistant strategies are outcompeted.
+translation_table:
+  - field_a_term: Pontryagin Hamiltonian H(x,u,λ)
+    field_b_term: fitness landscape in tumor evolutionary dynamics
+    note: The Hamiltonian encodes the trade-off between tumor kill rate and immune cost — analogous to evolutionary fitness
+  - field_a_term: bang-bang control (maximum principle)
+    field_b_term: MTD (maximum tolerated dose) chemotherapy scheduling
+    note: The mathematical bang-bang solution corresponds to clinical maximum-dose induction chemotherapy
+  - field_a_term: replicator dynamics (evolutionary game theory)
+    field_b_term: clonal competition between drug-sensitive and resistant cells
+    note: Tumor evolution is formally described by replicator equations — resistance is a game-theoretic Nash equilibrium
+  - field_a_term: costate variable λ(t) (adjoint state)
+    field_b_term: marginal value of healthy tissue / immune capacity
+    note: λ represents the shadow price of allowing tumor growth — the value of a unit of immune suppression
+  - field_a_term: evolutionary trap (game theory)
+    field_b_term: adaptive therapy endpoint (oncology)
+    note: A game state where all mutant strategies are outcompeted — the goal of evolutionarily-informed therapy
+related_unknowns:
+  - u-adaptive-therapy-evolutionary-trap-clinical-validation
+related_hypotheses:
+  - h-pontryagin-adaptive-therapy-outperforms-mtd-solid-tumors
+cross_pollination_opportunities:
+  - >
+    Stochastic optimal control (accounting for tumor evolutionary stochasticity and measurement
+    noise) could optimize adaptive therapy dosing in real patients — a direct application of
+    mathematical control theory to clinical oncology that is currently underdeveloped.
+  - >
+    Differential game theory (multiple players: oncologist, tumor, immune system) provides a
+    richer framework than single-agent optimal control — capturing the three-way interaction
+    that determines immunotherapy + chemotherapy combination outcomes.
+communication_gap: >
+  Mathematical optimal control theory is published in SIAM Journal on Control and Optimization
+  and Automatica; cancer biology research appears in Cancer Research, Nature Cancer, and
+  Cell. Evolutionary oncology (Gatenby group) bridges the gap but remains a small subfield.
+  Clinical oncologists lack mathematical training in optimal control; control theorists lack
+  biological intuition about cancer evolution. Most clinical trials still test MTD without
+  considering adaptive alternatives motivated by optimal control theory.
+last_reviewed: "2026-05-06"
+references:
+  - note: "Pontryagin, Boltyanskii, Gamkrelidze & Mishchenko (1962). The Mathematical Theory of Optimal Processes. Interscience."
+  - doi: 10.1126/scitranslmed.3000248
+    note: "Gatenby et al. (2009). Adaptive therapy. Sci Transl Med 1:28ra25."
+  - note: "Martin & Teo (1994). Optimal Control of Drug Administration in Cancer Chemotherapy. World Scientific."
+  - doi: 10.1039/c8ib00057c
+    note: "Cunningham et al. (2018). Optimal control to develop therapeutic strategies for methotrexate administration. Integr Biol 10:1."

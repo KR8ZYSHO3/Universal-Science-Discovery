@@ -1,0 +1,28 @@
+id: h-sos-lyapunov-global-nonpolynomial
+title: Neural Lyapunov functions trained with counterexample-guided synthesis can achieve global stability certificates for nonpolynomial nonlinear systems where SOS methods fail, provided the neural approximator is verified with interval arithmetic
+status: active
+created: "2026-05-06"
+last_updated: "2026-05-06"
+priority: high
+impact_score: 0.79
+author: wave-30-agent
+unknowns_addressed:
+  - u-lyapunov-function-discovery-automation
+related_disciplines:
+  - control-theory
+  - dynamical-systems-theory
+  - formal-verification
+  - machine-learning
+evidence_links:
+  - type: supporting
+    note: "Chang et al. (2019) — Neural Lyapunov Control, NeurIPS — counterexample-guided synthesis demonstrated"
+    confidence: 0.75
+  - type: supporting
+    note: "Prajna & Papachristodoulou (2004) — SOS for hybrid systems, CDC; establishes SOS limitations for non-polynomial dynamics"
+    confidence: 0.80
+  - type: related
+    note: "De Moura & Bjørner (2008) — Z3: An efficient SMT solver; formal verification tools applicable to neural certificates"
+    confidence: 0.65
+proposed_tests:
+  - description: Apply neural Lyapunov synthesis to Van der Pol, Lorenz (truncated), and pendulum-on-cart systems where SOS fails; verify certificates using interval arithmetic (INTLAB) and compare to simulation-based counter-examples
+  - description: Measure computational scaling of neural Lyapunov synthesis vs. SOS as state dimension increases from 2 to 8 — test whether neural approach has more favorable dimension scaling

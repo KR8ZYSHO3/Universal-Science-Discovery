@@ -1,0 +1,49 @@
+id: h-christofides-tight-example-construction
+title: >
+  The Christofides 3/2 approximation ratio is tight — there exist infinite families
+  of metric TSP instances on which the Christofides algorithm achieves tours within
+  a factor arbitrarily close to 3/2 of optimal, and the Held-Karp LP integrality
+  gap converges to exactly 4/3 on a specific known family of instances.
+status: active
+priority: medium
+impact_score: 0.65
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+
+evidence_links:
+  - type: supporting
+    note: "Benoit & Vempala (2011) — construct explicit metric instances where Christofides algorithm returns tours of length 4/3 · OPT + O(1) for small instances; gap between 3/2 upper and 4/3 conjectured lower bound remains open"
+  - doi: "10.1145/3406325.3451009"
+    type: supporting
+    confidence: 0.75
+    note: "Karlin, Klein & Gharan (2021) — improved TSP approximation to 3/2 - ε; analysis reveals that Christofides matching step is the bottleneck — tight examples require near-perfect matching"
+  - type: related
+    note: "Shmoys & Williamson (1990) — survey of approximation algorithms for TSP, including known tight examples for Christofides on path graphs and cycle-cover instances"
+
+unknowns_addressed:
+  - u-tsp-approximation-barrier-metric
+
+proposed_tests:
+  - description: >
+      Computationally search for Held-Karp LP integrality gap instances by generating
+      random metric TSP instances, solving the Held-Karp LP exactly (using cutting-plane
+      methods), computing the exact TSP tour (using Concorde solver), and reporting the
+      ratio. Focus on sparse graph instances (path graphs, cycle covers, ear
+      decomposition structures) predicted by theory to have large gaps.
+    method: "Integer programming (Concorde) + LP relaxation (simplex); systematic search over structured graph families; measure gap = LP_opt / TSP_opt for each instance"
+    prediction: "Gap exceeds 4/3 - ε for no known family (consistent with conjecture); maximum observed gap approaches 4/3 on specific path-graph metric families"
+  - description: >
+      Construct a metric TSP instance where Christofides produces a tour at exactly
+      3/2 · OPT and verify analytically: design a weighted graph where the minimum
+      spanning tree has specific odd-degree vertex structure and the minimum perfect
+      matching adds exactly half the MST weight. This would confirm 3/2 tightness
+      for standard Christofides (as opposed to the Karlin-Klein-Gharan randomized variant).
+    method: "Algebraic construction of graph + weight function; exact computation of MST, minimum weight matching, Euler tour shortcutting; exact OPT via brute force (small n ≤ 15)"
+    prediction: "For n ≥ 9, a specific graph family gives Christofides tour of length 3n/2 when OPT = n — exactly achieving the 3/2 ratio"
+
+related_disciplines:
+  - mathematics
+  - computer-science
+  - combinatorial-optimization
+  - complexity-theory

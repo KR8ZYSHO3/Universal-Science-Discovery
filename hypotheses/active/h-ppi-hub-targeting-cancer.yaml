@@ -1,0 +1,47 @@
+id: h-ppi-hub-targeting-cancer
+title: >
+  Computational protein-protein interface design can produce nanomolar-affinity binders
+  to hub proteins in the PPI network by exploiting their conserved hydrophobic interface
+  hotspots, but off-target toxicity scales with network degree, creating a fundamental
+  therapeutic window constraint imposed by the scale-free network topology.
+status: active
+created: "2026-05-06"
+last_updated: "2026-05-06"
+priority: high
+unknowns_addressed:
+  - u-protein-protein-interaction-design
+related_disciplines:
+  - structural-biology
+  - computational-biology
+  - oncology
+  - network-science
+evidence_links:
+  - type: supporting
+    doi: 10.1126/science.aab2524
+    note: >
+      Fleishman et al. (2011) — RosettaDesign generates nanomolar binders to the
+      influenza hemagglutinin; validates computational interface design at scale.
+  - type: supporting
+    doi: 10.1016/j.cell.2021.09.029
+    note: >
+      Stahl et al. (2023) — AlphaFold2-Multimer enables structural prediction of
+      designed PPI interfaces; hub protein surfaces enriched in designable hotspots.
+  - type: related
+    doi: 10.1038/411:41
+    note: >
+      Jeong et al. (2001) — essential hub proteins in yeast PPI network; lethality
+      correlates with network degree, predicting toxicity of hub-targeting binders.
+proposed_tests:
+  - discipline: computational-biology
+    description: >
+      Design 20 binders to PPI hub proteins spanning 3 degree bins (k=5-10, 20-40, >80)
+      using RosettaDesign or AlphaFold2 + ProteinMPNN. Measure Kd by SPR and off-target
+      binding to 50 structurally similar proteins by multiplexed SPR. Test whether
+      off-target count increases with hub degree as predicted by scale-free network
+      topology.
+  - discipline: oncology
+    description: >
+      Compare therapeutic index (IC50_cancer / IC50_normal) across a panel of designed
+      binders to hub vs. non-hub cancer proteins. Test whether hub-targeted binders
+      have systematically narrower therapeutic windows, supporting the network-topology
+      constraint hypothesis.

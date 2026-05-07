@@ -1,0 +1,40 @@
+id: h-evtol-noise-rotor-spacing
+title: >
+  eVTOL aircraft can achieve community-acceptable noise below 65 dBA at 500m
+  distance through distributed electric propulsion with blade-passing frequency
+  optimization and acoustic phase cancellation — but the fundamental acoustic
+  power floor set by actuator disk theory prevents achieving helicopter-equivalent
+  noise reduction at equivalent payload.
+status: active
+priority: medium
+impact_score: 0.67
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+unknowns_addressed:
+  - u-urban-air-mobility-noise
+evidence_links:
+  - type: supporting
+    note: "Pascioni et al. (2019) NASA acoustic characterization of distributed electric propulsion: phased rotors reduce BPF tones 10–15 dB vs. in-phase"
+    confidence: 0.73
+  - type: related
+    note: "Ffowcs Williams-Hawkings (1969) aeroacoustic formula: noise ∝ tip Mach^5 × chord — low-tip-speed distributed rotors fundamentally quieter"
+    confidence: 0.85
+  - type: contradicting
+    note: "Rogers & Oreskes (2021) actuator disk theory: noise floor W ∝ T^{3/2}/A for hover — increasing rotor number at fixed disk loading does not reduce power noise"
+    confidence: 0.70
+proposed_tests:
+  - description: >
+      Scale-model acoustic test (1:5): fabricate 12-rotor eVTOL model with
+      variable phase control. Test 5 inter-rotor phase configurations in
+      anechoic chamber. Measure A-weighted SPL at 50× rotor diameter distance.
+      Target: 10 dB reduction from optimal phase vs. in-phase baseline.
+  - description: >
+      Psychoacoustic community study: use synthetic eVTOL flyover audio (created
+      from measured data) with N=500 community panel. Measure noise annoyance at
+      equal loudness level (dBA) for eVTOL vs. helicopter vs. drone. Determine
+      the dBA target for community acceptability (≤3/10 annoyance rating).
+related_disciplines:
+  - aeroacoustics
+  - urban-air-mobility
+  - aerospace-engineering

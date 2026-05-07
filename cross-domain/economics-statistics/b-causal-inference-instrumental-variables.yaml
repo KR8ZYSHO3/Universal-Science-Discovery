@@ -1,0 +1,84 @@
+id: b-causal-inference-instrumental-variables
+title: >
+  Causal inference in economics and epidemiology reduces to the potential
+  outcomes framework (Rubin 1974), where instrumental variables (IV), regression
+  discontinuity (RD), and difference-in-differences (DiD) estimators are all
+  special cases of local average treatment effects (LATE) identified by
+  exploiting quasi-random variation — formally equivalent to randomized
+  controlled trials in specific subpopulations.
+status: established
+fields:
+  - economics
+  - statistics
+  - epidemiology
+  - social-science
+  - causal-inference
+  - probability-theory
+bridge_claim: >
+  The fundamental problem of causal inference (Holland 1986): for any unit i,
+  we observe only Y_i(1) or Y_i(0) (potential outcomes under treatment/control),
+  never both. The average treatment effect ATE = E[Y(1) - Y(0)] requires
+  strong assumptions for identification from observational data. The potential
+  outcomes (Rubin causal model, 1974) and graphical causal models (Pearl, 2000)
+  are two formally equivalent frameworks for expressing these assumptions.
+  Instrumental variables (IV): an instrument Z affects Y only through treatment
+  D (exclusion restriction), Z is exogenous (independence), and Z affects D
+  (relevance). Two-stage least squares (2SLS) identifies LATE = E[Y(1)-Y(0)|
+  compliers] — the effect among units whose treatment status is changed by Z.
+  Angrist-Imbens-Rubin (1996, Nobel 2021) showed IV = LATE under monotonicity.
+  Regression discontinuity (RD): observations near a threshold c for forcing
+  variable X form a natural experiment; RD identifies ATE at the threshold by
+  local linear regression. Difference-in-differences (DiD): parallel trends
+  assumption + a policy change identifies ATT (average treatment on treated).
+  All these designs are unified by the conditional independence assumption
+  (CIA) or local forms thereof, connecting Bayesian/frequentist statistics,
+  probability theory, and policy evaluation into a coherent causal framework.
+translation_table:
+  - field_a_term: potential outcomes Y_i(1), Y_i(0) (Rubin)
+    field_b_term: counterfactual states of the world in causal graphical models (Pearl)
+    note: Formally equivalent for causal identification; Rubin favors design-based, Pearl favors structural
+  - field_a_term: instrument Z (exogenous + exclusion restriction + relevance)
+    field_b_term: exogenous variation in a directed acyclic graph (DAG) — node with no incoming causal paths
+    note: Exclusion restriction = Z → Y path only through D; DAG formalizes this as no direct Z → Y edge
+  - field_a_term: local average treatment effect (LATE)
+    field_b_term: treatment effect identified in the subpopulation of compliers
+    note: LATE is not ATE; IV estimates for compliers only — external validity requires complier analysis
+  - field_a_term: parallel trends assumption (DiD)
+    field_b_term: counterfactual untreated outcome for treated group equals control group trend
+    note: Testable in pre-period; violated when treatment is selected on anticipatory trends
+  - field_a_term: regression discontinuity bandwidth h → 0
+    field_b_term: local randomization assumption — units near threshold are as-if randomly assigned
+    note: Optimal bandwidth trades bias and variance; MSE-optimal bandwidth from Imbens-Kalyanaraman formula
+related_unknowns:
+  - u-causal-inference-heterogeneous-treatment-effects-identification
+related_hypotheses:
+  - h-iv-late-external-validity-population-representativeness
+cross_pollination_opportunities:
+  - >
+    Genetics: Mendelian randomization treats genetic variants as instruments for
+    environmental exposures (gene → exposure → outcome), enabling causal inference
+    about nutrition, lifestyle, and drug targets from observational biobank data
+    — a direct import of IV econometrics into molecular epidemiology.
+  - >
+    Machine learning + causal inference (double machine learning, DML):
+    using high-dimensional ML for nuisance function estimation in DiD/IV
+    while preserving Gaussian limiting distributions — allows causal identification
+    in settings with thousands of covariates previously intractable for parametric methods.
+communication_gap: >
+  Statisticians developed potential outcomes (Rubin, Neyman) largely independently
+  of econometricians developing IV and DiD methods; Pearl's graphical framework
+  developed independently in computer science and AI. Despite formal equivalence,
+  the communities use different notation, assumptions, and terminology, creating
+  significant communication barriers. Epidemiology, economics, and statistics all
+  teach causal inference differently. The Nobel Prize to Angrist-Imbens-Card (2021)
+  has improved cross-field awareness of IV/DiD, but Pearl's do-calculus remains
+  largely unfamiliar to most econometricians.
+last_reviewed: "2026-05-06"
+references:
+  - note: "Rubin (1974) Estimating causal effects of treatments in randomized and nonrandomized studies. J Educ Psychol 66:688"
+  - doi: "10.2307/2951620"
+    note: "Angrist, Imbens & Rubin (1996) Identification of causal effects using instrumental variables. J Am Stat Assoc 91:444"
+  - doi: "10.1017/CBO9780511803161"
+    note: "Pearl (2000) Causality: Models, Reasoning, and Inference. Cambridge University Press"
+  - doi: "10.3982/ECTA6551"
+    note: "Imbens & Wooldridge (2009) Recent developments in the econometrics of program evaluation. J Econ Lit 47:5"

@@ -1,0 +1,51 @@
+id: u-h-infinity-nonlinear-systems-computational-tractability
+title: >
+  Can H∞-optimal robust control be extended to nonlinear systems with guaranteed
+  computational tractability — specifically, can sum-of-squares (SOS) or neural-network-
+  based Lyapunov function approximations provide scalable robust stability certificates
+  beyond the linear matrix inequality framework?
+status: open
+priority: medium
+disciplines:
+  - engineering-physics
+  - control-theory
+  - optimization
+  - mathematics
+summary: >
+  Linear H∞ control is solved: the DGKF Riccati equations provide the globally optimal
+  controller in polynomial time (via LMI convex optimization). For nonlinear systems,
+  the H∞ problem reduces to solving the Hamilton-Jacobi-Isaacs (HJI) partial differential
+  equation — generally intractable for systems with more than ~5 states. Sum-of-squares
+  (SOS) programming (Parrilo 2000) provides a systematic way to construct polynomial
+  Lyapunov functions certifying stability: V(x) ≥ 0 and −dV/dt − γ²||w||² + ||z||² ≥ 0
+  can be cast as SOS constraints → semidefinite program. However, SOS scales poorly
+  (semidefinite program size grows as O(n^{2d}) for polynomial degree d in n states).
+  Neural Lyapunov methods (learning V(x) as a neural network + verification) offer
+  scalability but lack global optimality guarantees. Key open questions: (1) Is there
+  a polynomial-time algorithm for nonlinear H∞ control for systems of practical size
+  (n=50–200 states, as in aerospace applications)? (2) Can neural Lyapunov certificates
+  be formally verified (using satisfiability modulo theories — SMT — solvers) to provide
+  rigorous rather than heuristic robustness guarantees for autonomous vehicle control?
+systematic_gaps:
+  - SOS H∞ synthesis has been demonstrated only for low-dimensional polynomial systems
+    (n<10); scaling to aerospace-relevant dimensions (n>50) has not been demonstrated.
+  - Neural Lyapunov certificates have been shown to fail in adversarial cases; formal
+    SMT-based verification of learned Lyapunov functions at scale (n>20) has not been
+    demonstrated with completeness guarantees.
+  - The gap between worst-case HJI-optimal γ and LMI-optimal γ for nonlinear systems
+    has not been quantified empirically across a benchmark suite of control problems.
+suggested_hypotheses:
+  - >
+    For polynomial nonlinear systems of degree ≤ 4 and dimension ≤ 20, the SOS
+    hierarchy converges to the globally optimal H∞ performance index γ* within 5%
+    at degree d=6 of the SOS relaxation; for dimension >50, neural Lyapunov methods
+    achieve γ within 20% of γ* while requiring 100× less computation than SOS,
+    establishing a practical size threshold for each method.
+related_bridges:
+  - b-robust-control-h-infinity
+references:
+  - doi: "10.1109/TAC.1981.1102603"
+    note: "Zames (1981) IEEE Trans Autom Control 26:301"
+  - doi: "10.1109/9.29425"
+    note: "Doyle et al. (1989) IEEE Trans Autom Control 34:831"
+last_reviewed: "2026-05-06"

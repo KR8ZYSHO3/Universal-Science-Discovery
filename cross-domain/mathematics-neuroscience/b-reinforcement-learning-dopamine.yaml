@@ -1,0 +1,100 @@
+id: b-reinforcement-learning-dopamine
+title: >
+  The temporal difference (TD) prediction error δ_t = r_t + γV(s_{t+1}) − V(s_t)
+  in reinforcement learning is exactly implemented by dopaminergic neurons in the
+  ventral tegmental area — firing rates encode δ: burst on positive surprise,
+  pause on negative surprise, silence on accurate prediction — the tightest known
+  neuroscience-AI correspondence.
+status: established
+fields:
+  - mathematics
+  - neuroscience
+  - computer-science
+  - cognitive-science
+  - computational-neuroscience
+bridge_claim: >
+  Temporal difference (TD) learning (Sutton 1988; Sutton & Barto 1998) defines the
+  prediction error: δ_t = r_t + γV(s_{t+1}) − V(s_t), where r_t is the reward
+  received, γ ∈ (0,1) is the discount factor, and V(s) is the estimated value
+  function (expected future discounted reward). The value function is updated:
+  V(s_t) ← V(s_t) + α·δ_t. δ_t = 0 when predictions are perfect; δ_t > 0 when
+  reward exceeds expectation; δ_t < 0 when reward is less than expected.
+
+  Schultz, Dayan & Montague (1997): dopamine neurons in the ventral tegmental area
+  (VTA) and substantia nigra pars compacta (SNc) fire in precisely this pattern:
+  — Unexpected reward: burst (δ > 0)
+  — Predicted reward: no response at reward time, but burst at onset of predicting
+    stimulus (δ > 0 shifts to CS onset)
+  — Omission of predicted reward: pause (δ < 0)
+  This was predicted by Montague, Dayan & Sejnowski (1996) before experimental
+  confirmation — a rare case of neuroscience prediction from AI theory.
+
+  Q-learning (Watkins 1989): Q(s,a) ← Q(s,a) + α[r + γ max_{a'} Q(s',a') − Q(s,a)]
+  estimates the action-value function. Deep Q-Network (DQN, Mnih et al. 2015):
+  approximate Q with a neural network; achieves superhuman performance on 49 Atari
+  games. The striatum is thought to implement Q(s,a) — different action-value estimates
+  for different behaviors, learned through dopaminergic TD signals.
+
+  Actor-critic architectures: separate "actor" (policy π(a|s)) from "critic" (value
+  V(s) or Q(s,a)). Anatomical analogy: dopamine neurons ≈ critic; striatum ≈ actor.
+  TD errors from dopamine modulate synaptic plasticity in the striatum (via
+  dopamine D1/D2 receptors on medium spiny neurons — long-term potentiation when
+  δ > 0, depression when δ < 0). This is Hebbian plasticity modulated by reward
+  prediction error — the synaptic implementation of the RL update rule.
+
+  Recent refinements: distributional RL (Bellemare et al. 2017) maintains a distribution
+  over future returns rather than just the mean. Dabney et al. (2020, Nature) found
+  evidence that different dopamine neurons encode different quantiles of the return
+  distribution — supporting distributional RL as the biological implementation.
+translation_table:
+  - field_a_term: TD prediction error δ_t = r_t + γV(s_{t+1}) − V(s_t)
+    field_b_term: dopamine neuron firing rate deviation from baseline
+    note: Burst = δ > 0; pause = δ < 0; no change = δ = 0 (prediction correct)
+  - field_a_term: value function V(s) = E[Σ γᵏ r_{t+k}]
+    field_b_term: subjective expected value of a state
+    note: Represented in striatum and OFC; updated via dopaminergic TD signal
+  - field_a_term: discount factor γ ∈ (0,1)
+    field_b_term: temporal discounting of future rewards (hyperbolic discounting in humans ≈ 1/(1+kd))
+    note: Humans show hyperbolic discounting; TD uses exponential — a known discrepancy
+  - field_a_term: Q(s,a) action-value function
+    field_b_term: striatal action-value representation (medium spiny neuron activity)
+    note: "D1-MSNs: direct pathway (Go, δ > 0 → LTP); D2-MSNs: indirect (NoGo, δ < 0 → LTD)"
+  - field_a_term: policy update via TD error (actor-critic)
+    field_b_term: dopamine-modulated synaptic plasticity in striatum
+    note: DA release → D1/D2 receptor activation → LTP/LTD → policy change
+  - field_a_term: distributional RL (quantile regression)
+    field_b_term: heterogeneous dopamine neuron responses encoding different return quantiles
+    note: Dabney et al. (2020) Nature — different DA neurons encode optimistic/pessimistic predictions
+related_unknowns:
+  - u-td-learning-dopamine-biological-implementation
+related_hypotheses:
+  - h-td-prediction-error-dopamine-burst-identity-schultz
+cross_pollination_opportunities:
+  - >
+    Model-based vs. model-free RL: model-free RL (TD/Q-learning) uses cached
+    values; model-based RL (Dyna) builds internal world models. Neuroscience
+    evidence: the hippocampus provides model-based predictions (planning via
+    sequential replay) while the striatum implements model-free cached values.
+    This is the neuroscience-AI correspondence for model-based/free distinction.
+  - >
+    Psychiatric disorders as RL dysfunction: addiction as overvaluation of drug
+    reward (inflated Q(drug)); depression as persistently negative TD errors
+    (anhedonia); schizophrenia as aberrant salience (noise in δ signal).
+    This framework makes precise quantitative predictions about dopamine dynamics
+    in psychiatric conditions — testable with fMRI + computational modeling.
+communication_gap: >
+  The TD-dopamine identity was established in 1997, but the two communities
+  (RL theory and systems neuroscience) continue to evolve largely independently.
+  Computer science RL research rarely cites the neuroscience beyond the Schultz
+  1997 paper; neuroscientists rarely read the ICML/NeurIPS literature. The
+  distributional RL-dopamine connection (Dabney 2020) required direct collaboration
+  between DeepMind and neuroscientists — exceptional rather than routine.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1126/science.275.5306.1593"
+    note: Schultz, Dayan & Montague (1997) Science 275:1593 — dopamine as TD prediction error
+  - doi: "10.1523/JNEUROSCI.16-05-01936.1996"
+    note: Montague, Dayan & Sejnowski (1996) J Neurosci 16:1936 — predictive Hebbian learning
+  - note: "Sutton & Barto (2018) Reinforcement Learning: An Introduction. 2nd ed. MIT Press."
+  - doi: "10.1038/nature14236"
+    note: Mnih et al. (2015) Nature 518:529 — Deep Q-Network (DQN) superhuman Atari performance

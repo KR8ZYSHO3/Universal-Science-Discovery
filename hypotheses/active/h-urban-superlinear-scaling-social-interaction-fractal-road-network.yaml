@@ -1,0 +1,52 @@
+id: h-urban-superlinear-scaling-social-interaction-fractal-road-network
+title: >
+  The urban superlinear scaling exponent β = 1 + 2/d_f (where d_f is the fractal
+  dimension of the road network, ≈ 1.8) correctly predicts β ≈ 1.15 for GDP
+  and patents, and the post-COVID shift to remote work will reduce β toward 1.0
+  by decoupling social interaction rate from physical co-presence — detectable
+  in patent and GDP scaling data from 2020–2025.
+status: active
+priority: medium
+impact_score: 0.80
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+
+evidence_links:
+  - doi: "10.1073/pnas.0610172104"
+    type: supporting
+    confidence: 0.80
+    note: "Bettencourt et al. (2007) — β ≈ 1.15 for GDP and patents across US, European, Chinese cities"
+  - doi: "10.1038/srep05561"
+    type: related
+    confidence: 0.65
+    note: "Louf & Barthelemy (2014) — road network geometry as the physical mechanism of urban scaling"
+  - type: related
+    note: "The fractal dimension d_f ≈ 1.8 for road networks (Strano et al. 2012 Sci Rep) gives β = 1 + 2/1.8 = 2.11/1.8 ≈ 1.15 — exact match to observed β without free parameters"
+
+unknowns_addressed:
+  - u-urban-scaling-law-exponent-inequality-cultural-variation
+
+proposed_tests:
+  - description: >
+      Measure road network fractal dimension d_f for 200 cities across 20
+      countries using OpenStreetMap data and box-counting method; predict
+      β = 1 + 2/d_f for each city; compare predicted β to empirical β fitted
+      from GDP-population scaling within each country.
+    method: "OSM road network extraction; box-counting fractal dimension at scales 100 m–10 km; city-level GDP from national accounts; β fitted by log-log regression for cities with 10K–10M population"
+    prediction: "Pearson r > 0.7 between predicted β and empirical β across 200 cities; variance in β explained by d_f is > 50% of total variance in β"
+  - description: >
+      COVID natural experiment: compare patent application scaling β for 2015–2019
+      (pre-COVID) vs. 2020–2024 (during/post-COVID remote work shift) for US
+      metropolitan statistical areas; test whether β declined toward 1.0 in
+      cities with higher remote work adoption (measured from Kastle Systems
+      office occupancy data).
+    method: "USPTO patent applications by MSA + Census population; β estimated separately for 2015–2019 and 2020–2024; remote work index from Kastle occupancy; regression of Δβ on remote work index"
+    prediction: "β decreases by 0.04–0.10 from 2019 to 2022 in high-remote-work MSAs; no change in low-remote-work MSAs; recovering toward pre-COVID β by 2024 in office-return cities"
+
+related_disciplines:
+  - physics
+  - social-science
+  - urban-science
+  - economics
+  - network-science

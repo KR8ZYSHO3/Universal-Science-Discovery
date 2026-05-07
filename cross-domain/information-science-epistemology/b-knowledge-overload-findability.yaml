@@ -1,0 +1,151 @@
+id: b-knowledge-overload-findability
+title: >
+  Scientific knowledge overload is a channel-capacity problem: the rate of cross-domain
+  insight generation is limited not by the volume of published results but by the
+  bandwidth of the translation layer between domain vocabularies — structured
+  cross-domain bridges function as a lossless codec reducing mutual information
+  distance without destroying signal.
+status: proposed
+fields:
+  - information-theory
+  - epistemology
+  - network-science
+  - cognitive-science
+  - library-science
+  - science-of-science
+
+bridge_claim: >
+  Shannon's channel capacity theorem (C = B log₂(1 + S/N)) provides a formal
+  framework for the scientific knowledge overload problem. Consider each scientific
+  domain as a transmitter and each researcher as a receiver. The effective
+  "channel" between domains is limited by: (1) the noise introduced by
+  domain-specific jargon — symbols, notation, and framing conventions that are
+  semantically equivalent across fields but mutually unintelligible; (2) the
+  bandwidth B, which corresponds to the cognitive processing capacity of
+  individual researchers (Sweller 1988: working memory is finite).
+
+  Floridi's (2010) epistemology of information formalises the complementary
+  constraint: knowledge is not merely data but structured, retrievable,
+  contextually relevant data. A paper published in field A may be perfectly
+  "true" and fully available open-access, yet epistemically inaccessible to
+  a researcher in field B because the translation codec — a mapping between
+  domain vocabularies — is missing. This is not a library problem (availability)
+  but a findability problem (structured relevance).
+
+  Barabási & Albert (1999) showed that scale-free networks exhibit hub nodes
+  with connectivity disproportionate to the mean. In a scientific knowledge
+  graph, certain mathematical structures (information entropy, phase transitions,
+  percolation thresholds, renormalization group, variational principles) appear
+  as hub nodes — they recur across the most domains and therefore carry the
+  highest navigational value. PageRank applied to cross-domain citation networks
+  would identify these hubs.
+
+  Maes (1994) showed that when information copies are free, findability becomes
+  scarce — the insight that motivated 25+ years of recommender-system and
+  personalization research for the web. The same principle applies to science:
+  results are published (copies free), but cross-domain translation (findability
+  of relevant structure) is the scarce resource.
+
+  An explicit cross-domain bridge catalog functions as a lossless codec: it
+  reduces the mutual information distance d(A, B) = H(A) + H(B) - 2I(A;B)
+  between domain representations without destroying signal — analogous to a
+  compression codec that removes redundancy while preserving decodability.
+  Optimal bridge density corresponds to the minimum number of hub-node bridges
+  required for the knowledge graph to exhibit giant-component connectivity,
+  enabling any domain to reach any other within 2–3 steps.
+
+translation_table:
+  - field_a_term: "Channel capacity C = B log₂(1 + S/N) (Shannon 1948)"
+    field_b_term: "Cross-domain discovery rate; maximum rate at which cross-domain insights can be generated"
+    note: "B = researcher cognitive bandwidth; S/N = signal-to-jargon ratio across domain boundary"
+  - field_a_term: "Noise (channel distortion)"
+    field_b_term: "Domain-specific jargon barrier; untranslated vocabulary"
+    note: "Semantically equivalent concepts encoded in mutually unintelligible notation across fields"
+  - field_a_term: "Codec / lossless compression"
+    field_b_term: "Bridge translation table; structured cross-domain analogy"
+    note: "Reduces mutual information distance without signal loss; enables cross-domain decoding"
+  - field_a_term: "PageRank hub node (Barabási & Albert 1999)"
+    field_b_term: "High-connectivity mathematical structure (entropy, phase transition, percolation)"
+    note: "Hub nodes in the scientific knowledge graph appear across the most domains — foundational concepts"
+  - field_a_term: "Recommender system / personalization agent (Maes 1994)"
+    field_b_term: "AI bridge co-pilot; relevance filtering across domain boundaries"
+    note: "When copies are free, findability is scarce — recommendation solves the matching problem"
+  - field_a_term: "Shannon entropy H = -Σ p log₂ p"
+    field_b_term: "Epistemic gap; uncertainty in domain vocabulary mapping"
+    note: "H quantifies the information deficit between domain representations before a bridge is constructed"
+  - field_a_term: "Cognitive load (Sweller 1988)"
+    field_b_term: "Working memory bandwidth B; finite processing capacity limits cross-domain integration"
+    note: "Extraneous cognitive load from jargon translation consumes bandwidth that should carry scientific signal"
+  - field_a_term: "Mutual information I(A; B)"
+    field_b_term: "Degree of cross-domain structural overlap; shared mathematical structure"
+    note: "I(A;B) = 0 implies domains appear orthogonal; bridge construction reveals hidden I(A;B) > 0"
+  - field_a_term: "Information overload (rate > channel capacity)"
+    field_b_term: "Scientific knowledge overload; publication rate exceeds cross-domain integration bandwidth"
+    note: "~4% annual growth in scientific literature doubling every 17 years; integration rate is sub-linear"
+  - field_a_term: "Giant component threshold (percolation theory)"
+    field_b_term: "Minimum bridge catalog density for any domain to reach any other in 2–3 steps"
+    note: "Network percolation determines when the knowledge graph becomes navigable at scale"
+
+related_unknowns:
+  - u-optimal-bridge-density-knowledge-graph
+
+related_hypotheses:
+  - h-bridge-catalog-reduces-rediscovery-lag
+
+cross_pollination_opportunities:
+  - >
+    Apply mutual information estimators (KSG non-parametric estimator) to
+    cross-domain citation networks to quantify I(A; B) between discipline pairs
+    before and after bridge entries are published — directly testing whether
+    bridges increase information flow between fields.
+  - >
+    Use PageRank on the USDR knowledge graph to identify the highest-connectivity
+    mathematical hub nodes (candidate: information entropy, phase transitions,
+    percolation, variational principles). Rank bridges by contribution to giant-
+    component connectivity — this gives an empirically grounded priority queue
+    for the bridge catalog.
+  - >
+    Build an AI co-pilot that uses embedding similarity across domain vocabularies
+    to propose bridge candidates — analogous to a collaborative filter that
+    recommends "items" (mathematical structures) a researcher in field A has not
+    encountered but which are highly rated by researchers in structurally similar
+    domains.
+  - >
+    Measure the "Merton multiple lag" — time between independent parallel
+    discoveries in different fields — using citation network analysis. Test whether
+    the lag is shorter for domain pairs with explicit bridge entries versus
+    matched pairs without bridges. This operationalizes h-bridge-catalog-reduces-
+    rediscovery-lag.
+  - >
+    Apply Floridi's infosphere model to estimate the epistemic cost of jargon
+    barriers: compare the fraction of cross-domain relevant papers retrieved by
+    a domain-native keyword search vs. a bridge-augmented semantic search. The
+    difference quantifies the channel noise introduced by vocabulary mismatch.
+
+communication_gap: >
+  Information theory (Shannon, Weaver), epistemology (Floridi), network science
+  (Barabási), cognitive psychology (Sweller), and recommender systems (Maes,
+  Resnick, Varian) have each independently described aspects of the knowledge
+  overload problem from their own disciplinary perspectives. These communities
+  publish in non-overlapping venues (Bell System Technical Journal, Minds &
+  Machines, Science, Cognitive Science, Communications of the ACM) and have not
+  converged on a unified framework. The information-theoretic treatment of
+  scientific knowledge overload as a channel-capacity problem — with domain
+  jargon as noise and bridge catalogs as codecs — has not appeared in the
+  literature as an explicit cross-domain synthesis. Library science treats this
+  as a retrieval problem; science-of-science treats it as a network problem;
+  cognitive science treats it as a working-memory problem. None has unified
+  these threads using Shannon's channel capacity framework.
+
+last_reviewed: "2026-05-06"
+
+references:
+  - note: "Shannon (1948) A Mathematical Theory of Communication. Bell Syst Tech J 27:379-423"
+  - doi: "10.1126/science.286.5439.509"
+    note: "Barabási & Albert (1999) Emergence of scaling in random networks. Science 286:509-512"
+  - note: "Sweller (1988) Cognitive load during problem solving: effects on learning. Cogn Sci 12:257-285"
+  - note: "Floridi (2010) Information: A Very Short Introduction. Oxford University Press"
+  - note: "Maes P (1994) Agents that reduce work and information overload. Commun ACM 37:31-40"
+  - note: "Cover TM & Thomas JA (2006) Elements of Information Theory, 2nd ed. Wiley"
+  - note: "Resnick P & Varian HR (1997) Recommender systems. Commun ACM 40:56-58"
+  - note: "Merton RK (1961) Singletons and multiples in scientific discovery. Proc Am Philos Soc 105:470-486"

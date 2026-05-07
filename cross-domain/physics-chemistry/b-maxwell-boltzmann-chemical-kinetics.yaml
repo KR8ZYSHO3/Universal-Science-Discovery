@@ -1,0 +1,88 @@
+id: b-maxwell-boltzmann-chemical-kinetics
+title: >
+  The Maxwell-Boltzmann speed distribution determines the fraction of molecules
+  energetic enough to overcome activation barriers, directly deriving the Arrhenius
+  equation and establishing statistical mechanics as the microscopic foundation of
+  chemical kinetics.
+status: established
+fields:
+  - statistical-mechanics
+  - physical-chemistry
+  - chemical-kinetics
+  - thermodynamics
+bridge_claim: >
+  The Maxwell-Boltzmann distribution f(v) = 4π(m/2πkT)^(3/2) v² exp(-mv²/2kT)
+  gives the probability that a molecule has speed v at temperature T. For a reaction
+  to occur, the collision must supply at least the activation energy E_a. The fraction
+  of molecules exceeding E_a is ∝ exp(-E_a/kT), which is exactly the Boltzmann factor
+  in the Arrhenius equation:
+
+    k(T) = A · exp(-E_a / RT)
+
+  Eyring's transition state theory (1935) deepens this connection by computing the
+  rate from partition functions of the transition state:
+
+    k = (kBT/h) · exp(-ΔG‡ / RT)
+
+  where ΔG‡ = ΔH‡ - TΔS‡ is the Gibbs free energy of activation. The activation
+  enthalpy ΔH‡ is the energy barrier; the entropy term exp(ΔS‡/R) becomes the
+  pre-exponential factor A. Chemical reaction kinetics is thus a direct application
+  of statistical mechanics to molecular speed distributions: every temperature
+  dependence of a rate constant encodes the shape of the Maxwell-Boltzmann tail.
+
+  KEY CONNECTIONS:
+
+  1. ARRHENIUS FROM MAXWELL-BOLTZMANN: integrating f(v) over the high-velocity
+     tail (kinetic energy > E_a) yields the Boltzmann factor exp(-E_a/kT), directly
+     producing the Arrhenius form without additional assumptions.
+
+  2. EYRING'S REFINEMENT: transition state theory adds the transmission coefficient
+     κ (quantum tunnelling, recrossing) and replaces E_a with the full ΔG‡, connecting
+     free-energy landscapes (chemistry) to partition functions (statistical mechanics).
+
+  3. COLLISION THEORY: the pre-exponential A = Z_AB · σ · √(8kT/πμ), where σ is the
+     steric factor and Z_AB the collision frequency — again derived from kinetic theory.
+
+  4. CATALYSIS: a catalyst lowers ΔG‡ (not ΔG of reaction), increasing the fraction of
+     molecules in the reactive tail and accelerating k without changing thermodynamics.
+translation_table:
+  - field_a_term: Maxwell-Boltzmann distribution f(v)
+    field_b_term: collision energy distribution
+    note: The speed distribution maps to a collision energy distribution via E = ½mv²
+  - field_a_term: Boltzmann factor exp(-E/kT)
+    field_b_term: Arrhenius exponential exp(-E_a/RT)
+    note: R = N_A · k; the Boltzmann factor is the single-molecule form of the Arrhenius factor
+  - field_a_term: thermal equilibrium temperature T
+    field_b_term: reaction rate constant k(T)
+    note: Temperature controls both the width of f(v) and the rate constant via the same exp(-E/kT)
+  - field_a_term: partition function Z
+    field_b_term: pre-exponential factor A
+    note: In TST, A comes from the ratio of partition functions of transition state to reactants
+  - field_a_term: phase-space density
+    field_b_term: transition state ensemble
+    note: The transition state is the saddle point of the free-energy landscape — a phase-space dividing surface
+related_unknowns:
+  - u-arrhenius-prefactor-molecular-basis
+related_hypotheses:
+  - h-activation-energy-mb-tail-universality
+cross_pollination_opportunities:
+  - Apply kinetic Monte Carlo (statistical mechanics) to model heterogeneous catalysis on surfaces
+  - Use the Eyring equation to extract ΔH‡ and ΔS‡ from Arrhenius plots and compare to DFT transition-state calculations
+  - Design temperature-responsive polymers exploiting the same exp(-E_a/kT) dependence that governs enzyme catalysis
+  - Apply extreme-value statistics (statistics of the Maxwell-Boltzmann tail) to predict rare reactive events in stochastic chemistry
+communication_gap: >
+  Physical chemistry curricula cover both the Maxwell-Boltzmann distribution and
+  Arrhenius kinetics, but the derivation of one from the other is often omitted.
+  Statistical mechanics courses treat f(v) as a physics result; kinetics courses
+  treat the Arrhenius equation as an empirical law. The explicit derivation — that
+  every Arrhenius rate constant is an integral over the Maxwell-Boltzmann tail —
+  belongs in both curricula but appears in neither as a highlighted bridge.
+last_reviewed: "2026-05-06"
+references:
+  - doi: 10.1039/tf9343000304
+    note: "Eyring (1935) — transition state theory, deriving k = (kT/h) exp(-ΔG‡/RT)"
+  - note: Maxwell, J.C. (1860). Illustrations of the dynamical theory of gases. Phil. Mag. 19:19–32. -- Original Maxwell speed distribution derivation
+  - note: Arrhenius, S. (1889). Über die Reaktionsgeschwindigkeit bei der Inversion von Rohrzucker. Z. Phys. Chem. 4:226–248. -- Empirical Arrhenius equation
+  - doi: 10.1063/1.1749604
+    note: "Eyring (1935) J. Chem. Phys. 3:107 — absolute reaction rate theory"
+  - note: Atkins, P. & de Paula, J. (2010). Physical Chemistry (9th ed.). Oxford University Press. -- Textbook bridge between statistical mechanics and chemical kinetics

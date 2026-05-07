@@ -1,0 +1,77 @@
+id: b-spike-sorting-dimensionality-reduction
+title: >
+  Multi-electrode array spike sorting — extracting individual neuron activity from
+  high-density recordings — is a dimensionality reduction problem whose solution reveals
+  that neural population activity lives on a low-dimensional manifold embedded in
+  high-dimensional firing-rate space.
+status: established
+fields:
+  - systems-neuroscience
+  - signal-processing
+  - machine-learning
+  - dimensionality-reduction
+  - computational-neuroscience
+bridge_claim: >
+  Modern Neuropixels probes record from 384–960 electrodes simultaneously, capturing
+  spikes from hundreds of neurons. Spike sorting — attributing voltage deflections to
+  individual neurons — proceeds as: (1) bandpass filter 300–6000 Hz; (2) threshold
+  crossing detection; (3) feature extraction (PCA of spike waveforms: principal
+  components capture peak-to-valley ratio, half-width, repolarization slope that
+  distinguish excitatory from inhibitory neurons); (4) clustering (k-means, Gaussian
+  mixture models, template matching in Kilosort). This is applied multivariate statistics.
+  The deeper bridge is the manifold hypothesis: when dimensionality reduction (PCA, UMAP,
+  t-SNE) is applied to the n-dimensional population firing rate vector r(t), neural
+  activity during a behavioral task lies on a manifold of intrinsic dimension d << n.
+  In motor cortex, this manifold has rotational dynamics (Churchland et al. 2012) that
+  encode movement generation — a low-dimensional geometric structure discovered through
+  mathematical dimensionality reduction, not visible from single-neuron recording.
+  UMAP (McInnes 2018) preserves global manifold structure better than t-SNE for neural
+  data because it uses Riemannian geometry rather than Gaussian kernels.
+translation_table:
+  - field_a_term: spike waveform in electrode space (64-d feature vector)
+    field_b_term: point in waveform manifold — clustered by neuron identity
+    note: PCA of waveforms identifies 2-3 dimensions capturing most variance across waveform types
+  - field_a_term: population firing rate vector r(t) ∈ ℝⁿ
+    field_b_term: point on neural population manifold at time t
+    note: The manifold is defined by the constraints imposed by synaptic connectivity
+  - field_a_term: PCA (linear dimensionality reduction)
+    field_b_term: principal modes of population activity / functional connectivity
+    note: First PC often corresponds to average population firing rate; higher PCs to task-relevant dimensions
+  - field_a_term: UMAP / Riemannian manifold learning
+    field_b_term: nonlinear neural manifold visualization preserving global topology
+    note: UMAP from McInnes (2018) outperforms t-SNE for large neural datasets by preserving global structure
+  - field_a_term: intrinsic dimensionality d of the manifold
+    field_b_term: behavioral degrees of freedom encoded in population
+    note: "Cunningham & Yu (2014): intrinsic dimensionality of motor cortex activity is 3-10 dimensions"
+related_unknowns:
+  - u-neural-manifold-dimensionality-behavior
+related_hypotheses:
+  - h-neural-manifold-geometry-encodes-cognitive-map
+cross_pollination_opportunities:
+  - Apply topological data analysis (persistent homology, Betti numbers) to neural
+    population activity to characterise the topology of the neural manifold — detecting
+    ring topologies (head direction cells) or toroidal structures (grid cells) without
+    a priori assumptions
+  - Use optimal transport (Wasserstein distance) to quantify how neural manifolds shift
+    between brain states (sleep, task, anesthesia) — connecting optimal transport theory
+    to neuroscience
+  - Design closed-loop brain-machine interfaces that decode intended movement from
+    low-dimensional manifold coordinates rather than individual neuron firing rates —
+    translating manifold mathematics directly to neuroprosthetic engineering
+communication_gap: >
+  Experimental neuroscientists who collect Neuropixels data are often not trained in
+  manifold learning mathematics; machine learning researchers who develop UMAP and
+  related algorithms rarely have access to neural datasets or neuroscience intuition.
+  Spike sorting software (Kilosort, MountainSort) is used as a black box by most
+  experimental labs; the statistical assumptions (Gaussian mixture models, template
+  matching) are not widely understood. The manifold hypothesis remains a framework
+  rather than a theorem — its precise mathematical form is debated.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1016/j.brainresbull.2015.04.007"
+    note: "Rey et al. (2015) — Past, present and future of spike sorting techniques, Brain Res Bull 119:106"
+  - doi: "10.1038/nature24636"
+    note: "Jun et al. (2017) — Fully integrated silicon probes for high-density recording, Nature 551:232"
+  - note: "McInnes et al. (2018) — UMAP: Uniform Manifold Approximation and Projection, arXiv:1802.03426"
+  - doi: "10.1038/nn.3776"
+    note: "Cunningham & Yu (2014) — Dimensionality reduction for large-scale neural recordings, Nat Neurosci 17:1500"

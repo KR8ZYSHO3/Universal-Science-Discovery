@@ -1,0 +1,78 @@
+id: b-kriging-geostatistics
+title: "Kriging / geostatistics ↔ Gaussian process regression — optimal spatial interpolation as machine learning"
+status: established
+fields:
+  - geophysics
+  - geostatistics
+  - statistics
+  - machine-learning
+  - spatial-analysis
+
+bridge_claim: >
+  Kriging (Krige 1951, formalised by Matheron 1963) is the minimum-variance linear
+  unbiased estimator for spatially correlated data: Ẑ(x₀) = Σᵢ λᵢZ(xᵢ), where the
+  optimal weights λᵢ are determined by solving the kriging system derived from the
+  variogram γ(h) = ½E[Z(x+h)−Z(x)]². The variogram quantifies spatial autocorrelation
+  as a function of lag distance h. Kriging is formally and exactly equivalent to
+  Gaussian process (GP) regression in machine learning (Rasmussen & Williams 2006):
+  the variogram model corresponds to the GP covariance kernel (semivariogram γ(h)
+  = σ² − k(h)); the kriging weights are the GP posterior mean weights; the kriging
+  variance is the GP posterior variance; and the kriging system is the GP predictive
+  equation. The two fields developed the same statistical framework independently —
+  geostatistics from mining engineering in South Africa, Gaussian processes from
+  Bayesian machine learning at Cambridge. Modern machine learning practitioners
+  routinely use Gaussian process regression for spatial data without knowing
+  Matheron's variogram theory; geostatisticians routinely use kriging without knowing
+  the GP Bayesian interpretation that enables principled uncertainty quantification.
+
+translation_table:
+  - field_a_term: "variogram γ(h) = ½Var[Z(x+h)−Z(x)]"
+    field_b_term: "GP covariance kernel k(x,x') = Cov[f(x),f(x')]"
+    note: "Stationary kernel: γ(h) = σ² − k(h); Matérn, spherical, exponential kernels all have variogram equivalents"
+  - field_a_term: "kriging system (matrix equation for weights λᵢ)"
+    field_b_term: "GP posterior mean (kernel matrix inversion)"
+    note: "Algebraically identical systems of equations; differ only in notation and derivation route"
+  - field_a_term: "kriging variance σ²_K(x₀)"
+    field_b_term: "GP posterior variance σ²_GP(x₀)"
+    note: "Both quantify prediction uncertainty; equivalent under the stationarity assumption"
+  - field_a_term: "nugget effect (variance at zero lag)"
+    field_b_term: "observation noise variance σ²_n"
+    note: "Both represent measurement error plus micro-scale variability below the sampling scale"
+  - field_a_term: "sill (variogram asymptote)"
+    field_b_term: "GP prior variance σ²_f"
+    note: "The asymptotic variance at large lag — the prior signal variance in GP language"
+  - field_a_term: "range (lag at which variogram reaches sill)"
+    field_b_term: "lengthscale ℓ (kernel bandwidth)"
+    note: "Controls the spatial correlation distance; equivalent to kernel lengthscale"
+
+related_unknowns:
+  - u-non-stationary-kriging-deep-gp-equivalence
+
+related_hypotheses:
+  - h-geostatistical-kriging-as-optimal-climate-downscaling
+
+cross_pollination_opportunities:
+  - "Import GP hyperparameter optimisation (marginal likelihood maximisation) into geostatistics to replace variogram fitting by hand"
+  - "Apply kriging-with-external-drift to supervised machine learning with spatial covariates for climate modelling"
+  - "Use deep Gaussian process theory to extend kriging to non-stationary geological phenomena (faults, intrusions)"
+
+communication_gap: >
+  Matheron's geostatistics school (Paris) published in French mining engineering
+  journals inaccessible to English-speaking statisticians. Gaussian process regression
+  entered machine learning through O'Hagan's Bayesian statistics (1970s) and
+  Rasmussen's computational work (2006) with no awareness of Krige or Matheron.
+  The formal equivalence was established in scattered statistics papers (Cressie 1990,
+  Stein 1999) but has not fully propagated to either community. Software ecosystems
+  remain separate (GSLIB vs GPy/GPflow).
+
+references:
+  - note: "Krige (1951) J S Afr Inst Min Metall 52:119 — original kriging for gold ore estimation"
+    url: "https://journals.co.za/doi/10.10520/AJA0038223X_4765"
+  - note: "Matheron (1963) Econ Geol 58:1246 — formal theory of regionalised variables"
+    doi: "10.2113/gsecongeo.58.8.1246"
+  - note: "Journel & Huijbregts (1978) Mining Geostatistics. Academic Press."
+    url: "https://www.sciencedirect.com/book/9780123910507"
+  - note: "Rasmussen & Williams (2006) Gaussian Processes for Machine Learning. MIT Press."
+    url: "http://www.gaussianprocess.org/gpml/"
+
+last_reviewed: "2026-05-06"

@@ -1,0 +1,85 @@
+id: b-bayesian-inference-stat-mech
+title: >
+  The Bayesian normalizing constant (evidence) is formally identical to the
+  statistical-mechanical partition function Z = Σ exp(-E/T); sampling from the
+  posterior is equivalent to sampling from a Gibbs distribution; and MCMC
+  algorithms are molecular dynamics simulations on the posterior energy landscape,
+  making statistical physics and Bayesian inference the same mathematical theory.
+status: established
+fields:
+  - statistics
+  - Bayesian-inference
+  - physics
+  - statistical-mechanics
+  - machine-learning
+bridge_claim: >
+  The partition function in statistical mechanics Z = Σ_x exp(-E(x)/kT) normalizes
+  the Boltzmann distribution P(x) = exp(-E(x)/kT)/Z over all configurations x.
+  In Bayesian inference, the posterior P(θ|data) = P(data|θ)P(θ)/Z_Bayes where
+  Z_Bayes = Σ_θ P(data|θ)P(θ) is the marginal likelihood (evidence). The complete
+  mapping: energy E(x) ↔ negative log joint −log P(data|θ)−log P(θ), temperature T
+  ↔ 1 (posterior at T=1 gives the exact Bayes posterior), partition function Z ↔
+  Bayesian evidence. Sampling from the posterior P(θ|data) is therefore exactly
+  equivalent to sampling from a Gibbs distribution at T=1 on an energy landscape
+  defined by the negative log joint. The Metropolis-Hastings MCMC algorithm —
+  originally designed for molecular dynamics simulation (Metropolis et al. 1953)
+  — is the canonical algorithm for posterior sampling in Bayesian statistics.
+  Jaynes (1957) showed that maximum entropy (MaxEnt) inference — assigning
+  probabilities to maximize entropy subject to constraints — recovers the Boltzmann
+  distribution as the maximum entropy distribution over configurations at fixed
+  mean energy. Variational Bayes (minimize KL(q||p)) is mean field theory (minimize
+  variational free energy). The renormalization group (RG) in physics maps onto
+  hierarchical Bayesian models (coarse-graining = marginalizing fine-grained parameters).
+translation_table:
+  - field_a_term: partition function Z = Σ exp(-E/kT)
+    field_b_term: Bayesian evidence (marginal likelihood) Z = Σ P(data|θ)P(θ)
+    note: identical mathematical object; computing Z is #P-hard in both fields
+  - field_a_term: Boltzmann distribution P(x) = exp(-E/kT)/Z
+    field_b_term: Bayesian posterior P(θ|data) ∝ exp(log likelihood + log prior)
+    note: the posterior at T=1 is the Gibbs distribution with E = -log joint
+  - field_a_term: temperature T (controls distribution breadth)
+    field_b_term: inverse regularization strength (1/T posterior = tempered posterior)
+    note: T>1 smooths the posterior; T→∞ → uniform; used in parallel tempering MCMC
+  - field_a_term: Metropolis-Hastings MCMC
+    field_b_term: posterior sampling algorithm for Bayesian inference
+    note: literally the same algorithm; invented for molecular simulation in 1953
+  - field_a_term: mean field theory (variational approximation)
+    field_b_term: variational Bayes (approximate posterior with factorized q)
+    note: minimize variational free energy = minimize KL(q||p) - log Z
+  - field_a_term: renormalization group (coarse-graining)
+    field_b_term: hierarchical Bayesian model (marginalizing fine-grained parameters)
+related_unknowns:
+  - u-posterior-landscape-multimodality
+related_hypotheses:
+  - h-variational-bayes-mean-field-equivalence
+cross_pollination_opportunities:
+  - >
+    The replica trick in statistical physics (averaging over disorder) provides
+    analytical tools for computing the Bayesian evidence in high-dimensional
+    inference problems — phase transitions in learning (Seung et al. 1992;
+    Engel & Van den Broeck 2001). The statistical physics theory of learning predicts
+    phase transitions between underfitting, good generalization, and overfitting
+    as a function of N/p (data/parameters), a theoretical result that deep learning
+    has rediscovered empirically as the double descent phenomenon.
+  - >
+    Parallel tempering (replica exchange MCMC) runs multiple chains at different
+    temperatures and swaps configurations between them — borrowed directly from
+    simulated tempering in condensed matter physics. This method is now standard
+    in Bayesian phylogenetics (MrBayes, BEAST) but its physics foundations are
+    rarely acknowledged in the statistical computing literature.
+communication_gap: >
+  Jaynes (1957) made the MaxEnt-Boltzmann connection explicitly but worked as a
+  physicist writing for physicists. The MCMC literature in statistics developed
+  largely independently of the molecular simulation literature, with Gelfand &
+  Smith (1990) and Geman & Geman (1984) rediscovering the Metropolis algorithm
+  for statistical purposes. MacKay (2003) — Information Theory, Inference and
+  Learning Algorithms — made this bridge central and accessible, but Bayesian
+  computation textbooks rarely cite condensed matter physics.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1103/PhysRev.106.620"
+    note: Jaynes (1957) — Information theory and statistical mechanics; Phys Rev 106:620
+  - doi: "10.1063/1.1699112"
+    note: Metropolis et al. (1953) — Equation of state calculations by fast computing machines; J Chem Phys 21:1087
+  - note: MacKay (2003) — Information Theory, Inference and Learning Algorithms; Cambridge University Press
+  - note: Mezard & Montanari (2009) — Information, Physics and Computation; Oxford University Press

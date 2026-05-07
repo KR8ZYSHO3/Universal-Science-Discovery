@@ -1,0 +1,33 @@
+id: u-lie-group-nonholonomic-robot-optimality
+title: "What is the optimal control law for a nonholonomic robot (e.g. wheeled vehicle, snake robot) on curved configuration spaces (Lie groups), and when does a geometric controller outperform a Euclidean approximation?"
+status: open
+priority: medium
+disciplines:
+  - robotics
+  - geometric-control-theory
+  - applied-mathematics
+summary: >
+  Nonholonomic systems (wheeled vehicles, multi-fingered robotic hands, aerial vehicles)
+  have configuration spaces with the structure of Lie groups (SE(2), SE(3), SO(3), etc.).
+  Pontryagin's maximum principle on Lie groups gives necessary conditions for optimal
+  control, but the resulting costate equations are on the dual of the Lie algebra and
+  have no general closed-form solution. Geometric controllers (designed directly on Lie
+  groups using exponential maps and adjoint representations) avoid the coordinate
+  singularities (gimbal lock) inherent in Euler angle formulations. However, the
+  quantitative advantage of geometric over Euclidean controllers depends on curvature —
+  at small maneuvers, a linear approximation may suffice; at large excursions, geometric
+  controllers should outperform by avoiding local minima in the coordinate chart.
+  The threshold maneuver size and the explicit performance gap formula are not established.
+systematic_gaps:
+  - No closed-form optimal control law exists for SE(3) with obstacles
+  - The performance gap between geometric and Euclidean control as a function of curvature is not characterised
+  - Real-time implementation of Lie group optimal control on embedded hardware is unsolved
+suggested_hypotheses:
+  - Geometric controllers on SO(3) outperform quaternion-based methods by > 20% in
+    large-angle attitude maneuvers (> 90°) due to topological structure preservation
+references:
+  - doi: "10.1109/9.100948"
+    note: "Brockett (1972) — nonlinear systems and differential geometry"
+  - doi: "10.1007/978-1-4612-1638-4"
+    note: "Bullo & Lewis (2005) — Geometric Mechanics and Control"
+last_reviewed: "2026-05-06"

@@ -1,0 +1,53 @@
+id: h-gale-shapley-deferred-acceptance-stability-uniqueness
+title: >
+  In real-world matching markets with incomplete preference lists (NRMP, NYC
+  school choice), the set of stable matchings is a lattice with a unique optimal
+  matching for each side — but when strategic manipulation by hospitals (rank-order
+  list truncation) is feasible, the manipulated equilibrium improves hospital welfare
+  by on average 3-8% relative to the truthful DA outcome, undermining strategy-
+  proofness for the receiving side.
+status: active
+priority: medium
+impact_score: 0.73
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+
+evidence_links:
+  - doi: "10.2307/2312726"
+    type: supporting
+    confidence: 0.98
+    note: "Gale & Shapley (1962) — DA algorithm; proven stable in O(n²); man-optimal stable matching is unique"
+  - doi: "10.1257/aer.89.4.748"
+    type: supporting
+    confidence: 0.85
+    note: "Roth & Peranson (1999) — NRMP redesign; DA strategy-proofness for residents confirmed in practice; hospitals can manipulate rank-order lists"
+  - note: "Roth (1982) Mathematics of Operations Research — hospitals are not strategy-proof under DA; proof of manipulation by rank truncation"
+    type: supporting
+    confidence: 0.90
+
+unknowns_addressed:
+  - u-combinatorial-auction-computational-complexity
+
+proposed_tests:
+  - description: >
+      Simulate the NRMP with 35,000 residents and 30,000 hospital positions; apply
+      a myopic best-response dynamic where hospitals iteratively truncate rank-order
+      lists to improve match quality; measure welfare gain for hospitals vs. loss
+      for residents; compare equilibrium outcome to truthful DA outcome.
+    method: "NRMP dataset (anonymized 2019-2022); best-response truncation simulation; welfare measured by ordinal ranking of assigned match; convergence time of best-response dynamics"
+    prediction: "Best-response dynamics converge within 3-7 iterations to a Nash equilibrium; hospital welfare improves by 5±2% (measured by mean rank of matched resident); resident welfare decreases by 3±1%; equilibrium is stable (no profitable deviation) but inefficient vs. truthful outcome"
+  - description: >
+      Field experiment: in a synthetic market with 100 students and 80 schools (run
+      with student-subjects who receive payments based on match quality), compare
+      outcomes under truthful DA vs. non-strategyproof Gale-Shapley (both sides
+      submit preference lists); measure truth-telling rates and strategic manipulation
+      frequency on the receiving side.
+    method: "Lab experiment with student subjects; 2x2 design (truthful vs. non-strategyproof DA × low vs. high preference correlation); measure revelation accuracy vs. true preferences"
+    prediction: "Under truthful DA, >90% of students submit truthful preferences (DSIC); under non-strategyproof version, 30-50% of students misreport to match observed manipulation patterns; welfare loss of manipulation ≈ 8% of truthful DA optimum"
+
+related_disciplines:
+  - engineering
+  - social-science
+  - economics
+  - computer-science

@@ -1,0 +1,39 @@
+id: h-quantum-error-correction-surface-code-overhead
+title: >
+  The surface code requires approximately 1000 physical qubits per logical qubit at
+  current physical error rates (~10^-3), but threshold improvements to 10^-4 error
+  rates would reduce this to ~100:1, making fault-tolerant quantum computing
+  practical; the minimum physical-to-logical overhead is lower-bounded by the
+  code distance needed to suppress errors below 10^-10 for useful computation.
+status: active
+priority: critical
+impact_score: 0.85
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+unknowns_addressed:
+  - u-quantum-error-correction-overhead
+evidence_links:
+  - doi: "10.1038/nature23460"
+    type: supporting
+    confidence: 0.70
+    note: "Fowler et al. (2012) - surface code: threshold ~1%, resource requirements for factoring"
+  - doi: "10.1038/s41586-023-06927-3"
+    type: supporting
+    confidence: 0.75
+    note: "Google (2023) - below-threshold error correction in surface code demonstrated"
+  - type: related
+    confidence: 0.65
+    note: "Bravyi et al. (2024) - bivariate bicycle codes: 10x fewer qubits than surface code at same distance"
+proposed_tests:
+  - description: >
+      Full fault-tolerant logical qubit demonstration: implement 100-round cycle surface
+      code on 49 physical qubits (distance-7), measure logical error rate vs physical
+      error rate. Test: does logical error rate decrease by expected factor d^2 for
+      each unit increase in code distance d?
+    prediction: "Logical error rate p_L ~ (p_phys/p_th)^d where d=code distance and p_th~1%; at p_phys=10^-3, d=7 achieves p_L<10^-8."
+related_disciplines:
+  - quantum-computing
+  - quantum-error-correction
+  - physics
+  - information-theory

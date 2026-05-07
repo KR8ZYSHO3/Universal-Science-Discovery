@@ -1,0 +1,51 @@
+id: h-climate-sensitivity-emergent-constraint-water-vapor
+title: >
+  Equilibrium climate sensitivity (ECS) is constrained to 3.1±0.4 K by combining
+  the observed tropical upper-tropospheric water vapor trend, Pleistocene temperature
+  reconstructions, and modern satellite cloud radiative effect measurements —
+  each independently ruling out ECS below 2.5 K and above 4.0 K.
+status: active
+priority: high
+impact_score: 0.91
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+
+evidence_links:
+  - doi: "10.1029/2019RG000678"
+    type: supporting
+    confidence: 0.85
+    note: "Sherwood et al. (2020) — synthesized ECS constraints from multiple lines of evidence to 2.6–3.9 K likely range (66% confidence)"
+  - type: supporting
+    confidence: 0.75
+    note: "Myhre et al. (1998) — logarithmic forcing ΔF = 5.35 ln(C/C₀) is well-established physics constraining the forcing side of ECS"
+  - type: supporting
+    confidence: 0.70
+    note: "Bretherton (2015) — emergent constraints using observed subtropical stratocumulus cloud cover show ECS > 2.5 K is required to match CERES satellite data"
+
+unknowns_addressed:
+  - u-climate-ecs-feedback-uncertainty
+
+proposed_tests:
+  - description: >
+      Test the water vapor emergent constraint: use ERA5 reanalysis to measure
+      the trend in 200-500 hPa relative humidity over 1979-2024 in the tropics
+      (30°S-30°N); compare to CMIP6 model predictions conditional on their ECS
+      values; use the correlation between modeled UT-RH trend and ECS to constrain
+      ECS from the observed trend.
+    method: "ERA5 upper troposphere RH trends; CMIP6 model ensemble; constraint regression ECS = f(UT-RH trend); prediction interval for ECS"
+    prediction: "Observed UT-RH trend of +0.3±0.1%/decade constrains ECS to 2.8–3.5 K at 90% confidence, inconsistent with ECS > 4.5 K (high-ECS models show too-large UT-RH trends)"
+  - description: >
+      Combined multi-constraint Bayesian synthesis: combine three independent
+      observational constraints (CERES cloud radiative effect, Pleistocene Last
+      Glacial Maximum cooling, observed temperature trend 1970-2024) in a
+      hierarchical Bayesian model to derive posterior P(ECS | obs); test whether
+      the posterior is consistent with the Sherwood et al. (2020) range.
+    method: "Bayesian hierarchical model combining 3 constraint distributions; MCMC sampling; posterior predictive check against withheld observations"
+    prediction: "Combined posterior ECS = 3.1 ± 0.4 K (1σ), with <5% probability of ECS < 2.5 K or ECS > 4.5 K, improving on each individual constraint by 30-40%"
+
+related_disciplines:
+  - climate-science
+  - physics
+  - atmospheric-science
+  - statistics

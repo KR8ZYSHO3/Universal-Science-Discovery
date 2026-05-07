@@ -1,0 +1,50 @@
+id: h-lnt-model-invalid-endocrine-disruptors
+title: >
+  The linear no-threshold (LNT) extrapolation model is mechanistically invalid for
+  endocrine disruptors that activate estrogen receptor-alpha (ERα) or androgen
+  receptor (AR), because these receptors exhibit concentration-dependent subtype
+  switching and feedback compensation that generate non-monotonic dose-response curves
+  with adverse effects at doses 100-1000× below current NOAEL-derived safety limits.
+status: active
+priority: critical
+impact_score: 0.88
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+evidence_links:
+  - doi: "10.1210/er.2011-1050"
+    type: supporting
+    confidence: 0.70
+    note: "Vandenberg et al. (2012) — 800+ studies documenting NMDR for endocrine disruptors"
+  - doi: "10.1186/s12940-016-0143-6"
+    type: supporting
+    confidence: 0.65
+    note: "Grandjean (2016) — Paracelsus revisited, challenges to LNT"
+  - type: contradicting
+    confidence: 0.60
+    note: "EFSA (2010) and EPA (2012) conclude existing NMDR evidence insufficient to revise BPA safety limits — contested by Vandenberg"
+unknowns_addressed:
+  - u-endocrine-disruptor-dose-response-nonmonotonic
+proposed_tests:
+  - description: >
+      Pre-registered, multi-laboratory blinded replication study: 6 independent labs
+      test BPA effect on uterotrophic response in immature female rats at 8 doses
+      (0.0002, 0.002, 0.02, 0.2, 2, 20, 200, 2000 µg/kg/day) using identical SOP.
+      Primary endpoint: uterine wet weight and ERα-target gene expression (Egr1,
+      c-Fos). Test: is the dose-response curve non-monotonic with a significant
+      low-dose peak?
+    method: "Immature rat uterotrophic assay per OECD TG 440; blinded dose preparation; RT-qPCR; Jonckheere-Terpstra test for non-monotonicity"
+    prediction: "NMDR with peak at 0.02-0.2 µg/kg/day in ≥4/6 labs; LNT extrapolation from 2000 µg misses low-dose effect by >10-fold"
+  - description: >
+      Mechanistic test: ERα/ERβ reporter assay in MCF-7 cells across BPA
+      concentration range 0.001-100 µM. Measure ERα:ERβ transactivation ratio
+      (ERE-luciferase reporters under ERα vs. ERβ promoter) at each dose.
+      Test: does ERα:ERβ ratio flip sign at intermediate BPA concentrations,
+      consistent with receptor subtype switching explaining NMDR?
+    method: "Dual-reporter luciferase assay, Hill equation fitting per subtype, ratio curve"
+    prediction: "ERα:ERβ ratio >1 at 0.01-0.1 µM, <1 at 1-10 µM — subtype flip consistent with NMDR"
+related_disciplines:
+  - toxicology
+  - endocrinology
+  - regulatory-science
+  - chemistry

@@ -1,0 +1,89 @@
+id: b-information-economics-mechanism
+title: >
+  Myerson's revelation principle (1979) shows incentive-compatible direct
+  revelation mechanisms are without loss of generality; VCG achieves dominant-
+  strategy incentive compatibility with efficiency; the Mirrlees optimal income
+  tax model (Nobel 1996) shows the top marginal rate should be zero; the
+  Crémer-McLean theorem enables full surplus extraction — mechanism design
+  is reverse game theory unifying information economics, public finance, and
+  social choice theory.
+status: established
+fields:
+  - mathematics
+  - economics
+  - mechanism-design
+  - game-theory
+  - information-economics
+  - social-choice-theory
+bridge_claim: >
+  Mechanism design (Hurwicz 1973, Myerson, Maskin, Nobel 2007) is the
+  engineering of game rules to achieve desired social outcomes in the presence
+  of private information. The revelation principle (Myerson 1979): for any
+  Bayesian equilibrium of any mechanism, there exists a direct revelation
+  mechanism (players report their types truthfully) that implements the same
+  outcome and where truth-telling is an equilibrium. This means without loss
+  of generality, we can restrict attention to incentive-compatible direct
+  mechanisms — a massive simplification. Vickrey-Clarke-Groves (VCG): the
+  unique family achieving dominant-strategy incentive compatibility (IC) and
+  efficiency simultaneously. VCG payment tᵢ = Σⱼ≠ᵢ vⱼ(a*) - hᵢ(v₋ᵢ) makes
+  each agent the residual claimant of social value, aligning private and social
+  incentives. Mirrlees model (1971, Nobel 1996): optimal income tax under
+  unobservable ability — minimize deadweight loss from information asymmetry.
+  Mirrlees-Diamond result: the optimal marginal tax rate on the highest earner
+  is zero (no distortion at the top, as there is no one above to provide
+  incentives for). This is a purely mathematical result, independent of
+  distributive preferences. Bayesian mechanism design: Crémer & McLean (1988)
+  show that when agent types are correlated, a mechanism can extract the full
+  expected surplus from all agents simultaneously — a striking impossibility
+  result for independent types becomes possible with correlation.
+translation_table:
+  - field_a_term: direct revelation mechanism (players report types)
+    field_b_term: incentive-compatible tax-transfer system (agents reveal income)
+    note: both reduce the mechanism design problem to a simpler canonical form via the revelation principle
+  - field_a_term: dominant-strategy incentive compatibility (DSIC)
+    field_b_term: second-price auction (Vickrey) dominant strategy to bid truthfully
+    note: VCG generalizes Vickrey auction to multi-good, multi-agent settings
+  - field_a_term: Bayesian incentive compatibility (BIC)
+    field_b_term: Nash equilibrium of a Bayesian game (interim expected payoffs)
+    note: BIC is weaker than DSIC; used in Mirrlees model and Myerson optimal auctions
+  - field_a_term: VCG payment (residual social value externality)
+    field_b_term: Pigouvian tax correcting an externality
+    note: VCG is the decentralized analog of the Pigouvian internalization for information externalities
+  - field_a_term: Mirrlees top marginal rate = 0 (no distortion at top)
+    field_b_term: no-distortion-at-the-top result in screening models
+    note: arises in all principal-agent screening models; top type receives no rent reduction
+related_unknowns:
+  - u-mechanism-design-ai-alignment
+related_hypotheses:
+  - h-revelation-principle-ai-alignment-mechanism
+cross_pollination_opportunities:
+  - >
+    Mechanism design for AI alignment: designing reward functions and
+    training protocols as mechanisms where the "agent" reports its true
+    capabilities and values truthfully — the revelation principle suggests
+    that aligned direct training mechanisms can replace complex indirect
+    approaches without loss of generality.
+  - >
+    Spectrum auctions (FCC), Google AdWords (generalized second-price auctions),
+    and matching markets (hospital residency match, school choice) are direct
+    applications of mechanism design theory with hundreds of billions of dollars
+    in economic value — showing pure mathematical mechanism theory translating
+    to engineering of market institutions.
+communication_gap: >
+  Mechanism design is primarily an economics subdiscipline (mathematical
+  economics, auction theory) with its own journals. Computer scientists
+  independently developed algorithmic mechanism design (Nisan-Ronen 1999)
+  with computational efficiency constraints. AI researchers are now applying
+  mechanism design to multi-agent systems and alignment without always
+  being aware of the 50-year-old economics literature. Social choice
+  theory (Arrow, Gibbard-Satterthwaite) and mechanism design overlap
+  substantially but are often taught separately.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1287/moor.4.1.61"
+    note: "Myerson (1979) Incentive compatibility and the bargaining problem. Math Oper Res 4:61–73"
+  - doi: "10.2307/2296779"
+    note: "Mirrlees (1971) An exploration in the theory of optimum income taxation. Rev Econ Stud 38:175–208"
+  - doi: "10.2307/1911324"
+    note: "Crémer & McLean (1988) Full extraction of the surplus in Bayesian and dominant strategy auctions. Econometrica 56:345–361"
+  - note: "Hurwicz (1973) The design of mechanisms for resource allocation. Am Econ Rev 63:1–30"

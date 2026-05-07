@@ -1,0 +1,49 @@
+id: h-biomimetic-slip-locomotion-minimal-energy-cost-robots
+title: >
+  Robots implementing SLIP-based compliant leg control with leg spring constant
+  k tuned to body mass via the biological scaling law k ∝ m^0.67 will achieve
+  specific energy cost of transport (COT) < 1 J/(N·m) — matching biological
+  runners — regardless of morphology, provided Strouhal number is maintained
+  at St ≈ 0.25–0.35 for swimming and flapping analogues.
+status: active
+priority: medium
+impact_score: 0.77
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+
+evidence_links:
+  - note: "Full & Koditschek (1999) SLIP model template framework: biological runners from cockroach to human follow SLIP dynamics"
+    type: supporting
+    confidence: 0.82
+  - doi: "10.1126/science.288.5463.100"
+    type: supporting
+    confidence: 0.70
+    note: "Dickinson et al. (2000) — biological locomotion principles unified by mechanics, not morphology"
+  - type: contradicting
+    note: "Boston Dynamics Atlas has COT ~ 3–8 J/(N·m) despite SLIP-inspired control — leg segment mass and actuator dynamics add energy costs not captured in massless-leg SLIP"
+
+unknowns_addressed:
+  - u-slip-model-biological-accuracy-multi-legged-running
+
+proposed_tests:
+  - description: >
+      Build a series of legged robots spanning 0.1–100 kg body mass with leg
+      springs tuned to k = A·m^0.67 (A determined from biological regression),
+      measure COT on flat ground at optimal speed, and compare to the biological
+      COT-mass relationship (COT_bio ≈ 10·m^(-0.32)).
+    method: "Force plate + metabolic analog power measurement (motor current × voltage - elastic storage); vary gait speed to find minimum COT"
+    prediction: "COT < 2·COT_bio for all masses 0.1–100 kg when k follows the biological scaling; COT decreases by ≥30% compared to rigid-leg control"
+  - description: >
+      Measure leg spring stiffness k_leg in vivo using ultrasonography + force
+      plate for cockroach (0.001 kg), dog (20 kg), and human (70 kg) running
+      at preferred speed; test whether k ∝ m^0.67 holds across 5 orders of
+      magnitude in body mass.
+    method: "High-speed ultrasound (muscle-tendon unit length) synchronized with force plates (ground reaction force); compute k = F/Δx at mid-stance"
+    prediction: "k follows m^0.67 with coefficient of variation < 20% across taxa, with Drosophila and elephant as outlier tests at extreme masses"
+
+related_disciplines:
+  - engineering
+  - biology
+  - robotics
+  - biomechanics

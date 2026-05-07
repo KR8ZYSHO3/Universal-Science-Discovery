@@ -1,0 +1,85 @@
+id: b-polymer-processing-manufacturing
+title: "Polymer Processing and Materials Manufacturing — reptation dynamics, WLF equation, electrospinning, and FDM additive manufacturing connect polymer physics to industrial production"
+status: established
+fields:
+  - materials-science
+  - polymer-physics
+  - chemical-engineering
+  - manufacturing
+  - nanotechnology
+
+bridge_claim: >
+  Polymers are viscoelastic materials exhibiting both viscous (flow) and elastic
+  (recovery) behaviour depending on timescale relative to the relaxation time τ_R.
+  The Maxwell model (spring + dashpot in series) captures stress relaxation: σ(t) =
+  σ₀ e^{−t/τ_R}. The Kelvin–Voigt model (parallel) captures creep. Real polymers
+  require spectra of relaxation times. Reptation dynamics (de Gennes 1971, Doi &
+  Edwards 1978): in entangled polymer melts, each chain is confined to a tube defined
+  by surrounding chains and moves by 1D diffusion (reptation) along its contour.
+  Melt viscosity scales as η ∝ M^{3.4} (empirically; η ∝ M³ in pure reptation theory)
+  — strongly molecular-weight dependent, governing extrusion, injection moulding,
+  and film blowing. The glass transition temperature T_g: below T_g, polymer is
+  glassy (stiff, brittle); above T_g, rubbery (flexible). The WLF (Williams–Landel–
+  Ferry) equation describes the temperature dependence of relaxation time: log(a_T) =
+  −C₁(T−T_g)/(C₂+T−T_g) — universal for many amorphous polymers with C₁ ≈ 17.4,
+  C₂ ≈ 51.6. Electrospinning (Taylor 1964, Reneker & Chun 1996): high voltage (10–
+  30 kV) applied to a polymer solution droplet at a nozzle tip creates a Taylor cone;
+  electrostatic force overcomes surface tension; a jet forms, undergoes bending
+  instability, and stretches into nanofibers (50–500 nm diameter) as solvent
+  evaporates. Applications: filtration membranes (viral particle removal), tissue
+  engineering scaffolds (collagen-mimetic topology), drug delivery patches (sustained
+  release). Fused deposition modelling (FDM, additive manufacturing): polymer
+  filament is extruded at T > T_g, deposited layer-by-layer, and welds to adjacent
+  material via polymer diffusion across the weld line. Inter-layer bond strength is
+  controlled by reptation: contact time at T > T_g must exceed reptation time τ_rep
+  for full entanglement.
+
+translation_table:
+  - field_a_term: "reptation time tau_rep (chain escape from tube)"
+    field_b_term: "dominant viscoelastic relaxation timescale of entangled melt"
+    note: "tau_rep ~ M^3 (theory) / M^3.4 (experiment); sets minimum time for full stress relaxation in melt processing"
+  - field_a_term: "WLF equation (shift factor a_T)"
+    field_b_term: "time-temperature superposition for polymer processing window design"
+    note: "WLF enables construction of master curve from measurements at different temperatures — guides selection of processing temperatures"
+  - field_a_term: "Taylor cone formation at critical E field"
+    field_b_term: "electrospinning onset — electrostatic pressure overcomes surface tension"
+    note: "Taylor (1964): cone half-angle 49.3 degrees; Reneker showed that solution concentration controls fiber diameter"
+  - field_a_term: "bending instability in electrospun jet"
+    field_b_term: "nanofiber formation via chaotic whipping motion"
+    note: "Whipping instability provides the extreme elongation (1000x draw ratio) that produces nanoscale fiber diameters"
+  - field_a_term: "FDM weld line polymer interdiffusion"
+    field_b_term: "inter-layer bond strength in 3D printed parts"
+    note: "Bond strength reaches bulk value only after interdiffusion depth exceeds entanglement mesh size ~ R_e/sqrt(N); controlled by T and dwell time"
+  - field_a_term: "glass transition T_g (Flory-Fox equation)"
+    field_b_term: "processing temperature threshold separating solid and viscous flow regimes"
+    note: "Flory-Fox: T_g = T_g,inf - K/M_n — T_g increases with molecular weight, plateauing above entanglement threshold"
+
+related_unknowns: []
+related_hypotheses: []
+
+cross_pollination_opportunities:
+  - "Develop electrospun scaffolds with controlled fibre alignment (rotating collector) and biodegradation rate for peripheral nerve regeneration guidance"
+  - "Apply WLF theory to optimise FDM printing parameters (nozzle temperature, print speed) for maximum inter-layer bond strength in high-performance structural parts"
+  - "Use coaxial electrospinning to produce core-shell nanofibers: drug-loaded core + rate-controlling shell for zero-order release kinetics"
+
+communication_gap: >
+  Polymer physics (de Gennes, Doi, Edwards) is a theoretical condensed matter field;
+  polymer processing (extrusion, injection moulding) is an industrial chemical
+  engineering practice; electrospinning and additive manufacturing are engineering
+  application fields. These communities use different models of polymer behaviour —
+  reptation theory is well known to polymer physicists but rarely used explicitly in
+  industrial processing simulation, where empirical constitutive equations dominate.
+  The additive manufacturing community is only beginning to incorporate quantitative
+  reptation theory into process models.
+
+references:
+  - doi: "10.1021/ja01018a023"
+    note: "Williams, Landel & Ferry (1955) J Am Chem Soc 77:3701 — WLF equation"
+  - doi: "10.1098/rspa.1964.0090"
+    note: "Taylor (1964) Proc R Soc A 280:383 — disintegration of water droplets in electric field"
+  - doi: "10.1088/0957-4484/7/3/009"
+    note: "Reneker & Chun (1996) Nanotechnology 7:216 — electrospinning of nanofibers"
+  - doi: "10.1007/s11465-013-0248-8"
+    note: "Guo & Leu (2013) Front Mech Eng 8:215 — additive manufacturing review"
+
+last_reviewed: "2026-05-06"

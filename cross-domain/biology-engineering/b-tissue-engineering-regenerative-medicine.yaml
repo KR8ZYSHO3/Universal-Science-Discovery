@@ -1,0 +1,107 @@
+id: b-tissue-engineering-regenerative-medicine
+title: >
+  Tissue engineering bridges biology and engineering: scaffolds, cells, and bioreactors
+  combine to produce functional tissue replacements, with the vascularization bottleneck
+  (diffusion limit of O₂ at ~200 μm) as the central engineering constraint, and
+  organoids as the biological self-organization model that partially bypasses
+  scaffold requirements.
+status: established
+fields:
+  - biology
+  - biomedical-engineering
+  - engineering
+  - materials-science
+  - stem-cell-biology
+  - regenerative-medicine
+bridge_claim: >
+  Tissue engineering (Langer & Vacanti 1993) combines principles from engineering
+  and biology: a scaffold (structural support, matching mechanical properties of
+  target tissue), seeded with cells (patient-derived or stem cells), cultured in
+  a bioreactor (mechanical conditioning, nutrient delivery), produces functional
+  tissue substitutes for transplantation.
+
+  Mechanical property matching: scaffold stiffness must match target tissue to avoid
+  stress-shielding or mechanical mismatch. Bone: 1-20 GPa (hydroxyapatite, PCL, Ti).
+  Cartilage: 1-10 MPa (PLGA, hyaluronic acid hydrogel). Cardiovascular: 0.1-1 MPa
+  (collagen, fibrin gel). Neural tissue: 0.1-1 kPa (polyacrylamide, gelatin methacryloyl).
+  Stem cells sense substrate stiffness via mechanotransduction (integrin-cytoskeleton
+  tension, YAP/TAZ nuclear translocation — Engler et al. 2006): MSCs differentiate
+  into neurons on soft substrates, myocytes on intermediate, osteoblasts on stiff.
+
+  Decellularized ECM (dECM): whole-organ perfusion with detergents (SDS, Triton X-100)
+  removes all cells while preserving collagen, fibronectin, laminin, and growth factor
+  gradients — a biological scaffold preserving native architecture. Repopulation with
+  autologous or iPSC-derived cells could produce immune-compatible whole-organ
+  replacements (Ott et al. 2008 — decellularized rat heart that beats when recellularized).
+
+  Bioprinting: extrusion bioprinting (hydrogel bioinks, ~100 μm resolution), inkjet
+  (droplet-by-droplet, ~50 μm, limited cell density), stereolithography (DLP-based,
+  ~10 μm, poor bioink compatibility). Gelatin methacryloyl (GelMA) is the dominant
+  photocrosslinkable bioink: tunable stiffness (1-100 kPa), cell-adhesive (RGD sites),
+  biodegradable.
+
+  Vascularization bottleneck: O₂ diffusion in tissue limits cell viability to ~200 μm
+  from the nearest capillary (pO₂ = 0 at depth d = √(2D·C₀/Q_O₂) where D = 2×10⁻⁵
+  cm²/s, C₀ = arterial O₂ concentration, Q_O₂ = cellular O₂ consumption rate ≈ 10⁻⁸
+  mol/cm³/s → d ≈ 200 μm). Engineered tissues thicker than 200 μm require vascular
+  channels — the central unsolved challenge in tissue engineering.
+
+  Organoids (Clevers lab, 2009-2013): LGR5⁺ intestinal stem cells in Matrigel
+  self-organize into crypt-villus structures recapitulating intestinal epithelium.
+  Brain organoids (Lancaster et al. 2013) from iPSCs develop cortical layers and
+  electrophysiological activity within 60 days. Organoids bypass scaffold requirements
+  via self-organization but lack vascularization and are limited to ~1-3 mm diameter.
+translation_table:
+  - field_a_term: scaffold porosity and pore interconnectivity (engineering parameter)
+    field_b_term: extracellular matrix (ECM) architecture (biological equivalent)
+    note: scaffold pores serve the same function as ECM pores — cell adhesion, nutrient diffusion, waste removal
+  - field_a_term: bioreactor (controlled perfusion, mechanical loading, O₂ delivery)
+    field_b_term: in vivo physiological environment (blood flow, mechanical stress, hormonal signals)
+    note: bioreactor mimics in vivo conditions; mechanical conditioning (pulsatile flow) is essential for cardiovascular TE
+  - field_a_term: vascularization bottleneck (O₂ diffusion limit ~200 μm)
+    field_b_term: Krogh cylinder model (classical physiology capillary geometry model)
+    note: Krogh (1919) derived the 200 μm capillary spacing from O₂ diffusion-reaction equations
+  - field_a_term: scaffold stiffness matching (Young's modulus E, Pa)
+    field_b_term: mechanotransduction / matrix stiffness sensing (YAP/TAZ pathway)
+    note: cells sense scaffold stiffness and differentiate accordingly — mechanical cue = biochemical signal
+  - field_a_term: bioprinting resolution (μm, determined by nozzle diameter / laser spot)
+    field_b_term: capillary diameter (~7 μm erythrocyte, ~10 μm capillary lumen)
+    note: printing resolution must match or exceed capillary diameter to print functional vasculature
+related_unknowns:
+  - u-tissue-engineering-vascularization-thick-constructs
+related_hypotheses:
+  - h-sacrificial-templating-vascular-network-bioprinting
+cross_pollination_opportunities:
+  - >
+    4D bioprinting: shape-memory polymers and hydrogels that change shape in response
+    to environmental stimuli (pH, temperature, light) after printing — enabling
+    implantable scaffolds that self-assemble into complex geometries in vivo.
+    The mathematics of origami (Miura fold, waterbomb tessellation) combined with
+    finite element modeling of shape-memory actuation could design printable flat
+    sheets that fold into complex 3D vascular networks upon implantation.
+  - >
+    Organ-on-a-chip systems (Huh et al. 2010 — lung-on-a-chip): microfluidic devices
+    with engineered tissue membranes recapitulate organ physiology at 1/1000th the
+    cost of animal studies. Integration with continuous biosensors (electrochemical,
+    optical) creates a miniaturized human physiology model for drug testing — replacing
+    animal models for ADMET screening and approaching a complete human-body-on-chip.
+communication_gap: >
+  Tissue engineering requires materials science (scaffold chemistry), cell biology
+  (stem cells, differentiation), biomedical engineering (bioreactor design, fluid
+  mechanics), and clinical medicine (transplantation, regulatory approval) —
+  disciplines with separate journals, funding agencies, and institutional departments.
+  The vascularization problem requires fluid dynamics (Navier-Stokes in porous media),
+  oxygen transport (reaction-diffusion equations), angiogenesis biology, and surgical
+  anastomosis — a combination that no single research group typically commands.
+  Regulatory frameworks (FDA 510(k), PMA, HCT/P classification) create additional
+  barriers that slow translation from engineering laboratory to clinical application.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1126/science.8493529"
+    note: "Langer & Vacanti (1993) Tissue engineering; Science 260:920"
+  - doi: "10.1016/j.cell.2016.03.023"
+    note: "Clevers (2016) Modeling development and disease with organoids; Cell 165:1586"
+  - doi: "10.1038/nbt.2958"
+    note: "Murphy & Atala (2014) 3D bioprinting of tissues and organs; Nat Biotechnol 32:773"
+  - doi: "10.1126/science.215.4529.174"
+    note: "Yannas et al. (1982) Wound tissue can utilize a polymeric template to synthesize a functional extension of skin; Science 215:174"

@@ -1,0 +1,49 @@
+id: u-sat-phase-transition-p-np
+title: Does the statistical-physics description of the SAT phase transition (replica symmetry breaking, glass phase) provide a proof strategy for P≠NP, or are worst-case and average-case hardness fundamentally different?
+status: open
+priority: high
+disciplines:
+  - computer-science
+  - mathematics
+  - statistical-physics
+  - combinatorics
+summary: >
+  The satisfiability phase transition in random 3-SAT (α_c ≈ 4.267) maps the hardest
+  computational instances onto a spin-glass phase transition (replica-symmetry breaking).
+  This structural insight — that NP-hardness at the phase boundary coincides with
+  geometrical shattering of the solution space — motivates the hypothesis that P≠NP
+  follows from the statistical physics of disordered systems.
+
+  However, computational complexity theory separates worst-case hardness (P vs NP)
+  from average-case hardness (typical instances of random 3-SAT). NP-hardness is
+  a worst-case statement; the phase transition is an average-case phenomenon. Even
+  if average-case 3-SAT at α_c is hard (exponential average runtime for all known
+  algorithms), this does not imply worst-case hardness.
+
+  The "planted solution" ensemble (choose a random satisfying assignment, then add
+  random clauses) has a phase transition at a lower α than random 3-SAT, and is
+  believed to be hard to solve even below the planted-solution threshold —
+  a phenomenon called the "hard phase" in the planted ensemble. This is directly
+  related to the random-cluster / spin-glass transition.
+
+  Key open question: can replica-symmetry-breaking methods, rigorous free energy
+  bounds (Guerra, Talagrand, Panchenko), and information-theoretic lower bounds
+  be combined to prove that no polynomial algorithm can solve 3-SAT near α_c
+  — even in an average-case sense — thereby providing evidence for P≠NP?
+systematic_gaps:
+  - The relationship between replica symmetry breaking in random CSPs and circuit complexity lower bounds has not been formalized.
+  - Whether the "hard phase" in planted random 3-SAT is provably hard (requiring super-polynomial time for any algorithm) remains open.
+  - The exact value of α_c has been rigorously established only recently (Ding, Sly, Sun 2015) — the full complexity landscape around α_c is still being mapped.
+  - No complexity-theoretic consequence of the statistical-physics glass transition has been rigorously proved.
+suggested_hypotheses:
+  - The information-theoretic threshold for planted 3-SAT (where no efficient algorithm can distinguish planted from unplanted) coincides with the replica-symmetry-breaking transition.
+related_bridges:
+  - b-sat-phase-transition
+references:
+  - doi: "10.1126/science.264.5163.1297"
+    note: Kirkpatrick & Selman (1994) — phase transition discovery
+  - doi: "10.1126/science.297.5582.812"
+    note: Mézard et al. (2002) — survey propagation and glass phase
+  - doi: "10.1145/2746539.2746619"
+    note: Ding, Sly & Sun (2015) STOC — rigorous proof of α_c for random k-SAT
+last_reviewed: "2026-05-06"

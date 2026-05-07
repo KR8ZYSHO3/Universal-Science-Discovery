@@ -1,0 +1,34 @@
+id: h-neuromorphic-chips-edge-ai-energy-advantage
+title: >
+  Neuromorphic chips implementing spiking neural networks will achieve 100–1000×
+  lower energy per inference than GPU-based neural networks for always-on
+  edge AI tasks (keyword spotting, gesture recognition, anomaly detection)
+  while maintaining competitive accuracy, making them the dominant architecture
+  for IoT sensing applications by 2030
+status: active
+priority: high
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR wave-7 seed (replace with GitHub handle when stewarded)
+unknowns_addressed:
+  - u-neural-spike-coding-rate-vs-temporal
+related_disciplines:
+  - neuromorphic-computing
+  - electrical-engineering
+  - machine-learning
+evidence_links:
+  - type: supporting
+    confidence: 0.70
+    note: "Intel Loihi keyword-spotting benchmark: 109× lower energy vs. GPU at comparable accuracy (6 GOPS/W vs. ARM Cortex-M GPU equivalent); Davies et al. 2021 Nature Machine Intelligence."
+  - type: supporting
+    confidence: 0.65
+    note: "IBM TrueNorth spike-based convnet for image classification at 70 mW vs. 10s of W for GPU inference on same ImageNet task (Esser et al. 2016, PNAS)."
+  - type: contradicting
+    confidence: 0.50
+    note: "SNN accuracy on complex tasks (ImageNet, COCO detection) remains below equivalent ANNs by 3–8% top-1; the accuracy gap must close for neuromorphic chips to challenge GPU inference on vision tasks."
+proposed_tests:
+  - summary: >
+      Direct energy-accuracy Pareto front comparison: benchmark Intel Loihi 2, BrainScaleS-2,
+      and SpiNNaker against equivalent NVIDIA edge GPU (Jetson Nano) on identical keyword
+      spotting (Google Speech Commands) and gesture recognition (DVS camera) tasks;
+      measure energy per inference at iso-accuracy points.

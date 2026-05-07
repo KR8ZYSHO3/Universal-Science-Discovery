@@ -1,0 +1,81 @@
+id: b-smart-cities-urban-data-analytics
+title: >
+  Smart city platforms bridge engineering control theory and social science: IoT sensor
+  networks feed model predictive control for traffic and energy optimization, while
+  differential privacy mechanisms address the fundamental tension between urban
+  data utility and individual rights.
+status: established
+fields:
+  - engineering
+  - social-science
+  - computer-science
+  - urban-planning
+bridge_claim: >
+  Smart city platforms aggregate IoT sensor data (traffic flow, air quality, energy
+  consumption, pedestrian density) for real-time urban management. The data pipeline
+  runs from edge computing (latency <10 ms for local decisions) through fog-layer
+  aggregation to cloud ML inference for city-scale optimization.
+
+  Traffic signal optimization using model predictive control (MPC): formulate the
+  intersection as a dynamical system, solve a receding-horizon optimal control problem
+  to minimize total vehicle delay. Empirical deployments reduce average travel delay
+  20-40% versus fixed-timing plans (Zheng et al. 2014). The optimization is a form
+  of linear programming with flow-conservation constraints.
+
+  Energy demand response: ML forecasting of building thermal loads combined with
+  real-time grid price signals enables HVAC schedule optimization that reduces peak
+  demand 15% without comfort degradation. This closes the loop between energy
+  engineering and behavioral economics (demand elasticity).
+
+  The fundamental social-science tension: aggregate mobility data (cellphone GPS
+  traces) enables accurate population flow modeling but is individually re-identifiable
+  even after naive anonymization. Differential privacy (Dwork 2006) adds calibrated
+  Laplace or Gaussian noise with privacy budget epsilon (ε-DP), providing a
+  mathematically rigorous bound on information leakage — but the accuracy-privacy
+  tradeoff is stark at fine spatial resolution.
+
+  Equity concerns: algorithmic traffic routing through disadvantaged neighborhoods
+  (to minimize system-wide delay) imposes noise, pollution, and safety costs on
+  politically marginalized communities — a concrete instance where engineering
+  optimization ignores distributional social welfare.
+translation_table:
+  - field_a_term: model predictive control (MPC) receding horizon
+    field_b_term: sequential social decision-making under uncertainty
+    note: MPC formalizes the engineering intuition of rolling planning; social planners face the same structure
+  - field_a_term: IoT sensor network data stream
+    field_b_term: behavioral trace data (mobility, consumption, social interaction)
+    note: The same data stream is simultaneously an engineering input and a social surveillance concern
+  - field_a_term: differential privacy parameter epsilon (ε)
+    field_b_term: privacy-utility tradeoff — social norm boundary
+    note: ε is an engineering parameter but its acceptable value is a social/political choice
+  - field_a_term: peak demand reduction 15% (HVAC optimization)
+    field_b_term: demand elasticity — behavioral response to dynamic pricing
+    note: Engineering optimization requires a social-science model of occupant behavior
+  - field_a_term: system-optimal traffic assignment (Wardrop second principle)
+    field_b_term: social welfare maximization vs. Nash equilibrium (user equilibrium)
+    note: System-optimal routing requires coordination that individual drivers do not spontaneously produce
+related_unknowns:
+  - u-smart-city-equity-algorithmic-routing
+related_hypotheses:
+  - h-differential-privacy-urban-analytics-accuracy-threshold
+cross_pollination_opportunities:
+  - >
+    Federated learning on distributed urban IoT data: train city-wide models without
+    centralizing sensitive data — bridges ML engineering with privacy law compliance
+    (GDPR, CCPA) in a technically rigorous way.
+  - >
+    Participatory sensing platforms that give residents control over their data
+    contribution could resolve the equity-efficiency tension while generating richer
+    behavioral data for urban planners.
+communication_gap: >
+  Smart city engineering is dominated by computer science and control engineering
+  conferences (IEEE, ACM) while the equity, privacy, and governance implications
+  are studied in urban planning, sociology, and law journals. Privacy engineers and
+  civil society organizations occupy different professional worlds. The differential
+  privacy literature (theory CS) is rarely read by urban planners, and vice versa.
+last_reviewed: "2026-05-06"
+references:
+  - note: "Batty (2013) The New Science of Cities. MIT Press"
+  - note: "Zheng et al. (2014) ACM Trans Intell Syst Technol 5:29 — urban computing survey"
+  - note: "Dwork (2006) ICALP LNCS 4052:1 — differential privacy definition"
+  - note: "Albino et al. (2015) Cities 45:1 — smart city concepts review"

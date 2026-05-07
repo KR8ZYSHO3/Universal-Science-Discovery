@@ -1,0 +1,49 @@
+id: h-rayleigh-benard-turbulence-bifurcation-cascade
+title: >
+  The transition to turbulence in Rayleigh-Bénard convection follows a finite sequence
+  of identifiable bifurcations (pitchfork, Hopf, torus, chaos) whose order and
+  critical Ra values can be predicted from a low-dimensional center-manifold reduction
+  without full DNS, enabling efficient turbulence onset prediction for engineering heat
+  transfer applications.
+status: active
+created: "2026-05-06"
+last_updated: "2026-05-06"
+priority: medium
+related_disciplines:
+  - physics
+  - mathematics
+  - fluid-dynamics
+  - nonlinear-dynamics
+unknowns_addressed:
+  - u-lorenz-attractor-universality-class
+evidence_links:
+  - type: supporting
+    note: >
+      Libchaber and Maurer (1982) experimental observation of period-doubling route to
+      chaos in liquid helium Rayleigh-Bénard convection — confirmed Feigenbaum
+      universality in a physical fluid system.
+  - type: supporting
+    note: >
+      Manneville and Pomeau (1979) identified the intermittency route to chaos
+      as an alternative to period-doubling — both routes occur in Bénard convection
+      depending on Prandtl number and aspect ratio, consistent with bifurcation theory.
+  - type: contradicting
+    note: >
+      At high Ra (Ra >> Ra_c), turbulence is fully developed and the bifurcation
+      cascade picture breaks down — no low-dimensional description captures turbulent
+      convection, and the route-to-chaos prediction fails for large aspect ratio cells.
+proposed_tests:
+  - discipline: physics
+    description: >
+      Run DNS of Rayleigh-Bénard convection in a small-aspect-ratio cell (Gamma = 1)
+      at Prandtl number Pr = 0.7 for Ra from 1.5*Ra_c to 100*Ra_c. At each Ra,
+      compute the Floquet multipliers of the periodic orbit to identify bifurcation
+      type. Compare onset Ra values for each bifurcation to predictions from a
+      Galerkin-reduced model truncated at 10 modes.
+  - discipline: mathematics
+    description: >
+      Apply normal form theory (center manifold reduction) to the Oberbeck-Boussinesq
+      equations near Ra_c to derive the amplitude equation for convective rolls.
+      Extend to second bifurcation using equivariant bifurcation theory (symmetry
+      breaking from D4 to D2). Test whether the predicted Hopf bifurcation Ra matches
+      the DNS value.

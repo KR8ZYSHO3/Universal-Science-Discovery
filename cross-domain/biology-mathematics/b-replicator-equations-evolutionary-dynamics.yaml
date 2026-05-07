@@ -1,0 +1,157 @@
+id: b-replicator-equations-evolutionary-dynamics
+title: >
+  The replicator equation ẋᵢ = xᵢ(fᵢ - f̄) governs strategy frequencies in
+  evolutionary game theory, population genetics, and reinforcement learning — its
+  trajectories on the probability simplex converge to Nash equilibria (evolutionary
+  stable strategies), and the Price equation provides a unified mathematical framework
+  for all levels of selection simultaneously.
+status: established
+fields:
+  - biology
+  - mathematics
+  - evolutionary-biology
+  - game-theory
+  - population-genetics
+  - machine-learning
+bridge_claim: >
+  The replicator equation, derived independently in evolutionary biology, game theory,
+  and learning theory, is:
+
+    ẋᵢ = xᵢ (fᵢ(x) - f̄(x))
+
+  where xᵢ is the frequency of strategy i, fᵢ(x) = Σⱼ aᵢⱼ xⱼ is the payoff
+  to strategy i (with payoff matrix A), and f̄ = Σᵢ xᵢ fᵢ is the mean payoff.
+  The key property: the replicator vector field is tangent to the probability simplex
+  Δⁿ = {x: xᵢ ≥ 0, Σxᵢ = 1}, which is a forward-invariant manifold.
+
+  THE MAIN IDENTITIES ACROSS FIELDS:
+
+  1. EVOLUTIONARY GAME THEORY ↔ NASH EQUILIBRIA: Maynard Smith & Price (1973)
+     introduced evolutionarily stable strategies (ESS) to model animal contests.
+     An ESS is a strategy that, when adopted by all members of a population, cannot
+     be invaded by a rare mutant. Taylor & Jonker (1978) proved that every ESS is
+     an asymptotically stable rest point of the replicator equation. The converse
+     is partial: stable rest points of the replicator equation correspond to Nash
+     equilibria of the underlying game, making the replicator dynamics the natural
+     "equilibrium selection" procedure for evolutionary games.
+
+  2. POPULATION GENETICS ↔ REPLICATOR: The Wright-Fisher model in population genetics
+     describes the change in allele frequency xᵢ under selection: E[Δxᵢ] = xᵢ(wᵢ - w̄)/w̄,
+     where wᵢ is fitness and w̄ is mean fitness. This is the replicator equation in
+     discrete time. Fisher's Fundamental Theorem — dw̄/dt = Var(w) (rate of increase
+     in mean fitness equals additive genetic variance in fitness) — is the replicator
+     dynamics in the continuous limit.
+
+  3. REINFORCEMENT LEARNING ↔ REPLICATOR: The policy gradient theorem in reinforcement
+     learning (Sutton et al. 2000) updates policy π(a) in proportion to the advantage
+     function A(a) = Q(a) - V: Δπ(a) ∝ π(a) A(a). This is the discrete replicator
+     equation: actions with above-average value become more probable. REINFORCE
+     (Williams 1992), the policy gradient algorithm, is stochastic replicator dynamics.
+     The Nash equilibrium of a game is the fixed point of policy gradient learning.
+
+  4. THE PRICE EQUATION — UNIVERSAL SELECTION: Price (1970) derived a covariance
+     equation for evolution at any level of organisation:
+
+       w̄ Δz̄ = Cov(w, z) + E(w Δz)
+
+     where z is any character, w is fitness. The first term (Cov(w, z)) captures
+     selection; the second (E(w Δz)) captures transmission bias. The Price equation
+     unifies individual selection (z = allele frequency), group selection (z = group
+     frequency), and cultural evolution (z = meme frequency) in a single framework.
+     Every selection theorem (Fisher's fundamental theorem, secondary theorem of
+     selection, multilevel selection) is a special case of the Price equation.
+
+  5. ROCK-PAPER-SCISSORS AS HETEROCLINIC CYCLE: The three-strategy game with cyclic
+     dominance (rock beats scissors, scissors beats paper, paper beats rock) has no
+     interior fixed point in the replicator equation. Instead, trajectories cycle
+     along the boundary of the simplex (heteroclinic cycle) — a non-convergent
+     attractor where no strategy dominates. This predicts that cyclic competition
+     (found in competing bacteria, lizard morphs, neural circuits) will not reach
+     equilibrium but will show persistent oscillations — confirmed experimentally.
+
+  6. REPLICATOR-MUTATOR EQUATION IN LANGUAGE EVOLUTION: Adding mutation to the
+     replicator equation gives the replicator-mutator system:
+
+       ẋᵢ = Σⱼ xⱼ fⱼ Qⱼᵢ - x_i f̄
+
+     where Qⱼᵢ is the mutation matrix. This describes language evolution (Nowak et
+     al. 2001): words are strategies, language use is selection, and pronunciation/
+     spelling changes are mutations. The error threshold in this system (critical
+     mutation rate above which information is not preserved) is the linguistic analogue
+     of Eigen's quasispecies threshold in molecular evolution.
+translation_table:
+  - field_a_term: "Strategy i with frequency xᵢ"
+    field_b_term: "Allele i with frequency xᵢ (genetics) / action i with probability π(a) (RL)"
+    note: "The probability simplex Δⁿ is simultaneously: allele frequency space, mixed strategy simplex, policy space"
+  - field_a_term: "Payoff matrix A (aᵢⱼ = payoff to i from j)"
+    field_b_term: "Fitness matrix (genetics) / reward matrix (game theory) / Q-values (RL)"
+    note: "The replicator equation is linear in frequencies when A is a fixed payoff matrix"
+  - field_a_term: "Nash equilibrium x*"
+    field_b_term: "Evolutionary stable strategy (ESS) / fixed point of policy gradient / Hardy-Weinberg equilibrium"
+    note: "ESS ⊂ Nash ⊂ rest points of replicator; ESS is the evolutionarily robust Nash equilibrium"
+  - field_a_term: "Mean fitness f̄ = Σᵢ xᵢ fᵢ"
+    field_b_term: "Average value / reward / population mean fitness"
+    note: "Fisher's Fundamental Theorem: df̄/dt = Var(f) ≥ 0; mean fitness is a Lyapunov function for weak selection"
+  - field_a_term: "Probability simplex Δⁿ"
+    field_b_term: "State space of allele/strategy frequencies (closed under replicator dynamics)"
+    note: "The simplex is a forward-invariant manifold; frequencies stay non-negative and sum to 1"
+  - field_a_term: "Heteroclinic cycle"
+    field_b_term: "Non-equilibrium cyclic dominance (rock-paper-scissors dynamics)"
+    note: "Non-transitive competition (lizard morphs, bacterial strains, immune evasion) generates cycles, not equilibria"
+  - field_a_term: "Price equation w̄ Δz̄ = Cov(w,z) + E(wΔz)"
+    field_b_term: "Universal partition of evolutionary change into selection + transmission components"
+    note: "Contains: Fisher's theorem (set Δz=0), Hamilton's rule for kin selection, multilevel selection; applicable to culture"
+related_unknowns:
+  - u-replicator-dynamics-prebiotic-origin
+related_hypotheses:
+  - h-replicator-rl-convergence
+cross_pollination_opportunities:
+  - >
+    The connection between policy gradient reinforcement learning and replicator
+    dynamics suggests that ML algorithms could be improved by importing evolutionary
+    biology concepts. Natural selection maintains diversity through mechanisms absent
+    from standard RL (sexual recombination ↔ crossover in genetic algorithms, mutation
+    load ↔ exploration noise, frequency-dependent selection ↔ opponent shaping in
+    multi-agent RL). Multi-agent RL systems might benefit from explicit frequency-
+    dependent payoffs (ESS targeting) to avoid the Nash equilibria that lead to
+    non-cooperative outcomes in social dilemmas.
+  - >
+    The Price equation has been applied to cultural evolution (Henrich), machine
+    learning (gradient descent as selection), and economics (market selection for
+    efficient firms). A unified Price-equation framework for all adaptive systems
+    (biological, cultural, economic, and computational) would provide a common language
+    for comparing evolutionary dynamics across substrates. Specific prediction:
+    any system described by the Price equation will exhibit "Simpson's paradox" in
+    which group-level and individual-level selection conflict — predicting conditions
+    for cooperation failures in firms, societies, and multi-agent AI systems.
+  - >
+    The error threshold in quasispecies theory (Eigen 1971) sets the maximum mutation
+    rate at which heritable information is preserved. The same threshold exists in the
+    replicator-mutator equation for cultural evolution: if cultural copying errors
+    exceed the threshold, cultural information decays faster than selection can maintain
+    it. This has direct implications for digital information transmission (social media
+    noise may exceed the cultural error threshold for specific information types) and
+    for AI model distillation (student model error rate must remain below the threshold
+    for teacher-knowledge to be preserved).
+communication_gap: >
+  Taylor & Jonker (1978) published the replicator dynamics in Mathematical Biosciences;
+  the connection to Nash equilibria was noted by game theorists later. Population
+  geneticists and evolutionary game theorists develop parallel mathematical frameworks
+  (Wright-Fisher vs. replicator dynamics) without realising they are the same equations.
+  The connection to reinforcement learning (Sutton & Barto, Williams 1992) was made
+  in the ML community without reference to evolutionary biology. Hofbauer & Sigmund
+  (1998) is the definitive reference synthesising the connections, but it is not
+  widely read outside mathematical biology. The Price equation is taught in evolutionary
+  biology but rarely connected to RL theory in machine learning courses.
+last_reviewed: "2026-05-05"
+references:
+  - doi: "10.1016/0025-5564(78)90077-9"
+    note: "Taylor & Jonker (1978) Math Biosci 40:145 — evolutionary stable strategies and game dynamics; replicator equation"
+  - doi: "10.1038/246015a0"
+    note: "Maynard Smith & Price (1973) Nature 246:15 — the logic of animal conflict; evolutionarily stable strategies"
+  - doi: "10.1038/227520a0"
+    note: "Price (1970) Nature 227:520 — selection and covariance; the Price equation"
+  - note: "Hofbauer & Sigmund (1998) Evolutionary Games and Population Dynamics (Cambridge UP)"
+    url: "https://www.cambridge.org/core/books/evolutionary-games-and-population-dynamics/4B3E92E10A2EBF13CDB08F55C68F8A05"
+  - doi: "10.1073/pnas.97.17.9430"
+    note: "Sutton et al. (2000) NIPS — policy gradient methods for RL; equivalence with replicator dynamics"

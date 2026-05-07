@@ -1,0 +1,102 @@
+id: b-bayesian-inference-scientific-confirmation
+title: >
+  The Bayesian account of scientific confirmation — evidence E confirms hypothesis H
+  iff P(H|E) > P(H) — provides a quantitative, principled replacement for
+  Popperian falsificationism, resolves Hempel's raven paradox, and explains
+  why Bayesian model comparison via marginal likelihood automatically implements
+  Occam's razor against overfitted hypotheses.
+status: established
+fields:
+  - philosophy-of-science
+  - statistics
+  - Bayesian-inference
+  - epistemology
+  - history-of-science
+bridge_claim: >
+  The core Bayesian account of confirmation: evidence E confirms hypothesis H if
+  P(H|E) > P(H), i.e., if observing E raises our credence in H. By Bayes' theorem:
+  P(H|E) = P(E|H)·P(H) / P(E). The likelihood ratio P(E|H)/P(E|¬H) > 1 is the
+  strength of confirmation (Bayes factor). This is a quantitative replacement for
+  the binary "confirmed/refuted" of hypothetico-deductivism.
+
+  Key results and paradox resolutions:
+  — Hempel's raven paradox: "All ravens are black" is confirmed by observing
+    black ravens, but also (logically equivalently) by observing non-black
+    non-ravens. Bayesian resolution: both observations confirm the hypothesis,
+    but the black raven observation raises P(H) much more because there are
+    vastly more non-black non-ravens than ravens — the Bayes factor is larger
+    for ravens.
+  — Popper's falsificationism as a limit case: if P(E|H) = 0 (the hypothesis
+    entails E cannot occur, but E does occur), then P(H|E) = 0. Falsification
+    is Bayesian update with zero likelihood — not a separate logic but a
+    special case of probabilistic reasoning.
+  — Glymour's old evidence problem (1980): if E is already known before H is
+    proposed, then P(E) = 1 and Bayes' theorem gives P(H|E) = P(H) — old
+    evidence cannot confirm. But historically, Mercury's perihelion precession
+    (known for decades) strongly confirmed general relativity. Bayesian
+    solutions: counterfactual Bayesianism (what would P(H|E) have been had
+    we not known E?), or use the likelihood ratio P(E|H)/P(E|¬H) as
+    confirmation measure independent of P(E).
+  — Jeffreys-Lindley paradox: for nested hypotheses (H₁: θ=0 vs. H₂: θ≠0),
+    the p-value test and Bayesian model comparison can give opposite conclusions
+    as N→∞. For large N, frequentist tests reject H₁ at α=0.05 while Bayesian
+    comparison strongly favors H₁ if θ is small. The paradox is resolved by
+    recognizing p-values and Bayes factors answer different questions.
+  — Occam's razor: Bayesian model comparison via marginal likelihood P(E|M) =
+    ∫ P(E|θ,M)·P(θ|M) dθ automatically penalizes complex models — the integral
+    averages over all parameter values, so complex models pay a "prior volume"
+    penalty for parameter space that is not supported by data. This is Bayesian
+    Occam's razor: simplicity emerges from the mathematics, not from a separate
+    metaphysical principle.
+translation_table:
+  - field_a_term: scientific confirmation of hypothesis H by evidence E
+    field_b_term: Bayesian posterior update P(H|E) > P(H)
+    note: Degree of confirmation = log Bayes factor log[P(E|H)/P(E|¬H)]
+  - field_a_term: Popper's falsification (H refuted by E)
+    field_b_term: Bayesian update with P(E|H) = 0 → P(H|E) = 0
+    note: Falsification is a degenerate Bayesian case, not a separate logic
+  - field_a_term: Occam's razor (prefer simpler hypotheses)
+    field_b_term: marginal likelihood (Bayesian evidence) P(E|M) penalizes complexity
+    note: Complex models integrate over more parameter space → lower P(E|M) if extra complexity is unused
+  - field_a_term: scientific prior probability P(H)
+    field_b_term: prior in Bayesian inference (subjective or reference prior)
+    note: "The objectivity debate: Jeffreys' reference priors minimize information about θ"
+  - field_a_term: Jeffreys-Lindley paradox (p-value vs. Bayes factor)
+    field_b_term: "different questions: p(E|H₀) vs. P(H₀|E)/P(H₁|E)"
+    note: Frequentist p-value and Bayes factor are not measuring the same thing
+  - field_a_term: old evidence problem (Glymour 1980)
+    field_b_term: "conditioning on known data: P(H|E)=P(H) when E already in sample space"
+    note: Resolved by counterfactual Bayesianism or using Bayes factor as measure
+related_unknowns:
+  - u-bayesian-old-evidence-problem
+related_hypotheses:
+  - h-bayesian-marginal-likelihood-occam-razor-automatic
+cross_pollination_opportunities:
+  - >
+    Bayesian epistemology in philosophy connects to formal epistemology in
+    computer science (belief revision, AGM axioms, Pearl's causal calculus).
+    The probabilistic logic of confirmation has been implemented computationally
+    in Bayesian networks, providing an experimental platform for testing
+    philosophical theories of confirmation — an unusual case of philosophy
+    becoming empirically tractable.
+  - >
+    Scientific meta-analysis as Bayesian hierarchical modeling: rather than
+    applying p-value thresholds across studies, hierarchical Bayesian models
+    pool evidence across studies and produce posterior distributions over
+    effect sizes. This directly implements the philosophical account of
+    confirmation across multiple evidential streams.
+communication_gap: >
+  Philosophy of science and statistics have parallel traditions that rarely
+  intersect. Howson & Urbach (2006) made the Bayesian-confirmation connection
+  explicit, but philosophy journals (British Journal for the Philosophy of Science,
+  Philosophy of Science) and statistics journals (Annals of Statistics, Bayesian
+  Analysis) have non-overlapping readerships. Philosophers cite Glymour, Hempel,
+  Popper; statisticians cite Jeffreys, Jaynes, Lindley. The mathematical
+  equivalence of their accounts of "evidence" is rarely acknowledged across the
+  disciplinary boundary.
+last_reviewed: "2026-05-06"
+references:
+  - note: "Howson & Urbach (2006) Scientific Reasoning: The Bayesian Approach. 3rd ed. Open Court."
+  - note: "Jaynes, E.T. (2003) Probability Theory: The Logic of Science. Cambridge University Press."
+  - note: Jeffreys, H. (1961) Theory of Probability. 3rd ed. Oxford University Press.
+  - note: Glymour, C. (1980) Theory and Evidence. Princeton University Press.

@@ -1,0 +1,45 @@
+id: u-protein-folding-alphafold2-de-novo-design-limits
+title: What are the fundamental limits of AlphaFold2-based de novo protein design, and can designed proteins achieve the functional diversity of naturally evolved proteins without evolutionary history in their training data?
+status: open
+priority: high
+disciplines:
+  - biology
+  - chemistry
+  - computational-biology
+  - machine-learning
+  - biochemistry
+summary: >
+  AlphaFold2 achieves ~0.96 Å RMSD structure prediction for single-domain proteins
+  with evolutionary coverage in the PDB. However, its accuracy degrades for:
+  (1) intrinsically disordered proteins (IDPs) without stable fold, (2) proteins
+  with novel folds not represented in training data, (3) multimeric assemblies with
+  large conformational changes, and (4) designed proteins with sequences outside
+  evolutionary distribution. De novo protein design (Baker lab: ProteinMPNN +
+  ESMFold; RFdiffusion; Chroma) generates sequences that fold computationally but
+  many fail in wet-lab expression and function. The fundamental question: does
+  AF2 and related tools learn true physics (energy landscape theory) or are they
+  sophisticated interpolators of evolutionary data? If the latter, they cannot
+  design proteins for truly novel functions without evolutionary templates. The
+  "hallucination" failure mode — AF2-designed sequences fold to the predicted
+  structure computationally but aggregate or misfold experimentally — occurs in
+  10-30% of designs and its mechanistic basis is unknown.
+systematic_gaps:
+  - The fraction of AF2 structure predictions that represent the functional ground-state conformation (vs. a low-energy local minimum or domain-swapped alternative) has not been systematically quantified; for allosteric proteins and IDPs, this fraction may be <50%.
+  - De novo designed proteins with novel binding functions (enzymes, receptors) achieve catalytic efficiencies 10-100x lower than natural proteins even with computational optimization — the mechanistic source of this gap (active site preorganization? loop dynamics? allosteric communication?) is unidentified.
+  - The boundary of AlphaFold2's "distribution" — the set of protein sequences for which AF2 prediction is reliable vs. extrapolation failure — has not been mapped; there is no uncertainty quantification that distinguishes confident predictions from hallucinations.
+suggested_hypotheses:
+  - >
+    AF2-based designed proteins show a bimodal success distribution — designs with >70% sequence
+    identity to natural proteins in the PDB succeed experimentally at >80% rate, while designs
+    with <40% identity succeed at <20% rate — establishing the evolutionary coverage threshold
+    for reliable computational design.
+related_unknowns:
+  - u-intrinsically-disordered-protein-function-mechanism
+related_bridges:
+  - b-protein-folding-energy-landscape
+references:
+  - doi: "10.1038/s41586-021-03819-2"
+    note: "Jumper et al. (2021) Nature 596:583 — AlphaFold2"
+  - doi: "10.1038/nsb0497-10"
+    note: "Dill & Chan (1997) — energy landscape and folding"
+last_reviewed: "2026-05-06"

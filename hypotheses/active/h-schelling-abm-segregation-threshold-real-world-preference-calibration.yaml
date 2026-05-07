@@ -1,0 +1,52 @@
+id: h-schelling-abm-segregation-threshold-real-world-preference-calibration
+title: >
+  Schelling's ABM segregation threshold (fraction of same-type neighbors triggering
+  moves) calibrated from stated racial residential preferences in American Housing
+  Surveys will reproduce observed US metropolitan segregation patterns (measured
+  by dissimilarity index) within ±10 percentage points across 50 metros.
+status: active
+priority: high
+impact_score: 0.71
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+unknowns_addressed:
+  - u-abm-calibration-empirical-social-science-validation
+evidence_links:
+  - type: supporting
+    note: "Clark (1991) Demography 28:1 — survey evidence that white households prefer >50% same-race neighbors while Black households prefer ~50% mixed — these asymmetric thresholds predict incomplete integration even in Schelling's model, consistent with persistence of segregation despite Fair Housing Act"
+    confidence: 0.75
+  - type: supporting
+    note: "Bruch & Mare (2006) Am J Sociol 112:667 — non-linear preference functions (threshold vs. linear) in residential choice models produce qualitatively different macro-level segregation outcomes; linear utility models underpredict tipping point dynamics"
+    confidence: 0.72
+  - type: contradicting
+    note: "Fossett (2011) J Math Sociol 35:114 — Schelling's original model assumes agent homogeneity; heterogeneous preferences (income differences, preference variation within racial groups) substantially reduce predicted segregation levels compared to homogeneous models, requiring calibration to preference distributions not just means"
+    confidence: 0.65
+  - type: contradicting
+    note: "Historical factors (redlining, restrictive covenants, mortgage discrimination) produced path-dependent initial segregation patterns that Schelling's dynamic equilibrium model does not capture — current segregation reflects historical lock-in more than current preferences"
+    confidence: 0.70
+proposed_tests:
+  - description: >
+      American Housing Survey (AHS) preference data (question: what racial
+      composition would you prefer for your neighborhood?) calibrated separately
+      for white, Black, Hispanic, Asian households → distribution of threshold
+      values for each group. Run Schelling ABM on realistic geographic grid for
+      50 US metropolitan areas (grid resolution calibrated to census tract size).
+      Measure predicted dissimilarity index D after 50-100 iterations vs. observed
+      2020 census dissimilarity index. Test: |D_predicted - D_observed| < 10
+      percentage points for ≥70% of metros. Key controls: include income
+      stratification (households can only move to affordable locations) and
+      historical initial conditions from 1950 census.
+  - description: >
+      Natural experiment: compare ABM predictions for metros with different
+      Fair Housing enforcement track records (proxied by audit discrimination
+      study results from 1989-2015 HUD studies) vs. actual segregation change
+      over the same period. ABM with preference calibration but without structural
+      discrimination as a model parameter should underpredict segregation persistence
+      in high-discrimination metros — quantifying the component of segregation
+      attributable to ongoing housing discrimination vs. preference dynamics.
+related_disciplines:
+  - social-science
+  - mathematics
+  - computational-social-science
+  - urban-planning

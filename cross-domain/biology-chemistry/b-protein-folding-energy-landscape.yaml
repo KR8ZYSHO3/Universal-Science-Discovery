@@ -1,0 +1,105 @@
+id: b-protein-folding-energy-landscape
+title: >
+  Protein folding is explained by the funnel-shaped energy landscape theory:
+  the native state is a deep, narrow free energy minimum, folding follows a
+  downhill path through G(Q) parameterized by fraction of native contacts Q,
+  and AlphaFold2 implicitly learns this landscape via evolutionary covariance
+  contact predictions with near-experimental accuracy.
+status: established
+fields:
+  - biology
+  - chemistry
+  - biophysics
+  - computational-biology
+  - statistical-mechanics
+bridge_claim: >
+  Levinthal's paradox (1969): a 100-amino-acid protein has ~3^100 ≈ 10^48
+  conformations; even sampling at 10^13/s would take 10^27 years — far longer
+  than the age of the universe. Yet proteins fold reproducibly in milliseconds
+  to microseconds. Resolution: the energy landscape is funneled (Wolynes,
+  Onuchic, Dill — "new view" of protein folding).
+
+  The funnel picture: instead of a flat random energy landscape, the native
+  state has a deep, narrow free energy minimum. The denatured ensemble occupies
+  a broad, shallow basin. Folding is cooperative: as contacts form, stabilization
+  from native contacts outweighs the entropic cost of conformation restriction,
+  creating a downhill slope toward the native state.
+
+  Quantitative framework: free energy G(Q) as a function of Q = fraction of
+  native contacts. For a two-state folder (most small proteins <100 aa):
+  G(Q) has two minima (denatured at Q≈0, native at Q≈1) separated by a barrier
+  ΔG‡. Folding rate: k_f = k₀ exp(−ΔG‡/RT). Φ-value analysis: mutate residue i
+  and measure k_f and K_eq changes to probe the transition state structure —
+  Φ = (ΔΔG‡/ΔΔG_eq) ∈ [0,1] indicates whether residue i is structured (Φ≈1)
+  or disordered (Φ≈0) in the transition state.
+
+  Chemical physics connection: the folding funnel is formally a rough free energy
+  landscape in a high-dimensional configuration space, analogous to spin glass
+  energy landscapes (Edwards-Anderson model). The GREM (Generalized Random Energy
+  Model) of Derrida predicts that proteins avoid the glass transition through
+  evolutionary optimization — the native-state energy is lower than the glass
+  transition temperature, so folding is directed, not glassy. This requires
+  ΔG_native − ΔG_glass ≥ δ (the "stability gap").
+
+  AlphaFold2 (Jumper et al. 2021): attention-based neural network achieves
+  ~0.96 Å RMSD for single-domain proteins. Key insight: evolutionary covariation
+  of residue pairs in multiple sequence alignments (MSAs) encodes contact
+  information — correlated mutations are proxies for spatial contacts.
+  AlphaFold2's evoformer module implicitly learns the energy landscape structure
+  from evolutionary data; structure templates allow near-experimental accuracy
+  without explicit physics. The network effectively computes an approximate
+  minimum of the free energy landscape G(Q) without simulating folding dynamics.
+translation_table:
+  - field_a_term: protein folding funnel
+    field_b_term: funneled free energy landscape in configuration space G(Q)
+    note: Native state = deep free energy minimum; denatured = broad entropic basin
+  - field_a_term: fraction of native contacts Q
+    field_b_term: order parameter for folding phase transition
+    note: Q ∈ [0,1]; two-state folding = first-order-like transition at Q*
+  - field_a_term: folding rate k_f = k₀ exp(−ΔG‡/RT)
+    field_b_term: Arrhenius/Kramers rate for barrier crossing on free energy surface
+    note: k₀ ~ 10^7 s⁻¹ for diffusion-limited contact formation
+  - field_a_term: Φ-value analysis (mutant effect on k_f and K_eq)
+    field_b_term: probe of transition state structure — position of TS on folding funnel
+    note: Φ ≈ 1 → residue natively structured in TS; Φ ≈ 0 → disordered
+  - field_a_term: stability gap (E_native − E_glass > δ)
+    field_b_term: condition for directed folding vs. glass transition (Bryngelson-Wolynes)
+    note: Evolution has optimized sequences to satisfy the stability gap
+  - field_a_term: AlphaFold2 evoformer attention
+    field_b_term: learned approximation to minimum of G(Q) from evolutionary data
+    note: Contact predictions from MSA covariation are a compressed representation of the landscape
+related_unknowns:
+  - u-protein-folding-alphafold2-de-novo-design-limits
+related_hypotheses:
+  - h-protein-folding-funnel-alphafold2-contact-prediction-mechanism
+cross_pollination_opportunities:
+  - >
+    De novo protein design (Baker lab, Rosetta; ProteinMPNN + ESMFold): given a
+    target structure, inverse fold to find sequences that fold into it. AlphaFold2
+    trained on evolution-selected sequences; de novo design explores sequence
+    space outside evolutionary history. Connecting energy landscape theory to
+    generative AI (RFdiffusion, Chroma) could provide principled design criteria.
+  - >
+    Intrinsically disordered proteins (IDPs): many regulatory proteins lack a
+    stable folded structure (the IDP landscape has many equally deep minima —
+    a flat funnel). The energy landscape framework predicts IDP behavior;
+    NMR and single-molecule FRET are the primary experimental probes. Bridging
+    energy landscape theory and structural biology of disorder.
+communication_gap: >
+  The energy landscape framework was developed by theoretical biophysicists
+  (Wolynes, Onuchic, Bryngelson, Dill) using statistical mechanics language
+  not standard in biochemistry. Experimental protein chemists focused on
+  Φ-value analysis and kinetics without the landscape framing. AlphaFold2
+  emerged from machine learning, disconnected from the biophysics theory.
+  The theoretical prediction that AlphaFold2 implicitly computes the energy
+  landscape minimum is not in the AlphaFold2 paper — it is a post-hoc
+  interpretation that bridges the computational and theoretical communities.
+last_reviewed: "2026-05-06"
+references:
+  - note: Levinthal (1969) J Chim Phys 65:44 — Levinthal's paradox statement
+  - doi: "10.1073/pnas.84.21.7524"
+    note: Bryngelson & Wolynes (1987) PNAS 84:7524 — statistical mechanics of protein folding and spin glasses
+  - doi: "10.1038/nsb0497-10"
+    note: Dill & Chan (1997) Nat Struct Biol 4:10 — from Levinthal to pathways to funnels
+  - doi: "10.1038/s41586-021-03819-2"
+    note: Jumper et al. (2021) Nature 596:583 — AlphaFold2 protein structure prediction

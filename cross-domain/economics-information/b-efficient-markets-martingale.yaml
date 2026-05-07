@@ -1,0 +1,113 @@
+id: b-efficient-markets-martingale
+title: >
+  The Efficient Market Hypothesis (Fama 1970) — that asset prices reflect all
+  available information — is the statement that price processes are martingales
+  (E[P_{t+1}|F_t] = P_t); market anomalies are quantifiable as residual mutual
+  information between price history and future returns.
+status: established
+fields:
+  - economics
+  - information-theory
+  - probability-theory
+  - finance
+  - stochastic-processes
+
+bridge_claim: >
+  Fama (1970) defined the Efficient Market Hypothesis (EMH): asset prices
+  fully reflect all available information. Samuelson (1965) showed that this
+  is mathematically equivalent to the statement that price processes are
+  martingales: E[P_{t+1} | F_t] = P_t, where F_t is the filtration of all
+  information available at time t.
+
+  The information-theoretic interpretation (Cover & Thomas 2006) is:
+  - An efficient market is a zero-redundancy channel -- no trading strategy
+    based on public information (F_t) can extract systematic profit,
+    because the channel from price history to future prices carries no
+    exploitable mutual information I(P_{t+1}; history | current price) = 0.
+  - Insider trading = exploiting a channel with strictly higher capacity than
+    the public channel. The insider has access to F_t ∪ {private information},
+    giving a strictly richer filtration and positive mutual information with
+    future prices.
+  - Market anomalies (momentum, mean-reversion, calendar effects) =
+    residual mutual information between lagged returns and future returns.
+    Their existence quantifies the information deficit: I(P_{t+k}; P_{t}, P_{t-1}, ...)
+    for k > 0 should be zero in an efficient market.
+
+  The Kelly criterion (Kelly 1956) provides the operational connection:
+  the optimal growth rate of a betting strategy equals the mutual information
+  between the bettor's signal and the outcome. In an efficient market (zero
+  mutual information), the optimal Kelly growth rate is zero — consistent with
+  the EMH.
+
+  Lo's (2004) Adaptive Market Hypothesis extends this: markets become more
+  efficient as arbitrageurs eliminate exploitable mutual information, but
+  novel information structures (new asset classes, structural breaks) create
+  temporary inefficiencies while traders adapt. Market efficiency is a dynamic
+  equilibrium of information processing, not a static property.
+
+translation_table:
+  - field_a_term: "Efficient market (EMH, Fama 1970)"
+    field_b_term: "Zero-redundancy channel (no exploitable mutual information)"
+    note: "Efficient market = channel with zero capacity for systematic profit extraction"
+  - field_a_term: "Martingale property E[P_{t+1}|F_t] = P_t"
+    field_b_term: "Zero mutual information I(P_{t+1}; P_t, P_{t-1}, ...) = 0"
+    note: "Mathematical equivalence: martingale ↔ unpredictability ↔ zero MI"
+  - field_a_term: "Insider trading (private information advantage)"
+    field_b_term: "Side channel (higher-capacity channel available to privileged sender)"
+    note: "Insider has access to larger filtration F_t; strictly positive MI with future prices"
+  - field_a_term: "Market anomaly (momentum, mean-reversion)"
+    field_b_term: "Residual mutual information I(future return; price history)"
+    note: "Anomalies quantify inefficiency as exploitable MI; should decay as arbitrageurs act"
+  - field_a_term: "Kelly criterion (optimal bet size)"
+    field_b_term: "Channel capacity (maximum information extraction rate)"
+    note: "Kelly growth rate = MI between signal and outcome; zero in efficient market"
+  - field_a_term: "Adaptive Market Hypothesis (Lo 2004)"
+    field_b_term: "Adaptive coding (channel capacity changes as agents learn)"
+    note: "Markets dynamically approach zero-redundancy as traders eliminate MI"
+
+related_hypotheses:
+  - h-martingale-ecological-pricing
+
+cross_pollination_opportunities:
+  - >
+    Information-theoretic measures of market efficiency (mutual information
+    between lagged returns, transfer entropy between assets) provide more
+    sensitive and assumption-free tests of the EMH than autocorrelation-based
+    tests. Applying non-parametric MI estimators (KSG estimator) to high-
+    frequency trading data would quantify the residual channel capacity of
+    major asset markets.
+  - >
+    The martingale/EMH framework can be applied to prediction markets and
+    collective intelligence platforms (PredictIt, Metaculus): testing whether
+    crowd probability estimates are martingales provides a direct measure of
+    collective information efficiency in non-financial domains.
+  - >
+    Ecosystem service markets (carbon credits, water quality trading) are
+    structurally inefficient because ecological information is difficult to
+    price. The mutual information framework quantifies the information deficit
+    between market prices and true ecological state — providing a rigorous
+    foundation for corrective pricing mechanisms.
+
+communication_gap: >
+  Fama (1970) and Samuelson (1965) wrote for finance journals without using
+  information-theoretic language. Shannon's information theory was known to
+  them but not operationalised in the EMH context. Cover & Thomas (2006)
+  discuss the Kelly criterion and information theory but the explicit
+  connection to market efficiency is not a central theme. Lo's Adaptive Market
+  Hypothesis (2004) uses the information metaphor but not formal mutual
+  information. Finance researchers use statistical tools (autocorrelation,
+  variance ratio tests) rather than information-theoretic measures because
+  the latter require large samples and non-parametric estimators that were
+  computationally expensive until recently.
+
+last_reviewed: "2026-05-06"
+
+references:
+  - doi: "10.2307/2325486"
+    note: "Fama (1970) J Finance 25:383 — Efficient Capital Markets review"
+  - doi: "10.1287/mnsc.11.6.B197"
+    note: "Samuelson (1965) Ind Mgmt Rev 6:41 — Proof that properly anticipated prices fluctuate randomly"
+  - note: "Cover & Thomas (2006) Elements of Information Theory, 2nd ed. (Wiley) — Kelly criterion and information theory"
+  - doi: "10.3905/jpm.2004.442611"
+    note: "Lo (2004) J Portfolio Mgmt 30:15 — Adaptive Market Hypothesis"
+  - note: "Kelly (1956) Bell Syst Tech J 35:917 — A New Interpretation of Information Rate"

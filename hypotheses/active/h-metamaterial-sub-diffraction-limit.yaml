@@ -1,0 +1,41 @@
+id: h-metamaterial-sub-diffraction-limit
+title: >
+  Negative-index metamaterials (NIMs) cannot achieve sub-diffraction imaging
+  at optical frequencies in practical systems because evanescent wave amplification
+  is overwhelmed by absorption losses (Im(ε) > 0.1 at visible frequencies)
+  before the resolution exceeds λ/4, making the perfect lens hypothesis unachievable
+  without fundamentally new material platforms.
+status: active
+priority: medium
+impact_score: 0.68
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+unknowns_addressed:
+  - u-metamaterial-wave-control
+evidence_links:
+  - type: supporting
+    note: "Pendry (2000) PRL perfect lens hypothesis: NIM with n=-1 amplifies evanescent waves, restoring sub-wavelength information"
+    confidence: 0.60
+  - type: contradicting
+    note: "Garcia & Nieto-Vesperinas (2002) absorption prevents evanescent wave amplification: resolution bound λ/[2π·Im(n)] in lossy NIM"
+    confidence: 0.80
+  - type: contradicting
+    note: "Blaikie & Melville (2005) experimental near-field: achieved λ/6 resolution with silver film at UV — but only for quasi-static regime, not true far-field imaging"
+    confidence: 0.72
+proposed_tests:
+  - description: >
+      Loss quantification benchmark: measure Im(n) for 5 optical NIM designs
+      (silver fishnet, Si pillar, TiO₂ nanorod, graphene-enhanced, epsilon-near-zero)
+      at 600nm wavelength using ellipsometry + Kramers-Kronig. Compute theoretical
+      resolution limit from Garcia-Nieto formula. Test: all designs limited to
+      >λ/6 in far-field configuration.
+  - description: >
+      Computational design search: use adjoint optimization to find the minimum-loss
+      NIM structure at 633nm. Test whether any passive dielectric design achieves
+      Im(n) < 0.01 sufficient for λ/10 resolution. If not, active gain inclusion
+      required — test gain-compensated NIM design.
+related_disciplines:
+  - photonics
+  - nanophotonics
+  - optical-physics

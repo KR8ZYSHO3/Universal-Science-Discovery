@@ -1,0 +1,106 @@
+id: b-sat-phase-transition
+title: >
+  Random 3-SAT undergoes a sharp satisfiability phase transition at clause-to-variable
+  ratio α ≈ 4.267 — the computational hardness peak maps onto a spin-glass phase
+  transition (replica-symmetry breaking), linking P vs. NP to the statistical
+  physics of disordered systems.
+status: proposed
+fields:
+  - computer-science
+  - mathematics
+  - statistical-physics
+  - combinatorics
+bridge_claim: >
+  A random 3-SAT instance with n variables and m = αn clauses (each clause containing
+  3 random variables in random polarity) undergoes a sharp phase transition at critical
+  ratio α_c ≈ 4.267 (Kirkpatrick & Selman 1994; rigorous bounds by Mézard et al. 2002):
+  - α < α_c: instance is satisfiable with probability → 1 as n → ∞
+  - α > α_c: instance is unsatisfiable with probability → 1 as n → ∞
+  - α ≈ α_c: hardest instances (median solve time scales exponentially with n for
+    complete solvers like DPLL; phase boundary contains the NP-hard instances)
+
+  This phase transition maps exactly onto a spin-glass phase transition in statistical
+  physics. Map each variable to an Ising spin σ_i ∈ {±1} (True = +1, False = -1).
+  Each clause imposes a constraint that (at least one literal is True) → an energy
+  function E = number of violated clauses. The satisfiability problem is finding a
+  zero-energy ground state.
+
+  The statistical physics of this random constraint satisfaction problem (CSP) is
+  described by the replica method (Mézard, Parisi, Virasoro 1987). At α < α_c,
+  the solution space is one large cluster (replica-symmetric phase). At α ≈ α_c,
+  the solution space shatters into exponentially many isolated clusters (replica-
+  symmetry breaking, glass phase) — making it exponentially hard to find any solution
+  even though solutions exist. Above α_c: no solutions.
+
+  The survey propagation algorithm (Mézard et al. 2002), derived from the physics
+  of the glass phase (cavity method / belief propagation), solves random 3-SAT near
+  α_c efficiently for typical instances — showing that physics-derived algorithms
+  can defeat the "NP-hard" classification for average-case instances.
+
+  Connection to P vs. NP: the worst-case hardness of 3-SAT (the NP-completeness
+  result) is concentrated at the phase boundary. The glass-phase structure suggests
+  that hardness comes from the geometrical organization of the solution space, not
+  from any simple local obstruction — supporting the hypothesis that the P≠NP proof
+  requires understanding the statistical physics of disordered systems.
+translation_table:
+  - field_a_term: Boolean variable x_i
+    field_b_term: Ising spin σ_i ∈ {-1, +1}
+  - field_a_term: 3-SAT clause (disjunction of 3 literals)
+    field_b_term: 3-spin interaction term in random energy model
+  - field_a_term: clause-to-variable ratio α = m/n
+    field_b_term: inverse temperature / coupling strength in spin glass
+  - field_a_term: satisfiable instance (α < α_c)
+    field_b_term: paramagnetic phase (replica-symmetric, single Gibbs state)
+  - field_a_term: unsatisfiable instance (α > α_c)
+    field_b_term: frustrated phase (no zero-energy ground state)
+  - field_a_term: hardest instances at α ≈ α_c
+    field_b_term: replica-symmetry breaking / spin-glass phase
+  - field_a_term: exponential solver runtime at phase transition
+    field_b_term: exponential ground-state search in spin glass (no polynomial algorithm known)
+  - field_a_term: DPLL backtracking algorithm
+    field_b_term: simulated annealing in energy landscape
+  - field_a_term: survey propagation algorithm
+    field_b_term: cavity method / belief propagation from statistical physics
+related_unknowns:
+  - u-sat-phase-transition-p-np
+related_hypotheses:
+  - h-spin-glass-p-np-separation
+cross_pollination_opportunities:
+  - >
+    The replica method from statistical physics has been rigorously justified for
+    some models (Guerra, Talagrand, Panchenko). Applying rigorous replica theory to
+    random 3-SAT could provide exact results for the phase transition location α_c,
+    and potentially the computational complexity of the transition region, advancing
+    understanding of average-case hardness.
+  - >
+    Survey propagation is a message-passing algorithm derived from cavity physics.
+    Systematic comparison with other message-passing algorithms (belief propagation,
+    AMP) could identify which features of the glass-phase solution space are
+    algorithmically exploitable, pointing to new solver designs for industrial SAT
+    instances (chip verification, cryptography).
+  - >
+    Phase transitions in other combinatorial optimization problems (graph coloring,
+    random k-XORSAT, maximum independent set) form a family of CSPs with different
+    replica-symmetry-breaking structures. A unified statistical physics classification
+    of CSP phase transitions could predict which problem classes are algorithmically
+    tractable near threshold.
+communication_gap: >
+  Computer scientists studying algorithm complexity and statistical physicists studying
+  disordered systems independently discovered similar phase transitions in the 1990s.
+  The communities have converged somewhat (the survey propagation work was a landmark
+  collaboration), but the formal connection between computational complexity classes
+  and equilibrium statistical mechanics phase diagrams remains incomplete. The P≠NP
+  question is studied as pure mathematics in complexity theory but as a physics problem
+  in the statistical mechanics of computation community — rare cross-pollination exists
+  between STOC/FOCS proceedings and Physical Review Letters.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1126/science.264.5163.1297"
+    note: Kirkpatrick & Selman (1994) Science 264:1297 — discovery of SAT phase transition
+  - doi: "10.1126/science.297.5582.812"
+    note: Mézard, Parisi & Zecchina (2002) Science 297:812 — survey propagation / cavity method
+  - note: Cook (1971) STOC — NP-completeness of SAT
+  - doi: "10.1038/22055"
+    note: Monasson et al. (1999) Nature 400:133 — determining computational complexity of 3-SAT
+  - doi: "10.1073/pnas.97.2.792"
+    note: Mézard & Montanari (2009) — information, physics, computation (book)

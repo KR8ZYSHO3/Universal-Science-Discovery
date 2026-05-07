@@ -1,0 +1,26 @@
+id: u-lyapunov-function-discovery-automation
+title: Can Lyapunov functions for arbitrary nonlinear dynamical systems be discovered automatically, and what is the computational complexity boundary of the stability verification problem?
+status: open
+priority: high
+disciplines:
+  - control-theory
+  - dynamical-systems-theory
+  - optimization
+  - formal-verification
+summary: >
+  Finding a Lyapunov function V(x) > 0 with V̇ ≤ 0 certifies stability but no general
+  algorithm exists for arbitrary nonlinear systems. Sum-of-squares (SOS) programming
+  automates the search for polynomial Lyapunov functions within a specified degree bound,
+  but (1) there exist stable systems with no polynomial Lyapunov function; (2) the SOS
+  approach scales exponentially in the polynomial degree; (3) for non-polynomial dynamics
+  (e.g., systems with saturation, hysteresis, or learned neural network controllers),
+  no systematic method exists. Neural Lyapunov methods (Chang et al. 2019) use neural
+  networks as Lyapunov function approximators with counterexample-guided synthesis, but
+  lack formal soundness guarantees. The fundamental complexity of the stability decision
+  problem for polynomial systems is an open question — it is known to be harder than
+  semidefinite programming but the exact class is uncharacterized.
+systematic_gaps:
+  - No algorithm is known that solves the Lyapunov function existence problem for arbitrary polynomial ODEs — whether such an algorithm exists is open.
+  - Neural Lyapunov methods lack formal verification guarantees; certified approaches (verified arithmetic) are computationally prohibitive at scale.
+  - The connection between Lyapunov stability and information-theoretic complexity of the system's attractors has not been formalised.
+last_reviewed: "2026-05-06"

@@ -1,0 +1,79 @@
+id: b-simulated-annealing-stat-mech
+title: >
+  The simulated annealing metaheuristic (Kirkpatrick et al. 1983) is a direct
+  algorithmic implementation of statistical-mechanical annealing: the Metropolis
+  acceptance criterion mirrors the Boltzmann factor and the cooling schedule
+  controls convergence to the configuration-space ground state.
+status: established
+fields:
+  - computer-science
+  - combinatorial-optimization
+  - statistical-mechanics
+  - thermodynamics
+bridge_claim: >
+  Kirkpatrick et al. (1983) introduced simulated annealing by recognising that
+  combinatorial optimization problems are formally equivalent to finding the
+  ground state of a physical system. The acceptance probability P(accept) =
+  exp(-ΔE/T) in the algorithm is precisely the Boltzmann factor from statistical
+  mechanics, where ΔE is the change in cost function and T is the computational
+  temperature. The Metropolis algorithm (1953), originally designed for sampling
+  the canonical ensemble in molecular simulation, is the inner loop of simulated
+  annealing unchanged. A slowly decreasing temperature schedule — analogous to
+  physical annealing where slow cooling allows atoms to find low-energy
+  configurations — provably converges to the global optimum given a logarithmic
+  cooling schedule T(t) ∝ 1/log(t) (Geman & Geman 1984). The complete mapping:
+  cost function → energy, solution space → configuration space, temperature →
+  kT, global optimum → ground state, local moves → Monte Carlo steps. The
+  algorithm makes every combinatorial optimization problem into a physics problem.
+translation_table:
+  - field_a_term: cost function E(x)
+    field_b_term: potential energy of a configuration
+    note: minimizing cost = finding ground state
+  - field_a_term: acceptance probability exp(-ΔE/T)
+    field_b_term: Boltzmann factor for thermal fluctuations
+    note: identical mathematical expression in both fields
+  - field_a_term: computational temperature T
+    field_b_term: thermal energy kT of the physical system
+    note: controls the width of the Boltzmann distribution over solutions
+  - field_a_term: cooling schedule T(t) → 0
+    field_b_term: physical annealing (slow cooling from melt)
+    note: logarithmic schedule guarantees convergence; faster schedules → local optima
+  - field_a_term: global optimum of cost function
+    field_b_term: ground state (minimum energy configuration)
+  - field_a_term: neighborhood of a solution (local moves)
+    field_b_term: configuration space accessible by thermal fluctuations
+related_unknowns:
+  - u-optimal-cooling-schedule-convergence
+related_hypotheses:
+  - h-simulated-annealing-quantum-speedup
+cross_pollination_opportunities:
+  - >
+    Quantum annealing (D-Wave systems) replaces thermal fluctuations with quantum
+    tunneling to escape local minima. The quantum Metropolis algorithm and quantum
+    simulated annealing have theoretical speedup advantages for certain problem
+    classes. The physics-to-algorithm direction has already been productive; the
+    reverse direction — using quantum computing insights to improve classical
+    combinatorial optimization — remains underexplored.
+  - >
+    The free energy F = E - TS in statistical mechanics measures the trade-off
+    between energy minimization and entropy maximization. In optimization, this
+    corresponds to the log-partition function, which is the Bayesian evidence.
+    Simulated annealing at finite temperature is therefore sampling from a Bayesian
+    posterior with a temperature-modulated likelihood — connecting this bridge to
+    b-bayesian-inference-stat-mech.
+communication_gap: >
+  The 1983 Kirkpatrick paper appeared in Science and was read by computer scientists
+  who adopted the algorithm without internalizing its statistical-mechanical
+  foundations. Meanwhile, physicists who understand the Boltzmann distribution
+  intimately rarely connect it to combinatorial optimization. The Metropolis (1953)
+  paper is among the most-cited in computational physics yet is rarely cited in
+  the operations research and algorithm design literature where simulated annealing
+  is taught.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1126/science.220.4598.671"
+    note: Kirkpatrick et al. (1983) — Optimization by simulated annealing; Science 220:671
+  - doi: "10.1063/1.1699112"
+    note: Metropolis et al. (1953) — Equation of state calculations by fast computing machines; J Chem Phys 21:1087
+  - note: Černý (1985) — Thermodynamical approach to the traveling salesman problem; J Optim Theory Appl 45:41
+  - note: "van Laarhoven & Aarts (1987) — Simulated Annealing: Theory and Applications; Kluwer"

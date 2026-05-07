@@ -1,0 +1,77 @@
+id: b-optimal-transport-cell-differentiation
+title: >
+  Optimal transport theory (Kantorovich-Wasserstein) maps cell differentiation
+  trajectories in gene expression space as geodesics on a Wasserstein manifold,
+  formally identifying Waddington's epigenetic landscape with a Riemannian
+  geometry and enabling reconstruction of developmental trajectories from
+  single-cell RNA-seq snapshots without tracking individual cells over time.
+status: established
+fields:
+  - mathematics
+  - biology
+  - developmental-biology
+  - optimal-transport
+  - genomics
+  - single-cell-biology
+bridge_claim: >
+  Optimal transport (OT) seeks the minimum-cost plan to morph one probability
+  distribution into another: W_p(μ,ν) = [inf_{γ∈Γ(μ,ν)} ∫d(x,y)^p dγ(x,y)]^(1/p).
+  In developmental biology, a population of cells at time t₁ is a probability
+  distribution μ over gene expression space ℝ^d (d ~ 20,000 genes), and at t₂
+  it is ν. Cell differentiation between snapshots is the optimal transport plan
+  γ* — the minimum total "work" (cost) to transform μ into ν, where cost is
+  measured by gene expression distance. Schiebinger et al. (2019) implement
+  this via entropy-regularised OT (Sinkhorn algorithm): OT_ε(μ,ν) =
+  min_γ [∫c dγ + ε·KL(γ||μ⊗ν)]. The resulting trajectories are geodesics in
+  the 2-Wasserstein space (W₂), which is a Riemannian manifold when restricted
+  to smooth densities. Waddington's (1957) epigenetic landscape — a visual
+  metaphor of cells rolling down valleys — becomes a rigorous object: the
+  Riemannian metric and geodesics of W₂ with a cost function encoding gene
+  regulatory network structure. RNA velocity (La Manno et al. 2018) provides
+  the local velocity field du/dt from spliced/unspliced mRNA ratios, which
+  constrains the OT plan and breaks time-symmetry to give directed trajectories.
+translation_table:
+  - field_a_term: probability distribution μ over ℝ^d
+    field_b_term: cell population distribution over gene expression space
+    note: Each snapshot of single-cell RNA-seq defines an empirical measure
+  - field_a_term: Wasserstein distance W₂(μ,ν)
+    field_b_term: developmental distance between two cell states
+    note: W₂ is the natural metric on the space of developmental trajectories
+  - field_a_term: optimal transport plan γ* ∈ Γ(μ,ν)
+    field_b_term: lineage map from progenitor cells to differentiated progeny
+    note: γ* assigns probability mass — predicts which progenitors give rise to which cell types
+  - field_a_term: geodesic in Wasserstein manifold
+    field_b_term: cell differentiation trajectory (optimal developmental path)
+    note: Waddington's "canalization" is non-uniqueness of geodesics in curved W₂
+  - field_a_term: entropy regularization parameter ε in Sinkhorn
+    field_b_term: stochasticity of cell fate decisions
+    note: ε → 0 recovers deterministic fate; ε > 0 models transcriptional noise
+related_unknowns:
+  - u-wasserstein-cell-fate-noise-geodesic-uniqueness
+related_hypotheses:
+  - h-optimal-transport-waddington-landscape-riemannian-geodesic
+cross_pollination_opportunities:
+  - >
+    Applying Riemannian geometry tools (curvature, parallel transport, conjugate
+    points) to Wasserstein space could predict where cell fate decisions bifurcate
+    (points of non-unique geodesics correspond to developmental decision points).
+  - >
+    The Sinkhorn algorithm's convergence rate gives a principled way to estimate
+    the number of single-cell measurements needed to reliably reconstruct a
+    developmental trajectory — a pure math result with direct experimental design implications.
+communication_gap: >
+  Optimal transport was developed by mathematicians and economists (Kantorovich
+  won the 1975 Nobel Prize in Economics partly for this work) and remained
+  largely outside biology until the computational biology revolution. The
+  single-cell genomics community developed RNA velocity and trajectory inference
+  tools (Monocle, Palantir) with limited awareness of the Wasserstein geometry
+  literature, and the OT mathematics community is often unaware that their theory
+  has direct biological interpretations.
+last_reviewed: "2026-05-06"
+references:
+  - note: "Kantorovich (1942) On the translocation of masses. Dokl Akad Nauk 37:199 [original in Russian]"
+  - doi: "10.1016/j.cell.2019.01.006"
+    note: "Schiebinger et al. (2019) Optimal-transport analysis of single-cell gene expression identifies developmental trajectories in reprogramming. Cell 176:928"
+  - doi: "10.1038/s41586-018-0414-6"
+    note: "La Manno et al. (2018) RNA velocity of single cells. Nature 560:494"
+  - note: "Villani (2009) Optimal Transport: Old and New. Springer Grundlehren vol. 338"

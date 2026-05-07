@@ -1,0 +1,121 @@
+id: b-information-geometry-evolutionary-fitness
+title: >
+  The Fisher information matrix on the space of allele frequency distributions
+  defines the Shahshahani Riemannian metric on population-genetic state space,
+  making Amari's natural gradient descent in statistical learning the exact
+  formal counterpart of Fisher's fundamental theorem — the rate of mean fitness
+  increase equals the Fisher information about the selective environment.
+status: established
+fields:
+  - mathematics
+  - evolutionary-biology
+  - information-theory
+  - statistics
+bridge_claim: >
+  The space of probability distributions over a discrete variable forms a
+  Riemannian manifold equipped with the Fisher information metric
+  g_{ij} = E[∂_i log p · ∂_j log p], where i,j index parameters of the
+  distribution. Amari (1985, 1998) showed that gradient descent on this
+  manifold — the "natural gradient" — follows geodesics and converges faster
+  than Euclidean gradient descent because it accounts for the curvature of
+  the probability simplex.
+
+  In evolutionary biology, Shahshahani (1979) independently derived the
+  identical Riemannian metric on allele frequency space. The metric tensor
+  g_{ij} = δ_{ij}/p_i at an interior point (p_1,...,p_n) of the simplex makes
+  the geometry of selection non-Euclidean: allele frequency changes near
+  fixation boundaries are geometrically amplified, exactly as Amari's natural
+  gradient upweights gradient components in low-probability directions.
+
+  Frank (2012) made the correspondence explicit: the Price equation in
+  Shahshahani geometry states that the rate of mean fitness increase equals the
+  Fisher information I(w; environment), where the information is computed over
+  the environmental parameter that selection is "tracking." This is the
+  information-geometric version of Fisher's fundamental theorem of natural
+  selection (1930): the rate of fitness increase equals the additive genetic
+  variance in fitness. In information geometry, additive genetic variance is
+  the Fisher information.
+
+  The Cramer-Rao bound — no unbiased estimator achieves variance below 1/I —
+  translates to: no population can adapt faster than the Fisher information
+  allows. The speed of evolution is bounded by the amount of statistical
+  information the population encodes about its selective environment.
+
+  Ay et al. (2017) extended this to a full differential-geometric framework for
+  evolution, showing that selection, drift, and mutation each correspond to
+  distinct geometric operations on the population manifold. Recombination
+  introduces a projection operation onto the submanifold of linkage equilibrium.
+
+  The bridge is productive: natural gradient algorithms in machine learning
+  (used in neural network training) are formally equivalent to natural selection.
+  Both navigate the same manifold. Insights about convergence in one field
+  immediately apply to the other.
+translation_table:
+  - field_a_term: "Fisher information matrix g_{ij} (statistics)"
+    field_b_term: "Shahshahani metric tensor on allele frequency simplex (population genetics)"
+    note: Formally identical; derived independently in 1925 (Fisher) and 1979 (Shahshahani)
+  - field_a_term: "Natural gradient ∇̃L = G^{-1} ∇L (Amari)"
+    field_b_term: "Direction of steepest fitness increase in Shahshahani geometry"
+    note: Both follow geodesics on the Fisher information manifold
+  - field_a_term: "Cramer-Rao lower bound: Var(θ̂) ≥ 1/I(θ)"
+    field_b_term: "Speed limit on adaptation: rate of fitness increase ≤ Fisher information"
+    note: Frank (2012) Price equation formulation
+  - field_a_term: "Kullback-Leibler divergence D_KL(p||q)"
+    field_b_term: "Fitness cost of being at allele frequencies p vs. optimal q"
+    note: KL divergence is the squared geodesic distance on the information manifold to first order
+  - field_a_term: "Statistical manifold (family of distributions)"
+    field_b_term: "State space of population genetic configurations"
+    note: The manifold of multinomial distributions on alleles
+  - field_a_term: "Geodesic on the manifold (e-geodesic or m-geodesic)"
+    field_b_term: "Trajectory of allele frequencies under pure selection or drift"
+    note: Selection follows m-geodesics; drift is diffusion on the manifold
+related_unknowns:
+  - u-natural-gradient-selection-convergence-rate-fitness-landscape
+related_hypotheses:
+  - h-natural-gradient-selection-reaches-fitness-optimum-faster-than-euclidean
+cross_pollination_opportunities:
+  - >
+    Natural gradient descent algorithms in deep learning use approximations
+    (K-FAC, KFRA) to the Fisher information matrix. Evolutionary biology has
+    exact formulas for the Fisher metric in specific population models. The two
+    fields can exchange exact analytical solutions to benchmark machine learning
+    approximations.
+  - >
+    The information-geometric speed limit on adaptation predicts the maximum
+    rate of evolutionary response to rapidly changing environments. This gives
+    a quantitative criterion for whether a population can track climate change:
+    if the rate of environmental change exceeds the Fisher information bound,
+    extinction is unavoidable regardless of genetic variance.
+  - >
+    Recombination as projection onto the linkage equilibrium submanifold
+    (Ay et al. 2017) gives a geometric interpretation of why sexual reproduction
+    accelerates adaptation. Machine learning analogs (batch normalization as
+    projection, dropout as manifold regularisation) can be tested for equivalent
+    convergence speedup.
+communication_gap: >
+  Amari's information geometry literature (IEEE Transactions on Information
+  Theory, Neural Computation) and Shahshahani's work (American Mathematical
+  Society Memoirs) are published in completely disjoint communities. Population
+  geneticists rarely read the machine learning or differential geometry
+  literature. The Frank (2012) synthesis was published in the Journal of
+  Evolutionary Biology and has not been widely adopted in either statistics or
+  machine learning. The notation difference — statisticians use Fisher
+  information I, biologists use additive genetic variance V_A — masks the
+  formal identity.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1162/089976698300017746"
+    note: >
+      Amari (1998) Natural gradient works efficiently in learning, Neural Comput
+      10:251 — introduces natural gradient as geodesic descent on statistical manifold
+  - note: >
+      Shahshahani (1979) A new mathematical framework for the study of linkage
+      and selection, AMS Memoir 211 — derives Fisher metric on allele frequency simplex
+  - doi: "10.1111/j.1420-9101.2012.02641.x"
+    note: >
+      Frank (2012) Natural selection. V. How to read the fundamental equations of
+      evolutionary change in terms of information theory, J Evol Biol 25:2377 —
+      explicitly connects Price equation to Fisher information metric
+  - note: >
+      Ay, Jost, Lê & Schwachhöfer (2017) Information Geometry, Springer —
+      comprehensive treatment including evolutionary applications

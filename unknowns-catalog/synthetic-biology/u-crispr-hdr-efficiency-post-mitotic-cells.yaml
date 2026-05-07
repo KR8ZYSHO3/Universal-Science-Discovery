@@ -1,0 +1,49 @@
+id: u-crispr-hdr-efficiency-post-mitotic-cells
+title: >
+  Why is homology-directed repair (HDR) efficiency <1% in post-mitotic neurons,
+  cardiomyocytes, and skeletal muscle cells following CRISPR-Cas9 DSBs, and can
+  prime editing or base editing fully bypass this constraint to enable therapeutic
+  gene correction in non-dividing tissues?
+status: open
+priority: critical
+disciplines:
+  - synthetic-biology
+  - molecular-biology
+  - medicine
+  - cell-biology
+summary: >
+  CRISPR-Cas9 HDR requires the cell to be in S or G2 phase when the homology-directed
+  repair machinery (RAD51, BRCA1/2) is active. Post-mitotic cells (neurons, CMs,
+  skeletal muscle) are permanently in G0/G1 where NHEJ dominates (>99%). This limits
+  precision gene correction in the tissues most relevant to neurological, cardiac, and
+  muscular genetic diseases (Huntington's disease, LMNA cardiomyopathy, Duchenne
+  muscular dystrophy). Prime editing does not require HDR — the pegRNA-encoded reverse
+  transcription creates a 3′ flap resolved by nick-ligation rather than HDR — making
+  it theoretically cell-cycle independent. However, prime editing efficiency in post-
+  mitotic cells in vivo (after AAV delivery) remains <5% in published reports for
+  most loci, compared to >30% in dividing cells. The mechanism underlying this
+  efficiency gap is not understood: is it lower Cas9 expression, different chromatin
+  accessibility, less efficient nick resolution, or competition from MMR pathway?
+systematic_gaps:
+  - The cell-cycle dependence of prime editing vs. ABE/CBE base editing in the same
+    isogenic cell lines (dividing vs. arrested at G0 vs. differentiated post-mitotic)
+    has not been systematically compared.
+  - The role of mismatch repair (MLH1 suppression in PE5max) in post-mitotic cells
+    is unknown — MMR activity may differ in terminally differentiated cells.
+  - In vivo AAV-delivered prime editing efficiency for cardiomyocytes and neurons
+    has not been directly compared to ex vivo data with matched pegRNA designs.
+suggested_hypotheses:
+  - >
+    Prime editing efficiency in post-mitotic cardiomyocytes is limited by competition
+    from the MMR pathway recognizing the 3′ flap as a mismatch substrate; co-delivery
+    of dominant-negative MLH1 (as in PE6 system) will increase prime editing efficiency
+    ≥5-fold in post-mitotic CMs to >20%, enabling therapeutic correction of LMNA
+    point mutations.
+related_bridges:
+  - b-crispr-cas9-gene-editing
+references:
+  - doi: "10.1038/s41586-019-1711-4"
+    note: "Anzalone et al. (2019) Nature 576:149 — prime editing"
+  - doi: "10.1038/s41587-021-01039-7"
+    note: "Chen et al. (2021) Nat Biotechnol — prime editing efficiency determinants"
+last_reviewed: "2026-05-06"

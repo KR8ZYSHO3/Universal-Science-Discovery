@@ -1,0 +1,130 @@
+id: b-compressed-sensing-sparse-recovery
+title: >
+  Compressed sensing (Candès-Romberg-Tao, Donoho 2006) proves that k-sparse
+  signals in ℝⁿ can be exactly recovered from m = O(k log n/k) random linear
+  measurements via ℓ₁ minimisation — far fewer than the n measurements required
+  by the Shannon-Nyquist theorem — creating a mathematical foundation for
+  sub-Nyquist sampling that has revolutionised MRI, radar, and high-dimensional
+  statistics.
+status: established
+fields:
+  - mathematics
+  - computer-science
+  - statistics
+  - signal-processing
+  - applied-mathematics
+bridge_claim: >
+  The Shannon-Nyquist sampling theorem states that a band-limited signal must
+  be sampled at twice the highest frequency to allow perfect reconstruction.
+  For a signal with n degrees of freedom, n measurements are required.
+  Compressed sensing (CS) breaks this barrier for sparse signals.
+
+  Candès, Romberg & Tao (2006) and Donoho (2006) independently proved: if a
+  signal x ∈ ℝⁿ has at most k nonzero entries (k-sparse), it can be
+  reconstructed exactly from m = O(k log(n/k)) linear measurements y = Ax,
+  where A ∈ ℝ^{m×n} is a random Gaussian or Bernoulli matrix, with m << n.
+  The reconstruction algorithm is ℓ₁ minimisation (LASSO):
+    min ||x||₁  subject to  Ax = y
+  The ℓ₁ norm promotes sparsity: it is the convex relaxation of the ℓ₀ norm
+  (count of nonzero entries), and ℓ₁ minimisation recovers the same solution
+  as the NP-hard ℓ₀ problem when A satisfies the Restricted Isometry Property
+  (RIP): for all k-sparse vectors x, (1-δ)||x||₂ ≤ ||Ax||₂ ≤ (1+δ)||x||₂.
+  Random matrices satisfy RIP with high probability when m = O(k log(n/k)).
+
+  The mathematical connection to statistics: Tibshirani (1996) introduced the
+  LASSO (Least Absolute Shrinkage and Selection Operator) for variable selection
+  in regression with ℓ₁ penalty on coefficients. Compressed sensing provides
+  the theoretical foundation explaining why ℓ₁ minimisation recovers sparse
+  solutions: the geometry of the ℓ₁ ball has corners aligned with sparse
+  solutions, making the constraint ||Ax=y|| tangent to a sparse vertex.
+
+  The connection to computer science: the RIP condition is related to the
+  Johnson-Lindenstrauss lemma (random projections approximately preserve
+  pairwise distances). The algorithmic complexity of sparse recovery is
+  O(m²n) for basis pursuit (convex optimisation) and O(mn log n) for greedy
+  algorithms (matching pursuit, OMP). These are tractable for large problems.
+
+  Applications that the mathematics enabled:
+  1. MRI (Lustig et al. 2007): MRI measures k-space (Fourier domain) — if the
+     image is sparse in wavelets, 10× fewer k-space samples needed → scan time
+     reduced from 30 to 3 minutes for cardiac MRI.
+  2. Single-pixel camera (Rice University): one photodetector + random
+     optical modulator acquires compressed measurements; reconstruct full image
+     via ℓ₁ minimisation. Works in infrared where detector arrays are expensive.
+  3. Seismic imaging: seismic data is acquired sparsely (shot spacing >> required
+     by Nyquist); CS reconstructs full seismic volumes.
+  4. Genomics: compressed sensing applied to pooled genetic testing — test n
+     samples with m < n pool tests; recover individual test results if sparsity
+     (infection rate) is low (used in COVID-19 pooled testing).
+translation_table:
+  - field_a_term: "k-sparse signal (at most k nonzeros out of n) (mathematics)"
+    field_b_term: "Parsimonious model: few active features in a high-dimensional dataset"
+    note: Sparsity is the mathematical formalisation of Occam's razor
+  - field_a_term: "Restricted Isometry Property (RIP) of measurement matrix A"
+    field_b_term: "Near-orthogonality of regressor columns in statistics (low coherence)"
+    note: RIP is the condition guaranteeing LASSO recovers sparse solution exactly
+  - field_a_term: "ℓ₁ minimisation (LASSO, basis pursuit)"
+    field_b_term: "Sparse variable selection in high-dimensional regression"
+    note: Formally identical; compressed sensing provides exact recovery guarantees for LASSO
+  - field_a_term: "Random Gaussian measurement matrix A (compressed sensing)"
+    field_b_term: "Random projection / dimensionality reduction (Johnson-Lindenstrauss)"
+    note: Both rely on random matrices satisfying RIP/JL with high probability
+  - field_a_term: "Shannon-Nyquist rate (n measurements for n-dimensional signal)"
+    field_b_term: "Classical statistics: need n observations to estimate n parameters"
+    note: CS breaks the Nyquist barrier; high-dimensional statistics needs p << n regularisation
+  - field_a_term: "Sparsity in wavelet domain (MRI image)"
+    field_b_term: "Feature sparsity in biological signals (few active genes, sparse neural codes)"
+    note: Natural images are wavelet-sparse; many biological signals are similarly sparse
+related_unknowns:
+  - u-rip-constant-optimal-measurement-matrix-deterministic-construction
+related_hypotheses:
+  - h-compressed-sensing-mri-10x-scan-time-reduction-clinical-safety
+cross_pollination_opportunities:
+  - >
+    Compressed sensing applied to neuroscience: neural population activity is
+    sparse (typically <5% of neurons fire in any 20 ms window). Calcium imaging
+    and multi-electrode arrays can acquire m << n neural measurements if the
+    recording matrix satisfies RIP. This would allow whole-brain recording at
+    cellular resolution with dramatically fewer electrodes, enabling closed-loop
+    brain-machine interfaces.
+  - >
+    Compressive genomics: the human genome has n=3×10⁹ base pairs but only
+    k~10⁴ causal variants for most diseases. GWAS requires n>>k measurements;
+    compressed sensing theory suggests m=O(k log n)~10⁵ pooled samples could
+    recover all causal variants — orders of magnitude cheaper than individual
+    sequencing at population scale.
+  - >
+    Deep learning and compressed sensing: neural networks learn implicit sparse
+    representations. The connection between weight sparsity in neural networks
+    and the RIP condition of the weight matrix is unexplored. Compressed sensing
+    theory could provide bounds on the minimum number of training examples needed
+    to learn a k-sparse function.
+communication_gap: >
+  Compressed sensing was developed by applied mathematicians and signal
+  processing engineers. Statisticians developed LASSO independently for
+  regression problems. The formal equivalence (LASSO = basis pursuit under
+  different noise models) was recognised within a few years, but the
+  communities still publish in separate venues (IEEE Transactions on Information
+  Theory / Applied and Computational Harmonic Analysis vs. Annals of Statistics /
+  Journal of the Royal Statistical Society). Medical imaging adopted CS
+  aggressively (FDA approved compressed sensing MRI in 2017), while clinical
+  communities were unaware of the underlying mathematical theory.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1109/TIT.2006.871582"
+    note: >
+      Candès, Romberg & Tao (2006) Robust uncertainty principles: exact signal
+      recovery from highly incomplete frequency information, IEEE Trans Inf Theory
+      52:489 — one of the founding CS papers
+  - doi: "10.1109/TIT.2006.885507"
+    note: >
+      Donoho (2006) Compressed sensing, IEEE Trans Inf Theory 52:1289 —
+      second founding paper; establishes ℓ₁ recovery and RIP framework
+  - doi: "10.1111/j.2517-6161.1996.tb02080.x"
+    note: >
+      Tibshirani (1996) Regression shrinkage and selection via the LASSO,
+      J R Stat Soc B 58:267 — introduces LASSO for sparse regression
+  - doi: "10.1002/mrm.21391"
+    note: >
+      Lustig, Donoho & Pauly (2007) Sparse MRI: the application of compressed
+      sensing for rapid MR imaging, Magn Reson Med 58:1182 — CS applied to MRI

@@ -1,0 +1,77 @@
+id: b-michaelis-menten-enzyme-kinetics
+title: "Michaelis-Menten enzyme kinetics ↔ hyperbolic saturation — a universal functional form across biology, chemistry, and ecology"
+status: established
+fields:
+  - biochemistry
+  - molecular-biology
+  - physical-chemistry
+  - ecology
+  - pharmacology
+
+bridge_claim: >
+  The Michaelis-Menten equation v = V_max[S]/(K_M + [S]) describes enzyme-catalysed
+  reaction rates via a quasi-steady-state approximation (Briggs & Haldane 1925)
+  applied to the E + S ⇌ ES → E + P mechanism. The Michaelis constant K_M ≈ (k_off
+  + k_cat)/k_on is the substrate concentration at half-maximal velocity. This
+  hyperbolic saturation equation is mathematically identical to: (1) the Langmuir
+  adsorption isotherm θ = [A]/(K_d + [A]) from surface chemistry; (2) the Hill
+  equation (n=1 case) from receptor pharmacology; (3) Monod kinetics μ = μ_max[S]/(K_s+[S])
+  for microbial growth on a limiting nutrient; (4) Holling type II functional response
+  in ecology; and (5) Lineweaver-Burk (double-reciprocal) plots used in enzyme
+  characterisation. The same mathematical form — hyperbolic saturation with two
+  parameters (maximum rate and half-saturation constant) — appears whenever a
+  process involves (a) a finite number of binding sites, (b) reversible association,
+  and (c) a rate-limiting step. It is the canonical model for any saturable process
+  in biology.
+
+translation_table:
+  - field_a_term: "maximum velocity V_max (enzyme kinetics)"
+    field_b_term: "maximum adsorption θ_max (Langmuir) / μ_max (Monod) / a (Holling)"
+    note: "The saturation ceiling — set by the number of active sites or handling time"
+  - field_a_term: "Michaelis constant K_M"
+    field_b_term: "Langmuir K_d (dissociation const) / Monod K_s / Holling h (half-saturation)"
+    note: "The half-saturation constant — substrate/ligand concentration at 50% of maximum"
+  - field_a_term: "enzyme-substrate complex ES"
+    field_b_term: "bound receptor-ligand complex / adsorbed molecule / predator handling prey"
+    note: "The occupied state that saturates the system"
+  - field_a_term: "k_cat (catalytic rate constant)"
+    field_b_term: "reaction rate after binding / desorption rate / prey handling rate"
+    note: "The rate-limiting step following binding"
+  - field_a_term: "substrate concentration [S]"
+    field_b_term: "ligand/adsorbate concentration / nutrient concentration / prey density"
+    note: "The independent variable driving the saturable process"
+  - field_a_term: "competitive inhibition (shifts K_M)"
+    field_b_term: "ligand competition / nutrient competition between species"
+    note: "Same competitive displacement mathematics in all domains"
+
+related_unknowns:
+  - u-allosteric-enzyme-kinetics-beyond-michaelis-menten
+
+related_hypotheses:
+  - h-universal-saturation-kinetics-evolutionary-origin
+
+cross_pollination_opportunities:
+  - "Apply enzyme kinetics inhibition theory (competitive vs non-competitive) to pharmacological receptor models to predict drug interaction profiles"
+  - "Use Monod kinetics to model microbial community dynamics on multiple limiting nutrients with the full generalised Michaelis-Menten framework"
+  - "Import the Eadie-Hofstee linearisation from enzyme kinetics into ecological Holling type II functional response fitting for more robust parameter estimation"
+
+communication_gap: >
+  The Michaelis-Menten equation was published in a German biochemistry journal in 1913
+  and the Langmuir isotherm in an American chemistry journal in 1918 — the communities
+  were completely separate. Monod rediscovered the same form in microbiology in 1949.
+  Holling derived it independently for ecology in 1959. Each field considers the
+  equation 'theirs', teaches it with different notation, and rarely acknowledges
+  the cross-domain equivalence. This perpetuates independent parameter estimation
+  methodology and hampers cross-domain model transfer.
+
+references:
+  - note: "Michaelis & Menten (1913) Biochem Z 49:333 — original enzyme kinetics derivation"
+    url: "https://doi.org/10.1016/S0307-4412(13)00153-8"
+  - note: "Briggs & Haldane (1925) Biochem J 19:338 — quasi-steady-state approximation"
+    doi: "10.1042/bj0190338"
+  - doi: "10.1021/ja02242a004"
+    note: "Langmuir (1918) J Am Chem Soc 40:1361 — adsorption isotherm"
+  - note: "Monod (1949) Annu Rev Microbiol 3:371 — microbial growth kinetics"
+    doi: "10.1146/annurev.mi.03.100149.002103"
+
+last_reviewed: "2026-05-06"
