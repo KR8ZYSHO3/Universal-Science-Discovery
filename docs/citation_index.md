@@ -1,6 +1,6 @@
 # USDR Citation Index
 
-**3677 total citations · 2562 unique references · 433 cited in 2+ bridges**
+**3753 total citations · 2609 unique references · 446 cited in 2+ bridges**
 
 ## Most Cross-Domain Papers
 
@@ -9,10 +9,10 @@ Papers cited across the highest number of different bridges — the most influen
 | Bridges | Title | DOI |
 |---|---|---|
 | 10 | Castellano et al. review connects voter model to spatial ecology | [DOI](10.1103/RevModPhys.81.591) |
+| 7 | Jarzynski (1997) — theoretical derivation; exact for any protocol including irre... | [DOI](10.1103/PhysRevLett.78.2690) |
 | 7 | Jaynes (1957) — maximum entropy formulation reproduces the same stability condit... | [DOI](10.1103/PhysRev.106.620) |
 | 6 | Barabási & Albert (1999) - scale-free networks fragile to targeted hub attack; g... | [DOI](10.1126/science.286.5439.509) |
 | 6 | Turing (1952) — original prediction λ ∝ √(D/k) | [DOI](10.1098/rstb.1952.0012) |
-| 6 | Jarzynski (1997) — theoretical derivation; exact for any protocol including irre... | [DOI](10.1103/PhysRevLett.78.2690) |
 | 6 | Friston (2010) — free energy principle: biological homeostasis = continuous free... | [DOI](10.1038/nrn2787) |
 | 6 | May (1972) provides stability criterion for LV-type competitive systems | [DOI](10.1038/238413a0) |
 | 6 | Berut et al. (2012) — Landauer limit verified experimentally at k_B T ln 2 ~ 3 z... | [DOI](10.1038/nature10872) |
@@ -67,4 +67,4 @@ The full citation data is available at [`docs/citation_index.json`](citation_ind
 
 ## All Unique References
 
-The catalog currently references **2562 unique papers/books**.
+The catalog currently references **2609 unique papers/books**.
