@@ -1,0 +1,57 @@
+id: b-protein-folding-funnel-energy-landscape
+title: >
+  The protein folding funnel model, borrowed from statistical mechanics energy
+  landscape theory, explains how proteins reliably fold to their native state despite
+  Levinthal's paradox: the funnel-shaped free energy landscape biases the search
+  toward the native basin, with entropy and enthalpy competing to carve the funnel.
+status: established
+fields:
+  - biophysics
+  - statistical-mechanics
+  - computational-biology
+bridge_claim: >
+  Energy landscape theory describes protein folding as diffusion on a
+  multidimensional free energy surface F(Q) where Q is the fraction of native
+  contacts. The funnel emerges because native-like contacts are energetically
+  stabilized: F(Q) = E(Q) - TS(Q) where E(Q) ≈ -ε_0·N·Q (native contact energy)
+  and S(Q) ≈ -k_B·N·[Q·ln(Q) + (1-Q)·ln(1-Q)] (conformational entropy).
+  The folding rate follows Arrhenius: k_fold = ν_0·exp(-ΔF‡/kT) where ΔF‡ is
+  the free energy barrier at the transition state Q‡. Funnel topography determines
+  whether folding is two-state (deep single funnel) or downhill (barrierless),
+  directly analogous to first- vs second-order phase transitions in statistical
+  mechanics. The principle of minimal frustration (native interactions dominate
+  over non-native traps) is the key bridge concept.
+translation_table:
+  - field_a_term: protein folding funnel (biophysics)
+    field_b_term: free energy landscape with global minimum (statistical mechanics)
+    note: Both describe how a complex system finds its lowest free energy state
+  - field_a_term: native state of protein (biophysics)
+    field_b_term: global free energy minimum / ground state (statistical mechanics)
+    note: The native fold corresponds to the basin of lowest free energy
+  - field_a_term: misfolding / kinetic trap (biophysics)
+    field_b_term: local energy minimum / metastable state (statistical mechanics)
+    note: Kinetically trapped misfolded states correspond to metastable minima on the landscape
+  - field_a_term: folding transition state ensemble (biophysics)
+    field_b_term: saddle point / free energy barrier (statistical mechanics)
+    note: The TS ensemble is the set of structures at the free energy maximum along the folding path
+related_unknowns:
+  - u-protein-folding-landscape-quantitative-prediction
+related_hypotheses:
+  - h-minimal-frustration-principle-de-novo-protein-design
+cross_pollination_opportunities:
+  - Applying spin-glass theory (random energy model) to quantify frustration in protein sequences and design more foldable proteins
+  - Using folding landscape analysis to understand prion misfolding and amyloid aggregation as thermodynamic phase transitions
+communication_gap: >
+  Statistical physicists developed energy landscape theory for glasses and disordered
+  systems in the 1980s; biophysicists studying protein folding adopted and adapted
+  these concepts in the 1990s (Wolynes, Onuchic, Dill), creating the funnel framework;
+  the communities now overlap substantially but the full mathematical mapping from
+  spin-glass landscape theory to protein folding remains an active bridge.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1126/science.267.5204.1619"
+    note: Dill & Chan (1997) - From Levinthal to pathways to funnels (landmark review)
+  - doi: "10.1038/386440a0"
+    note: Wolynes et al. (1995) - navigating the folding routes
+  - doi: "10.1073/pnas.92.8.3626"
+    note: Bryngelson et al. (1995) - funnels, pathways, and the energy landscape of protein folding
