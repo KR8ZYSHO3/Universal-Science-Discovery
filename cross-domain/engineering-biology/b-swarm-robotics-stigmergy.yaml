@@ -1,0 +1,66 @@
+id: b-swarm-robotics-stigmergy
+title: >
+  Swarm-robotic path optimisation via pheromone-inspired digital trails is
+  formally equivalent to ant-colony stigmergy: both systems converge to
+  shortest paths through positive feedback on good solutions and evaporation
+  of poor ones, described by the same differential equations governing
+  ant trail-pheromone dynamics.
+status: established
+fields:
+  - robotics
+  - engineering
+  - evolutionary-biology
+  - collective-behaviour
+bridge_claim: >
+  In ant colonies, workers deposit pheromone on return from food sources;
+  shorter trails accumulate pheromone faster (more round trips per unit time),
+  attracting more ants until the colony commits to the shortest path. Dorigo's
+  Ant Colony Optimisation (ACO, 1992) encodes this in discrete graphs: edge
+  pheromone τ_{ij} follows dτ_{ij}/dt = −ρτ_{ij} + ΔQ/L*, where ρ is
+  evaporation rate and L* is tour length. Swarm robots equipped with digital
+  pheromone fields obey identical equations, enabling distributed shortest-path
+  routing without central control. The connection shows that stigmergy—
+  environment-mediated indirect communication—is a general optimisation
+  principle, not specific to biology.
+translation_table:
+  - field_a_term: "Ant pheromone trail on path segment"
+    field_b_term: "Digital pheromone field on graph edge (swarm robot)"
+    note: "Both accumulate proportional to usage frequency; evaporate at rate ρ"
+  - field_a_term: "Ant path-selection probability ∝ τ^α × η^β"
+    field_b_term: "Robot next-hop probability in ACO routing (same formula)"
+    note: "α, β weight pheromone vs. heuristic information; tunable in both systems"
+  - field_a_term: "Pheromone evaporation rate ρ"
+    field_b_term: "Forgetting / stale-route decay parameter in digital systems"
+    note: "Evaporation prevents premature convergence to suboptimal solutions in both domains"
+  - field_a_term: "Stigmergic self-organisation (no central control)"
+    field_b_term: "Distributed swarm-robot coordination via shared environment"
+    note: "Both systems encode solutions in the environment rather than in agent memory"
+related_unknowns:
+  - u-stigmergy-optimality-gap-real-environments
+related_hypotheses:
+  - h-swarm-pheromone-convergence-rate
+cross_pollination_opportunities:
+  - >
+    Real ant-colony tracking with millisecond GPS resolution can test whether
+    pheromone update equations match individual ant decision latencies, validating
+    or refining the ACO pheromone model beyond graph abstractions.
+  - >
+    ACO-inspired swarm robots deployed in disaster-response scenarios can use
+    evaporation tuning to balance exploitation of known paths with exploration
+    of damaged-route alternatives, directly inspired by ant colony adaptability.
+communication_gap: >
+  Entomologists studying ant trail formation and computer scientists developing
+  metaheuristic optimisation publish in separate venues (Insectes Sociaux vs.
+  IEEE TAES / Operations Research). The formal mathematical equivalence between
+  biological pheromone dynamics and ACO update rules was stated by Dorigo 1992
+  but is rarely cited in the biological literature.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1142/S0218213006002813"
+    note: "Dorigo & Stutzle (2002) – Ant Colony Optimization: algorithmic overview and convergence proofs"
+  - doi: "10.1073/pnas.89.12.5979"
+    note: "Goss et al. (1989) PNAS – ant trail selection experiment demonstrating shortest-path emergence"
+  - doi: "10.1038/s41598-017-11585-9"
+    note: "Perna & Latty (2014) – transport networks in biology and ACO: formal comparison"
+  - arxiv: "1010.4982"
+    note: "Camazine et al. – Self-Organisation in Biological Systems: stigmergy chapter"

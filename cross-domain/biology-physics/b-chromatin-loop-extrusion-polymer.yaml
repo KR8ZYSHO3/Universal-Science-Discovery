@@ -1,0 +1,64 @@
+id: b-chromatin-loop-extrusion-polymer
+title: >
+  Chromatin organisation by cohesin-mediated loop extrusion is quantitatively
+  predicted by polymer-physics models: the Hi-C contact-probability scaling
+  P(s) ~ s^{-0.75} within topologically associating domains (TADs) matches
+  the Rouse/fractal-globule polymer exponent, while TAD boundaries correspond
+  to equilibrium positions of CTCF-stalled extruding cohesin rings.
+status: established
+fields:
+  - molecular-biology
+  - polymer-physics
+  - genomics
+bridge_claim: >
+  Cohesin translocates along chromatin, extruding DNA loops until blocked by
+  convergently oriented CTCF binding sites. The resulting TAD structure is
+  identical to a 1D-extruded polymer loop ensemble. Hi-C contact-probability
+  maps within TADs follow P(s) ~ s^{-0.75}, the fractal-globule scaling
+  predicted by polymer physics (Grosberg 1993), distinct from the equilibrium
+  globule exponent ~s^{-1.5}. Molecular dynamics simulations using only loop-
+  extrusion rules quantitatively reproduce experimental Hi-C maps without
+  free parameters (Fudenberg 2016).
+translation_table:
+  - field_a_term: "Cohesin ring translocating along chromatin"
+    field_b_term: "Monomer pair undergoing loop-extrusion dynamics"
+    note: "Cohesin acts as a molecular motor driving loop growth; maps to a Rouse-chain active process"
+  - field_a_term: "CTCF boundary element (convergent orientation)"
+    field_b_term: "Fixed polymer boundary condition / reflecting wall"
+    note: "CTCF in convergent orientation halts extrusion, setting loop length distribution"
+  - field_a_term: "Topologically associating domain (TAD)"
+    field_b_term: "Polymer loop in fractal-globule conformation"
+    note: "TAD size ~ mean loop length set by cohesin processivity and CTCF density"
+  - field_a_term: "Hi-C contact probability P(s)"
+    field_b_term: "Polymer end-to-end contact probability for chain of s monomers"
+    note: "P(s) ~ s^{-0.75} is the fractal-globule prediction; equilibrium globule gives ~s^{-1.5}"
+related_unknowns:
+  - u-chromatin-loop-extrusion-processivity
+related_hypotheses:
+  - h-ctcf-boundary-polymer-wall
+cross_pollination_opportunities:
+  - >
+    Polymer coarse-grained simulations (MD/MC) parameterised with cohesin
+    processivity and CTCF occupancy can be used to predict TAD rewiring after
+    CRISPR deletion of individual CTCF sites—bridging structural genomics with
+    polymer theory without Hi-C experiments.
+  - >
+    Loop-extrusion models can be extended to predict 3D gene co-expression
+    correlations, testing whether polymer proximity causally mediates
+    transcriptional co-regulation inside TADs.
+communication_gap: >
+  Chromosome biology and polymer physics developed separate vocabularies and
+  publication venues (Nature/Cell vs. Macromolecules/Soft Matter). The fractal-
+  globule polymer model (Grosberg 1993) was published 23 years before Hi-C
+  experiments confirmed its relevance (Lieberman-Aiden 2009). Cohesin biologists
+  rarely cite polymer-physics derivations.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1126/science.1181369"
+    note: "Lieberman-Aiden et al. (2009) Science – Hi-C reveals fractal-globule chromatin organisation"
+  - doi: "10.1016/j.cell.2016.05.001"
+    note: "Fudenberg et al. (2016) Cell Reports – loop extrusion MD model quantitatively reproduces Hi-C TADs"
+  - doi: "10.1073/pnas.1518552113"
+    note: "Sanborn et al. (2015) PNAS – cohesin extrusion predicts insulation at CTCF sites"
+  - doi: "10.1126/science.aaf4831"
+    note: "Rao et al. (2017) Science – cohesin depletion collapses TADs, confirming extrusion mechanism"

@@ -1,6 +1,6 @@
 # USDR Citation Index
 
-**3942 total citations · 2739 unique references · 452 cited in 2+ bridges**
+**4038 total citations · 2811 unique references · 457 cited in 2+ bridges**
 
 ## Most Cross-Domain Papers
 
@@ -67,4 +67,4 @@ The full citation data is available at [`docs/citation_index.json`](citation_ind
 
 ## All Unique References
 
-The catalog currently references **2739 unique papers/books**.
+The catalog currently references **2811 unique papers/books**.

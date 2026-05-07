@@ -1,0 +1,68 @@
+id: b-sir-network-percolation-threshold
+title: >
+  The epidemic threshold R₀ = 1 in the SIR model is mathematically identical
+  to the bond-percolation threshold on the contact network: an epidemic spreads
+  to a macroscopic fraction of the population if and only if the transmission
+  bond-occupation probability exceeds the percolation critical point p_c,
+  and the final epidemic size equals the size of the giant percolation cluster.
+status: established
+fields:
+  - epidemiology
+  - network-science
+  - statistical-physics
+  - mathematics
+bridge_claim: >
+  In an SIR epidemic on a contact network, each edge (i,j) is independently
+  occupied with probability T = 1 − exp(−βτ) (transmission probability ×
+  infectious period). The expected outbreak size from a single seed equals
+  the expected cluster size in bond percolation at occupation probability T.
+  The epidemic threshold R₀ = T⟨k²⟩/⟨k⟩ = 1 coincides with the percolation
+  threshold p_c = ⟨k⟩/⟨k²⟩ on heterogeneous networks (Pastor-Satorras &
+  Vespignani 2001). On scale-free networks with degree exponent γ < 3,
+  ⟨k²⟩ → ∞, giving p_c → 0: epidemics spread at arbitrarily low
+  transmissibility—the network-percolation framework explains the vanishing
+  threshold on power-law contact networks.
+translation_table:
+  - field_a_term: "Bond occupation probability T (SIR transmissibility)"
+    field_b_term: "Percolation bond probability p"
+    note: "T = 1−exp(−βτ); p=T at the mapping; p > p_c ↔ R₀ > 1"
+  - field_a_term: "Giant connected component (percolation)"
+    field_b_term: "Final epidemic size (fraction ever infected)"
+    note: "Both equal the probability that an initial node is in the giant cluster"
+  - field_a_term: "Percolation threshold p_c = ⟨k⟩/⟨k²⟩"
+    field_b_term: "Epidemic threshold R₀ = 1 (T_c = p_c on the network)"
+    note: "Identical quantities; p_c → 0 on scale-free networks ↔ vanishing epidemic threshold"
+  - field_a_term: "Targeted immunisation = node removal (percolation)"
+    field_b_term: "Vaccination strategy in an epidemic network"
+    note: "Removing high-degree nodes fragments the giant component faster than random removal"
+related_unknowns:
+  - u-sir-percolation-temporal-network-threshold
+related_hypotheses:
+  - h-targeted-vaccination-percolation-optimality
+cross_pollination_opportunities:
+  - >
+    Percolation theory on temporal networks (edges exist only at specific times)
+    can refine SIR epidemic threshold calculations beyond static contact-network
+    approximations, incorporating daily mobility patterns from mobile-phone data.
+  - >
+    Bond-percolation cluster-size distributions near p_c obey finite-size
+    scaling laws; the same scaling can be applied to small-population outbreak
+    size distributions to estimate proximity to the epidemic threshold from
+    surveillance data.
+communication_gap: >
+  Epidemiologists traditionally frame R₀ in terms of individual transmission
+  rates, while statistical physicists frame percolation as a phase transition on
+  graphs. Pastor-Satorras & Vespignani (2001) stated the equivalence for
+  scale-free networks; Newman (2002) proved it for general degree distributions.
+  The equivalence is known to network scientists but rarely appears in CDC/WHO
+  epidemiological guidance.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1103/PhysRevLett.86.3200"
+    note: "Pastor-Satorras & Vespignani (2001) PRL – epidemic spreading on scale-free networks; vanishing threshold"
+  - doi: "10.1103/PhysRevE.66.016128"
+    note: "Newman (2002) PRE – formal proof of SIR–percolation equivalence on arbitrary degree distributions"
+  - doi: "10.1103/PhysRevLett.85.4626"
+    note: "Moore & Newman (2000) PRL – epidemics and percolation in small-world networks"
+  - doi: "10.1126/science.1248506"
+    note: "Brockmann & Helbing (2013) Science – global epidemic spreading via effective-distance network geometry"

@@ -1,0 +1,71 @@
+id: b-rna-folding-partition-function
+title: >
+  RNA secondary structure prediction is a statistical-mechanics partition function
+  problem: the ensemble of all possible base-pair configurations is weighted by
+  Boltzmann factors exp(−ΔG°/RT), and the minimum free-energy structure, base-
+  pair probabilities, and thermodynamic accessibility are all computed from
+  the McCaskill partition function using dynamic programming.
+status: established
+fields:
+  - RNA-biology
+  - statistical-mechanics
+  - biophysics
+  - chemistry
+bridge_claim: >
+  An RNA molecule of length N can adopt exponentially many secondary structures
+  (base-pair pairings without pseudoknots). McCaskill (1990) showed that the
+  partition function Z = Σ_s exp(−ΔG°(s)/RT), summing over all structures s
+  with their free energy, can be computed in O(N³) time using dynamic
+  programming. The base-pair probability matrix P_ij = Z_ij/Z gives the
+  probability each pair (i,j) is formed at thermal equilibrium. Zuker's
+  mfold/RNAfold minimises ΔG° instead of computing the full partition function—
+  the minimum free energy (MFE) structure is the lowest-energy configuration
+  but accounts for only a fraction of the Boltzmann weight if the energy
+  landscape is rugged. The bridge: RNA folding thermodynamics is a finite-
+  dimensional spin model (contact spins s_ij ∈ {0,1}) with a non-crossing
+  constraint, solvable exactly by transfer-matrix methods.
+translation_table:
+  - field_a_term: "RNA partition function Z = Σ_s exp(−ΔG°(s)/RT)"
+    field_b_term: "Statistical mechanics partition function Z = Tr[exp(−βH)]"
+    note: "RNA structures = microstates; ΔG°(s) = Hamiltonian; T = thermodynamic temperature"
+  - field_a_term: "Base-pair probability matrix P_ij"
+    field_b_term: "Thermal average of spin-spin correlation ⟨s_ij⟩"
+    note: "P_ij = probability base i pairs with base j in the Boltzmann ensemble"
+  - field_a_term: "Minimum free energy (MFE) structure"
+    field_b_term: "Ground state configuration (lowest-energy microstate)"
+    note: "MFE = ground state; only dominant when energy gap to next structure is large (kT)"
+  - field_a_term: "Dynamic programming recursion (McCaskill O(N³))"
+    field_b_term: "Transfer matrix method for 1D spin chains"
+    note: "Both exploit the non-crossing (planar) constraint to decompose the problem into independent subproblems"
+related_unknowns:
+  - u-rna-folding-pseudoknot-partition-function
+related_hypotheses:
+  - h-rna-boltzmann-ensemble-functional-structure-selection
+cross_pollination_opportunities:
+  - >
+    Statistical mechanics concepts (free energy landscape, metastability, kinetic
+    trapping) can be applied to RNA co-transcriptional folding: the RNA folds as
+    it is synthesised, exploring a time-evolving energy landscape. Kinetic trap
+    theory from spin glasses can predict which functional RNA structures are
+    kinetically accessible.
+  - >
+    The partition function framework enables thermodynamic ensemble design:
+    synthetic riboswitches can be designed by specifying the desired P_ij matrix
+    and using inverse folding (RNAinverse) to find sequences that achieve it,
+    using statistical mechanics directly for RNA engineering.
+communication_gap: >
+  RNA biologists routinely use RNAfold/mfold predictions without awareness of
+  the statistical mechanics framework underlying the partition function. Statistical
+  physicists studying disordered systems (spin glasses) have not extensively
+  analysed the RNA folding problem despite formal similarities to the random
+  energy model.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1021/bi00413a004"
+    note: "McCaskill (1990) Biopolymers – partition function algorithm for RNA secondary structure; O(N³) DP"
+  - doi: "10.1093/nar/19.22.6329"
+    note: "Zuker (1989) Science – mfold algorithm for minimum free energy RNA secondary structure"
+  - doi: "10.1093/nar/gkh930"
+    note: "Lorenz et al. (2011) – ViennaRNA Package 2.0 including partition function and base-pair probabilities"
+  - doi: "10.1016/j.jmb.2006.01.048"
+    note: "Tinoco & Bustamante – how RNA folds; thermodynamic vs. kinetic control of structure"

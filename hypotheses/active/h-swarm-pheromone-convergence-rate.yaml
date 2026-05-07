@@ -1,0 +1,25 @@
+id: h-swarm-pheromone-convergence-rate
+title: >
+  In a swarm-robot ACO system, convergence time to within 5% of the shortest
+  path scales as O(|E| log|V| / ρ), where |E| is edge count, |V| is vertex
+  count, and ρ is the evaporation rate.
+status: active
+created: "2026-05-07"
+priority: medium
+impact_score: 0.64
+related_disciplines:
+  - robotics
+  - operations-research
+unknowns_addressed:
+  - u-stigmergy-optimality-gap-real-environments
+evidence_links:
+  - doi: "10.1142/S0218213006002813"
+    type: supporting
+    confidence: 0.60
+    note: "Dorigo & Stutzle – ACO convergence analysis; polynomial-time heuristic on TSP"
+proposed_tests:
+  - description: >
+      Deploy ACO on randomly generated planar graphs (|V| = 50–500, |E|/|V| = 2–8)
+      with varied ρ (0.01–0.5). Measure steps to 5%-optimal tour for 100 independent
+      runs. Fit convergence time to the proposed O(|E| log|V| / ρ) model and compute
+      R² across conditions.

@@ -1,0 +1,26 @@
+id: h-space-group-frequency-evolution-bias
+title: >
+  The over-representation of P2₁2₁2₁ in the PDB is not a crystallisation-
+  screening artefact but reflects a genuine physicochemical bias: proteins with
+  β-sheet-rich surfaces preferentially form crystal contacts consistent with
+  P2₁2₁2₁ symmetry due to complementary hydrogen-bond geometry.
+status: active
+created: "2026-05-07"
+priority: medium
+impact_score: 0.60
+related_disciplines:
+  - structural-biology
+  - crystallography
+unknowns_addressed:
+  - u-protein-crystal-packing-predictability
+evidence_links:
+  - doi: "10.1107/S2052252517000422"
+    type: related
+    confidence: 0.45
+    note: "Dauter & Jaskolski – statistical overview of space-group preferences in PDB"
+proposed_tests:
+  - description: >
+      Train a logistic-regression classifier on PDB entries (features: secondary
+      structure fraction, surface charge, SASA, molecular weight; label: P2₁2₁2₁ vs. other).
+      Compare accuracy to a null model using only molecular weight. Test on proteins
+      first deposited after 2020 to avoid training-set leakage.

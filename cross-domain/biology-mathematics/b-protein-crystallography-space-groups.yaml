@@ -1,0 +1,65 @@
+id: b-protein-crystallography-space-groups
+title: >
+  Protein crystal packing is governed by the 65 chiral (Sohncke) space groups
+  of classical crystallography: group-theoretic symmetry constraints determine
+  allowable unit-cell geometries, reduce the phase problem to a finite search,
+  and predict systematic absences in diffraction patterns with mathematical
+  precision.
+status: established
+fields:
+  - structural-biology
+  - crystallography
+  - mathematics
+  - group-theory
+bridge_claim: >
+  A crystal is a periodic repetition of a unit cell under the action of a
+  space group G ≤ O(3) ⋊ ℝ³. For chiral molecules like proteins (L-amino acids),
+  only the 65 Sohncke groups (those lacking improper symmetry operations) are
+  allowed. The group action specifies: (1) how many independent copies of the
+  molecule per unit cell (the asymmetric unit), (2) systematic absences in
+  Miller indices (h,k,l) that violate group-required extinctions, and (3) the
+  symmetry of the Patterson function used for molecular replacement. Group
+  theory thus transforms a continuous 3D electron-density inference problem
+  into a discrete search over ≤65 symmetry classes.
+translation_table:
+  - field_a_term: "Space group of the crystal lattice"
+    field_b_term: "Discrete group G ≤ O(3) ⋊ ℝ³ acting on electron density"
+    note: "65 chiral space groups for proteins; generators specify allowed symmetry operations"
+  - field_a_term: "Asymmetric unit (AU)"
+    field_b_term: "Fundamental domain of the group action"
+    note: "AU contains exactly one independent copy of the molecule; full crystal = G × AU"
+  - field_a_term: "Systematic absences in diffraction pattern"
+    field_b_term: "Group-theoretic extinction conditions on structure factors F(hkl)"
+    note: "Screw axes and glide planes force F(hkl)=0 for specific (h,k,l) combinations"
+  - field_a_term: "Patterson function P(u)"
+    field_b_term: "Autocorrelation of the group-invariant electron density"
+    note: "Peaks at inter-atomic vectors; symmetry of P(u) reflects point group, enabling molecular replacement"
+related_unknowns:
+  - u-protein-crystal-packing-predictability
+related_hypotheses:
+  - h-space-group-frequency-evolution-bias
+cross_pollination_opportunities:
+  - >
+    Machine-learning models trained on the CSD/PDB distribution of space-group
+    frequencies vs. protein physicochemical properties could predict the most
+    likely space group for a target protein before crystallisation, accelerating
+    screening campaigns.
+  - >
+    Group-theoretic analysis of quasicrystalline packing could reveal new
+    crystal forms for flexible proteins that fail to pack in standard 65 Sohncke
+    groups, extending structural biology into aperiodic-order mathematics.
+communication_gap: >
+  Mathematical crystallographers (publishing in Acta Crystallographica A) and
+  structural biologists (publishing in Nature Structural Biology, Structure)
+  share the space-group formalism but rarely cross-publish theoretical analyses
+  of why certain space groups are evolutionarily preferred for proteins.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1107/S2059798316007191"
+    note: "Winn et al. – CCP4 suite; space-group determination in protein crystallography"
+  - doi: "10.1107/S0907444909042073"
+    note: "McCoy et al. (2007) – PHASER: likelihood-based molecular replacement using group theory"
+  - doi: "10.1107/S2052252517000422"
+    note: "Dauter & Jaskolski (2010) – How to read (and understand) Volume A of IT for Crystallographers"
+  - doi: "10.1016/S0022-2836(05)80360-2"
+    note: "Rossmann & Arnold – International Tables for X-ray Crystallography: protein space groups"

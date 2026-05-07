@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed (2026-05-07 — **Dashboard stat counts and pill-regex**)
+- **stat-bridges corrected 434 → 470; stat-unk corrected 814 → 826** — stat card IDs and all pill row text now reflect actual catalog counts.
+- **`replace_pill_bridges` regex fixed** in `scripts/update_dashboard_stats.py`: pattern `(\d+) cross-domain bridges` did not match `400+ cross-domain bridges` (trailing `+` broke the match); changed to `\d+\+? cross-domain bridges` so future CI runs correctly update both bare-number and `N+` pill forms.
+- **OG / Twitter meta-description corrected** — open unknowns updated 689 → 826; knowledge graph nodes updated 1,700 → 1,982.
+
 ### Added (2026-05-07 — **Waves 17–35 overnight build + document sync**)
 - **470 bridges, 817 unknowns, 681 hypotheses, 1,982 graph nodes, 2,069 edges** — current verified catalog counts as of 2026-05-07.
 - **300-bridge milestone** (Wave 20), **350-bridge milestone** (Wave 24), and **400-bridge milestone** (Wave 29) all hit in this session.
