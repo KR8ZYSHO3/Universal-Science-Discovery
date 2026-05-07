@@ -1,251 +1,193 @@
-# Universal Science Discovery Repository (USDR)
+<div align="center">
 
-Open-source, Git-based knowledge infrastructure for **discovery-first** science: explicit unknowns, testable hypotheses, cross-domain mathematical bridges, and reproducible workflows.
+# Universal Science Discovery Repository
 
-<!-- Project status badges -->
-[![Bridges](https://img.shields.io/badge/Bridges-180-4f9cf9?style=flat-square)](cross-domain/)
-[![Unknowns](https://img.shields.io/badge/Unknowns-619-f43f5e?style=flat-square)](unknowns-catalog/)
-[![Graph Nodes](https://img.shields.io/badge/Graph%20Nodes-1%2C000-22d3b8?style=flat-square)](docs/knowledge_graph.json)
-[![License: CC BY 4.0](https://img.shields.io/badge/Content-CC%20BY%204.0-lightgrey?style=flat-square)](LICENSE)
-[![License: MIT](https://img.shields.io/badge/Code-MIT-blue?style=flat-square)](LICENSE-CODE)
+**The open-source knowledge engine for scientific unknowns and cross-domain discovery**
 
-<!-- CI badges -->
-[![Developer Dashboard](https://img.shields.io/badge/Developer%20Dashboard-Live-4f9cf9?style=for-the-badge&logo=github)](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/)
-[![Docs](https://img.shields.io/badge/Documentation-Live-22d3b8?style=for-the-badge&logo=readthedocs)](https://kr8zysho3.github.io/Universal-Science-Discovery/)
-[![Validate Catalog](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/actions/workflows/validate.yml/badge.svg)](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/actions/workflows/validate.yml)
-[![Knowledge Graph](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/actions/workflows/build-graph.yml/badge.svg)](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/actions/workflows/build-graph.yml)
-[![License](https://img.shields.io/github/license/KR8ZYSHO3/Universal-Science-Discovery)](LICENSE)
-[![Contributors](https://img.shields.io/github/contributors/KR8ZYSHO3/Universal-Science-Discovery)](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/graphs/contributors)
-[![Issues](https://img.shields.io/github/issues/KR8ZYSHO3/Universal-Science-Discovery)](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/issues)
+[![Bridges](https://img.shields.io/badge/bridges-650-6366f1?style=flat-square)](cross-domain/)
+[![Unknowns](https://img.shields.io/badge/unknowns-981-22c55e?style=flat-square)](unknowns-catalog/)
+[![Hypotheses](https://img.shields.io/badge/hypotheses-849-f59e0b?style=flat-square)](hypotheses/)
+[![Graph Nodes](https://img.shields.io/badge/graph_nodes-2514-ec4899?style=flat-square)](docs/knowledge_graph.json)
+[![License: CC BY 4.0](https://img.shields.io/badge/catalog-CC%20BY%204.0-blue?style=flat-square)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/code-MIT-green?style=flat-square)](LICENSE)
+[![CI](https://img.shields.io/github/actions/workflow/status/KR8ZYSHO3/Universal-Science-Discovery/validate.yml?style=flat-square&label=CI)](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/actions)
+
+**[Live Dashboard](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/) · [Knowledge Graph](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#knowledge-graph) · [Preprint](docs/preprint/usdr_preprint.md) · [Contribute](CONTRIBUTING.md)**
+
+</div>
 
 ---
 
-## Live Dashboard
+## The Problem
 
-**[kr8zysho3.github.io/Universal-Science-Discovery/dashboard/](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/)**
+Science has extraordinary infrastructure for recording what is *known* — 200M+ indexed papers, citation graphs, semantic search. It has almost no infrastructure for recording what is *unknown*.
 
-Interactive D3 knowledge graph · full-text search · pioneer profiles · breakthrough gap tracker · domain pages
+The frontier of human knowledge — the open problems, the cross-domain connections that haven't been made, the experiments that haven't been run — exists only in review article background sections, grant application paragraphs, and the informal knowledge of domain experts. It is not indexed. It is not version-controlled. It is not findable.
 
----
+This means:
+- A graduate student entering a field invests years to understand which problems are genuinely open
+- Two fields independently study the same mathematical phenomenon for decades without recognizing the connection
+- The most important questions in science are the hardest to find
 
-## Project Status (May 2026 — Wave 10 Complete)
-
-| Metric | Count |
-|--------|-------|
-| Cross-domain bridges | **180** |
-| Open unknowns | **619** |
-| Hypotheses | **173** |
-| Knowledge graph nodes | **1,000** |
-| Knowledge graph edges | **910** |
-| Pioneer profiles | **13** |
-| Breakthrough gaps | **11** |
-| Scientific domains | **41** |
-| Pre-formal observations | **4** |
-
-All records pass CI schema validation. arXiv preprint ready (`docs/preprint/usdr_preprint.md`).
+**USDR is built to fix this.**
 
 ---
 
-## New here? (contributors)
+## What We've Built
 
-1. **Skim this README** (5 min), then **[CONTRIBUTING.md](CONTRIBUTING.md)** — how to participate and what to contribute first.
-2. **Contributor hub:** open the **[live dashboard](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/)** — contributor path, policies, phase progress, CI status, and workstreams. Or run locally: `python -m http.server 8765` and open [localhost:8765/dashboard/](http://localhost:8765/dashboard/) — details in **[dashboard/README.md](dashboard/README.md)**.
-3. **Browsing only on GitHub (no clone):** use **[docs/ONBOARDING.md](docs/ONBOARDING.md)** and the links in CONTRIBUTING; the dashboard's **GitHub** links next to each doc open the files in the browser.
+A git-native, schema-validated, community-governed catalog of scientific unknowns, hypotheses, and cross-domain mathematical bridges — currently containing:
 
-Everything under **`dashboard/`** is **tracked in git** and auto-deployed to **[GitHub Pages](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/)** on every push to `main`.
+| Metric | Count | Notes |
+|--------|-------|-------|
+| **Cross-domain bridges** | **650** | Mathematical connections between fields that rarely communicate |
+| **Open unknowns** | **981** | Named, structured research gaps across 40+ disciplines |
+| **Falsifiable hypotheses** | **849** | Testable claims linked to specific unknowns |
+| **Knowledge graph nodes** | **2,514** | Interconnected across 2,678 edges |
+| **Pioneer profiles** | **18** | Scientists whose work seeded cross-domain bridges |
+| **Breakthrough gaps** | **12** | High-priority problems that would reshape entire fields |
+| **Orphan unknowns** | **0** | All unknowns connected to bridges or hypotheses |
+| **Schema errors** | **0** | All entries pass CI validation on every PR |
+
+Every entry is YAML, schema-validated, DOI-linked, and version-controlled. The knowledge graph is rebuilt deterministically from source files on every push.
+
+---
+
+## What Makes a Bridge
+
+A USDR bridge is not a metaphor. It requires a **term-by-term mathematical mapping** between two fields — the same differential equation, order parameter, or information-theoretic quantity governing phenomena in both domains.
+
+**Example: Percolation Theory ↔ Ecological Fragmentation**
+
+| Statistical physics | Conservation biology |
+|---------------------|----------------------|
+| Site percolation threshold p_c | Critical habitat coverage fraction (~59%) |
+| Giant connected component | Connected habitat network enabling population rescue |
+| Finite-size scaling correction | Threshold shift in smaller landscape patches |
+| Correlation length ξ (diverges at p_c) | Mean dispersal distance to maintain connectivity |
+| Universality class (2D, ν = 4/3) | Spatial connectivity independent of landscape geometry |
+
+The conservation biology literature has used percolation as a simulation tool since 1987. The exact analytical machinery — finite-size scaling, critical exponents, universality class proofs — has not crossed over. **That gap is what USDR makes explicit and actionable.**
+
+---
+
+## Discovery Engine
+
+USDR ships tooling that turns the knowledge graph into an active bridge-discovery system:
+
+```bash
+# Find cross-domain papers from OpenAlex (250M+ papers)
+python scripts/harvesters/harvest_openalex.py --bridge-scan
+
+# Find the highest-priority domain pairs with no bridge yet
+python scripts/propose_bridges.py --top 15
+
+# Find unknowns with no connections — prime contribution targets
+python scripts/find_orphan_unknowns.py
+
+# Audit catalog quality
+python scripts/audit_quality.py
+```
+
+The `harvest_openalex.py` script queries OpenAlex for papers that cite **two specific concept domains simultaneously** — the core primitive for automated bridge discovery at scale. PubMed and Semantic Scholar harvesters are also included.
 
 ---
 
 ## Quick Start
 
-### View the dashboard locally
-
 ```bash
 git clone https://github.com/KR8ZYSHO3/Universal-Science-Discovery.git
 cd Universal-Science-Discovery
+
+# View the live dashboard locally
 python -m http.server 8765
-# Open: http://localhost:8765/dashboard/
-```
+# → http://localhost:8765/dashboard/
 
-### Validate the catalog
-
-```bash
+# Validate the entire catalog
 pip install pyyaml jsonschema
 python scripts/validate_schemas.py
-# Expected: OK: all ... YAML files validate.
-```
 
-### Run the quality audit
-
-```bash
-python scripts/audit_quality.py
-# Outputs: docs/quality_report.md
-```
-
-### Rebuild the knowledge graph
-
-```bash
+# Rebuild the knowledge graph
+pip install pyyaml networkx
 python scripts/build_graph.py
-# Outputs: docs/knowledge_graph.json
-```
-
-### Generate the static API
-
-```bash
-python scripts/generate_api.py
-# Outputs: api/v1/*.json
-```
-
-### Find contribution targets (orphan unknowns)
-
-```bash
-python scripts/find_orphan_unknowns.py
-# Lists unknowns with no bridge or hypothesis connection — highest-priority targets
 ```
 
 ---
 
-## Catalog Types
+## Catalog Structure
 
-USDR organizes scientific knowledge into six catalog types, each with a defined YAML schema:
-
-| Catalog | Directory | Schema | Description |
-|---------|-----------|--------|-------------|
-| **Bridges** | `cross-domain/` | `schemas/bridge.yaml` | Mathematical/conceptual links between two or more disciplines. Each bridge includes a translation table, status (established/proposed/speculative), DOI-backed references, and open unknowns it addresses. |
-| **Unknowns** | `unknowns-catalog/` | `schemas/unknown.yaml` | Explicitly named research gaps — questions science does not yet have good answers to. Organized by domain. Seeded from arXiv harvests and community input. |
-| **Hypotheses** | `hypotheses/` | `schemas/hypothesis.yaml` | Testable, falsifiable hypotheses linked to specific unknowns. Include priority, impact score, evidence links, and falsification criteria. |
-| **Pioneers** | `pioneers/` | `schemas/pioneer.yaml` | Profiles of researchers whose work spans multiple disciplines. Each pioneer lists the bridge seeds and unknowns their work catalyzes. |
-| **Breakthrough Gaps** | `breakthrough-gaps/` | `schemas/breakthrough_gap.yaml` | The 10–20 cross-domain problems whose solutions would most reshape science. Each gap lists required bridges, source domain, and world-reshaping potential. |
-| **Pre-formal Observations** | `phenomenology/` | `schemas/phenomenon.yaml` | Raw, pre-theoretical observations and intuitions that do not yet fit an existing unknown or bridge. Triaged into unknowns when mature enough. |
-
----
-
-## Why this exists
-
-- **Mobilize contributors:** [WHY_CONTRIBUTE.md](WHY_CONTRIBUTE.md)
-- **Pitch without unnecessary resistance:** [VISION_COMMUNICATION.md](VISION_COMMUNICATION.md)
-- **Full build plan & repo shape:** [universal-science-discovery-repo-blueprint.md](universal-science-discovery-repo-blueprint.md)
-- **Strategic roadmap:** [docs/PATH_TO_SUCCESS.md](docs/PATH_TO_SUCCESS.md)
-
----
-
-## Key documents
-
-| Document | Purpose |
-|----------|---------|
-| [WHY_CONTRIBUTE.md](WHY_CONTRIBUTE.md) | Case for contributing early and at planetary scale |
-| [VISION_COMMUNICATION.md](VISION_COMMUNICATION.md) | Elevator pitches and audience-specific framing |
-| [CONTRIBUTING.md](CONTRIBUTING.md) | How to add unknowns, hypotheses, bridges, or pioneer profiles |
-| [universal-science-discovery-repo-blueprint.md](universal-science-discovery-repo-blueprint.md) | Blueprint: vision, structure, MVP, tooling |
-| [INTERFACE.md](INTERFACE.md) | User/system interfaces to USDR (full plan; delivery phased per [ROADMAP.md](ROADMAP.md)) |
-| [ARCHITECTURE.md](ARCHITECTURE.md) | Technical / system architecture |
-| [ROADMAP.md](ROADMAP.md) | Planned phases and priorities |
-| [docs/PATH_TO_SUCCESS.md](docs/PATH_TO_SUCCESS.md) | Strategic roadmap: near/medium/long-term actions for discoverability and community growth |
-
----
-
-## Governance, ethics, and legal
-
-| Document | Purpose |
-|----------|---------|
-| [GOVERNANCE.md](GOVERNANCE.md) | Roles, decisions, maintainer expectations |
-| [ETHICS.md](ETHICS.md) | Ethical guardrails for content and collaboration |
-| [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) | Community behavior |
-| [LEGAL.md](LEGAL.md) | Copyright, licensing posture, DMCA-style policy |
-| [DISCLAIMER.md](DISCLAIMER.md) | Limitation of liability, not medical/legal advice |
-| [SECURITY.md](SECURITY.md) | Reporting vulnerabilities or leaked secrets |
-| [LICENSE](LICENSE) | Default license for this repository |
-
----
-
-## Traceability
-
-[DOC_MAP.md](DOC_MAP.md) lists every top-level doc and what it governs.
-
----
-
-## Content layout
-
-| Path | Role |
-|------|------|
-| [schemas/](schemas/) | JSON Schemas: hypothesis, unknown, bridge, phenomenon, pioneer, breakthrough_gap (YAML); ingestion envelope v1 (`ingestion-envelope-1.0.0.json`) |
-| [templates/](templates/) | PR / issue boilerplate for new records |
-| [unknowns-catalog/](unknowns-catalog/) | Global research gaps (`u-...`) — 619 entries across 41 domains |
-| [hypotheses/](hypotheses/) | Hypothesis registry (`h-...`; `active` / `validated` / `archived`) — 173 entries |
-| [cross-domain/](cross-domain/) | Cross-domain bridge YAMLs (`b-...`) — 180 bridges |
-| [pioneers/](pioneers/) | Pioneer profiles (`pioneer-...`) — 13 profiles |
-| [breakthrough-gaps/](breakthrough-gaps/) | Breakthrough gap records (`bg-...`) — 11 gaps |
-| [phenomenology/](phenomenology/) | Pre-formal observations (`p-...`) — 4 entries |
-| [scripts/](scripts/) | Automation: validate, build graph, generate API, quality audit, domain pages |
-| [dashboard/](dashboard/) | Static site: D3 graph, Lunr search, domain pages, explainers |
-| [docs/](docs/) | Documentation, preprint, outreach materials, reports |
-| [api/v1/](api/v1/) | Static JSON API endpoints (auto-generated) |
-
----
-
-## Scripts reference
-
-| Script | Purpose |
-|--------|---------|
-| `scripts/validate_schemas.py` | Validate all catalog YAML against schemas; used by CI |
-| `scripts/build_graph.py` | Build `docs/knowledge_graph.json` from all catalog entries |
-| `scripts/generate_api.py` | Generate static JSON API endpoints under `api/v1/` |
-| `scripts/update_dashboard_stats.py` | Patch stat counters in `dashboard/index.html` |
-| `scripts/generate_domain_pages.py` | Generate per-domain HTML pages under `dashboard/domains/` |
-| `scripts/generate_explainers.py` | Generate bridge explainer HTML pages |
-| `scripts/propose_bridges.py` | Propose novel bridge candidates from pioneer seeds, breakthrough gaps, domain gaps |
-| `scripts/find_orphan_unknowns.py` | Identify unknowns with no graph connections (prime contribution targets) |
-| `scripts/audit_quality.py` | Flag low-quality catalog entries (short titles, missing fields) |
-| `scripts/build_citation_index.py` | Extract and rank cross-referenced papers across bridges |
-
----
-
-## Documentation site (preview)
-
-```bash
-pip install -r requirements-docs.txt
-mkdocs serve
 ```
-
-CI runs `mkdocs build --strict` on every PR and push to `main`.
-
----
-
-## arXiv metadata ingest (Phase B starter)
-
-Package overview: [`packages/ingest/README.md`](packages/ingest/README.md). Compliance-oriented **metadata-only** harvest from arXiv OAI-PMH (no PDFs; see [LEGAL.md](LEGAL.md) and [docs/DATA_PLAN.md](docs/DATA_PLAN.md)):
-
-```bash
-pip install -r requirements-ingest.txt
-pip install -e ./packages/ingest
-usdr-ingest harvest --output records.jsonl --max-records 10 --manifest manifest.json
+cross-domain/{domain-a}-{domain-b}/b-*.yaml   ← 650 bridges
+unknowns-catalog/{domain}/u-*.yaml            ← 981 unknowns
+hypotheses/active|validated|archived/h-*.yaml ← 849 hypotheses
+pioneers/pioneer-*.yaml                       ← 18 pioneer profiles
+breakthrough-gaps/bg-*.yaml                   ← 12 breakthrough gaps
+phenomenology/p-*.yaml                        ← pre-formal observations
+schemas/                                      ← JSON Schema definitions
+scripts/                                      ← tooling and harvesters
+scripts/harvesters/                           ← OpenAlex, PubMed, Semantic Scholar
+dashboard/                                    ← interactive D3 dashboard
+api/v1/                                       ← static JSON API
 ```
-
----
-
-## Published documentation (GitHub Pages)
-
-**Live:** [https://kr8zysho3.github.io/Universal-Science-Discovery/](https://kr8zysho3.github.io/Universal-Science-Discovery/) — auto-deploys on every push to `main`.
-
-**Developer dashboard:** [https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/)
 
 ---
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md). The simplest contribution is adding a new unknown (a named research gap) or a hypothesis to an existing unknown. Both require only YAML editing — no code needed.
+The simplest contribution is a new **unknown** — a named, structured research gap in your field. No code required, just YAML.
+
+```yaml
+id: u-your-unknown-id
+title: "What mechanism allows X to Y without Z?"
+status: open
+summary: "A brief description of the gap and why it matters."
+disciplines: [your-field, adjacent-field]
+priority: high
+references:
+  - doi: "10.XXXX/XXXXX"
+    note: "Paper that defines the boundary of current knowledge"
+```
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for full instructions and [docs/QUICK_START_CONTRIBUTING.md](docs/QUICK_START_CONTRIBUTING.md) for a 30-minute first-contribution guide.
+
+**Open issues labeled [`good first issue`](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/issues?q=is%3Aopen+label%3A%22good+first+issue%22)** include bridge stubs, domain unknowns, and documentation tasks across 8 scientific domains.
+
+---
+
+## Roadmap
+
+| Phase | Timeline | Goal |
+|-------|----------|------|
+| **Phase 0: Foundation** *(active)* | 2026 | 1,000+ bridges · first 50 contributors · arXiv preprint · Hackathon |
+| **Phase 1: Momentum** | 2027–2028 | 10,000+ entries · institutional partners · AI co-pilot · 500 contributors |
+| **Phase 2: Acceleration** | 2029–2031 | 100,000+ entries · autonomous discovery agents · global research labs |
+| **Phase 3: Transformation** | 2032–2035 | The default interface through which researchers interact with the open frontier of science |
+
+---
+
+## Governance & Ethics
+
+- **Speculation is labeled.** `status: proposed` means plausible but unvalidated. `status: established` requires a published cross-disciplinary recognition.
+- **No fabricated citations.** All references must include a verifiable DOI or arXiv ID.
+- **Unknowns ≠ findings.** The system enforces terminological separation between what is known and what is not.
+- **Human review gates all merges.** CI catches schema errors; human domain expertise catches scientific errors.
+
+See [GOVERNANCE.md](GOVERNANCE.md), [ETHICS.md](ETHICS.md), and [docs/ETHICS_REPRODUCIBILITY_AND_DATA.md](docs/ETHICS_REPRODUCIBILITY_AND_DATA.md).
+
+---
+
+## Citation
+
+If you use USDR in research, please cite:
+
+> Shoemaker, B. and Contributors. *Universal Science Discovery Repository: Open Infrastructure for Tracking Scientific Unknowns and Cross-Domain Mathematical Bridges.* v1.1, May 2026. https://github.com/KR8ZYSHO3/Universal-Science-Discovery
+
+A preprint is available at [docs/preprint/usdr_preprint.md](docs/preprint/usdr_preprint.md).
 
 ---
 
 ## License
 
-Catalog content (YAML entries, documentation): [CC BY 4.0](LICENSE)  
-Code (scripts, dashboard): [MIT](LICENSE-CODE)
+- **Catalog content** (YAML entries, documentation): [CC BY 4.0](LICENSE)
+- **Code** (scripts, dashboard, CI): [MIT](LICENSE)
 
-© 2026 Universal Science Discovery Repository Contributors
-
----
-
-## AI-assisted work in this repo
-
-Project-specific Cursor guidance is in [cursorrules](cursorrules) (import or symlink into `.cursor/rules/` per your editor setup).
+© 2026 Brandon Shoemaker and USDR Contributors
