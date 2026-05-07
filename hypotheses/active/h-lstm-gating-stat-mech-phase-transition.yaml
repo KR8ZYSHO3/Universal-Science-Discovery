@@ -1,0 +1,30 @@
+id: h-lstm-gating-stat-mech-phase-transition
+title: Trained LSTMs solving long-memory tasks exhibit bimodal forget-gate distributions concentrated near 0 and 1, consistent with a first-order phase transition between ordered (remembering) and disordered (forgetting) phases, with transition sharpness predicting task-specific memory horizon
+status: active
+created: "2026-05-07"
+last_updated: "2026-05-07"
+priority: medium
+impact_score: 0.72
+author: wave-openalex-agent
+unknowns_addressed:
+  - u-lstm-gating-biological-analogue
+related_disciplines:
+  - neuroscience
+  - computational-neuroscience
+  - statistical-mechanics
+  - machine-learning
+evidence_links:
+  - type: supporting
+    doi: 10.1162/neco.1997.9.8.1735
+    note: Hochreiter & Schmidhuber (1997) LSTM — gating mechanism design consistent with phase-control interpretation
+    confidence: 0.60
+  - type: supporting
+    note: Greff et al. (2017) LSTM survey — empirical gate analysis shows bimodal distributions in trained networks (arXiv 1503.04069)
+    confidence: 0.75
+  - type: related
+    note: Sussillo & Barak (2013) — fixed-point analysis of RNNs consistent with attractor-based memory
+    confidence: 0.65
+proposed_tests:
+  - description: Analyse forget gate activation histograms in LSTM cells trained on copying tasks with varying delay lengths; test for bimodality and shift with delay
+  - description: Compute the effective temperature T_eff = -1/log(f_t/(1-f_t)) for each forget gate and plot against task memory requirements to test the phase diagram prediction
+  - description: Perturb trained LSTMs with forget gate noise and measure susceptibility chi = d<c_t>/d(f_t); predict chi diverges for gates near the transition point f_t = 0.5
