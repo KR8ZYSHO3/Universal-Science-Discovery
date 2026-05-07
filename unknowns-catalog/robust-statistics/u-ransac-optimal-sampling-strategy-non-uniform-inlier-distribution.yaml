@@ -1,0 +1,37 @@
+id: u-ransac-optimal-sampling-strategy-non-uniform-inlier-distribution
+title: >
+  What is the optimal sampling strategy for RANSAC when the inlier distribution
+  is non-uniform (spatially clustered, class-imbalanced, or structured) ΓÇö and
+  can information-theoretic bounds on robust estimation be derived for heterogeneous
+  inlier distributions?
+status: open
+priority: medium
+disciplines:
+  - statistics
+  - computer-vision
+  - robotics
+  - machine-learning
+summary: >
+  Standard RANSAC assumes uniform random sampling from data points. In practice,
+  inliers are spatially clustered (e.g., in stereo matching, correspondences from
+  the same surface patch are correlated) and outliers may be non-random (adversarial
+  or systematic errors). PROSAC (Progressive RANSAC, Chum 2005) samples from
+  likely inliers first based on quality metric, but the optimal information-theoretic
+  sampling strategy for heterogeneous inlier distributions is not characterized.
+  MAGSAC (Barath 2019) integrates over multiple thresholds, improving robustness
+  but without formal optimality guarantees. The connection to importance sampling
+  in statistics and to the breakdown point of M-estimators for structured data
+  (non-iid observations) is not fully developed. For deep learning applications
+  (robust loss functions for noisy labels), the relationship between RANSAC's
+  random model hypothesis testing and variational robust estimation is unexplored.
+systematic_gaps:
+  - The optimal sampling distribution for RANSAC under structured inlier clustering
+    (spatially correlated correspondences) has not been derived theoretically.
+  - Information-theoretic lower bounds on the number of RANSAC iterations required
+    for a given inlier fraction and minimum subset size under non-iid inliers
+    are not established.
+  - The relationship between RANSAC's breakdown point and classical robust statistics
+    breakdown points for structured data (time series, images) has not been formalized.
+related_bridges:
+  - b-robust-statistics-outlier-detection
+last_reviewed: "2026-05-07"

@@ -1,0 +1,46 @@
+id: h-robust-statistics-deep-learning-improves-noisy-label-training
+title: >
+  Applying robust statistics estimators (Huber loss, trimmed loss with formal
+  breakdown point guarantees) to deep neural network training with noisy labels
+  will outperform standard cross-entropy training and ad hoc noise-robust methods
+  when label noise exceeds 20% ΓÇö because the formal 50% breakdown point provides
+  a principled bound that heuristic methods lack.
+status: active
+priority: medium
+impact_score: 0.73
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - type: supporting
+    confidence: 0.70
+    note: "Ghosh et al. (2017) NIPS: symmetric cross-entropy loss is robust to uniform label noise ΓÇö formal connection to M-estimator robustness properties"
+  - type: supporting
+    confidence: 0.68
+    note: "Zhang & Sabuncu (2018): generalized cross entropy loss (GCE) with q parameter interpolates between cross-entropy (qΓåÆ0) and MAE (q=1) ΓÇö empirically more robust but without formal breakdown point analysis"
+  - type: supporting
+    confidence: 0.60
+    note: "Menon et al. (2020) NeurIPS: theoretically connecting noisy label robust training to influence function bounded loss functions ΓÇö formal statistical robustness characterization for DNN training"
+  - type: contradicting
+    confidence: 0.45
+    note: "DNNs are overparameterized and can memorize noise labels even with robust loss functions ΓÇö the robustness guarantee applies to shallow models and may not transfer to deep networks where memorization dominates"
+
+unknowns_addressed:
+  - u-ransac-optimal-sampling-strategy-non-uniform-inlier-distribution
+
+proposed_tests:
+  - description: >
+      Train ResNet-50 on CIFAR-10 and CIFAR-100 with 0%, 20%, 40%, 60% symmetric
+      and asymmetric label noise. Compare: (1) standard cross-entropy, (2) Huber
+      loss (various k), (3) GCE loss, (4) LTS (least trimmed squares surrogate for
+      classification), (5) MAE. Primary metric: test accuracy. Secondary: influence
+      function magnitude of corrupted vs. clean labels. Test whether breakdown point
+      (~50%) predicts the noise level at which each method fails.
+    method: "Standard DNN training pipeline; noisy label injection; 5-run average; 95% CI; breakdown point curve (accuracy vs. noise fraction)"
+    prediction: "Huber-like losses maintain >70% test accuracy at 40% noise where cross-entropy fails to 60%; LTS achieves 50% breakdown point in classification; formal breakdown point predicts failure mode better than heuristic methods"
+
+related_disciplines:
+  - machine-learning
+  - statistics
+  - computer-vision

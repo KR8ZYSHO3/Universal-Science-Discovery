@@ -1,0 +1,48 @@
+id: h-optimal-transport-determines-city-structure-spatial-equilibrium
+title: >
+  The spatial structure of cities (commuting patterns, residential sorting, land
+  price gradients) is well-approximated by the solution to an optimal transport
+  problem ΓÇö workers minimize expected commuting cost subject to housing supply
+  constraints ΓÇö making Wasserstein distance between job and residence distributions
+  a predictive measure of urban welfare and inequality.
+status: active
+priority: medium
+impact_score: 0.74
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - type: supporting
+    confidence: 0.70
+    note: "Galichon & Salanie (2022): discrete choice models of job-residence matching are isomorphic to optimal transport problems ΓÇö equilibrium matching is equivalent to the solution of a linear program"
+  - type: supporting
+    confidence: 0.65
+    note: "Ahlfeldt et al. (2015) ECMA: quantitative urban model for Berlin shows workers sort to minimize commuting cost subject to income and housing price constraints ΓÇö consistent with OT formulation"
+  - type: supporting
+    confidence: 0.60
+    note: "Commuting zones in US metro areas show that average commute Wasserstein distance (job-to-residence distribution) strongly predicts intergenerational mobility (Chetty 2014) ΓÇö OT metric captures urban opportunity structure"
+  - type: contradicting
+    confidence: 0.45
+    note: "Actual commuting patterns show many long, inefficient commutes not consistent with OT solution ΓÇö amenities, schools, and social networks drive location choices beyond commuting cost minimization"
+
+unknowns_addressed:
+  - u-gravity-model-trade-structural-estimation-welfare
+
+proposed_tests:
+  - description: >
+      For 50 US metropolitan areas, compute the Wasserstein distance WΓéé between
+      the job distribution and the residence distribution using Census LODES data.
+      Regress city-level outcomes (intergenerational mobility, Gini coefficient,
+      housing affordability) on WΓéé controlling for city size, industry mix, and
+      zoning regulations. Test whether deviations from OT equilibrium (revealed
+      by comparing actual vs. OT-optimal commuting matrix) predict housing price
+      distortions.
+    method: "Census LODES OD commuting data; Sinkhorn algorithm for regularized OT; WΓéé computation; regression with city fixed effects; comparison with Rosen-Roback spatial equilibrium model"
+    prediction: "WΓéé significantly predicts intergenerational mobility (╬▓ > 0.3, p < 0.01); cities farther from OT equilibrium have higher housing price-to-income ratios and lower mobility"
+
+related_disciplines:
+  - economics
+  - urban-economics
+  - mathematics
+  - social-science

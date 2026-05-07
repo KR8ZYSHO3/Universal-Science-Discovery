@@ -1,6 +1,6 @@
 # USDR Citation Index
 
-**4179 total citations · 2896 unique references · 498 cited in 2+ bridges**
+**4302 total citations · 2993 unique references · 501 cited in 2+ bridges**
 
 ## Most Cross-Domain Papers
 
@@ -8,24 +8,24 @@ Papers cited across the highest number of different bridges — the most influen
 
 | Bridges | Title | DOI |
 |---|---|---|
-| 10 | Castellano et al. review connects voter model to spatial ecology | [DOI](10.1103/RevModPhys.81.591) |
+| 11 | Castellano et al. review connects voter model to spatial ecology | [DOI](10.1103/RevModPhys.81.591) |
 | 8 | May (1972) provides stability criterion for LV-type competitive systems | [DOI](10.1038/238413a0) |
+| 8 | Jarzynski (1997) — theoretical derivation; exact for any protocol including irre... | [DOI](10.1103/PhysRevLett.78.2690) |
 | 8 | Jaynes (1957) — maximum entropy formulation reproduces the same stability condit... | [DOI](10.1103/PhysRev.106.620) |
+| 7 | Turing (1952) — original prediction λ ∝ √(D/k) | [DOI](10.1098/rstb.1952.0012) |
 | 7 | WBE derives 3/4 from area-preserving branching — the recursion relation is struc... | [DOI](10.1126/science.276.5309.122) |
-| 7 | Jarzynski (1997) — theoretical derivation; exact for any protocol including irre... | [DOI](10.1103/PhysRevLett.78.2690) |
+| 7 | Berut et al. (2012) — Landauer limit verified experimentally at k_B T ln 2 ~ 3 z... | [DOI](10.1038/nature10872) |
 | 6 | Barabási & Albert (1999) - scale-free networks fragile to targeted hub attack; g... | [DOI](10.1126/science.286.5439.509) |
-| 6 | Turing (1952) — original prediction λ ∝ √(D/k) | [DOI](10.1098/rstb.1952.0012) |
 | 6 | Friston (2010) — free energy principle: biological homeostasis = continuous free... | [DOI](10.1038/nrn2787) |
+| 6 | Hasan & Kane (2010) — comprehensive review of Z2 TI classification and experimen... | [DOI](10.1103/RevModPhys.82.3045) |
 | 6 | Bak, Tang & Wiesenfeld (1987) — BTW sandpile predicts τ = 3/2 (mean field) | [DOI](10.1103/PhysRevLett.59.381) |
 | 6 | Newman (2002) proves the mathematical equivalence — FSS must apply if the equiva... | [DOI](10.1103/PhysRevE.66.016128) |
 | 6 | Landauer (1961) — irreversibility and heat generation in computation | [DOI](10.1147/rd.53.0183) |
-| 6 | Berut et al. (2012) — Landauer limit verified experimentally at k_B T ln 2 ~ 3 z... | [DOI](10.1038/nature10872) |
 | 5 | Cohen et al. (2000) — proves p_c = 0 for scale-free networks (γ≤3), implying arb... | [DOI](10.1103/PhysRevLett.85.4626) |
 | 5 | Engel et al. (2007) observe coherence signatures consistent with quantum transpo... | [DOI](10.1038/nature05678) |
 | 5 | Bouchaud & Mezard (2000) — derives the formula α = 1 + r/(g-r) from a multiplica... | [DOI](10.1016/S0378-4371(00)00205-3) |
 | 5 | Pastor-Satorras & Vespignani (2001) — scale-free networks have p_c → 0, making t... | [DOI](10.1103/PhysRevLett.86.3200) |
 | 5 | Hopfield (1982) — associative memory energy model | [DOI](10.1073/pnas.79.8.2554) |
-| 5 | Hasan & Kane (2010) — comprehensive review of Z2 TI classification and experimen... | [DOI](10.1103/RevModPhys.82.3045) |
 | 4 | Bohigas et al. (1984) — Bohigas-Giannoni-Schmit conjecture: chaotic quantum syst... | [DOI](10.1103/PhysRevLett.52.1) |
 | 4 | Maynard Smith & Price (1973) — ESS and cyclical dynamics in zero-sum games | [DOI](10.1038/246015a0) |
 | 4 | Xie et al. (2013) showed 60% faster amyloid-β clearance during sleep vs. wakeful... | [DOI](10.1126/science.1241224) |
@@ -38,6 +38,7 @@ Papers cited across the highest number of different bridges — the most influen
 | 4 | Clark (2013) Behav Brain Sci — predictive coding framework motivating the precis... | [DOI](10.1017/S0140525X12000477) |
 | 4 | Beggs & Plenz (2003) — original neural avalanche paper establishing critical exp... | [DOI](10.1523/JNEUROSCI.23-35-11167.2003) |
 | 4 | Engler et al. (2006) show cells migrate toward stiffer substrates and that stiff... | [DOI](10.1016/j.cell.2006.06.044) |
+| 4 | Crooks (1999) — Crooks fluctuation theorem; tighter and more statistically effic... | [DOI](10.1103/PhysRevE.60.2721) |
 | 4 | Bennett (1973) — theoretical demonstration that reversible computation has zero ... | [DOI](10.1147/rd.173.0525) |
 | 3 | Tononi (2004) IIT — quantitative emergence measure; not connected to RG formalis... | [DOI](10.1186/1471-2202-5-42) |
 | 3 | Hawking (1975) — black hole entropy = area/4, precursor to holographic principle | [DOI](10.1007/BF01608497) |
@@ -57,7 +58,6 @@ Papers cited across the highest number of different bridges — the most influen
 | 3 | May (1976) Nature 261:459 — simple mathematical models exhibit chaos; period-dou... | [DOI](10.1038/261459a0) |
 | 3 | Wagner et al. (2004) - sleep promotes insight into hidden mathematical rule (num... | [DOI](10.1126/science.1205106) |
 | 3 | Dietz et al. (2003) Science 302:1907 — commons governance empirical tests | [DOI](10.1126/science.1091015) |
-| 3 | Brockett (1972) — Lie algebra controllability condition (basis for bracket depth... | [DOI](10.1137/0310021) |
 
 ## Citation Network
 
@@ -67,4 +67,4 @@ The full citation data is available at [`docs/citation_index.json`](citation_ind
 
 ## All Unique References
 
-The catalog currently references **2896 unique papers/books**.
+The catalog currently references **2993 unique papers/books**.
