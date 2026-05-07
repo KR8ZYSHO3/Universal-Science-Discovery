@@ -1,0 +1,54 @@
+id: h-single-atom-catalyst-orr-selectivity-4e
+title: >
+  Single-atom catalysts (SACs) with atomically dispersed Fe–N₄ sites on carbon
+  achieve near-100% selectivity for the 4-electron oxygen reduction reaction pathway
+  (O₂ → H₂O) over the 2-electron pathway (O₂ → H₂O₂) because the Fe coordination
+  geometry enforces the correct O–O bond activation angle, making SACs viable
+  Pt-free ORR catalysts for commercial PEM fuel cells.
+status: active
+priority: high
+impact_score: 0.88
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+
+evidence_links:
+  - doi: "10.1038/s41929-019-0276-2"
+    type: supporting
+    confidence: 0.80
+    note: "Li et al. (2019) Nat Catal — Fe-N-C SAC with FeN₄ sites achieves 98% 4e⁻ selectivity; half-wave potential within 30 mV of Pt/C"
+  - doi: "10.1021/acscatal.8b04817"
+    type: supporting
+    confidence: 0.75
+    note: "Zhu et al. (2019) ACS Catal — XANES/EXAFS confirms FeN₄ coordination; DFT shows OOH* intermediate is destabilized by ~0.4 eV compared to Pt, redirecting to 4e⁻ path"
+  - type: contradicting
+    confidence: 0.60
+    note: "Holby et al. (2020) JACS — DFT calculations on FeN₄ sites predict a near-barrierless 2e⁻ pathway under acidic conditions; 4e⁻ selectivity may depend on coordination defects not captured by ideal FeN₄ model"
+
+unknowns_addressed:
+  - u-pem-fuel-cell-pt-catalyst-degradation-mechanism
+
+proposed_tests:
+  - description: >
+      Synthesize a series of Fe–N_x (x = 2, 3, 4, 5) SAC catalysts with controlled
+      coordination number confirmed by XANES/EXAFS, and measure ORR selectivity via
+      rotating ring-disk electrode (RRDE — H₂O₂ yield measured at ring while ORR
+      current measured at disk). Determine whether 4e⁻ selectivity correlates with
+      x = 4 (FeN₄) or whether other coordination numbers also achieve high selectivity.
+    method: "RRDE in O₂-saturated 0.5 M H₂SO₄; collection efficiency N calibrated with ferrocyanide; H₂O₂ selectivity = 2N·I_ring / (I_disk + N·I_ring); confirm coordination by XANES/EXAFS at Fe K-edge"
+    prediction: "FeN₄ sites achieve H₂O₂ yield < 2% (4e⁻ selectivity > 96%); FeN₂ sites show > 30% H₂O₂ yield; FeN₃ is intermediate — confirming coordination-geometry dependence"
+  - description: >
+      Operando 57Fe Mössbauer spectroscopy of Fe-N-C SAC under ORR conditions to
+      identify the iron oxidation state and coordination environment during catalysis.
+      This will determine whether Fe²⁺ (low spin, d⁶) or Fe³⁺ (d⁵) is the active
+      species and whether the first electron transfer to O₂ involves Fe²⁺ → Fe³⁺
+      oxidation — critical for DFT model validation.
+    method: "Operando Mössbauer at Fe K-edge; control potential between 0.6-0.9 V vs. RHE; measure isomer shift and quadrupole splitting as function of applied potential and O₂ partial pressure"
+    prediction: "Fe²⁺ (IS ≈ 0.4 mm/s, QS ≈ 1.5 mm/s) is reduced to Fe²⁺-OO* intermediate at ORR potential, confirming Fe²⁺ as the catalytic oxidation state"
+
+related_disciplines:
+  - electrochemistry
+  - materials-science
+  - surface-science
+  - computational-chemistry
+  - energy-engineering

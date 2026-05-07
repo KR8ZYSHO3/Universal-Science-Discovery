@@ -1,0 +1,58 @@
+id: h-feigenbaum-universality-quantum-maps-period-doubling
+title: >
+  The Feigenbaum universality of period-doubling routes to chaos (δ ≈ 4.669, α ≈ 2.502)
+  extends to quantum maps via the quantum-classical correspondence: quantized versions
+  of the logistic map and the Hénon map exhibit the same universal period-doubling
+  ratios in the semiclassical limit (ℏ → 0, N_eff → ∞), with quantum corrections
+  suppressed as O(ℏ) relative to classical universal behavior.
+status: active
+priority: medium
+impact_score: 0.68
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+
+evidence_links:
+  - doi: "10.1103/PhysRevLett.63.819"
+    type: supporting
+    confidence: 0.70
+    note: "Ott, Antonsen & Hanson (1989) PRL — quantum version of the kicked rotor shows period-doubling; Feigenbaum ratio approaches 4.669 as effective Planck constant ℏ_eff → 0"
+  - doi: "10.1103/PhysRevA.41.1172"
+    type: supporting
+    confidence: 0.65
+    note: "Grempel, Fishman & Prange (1990) PRA — quantized chaotic maps; Feigenbaum universality holds in the classical limit; deviations are O(ℏ_eff²)"
+  - type: related
+    note: "Haake (2010) Quantum Signatures of Chaos (3rd ed.) — comprehensive treatment of quantum chaos, including period-doubling in quantum maps; Chapter 7 on quantum-classical correspondence near bifurcations"
+  - type: contradicting
+    confidence: 0.50
+    note: "Quantum interference can destroy period-doubling bifurcations for small ℏ_eff: tunneling between period-2 orbits can blur the bifurcation point, requiring ℏ_eff ≪ (r_∞ - r_1) to observe the full cascade"
+
+unknowns_addressed:
+  - u-chaos-quantum-correspondence-lyapunov-exponents
+
+proposed_tests:
+  - description: >
+      Numerically simulate the quantized logistic map (Husimi representation on a
+      torus phase space) for Planck constants ℏ_eff = 1/N with N = 50, 100, 200, 500, 1000.
+      At each N, compute the bifurcation diagram by measuring the Husimi quasi-probability
+      distribution peak positions as a function of the control parameter r. Extract the
+      period-doubling ratio δ_N = (r_{n+1}(N) - r_n(N)) / (r_{n+2}(N) - r_{n+1}(N))
+      and test convergence to δ = 4.669 as N → ∞.
+    method: "Floquet operator U(r) for quantized logistic map; repeated application for 10⁴ periods at each r; locate bifurcation points from Husimi peak splitting; fit δ_N = 4.669 + C/N^α"
+    prediction: "δ_N converges to 4.669 as N → ∞ with α ≈ 1 (O(1/N) quantum corrections); for N < 100, deviations of ≥ 10% are observed due to quantum interference; convergence rate matches WKB prediction"
+  - description: >
+      Design a superconducting qubit circuit that implements the quantum Duffing
+      oscillator (x'' + kx' + x³ = B cos t in the Kerr oscillator regime) and measure
+      the period-doubling route to chaos by varying the drive amplitude B while measuring
+      the Wigner function via quantum state tomography. Test whether the quantum
+      Feigenbaum ratio agrees with the classical value 4.669 for drive frequencies
+      where the effective Planck constant ℏ_eff = (ℏω₀)/(energy scale) ≪ 1.
+    method: "Transmon qubit circuit with parametric drive; quantum state tomography via dispersive readout; Wigner function from density matrix reconstruction; measure bifurcation points in drive amplitude"
+    prediction: "Period-doubling ratio δ = 4.669 ± 0.5 for three observable bifurcations (period 1 → 2 → 4 → chaos); deviation from classical value < 15% when ℏ_eff < 0.1"
+
+related_disciplines:
+  - physics
+  - mathematics
+  - quantum-mechanics
+  - dynamical-systems
+  - quantum-computing

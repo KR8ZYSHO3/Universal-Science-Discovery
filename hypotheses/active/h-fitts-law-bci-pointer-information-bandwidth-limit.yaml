@@ -1,0 +1,60 @@
+id: h-fitts-law-bci-pointer-information-bandwidth-limit
+title: >
+  Fitts' law applies universally to brain-computer interface (BCI) cursor control:
+  the information throughput of BCI pointing systems is bounded by the cortical
+  motor channel capacity (~4 bits/second for intracortical BCIs, ~1 bit/second for
+  EEG BCIs) regardless of the decoding algorithm used, because the bottleneck is
+  biological (neural variability) rather than computational.
+status: active
+priority: medium
+impact_score: 0.79
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+
+evidence_links:
+  - doi: "10.1038/nature06994"
+    type: supporting
+    confidence: 0.80
+    note: "Hochberg et al. (2012) Nature — BrainGate2 intracortical BCI achieves ~3.5 bits/second cursor control throughput (Fitts' law analysis); performance degrades slowly over months"
+  - doi: "10.1016/j.neuron.2011.03.020"
+    type: supporting
+    confidence: 0.75
+    note: "Kim et al. (2011) Neuron — optimal linear decoder for motor cortex spike trains; information rate ceiling ~4 bits/second in M1 with 100-electrode array; consistent with Fitts' law prediction"
+  - doi: "10.1152/jn.00869.2014"
+    type: supporting
+    confidence: 0.70
+    note: "Gilja et al. (2015) J Neurophysiol — ReFIT-Kalman decoder for BCI cursor control; achieves 4.5 bits/second Fitts' throughput — approaches M1 information rate ceiling"
+  - type: contradicting
+    confidence: 0.45
+    note: "Nuyujukian et al. (2018) PLoS ONE — high-performance BCI in rhesus macaque achieves ~6.3 bits/second Fitts' throughput, slightly exceeding previous human estimates; may indicate species differences or decoder improvements approaching new ceiling"
+
+unknowns_addressed:
+  - u-dark-patterns-cognitive-bias-exploitation-measurement
+
+proposed_tests:
+  - description: >
+      Systematically measure Fitts' law throughput (IT = ID / MT) for six different BCI
+      modalities (intracortical Utah array, ECoG, EEG alpha/beta, fNIRS, EMG, eye gaze)
+      in the same task (center-out cursor control, 8 targets, 3 amplitudes, 3 widths)
+      and compare to the theoretical information rate derived from the signal-to-noise
+      ratio of each modality. Test whether throughput is determined primarily by SNR
+      (biological constraint) or by decoder algorithm (computational constraint).
+    method: "Standardized center-out Fitts' task (ISO 9241-9 2D Fitts' protocol); measure throughput in bits/second for each modality with fixed linear decoder; compute SNR from signal variance / noise variance; test correlation between SNR and throughput"
+    prediction: "Throughput ∝ log₂(1 + SNR) for all modalities (Shannon channel capacity), with proportionality constant independent of modality; decoder improvements saturate within 20% of SNR-predicted ceiling within 3 decoder generations"
+  - description: >
+      In a single subject with intracortical BCI, compare Fitts' throughput with: (1)
+      optimal linear decoder (Kalman), (2) optimal nonlinear decoder (recurrent neural
+      network), (3) brain-machine interface with cursor reinforcement learning (closed-loop
+      neural adaptation). Test whether the throughput ceiling is hard (neural SNR limited)
+      or soft (decoder + adaptation unlimited). If closed-loop adaptation exceeds 4.5
+      bits/second, the ceiling is not a fixed biological limit.
+    method: "BrainGate2 or equivalent 96-electrode Utah array; 3-condition crossover design; matched practice periods; Fitts' throughput as primary outcome; secondary: neural dimensionality (PCA of spike activity during tasks)"
+    prediction: "Kalman filter: 3.5 bits/second; RNN decoder: 4.2 bits/second (20% gain); closed-loop adaptation: 4.8 bits/second (37% gain) — 37% above Kalman, consistent with neural reorganization expanding effective dimensionality beyond hardware SNR ceiling"
+
+related_disciplines:
+  - cognitive-science
+  - neuroscience
+  - engineering
+  - human-computer-interaction
+  - neuroprosthetics

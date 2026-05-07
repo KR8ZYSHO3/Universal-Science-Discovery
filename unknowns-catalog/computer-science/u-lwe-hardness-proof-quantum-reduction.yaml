@@ -1,0 +1,39 @@
+id: u-lwe-hardness-proof-quantum-reduction
+title: >
+  Is Learning With Errors (LWE) provably hard against quantum computers — and what
+  is the precise quantum query complexity of the best LWE algorithm as a function
+  of lattice dimension n, modulus q, and error rate α?
+status: open
+priority: critical
+disciplines:
+  - computer-science
+  - cryptography
+  - mathematics
+  - quantum-computing
+  - complexity-theory
+summary: >
+  Post-quantum cryptography (NIST 2022: CRYSTALS-Kyber, CRYSTALS-Dilithium) is
+  grounded in the hardness of Learning With Errors (LWE): given (A, b = As + e mod q)
+  with small error e, find s. Regev (2005) gave a quantum reduction from worst-case
+  lattice problems (approximate shortest vector problem, GapSVP) to average-case LWE,
+  providing classical-hardness-to-LWE reduction. However: (1) The quantum reduction
+  itself uses a quantum algorithm as a subroutine, meaning the reduction assumes LWE
+  is hard even against quantum computers — but this circularity has not been fully
+  resolved; (2) The best known quantum algorithm for LWE is a variant of the BKZ
+  lattice sieve — its quantum advantage over classical BKZ is modest (square root
+  speedup in some subroutines) and the exact quantum gate complexity for cryptographically
+  relevant parameters (n = 768-1024, q ≈ 12289 for Kyber) has not been precisely
+  determined; (3) Whether LWE is hard for quantum computers with access to quantum
+  random oracles (relevant for analyzing CRYSTALS security in the quantum random oracle
+  model) is an active research question. The security of all NIST PQC standards depends
+  critically on these open questions about quantum LWE hardness.
+systematic_gaps:
+  - A purely classical hardness assumption that implies LWE hardness against quantum
+    adversaries has not been established — existing reductions are quantum-to-quantum.
+  - Concrete quantum gate counts for BKZ-based quantum attacks on Kyber/Dilithium
+    parameter sets have not been agreed upon, leading to uncertainty in security margins.
+  - The relationship between LWE hardness and the quantum random oracle model (QROM)
+    security of Kyber/Dilithium KEMs has not been fully analyzed.
+related_bridges:
+  - b-cryptography-number-theory
+last_reviewed: "2026-05-06"

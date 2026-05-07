@@ -1,6 +1,6 @@
 # USDR Citation Index
 
-**3801 total citations · 2640 unique references · 446 cited in 2+ bridges**
+**3846 total citations · 2683 unique references · 447 cited in 2+ bridges**
 
 ## Most Cross-Domain Papers
 
@@ -48,6 +48,7 @@ Papers cited across the highest number of different bridges — the most influen
 | 3 |  | [DOI](10.1103/RevModPhys.85.1143) |
 | 3 | Kahneman & Tversky (1979) established λ ≈ 2.25 empirically in WEIRD samples | [DOI](10.2307/1914185) |
 | 3 | Armstrong McKay et al. (2022) — Tipping elements in the Earth system; Science 37... | [DOI](10.1126/science.abn7950) |
+| 3 | Olshausen & Field (1996) Nature — sparse coding of natural images produces Gabor... | [DOI](10.1038/381607a0) |
 | 3 | Arute et al. (2019) — 53-qubit Sycamore at 20 cycles; XEB = 0.224% (above classi... | [DOI](10.1038/s41586-019-1666-5) |
 | 3 | May (1976) Nature 261:459 — simple mathematical models exhibit chaos; period-dou... | [DOI](10.1038/261459a0) |
 | 3 | Wagner et al. (2004) - sleep promotes insight into hidden mathematical rule (num... | [DOI](10.1126/science.1205106) |
@@ -57,7 +58,6 @@ Papers cited across the highest number of different bridges — the most influen
 | 3 |  | [DOI](10.1175/1520-0469(1963)020<0130:DNF>2.0.CO;2) |
 | 3 | OGY control theory: systems near bifurcation boundaries show critical slowing do... | [DOI](10.1103/PhysRevLett.64.1196) |
 | 3 | Pendry (2000) — theoretical foundation for metamaterial lensing | [DOI](10.1103/PhysRevLett.85.3966) |
-| 3 | Gale & Shapley (1962) — DA algorithm; proven stable in O(n²); man-optimal stable... | [DOI](10.2307/2312726) |
 
 ## Citation Network
 
@@ -67,4 +67,4 @@ The full citation data is available at [`docs/citation_index.json`](citation_ind
 
 ## All Unique References
 
-The catalog currently references **2640 unique papers/books**.
+The catalog currently references **2683 unique papers/books**.
