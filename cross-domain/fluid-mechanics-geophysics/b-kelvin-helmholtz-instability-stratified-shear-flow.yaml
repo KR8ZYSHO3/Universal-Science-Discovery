@@ -1,0 +1,51 @@
+id: b-kelvin-helmholtz-instability-stratified-shear-flow
+title: >
+  The Kelvin-Helmholtz instability arises at the interface between stratified fluid
+  layers with velocity shear, governed by the Richardson number criterion, and produces
+  the characteristic billowing vortices seen in clouds, ocean thermocline mixing,
+  and planetary atmospheres.
+status: established
+fields:
+  - fluid-mechanics
+  - geophysics
+bridge_claim: >
+  At the interface between two fluids of densities ρ₁ < ρ₂ moving at velocities U₁
+  and U₂, the Richardson number Ri = N²/(∂U/∂z)² determines stability: Ri < 0.25
+  (Miles-Howard theorem) is necessary (though not sufficient) for instability. Linear
+  stability analysis of the Taylor-Goldstein equation gives the instability growth rate
+  σ = k·(U₁−U₂)/2·√(1−4Ri). Nonlinear evolution produces characteristic KH billows
+  that roll up and eventually break, generating turbulent mixing — the dominant mechanism
+  for diapycnal mixing in the ocean thermocline and atmospheric clear-air turbulence.
+translation_table:
+  - field_a_term: velocity shear across ocean thermocline (geophysics)
+    field_b_term: KH instability shear layer (fluid mechanics)
+    note: Thermocline velocity shear drives KH instability that mixes heat, salt, and nutrients
+  - field_a_term: Richardson number Ri (geophysics)
+    field_b_term: stability parameter in Taylor-Goldstein equation (fluid mechanics)
+    note: Ri < 1/4 necessary for KH instability; buoyancy stabilizes, shear destabilizes
+  - field_a_term: diapycnal mixing in ocean interior (geophysics)
+    field_b_term: turbulent diffusion from KH billow breakdown (fluid mechanics)
+    note: KH-generated turbulence is parameterized by mixing efficiency Γ≈0.2 in ocean models
+  - field_a_term: clear-air turbulence (CAT) in atmosphere (geophysics)
+    field_b_term: KH billow breaking at jet stream interface (fluid mechanics)
+    note: CAT occurs where Ri < 0.25 near wind shear layers — a hazard to aviation
+related_unknowns:
+  - u-kelvin-helmholtz-diapycnal-mixing-quantification
+related_hypotheses:
+  - h-richardson-number-turbulence-onset-universal
+cross_pollination_opportunities:
+  - Applying direct numerical simulation of KH instability to calibrate mixing parameterizations in ocean climate models
+  - Using satellite observations of KH waves in clouds to validate fluid mechanics stability predictions
+communication_gap: >
+  Geophysicists parameterizing ocean mixing in climate models and fluid mechanicians
+  studying KH instability use the same Richardson number criterion but different
+  modeling approaches; ocean models use bulk mixing parameterizations (KPP, MY) while
+  fluid mechanics provides direct numerical simulations that rarely inform the parameterization choices.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1017/S0022112061000305"
+    note: Miles (1961) — on the stability of heterogeneous shear flows (Miles-Howard theorem)
+  - doi: "10.1175/JPO-D-12-0105.1"
+    note: Smyth & Moum (2012) — ocean mixing by Kelvin-Helmholtz instability
+  - doi: "10.1175/1520-0493(1994)122<0927:AIOCAM>2.0.CO;2"
+    note: Large et al. (1994) — KPP mixing scheme using Richardson number criterion

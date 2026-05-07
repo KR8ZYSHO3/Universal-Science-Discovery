@@ -1,0 +1,52 @@
+id: b-fiber-optics-nonlinear-schrodinger-equation
+title: >
+  Pulse propagation in optical fibers is governed by the nonlinear Schrödinger equation
+  (NLSE), whose exact soliton solutions explain the dispersion-canceling pulses used
+  in long-haul fiber optic communications, connecting photonics engineering to integrable
+  systems mathematics.
+status: established
+fields:
+  - engineering
+  - mathematics
+  - physics
+bridge_claim: >
+  The envelope of an optical pulse in a fiber obeys the NLSE:
+  i∂A/∂z = (β₂/2)∂²A/∂t² − γ|A|²A, where β₂ is group-velocity dispersion and γ
+  is the nonlinear coefficient. This equation is exactly integrable via the inverse
+  scattering transform (Zakharov-Shabat); its soliton solutions |A|² = P·sech²(t/T₀)
+  propagate without distortion because nonlinear self-phase modulation exactly cancels
+  group-velocity dispersion. The mathematical structure (Lax pair, infinite conservation
+  laws) has no analog in classical waveguide theory but is central to integrable systems.
+translation_table:
+  - field_a_term: group-velocity dispersion β₂ (fiber optics)
+    field_b_term: dispersive term in NLSE (mathematics)
+    note: Anomalous dispersion (β₂ < 0) enables bright solitons; normal dispersion gives dark solitons
+  - field_a_term: self-phase modulation / Kerr nonlinearity (fiber optics)
+    field_b_term: cubic nonlinear term in NLS (mathematics)
+    note: Kerr effect ∝ n₂|E|² — exact mathematical analogue of the focusing NLS nonlinearity
+  - field_a_term: optical soliton (fiber optics)
+    field_b_term: soliton solution of focusing NLS / inverse scattering eigenvalue (mathematics)
+    note: Each soliton corresponds to a bound-state eigenvalue of the Zakharov-Shabat operator
+  - field_a_term: modulation instability / optical rogue wave (fiber optics)
+    field_b_term: Benjamin-Feir instability / Peregrine soliton (mathematics)
+    note: MI is the NLS analogue of deep-water wave instability; Peregrine breathers model rogue waves
+related_unknowns:
+  - u-optical-rogue-wave-prediction-fiber
+related_hypotheses:
+  - h-inverse-scattering-fiber-transmission-capacity
+cross_pollination_opportunities:
+  - Applying inverse scattering transform to design noise-immune fiber communication based on eigenvalue modulation
+  - Using fiber-optic experiments as analog computers to study NLS dynamics in controlled conditions
+communication_gap: >
+  Fiber optic engineers and mathematicians working on integrable systems use the same
+  NLSE but rarely interact; optical engineers typically use split-step numerical methods
+  while mathematicians develop exact inverse-scattering solutions, and the engineering
+  implications of integrability (eigenvalue communication) are just entering practice.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1103/PhysRevLett.30.829"
+    note: Hasegawa & Tappert (1973) — prediction of optical solitons in fibers
+  - doi: "10.1007/BF01208265"
+    note: Zakharov & Shabat (1972) — exact theory of the two-dimensional self-focusing
+  - doi: "10.1038/450054a"
+    note: Mollenauer et al. (2006) — soliton transmission in telecommunications fibers
