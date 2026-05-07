@@ -1,0 +1,44 @@
+id: h-stackelberg-equilibrium-predicts-security-market-underinvestment
+title: >
+  The Stackelberg defender-attacker equilibrium predicts that organizations
+  systematically overinvest in visible, deterrence-oriented security and underinvest
+  in detection and response — a prediction testable through breach cost and security
+  spending decomposition data.
+status: active
+priority: medium
+impact_score: 0.71
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - type: supporting
+    confidence: 0.65
+    note: "Verizon DBIR consistently shows >60% of breaches take months to detect — consistent with underinvestment in detection relative to prevention"
+  - type: supporting
+    confidence: 0.60
+    note: "Gordon & Loeb (2002) model predicts organizations should spend 1/e (~37%) of potential breach loss on security; empirical spending is much lower, consistent with underinvestment"
+  - type: supporting
+    confidence: 0.55
+    note: "Stackelberg security game analysis (Tambe 2011) applied to airport security shows similar over-patrolling of visible points and under-monitoring of less-visible areas"
+  - type: contradicting
+    confidence: 0.5
+    note: "Security investment data is not publicly available at the granularity needed to test overinvestment in prevention vs. detection; self-reported surveys are unreliable"
+
+unknowns_addressed:
+  - u-optimal-cybersecurity-investment-under-adversarial-uncertainty
+
+proposed_tests:
+  - description: >
+      Natural experiment: compare security investment allocation (prevention vs.
+      detection vs. response) before and after high-profile breaches (Equifax 2017,
+      SolarWinds 2020) using public disclosure data, insurance filings, and 10-K
+      cybersecurity disclosures. Test whether visible-security spending increases
+      more than detection spending post-breach.
+    method: "Event study analysis of 10-K disclosures and SEC cybersecurity filings; classification of spending as prevention/detection/response using NLP"
+    prediction: "Post-breach investment shifts disproportionately to prevention (visible) vs. detection; Stackelberg model predicts this; IDS/SIEM spending grows less than firewall/compliance spending"
+
+related_disciplines:
+  - cybersecurity
+  - economics
+  - game-theory
