@@ -1,0 +1,42 @@
+id: b-spectral-clustering-x-graph-laplacian
+title: Spectral clustering ↔ Graph Laplacian — eigenvectors as community indicators
+status: proposed
+fields:
+- computer_science
+- mathematics
+bridge_claim: Spectral clustering finds community structure by computing eigenvectors of the graph Laplacian L = D - A; the
+  Fiedler vector (second smallest eigenvector) bisects the graph at minimum cut, and k eigenvectors identify k communities
+  — connecting machine learning clustering to algebraic graph theory and random walk mixing times.
+translation_table:
+- field_a_term: graph Laplacian L = D - A (degree matrix minus adjacency matrix)
+  field_b_term: diffusion operator on graph (discrete Laplacian for random walk)
+  note: L is positive semidefinite; eigenvalues 0 = λ₁ ≤ λ₂ ≤ ... ≤ λₙ; λ₂ = algebraic connectivity
+- field_a_term: Fiedler vector (eigenvector corresponding to λ₂, smallest nonzero eigenvalue)
+  field_b_term: minimum bisection of graph (Cheeger constant bound on minimum cut)
+  note: Sign of Fiedler vector coordinates gives optimal graph bisection; h(G) ≥ λ₂/2 (Cheeger inequality)
+- field_a_term: spectral clustering (k-means on k leading Laplacian eigenvectors)
+  field_b_term: low-dimensional random walk embedding (diffusion maps)
+  note: k-means in spectral domain ≡ k-means in diffusion distance space; both find community structure
+- field_a_term: spectral gap λ₂ (difference between second and first Laplacian eigenvalue)
+  field_b_term: random walk mixing time τ_mix = O(1/λ₂) (graph theory)
+  note: Large spectral gap ↔ fast mixing ↔ well-separated communities; small gap ↔ slow mixing ↔ community structure
+cross_pollination_opportunities:
+- Apply spectral clustering via graph Laplacian to single-cell RNA-seq data — cells form communities in gene expression space;
+  Fiedler vector identifies developmental lineage bifurcations in pseudotime analysis.
+- Use algebraic graph theory Cheeger inequality to bound the quality of spectral clustering in social network community detection
+  — provides provable approximation guarantees for spectral vs. optimal minimum-cut partitions.
+communication_gap: Spectral methods for graph partitioning were developed in numerical linear algebra (Fiedler 1973) and VLSI
+  circuit partitioning (Pothen 1990). Spectral clustering was independently rediscovered in machine learning (Shi & Malik
+  2000, Ng et al. 2001) without reference to the Fiedler algebraic graph theory literature. The Cheeger inequality connection
+  — providing theoretical guarantees for spectral clustering — was imported from differential geometry (Cheeger 1970) to graph
+  theory and only then to machine learning via the work of Spielman & Teng.
+related_unknowns:
+- u-spectral-clustering-x-graph-laplacian
+related_hypotheses:
+- h-spectral-clustering-x-graph-laplacian
+last_reviewed: '2026-05-07'
+references:
+- doi: 10.1007/s11222-007-9033-z
+  note: von Luxburg (2007) — a tutorial on spectral clustering; Statistics and Computing 17:395
+- doi: 10.1023/B:STCO.0000006967.33477.20
+  note: Fiedler (1973) — algebraic connectivity of graphs; Czech Math J 23:298

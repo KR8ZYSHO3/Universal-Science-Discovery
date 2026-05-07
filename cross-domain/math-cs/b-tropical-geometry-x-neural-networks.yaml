@@ -1,0 +1,42 @@
+id: b-tropical-geometry-x-neural-networks
+title: Tropical geometry ↔ ReLU neural networks — piecewise-linear maps as tropical polynomials
+status: proposed
+fields:
+- mathematics
+- computer_science
+bridge_claim: ReLU neural networks compute piecewise-linear functions that are exactly tropical polynomials in tropical (max-plus)
+  algebra; the number of linear regions of a deep ReLU network grows exponentially with depth — a fact provable using tropical
+  geometry — explaining why depth provides exponential representational advantage.
+translation_table:
+- field_a_term: ReLU activation function max(0, x) (neural network)
+  field_b_term: tropical addition a ⊕ b = max(a, b) in max-plus algebra
+  note: ReLU is exactly the tropical addition applied to a linear function and zero
+- field_a_term: piecewise-linear function computed by ReLU network
+  field_b_term: tropical polynomial in max-plus semiring
+  note: Every ReLU network computes a tropical polynomial; tropical geometry characterises the PL subdivision
+- field_a_term: number of linear regions of depth-d width-w ReLU network
+  field_b_term: number of facets of the tropical hypersurface (tropical algebraic geometry)
+  note: Linear regions count grows as Θ((w/n)^{nd}) for n-input network; tropical geometry proves this
+- field_a_term: depth-width trade-off in neural network expressivity
+  field_b_term: tropical hypersurface complexity vs. polynomial degree and dimension
+  note: Depth exponentially increases linear regions; breadth increases polynomially — proven by tropical methods
+cross_pollination_opportunities:
+- Use tropical geometry to analyse the decision boundaries of trained neural networks — the tropical hypersurface of a trained
+  ReLU network provides an exact geometric description of its decision boundary as a polyhedral complex.
+- Apply tropical optimisation (linear programming over tropical semiring) to neural architecture search — the tropical geometry
+  framework provides an algebraic characterisation of which network architectures are expressively equivalent.
+communication_gap: Tropical geometry was developed in algebraic geometry (Mikhalkin 2004, Speyer & Sturmfels 2004) as a tool
+  for combinatorial and computational algebraic geometry. Neural network expressivity theory was developed in machine learning
+  (Montufar 2014, Telgarsky 2016). The connection was made by Zhang et al. (2018) and Montufar et al. (2014), but remains
+  largely unknown to both algebraic geometers (who don't study deep learning) and machine learning researchers (who rarely
+  study tropical geometry).
+related_unknowns:
+- u-tropical-geometry-x-neural-networks
+related_hypotheses:
+- h-tropical-geometry-x-neural-networks
+last_reviewed: '2026-05-07'
+references:
+- doi: 10.48550/arXiv.1805.07091
+  note: Zhang et al. (2018) — tropical geometry of deep neural networks; ICML 2018
+- doi: 10.48550/arXiv.1402.1869
+  note: Montufar et al. (2014) — on the number of linear regions of deep neural networks; NeurIPS 2014

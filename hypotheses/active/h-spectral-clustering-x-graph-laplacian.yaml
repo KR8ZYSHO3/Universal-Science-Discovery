@@ -1,0 +1,27 @@
+id: h-spectral-clustering-x-graph-laplacian
+title: Random-walk Laplacian L_rw spectral clustering achieves 20% better Normalised Mutual Information than unnormalised
+  L clustering on power-law degree graphs (γ < 2.5) by correctly weighting high-degree hub nodes, while symmetric L_sym is
+  optimal for regular and near-regular graphs
+status: active
+priority: medium
+impact_score: 0.7
+created: '2026-05-07'
+last_updated: '2026-05-07'
+author: wave-65-agent
+unknowns_addressed:
+- u-spectral-clustering-x-graph-laplacian
+related_disciplines:
+- computer_science
+- mathematics
+evidence_links:
+- type: supporting
+  doi: 10.1007/s11222-007-9033-z
+  note: von Luxburg — spectral clustering tutorial with Laplacian normalisation comparison
+  confidence: 0.72
+- type: related
+  note: Lei & Rinaldo (2015) — consistency of spectral clustering in stochastic block models; Ann Stat 43:215
+  confidence: 0.74
+proposed_tests:
+- description: Benchmark spectral clustering with L, L_sym, L_rw on synthetic stochastic block model graphs with degree exponents
+    γ = 2.0, 2.5, 3.0, ∞ (regular); also benchmark on real networks (Facebook, Amazon, citation graphs); measure NMI vs. ground
+    truth communities; test Laplacian ranking hypothesis via Friedman test across 20 graph instances per setting.
