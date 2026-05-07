@@ -1,0 +1,36 @@
+id: h-origami-robotic-fabrication-fold-complexity
+title: "Robotic origami fabrication using visual servoing and force-feedback control can reliably execute computationally-designed crease patterns with up to 1,000 creases, with fold-position error < 0.5 mm, enabling engineering-grade deployable structure fabrication from flat sheet metal at production scales currently achievable only by manual origami artists"
+status: active
+priority: medium
+impact_score: 0.68
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - doi: "10.1073/pnas.1805762115"
+    type: supporting
+    confidence: 0.65
+    note: "Stern et al. (2018) - self-folding origami complexity; limits of programmable matter"
+  - doi: "10.1145/2461912.2462004"
+    type: related
+    confidence: 0.70
+    note: "Demaine & Tachi (2013) - origamizer algorithm for 3D origami from computational fold design"
+  - type: related
+    note: "Hawkes et al. (2010) - programmable matter by folding: programmable fold sequences"
+
+unknowns_addressed:
+  - u-origami-fold-design-complexity
+
+proposed_tests:
+  - description: >
+      Design origami crease patterns with N = 100, 500, 1000 creases using TreeMaker/Origamizer and attempt
+      robotic folding on 0.5 mm aluminum sheet with 6-DOF arm equipped with visual servoing. Measure mean
+      fold position error and success rate vs N.
+    method: "Robotic arm with force-torque sensor + fiducial tracking camera + comparison to target geometry"
+    prediction: "Fold position error should scale as σ*√N; 1000-crease patterns should achieve mean error <0.5 mm with >80% first-attempt success rate"
+
+related_disciplines:
+  - engineering
+  - mathematics
+  - robotics

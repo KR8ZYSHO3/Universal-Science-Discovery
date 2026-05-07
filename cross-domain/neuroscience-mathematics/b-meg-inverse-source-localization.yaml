@@ -1,0 +1,35 @@
+id: b-meg-inverse-source-localization
+title: "Magnetoencephalography (MEG) source localization is an ill-posed electromagnetic inverse problem: the measured magnetic field distribution b = L*q admits infinitely many source configurations q, requiring regularization methods (minimum norm, LORETA, beamforming) that impose mathematical priors on source distributions to yield unique neurophysiologically plausible solutions"
+fields:
+  - neuroscience
+  - mathematics
+  - physics
+bridge_claim: "The MEG forward problem b = L*q (b: measured field, L: lead-field matrix, q: dipole moments) is underdetermined because the 300-sensor measurement vector b has far fewer constraints than the ~10^4 cortical source locations in q; the inverse problem min_q ||b - L*q||^2 + λ*R(q) requires regularization by a prior R(q): minimum norm (R = ||q||^2), LORETA (R = ||Lq||^2 spatial Laplacian), or beamformer (spatial filter w^T*b maximizing signal-to-noise for each location), each encoding different mathematical assumptions about neural source geometry."
+translation_table:
+  - field_a_term: "MEG sensor signals b (neuroscience)"
+    field_b_term: "linear measurement equation b = L*q with underdetermined L (mathematics)"
+    note: "Lead-field matrix L encodes Maxwell's equations; each column is the field pattern of a unit dipole at one cortical location"
+  - field_a_term: "neural source localization (neuroscience)"
+    field_b_term: "regularized linear inverse problem solution q̂ = (L^T*L + λ*R)^{-1}*L^T*b (mathematics)"
+    note: "Different R encodings represent different anatomical priors; λ controls regularization strength via L-curve or cross-validation"
+  - field_a_term: "MEG spatial resolution limited by sensor count (neuroscience)"
+    field_b_term: "rank deficiency and null space of the lead-field matrix (mathematics)"
+    note: "Rank(L) ≤ 300 sensors; sources in the null space of L are invisible; deep sources have smaller lead-field columns"
+  - field_a_term: "beamformer spatial filter for neural source imaging (neuroscience)"
+    field_b_term: "linearly constrained minimum variance (LCMV) adaptive filter (mathematics)"
+    note: "Beamformer w_r = (C^{-1}*L_r)/(L_r^T*C^{-1}*L_r) suppresses interference from competing brain regions"
+status: established
+communication_gap: "Neuroscientists use MEG source localization as a black-box tool in neuroimaging pipelines while applied mathematicians study inverse problems and regularization theory in general; the specific challenges of MEG (non-stationary sources, correlated signals, anatomical constraints) require interdisciplinary expertise combining neuroscience anatomy and inverse problem mathematics."
+cross_pollination_opportunities:
+  - "Applying compressed sensing theory (sparse source priors) to MEG inverse problems to localize focal epileptic sources with fewer assumptions than minimum norm methods"
+  - "Using Bayesian hierarchical models from geostatistical inverse problems to integrate MEG and fMRI constraints for simultaneous high spatial and temporal resolution brain imaging"
+references:
+  - doi: "10.1016/j.neuroimage.2003.10.036"
+    note: "Hämäläinen & Ilmoniemi (1994) - interpreting MEG data: the minimum norm inverse"
+  - doi: "10.1109/TMI.2009.2021641"
+    note: "Hillebrand & Barnes (2003) - beamformer source analysis for MEG"
+  - doi: "10.1016/j.neuroimage.2009.02.054"
+    note: "Wipf & Nagarajan (2009) - robust Bayesian estimation for MEG source localization"
+related_unknowns:
+  - u-meg-inverse-source-localization
+last_reviewed: "2026-05-07"
