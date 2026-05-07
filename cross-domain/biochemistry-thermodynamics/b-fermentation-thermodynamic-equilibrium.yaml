@@ -1,0 +1,69 @@
+id: b-fermentation-thermodynamic-equilibrium
+title: >
+  Microbial fermentation pathway selection is governed by thermodynamic
+  free energy minimisation: the Gibbs free energy change ΔG° of each
+  metabolic reaction determines which pathways are feasible, and cells
+  regulate NAD⁺/NADH ratios to maintain ΔG < 0 across the fermentation
+  network even when ATP yield is suboptimal.
+status: established
+fields:
+  - biochemistry
+  - thermodynamics
+  - microbiology
+bridge_claim: >
+  Fermentation is the anaerobic oxidation of organic compounds coupled to
+  ATP synthesis without a terminal inorganic electron acceptor. The pathway
+  a microbe takes (homolactic, ethanolic, butyric, etc.) depends on the
+  thermodynamic feasibility of each reaction: ΔG = ΔG° + RT ln Q must be
+  negative for spontaneous flux. Alberty (2003) formalised biochemical
+  thermodynamics using transformed Gibbs energies at physiological pH,
+  showing that NAD⁺/NADH ratio ([NAD⁺]/[NADH] ~ 10³ in aerobiosis, ~1
+  in fermentation) sets the effective standard potential and determines
+  whether NADH-oxidising fermentation steps are thermodynamically driven.
+  Cells cannot ignore thermodynamics: enforcing ΔG < 0 at each step is
+  a physical constraint that determines the observed diversity of
+  fermentation products.
+translation_table:
+  - field_a_term: "NAD⁺/NADH redox couple potential E'°(NAD⁺/NADH) = −0.32 V"
+    field_b_term: "Half-cell potential in an electrochemical cell"
+    note: "Fermentation reactions use NADH reoxidation as the electron sink; E sets the thermodynamic driving force"
+  - field_a_term: "ΔG of glycolysis (−73 kJ/mol glucose under standard conditions)"
+    field_b_term: "Work available from fuel oxidation in a heat engine"
+    note: "Efficiency of ATP capture = ΔG_ATP / ΔG_glycolysis; fermentation captures ~30%, aerobiosis ~40%"
+  - field_a_term: "Fermentation pathway branching point (pyruvate to lactate vs. ethanol)"
+    field_b_term: "Kinetic/thermodynamic competition between parallel reaction channels"
+    note: "The pathway with more negative ΔG dominates; enzyme expression adjusts flux to maintain ΔG < 0"
+  - field_a_term: "Product inhibition (ethanol toxicity in yeast)"
+    field_b_term: "Le Chatelier's principle: product accumulation shifts equilibrium backward"
+    note: "Ethanol concentration drives ΔG toward zero; cells must expel product to maintain thermodynamic drive"
+related_unknowns:
+  - u-fermentation-thermodynamic-efficiency-limit
+related_hypotheses:
+  - h-fermentation-nad-ratio-pathway-selection-thermodynamic
+cross_pollination_opportunities:
+  - >
+    Thermodynamic flux balance analysis (TFA), incorporating ΔG constraints on
+    all metabolic reactions, can predict which fermentation products a metabolically
+    engineered microbe will produce under given substrate and cofactor conditions—
+    going beyond stoichiometric FBA which ignores thermodynamic feasibility.
+  - >
+    The thermodynamic efficiency of fermentation has implications for the design
+    of microbial fuel cells (MFCs): maximising the electrochemical potential
+    captured from NADH oxidation requires operating near the thermodynamic limit,
+    a design criterion borrowed directly from Carnot efficiency analysis.
+communication_gap: >
+  Biochemistry textbooks describe fermentation pathways in mechanistic detail
+  (enzyme names, cofactors) but rarely perform thermodynamic feasibility analysis.
+  Thermodynamicists studying biological energy conversion rarely engage with
+  detailed metabolic network topology. Alberty's transformed Gibbs energy
+  framework (2003 J. Phys. Chem. Ref. Data) is underused in metabolic engineering.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1021/jp020625u"
+    note: "Alberty (2003) – thermodynamics of biochemical reactions; transformed Gibbs energies at pH 7"
+  - doi: "10.1128/MMBR.00008-10"
+    note: "Thauer et al. (2008) Microbiol. Mol. Biol. Rev. – methanogenic archaea thermodynamics; ΔG of fermentation steps"
+  - doi: "10.1073/pnas.1112325108"
+    note: "Flamholz et al. (2012) PNAS – thermodynamic constraints on metabolic flux; eQuilibrator database"
+  - doi: "10.1038/nchembio.971"
+    note: "Henry et al. (2007) Nature Chem. Biol. – thermodynamics-based metabolic flux analysis"

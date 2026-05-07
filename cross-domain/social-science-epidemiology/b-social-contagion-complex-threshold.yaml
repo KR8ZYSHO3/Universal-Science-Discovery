@@ -1,0 +1,70 @@
+id: b-social-contagion-complex-threshold
+title: >
+  The spread of social behaviours (innovation adoption, social movements,
+  voting) requires exposure to multiple independent contacts (complex contagion)
+  unlike disease spread (simple contagion), described by threshold models
+  where adoption occurs when the fraction of adopting neighbours exceeds
+  an individual-specific threshold φ — a fundamentally different dynamic
+  than standard SIR epidemics.
+status: established
+fields:
+  - social-science
+  - epidemiology
+  - network-science
+  - sociology
+bridge_claim: >
+  Granovetter (1978) showed that riot or protest participation depends on
+  threshold distributions in populations; the cascade dynamics depend
+  critically on the shape of the threshold distribution φ_i. Centola (2010)
+  demonstrated empirically that complex contagion (requiring multiple exposures)
+  spreads faster on clustered networks than on random networks—the opposite
+  of simple contagion. This is because clustered networks provide redundant
+  reinforcing signals to threshold-exceeding nodes. The mathematical distinction:
+  simple contagion spreads via the branching process (SIR), while complex
+  contagion requires the cascade condition (mean excess degree × adoption
+  probability) × mean fractional reinforcement > 1 in the Dodds-Watts
+  generalised contagion model.
+translation_table:
+  - field_a_term: "Individual adoption threshold φ_i (fraction of neighbours who must adopt first)"
+    field_b_term: "No equivalent in SIR: binary exposure probability in simple contagion"
+    note: "Complex contagion requires reinforcement; simple contagion requires single exposure"
+  - field_a_term: "Clustered network (high clustering coefficient)"
+    field_b_term: "Network that provides reinforcing triangles for threshold-exceeding"
+    note: "Clustering helps complex contagion (redundant exposure) but hinders simple contagion (fewer bridges)"
+  - field_a_term: "Global cascade condition (Watts 2002)"
+    field_b_term: "Epidemic threshold R₀ > 1 in simple contagion"
+    note: "Both are percolation-type thresholds; cascade condition involves threshold distribution, not just degree"
+  - field_a_term: "Weak ties (Granovetter) as bridges for information"
+    field_b_term: "Long-range edges enabling simple contagion but hindering complex contagion"
+    note: "Weak ties are bridges that lack the clustering needed for threshold reinforcement in complex contagion"
+related_unknowns:
+  - u-complex-contagion-threshold-distribution-estimation
+related_hypotheses:
+  - h-social-movement-cascade-clustered-network-advantage
+cross_pollination_opportunities:
+  - >
+    Online A/B experiments on platform networks can test the complex vs. simple
+    contagion distinction by varying whether users see which of their friends
+    have adopted a behaviour (reinforcement visible) or only that some friends
+    have adopted (single-signal exposure), measuring differential spread rates.
+  - >
+    Public health interventions for behaviour change (mask-wearing, vaccination
+    uptake) that treat adoption as complex contagion (requiring social norm
+    reinforcement from multiple contacts) can be designed using Centola's
+    clustered network findings rather than simple epidemic seeding strategies.
+communication_gap: >
+  Epidemiologists model disease spread with SIR (simple contagion) and apply
+  the same framework to health behaviour change. Sociologists studying social
+  movements use threshold models without connection to network science. Centola
+  (2010) provided the empirical demonstration of the distinction, but adoption
+  of the complex contagion framework in public health practice lags.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1086/226707"
+    note: "Granovetter (1978) AJS – threshold models of collective behavior; cascade dynamics"
+  - doi: "10.1126/science.1185231"
+    note: "Centola (2010) Science – the spread of behavior in an online social network experiment; complex contagion"
+  - doi: "10.1103/PhysRevE.70.026116"
+    note: "Dodds & Watts (2004) PRE – universal behavior in a generalised model of contagion"
+  - doi: "10.1073/pnas.252631999"
+    note: "Watts (2002) PNAS – a simple model of global cascades on random networks"

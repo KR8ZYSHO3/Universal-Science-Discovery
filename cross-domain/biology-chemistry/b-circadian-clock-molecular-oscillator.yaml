@@ -1,0 +1,71 @@
+id: b-circadian-clock-molecular-oscillator
+title: >
+  The ~24-hour circadian clock in eukaryotes is a biochemical limit-cycle
+  oscillator: the PER/CRY/CLOCK/BMAL1 transcription-translation feedback loop
+  generates self-sustained oscillations described by Goodwin-type nonlinear
+  ODEs, and the clock's period, amplitude, and entrainability are predicted
+  by the Hopf bifurcation structure of the oscillator.
+status: established
+fields:
+  - chronobiology
+  - systems-biology
+  - chemistry
+  - nonlinear-dynamics
+bridge_claim: >
+  The core circadian oscillator is a negative feedback loop: CLOCK:BMAL1
+  activates Per and Cry transcription; PER:CRY proteins accumulate, enter
+  the nucleus, and repress CLOCK:BMAL1. This is a delayed negative feedback
+  loop producing limit-cycle oscillations (Goodwin 1965). Goldbeter (1995)
+  showed that a 3-variable ODE model (PER mRNA, cytoplasmic PER, nuclear PER)
+  with Hill coefficient n ≥ 9 generates ~24h oscillations. Leloup & Goldbeter
+  (2003) extended this to the full PER/CRY system (19 variables), reproducing
+  observed period mutations (per01, tau mutation) quantitatively. The Hopf
+  bifurcation at critical Hill coefficient n_c separates non-oscillatory and
+  oscillatory regimes; biological circuits operate above n_c due to cooperative
+  repression.
+translation_table:
+  - field_a_term: "PER/CRY nuclear repression of CLOCK:BMAL1"
+    field_b_term: "Negative feedback in a nonlinear ODE oscillator (Goodwin model)"
+    note: "Delayed negative feedback with cooperative Hill-function repression (n > 8) = Hopf bifurcation"
+  - field_a_term: "Circadian period (~24h)"
+    field_b_term: "Period of the limit cycle at the Hopf bifurcation"
+    note: "Period is set by the delay in the feedback loop (mRNA half-life, nuclear transport time)"
+  - field_a_term: "Temperature compensation of period"
+    field_b_term: "Robustness of limit-cycle period to parameter variation"
+    note: "Biological circuits tune multiple rate constants so period is insensitive to temperature Q₁₀"
+  - field_a_term: "Photic entrainment by light pulses (phase response curve)"
+    field_b_term: "External forcing of a limit-cycle oscillator (Arnold tongues)"
+    note: "Phase response curve = Jacobian of the oscillator limit cycle under impulsive perturbation"
+related_unknowns:
+  - u-circadian-temperature-compensation-mechanism
+related_hypotheses:
+  - h-circadian-hopf-bifurcation-period-mutation-prediction
+cross_pollination_opportunities:
+  - >
+    The Hopf bifurcation framework predicts that the circadian clock becomes
+    arrhythmic (below the bifurcation) when PER/CRY concentrations are below
+    a threshold; pharmacological inhibition of casein kinase Iε (which
+    phosphorylates and degrades PER) should increase amplitude and restore
+    arrhythmic cells to oscillation, directly testable by luciferase reporter.
+  - >
+    Nonlinear dynamics of coupled circadian oscillators (thousands of SCN neurons
+    with coupling via VIP neuropeptide) can be modelled as a Kuramoto network
+    of limit-cycle oscillators, predicting jet-lag recovery times and optimal
+    light-therapy protocols from the synchronisation dynamics.
+communication_gap: >
+  Chronobiologists study PER/CRY kinetics experimentally (genetic screens,
+  luciferase reporters) while nonlinear dynamicists study limit-cycle theory
+  abstractly. Goldbeter's 1995 PNAS paper and Leloup & Goldbeter 2003
+  established the bridge, but most molecular chronobiology papers still describe
+  the clock in biochemical terms without referencing the Hopf bifurcation
+  structure or limit-cycle theory explicitly.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1073/pnas.92.21.9383"
+    note: "Goldbeter (1995) PNAS – a model for circadian oscillations in Drosophila per protein; Goodwin-type oscillator"
+  - doi: "10.1073/pnas.0306901100"
+    note: "Leloup & Goldbeter (2003) PNAS – toward a detailed computational model for the mammalian circadian clock"
+  - doi: "10.1038/35036009"
+    note: "Dunlap (1999) Cell – molecular bases for circadian clocks; feedback loop review"
+  - doi: "10.1126/science.1089924"
+    note: "Schibler & Sassone-Corsi (2002) Cell – a web of circadian pacemakers; systems perspective"
