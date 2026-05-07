@@ -1,0 +1,62 @@
+id: b-antibiotic-tolerance-persister-switching
+title: >
+  Antibiotic tolerance in bacterial biofilms arises from phenotypic switching
+  to a metabolically dormant persister state: the switching dynamics are a
+  two-state stochastic process (ON-OFF) with memory, mathematically equivalent
+  to a Markov-modulated Poisson process that determines the size and persistence
+  of the tolerant subpopulation.
+status: established
+fields:
+  - microbiology
+  - mathematics
+  - stochastic-processes
+bridge_claim: >
+  Persisters are rare bacterial cells (~10^{-5} of population) that survive
+  antibiotic killing not through resistance (heritable genetic change) but through
+  tolerance (transient physiological dormancy). Balaban et al. (2004) showed
+  that persister formation follows a stochastic switching model: individual
+  cells switch between normal (type I, slow growth) and persister (type II,
+  dormant) states at rates alpha (normal-to-persister) and beta (persister-
+  to-normal). The ratio alpha/(alpha+beta) gives the fraction of persisters
+  at steady state. Mathematically, this is a continuous-time Markov chain
+  with two states, producing biphasic killing curves: rapid initial killing
+  of normal cells followed by slow killing of the persister fraction. The
+  stochastic switching model predicts that antibiotic kill rates, regrowth
+  kinetics, and the effect of pre-treatment conditions are all determined by
+  alpha and beta alone - a testable quantitative prediction confirmed experimentally.
+translation_table:
+  - field_a_term: two-state Markov chain (mathematics)
+    field_b_term: normal-to-persister and persister-to-normal switching (microbiology)
+    note: Switching rates alpha (to persister) and beta (to normal) fully characterise persister dynamics
+  - field_a_term: stationary distribution pi = alpha/(alpha+beta) (mathematics)
+    field_b_term: steady-state persister fraction (~10^{-5} to 10^{-3}) (microbiology)
+    note: Persister fraction set by switching rate ratio; controllable by stress conditions
+  - field_a_term: biphasic exponential decay (mathematics)
+    field_b_term: antibiotic killing curve with fast and slow phases (microbiology)
+    note: "Phase I: normal cells die at rate k_kill; Phase II: persisters die at rate ~ 0 until resuscitation"
+  - field_a_term: stochastic fluctuations in gene expression (mathematics)
+    field_b_term: noise-driven persister formation independent of external signals (microbiology)
+    note: Toxin-antitoxin (TA) module noise drives stochastic dormancy; not triggered by stress alone
+communication_gap: >
+  Microbiologists describe persister formation mechanistically (toxin-antitoxin
+  modules, SOS response) without fitting quantitative stochastic models; applied
+  mathematicians studying two-state Markov chains rarely consider bacterial
+  persistence as a model system. Clinical implications (persister-mediated
+  recurrent infection) require both quantitative modelling and microbiology.
+cross_pollination_opportunities:
+  - Fit two-state Markov model to persister killing curves in clinical isolates
+    to estimate alpha/beta and predict optimal antibiotic dosing intervals
+  - Apply optimal control theory to design antibiotic schedules that minimise
+    persister regrowth by exploiting the switching kinetics
+  - Transfer dormancy switching models from bacteria to cancer cell dormancy
+    in chemotherapy-treated tumours
+related_unknowns:
+  - u-persister-cell-switching-rates-clinical
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1126/science.1099538"
+    note: Balaban et al. (2004) - bacterial persistence as a phenotypic switch; foundational stochastic model
+  - doi: "10.1038/nrmicro2543"
+    note: Lewis (2010) - persister cells; annual review
+  - doi: "10.1016/j.cell.2011.02.043"
+    note: Maisonneuve & Gerdes (2014) - molecular mechanisms underlying bacterial persisters

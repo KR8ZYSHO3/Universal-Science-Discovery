@@ -1,0 +1,61 @@
+id: b-circadian-entrainment-phase-response-curve
+title: >
+  Circadian clock entrainment to light-dark cycles is quantitatively described
+  by the phase response curve (PRC): a one-dimensional map from zeitgeber phase
+  to phase shift that, combined with limit cycle oscillator theory, predicts
+  entrainment range, phase angle, and resynchronisation kinetics after
+  transmeridian travel.
+status: established
+fields:
+  - chronobiology
+  - mathematics
+bridge_claim: >
+  A circadian clock is a biochemical limit cycle oscillator with period T_free.
+  When exposed to a periodic zeitgeber (light, temperature) with period T_ext,
+  entrainment occurs if the clock can phase-shift to compensate for the mismatch
+  T_ext - T_free each cycle. The PRC phi(theta) gives the phase shift produced
+  by a single stimulus at clock phase theta. For weak coupling, the entrainment
+  condition is: delta = integral_0^1 [PRC(theta) * Z(t)] dt = T_ext - T_free,
+  where Z is the zeitgeber waveform. The mathematics of phase-coupled limit
+  cycle oscillators (Winfree 1980; Kuramoto 1984) predicts: (1) entrainment
+  range (Arnold tongue) as a function of zeitgeber strength, (2) stable
+  phase angle theta* where PRC(theta*) = T_ext - T_free, (3) transient
+  resynchronisation kinetics as exponential convergence with rate |PRC'(theta*)|.
+  These predictions have been quantitatively confirmed in Drosophila, plants,
+  and humans.
+translation_table:
+  - field_a_term: phase response curve (PRC) phi(theta) (mathematics)
+    field_b_term: measured phase shift vs. light pulse phase in circadian experiments (chronobiology)
+    note: PRC measured by giving single light pulses at different circadian phases; fundamental data for clock theory
+  - field_a_term: Arnold tongue (entrainment range) (mathematics)
+    field_b_term: range of light-dark cycle periods that entrain the circadian clock (chronobiology)
+    note: Clock entrains to T_ext in [T_free - Delta, T_free + Delta] where Delta = amplitude of PRC
+  - field_a_term: limit cycle oscillator period T_free (mathematics)
+    field_b_term: free-running circadian period (chronobiology)
+    note: T_free ~ 24 h in most organisms; deviations from 24 h require larger daily phase shifts to entrain
+  - field_a_term: phase-locking / stable phase angle theta* (mathematics)
+    field_b_term: phase of sleep relative to dusk / dawn (chronobiology)
+    note: Entrainment sets theta* where daily PRC phase shift exactly compensates T_ext - T_free
+communication_gap: >
+  Chronobiologists measure PRCs empirically but rarely connect them to the
+  full mathematical theory of limit cycle entrainment; mathematicians studying
+  phase-coupled oscillators rarely fit their models to real circadian data.
+  Clinical applications (jet lag, shift work, chronotherapy) require quantitative
+  PRC-based models that are rarely used in practice.
+cross_pollination_opportunities:
+  - Use PRC-based optimal control to design minimally disruptive light exposure
+    protocols for rapid jet lag resynchronisation
+  - Apply Arnold tongue analysis to predict which shift work schedules are
+    physiologically entrainable vs. chronically desynchronised
+  - Transfer circadian PRC methods to non-circadian biological rhythms
+    (ultradian, infradian) to test universality of limit-cycle entrainment theory
+related_unknowns:
+  - u-circadian-prc-individual-variation-prediction
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1007/978-3-662-22492-9"
+    note: Winfree (1980) - The Geometry of Biological Time; PRC and limit cycle theory
+  - doi: "10.1152/jappl.1988.64.2.557"
+    note: Jewett & Kronauer (1998) - refinement of a limit cycle oscillator model of the effects of light on the human circadian pacemaker
+  - doi: "10.1177/0748730410381599"
+    note: Lewy et al. (2010) - the circadian basis of winter depression; melatonin PRC application

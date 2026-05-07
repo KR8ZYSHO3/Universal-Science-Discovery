@@ -1,0 +1,62 @@
+id: b-predator-prey-lotka-volterra-hamiltonian
+title: >
+  The Lotka-Volterra predator-prey equations possess a conserved Hamiltonian
+  H(x,y) = alpha*ln(y) - beta*y + gamma*ln(x) - delta*x, making predator-prey
+  cycles mathematically equivalent to Hamiltonian mechanics, and the prey-
+  predator ratio a conserved action variable that constrains long-term
+  ecological dynamics.
+status: established
+fields:
+  - ecology
+  - mathematics
+bridge_claim: >
+  The Lotka-Volterra equations dx/dt = ax - bxy (prey), dy/dt = -cy + dxy
+  (predator) admit the conserved quantity H = d*x - c*ln(x) + b*y - a*ln(y).
+  This is a Hamiltonian system: the equations are Hamilton's equations
+  with H as the Hamiltonian and (ln x, ln y) as conjugate phase-space
+  coordinates. Ecologically, H is a conserved quantity that determines
+  which closed orbit the predator-prey system follows, set by initial conditions.
+  The ratio y^a / x^c (a conserved invariant of the ratio) plays the role
+  of an action variable. This Hamiltonian structure is fragile: any perturbation
+  (harvesting, carrying capacity, age structure) breaks the conservation
+  law and introduces spiralling toward a fixed point or limit cycle (Rosenzweig-
+  MacArthur model). The mathematical bridge predicts that real ecosystems
+  show near-Hamiltonian dynamics over short timescales but deviate as
+  perturbations accumulate - testable in well-isolated experimental ecosystems.
+translation_table:
+  - field_a_term: conserved Hamiltonian H (mathematics)
+    field_b_term: ecological invariant determining predator-prey cycle amplitude (ecology)
+    note: H = d*x - c*ln(x) + b*y - a*ln(y); constant on each orbit; set by initial conditions
+  - field_a_term: closed orbits in phase space (mathematics)
+    field_b_term: periodic predator-prey population cycles (ecology)
+    note: Lotka-Volterra cycles are closed (neutrally stable); no convergence to steady state
+  - field_a_term: canonical transformation (mathematics)
+    field_b_term: coordinate change to (ln x, ln y) that makes equations Hamiltonian (ecology)
+    note: ln-transformation reveals Hamiltonian structure; standard ecological models rarely use this
+  - field_a_term: action-angle variables (mathematics)
+    field_b_term: cycle period and amplitude as conserved quantities (ecology)
+    note: In the Hamiltonian formulation, cycle amplitude is the action variable
+communication_gap: >
+  Ecologists use Lotka-Volterra as a qualitative model and fit parameters
+  phenomenologically without exploiting the Hamiltonian conservation law;
+  mathematical physicists familiar with Hamiltonian mechanics rarely apply
+  it to ecological dynamics. The fragility of Hamiltonian structure under
+  ecological perturbations is rarely discussed in ecology courses.
+cross_pollination_opportunities:
+  - Use Hamiltonian perturbation theory (KAM theorem) to predict how small
+    perturbations to Lotka-Volterra (seasonality, harvesting) change cycle
+    amplitude and stability
+  - Apply action-angle variable analysis to experimental predator-prey
+    microcosms (Didinium-Paramecium) to test Hamiltonian conservation
+  - Transfer Hamilton-Jacobi theory to model evolutionary dynamics as
+    Hamiltonian systems in trait space
+related_unknowns:
+  - u-lotka-volterra-hamiltonian-real-ecosystem-conservation
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1098/rsif.2013.0572"
+    note: Hamiltonian structure of Lotka-Volterra equations; mathematical analysis
+  - doi: "10.2307/4100"
+    note: Lotka (1925) - Elements of Physical Biology; original predator-prey equations
+  - doi: "10.1016/0022-5193(73)90121-7"
+    note: May (1973) - Stability and Complexity in Model Ecosystems; Lotka-Volterra analysis
