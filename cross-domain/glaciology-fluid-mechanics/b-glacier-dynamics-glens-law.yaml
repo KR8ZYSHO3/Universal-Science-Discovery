@@ -1,0 +1,49 @@
+id: b-glacier-dynamics-glens-law
+title: >
+  Glacier flow obeys Glen's flow law, a power-law viscosity relation that maps glaciology
+  onto non-Newtonian viscous fluid mechanics, enabling glaciologists to use Stokes flow
+  equations to predict ice sheet dynamics and sea-level contributions.
+status: established
+fields:
+  - glaciology
+  - fluid-mechanics
+  - geophysics
+bridge_claim: >
+  Ice deformation follows Glen's flow law epsilon_dot = A * tau^n (n ~ 3), making glacier
+  ice a non-Newtonian shear-thinning fluid; this maps ice sheet dynamics onto the Stokes
+  equations for viscous flow with a strain-rate-dependent effective viscosity, allowing
+  fluid dynamical analyses (lubrication approximation, shallow ice approximation) to
+  predict ice velocities, mass flux, and sea-level rise contributions.
+translation_table:
+  - field_a_term: Glen's flow law (glaciology)
+    field_b_term: power-law viscosity / Ostwald-de Waele model (fluid mechanics)
+    note: epsilon_dot = A*tau^n is the glaciological form of the power-law fluid constitutive relation
+  - field_a_term: effective viscosity of ice (glaciology)
+    field_b_term: strain-rate-dependent viscosity eta(epsilon_dot) (rheology)
+    note: eta_eff = (A*tau^(n-1))^(-1); shear-thinning behavior enables fast outlet glacier flow
+  - field_a_term: shallow ice approximation (glaciology)
+    field_b_term: lubrication approximation in thin film flow (fluid mechanics)
+    note: Both exploit aspect ratio epsilon = H/L << 1 to reduce 3D Stokes to 2D depth-averaged equations
+  - field_a_term: basal sliding / till deformation (glaciology)
+    field_b_term: boundary layer slip condition (fluid mechanics)
+    note: Weertman and Coulomb sliding laws are the glaciological analog of partial-slip boundary conditions
+related_unknowns:
+  - u-glacier-basal-sliding-uncertainty
+related_hypotheses:
+  - h-marine-ice-sheet-instability-threshold
+cross_pollination_opportunities:
+  - Applying computational fluid dynamics solvers (finite element Stokes) to ice sheet models for better treatment of non-linear rheology
+  - Using glaciological observations of non-Newtonian flow to constrain power-law exponent n at large scales inaccessible to laboratory experiments
+communication_gap: >
+  Glaciologists develop specialized ice-sheet models (ISSM, BISICLES, Elmer/Ice) while
+  the fluid mechanics community develops general viscous flow solvers; there is limited
+  cross-training, leading to glaciologists reinventing numerical methods standard in
+  computational fluid dynamics and fluid mechanicians unaware of glaciological datasets.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.3189/172756455781507085"
+    note: Glen (1955) - original experimental determination of ice flow law
+  - doi: "10.5194/tc-7-51-2013"
+    note: Pattyn et al. (2013) - benchmark comparison of ice sheet models using Stokes equations
+  - doi: "10.1029/2005GL025127"
+    note: Schoof (2007) - ice sheet grounding line dynamics and marine ice sheet instability
