@@ -1,0 +1,63 @@
+id: b-quantum-walk-x-classical-random-walk
+title: >
+  Quantum Walks x Classical Random Walks — interference as search speedup
+status: proposed
+fields:
+  - physics
+  - computer_science
+  - mathematics
+bridge_claim: >
+  Quantum walks replace classical random walk coin flipping with quantum superposition
+  and interference; the probability distribution spreads ballistically (σ ∝ t) rather
+  than diffusively (σ ∝ √t), providing quadratic speedup for spatial search algorithms
+  and underpinning quantum walk-based quantum computing.
+translation_table:
+  - field_a_term: Quantum coin operator C (Hadamard)
+    field_b_term: Superposition replacement for classical coin flip
+    note: >
+      The Hadamard gate creates equal superposition of left/right; unlike classical
+      coin flip (entropy increase), the quantum coin is unitary (no entropy increase)
+      and enables interference between left and right amplitudes.
+  - field_a_term: Ballistic spreading σ(t) ∝ t
+    field_b_term: Constructive interference in quantum walk
+    note: >
+      Quantum interference causes the wavefunction to constructively add at the edges
+      of the distribution (rather than the center); the standard deviation grows
+      linearly in t, providing quadratic speedup over classical diffusion (σ ∝ √t).
+  - field_a_term: Quantum walk search on N-vertex graph (O(√N) time)
+    field_b_term: Grover's search speedup via quantum walk
+    note: >
+      Szegedy (2004) showed quantum walk on a bipartite graph achieves quadratic
+      speedup over classical Markov chain mixing; for searching an N-element
+      database, quantum walk requires O(√N) steps vs. O(N) classically.
+  - field_a_term: Decoherence → classical random walk
+    field_b_term: Quantum-to-classical transition for walks
+    note: >
+      Adding environmental decoherence (measurement noise, phase randomization)
+      to a quantum walk continuously interpolates between quantum (ballistic)
+      and classical (diffusive) spreading — providing a quantum-classical crossover model.
+communication_gap: >
+  Random walk theory (Einstein, Smoluchowski) and quantum mechanics (Feynman path
+  integrals) were developed in separate communities; quantum walks were introduced
+  by Aharonov-Ambainis-Kempe in 2001 as a direct quantum analog of classical random
+  walks, but the algorithmic implications for graph problems were developed independently
+  of the physics literature on quantum diffusion.
+cross_pollination_opportunities:
+  - >
+    Implement quantum walks on photonic waveguide arrays or cold atom lattices to
+    demonstrate quadratic speedup for spatial search problems in near-term quantum
+    hardware without error correction.
+  - >
+    Apply quantum walk universality (any quantum computation can be expressed as a
+    quantum walk) to design quantum algorithms by translating graph structure problems
+    into quantum walk Hamiltonians.
+  - >
+    Use quantum walk-based transport in excitonic energy transfer (photosynthesis)
+    models — the Fenna-Matthews-Olson complex shows quantum coherence-assisted
+    transport that may be modeled as an open quantum walk.
+related_unknowns:
+  - u-quantum-walk-x-classical-random-walk
+references:
+  - doi: "10.1103/PhysRevA.48.1687"
+    note: "Aharonov, Ambainis, Kempe & Vazirani (2001) — Quantum walks on graphs; STOC 2001 (see also Phys Rev A 48:1687 for related work)"
+last_reviewed: "2026-05-07"

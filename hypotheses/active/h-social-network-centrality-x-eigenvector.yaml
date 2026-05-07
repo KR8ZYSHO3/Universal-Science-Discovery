@@ -1,0 +1,24 @@
+id: h-social-network-centrality-x-eigenvector
+title: For SIR epidemic spreading on empirical temporal contact networks, temporal Katz centrality with attenuation factor α = 0.85/λ_max(A) outperforms static eigenvector centrality in predicting the top-10% superspreaders by AUC ≥ 0.15, with the advantage increasing monotonically with temporal heterogeneity (burstiness parameter β > 1.5)
+status: active
+priority: medium
+impact_score: 0.74
+created: '2026-05-07'
+last_updated: '2026-05-07'
+author: wave-67-agent
+unknowns_addressed:
+  - u-social-network-centrality-x-eigenvector
+related_disciplines:
+  - mathematics
+  - computer_science
+  - network-science
+evidence_links:
+  - type: supporting
+    doi: "10.1080/0022250X.1972.9989806"
+    note: "Bonacich (1972) — Eigenvector centrality; foundational static centrality theory"
+    confidence: 0.78
+  - type: related
+    note: "Holme & Saramäki (2012) — Temporal networks; Physics Reports 519:97; burstiness and centrality"
+    confidence: 0.76
+proposed_tests:
+  - description: Use three empirical temporal contact datasets (SocioPatterns school, hospital, conference); simulate SIR with β_SIR = 0.05, γ = 0.1 for 1000 runs; identify top-10% spreaders (by number infected) per run; compute AUC for predicting spreaders using (1) static eigenvector centrality, (2) static Katz centrality, (3) temporal Katz centrality with optimal α; test AUC differences by bootstrap (n=1000); measure burstiness of each dataset; test the predicted monotonic relationship between burstiness and temporal vs. static centrality AUC advantage.

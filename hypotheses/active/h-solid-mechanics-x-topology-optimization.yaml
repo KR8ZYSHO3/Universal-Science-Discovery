@@ -1,0 +1,24 @@
+id: h-solid-mechanics-x-topology-optimization
+title: SIMP topology optimization with mesh refinement h → h/2 converges to the analytical Michell truss solution at rate O(h^0.5) in compliance error for the single-load cantilever problem, but diverges for multi-load problems due to non-uniqueness of the optimal truss layout — predicting that SIMP requires additional symmetry constraints to achieve convergence for real engineering structures
+status: active
+priority: medium
+impact_score: 0.71
+created: '2026-05-07'
+last_updated: '2026-05-07'
+author: wave-67-agent
+unknowns_addressed:
+  - u-solid-mechanics-x-topology-optimization
+related_disciplines:
+  - physics
+  - mathematics
+  - engineering
+evidence_links:
+  - type: supporting
+    doi: "10.1007/BF01650949"
+    note: "Bendsøe & Kikuchi (1988) — Generating optimal topologies via homogenization; original SIMP method"
+    confidence: 0.79
+  - type: related
+    note: "Allaire et al. (2002) — A level-set method for shape optimization; J Comput Phys 194:363; continuum shape calculus for topology optimization"
+    confidence: 0.75
+proposed_tests:
+  - description: Implement SIMP with p=3, filter radius r=2h for cantilever beam with single tip load on meshes h = L/50, L/100, L/200, L/400 (L = beam length); compute compliance C(h) and compare to analytical Michell truss compliance C_Michell; fit power law C(h) - C_Michell ∝ h^α; estimate convergence rate α; repeat for two-load cantilever (tip + midspan); test whether single-load converges (α > 0) and two-load diverges (oscillating compliance) using paired t-test across mesh refinements.

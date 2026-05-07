@@ -1,0 +1,63 @@
+id: b-sparse-coding-x-neural-basis
+title: >
+  Compressed Sensing x Sparse Coding — neural basis functions as overcomplete dictionaries
+status: proposed
+fields:
+  - computer_science
+  - neuroscience
+  - mathematics
+bridge_claim: >
+  Visual cortex V1 simple cells learn sparse overcomplete representations of natural
+  images (Olshausen & Field 1996) that are equivalent to dictionary learning in
+  compressed sensing; the cortex solves a sparse approximation problem using a
+  biologically plausible version of ISTA (iterative shrinkage-thresholding), making
+  visual cortex a natural compressed sensing decoder.
+translation_table:
+  - field_a_term: Overcomplete dictionary (compressed sensing)
+    field_b_term: Simple cell receptive field basis in V1
+    note: >
+      V1 simple cells form an overcomplete basis (more cells than pixels) with
+      Gabor-like receptive fields; in CS, an overcomplete dictionary D enables
+      sparse representation x ≈ Dα with α sparse — exactly the neural sparse code.
+  - field_a_term: L1-norm minimization (LASSO)
+    field_b_term: Sparse coding objective in V1
+    note: >
+      Olshausen & Field minimize E = ||x - Dα||² + λ||α||₁; the L1 penalty enforces
+      sparsity and is equivalent to the LASSO estimator in compressed sensing.
+  - field_a_term: ISTA (iterative shrinkage-thresholding)
+    field_b_term: Neural dynamics in V1 lateral inhibition network
+    note: >
+      ISTA (soft-thresholding iterations) can be implemented by a lateral inhibition
+      network where neuron activations represent the sparse coefficients α;
+      Rozell et al. (2008) showed this is a plausible V1 circuit mechanism.
+  - field_a_term: Restricted isometry property (RIP)
+    field_b_term: Incoherence of neural basis functions
+    note: >
+      The RIP guarantees unique sparse recovery in CS; neural basis incoherence
+      (Gabor filters at different orientations/frequencies are nearly orthogonal)
+      ensures different stimuli activate different sparse subsets of V1 neurons.
+communication_gap: >
+  Compressed sensing was developed by Candès-Romberg-Tao and Donoho (2006) as a
+  mathematical theory of signal reconstruction; Olshausen & Field developed sparse
+  coding for neuroscience in 1996 without the CS mathematical framework; the
+  equivalence was recognized retrospectively, delaying a decade of potential
+  cross-fertilization between neural coding theory and compressed sensing algorithms.
+cross_pollination_opportunities:
+  - >
+    Apply CS measurement matrix design (random projections, structured measurements)
+    to retinal ganglion cell sampling theory — explaining why the retina uses fewer
+    output neurons than photoreceptors without information loss.
+  - >
+    Use neural sparse coding dynamics (ISTA as neural ODE) to design energy-efficient
+    neuromorphic compressed sensing hardware that encodes sensor data sparsely
+    at acquisition time.
+  - >
+    Import dictionary learning algorithms (K-SVD, online dictionary learning) into
+    computational neuroscience to fit overcomplete neural dictionaries to
+    multi-electrode array recordings.
+related_unknowns:
+  - u-sparse-coding-x-neural-basis
+references:
+  - doi: "10.1038/381520a0"
+    note: "Olshausen & Field (1996) — Emergence of simple-cell receptive field properties by learning a sparse code; Nature 381:607"
+last_reviewed: "2026-05-07"

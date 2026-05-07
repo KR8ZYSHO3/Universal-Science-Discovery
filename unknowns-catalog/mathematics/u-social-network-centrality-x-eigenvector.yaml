@@ -1,0 +1,25 @@
+id: u-social-network-centrality-x-eigenvector
+title: For temporal social networks (with time-varying edges), do eigenvector-based centrality measures generalize in a mathematically consistent way that preserves the Perron-Frobenius guarantees of static network centrality, and which temporal centrality measure best predicts real-world influence propagation?
+status: open
+priority: medium
+disciplines:
+  - mathematics
+  - computer_science
+  - network-science
+summary: >
+  Static network eigenvector centrality has a rigorous mathematical foundation
+  (Perron-Frobenius theorem for non-negative matrices). Temporal networks (where edges
+  appear and disappear over time) require time-respecting paths, which breaks the
+  adjacency matrix formulation. Existing temporal centrality measures (temporal Katz,
+  temporal PageRank, broadcast/receive centrality) are heuristic extensions without
+  the same mathematical guarantees. Which temporal centrality measure best predicts
+  epidemic spreading, information diffusion, or influence on real temporal contact
+  networks is unresolved — different measures give different rankings for the same
+  nodes in empirical datasets.
+systematic_gaps:
+  - No axiomatic characterization of temporal centrality analogous to Bonacich's axioms for static centrality
+  - Comparison of temporal centrality measures on real-world spreading benchmarks (SIR simulation on empirical contact networks) has not been done systematically
+  - Computational complexity of temporal eigenvector centrality scales poorly with temporal resolution; no approximate algorithm exists with provable approximation guarantees
+related_bridges:
+  - b-social-network-centrality-x-eigenvector
+last_reviewed: "2026-05-07"

@@ -1,0 +1,64 @@
+id: b-tda-x-shape-recognition
+title: >
+  Topological Data Analysis x Shape Recognition — Betti numbers as shape fingerprints
+status: proposed
+fields:
+  - mathematics
+  - computer_science
+  - data-science
+bridge_claim: >
+  Persistent homology computes Betti numbers (β₀: connected components, β₁: loops,
+  β₂: voids) across all length scales simultaneously, producing a persistence diagram
+  that is a provably stable shape fingerprint; this enables comparison of molecular
+  structures, brain connectivity networks, and materials microstructures in a
+  coordinate-free manner.
+translation_table:
+  - field_a_term: Filtration (nested sequence of simplicial complexes)
+    field_b_term: Multi-scale shape descriptor
+    note: >
+      A filtration builds a nested family of topological spaces (Čech, Vietoris-Rips,
+      or alpha complex) parameterized by scale ε; persistent homology tracks which
+      topological features (holes, voids) appear and disappear across scales.
+  - field_a_term: Persistence diagram (birth-death pairs)
+    field_b_term: Multi-scale topological fingerprint
+    note: >
+      Each topological feature (connected component, loop, void) is represented by
+      a point (b, d) in the persistence diagram — birth scale b and death scale d;
+      long-lived features (large d-b) are robust, short-lived features are noise.
+  - field_a_term: Wasserstein/bottleneck stability theorem
+    field_b_term: Lipschitz continuity of the shape fingerprint
+    note: >
+      The stability theorem guarantees that small perturbations of point cloud data
+      produce small perturbations in the persistence diagram (bottleneck distance);
+      this is the mathematical basis for using persistence diagrams as robust features.
+  - field_a_term: Betti numbers β₀, β₁, β₂
+    field_b_term: Topological invariants (components, loops, voids)
+    note: >
+      β₀ counts connected components; β₁ counts independent loops (genus in 2D);
+      β₂ counts enclosed voids in 3D; these are coordinate-free shape descriptors
+      invariant under continuous deformation.
+communication_gap: >
+  Algebraic topology was a pure mathematics discipline with no computational focus;
+  computational geometry developed shape analysis algorithms without topological rigor;
+  persistent homology (Edelsbrunner, Letscher, Zomorodian 2002) created the bridge,
+  but biological and materials science applications came 10 years later as the Ripser
+  software made computation tractable.
+cross_pollination_opportunities:
+  - >
+    Apply persistent homology to molecular dynamics trajectories to classify protein
+    folding transition states by their topological features (loops in contact maps)
+    — providing a geometry-free folding pathway classifier.
+  - >
+    Use persistence landscape statistics (vectorization of persistence diagrams) as
+    features for machine learning classifiers on materials microstructure images —
+    connecting TDA to convolutional neural network feature extraction.
+  - >
+    Import Mapper algorithm (TDA for high-dimensional data visualization) into
+    single-cell RNA sequencing analysis to reveal topological structure in cell
+    differentiation trajectories.
+related_unknowns:
+  - u-tda-x-shape-recognition
+references:
+  - doi: "10.1090/S0273-0979-09-01249-X"
+    note: "Carlsson (2009) — Topology and data; Bull Amer Math Soc 46:255"
+last_reviewed: "2026-05-07"
