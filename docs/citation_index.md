@@ -1,6 +1,6 @@
 # USDR Citation Index
 
-**3894 total citations · 2707 unique references · 449 cited in 2+ bridges**
+**3942 total citations · 2739 unique references · 452 cited in 2+ bridges**
 
 ## Most Cross-Domain Papers
 
@@ -15,13 +15,13 @@ Papers cited across the highest number of different bridges — the most influen
 | 6 | Turing (1952) — original prediction λ ∝ √(D/k) | [DOI](10.1098/rstb.1952.0012) |
 | 6 | Friston (2010) — free energy principle: biological homeostasis = continuous free... | [DOI](10.1038/nrn2787) |
 | 6 | May (1972) provides stability criterion for LV-type competitive systems | [DOI](10.1038/238413a0) |
+| 6 | Landauer (1961) — irreversibility and heat generation in computation | [DOI](10.1147/rd.53.0183) |
 | 6 | Berut et al. (2012) — Landauer limit verified experimentally at k_B T ln 2 ~ 3 z... | [DOI](10.1038/nature10872) |
 | 5 | Engel et al. (2007) observe coherence signatures consistent with quantum transpo... | [DOI](10.1038/nature05678) |
 | 5 | WBE derives 3/4 from area-preserving branching — the recursion relation is struc... | [DOI](10.1126/science.276.5309.122) |
 | 5 | Bouchaud & Mezard (2000) — derives the formula α = 1 + r/(g-r) from a multiplica... | [DOI](10.1016/S0378-4371(00)00205-3) |
 | 5 | Bak, Tang & Wiesenfeld (1987) — BTW sandpile predicts τ = 3/2 (mean field) | [DOI](10.1103/PhysRevLett.59.381) |
 | 5 | Hopfield (1982) — associative memory energy model | [DOI](10.1073/pnas.79.8.2554) |
-| 5 | Landauer (1961) — irreversibility and heat generation in computation | [DOI](10.1147/rd.53.0183) |
 | 5 | Hasan & Kane (2010) — comprehensive review of Z2 TI classification and experimen... | [DOI](10.1103/RevModPhys.82.3045) |
 | 4 | Cohen et al. (2000) — proves p_c = 0 for scale-free networks (γ≤3), implying arb... | [DOI](10.1103/PhysRevLett.85.4626) |
 | 4 | Bohigas et al. (1984) — Bohigas-Giannoni-Schmit conjecture: chaotic quantum syst... | [DOI](10.1103/PhysRevLett.52.1) |
@@ -36,6 +36,7 @@ Papers cited across the highest number of different bridges — the most influen
 | 4 | Clark (2013) Behav Brain Sci — predictive coding framework motivating the precis... | [DOI](10.1017/S0140525X12000477) |
 | 4 | Beggs & Plenz (2003) — original neural avalanche paper establishing critical exp... | [DOI](10.1523/JNEUROSCI.23-35-11167.2003) |
 | 4 | Engler et al. (2006) show cells migrate toward stiffer substrates and that stiff... | [DOI](10.1016/j.cell.2006.06.044) |
+| 4 | Bennett (1973) — theoretical demonstration that reversible computation has zero ... | [DOI](10.1147/rd.173.0525) |
 | 3 | Tononi (2004) IIT — quantitative emergence measure; not connected to RG formalis... | [DOI](10.1186/1471-2202-5-42) |
 | 3 | Hawking (1975) — black hole entropy = area/4, precursor to holographic principle | [DOI](10.1007/BF01608497) |
 | 3 | Singer-Nicolson model describes proteins embedded in 2D fluid membrane | [DOI](10.1126/science.175.4023.720) |
@@ -57,7 +58,6 @@ Papers cited across the highest number of different bridges — the most influen
 | 3 | Brockett (1972) — Lie algebra controllability condition (basis for bracket depth... | [DOI](10.1137/0310021) |
 | 3 |  | [DOI](10.1175/1520-0469(1963)020<0130:DNF>2.0.CO;2) |
 | 3 | OGY control theory: systems near bifurcation boundaries show critical slowing do... | [DOI](10.1103/PhysRevLett.64.1196) |
-| 3 | Pendry (2000) — theoretical foundation for metamaterial lensing | [DOI](10.1103/PhysRevLett.85.3966) |
 
 ## Citation Network
 
@@ -67,4 +67,4 @@ The full citation data is available at [`docs/citation_index.json`](citation_ind
 
 ## All Unique References
 
-The catalog currently references **2707 unique papers/books**.
+The catalog currently references **2739 unique papers/books**.

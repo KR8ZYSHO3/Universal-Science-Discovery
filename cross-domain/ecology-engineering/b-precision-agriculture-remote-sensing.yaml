@@ -1,0 +1,86 @@
+id: b-precision-agriculture-remote-sensing
+title: "Precision Agriculture and Remote Sensing — NDVI satellite imagery, LiDAR canopy mapping, variable rate application, and machine learning yield forecasting for feeding 9 billion people"
+status: established
+fields:
+  - ecology
+  - agricultural-science
+  - engineering
+  - remote-sensing
+  - food-security
+
+bridge_claim: >
+  Precision agriculture applies site-specific crop management at sub-field resolution
+  using spatial data from multiple sensor platforms. Multispectral satellite and
+  drone imagery provides the most widespread data source: NDVI (Normalized Difference
+  Vegetation Index) = (NIR−Red)/(NIR+Red), where NIR is near-infrared reflectance and
+  Red is red-band reflectance. Healthy vegetation strongly absorbs red light
+  (chlorophyll) and strongly reflects NIR (mesophyll structure); NDVI ranges from
+  −1 (water, bare soil) to +1 (dense healthy vegetation) and correlates with leaf
+  area index, chlorophyll content, and photosynthetic capacity. Tucker (1979)
+  demonstrated NDVI's utility for monitoring crop biomass from Landsat. Modern
+  satellites (Sentinel-2, 10 m resolution, 5-day revisit; Planet, 3 m daily) and
+  agricultural drones (cm resolution) provide real-time crop stress mapping.
+  LiDAR (Light Detection And Ranging): pulsed laser scanning from aircraft or drones
+  generates 3D point clouds of vegetation structure and terrain — canopy height,
+  leaf area index, terrain drainage modelling at 1–10 cm vertical accuracy.
+  Variable Rate Application (VRA): GPS-guided precision spreaders/sprayers apply
+  fertiliser, pesticide, and irrigation at spatially variable rates prescribed from
+  sensor data — reducing nitrogen inputs 15–30% while maintaining yield by
+  eliminating over-application in low-need zones and under-application in high-need
+  zones. Soil electrical conductivity surveys (EM38 sensor) map soil texture,
+  clay content, and organic matter at 10 m resolution, informing management zones.
+  Convolutional neural networks trained on multi-year satellite time series achieve
+  crop type classification at ~95% accuracy and yield forecasting with r² > 0.85
+  at national scale (Lobell et al. 2020). The food security equation: global
+  population reaches ~9.7 billion by 2050 on essentially the same arable land area
+  as today — caloric demand must be met by yield efficiency gains, not area expansion.
+
+translation_table:
+  - field_a_term: "NDVI = (NIR - Red)/(NIR + Red)"
+    field_b_term: "satellite proxy for crop chlorophyll content and photosynthetic vigour"
+    note: "NDVI < 0.3 indicates stressed or senescent vegetation; repeated time series tracks crop development stages"
+  - field_a_term: "LiDAR point cloud (3D vegetation structure)"
+    field_b_term: "canopy height model and terrain digital elevation model for drainage analysis"
+    note: "LiDAR separates ground returns from vegetation; DTM (bare earth) - DSM (surface) = canopy height model"
+  - field_a_term: "variable rate application (VRA) prescription maps"
+    field_b_term: "spatially explicit fertiliser and pesticide application reducing input waste"
+    note: "Agronomic benefit and environmental benefit are aligned: over-application wastes money and pollutes waterways"
+  - field_a_term: "EM38 soil electrical conductivity (ECa)"
+    field_b_term: "proxy for soil clay content, moisture, and organic matter"
+    note: "Clay particles are electrically conductive; EM38 maps ECa variation correlating with sand/clay ratio at survey speed"
+  - field_a_term: "CNN on satellite time series for crop classification"
+    field_b_term: "automated field-level crop type mapping for supply chain monitoring"
+    note: "LSTM or temporal CNN captures phenological patterns (NDVI curves vary by crop type); >95% accuracy in calibrated regions"
+  - field_a_term: "yield gap analysis (actual vs. potential yield)"
+    field_b_term: "identification of management and resource constraints limiting productivity"
+    note: "Closing 50% of the global yield gap would provide sufficient calories for 9.7B without expanding cropland"
+
+related_unknowns: []
+related_hypotheses: []
+
+cross_pollination_opportunities:
+  - "Integrate NDVI time series with soil carbon models to develop remote sensing-based soil carbon credit verification for agricultural carbon markets"
+  - "Apply federated learning to precision agriculture ML models across farms without sharing proprietary yield and soil data"
+  - "Use LiDAR and multispectral drone data in tropical deforestation monitoring to combine food security monitoring with biodiversity baselines"
+
+communication_gap: >
+  Remote sensing scientists develop satellite analysis methods primarily for global
+  change monitoring; precision agriculture practitioners are farmers and agronomists
+  who need actionable field-scale decision support. The gap between research-grade
+  remote sensing products (global 10 m NDVI) and farm-scale prescription maps (1–3 m
+  resolution) involves substantial data processing, agronomic interpretation, and
+  economic analysis that crosses disciplinary boundaries rarely bridged. Agricultural
+  machine learning is a rapidly growing field but requires domain expertise
+  (agronomy, soil science) that most ML practitioners lack.
+
+references:
+  - doi: "10.1016/j.compag.2013.07.004"
+    note: "Mulla (2013) Comput Electron Agric 93:2 — precision agriculture review"
+  - doi: "10.1016/0034-4257(79)90013-0"
+    note: "Tucker (1979) Remote Sens Environ 8:127 — NDVI for vegetation monitoring"
+  - doi: "10.1126/science.1183700"
+    note: "Gebbers & Adamchuk (2010) Science 327:828 — precision agriculture and food security"
+  - doi: "10.1038/s41477-020-0768-8"
+    note: "Lobell et al. (2020) Nat Plants 6:29 — machine learning for crop yield forecasting"
+
+last_reviewed: "2026-05-06"

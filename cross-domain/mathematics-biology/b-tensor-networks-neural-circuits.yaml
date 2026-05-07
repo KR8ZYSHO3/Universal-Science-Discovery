@@ -1,0 +1,80 @@
+id: b-tensor-networks-neural-circuits
+title: "Tensor Networks and Neural Circuits — matrix product states, DMRG, and tensor decomposition unify quantum many-body physics, transformer attention, and synaptic weight structure"
+status: established
+fields:
+  - mathematics
+  - quantum-physics
+  - neuroscience
+  - machine-learning
+  - computational-neuroscience
+
+bridge_claim: >
+  Tensor networks (TN) are graphical representations of high-dimensional arrays in
+  which each tensor is a node and contractions between shared indices are edges.
+  Matrix product states (MPS) represent a 1D quantum state |ψ⟩ = Σ_{s₁…sₙ}
+  Tr(A^{s₁}A^{s₂}…A^{sₙ})|s₁…sₙ⟩ where each A^{sᵢ} is a χ×χ matrix — the bond
+  dimension χ controls the amount of entanglement represented. White's DMRG algorithm
+  (1992) iteratively optimises MPS matrices to find ground states of 1D quantum
+  systems exactly, handling Hilbert spaces of dimension 2^N with only O(Nχ²) storage
+  — exponential compression. The key insight is the area law of entanglement: ground
+  states of gapped local Hamiltonians have entanglement entropy scaling as the
+  boundary area, not volume — justifying TN compression for physical states of
+  interest. In neuroscience: synaptic weight matrices W_{ij} and higher-order
+  correlation tensors T_{ijk} encoding multi-neuron interactions form high-dimensional
+  arrays amenable to tensor decomposition. Tucker decomposition and CP decomposition
+  reveal low-rank structure in neural connectivity and population dynamics, reducing
+  apparent complexity. Levine et al. (2019) demonstrated that deep neural networks
+  implement tensor network contractions — specifically, that transformer attention
+  mechanisms are equivalent to tensor network contraction sequences (einsum operations
+  along bond indices). This unification reveals that efficient quantum simulation,
+  deep learning, and compressed neural circuit modelling share the same algebraic
+  scaffold: contracting tensor networks efficiently is the core computational problem
+  in all three domains.
+
+translation_table:
+  - field_a_term: "matrix product state (MPS) with bond dimension χ"
+    field_b_term: "low-rank factorisation of synaptic weight tensor"
+    note: "χ controls entanglement in MPS; rank controls expressibility in neural weight decomposition — formally equivalent"
+  - field_a_term: "DMRG variational optimisation of MPS"
+    field_b_term: "gradient descent on low-rank weight matrices in a compressed neural network"
+    note: "Both sweep iteratively through sites/layers, optimising one tensor at a time while holding others fixed"
+  - field_a_term: "area law of entanglement entropy"
+    field_b_term: "low intrinsic dimensionality of neural population activity"
+    note: "Both justify compressed representations: physical and neural systems of interest live in a small corner of their full state space"
+  - field_a_term: "tensor contraction (einsum along shared indices)"
+    field_b_term: "attention mechanism in transformers (Q·K^T softmax V)"
+    note: "Levine et al. 2019: transformer attention is a specific tensor network contraction; the same algebra governs quantum circuit simulation"
+  - field_a_term: "CP decomposition (rank-1 terms Σ aᵢ ⊗ bᵢ ⊗ cᵢ)"
+    field_b_term: "factorisation of three-way neural covariance into interpretable components"
+    note: "Applied to neural calcium imaging data to extract neuron × time × trial structure"
+  - field_a_term: "MERA (multi-scale entanglement renormalisation ansatz)"
+    field_b_term: "hierarchical compression of spatial neural data at multiple scales"
+    note: "MERA implements a discrete RG flow; analogous to hierarchical processing in sensory cortex"
+
+related_unknowns: []
+related_hypotheses: []
+
+cross_pollination_opportunities:
+  - "Use tensor network methods to compress large language model weight tensors, reducing memory and compute while preserving expressibility"
+  - "Apply DMRG-inspired algorithms to identify the minimum-rank synaptic connectivity that reproduces observed neural dynamics in recurrent circuits"
+  - "Leverage the equivalence between quantum circuit simulation and tensor contraction to design neuromorphic hardware architectures that efficiently implement attention"
+
+communication_gap: >
+  Quantum information scientists developing TN methods (White, Vidal, Cirac) and
+  neuroscientists studying neural population dynamics (Cunningham, Yu, Shenoy) have
+  developed parallel low-rank decomposition methods without substantial cross-
+  citation. The machine learning community independently rediscovered tensor methods
+  for neural network compression. The Levine et al. (2019) paper explicitly connecting
+  deep networks and TNs has begun bridging quantum physics and ML communities but
+  remains largely unknown to systems neuroscientists.
+
+references:
+  - doi: "10.1103/PhysRevLett.69.2863"
+    note: "White (1992) Phys Rev Lett 69:2863 — DMRG algorithm"
+  - doi: "10.1016/j.aop.2014.06.013"
+    note: "Orus (2014) Ann Phys 349:117 — tensor network review"
+  - doi: "10.1103/PhysRevLett.122.065301"
+    note: "Levine et al. (2019) Phys Rev Lett 122:065301 — deep learning and tensor networks"
+  - note: "Ansuini et al. (2019) NeurIPS 32 — intrinsic dimensionality of neural representations"
+
+last_reviewed: "2026-05-06"

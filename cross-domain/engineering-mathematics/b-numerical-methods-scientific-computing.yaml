@@ -1,0 +1,82 @@
+id: b-numerical-methods-scientific-computing
+title: "Numerical Methods and Scientific Computing — finite differences, Runge-Kutta, Krylov solvers, and GPU acceleration form the computational backbone of climate models, CFD, and AI training"
+status: established
+fields:
+  - mathematics
+  - computational-engineering
+  - applied-mathematics
+  - high-performance-computing
+  - numerical-analysis
+
+bridge_claim: >
+  Scientific computing converts continuous differential equations into discrete
+  approximations solvable by digital computers. The finite difference method (FDM)
+  approximates spatial derivatives: ∂u/∂x ≈ (u_{i+1}−u_{i-1})/2h (centred
+  difference, 2nd order O(h²)); ∂²u/∂x² ≈ (u_{i+1}−2uᵢ+u_{i-1})/h². Von Neumann
+  stability analysis determines when a finite difference scheme is stable: all
+  Fourier modes must not grow, requiring the Courant–Friedrichs–Lewy (CFL) condition
+  Δt ≤ Δx/c (wave equation), ensuring information does not travel more than one
+  grid cell per time step. Runge-Kutta methods solve ODEs: RK4 achieves 4th order
+  accuracy O(h⁴) using 4 function evaluations per step. Adaptive step control
+  (Dormand–Prince RK45): estimates local error from difference between 4th- and
+  5th-order solutions → automatic step size control with per-step error tolerance.
+  For large sparse linear systems Ax = b (from PDE discretisation), direct solvers
+  (Gaussian elimination) require O(n³) — impractical for n = 10⁷. Krylov subspace
+  methods iteratively build the Krylov subspace K_m = span{r₀, Ar₀, …, A^{m-1}r₀}:
+  GMRES (Saad & Schultz 1986) minimises residual over K_m; conjugate gradient
+  (symmetric positive definite A) converges in O(n√κ) steps (κ = condition number).
+  Preconditioners reduce κ dramatically. GPU acceleration (CUDA, Nickolls 2008):
+  massively parallel SIMD architecture achieves 100–1000× speedup for dense linear
+  algebra (matrix multiplication, FFT) — the backbone of climate model dynamical
+  cores, CFD solvers, neural network training, and molecular dynamics simulations.
+  Modern exascale computing (Frontier, 1.1 exaFLOP/s 2022) executes 10¹⁸ operations
+  per second — enabling whole-Earth simulations at kilometre resolution.
+
+translation_table:
+  - field_a_term: "CFL stability condition Δt ≤ Δx/c"
+    field_b_term: "maximum timestep for stable explicit time-stepping of wave equation"
+    note: "Implicit methods (Crank-Nicolson, backward Euler) are unconditionally stable but require solving a linear system each step"
+  - field_a_term: "order of accuracy O(h^p) of a finite difference scheme"
+    field_b_term: "rate at which numerical error decreases with grid refinement"
+    note: "Second-order centred differences converge as h²; halving grid spacing quarters the error"
+  - field_a_term: "Runge-Kutta 4 (4 stage, 4th order)"
+    field_b_term: "gold-standard ODE integrator balancing accuracy and computational cost"
+    note: "RK4: 4 function evaluations per step; Dormand-Prince adds 5th-order correction for adaptive stepping at 6 evaluations"
+  - field_a_term: "Krylov subspace iteration (GMRES/CG)"
+    field_b_term: "scalable iterative linear solver for PDE-derived sparse systems"
+    note: "GMRES guaranteed to converge in at most n steps but practical convergence in sqrt(kappa) steps with preconditioner"
+  - field_a_term: "condition number kappa = ||A|| ||A^{-1}||"
+    field_b_term: "sensitivity of solution to perturbations; governs iterative solver convergence"
+    note: "Ill-conditioned systems (high kappa) amplify numerical errors; preconditioning constructs M approx A^{-1} to reduce effective kappa"
+  - field_a_term: "GPU SIMT execution (single instruction multiple threads)"
+    field_b_term: "massively parallel arithmetic for dense matrix operations"
+    note: "cuBLAS achieves ~20 TFLOP/s on single A100 GPU for FP16 matrix multiplication; 1000× serial CPU throughput"
+
+related_unknowns: []
+related_hypotheses: []
+
+cross_pollination_opportunities:
+  - "Apply neural operator learning (Fourier Neural Operator, FNO) to replace expensive PDE solvers in climate and fluid dynamics with neural network surrogates trained on simulation data"
+  - "Use randomised numerical linear algebra (sketching, random projections) to solve large-scale inverse problems in geophysics and medical imaging at reduced cost"
+  - "Develop mixed-precision training methods (FP8 forward, FP32 accumulation) that approach Landauer energy limits for AI training while maintaining numerical stability"
+
+communication_gap: >
+  Numerical analysts (mathematics departments), computational scientists (physics,
+  engineering), and ML engineers (CS departments) have largely parallel literatures
+  on iterative methods, time integration, and matrix factorisation. GPU programming
+  (CUDA) is primarily a CS/engineering skill but determines the practical performance
+  of all scientific simulation codes. Climate scientists who use numerical models
+  rarely engage with the theoretical numerical analysis literature; numerical analysts
+  rarely validate methods on real PDE applications. High-performance computing
+  education remains scattered across disciplines.
+
+references:
+  - note: "Courant, Friedrichs & Lewy (1928) Math Ann 100:32 — CFL stability condition"
+  - doi: "10.1016/0771-050X(80)90013-3"
+    note: "Dormand & Prince (1980) J Comput Appl Math 6:19 — embedded RK pair for adaptive stepping"
+  - doi: "10.1137/0907058"
+    note: "Saad & Schultz (1986) SIAM J Sci Stat Comput 7:856 — GMRES algorithm"
+  - doi: "10.1109/MM.2008.31"
+    note: "Nickolls et al. (2008) IEEE Micro 28:39 — CUDA parallel computing architecture"
+
+last_reviewed: "2026-05-06"
