@@ -1,0 +1,54 @@
+id: b-dendritic-computation-compartmental-models
+title: >
+  Dendrites are not passive cables but active nonlinear computational units, and
+  compartmental cable theory maps the spatially distributed voltage dynamics of
+  a dendritic tree onto a system of coupled ordinary differential equations —
+  making single neurons multi-layer neural networks with nonlinear dendritic
+  basis functions as the hidden layer.
+status: proposed
+fields:
+  - neuroscience
+  - mathematics
+  - computational-neuroscience
+  - biophysics
+bridge_claim: >
+  Classic computational neuroscience modeled neurons as point processors (integrate-
+  and-fire), but dendritic recordings reveal that dendrites perform active computation:
+  NMDA receptor activation creates plateau potentials (local regenerative events),
+  voltage-gated channels produce dendritic spikes, and spatial segregation of
+  inputs on the dendritic tree implements approximate XOR logic. Compartmental models
+  (Rall 1967, Mainen & Sejnowski 1996) translate this anatomy into mathematics:
+  dividing the dendrite into isopotential compartments connected by conductances,
+  the cable equation becomes a system of coupled ODEs — the Hodgkin-Huxley equations
+  for each compartment. This is formally equivalent to a multi-layer network where
+  the dendritic nonlinearities (NMDA plateaus, Ca spikes) implement basis functions
+  analogous to the activation functions in hidden layers of an artificial neural
+  network. The bridge predicts that a single pyramidal neuron with ~10 active
+  dendritic compartments has the computational capacity of a 2-layer perceptron
+  with ~500 hidden units — a non-trivial prediction that has since been empirically
+  supported by two-photon imaging studies.
+translation_table:
+  - field_a_term: "cable equation V_x = r_m * r_a * d^2V/dx^2 + r_m * C * dV/dt"
+    field_b_term: "compartmental ODE system: C dV_i/dt = sum_j g_{ij}(V_j - V_i) + I_i"
+    note: Exact equivalence — compartmental model is the spatially discretized cable equation
+  - field_a_term: dendritic NMDA plateau potential
+    field_b_term: hidden unit with threshold nonlinearity
+    note: NMDA spike is all-or-none above threshold glutamate input — analogous to ReLU/sigmoid
+  - field_a_term: electrotonic length lambda = sqrt(r_m / r_a)
+    field_b_term: effective coupling between compartments
+    note: Short lambda = weakly coupled compartments (independent computation); long lambda = integrated soma
+  - field_a_term: somatic action potential threshold
+    field_b_term: output layer decision boundary
+    note: The soma sums dendritic contributions and fires if they exceed threshold
+cross_pollination_opportunities:
+  - Use multi-compartment models to predict which dendritic trees can implement XOR and derive constraints on synaptic placement for logical operations
+  - Apply deep learning optimisation to find the dendritic morphology that maximises information capacity given metabolic constraints
+  - Design neuromorphic hardware that exploits dendritic compartmentalisation for energy-efficient multi-layer computation in biological-scale networks
+last_reviewed: "2026-05-07"
+references:
+  - doi: 10.1007/BF02459568
+    note: Rall (1967) — distinguishing theoretical synaptic potentials computed for different soma-dendritic distributions of synaptic input
+  - doi: 10.1016/j.neuron.2015.01.010
+    note: Poirazi & Papoutsi (2020) — illuminating dendritic function with computational models
+  - doi: 10.1126/science.7580517
+    note: Mainen & Sejnowski (1996) — influence of dendritic structure on firing pattern

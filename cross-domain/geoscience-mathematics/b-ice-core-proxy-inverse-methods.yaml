@@ -1,0 +1,54 @@
+id: b-ice-core-proxy-inverse-methods
+title: >
+  Ice core paleoclimatology is an applied inverse problem: chemical and isotopic
+  proxies (delta-18O, dust, CO2, CH4) encode past climate states in a noisy,
+  non-linear forward model, and reconstructing the underlying temperature history
+  requires the same Bayesian inversion, regularisation, and uncertainty quantification
+  methods used in geophysical tomography and medical imaging.
+status: proposed
+fields:
+  - climate-science
+  - statistics
+  - mathematics
+  - geoscience
+bridge_claim: >
+  Ice cores archive past atmospheric composition and temperature through physical
+  and chemical fractionation processes. The stable isotope ratio delta-18O records
+  condensation temperature via the Rayleigh fractionation forward model, while gas
+  bubbles trap ancient air. Reconstructing the continuous temperature history from
+  these proxy measurements is an ill-posed inverse problem: the forward model
+  (climate → proxy) is not perfectly known, proxies have measurement uncertainty,
+  and the number of unknowns (continuous temperature) exceeds the data. This requires
+  regularisation: Tikhonov regularisation (penalising roughness), Bayesian priors
+  on climate variability spectra, and Kalman filter / data assimilation methods.
+  The same mathematical machinery used to reconstruct seismic velocity from travel
+  times (seismic tomography) or tissue density from X-ray attenuation (CT scanning)
+  applies directly to climate reconstruction from proxy data. The bridge enables
+  transfer of information-theoretic optimal experiment design (where to drill the
+  next core?) and uncertainty quantification from geophysics and statistics to
+  paleoclimatology.
+translation_table:
+  - field_a_term: forward model g(m) = d
+    field_b_term: climate-to-proxy relationship (e.g., Rayleigh fractionation)
+    note: Maps the model parameters (temperature history) to observables (delta-18O)
+  - field_a_term: regularisation parameter lambda
+    field_b_term: smoothness prior on climate variability
+    note: Too small = noisy reconstruction; too large = over-smoothed — same Tikhonov trade-off
+  - field_a_term: model covariance matrix C_m
+    field_b_term: prior probability distribution on climate states
+    note: Encodes knowledge of typical climate variability spectra before seeing the data
+  - field_a_term: data kernel / sensitivity matrix G
+    field_b_term: proxy sensitivity to climate variables
+    note: Quantifies how much each measurement constrains each time window of climate
+cross_pollination_opportunities:
+  - Apply optimal experimental design (A-optimal, D-optimal) from statistics to determine where to drill the next ice core to maximally reduce climate reconstruction uncertainty
+  - Use ensemble Kalman filter (EnKF) data assimilation from numerical weather prediction to combine proxy records with climate model output for uncertainty-quantified reconstructions
+  - Transfer compressed sensing techniques from MRI reconstruction to sparse proxy network climate reconstruction
+last_reviewed: "2026-05-07"
+references:
+  - doi: 10.1126/science.291.5501.105
+    note: EPICA members (2004) — Eight glacial cycles from an Antarctic ice core (Nature)
+  - doi: 10.1029/2011RG000384
+    note: Tingley & Huybers (2010) — A Bayesian algorithm for reconstructing climate anomalies in space and time
+  - doi: 10.1175/2009JCLI3015.1
+    note: Mann et al. (2009) — Atlantic hurricanes and climate over the past 1500 years

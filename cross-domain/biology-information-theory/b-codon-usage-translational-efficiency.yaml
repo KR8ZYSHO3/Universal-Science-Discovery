@@ -1,0 +1,52 @@
+id: b-codon-usage-translational-efficiency
+title: >
+  Codon usage bias encodes translational kinetics as an information channel: synonymous
+  codons are not equivalent in translation speed, and organisms optimise codon usage
+  to maximise ribosome throughput — a rate-distortion problem where the coding redundancy
+  of the genetic code is exploited to tune the channel capacity of the translation
+  machinery.
+status: proposed
+fields:
+  - molecular-biology
+  - information-theory
+  - computational-biology
+bridge_claim: >
+  The genetic code has 64 codons encoding 20 amino acids plus stop signals, giving
+  ~1.5 bits of coding redundancy per codon. Synonymous codons (different codons for
+  the same amino acid) are used non-uniformly across genomes, with the preferred codons
+  correlating with the abundance of cognate tRNAs. This is not random: preferred codons
+  are translated faster (higher elongation rate), allowing organisms to tune translation
+  speed along the mRNA. Information theory provides the framework: the mRNA sequence
+  is a code over the codon alphabet with a non-uniform distribution (codon usage bias),
+  and the ribosome is a channel with capacity set by the tRNA pool composition.
+  The coding problem is to choose synonymous codons to maximise throughput while
+  maintaining co-translational folding fidelity — a rate-distortion problem where
+  the distortion is misfolding cost. Ramp sequences (slow codons at the 5' end of
+  genes) reduce ribosome collisions (traffic jams) by spacing out elongating ribosomes
+  — a literal information-theoretic scheduling problem equivalent to queuing theory
+  applied to the ribosome channel.
+translation_table:
+  - field_a_term: channel capacity C = max I(X;Y)
+    field_b_term: maximum ribosome throughput (proteins per unit time per mRNA)
+    note: Set by tRNA pool composition and codon usage; optimised by synonymous codon choice
+  - field_a_term: code redundancy
+    field_b_term: synonymous codon degeneracy (number of codons per amino acid)
+    note: The redundancy that allows encoding of translational speed information
+  - field_a_term: rate-distortion function R(D)
+    field_b_term: "codon optimisation trade-off: speed vs. folding fidelity"
+    note: Fast codons may outpace co-translational folding; optimal code balances both
+  - field_a_term: queuing / traffic jam
+    field_b_term: ribosome collision (slow codons cause upstream ribosome pileup)
+    note: The 5' ramp of slow codons spaces out ribosomes to prevent collisions
+cross_pollination_opportunities:
+  - Apply information-theoretic optimal coding theory to design synthetic gene sequences that maximise expression without misfolding
+  - Use channel capacity calculations to predict the maximum protein synthesis rate achievable in a given organism given its tRNA pool
+  - Test whether ribosome profiling data (elongation rate per codon) matches information-theoretic predictions for traffic-minimising codon usage
+last_reviewed: "2026-05-07"
+references:
+  - doi: 10.1073/pnas.0704118104
+    note: Tuller et al. (2007) — translation efficiency is determined by both codon bias and the secondary structure of the mRNA
+  - doi: 10.1038/nature06054
+    note: Hershberg & Petrov (2008) — selection on codon bias
+  - doi: 10.1016/j.cell.2010.05.001
+    note: Ingolia et al. (2009) — genome-wide analysis of translation reveals a ribosomal ramp

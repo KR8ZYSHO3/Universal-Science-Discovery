@@ -1,0 +1,52 @@
+id: b-satellite-geodesy-spherical-harmonics
+title: >
+  Satellite geodesy and geoid modeling are applied spherical harmonic analysis on
+  a rotating, oblate body — the same mathematical framework that describes the
+  quantum mechanical hydrogen atom, and the eigenfunctions (spherical harmonics Y_lm)
+  that solve the angular Laplace equation are the fundamental basis for representing
+  any field on a sphere.
+status: proposed
+fields:
+  - geophysics
+  - mathematics
+  - physics
+bridge_claim: >
+  The geoid — the equipotential surface of Earth's gravity field — is determined by
+  solving Laplace's equation outside a rotating body with irregular mass distribution.
+  The solution decomposes naturally into spherical harmonics Y_lm(theta, phi), where
+  degree l determines spatial resolution and order m determines longitudinal structure.
+  GRACE/GRACE-FO satellites measure temporal variations in the geoid to centimeter
+  precision by tracking inter-satellite range rates, enabling inference of mass
+  redistribution (ice sheet melting, groundwater depletion). The same spherical
+  harmonic decomposition that geodesists use for geoid modeling is the mathematical
+  core of quantum angular momentum theory, multipole radiation in electrodynamics,
+  and CMB power spectrum analysis in cosmology. The bridge enables cross-disciplinary
+  transfer: regularization methods from inverse problems in geophysics (Tikhonov,
+  TSVD) apply directly to ill-posed inverse problems in medical imaging and signal
+  processing; the truncation error analysis of spherical harmonic series informs
+  aliasing in spherical sampling theorems used in computer graphics.
+translation_table:
+  - field_a_term: gravitational potential V(r, theta, phi)
+    field_b_term: electron probability amplitude psi_{nlm}(r, theta, phi)
+    note: Both satisfy Laplace/Schrodinger equations with spherical harmonic angular solutions
+  - field_a_term: Stokes coefficients C_lm, S_lm
+    field_b_term: multipole moments a_lm of the CMB temperature field
+    note: Different physical quantities, identical mathematical representation
+  - field_a_term: truncation degree L (spatial resolution)
+    field_b_term: angular resolution l_max (CMB power spectrum, EM multipoles)
+    note: Higher L/l_max = finer spatial resolution; same Gibbs phenomenon truncation artifacts
+  - field_a_term: GRACE range-rate measurement
+    field_b_term: "inverse problem: recover C_lm from data"
+    note: Ill-posed inversion regularized by Tikhonov or spectral methods
+cross_pollination_opportunities:
+  - Apply Slepian concentration problem methods (optimal band-limited functions on a sphere cap) to improve geoid estimation in data-sparse polar regions
+  - Transfer Wiener filtering methods from CMB power spectrum estimation to time-variable gravity field recovery from GRACE
+  - Use compressed sensing (sparse spherical harmonic recovery) to reduce required satellite measurements for geoid accuracy
+last_reviewed: "2026-05-07"
+references:
+  - doi: 10.1007/s00190-018-1188-5
+    note: Ince et al. (2019) — ICGEM calculation service for spherical harmonic gravity models
+  - doi: 10.1126/science.1094936
+    note: Tapley et al. (2004) — GRACE measurements of mass variability in the Earth system
+  - doi: 10.1029/2003JB002504
+    note: "Wahr et al. (2004) - time-variable gravity from GRACE: first results"
