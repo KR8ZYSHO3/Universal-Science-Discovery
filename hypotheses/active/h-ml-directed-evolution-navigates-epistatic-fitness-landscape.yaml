@@ -1,0 +1,61 @@
+id: h-ml-directed-evolution-navigates-epistatic-fitness-landscape
+title: >
+  Machine learning models trained on deep mutational scanning (DMS) data can predict
+  the fitness of multi-mutation combinations with accuracy sufficient to identify
+  the global fitness maximum in a protein landscape with up to 5 simultaneous
+  mutations, replacing 3-5 rounds of directed evolution with a single round of
+  computational screening.
+status: active
+priority: high
+impact_score: 0.91
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+
+evidence_links:
+  - doi: "10.1126/science.abo5667"
+    type: supporting
+    confidence: 0.80
+    note: "Protein Gym consortium (Notin et al. 2022) Science — benchmark of 62 protein fitness predictors on 87 DMS datasets; ESM-1v, EVmutation, and Tranception achieve Spearman ρ ≈ 0.6 for single mutants; accuracy drops for double mutants"
+  - doi: "10.1038/s41592-022-01715-z"
+    type: supporting
+    confidence: 0.75
+    note: "Dauparas et al. (2022) Nat Methods — ProteinMPNN designs sequences for target backbone structures; 52% of designed sequences fold correctly at first attempt; combined with AlphaFold2 for validation"
+  - doi: "10.1073/pnas.2118981119"
+    type: supporting
+    confidence: 0.70
+    note: "Gruber et al. (2022) PNAS — active learning strategy with GP fitness model identifies Pareto-optimal enzyme variants (activity + stability) using 4× fewer experimental measurements than random search"
+  - type: contradicting
+    confidence: 0.60
+    note: "Epistatically complex landscapes challenge ML generalization: Pokusaeva et al. (2019) eLife show that for the GB1 protein, Spearman ρ drops from 0.75 (single mutants) to 0.35 (double mutants) to 0.15 (triple mutants) for sequence-based models"
+
+unknowns_addressed:
+  - u-protein-fitness-landscape-epistasis-ruggedness
+
+proposed_tests:
+  - description: >
+      Benchmark the performance of six ML models (ESM-1v, EVmutation, Tranception,
+      ProteinMPNN+AF2, Graph Transformer, Gaussian Process) for predicting the fitness
+      of double, triple, and quadruple mutant combinations in three proteins with DMS
+      data across all single mutants: TEM-1 β-lactamase (antibiotic resistance),
+      GFP (fluorescence), and GB1 (binding). Measure Spearman ρ correlation as a
+      function of mutation order and epistasis index (fraction of double mutants with
+      |Δ fitness| > 2× sum of single effects).
+    method: "Train each model on all single-mutant DMS data; predict all double-mutants; evaluate against measured double-mutant fitness; compute Spearman ρ and precision@top1% for each model and protein"
+    prediction: "Best ML model achieves Spearman ρ ≥ 0.55 for double mutants and ≥ 0.40 for triple mutants in at least 2 of 3 proteins; accuracy correlates inversely with measured epistasis index (ρ decreases ~0.1 per 0.1 increase in epistasis fraction)"
+  - description: >
+      Design a prospective directed evolution experiment where ML model predictions
+      (Gaussian Process trained on first-round DMS data) are used to select the
+      experimental library for round 2, and compare the fitness of the selected library
+      to: (a) random library of same size, and (b) full exhaustive screening of
+      all single and double mutants. Test whether ML-guided selection achieves ≥80%
+      of the exhaustive screening maximum fitness using only 1% of the screening effort.
+    method: "TEM-1 β-lactamase: first round single-mutant DMS (all 2960 variants); train GP model; select top 300 predicted double/triple mutants; screen all 300 experimentally; compare peak fitness to full combinatorial library"
+    prediction: "ML-selected library contains the global fitness maximum with probability ≥ 70% (vs. 0.1% for random selection); requires only 300/300,000 variants screened — 1000× reduction in experimental effort"
+
+related_disciplines:
+  - biochemistry
+  - chemistry
+  - machine-learning
+  - evolutionary-biology
+  - computational-chemistry

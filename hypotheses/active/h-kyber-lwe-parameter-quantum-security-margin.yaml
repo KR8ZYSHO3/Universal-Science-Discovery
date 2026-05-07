@@ -1,0 +1,56 @@
+id: h-kyber-lwe-parameter-quantum-security-margin
+title: >
+  CRYSTALS-Kyber's current parameter sets (Kyber-512, Kyber-768, Kyber-1024) provide
+  quantum security margins of approximately 108, 178, and 240 bits respectively against
+  the best known quantum lattice sieving algorithms — sufficient for the 128/192/256-bit
+  classical security targets — but these estimates may decrease by 10-30 bits as
+  quantum algorithms mature in the next decade.
+status: active
+priority: high
+impact_score: 0.90
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+
+evidence_links:
+  - type: supporting
+    note: "NIST (2022) FIPS 203 — Module-Lattice-Based Key-Encapsulation Mechanism Standard; NIST IR 8413 — status report on Round 3 finalists; security analysis appendix gives classical and quantum security estimates"
+  - doi: "10.46586/tches.v2019.i4.278-306"
+    type: supporting
+    confidence: 0.75
+    note: "Ducas et al. (2019) CRYSTALS-Dilithium: a lattice-based digital signature scheme; TCHES 2019 — security estimates using Core-SVP methodology for BKZ-2.0"
+  - type: related
+    note: "Albrecht et al. (2021) Lattice Estimator — software tool for estimating concrete security of LWE instances; used by NIST to validate Kyber security claims"
+  - type: contradicting
+    confidence: 0.50
+    note: "Schnorr (2021) Fast LLL lattice reduction controversy — claimed polynomial-time algorithm for SVP; later analysis showed the algorithm fails in high dimensions — but demonstrates that LWE security estimates are not settled"
+
+unknowns_addressed:
+  - u-lwe-hardness-proof-quantum-reduction
+
+proposed_tests:
+  - description: >
+      Implement a quantum circuit for the quantum lattice sieving subroutine (Grover-
+      based acceleration of the k-list sieving algorithm) in a quantum simulator
+      (IBM Qiskit, Google Cirq) for small lattice dimensions (n = 20-50) and measure
+      the actual gate count and qubit requirement as a function of n. Extrapolate to
+      Kyber-512 dimensions (n = 256) to determine the required fault-tolerant qubit
+      count and gate depth for a Kyber-breaking attack.
+    method: "Quantum circuit synthesis for k-list sieving; resource estimation using T-gate counting (T-gates determine fault-tolerant qubit overhead); Qiskit resource estimator; extrapolation with n^α scaling"
+    prediction: "Kyber-512 attack requires ≥ 10^10 logical qubits and ≥ 10^15 T-gates — far beyond near-term quantum hardware; practical Kyber attack requires >50 years of quantum hardware improvement at current scaling rates"
+  - description: >
+      Apply the Lattice Estimator tool to compute concrete security estimates for
+      Kyber-512/768/1024 assuming near-future quantum hardware improvements (10× gate
+      count reduction via better surface code decoding, 5× qubit lifetime improvement).
+      Determine whether these realistic hardware improvements would reduce the quantum
+      security margin below 100 bits within 20 years — triggering a need to increase
+      Kyber parameter sizes now.
+    method: "Lattice Estimator (Albrecht et al.) with modified quantum hardware parameters; sensitivity analysis over hardware improvement scenarios; compute minimum n (lattice dimension) required to maintain 128-bit quantum security under each scenario"
+    prediction: "10× hardware improvement reduces Kyber-512 quantum security by < 5 bits — Kyber-1024 maintains ≥ 200-bit quantum security even under 100× hardware improvement, confirming current parameters are adequate for 30-year security horizon"
+
+related_disciplines:
+  - cryptography
+  - quantum-computing
+  - mathematics
+  - computer-science
+  - number-theory

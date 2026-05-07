@@ -1,0 +1,76 @@
+id: b-network-epidemiology-herd-immunity
+title: "Network Epidemiology and Herd Immunity — SIR dynamics on heterogeneous contact networks, scale-free epidemic thresholds, and superspreader percolation"
+status: established
+fields:
+  - physics
+  - epidemiology
+  - network-science
+  - public-health
+  - social-science
+
+bridge_claim: >
+  The SIR (Susceptible–Infected–Recovered) model on networks assigns each node
+  a state and allows transmission along edges at rate β with recovery at rate γ.
+  In homogeneous networks the basic reproduction number R₀ = β⟨k⟩/γ determines
+  whether epidemics spread. On heterogeneous networks with degree distribution p(k),
+  Pastor-Satorras & Vespignani (2001) derived R₀ = β⟨k²⟩/(γ⟨k⟩); for scale-free
+  networks with degree exponent γ < 3, ⟨k²⟩ diverges → R₀ → ∞ regardless of β,
+  implying there is no epidemic threshold — even the most weakly transmissible
+  pathogen will spread through a scale-free contact network. The herd immunity
+  threshold Hᵢ = 1 − 1/R₀ specifies the fraction of the population that must be
+  immune to prevent spread. Targeted vaccination of high-degree hubs achieves herd
+  immunity with dramatically fewer doses than random vaccination: vaccinating the
+  top √(Hᵢ·N) hubs can protect the entire network. Superspreader heterogeneity in
+  transmission follows a Pareto (80/20) distribution for many pathogens — Lloyd-Smith
+  et al. (2005) showed that ~20% of cases in SARS caused ~80% of secondary
+  transmissions. The epidemic-percolation duality: an epidemic spreads on a network
+  iff the fraction of removed nodes exceeds the site-percolation threshold, allowing
+  methods from statistical physics (giant-component theory) to be applied directly to
+  epidemic thresholds and vaccination strategies.
+
+translation_table:
+  - field_a_term: "R₀ = β⟨k²⟩/(γ⟨k⟩) on heterogeneous network"
+    field_b_term: "expected secondary cases adjusted for contact network heterogeneity"
+    note: "⟨k²⟩/⟨k⟩ is the excess degree — the average connectivity of a random neighbour, which exceeds ⟨k⟩"
+  - field_a_term: "vanishing epidemic threshold on scale-free networks"
+    field_b_term: "impossibility of achieving epidemic control by reducing transmissibility alone"
+    note: "For γ ≤ 3 in p(k) ∝ k^{-γ}, any β > 0 leads to endemic infection absent immunisation"
+  - field_a_term: "percolation threshold (giant component dissolution)"
+    field_b_term: "herd immunity threshold — fraction immune to fragment transmission network"
+    note: "Epidemic ends when infected cluster can no longer percolate through the susceptible network"
+  - field_a_term: "acquaintance vaccination (immunise random neighbour of random node)"
+    field_b_term: "friendship paradox-based strategy to reach hubs without full degree knowledge"
+    note: "Random neighbours have higher expected degree than random nodes — statistically targets hubs efficiently"
+  - field_a_term: "overdispersed offspring distribution (negative binomial k)"
+    field_b_term: "superspreader phenomenon in disease transmission"
+    note: "Lloyd-Smith et al. 2005: k < 1 implies most cases cause zero transmissions but rare events cause many"
+  - field_a_term: "SIR phase transition at R₀ = 1"
+    field_b_term: "epidemic vs. fade-out in a population"
+    note: "Second-order phase transition in network epidemiology; analogous to ferromagnetic–paramagnetic transition"
+
+related_unknowns: []
+related_hypotheses: []
+
+cross_pollination_opportunities:
+  - "Use temporal network epidemiology (time-varying contact networks) to model superspreader events in indoor settings more accurately"
+  - "Apply network-aware vaccination strategies to real contact data from mobile phone proximity sensors to optimise COVID-like outbreak response"
+  - "Extend the percolation framework to multi-pathogen co-infection dynamics on multiplex networks"
+
+communication_gap: >
+  Mathematical epidemiology (compartmental SIR models) developed in the public health
+  tradition largely independently of the network physics community that developed
+  scale-free network theory in the late 1990s. The Pastor-Satorras & Vespignani (2001)
+  paper bridged these communities but is still not standard reading in public health
+  curricula. During COVID-19, failure to incorporate network heterogeneity and
+  superspreading into early models led to systematic underestimation of outbreak
+  clustering and overestimation of required vaccine coverage.
+
+references:
+  - doi: "10.1103/PhysRevLett.86.3200"
+    note: "Pastor-Satorras & Vespignani (2001) Phys Rev Lett 86:3200 — epidemic threshold on scale-free networks"
+  - note: "Kermack & McKendrick (1927) Proc R Soc A 115:700 — original SIR model"
+  - note: "Anderson & May (1991) Infectious Diseases of Humans — classical epidemiology reference"
+  - doi: "10.1038/nature04153"
+    note: "Lloyd-Smith et al. (2005) Nature 438:355 — superspreading and overdispersion"
+
+last_reviewed: "2026-05-06"

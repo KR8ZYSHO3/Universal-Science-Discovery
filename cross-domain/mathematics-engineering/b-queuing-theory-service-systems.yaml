@@ -1,0 +1,76 @@
+id: b-queuing-theory-service-systems
+title: "Queuing Theory and Service Systems — Erlang's M/M/c model, Little's law, and Kingman's approximation govern wait times in hospitals, networks, and manufacturing"
+status: established
+fields:
+  - mathematics
+  - operations-research
+  - engineering
+  - industrial-engineering
+  - computer-science
+
+bridge_claim: >
+  Queuing theory analyses systems where arriving customers wait for service.
+  The canonical M/M/1 queue (Poisson arrivals at rate λ, exponential service times
+  with rate μ) requires utilisation ρ = λ/μ < 1 for stability. The mean number
+  in the system is L = ρ/(1−ρ), which diverges as ρ → 1 — the non-linear cost of
+  operating near full capacity. Erlang's original work (1917) on telephone exchanges
+  derived the M/M/c queue (c parallel servers), showing that pooling servers
+  dramatically reduces wait times for the same total capacity. Little's law
+  (L = λW) is remarkably general: in any stable system, the mean number of
+  customers L equals the arrival rate λ multiplied by the mean time W each customer
+  spends in the system — independent of arrival distribution, service distribution,
+  or queue discipline. Kingman's formula approximates the mean waiting time in a
+  G/G/1 queue (general inter-arrival and service distributions): W_q ≈
+  (ρ/μ(1−ρ))·(c_a² + c_s²)/2, where c_a and c_s are the coefficients of variation
+  of inter-arrival and service times. Applications span hospital emergency departments
+  (NEDOCS index), call centres, airport security, internet packet routing (M/D/1
+  model for fixed-size packets), and CPU scheduling (round-robin, earliest deadline
+  first). The fundamental insight is that the relationship between utilisation and
+  wait time is non-linear: moving from ρ=0.8 to ρ=0.9 quadruples mean queue length,
+  illustrating why high-utilisation systems are unpredictably volatile.
+
+translation_table:
+  - field_a_term: "utilisation ρ = λ/μ (traffic intensity)"
+    field_b_term: "fraction of time servers are busy"
+    note: "ρ must be strictly less than 1 for the queue to be stable; ρ > 1 means infinite queue growth"
+  - field_a_term: "mean queue length L = ρ/(1−ρ) in M/M/1"
+    field_b_term: "average number of patients/customers waiting"
+    note: "Nonlinear: L doubles when ρ goes from 0.5 to 0.67; diverges as ρ → 1"
+  - field_a_term: "Little's law L = λW"
+    field_b_term: "flow balance: mean inventory = throughput × mean lead time"
+    note: "Used in manufacturing (WIP = production rate × cycle time) and network engineering (buffer size estimation)"
+  - field_a_term: "Kingman's (1962) G/G/1 formula"
+    field_b_term: "wait time approximation for general (non-exponential) service and arrival distributions"
+    note: "c_a = c_s = 1 (exponential) recovers M/M/1 exactly; higher variability always increases wait"
+  - field_a_term: "M/M/c pooling effect"
+    field_b_term: "economies of scale in service systems: one large server pool outperforms N small ones"
+    note: "Hospital bed pooling: a shared ICU with 20 beds has lower wait probability than two 10-bed units"
+  - field_a_term: "heavy-traffic approximation (ρ → 1)"
+    field_b_term: "performance of a service system near saturation"
+    note: "Heavy-traffic limit: W ~ 1/(μ(1-ρ)) — universal scaling independent of distribution details"
+
+related_unknowns: []
+related_hypotheses: []
+
+cross_pollination_opportunities:
+  - "Apply queuing models to healthcare patient flow: ED boarding times, ICU admission queues, and surgical scheduling to reduce both cost and patient harm"
+  - "Use stochastic network queuing (Jackson networks) to model data centre workload distribution and auto-scaling policies"
+  - "Extend to priority queuing (M/G/1 with priority classes) for analysing emergency dispatch systems or internet QoS differentiation"
+
+communication_gap: >
+  Queuing theory is mathematically sophisticated but its core insights — especially
+  the nonlinearity of wait time near saturation and the pooling principle — are
+  widely misapplied in operations management and healthcare. Hospital administrators
+  routinely plan for 95%+ bed occupancy without recognising that queuing theory
+  predicts catastrophic waiting above ~85% utilisation. The Erlang B/C formulas are
+  standard in telecommunications but rarely taught in medical or public administration
+  programmes.
+
+references:
+  - note: "Erlang (1917) Elektroteknikeren 13 — telephone exchange queuing, original M/M/c analysis"
+  - doi: "10.1287/opre.9.3.383"
+    note: "Little (1961) Oper Res 9:383 — proof of Little's law"
+  - note: "Kingman (1962) J R Stat Soc B 24:383 — G/G/1 heavy-traffic approximation"
+  - note: "Kleinrock (1975) Queuing Systems — comprehensive textbook treatment"
+
+last_reviewed: "2026-05-06"

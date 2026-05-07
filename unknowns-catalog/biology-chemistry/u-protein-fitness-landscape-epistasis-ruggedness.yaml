@@ -1,0 +1,45 @@
+id: u-protein-fitness-landscape-epistasis-ruggedness
+title: >
+  How rugged are protein fitness landscapes — what fraction of beneficial mutations
+  are epistatic (context-dependent), and can the landscape topology be predicted
+  from protein structure well enough to guide directed evolution without exhaustive
+  experimental measurement?
+status: open
+priority: high
+disciplines:
+  - biology-chemistry
+  - biochemistry
+  - evolutionary-biology
+  - computational-chemistry
+  - protein-biophysics
+summary: >
+  Deep mutational scanning (DMS) experiments — measuring fitness of all single-point
+  mutations across a protein — reveal that fitness landscapes are neither flat (all
+  mutations independent) nor fully rugged (no predictability): typically 20-30% of
+  positions show strong epistasis (the fitness effect of mutation A depends on whether
+  mutation B is also present). Epistasis is classified as: magnitude epistasis
+  (same sign, different magnitude — affects evolutionary speed), sign epistasis
+  (opposite sign in different backgrounds — creates local optima), and reciprocal
+  sign epistasis (creates fitness valleys). The degree of epistasis determines landscape
+  ruggedness and thus the number of accessible evolutionary paths. Open questions:
+  (1) Can protein stability (ΔΔG from Rosetta or AlphaFold2-based models) predict
+  the sign of epistatic interactions well enough to guide directed evolution without
+  measuring all pairwise combinations (O(L²) measurements)? (2) What is the typical
+  number of distinct local fitness optima in protein landscapes, and how much does
+  it vary with protein family, length, and functional category? (3) Can ML models
+  trained on one protein's DMS dataset generalize to predict epistasis in homologous
+  proteins? The answers determine whether directed evolution can be replaced by
+  computational design + minimal experimental validation.
+systematic_gaps:
+  - Pairwise DMS (measuring all ~(20L)² double mutants) has been performed for
+    only a handful of small proteins (GB1, Protein G, GFP) — insufficient to
+    characterize the full epistasis distribution across protein space.
+  - Structure-based predictions of epistasis (Rosetta, EVcouplings, AlphaFold2)
+    have been benchmarked only against limited DMS data — their accuracy for
+    predicting sign epistasis is not well-characterized.
+  - The relationship between protein evolutionary history (phylogenetic depth,
+    ancestral fitness landscape) and present-day epistasis patterns has not been
+    systematically studied.
+related_bridges:
+  - b-enzyme-engineering-directed-evolution
+last_reviewed: "2026-05-06"
