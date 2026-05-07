@@ -1,0 +1,106 @@
+id: b-colloidal-systems-soft-matter
+title: >
+  Colloidal dispersions are a model system where DLVO electrostatic-van der Waals
+  competition controls stability, hard-sphere entropy drives a purely athermal
+  fluid-crystal phase transition at phi = 0.494, and colloidal glasses at phi = 0.64
+  are experimental realisations of the glass transition, making colloidal physics
+  the bridge between chemistry and condensed-matter statistical mechanics.
+status: established
+fields:
+  - chemistry
+  - physics
+  - soft-matter
+  - colloid-science
+  - materials-science
+bridge_claim: >
+  Colloidal systems (particle diameter 1 nm – 1 μm) are large enough to be imaged
+  by optical microscopy and small enough to undergo Brownian motion, making them
+  ideal model systems for testing statistical-mechanical theories that are otherwise
+  inaccessible at the atomic scale.
+
+  DLVO theory (Derjaguin, Landau 1941; Verwey, Overbeek 1948): the total
+  interaction potential between two charged colloidal spheres of radius a is:
+    U(r) = U_vdW(r) + U_elec(r)
+    U_vdW = -A / [12π(r-2a)²]   (van der Waals attraction, A = Hamaker constant)
+    U_elec = 64πεa kT γ² e^{-κ(r-2a)}  (electrostatic repulsion)
+  where κ⁻¹ is the Debye screening length. Adding salt compresses κ⁻¹ (more
+  screening), reducing the electrostatic barrier height. At low salt (κa << 1):
+  electrostatic repulsion dominates → kinetically stable suspension. At high salt
+  (κa >> 1): van der Waals attraction wins → irreversible aggregation and gelation.
+  This salt-tunable colloidal stability is chemistry's control parameter for a
+  physics transition.
+
+  Hard-sphere colloids (purely repulsive, no electrostatics): Pusey & van Megen
+  (1986) established experimentally that a suspension of sterically stabilised PMMA
+  spheres undergoes a fluid-to-crystal phase transition at volume fraction φ = 0.494
+  and a glass transition at φ ≈ 0.64. This is a purely entropic (athermal) phase
+  transition — no energy scale enters. The crystal phase maximises free volume
+  (entropy) despite being ordered. This was the first experimental confirmation that
+  entropy alone can drive crystallisation, a result previously only accessible via
+  Monte Carlo simulation (Kirkwood 1951, Wood & Jacobson 1957).
+
+  The colloidal glass at φ ≈ 0.64 (random close-packing) is a kinetically arrested
+  disordered solid — particles are caged by neighbours, structural relaxation time
+  τ → ∞. This makes colloids the paradigm experimental system for the glass
+  transition, where individual particle positions can be tracked by confocal
+  microscopy — something impossible in atomic or molecular glasses.
+
+  Colloidal crystals (opal structure, face-centred cubic) have lattice spacings
+  comparable to visible light wavelengths → photonic bandgap — frequency ranges
+  where light propagation is forbidden. Synthetic opals and inverse opals are
+  therefore simultaneously chemistry (synthesis), physics (photonics), and
+  materials science (structural colour, waveguides).
+translation_table:
+  - field_a_term: Debye screening length κ⁻¹ (controlled by salt concentration)
+    field_b_term: effective range of inter-particle repulsion (controls phase behaviour)
+    note: chemistry variable (ionic strength) directly maps to physics control parameter of phase diagram
+  - field_a_term: Hamaker constant A (van der Waals attraction strength)
+    field_b_term: depth of interaction potential well U_min
+    note: A is a material chemistry property; U_min / kT determines colloidal stability ratio W
+  - field_a_term: volume fraction φ (particle packing)
+    field_b_term: order parameter of colloidal fluid-crystal transition
+    note: φ = 0.494 (freezing) and φ = 0.545 (melting) are universal for hard spheres
+  - field_a_term: colloidal crystal (FCC opal)
+    field_b_term: photonic crystal with bandgap in visible spectrum
+    note: lattice spacing d ~ 200-400 nm comparable to visible wavelengths
+  - field_a_term: random close-packing φ ≈ 0.64
+    field_b_term: colloidal glass transition (structural arrest)
+    note: accessible to direct imaging by confocal microscopy unlike atomic glasses
+  - field_a_term: PMMA sphere with steric stabilisation (polymer brush)
+    field_b_term: hard-sphere model particle (no attractive interactions)
+    note: chemically synthesised colloidal model for theoretical hard-sphere system
+related_unknowns:
+  - u-colloidal-glass-transition-mode-coupling-breakdown
+related_hypotheses:
+  - h-dlvo-failure-short-range-attractions-gels
+cross_pollination_opportunities:
+  - >
+    DNA-coated colloidal particles (DNA nanotechnology + colloid science) enable
+    programmable specific interactions between colloidal particles — selective
+    complementary DNA hybridisation plays the role of a specific chemical bond.
+    This allows design of colloidal crystals with arbitrary crystal symmetries
+    beyond FCC/BCC — accessing non-equilibrium crystal structures not found
+    in atomic systems.
+  - >
+    Active colloidal particles (Janus particles with asymmetric catalytic surfaces)
+    generate their own propulsion via chemical gradients, creating far-from-equilibrium
+    colloidal suspensions. These are model systems for active matter physics
+    (bacterial suspensions, cytoskeletal dynamics) accessible to direct single-particle
+    tracking by microscopy.
+communication_gap: >
+  Colloidal chemistry developed as an applied field (pigments, foods, pharmaceuticals,
+  coatings) largely independently of the condensed-matter statistical mechanics
+  that provides its theoretical foundation. The entropy-driven crystallisation result
+  (Pusey & van Megen 1986) appeared in Nature but took years to percolate into
+  chemistry textbooks. The glass transition work by van Blaaderen and Wiltzius (1995)
+  using confocal microscopy appeared in Nature but is not yet standard in
+  physical chemistry curricula. The DLVO framework is well-known in colloid
+  chemistry but its connection to Debye-Hückel theory (electrolyte physics)
+  is rarely made explicit in either field's pedagogy.
+last_reviewed: "2026-05-06"
+references:
+  - note: Derjaguin & Landau (1941) Acta Physicochim USSR 14:633 — DLVO theory (electrostatic part)
+  - note: Verwey & Overbeek (1948) Theory of the Stability of Lyophobic Colloids. Elsevier, Amsterdam
+  - doi: "10.1038/320340a0"
+    note: Pusey & van Megen (1986) Nature 320:340 — hard-sphere fluid-crystal and glass transitions
+  - note: Russel, Saville & Schowalter (1989) Colloidal Dispersions. Cambridge University Press

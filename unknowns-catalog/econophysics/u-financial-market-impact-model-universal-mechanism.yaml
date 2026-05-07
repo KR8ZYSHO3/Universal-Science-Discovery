@@ -1,0 +1,50 @@
+id: u-financial-market-impact-model-universal-mechanism
+title: >
+  What is the mechanistic origin of the square root market impact law
+  (ΔP ~ sqrt(Q/V)), and is it a universal non-equilibrium property of
+  all continuous double auction markets or a consequence of specific
+  agent behaviour (herding, information arrival, order-splitting strategies)?
+status: open
+priority: high
+disciplines:
+  - econophysics
+  - market-microstructure
+  - statistical-mechanics
+  - finance
+summary: >
+  The square root (concave) market impact law — that trading volume Q moves price
+  by ΔP ~ sigma * sqrt(Q/V) where V is daily volume and sigma is volatility —
+  is one of the most empirically robust stylised facts of financial markets
+  (Almgren et al. 2005, Lillo et al. 2003, Gabaix et al. 2006). However, its
+  mechanistic origin is disputed among competing theories: (1) metaorder splitting
+  — large institutional orders are split into small child orders to reduce impact,
+  creating an effective sqrt(Q) profile from the propagator of the order flow;
+  (2) order book depletion — the marginal price impact of each incremental order
+  decreases as liquidity near the best quote is consumed, giving a concave shape
+  from the order book depth profile; (3) information flow model — the sqrt(Q)
+  law emerges from the distribution of news arrival times and sizes under
+  diffusion dynamics; (4) random walk of the order flow imbalance — purely
+  statistical model (Farmer et al. 2013). These mechanisms are not mutually
+  exclusive. A definitive test requires exogenous variation in order splitting
+  behaviour (e.g., algorithmic trading mandate changes), which has not been
+  exploited for causal identification. Whether the exponent 1/2 is universal
+  or varies with market microstructure (tick size, market maker inventory,
+  fragmentation) has not been resolved.
+systematic_gaps:
+  - Natural experiments in market microstructure (tick size changes, venue fragmentation, high-frequency trading regulations) have not been used to causally test whether the sqrt(Q) law exponent changes with microstructure parameters.
+  - A unified model deriving the sqrt(Q) law from first principles (order book dynamics + order splitting + information asymmetry) that matches all observed deviations (time-of-day effects, asset class differences) has not been constructed.
+  - The relationship between the propagator (autocorrelation of order flow imbalance) and the square root impact law has not been derived without assuming specific functional forms for the propagator decay.
+suggested_hypotheses:
+  - >
+    The market impact exponent alpha in ΔP ~ Q^alpha varies from 0.45 to 0.55
+    across assets and venues as a function of the order book resilience parameter
+    (mean time to fill at best quote), with alpha → 0.5 in the limit of fast
+    order book replenishment — testable using Level 2 order book data across
+    multiple exchanges and tick-size regimes.
+related_bridges:
+  - b-financial-markets-nonequilibrium
+references:
+  - doi: "10.1103/PhysRevE.60.5305"
+    note: Gopikrishnan et al. (1999) Phys Rev E 60:5305 — inverse cubic law
+  - note: Almgren et al. (2005) Risk 18:58 — market impact estimation
+last_reviewed: "2026-05-06"

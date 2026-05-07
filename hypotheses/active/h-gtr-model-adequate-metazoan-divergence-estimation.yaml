@@ -1,0 +1,54 @@
+id: h-gtr-model-adequate-metazoan-divergence-estimation
+title: >
+  GTR+Gamma+I substitution models are inadequate for estimating deep Metazoan
+  divergence times because they cannot account for compositional heterogeneity
+  and long-branch saturation, causing systematic 10-30% underestimation of
+  Cambrian and pre-Cambrian divergence dates compared to CAT+GTR
+  non-homogeneous models.
+status: active
+priority: medium
+impact_score: 0.65
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+related_disciplines:
+  - phylogenetics
+  - evolutionary-biology
+  - statistics
+  - palaeontology
+unknowns_addressed:
+  - u-phylogenetic-placement-long-branch-attraction-correction
+evidence_links:
+  - doi: "10.1007/BF01734359"
+    type: related
+    confidence: 0.60
+    note: Felsenstein (1981) — likelihood pruning; GTR model formulation
+  - doi: "10.1186/1471-2148-7-214"
+    type: supporting
+    confidence: 0.65
+    note: Drummond & Rambaut (2007) BEAST — relaxed molecular clock; GTR-based estimates
+  - doi: "10.1093/sysbio/syu061"
+    type: related
+    confidence: 0.70
+    note: Lartillot et al. (2013) — CAT model reduces LBA in deep animal phylogeny
+proposed_tests:
+  - description: >
+      Reanalyse the Philippe et al. (2009) Metazoan phylogenomic dataset (128 genes,
+      35 taxa) under: (1) GTR+Gamma+I in RAxML/BEAST; (2) CAT+GTR in PhyloBayes;
+      (3) NHBS (non-homogeneous Bayesian substitution) model.
+      Compare: topology (sister group relationships for Coelomata, Ecdysozoa),
+      branch lengths, and molecular clock divergence dates with fossil calibrations.
+    method: Maximum likelihood + Bayesian MCMC; posterior predictive checks; Bayes factor comparison
+    prediction: >
+      GTR+G underestimates Cambrian node age by 10-30% relative to CAT+GTR;
+      nematode (Caenorhabditis) placement changes with model — branching artefact
+      in GTR but not CAT — providing a falsifiable LBA-correction test.
+  - description: >
+      Simulation study: generate sequences under CAT model on known deep tree;
+      reconstruct under GTR+G and CAT+GTR; measure divergence date bias as function
+      of rate heterogeneity variance sigma²_r and compositional heterogeneity delta_GC.
+    method: Seq-Gen simulation + BEAST analysis; 100 replicates per parameter combination
+    prediction: GTR+G bias > 15% when sigma²_r > 2.0 or delta_GC > 5%; CAT+GTR bias < 5%
+related_disciplines:
+  - phylogenetics
+  - evolutionary-biology

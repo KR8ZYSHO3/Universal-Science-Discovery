@@ -1,0 +1,131 @@
+id: b-neuroprosthetics-adaptive-control
+title: >
+  Neuroprosthetics closes the sensorimotor loop by decoding motor intention from
+  neural populations via Kalman-filter and RNN decoders, delivering intracortical
+  microstimulation sensory feedback, and using online adaptive algorithms to
+  compensate neural drift — the Cramer-Rao bound on Fisher information in the
+  neural code sets the fundamental decoding limit bridging neuroscience and
+  control theory.
+status: established
+fields:
+  - neuroscience
+  - engineering
+  - control-theory
+  - biomedical-engineering
+  - computational-neuroscience
+bridge_claim: >
+  Neuroprosthetics is the engineering discipline of closing the sensorimotor loop
+  with a brain-machine interface — decoding neural signals as control commands
+  for prosthetic limbs and feeding sensory information back to the brain.
+  It requires integration of neural coding theory, optimal estimation theory,
+  adaptive control, and neurosurgery.
+
+  Neural population code: motor cortex (M1) activity during reaching contains
+  information about movement direction encoded in firing rates. Individual neurons
+  are broadly tuned: r_i(θ) = r_i,0 + b_i cos(θ - θ_i) (cosine tuning,
+  Georgopoulos et al. 1982). Population vector decoder: summing the preferred
+  directions weighted by firing rate gives a population vector that tracks
+  movement direction with ~80° accuracy. Modern decoders use full population
+  statistics rather than vector sums.
+
+  Kalman filter decoder (Wu et al. 2006): state-space model
+    x_{t+1} = Ax_t + w_t   (state evolution: position/velocity)
+    y_t = Cx_t + q_t        (observation: firing rates)
+  Optimal Bayes estimate x̂_t minimises mean squared error. The Kalman filter
+  provides the exact Bayesian posterior for Gaussian noise — it is the linear
+  minimum-variance decoder. BrainGate2 clinical implementations use variants of
+  this decoder, enabling tetraplegic patients to control robotic arms and
+  communicate at 40+ words/minute (Willett et al. 2023).
+
+  Nonlinear decoders: Gaussian process decoders (nonlinear kernel regression),
+  recurrent neural networks (LSTM) capture nonlinear dynamics in the neural
+  population trajectory. LFP (local field potential) and spike-band power provide
+  additional complementary channels.
+
+  Sensory feedback: intracortical microstimulation (ICMS) of primary somatosensory
+  cortex (S1) at currents 10–100 μA evokes tactile percepts localised to the
+  contralateral body surface. Flesher et al. (2016) demonstrated that a tetraplegic
+  subject with bilateral M1/S1 arrays could discriminate objects by texture using
+  ICMS-delivered haptic feedback — the first closed-loop sensorimotor neuroprosthesis.
+
+  Adaptive decoders: cortical neural populations are non-stationary — neurons are
+  lost over months as electrodes are encapsulated, and remaining neurons change
+  their tuning. Without adaptation, decoder performance degrades. Online EM
+  algorithm (Shenoy & Carmena 2013): update C, A, noise covariances online using
+  expectation-maximisation, treating new observations as streaming data. This is
+  Bayesian recursive estimation in a latent variable model — the same algorithm
+  as online Kalman filter parameter estimation.
+
+  Fundamental limits — Fisher information bound: the minimum decoding error (mean
+  squared error) for any unbiased estimator of a parameter θ from neural population
+  activity is bounded by the Cramér-Rao bound:
+    MSE(θ̂) ≥ 1/J(θ)
+  where J(θ) = Σᵢ (dr_i/dθ)² / σ²_i is the Fisher information in the population.
+  This sets the information-theoretic maximum performance achievable with any
+  decoder algorithm, and quantifies how many neurons and what tuning curve shapes
+  maximise decoding fidelity — connecting information theory to neural circuit design.
+translation_table:
+  - field_a_term: Kalman filter (optimal linear state estimator)
+    field_b_term: neural decoder (motor intention → prosthetic command)
+    note: exact Bayesian posterior for linear-Gaussian model; dominant BCI decoder architecture
+  - field_a_term: state-space model (x_{t+1} = Ax_t + w_t, y_t = Cx_t + q_t)
+    field_b_term: kinematic state (position/velocity) predicted from firing rate observations
+    note: C matrix is the neural tuning curve matrix; estimated during calibration session
+  - field_a_term: intracortical microstimulation (ICMS)
+    field_b_term: artificial tactile sensation (closing the sensory feedback loop)
+    note: current pulse trains in S1 evoke localised percepts; frequency/amplitude encode intensity
+  - field_a_term: online EM algorithm (adaptive decoder parameter update)
+    field_b_term: Bayesian recursive estimation for non-stationary neural tuning
+    note: same algorithm as online Kalman filter identification; prevents performance degradation
+  - field_a_term: Fisher information J(θ) in neural population
+    field_b_term: Cramér-Rao bound on decoding accuracy
+    note: fundamental limit independent of decoder choice; set by neural code properties
+  - field_a_term: LSTM recurrent neural network decoder
+    field_b_term: sequence model capturing trajectory dynamics in M1 population
+    note: captures non-Markovian dynamics and coarticulation that linear Kalman filter misses
+  - field_a_term: electrode array impedance increase (glial encapsulation)
+    field_b_term: non-stationarity requiring adaptive decoder update
+    note: biotic tissue response (neuroscience) → engineering system drift → adaptive control need
+related_unknowns:
+  - u-neuroprosthetic-decoder-long-term-stability-mechanisms
+related_hypotheses:
+  - h-manifold-hypothesis-m1-latent-dynamics-decoder-generalisation
+cross_pollination_opportunities:
+  - >
+    Dimensionality reduction methods from machine learning (GPFA, LFADS, pi-VAE)
+    applied to M1 population activity reveal low-dimensional "neural manifolds" —
+    subspaces where movement-related activity lies. Decoders operating in the
+    manifold space rather than the full neural space are more robust to neuron
+    loss (electrode dropout) and noise. This connects manifold learning theory
+    to clinical BMI robustness.
+  - >
+    Bi-directional neural interfaces (simultaneous recording and stimulation)
+    create the opportunity for closed-loop neuromodulation of pathological brain
+    states (epilepsy, Parkinson's, depression) using the same adaptive decoder
+    framework as motor neuroprosthetics. The adaptive estimation methods developed
+    for motor BMIs could be directly applied to closed-loop deep brain stimulation
+    parameter optimisation.
+communication_gap: >
+  Neuroprosthetics research spans neuroscience (neural coding, plasticity),
+  engineering (signal processing, control theory, device design), and clinical
+  medicine (neurosurgery, rehabilitation). The academic literature is split across
+  Nature Neuroscience, IEEE Transactions on Neural Systems, and Lancet.
+  Neural coding theory (Fisher information, population vector decoding) was
+  developed in computational neuroscience largely independently of the control
+  engineering tradition (Kalman filtering, adaptive estimation). BrainGate
+  collaborations are unusual in combining these communities. Adaptive decoding
+  methods that are standard in control engineering (recursive least squares,
+  online EM) have only recently been applied to neural decoders, despite being
+  optimal. The Cramér-Rao bound analysis of the neural code (Seung & Sompolinsky
+  1993) is well-known in computational neuroscience but rarely cited in BCI
+  engineering papers.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1038/nature11076"
+    note: Hochberg et al. (2012) Nature 485:372 — BrainGate2 robotic arm control by tetraplegic patients
+  - doi: "10.1016/S0140-6736(12)61816-9"
+    note: Collinger et al. (2013) Lancet 381:557 — high-performance neuroprosthetic arm
+  - doi: "10.1126/scitranslmed.aaf8083"
+    note: Flesher et al. (2016) Sci Transl Med 8:361ra141 — ICMS sensory feedback for object discrimination
+  - doi: "10.1038/s41586-023-06139-4"
+    note: Willett et al. (2023) Nature 620:1031 — 62 words/minute speech BCI via neural manifold decoding

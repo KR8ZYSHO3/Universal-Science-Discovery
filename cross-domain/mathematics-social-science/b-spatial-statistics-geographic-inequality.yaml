@@ -1,0 +1,110 @@
+id: b-spatial-statistics-geographic-inequality
+title: >
+  Tobler's first law, Moran's I spatial autocorrelation, and Kriging formalise
+  geographic proximity effects that economic geography rediscovered independently
+  as agglomeration externalities — Krugman's core-periphery bifurcation is a
+  phase transition in the same spatial autocorrelation parameter space.
+status: established
+fields:
+  - mathematics
+  - statistics
+  - social-science
+  - economics
+  - geography
+bridge_claim: >
+  Spatial statistics and economic geography have independently developed formal
+  frameworks for the same underlying phenomenon: proximity creates autocorrelation
+  in socioeconomic outcomes, and self-reinforcing mechanisms can lock in geographic
+  inequality. The mathematical bridge runs between Moran's I (spatial statistics)
+  and the Krugman core-periphery bifurcation (economic geography).
+
+  Tobler's first law (1970): "everything is related to everything else, but near
+  things are more related than distant things." This motivates the spatial
+  autocorrelation coefficient Moran's I:
+    I = (n/W) · Σᵢⱼ wᵢⱼ(xᵢ-x̄)(xⱼ-x̄) / Σᵢ(xᵢ-x̄)²
+  where wᵢⱼ is a spatial weight matrix (1 if neighbours, 0 otherwise) and W = Σwᵢⱼ.
+  I > 0 means positive autocorrelation (income clusters with income); I < 0 means
+  negative autocorrelation (chess-board dispersion). The sampling distribution under
+  the null hypothesis (no spatial structure) is approximately normal.
+
+  Kriging (Gaussian process regression on spatial data) provides the optimal linear
+  unbiased predictor (BLUP) of a spatial field given observations at sampled
+  locations, exploiting the variogram γ(h) = ½ E[(x(s+h) - x(s))²] to characterise
+  spatial correlation structure. This is mathematically identical to Gaussian process
+  regression in machine learning (Kriging predates GP-ML by decades in geostatistics).
+
+  Krugman (1991) core-periphery model: two regions, two sectors (agriculture
+  fixed, manufacturing mobile). At high transport costs T, manufacturing disperses
+  (both regions have industry). Below a critical transport cost T*, manufacturing
+  agglomerates in one region — a supercritical pitchfork bifurcation driven by
+  increasing returns and home-market effects. The mathematical structure is
+  identical to phase transitions in physics: a control parameter (T) passes through
+  a critical value, symmetry breaks, and one region becomes the "core."
+
+  Spatial econometrics (Anselin 1988): OLS regression is biased and inconsistent
+  when residuals are spatially autocorrelated (Gauss-Markov fails). Two corrections:
+  (1) Spatial lag model: y = ρWy + Xβ + ε — the outcome in each region depends
+  directly on neighbours' outcomes (endogenous interaction); (2) Spatial error model:
+  y = Xβ + u, u = λWu + ε — residuals are spatially correlated (error spillovers).
+  The spatial lag parameter ρ is directly analogous to Moran's I but estimated
+  within a regression framework. Testing ρ = 0 vs. ρ > 0 (Lagrange multiplier tests)
+  formally diagnoses Matthew-effect geographic inequality.
+
+  The Matthew effect in geography: regions with initially higher economic activity
+  attract more workers and firms (increasing returns to scale), creating positive
+  feedback — high Moran's I income autocorrelation is the statistical fingerprint
+  of this agglomeration dynamic.
+translation_table:
+  - field_a_term: Moran's I spatial autocorrelation coefficient
+    field_b_term: agglomeration intensity in economic geography
+    note: both measure the degree to which high values cluster near high values
+  - field_a_term: spatial weight matrix wᵢⱼ
+    field_b_term: transport cost matrix Tᵢⱼ in trade models
+    note: both formalise the decay of interaction strength with distance
+  - field_a_term: variogram γ(h) in geostatistics
+    field_b_term: distance decay of economic spillovers (localisation of knowledge)
+    note: variogram fit determines the range of spatial dependence — economic geography's knowledge spillover radius
+  - field_a_term: Kriging interpolation (BLUP of unobserved locations)
+    field_b_term: counterfactual regional income prediction in policy evaluation
+    note: Kriging gives the best linear estimate of what income would be absent a policy intervention
+  - field_a_term: critical transport cost T* (Krugman bifurcation)
+    field_b_term: spatial phase transition from dispersion to agglomeration
+    note: same mathematics as second-order phase transition; symmetry breaking selects the core region
+  - field_a_term: spatial lag model ρ parameter
+    field_b_term: Tobler spatial autocorrelation in economic outcome variables
+    note: ρ > 0 means neighbours' income predicts own income — formalised Tobler's law
+related_unknowns:
+  - u-spatial-autocorrelation-economic-convergence-causality
+related_hypotheses:
+  - h-krugman-bifurcation-detectable-moran-I-trajectory
+cross_pollination_opportunities:
+  - >
+    Combining Kriging interpolation with causal inference (synthetic control method)
+    could provide optimal counterfactual construction for regional policy evaluation
+    — using the spatial correlation structure of outcomes to construct the best
+    synthetic control region. This has not been systematically applied in
+    spatial econometrics.
+  - >
+    Machine learning spatial prediction models (graph neural networks on spatial
+    graphs) can be reinterpreted as learnable spatial weight matrices — connecting
+    deep learning to spatial econometrics. Testing whether learned weight matrices
+    converge to economic-theoretically motivated decay functions (gravity model)
+    would validate both.
+communication_gap: >
+  Geostatistics developed in the mining and petroleum industry (Krige 1951,
+  Matheron 1963) independently of spatial econometrics (Anselin 1988) and economic
+  geography (Krugman 1991). The identity between Kriging and Gaussian process
+  regression was not widely recognised in statistics until the 2000s (Rasmussen
+  & Williams 2006). Economists rarely cite Moran (1950) or Tobler (1970).
+  Regional scientists use spatial econometrics but rarely engage with geostatistical
+  variogram theory. The Krugman bifurcation is rarely framed as a phase transition
+  in statistical physics language, despite the identical mathematics.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.2307/143141"
+    note: Tobler (1970) Econ Geogr 46:234 — first law of geography
+  - doi: "10.1093/biomet/37.1-2.17"
+    note: Moran (1950) Biometrika 37:17 — spatial autocorrelation statistic
+  - doi: "10.1086/261763"
+    note: Krugman (1991) J Polit Econ 99:483 — increasing returns and economic geography
+  - note: Anselin (1988) Spatial Econometrics. Kluwer Academic Publishers, Dordrecht
