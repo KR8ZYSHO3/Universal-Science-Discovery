@@ -1,0 +1,29 @@
+id: h-causal-fairness-resolves-impossibility-tradeoffs
+title: Counterfactual fairness under a correctly specified structural causal model resolves the Chouldechova-Kleinberg impossibility by operating in a different criterion space, but is rendered non-unique by causal model underdetermination from observational data
+status: active
+created: "2026-05-06"
+last_updated: "2026-05-06"
+priority: high
+impact_score: 0.77
+author: wave-30-agent
+unknowns_addressed:
+  - u-fairness-impossibility-optimal-tradeoff
+related_disciplines:
+  - machine-learning
+  - causal-inference
+  - social-science
+  - statistics
+evidence_links:
+  - type: supporting
+    note: "Kusner et al. (2017) — Counterfactual fairness, NeurIPS 30; shows CF fairness is compatible with calibration under certain causal structures"
+    confidence: 0.75
+  - type: supporting
+    doi: "10.1089/big.2016.0047"
+    note: "Chouldechova (2017) — impossibility theorem holds for statistical fairness criteria; causal criteria are a different space"
+    confidence: 0.88
+  - type: contradicting
+    note: "Kilbertus et al. (2017) — Avoiding discrimination through causal reasoning, NeurIPS; shows causal fairness is not uniquely defined without assuming specific causal graph"
+    confidence: 0.79
+proposed_tests:
+  - description: Apply counterfactual fairness to the COMPAS recidivism dataset under three different plausible causal models (race as mediator vs. confounder vs. proxy); measure sensitivity of fairness judgments to causal model choice
+  - description: Design a synthetic dataset with known ground truth causal structure; test whether counterfactual fairness under the true model produces more equitable outcomes than demographic parity on a subsequent generation of decisions affected by the classifier

@@ -1,0 +1,73 @@
+id: b-cooperative-game-theory-coalitions
+title: >
+  Cooperative game theory's core, Shapley value, and nucleolus provide axiomatic
+  frameworks for fair allocation in coalition formation, with direct applications to
+  cost-sharing institutions, climate agreements, and multi-party negotiations.
+status: established
+fields:
+  - cooperative-game-theory
+  - social-science
+  - economics
+  - political-science
+  - mathematics
+bridge_claim: >
+  A cooperative game (N, v) consists of a player set N and characteristic function
+  v(S) giving the value any coalition S ⊆ N can achieve independently. The core is the
+  set of allocations x where no coalition can do better (Σᵢ∈S xᵢ ≥ v(S) for all S) —
+  it may be empty (empty core ↔ no stable allocation). The Shapley value
+  φᵢ(v) = Σ_{S⊆N\{i}} |S|!(n-|S|-1)!/n! · [v(S∪{i}) - v(S)] is the unique allocation
+  satisfying efficiency (Σφᵢ = v(N)), symmetry, dummy player, and additivity axioms —
+  it averages a player's marginal contribution over all orderings. The nucleolus
+  (Schmeidler 1969) is always unique and in the core when the core is non-empty.
+  Applications: airport landing fee allocation (a classic Shapley value application),
+  the Shapley-Shubik power index for the US Electoral College, bankruptcy law (who gets
+  what when assets < liabilities — Aumann & Maschler 1985), and climate agreement
+  emission reduction allocation among nations. Nash bargaining (1950) solves two-player
+  cooperative problems by maximising (u₁-d₁)(u₂-d₂) where dᵢ are threat points —
+  axiomatically characterising fair bilateral agreements. The bridge: social institutions
+  that allocate costs and benefits among parties are implicitly solving cooperative
+  games, whether or not participants know the mathematics.
+translation_table:
+  - field_a_term: characteristic function v(S)
+    field_b_term: coalition's best achievable outcome in a negotiation
+    note: In climate agreements, v(S) = total emission reduction achievable by coalition S
+  - field_a_term: Shapley value φᵢ(v)
+    field_b_term: fair share of gains from cooperation / cost allocation
+    note: Used in EU budget allocation debates, network cost sharing, bandwidth pricing
+  - field_a_term: the core (set of stable allocations)
+    field_b_term: politically feasible allocation space (no country worse off than going alone)
+    note: Empty core → no stable multilateral agreement exists without side payments
+  - field_a_term: nucleolus (minimises maximum coalition complaint)
+    field_b_term: leximin allocation — most egalitarian stable agreement
+    note: Nucleolus selects the allocation that minimises the worst-off coalition's complaint
+  - field_a_term: Nash bargaining solution
+    field_b_term: bilateral trade deals, labor-management negotiations
+    note: Nash product maximisation has a natural interpretation as proportional to gains from trade
+related_unknowns:
+  - u-shapley-value-practical-coalition-stability
+related_hypotheses:
+  - h-shapley-value-predicts-international-climate-burden-sharing
+cross_pollination_opportunities:
+  - Apply the Shapley value to attribute AI model accuracy gains among training data
+    contributors — "data Shapley" for data marketplace fairness (Ghorbani & Zou 2019)
+  - Use empty-core theory to predict when multilateral climate negotiations collapse
+    and design minimum side-payment structures to ensure a non-empty core
+  - Combine cooperative game theory with mechanism design (Myerson) to design
+    institutions that make truth-telling a dominant strategy in coalitional bargaining
+communication_gap: >
+  Cooperative game theory is taught in economics and mathematics departments but rarely
+  in political science or international relations where treaty negotiation actually occurs.
+  Political scientists use qualitative bargaining theory; economists use cooperative
+  game theory; they rarely read the same journals. Legal scholars who design bankruptcy
+  law do not typically know the Aumann-Maschler bankruptcy game or its Shapley value
+  solution. The mathematics community that proved these theorems is largely disconnected
+  from the social science and policy communities that could apply them.
+last_reviewed: "2026-05-06"
+references:
+  - note: "Shapley (1953) — A value for n-person games, Contributions to the Theory of Games II, Princeton"
+  - doi: "10.2307/1907951"
+    note: "Nash (1950) — The bargaining problem, Econometrica 18:155"
+  - doi: "10.1137/0117107"
+    note: "Schmeidler (1969) — The nucleolus of a characteristic function game, J Appl Math 17:1163"
+  - doi: "10.1016/0022-0531(79)90064-1"
+    note: "Roth & Verrecchia (1979) — The Shapley value as applied to cost allocation, J Math Econ 6:295"

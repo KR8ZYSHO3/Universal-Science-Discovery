@@ -1,5 +1,5 @@
 {
-  "count": 412,
+  "count": 422,
   "items": [
     {
       "id": "b-grokking-criticality",
@@ -3197,6 +3197,65 @@
       "file": "cross-domain\\biology-physics\\b-morphogenesis-mechanical-forces.yaml"
     },
     {
+      "id": "b-plant-hydraulics-fluid-mechanics",
+      "title": "Plant water transport via the cohesion-tension mechanism is governed by Hagen-Poiseuille pipe flow, operating under negative pressures approaching cavitation limits set by fluid physics, with stomatal optimization connecting fluid mechanics to carbon economics.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Water transport in plants is driven by the cohesion-tension mechanism (Dixon & Joly 1895): transpiration at leaf surfaces creates a negative pressure (tension) that pulls water columns up from roots through xylem conduits. Hagen-Poiseuille governs xylem flow: Q = πr⁴ΔP/(8ηL), so hydraulic conductanc",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-hydraulic-failure-drives-tree-mortality-drought"
+      ],
+      "communication_gap": "Plant physiologists who measure vulnerability curves are largely separate from fluid mechanics researchers who study cavitation in engineering materials. The cohesion- tension mechanism remained controversial among physicists until direct pressure-probe measurements in the 1990s (Pockman et al. 1995) confirmed tensions beyond -1 MPa. Climate ecologists who model forest die-off rarely have deep training in plant hydraulics; hydraulics researchers rarely have climate modeling context.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Hagen-Poiseuille conductance K = πr⁴/(8ηL)",
+          "field_b_term": "xylem hydraulic conductivity per unit pressure gradient",
+          "note": "r⁴ scaling means minor variation in conduit radius has enormous conductance consequences"
+        },
+        {
+          "field_a_term": "cavitation (bubble nucleation in liquid under tension)",
+          "field_b_term": "xylem embolism — loss of hydraulic conductivity",
+          "note": "Defined by xylem water potential at 50% conductivity loss (P₅₀) — key drought tolerance trait"
+        },
+        {
+          "field_a_term": "negative pressure (tension) in metastable liquid",
+          "field_b_term": "leaf water potential ψ_leaf (measured in MPa, negative)",
+          "note": "Thermodynamic water potential; plants routinely operate in states forbidden in bulk physics"
+        },
+        {
+          "field_a_term": "Poiseuille's r⁴ dependence",
+          "field_b_term": "tradeoff between hydraulic efficiency and safety (wide conduits cavitate more easily)",
+          "note": "Wide xylem vessels have high conductance but are more vulnerable to embolism — the safety-efficiency tradeoff"
+        },
+        {
+          "field_a_term": "Cowan-Farquhar optimization (maximize ∫A·dt subject to ∫E·dt = const)",
+          "field_b_term": "stomatal conductance g_s as the control variable in carbon-water economy",
+          "note": "Variational problem in fluid mechanics (transpiration) constrained by biochemistry (photosynthesis)"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1093/aob/9.5.403",
+          "note": "Dixon & Joly (1895) — On the ascent of sap, Ann Bot 9:403; cohesion-tension theory"
+        },
+        {
+          "doi": "10.1038/428851a",
+          "note": "Koch et al. (2004) — The limits to tree height, Nature 428:851"
+        },
+        {
+          "doi": "10.1104/pp.88.3.569",
+          "note": "Tyree & Sperry (1989) — Vulnerability of xylem to cavitation and embolism, Plant Physiol 88:569"
+        },
+        {
+          "note": "Cowan & Farquhar (1977) — Stomata and the gas exchange, Symp Soc Exp Biol 31:471"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\biology-physics\\b-plant-hydraulics-fluid-mechanics.yaml"
+    },
+    {
       "id": "b-protein-folding-energy-landscape",
       "title": "Protein folding as a search on a funneled high-dimensional energy landscape — the same mathematical structure describes spin glass physics, neural network loss landscapes, and optimization",
       "source_domain": "",
@@ -3506,6 +3565,65 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\biology-social-science\\b-epigenetics-transgenerational-trauma.yaml"
+    },
+    {
+      "id": "b-sociobiology-kin-selection",
+      "title": "Hamilton's rule (rb > c) derives the evolutionary conditions for altruism from population genetics, creating a quantitative bridge between biology and social science through inclusive fitness, the Price equation, and the gene-centered view of selection.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Hamilton's (1964) rule rb > c — altruistic behavior spreads when the benefit b to a recipient weighted by genetic relatedness r exceeds the cost c to the actor — gives social science a quantitative evolutionary foundation for cooperation. Inclusive fitness = personal fitness + Σ rᵢ·bᵢ generalises Da",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-cultural-multilevel-selection-dominates-genetic"
+      ],
+      "communication_gap": "Sociobiological claims were received with ideological hostility in social science after Wilson's (1975) Sociobiology and the subsequent controversy; many social scientists explicitly rejected biological explanation of social behavior as reductionist. This created a decades-long communication gap that only partially healed through evolutionary psychology (Buss, Pinker) and cultural evolution (Henrich). Biologists and social scientists rarely co-author, attend the same conferences, or read each other's top journals.\n",
+      "translation_table": [
+        {
+          "field_a_term": "genetic relatedness r",
+          "field_b_term": "social network tie strength / kinship coefficient",
+          "note": "Social scientists use network centrality; Hamilton used Wright's coefficient — both predict cooperation intensity"
+        },
+        {
+          "field_a_term": "inclusive fitness",
+          "field_b_term": "total welfare including effects on \"close\" others",
+          "note": "Economists' externalities; sociologists' social capital both partially capture this"
+        },
+        {
+          "field_a_term": "eusociality (queen-worker division of labor)",
+          "field_b_term": "division of labor in human institutions",
+          "note": "Nowak-Tarnita-Wilson analogy between superorganism and corporation is suggestive but contested"
+        },
+        {
+          "field_a_term": "Price equation G = Cov(w,z)/w̄ + E(wΔz)/w̄",
+          "field_b_term": "partitioning of social change into selection vs. transmission components",
+          "note": "Price equation used in cultural evolution (Henrich & McElreath) — applies to memes as well as genes"
+        },
+        {
+          "field_a_term": "cheater detection / reciprocal altruism (Trivers 1971)",
+          "field_b_term": "social contract enforcement / legal punishment",
+          "note": "Cosmides & Tooby use the Wason selection task to argue cheater-detection is cognitively specialized"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1016/0022-5193(64)90038-4",
+          "note": "Hamilton (1964) — The genetical evolution of social behaviour I & II, J Theor Biol 7:1"
+        },
+        {
+          "note": "Dawkins (1976) The Selfish Gene, Oxford University Press"
+        },
+        {
+          "doi": "10.1038/nature09205",
+          "note": "Nowak, Tarnita & Wilson (2010) — The evolution of eusociality, Nature 466:1057"
+        },
+        {
+          "doi": "10.1111/j.1420-9101.2010.02110.x",
+          "note": "West et al. (2011) — Sixteen common misconceptions about the evolution of cooperation, J Evol Biol 24:1180"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\biology-social-science\\b-sociobiology-kin-selection.yaml"
     },
     {
       "id": "b-phylogenetic-comparative-pgls",
@@ -3923,6 +4041,63 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\chemistry-engineering\\b-catalysis-reactor-design.yaml"
+    },
+    {
+      "id": "b-corrosion-science-materials-protection",
+      "title": "Electrochemical corrosion science (Evans diagrams, Pourbaix equilibria, passivation thermodynamics) provides the quantitative foundation for engineering corrosion protection strategies that collectively address ~3.4% of global GDP in losses annually.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Corrosion is electrochemical: a galvanic cell where the anode oxidises (Fe → Fe²⁺ + 2e⁻) and the cathode reduces (O₂ + 2H₂O + 4e⁻ → 4OH⁻). The Evans diagram (mixed potential theory) superimposes anodic and cathodic polarization curves to find the corrosion potential E_corr and corrosion current i_co",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-ml-accelerated-corrosion-inhibitor-discovery"
+      ],
+      "communication_gap": "Academic electrochemistry is dominated by energy storage and conversion research (batteries, fuel cells); corrosion research is often viewed as applied and unglamorous, underfunded relative to its economic impact. Civil and mechanical engineers who specify materials often have no electrochemistry training. The standards literature (ASTM, ISO) that governs engineering practice rarely cites academic corrosion electrochemistry, creating a slow knowledge transfer pathway of 10–20 years from discovery to standard.\n",
+      "translation_table": [
+        {
+          "field_a_term": "standard electrode potential E° (electrochemistry)",
+          "field_b_term": "galvanic series rank (engineering)",
+          "note": "Engineering galvanic series is an empirical approximation to thermodynamic E° in seawater"
+        },
+        {
+          "field_a_term": "Pourbaix diagram (E vs. pH stability regions)",
+          "field_b_term": "corrosion, passivation, and immunity zones for design decisions",
+          "note": "Engineers use Pourbaix to select material + environment combinations avoiding corrosion regions"
+        },
+        {
+          "field_a_term": "anodic Tafel slope βₐ",
+          "field_b_term": "polarization resistance Rₚ = βₐβc/[2.3·i_corr·(βₐ+βc)]",
+          "note": "Stern-Geary equation converts laboratory polarization curves to service corrosion rate"
+        },
+        {
+          "field_a_term": "passivation current density i_pass",
+          "field_b_term": "repassivation time after scratch (engineering specification)",
+          "note": "Stainless steel specification requires repassivation in <1 s in service environments"
+        },
+        {
+          "field_a_term": "double-layer capacitance C_dl",
+          "field_b_term": "electrochemical impedance spectroscopy (EIS) circuit element",
+          "note": "EIS allows in-situ coating degradation monitoring — used in infrastructure health monitoring"
+        }
+      ],
+      "references": [
+        {
+          "note": "Evans (1960) The Corrosion and Oxidation of Metals, Arnold — mixed potential theory"
+        },
+        {
+          "note": "Fontana (1986) Corrosion Engineering, 3rd ed., McGraw-Hill"
+        },
+        {
+          "doi": "10.1002/maco.201608562",
+          "note": "Koch et al. (2016) — Global costs of corrosion, Mater Performance Suppl., $2.5T estimate"
+        },
+        {
+          "note": "Pourbaix (1966) Atlas of Electrochemical Equilibria in Aqueous Solutions, Pergamon"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\chemistry-engineering\\b-corrosion-science-materials-protection.yaml"
     },
     {
       "id": "b-electrochemistry-battery-technology",
@@ -7048,6 +7223,66 @@
       "file": "cross-domain\\ecology-mathematics\\b-chaos-population-cycles.yaml"
     },
     {
+      "id": "b-landscape-ecology-graph-theory",
+      "title": "Landscape ecology's analysis of habitat connectivity maps directly onto weighted graph theory, enabling circuit-theoretic gene flow prediction, least-cost corridor design, and percolation-theoretic thresholds for landscape connectivity collapse.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Landscape ecology studies how spatial heterogeneity affects ecological processes. Habitat patches become graph nodes; dispersal corridors become weighted edges where weights represent dispersal resistance (inverse of habitat quality, road mortality rate, etc.). Least-cost path algorithms (Dijkstra's",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-circuit-theory-outperforms-lcp-gene-flow-prediction"
+      ],
+      "communication_gap": "Landscape ecologists are trained in spatial statistics and GIS; graph theorists and circuit theory experts are mathematicians and physicists. The Circuitscape software (McRae) made circuit theory accessible to ecologists without mathematical training, but the underlying mathematical theory (random walks, spectral graph theory) is rarely taught in ecology graduate programs. Conservation planners who implement corridor projects often use the tools without understanding the graph-theoretic foundation, limiting their ability to extend methods to new problems.\n",
+      "translation_table": [
+        {
+          "field_a_term": "habitat patch",
+          "field_b_term": "graph node",
+          "note": "Node attributes include patch area, quality, population size"
+        },
+        {
+          "field_a_term": "dispersal corridor / matrix permeability",
+          "field_b_term": "edge weight (resistance to dispersal)",
+          "note": "Resistance surfaces combine land cover, roads, slope, human density"
+        },
+        {
+          "field_a_term": "least-cost path",
+          "field_b_term": "shortest path in weighted graph (Dijkstra's algorithm)",
+          "note": "Standard in Circuitscape software for corridor planning"
+        },
+        {
+          "field_a_term": "effective resistance between patches",
+          "field_b_term": "random walk commute time / gene flow predictor",
+          "note": "McRae (2006) proved equivalence between circuit resistance and random walk commute time"
+        },
+        {
+          "field_a_term": "percolation threshold p_c ≈ 0.59",
+          "field_b_term": "critical proportion of suitable habitat for landscape connectivity",
+          "note": "With & Crist (1995) showed empirical confirmation of percolation threshold in arthropods"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1890/0012-9658(2001)082[1205:HAAPCE]2.0.CO;2",
+          "note": "Urban & Keitt (2001) — Landscape connectivity: a graph-theoretic perspective, Ecology 82:1205"
+        },
+        {
+          "doi": "10.1890/07-1861.1",
+          "note": "McRae et al. (2008) — Using circuit theory to model connectivity in ecology, Ecology 89:2712"
+        },
+        {
+          "doi": "10.2307/1941982",
+          "note": "With & Crist (1995) — Critical thresholds in species responses to landscape structure, Ecology 76:2446"
+        },
+        {
+          "doi": "10.2307/3544927",
+          "note": "Taylor et al. (1993) — Connectivity is a vital element of landscape structure, Oikos 68:571"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\ecology-mathematics\\b-landscape-ecology-graph-theory.yaml"
+    },
+    {
       "id": "b-metapopulation-dynamics-patch-theory",
       "title": "Levins' metapopulation model and Hanski's incidence function model connect island biogeography theory to dynamic landscape ecology, replacing the static species-area relationship with a mechanistic extinction-colonisation balance governed by the metapopulation capacity — the dominant eigenvalue of the landscape connectivity matrix.\n",
       "source_domain": "",
@@ -7886,6 +8121,65 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\ecology-social-science\\b-common-pool-resources-institutional-design.yaml"
+    },
+    {
+      "id": "b-conservation-psychology-pro-environmental",
+      "title": "Conservation psychology's value-belief-norm theory bridges ecological science and social science, revealing that attitude-behavior gaps in pro-environmental action are better closed by behavioral defaults, social norms, and place attachment than by providing more ecological information.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Conservation psychology studies the psychological factors driving pro-environmental behaviour. The value-belief-norm (VBN) theory (Stern 2000) proposes a causal chain: altruistic values → ecological worldview (NEP scale) → awareness of environmental consequences → felt moral obligation → pro-environ",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-place-attachment-mediates-conservation-behavior-more-than-vbn"
+      ],
+      "communication_gap": "Ecologists and conservation biologists publish in Biological Conservation and Conservation Biology; social psychologists publish in JPSP and Psychological Science; behavioral economists publish in AER and QJE. The VBN framework (Stern 2000) emerged from environmental sociology and is not widely known in conservation biology. Nudge theory (Thaler-Sunstein) is well-known in economics but rarely applied systematically to conservation management decisions. Conservation organizations often run information campaigns whose effectiveness social science has shown to be limited.\n",
+      "translation_table": [
+        {
+          "field_a_term": "species at risk (ecology)",
+          "field_b_term": "identifiable victim (social psychology)",
+          "note": "Single species with a face (polar bear, panda) receives more conservation support than biodiversity statistics"
+        },
+        {
+          "field_a_term": "critical habitat area threshold (percolation p_c)",
+          "field_b_term": "conservation policy urgency framing",
+          "note": "When habitat is below percolation threshold, urgency framing matters more — social science bridges to ecology"
+        },
+        {
+          "field_a_term": "ecosystem service valuation",
+          "field_b_term": "contingent valuation / willingness-to-pay (economics)",
+          "note": "Connecting ecological benefit quantification to behavioral economics payment mechanisms"
+        },
+        {
+          "field_a_term": "carry capacity / sustainability constraint",
+          "field_b_term": "behavioral sufficiency — lifestyle change within planetary boundaries",
+          "note": "Physical limits set the constraint; behavioral science designs the achievable pathway"
+        },
+        {
+          "field_a_term": "trophic cascade (removing wolves changes vegetation)",
+          "field_b_term": "social cascade — one visible conservation act triggers community norm shift",
+          "note": "Both involve indirect effects propagating through a network — ecological and social dynamics are isomorphic"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1111/0022-4537.00175",
+          "note": "Stern (2000) — New environmental theories: toward a coherent theory of environmentally significant behavior, J Soc Issues 56:407"
+        },
+        {
+          "note": "Thaler & Sunstein (2008) Nudge: Improving Decisions About Health, Wealth, and Happiness, Yale"
+        },
+        {
+          "doi": "10.1111/j.1467-9280.2007.01917.x",
+          "note": "Schultz et al. (2007) — The constructive, destructive, and reconstructive power of social norms, Psychol Sci 18:429"
+        },
+        {
+          "doi": "10.1177/0013916599316004",
+          "note": "Kals et al. (1999) — Emotional affinity toward nature as a motivational basis to protect nature, Environ Behav 31:178"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\ecology-social-science\\b-conservation-psychology-pro-environmental.yaml"
     },
     {
       "id": "b-political-ecology-environmental-justice",
@@ -10219,6 +10513,64 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\engineering-physics\\b-tesla-resonant-wireless-power.yaml"
+    },
+    {
+      "id": "b-thermal-management-heat-transfer",
+      "title": "Thermal management engineering deploys Fourier conduction, Newton convection, and Stefan-Boltzmann radiation — the three modes of heat transfer physics — augmented by heat pipes and phase-change materials to solve the semiconductor power density crisis.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Three fundamental physics laws govern all thermal management: (1) Fourier conduction Q = -kA∇T (k = thermal conductivity, W/m·K — copper 385, diamond 2200, air 0.026); (2) Newton convection Q = hA(T_s - T_∞) where h is the heat transfer coefficient (natural convection 2–25, forced liquid 100–20,000 ",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-pcm-microencapsulation-enables-chiplet-thermal-buffering"
+      ],
+      "communication_gap": "Physics courses teach Fourier's law and Stefan-Boltzmann as fundamental principles; mechanical engineering courses teach them as design tools. The connection is acknowledged but the two communities publish in Physical Review B (phonon transport) and ASME Journal of Heat Transfer (engineering correlations) with limited cross-citation. Data center thermal engineering (a $10B/year problem) increasingly requires physics expertise in phonon transport, two-phase flow, and materials science that engineering curricula do not cover adequately.\n",
+      "translation_table": [
+        {
+          "field_a_term": "thermal conductivity k (Fourier)",
+          "field_b_term": "thermal resistance R_th = L/(kA) per layer in chip package",
+          "note": "Engineers sum resistances in series/parallel; physics gives the k value for each material"
+        },
+        {
+          "field_a_term": "Nusselt number Nu = hL/k (dimensionless convection)",
+          "field_b_term": "heat transfer coefficient h for convective cooling specification",
+          "note": "Nu from fluid mechanics correlations (Dittus-Boelter, Churchill-Bernstein) gives engineering h"
+        },
+        {
+          "field_a_term": "phase transition latent heat ΔH_fus",
+          "field_b_term": "thermal energy storage capacity of PCM (J/g)",
+          "note": "PCMs store 5–14× more energy per mass than sensible heat at the same ΔT"
+        },
+        {
+          "field_a_term": "capillary pressure Δp_cap = 2σcosθ/r (Young-Laplace)",
+          "field_b_term": "maximum heat pipe wick pumping pressure — sets heat transport limit",
+          "note": "Physics of capillarity determines the heat pipe performance envelope"
+        },
+        {
+          "field_a_term": "Fin efficiency η_f = tanh(mL)/mL",
+          "field_b_term": "real vs. ideal fin heat dissipation — design parameter for heatsinks",
+          "note": "Eigenfunction of the 1D heat equation in a fin; engineering design charts approximate it"
+        }
+      ],
+      "references": [
+        {
+          "note": "Incropera et al. (2007) Fundamentals of Heat and Mass Transfer, 6th ed., Wiley"
+        },
+        {
+          "note": "Faghri (1995) Heat Pipe Science and Technology, Taylor & Francis"
+        },
+        {
+          "doi": "10.1115/1.1616917",
+          "note": "Bar-Cohen et al. (2003) — Direct liquid cooling of high flux micro and nano electronic components, ASME J Electron Packag 125:229"
+        },
+        {
+          "doi": "10.1016/j.rser.2009.01.003",
+          "note": "Sharma et al. (2009) — Review on thermal energy storage with phase change materials, Renew Sustain Energy Rev 13:2438"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\engineering-physics\\b-thermal-management-heat-transfer.yaml"
     },
     {
       "id": "b-infrastructure-cascade-failures",
@@ -15612,6 +15964,65 @@
       "file": "cross-domain\\mathematics-quantum-physics\\b-spectral-theory-quantum-mechanics.yaml"
     },
     {
+      "id": "b-cooperative-game-theory-coalitions",
+      "title": "Cooperative game theory's core, Shapley value, and nucleolus provide axiomatic frameworks for fair allocation in coalition formation, with direct applications to cost-sharing institutions, climate agreements, and multi-party negotiations.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "A cooperative game (N, v) consists of a player set N and characteristic function v(S) giving the value any coalition S ⊆ N can achieve independently. The core is the set of allocations x where no coalition can do better (Σᵢ∈S xᵢ ≥ v(S) for all S) — it may be empty (empty core ↔ no stable allocation)",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-shapley-value-predicts-international-climate-burden-sharing"
+      ],
+      "communication_gap": "Cooperative game theory is taught in economics and mathematics departments but rarely in political science or international relations where treaty negotiation actually occurs. Political scientists use qualitative bargaining theory; economists use cooperative game theory; they rarely read the same journals. Legal scholars who design bankruptcy law do not typically know the Aumann-Maschler bankruptcy game or its Shapley value solution. The mathematics community that proved these theorems is largely disconnected from the social science and policy communities that could apply them.\n",
+      "translation_table": [
+        {
+          "field_a_term": "characteristic function v(S)",
+          "field_b_term": "coalition's best achievable outcome in a negotiation",
+          "note": "In climate agreements, v(S) = total emission reduction achievable by coalition S"
+        },
+        {
+          "field_a_term": "Shapley value φᵢ(v)",
+          "field_b_term": "fair share of gains from cooperation / cost allocation",
+          "note": "Used in EU budget allocation debates, network cost sharing, bandwidth pricing"
+        },
+        {
+          "field_a_term": "the core (set of stable allocations)",
+          "field_b_term": "politically feasible allocation space (no country worse off than going alone)",
+          "note": "Empty core → no stable multilateral agreement exists without side payments"
+        },
+        {
+          "field_a_term": "nucleolus (minimises maximum coalition complaint)",
+          "field_b_term": "leximin allocation — most egalitarian stable agreement",
+          "note": "Nucleolus selects the allocation that minimises the worst-off coalition's complaint"
+        },
+        {
+          "field_a_term": "Nash bargaining solution",
+          "field_b_term": "bilateral trade deals, labor-management negotiations",
+          "note": "Nash product maximisation has a natural interpretation as proportional to gains from trade"
+        }
+      ],
+      "references": [
+        {
+          "note": "Shapley (1953) — A value for n-person games, Contributions to the Theory of Games II, Princeton"
+        },
+        {
+          "doi": "10.2307/1907951",
+          "note": "Nash (1950) — The bargaining problem, Econometrica 18:155"
+        },
+        {
+          "doi": "10.1137/0117107",
+          "note": "Schmeidler (1969) — The nucleolus of a characteristic function game, J Appl Math 17:1163"
+        },
+        {
+          "doi": "10.1016/0022-0531(79)90064-1",
+          "note": "Roth & Verrecchia (1979) — The Shapley value as applied to cost allocation, J Math Econ 6:295"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\mathematics-social-science\\b-cooperative-game-theory-coalitions.yaml"
+    },
+    {
       "id": "b-fair-division-combinatorics",
       "title": "Envy-free cake cutting for n agents connects Sperner's lemma in combinatorics to fair division in social science: the existence of envy-free allocations for heterogeneous divisible goods follows from topological fixed-point arguments (Sperner-Brouwer), while spectrum allocation, inheritance law, and parliamentary seat apportionment use combinatorial fair division algorithms derived from the same mathematical foundations.\n",
       "source_domain": "",
@@ -17279,6 +17690,65 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\neuroscience-mathematics\\b-persistent-homology-neural-topology.yaml"
+    },
+    {
+      "id": "b-spike-sorting-dimensionality-reduction",
+      "title": "Multi-electrode array spike sorting — extracting individual neuron activity from high-density recordings — is a dimensionality reduction problem whose solution reveals that neural population activity lives on a low-dimensional manifold embedded in high-dimensional firing-rate space.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Modern Neuropixels probes record from 384–960 electrodes simultaneously, capturing spikes from hundreds of neurons. Spike sorting — attributing voltage deflections to individual neurons — proceeds as: (1) bandpass filter 300–6000 Hz; (2) threshold crossing detection; (3) feature extraction (PCA of s",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-neural-manifold-geometry-encodes-cognitive-map"
+      ],
+      "communication_gap": "Experimental neuroscientists who collect Neuropixels data are often not trained in manifold learning mathematics; machine learning researchers who develop UMAP and related algorithms rarely have access to neural datasets or neuroscience intuition. Spike sorting software (Kilosort, MountainSort) is used as a black box by most experimental labs; the statistical assumptions (Gaussian mixture models, template matching) are not widely understood. The manifold hypothesis remains a framework rather than a theorem — its precise mathematical form is debated.\n",
+      "translation_table": [
+        {
+          "field_a_term": "spike waveform in electrode space (64-d feature vector)",
+          "field_b_term": "point in waveform manifold — clustered by neuron identity",
+          "note": "PCA of waveforms identifies 2-3 dimensions capturing most variance across waveform types"
+        },
+        {
+          "field_a_term": "population firing rate vector r(t) ∈ ℝⁿ",
+          "field_b_term": "point on neural population manifold at time t",
+          "note": "The manifold is defined by the constraints imposed by synaptic connectivity"
+        },
+        {
+          "field_a_term": "PCA (linear dimensionality reduction)",
+          "field_b_term": "principal modes of population activity / functional connectivity",
+          "note": "First PC often corresponds to average population firing rate; higher PCs to task-relevant dimensions"
+        },
+        {
+          "field_a_term": "UMAP / Riemannian manifold learning",
+          "field_b_term": "nonlinear neural manifold visualization preserving global topology",
+          "note": "UMAP from McInnes (2018) outperforms t-SNE for large neural datasets by preserving global structure"
+        },
+        {
+          "field_a_term": "intrinsic dimensionality d of the manifold",
+          "field_b_term": "behavioral degrees of freedom encoded in population",
+          "note": "Cunningham & Yu (2014): intrinsic dimensionality of motor cortex activity is 3-10 dimensions"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1016/j.brainresbull.2015.04.007",
+          "note": "Rey et al. (2015) — Past, present and future of spike sorting techniques, Brain Res Bull 119:106"
+        },
+        {
+          "doi": "10.1038/nature24636",
+          "note": "Jun et al. (2017) — Fully integrated silicon probes for high-density recording, Nature 551:232"
+        },
+        {
+          "note": "McInnes et al. (2018) — UMAP: Uniform Manifold Approximation and Projection, arXiv:1802.03426"
+        },
+        {
+          "doi": "10.1038/nn.3776",
+          "note": "Cunningham & Yu (2014) — Dimensionality reduction for large-scale neural recordings, Nat Neurosci 17:1500"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\neuroscience-mathematics\\b-spike-sorting-dimensionality-reduction.yaml"
     },
     {
       "id": "b-topological-neuroscience",
@@ -20627,6 +21097,63 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\physics-economics\\b-minority-game-market-microstructure.yaml"
+    },
+    {
+      "id": "b-acoustics-room-design",
+      "title": "Sabine's reverberation formula (T₆₀ = 0.161V/A, 1900) bridges physical wave acoustics with architectural engineering, enabling quantitative concert hall design through measurable psychoacoustic correlates (IACC, early decay time) of perceived sound quality.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Room acoustics quantifies the interaction between sound waves and architectural geometry. Sabine (1900) measured reverberation time T₆₀ (time for sound to decay 60 dB) in Harvard lecture halls and derived T₆₀ = 0.161·V/A where V is room volume and A = Σ αᵢSᵢ is total absorption (αᵢ = absorption coef",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-room-acoustic-quality-predictable-from-geometry"
+      ],
+      "communication_gap": "Architectural acoustics sits in engineering schools; wave physics of room resonances is taught in physics departments; perceptual psychoacoustics is in psychology or music departments. Practicing architects rarely have acoustics training; acoustic consultants are hired late in the design process when major geometry is fixed. The academic literature on psychoacoustics (JASA) and the professional literature on concert hall design rarely cite each other.\n",
+      "translation_table": [
+        {
+          "field_a_term": "sound energy decay exp(-t/τ)",
+          "field_b_term": "reverberation time T₆₀ = 6.91τ (engineering specification)",
+          "note": "Physics gives exponential decay; Sabine parameterized this as the practical T₆₀ specification"
+        },
+        {
+          "field_a_term": "wave equation ∇²p = (1/c²)∂²p/∂t²",
+          "field_b_term": "normal modes (room resonances) — frequency-domain room behavior",
+          "note": "Eigenfunctions of the wave equation in a rectangular room give the modal structure"
+        },
+        {
+          "field_a_term": "impedance mismatch at boundary",
+          "field_b_term": "absorption coefficient α = 1 - |r|² (r = reflection coefficient)",
+          "note": "Materials science determines α; physics determines the relationship to impedance"
+        },
+        {
+          "field_a_term": "binaural cross-correlation IACC",
+          "field_b_term": "perceived spaciousness / envelopment in concert halls",
+          "note": "Beranek's correlation: IACC < 0.5 associated with preferred spaciousness — perceptual physics"
+        },
+        {
+          "field_a_term": "geometric acoustics (ray tracing)",
+          "field_b_term": "room acoustic simulation software (ODEON, CATT-Acoustic)",
+          "note": "High-frequency limit of wave acoustics; used for architectural design before construction"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.2307/25058007",
+          "note": "Sabine (1900) — Reverberation, Am Arch 68:3; founding paper of quantitative room acoustics"
+        },
+        {
+          "note": "Beranek (1962) Music, Acoustics and Architecture, Wiley — IACC and concert hall correlations"
+        },
+        {
+          "note": "Kuttruff (2009) Room Acoustics, 5th ed., Spon Press"
+        },
+        {
+          "note": "Cox & D'Antonio (2004) Acoustic Absorbers and Diffusers, Spon Press"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\physics-engineering\\b-acoustics-room-design.yaml"
     },
     {
       "id": "b-plasma-physics-fusion-energy",
@@ -24284,6 +24811,64 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\social-science-mathematics\\b-agent-based-modeling-emergent-institutions.yaml"
+    },
+    {
+      "id": "b-algorithmic-fairness-social-choice",
+      "title": "Formal impossibility theorems in algorithmic fairness — showing that demographic parity, equalized odds, and calibration cannot simultaneously hold when base rates differ — are mathematical analogs of Arrow's impossibility theorem in social choice theory.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Algorithmic fairness seeks criteria that trained classifiers should satisfy to avoid discrimination. Three prominent criteria conflict when base rates differ across groups: (1) demographic parity P(Ŷ=1|A=0) = P(Ŷ=1|A=1); (2) equalized odds P(Ŷ=1|Y=y,A=a) = const across groups; (3) calibration P(Y=1|",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-causal-fairness-resolves-impossibility-tradeoffs"
+      ],
+      "communication_gap": "Machine learning researchers rarely engage with formal social choice theory; political philosophers and social choice theorists rarely read NeurIPS or FAccT. The legal concept of disparate impact (US law) predates the mathematical fairness impossibility theorems by 30 years but is not recognized by ML researchers as an Arrow-like constraint. Policy discussions on AI fairness rarely cite the impossibility theorems, leading to demands for solutions that are mathematically unachievable.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Arrow's impossibility theorem (social choice)",
+          "field_b_term": "Chouldechova-Kleinberg fairness impossibility",
+          "note": "Both show that a collection of seemingly reasonable axioms is mutually inconsistent"
+        },
+        {
+          "field_a_term": "voting rule / aggregation mechanism",
+          "field_b_term": "classifier / risk score algorithm",
+          "note": "Both aggregate individual-level information into a social or individual decision"
+        },
+        {
+          "field_a_term": "Pareto efficiency (no one can be better off without making someone worse off)",
+          "field_b_term": "accuracy-fairness Pareto frontier",
+          "note": "Fairness constraints push classifiers off the Pareto frontier of raw accuracy"
+        },
+        {
+          "field_a_term": "independence of irrelevant alternatives",
+          "field_b_term": "path-independence of fairness measure to feature set",
+          "note": "Adding irrelevant protected features can change fairness metric values — a form of IIA failure"
+        },
+        {
+          "field_a_term": "Nash bargaining solution (maximize product of utilities)",
+          "field_b_term": "fairness-accuracy trade-off optimization with Pareto-weighted objective",
+          "note": "Nash bargaining applied to fairness-accuracy frontier selects a specific operating point"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1089/big.2016.0047",
+          "note": "Chouldechova (2017) — Fair prediction with disparate impact, Big Data 5:153"
+        },
+        {
+          "doi": "10.4230/LIPIcs.ITCS.2017.43",
+          "note": "Kleinberg, Mullainathan & Raghavan (2017) — Inherent trade-offs in algorithmic fairness, ITCS"
+        },
+        {
+          "note": "Kusner et al. (2017) — Counterfactual fairness, NeurIPS 30"
+        },
+        {
+          "note": "Barocas, Hardt & Narayanan (2019) Fairness and Machine Learning, fairmlbook.org"
+        }
+      ],
+      "last_reviewed": "2026-05-06",
+      "file": "cross-domain\\social-science-mathematics\\b-algorithmic-fairness-social-choice.yaml"
     },
     {
       "id": "b-auction-theory-mechanism-design",
