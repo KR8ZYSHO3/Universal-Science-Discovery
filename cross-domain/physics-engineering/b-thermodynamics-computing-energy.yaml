@@ -1,0 +1,82 @@
+id: b-thermodynamics-computing-energy
+title: "Thermodynamics of Computing and Energy Limits — Landauer's principle, reversible logic, neuromorphic architectures, and the brain's energy efficiency define fundamental and practical computing bounds"
+status: established
+fields:
+  - physics
+  - computer-engineering
+  - thermodynamics
+  - neuromorphic-computing
+  - information-theory
+
+bridge_claim: >
+  Landauer's principle (1961) establishes that logically irreversible operations —
+  those that erase information — must dissipate at least k_BT ln 2 ≈ 3×10⁻²¹ J
+  per bit at room temperature into the environment, converting logical irreversibility
+  into thermodynamic entropy production. This is the fundamental physical limit of
+  computation. Modern CMOS CPUs dissipate approximately 10⁻¹⁵ J per logic operation
+  — six orders of magnitude above the Landauer limit — primarily due to capacitive
+  switching losses (CV²f dynamic power) and leakage currents in subthreshold
+  operation, not thermodynamic irreversibility. The gap narrows as transistors shrink
+  (ITRS roadmap) but heat removal from dense chips is now the binding constraint.
+  Bennett (1973) showed that logically reversible gates (Toffoli gate: CCNOT,
+  Fredkin gate: CSWAP) are universal and can in principle dissipate zero energy per
+  operation — any irreversible computation can be rendered reversible at the cost of
+  workspace memory. Adiabatic logic circuits operate near the reversible limit at low
+  clock frequencies but are impractical at gigahertz speeds. Neuromorphic computing
+  (IBM TrueNorth 2014: 4096 cores, 256 neurons/core; Intel Loihi 2018: leaky
+  integrate-and-fire neurons with on-chip STDP learning) uses sparse, event-driven
+  spike coding to achieve ~1000× lower energy per inference than von Neumann
+  architectures for certain pattern recognition tasks. The human brain consumes ~20W
+  for 10¹⁴ synapses — approximately 0.2 fJ per synaptic event, still ~100× above
+  Landauer, but orders of magnitude below conventional computing. The Landauer limit
+  sets the thermodynamic horizon while neuromorphic architectures represent the
+  current frontier in bridging physics to engineering.
+
+translation_table:
+  - field_a_term: "Landauer limit k_BT ln 2 per bit erased"
+    field_b_term: "minimum power dissipation floor for irreversible logic"
+    note: "At 300 K: 3×10⁻²¹ J; at 1 GHz clock rate: 3×10⁻¹² W — vanishingly small but non-zero"
+  - field_a_term: "logically reversible computation (Toffoli/Fredkin gates)"
+    field_b_term: "zero-dissipation computing in principle; billiard-ball model"
+    note: "Reversible gates preserve all input information in outputs; no bit erasure → no mandatory dissipation"
+  - field_a_term: "CMOS dynamic power P = αCV²f"
+    field_b_term: "switching energy per transistor per clock cycle"
+    note: "Dominant energy cost in real CPUs; scales as V²; voltage scaling is the main lever but threshold voltage limits scaling"
+  - field_a_term: "leaky integrate-and-fire (LIF) neuron model"
+    field_b_term: "event-driven neuromorphic computation unit"
+    note: "Spikes are sparse (1–10% neurons active per timestep) → 10–100× energy savings vs. dense matrix multiplication"
+  - field_a_term: "brain energy budget 20 W for 86 billion neurons"
+    field_b_term: "0.2 fJ per synaptic operation (empirical upper bound)"
+    note: "Each synapse fires ~1 Hz; 10¹⁴ synapses × 1 Hz × E_syn = 20 W → E_syn ≈ 0.2 fJ; still 100× Landauer"
+  - field_a_term: "adiabatic charging of capacitor from resonant source"
+    field_b_term: "energy recovery in low-frequency reversible logic circuits"
+    note: "CV²/2 per cycle reduced to CV²/(4N) for N-stage adiabatic charging; practical at audio frequencies only"
+
+related_unknowns: []
+related_hypotheses: []
+
+cross_pollination_opportunities:
+  - "Develop cryogenic computing (near 4 K) where k_BT ln 2 is ~75× smaller — approaching practical Landauer-limit operation with superconducting logic"
+  - "Design in-memory computing architectures (memristors, PCM) that avoid memory-processor data movement — the dominant energy cost in current von Neumann bottleneck"
+  - "Investigate quantum computing energy efficiency: quantum gates are unitary (reversible by definition) — thermodynamic cost arises only at measurement; new paradigm for energy-efficient AI"
+
+communication_gap: >
+  Thermodynamicists and information theorists who study Landauer's principle work
+  largely in academic physics; chip architects and VLSI engineers designing real
+  CPUs rarely engage with the fundamental physics literature. The neuromorphic
+  computing community (IBM, Intel, Qualcomm) operates at the intersection but
+  faces a commercial valley-of-death: neuromorphic chips offer energy advantages
+  only for specific sparse workloads, while general-purpose AI training (dense
+  matrix multiplication) remains dominated by GPU/TPU architectures.
+
+references:
+  - doi: "10.1147/rd.53.0183"
+    note: "Landauer (1961) IBM J Res Dev 5:183 — irreversibility and heat generation in computing"
+  - doi: "10.1147/rd.173.0525"
+    note: "Bennett (1973) IBM J Res Dev 17:525 — logical reversibility of computation"
+  - doi: "10.1126/science.1254642"
+    note: "Merolla et al. (2014) Science 345:668 — TrueNorth neuromorphic chip"
+  - doi: "10.1109/MM.2018.112130359"
+    note: "Davies et al. (2018) IEEE Micro 38:82 — Loihi neuromorphic processor"
+
+last_reviewed: "2026-05-06"
