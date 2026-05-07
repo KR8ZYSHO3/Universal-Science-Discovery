@@ -1,0 +1,55 @@
+id: b-primordial-nucleosynthesis-reaction-networks
+title: "Primordial nucleosynthesis is a nuclear reaction network ODE: Big Bang nucleosynthesis (BBN) computes the abundances of H, D, He-3, He-4, and Li-7 from baryon-to-photon ratio η using the same coupled ODE formalism as stellar nucleosynthesis"
+status: established
+fields:
+  - cosmology
+  - nuclear-physics
+  - astrophysics
+bridge_claim: >
+  Big Bang nucleosynthesis (BBN) traces abundances X_i(t) of ~26 nuclides
+  from T~10 MeV (t~10⁻² s) to T~0.01 MeV (t~10³ s) using a coupled ODE
+  system: dX_i/dt = Σ_j (production rates) - Σ_j (destruction rates), where
+  each rate r_{ij} = ⟨σv⟩_{ij} · n_j · n_i depends on nuclear cross sections
+  ⟨σv⟩ measured in laboratories (LUNA, TRIUMF). The single free cosmological
+  parameter is η = n_b/n_γ (baryon-to-photon ratio, η~6×10⁻¹⁰). Solving the
+  network gives X(He-4)~0.25 and D/H~2.5×10⁻⁵, in agreement with primordial
+  abundance measurements. The same ODE formalism (nuclear reaction network,
+  NRN) is used for stellar nucleosynthesis (s-process, r-process), solar
+  neutrino problems, and Type Ia supernova burning. BBN is the most precisely
+  tested nuclear astrophysics prediction, giving η (and hence Ω_b·h²) to
+  better than 1% when combined with CMB constraints.
+translation_table:
+  - field_a_term: "primordial He-4 mass fraction Y_p"
+    field_b_term: "solution to the BBN ODE network at freeze-out T ~ 0.07 MeV"
+    note: "Y_p~0.247; measured in metal-poor HII regions; constrains η and N_eff"
+  - field_a_term: "nuclear reaction rate ⟨σv⟩_{ij}(T)"
+    field_b_term: "temperature-dependent rate coefficient in the NRN ODE right-hand side"
+    note: "Most rates measured at LUNA (underground, low background) to 1–5% precision"
+  - field_a_term: "baryon-to-photon ratio η"
+    field_b_term: "single free parameter determining the full solution trajectory"
+    note: "η~6.1×10⁻¹⁰ from CMB; BBN predictions at this η match all primordial abundances"
+  - field_a_term: "neutron-to-proton ratio n/p at weak freeze-out (T~0.8 MeV)"
+    field_b_term: "initial condition of the ODE network set by weak interaction rates"
+    note: "n/p≈1/7 at freeze-out; determines He-4 fraction since almost all neutrons end up in He-4"
+related_unknowns:
+  - u-primordial-nucleosynthesis-reaction-networks
+related_hypotheses:
+  - h-primordial-nucleosynthesis-reaction-networks
+cross_pollination_opportunities:
+  - "Lithium problem: predicted Li-7/H~5×10⁻¹⁰ exceeds measured values in metal-poor stars by factor ~3 (Spite plateau). Nuclear reaction network solutions show this cannot be resolved by nuclear physics uncertainties alone — new stellar physics or particle physics is required."
+  - "Effective number of relativistic species N_eff: additional light particles (sterile neutrinos, dark radiation) alter the expansion rate and BBN timing. The NRN ODE solution is sensitive to N_eff at the 0.1-particle level, constraining extensions to the Standard Model."
+communication_gap: >
+  Cosmologists who discuss BBN often present it as solved, without engaging
+  with the nuclear physics uncertainty propagation through the ODE network.
+  Nuclear physicists who measure cross sections at LUNA are not always aware
+  of how their uncertainties propagate to primordial abundance predictions.
+  The ODE formalism used in BBN codes (PArthENoPE, AlterBBN) is identical to
+  that in stellar evolution codes but the communities rarely exchange methods.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1146/annurev.aa.30.090192.001229"
+    note: "Walker et al. (1991) Primordial nucleosynthesis redux. Astrophys J 376:51"
+  - doi: "10.1016/j.physrep.2015.12.005"
+    note: "Cyburt et al. (2016) Big Bang nucleosynthesis — 2015. Rev Mod Phys 88:015004"
+  - doi: "10.1016/j.physletb.2007.12.028"
+    note: "Iocco et al. (2009) Primordial nucleosynthesis: from precision cosmology to fundamental physics. Phys Rept 472:1"

@@ -1,0 +1,29 @@
+id: u-epidemic-kalman-filter
+title: "What is the optimal state-space model structure for real-time epidemic forecasting that balances transmission heterogeneity, reporting delays, and non-Gaussian observation noise while remaining computationally tractable?"
+status: open
+priority: high
+disciplines:
+  - epidemiology
+  - statistics
+  - public-health
+summary: >
+  Real-time epidemic forecasting requires a state-space model with: (1) mechanistic
+  dynamics (SIR/SEIR with time-varying β(t)); (2) observation model accounting for
+  Poisson case-count noise, reporting delays (geometric lag distribution), and
+  day-of-week effects; (3) a fast enough filter to run in real time on national
+  surveillance data. Current approaches use EnKF (Gaussian approximation, fast)
+  or particle filters (exact, slow). The optimal filter for discrete Poisson
+  observations is neither, and the relative performance of these approaches under
+  different epidemic scenarios (oscillations, emergence, waning immunity) has not
+  been systematically compared. The choice of state augmentation (augment β or
+  use a random-walk model for β) strongly affects forecast skill.
+systematic_gaps:
+  - "No systematic comparison of EnKF, UKF, particle filter, and EpiEstim for real-time Rt estimation across synthetic and real epidemic scenarios (influenza, COVID-19, RSV) with controlled ground truth."
+  - "Observation models accounting for reporting delays, under-ascertainment, and day-of-week effects are not standardized across national surveillance systems."
+  - "Ensemble forecast calibration (reliability diagrams, continuous ranked probability score) for epidemic filters has not been assessed in operational forecasting contexts."
+related_bridges:
+  - b-epidemic-ensemble-kalman-filter
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1073/pnas.2006520117"
+    note: "Shaman & Karspeck (2012) Forecasting seasonal influenza outbreaks"

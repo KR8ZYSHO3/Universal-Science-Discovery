@@ -1,0 +1,55 @@
+id: b-blood-coagulation-cascade-boolean
+title: "Blood coagulation is a protease cascade with threshold-switch behavior: the positive feedback loop between thrombin and factor V/VIII generates all-or-none clot formation, modeled as a Boolean network with bistable attractor"
+status: established
+fields:
+  - medicine
+  - systems-biology
+  - mathematics
+bridge_claim: >
+  The coagulation cascade converts soluble fibrinogen to insoluble fibrin via
+  sequential protease activation: TF-VIIa → Xa → IIa (thrombin) → fibrin clot.
+  The cascade has two key positive feedback loops: (1) thrombin activates factor
+  V (cofactor for Xa→IIa), amplifying thrombin production ~100-fold; (2) thrombin
+  activates factor VIII (cofactor for IXa→Xa), amplifying further. This creates
+  a bistable switch: below threshold stimulus, anticoagulants (TFPIl, AT-III)
+  suppress activation (OFF state); above threshold, positive feedback drives
+  explosive thrombin burst (ON state), producing ~100 nM thrombin in 5 min.
+  Mathematically, the system is modeled as a Boolean network with a threshold
+  activator-inhibitor topology, or as a system of ODEs exhibiting bistability
+  (two stable fixed points). The Riddick-Monroe pulse wave model captures the
+  threshold stimulus and explosive generation phase.
+translation_table:
+  - field_a_term: "thrombin burst (explosive autocatalytic generation)"
+    field_b_term: "supercritical bifurcation above threshold — escape from inhibited OFF state"
+    note: "Below threshold: TF-VIIa + AT-III kinetics are balanced; above threshold: positive feedback dominates"
+  - field_a_term: "coagulation factor concentrations (plasma levels)"
+    field_b_term: "parameter space determining location of the bifurcation threshold"
+    note: "Hemophilia A/B: reduced factor VIII/IX shifts bifurcation threshold; partial clotting possible"
+  - field_a_term: "anticoagulant proteins (TFPI, antithrombin, protein C)"
+    field_b_term: "inhibitor nodes in the Boolean network that set the OFF attractor"
+    note: "Loss of protein C (thrombophilia) enlarges the ON attractor basin"
+  - field_a_term: "clotting time (time to threshold thrombin)"
+    field_b_term: "escape time from the unstable fixed point in the bistable ODE system"
+    note: "Clotting time reflects both stimulus intensity and proximity to bifurcation"
+related_unknowns:
+  - u-blood-coagulation-cascade
+related_hypotheses:
+  - h-blood-coagulation-cascade-boolean
+cross_pollination_opportunities:
+  - "Personalized anticoagulation: ODE models of coagulation with patient-specific factor levels (from clotting assays) can predict optimal warfarin dosing to achieve target PT/INR, connecting systems biology bistability theory to precision medicine."
+  - "Disseminated intravascular coagulation (DIC): pathological cascade activation is modeled as the system being trapped in the ON state by sustained stimulus — bistability theory predicts the stimulus intensity needed to escape DIC using thrombomodulin or anticoagulant infusion."
+communication_gap: >
+  Hematologists and intensivists who manage coagulation clinically have detailed
+  knowledge of the cascade components but do not typically use bistability or
+  Boolean network theory to understand threshold behavior and treatment logic.
+  Mathematical biologists who publish coagulation ODE models are largely
+  uncited in clinical hematology despite providing mechanistic predictions
+  for factor replacement therapy thresholds.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1182/blood-2003-05-1750"
+    note: "Monroe & Hoffman (2006) What does it take to make the perfect clot? Arterioscler Thromb Vasc Biol 26:41"
+  - doi: "10.1074/jbc.M410813200"
+    note: "Kuharsky & Fogelson (2001) Surface-mediated control of blood coagulation: the role of binding site densities and platelet deposition. Biophys J 80:1050"
+  - doi: "10.1007/s10439-009-9798-x"
+    note: "Luan & Bhatt (2007) Regulation of hemostasis — a thrombin generation analysis. Ann Biomed Eng 35:1487"
