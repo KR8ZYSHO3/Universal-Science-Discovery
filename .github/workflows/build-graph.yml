@@ -14,6 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      pull-requests: write
     steps:
       - uses: actions/checkout@v4
         with:
@@ -58,10 +59,19 @@ jobs:
       - name: Stage API files
         run: git add api/
 
-      - name: Commit updated artifacts
+      - name: Commit updated artifacts and open auto-merge PR
         run: |
           git config user.name "USDR Bot"
           git config user.email "bot@usdr.science"
           git add docs/knowledge_graph.json docs/orphan_unknowns.md docs/bridge_proposals.json docs/citation_index.json docs/citation_index.md dashboard/index.html dashboard/domains/ api/
-          git diff --staged --quiet || git commit -m "bot: auto-rebuild knowledge graph and update dashboard stats [skip ci]"
-          git push
+          git diff --staged --quiet && echo "No changes to commit" && exit 0
+          BRANCH="bot/graph-rebuild-$(date +%Y%m%d-%H%M%S)"
+          git checkout -b "$BRANCH"
+          git commit -m "bot: auto-rebuild knowledge graph and update dashboard stats [skip ci]"
+          git push origin "$BRANCH"
+          gh pr create --title "bot: auto-rebuild knowledge graph [skip ci]" \
+            --body "Automated graph rebuild triggered by content push. Auto-merging." \
+            --base main --head "$BRANCH"
+          gh pr merge --squash --delete-branch --auto
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
