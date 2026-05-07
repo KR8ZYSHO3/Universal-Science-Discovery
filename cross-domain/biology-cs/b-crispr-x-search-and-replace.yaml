@@ -1,0 +1,42 @@
+id: b-crispr-x-search-and-replace
+title: >
+  CRISPR-Cas9 x String search algorithms — guide RNA as regex pattern matching
+status: proposed
+fields:
+  - biology
+  - computer-science
+  - molecular-biology
+bridge_claim: >
+  CRISPR-Cas9 genome editing performs exact string matching (PAM-adjacent target search)
+  and substitution (cut-and-repair) on a 3-billion-character string (the human genome);
+  guide RNA specificity follows the same mismatched-seed-region rules as approximate string
+  matching algorithms, enabling engineering of off-target sensitivity through sequence design
+  that mirrors database query optimization.
+translation_table:
+  - field_a_term: guide RNA (gRNA) 20-nt spacer (molecular biology)
+    field_b_term: search pattern / query string (computer science)
+    note: The 20-nt gRNA is the query; the genome is the database; PAM (NGG) is the anchor that enables rapid scanning
+  - field_a_term: PAM recognition site (CRISPR biology)
+    field_b_term: mandatory suffix constraint in string matching (CS)
+    note: Cas9 first searches for PAM sites, then checks gRNA complementarity — analogous to anchored approximate string matching with suffix filter
+  - field_a_term: seed region mismatch tolerance (CRISPR)
+    field_b_term: edit distance in approximate string matching (CS)
+    note: Mismatches in the 12-nt PAM-proximal seed region strongly reduce Cas9 cleavage; this mirrors the higher penalty for mismatches near query anchors in BWT-based aligners
+  - field_a_term: homology-directed repair (HDR) template (biology)
+    field_b_term: replacement string in find-and-replace (CS)
+    note: The donor DNA template specifies the replacement sequence; HDR is the biological equivalent of regex substitution with a specified replacement
+communication_gap: >
+  Molecular biologists developing CRISPR tools and computer scientists developing sequence
+  alignment algorithms use the same mathematical framework (approximate string matching,
+  edit distance) but rarely cite each other; off-target prediction tools (Cas-OFFinder,
+  CRISPOR) implement bioinformatics algorithms but are not designed with formal string
+  matching complexity bounds in mind.
+cross_pollination_opportunities:
+  - Apply FM-index and BWT string matching algorithms to CRISPR off-target prediction to achieve O(n + m) time complexity for genome-wide PAM-adjacent search
+  - Use CRISPR-based DNA data storage systems that encode binary data as nucleotide strings and use guide RNA sequence matching to retrieve specific data segments
+related_unknowns:
+  - u-crispr-x-search-and-replace
+references:
+  - doi: "10.1126/science.1225829"
+    note: "Jinek et al. (2012) - A programmable dual-RNA-guided DNA endonuclease in adaptive bacterial immunity; Science 337:816"
+last_reviewed: "2026-05-07"

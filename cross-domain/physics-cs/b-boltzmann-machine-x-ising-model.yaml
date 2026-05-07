@@ -1,0 +1,42 @@
+id: b-boltzmann-machine-x-ising-model
+title: >
+  Boltzmann machine x Ising model — energy-based learning as statistical mechanics
+status: proposed
+fields:
+  - physics
+  - computer-science
+  - statistical-mechanics
+bridge_claim: >
+  A Boltzmann machine is a stochastic neural network whose equilibrium distribution is
+  the Boltzmann distribution of an Ising-type Hamiltonian; training by contrastive
+  divergence minimizes the KL divergence between data distribution and model Boltzmann
+  distribution — learning as statistical mechanics, with synaptic weights playing the
+  role of spin-spin coupling constants.
+translation_table:
+  - field_a_term: synaptic weight W_ij (neural network)
+    field_b_term: spin-spin coupling J_ij in Ising Hamiltonian (physics)
+    note: The weight matrix in a Boltzmann machine is exactly the coupling matrix of an Ising/Hopfield model
+  - field_a_term: neuron activation (0/1 or +/-1) (neural network)
+    field_b_term: Ising spin s_i = +/-1 (physics)
+    note: Stochastic binary neurons are Ising spins; the sigmoid activation function is the Fermi-Dirac distribution
+  - field_a_term: contrastive divergence training (machine learning)
+    field_b_term: thermodynamic integration between two Boltzmann distributions (stat mech)
+    note: CD minimizes the difference between free energies of data and model distributions — a statistical mechanics quantity
+  - field_a_term: restricted Boltzmann machine visible/hidden layers (ML)
+    field_b_term: bipartite Ising model with no intra-layer coupling (physics)
+    note: The RBM's bipartite structure eliminates frustration, enabling exact inference and tractable partition function computation
+communication_gap: >
+  Statistical physicists studying Ising models and machine learning researchers developing
+  energy-based models developed parallel frameworks; the Hopfield network (1982) made the
+  connection explicit but the practical training algorithm (contrastive divergence) was
+  developed in machine learning without full cross-pollination of the statistical mechanics
+  renormalization group perspective on learning.
+cross_pollination_opportunities:
+  - Apply mean-field theory and replica method from spin glass physics to analyze the storage capacity and retrieval dynamics of large Boltzmann machines
+  - Use tensor network methods from quantum physics (DMRG, MPS) to efficiently compute the partition function of Boltzmann machines for exact likelihood estimation
+related_unknowns:
+  - u-boltzmann-machine-x-ising-model
+references:
+  - doi: "10.1016/S0364-0213(85)80012-4"
+    note: "Ackley, Hinton & Sejnowski (1985) - A learning algorithm for Boltzmann machines; Cognitive Science 9:147"
+last_reviewed: "2026-05-07"

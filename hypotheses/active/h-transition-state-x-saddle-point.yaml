@@ -1,0 +1,28 @@
+id: h-transition-state-x-saddle-point
+title: >
+  Machine learning interatomic potentials trained with active learning on transition state
+  configurations will predict reaction rate constants within a factor of 2 of gold-standard
+  CCSD(T) calculations for a benchmark set of 20 gas-phase reactions
+status: active
+created: "2026-05-07"
+last_updated: "2026-05-07"
+priority: high
+impact_score: 0.80
+author: wave-61-agent
+unknowns_addressed:
+  - u-transition-state-x-saddle-point
+related_disciplines:
+  - chemistry
+  - physics
+  - mathematics
+evidence_links:
+  - type: supporting
+    doi: "10.1063/1.1749604"
+    note: "Eyring (1935) - The activated complex in chemical reactions; foundational TST"
+    confidence: 0.80
+  - type: related
+    note: "Batatia et al. (2022) - MACE: Higher order equivariant message passing neural networks for fast and accurate force fields; NeurIPS 2022; arXiv:2206.07697"
+    confidence: 0.77
+proposed_tests:
+  - description: Train MACE MLIP on DFT reference data augmented by transition state configurations found via NEB algorithm; evaluate on CCSD(T) reaction rate benchmark (BH9 dataset)
+  - description: Measure correlation between MLIP potential energy at transition state and CCSD(T) activation energy for diverse reaction classes (H-abstraction, cyclization, elimination)
