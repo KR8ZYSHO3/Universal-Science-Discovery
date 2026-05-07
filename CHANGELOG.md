@@ -7,7 +7,36 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [Unreleased]
+## [Unreleased] — 2026-05-07
+
+### Added — Waves 57-67 + OA-1 (734 → 868 bridges, +134)
+- Wave 57 (PR #197): 12 bridges — mitochondrial proton-motive force, collective boid dynamics, and 10 additional cross-domain bridges
+- Wave 58 (PR #198): 12 bridges — broad cross-domain coverage including biophysics and network theory
+- Wave OA-1 (PR #199): 4 OpenAlex-sourced bridges — renormalization group × machine learning, thermodynamics × information theory, statistical physics × social science, information theory × evolutionary biology
+- Wave 59 (PR #200): 12 bridges — prion folding, action potentials, epidemic percolation, Ising-Hopfield, viral capsid, stochastic resonance, catalysis, SAT spin glass, cytoskeleton, mechanism design, SOC earthquakes, population genetics RMT
+- Wave 60 (PR #201): 12 bridges — quantum topo codes, morphogen PDE, compressed sensing, enzyme queueing, topological defects, hair cell Hopf, genetic algorithms, Black-Scholes heat eq, random walk Brownian, neural spike coding, liquid crystal membrane, FFT signal processing
+- Wave 61 (PR #202): 12 bridges — broad cross-domain coverage
+- Wave 62 (PR #203): 12 bridges — **crossed 800-bridge milestone**
+- Wave 63 (PR #204): 12 bridges — continued cross-domain coverage
+- Wave 64 (PR #205): 12 bridges — broad cross-domain coverage
+- Wave 65 (PR #206): 12 bridges — **crossed 3,000-node graph milestone**; 1,000+ hypotheses reached
+- Wave 66 (PR #207): 12 bridges — 1,000-hypothesis milestone confirmed
+- Wave 67 (PR #208): 12 bridges — **final count: 868 bridges, 1,019 hypotheses, 1,151 unknowns**
+
+### Added — Automation & Tooling (2026-05-07)
+- Weekly OpenAlex harvest cron job (`.github/workflows/harvest-openalex.yml`)
+- Bridge stub generator (`scripts/harvesters/generate_bridge_stubs.py`)
+- PubMed harvester (`scripts/harvesters/harvest_pubmed.py`)
+- Semantic Scholar harvester (`scripts/harvesters/harvest_semantic_scholar.py`)
+- Pioneer lineage JSON (`api/v1/pioneer_lineage.json`) — 18 pioneer profiles
+- 9 draft bridge stubs in `drafts/bridges/` from OpenAlex top candidates
+
+### Added — Audit & Documentation (2026-05-07)
+- Schema validation output saved to `docs/audit/schema_validation_2026-05-07.txt` (0 errors, 0 warnings)
+- `STATE.md` updated with current counts and milestone history (Waves 57-67)
+- `ROADMAP.md` Phase 0 progress updated; completed milestones marked through Wave 67
+- `docs/PATH_TO_SUCCESS.md` strategic priorities updated to reflect automation-era focus
+- `README.md` hero stats updated to current verified counts
 
 ### Fixed (2026-05-07 — **Dashboard stat counts and pill-regex**)
 - **stat-bridges corrected 434 → 470; stat-unk corrected 814 → 826** — stat card IDs and all pill row text now reflect actual catalog counts.
