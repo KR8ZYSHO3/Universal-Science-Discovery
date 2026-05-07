@@ -1,0 +1,28 @@
+id: h-survey-propagation-rsat-threshold-prediction
+title: "Survey propagation derived from the 1RSB cavity method predicts the satisfiability threshold of random 3-SAT to within 0.1% and solves instances near the threshold in polynomial expected time"
+status: active
+priority: high
+impact_score: 0.82
+created: "2026-05-07"
+last_updated: "2026-05-07"
+related_disciplines:
+  - statistical-physics
+  - computer-science
+  - mathematics
+unknowns_addressed:
+  - u-replica-symmetry-breaking-algorithmic-hardness
+evidence_links:
+  - doi: "10.1126/science.1073287"
+    type: supporting
+    confidence: 0.88
+    note: "Mezard et al. (2002) - survey propagation solves random 3-SAT near threshold in polynomial time"
+  - doi: "10.1145/1374376.1374440"
+    type: related
+    confidence: 0.72
+    note: "Coja-Oghlan (2011) - rigorous upper and lower bounds on 3-SAT threshold from second moment method"
+proposed_tests:
+  - description: >
+      Generate random 3-SAT instances at alpha = 4.0, 4.2, 4.267, 4.3, 4.5 with n = 10^4
+      variables. Run survey propagation and DPLL with 100 random seeds each.
+      Compare median solve time and success rate. Prediction: SP succeeds > 90% at
+      alpha <= 4.267; DPLL success drops below 50% at alpha > 4.1.
