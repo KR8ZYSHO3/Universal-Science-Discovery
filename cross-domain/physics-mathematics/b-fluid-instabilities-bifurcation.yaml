@@ -1,0 +1,90 @@
+id: b-fluid-instabilities-bifurcation
+title: >
+  Fluid instabilities — Rayleigh-Bénard convection, Kelvin-Helmholtz, Plateau-Rayleigh
+  — are physical realizations of mathematical bifurcations: the transition from laminar
+  to convective flow is a pitchfork bifurcation at Ra_c = 1708, and Lorenz's three-mode
+  truncation of the Bénard equations produced the first mathematical proof of deterministic
+  chaos.
+status: established
+fields:
+  - physics
+  - mathematics
+  - fluid-dynamics
+  - nonlinear-dynamics
+bridge_claim: >
+  Rayleigh-Bénard convection: a fluid heated from below and cooled from above undergoes
+  a transition from pure conduction to convective rolls when the Rayleigh number
+  Ra = g*alpha*DeltaT*L³/(nu*kappa) exceeds the critical value Ra_c = 1708 (from
+  linear stability analysis). This transition is a supercritical pitchfork bifurcation
+  in the mathematical sense: the conduction state loses stability and two mirror-symmetric
+  convective roll states emerge continuously.
+
+  At higher Ra, a Hopf bifurcation occurs — the stationary rolls give way to oscillating
+  convection (time-periodic solution). Further Ra increase leads to torus bifurcations
+  and eventually chaos through the Ruelle-Takens-Newhouse route.
+
+  Lorenz (1963): truncating the Bénard equations to three Fourier modes (X, Y, Z) yields
+  the Lorenz system: dX/dt = sigma(Y-X), dY/dt = X(r-Z)-Y, dZ/dt = XY-bZ. For
+  sigma=10, b=8/3, r=28, this system exhibits the Lorenz strange attractor — bounded,
+  aperiodic, fractal dimension ~2.06, positive Lyapunov exponent lambda>0. This was
+  the first mathematical demonstration of deterministic chaos (sensitive dependence on
+  initial conditions — the butterfly effect).
+
+  Kelvin-Helmholtz instability: velocity shear at a fluid interface with density
+  difference grows at rate proportional to k*DeltaU (wavenumber times velocity jump).
+  In bifurcation language, this is a linear instability that saturates in vortex roll-up
+  — a secondary bifurcation from the shear-flow base state.
+
+  Plateau-Rayleigh instability: a liquid jet of radius R breaks into droplets when
+  perturbation wavelength lambda > 2*pi*R (surface-tension-driven). This is a linear
+  instability with growth rate sigma ~ (kR)²(1-(kR)²)/... — again described by linear
+  stability theory followed by nonlinear saturation (droplet formation).
+
+  All these phenomena are unified by the bifurcation theory of dynamical systems:
+  linear stability analysis identifies the onset, weakly nonlinear theory gives the
+  bifurcation type, and center manifold reduction captures the essential dynamics near
+  threshold.
+translation_table:
+  - field_a_term: Rayleigh number Ra_c = 1708
+    field_b_term: bifurcation parameter value at pitchfork bifurcation point
+    note: Ra plays the role of the control parameter mu in the normal form X' = mu*X - X³
+  - field_a_term: convective rolls (stationary pattern)
+    field_b_term: stable fixed points emerging at supercritical pitchfork bifurcation
+    note: Amplitude of rolls scales as sqrt(Ra - Ra_c) — classic bifurcation scaling
+  - field_a_term: oscillating convection onset
+    field_b_term: Hopf bifurcation — limit cycle emerges from fixed point
+    note: Period of oscillation is set by the imaginary part of eigenvalues at criticality
+  - field_a_term: Lorenz strange attractor
+    field_b_term: chaotic attractor with positive Lyapunov exponent, fractal dimension
+    note: First mathematical proof that deterministic ODEs can produce unpredictable trajectories
+  - field_a_term: Plateau-Rayleigh jet breakup at lambda > 2*pi*R
+    field_b_term: linear instability threshold — fastest-growing mode sets droplet size
+    note: Droplet spacing predicted by maximizing growth rate sigma(k)
+related_unknowns:
+  - u-lorenz-attractor-universality-class
+related_hypotheses:
+  - h-rayleigh-benard-turbulence-bifurcation-cascade
+cross_pollination_opportunities:
+  - >
+    Machine learning identification of bifurcation structure from fluid simulation data:
+    sparse identification of nonlinear dynamics (SINDy) can reconstruct the Lorenz system
+    from trajectory data — a bridge between data-driven ML and dynamical systems theory.
+  - >
+    Climate tipping points as bifurcations: AMOC slowdown, Arctic sea-ice loss, and
+    Amazon dieback may be saddle-node bifurcations — critical slowing down (diverging
+    return time) provides early-warning indicators detectable in observational data.
+communication_gap: >
+  Fluid dynamicists publishing in Journal of Fluid Mechanics and Physics of Fluids
+  largely overlap with mathematicians working in nonlinear dynamics, but the connection
+  is not universal. Applied mathematicians familiar with bifurcation theory sometimes
+  lack physical intuition for fluid instabilities, while experimentalists focus on
+  pattern selection without engaging the underlying mathematical framework. Chaos theory
+  (Strogatz 1994 textbook) has helped bridge this gap for students.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1080/14786441608635602"
+    note: "Rayleigh (1916) Philos Mag 32:529 — linear stability analysis of convection"
+  - doi: "10.1175/1520-0469(1963)020<0130:DNF>2.0.CO;2"
+    note: "Lorenz (1963) J Atmos Sci 20:130 — deterministic nonperiodic flow, strange attractor"
+  - note: "Drazin & Reid (2004) Hydrodynamic Stability. Cambridge University Press"
+  - note: "Strogatz (1994) Nonlinear Dynamics and Chaos. Perseus Books"

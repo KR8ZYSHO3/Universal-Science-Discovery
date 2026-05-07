@@ -1,0 +1,50 @@
+id: h-lottery-ticket-sparse-subnetwork-universality
+title: >
+  Winning lottery ticket subnetworks are not random sparse subsets of the full network
+  but occupy a specific geometric region of the loss landscape — near a flat manifold
+  of global minima — and the same winning tickets emerge independently across multiple
+  training runs with different random seeds, demonstrating reproducibility of sparsity
+  structure.
+status: active
+created: "2026-05-06"
+last_updated: "2026-05-06"
+priority: medium
+related_disciplines:
+  - mathematics
+  - machine-learning
+  - computer-science
+unknowns_addressed:
+  - u-neural-network-loss-landscape-global-structure
+evidence_links:
+  - type: supporting
+    note: >
+      Frankle et al. (2020) showed that winning tickets identified by iterative
+      magnitude pruning are consistent across multiple random seeds when using
+      late rewinding (resetting weights to their values at a late iteration of
+      training, not initialization) — suggesting convergence to a common sparse structure.
+  - type: supporting
+    note: >
+      Morcos et al. (2019) demonstrated that winning tickets generalize across
+      datasets (from CIFAR-10 to CIFAR-100) and across related architectures,
+      suggesting a universal sparse structure not specific to one training distribution.
+  - type: contradicting
+    note: >
+      Frankle & Carlin (2019) original paper showed winning tickets at initialization
+      are fragile and require rewinding for large networks — the geometric interpretation
+      at initialization is unclear; winning tickets may be a property of the optimization
+      trajectory rather than the initial landscape.
+proposed_tests:
+  - discipline: machine-learning
+    description: >
+      Train ResNet-50 on ImageNet with 10 different random seeds. Apply iterative
+      magnitude pruning (80% sparsity) to each. Compute pairwise Jaccard similarity
+      of the surviving weight masks. Test whether the mean Jaccard similarity significantly
+      exceeds 0.5 (random expectation) — if so, winning tickets are convergent
+      across seeds rather than seed-specific.
+  - discipline: mathematics
+    description: >
+      Map the loss landscape in the vicinity of winning ticket subnetwork solutions
+      using 2D loss surface visualization (Li et al. 2018 method). Measure the
+      flatness (Hessian trace) at winning ticket minima vs. random pruned network
+      minima. Test whether winning tickets systematically occupy flatter regions,
+      consistent with residing on a wide flat manifold.

@@ -1,6 +1,6 @@
 # USDR Citation Index
 
-**3501 total citations · 2459 unique references · 406 cited in 2+ bridges**
+**3585 total citations · 2512 unique references · 414 cited in 2+ bridges**
 
 ## Most Cross-Domain Papers
 
@@ -54,10 +54,10 @@ Papers cited across the highest number of different bridges — the most influen
 | 3 | Brockett (1972) — Lie algebra controllability condition (basis for bracket depth... | [DOI](10.1137/0310021) |
 | 3 |  | [DOI](10.1002/j.1538-7305.1948.tb01338.x) |
 | 3 | Pendry (2000) — theoretical foundation for metamaterial lensing | [DOI](10.1103/PhysRevLett.85.3966) |
+| 3 | Gale & Shapley (1962) — DA algorithm; proven stable in O(n²); man-optimal stable... | [DOI](10.2307/2312726) |
 | 3 | Cahill et al. (2003) — review of thermal transport in nanostructures; interface ... | [DOI](10.1063/1.1524305) |
 | 3 | Saw et al. 2017 — topological defects in epithelia determine cell fate; establis... | [DOI](10.1126/science.aar5663) |
 | 3 | Lustig et al. (2007) — CS-MRI demonstrated at 8× undersampling for cardiac MRI; ... | [DOI](10.1002/mrm.21391) |
-| 3 |  | [DOI](10.1038/30918) |
 
 ## Citation Network
 
@@ -67,4 +67,4 @@ The full citation data is available at [`docs/citation_index.json`](citation_ind
 
 ## All Unique References
 
-The catalog currently references **2459 unique papers/books**.
+The catalog currently references **2512 unique papers/books**.
