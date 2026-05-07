@@ -9,6 +9,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added (2026-05-07 — **Waves 17–35 overnight build + document sync**)
+- **470 bridges, 817 unknowns, 681 hypotheses, 1,982 graph nodes, 2,069 edges** — current verified catalog counts as of 2026-05-07.
+- **300-bridge milestone** (Wave 20), **350-bridge milestone** (Wave 24), and **400-bridge milestone** (Wave 29) all hit in this session.
+- **2,000+ graph nodes** reached (1,982 verified; 2,000+ during rebuild cycles).
+- **0 orphan unknowns** maintained throughout all 19 waves.
+- **Lyme disease breakthrough-gap cluster** added to `breakthrough-gaps/`; total breakthrough-gaps now 12.
+- **Dashboard** updated with 400-bridge gold milestone banner and updated pill row.
+- **`.planning/STATE.md`** rewritten to reflect actual current counts and focus (500-bridge push, D3 graph fix, arXiv preprint).
+- **`ROADMAP.md`** Phase 0 progress section added with actual counts vs. milestones and Phase 1 readiness timeline.
+- **`.cursor/rules/usdr-key-documents.mdc`** created — Cursor rule listing key documents to check/update before any significant work.
+- **`CHANGELOG.md`** (this file) updated to reflect session reality.
+
 ### Added (2026-05-06 session — **Wave 29 — THE 400-BRIDGE MILESTONE** — bridges 399-410, 12 unknowns, 12 hypotheses)
 - **🏆 400-BRIDGE MILESTONE ACHIEVED**: The USDR catalog has reached 400+ cross-domain mathematical bridges — a historic landmark in mapping the connective tissue of all major scientific disciplines. Final counts: **413 bridges, 790 unknowns, 657 hypotheses, 1,887 graph nodes, 1,984 edges, 0 orphan unknowns.**
 - **12 new bridges (399–410):**

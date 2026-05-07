@@ -1,0 +1,76 @@
+id: b-type-theory-functional-programming
+title: >
+  The Curry-Howard correspondence identifies types in programming languages with
+  propositions in logic and programs with proofs — making proof assistants (Coq,
+  Lean) and systems languages (Rust borrow checker) instances of applied type theory.
+status: established
+fields:
+  - mathematics
+  - computer-science
+  - logic
+  - type-theory
+  - programming-languages
+bridge_claim: >
+  The Curry-Howard isomorphism (Curry 1934 combinatory logic; Howard 1969 natural
+  deduction) establishes: types ↔ propositions; programs ↔ proofs; program execution
+  ↔ proof normalization; function types A→B ↔ implication A⊃B; product types A×B ↔
+  conjunction A∧B; sum types A+B ↔ disjunction A∨B. The simply typed lambda calculus
+  corresponds exactly to intuitionistic propositional logic. Martin-Löf dependent
+  type theory (1975) extends this to predicate logic: types can depend on values,
+  encoding mathematical theorems as types and their proofs as programs. Proof assistants
+  exploit this: Coq (Calculus of Constructions) was used to verify the 4-color theorem
+  (Gonthier 2008) — a machine-checked proof that eliminated the controversial
+  computer-assisted case-analysis of Appel-Haken (1977). Lean 4 hosts Mathlib, a
+  growing formalization of undergraduate mathematics. Agda is used in verified
+  programming. Homotopy Type Theory (HoTT; Univalent Foundations Program 2013):
+  types as topological spaces, type equality as homotopy equivalence, the univalence
+  axiom (equivalent types are equal) — connecting type theory to algebraic topology.
+  Industrial applications: Rust's borrow checker implements affine types (resources
+  used at most once), enforcing memory safety (no use-after-free, no data races)
+  without garbage collection — Curry-Howard in production systems programming.
+translation_table:
+  - field_a_term: proposition in logic (e.g., A∧B)
+    field_b_term: type in programming language (e.g., A×B product type)
+    note: the fundamental Curry-Howard identification
+  - field_a_term: proof of proposition A
+    field_b_term: program of type A (an inhabitant of type A)
+    note: proving a theorem = writing a type-correct program
+  - field_a_term: intuitionistic propositional logic
+    field_b_term: simply typed lambda calculus
+    note: exact correspondence; classical logic corresponds to continuation-passing style
+  - field_a_term: dependent type (type depends on a value)
+    field_b_term: type-theoretic encoding of universal/existential quantifiers
+    note: allows Vec(n) (vector of length n) to be a type — lengths checked at compile time
+  - field_a_term: proof normalization (cut elimination)
+    field_b_term: program evaluation / beta reduction
+    note: running a program corresponds to simplifying (normalizing) a proof
+  - field_a_term: affine type (used at most once)
+    field_b_term: Rust ownership/borrow checker (no aliasing of mutable references)
+    note: eliminates memory safety bugs via type system; no runtime overhead
+related_unknowns:
+  - u-hott-univalence-axiom-computational-interpretation
+related_hypotheses:
+  - h-dependent-types-industrial-systems-programming-feasibility
+cross_pollination_opportunities:
+  - >
+    Certified compilation (CompCert, CakeML): applying proof-assistant verified
+    compiler correctness to production compilers could eliminate entire classes of
+    compiler bugs — connecting formal mathematics to systems software reliability.
+    Currently a research prototype; scaling to production compilers is an open problem.
+  - >
+    Program synthesis from types: if types are specifications (propositions) and
+    programs are proofs, then proof search algorithms become program synthesis
+    algorithms. LLM-guided proof search (Lean + AI) is an emerging approach to
+    automated mathematics.
+communication_gap: >
+  Type theory researchers (in mathematics and PL theory) develop expressive type
+  systems and prove their properties; systems programmers who use Rust's borrow
+  checker daily are largely unaware that it instantiates affine type theory from
+  linear logic (Girard 1987). The HoTT program is known in algebraic topology and
+  type theory communities but is rarely discussed in mainstream CS curricula.
+last_reviewed: "2026-05-07"
+references:
+  - note: Curry & Feys (1958) Combinatory Logic Vol. I; North-Holland
+  - note: Martin-Löf (1975) An intuitionistic theory of types; in Many-Sorted Logic and Its Applications
+  - note: Gonthier (2008) Formal proof — the four-color theorem; Not Am Math Soc 55:1382
+  - note: The Univalent Foundations Program (2013) Homotopy Type Theory; Institute for Advanced Study
