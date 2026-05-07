@@ -1,0 +1,55 @@
+id: b-insect-navigation-path-integration
+title: "Insect path integration (dead reckoning) is a vector-based Kalman filter: the central complex accumulates velocity and angular signals to maintain a home-vector estimate that degrades with noise exactly as predicted by random-walk error accumulation"
+status: established
+fields:
+  - neuroscience
+  - robotics
+  - mathematics
+bridge_claim: >
+  Desert ants (Cataglyphis) and honeybees maintain a home vector H=(r,θ) pointing
+  back to the nest throughout a foraging excursion. The vector is updated by
+  integrating velocity (from optic flow) and heading (from polarized light compass).
+  Mathematically: H_{t+1} = H_t + Δx_t where Δx_t has noise ε_t. The home-vector
+  error ‖H_estimated - H_true‖ grows as σ·√(path_length) — the square root law
+  of random-walk error accumulation, identical to the dead-reckoning error growth
+  formula in robotics. The Drosophila and locust central complex contains ring
+  attractor circuits that implement this vector computation: a bump of activity
+  encoding heading rotates around a ring as the animal turns, with E-PG and P-EN
+  neurons providing the velocity-to-heading integration. This is mathematically
+  equivalent to the 1D Kalman filter estimation of heading angle from noisy
+  gyroscope measurements.
+translation_table:
+  - field_a_term: "ant home vector H_t (direction and distance to nest)"
+    field_b_term: "state estimate x̂_t in the dead-reckoning Kalman filter"
+    note: "Path integrator maintains estimate of current position relative to nest"
+  - field_a_term: "central complex ring attractor heading bump"
+    field_b_term: "continuous attractor neural network encoding angular state variable"
+    note: "Bump position encodes heading; bump dynamics implement angular integration"
+  - field_a_term: "optic flow signal (velocity estimate)"
+    field_b_term: "control input u_t corrupted by measurement noise in Kalman model"
+    note: "Optic flow gives noisy speed estimate; heading from polarized sky compass"
+  - field_a_term: "home vector error σ·√L (grows with path length L)"
+    field_b_term: "random walk standard deviation from IID noise accumulation"
+    note: "Psychophysical experiments in ants confirm the √L error scaling"
+related_unknowns:
+  - u-insect-navigation-path-integration
+related_hypotheses:
+  - h-insect-navigation-path-integration
+cross_pollination_opportunities:
+  - "Neuromorphic robotics: the Drosophila ring attractor circuit has been implemented in silicon (Intel Loihi) as an efficient spiking neural network heading estimator, consuming ~100x less power than conventional MEMS IMU-based dead reckoning."
+  - "Landmark-based error correction: when insects reach a familiar landmark, they reset the path integrator (equivalent to the update step of a full SLAM system). The neural circuit for this reset involves mushroom body-to-central-complex connections that could inspire SLAM algorithm design."
+communication_gap: >
+  Neuroethologists who study insect navigation analyze home vector errors and
+  ring attractor dynamics without connecting to the robotics/control literature
+  on dead reckoning and Kalman filtering. Roboticists who design dead-reckoning
+  systems are unaware that evolution has solved the same problem in a few hundred
+  neurons (Drosophila CX: ~500 cells), potentially offering algorithmic insights
+  for ultra-efficient autonomous navigation.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1093/beheco/arh195"
+    note: "Müller & Wehner (1988) Path integration in desert ants, Cataglyphis fortis. PNAS 85:5287"
+  - doi: "10.1038/s41586-019-1842-7"
+    note: "Stone et al. (2017) An anatomically constrained model for path integration in the bee brain. Curr Biol 27:3069"
+  - doi: "10.1126/science.aan9930"
+    note: "Kim et al. (2019) Ring attractor dynamics in the Drosophila central brain. Science 356:849"

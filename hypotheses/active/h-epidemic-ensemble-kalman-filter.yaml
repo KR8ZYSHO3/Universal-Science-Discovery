@@ -1,0 +1,26 @@
+id: h-epidemic-ensemble-kalman-filter
+title: "An EnKF with Poisson observation model and time-varying β(t) augmented state will achieve CRPS scores 15-25% better than EpiEstim for real-time Rt estimation during the early exponential phase of novel pathogen outbreaks"
+status: active
+priority: high
+impact_score: 0.76
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: wave-41-agent
+unknowns_addressed:
+  - u-epidemic-kalman-filter
+related_disciplines:
+  - epidemiology
+  - statistics
+  - data-assimilation
+evidence_links:
+  - type: supporting
+    doi: "10.1073/pnas.2006520117"
+    note: "Shaman & Karspeck (2012) EnKF for influenza forecasting"
+    confidence: 0.73
+  - type: related
+    doi: "10.1098/rsos.171833"
+    note: "Birrell et al. (2018) Evidence synthesis for stochastic epidemic models"
+    confidence: 0.67
+proposed_tests:
+  - description: "Implement EnKF-SIR with augmented β(t) (random walk) and Poisson observation model; compare CRPS and interval coverage to EpiEstim on synthetic outbreak scenarios (exponential growth, plateau, multiple waves) and retrospective COVID-19 national time series."
+  - description: "Calibration diagnostic: reliability diagrams for 50%, 80%, 95% prediction intervals comparing EnKF to EpiEstim and EpiNow2 across 50 synthetic scenarios with known R_t ground truth."

@@ -1,0 +1,57 @@
+id: b-epidemic-ensemble-kalman-filter
+title: "Epidemic state estimation is a nonlinear filtering problem: the ensemble Kalman filter (EnKF) recursively updates SIR compartment parameters from case report observations, combining data assimilation with mechanistic disease models"
+status: established
+fields:
+  - epidemiology
+  - data-assimilation
+  - mathematics
+  - statistics
+bridge_claim: >
+  The SIR epidemic model with time-varying transmission rate β(t) defines a
+  dynamical system: dS/dt=-βSI/N, dI/dt=βSI/N-γI, dR/dt=γI. Case reports
+  y_t (new cases per day) are noisy observations of the state. The ensemble
+  Kalman filter (EnKF) treats the epidemic as a data assimilation problem:
+  maintain an ensemble of N model trajectories {x_i(t)}, each representing
+  a possible state (S,I,R,β). When new observations arrive, update each
+  ensemble member: x_i^a = x_i^f + K(y_t - H·x_i^f) where K is the Kalman
+  gain computed from the ensemble covariance and H is the observation operator.
+  The EnKF handles nonlinearity (SIR equations) without linearizing, unlike
+  the extended Kalman filter. This is identical to the EnKF used in numerical
+  weather prediction (NWP), with epidemic compartments replacing atmospheric
+  state variables. The approach enables real-time estimation of the effective
+  reproduction number R_eff(t) = β(t)S(t)/(γN) with uncertainty bounds.
+translation_table:
+  - field_a_term: "SIR compartment state (S, I, R, β) at time t"
+    field_b_term: "hidden state vector x in the state-space model"
+    note: "Augmented state includes β as a parameter to be estimated online"
+  - field_a_term: "daily reported case counts y_t"
+    field_b_term: "observation vector H·x + ε in the measurement model"
+    note: "H maps state to expected cases (Poisson distributed); ε is observation noise"
+  - field_a_term: "ensemble spread (width of posterior distribution over states)"
+    field_b_term: "forecast uncertainty σ_f in Kalman filter formalism"
+    note: "Wide ensemble = high uncertainty; narrow ensemble = confident state estimate"
+  - field_a_term: "R_eff(t) time series with credible intervals"
+    field_b_term: "online parameter estimation from sequential data assimilation"
+    note: "EnKF gives full posterior over R_eff each day, unlike window-based Rt estimators"
+related_unknowns:
+  - u-epidemic-kalman-filter
+related_hypotheses:
+  - h-epidemic-ensemble-kalman-filter
+cross_pollination_opportunities:
+  - "Particle filters (sequential Monte Carlo) from Bayesian statistics provide an exact alternative to the Gaussian-approximation EnKF for epidemic state estimation, particularly important for low case counts where Poisson noise is non-Gaussian and EnKF approximation breaks down."
+  - "Multi-scale data assimilation: combining genomic surveillance (SARS-CoV-2 variant frequencies) with case count data in a coupled EnKF framework could simultaneously track transmission rates and variant fitness advantages."
+communication_gap: >
+  Epidemiologists use Rt estimators (EpiEstim, EpiNow2) based on the renewal
+  equation without connection to the data assimilation literature from numerical
+  weather prediction. Data assimilationists in atmospheric science use EnKF
+  routinely but rarely apply it to epidemiological compartment models.
+  The mathematical identity between weather forecasting and epidemic forecasting
+  as filtering problems was only highlighted systematically during COVID-19.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1175/1520-0493(2001)129<0420:AESLPF>2.0.CO;2"
+    note: "Evensen (2003) The ensemble Kalman filter — theoretical formulation and practical implementation. Ocean Dyn 53:343"
+  - doi: "10.1098/rsos.171833"
+    note: "Birrell et al. (2018) Evidence synthesis for stochastic epidemic models. Statist Sci 33:34"
+  - doi: "10.1073/pnas.2006520117"
+    note: "Shaman & Karspeck (2012) Forecasting seasonal outbreaks of influenza. PNAS 109:20425"

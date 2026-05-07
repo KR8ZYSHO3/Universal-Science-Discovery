@@ -1,0 +1,54 @@
+id: b-wisdom-of-crowds-condorcet
+title: "Crowd accuracy on estimation tasks follows the Condorcet jury theorem: aggregate error decreases as 1/√N for independent unbiased estimates, connecting collective intelligence to probability theory"
+status: established
+fields:
+  - social-science
+  - probability
+  - statistics
+bridge_claim: >
+  The Condorcet jury theorem (1785) states: if N voters each independently
+  choose the correct answer with probability p > 0.5, then the probability
+  that the majority votes correctly approaches 1 as N→∞. For continuous
+  estimation tasks (e.g., weight of an ox, GDP forecast), if each individual
+  estimate x_i = θ + ε_i with E[ε_i]=0 (unbiased) and Var[ε_i]=σ², the
+  mean x̄ = (1/N)Σx_i has variance σ²/N: the crowd average is more accurate
+  than the typical individual by a factor √N. This is the central limit theorem
+  applied to collective cognition. Crowd wisdom requires: (1) independence
+  of individual estimates, (2) diversity of knowledge (heterogeneous ε_i),
+  and (3) decentralized aggregation. Social influence (herding) violates
+  condition 1 and collapses the wisdom of crowds toward the shared bias.
+translation_table:
+  - field_a_term: "crowd aggregate estimate x̄ (average of N independent estimates)"
+    field_b_term: "sample mean estimator — MVUE for E[x_i] under iid Gaussian noise"
+    note: "Under CLT, x̄ ~ N(θ, σ²/N) regardless of individual distribution shape"
+  - field_a_term: "individual expertise variation (accuracy heterogeneity)"
+    field_b_term: "heterogeneous σ_i² in weighted average — optimal weight w_i ∝ 1/σ_i²"
+    note: "Optimal aggregation weights experts with lower variance more heavily"
+  - field_a_term: "social influence / herding (information cascade)"
+    field_b_term: "correlation ρ between ε_i and ε_j — Var(x̄) = σ²[1+(N-1)ρ]/N"
+    note: "With correlation ρ, variance floors at σ²ρ rather than 0 — herding destroys crowd wisdom"
+  - field_a_term: "prediction market price (continuous crowd aggregation)"
+    field_b_term: "dynamically updated sufficient statistic for the crowd's collective belief"
+    note: "Arrow securities price equals the probability assigned by the informed crowd"
+related_unknowns:
+  - u-wisdom-of-crowds-condorcet
+related_hypotheses:
+  - h-wisdom-of-crowds-condorcet
+cross_pollination_opportunities:
+  - "Superforecasting methods (Good Judgement Project): statistical techniques for identifying and upweighting the most accurate individual forecasters in a crowd use the same optimal weighting theory from Bayesian combining of expert opinions."
+  - "Algorithmic management of online rating systems: crowd-rating platforms (Amazon reviews, Yelp) aggregate noisy individual ratings; probability theory predicts the optimal number of ratings needed to achieve a given confidence in the true quality score, informing platform design."
+communication_gap: >
+  Social scientists who study collective intelligence cite Galton's ox-weighing
+  demonstration (1907) and Surowiecki's popular book but rarely connect to
+  the formal statistical theory (optimal aggregation, correlated estimators).
+  Statisticians who work on combining expert forecasts and prediction intervals
+  have the relevant machinery but publish in statistics journals not in
+  organizational behavior or social psychology.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1038/075450a0"
+    note: "Galton (1907) Vox Populi. Nature 75:450 — original crowd wisdom demonstration (ox weight)"
+  - doi: "10.1007/BF00122574"
+    note: "Condorcet (1785) Essay on the Application of Analysis to the Probability of Majority Decisions"
+  - doi: "10.1016/j.joep.2005.06.002"
+    note: "Lorenz et al. (2011) How social influence can undermine the wisdom of crowds effect. PNAS 108:9020"

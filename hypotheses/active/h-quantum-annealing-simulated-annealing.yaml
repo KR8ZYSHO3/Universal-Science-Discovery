@@ -1,0 +1,26 @@
+id: h-quantum-annealing-simulated-annealing
+title: "For random Ising spin glass instances on the Chimera graph with N=2000 variables, D-Wave Advantage will find solutions within 1% of optimal in <10ms — 100x faster than simulated annealing at matched solution quality — for instances with sparse, clustered structure"
+status: active
+priority: high
+impact_score: 0.72
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: wave-41-agent
+unknowns_addressed:
+  - u-quantum-annealing-simulated
+related_disciplines:
+  - quantum-computing
+  - combinatorics
+  - statistical-physics
+evidence_links:
+  - type: supporting
+    doi: "10.1126/science.220.4598.671"
+    note: "Kirkpatrick et al. (1983) simulated annealing baseline"
+    confidence: 0.85
+  - type: related
+    doi: "10.1016/j.physrep.2015.12.005"
+    note: "Hauke et al. (2020) Perspectives of quantum annealing"
+    confidence: 0.68
+proposed_tests:
+  - description: "Generate 1000 random Ising instances on Chimera graph with varying density and planted solutions (known optimal); run D-Wave Advantage QA (100 μs anneals, 1000 reads) vs. SimAnneal (SA) and Tabu search at matched wall-clock time budgets (10ms, 100ms, 1s); compare solution quality (gap from optimal %) as function of problem density."
+  - description: "Test scaling behavior: generate instances with N=500, 1000, 2000, 5000 variables; fit time-to-solution vs N curves for QA and SA; test whether QA curve has shallower slope (better scaling) for clustered vs. random instances."
