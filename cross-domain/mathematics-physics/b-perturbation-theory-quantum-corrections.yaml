@@ -1,0 +1,79 @@
+id: b-perturbation-theory-quantum-corrections
+title: >
+  Perturbation theory in mathematics provides the systematic expansion machinery
+  for quantum corrections in physics — from Rayleigh-Schrödinger eigenvalue
+  series to Feynman-diagram QED calculations verified to 10 significant figures.
+status: established
+fields:
+  - mathematics
+  - physics
+  - quantum-mechanics
+  - quantum-field-theory
+bridge_claim: >
+  The mathematical framework of perturbation theory — expanding solutions of
+  (H₀ + λV)|n⟩ = Eₙ|n⟩ in powers of λ — maps directly onto the physical
+  calculation of quantum corrections. First-order energy correction E_n^(1) =
+  ⟨n⁰|V|n⁰⟩ is the expectation value of the perturbation; second-order
+  E_n^(2) = Σ_{m≠n} |⟨m⁰|V|n⁰⟩|²/(E_n⁰ - E_m⁰) sums over virtual
+  intermediate states. Degenerate perturbation theory requires diagonalizing
+  V within the degenerate subspace before applying the expansion. The
+  time-dependent case yields Fermi's golden rule: transition rate
+  W_{i→f} = (2π/ℏ)|⟨f|V|i⟩|²ρ(E_f) — the fundamental rate formula of
+  atomic physics, nuclear physics, and quantum chemistry. In QED, the
+  perturbation series in α ≈ 1/137 is systematized by Feynman diagrams:
+  the anomalous magnetic moment of the electron g-2 = α/π - 0.328(α/π)² +
+  ... has been computed to tenth order in α and matches experiment to 10
+  significant figures, the most precise prediction in science. Dyson (1952)
+  showed the QED series is asymptotic (divergent but Borel summable) — a
+  profound mathematical lesson that physical accuracy does not require
+  convergence.
+translation_table:
+  - field_a_term: small parameter λ in H = H₀ + λV
+    field_b_term: fine structure constant α ≈ 1/137 in QED
+    note: controls the order-by-order expansion; smallness ensures truncation is accurate
+  - field_a_term: unperturbed eigenstates |n⁰⟩
+    field_b_term: free-particle states; tree-level Feynman diagrams
+    note: zeroth-order approximation before quantum corrections
+  - field_a_term: first-order energy correction ⟨n⁰|V|n⁰⟩
+    field_b_term: one-loop self-energy correction (Lamb shift, g-2 at α/π)
+    note: leading quantum correction; calculable from single vertex insertions
+  - field_a_term: degenerate perturbation theory (diagonalize V in subspace)
+    field_b_term: renormalization mixing of nearly-degenerate states
+    note: required when energy denominators vanish
+  - field_a_term: Fermi's golden rule W = (2π/ℏ)|⟨f|V|i⟩|²ρ(E_f)
+    field_b_term: decay rate / scattering cross-section in QFT
+    note: first-order time-dependent perturbation theory; the S-matrix at leading order
+  - field_a_term: asymptotic series (divergent, Borel summable)
+    field_b_term: QED perturbation series; instanton corrections beyond all orders
+    note: Dyson argument — the series must diverge; Borel resummation recovers physics
+related_unknowns:
+  - u-perturbation-series-borel-summability-qft
+related_hypotheses:
+  - h-resurgence-connects-perturbative-nonperturbative-qft
+cross_pollination_opportunities:
+  - >
+    Resurgence theory (Écalle 1981; Dunne & Ünsal 2012) provides a mathematical
+    framework connecting perturbative and non-perturbative contributions via
+    Borel-Laplace resummation — applying this to QED and QCD could clarify the
+    role of instantons and the structure of the genus expansion in string theory.
+  - >
+    Degenerate perturbation theory methods from quantum mechanics could improve
+    numerical algorithms for nearly-singular matrix eigenvalue problems in
+    computational linear algebra, particularly for tight-binding models in
+    condensed matter.
+communication_gap: >
+  Physicists learn perturbation theory operationally (Feynman rules, renormalization)
+  without engaging with the rigorous mathematical analysis of asymptotic series.
+  Mathematicians studying resurgence and transseries rarely interact with QFT
+  practitioners. The Borel summability results of Sokal (1980) and the resurgence
+  program of Écalle are largely unknown in the physics community that uses the
+  results daily.
+last_reviewed: "2026-05-07"
+references:
+  - note: Sakurai & Napolitano (2017) Modern Quantum Mechanics, 2nd ed.; Cambridge
+  - doi: "10.1103/PhysRev.73.416"
+    note: Schwinger (1948) On quantum electrodynamics and the magnetic moment of the electron; Phys Rev 73:416
+  - doi: "10.1103/PhysRevLett.123.137601"
+    note: Aoyama et al. (2019) Theory of the anomalous magnetic moment of the electron; Phys Rev Lett 123:137601
+  - doi: "10.1103/PhysRev.85.631"
+    note: Dyson (1952) Divergence of perturbation theory in quantum electrodynamics; Phys Rev 85:631

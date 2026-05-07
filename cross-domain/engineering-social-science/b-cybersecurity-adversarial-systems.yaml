@@ -1,0 +1,76 @@
+id: b-cybersecurity-adversarial-systems
+title: >
+  Cybersecurity is an adversarial engineering-social science system: attacks exploit
+  human and technical vulnerabilities simultaneously, defense-in-depth mirrors
+  Stackelberg game equilibria, and the economics of cybercrime ($8T annually) make
+  it larger than most national economies.
+status: established
+fields:
+  - engineering
+  - computer-science
+  - social-science
+  - economics
+  - game-theory
+bridge_claim: >
+  Cybersecurity bridges engineering (technical attack/defense mechanisms) and social
+  science (human behavior, economics, game theory). The CIA triad (Confidentiality,
+  Integrity, Availability) provides the engineering framework; game theory provides
+  the social science framework. Attack vectors span both: SQL injection exploits
+  unvalidated input (engineering flaw) — but phishing exploits cognitive biases
+  (social engineering). Defense in depth (multiple independent security layers) is
+  the engineering implementation of the mixed-strategy Nash equilibrium insight:
+  no single point of failure. The defender-attacker Stackelberg game (defender
+  commits first, attacker best-responds) predicts overinvestment in visible security
+  (deterrence) and underinvestment in detection and response. Zero-day vulnerability
+  markets (Zerodium: $2.5M for iOS zero-click) create a shadow economy with price
+  signals for attack difficulty. The economics of cybercrime: $8T annual cost (2023,
+  Morgan estimate) — exceeding the GDP of Germany. Rational attacker models predict
+  targeting of maximum-value, minimum-effort victims (crime-as-a-service, ransomware-
+  as-a-service ecosystems). Cryptographic primitives (AES-256, RSA/ECC, SHA-3)
+  provide the engineering backbone; behavioral economics explains why users defeat
+  them (password reuse, phishing susceptibility).
+translation_table:
+  - field_a_term: defense in depth (layered security controls)
+    field_b_term: mixed Nash equilibrium / redundancy in adversarial games
+    note: no dominant strategy; multiple independent defenses raise attacker cost
+  - field_a_term: zero-day vulnerability market pricing
+    field_b_term: shadow market equilibrium; price = expected attacker surplus
+    note: Zerodium prices reveal revealed preference for attack difficulty
+  - field_a_term: SQL injection / buffer overflow (technical exploits)
+    field_b_term: phishing / social engineering (human cognitive exploits)
+    note: both are attack surface; security requires engineering + behavioral defense
+  - field_a_term: attacker's cost-benefit calculation
+    field_b_term: rational criminal behavior model (Becker 1968)
+    note: cybercrime supply responds to enforcement probability and penalty magnitude
+  - field_a_term: security metrics (CVE score, breach cost)
+    field_b_term: economic externalities; firms underinvest due to uncompensated breach costs
+    note: negative externalities of data breaches are not fully borne by the breached firm
+related_unknowns:
+  - u-optimal-cybersecurity-investment-under-adversarial-uncertainty
+related_hypotheses:
+  - h-stackelberg-equilibrium-predicts-security-market-underinvestment
+cross_pollination_opportunities:
+  - >
+    Mechanism design from social choice theory could be applied to design
+    vulnerability disclosure incentive structures (bug bounties) that maximize
+    social welfare — current CVD (coordinated vulnerability disclosure) programs
+    are ad hoc. A formal mechanism design approach could optimize disclosure timing,
+    bounty schedules, and liability rules.
+  - >
+    Behavioral security: cognitive biases (hyperbolic discounting, availability
+    heuristic) predict specific patterns of security neglect. Behavioral economics
+    interventions (nudges, commitment devices) could complement technical controls
+    in reducing human-factor security failures.
+communication_gap: >
+  Security engineers focus on technical controls and are trained in cryptography and
+  systems; economists and game theorists focus on incentive structures and behavioral
+  models. The security economics literature (Anderson, Moore, Böhme) bridges both
+  but is not standard in either CS security curricula or economics graduate programs.
+  Practitioners in each field often rediscover insights well-established in the other.
+last_reviewed: "2026-05-07"
+references:
+  - note: Anderson (2001) Security Engineering; Wiley
+  - doi: "10.1145/1435417.1435418"
+    note: Moore et al. (2009) The economics of online crime; Commun ACM 52:78
+  - note: Laszka et al. (2014) A survey of interdependent information security games; GameSec 2014
+  - note: Morgan (2023) 2023 Official Cybercrime Report; Cybersecurity Ventures

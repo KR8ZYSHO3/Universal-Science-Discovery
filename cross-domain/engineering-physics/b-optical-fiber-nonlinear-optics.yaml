@@ -1,0 +1,78 @@
+id: b-optical-fiber-nonlinear-optics
+title: >
+  Optical fiber communications bridge engineering and physics: single-mode fiber
+  waveguide physics, group velocity dispersion, erbium-doped fiber amplifiers, and
+  Kerr nonlinearity (SPM/XPM/FWM) enable 8 Tbps per fiber across intercontinental
+  distances, with solitons as the nonlinear-dispersive balance solution.
+status: established
+fields:
+  - engineering
+  - physics
+  - optics
+  - nonlinear-optics
+  - telecommunications
+bridge_claim: >
+  Optical fiber communication systems require understanding physics across multiple
+  scales and nonlinear regimes. Single-mode fiber (SMF-28): total internal reflection
+  (core n₁=1.4682, cladding n₂=1.4629, NA=0.13); electromagnetic waveguide mode
+  theory; only the LP₀₁ mode propagates above cutoff wavelength. Group velocity
+  dispersion (GVD): D = -(λ/c)(d²n/dλ²) ≈ 17 ps/(nm·km) at 1550 nm — pulses
+  spread because different frequencies travel at different speeds (walk-off).
+  Dispersion limits bandwidth-distance product: BW × L ≤ 1/(2πDσ_λ). Wavelength
+  division multiplexing (WDM): 80+ channels × 100 Gbps = 8 Tbps per fiber strand;
+  trans-Atlantic cables carry the global internet. Erbium-doped fiber amplifiers
+  (EDFA, Mears 1987): Er³⁺ ions provide gain in the 1530-1565 nm C-band via
+  stimulated emission; eliminates O-E-O regeneration — the enabling technology for
+  transoceanic WDM. Kerr nonlinearity (n₂ = 2.6×10⁻²⁰ m²/W for silica fiber):
+  (1) Self-phase modulation (SPM): intensity-dependent phase shift chirps the pulse;
+  (2) Cross-phase modulation (XPM): adjacent WDM channels chirp each other;
+  (3) Four-wave mixing (FWM): three frequencies mix to create a fourth — limits
+  WDM channel capacity. Soliton transmission (Mollenauer 1980): SPM + anomalous GVD
+  balance → the nonlinear Schrödinger equation (NLS) supports soliton solutions
+  that propagate without distortion over intercontinental distances — the physics
+  principle behind submarine cable design.
+translation_table:
+  - field_a_term: SMF-28 single-mode optical fiber
+    field_b_term: cylindrical dielectric waveguide; TIR confines LP₀₁ mode
+    note: electromagnetic boundary conditions determine cutoff; physics of waveguide modes
+  - field_a_term: group velocity dispersion D = 17 ps/(nm·km)
+    field_b_term: d²ω/dk² ≠ 0; material and waveguide dispersion contributions
+    note: pulse broadening limits bandwidth; dispersion-shifted fiber moves zero-dispersion to 1550 nm
+  - field_a_term: EDFA (C-band optical amplifier)
+    field_b_term: four-level laser gain medium (Er³⁺ in silica glass at 1530-1565 nm)
+    note: population inversion from 980nm or 1480nm pump → stimulated emission at signal wavelength
+  - field_a_term: Kerr effect (n₂ intensity-dependent index)
+    field_b_term: χ⁽³⁾ nonlinear susceptibility of silica → SPM, XPM, FWM
+    note: nonlinearity is weak (n₂ small) but large propagation distances make it significant
+  - field_a_term: soliton (NLS equation solution)
+    field_b_term: SPM (anomalous GVD) balances dispersion → pulse shape-preserving propagation
+    note: N=1 fundamental soliton: P₀ = |β₂|/(γT₀²); intercontinental propagation without regeneration
+related_unknowns:
+  - u-fiber-nonlinearity-capacity-limit-shannon
+related_hypotheses:
+  - h-soliton-basis-transmission-optimal-nonlinear-channel-capacity
+cross_pollination_opportunities:
+  - >
+    Nonlinear fiber optics as a computational platform: optical soliton propagation
+    implements integrable nonlinear dynamics that could be exploited for analog
+    computing and reservoir computing. The NLS equation shares mathematical structure
+    with the Gross-Pitaevskii equation for Bose-Einstein condensates — connecting
+    fiber optics to quantum many-body physics.
+  - >
+    Space-division multiplexing (SDM) with multi-core and few-mode fibers will
+    require coupled-mode theory and MIMO digital signal processing to manage
+    inter-modal crosstalk — connecting electromagnetic waveguide physics, nonlinear
+    optics, and information theory.
+communication_gap: >
+  Telecommunications engineers who design WDM systems focus on system margins,
+  modulation formats (DP-QPSK, QAM), and DSP; nonlinear fiber optics physicists
+  focus on the mathematics of solitons and integrable systems. The engineering
+  literature rarely engages with the deep physics of soliton dynamics; the physics
+  literature rarely considers the practical constraints of real transmission systems.
+last_reviewed: "2026-05-07"
+references:
+  - note: Agrawal (2019) Nonlinear Fiber Optics, 6th ed.; Academic Press
+  - note: Kao & Hockham (1966) Dielectric-fibre surface waveguides for optical frequencies; Proc IEE 113:1151
+  - note: Mears et al. (1987) Low-noise erbium-doped fibre amplifier operating at 1.54 μm; Electron Lett 23:1026
+  - doi: "10.1103/PhysRevLett.45.1095"
+    note: Mollenauer et al. (1980) Experimental observation of picosecond pulse narrowing and solitons in optical fibers; Phys Rev Lett 45:1095

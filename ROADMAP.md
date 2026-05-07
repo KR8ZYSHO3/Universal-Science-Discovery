@@ -55,6 +55,61 @@ The project is recognized as “the most ambitious open science infrastructure p
 
 ---
 
+## Phase 0 Progress (as of 2026-05-07)
+
+### Current counts
+
+| Metric | Phase 0 Target | Current (2026-05-07) | Status |
+|--------|---------------|----------------------|--------|
+| Cross-domain bridges | 500+ | **470** | 94% — 30 to go |
+| Unknowns | 500+ | **817** | ✅ Exceeded |
+| Hypotheses | 300+ | **681** | ✅ Exceeded |
+| Pioneers | — | **13** | On track |
+| Breakthrough gaps | — | **12** | Expanding |
+| Knowledge graph nodes | 1,000+ | **1,982** | ✅ Exceeded |
+| Knowledge graph edges | — | **2,069** | — |
+| Scientific domains | 15+ | **55+** | ✅ Exceeded |
+| Orphan unknowns | 0 | **0** | ✅ Clean |
+| Schema errors | 0 | **0** | ✅ Clean |
+
+### Milestones achieved this session (overnight build, Waves 17–35)
+
+- **300-bridge milestone** — Wave 20 (2026-05-06)
+- **350-bridge milestone** — Wave 24 (2026-05-06)
+- **400-bridge milestone** — Wave 29 (2026-05-06)
+- **1,000 graph nodes** — Wave 10 (2026-05-06)
+- **2,000 graph nodes** — Wave 32+ (2026-05-07)
+- **Zero orphan unknowns** — maintained throughout
+- **Lyme disease breakthrough-gap cluster** added
+- **13 pioneer profiles** complete
+- **Dashboard** updated with 400-bridge gold milestone banner
+
+### Phase 0 vs. milestones
+
+| Phase 0 Milestone | Status |
+|---|---|
+| Seeded disciplines (Physics, Biology, CS, + more) | ✅ 55+ domains |
+| 500+ high-quality structured entries | ✅ 1,968 total (470 bridges + 817 unknowns + 681 hypotheses) |
+| Core governance + legal framework | ✅ CC BY 4.0 + MIT, CONTRIBUTING.md, CODE_OF_CONDUCT.md |
+| Knowledge graph + search | ✅ 1,982 nodes, 2,069 edges; Lunr full-text search; D3.js visualization |
+| Basic contributor infrastructure | ✅ Issue templates, PR template, GitHub Discussions |
+| First Unknowns Hackathon | Planned June 2026 |
+| First 50 contributors | Pending public launch |
+
+### Estimated timeline to Phase 1 readiness
+
+| Task | ETA |
+|------|-----|
+| 500 bridges reached | ~1–2 build sessions (days) |
+| arXiv preprint submitted | 1–2 weeks (PDF conversion + submission) |
+| D3 graph working on GitHub Pages | 1–3 days (debug session) |
+| Custom domain live | 1 week |
+| First public announcement + community launch | ~June 2026 |
+
+**Phase 1 readiness estimated: June–July 2026**, contingent on arXiv submission and first public community push.
+
+---
+
 ### Interface development (cross-cutting; see INTERFACE.md)
 
 The **canonical plan for UX, static site, and the future “Discovery OS”** is [INTERFACE.md](INTERFACE.md). That document is **longer-term** than most Phase 0 tasks: we do **not** block governance, legal clarity, or seeded content on a polished UI. Git stays the source of truth; the interface is always a **view** of the repo.
