@@ -1,0 +1,23 @@
+id: u-meg-inverse-source-localization
+title: "What regularization method for MEG inverse source localization best recovers distributed vs focal neural activity simultaneously, and can deep learning architectures trained on realistic head models outperform classical minimum-norm and beamformer approaches for clinical seizure localization?"
+status: open
+priority: high
+disciplines:
+  - neuroscience
+  - mathematics
+  - biomedical-engineering
+summary: >
+  MEG inverse problems require choosing a regularization prior that determines what source distributions are
+  favored. Minimum norm favors distributed sources; LORETA favors spatially smooth sources; beamformers
+  assume single focal sources. No method reliably handles all realistic neural source configurations.
+  Key unknowns: (1) can Bayesian model comparison methods automatically select the best source prior for each
+  MEG dataset without subjective parameter tuning, (2) do deep learning inverse solvers trained on simulated
+  heads generalize to real human head geometries with realistic source patterns, (3) what is the fundamental
+  spatial resolution limit of MEG given realistic SNR and sensor geometry?
+systematic_gaps:
+  - Ground truth for MEG source localization requires concurrent intracranial EEG or intraoperative recordings, which are available only for epilepsy patients
+  - Most MEG inverse methods assume stationary sources; non-stationary sources (moving or frequency-modulated) violate the linear model
+  - Deep learning MEG solvers have been trained on synthetic data with limited generalization testing to diverse pathological source patterns
+related_bridges:
+  - b-meg-inverse-source-localization
+last_reviewed: "2026-05-07"

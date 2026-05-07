@@ -1,0 +1,35 @@
+id: b-pharmacokinetics-compartmental-ode
+title: "Pharmacokinetics is applied ODE compartmental modeling: drug concentration-time profiles in plasma, tissue, and urine follow C(t) = Σ A_i*exp(-λ_i*t) whose eigenvalues {λ_i} are the roots of the characteristic polynomial of the transfer matrix K, with pharmacokinetic parameters (clearance CL = k_10*V_c, distribution volume V_d) directly mapping to compartment rate constants"
+fields:
+  - pharmacology
+  - mathematics
+  - biomedical-engineering
+bridge_claim: "A two-compartment pharmacokinetic model is a system of linear ODEs: dC_c/dt = -(k_10 + k_12)*C_c + k_21*C_p and dC_p/dt = k_12*C_c - k_21*C_p, whose solution after IV bolus is C_c(t) = A*exp(-αt) + B*exp(-βt), where α and β are eigenvalues of the matrix K = [[k_10+k_12, k_21],[k_12, k_21]]; clearance CL = k_10*V_c, volume V_d = dose/C(0), and half-life t_{1/2} = ln(2)/β—all pharmacokinetic descriptors emerge from the compartment matrix eigenstructure."
+translation_table:
+  - field_a_term: "pharmacokinetic two-compartment model (pharmacology)"
+    field_b_term: "2×2 linear ODE system with first-order transfer rate matrix K (mathematics)"
+    note: "Central (plasma) and peripheral (tissue) compartments with rate constants k_12, k_21, k_10 (elimination)"
+  - field_a_term: "drug clearance CL (pharmacology)"
+    field_b_term: "elimination rate constant k_10 multiplied by volume of central compartment (mathematics)"
+    note: "CL = k_10*V_c; represents proportional removal rate; relates to AUC by CL = Dose/AUC"
+  - field_a_term: "distribution volume V_d (pharmacology)"
+    field_b_term: "ratio of total drug amount to plasma concentration at steady state (mathematics)"
+    note: "V_d = V_c + V_p*(k_12/k_21); apparent volume not a physical compartment volume"
+  - field_a_term: "nonlinear pharmacokinetics (Michaelis-Menten saturation) (pharmacology)"
+    field_b_term: "nonlinear ODE with saturable elimination: dC/dt = -V_max*C/(K_m + C) (mathematics)"
+    note: "High-dose drugs (phenytoin, ethanol) show zero-order kinetics when C >> K_m; transition from linear to nonlinear predicted by Michaelis-Menten ODE"
+status: established
+communication_gap: "Pharmacologists characterize drug behavior empirically through plasma sampling studies while applied mathematicians study compartmental models as ODEs; the connection between pharmacokinetic parameter estimation (nonlinear curve fitting to multiexponential data) and eigenvalue analysis of the rate matrix is rarely made explicit in clinical pharmacology training."
+cross_pollination_opportunities:
+  - "Applying ODE sensitivity analysis to pharmacokinetic models to identify which rate constants most affect peak concentration and exposure (AUC), guiding formulation design"
+  - "Using physiologically based PK (PBPK) models, which are high-dimensional linear ODE systems, to predict drug concentrations in specific organs during pregnancy or disease states"
+references:
+  - doi: "10.1002/jps.2600620112"
+    note: "Rowland & Tozer (1989) - Clinical Pharmacokinetics: compartmental analysis"
+  - doi: "10.1124/jpet.106.106443"
+    note: "Benet & Zia-Amirhosseini (1995) - basic principles of pharmacokinetics"
+  - doi: "10.1007/978-3-319-04426-4"
+    note: "Gabrielsson & Weiner (2006) - Pharmacokinetic and Pharmacodynamic Data Analysis"
+related_unknowns:
+  - u-pharmacokinetic-interindividual-variability
+last_reviewed: "2026-05-07"

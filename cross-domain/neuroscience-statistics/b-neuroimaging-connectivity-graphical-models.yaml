@@ -1,0 +1,35 @@
+id: b-neuroimaging-connectivity-graphical-models
+title: "Functional brain connectivity measured by fMRI BOLD signals is estimated using partial correlations and Gaussian graphical models (GGMs): the inverse covariance matrix Θ = Σ^{-1} encodes conditional independence structure where Θ_{ij} ≠ 0 iff brain regions i and j are directly connected controlling for all other regions, providing a sparse graph of functional brain networks"
+fields:
+  - neuroscience
+  - statistics
+  - mathematics
+bridge_claim: "The partial correlation between brain regions i and j (controlling for all other regions) equals -Θ_{ij}/√(Θ_{ii}*Θ_{jj}) where Θ = Σ^{-1} is the precision matrix of BOLD fMRI time series; estimating Θ with graphical lasso (L1 regularization: min_Θ[-log det Θ + tr(SΘ) + λ||Θ||_1]) produces a sparse functional connectivity graph that identifies direct neural connections while filtering indirect correlations, bridging statistical graphical model theory with neuroscientific connectivity analysis."
+translation_table:
+  - field_a_term: "functional brain connectivity (neuroscience)"
+    field_b_term: "non-zero entries in precision matrix Θ = Σ^{-1} (statistics)"
+    note: "Functional connectivity = correlation; effective connectivity from partial correlations = precision matrix structure"
+  - field_a_term: "seed-based correlation analysis in fMRI (neuroscience)"
+    field_b_term: "marginal correlation (full correlation) ignoring all other variables (statistics)"
+    note: "Seed correlations include indirect paths; partial correlations (precision matrix) remove indirect associations"
+  - field_a_term: "default mode network, salience network segregation (neuroscience)"
+    field_b_term: "community structure in sparse Gaussian graphical model (statistics)"
+    note: "Brain network modules correspond to densely connected subgraphs in the precision-matrix-estimated graph"
+  - field_a_term: "dynamic functional connectivity (neuroscience)"
+    field_b_term: "non-stationary covariance estimation with sliding window or HMM (statistics)"
+    note: "Time-varying Σ(t) estimated by windowed graphical lasso captures state-dependent brain network configurations"
+status: established
+communication_gap: "Neuroscientists analyze fMRI connectivity using correlation matrices as neuroscience tools while statisticians develop graphical models and covariance estimation theory; the mathematical distinction between marginal and partial correlation (full vs precision matrix) is fundamental but often conflated in neuroimaging studies, leading to spurious connectivity reports."
+cross_pollination_opportunities:
+  - "Applying causal graphical models (DAGs, structural equation models) to fMRI data to infer directed effective connectivity and test causal hypotheses about brain network architecture"
+  - "Using multiple testing correction theory from high-dimensional graphical models to set statistically rigorous thresholds for functional connectivity edges in large neuroimaging cohorts"
+references:
+  - doi: "10.1093/biostatistics/kxm045"
+    note: "Friedman et al. (2008) - graphical lasso for sparse precision matrix estimation"
+  - doi: "10.1016/j.neuroimage.2013.04.038"
+    note: "Smith et al. (2013) - functional connectomics from resting state fMRI"
+  - doi: "10.1016/j.neuroimage.2010.10.003"
+    note: "Varoquaux & Craddock (2013) - learning and comparing functional connectomes"
+related_unknowns:
+  - u-fmri-connectivity-graphical-model-validity
+last_reviewed: "2026-05-07"
