@@ -1,0 +1,42 @@
+id: b-optogenetics-x-control-theory
+title: Optogenetics ↔ Control theory — light-gated channels as actuators
+status: proposed
+fields:
+- neuroscience
+- computer_science
+bridge_claim: Optogenetic tools (channelrhodopsins, halorhodopsins) implement real-time feedback control of neural circuits;
+  light pulses are control inputs, spike rates are controlled outputs, and closed-loop optogenetic stimulation implements
+  proportional-integral control of neural dynamics — connecting neurotechnology to classical control engineering.
+translation_table:
+- field_a_term: channelrhodopsin-2 (ChR2) light-gated cation channel
+  field_b_term: actuator element in feedback control loop (increases plant output)
+  note: ChR2 activation increases neuron firing — excitatory actuator; NpHR = inhibitory actuator
+- field_a_term: closed-loop optogenetics (spike rate measured, light adjusted in real-time)
+  field_b_term: proportional-integral (PI) feedback control loop
+  note: 'P: light proportional to error; I: integrated error prevents steady-state offset'
+- field_a_term: light pulse frequency and duty cycle (control signal parameters)
+  field_b_term: control input u(t) in continuous-time state space model
+  note: Channelrhodopsin kinetics set the bandwidth; saturation gives nonlinear actuator model
+- field_a_term: neural spike rate (controlled variable being maintained at setpoint)
+  field_b_term: plant output y(t) in closed-loop controller
+  note: Spike rate setpoint corresponds to reference signal r(t) in control engineering
+cross_pollination_opportunities:
+- Apply optimal control theory (LQR, MPC) to design minimal-energy optogenetic stimulation protocols for Parkinson's deep
+  brain stimulation alternatives — minimising photon dose while achieving target firing rate patterns.
+- Use nonlinear control analysis (Lyapunov stability, input-output stability) to predict channelrhodopsin opsin kinetics limits
+  on achievable feedback bandwidth — constraining which neural circuits can be closed-loop controlled and at what update rates.
+communication_gap: Optogenetics was developed by Deisseroth and Boyden as a neuroscience tool (Nature Methods 2005) without
+  reference to control engineering. Control engineers studying biological systems (synthetic biology feedback loops, insulin
+  pumps) rarely collaborated with neuroscientists using optogenetics. The closed-loop optogenetics framework explicitly importing
+  control theory was developed only around 2012-2016 (Grosenick, Boyden group; Foutz & McIntyre), leaving a decade of missed
+  engineering optimisation opportunities.
+related_unknowns:
+- u-optogenetics-x-control-theory
+related_hypotheses:
+- h-optogenetics-x-control-theory
+last_reviewed: '2026-05-07'
+references:
+- doi: 10.1038/nn.2512
+  note: Boyden et al. (2005) — millisecond-timescale, genetically targeted optical control of neural activity; Nature Neurosci
+- doi: 10.1038/nn.3257
+  note: Grosenick et al. (2015) — closed-loop and activity-guided optogenetic control; Neuron 86:106

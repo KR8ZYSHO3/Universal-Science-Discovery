@@ -1,0 +1,27 @@
+id: h-tropical-geometry-x-neural-networks
+title: The tropical complexity of a trained ReLU network (number of active linear regions on test data) is 10–100× smaller
+  than the theoretical maximum, and this reduction correlates with test accuracy with Pearson r > 0.8 across architectures
+  trained with different regularisation strengths
+status: active
+priority: medium
+impact_score: 0.7
+created: '2026-05-07'
+last_updated: '2026-05-07'
+author: wave-65-agent
+unknowns_addressed:
+- u-tropical-geometry-x-neural-networks
+related_disciplines:
+- mathematics
+- computer_science
+evidence_links:
+- type: supporting
+  doi: 10.48550/arXiv.1805.07091
+  note: Zhang et al. — tropical geometry of deep neural networks; linear regions grow exponentially with depth
+  confidence: 0.72
+- type: related
+  note: Montufar et al. (2014) — linear regions of ReLU networks; NeurIPS 2014
+  confidence: 0.75
+proposed_tests:
+- description: Train ResNet-18 on CIFAR-10 with L2 regularisation λ = 0, 0.001, 0.01, 0.1; estimate active linear regions
+    (tropical complexity) on test set via random sampling of activation patterns; compute Pearson correlation between tropical
+    complexity and test accuracy; compare to weight norm and sharpness measures.
