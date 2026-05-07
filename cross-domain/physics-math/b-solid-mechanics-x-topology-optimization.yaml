@@ -1,0 +1,65 @@
+id: b-solid-mechanics-x-topology-optimization
+title: >
+  Solid Mechanics x Topology Optimization — minimum compliance as material distribution
+status: proposed
+fields:
+  - physics
+  - mathematics
+  - engineering
+bridge_claim: >
+  Topology optimization (SIMP method) distributes material within a design domain to
+  minimize structural compliance (maximize stiffness) subject to volume constraints;
+  the optimality conditions are equivalent to the adjoint method in PDE-constrained
+  optimization, and solutions exhibit self-similar fractal-like architectures at all
+  scales — connecting structural engineering to variational calculus.
+translation_table:
+  - field_a_term: SIMP density variable ρ(x) ∈ [0,1]
+    field_b_term: Characteristic function of material domain (relaxed)
+    note: >
+      SIMP relaxes the binary material/void problem to continuous density ρ(x);
+      penalization E(ρ) = ρ^p·E₀ (p=3) forces solutions toward 0/1 density,
+      recovering near-discrete material distributions.
+  - field_a_term: Compliance C = f^T·u (structural flexibility)
+    field_b_term: Objective functional in variational optimization
+    note: >
+      Compliance is the strain energy; minimizing compliance maximizes stiffness for
+      given loads; the adjoint equation for sensitivity ∂C/∂ρ requires solving one
+      extra finite element system (adjoint state = displacement state).
+  - field_a_term: Optimality criteria (OC) update rule
+    field_b_term: Fixed-point iteration for KKT conditions
+    note: >
+      The OC update ρ_new = ρ·(−∂C/∂ρ/λ)^(1/2) is a fixed-point iteration for
+      the KKT conditions of the constrained optimization; it converges faster
+      than gradient descent for this specific problem class.
+  - field_a_term: Michell truss (optimal structure theory)
+    field_b_term: Continuous limit of topology optimization as λ→0
+    note: >
+      Michell (1904) proved that optimal trusses have members oriented along
+      principal stress directions; SIMP topology optimization with fine mesh
+      converges to Michell truss-like architectures — connecting continuum
+      and discrete structural optimization.
+communication_gap: >
+  Structural engineers developed layout optimization (Michell 1904) and variational
+  methods separately from mathematical programming and PDE-constrained optimization;
+  the SIMP method (Bendsøe & Kikuchi 1988) was developed empirically before its
+  mathematical foundation in homogenization theory and shape calculus was established
+  by Allaire and Sokolowski in the 1990s-2000s.
+cross_pollination_opportunities:
+  - >
+    Apply topology optimization to acoustic and electromagnetic wave scattering to
+    design optimal antennas, photonic crystals, and acoustic cloaks — extending
+    SIMP from static to frequency-domain PDE problems.
+  - >
+    Use level-set methods (Hamilton-Jacobi PDE) for topology optimization to achieve
+    crisp material boundaries without the intermediate density problem that plagues
+    SIMP, enabling direct manufacturing without post-processing.
+  - >
+    Import deep learning surrogates (convolutional neural networks trained on FEM
+    simulations) to accelerate topology optimization by replacing expensive FEM
+    solves with millisecond neural network predictions.
+related_unknowns:
+  - u-solid-mechanics-x-topology-optimization
+references:
+  - doi: "10.1007/BF01650949"
+    note: "Bendsøe & Kikuchi (1988) — Generating optimal topologies in structural design using homogenization; Comput Methods Appl Mech Eng 71:197"
+last_reviewed: "2026-05-07"
