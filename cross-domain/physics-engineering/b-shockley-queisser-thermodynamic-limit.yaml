@@ -1,0 +1,70 @@
+id: b-shockley-queisser-thermodynamic-limit
+title: >
+  The Shockley-Queisser (SQ) efficiency limit of ~33% for single-junction
+  solar cells is a consequence of the second law of thermodynamics applied
+  to photon statistics: the Carnot-like bound arising from treating the sun
+  as a blackbody at T_sun = 5778 K limits radiative recombination losses,
+  and no single-bandgap cell can exceed η_SQ regardless of material choice.
+status: established
+fields:
+  - photovoltaics
+  - thermodynamics
+  - semiconductor-physics
+  - engineering
+bridge_claim: >
+  Shockley & Queisser (1961) derived the efficiency limit using detailed
+  balance: a solar cell in equilibrium emits and absorbs photons; the
+  maximum voltage is set by quasi-Fermi level splitting ΔE_F = qV_oc,
+  which cannot exceed the photon chemical potential μ = hν − TS_photon.
+  Henry (1980) reframed the SQ limit as a thermodynamic bound: the maximum
+  work extractable from solar radiation at T_sun = 5778 K collected by
+  an absorber at T_cell = 300 K is η_Carnot = 1 − T_cell/T_sun = 94.8%.
+  The SQ limit (~33%) falls far below Carnot because (1) sub-bandgap photons
+  are not absorbed and (2) above-bandgap photons thermalise their excess
+  energy as heat. Multi-junction cells escape the SQ limit by using multiple
+  bandgaps to reduce thermalisation losses, approaching the thermodynamic
+  concentration limit of ~68% at one sun.
+translation_table:
+  - field_a_term: "Bandgap energy E_g of the semiconductor absorber"
+    field_b_term: "Energy threshold for photon absorption (Heaviside filter)"
+    note: "Photons with hν < E_g are transmitted (sub-bandgap loss); hν > E_g thermalise to E_g"
+  - field_a_term: "Open-circuit voltage V_oc (maximum voltage)"
+    field_b_term: "Photon chemical potential / quasi-Fermi level splitting"
+    note: "V_oc is set by the balance between photon absorption and radiative recombination emission"
+  - field_a_term: "SQ efficiency limit 33% at E_g = 1.34 eV"
+    field_b_term: "Maximum work from a two-temperature heat engine with photon reservoir"
+    note: "SQ = Carnot × (absorption efficiency) × (quantum efficiency); thermalisation reduces it to 33%"
+  - field_a_term: "Multi-junction tandem cell (N bandgaps)"
+    field_b_term: "Multi-stage heat engine (each stage harvests a photon energy band)"
+    note: "N junctions reduce thermalisation loss; N→∞ approaches thermodynamic limit of ~68% at 1 sun"
+related_unknowns:
+  - u-solar-cell-efficiency-practical-loss-mechanisms
+related_hypotheses:
+  - h-tandem-cell-thermodynamic-optimum-bandgap-pairing
+cross_pollination_opportunities:
+  - >
+    Thermodynamic optimisation of multi-junction solar cell bandgap combinations
+    (equivalent to designing a multi-stage Carnot engine matching the solar
+    spectrum) can guide materials selection for III-V tandems beyond the
+    empirical screening currently done by cell manufacturers.
+  - >
+    The photon chemical potential framework (μ_photon = hν − TS) can be applied
+    to LED lighting (reverse of solar cell) to derive the thermodynamic efficiency
+    limit of electroluminescence, connecting photovoltaics and solid-state lighting
+    in a unified framework.
+communication_gap: >
+  Solar cell engineers use the SQ limit as a benchmark without always framing
+  it as a thermodynamic bound analogous to Carnot's theorem. Thermodynamicists
+  studying radiation have not always engaged with photovoltaic engineering details.
+  Henry's 1980 thermodynamic rederivation of the SQ limit is underappreciated in
+  the photovoltaics literature compared to the original Shockley & Queisser paper.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1063/1.1736034"
+    note: "Shockley & Queisser (1961) J. Appl. Phys. – detailed balance limit of efficiency of p-n junction solar cells"
+  - doi: "10.1063/1.328272"
+    note: "Henry (1980) J. Appl. Phys. – limiting efficiencies of ideal single and multiple energy gap terrestrial solar cells"
+  - doi: "10.1038/nmat4388"
+    note: "Polman & Atwater (2016) – photonic design principles for ultrahigh-efficiency photovoltaics beyond SQ"
+  - doi: "10.1021/acs.jpclett.6b01060"
+    note: "Geisz et al. – six-junction solar cell; 47.1% efficiency under concentrated sunlight"

@@ -1,0 +1,70 @@
+id: b-cortical-hierarchy-predictive-coding
+title: >
+  The hierarchical organisation of the cortex implements approximate Bayesian
+  inference: higher areas send predictions (priors) downward and receive
+  prediction errors (likelihood signals) upward, minimising free energy
+  (surprise) in a generative model of sensory inputs — the predictive coding
+  framework of Rao & Ballard (1999) and Friston's free energy principle.
+status: proposed
+fields:
+  - neuroscience
+  - cognitive-science
+  - Bayesian-inference
+  - computational-neuroscience
+bridge_claim: >
+  Hierarchical Bayesian inference requires propagating predictions from high-
+  level models downward and prediction errors from low-level observations upward.
+  Rao & Ballard (1999) showed that a two-level cortical model where V1 predicts
+  the output of the retina (top-down prediction) and sends residual errors to V2
+  reproduces end-stopping, extra-classical receptive field effects, and attention
+  modulation. Friston (2005) generalised this to Helmholtz machines and the free
+  energy principle: the brain minimises variational free energy F = E_q[log q −
+  log p] ≈ −log P(data|model) + KL(q||p), approximating Bayesian inference
+  by minimising surprise. The cortical laminar structure—with superficial
+  layers carrying prediction errors to higher areas and deep layers carrying
+  predictions downward—implements the message-passing in this Bayesian hierarchy.
+translation_table:
+  - field_a_term: "Top-down cortical connection (deep layers → lower areas)"
+    field_b_term: "Prior/prediction message in belief propagation"
+    note: "Deep layer projections carry generative model predictions; implement the prior P(z|θ)"
+  - field_a_term: "Superficial layer prediction error neurons (mismatch response)"
+    field_b_term: "Likelihood/evidence message propagated up the hierarchy"
+    note: "Mismatch negativity and oddball responses = large prediction error from violated prior"
+  - field_a_term: "Gain modulation by attention (increasing precision of prediction errors)"
+    field_b_term: "Precision weighting in Bayesian inference (inverse variance of likelihood)"
+    note: "Attention increases the precision (1/σ²) of sensory signals; equivalent to prior sharpening"
+  - field_a_term: "Cortical hierarchy depth (V1→V2→V4→IT→PFC)"
+    field_b_term: "Depth of the Bayesian generative model hierarchy"
+    note: "Each cortical area = one level of the generative model; depth enables abstract representation"
+related_unknowns:
+  - u-predictive-coding-laminar-circuit-mechanism
+related_hypotheses:
+  - h-mismatch-negativity-bayesian-precision-prediction-error
+cross_pollination_opportunities:
+  - >
+    Deep learning architectures with feedback connections (predictive coding
+    networks, Rao-Ballard models) can be tested against purely feedforward
+    networks on noise-robustness and out-of-distribution generalisation,
+    providing a computational test of the predictive coding advantage.
+  - >
+    Pharmacological manipulation of precision (via dopamine, acetylcholine)
+    combined with EEG mismatch negativity (MMN) measurements can test whether
+    MMN amplitude tracks precision weighting as predicted by the free energy
+    principle.
+communication_gap: >
+  The predictive coding framework bridges computational Bayesian inference (AI
+  literature) and laminar cortical neurophysiology (neuroscience literature).
+  Friston's free energy principle (published in Trends in Cognitive Sciences and
+  Nature Reviews Neuroscience) has been critiqued as unfalsifiable; its specific
+  laminar-circuit predictions are tested in a separate experimental literature
+  that does not always engage with the formal Bayesian framework.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1038/nn.2387"
+    note: "Rao & Ballard (1999) Nature Neuroscience – predictive coding in the visual cortex; hierarchical model"
+  - doi: "10.1098/rstb.2005.1622"
+    note: "Friston (2005) Phil. Trans. R. Soc. B – a theory of cortical responses; free energy principle"
+  - doi: "10.1016/j.neuron.2015.09.030"
+    note: "Keller & Mrsic-Flogel (2018) Neuron – predictive processing: a canonical cortical computation"
+  - doi: "10.1038/s41583-019-0275-5"
+    note: "Friston – a free energy principle for a particular physics; mathematical foundations"

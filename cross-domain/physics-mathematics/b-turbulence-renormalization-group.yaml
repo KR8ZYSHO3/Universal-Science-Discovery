@@ -1,0 +1,67 @@
+id: b-turbulence-renormalization-group
+title: >
+  Kolmogorov's 1941 scaling law for the turbulent energy spectrum E(k) ~ k^{-5/3}
+  in the inertial range is derived from a renormalization-group (RG) fixed point
+  of the Navier-Stokes equations in momentum space: the RG flow drives the system
+  to a universal scaling regime independent of the large-scale energy injection
+  mechanism.
+status: established
+fields:
+  - fluid-mechanics
+  - physics
+  - mathematics
+  - statistical-physics
+bridge_claim: >
+  Kolmogorov (1941) argued that in the inertial range (injection scale L >> l
+  >> dissipation scale η), energy cascades from large to small eddies at a
+  constant rate ε, giving E(k) ~ ε^{2/3} k^{-5/3}. Yakhot & Orszag (1986)
+  derived this using dynamic RG (DRG) applied to the Navier-Stokes equations:
+  integrating out high-wavenumber fluctuations generates effective large-scale
+  viscosity and driving terms; the RG fixed point corresponds exactly to K41
+  scaling. The effective eddy viscosity ν_eff ~ k^{-4/3} at the fixed point
+  gives the k^{-5/3} spectrum without assuming Kolmogorov's dimensional arguments.
+  The DRG framework also predicts intermittency corrections (multifractal
+  exponents) beyond K41 as deviations from the RG fixed point.
+translation_table:
+  - field_a_term: "Turbulent energy spectrum E(k) ~ k^{-5/3}"
+    field_b_term: "Correlation function at the RG fixed point (power-law scaling)"
+    note: "Fixed-point scaling gives E(k) ~ k^{-(d+2χ)/z} which equals k^{-5/3} for K41 exponents"
+  - field_a_term: "Inertial-range energy cascade (constant flux ε)"
+    field_b_term: "RG fixed-point flow: marginal operator with zero beta function"
+    note: "Constant energy flux ↔ zero beta function for the dissipation coupling at the fixed point"
+  - field_a_term: "Kolmogorov microscale η = (ν³/ε)^{1/4}"
+    field_b_term: "RG flow cutoff / ultraviolet scale below which fixed point breaks down"
+    note: "Molecular viscosity ν terminates the RG cascade at scale η"
+  - field_a_term: "Intermittency corrections to K41 (anomalous exponents)"
+    field_b_term: "Irrelevant operators at the RG fixed point (perturbative corrections)"
+    note: "Multifractal exponents ζ_p ≠ p/3 arise from corrections to scaling at the RG fixed point"
+related_unknowns:
+  - u-turbulence-anomalous-scaling-intermittency-origin
+related_hypotheses:
+  - h-navier-stokes-rg-fixed-point-intermittency-exponents
+cross_pollination_opportunities:
+  - >
+    RG methods from field theory (Wilson's epsilon expansion) can be applied to
+    compressible turbulence and magnetohydrodynamic turbulence, predicting
+    whether different RG fixed points (and therefore different spectral exponents)
+    apply to the solar wind and astrophysical plasma turbulence.
+  - >
+    The DRG-derived eddy viscosity formula can be used to parameterise subgrid-
+    scale turbulence in large-eddy simulations (LES) of atmospheric flows, replacing
+    empirical Smagorinsky constants with RG-derived coefficients.
+communication_gap: >
+  Fluid dynamicists and turbulence engineers use the K41 spectrum empirically
+  and Smagorinsky eddy viscosity models without engaging with the RG derivation.
+  Field theorists who developed DRG (Yakhot & Orszag 1986) publish in Physical
+  Review Letters, not in the Journal of Fluid Mechanics where turbulence
+  experimentalists publish.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1103/PhysRevLett.57.1722"
+    note: "Yakhot & Orszag (1986) PRL – renormalization group analysis of turbulence; derivation of K41 exponents"
+  - doi: "10.1063/1.866483"
+    note: "Yakhot & Orszag (1986) J. Sci. Comput. – renormalisation group and large eddy simulation"
+  - doi: "10.1146/annurev.fluid.30.1.275"
+    note: "Frisch (1995) – turbulence: the legacy of A.N. Kolmogorov; RG and multifractal theory"
+  - arxiv: "nlin/0404058"
+    note: "Eyink & Sreenivasan – Onsager and the theory of hydrodynamic turbulence; RG connections"

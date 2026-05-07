@@ -1,5 +1,5 @@
 {
-  "count": 470,
+  "count": 494,
   "items": [
     {
       "id": "b-grokking-criticality",
@@ -601,6 +601,61 @@
       "file": "cross-domain\\astronomy-information\\b-blackhole-information-paradox.yaml"
     },
     {
+      "id": "b-celestial-mechanics-kam-chaos",
+      "title": "The long-term stability of planetary orbits is determined by the Kolmogorov-Arnold-Moser (KAM) theorem: quasi-periodic orbits persist on invariant tori in phase space provided the perturbation is small and the frequency ratio is sufficiently irrational (Diophantine condition), while resonant orbits are destroyed, leading to the chaotic diffusion observed in the asteroid belt and in Laskar's numerical simulations of the inner solar system.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Classical celestial mechanics (Laplace, Lagrange) proved orbital stability to first order in planetary mass ratios. KAM theory (Kolmogorov 1954, Arnold 1963, Moser 1962) proved that nearly-integrable Hamiltonian systems (like the solar system in the small-mass limit) possess a positive-measure set o",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-mercury-orbit-chaotic-diffusion-eccentricity"
+      ],
+      "communication_gap": "KAM theory is one of the deepest results in 20th century mathematics (Arnol'd published in Russian in 1963; English translations lagged by years). Celestial mechanicians adopted it slowly; Laskar's chaotic solar system simulations (1989) were the first widely accessible demonstration of its implications. Applied orbital mechanics and astrodynamics engineers rarely engage with the full KAM mathematical formalism.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Planetary orbital frequency ratio ω_i/ω_j",
+          "field_b_term": "Frequency ratio of the KAM torus",
+          "note": "Irrational (Diophantine) ratios → stable KAM torus; rational ratios → resonance → chaos"
+        },
+        {
+          "field_a_term": "Mean-motion resonance (e.g., Jupiter-Saturn 5:2)",
+          "field_b_term": "Destroyed KAM torus (resonance overlap / Chirikov criterion)",
+          "note": "Resonance overlaps destroy intervening tori; Kirkwood gaps in asteroid belt are cleared resonances"
+        },
+        {
+          "field_a_term": "Lyapunov exponent of Mercury's orbit (τ ~ 5 Myr)",
+          "field_b_term": "Inverse of the Lyapunov time for a chaotic trajectory in phase space",
+          "note": "Positive Lyapunov exponent indicates exponential sensitivity to initial conditions"
+        },
+        {
+          "field_a_term": "Action-angle variables (J, θ) of integrable Kepler problem",
+          "field_b_term": "KAM torus coordinates in the nearly-integrable perturbation",
+          "note": "KAM theorem guarantees persistence of tori in (J, θ) space under small perturbation H = H₀ + εH₁"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1038/338237a0",
+          "note": "Laskar (1989) Nature – numerical evidence for chaotic behavior of the inner solar system; Lyapunov exponents"
+        },
+        {
+          "doi": "10.1070/RM1963v018n05ABEH004130",
+          "note": "Arnold (1963) – proof of KAM theorem for analytic Hamiltonians (Russian Math. Surveys)"
+        },
+        {
+          "doi": "10.1086/588006",
+          "note": "Laskar & Gastineau (2009) Nature – existence of collisional trajectories of Mercury in 1% of integrations"
+        },
+        {
+          "doi": "10.1007/s10569-008-9179-4",
+          "note": "Murray & Holman – origin of chaos in the outer solar system; resonance overlap criterion"
+        }
+      ],
+      "last_reviewed": "2026-05-07",
+      "file": "cross-domain\\astronomy-mathematics\\b-celestial-mechanics-kam-chaos.yaml"
+    },
+    {
       "id": "b-frb-random-matrix",
       "title": "The non-Poissonian, power-law waiting-time statistics of repeating fast radio burst sources share the eigenvalue repulsion and universality-class signatures of random matrix theory (GUE/GOE), suggesting that FRB emission physics is governed by quantum-chaotic dynamics analogous to those seen in nuclear resonances, quantum dots, and classically chaotic billiards.\n",
       "source_domain": "",
@@ -736,6 +791,61 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\astronomy-physics\\b-baryon-asymmetry-cp-violation.yaml"
+    },
+    {
+      "id": "b-dark-energy-vacuum-cosmological-constant",
+      "title": "The observed cosmological constant Λ ≈ 1.11 × 10⁻⁵² m⁻² driving accelerated cosmic expansion corresponds to a vacuum energy density ρ_Λ = Λc²/(8πG) ≈ 5.4 × 10⁻¹⁰ J/m³, which is ~120 orders of magnitude smaller than the naive quantum-field-theory estimate of zero-point energies — the cosmological constant problem is the largest numerical discrepancy in physics.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "contested",
+      "bridge_claim": "Einstein introduced Λ as a static-universe term (1917); Perlmutter and Riess (1998/1999) discovered dark energy from supernovae — cosmic expansion is accelerating, requiring a non-zero Λ > 0. The bridge to quantum field theory: the zero-point energy of all quantum fields contributes to the vacuum en",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-dark-energy-quintessence-equation-of-state-variation"
+      ],
+      "communication_gap": "Cosmologists using Λ as a phenomenological fit parameter and quantum field theorists computing vacuum energies publish in different communities. Weinberg (1989) Reviews of Modern Physics stated the problem cleanly but no solution has emerged in 37 years. The disconnect between observational cosmology, high-energy theory, and gravitational physics is structural and deep.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Cosmological constant Λ (Einstein field equations)",
+          "field_b_term": "Vacuum energy density ρ_Λ = Λc²/(8πG) of quantum fields",
+          "note": "GR parameter Λ is identified with ρ_vac from QFT; the identification creates the CC problem"
+        },
+        {
+          "field_a_term": "Observed dark energy equation of state w ≈ −1 (SN Ia, CMB)",
+          "field_b_term": "Vacuum energy equation of state p = −ρc² (negative pressure)",
+          "note": "w = −1 is consistent with a pure cosmological constant / vacuum energy"
+        },
+        {
+          "field_a_term": "QFT zero-point energy cutoff at Planck scale E_Pl",
+          "field_b_term": "Ultraviolet divergence of vacuum energy (regulated)",
+          "note": "Cutoff at E_Pl gives ρ_vac ~ E_Pl⁴/(ℏ³c⁵) ~ 10⁹⁴ kg/m³; requires 120-order cancellation"
+        },
+        {
+          "field_a_term": "Supersymmetry (bosonic and fermionic zero-point energies cancel)",
+          "field_b_term": "Proposed solution: bosonic +ℏω/2 cancels fermionic −ℏω/2",
+          "note": "Unbroken SUSY would give Λ = 0 exactly; broken SUSY at TeV scale still leaves ~10⁶⁰ excess"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1103/RevModPhys.61.1",
+          "note": "Weinberg (1989) Rev. Mod. Phys. – the cosmological constant problem; 120-order discrepancy"
+        },
+        {
+          "doi": "10.1086/307221",
+          "note": "Perlmutter et al. (1999) ApJ – measurements of Ω and Λ from 42 high-z supernovae; dark energy discovery"
+        },
+        {
+          "doi": "10.1086/300499",
+          "note": "Riess et al. (1998) AJ – observational evidence for supernovae acceleration; dark energy"
+        },
+        {
+          "doi": "10.1146/annurev-astro-081811-125543",
+          "note": "Weinberg et al. (2013) – observational probes of cosmic acceleration; dark energy review"
+        }
+      ],
+      "last_reviewed": "2026-05-07",
+      "file": "cross-domain\\astronomy-physics\\b-dark-energy-vacuum-cosmological-constant.yaml"
     },
     {
       "id": "b-dark-matter-phase-transition-relics",
@@ -1175,6 +1285,61 @@
       "file": "cross-domain\\astrophysics-physics\\b-neutron-star-nuclear-matter.yaml"
     },
     {
+      "id": "b-fermentation-thermodynamic-equilibrium",
+      "title": "Microbial fermentation pathway selection is governed by thermodynamic free energy minimisation: the Gibbs free energy change ΔG° of each metabolic reaction determines which pathways are feasible, and cells regulate NAD⁺/NADH ratios to maintain ΔG < 0 across the fermentation network even when ATP yield is suboptimal.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Fermentation is the anaerobic oxidation of organic compounds coupled to ATP synthesis without a terminal inorganic electron acceptor. The pathway a microbe takes (homolactic, ethanolic, butyric, etc.) depends on the thermodynamic feasibility of each reaction: ΔG = ΔG° + RT ln Q must be negative for ",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-fermentation-nad-ratio-pathway-selection-thermodynamic"
+      ],
+      "communication_gap": "Biochemistry textbooks describe fermentation pathways in mechanistic detail (enzyme names, cofactors) but rarely perform thermodynamic feasibility analysis. Thermodynamicists studying biological energy conversion rarely engage with detailed metabolic network topology. Alberty's transformed Gibbs energy framework (2003 J. Phys. Chem. Ref. Data) is underused in metabolic engineering.\n",
+      "translation_table": [
+        {
+          "field_a_term": "NAD⁺/NADH redox couple potential E'°(NAD⁺/NADH) = −0.32 V",
+          "field_b_term": "Half-cell potential in an electrochemical cell",
+          "note": "Fermentation reactions use NADH reoxidation as the electron sink; E sets the thermodynamic driving force"
+        },
+        {
+          "field_a_term": "ΔG of glycolysis (−73 kJ/mol glucose under standard conditions)",
+          "field_b_term": "Work available from fuel oxidation in a heat engine",
+          "note": "Efficiency of ATP capture = ΔG_ATP / ΔG_glycolysis; fermentation captures ~30%, aerobiosis ~40%"
+        },
+        {
+          "field_a_term": "Fermentation pathway branching point (pyruvate to lactate vs. ethanol)",
+          "field_b_term": "Kinetic/thermodynamic competition between parallel reaction channels",
+          "note": "The pathway with more negative ΔG dominates; enzyme expression adjusts flux to maintain ΔG < 0"
+        },
+        {
+          "field_a_term": "Product inhibition (ethanol toxicity in yeast)",
+          "field_b_term": "Le Chatelier's principle: product accumulation shifts equilibrium backward",
+          "note": "Ethanol concentration drives ΔG toward zero; cells must expel product to maintain thermodynamic drive"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1021/jp020625u",
+          "note": "Alberty (2003) – thermodynamics of biochemical reactions; transformed Gibbs energies at pH 7"
+        },
+        {
+          "doi": "10.1128/MMBR.00008-10",
+          "note": "Thauer et al. (2008) Microbiol. Mol. Biol. Rev. – methanogenic archaea thermodynamics; ΔG of fermentation steps"
+        },
+        {
+          "doi": "10.1073/pnas.1112325108",
+          "note": "Flamholz et al. (2012) PNAS – thermodynamic constraints on metabolic flux; eQuilibrator database"
+        },
+        {
+          "doi": "10.1038/nchembio.971",
+          "note": "Henry et al. (2007) Nature Chem. Biol. – thermodynamics-based metabolic flux analysis"
+        }
+      ],
+      "last_reviewed": "2026-05-07",
+      "file": "cross-domain\\biochemistry-thermodynamics\\b-fermentation-thermodynamic-equilibrium.yaml"
+    },
+    {
       "id": "b-lichen-astrobiology",
       "title": "Synthetic lichen-like microbial consortia engineered for biofabrication on Earth are functional analogs of the self-sustaining biosystems required for off-world resource utilisation.\n",
       "source_domain": "",
@@ -1288,6 +1453,61 @@
       ],
       "last_reviewed": "2026-05-07",
       "file": "cross-domain\\biology-chemistry\\b-autophagy-cellular-recycling.yaml"
+    },
+    {
+      "id": "b-circadian-clock-molecular-oscillator",
+      "title": "The ~24-hour circadian clock in eukaryotes is a biochemical limit-cycle oscillator: the PER/CRY/CLOCK/BMAL1 transcription-translation feedback loop generates self-sustained oscillations described by Goodwin-type nonlinear ODEs, and the clock's period, amplitude, and entrainability are predicted by the Hopf bifurcation structure of the oscillator.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The core circadian oscillator is a negative feedback loop: CLOCK:BMAL1 activates Per and Cry transcription; PER:CRY proteins accumulate, enter the nucleus, and repress CLOCK:BMAL1. This is a delayed negative feedback loop producing limit-cycle oscillations (Goodwin 1965). Goldbeter (1995) showed tha",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-circadian-hopf-bifurcation-period-mutation-prediction"
+      ],
+      "communication_gap": "Chronobiologists study PER/CRY kinetics experimentally (genetic screens, luciferase reporters) while nonlinear dynamicists study limit-cycle theory abstractly. Goldbeter's 1995 PNAS paper and Leloup & Goldbeter 2003 established the bridge, but most molecular chronobiology papers still describe the clock in biochemical terms without referencing the Hopf bifurcation structure or limit-cycle theory explicitly.\n",
+      "translation_table": [
+        {
+          "field_a_term": "PER/CRY nuclear repression of CLOCK:BMAL1",
+          "field_b_term": "Negative feedback in a nonlinear ODE oscillator (Goodwin model)",
+          "note": "Delayed negative feedback with cooperative Hill-function repression (n > 8) = Hopf bifurcation"
+        },
+        {
+          "field_a_term": "Circadian period (~24h)",
+          "field_b_term": "Period of the limit cycle at the Hopf bifurcation",
+          "note": "Period is set by the delay in the feedback loop (mRNA half-life, nuclear transport time)"
+        },
+        {
+          "field_a_term": "Temperature compensation of period",
+          "field_b_term": "Robustness of limit-cycle period to parameter variation",
+          "note": "Biological circuits tune multiple rate constants so period is insensitive to temperature Q₁₀"
+        },
+        {
+          "field_a_term": "Photic entrainment by light pulses (phase response curve)",
+          "field_b_term": "External forcing of a limit-cycle oscillator (Arnold tongues)",
+          "note": "Phase response curve = Jacobian of the oscillator limit cycle under impulsive perturbation"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1073/pnas.92.21.9383",
+          "note": "Goldbeter (1995) PNAS – a model for circadian oscillations in Drosophila per protein; Goodwin-type oscillator"
+        },
+        {
+          "doi": "10.1073/pnas.0306901100",
+          "note": "Leloup & Goldbeter (2003) PNAS – toward a detailed computational model for the mammalian circadian clock"
+        },
+        {
+          "doi": "10.1038/35036009",
+          "note": "Dunlap (1999) Cell – molecular bases for circadian clocks; feedback loop review"
+        },
+        {
+          "doi": "10.1126/science.1089924",
+          "note": "Schibler & Sassone-Corsi (2002) Cell – a web of circadian pacemakers; systems perspective"
+        }
+      ],
+      "last_reviewed": "2026-05-07",
+      "file": "cross-domain\\biology-chemistry\\b-circadian-clock-molecular-oscillator.yaml"
     },
     {
       "id": "b-enzyme-allostery-conformational",
@@ -1589,6 +1809,61 @@
       "file": "cross-domain\\biology-chemistry\\b-protein-folding-energy-landscape.yaml"
     },
     {
+      "id": "b-rna-folding-partition-function",
+      "title": "RNA secondary structure prediction is a statistical-mechanics partition function problem: the ensemble of all possible base-pair configurations is weighted by Boltzmann factors exp(−ΔG°/RT), and the minimum free-energy structure, base- pair probabilities, and thermodynamic accessibility are all computed from the McCaskill partition function using dynamic programming.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "An RNA molecule of length N can adopt exponentially many secondary structures (base-pair pairings without pseudoknots). McCaskill (1990) showed that the partition function Z = Σ_s exp(−ΔG°(s)/RT), summing over all structures s with their free energy, can be computed in O(N³) time using dynamic progr",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-rna-boltzmann-ensemble-functional-structure-selection"
+      ],
+      "communication_gap": "RNA biologists routinely use RNAfold/mfold predictions without awareness of the statistical mechanics framework underlying the partition function. Statistical physicists studying disordered systems (spin glasses) have not extensively analysed the RNA folding problem despite formal similarities to the random energy model.\n",
+      "translation_table": [
+        {
+          "field_a_term": "RNA partition function Z = Σ_s exp(−ΔG°(s)/RT)",
+          "field_b_term": "Statistical mechanics partition function Z = Tr[exp(−βH)]",
+          "note": "RNA structures = microstates; ΔG°(s) = Hamiltonian; T = thermodynamic temperature"
+        },
+        {
+          "field_a_term": "Base-pair probability matrix P_ij",
+          "field_b_term": "Thermal average of spin-spin correlation ⟨s_ij⟩",
+          "note": "P_ij = probability base i pairs with base j in the Boltzmann ensemble"
+        },
+        {
+          "field_a_term": "Minimum free energy (MFE) structure",
+          "field_b_term": "Ground state configuration (lowest-energy microstate)",
+          "note": "MFE = ground state; only dominant when energy gap to next structure is large (kT)"
+        },
+        {
+          "field_a_term": "Dynamic programming recursion (McCaskill O(N³))",
+          "field_b_term": "Transfer matrix method for 1D spin chains",
+          "note": "Both exploit the non-crossing (planar) constraint to decompose the problem into independent subproblems"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1021/bi00413a004",
+          "note": "McCaskill (1990) Biopolymers – partition function algorithm for RNA secondary structure; O(N³) DP"
+        },
+        {
+          "doi": "10.1093/nar/19.22.6329",
+          "note": "Zuker (1989) Science – mfold algorithm for minimum free energy RNA secondary structure"
+        },
+        {
+          "doi": "10.1093/nar/gkh930",
+          "note": "Lorenz et al. (2011) – ViennaRNA Package 2.0 including partition function and base-pair probabilities"
+        },
+        {
+          "doi": "10.1016/j.jmb.2006.01.048",
+          "note": "Tinoco & Bustamante – how RNA folds; thermodynamic vs. kinetic control of structure"
+        }
+      ],
+      "last_reviewed": "2026-05-07",
+      "file": "cross-domain\\biology-chemistry\\b-rna-folding-partition-function.yaml"
+    },
+    {
       "id": "b-rna-world-origin-of-life",
       "title": "The RNA world hypothesis bridges molecular biology and prebiotic chemistry: RNA molecules can both store genetic information and catalyze chemical reactions (ribozymes), suggesting that RNA preceded both DNA and proteins as the primordial self-replicating molecule at the origin of life.\n",
       "source_domain": "",
@@ -1843,6 +2118,61 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\biology-computer-science\\b-gene-regulatory-networks-boolean-logic.yaml"
+    },
+    {
+      "id": "b-microbiome-diversity-stability",
+      "title": "Gut microbiome species diversity predicts community resilience to antibiotic perturbation and pathogen invasion, following May's theoretical diversity- stability relationship: higher phylogenetic diversity increases functional redundancy and reduces the probability that a single perturbation collapses the entire community.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "proposed",
+      "bridge_claim": "May (1972) showed that in random ecological communities, stability (return to equilibrium after perturbation) decreases with diversity and interaction strength: σ²SC < 1 (May's criterion), where σ² is interaction variance, S is species richness, and C is connectance. However, structured communities ",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-microbiome-functional-redundancy-antibiotic-resilience"
+      ],
+      "communication_gap": "May's random-matrix stability results (published in Nature 1972) are central to theoretical ecology but rarely cited in microbiome medicine literature. Clinical microbiologists measure diversity indices empirically without formal dynamical stability theory; ecologists rarely engage with clinical data.\n",
+      "translation_table": [
+        {
+          "field_a_term": "May's community matrix eigenvalue maximum (stability criterion)",
+          "field_b_term": "Microbiome recovery rate (inverse return time after antibiotic)",
+          "note": "Negative maximum eigenvalue → stable community; scales with functional redundancy"
+        },
+        {
+          "field_a_term": "Ecological functional redundancy",
+          "field_b_term": "Multiple gut taxa performing same fermentation/butyrate pathway",
+          "note": "Redundant taxa buffer against stochastic extinction of individual species"
+        },
+        {
+          "field_a_term": "Connectance C (fraction of realised interactions)",
+          "field_b_term": "Microbiome co-occurrence network density",
+          "note": "Higher connectance increases cross-feeding resilience but can destabilise under May's criterion"
+        },
+        {
+          "field_a_term": "Diversity index (Shannon entropy H)",
+          "field_b_term": "Gut microbiome α-diversity (16S rRNA amplicon sequencing)",
+          "note": "H predicts recovery speed from Clostridioides difficile infection post-antibiotics"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1038/238413a0",
+          "note": "May (1972) Nature – will a large complex system be stable? random-matrix stability criterion"
+        },
+        {
+          "doi": "10.1038/nature05414",
+          "note": "Turnbaugh et al. (2006) Nature – the human microbiome; diversity and metabolic function"
+        },
+        {
+          "doi": "10.1126/science.aad9359",
+          "note": "Sonnenburg & Sonnenburg (2019) Science – diet-induced microbiome diversity and resilience"
+        },
+        {
+          "doi": "10.1038/s41586-019-1406-7",
+          "note": "Martiny et al. – functional redundancy in microbiomes provides stability under perturbation"
+        }
+      ],
+      "last_reviewed": "2026-05-07",
+      "file": "cross-domain\\biology-ecology\\b-microbiome-diversity-stability.yaml"
     },
     {
       "id": "b-biofilm-self-assembly",
@@ -2696,6 +3026,61 @@
       "file": "cross-domain\\biology-mathematics\\b-population-genetics-diffusion.yaml"
     },
     {
+      "id": "b-protein-crystallography-space-groups",
+      "title": "Protein crystal packing is governed by the 65 chiral (Sohncke) space groups of classical crystallography: group-theoretic symmetry constraints determine allowable unit-cell geometries, reduce the phase problem to a finite search, and predict systematic absences in diffraction patterns with mathematical precision.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "A crystal is a periodic repetition of a unit cell under the action of a space group G ≤ O(3) ⋊ ℝ³. For chiral molecules like proteins (L-amino acids), only the 65 Sohncke groups (those lacking improper symmetry operations) are allowed. The group action specifies: (1) how many independent copies of t",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-space-group-frequency-evolution-bias"
+      ],
+      "communication_gap": "Mathematical crystallographers (publishing in Acta Crystallographica A) and structural biologists (publishing in Nature Structural Biology, Structure) share the space-group formalism but rarely cross-publish theoretical analyses of why certain space groups are evolutionarily preferred for proteins.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Space group of the crystal lattice",
+          "field_b_term": "Discrete group G ≤ O(3) ⋊ ℝ³ acting on electron density",
+          "note": "65 chiral space groups for proteins; generators specify allowed symmetry operations"
+        },
+        {
+          "field_a_term": "Asymmetric unit (AU)",
+          "field_b_term": "Fundamental domain of the group action",
+          "note": "AU contains exactly one independent copy of the molecule; full crystal = G × AU"
+        },
+        {
+          "field_a_term": "Systematic absences in diffraction pattern",
+          "field_b_term": "Group-theoretic extinction conditions on structure factors F(hkl)",
+          "note": "Screw axes and glide planes force F(hkl)=0 for specific (h,k,l) combinations"
+        },
+        {
+          "field_a_term": "Patterson function P(u)",
+          "field_b_term": "Autocorrelation of the group-invariant electron density",
+          "note": "Peaks at inter-atomic vectors; symmetry of P(u) reflects point group, enabling molecular replacement"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1107/S2059798316007191",
+          "note": "Winn et al. – CCP4 suite; space-group determination in protein crystallography"
+        },
+        {
+          "doi": "10.1107/S0907444909042073",
+          "note": "McCoy et al. (2007) – PHASER: likelihood-based molecular replacement using group theory"
+        },
+        {
+          "doi": "10.1107/S2052252517000422",
+          "note": "Dauter & Jaskolski (2010) – How to read (and understand) Volume A of IT for Crystallographers"
+        },
+        {
+          "doi": "10.1016/S0022-2836(05)80360-2",
+          "note": "Rossmann & Arnold – International Tables for X-ray Crystallography: protein space groups"
+        }
+      ],
+      "last_reviewed": "2026-05-07",
+      "file": "cross-domain\\biology-mathematics\\b-protein-crystallography-space-groups.yaml"
+    },
+    {
       "id": "b-replicator-equations-evolutionary-dynamics",
       "title": "The replicator equation ẋᵢ = xᵢ(fᵢ - f̄) governs strategy frequencies in evolutionary game theory, population genetics, and reinforcement learning — its trajectories on the probability simplex converge to Nash equilibria (evolutionary stable strategies), and the Price equation provides a unified mathematical framework for all levels of selection simultaneously.\n",
       "source_domain": "",
@@ -3186,6 +3571,61 @@
       "file": "cross-domain\\biology-physics\\b-biophotonics-fluorescence-microscopy.yaml"
     },
     {
+      "id": "b-chromatin-loop-extrusion-polymer",
+      "title": "Chromatin organisation by cohesin-mediated loop extrusion is quantitatively predicted by polymer-physics models: the Hi-C contact-probability scaling P(s) ~ s^{-0.75} within topologically associating domains (TADs) matches the Rouse/fractal-globule polymer exponent, while TAD boundaries correspond to equilibrium positions of CTCF-stalled extruding cohesin rings.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Cohesin translocates along chromatin, extruding DNA loops until blocked by convergently oriented CTCF binding sites. The resulting TAD structure is identical to a 1D-extruded polymer loop ensemble. Hi-C contact-probability maps within TADs follow P(s) ~ s^{-0.75}, the fractal-globule scaling predict",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-ctcf-boundary-polymer-wall"
+      ],
+      "communication_gap": "Chromosome biology and polymer physics developed separate vocabularies and publication venues (Nature/Cell vs. Macromolecules/Soft Matter). The fractal- globule polymer model (Grosberg 1993) was published 23 years before Hi-C experiments confirmed its relevance (Lieberman-Aiden 2009). Cohesin biologists rarely cite polymer-physics derivations.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Cohesin ring translocating along chromatin",
+          "field_b_term": "Monomer pair undergoing loop-extrusion dynamics",
+          "note": "Cohesin acts as a molecular motor driving loop growth; maps to a Rouse-chain active process"
+        },
+        {
+          "field_a_term": "CTCF boundary element (convergent orientation)",
+          "field_b_term": "Fixed polymer boundary condition / reflecting wall",
+          "note": "CTCF in convergent orientation halts extrusion, setting loop length distribution"
+        },
+        {
+          "field_a_term": "Topologically associating domain (TAD)",
+          "field_b_term": "Polymer loop in fractal-globule conformation",
+          "note": "TAD size ~ mean loop length set by cohesin processivity and CTCF density"
+        },
+        {
+          "field_a_term": "Hi-C contact probability P(s)",
+          "field_b_term": "Polymer end-to-end contact probability for chain of s monomers",
+          "note": "P(s) ~ s^{-0.75} is the fractal-globule prediction; equilibrium globule gives ~s^{-1.5}"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1126/science.1181369",
+          "note": "Lieberman-Aiden et al. (2009) Science – Hi-C reveals fractal-globule chromatin organisation"
+        },
+        {
+          "doi": "10.1016/j.cell.2016.05.001",
+          "note": "Fudenberg et al. (2016) Cell Reports – loop extrusion MD model quantitatively reproduces Hi-C TADs"
+        },
+        {
+          "doi": "10.1073/pnas.1518552113",
+          "note": "Sanborn et al. (2015) PNAS – cohesin extrusion predicts insulation at CTCF sites"
+        },
+        {
+          "doi": "10.1126/science.aaf4831",
+          "note": "Rao et al. (2017) Science – cohesin depletion collapses TADs, confirming extrusion mechanism"
+        }
+      ],
+      "last_reviewed": "2026-05-07",
+      "file": "cross-domain\\biology-physics\\b-chromatin-loop-extrusion-polymer.yaml"
+    },
+    {
       "id": "b-circadian-clocks-nonlinear-oscillators",
       "title": "Circadian clocks are ~24-hour biological limit cycle oscillators arising via Hopf bifurcation in transcription-translation delay feedback loops; entrainment by light follows Arnold tongue theory for periodically forced nonlinear oscillators, and temperature compensation (Q10~1) represents an unsolved problem in biological nonlinear dynamics, bridging molecular biology to dynamical systems theory.\n",
       "source_domain": "",
@@ -3554,6 +3994,61 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\biology-physics\\b-membrane-curvature-vesicle-formation.yaml"
+    },
+    {
+      "id": "b-metabolic-scaling-fractal-vasculature",
+      "title": "Kleiber's 3/4-power metabolic scaling law (B ~ M^{3/4}) across animals spanning 27 orders of magnitude in body mass is derived from the fractal geometry of space-filling vascular networks: West, Brown & Enquist (1997) proved that the 4/3 exponent arises necessarily from the constraint that hierarchical branching networks minimise hydrodynamic resistance while filling volume fractally.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "West, Brown & Enquist (1997) derived Kleiber's law from three assumptions: (1) the vascular network is a self-similar fractal with branching ratio n_b, (2) the terminal units (capillaries/leaf stomata) are size-invariant, (3) the network minimises the total hydrodynamic resistance (evolutionary opti",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-metabolic-exponent-network-dimension-prediction"
+      ],
+      "communication_gap": "Physiologists measuring metabolic rates and network engineers studying fractal branching rarely read the same literature. The West-Brown-Enquist paper (1997 Science) sparked considerable controversy in physiology journals; the derivation is more widely accepted among network theorists than among comparative physiologists who dispute the universality of the 3/4 exponent.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Kleiber's law B ~ M^{3/4} (metabolic rate vs. body mass)",
+          "field_b_term": "Allometric exponent = d/(d+1) from fractal network geometry",
+          "note": "3D space-filling network gives 3/4; 2D network gives 2/3; surface-limited gives 2/3"
+        },
+        {
+          "field_a_term": "Vascular branching: artery → capillary hierarchy",
+          "field_b_term": "Self-similar fractal branching network (Horton-Strahler order)",
+          "note": "Each branching level preserves the volume-filling constraint; radius ratio = n_b^{-1/3}"
+        },
+        {
+          "field_a_term": "Capillary size (invariant across species)",
+          "field_b_term": "Fixed terminal unit of the fractal: size-invariant boundary condition",
+          "note": "Capillary diameter ~5 μm, flow rate ~1 mm/s invariant from mouse to whale"
+        },
+        {
+          "field_a_term": "Minimum hydrodynamic resistance (Murray's law: r₃ = Σrᵢ³)",
+          "field_b_term": "Optimal transport network (Wasserstein/minimum cost-flow)",
+          "note": "Murray's law is the optimality condition; equivalent to minimum cost branching in optimal transport"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1126/science.276.5309.122",
+          "note": "West, Brown & Enquist (1997) Science – a general model for the origin of allometric scaling laws; fractal vasculature"
+        },
+        {
+          "doi": "10.1126/science.284.5420.1677",
+          "note": "Banavar et al. (1999) Science – size and form in efficient transportation networks"
+        },
+        {
+          "doi": "10.1086/303427",
+          "note": "Enquist et al. – allometric scaling of plant energetics and population density"
+        },
+        {
+          "doi": "10.1038/35009076",
+          "note": "Dreyer & Puzio (2001) – test of the WBE model; fractal geometry and Kleiber's law"
+        }
+      ],
+      "last_reviewed": "2026-05-07",
+      "file": "cross-domain\\biology-physics\\b-metabolic-scaling-fractal-vasculature.yaml"
     },
     {
       "id": "b-morphogenesis-mechanical-forces",
@@ -8568,6 +9063,61 @@
       "file": "cross-domain\\ecology-physics\\b-ecosystem-resilience-bifurcation.yaml"
     },
     {
+      "id": "b-forest-fire-self-organized-criticality",
+      "title": "Forest fire frequency-area distributions follow a power law P(A) ~ A^{−β} with β ≈ 1.3–1.5, consistent with Bak-Tang-Wiesenfeld self-organized criticality (SOC): forests spontaneously evolve to a critical state where perturbations (lightning) cause cascading fires of all sizes without external parameter tuning.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Bak, Tang & Wiesenfeld (1987) introduced the sandpile automaton as the prototype SOC system: local collapse rules cause avalanches of all sizes, P(s) ~ s^{-3/2}, without tuning any parameter. The forest fire model (Drossel & Schwabl 1992) is an SOC system where trees grow slowly, lightning strikes r",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-forest-fire-soc-beta-exponent-climate-invariance"
+      ],
+      "communication_gap": "Forest ecologists and fire managers focus on species composition, fire weather, and suppression tactics; statistical physicists studying SOC rarely engage with practical fire management. Malamud et al. (1998) established the empirical connection but the SOC framework is not routinely used in wildfire risk assessment by land management agencies.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Forest fire area distribution P(A) ~ A^{−1.3}",
+          "field_b_term": "SOC avalanche size distribution P(s) ~ s^{-β}",
+          "note": "Both power laws lack a characteristic scale; both arise from a critical state"
+        },
+        {
+          "field_a_term": "Tree growth (slow process) + lightning strike (rare driving)",
+          "field_b_term": "Slow sandpile grain addition + toppling cascade",
+          "note": "Separation of time scales (slow drive, fast cascade) is the hallmark of SOC"
+        },
+        {
+          "field_a_term": "Suppression of small fires → increased large fire risk",
+          "field_b_term": "Subcritical sand accumulation → larger avalanches when released",
+          "note": "Fire suppression policy moves the forest away from SOC; analogous to subcritical accumulation"
+        },
+        {
+          "field_a_term": "Conifer fuel load (biomass per unit area)",
+          "field_b_term": "Local slope / stress in the sandpile; drives the cascade",
+          "note": "High fuel load = steep local slope; fire spreads when fuel load exceeds ignition threshold"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1103/PhysRevLett.59.381",
+          "note": "Bak, Tang & Wiesenfeld (1987) PRL – self-organized criticality: an explanation of 1/f noise"
+        },
+        {
+          "doi": "10.1126/science.281.5384.1840",
+          "note": "Malamud et al. (1998) Science – forest fires: an example of self-organized critical behavior"
+        },
+        {
+          "doi": "10.1103/PhysRevE.46.1829",
+          "note": "Drossel & Schwabl (1992) PRE – self-organised critical forest-fire model"
+        },
+        {
+          "doi": "10.1073/pnas.0911553106",
+          "note": "Pueyo et al. (2010) PNAS – testing self-organized criticality in global forest fire data"
+        }
+      ],
+      "last_reviewed": "2026-05-07",
+      "file": "cross-domain\\ecology-physics\\b-forest-fire-self-organized-criticality.yaml"
+    },
+    {
       "id": "b-island-biogeography-percolation",
       "title": "Island biogeography's species-area relationship reflects percolation of colonization across habitat — habitat fragmentation is a percolation phase transition",
       "source_domain": "",
@@ -10624,6 +11174,61 @@
       "file": "cross-domain\\engineering-biology\\b-robustness-evolvability-modularity.yaml"
     },
     {
+      "id": "b-swarm-robotics-stigmergy",
+      "title": "Swarm-robotic path optimisation via pheromone-inspired digital trails is formally equivalent to ant-colony stigmergy: both systems converge to shortest paths through positive feedback on good solutions and evaporation of poor ones, described by the same differential equations governing ant trail-pheromone dynamics.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "In ant colonies, workers deposit pheromone on return from food sources; shorter trails accumulate pheromone faster (more round trips per unit time), attracting more ants until the colony commits to the shortest path. Dorigo's Ant Colony Optimisation (ACO, 1992) encodes this in discrete graphs: edge ",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-swarm-pheromone-convergence-rate"
+      ],
+      "communication_gap": "Entomologists studying ant trail formation and computer scientists developing metaheuristic optimisation publish in separate venues (Insectes Sociaux vs. IEEE TAES / Operations Research). The formal mathematical equivalence between biological pheromone dynamics and ACO update rules was stated by Dorigo 1992 but is rarely cited in the biological literature.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Ant pheromone trail on path segment",
+          "field_b_term": "Digital pheromone field on graph edge (swarm robot)",
+          "note": "Both accumulate proportional to usage frequency; evaporate at rate ρ"
+        },
+        {
+          "field_a_term": "Ant path-selection probability ∝ τ^α × η^β",
+          "field_b_term": "Robot next-hop probability in ACO routing (same formula)",
+          "note": "α, β weight pheromone vs. heuristic information; tunable in both systems"
+        },
+        {
+          "field_a_term": "Pheromone evaporation rate ρ",
+          "field_b_term": "Forgetting / stale-route decay parameter in digital systems",
+          "note": "Evaporation prevents premature convergence to suboptimal solutions in both domains"
+        },
+        {
+          "field_a_term": "Stigmergic self-organisation (no central control)",
+          "field_b_term": "Distributed swarm-robot coordination via shared environment",
+          "note": "Both systems encode solutions in the environment rather than in agent memory"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1142/S0218213006002813",
+          "note": "Dorigo & Stutzle (2002) – Ant Colony Optimization: algorithmic overview and convergence proofs"
+        },
+        {
+          "doi": "10.1073/pnas.89.12.5979",
+          "note": "Goss et al. (1989) PNAS – ant trail selection experiment demonstrating shortest-path emergence"
+        },
+        {
+          "doi": "10.1038/s41598-017-11585-9",
+          "note": "Perna & Latty (2014) – transport networks in biology and ACO: formal comparison"
+        },
+        {
+          "arxiv": "1010.4982",
+          "note": "Camazine et al. – Self-Organisation in Biological Systems: stigmergy chapter"
+        }
+      ],
+      "last_reviewed": "2026-05-07",
+      "file": "cross-domain\\engineering-biology\\b-swarm-robotics-stigmergy.yaml"
+    },
+    {
       "id": "b-synthetic-biology-genetic-circuits",
       "title": "Synthetic biology applies electronic circuit design principles to genetic systems — using transcription factors as NOT/AND/NOR gates, implementing the repressilator (genetic ring oscillator) and toggle switch (genetic flip-flop), and employing transfer functions and Bode plots from control theory to engineer programmable living systems.\n",
       "source_domain": "",
@@ -12088,6 +12693,61 @@
       "file": "cross-domain\\engineering-social-science\\b-smart-cities-urban-data-analytics.yaml"
     },
     {
+      "id": "b-sir-network-percolation-threshold",
+      "title": "The epidemic threshold R₀ = 1 in the SIR model is mathematically identical to the bond-percolation threshold on the contact network: an epidemic spreads to a macroscopic fraction of the population if and only if the transmission bond-occupation probability exceeds the percolation critical point p_c, and the final epidemic size equals the size of the giant percolation cluster.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "In an SIR epidemic on a contact network, each edge (i,j) is independently occupied with probability T = 1 − exp(−βτ) (transmission probability × infectious period). The expected outbreak size from a single seed equals the expected cluster size in bond percolation at occupation probability T. The epi",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-targeted-vaccination-percolation-optimality"
+      ],
+      "communication_gap": "Epidemiologists traditionally frame R₀ in terms of individual transmission rates, while statistical physicists frame percolation as a phase transition on graphs. Pastor-Satorras & Vespignani (2001) stated the equivalence for scale-free networks; Newman (2002) proved it for general degree distributions. The equivalence is known to network scientists but rarely appears in CDC/WHO epidemiological guidance.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Bond occupation probability T (SIR transmissibility)",
+          "field_b_term": "Percolation bond probability p",
+          "note": "T = 1−exp(−βτ); p=T at the mapping; p > p_c ↔ R₀ > 1"
+        },
+        {
+          "field_a_term": "Giant connected component (percolation)",
+          "field_b_term": "Final epidemic size (fraction ever infected)",
+          "note": "Both equal the probability that an initial node is in the giant cluster"
+        },
+        {
+          "field_a_term": "Percolation threshold p_c = ⟨k⟩/⟨k²⟩",
+          "field_b_term": "Epidemic threshold R₀ = 1 (T_c = p_c on the network)",
+          "note": "Identical quantities; p_c → 0 on scale-free networks ↔ vanishing epidemic threshold"
+        },
+        {
+          "field_a_term": "Targeted immunisation = node removal (percolation)",
+          "field_b_term": "Vaccination strategy in an epidemic network",
+          "note": "Removing high-degree nodes fragments the giant component faster than random removal"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1103/PhysRevLett.86.3200",
+          "note": "Pastor-Satorras & Vespignani (2001) PRL – epidemic spreading on scale-free networks; vanishing threshold"
+        },
+        {
+          "doi": "10.1103/PhysRevE.66.016128",
+          "note": "Newman (2002) PRE – formal proof of SIR–percolation equivalence on arbitrary degree distributions"
+        },
+        {
+          "doi": "10.1103/PhysRevLett.85.4626",
+          "note": "Moore & Newman (2000) PRL – epidemics and percolation in small-world networks"
+        },
+        {
+          "doi": "10.1126/science.1248506",
+          "note": "Brockmann & Helbing (2013) Science – global epidemic spreading via effective-distance network geometry"
+        }
+      ],
+      "last_reviewed": "2026-05-07",
+      "file": "cross-domain\\epidemiology-mathematics\\b-sir-network-percolation-threshold.yaml"
+    },
+    {
       "id": "b-sir-percolation",
       "title": "The SIR epidemic model is bond percolation on a contact network — the epidemic threshold 1/R₀ equals the percolation threshold p_c, and herd immunity is the destruction of the giant connected component of susceptible individuals.\n",
       "source_domain": "",
@@ -12571,6 +13231,61 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\geoscience-physics\\b-earthquake-self-organized-criticality.yaml"
+    },
+    {
+      "id": "b-mantle-convection-rayleigh-benard",
+      "title": "Mantle convection driving plate tectonics is a high-Rayleigh-number Rayleigh-Bénard convection system with strongly temperature-dependent viscosity: the Rayleigh number Ra ~ 10⁷–10⁸ predicts chaotic, time- dependent flow that produces the observed pattern of plate speeds, trench depths, and heat flow at mid-ocean ridges.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "The mantle is a highly viscous fluid (η ~ 10²¹ Pa·s) heated from below by radiogenic decay and cooling from above. Rayleigh-Bénard (RB) convection occurs when buoyancy (Δρ g d) overcomes viscous resistance: Ra = αΔTρgd³/(κη) ~ 10⁷. At this Ra, RB convection is time-dependent and produces plume-domin",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-plate-tectonics-ra-viscosity-threshold"
+      ],
+      "communication_gap": "Fluid dynamicists studying RB convection (publishing in J. Fluid Mechanics, Physical Review Fluids) and geophysicists studying mantle convection (publishing in J. Geophysical Research, Earth and Planetary Science Letters) use different dimensionless number scalings and rarely directly cite each other's laboratory experiments.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Rayleigh number Ra of mantle convection",
+          "field_b_term": "Rayleigh number Ra in RB convection experiment",
+          "note": "Ra ~ 10⁷ for mantle; sets the vigour, planform, and time-dependence of convective flow"
+        },
+        {
+          "field_a_term": "Lithosphere (cold rigid boundary)",
+          "field_b_term": "Cold upper plate in RB convection (conducting boundary layer)",
+          "note": "Stagnant lid ↔ rigid upper plate; plate tectonics requires lid mobilisation"
+        },
+        {
+          "field_a_term": "Mantle plume (rising hot column from CMB)",
+          "field_b_term": "Thermal plume in RB cell (rising hot column from heated base)",
+          "note": "Both governed by plume stability criterion and buoyancy flux"
+        },
+        {
+          "field_a_term": "Mid-ocean ridge heat flux",
+          "field_b_term": "Heat transport efficiency Nu(Ra) in RB convection",
+          "note": "Nu ~ Ra^{0.3} scaling predicts global mantle heat loss from Ra"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1029/JB075i003p00497",
+          "note": "Turcotte & Oxburgh (1967) JGR – thermal convection below the lithosphere; RB framework for mantle"
+        },
+        {
+          "doi": "10.1038/s41561-022-00913-8",
+          "note": "Tackley (2008) – mantle convection models with plate tectonics: review of RB framework"
+        },
+        {
+          "doi": "10.1126/science.1135456",
+          "note": "van Keken et al. – mantle mixing and convection; Ra-heat-flow scaling"
+        },
+        {
+          "doi": "10.1016/j.epsl.2007.10.046",
+          "note": "Labrosse & Jaupart (2007) EPSL – thermal evolution of mantle and core from RB scaling laws"
+        }
+      ],
+      "last_reviewed": "2026-05-07",
+      "file": "cross-domain\\geoscience-physics\\b-mantle-convection-rayleigh-benard.yaml"
     },
     {
       "id": "b-immune-regulation-feedback",
@@ -13855,6 +14570,116 @@
       "file": "cross-domain\\materials-science-mathematics\\b-crystallography-group-theory.yaml"
     },
     {
+      "id": "b-fracture-griffith-statistical",
+      "title": "The Griffith fracture criterion (K_I = K_Ic at the crack tip) is the deterministic limit of a statistical-physics crack nucleation problem: the disorder-averaged fracture strength of heterogeneous materials follows a Weibull extreme-value distribution, and the brittle-to-ductile transition maps onto a depinning phase transition in the random-field Ising model universality class.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Griffith (1921) showed that fracture occurs when the elastic strain energy released by crack propagation (G = K²/E') equals the surface energy cost (2γ): K_Ic = √(2Eγ/π). This deterministic criterion applies to a perfect crystal. Real materials contain quenched disorder (voids, inclusions, grain bou",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-fracture-depinning-crackling-noise-exponent"
+      ],
+      "communication_gap": "Fracture mechanics engineers use stress intensity factors (K) and Weibull statistics empirically without connection to the universality class language of statistical physics. The depinning/crackling-noise framework (Zapperi, Alava) is published in Physical Review Letters / Physical Review E but not in engineering fracture journals (Engineering Fracture Mechanics, J. Mechanics Physics Solids).\n",
+      "translation_table": [
+        {
+          "field_a_term": "Griffith critical stress intensity K_Ic",
+          "field_b_term": "Depinning threshold force in a disordered medium",
+          "note": "Crack advances when local K_I exceeds K_Ic; equivalent to a driven interface overcoming pinning"
+        },
+        {
+          "field_a_term": "Material disorder (voids, inclusions)",
+          "field_b_term": "Random pinning field in elastic manifold models",
+          "note": "Quenched disorder sets the pinning landscape that crack front must traverse"
+        },
+        {
+          "field_a_term": "Weibull modulus m (width of strength distribution)",
+          "field_b_term": "Disorder strength in random-field Ising model",
+          "note": "High m → low disorder → deterministic Griffith limit; low m → broad statistical failure distribution"
+        },
+        {
+          "field_a_term": "Acoustic emission avalanches during fracture",
+          "field_b_term": "Crackling noise / Barkhausen noise in depinning transitions",
+          "note": "Power-law size distribution of AE events = crackling noise universality class"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1098/rsta.1921.0006",
+          "note": "Griffith (1921) – the phenomena of rupture and flow in solids; foundational fracture criterion"
+        },
+        {
+          "doi": "10.1103/PhysRevLett.78.1408",
+          "note": "Zapperi et al. (1997) PRL – crack propagation as a depinning transition; crackling noise"
+        },
+        {
+          "doi": "10.1126/science.288.5469.1275",
+          "note": "Sethna et al. (2001) Science – crackling noise: universal power laws in fracture, magnets, earthquakes"
+        },
+        {
+          "doi": "10.1103/PhysRevE.62.6164",
+          "note": "Alava et al. – fiber bundle model: brittle fracture and Weibull statistics"
+        }
+      ],
+      "last_reviewed": "2026-05-07",
+      "file": "cross-domain\\materials-science-physics\\b-fracture-griffith-statistical.yaml"
+    },
+    {
+      "id": "b-phonon-boltzmann-thermal-transport",
+      "title": "Thermal conductivity of crystalline solids is quantitatively predicted by the phonon Boltzmann transport equation (BTE): κ = (1/3)∫C(ω)v(ω)λ(ω)dω, where acoustic phonons are the heat carriers and three-phonon Umklapp scattering is the primary resistive process, directly connecting lattice dynamics to macroscopic heat flow.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Phonons—quantised lattice vibrations—carry heat in insulators and semiconductors exactly as molecules carry heat in gases. The phonon BTE (Peierls 1929) describes their out-of-equilibrium distribution under a temperature gradient: ∂n_λ/∂t + v_λ·∇T(∂n_λ/∂T) = (∂n_λ/∂t)|_scatt. Thermal conductivity κ ",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-phonon-mfp-spectrum-thermal-conductivity-engineering"
+      ],
+      "communication_gap": "Kinetic theorists and materials scientists use different notations (kinetic theory uses collision integrals; solid-state physics uses second quantisation). The equivalence was established by Peierls (1929) and Callaway (1959) but textbook treatments of each field rarely cross-reference the other.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Phonon mode λ = (q, s) (wavevector, branch)",
+          "field_b_term": "Gas molecule in kinetic theory",
+          "note": "Both obey Bose-Einstein (phonons) / Maxwell-Boltzmann (classical) equilibrium distributions"
+        },
+        {
+          "field_a_term": "Phonon group velocity v_λ = ∂ω/∂q",
+          "field_b_term": "Molecular velocity in kinetic theory",
+          "note": "Determines the diffusion rate of heat; dispersive bands give wavelength-dependent velocities"
+        },
+        {
+          "field_a_term": "Phonon-phonon Umklapp scattering (three-phonon)",
+          "field_b_term": "Molecular collision in kinetic theory (momentum-non-conserving)",
+          "note": "Umklapp restores crystal momentum with a reciprocal lattice vector G ≠ 0, providing thermal resistance"
+        },
+        {
+          "field_a_term": "Phonon mean free path λ = v_λ τ_λ",
+          "field_b_term": "Mean free path between molecular collisions",
+          "note": "Both set the length scale over which heat diffuses; nano-structuring below λ reduces κ"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1103/PhysRevLett.99.185901",
+          "note": "Broido et al. (2007) PRL – first-principles phonon BTE gives κ for Si and Ge within 5% of experiment"
+        },
+        {
+          "doi": "10.1103/PhysRev.113.1046",
+          "note": "Callaway (1959) PR – model thermal conductivity from phonon relaxation times"
+        },
+        {
+          "doi": "10.1016/j.physrep.2018.02.004",
+          "note": "McGaughey et al. (2019) Physics Reports – phonon transport in nanostructured materials"
+        },
+        {
+          "doi": "10.1038/s41578-018-0018-2",
+          "note": "Snyder & Toberer – complex thermoelectric materials; phonon engineering"
+        }
+      ],
+      "last_reviewed": "2026-05-07",
+      "file": "cross-domain\\materials-science-physics\\b-phonon-boltzmann-thermal-transport.yaml"
+    },
+    {
       "id": "b-phonons-thermal-conductivity",
       "title": "Phonons and thermal conductivity — quantized lattice vibrations are the primary heat carriers in non-metallic solids and govern thermoelectric efficiency and CPU thermal management",
       "source_domain": "",
@@ -14033,6 +14858,61 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\mathematics-biology\\b-allometry-fractal-networks.yaml"
+    },
+    {
+      "id": "b-evolutionary-graph-fixation-probability",
+      "title": "The fixation probability of a mutant in a structured population is governed by the topology of the evolutionary graph: Lieberman, Hauert & Nowak (2005) proved that certain graph topologies act as amplifiers of selection (suppressing drift) while others suppress selection (amplifying drift), with complete graphs recovering the Moran process fixation probability ρ = (1 − 1/r)/(1 − 1/r^N).\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "In the classical Moran process, a mutant with fitness r in a population of N individuals fixes with probability ρ_Moran = (1 − 1/r)/(1 − 1/r^N). When individuals occupy nodes of a graph and reproduction/replacement follows the graph edges, the fixation probability changes. Lieberman et al. (2005) sh",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-social-network-star-topology-innovation-fixation"
+      ],
+      "communication_gap": "The Moran process is a standard tool in population genetics textbooks. Graph-structured evolutionary dynamics (Lieberman 2005) bridged population genetics and graph theory in Nature but has been slowly adopted in empirical evolutionary biology. Phylogeographers studying geographic structure and population geneticists rarely use graph-theoretic amplifier/suppressor concepts.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Graph vertex = individual in the structured population",
+          "field_b_term": "Individual in spatially structured population genetics model",
+          "note": "Graph topology encodes the connectivity (migration/competition) structure"
+        },
+        {
+          "field_a_term": "Star graph: amplifier of selection",
+          "field_b_term": "Hierarchically structured population favouring beneficial mutant fixation",
+          "note": "ρ_star > ρ_Moran for r > 1; selection is more effective on star than on complete graph"
+        },
+        {
+          "field_a_term": "Complete graph = Moran process (all-to-all competition)",
+          "field_b_term": "Well-mixed (unstructured) population with random mating",
+          "note": "Identical fixation probability; spatial structure reduces to mean-field limit"
+        },
+        {
+          "field_a_term": "Fixation probability as function of graph eigenspectrum",
+          "field_b_term": "Effective population size N_e as function of migration matrix",
+          "note": "Both relate population-genetic outcomes to algebraic graph properties"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1038/nature03277",
+          "note": "Lieberman, Hauert & Nowak (2005) Nature – evolutionary dynamics on graphs; amplifiers and suppressors"
+        },
+        {
+          "doi": "10.1126/science.1133755",
+          "note": "Nowak (2006) Science – five rules for the evolution of cooperation on graphs"
+        },
+        {
+          "doi": "10.1073/pnas.1100921108",
+          "note": "Shakarian et al. – review of evolutionary graph theory; fixation probabilities on diverse topologies"
+        },
+        {
+          "doi": "10.1038/s41586-021-04440-z",
+          "note": "Tkadlec et al. (2021) – limits on amplifiers of natural selection under death-birth updating"
+        }
+      ],
+      "last_reviewed": "2026-05-07",
+      "file": "cross-domain\\mathematics-biology\\b-evolutionary-graph-fixation-probability.yaml"
     },
     {
       "id": "b-graph-theory-phylogenetics",
@@ -18461,6 +19341,61 @@
       "file": "cross-domain\\music-physics\\b-music-physics-resonance.yaml"
     },
     {
+      "id": "b-memory-reconsolidation-synaptic-plasticity",
+      "title": "Memory reconsolidation—the requirement for new protein synthesis to re- stabilise a memory after retrieval—is mechanistically identical to the late-phase long-term potentiation (L-LTP) that initially encodes the memory: both require NMDA-receptor activation, CaMKII autophosphorylation, CREB-mediated transcription, and de novo synaptic protein synthesis.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "proposed",
+      "bridge_claim": "Nader, Schafe & LeDoux (2000) showed that infusing the protein synthesis inhibitor anisomycin into the basolateral amygdala immediately after a conditioned-fear memory is reactivated causes amnesia for that memory, demonstrating that retrieved memories re-enter a labile state requiring restabilisati",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-reconsolidation-ampar-endocytosis-labilisation"
+      ],
+      "communication_gap": "The reconsolidation discovery (Nader 2000) was initially controversial within cognitive neuroscience; its molecular equivalence to L-LTP mechanisms is accepted in cellular neuroscience but the implications for therapeutic memory modification are debated. Clinical memory researchers and synaptic plasticity researchers publish in different journals.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Memory reactivation by retrieval cue",
+          "field_b_term": "Re-induction of synaptic LTP by repeated stimulation",
+          "note": "Both require NMDA-R activation; retrieval-induced NMDA activation triggers labilisation"
+        },
+        {
+          "field_a_term": "Protein synthesis inhibitor (anisomycin) causing reconsolidation amnesia",
+          "field_b_term": "Blockade of L-LTP protein synthesis preventing memory consolidation",
+          "note": "Same pharmacological tools block both processes; same proteins required (Arc, CaMKII, BDNF)"
+        },
+        {
+          "field_a_term": "Reconsolidation window (hours after retrieval)",
+          "field_b_term": "L-LTP consolidation window (hours after induction)",
+          "note": "Both windows reflect the time required for mRNA transcription and protein synthesis"
+        },
+        {
+          "field_a_term": "Memory update after reconsolidation (incorporation of new information)",
+          "field_b_term": "Synaptic weight modification during LTP restabilisation",
+          "note": "Both mechanisms allow modification of existing traces; reconsolidation = update opportunity"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1038/35021052",
+          "note": "Nader, Schafe & LeDoux (2000) Nature – fear memories require protein synthesis in the amygdala for reconsolidation"
+        },
+        {
+          "doi": "10.1126/science.294.5544.1030",
+          "note": "Kandel (2001) Science – the molecular biology of memory storage: a dialogue between genes and synapses"
+        },
+        {
+          "doi": "10.1038/nrn1425",
+          "note": "Nader & Hardt (2009) Nature Reviews Neuroscience – a single standard for memory: the case for reconsolidation"
+        },
+        {
+          "doi": "10.1016/j.neuron.2014.11.010",
+          "note": "Bhaskaran & Smith (2014) – AMPA receptor trafficking during reconsolidation and LTP"
+        }
+      ],
+      "last_reviewed": "2026-05-07",
+      "file": "cross-domain\\neuroscience-biology\\b-memory-reconsolidation-synaptic-plasticity.yaml"
+    },
+    {
       "id": "b-neurodegeneration-protein-aggregation",
       "title": "All major neurodegenerative diseases — Parkinson's (alpha-synuclein), Alzheimer's (Abeta, tau), and prion diseases — are protein aggregation disorders with nucleation- elongation kinetics identical to protein crystallization, and they spread through neural circuits by prion-like templated misfolding.\n",
       "source_domain": "",
@@ -18519,6 +19454,61 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\neuroscience-biology\\b-neurodegeneration-protein-aggregation.yaml"
+    },
+    {
+      "id": "b-retinal-waves-spontaneous-activity",
+      "title": "Spontaneous correlated activity (retinal waves) in the developing retina drives Hebbian refinement of retinotopic maps in superior colliculus and lateral geniculate nucleus via activity-dependent synaptic plasticity: the spatial correlation structure of the waves encodes positional information that substitutes for visual experience before eye-opening.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Before eye-opening, retinal ganglion cells (RGCs) fire in propagating waves mediated by gap junctions (Stage I) and cholinergic amacrine cells (Stage II) that produce correlated bursts in neighbouring RGCs. The Hebb rule—\"cells that fire together wire together\"—predicts that correlated RGC pairs for",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-retinal-wave-bandwidth-map-resolution-constraint"
+      ],
+      "communication_gap": "Developmental neurobiologists studying retinal waves and computational neuroscientists studying Hebbian learning and map formation publish in separate journals (J. Neurosci., Neuron vs. Neural Computation, PLOS Computational Biology). The information-theoretic framing of retinal waves as a topographic code is underexplored in experimental literature.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Correlated bursting of neighbouring RGCs during a wave",
+          "field_b_term": "Hebb-rule co-activation driving LTP at shared LGN target",
+          "note": "Spatial correlation gradient of waves encodes retinal neighbourhood; Hebb rule reads this gradient"
+        },
+        {
+          "field_a_term": "Retinal wave propagation velocity (~200 μm/s)",
+          "field_b_term": "Spatial bandwidth of activity correlation (sets map resolution)",
+          "note": "Faster waves correlate larger retinal neighbourhoods; slower waves encode finer topography"
+        },
+        {
+          "field_a_term": "Stage II cholinergic waves (ACh-mediated)",
+          "field_b_term": "Critical period analogue: ACh sets gain and spatial extent of correlation",
+          "note": "β2 nicotinic receptor knockout eliminates waves and disrupts retinotopic maps"
+        },
+        {
+          "field_a_term": "Eye-specific segregation in LGN",
+          "field_b_term": "Competitive Hebbian learning: ipsi vs. contra RGC firing decorrelated",
+          "note": "Eyes fire asynchronous waves; anti-correlation drives segregation into laminae"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1126/science.1254927",
+          "note": "Ackman et al. (2012) Science – retinal waves drive retinotopic map refinement in V1 before eye-opening"
+        },
+        {
+          "doi": "10.1016/0092-8674(96)90606-1",
+          "note": "Katz & Shatz (1996) Cell – synaptic activity and development of the visual cortex; wave review"
+        },
+        {
+          "doi": "10.1126/science.7770778",
+          "note": "Meister et al. (1991) Science – first observation of correlated spontaneous activity in retina"
+        },
+        {
+          "doi": "10.1523/JNEUROSCI.2395-07.2007",
+          "note": "Huberman et al. (2007) J. Neurosci. – beta2 nAChR knockout disrupts retinal wave correlation and retinotopy"
+        }
+      ],
+      "last_reviewed": "2026-05-07",
+      "file": "cross-domain\\neuroscience-biology\\b-retinal-waves-spontaneous-activity.yaml"
     },
     {
       "id": "b-anesthesia-consciousness-suppression",
@@ -18828,6 +19818,61 @@
       ],
       "last_reviewed": "2026-05-05",
       "file": "cross-domain\\neuroscience-climate\\b-neural-criticality-climate-tipping.yaml"
+    },
+    {
+      "id": "b-cortical-hierarchy-predictive-coding",
+      "title": "The hierarchical organisation of the cortex implements approximate Bayesian inference: higher areas send predictions (priors) downward and receive prediction errors (likelihood signals) upward, minimising free energy (surprise) in a generative model of sensory inputs — the predictive coding framework of Rao & Ballard (1999) and Friston's free energy principle.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "proposed",
+      "bridge_claim": "Hierarchical Bayesian inference requires propagating predictions from high- level models downward and prediction errors from low-level observations upward. Rao & Ballard (1999) showed that a two-level cortical model where V1 predicts the output of the retina (top-down prediction) and sends residual ",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-mismatch-negativity-bayesian-precision-prediction-error"
+      ],
+      "communication_gap": "The predictive coding framework bridges computational Bayesian inference (AI literature) and laminar cortical neurophysiology (neuroscience literature). Friston's free energy principle (published in Trends in Cognitive Sciences and Nature Reviews Neuroscience) has been critiqued as unfalsifiable; its specific laminar-circuit predictions are tested in a separate experimental literature that does not always engage with the formal Bayesian framework.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Top-down cortical connection (deep layers → lower areas)",
+          "field_b_term": "Prior/prediction message in belief propagation",
+          "note": "Deep layer projections carry generative model predictions; implement the prior P(z|θ)"
+        },
+        {
+          "field_a_term": "Superficial layer prediction error neurons (mismatch response)",
+          "field_b_term": "Likelihood/evidence message propagated up the hierarchy",
+          "note": "Mismatch negativity and oddball responses = large prediction error from violated prior"
+        },
+        {
+          "field_a_term": "Gain modulation by attention (increasing precision of prediction errors)",
+          "field_b_term": "Precision weighting in Bayesian inference (inverse variance of likelihood)",
+          "note": "Attention increases the precision (1/σ²) of sensory signals; equivalent to prior sharpening"
+        },
+        {
+          "field_a_term": "Cortical hierarchy depth (V1→V2→V4→IT→PFC)",
+          "field_b_term": "Depth of the Bayesian generative model hierarchy",
+          "note": "Each cortical area = one level of the generative model; depth enables abstract representation"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1038/nn.2387",
+          "note": "Rao & Ballard (1999) Nature Neuroscience – predictive coding in the visual cortex; hierarchical model"
+        },
+        {
+          "doi": "10.1098/rstb.2005.1622",
+          "note": "Friston (2005) Phil. Trans. R. Soc. B – a theory of cortical responses; free energy principle"
+        },
+        {
+          "doi": "10.1016/j.neuron.2015.09.030",
+          "note": "Keller & Mrsic-Flogel (2018) Neuron – predictive processing: a canonical cortical computation"
+        },
+        {
+          "doi": "10.1038/s41583-019-0275-5",
+          "note": "Friston – a free energy principle for a particular physics; mathematical foundations"
+        }
+      ],
+      "last_reviewed": "2026-05-07",
+      "file": "cross-domain\\neuroscience-cognitive-science\\b-cortical-hierarchy-predictive-coding.yaml"
     },
     {
       "id": "b-backpropagation-synaptic-plasticity",
@@ -23712,6 +24757,61 @@
       "file": "cross-domain\\physics-engineering\\b-semiconductor-lasers-photonics.yaml"
     },
     {
+      "id": "b-shockley-queisser-thermodynamic-limit",
+      "title": "The Shockley-Queisser (SQ) efficiency limit of ~33% for single-junction solar cells is a consequence of the second law of thermodynamics applied to photon statistics: the Carnot-like bound arising from treating the sun as a blackbody at T_sun = 5778 K limits radiative recombination losses, and no single-bandgap cell can exceed η_SQ regardless of material choice.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Shockley & Queisser (1961) derived the efficiency limit using detailed balance: a solar cell in equilibrium emits and absorbs photons; the maximum voltage is set by quasi-Fermi level splitting ΔE_F = qV_oc, which cannot exceed the photon chemical potential μ = hν − TS_photon. Henry (1980) reframed t",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-tandem-cell-thermodynamic-optimum-bandgap-pairing"
+      ],
+      "communication_gap": "Solar cell engineers use the SQ limit as a benchmark without always framing it as a thermodynamic bound analogous to Carnot's theorem. Thermodynamicists studying radiation have not always engaged with photovoltaic engineering details. Henry's 1980 thermodynamic rederivation of the SQ limit is underappreciated in the photovoltaics literature compared to the original Shockley & Queisser paper.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Bandgap energy E_g of the semiconductor absorber",
+          "field_b_term": "Energy threshold for photon absorption (Heaviside filter)",
+          "note": "Photons with hν < E_g are transmitted (sub-bandgap loss); hν > E_g thermalise to E_g"
+        },
+        {
+          "field_a_term": "Open-circuit voltage V_oc (maximum voltage)",
+          "field_b_term": "Photon chemical potential / quasi-Fermi level splitting",
+          "note": "V_oc is set by the balance between photon absorption and radiative recombination emission"
+        },
+        {
+          "field_a_term": "SQ efficiency limit 33% at E_g = 1.34 eV",
+          "field_b_term": "Maximum work from a two-temperature heat engine with photon reservoir",
+          "note": "SQ = Carnot × (absorption efficiency) × (quantum efficiency); thermalisation reduces it to 33%"
+        },
+        {
+          "field_a_term": "Multi-junction tandem cell (N bandgaps)",
+          "field_b_term": "Multi-stage heat engine (each stage harvests a photon energy band)",
+          "note": "N junctions reduce thermalisation loss; N→∞ approaches thermodynamic limit of ~68% at 1 sun"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1063/1.1736034",
+          "note": "Shockley & Queisser (1961) J. Appl. Phys. – detailed balance limit of efficiency of p-n junction solar cells"
+        },
+        {
+          "doi": "10.1063/1.328272",
+          "note": "Henry (1980) J. Appl. Phys. – limiting efficiencies of ideal single and multiple energy gap terrestrial solar cells"
+        },
+        {
+          "doi": "10.1038/nmat4388",
+          "note": "Polman & Atwater (2016) – photonic design principles for ultrahigh-efficiency photovoltaics beyond SQ"
+        },
+        {
+          "doi": "10.1021/acs.jpclett.6b01060",
+          "note": "Geisz et al. – six-junction solar cell; 47.1% efficiency under concentrated sunlight"
+        }
+      ],
+      "last_reviewed": "2026-05-07",
+      "file": "cross-domain\\physics-engineering\\b-shockley-queisser-thermodynamic-limit.yaml"
+    },
+    {
       "id": "b-thermoacoustics-heat-engines",
       "title": "Acoustic pressure oscillations in gas-filled tubes can sustain heat engine and refrigeration cycles with no moving parts, achieving Carnot efficiency in the ideal limit — the thermoacoustic effect bridges acoustic wave physics with classical thermodynamics and has produced practical heat engines with >30% Carnot efficiency.\n",
       "source_domain": "",
@@ -24877,6 +25977,61 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\physics-mathematics\\b-topology-knot-invariants-physics.yaml"
+    },
+    {
+      "id": "b-turbulence-renormalization-group",
+      "title": "Kolmogorov's 1941 scaling law for the turbulent energy spectrum E(k) ~ k^{-5/3} in the inertial range is derived from a renormalization-group (RG) fixed point of the Navier-Stokes equations in momentum space: the RG flow drives the system to a universal scaling regime independent of the large-scale energy injection mechanism.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Kolmogorov (1941) argued that in the inertial range (injection scale L >> l >> dissipation scale η), energy cascades from large to small eddies at a constant rate ε, giving E(k) ~ ε^{2/3} k^{-5/3}. Yakhot & Orszag (1986) derived this using dynamic RG (DRG) applied to the Navier-Stokes equations: int",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-navier-stokes-rg-fixed-point-intermittency-exponents"
+      ],
+      "communication_gap": "Fluid dynamicists and turbulence engineers use the K41 spectrum empirically and Smagorinsky eddy viscosity models without engaging with the RG derivation. Field theorists who developed DRG (Yakhot & Orszag 1986) publish in Physical Review Letters, not in the Journal of Fluid Mechanics where turbulence experimentalists publish.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Turbulent energy spectrum E(k) ~ k^{-5/3}",
+          "field_b_term": "Correlation function at the RG fixed point (power-law scaling)",
+          "note": "Fixed-point scaling gives E(k) ~ k^{-(d+2χ)/z} which equals k^{-5/3} for K41 exponents"
+        },
+        {
+          "field_a_term": "Inertial-range energy cascade (constant flux ε)",
+          "field_b_term": "RG fixed-point flow: marginal operator with zero beta function",
+          "note": "Constant energy flux ↔ zero beta function for the dissipation coupling at the fixed point"
+        },
+        {
+          "field_a_term": "Kolmogorov microscale η = (ν³/ε)^{1/4}",
+          "field_b_term": "RG flow cutoff / ultraviolet scale below which fixed point breaks down",
+          "note": "Molecular viscosity ν terminates the RG cascade at scale η"
+        },
+        {
+          "field_a_term": "Intermittency corrections to K41 (anomalous exponents)",
+          "field_b_term": "Irrelevant operators at the RG fixed point (perturbative corrections)",
+          "note": "Multifractal exponents ζ_p ≠ p/3 arise from corrections to scaling at the RG fixed point"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1103/PhysRevLett.57.1722",
+          "note": "Yakhot & Orszag (1986) PRL – renormalization group analysis of turbulence; derivation of K41 exponents"
+        },
+        {
+          "doi": "10.1063/1.866483",
+          "note": "Yakhot & Orszag (1986) J. Sci. Comput. – renormalisation group and large eddy simulation"
+        },
+        {
+          "doi": "10.1146/annurev.fluid.30.1.275",
+          "note": "Frisch (1995) – turbulence: the legacy of A.N. Kolmogorov; RG and multifractal theory"
+        },
+        {
+          "arxiv": "nlin/0404058",
+          "note": "Eyink & Sreenivasan – Onsager and the theory of hydrodynamic turbulence; RG connections"
+        }
+      ],
+      "last_reviewed": "2026-05-07",
+      "file": "cross-domain\\physics-mathematics\\b-turbulence-renormalization-group.yaml"
     },
     {
       "id": "b-scale-free-networks-criticality",
@@ -27052,6 +28207,61 @@
       "file": "cross-domain\\social-science-biology\\b-cultural-evolution-memetics.yaml"
     },
     {
+      "id": "b-moral-psychology-cooperation-game-theory",
+      "title": "Moral intuitions of fairness (third-party punishment, inequity aversion) are quantitatively predicted by evolutionarily stable strategies in iterated public-goods games with altruistic punishment: the costly punishment instinct evolved to maintain cooperation in groups where purely self-interested free-riding would otherwise dominate.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "proposed",
+      "bridge_claim": "Fehr & Gächter (2002) showed that humans will pay a personal cost to punish unfair players in one-shot public-goods games—a behaviour unexplained by standard self-interest models. Nowak & May (1992) and subsequent evolutionary simulations show that altruistic punishment is an ESS when group size and",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-punishment-threshold-ess-moral-universality"
+      ],
+      "communication_gap": "Moral psychologists (Jonathan Haidt's school) and evolutionary game theorists (Martin Nowak, Karl Sigmund) publish in different journals (Psychological Review, Journal of Personality and Social Psychology vs. Nature, PNAS) and rarely collaborate. The formal mapping from moral foundation universality to ESS robustness has not been derived.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Altruistic third-party punishment (paying to sanction defectors)",
+          "field_b_term": "Costly punishment ESS in public-goods game",
+          "note": "Both sacrifice payoff to maintain group cooperation; evolutionarily stable when c_punishment < (1-ε)Δcooperation"
+        },
+        {
+          "field_a_term": "Inequity aversion (Fehr-Schmidt preference)",
+          "field_b_term": "ESS fairness norm in ultimatum game",
+          "note": "Ultimatum game rejection of unfair splits = enforcement of fairness ESS through credible threat"
+        },
+        {
+          "field_a_term": "Moral disgust toward cheaters (Haidt moral foundation)",
+          "field_b_term": "Emotional mechanism for maintaining conditional cooperation strategy",
+          "note": "Disgust emotion reduces the cognitive load of defection detection; implemention of the TFT strategy"
+        },
+        {
+          "field_a_term": "Cross-cultural universality of fairness intuitions",
+          "field_b_term": "Cross-population robustness of cooperation ESS under diverse payoff structures",
+          "note": "ESS that survives payoff variation = cultural universal; culture-specific norms = locally stable ESSs"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1126/science.1093133",
+          "note": "Fehr & Gächter (2002) Science – altruistic punishment in public goods games; costly punishment instinct"
+        },
+        {
+          "doi": "10.1038/359826a0",
+          "note": "Nowak & May (1992) Nature – evolutionary games and spatial chaos; cooperation on graphs"
+        },
+        {
+          "doi": "10.1126/science.1179721",
+          "note": "Haidt (2007) Science – the new synthesis in moral psychology; moral foundations theory"
+        },
+        {
+          "doi": "10.1038/s41586-019-1099-4",
+          "note": "Henrich et al. – prosociality and punishment across societies; cross-cultural game theory"
+        }
+      ],
+      "last_reviewed": "2026-05-07",
+      "file": "cross-domain\\social-science-biology\\b-moral-psychology-cooperation-game-theory.yaml"
+    },
+    {
       "id": "b-stress-biology-social-determinants",
       "title": "The biology of chronic stress bridges social science and biology: social determinants of health (employment, neighborhood, social status) are biologically embedded via the HPA axis, cortisol dysregulation, telomere shortening, and epigenetic modification — translating social inequality into measurable molecular and cellular damage.\n",
       "source_domain": "",
@@ -27357,6 +28567,61 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\social-science-engineering\\b-human-factors-system-safety.yaml"
+    },
+    {
+      "id": "b-social-contagion-complex-threshold",
+      "title": "The spread of social behaviours (innovation adoption, social movements, voting) requires exposure to multiple independent contacts (complex contagion) unlike disease spread (simple contagion), described by threshold models where adoption occurs when the fraction of adopting neighbours exceeds an individual-specific threshold φ — a fundamentally different dynamic than standard SIR epidemics.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Granovetter (1978) showed that riot or protest participation depends on threshold distributions in populations; the cascade dynamics depend critically on the shape of the threshold distribution φ_i. Centola (2010) demonstrated empirically that complex contagion (requiring multiple exposures) spreads",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-social-movement-cascade-clustered-network-advantage"
+      ],
+      "communication_gap": "Epidemiologists model disease spread with SIR (simple contagion) and apply the same framework to health behaviour change. Sociologists studying social movements use threshold models without connection to network science. Centola (2010) provided the empirical demonstration of the distinction, but adoption of the complex contagion framework in public health practice lags.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Individual adoption threshold φ_i (fraction of neighbours who must adopt first)",
+          "field_b_term": "No equivalent in SIR: binary exposure probability in simple contagion",
+          "note": "Complex contagion requires reinforcement; simple contagion requires single exposure"
+        },
+        {
+          "field_a_term": "Clustered network (high clustering coefficient)",
+          "field_b_term": "Network that provides reinforcing triangles for threshold-exceeding",
+          "note": "Clustering helps complex contagion (redundant exposure) but hinders simple contagion (fewer bridges)"
+        },
+        {
+          "field_a_term": "Global cascade condition (Watts 2002)",
+          "field_b_term": "Epidemic threshold R₀ > 1 in simple contagion",
+          "note": "Both are percolation-type thresholds; cascade condition involves threshold distribution, not just degree"
+        },
+        {
+          "field_a_term": "Weak ties (Granovetter) as bridges for information",
+          "field_b_term": "Long-range edges enabling simple contagion but hindering complex contagion",
+          "note": "Weak ties are bridges that lack the clustering needed for threshold reinforcement in complex contagion"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1086/226707",
+          "note": "Granovetter (1978) AJS – threshold models of collective behavior; cascade dynamics"
+        },
+        {
+          "doi": "10.1126/science.1185231",
+          "note": "Centola (2010) Science – the spread of behavior in an online social network experiment; complex contagion"
+        },
+        {
+          "doi": "10.1103/PhysRevE.70.026116",
+          "note": "Dodds & Watts (2004) PRE – universal behavior in a generalised model of contagion"
+        },
+        {
+          "doi": "10.1073/pnas.252631999",
+          "note": "Watts (2002) PNAS – a simple model of global cascades on random networks"
+        }
+      ],
+      "last_reviewed": "2026-05-07",
+      "file": "cross-domain\\social-science-epidemiology\\b-social-contagion-complex-threshold.yaml"
     },
     {
       "id": "b-cultural-memes-shannon-entropy",
@@ -28954,6 +30219,61 @@
       ],
       "last_reviewed": "2026-05-06",
       "file": "cross-domain\\statistics-physics\\b-bayesian-inference-stat-mech.yaml"
+    },
+    {
+      "id": "b-synthetic-genetics-xna-alphabet",
+      "title": "Xeno-nucleic acids (XNAs) with chemically modified backbones (HNA, CeNA, LNA, FANA, TNA) can store and propagate genetic information through in vitro evolution, demonstrating that the Watson-Crick hydrogen-bonding code is substrate-independent: Darwinian evolution does not require the ribose- phosphate backbone of natural DNA/RNA.\n",
+      "source_domain": "",
+      "target_domain": "",
+      "status": "established",
+      "bridge_claim": "Pinheiro et al. (2012) evolved polymerases capable of transcribing DNA into six different XNAs and back-transcribing XNA into DNA, demonstrating faithful information transfer across the chemical boundary. HNA (hexitol nucleic acid) and FANA (2'F-ANA) aptamers and ribozymes were selected by in vitro ",
+      "open_unknowns": [],
+      "related_hypotheses": [
+        "h-xna-ribozyme-catalytic-efficiency-backbone-independence"
+      ],
+      "communication_gap": "Synthetic organic chemists developing nucleic acid analogues (LNA, phosphorothioate) for therapeutic applications and evolutionary biologists studying the chemical origins of life rarely collaborate. Pinheiro et al. (2012) bridged these communities in Science, but clinical development of XNA therapeutics and origins- of-life research remain siloed.\n",
+      "translation_table": [
+        {
+          "field_a_term": "Ribose-phosphate backbone (DNA/RNA)",
+          "field_b_term": "Hexitol/threose/fluoroarabinose backbone (XNA)",
+          "note": "Different backbone; same Watson-Crick base pairing; same information-theoretic capacity"
+        },
+        {
+          "field_a_term": "DNA polymerase (natural template-directed synthesis)",
+          "field_b_term": "Engineered XNA polymerase (in vitro selected reverse transcriptase)",
+          "note": "XNA polymerases transfer genetic information from XNA to DNA; reverse transcription across chemistries"
+        },
+        {
+          "field_a_term": "Darwinian evolution (mutation + selection + heredity)",
+          "field_b_term": "In vitro selection on XNA libraries (SELEX on XNA)",
+          "note": "XNA aptamers evolve function through same iterative selection mechanism as natural evolution"
+        },
+        {
+          "field_a_term": "DNA sequence space (4^N configurations)",
+          "field_b_term": "XNA sequence space with same four bases; different backbone flexibility",
+          "note": "Both implement a 4-letter alphabet; backbone rigidity changes the fitness landscape geometry"
+        }
+      ],
+      "references": [
+        {
+          "doi": "10.1126/science.1221558",
+          "note": "Pinheiro et al. (2012) Science – genetic encoding and chemical evolution of six XNAs; Darwinian XNA evolution"
+        },
+        {
+          "doi": "10.1038/nature12343",
+          "note": "Malyshev et al. (2014) Nature – a semi-synthetic organism with an expanded genetic alphabet (d5SICS/dNaM)"
+        },
+        {
+          "doi": "10.1038/nchem.1929",
+          "note": "Taylor et al. (2015) Nature Chemistry – catalysts from synthetic genetic polymers; HNA ribozymes"
+        },
+        {
+          "doi": "10.1126/science.1213351",
+          "note": "Benner – defining life; synthetic biology and origins of life: genetic letters"
+        }
+      ],
+      "last_reviewed": "2026-05-07",
+      "file": "cross-domain\\synthetic-biology-chemistry\\b-synthetic-genetics-xna-alphabet.yaml"
     },
     {
       "id": "b-carbon-capture-entropy-cost",

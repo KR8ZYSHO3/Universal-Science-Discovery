@@ -1,0 +1,67 @@
+id: b-evolutionary-graph-fixation-probability
+title: >
+  The fixation probability of a mutant in a structured population is governed
+  by the topology of the evolutionary graph: Lieberman, Hauert & Nowak (2005)
+  proved that certain graph topologies act as amplifiers of selection (suppressing
+  drift) while others suppress selection (amplifying drift), with complete graphs
+  recovering the Moran process fixation probability ρ = (1 − 1/r)/(1 − 1/r^N).
+status: established
+fields:
+  - evolutionary-biology
+  - mathematics
+  - graph-theory
+  - population-genetics
+bridge_claim: >
+  In the classical Moran process, a mutant with fitness r in a population of
+  N individuals fixes with probability ρ_Moran = (1 − 1/r)/(1 − 1/r^N). When
+  individuals occupy nodes of a graph and reproduction/replacement follows the
+  graph edges, the fixation probability changes. Lieberman et al. (2005) showed
+  that the star graph (one hub connected to N−1 leaves) amplifies selection:
+  ρ_star ≈ (1 − 1/r²)/(1 − 1/r^{2N}) > ρ_Moran for r > 1. Conversely,
+  suppressing topologies reduce ρ below the drift baseline. The result
+  generalises the Hardy-Weinberg and Moran models to arbitrary spatial structure,
+  connecting graph theory to population genetics.
+translation_table:
+  - field_a_term: "Graph vertex = individual in the structured population"
+    field_b_term: "Individual in spatially structured population genetics model"
+    note: "Graph topology encodes the connectivity (migration/competition) structure"
+  - field_a_term: "Star graph: amplifier of selection"
+    field_b_term: "Hierarchically structured population favouring beneficial mutant fixation"
+    note: "ρ_star > ρ_Moran for r > 1; selection is more effective on star than on complete graph"
+  - field_a_term: "Complete graph = Moran process (all-to-all competition)"
+    field_b_term: "Well-mixed (unstructured) population with random mating"
+    note: "Identical fixation probability; spatial structure reduces to mean-field limit"
+  - field_a_term: "Fixation probability as function of graph eigenspectrum"
+    field_b_term: "Effective population size N_e as function of migration matrix"
+    note: "Both relate population-genetic outcomes to algebraic graph properties"
+related_unknowns:
+  - u-evolutionary-graph-amplifier-natural-populations
+related_hypotheses:
+  - h-social-network-star-topology-innovation-fixation
+cross_pollination_opportunities:
+  - >
+    Evolutionary graph theory can be applied to somatic evolution in cancer:
+    the tissue architecture (stem cell hierarchies, spatial organisation)
+    determines whether beneficial (oncogenic) mutations fix or are eliminated.
+    Identifying which tissue architectures act as suppressors of (somatic) selection
+    could explain differential cancer incidence across tissues.
+  - >
+    Social network topology analysis (real social networks are scale-free, not
+    star graphs) can quantify how effectively human populations fix cultural
+    innovations or beneficial traits relative to a well-mixed population baseline.
+communication_gap: >
+  The Moran process is a standard tool in population genetics textbooks.
+  Graph-structured evolutionary dynamics (Lieberman 2005) bridged population
+  genetics and graph theory in Nature but has been slowly adopted in empirical
+  evolutionary biology. Phylogeographers studying geographic structure and
+  population geneticists rarely use graph-theoretic amplifier/suppressor concepts.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1038/nature03277"
+    note: "Lieberman, Hauert & Nowak (2005) Nature – evolutionary dynamics on graphs; amplifiers and suppressors"
+  - doi: "10.1126/science.1133755"
+    note: "Nowak (2006) Science – five rules for the evolution of cooperation on graphs"
+  - doi: "10.1073/pnas.1100921108"
+    note: "Shakarian et al. – review of evolutionary graph theory; fixation probabilities on diverse topologies"
+  - doi: "10.1038/s41586-021-04440-z"
+    note: "Tkadlec et al. (2021) – limits on amplifiers of natural selection under death-birth updating"
