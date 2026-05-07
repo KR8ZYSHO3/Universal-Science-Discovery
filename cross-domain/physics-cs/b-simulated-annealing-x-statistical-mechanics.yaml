@@ -1,0 +1,42 @@
+id: b-simulated-annealing-x-statistical-mechanics
+title: >
+  Simulated annealing x Statistical mechanics — optimization as cooling
+status: proposed
+fields:
+  - physics
+  - computer-science
+  - statistical-mechanics
+bridge_claim: >
+  Simulated annealing solves combinatorial optimization by mimicking thermal annealing:
+  accepting uphill moves with probability exp(-delta_E/T) and slowly reducing T; this is
+  exactly the Metropolis-Hastings MCMC algorithm for sampling the Boltzmann distribution,
+  making the convergence guarantee equivalent to the third law of thermodynamics — the
+  system reaches the global minimum as T -> 0 if cooled slowly enough.
+translation_table:
+  - field_a_term: temperature T in annealing schedule (optimization)
+    field_b_term: thermal energy kT in Boltzmann distribution (statistical mechanics)
+    note: The annealing schedule T(t) plays the role of physical temperature; slower cooling allows better equilibration at each T
+  - field_a_term: objective function / cost E(x) (optimization)
+    field_b_term: Hamiltonian / energy function H(x) (statistical mechanics)
+    note: The cost function is treated as an energy landscape; minimizing cost maps to finding the ground state
+  - field_a_term: Metropolis acceptance criterion exp(-delta_E/T) (optimization)
+    field_b_term: detailed balance in Markov chain for Boltzmann distribution (stat mech)
+    note: The Metropolis criterion ensures the Markov chain has the Boltzmann distribution as its stationary distribution
+  - field_a_term: global minimum of cost function (optimization)
+    field_b_term: ground state of physical system (statistical mechanics)
+    note: The third law of thermodynamics (entropy -> 0 as T -> 0) guarantees the system reaches the ground state under infinitely slow cooling
+communication_gap: >
+  Operations researchers developing combinatorial optimization and physicists studying thermal
+  equilibration both work with energy landscapes but rarely collaborated; Kirkpatrick et al.
+  (1983) explicitly imported the Metropolis algorithm from physics, but the quantitative
+  connection to statistical mechanics phase transitions in optimization (e.g., replica method)
+  was developed primarily by physicists.
+cross_pollination_opportunities:
+  - Apply spin glass replica method from statistical mechanics to predict phase transitions in optimization hardness for random satisfiability and TSP instances
+  - Use quantum annealing (quantum fluctuations instead of thermal fluctuations) as an analog to imaginary-time quantum Monte Carlo for solving combinatorial optimization
+related_unknowns:
+  - u-simulated-annealing-x-statistical-mechanics
+references:
+  - doi: "10.1126/science.220.4598.671"
+    note: "Kirkpatrick et al. (1983) - Optimization by simulated annealing; Science 220:671"
+last_reviewed: "2026-05-07"

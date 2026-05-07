@@ -1,0 +1,41 @@
+id: b-phylogenetics-x-coalescent-theory
+title: >
+  Phylogenetics x Coalescent theory — gene tree as reverse-time branching process
+status: proposed
+fields:
+  - biology
+  - mathematics
+  - evolutionary-biology
+bridge_claim: >
+  Kingman's coalescent describes how ancestral lineages merge going backward in time in
+  a population of size N; the coalescent rate (1/N per pair of lineages per generation)
+  determines phylogenetic branch lengths and enables Bayesian molecular clock dating —
+  connecting population genetics to the branching processes of probability theory and
+  enabling joint inference of population history and mutation rates from sequence data.
+translation_table:
+  - field_a_term: phylogenetic tree branch length (evolutionary biology)
+    field_b_term: coalescent waiting time ~ Exp(C(k,2)/N) (probability theory)
+    note: The expected time for k lineages to coalesce to k-1 is N/(k(k-1)/2) generations; branch length encodes population size
+  - field_a_term: most recent common ancestor (MRCA) (phylogenetics)
+    field_b_term: absorption state of coalescent Markov chain (probability theory)
+    note: The MRCA corresponds to coalescence of all lineages to one; the time to MRCA is the sum of all coalescent waiting times
+  - field_a_term: population bottleneck (evolutionary biology)
+    field_b_term: reduction in N causing accelerated coalescent rate (probability theory)
+    note: Bottlenecks dramatically shorten branch lengths by increasing the coalescent rate, producing star-shaped phylogenies
+  - field_a_term: recombination in population genetics (biology)
+    field_b_term: ancestral recombination graph (ARG) (mathematics)
+    note: Recombination extends the coalescent to the ARG, where lineages can split as well as merge going backward in time
+communication_gap: >
+  Evolutionary biologists studying phylogenetics and probabilists studying branching processes
+  worked separately until Kingman's 1982 coalescent provided the rigorous mathematical foundation;
+  Bayesian phylogenetic software (BEAST, MrBayes) brought the framework to empirical biology
+  but the connection to general continuous-time Markov chain theory is rarely explicit.
+cross_pollination_opportunities:
+  - Apply coalescent theory to infer pandemic SARS-CoV-2 transmission networks and population size fluctuations from genomic surveillance data
+  - Use ancestral recombination graph inference to map recombination hotspots and haplotype structure in human population genomics at biobank scale
+related_unknowns:
+  - u-phylogenetics-x-coalescent-theory
+references:
+  - doi: "10.1016/0304-4149(82)90011-4"
+    note: "Kingman (1982) - The coalescent; Stochastic Processes and their Applications 13:235"
+last_reviewed: "2026-05-07"

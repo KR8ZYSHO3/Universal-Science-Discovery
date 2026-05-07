@@ -1,0 +1,28 @@
+id: h-graph-neural-network-x-spectral-graph-theory
+title: >
+  GNNs using learned spectral filters over the full graph Laplacian spectrum will
+  outperform spatial message-passing GNNs on molecular property prediction tasks
+  requiring long-range electronic effects (HOMO-LUMO gap, ionization potential)
+status: active
+created: "2026-05-07"
+last_updated: "2026-05-07"
+priority: medium
+impact_score: 0.72
+author: wave-61-agent
+unknowns_addressed:
+  - u-graph-neural-network-x-spectral-graph-theory
+related_disciplines:
+  - computer-science
+  - mathematics
+  - machine-learning
+evidence_links:
+  - type: supporting
+    doi: "10.48550/arXiv.1609.02907"
+    note: "Kipf & Welling (2017) - Semi-supervised classification with GCN; arXiv:1609.02907"
+    confidence: 0.75
+  - type: related
+    note: "Kreuzer et al. (2021) - Rethinking graph transformers with spectral attention; NeurIPS 2021; arXiv:2106.03893"
+    confidence: 0.76
+proposed_tests:
+  - description: Train spectral GNN (using top-k Laplacian eigenvectors as positional encodings) vs spatial MPNN on QM9 molecular dataset and measure MAE for HOMO-LUMO gap prediction
+  - description: Analyze learned spectral filter response functions in trained GNNs and verify that long-range properties (dipole moment, HOMO-LUMO) require low-frequency Laplacian modes
