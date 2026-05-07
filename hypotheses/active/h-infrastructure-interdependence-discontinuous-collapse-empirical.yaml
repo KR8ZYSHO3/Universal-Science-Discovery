@@ -1,0 +1,47 @@
+id: h-infrastructure-interdependence-discontinuous-collapse-empirical
+title: >
+  Real urban power-grid/internet interdependency networks have a partial-dependence
+  fraction q below the critical threshold q_c for discontinuous percolation, meaning
+  real cascade failures are continuous (not abrupt) and real-time variance monitoring
+  of grid frequency deviation provides measurable early-warning signals ≥10 minutes
+  before cascade onset.
+status: active
+priority: high
+impact_score: 0.77
+created: "2026-05-06"
+last_updated: "2026-05-06"
+author: USDR
+unknowns_addressed:
+  - u-interdependent-network-early-warning-cascade
+evidence_links:
+  - type: supporting
+    note: "Buldyrev et al. (2010) — partial interdependence (q < 1) smooths the phase transition; geographic redundancy in US power grid suggests effective q ≈ 0.6–0.8, potentially below q_c for the observed network topology"
+    confidence: 0.60
+  - type: supporting
+    note: "Pourbeik et al. (2006) — 2003 blackout analysis shows ~10 minute period of rising instability (line trips, voltage oscillations) before cascade; consistent with early-warning signal in continuous or near-continuous transition"
+    confidence: 0.70
+  - type: related
+    note: "Scheffer et al. (2009) Nature — critical slowing down provides early-warning in ecology; variance increase and autocorrelation rise detected 10–100 time steps before regime shift; applicable if grid transition is continuous"
+    confidence: 0.65
+  - type: contradicting
+    note: "Gao et al. (2011) — even small interdependency fractions produce discontinuous transitions in uncorrelated random graphs; real networks may have structural correlations that do not smooth the transition"
+    confidence: 0.55
+proposed_tests:
+  - description: >
+      Map empirical US power grid (EIA Form 861 topology) and internet router graph
+      (CAIDA AS-level data) interdependency by SCADA control links. Compute effective
+      interdependency fraction q from the fraction of power substations controlled by
+      internet-connected SCADA systems with internet-only backup. Calculate theoretical
+      q_c from the Buldyrev equations for the observed degree distributions. Test:
+      q < q_c → continuous transition prediction.
+  - description: >
+      Re-analyse 2003 Northeast Blackout PMU data (public NERC data) for early-warning
+      signals: compute variance of frequency deviation (Hz²) and first-lag autocorrelation
+      of ROCOF (rate of change of frequency) in 5-minute windows for 60 minutes pre-
+      collapse. Prediction: rising variance + autocorrelation detectable ≥10 min before
+      first line trip in Ohio (08:02 EDT), providing an actionable early-warning window.
+related_disciplines:
+  - engineering
+  - network-science
+  - complexity-science
+  - physics

@@ -1,0 +1,54 @@
+id: u-interdependent-network-early-warning-cascade
+title: >
+  Are there measurable early-warning signals (critical slowing down, variance increase,
+  autocorrelation rise) that precede catastrophic cascade failures in interdependent
+  infrastructure networks, enabling real-time detection of approach to the discontinuous
+  percolation threshold before collapse?
+status: open
+priority: critical
+disciplines:
+  - engineering
+  - network-science
+  - complexity-science
+  - physics
+summary: >
+  Buldyrev et al. (2010) showed that interdependent networks undergo a first-order
+  (discontinuous) phase transition — unlike single networks which show continuous
+  (second-order) degradation with well-known early-warning signals (critical slowing
+  down, diverging susceptibility). For discontinuous transitions, the standard early-
+  warning indicators from dynamical systems theory (rising variance, increasing
+  autocorrelation, declining return rate after perturbation) may not apply because
+  there is no diverging correlation length approaching the transition. This creates a
+  fundamental detection problem: the 2003 blackout showed no warning before rapid
+  collapse. Key question: can hybrid (continuous + discontinuous) interdependency
+  structures exhibit detectable precursors? Some theoretical work suggests that
+  partial interdependencies (with overlap — some nodes depend on multiple networks)
+  smooth the transition toward continuous, potentially restoring early-warning signals.
+  Empirical tests using smart grid sensor data (PMUs — phasor measurement units) and
+  internet BGP routing tables have not been conducted to test these predictions.
+systematic_gaps:
+  - Whether real power-grid/internet interdependency structure produces a truly
+    discontinuous transition or a smoothed near-discontinuous one (due to partial
+    interdependence, geographic heterogeneity) has not been determined from empirical
+    network data.
+  - PMU (phasor measurement unit) data from the 2003 blackout and subsequent events
+    has not been re-analysed for early-warning signals using complex network metrics.
+  - Theoretical early-warning indicators for first-order network transitions have not
+    been derived from the percolation formalism and compared to continuous-transition
+    indicators.
+suggested_hypotheses:
+  - >
+    In partially interdependent networks (fraction q < 1 of nodes depend on the other
+    network), the percolation transition smooths from first-order to continuous below
+    a critical interdependency fraction q_c; above q_c, variance-based early-warning
+    signals fail. Empirical power-grid topologies have q < q_c due to geographic
+    redundancy, meaning real-time variance monitoring of grid frequency deviation should
+    provide ~10-minute early warning of cascade onset.
+related_bridges:
+  - b-infrastructure-cascade-failures
+references:
+  - doi: "10.1038/nature08932"
+    note: "Buldyrev et al. (2010) Nature 464:1025"
+  - doi: "10.1038/nphys2180"
+    note: "Gao et al. (2011) Nat Phys 8:40"
+last_reviewed: "2026-05-06"

@@ -1,0 +1,90 @@
+id: b-robust-control-h-infinity
+title: >
+  H∞ optimal control minimises worst-case L²-induced gain ||T_{zw}||∞ ≤ γ via Riccati
+  equations or LMI convex optimisation; equals a minimax Nash game between controller
+  and adversarial disturbance; achieves 10 nm precision in hard-disk heads and flutter
+  suppression in aircraft through structured uncertainty μ-synthesis.
+status: established
+fields:
+  - mathematics
+  - engineering
+  - control-theory
+  - optimization
+  - game-theory
+bridge_claim: >
+  Classical LQR/LQG control minimises expected quadratic cost E[∫(x'Qx + u'Ru)dt] —
+  optimal for Gaussian disturbances, but brittle to model uncertainty or adversarial
+  inputs. H∞ control (Zames 1981) instead minimises the worst-case disturbance-to-output
+  gain: ||T_{zw}||∞ = sup_{ω} σ_max[T_{zw}(jω)], the H∞ norm of the closed-loop
+  transfer matrix. This is the maximum RMS amplification over all sinusoidal disturbances
+  and all disturbance power spectra — a minimax robustness criterion.
+
+  Game-theoretic duality: the H∞ problem is equivalent to a two-player zero-sum
+  differential game (Basar & Bernhard 1995). The controller u is the minimiser;
+  the disturbance w is the maximiser. The Nash equilibrium of this game gives the
+  optimal H∞ controller — and the optimal adversarial disturbance, which is the
+  worst-case input the controller must be robust to. Solution: two coupled Riccati
+  equations (DGKF solution, Doyle et al. 1989) or, equivalently, a linear matrix
+  inequality (LMI) feasibility problem — convex, solvable by interior-point methods.
+
+  Small-gain theorem: a closed-loop system with plant P and controller C is internally
+  stable if ||P||·||C|| < 1 under structured perturbations — giving an analytic
+  robustness certificate without simulation. μ-synthesis (structured singular value μ)
+  extends this to handle structured block-diagonal uncertainty Δ = diag(Δ₁, …, Δₙ),
+  solving min_C max_Δ μ[F_l(M, Δ)] by alternating D-K scaling iterations.
+
+  Applications: (1) Hard disk drive read-write head positioning — track-following at
+  10 nm precision with 5400-15000 RPM spindle vibration disturbances; H∞ is the
+  standard industrial design method. (2) Aircraft flutter suppression — active control
+  of aeroelastic instability at transonic speeds using H∞ controllers that are
+  guaranteed robust to 30% variation in aerodynamic parameters. (3) Autonomous vehicle
+  lateral stability — H∞ guarantees stability for a ±20% tire parameter uncertainty set.
+translation_table:
+  - field_a_term: H∞ norm ||T_{zw}||∞ (worst-case gain over all frequencies)
+    field_b_term: maximum adversarial disturbance amplification — robustness margin
+  - field_a_term: minimax differential game (controller vs. disturbance)
+    field_b_term: Nash equilibrium of zero-sum two-player control game
+  - field_a_term: Riccati equation solution (DGKF state-space formulas)
+    field_b_term: Hamilton-Jacobi-Isaacs PDE solution of the differential game
+  - field_a_term: LMI (linear matrix inequality) feasibility
+    field_b_term: convex optimisation certificate for robust stability
+  - field_a_term: structured singular value μ (μ-synthesis)
+    field_b_term: tightest robustness bound for block-structured model uncertainty
+  - field_a_term: small-gain theorem ||P||·||C|| < 1
+    field_b_term: Banach contraction mapping theorem applied to feedback loop
+related_unknowns:
+  - u-h-infinity-nonlinear-systems-computational-tractability
+related_hypotheses:
+  - h-robust-control-lmi-neural-network-stability-certificates
+cross_pollination_opportunities:
+  - >
+    Neural network stability certificates: the H∞/LMI framework provides a principled
+    way to certify input-output stability of neural networks (viewed as uncertain
+    nonlinear systems), via incremental multiplier-based Lyapunov analysis. Connecting
+    robust control theory to deep learning verification could produce certified-safe
+    neural controllers for autonomous systems — a direct mathematics-engineering-
+    computer-science bridge that is currently under-developed.
+  - >
+    Biological motor control: the cerebellum may implement something analogous to
+    H∞ optimal control — forward models that predict sensory consequences of actions
+    under uncertainty, with the cerebellum minimising prediction error under worst-case
+    noise. Mapping the H∞ game-theoretic formulation to cerebellar circuit architecture
+    could test whether neural circuits implement minimax rather than Bayesian-optimal
+    controllers.
+communication_gap: >
+  H∞ control theory was developed by control theorists (IEEE Trans Autom Control,
+  Automatica, SIAM J Control Optim) and immediately adopted by aerospace and disk-drive
+  engineers. Game theorists studying Nash equilibria in economics rarely engage with the
+  H∞/DGKF differential game formulation despite formal identity. The LMI convex
+  optimisation connection (Boyd et al. 1994 book) bridged control theory and
+  optimisation, but remains largely unknown outside the control community. Neuroscientists
+  studying motor control rarely read H∞ literature.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1109/TAC.1981.1102603"
+    note: "Zames (1981) IEEE Trans Autom Control 26:301 — feedback and optimal sensitivity"
+  - doi: "10.1109/9.29425"
+    note: "Doyle et al. (1989) IEEE Trans Autom Control 34:831 — state-space solutions to H2 and H∞ control"
+  - note: "Zhou et al. (1996) Robust and Optimal Control — Prentice Hall"
+  - doi: "10.1016/0005-1098(93)90175-S"
+    note: "Packard & Doyle (1993) Automatica 29:71 — complex structured singular value"

@@ -1,0 +1,87 @@
+id: b-infrastructure-cascade-failures
+title: >
+  Buldyrev's interdependent network model predicts catastrophic discontinuous phase
+  transitions in coupled infrastructure systems (power-grid/internet) — unlike single
+  networks which fail gradually — proven by the 2003 Northeast Blackout (256 plants,
+  55M people) and formalised as NP-hard minimum-cost resilience recovery.
+status: established
+fields:
+  - engineering
+  - social-science
+  - network-science
+  - physics
+  - complexity-science
+bridge_claim: >
+  Single-network percolation theory: a random graph with mean degree ⟨k⟩ has a giant
+  connected component above a critical fraction p_c of remaining nodes — removal of
+  (1−p_c) nodes causes gradual degradation. The 2003 Northeast Blackout demonstrated
+  that real infrastructure is not a single network: a software bug in Ohio (FirstEnergy
+  SCADA system failure) caused incorrect operator decisions → 3 high-voltage lines
+  tripped → cascade of 256 power plants tripped → 55 million people lost power in
+  8 minutes across the northeastern US and Canada. The interdependence: power grid
+  depends on the internet for supervisory control (SCADA), internet routers depend on
+  the power grid for electricity.
+
+  Buldyrev et al. (2010): in interdependent networks A and B (where each node in A
+  requires a functioning node in B and vice versa), the cascade failure is catastrophic
+  and discontinuous. Starting from a fraction p of A-nodes, each round of failure
+  propagates through B and back to A. The giant component collapses via a first-order
+  (discontinuous) phase transition at a critical p_c much larger than either network
+  alone: p_c = 1/⟨k⟩ for a single network vs. p_c substantially higher for interdependent
+  pairs. This discontinuity means the system appears fully functional until suddenly
+  collapsing — no early warning from gradual degradation.
+
+  Resilience metric (Bruneau et al. 2003): R = ∫₀^∞ Q(t)dt, where Q(t) ∈ [0,1] is
+  system functionality — the "resilience triangle" area between nominal and degraded
+  performance over time. Recovery optimization — minimum cost restoration of connectivity
+  — is NP-hard (maps to a variant of Steiner tree problem on interdependent graphs).
+  Social consequence modeling: infrastructure failures disproportionately harm vulnerable
+  populations (elderly, low-income) who lack backup resources, mapping network centrality
+  onto social inequality metrics.
+translation_table:
+  - field_a_term: giant connected component in random graph (percolation theory)
+    field_b_term: fraction of population with access to power / internet services
+  - field_a_term: first-order phase transition in interdependent network percolation
+    field_b_term: catastrophic infrastructure collapse (abrupt, non-gradual failure)
+  - field_a_term: critical fraction p_c (percolation threshold)
+    field_b_term: minimum system redundancy required to prevent cascade collapse
+  - field_a_term: interdependency links between network A and B
+    field_b_term: SCADA control dependency of power grid on internet
+  - field_a_term: resilience integral R = ∫Q(t)dt
+    field_b_term: total service disruption (person-hours without power/water)
+  - field_a_term: Steiner tree minimum spanning recovery (NP-hard)
+    field_b_term: optimal infrastructure repair sequencing under budget constraint
+related_unknowns:
+  - u-interdependent-network-early-warning-cascade
+related_hypotheses:
+  - h-infrastructure-interdependence-discontinuous-collapse-empirical
+cross_pollination_opportunities:
+  - >
+    Network epidemiology and infrastructure resilience share the same percolation
+    formalism — contact tracing (epidemiology) and critical node removal (infrastructure)
+    both seek to identify nodes whose removal changes the phase transition threshold.
+    Joint modelling could identify infrastructure failures that trigger social cascades
+    (e.g., hospital power failure during epidemic) using the same theoretical framework.
+  - >
+    Real-time satellite imagery and IoT sensor networks now provide data to build
+    empirical interdependency maps of urban infrastructure — enabling the first
+    direct test of whether real cities have interdependency structures that predict
+    the discontinuous Buldyrev transition, versus smoother degradation patterns.
+communication_gap: >
+  Network science (physics) and infrastructure engineering have separate literatures
+  (Phys Rev Lett vs. IEEE Trans Power Systems), separate conferences, and separate
+  funding agencies (NSF Physics vs. DOE/DHS). After the 2003 blackout, the NERC
+  investigation was conducted by power engineers who did not cite percolation theory;
+  the Buldyrev paper appeared in Nature (2010) but was not immediately incorporated
+  into NERC reliability standards or FEMA resilience frameworks. The social science
+  dimension (who bears the cost of failures) is studied by sociologists and public
+  policy researchers who rarely engage with the network topology literature.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1038/nature08932"
+    note: "Buldyrev et al. (2010) Nature 464:1025 — catastrophic cascade failures in interdependent networks"
+  - note: "Pourbeik et al. (2006) IEEE Power Energy Mag 4:22 — the anatomy of a power grid blackout (2003)"
+  - doi: "10.1193/1.1623497"
+    note: "Bruneau et al. (2003) Earthquake Spectra 19:733 — framework to quantitatively assess seismic resilience"
+  - doi: "10.1038/nphys2180"
+    note: "Gao et al. (2011) Nat Phys 8:40 — robustness of a network of networks"

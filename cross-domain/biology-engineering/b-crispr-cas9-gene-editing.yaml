@@ -1,0 +1,88 @@
+id: b-crispr-cas9-gene-editing
+title: >
+  CRISPR-Cas9 programmable endonuclease — guided by 20-nt sgRNA to a PAM-adjacent
+  target — creates precise double-strand breaks repaired by NHEJ or HDR, enabling
+  base editors (A→G without DSB) and prime editors (any 12-nt change via reverse
+  transcriptase) now entering clinical use for sickle cell disease (FDA 2023).
+status: established
+fields:
+  - biology
+  - engineering
+  - synthetic-biology
+  - medicine
+  - genomics
+bridge_claim: >
+  The CRISPR-Cas9 system (Doudna-Charpentier Nobel 2020) repurposes a prokaryotic
+  adaptive immune mechanism as a precision genome-engineering tool. The single-guide
+  RNA (sgRNA) — a fusion of CRISPR RNA (crRNA) and trans-activating crRNA (tracrRNA) —
+  directs the Cas9 endonuclease to a 20-nucleotide DNA target sequence adjacent to a
+  protospacer adjacent motif (PAM; 5′-NGG-3′ for SpCas9 from S. pyogenes). Cas9 unwinds
+  the DNA duplex, performs R-loop formation, and upon PAM recognition and full crRNA:DNA
+  complementarity, cleaves both strands via the RuvC and HNH nuclease domains, creating
+  a blunt double-strand break (DSB) 3 bp upstream of the PAM.
+
+  Repair pathways determine outcome: non-homologous end joining (NHEJ) introduces
+  indels (insertions/deletions) at ~50-90% efficiency → frameshift mutation → knockout.
+  Homology-directed repair (HDR) with a supplied template achieves precise edits at
+  ~1-10% efficiency in dividing cells. The engineering challenge: HDR efficiency is low
+  in post-mitotic cells (neurons, cardiomyocytes) because HDR requires S/G2 phase.
+
+  Next-generation editors transcend the DSB paradigm: (1) Base editors (Liu lab, 2016):
+  Adenine Base Editor (ABE) fuses deaminase to nCas9 (nickase) → converts A→G in a
+  ~4-8 nt editing window without DSB; corrects 12 of 12 most common pathogenic point
+  mutations. (2) Prime editing (Anzalone 2019): pegRNA encodes both target sequence and
+  desired edit; nCas9-RT nick creates a 3′ flap that reverse-transcribes the pegRNA
+  edit sequence → any 12-nt substitution, insertion, or deletion with minimal off-targets
+  (<0.1% in many loci). Clinical translation: exa-cel (exagamglogene autotemcel / CTX001)
+  — BCL11A enhancer disruption to reactivate fetal hemoglobin in sickle cell disease and
+  β-thalassemia — received FDA approval December 2023 (first CRISPR therapy approved).
+translation_table:
+  - field_a_term: PAM-adjacent 20-nt target sequence
+    field_b_term: address register in a programmable processor
+    note: changing the sgRNA sequence reprograms the cut site — modular design principle
+  - field_a_term: Cas9 RuvC + HNH nuclease domains
+    field_b_term: dual cutting-head in a molecular scissors machine
+  - field_a_term: NHEJ repair (error-prone, fast)
+    field_b_term: destructive write (delete/disrupt) operation
+  - field_a_term: HDR repair with template (precise, slow)
+    field_b_term: exact overwrite (replace) operation with specified payload
+  - field_a_term: adenine base editor (ABE) — deaminase fused to nCas9
+    field_b_term: single-base chemical converter — targeted point mutation repair
+  - field_a_term: prime editor pegRNA + nCas9-RT
+    field_b_term: search-and-replace molecular text editor
+related_unknowns:
+  - u-crispr-hdr-efficiency-post-mitotic-cells
+related_hypotheses:
+  - h-prime-editing-hdr-bypass-therapeutic-window
+cross_pollination_opportunities:
+  - >
+    Protein engineering (directed evolution, AlphaFold) applied to Cas9 orthologs
+    could map the PAM-recognition loop to engineer compact Cas9 variants (SaCas9,
+    CjCas9) with alternative PAM requirements — covering the 30% of disease-relevant
+    loci inaccessible to SpCas9 NGG-PAM. This is a protein engineering problem
+    requiring structural biology + combinatorial screening methods.
+  - >
+    Prime editing efficiency is limited by competition between the 3′ flap
+    (desired edit) and the 5′ flap (original sequence) — resolved by the endogenous
+    flap endonuclease FEN1. Engineering the pegRNA to recruit FEN1 or using
+    PE5max + MLH1 dominant negative (PE6) could push HDR-free editing to >50%
+    in therapeutic targets, requiring synthetic biology + protein engineering co-design.
+communication_gap: >
+  CRISPR research spans microbiology (discovery), structural biology (mechanism),
+  protein engineering (optimization), clinical medicine (translation), and bioethics
+  (governance) — communities with largely separate publication venues (Nature, Science,
+  Cell, NEJM, Nature Biotech) and conferences. The 2018 He Jiankui affair (germline
+  editing) has further siloed basic researchers from clinical translation due to
+  regulatory uncertainty. Engineering principles (off-target scoring, delivery vehicle
+  design) are developed by biotech companies and often not published in peer-reviewed
+  literature, creating a science-industry knowledge gap.
+last_reviewed: "2026-05-06"
+references:
+  - doi: "10.1126/science.1225829"
+    note: "Jinek et al. (2012) Science 337:816 — Cas9 programmable dual-RNA guided DNA endonuclease"
+  - doi: "10.1126/science.1231143"
+    note: "Cong et al. (2013) Science 339:819 — multiplex genome engineering using CRISPR/Cas systems"
+  - doi: "10.1038/nature17946"
+    note: "Komor et al. (2016) Nature 533:420 — programmable editing of a target base in genomic DNA without DSB"
+  - doi: "10.1038/s41586-019-1711-4"
+    note: "Anzalone et al. (2019) Nature 576:149 — search-and-replace genome editing without DSBs or donor DNA"
