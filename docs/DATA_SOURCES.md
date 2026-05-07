@@ -82,6 +82,30 @@ GET https://api.openalex.org/works?filter=concepts.id:C12345|C67890&per-page=50
 
 ---
 
+## Automated Harvest Pipeline
+
+The weekly GitHub Actions workflow (`.github/workflows/harvest-openalex.yml`) runs every Monday at 6am UTC:
+
+1. Queries OpenAlex for papers spanning 15 cross-domain concept pairs
+2. Queries PubMed for 10 biomedical bridge areas
+3. Runs `generate_bridge_stubs.py` on top candidates (≥1,000 citations)
+4. Commits stubs to `drafts/bridges/` via auto-PR for human review
+5. Stubs contain FILL_IN fields — a domain expert completes them and moves to `cross-domain/`
+
+This creates a continuous pipeline: literature → candidates → stubs → reviewed bridges.
+
+The stub generator (`scripts/harvesters/generate_bridge_stubs.py`) can also be run locally:
+
+```bash
+python scripts/harvesters/generate_bridge_stubs.py \
+    --input drafts/openalex_candidates.json \
+    --output drafts/bridges/ \
+    --top 20 \
+    --min-citations 5000
+```
+
+---
+
 ## Quality and Ethics
 
 All harvested content:
