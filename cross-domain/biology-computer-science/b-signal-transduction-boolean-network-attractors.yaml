@@ -1,0 +1,49 @@
+id: b-signal-transduction-boolean-network-attractors
+title: >
+  Intracellular signal transduction networks behave as Boolean networks whose attractors
+  correspond to stable cell fates, mapping cell-state decisions onto the computational
+  theory of finite-state automata and attractor basins.
+status: established
+fields:
+  - cell-biology
+  - computer-science
+bridge_claim: >
+  A signal transduction network can be abstracted as a Boolean network: each protein
+  is a node (active=1, inactive=0) whose state is updated by a logical rule derived
+  from biochemical interactions. Fixed-point attractors correspond to stable cell states
+  (differentiated phenotypes, apoptosis, proliferation), and limit cycles to oscillatory
+  phenotypes. The attractor basin structure predicts cell-fate decision robustness and
+  can be analysed with tools from automata theory and Boolean satisfiability.
+translation_table:
+  - field_a_term: phosphorylation state of signaling protein (cell biology)
+    field_b_term: binary node state in Boolean network (computer science)
+    note: Active (phosphorylated) = 1; inactive = 0; threshold-linear kinetics justify binarization
+  - field_a_term: stable differentiated cell state (cell biology)
+    field_b_term: fixed-point attractor of Boolean network (computer science)
+    note: Waddington's epigenetic landscape valleys correspond to attractor basins
+  - field_a_term: signal integration by kinase cascade (cell biology)
+    field_b_term: Boolean function / logic gate (computer science)
+    note: AND/OR/NOT logic gates capture cooperative and competitive signaling interactions
+  - field_a_term: cell fate decision (proliferate vs. differentiate vs. apoptose) (cell biology)
+    field_b_term: attractor reached from initial condition (computer science)
+    note: The attractor basin boundary is the decision boundary in gene-expression state space
+related_unknowns:
+  - u-cell-fate-decision-noise-robustness
+related_hypotheses:
+  - h-boolean-attractor-cell-fate-landscape
+cross_pollination_opportunities:
+  - Using formal verification (model checking) to prove properties of cell signaling networks
+  - Designing synthetic signaling circuits with specified attractor structures using Boolean synthesis tools
+communication_gap: >
+  Cell biologists studying signal transduction and computer scientists studying Boolean
+  networks publish in largely separate venues; the Kauffman NK model tradition bridged
+  them, but most experimental biologists are unfamiliar with attractor analysis tools,
+  and most computer scientists are unaware of the biological validation literature.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1093/bioinformatics/btq504"
+    note: Chaouiya (2007) — Petri nets and Boolean models for signal transduction
+  - doi: "10.1038/nature06554"
+    note: Huang et al. (2009) — cancer attractors in gene regulatory networks
+  - doi: "10.1371/journal.pcbi.1000292"
+    note: Saez-Rodriguez et al. (2009) — Boolean network model of T cell receptor signaling

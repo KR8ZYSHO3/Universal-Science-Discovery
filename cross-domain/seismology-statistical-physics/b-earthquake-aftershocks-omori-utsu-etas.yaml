@@ -1,0 +1,50 @@
+id: b-earthquake-aftershocks-omori-utsu-etas
+title: >
+  Earthquake aftershock sequences obey the Omori-Utsu power law and are modeled
+  by the ETAS (Epidemic Type Aftershock Sequence) point process — a self-exciting
+  Hawkes process that maps seismicity onto the statistical physics of critical branching
+  processes and second-order phase transitions.
+status: established
+fields:
+  - seismology
+  - statistical-physics
+bridge_claim: >
+  The rate of aftershocks decays as r(t) ∝ (t+c)^(-p) (Omori-Utsu law, p≈1), and
+  the ETAS model extends this to a branching process where each earthquake triggers
+  offspring at rate K·10^(α·M). Near the critical branching ratio n=1, ETAS exhibits
+  power-law cluster-size distributions (Gutenberg-Richter) and diverging correlation
+  lengths, analogous to a statistical-physics critical point. The self-similar cascade
+  structure is identical to Hawkes processes used in finance and neuroscience.
+translation_table:
+  - field_a_term: aftershock rate decay r(t) (seismology)
+    field_b_term: memory kernel of Hawkes process (statistical physics)
+    note: Omori power-law decay is the kernel function of the self-exciting point process
+  - field_a_term: Gutenberg-Richter b-value / magnitude distribution (seismology)
+    field_b_term: power-law event-size distribution at criticality (statistical physics)
+    note: G-R law implies scale-free magnitude distribution consistent with SOC critical state
+  - field_a_term: branching ratio n (mean triggered offspring per earthquake) (seismology)
+    field_b_term: branching ratio of critical Galton-Watson process (statistical physics)
+    note: n<1 subcritical (finite aftershock sequence); n→1 critical (power-law clusters)
+  - field_a_term: mainshock-aftershock productivity (seismology)
+    field_b_term: supercriticality parameter above phase transition (statistical physics)
+    note: Large mainshocks push the local branching ratio above 1 transiently
+related_unknowns:
+  - u-earthquake-criticality-self-organized
+related_hypotheses:
+  - h-etas-branching-ratio-seismic-hazard-forecast
+cross_pollination_opportunities:
+  - Applying statistical-physics renormalization to derive ETAS parameters from fault mechanics
+  - Using Hawkes process inference methods from finance to improve real-time aftershock forecasting
+communication_gap: >
+  Seismologists and statistical physicists working on self-organized criticality have
+  collaborated since Bak et al. (1987), but the SOC paradigm is contested in seismology;
+  most operational seismic hazard assessment uses empirical ETAS without invoking
+  the critical-point analogy.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1007/BF01964975"
+    note: Ogata (1988) — statistical models for earthquake occurrences (ETAS formulation)
+  - doi: "10.1029/2000JB000163"
+    note: Helmstetter & Sornette (2002) — subcritical and supercritical branching in ETAS
+  - doi: "10.1103/PhysRevLett.59.381"
+    note: Bak, Tang & Wiesenfeld (1987) — self-organized criticality and 1/f noise
