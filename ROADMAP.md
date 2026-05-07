@@ -44,7 +44,7 @@ The project is recognized as “the most ambitious open science infrastructure p
 | Milestone | Status |
 |---|---|
 | Seeded disciplines (Physics, Biology, CS, + 38 more) | 41 domains |
-| 500+ high-quality structured entries | 1,014 total (192 bridges + 619 unknowns + 203 hypotheses) |
+| 500+ high-quality structured entries | 1,957 total (458 bridges + 814 unknowns + 681 hypotheses) — waves 32 & 33 complete |
 | Core governance + legal framework | CC BY 4.0 + MIT, CONTRIBUTING.md, CODE_OF_CONDUCT.md |
 | Knowledge graph + search | 1042 nodes, Lunr full-text search, D3.js visualization |
 | Basic contributor infrastructure | Issue templates, PR template, GitHub Discussions |
