@@ -9,7 +9,7 @@ This document catalogs all external databases integrated or planned for integrat
 |--------|------|----------|--------------------|
 | arXiv (OAI-PMH) | Preprints | Physics, CS, Math, Biology | `packages/ingest/` — `usdr-ingest harvest` |
 
-### Tier 2 — Planned (next 90 days)
+### Tier 2 — Active harvesters
 | Source | Type | Coverage | Why it matters for USDR | API endpoint |
 |--------|------|----------|------------------------|--------------|
 | OpenAlex | Papers + concepts | 250M+ cross-field papers | Best cross-domain concept tagging; query "papers citing both X and Y" | `https://api.openalex.org` |
@@ -44,19 +44,22 @@ Each external source is integrated via a standardized harvester script in `scrip
 
 ```
 scripts/harvesters/
-  harvest_arxiv.py         ← existing (via usdr-ingest)
-  harvest_openalex.py      ← NEW (Tier 2)
-  harvest_pubmed.py        ← planned
-  harvest_semantic_scholar.py ← planned
-  harvest_crossref.py      ← planned
+  harvest_arxiv.py                    ← existing (via usdr-ingest)
+  harvest_openalex.py                 ← active
+  harvest_pubmed.py                   ← active
+  harvest_semantic_scholar.py         ← active
+  wave_factory.py                     ← ranking + draft triple generation
+  promote_wave_factory_batch.py       ← staged validation + promotion helper
+  harvest_crossref.py                 ← planned
 ```
 
-Each harvester:
+Wave Factory pipeline:
 1. Queries the API for papers matching cross-domain concept pairs
-2. Extracts candidate unknowns (open questions in abstracts/conclusions)
-3. Identifies bridge candidates (papers citing both field A and field B)
-4. Outputs structured YAML stubs to `drafts/` for human expert review
-5. Never writes directly to `unknowns-catalog/` or `cross-domain/` without review
+2. Normalizes harvested candidates into `drafts/*_candidates.json`
+3. Ranks candidates by citation impact, recency, and domain-pair novelty
+4. Stages schema-safe bridge/unknown/hypothesis triples under `drafts/wave_factory/`
+5. Validates staged records before optional promotion to canonical catalogs
+6. Never writes to canonical folders without explicit promotion (`--apply`)
 
 ---
 
@@ -82,26 +85,27 @@ GET https://api.openalex.org/works?filter=concepts.id:C12345|C67890&per-page=50
 
 ---
 
-## Automated Harvest Pipeline
+## Automated Harvest + Wave Factory Pipeline
 
-The weekly GitHub Actions workflow (`.github/workflows/harvest-openalex.yml`) runs every Monday at 6am UTC:
+The cadence workflow (`.github/workflows/harvest-openalex.yml`) runs twice weekly (Monday + Thursday, 6am UTC):
 
-1. Queries OpenAlex for papers spanning 15 cross-domain concept pairs
-2. Queries PubMed for 10 biomedical bridge areas
-3. Runs `generate_bridge_stubs.py` on top candidates (≥1,000 citations)
-4. Commits stubs to `drafts/bridges/` via auto-PR for human review
-5. Stubs contain FILL_IN fields — a domain expert completes them and moves to `cross-domain/`
+1. Harvests fresh candidates from OpenAlex, PubMed, and Semantic Scholar
+2. Runs `wave_factory.py` dry-run for ranking visibility
+3. Stages a batch into `drafts/wave_factory/`
+4. Runs `promote_wave_factory_batch.py` in dry-run validation mode
+5. Runs schema validation (`python scripts/validate_schemas.py`)
+6. Opens/updates an automation PR with staged artifacts (no direct push to protected branches)
 
-This creates a continuous pipeline: literature → candidates → stubs → reviewed bridges.
+This creates a continuous pipeline: literature → ranked candidates → staged triples → reviewed promotion.
 
-The stub generator (`scripts/harvesters/generate_bridge_stubs.py`) can also be run locally:
+Wave Factory can also be run locally:
 
 ```bash
-python scripts/harvesters/generate_bridge_stubs.py \
-    --input drafts/openalex_candidates.json \
-    --output drafts/bridges/ \
+python scripts/harvesters/wave_factory.py \
     --top 20 \
-    --min-citations 5000
+    --min-citations 50 \
+    --sources openalex,pubmed,semantic_scholar \
+    --output drafts/wave_factory
 ```
 
 ---

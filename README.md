@@ -41,10 +41,10 @@ A git-native, schema-validated, community-governed catalog of scientific unknown
 
 | Metric                     | Count     | Notes                                                           |
 | -------------------------- | --------- | --------------------------------------------------------------- |
-| **Cross-domain bridges**   | **1,050** | Mathematical connections between fields that rarely communicate |
-| **Open unknowns**          | **1,335** | Named, structured research gaps across 55+ disciplines          |
-| **Falsifiable hypotheses** | **1,201** | Testable claims linked to specific unknowns                     |
-| **Knowledge graph nodes**  | **3,638** | Interconnected across 4,152 edges                               |
+| **Cross-domain bridges**   | **1,063** | Mathematical connections between fields that rarely communicate |
+| **Open unknowns**          | **1,348** | Named, structured research gaps across 55+ disciplines          |
+| **Falsifiable hypotheses** | **1,214** | Testable claims linked to specific unknowns                     |
+| **Knowledge graph nodes**  | **3,677** | Interconnected across 4,217 edges                               |
 | **Pioneer profiles**       | **18**    | Scientists whose work seeded cross-domain bridges               |
 | **Breakthrough gaps**      | **24**    | High-priority problems that would reshape entire fields         |
 | **Orphan unknowns**        | **0**     | All unknowns connected to bridges or hypotheses                 |
@@ -95,6 +95,24 @@ python scripts/audit_quality.py
 
 The `harvest_openalex.py` script queries OpenAlex for papers that cite **two specific concept domains simultaneously** — the core primitive for automated bridge discovery at scale. PubMed and Semantic Scholar harvesters are also included.
 
+### Wave Factory mode
+
+Wave Factory mode converts harvested candidates into schema-safe draft triples at scale:
+
+```bash
+# Stage ranked bridge + unknown + hypothesis drafts
+python scripts/harvesters/wave_factory.py \
+  --top 30 \
+  --min-citations 50 \
+  --sources openalex,pubmed,semantic_scholar \
+  --output drafts/wave_factory
+
+# Validate staged records before promotion
+python scripts/harvesters/promote_wave_factory_batch.py --stage drafts/wave_factory
+```
+
+Drafts are intentionally staged (not auto-promoted) so human review remains the merge gate.
+
 ---
 
 ## Quick Start
@@ -121,9 +139,9 @@ python scripts/build_graph.py
 ## Catalog Structure
 
 ```
-cross-domain/{domain-a}-{domain-b}/b-*.yaml   ← 1050 bridges
-unknowns-catalog/{domain}/u-*.yaml            ← 1335 unknowns
-hypotheses/active|validated|archived/h-*.yaml ← 1201 hypotheses
+cross-domain/{domain-a}-{domain-b}/b-*.yaml   ← 1063 bridges
+unknowns-catalog/{domain}/u-*.yaml            ← 1348 unknowns
+hypotheses/active|validated|archived/h-*.yaml ← 1214 hypotheses
 pioneers/pioneer-*.yaml                       ← 18 pioneer profiles
 breakthrough-gaps/bg-*.yaml                   ← 12 breakthrough gaps
 phenomenology/p-*.yaml                        ← pre-formal observations

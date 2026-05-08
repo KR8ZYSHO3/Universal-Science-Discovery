@@ -7,7 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [Unreleased] — 2026-05-07
+## [Unreleased] — 2026-05-08
+
+### Added — Wave Factory mode automation
+- Added `scripts/harvesters/wave_factory.py` to rank harvested candidates (citations + recency + domain novelty), dedupe against existing bridge IDs/titles, and stage schema-safe bridge/unknown/hypothesis draft triples under `drafts/wave_factory/`.
+- Added `scripts/harvesters/promote_wave_factory_batch.py` to validate staged records and promote them into canonical folders with collision checks and explicit `--apply` gating.
+- Updated `.github/workflows/harvest-openalex.yml` to a twice-weekly Wave Factory cadence with PR-friendly bot flow using staged outputs (no direct merge to protected branches).
+- Added `docs/WAVE_FACTORY.md`, updated `docs/DATA_SOURCES.md`, and added a README section with Wave Factory usage and safety notes.
+
+### Added — Wave 83 (+12 bridges; catalog **1,063** bridges)
+- Added 12 new cross-domain bridge triplets (bridge + companion unknown + companion hypothesis) spanning eikonal cardiac mapping, cryo-EM phase-retrieval transfer, heavy-traffic ED control, EVT-AMR surveillance, HJB adaptive radiotherapy, peridynamics-bone microdamage, Kuramoto islet synchrony, adiabatic gene-circuit reduction, phage-chemostat Lotka-Volterra control, oncology ensemble smoothing, SPRT genomic surveillance, and TDA catalyst screening; all bridge claims are explicitly labeled as speculative analogies.
+
+### Added — Draft promotion (+1 bridge, +1 unknown, +1 hypothesis)
+- Promoted `drafts/bridges/b-openalex-topology-electrical-circuits-x-condensed-matter-physics.yaml` into a fully reviewed bridge at `cross-domain/engineering-physics/b-openalex-topology-electrical-circuits-x-condensed-matter-physics.yaml`.
+- Added companion unknown `unknowns-catalog/engineering/u-topoelectrical-circuit-disorder-robustness-limit.yaml`.
+- Added companion hypothesis `hypotheses/active/h-topoelectrical-circuit-edge-mode-disorder-threshold.yaml`.
 
 ### Added — Wave 82 (+12 bridges; catalog **1,050** bridges)
 - **Themes:** Kalman smoothing for tree-ring paleoclimate reconstruction; Floquet seasonal-instability timing for epidemics; random-matrix denoising for single-cell covariance; first-passage-time framing for clinical deterioration warnings; persistent-homology microstructure failure precursors; neural-operator groundwater inversion surrogates; negative-control causal calibration for pharmacovigilance; BOCPD glacier calving regime shifts; Lyapunov-constrained antibiotic cycling; graph-spectral PMU anomaly localization; energy-landscape funnel diagnostics for docking search; renewal/self-exciting readmission burst modeling — each with one companion unknown and one companion hypothesis, with bridge claims explicitly marked as speculative analogies.
