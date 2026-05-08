@@ -1,0 +1,65 @@
+id: bg-whole-earth-climate-model
+title: Kilometer-scale global climate model for decadal regional prediction
+breakthrough_description: >
+  Current operational global climate models run at 25-100 km horizontal resolution.
+  At this resolution, key processes governing regional climate — mesoscale convective
+  systems, cumulus convection, cloud microphysics, orographic precipitation, and
+  ocean mesoscale eddies — must be parameterized rather than resolved directly.
+  These parameterizations are the dominant source of uncertainty in regional climate
+  projections (precipitation, extreme events, sea level) at the scales needed for
+  infrastructure planning, water resource management, and agricultural adaptation.
+  Kilometer-scale global climate models (1-4 km) would resolve convection explicitly,
+  but a 1 km global model requires approximately 10^18 floating point operations
+  per simulated year — beyond current exascale supercomputers by a factor of ~100
+  for multi-decadal runs. New numerical methods, hardware architectures, and
+  AI-physics hybrid approaches are required. The breakthrough needed: a global
+  climate model running at 1-4 km resolution for 50-year projections with quantified
+  uncertainty, validated against historical observations.
+source_domain: atmospheric-science
+current_trl: 3
+world_reshaping_potential: significant
+blocking_gaps:
+  - gap_title: Computational cost of kilometer-scale global simulation is prohibitive
+    gap_description: >
+      A 1 km global atmosphere model has approximately 500 billion grid cells.
+      Each time step requires evaluating fluid dynamics, thermodynamics, and chemistry
+      at every cell. At a 10-second time step, a 50-year simulation requires
+      ~1.6 × 10^17 arithmetic operations — beyond the capability of current or
+      planned exascale supercomputers for routine climate production runs. The
+      CliMA project and ICON-NWP demonstrate km-scale limited-area runs but not
+      global multi-decadal climate runs. Algorithmic improvements (adaptive mesh
+      refinement, machine learning parameterizations) are needed to reduce the
+      effective computational cost by 100-1,000×.
+    blocking_domain: computer-science
+    gap_type: algorithmic
+  - gap_title: Observation-constrained parameter tuning is unsolved at km scale
+    gap_description: >
+      Even at 1 km resolution, cloud microphysics and land surface processes require
+      sub-grid parameterizations with tunable parameters. At coarser resolutions,
+      these parameters are tuned against historical observations of global mean
+      temperature and large-scale circulation. At km scale, the parameter space is
+      far larger and the optimal tuning for global-mean quantities may produce biased
+      regional precipitation. No methodology for global km-scale tuning using
+      heterogeneous observational data streams has been demonstrated.
+    blocking_domain: atmospheric-science
+    gap_type: scientific
+  - gap_title: Neural weather models lack physical conservation laws
+    gap_description: >
+      Data-driven neural weather models (GraphCast, Pangu-Weather, FourCastNet)
+      achieve state-of-the-art 10-day forecast skill at resolutions approaching
+      25 km and orders of magnitude less compute than physics-based models. However,
+      they do not conserve energy, mass, or momentum exactly, are trained on
+      historical climate (1979-present), and are not reliable for decadal projections
+      under climate forcing scenarios outside the training distribution. Hybrid
+      physics-ML approaches are early-stage.
+    blocking_domain: computer-science
+    gap_type: algorithmic
+required_bridges:
+  - b-boltzmann-shannon-entropy
+  - b-stochastic-thermodynamics-fluctuation-theorems
+references:
+  - "Schneider et al. (2023) Opinion: Harnessing AI and computing to advance climate modelling and prediction. Nat Clim Change 13:887-889."
+  - "Lam et al. (2023) Learning skillful medium-range global weather forecasting. Science 382:1416-1421."
+  - "Stevens et al. (2024) Storming the atmosphere. Science 383:1174-1178."
+  - "Palmer T (2014) Build high-resolution global climate models. Nature 515:338-339."
+last_reviewed: "2026-05-07"
