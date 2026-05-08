@@ -4,6 +4,10 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 ## Last updated
 
+- 2026-05-07 — **Wave 76 — 12 new bridges (978 catalog)**:
+**Bridges:** Cherenkov ↔ Mach/sonic cone; Wilson RG / wavelet shrinkage denoising (distinct from existing RG×ML); synaptic tagging ↔ cache coherence **(labeled analogy)**; ocean acoustic tomography ↔ ultrasound transmission CT; CRISPR multiplex barcodes ↔ Reed–Solomon **intuition only**; price elasticity ↔ elastic stiffness tensor **(caveats)**; FLIM lifetimes ↔ MRI T2* dephasing; Vicsek flocking ↔ Raft consensus stability; cosmic inflation ↔ epidemic phase-plane growth **(heavy speculation)**; ion-channel gating ↔ metastable rate theory; replication fork ↔ ASEP traffic jams **(toy-model scope)**; Schawlow–Townes linewidth ↔ Leeson phase noise.
+**Unknowns / hypotheses:** +12 each (paired to bridges).
+**Artifacts:** `docs/knowledge_graph.json` rebuilt (**3,422 nodes**, **3,816 edges**); `dashboard/index.html` stats refreshed; `python scripts/validate_schemas.py` — **0 errors** (local run).
 - 2026-05-07 — **Wave 75 — 12 new bridges (966 catalog)**:
 **Bridges:** WPT resonator Q–bandwidth tradeoffs ↔ matching / coexistence; Johnson–Nyquist equilibrium fluctuations ↔ RF noise figure; earthquake early warning ↔ recursive Bayesian source estimation; protein folding funnel ↔ Polyak–Łojasiewicz regions (**coarse-graining speculation flagged**); epsilon-near-zero metamaterials ↔ field confinement / Q; Fano asymmetric lineshapes ↔ metamaterial dark-mode Q; quantum-limited amplification ↔ Heisenberg noise-figure bound; soft ferrite hysteresis ↔ WPT coil losses; earthquake alarm policies ↔ Wald SPRT (**optimality caveats under correlated seismic noise**); contact-map sparsity ↔ Hessian low-rank cooperativity (**speculative mapping**); Floquet time-modulated metamaterials ↔ nonreciprocal EM response; phased-array beamforming ↔ multi-coil WPT interference lobes.
 **Unknowns / hypotheses:** +12 each (paired to bridges).

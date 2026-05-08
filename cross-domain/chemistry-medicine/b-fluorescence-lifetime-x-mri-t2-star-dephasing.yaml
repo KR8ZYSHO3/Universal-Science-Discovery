@@ -1,0 +1,35 @@
+id: b-fluorescence-lifetime-x-mri-t2-star-dephasing
+title: >
+  Fluorescence lifetime imaging resolves exponential decay times τ of excited-state populations — MRI T2* relaxation reflects irreversible and reversible dephasing (including local field inhomogeneity broadening) altering transverse magnetization decay times — both disciplines estimate characteristic decay constants from noisy exponential fitting though microscopic mechanisms (radiative vs spin physics) differ entirely.
+status: established
+fields:
+  - chemistry
+  - medicine
+  - biophysics
+bridge_claim: >
+  FLIM treats intensity decay I(t) ∝ exp(−t/τ_f) across pixels for quantitative molecular microenvironment sensing — T2* maps encode tissue-dependent transverse relaxation rates 1/T2* derived from GRE signal decay envelopes — inverse problems share exponential fitting, partial-volume bias, multi-exponential ambiguity, and instrument impulse-response deconvolution despite orthogonal Hamiltonians governing emission versus spin dynamics.
+translation_table:
+  - field_a_term: Fluorescence lifetime τ_f distribution (heterogeneous mixture)
+    field_b_term: T2* distribution map from gradient-echo decay envelopes
+    note: Multi-exponential ambiguity appears in both modalities.
+  - field_a_term: FRET quenching shortening τ_f (proximity sensing)
+    field_b_term: Susceptibility-induced local ΔB shortening T2* (iron deposition etc.)
+    note: Environmental perturbations shorten apparent decay constants analogously at phenomenological level.
+  - field_a_term: Instrument response function / IRF deconvolution in TCSPC
+    field_b_term: RF pulse profile + gradient spoiling shaping observed GRE decay
+    note: Hardware kernels must be unfolded before biology inference.
+communication_gap: >
+  Fluorescence microscopy core facilities rarely train clinicians in magnetization physics; radiology physics labs seldom cite Lakowicz — exponential fitting conferences could unify statistical methodology.
+cross_pollination_opportunities:
+  - Transfer Bayesian multi-exponential shrinkage priors from FLIM analysis software into MRI relaxometry pipelines for voxel-wise uncertainty bars.
+  - Joint Phantoms mixing fluorescence plates with MRI gel phantoms for cross-training exponential fitting labs.
+related_unknowns:
+  - u-flim-t2star-multiexp-phantom-transfer
+related_hypotheses:
+  - h-shared-biexponential-fitting-bias-function-across-modalities-same-snr
+references:
+  - doi: "10.1016/S0076-6879(06)36009-9"
+    note: "Lakowicz (2006) — principles of fluorescence lifetime imaging methods (Methods Enzymol.)"
+  - doi: "10.1002/mrm.1910360409"
+    note: "Haacke et al. context — MR susceptibility / T2* mapping methods for tissue iron quantification (representative MR literature)"
+last_reviewed: "2026-05-07"

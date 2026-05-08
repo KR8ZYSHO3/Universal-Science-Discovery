@@ -1,0 +1,35 @@
+id: b-vicsek-flocking-x-consensus-raft-leader-stability
+title: >
+  Vicsek-type flocking models exhibit noise-driven order–disorder transitions where local alignment rules produce macroscopic directed motion — Raft-style distributed consensus maintains replicated logs under message delays and failures — both fields analyze stability of collective agreement variables (order parameter magnitude vs committed log index) though microscopic mechanisms (heading alignment vs RPC votes) differ.
+status: proposed
+fields:
+  - ecology
+  - computer-science
+  - statistical-physics
+bridge_claim: >
+  Increasing noise η in Vicsek models destroys orientational order beyond critical η_c analogous (qualitatively) to consensus latency rising until leader election thrashes — topological versus metric neighborhoods in flocking mirror partially connected overlay graphs in distributed systems — bridge stays phenomenological: compare stability diagrams and simulation methodologies rather than equating birds to packets.
+translation_table:
+  - field_a_term: Vicsek alignment noise amplitude η
+    field_b_term: Message loss / jitter rates perturbing Raft follower votes
+    note: Both raise disorder probability in coordination dynamics toy models.
+  - field_a_term: Average flock polarization order parameter |⟨exp(iθ)⟩|
+    field_b_term: Fraction of nodes sharing matching committed log suffix (high-level)
+    note: Scalar summaries of agreement levels — not equivalent observables.
+  - field_a_term: Topological interaction graphs (metric-free Vicsek variants)
+    field_b_term: Sparse WAN topologies with quorum connectivity requirements
+    note: Graph robustness stories resonate across disciplines.
+communication_gap: >
+  Active-matter theorists cite Vicsek & Chaté while systems engineers cite Ongaro & Ousterhout — cross-citations remain rare despite shared noisy coordination mathematics literature (McKean–Vlasov, stochastic stability).
+cross_pollination_opportunities:
+  - Cross-listed simulations labs comparing phase diagrams of Vicsek noise sweeps with discrete-event Raft simulators under synthetic packet noise.
+  - Borrow Lyapunov-style drift proofs vocabulary when teaching flock stability alongside Raft safety arguments (explicit analogy labeling).
+related_unknowns:
+  - u-vicsek-noise-raft-jitter-quantitative-mapping
+related_hypotheses:
+  - h-critical-noise-sweep-scaling-parallels-election-timeout-sweep-phenomenologically
+references:
+  - doi: "10.1103/PhysRevLett.75.1226"
+    note: "Vicsek et al. (1995) — flocking transition in self-propelled particle models"
+  - doi: "10.1145/3195648"
+    note: "Ongaro & Ousterhout (2014) — Raft consensus algorithm for replicated logs"
+last_reviewed: "2026-05-07"

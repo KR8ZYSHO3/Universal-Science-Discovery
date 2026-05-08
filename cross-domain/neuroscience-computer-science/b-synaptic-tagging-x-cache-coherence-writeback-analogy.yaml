@@ -1,0 +1,34 @@
+id: b-synaptic-tagging-x-cache-coherence-writeback-analogy
+title: >
+  Synaptic tagging and capture lets a transient “tag” mark recently activated synapses so later protein-synthesis–dependent consolidation can selectively stabilize them — computer architects use cache coherence protocols (MESI-family) so transient writes can later propagate consistently across cores — **this bridge is an intentional pedagogical analogy**, not a claim of molecular isomorphism between neurons and silicon.
+status: proposed
+fields:
+  - neuroscience
+  - computer-science
+bridge_claim: >
+  Both domains confront temporally separated events (weak tetanus vs protein synthesis arrival; write hits vs directory responses) that must reconcile local state with global consistency — tagging resembles marking a cache line dirty pending write-back; capture resembles satisfying coherence before other agents observe stale values — useful for intuition and curriculum only until quantitative dynamical models justify tighter correspondence.
+translation_table:
+  - field_a_term: Synaptic tag / eligibility trace at potentiated synapses
+    field_b_term: Dirty bit / transient pending-write metadata on a cache line
+    note: "**Analogy only** — biology uses biochemistry; caches use directory bits."
+  - field_a_term: Late-phase plasticity / protein synthesis enabling consolidation
+    field_b_term: Write-back or invalidate completing global memory consistency
+    note: Shared temporal separation between fast marking and slower stabilization.
+  - field_a_term: Synapse-specific capture vs heterosynaptic spillover risks
+    field_b_term: False sharing / coherence invalidation blast radius
+    note: Both disciplines worry about unintended coupling between neighboring units.
+communication_gap: >
+  Neuroscientists rarely frame plasticity using cache coherence vocabulary; computer architects seldom study synaptic tagging despite parallel distributed-memory metaphors — deliberate analogy labeling prevents overclaiming hardware-neural identity.
+cross_pollination_opportunities:
+  - Teach neuroplasticity timelines using coherence timelines as mnemonic scaffolding with explicit caveats.
+  - Explore neuromorphic routing policies inspired by directory protocols while rejecting literal biochemical mapping claims.
+related_unknowns:
+  - u-synaptic-tag-cache-analogy-quantitative-test
+related_hypotheses:
+  - h-tag-decay-timescale-vs-write-buffer-lifetime-correlation-classroom-only
+references:
+  - doi: "10.1038/385533a0"
+    note: "Frey & Morris (1997) — synaptic tagging and long-term potentiation"
+  - doi: "10.1145/77606.77607"
+    note: "Herlihy & Wing (1990) — linearizability as correctness condition for concurrent objects"
+last_reviewed: "2026-05-07"

@@ -1,0 +1,35 @@
+id: b-ocean-acoustic-tomography-x-ultrasound-transmission-tomography
+title: >
+  Ocean acoustic tomography infers large-scale internal temperature/salinity structure from acoustic travel times (and related observables) between widely separated sources and receivers — medical ultrasound computed tomography similarly reconstructs tissue acoustic parameters from projection-like measurements — both solve ill-posed inverse scattering problems with regularization and resolution limits governed by aperture and noise.
+status: established
+fields:
+  - oceanography
+  - medicine
+  - applied-mathematics
+bridge_claim: >
+  Munk–Wunsch-style ocean tomography framed basin-scale warming signals using acoustic observables sensitive to sound-speed integrals along rays — ultrasound CT / transmission tomography reconstructs spatial maps of attenuation and sound speed from sets of through-transmission paths — shared toolkit includes ray tracing, Born/Rytov approximations, adjoint methods, and uncertainty quantification despite vastly different scales and boundary conditions.
+translation_table:
+  - field_a_term: Basin-scale acoustic pulse travel times / modal dispersion
+    field_b_term: Ultrasound projection times / spectral shifts through tissue slabs
+    note: Forward models share Hamiltonian ray equations with tissue heterogeneity replacing mesoscale eddies.
+  - field_a_term: Mesoscale ocean variability as tomographic noise / signal
+    field_b_term: Patient motion / perfusion variability as ultrasound CT nuisance parameters
+    note: Both inverse problems fight structured nonstationary clutter.
+  - field_a_term: Mooring / autonomous platform aperture geometry
+    field_b_term: Ring-array or rotating transducer aperture geometry
+    note: Sampling geometry determines resolution tensor ellipsoid shape.
+communication_gap: >
+  Oceanographers publish in JASA / Oceanography while clinical acoustics targets IEEE TUFFC / Radiology — inverse-problem algorithms transfer slowly despite identical Bayesian formulations.
+cross_pollination_opportunities:
+  - Export adjoint-based uncertainty quantification from geophysical acoustics into ultrasound CT clinical pipelines for voxel-wise confidence maps.
+  - Import compressed-sensing sparse reconstruction priors from medical imaging into sparse mooring deployments for basin-scale monitoring.
+related_unknowns:
+  - u-ocean-ultrasound-shared-inverse-regularizers
+related_hypotheses:
+  - h-adjoint-base-resolution-operator-matches-ray-density-despite-scale-gap
+references:
+  - doi: "10.1016/0198-0149(79)90003-1"
+    note: "Munk & Wunsch (1979) — ocean acoustic tomography: a scheme for large-scale monitoring"
+  - doi: "10.1016/0161-7346(86)90006-6"
+    note: "Greenleaf et al. (1986) — ultrasonic computed tomography / acoustic imaging reconstruction paradigms"
+last_reviewed: "2026-05-07"

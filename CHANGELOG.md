@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] — 2026-05-07
 
+### Added — Wave 76 (+12 bridges; catalog **978** bridges)
+- **Themes:** Cherenkov ↔ Mach cone; Wilson RG wavelets / shrinkage denoising (not RG×ML); synaptic tagging ↔ cache coherence (**pedagogical analogy**); ocean acoustic tomography ↔ ultrasound CT; CRISPR multiplex ↔ barcode / Reed–Solomon intuition (**careful wording**); elasticity ↔ stiffness tensor (**caveats**); fluorescence lifetime ↔ MRI T2*; Vicsek flocking ↔ Raft consensus; inflation ↔ epidemic phase plane (**speculation flagged**); ion-channel gating ↔ metastable rate theory; replication fork ↔ ASEP-style traffic; laser linewidth ↔ Leeson phase noise — each with companion unknown + hypothesis.
+- **Regenerated:** `docs/knowledge_graph.json`, `dashboard/index.html`, `canvases/Progress.canvas.tsx` via `build_graph.py`, `update_dashboard_stats.py --apply`, `sync-dashboard-from-state.py`.
+
 ### Added — Wave 75 (+12 bridges; catalog **966** bridges)
 - **Themes:** resonant WPT Q–bandwidth coexistence vs matching; Johnson–Nyquist thermal noise ↔ RF noise figure; earthquake early warning ↔ sequential Bayesian source estimation; folding funnel ↔ Polyak–Łojasiewicz optimization geometry (speculation flagged); epsilon-near-zero metamaterials ↔ cavity Q; Fano interference ↔ metamaterial quasi-dark modes; quantum-limited amplification ↔ Heisenberg noise-figure bound; ferrite hysteresis/eddy losses ↔ WPT coil Q; EEW alerting ↔ Wald SPRT sequential decisions (correlation caveats); contact-map sparsity ↔ Hessian cooperativity (speculation flagged); Floquet time modulation ↔ magnet-free nonreciprocity; phased-array beamforming ↔ multi-coil WPT interference — each with companion unknown + hypothesis.
 - **Regenerated:** `docs/knowledge_graph.json`, `dashboard/index.html`, `canvases/Progress.canvas.tsx` via `build_graph.py`, `update_dashboard_stats.py --apply`, `sync-dashboard-from-state.py`.
