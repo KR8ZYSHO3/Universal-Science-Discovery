@@ -1,0 +1,39 @@
+id: b-ensemble-kalman-smoothing-x-icu-latent-state-estimation
+title: Ensemble Kalman smoothing links weather data assimilation and ICU latent-state
+  tracking in physiological digital twins.
+status: proposed
+fields:
+- geoscience
+- medicine
+- control-engineering
+- bayesian-inference
+bridge_claim: Operational weather systems and ICU physiology models both require sequential
+  state correction under partial noisy observations. Ensemble Kalman smoothing translates
+  directly as a practical uncertainty-aware update strategy.
+translation_table:
+- field_a_term: Forecast ensemble
+  field_b_term: Physiologic trajectory ensemble
+  note: Both approximate uncertainty over latent state evolution.
+- field_a_term: Localization
+  field_b_term: Compartment-specific coupling limits
+  note: Suppresses spurious long-range covariance artifacts.
+- field_a_term: Innovation
+  field_b_term: Observed-minus-predicted biomarker residual
+  note: Drives update step and model diagnostics.
+related_unknowns:
+- u-ensemble-kalman-icu-parameter-identifiability
+related_hypotheses:
+- h-localized-enkf-reduces-icu-forecast-error
+cross_pollination_opportunities:
+- Build shared benchmark datasets with identical uncertainty-reporting protocols across
+  both domains.
+- Compare baseline domain-specific workflows against explicitly transferred methods
+  under matched compute budgets.
+communication_gap: Adjacent communities use different software stacks and validation
+  norms, so mathematically equivalent tools are often rediscovered in parallel.
+references:
+- doi: 10.1115/1.3662552
+  note: Kalman (1960) linear filtering and prediction.
+- doi: 10.1175/1520-0469(1994)051<1747:ROEOIA>2.0.CO;2
+  note: Lorenc (1994) data assimilation foundations.
+last_reviewed: '2026-05-08'

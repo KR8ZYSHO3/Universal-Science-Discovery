@@ -4,6 +4,10 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 ## Last updated
 
+- 2026-05-08 — **Wave 81 — 12 new bridges (1,038 catalog)**:
+**Bridges:** adjoint-state seismic inversion ↔ backprop gradient calculus; Hawkes self-excitation in aftershock/seizure clusters; EnKF smoothing for ICU latent-state estimation; Fisher-information design ↔ autonomous materials experiments; persistent-homology RR topology ↔ arrhythmia warning; graph-Laplacian manifold learning ↔ cryo-EM conformational maps; control barrier functions ↔ artificial pancreas safety; optimal-transport bias correction ↔ climate downscaling; Mori-Zwanzig memory kernels ↔ epidemic model reduction (**explicitly speculative bridge**); replica-exchange tempering ↔ Bayesian neural posteriors; FTLE coherent-structure analysis ↔ intracardiac flow mixing; Bayesian OED ↔ robotic chemistry optimization.
+**Unknowns / hypotheses:** +12 each (paired to bridges).
+**Artifacts:** `docs/knowledge_graph.json` rebuilt (**3,602 nodes**, **4,092 edges**); catalog counts: **1,323 unknowns**, **1,189 hypotheses**, **1,038 bridges**; `dashboard/index.html` stats refreshed; `canvases/Progress.canvas.tsx` synced; `python scripts/validate_schemas.py` — **0 errors** (local run).
 - 2026-05-08 — **Wave 80 — 12 new bridges (1,026 catalog)**:
 **Bridges:** resonant WPT coupling/Q/bandwidth limits; Bayesian inverse imaging ↔ UQ calibration; stochastic resonance in biosignaling ↔ detection metrics; topological defect homotopy ↔ condensed-matter coarsening; ecological harvest resilience ↔ control-Lyapunov framing; NGM epidemiology ↔ control-theoretic intervention design; A-stability regions ↔ stiff reaction-diffusion timestepping; symplectic integration ↔ long-horizon control drift; thermodynamic uncertainty relations ↔ estimator precision-energy bounds; Floquet metamaterial sidebands ↔ magnet-free nonreciprocity; quasi-BIC dielectric metasurfaces ↔ Q-yield disorder limits; EIT experiment design ↔ Fisher-information geometry.
 **Unknowns / hypotheses:** +12 each (paired to bridges).
