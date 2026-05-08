@@ -4,6 +4,10 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 ## Last updated
 
+- 2026-05-08 — **Wave 85 — 12 new bridges (1,087 catalog)**:
+**Bridges:** sparse equation discovery ↔ host-pathogen dynamics; optimal transport couplings ↔ single-cell lineage mapping; elastic-net regularization ↔ polygenic-risk stability; lasso sparsity ↔ biomarker panel design; compressed sensing ↔ accelerated MRI protocol design; U-Net segmentation ↔ histopathology quantification; residual learning ↔ retinal screening robustness; LSTM sequence memory ↔ ICU physiology forecasting; transformer attention ↔ protein language-model fitness prediction; variational autoencoders ↔ single-cell latent denoising; AlphaFold structure priors ↔ enzyme-screen pruning; DESeq2 shrinkage estimation ↔ low-count clinical biomarker surveillance (**all bridge claims explicitly marked as speculative analogies**).
+**Unknowns / hypotheses:** +12 each (paired to bridges).
+**Artifacts:** `docs/knowledge_graph.json` rebuilt (**3,749 nodes**, **4,337 edges**); catalog counts: **1,372 unknowns**, **1,238 hypotheses**, **1,087 bridges**; `dashboard/index.html` stats refreshed; `canvases/Progress.canvas.tsx` synced; `python scripts/validate_schemas.py` — **0 errors** (local run).
 - 2026-05-08 — **Wave 84 — 12 new bridges (1,075 catalog)**:
 **Bridges:** variational data assimilation ↔ personalized glucose forecasting; percolation thresholds ↔ antimicrobial combination therapy networks; Kramers-Moyal expansions ↔ tumor phenotype transitions; hysteresis loop dynamics ↔ neural fatigue recovery; optimal-transport barycenters ↔ multiomic patient alignment; phase-response curves ↔ adaptive DBS timing; Laplace approximation ↔ adaptive trial enrichment; graph-cut energy diagnostics ↔ radiology segmentation QC; delay embedding ↔ ICU deterioration warning; constrained bandits ↔ sepsis antibiotic de-escalation; Fisher-KPP fronts ↔ wound-healing closure forecasting; Markov jump processes ↔ cell-state-switching therapy design (**all bridge claims explicitly marked as speculative analogies**).
 **Unknowns / hypotheses:** +12 each (paired to bridges).
