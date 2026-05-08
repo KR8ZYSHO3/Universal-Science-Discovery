@@ -21,7 +21,7 @@ import {
 
 // @sync-dashboard-begin
 const dashboardSnapshot = {
-  lastUpdated: "2026-05-08 — **Wave 82 — 12 new bridges (1,050 catalog)**:",
+  lastUpdated: "2026-05-08 — **Wave 83 — 12 new bridges (1,063 catalog)**:",
   currentFocus: [
     "**arXiv preprint**: `docs/preprint/usdr_preprint.md` is ready; next step is PDF conversion and submission to cs.DL (author: Brandon Shoemaker).",
     "**Bridge count toward 1,000**: promote `drafts/bridges/` stubs; continue wave-based build.",

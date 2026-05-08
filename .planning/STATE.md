@@ -4,6 +4,14 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 ## Last updated
 
+- 2026-05-08 — **Wave 83 — 12 new bridges (1,063 catalog)**:
+**Bridges:** eikonal wavefront inversion ↔ cardiac activation mapping; phase retrieval ↔ cryo-EM orientation inference; heavy-traffic queueing ↔ ED flow stabilization; extreme-value tails ↔ AMR surveillance; HJB optimal control ↔ adaptive radiotherapy; peridynamics ↔ bone microdamage remodeling; Kuramoto synchrony ↔ beta-cell islet oscillations; adiabatic elimination ↔ stochastic gene-circuit reduction; Lotka-Volterra competition ↔ phage-bacteria chemostat control; ensemble smoothing ↔ precision oncology latent-state estimation; SPRT sequential tests ↔ pathogen genomic surveillance; topological data analysis ↔ catalyst state-space screening (**all bridge claims explicitly marked as speculative analogies**).
+**Unknowns / hypotheses:** +12 each (paired to bridges).
+**Artifacts:** `docs/knowledge_graph.json` rebuilt (**3,677 nodes**, **4,217 edges**); catalog counts: **1,348 unknowns**, **1,214 hypotheses**, **1,063 bridges**; `dashboard/index.html` stats refreshed; `canvases/Progress.canvas.tsx` synced; `python scripts/validate_schemas.py` — **0 errors** (local run).
+- 2026-05-08 — **Draft promotion (Topoelectrical circuits)**:
+**Promoted:** `drafts/bridges/b-openalex-topology-electrical-circuits-x-condensed-matter-physics.yaml` → `cross-domain/engineering-physics/b-openalex-topology-electrical-circuits-x-condensed-matter-physics.yaml`.
+**Companions:** `u-topoelectrical-circuit-disorder-robustness-limit`, `h-topoelectrical-circuit-edge-mode-disorder-threshold`.
+**Artifacts:** Included in the latest graph and dashboard regeneration above.
 - 2026-05-08 — **Wave 82 — 12 new bridges (1,050 catalog)**:
 **Bridges:** Kalman smoothing ↔ tree-ring paleoclimate reconstruction; Floquet stability ↔ seasonal epidemic timing windows; random-matrix covariance cleaning ↔ single-cell denoising; first-passage-time theory ↔ clinical deterioration warning; persistent homology ↔ materials microstructure failure forecasting; Fourier neural operators ↔ groundwater inverse modeling; negative-control causal diagnostics ↔ pharmacovigilance triage; Bayesian online change-point detection ↔ glacier calving regime shifts; control Lyapunov design ↔ antibiotic cycling policy; graph signal processing ↔ PMU grid anomaly localization; energy-landscape funnels ↔ protein-ligand docking search; renewal/self-exciting processes ↔ hospital readmission burst modeling (**all bridge claims explicitly marked as speculative analogies**).
 **Unknowns / hypotheses:** +12 each (paired to bridges).
