@@ -4,6 +4,10 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 ## Last updated
 
+- 2026-05-08 — **Wave 84 — 12 new bridges (1,075 catalog)**:
+**Bridges:** variational data assimilation ↔ personalized glucose forecasting; percolation thresholds ↔ antimicrobial combination therapy networks; Kramers-Moyal expansions ↔ tumor phenotype transitions; hysteresis loop dynamics ↔ neural fatigue recovery; optimal-transport barycenters ↔ multiomic patient alignment; phase-response curves ↔ adaptive DBS timing; Laplace approximation ↔ adaptive trial enrichment; graph-cut energy diagnostics ↔ radiology segmentation QC; delay embedding ↔ ICU deterioration warning; constrained bandits ↔ sepsis antibiotic de-escalation; Fisher-KPP fronts ↔ wound-healing closure forecasting; Markov jump processes ↔ cell-state-switching therapy design (**all bridge claims explicitly marked as speculative analogies**).
+**Unknowns / hypotheses:** +12 each (paired to bridges).
+**Artifacts:** `docs/knowledge_graph.json` rebuilt (**3,713 nodes**, **4,277 edges**); catalog counts: **1,360 unknowns**, **1,226 hypotheses**, **1,075 bridges**; `dashboard/index.html` stats refreshed; `canvases/Progress.canvas.tsx` synced; `python scripts/validate_schemas.py` — **0 errors** (local run).
 - 2026-05-08 — **Wave 83 — 12 new bridges (1,063 catalog)**:
 **Bridges:** eikonal wavefront inversion ↔ cardiac activation mapping; phase retrieval ↔ cryo-EM orientation inference; heavy-traffic queueing ↔ ED flow stabilization; extreme-value tails ↔ AMR surveillance; HJB optimal control ↔ adaptive radiotherapy; peridynamics ↔ bone microdamage remodeling; Kuramoto synchrony ↔ beta-cell islet oscillations; adiabatic elimination ↔ stochastic gene-circuit reduction; Lotka-Volterra competition ↔ phage-bacteria chemostat control; ensemble smoothing ↔ precision oncology latent-state estimation; SPRT sequential tests ↔ pathogen genomic surveillance; topological data analysis ↔ catalyst state-space screening (**all bridge claims explicitly marked as speculative analogies**).
 **Unknowns / hypotheses:** +12 each (paired to bridges).

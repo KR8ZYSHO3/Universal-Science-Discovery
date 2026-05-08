@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] — 2026-05-08
 
+### Added — Wave 84 (+12 bridges; catalog **1,075** bridges)
+- Added 12 new cross-domain bridge triplets (bridge + companion unknown + companion hypothesis) spanning variational data assimilation for personalized glucose forecasting, percolation thresholds for antimicrobial combination design, Kramers-Moyal tumor-transition modeling, hysteresis biomarkers for neurofatigue recovery, OT barycenters for multiomic alignment, phase-response adaptive DBS timing, Laplace-approximation trial enrichment, graph-cut lesion QC, delay-embedding ICU warning, constrained bandits for sepsis de-escalation, Fisher-KPP wound closure forecasting, and Markov jump therapy design; all bridge claims are explicitly labeled as speculative analogies.
+- Regenerated artifacts with full pipeline: `python scripts/validate_schemas.py`, `python -X utf8 scripts/build_graph.py`, `python scripts/update_dashboard_stats.py --apply`, `python scripts/sync-dashboard-from-state.py` (`docs/knowledge_graph.json` now **3,713 nodes**, **4,277 edges**).
+
 ### Added — Wave Factory mode automation
 - Added `scripts/harvesters/wave_factory.py` to rank harvested candidates (citations + recency + domain novelty), dedupe against existing bridge IDs/titles, and stage schema-safe bridge/unknown/hypothesis draft triples under `drafts/wave_factory/`.
 - Added `scripts/harvesters/promote_wave_factory_batch.py` to validate staged records and promote them into canonical folders with collision checks and explicit `--apply` gating.
