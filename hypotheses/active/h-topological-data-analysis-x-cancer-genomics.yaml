@@ -1,0 +1,41 @@
+id: h-topological-data-analysis-x-cancer-genomics
+title: >
+  Persistent homology features (0-dimensional components, 1-cycles) of bulk tumor
+  RNA-seq data from TCGA breast cancer cohort predict 5-year survival independently
+  of standard molecular subtypes (PAM50), with a concordance index C > 0.65 in
+  multivariate Cox regression.
+status: active
+priority: medium
+impact_score: 0.72
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - doi: "10.1073/pnas.1102826108"
+    type: supporting
+    confidence: 0.80
+    note: "Nicolau et al. (2011) - TDA identifies breast cancer c-MYB subgroup with >94% survival; not identified by standard clustering"
+  - type: supporting
+    note: "Carlsson (2009) - topology and data; survey of TDA with application examples; Bull AMS 46:255"
+    confidence: 0.74
+  - type: related
+    note: "Parker et al. (2009) - PAM50 molecular subtype concordance index ~0.62; sets baseline for TDA comparison"
+    confidence: 0.78
+
+unknowns_addressed:
+  - u-topological-data-analysis-x-cancer-genomics
+
+proposed_tests:
+  - description: >
+      Apply TDA mapper and persistent homology to TCGA breast cancer RNA-seq
+      (n=1093); compute beta_0, beta_1 features and topological outlier scores;
+      multivariate Cox regression with age, stage, PAM50 subtype; compare C-index.
+    method: "Gudhi / RIPSER persistent homology + mapper (KEPLER-MAPPER); Cox regression; compare to PAM50 C-index baseline"
+    prediction: "TDA features add >0.03 C-index over PAM50 alone (C > 0.65); topological outlier score identifies c-MYB+ subgroup replicated from Nicolau 2011"
+
+related_disciplines:
+  - mathematics
+  - cancer-biology
+  - bioinformatics
+  - statistics

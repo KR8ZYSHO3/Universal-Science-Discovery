@@ -1,0 +1,40 @@
+id: h-agent-based-models-x-emergent-markets
+title: >
+  Market crashes exhibit log-periodic power law (LPPL) precursors consistent
+  with the Johansen-Ledoit-Sornette model, with the predicted critical time
+  within 5% of actual crash dates for >70% of major market crashes over 1987-2020.
+status: active
+priority: medium
+impact_score: 0.71
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - doi: "10.1038/17616"
+    type: supporting
+    confidence: 0.75
+    note: "Lux & Marchesi (1999) - agent-based model produces volatility clustering and fat tails; crash dynamics match phase transition"
+  - type: supporting
+    note: "Johansen, Ledoit & Sornette (2000) - predicting financial crashes using discrete scale invariance; J Risk 1:5"
+    confidence: 0.68
+  - type: contradicting
+    note: "Laloux et al. (1999) - noise in financial data prevents reliable crash prediction; physical analogy has limits"
+    confidence: 0.72
+
+unknowns_addressed:
+  - u-agent-based-models-x-emergent-markets
+
+proposed_tests:
+  - description: >
+      Fit LPPL model to S&P 500 weekly returns in the 18 months preceding 10
+      major crashes and 10 non-crash market peaks; compare prediction accuracy
+      and false positive rate to naive benchmark.
+    method: "LPPL parameter estimation (nonlinear least squares) + Bayesian model comparison; ROC curve for crash prediction"
+    prediction: "LPPL achieves AUC > 0.75; predicted critical time within 30 days of crash in >60% of true crashes"
+
+related_disciplines:
+  - economics
+  - physics
+  - complex-systems
+  - finance

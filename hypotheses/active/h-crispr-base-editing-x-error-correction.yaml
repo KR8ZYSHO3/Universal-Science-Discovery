@@ -1,0 +1,41 @@
+id: h-crispr-base-editing-x-error-correction
+title: >
+  Off-target base editing rates follow a position-dependent mismatch model with
+  exponential rate reduction per mismatch position (weighted by distance from PAM),
+  matching the structure of a convolutional code error probability function and
+  enabling quantitative prediction of off-target rates from guide sequence alone.
+status: active
+priority: medium
+impact_score: 0.73
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - doi: "10.1038/nature24644"
+    type: supporting
+    confidence: 0.80
+    note: "Gaudelli et al. (2017) - ABE shows position-dependent activity window (4-8); PAM-proximal mismatches more tolerated"
+  - type: supporting
+    note: "Hsu et al. (2013) - SpCas9 mismatch tolerance decreases near PAM; distance-dependent model with R^2~0.8"
+    confidence: 0.76
+  - type: related
+    note: "Anzalone et al. (2020) - prime editing guide design; positional rules for off-target minimization"
+    confidence: 0.71
+
+unknowns_addressed:
+  - u-crispr-base-editing-x-error-correction
+
+proposed_tests:
+  - description: >
+      Measure off-target ABE editing rates at 100 sites with 1-4 mismatches at
+      all positions 1-20 in HEK293 cells; fit a position-weighted mismatch model;
+      compare to convolutional code error probability function.
+    method: "Amplicon sequencing of off-target sites + maximum-likelihood fit of positional mismatch model; compare AIC with flat vs distance-weighted models"
+    prediction: "Position-weighted model with exponential PAM-distance dependence fits significantly better (deltaAIC > 10); R^2 > 0.85"
+
+related_disciplines:
+  - molecular-biology
+  - information-theory
+  - genomics
+  - computational-biology

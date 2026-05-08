@@ -1,0 +1,42 @@
+id: h-neural-architecture-search-x-evolutionary-biology
+title: >
+  NAS fitness landscapes on benchmark tasks (NAS-Bench-201) exhibit ruggedness
+  and neutrality statistics similar to protein fitness landscapes: >40% neutral
+  single-step mutations, epistasis coefficient eta > 0.3, and multiple distinct
+  fitness peaks corresponding to convergent architectural solutions.
+status: active
+priority: medium
+impact_score: 0.70
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - doi: "10.48550/arXiv.1802.01548"
+    type: supporting
+    confidence: 0.75
+    note: "Real et al. (2019) - AmoebaNet; evolutionary search finds multiple competitive architectures suggesting a rugged landscape with many peaks"
+  - type: supporting
+    note: "Dong & Yang (2020) - NAS-Bench-201: full accuracy table for 15,625 architectures on CIFAR-100; landscape characterization possible"
+    confidence: 0.78
+  - type: related
+    note: "Poelwijk et al. (2007) - epistasis in protein fitness landscapes; sign epistasis determines evolutionary accessibility"
+    confidence: 0.73
+
+unknowns_addressed:
+  - u-neural-architecture-search-x-evolutionary-biology
+
+proposed_tests:
+  - description: >
+      Compute epistasis coefficients for all architecture mutation pairs in
+      NAS-Bench-201 (15,625 architectures); compare neutrality fraction and
+      ruggedness metrics to NK model landscapes and protein deep mutational
+      scanning data.
+    method: "Walsh transform of NAS-Bench-201 accuracy table; compare epistasis coefficient distribution to DMS datasets (e.g. GB1 protein, Podgornaia 2015)"
+    prediction: "NAS neutrality fraction 30-50% (matching proteins); epistasis coefficient distribution overlaps with NK model K=2-4"
+
+related_disciplines:
+  - computer-science
+  - evolutionary-biology
+  - machine-learning
+  - systems-biology

@@ -1,0 +1,68 @@
+id: b-quantum-field-theory-x-combinatorics
+title: >
+  Quantum Field Theory x Combinatorics - Feynman diagrams as graph enumeration
+status: proposed
+fields:
+  - physics
+  - mathematics
+  - combinatorics
+bridge_claim: >
+  Feynman diagram perturbation theory is a combinatorial expansion: the n-th order
+  term counts all distinct n-vertex graphs with prescribed external legs, weighted
+  by symmetry factors; the generating function of Feynman diagrams is a formal power
+  series whose coefficients are computed by graph automorphism group theory - making
+  QFT perturbation theory a branch of enumerative combinatorics.
+translation_table:
+  - field_a_term: Feynman diagram (graph representing a scattering process)
+    field_b_term: Labeled graph in enumerative combinatorics
+    note: >
+      Each Feynman diagram is a graph with vertices (interaction events) and
+      edges (propagators); the sum over diagrams at order n is the sum over
+      all non-isomorphic graphs with n vertices and the correct number of
+      external legs, weighted by symmetry factors.
+  - field_a_term: Symmetry factor (1 / |Aut(diagram)|)
+    field_b_term: Inverse automorphism group size in graph enumeration
+    note: >
+      The symmetry factor of a Feynman diagram is the inverse of the order of
+      its automorphism group - exactly the factor appearing in Burnside's lemma
+      for counting labeled graphs modulo symmetries.
+  - field_a_term: Generating functional Z[J] (path integral)
+    field_b_term: Exponential generating function of graphs
+    note: >
+      log Z[J] is the generating function of connected Feynman diagrams;
+      exp(log Z[J]) generates all diagrams (including disconnected ones);
+      this mirrors the exponential formula in combinatorics relating connected
+      and total structures.
+  - field_a_term: Renormalization (removing UV divergences)
+    field_b_term: Subtraction of divergent sub-graph contributions (Hopf algebra)
+    note: >
+      Connes and Kreimer (1999) showed that Feynman diagram renormalization
+      is governed by the Hopf algebra of rooted trees, with the antipode
+      implementing the BPHZ forest formula - a combinatorial identity.
+communication_gap: >
+  Feynman developed diagram perturbation theory as a physicist's mnemonic
+  (1948); its combinatorial interpretation (symmetry factors = automorphism
+  group) was recognized gradually; the full algebraic structure (Hopf algebra
+  of renormalization) was only made explicit by Connes & Kreimer (1999), opening
+  connections to algebraic combinatorics.
+cross_pollination_opportunities:
+  - >
+    Apply Polya enumeration theorem to systematically count all distinct
+    Feynman diagrams at each order, providing a fast check of perturbative
+    completeness in QFT calculations.
+  - >
+    Use chromatic polynomial and Tutte polynomial of Feynman diagrams to
+    classify UV divergences and determine renormalizability from graph-theoretic
+    criteria alone.
+  - >
+    Import cluster expansion methods from combinatorics to design systematic
+    resummation schemes for Feynman series that converge faster than the
+    naive perturbative expansion.
+related_unknowns:
+  - u-quantum-field-theory-x-combinatorics
+references:
+  - doi: "10.1007/s002200050499"
+    note: "Connes & Kreimer (1999) - renormalization in QFT and the Hopf algebra of rooted trees; CMP 199:203"
+  - doi: "10.1007/BF01350282"
+    note: "Cvitanovic (1977) - group theory factors for Feynman diagrams; Physical Review D 14:1536"
+last_reviewed: "2026-05-07"

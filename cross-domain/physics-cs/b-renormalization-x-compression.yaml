@@ -1,0 +1,68 @@
+id: b-renormalization-x-compression
+title: >
+  Renormalization x Data Compression - irrelevant operators as redundant bits
+status: proposed
+fields:
+  - physics
+  - computer-science
+  - information-theory
+bridge_claim: >
+  Lossy data compression (JPEG, MP3, rate-distortion theory) and the renormalization
+  group (integrating out short-scale fluctuations) both perform optimal coarse-
+  graining: both discard information that is maximally irrelevant to the macroscopic
+  description; the rate-distortion function R(D) is the information-theoretic
+  counterpart of the RG flow's irrelevant operators.
+translation_table:
+  - field_a_term: RG relevant operator (grows under coarse-graining)
+    field_b_term: Low-frequency signal component (survives compression)
+    note: >
+      Relevant operators in the RG sense have scaling dimension > d and grow
+      under coarse-graining; they correspond to the low-frequency components
+      of a signal that are preserved by lossy compression (JPEG DCT low-frequency
+      coefficients, MP3 critical band energies).
+  - field_a_term: RG irrelevant operator (vanishes under coarse-graining)
+    field_b_term: High-frequency signal component (discarded by compression)
+    note: >
+      Irrelevant operators shrink under coarse-graining and are discarded in
+      the RG flow; they correspond to high-frequency, fine-detail information
+      discarded in lossy compression - perceptually irrelevant to the macroscopic
+      (human-perceivable) representation.
+  - field_a_term: RG fixed point (universal behavior)
+    field_b_term: Optimal codebook (rate-distortion optimal code)
+    note: >
+      The RG fixed point is the universal limiting behavior; the rate-distortion
+      optimal code is the limiting codebook that achieves minimum rate for given
+      distortion - both represent the minimal sufficient description of the system.
+  - field_a_term: Kadanoff block-spin coarse-graining
+    field_b_term: Wavelet or DCT transform with thresholding
+    note: >
+      Block-spin averaging over a lattice is mathematically equivalent to a
+      spatial low-pass filter; DCT/wavelet decomposition plus coefficient
+      thresholding performs the same operation on discrete signals.
+communication_gap: >
+  Shannon rate-distortion theory (1959) and Wilson's renormalization group (1971)
+  were developed independently in information theory and physics; their deep
+  mathematical similarity was pointed out by various authors but a rigorous
+  quantitative correspondence (mapping rate-distortion to RG beta functions)
+  has only recently been formalized.
+cross_pollination_opportunities:
+  - >
+    Use RG beta function analysis to design adaptive compression algorithms that
+    identify the optimal truncation scale for a given signal class, generalizing
+    JPEG's hand-tuned quantization tables.
+  - >
+    Apply rate-distortion theory to study the minimum description length of
+    physical theories, quantifying when two theories are equivalent (describe
+    the same macroscopic physics) in information-theoretic terms.
+  - >
+    Import information bottleneck method (Tishby et al. 2000) as an information-
+    theoretic RG procedure, computing the minimal sufficient statistics that
+    preserve relevant macroscopic observables.
+related_unknowns:
+  - u-renormalization-x-compression
+references:
+  - doi: "10.1007/s11538-017-0362-y"
+    note: "Koch-Janusz & Ringel (2018) - mutual information, neural networks and the renormalization group; Nature Physics"
+  - doi: "10.1109/TIT.1956.1056802"
+    note: "Shannon (1959) - coding theorems for a discrete source with a fidelity criterion; IRE Conv Rec 4:142"
+last_reviewed: "2026-05-07"

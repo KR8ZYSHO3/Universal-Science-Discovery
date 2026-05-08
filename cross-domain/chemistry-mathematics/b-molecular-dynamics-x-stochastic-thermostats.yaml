@@ -1,0 +1,41 @@
+id: b-molecular-dynamics-x-stochastic-thermostats
+title: Molecular dynamics thermostats (Nosé–Hoover, Langevin, Andersen) are designed as stochastic
+  or extended deterministic dynamics whose invariant distributions approximate the canonical
+  ensemble, bridging chemistry simulations to stochastic differential equations.
+status: established
+fields:
+- molecular-dynamics
+- stochastic-processes
+- computational-chemistry
+- statistical-mechanics
+bridge_claim: 'Microcanonical MD conserves energy; coupling to heat baths requires additional
+  degrees of freedom or stochastic kicks. Langevin dynamics adds friction and Gaussian noise,
+  formally an SDE whose underdamped/overdamped limits trade accuracy for sampling efficiency.
+  Nosé–Hoover deterministically extends phase space with a variable controlling energy flow;
+  ergodicity failures motivate chains and stochastic hybrids. The bridge connects numerical
+  analysis of SDE integrators (splitting schemes, timestep bias) to chemistry practice: timestep
+  choice affects not only energy drift but also transport coefficients extracted from Green–Kubo
+  integrals.'
+translation_table:
+- field_a_term: Langevin friction γ
+  field_b_term: coupling strength to implicit solvent / thermostat
+- field_a_term: Wiener process term
+  field_b_term: stochastic collision kicks in Andersen thermostat
+- field_a_term: Fokker–Planck stationary solution
+  field_b_term: target Maxwell–Boltzmann velocity distribution
+related_unknowns:
+- u-md-thermostat-sde-equivalence-and-ergodicity
+related_hypotheses:
+- h-nose-hoover-chains-match-target-kinetic-spectra-when-tuned
+cross_pollination_opportunities:
+- Apply weak-convergence SDE analysis to estimate systematic bias in computed diffusion constants.
+- Design thermostats preserving holonomic constraints using constrained Langevin integrators
+  from mathematics.
+communication_gap: Chemistry software defaults hide thermostat choice; mathematics SDE literature
+  rarely names popular MD packages, so timestep pathology reports are fragmented.
+last_reviewed: '2026-05-07'
+references:
+- doi: 10.1103/PhysRevA.31.1695
+  note: Hoover (1985) — canonical dynamics via Nosé–Hoover thermostat
+- doi: 10.1080/00268978400101201
+  note: Nosé (1984) — unified formulation of deterministic constant temperature MD

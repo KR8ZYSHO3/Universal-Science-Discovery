@@ -1,0 +1,45 @@
+id: b-convolution-x-convolutional-neural-nets
+title: Discrete convolution — diagonalized by the discrete Fourier transform via the convolution
+  theorem — is the algebraic backbone of convolutional neural networks’ local translation-equivariant
+  layers.
+status: established
+fields:
+- mathematics
+- computer-science
+- signal-processing
+- machine-learning
+bridge_claim: 'The convolution theorem states that convolution becomes pointwise multiplication
+  in the Fourier domain (with appropriate boundary conditions). CNNs implement spatial convolution
+  with learned kernels, enforcing locality and weight sharing that realize a shift-equivariant
+  linear operator. In infinite or toroidal settings, convolutions are diagonal in Fourier
+  eigenbases; on finite images with zero-padding, exact diagonalization is approximate but
+  the spectral picture guides understanding of low-pass and band-pass behavior. The bridge
+  connects classical DSP to deep learning inductive bias: depth stacks localized spectral
+  filters while nonlinearities create effective multiscale representations analogous to filter
+  banks.'
+translation_table:
+- field_a_term: circular convolution / FFT
+  field_b_term: fast correlation filters in some architectures
+- field_a_term: transfer function of FIR filter
+  field_b_term: effective frequency response of a learned kernel
+- field_a_term: windowing / edge effects
+  field_b_term: boundary artifacts in padded convolutions
+related_unknowns:
+- u-discrete-convolution-theorem-cnn-inductive-bias
+related_hypotheses:
+- h-cnn-layers-approximate-localized-spectral-filters
+cross_pollination_opportunities:
+- Design CNN initialization using classical filter-bank constraints informed by Fourier analysis.
+- Use spectral visualization tools from audio DSP to audit spatial frequency biases in medical
+  imaging CNNs.
+communication_gap: ML courses emphasize backprop; signal-processing courses emphasize FFT
+  convolution. Practitioners overlap, but pedagogy rarely states the convolution theorem when
+  teaching stride and dilation.
+last_reviewed: '2026-05-07'
+references:
+- doi: 10.1109/5.58337
+  note: LeCun et al. (1998) — gradient-based learning applied to document recognition (CNN
+    foundations)
+- doi: 10.1109/MSP.2010.938019
+  note: Mallat (1989/retrospective accessible) wavelet/scattering perspectives on hierarchical
+    filtering

@@ -1,0 +1,23 @@
+id: u-diffusion-models-x-stochastic-processes
+title: "What is the theoretical lower bound on the number of sampling steps required for a diffusion model to generate samples indistinguishable from the data distribution, and how does this depend on data geometry and the choice of SDE?"
+status: open
+priority: medium
+disciplines:
+  - machine-learning
+  - mathematics
+  - stochastic-processes
+summary: >
+  Diffusion models require 10-1000 function evaluations per sample (vs 1 for GANs);
+  while distillation and consistency models reduce this to 1-4 steps empirically, the
+  theoretical minimum sampling steps for epsilon-accurate generation is not known.
+  Key unknowns: (1) what is the optimal noise schedule minimizing total variation
+  distance to the data distribution for fixed number of steps? (2) does the curvature
+  of the probability flow ODE trajectory determine the required step count? (3) can
+  manifold learning theory predict optimal SDE designs for different data geometries?
+systematic_gaps:
+  - Convergence analysis of diffusion samplers (DDPM, DDIM) is incomplete for non-Gaussian data; convergence rates depend on score estimation error
+  - The optimal choice of forward SDE (variance-exploding vs variance-preserving vs sub-VP) for a given data distribution is not theoretically justified
+  - Consistency models and distillation achieve fast sampling empirically but lack sample quality guarantees comparable to full DDPM
+related_bridges:
+  - b-diffusion-models-x-stochastic-processes
+last_reviewed: "2026-05-07"

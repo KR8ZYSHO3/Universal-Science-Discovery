@@ -1,0 +1,67 @@
+id: b-crispr-base-editing-x-error-correction
+title: >
+  CRISPR Base Editing x Error Correction - adenine base editor as bit-flip corrector
+status: proposed
+fields:
+  - biology
+  - computer-science
+  - information-theory
+bridge_claim: >
+  Adenine base editors (ABEs) convert A-T to G-C base pairs without double-strand
+  breaks, implementing a precise one-bit correction in the genomic information
+  channel; the specificity window (protospacer positions 4-8) is analogous to a
+  convolutional code's constraint length, and off-target edits are the biological
+  equivalent of decoder errors in a noisy channel.
+translation_table:
+  - field_a_term: Genomic DNA sequence (4-letter alphabet, ~3 billion bp)
+    field_b_term: Encoded message in a noisy information channel
+    note: >
+      The genome is a high-capacity information storage medium; base substitutions
+      (mutations, sequencing errors) are channel noise; base editing is targeted
+      error correction that changes one specific symbol without erasing context.
+  - field_a_term: Adenine base editor (ABE7.10, ABE8e)
+    field_b_term: Bit-flip error corrector (single-bit decoder)
+    note: >
+      ABE converts A (0) to G (1) at a target site with >99% efficiency; this is
+      functionally equivalent to a targeted bit-flip error correction step that
+      corrects a known single-site error without affecting surrounding bits.
+  - field_a_term: Protospacer activity window (positions 4-8, counting from PAM)
+    field_b_term: Constraint length of convolutional decoder
+    note: >
+      The editing window is an intrinsic property of the base editor deaminase
+      domain; it limits which positions can be corrected, analogous to the
+      constraint length of a convolutional code that determines which bits can
+      be independently decoded.
+  - field_a_term: Off-target editing (unintended sites with partial guide match)
+    field_b_term: Decoder symbol error rate (residual errors after decoding)
+    note: >
+      Off-target edits occur at genomic sites with sequence similarity to the
+      guide RNA target; the specificity (on-target / off-target ratio) measures
+      the effective error rate of the base editing decoder.
+communication_gap: >
+  Information theory and molecular genetics have been connected conceptually
+  (Gamow's coding problem, Shannon's channel model) but the specific analogy
+  between base editing and error correction operations is underexplored; it
+  opens the possibility of designing guide RNA sequences to minimize off-target
+  errors using coding theory principles.
+cross_pollination_opportunities:
+  - >
+    Apply channel coding theory to design guide RNA sequences that maximize
+    specificity (minimize off-target editing) by maximizing the Hamming distance
+    between on-target and off-target sequences.
+  - >
+    Use rate-distortion theory to compute the minimum base editing rate needed
+    to correct a given density of point mutations in a genome, guiding clinical
+    base editing dosage design.
+  - >
+    Import LDPC-like iterative decoding concepts to design multi-base editing
+    strategies that correct multiple genomic errors simultaneously with minimal
+    off-target effects.
+related_unknowns:
+  - u-crispr-base-editing-x-error-correction
+references:
+  - doi: "10.1038/nature24644"
+    note: "Gaudelli et al. (2017) - programmable base editing of A-T to G-C in genomic DNA without DNA cleavage; Nature 551:464"
+  - doi: "10.1038/s41587-019-0009-z"
+    note: "Komor et al. (2016) - programmable editing of a target base in genomic DNA without double-stranded DNA cleavage; Nature 533:420"
+last_reviewed: "2026-05-07"

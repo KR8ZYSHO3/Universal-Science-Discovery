@@ -1,0 +1,42 @@
+id: h-synthetic-biology-x-circuit-design
+title: >
+  Retroactivity compensation using insulator genetic parts (insulators) restores
+  logical modularity in synthetic gene circuits, enabling formal CAD composition
+  rules with predictable transfer functions measurable by flow cytometry.
+status: active
+priority: medium
+impact_score: 0.76
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - doi: "10.1038/35002131"
+    type: supporting
+    confidence: 0.88
+    note: "Elowitz & Leibler (2000) - repressilator demonstrates gene circuits obey ring-oscillator design principles"
+  - type: supporting
+    note: "Del Vecchio et al. (2008) - retroactivity theory shows loading effects between modules; compensation circuits restore isolation"
+    confidence: 0.74
+
+unknowns_addressed:
+  - u-synthetic-biology-x-circuit-design
+
+proposed_tests:
+  - description: >
+      Construct a 4-gate Boolean logic circuit in E. coli with and without
+      retroactivity compensation modules; measure transfer functions of each gate
+      in isolation vs in circuit using flow cytometry.
+    method: "Flow cytometry of fluorescent reporter expression; compare isolated vs connected gate transfer functions"
+    prediction: "Uncompensated circuits show >30% deviation from isolated transfer functions; compensated circuits show <5% deviation"
+  - description: >
+      Apply electronic timing analysis to a synthetic oscillator, predicting
+      period from component delays; test prediction against time-lapse microscopy.
+    method: "Time-lapse fluorescence microscopy of repressilator variants with different RBS strengths; compare period to timing model"
+    prediction: "Period scales with sum of component delays as in ring oscillator timing formula, within 2x"
+
+related_disciplines:
+  - synthetic-biology
+  - computer-science
+  - control-theory
+  - biological-engineering

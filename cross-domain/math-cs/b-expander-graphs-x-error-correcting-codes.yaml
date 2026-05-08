@@ -1,0 +1,65 @@
+id: b-expander-graphs-x-error-correcting-codes
+title: >
+  Expander Graphs x Error-Correcting Codes - spectral gap as code distance
+status: proposed
+fields:
+  - mathematics
+  - computer-science
+bridge_claim: >
+  Expander graphs (high connectivity, small spectral gap in the Laplacian) are the
+  combinatorial objects underlying modern error-correcting codes; LDPC codes and
+  turbo codes have Tanner graphs that are expanders, and the spectral gap of the
+  Tanner graph determines the code's minimum distance and iterative decoding
+  convergence rate.
+translation_table:
+  - field_a_term: Spectral gap (lambda_2 - lambda_1 of graph Laplacian)
+    field_b_term: Code minimum distance / threshold for iterative decoding
+    note: >
+      The Ramanujan bound (spectral gap = 2*sqrt(d-1) - epsilon) characterizes
+      optimal expanders; LDPC codes whose Tanner graphs meet this bound achieve
+      the best-known minimum distance scaling and threshold performance under
+      belief propagation decoding.
+  - field_a_term: Tanner graph (bipartite factor graph of LDPC code)
+    field_b_term: Bipartite expander graph
+    note: >
+      The Tanner graph of an LDPC code is a bipartite graph between variable nodes
+      (codeword bits) and check nodes (parity constraints); its expansion ratio
+      (minimum vertex expansion over all small subsets) controls the minimum
+      distance of the code.
+  - field_a_term: Belief propagation (iterative decoding)
+    field_b_term: Expander mixing lemma convergence
+    note: >
+      Belief propagation converges to the correct codeword when the Tanner graph
+      has sufficient expansion; the expander mixing lemma bounds the number of
+      iterations needed for convergence as a function of spectral gap.
+  - field_a_term: Girth (length of shortest cycle in Tanner graph)
+    field_b_term: Locally tree-like structure of expander
+    note: >
+      High girth Tanner graphs are locally tree-like (no short cycles), enabling
+      belief propagation to behave correctly for short block lengths; girth is
+      related to expansion via the Moore bound.
+communication_gap: >
+  Algebraic coding theory (Hamming, BCH, Reed-Solomon codes) and graph expansion
+  theory (Margulis, Lubotzky-Phillips-Sarnak) developed independently; their
+  connection through Tanner codes and LDPC codes was established only in the
+  1996-2001 period (Sipser-Spielman, Luby et al., Richardson-Urbanke).
+cross_pollination_opportunities:
+  - >
+    Use Ramanujan graph constructions (LPS graphs) to design LDPC codes with
+    provably optimal minimum distance scaling, surpassing the Gilbert-Varshamov
+    bound for specific rates.
+  - >
+    Apply spectral graph theory (Cheeger's inequality) to quantitatively predict
+    iterative decoding threshold from Tanner graph structure, enabling decoder
+    performance prediction without Monte Carlo simulation.
+  - >
+    Import quantum expander constructions (quantum expander codes, qLDPC) to design
+    quantum error-correcting codes with constant rate and distance scaling.
+related_unknowns:
+  - u-expander-graphs-x-error-correcting-codes
+references:
+  - doi: "10.1109/18.910575"
+    note: "Sipser & Spielman (1996) - expander codes; IEEE Trans Information Theory 42:1710"
+  - doi: "10.1109/18.910574"
+    note: "Luby et al. (2001) - improved low-density parity-check codes using irregular graphs; IEEE TIT"
+last_reviewed: "2026-05-07"

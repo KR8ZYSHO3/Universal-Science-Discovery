@@ -1,0 +1,66 @@
+id: b-neural-architecture-search-x-evolutionary-biology
+title: >
+  Neural Architecture Search x Evolutionary Biology - NAS as artificial evolution
+status: proposed
+fields:
+  - computer-science
+  - biology
+  - evolutionary-biology
+bridge_claim: >
+  Neural architecture search (NAS) algorithms - NEAT, evolutionary NAS, AmoebaNet -
+  mimic biological evolution: networks are organisms, architectures are genotypes,
+  validation accuracy is fitness, and mutations/crossovers generate variation; NAS
+  rediscovered architectural motifs (skip connections, attention) that parallel
+  convergent evolution of neural circuit motifs.
+translation_table:
+  - field_a_term: Neural network architecture (layer types, connections)
+    field_b_term: Genotype (genetic specification of organism)
+    note: >
+      The architecture specification (which layers exist, how they are connected,
+      what operations they perform) is the genotype; the trained network weights
+      given a fixed architecture are the phenotype expression of that genotype.
+  - field_a_term: Validation accuracy (after training on fixed dataset)
+    field_b_term: Fitness (survival and reproductive success)
+    note: >
+      Validation accuracy is the fitness function; architectures achieving higher
+      accuracy survive and reproduce (are selected for mutation/crossover); the
+      fitness landscape determines evolutionary dynamics of the NAS search.
+  - field_a_term: Architecture mutation (add layer, change operation type)
+    field_b_term: Point mutation / structural gene rearrangement
+    note: >
+      Architecture mutations are analogous to structural gene mutations; adding
+      a skip connection resembles gene duplication; changing an operation type
+      resembles a missense mutation affecting protein function.
+  - field_a_term: Supernet (architecture sharing weight inheritance)
+    field_b_term: Common genetic heritage (conserved sequence motifs)
+    note: >
+      In one-shot NAS methods, subnets share weights from a supernet, analogous
+      to how all organisms share conserved ancestral sequences; the shared weights
+      encode architectural priors like common evolutionary history encodes
+      conserved motifs.
+communication_gap: >
+  Evolutionary computation and neural network design were connected from the
+  beginning (Holland 1975, NEAT 2002) but NAS at scale became practical only with
+  hardware acceleration (2017+); conversely, evolutionary biologists rarely use
+  NAS as a computational model for studying evolvability and epistasis.
+cross_pollination_opportunities:
+  - >
+    Use NAS fitness landscapes to study epistasis (non-additive interactions between
+    mutations) and ruggedness, providing a computationally tractable model system
+    for evolutionary dynamics on complex fitness landscapes.
+  - >
+    Apply population genetics theory (drift, mutation-selection balance, clonal
+    interference) to NAS evolutionary dynamics, predicting when evolutionary search
+    outperforms gradient-based NAS.
+  - >
+    Import developmental biology concepts (modularity, evolvability, canalization)
+    to explain why NAS converges to modular, hierarchical architectures and why
+    this mirrors convergent evolution of neural circuits.
+related_unknowns:
+  - u-neural-architecture-search-x-evolutionary-biology
+references:
+  - doi: "10.48550/arXiv.1802.01548"
+    note: "Real et al. (2019) - regularized evolution for image classifier architecture search (AmoebaNet); AAAI 2019"
+  - doi: "10.48550/arXiv.1712.00559"
+    note: "Zoph et al. (2018) - learning transferable architectures for scalable image recognition; CVPR 2018"
+last_reviewed: "2026-05-07"
