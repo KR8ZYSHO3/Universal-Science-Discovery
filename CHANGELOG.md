@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] — 2026-05-07
 
+### Added — Waves 70–71 (+24 bridges; merged/regenerated catalog **904** bridges)
+- **Wave 70 (12 bridges):** quantum Zeno × measurement/interruption analogies; Kalman filtering × brain state estimation; hyperbolic geometry × hierarchical network embeddings; Kleiber/WBE-style metabolic scaling × fractal-like transport; epidemic contagion models × financial network crises; Charnov marginal value × explore–exploit / bandits; electrochemical impedance × excitable membranes; discrete convolution × CNN inductive bias; ridge regression × Gaussian MAP shrinkage; contrastive SSL × energy/temperature analogies; gauge fields × connection forms on bundles; collective-risk dilemmas × insurance/mutualism.
+- **Wave 71 (12 bridges):** galaxy red sequence × quenching/stellar populations; LiDAR ranging × geometric inverse problems; RNA planar folding × DP on graphs; GRB jets × relativistic hydrodynamics; quorum sensing × multiplayer evolutionary games; neutron-star cores × QCD/nuclear EOS constraints; coastal shorelines × interface / diffusion models; language contact × graph diffusion; FEM × discrete exterior calculus; skin friction × wall-bounded turbulence; MD thermostats × SDE sampling; truthful mechanism design (Vickrey/VCG) × preference elicitation.
+- **Catalog deltas:** +24 unknowns, +24 hypotheses; `docs/knowledge_graph.json` rebuilt (latest regen on this branch: **3198 nodes**, **3460 edges** after merging upstream `main`); `dashboard/index.html` stats updated via `scripts/update_dashboard_stats.py`.
+
 ### Added — Waves 57-67 + OA-1 (734 → 868 bridges, +134)
 - Wave 57 (PR #197): 12 bridges — mitochondrial proton-motive force, collective boid dynamics, and 10 additional cross-domain bridges
 - Wave 58 (PR #198): 12 bridges — broad cross-domain coverage including biophysics and network theory

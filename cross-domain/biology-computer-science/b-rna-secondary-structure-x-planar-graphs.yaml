@@ -1,0 +1,41 @@
+id: b-rna-secondary-structure-x-planar-graphs
+title: RNA secondary structure prediction treats base pairing as a non-crossing (planar) graph
+  optimization problem, linking molecular biology to dynamic programming on trees and planar
+  matchings.
+status: established
+fields:
+- computational-biology
+- algorithms
+- graph-theory
+- RNA-biology
+bridge_claim: 'The Nussinov–Jacobson and related DP algorithms maximize weighted base pairings
+  subject to non-crossing constraints, yielding a planar graph representation of secondary
+  structure. More general structures with pseudoknots require non-planar graphs and raise
+  computational complexity. The bridge connects polymer physics constraints (backbone order)
+  to algorithm design: sequence positions are vertices along a line, arcs are pairings, planarity
+  enables cubic-time DP. It also links to language-theory views of RNA as constrained strings.
+  Energy minimization refinements (nearest-neighbor thermodynamic parameters) replace simple
+  scoring but preserve the planar DP backbone.'
+translation_table:
+- field_a_term: non-crossing arcs
+  field_b_term: planar matching / outerplanar graph
+- field_a_term: recurrence on subintervals [i,j]
+  field_b_term: CYK-like decomposition for RNA folding
+- field_a_term: pseudoknot
+  field_b_term: non-planar crossing base pairs requiring higher complexity
+related_unknowns:
+- u-rna-folding-planar-pseudoknot-limits
+related_hypotheses:
+- h-nussinov-energy-approximates-planar-graph-parsimony
+cross_pollination_opportunities:
+- Use treewidth-based graph algorithms to systematically handle restricted pseudoknot classes.
+- Apply RNA planar graph statistics as generative constraints for RNA design by inverse folding.
+communication_gap: Biologists discuss dot-bracket notation; algorithms researchers discuss
+  parse forests. Tooling hides the graph structure, so errors in pseudoknot handling propagate
+  silently in design pipelines.
+last_reviewed: '2026-05-07'
+references:
+- doi: 10.1016/0022-2836(80)90363-8
+  note: Nussinov & Jacobson (1980) — fast algorithm for predicting secondary structure
+- doi: 10.1093/nar/9.1.133
+  note: Zuker & Stiegler (1981) — energy-based folding with DP (thermodynamic refinement bridge)

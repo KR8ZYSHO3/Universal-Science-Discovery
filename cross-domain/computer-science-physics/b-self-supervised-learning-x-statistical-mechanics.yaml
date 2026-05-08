@@ -1,0 +1,42 @@
+id: b-self-supervised-learning-x-statistical-mechanics
+title: Contrastive self-supervised learning — pulling positive pairs together and pushing
+  negatives apart — resembles learning energy-based and Boltzmann-machine style scores where
+  temperature controls sharpness of discrimination.
+status: established
+fields:
+- machine-learning
+- statistical-physics
+- computer-science
+- information-theory
+bridge_claim: 'Energy-based models assign low energy to plausible configurations; training
+  shapes the energy landscape so that data lie in wells. Contrastive objectives such as InfoNCE
+  reweight logits of positive versus negative pairs using a softmax with temperature parameter
+  τ, producing a probabilistic discrimination rule. In statistical mechanics language, τ plays
+  the role of a temperature scaling the Boltzmann factors comparing energies of alternative
+  pairings. The bridge is not exact isomorphism — deep nets are not equilibrium ensembles
+  — but it supplies shared intuition: sharp temperatures (small τ) emphasize hard negatives;
+  high τ smooths the landscape. It also connects to noise-contrastive estimation and partition-function
+  perspectives.'
+translation_table:
+- field_a_term: Boltzmann factor exp(-E/kT)
+  field_b_term: softmax weights exp(sim/τ) in contrastive logits
+- field_a_term: partition function / normalization
+  field_b_term: sum over negatives in denominator
+- field_a_term: free energy minimization
+  field_b_term: contrastive loss minimization
+related_unknowns:
+- u-contrastive-ssl-energy-model-bridge
+related_hypotheses:
+- h-contrastive-loss-implements-high-temperature-energy-comparison
+cross_pollination_opportunities:
+- Import annealing schedules from simulated annealing to curriculum hard-negative mining.
+- Use replica-symmetry intuition to analyze collapse modes in contrastive training.
+communication_gap: SSL papers discuss temperature heuristically; physics-flavored EBMs emphasize
+  equilibrium. Cross notation is inconsistent, obscuring when τ controls optimization stability
+  versus representation geometry.
+last_reviewed: '2026-05-07'
+references:
+- doi: 10.1162/neco.2002.14.8.1771
+  note: Hinton (2002) — training products of experts / contrastive divergence family
+- arxiv: '2002.05709'
+  note: Chen et al. (2020) — SimCLR contrastive learning framework

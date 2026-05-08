@@ -1,0 +1,40 @@
+id: b-ridge-regression-x-shrinkage
+title: Ridge regression — L2 penalized least squares — is the maximum a posteriori estimator
+  under a Gaussian prior on weights, linking frequentist shrinkage to Bayesian regularization.
+status: established
+fields:
+- statistics
+- computer-science
+- machine-learning
+- applied-mathematics
+bridge_claim: 'Ordinary least squares minimizes squared error; adding an L2 penalty pulls
+  coefficients toward zero, stabilizing ill-conditioned designs by trading bias for variance.
+  Equivalently, with Gaussian likelihood and independent Gaussian priors on coefficients,
+  the MAP estimate solves the ridge objective with λ proportional to noise-to-prior variance.
+  The bridge clarifies hyperparameter selection: cross-validated λ corresponds to an implicit
+  prior scale. In high dimensions, ridge relates to random-matrix spectral shrinkage intuitions
+  for covariance estimation. The same template appears in neural decoding linear models and
+  kernel methods.'
+translation_table:
+- field_a_term: penalty λ
+  field_b_term: prior precision / noise ratio in Gaussian MAP
+- field_a_term: ridge solution (XᵀX + λI)⁻¹ Xᵀ y
+  field_b_term: posterior mean under conjugate normal-normal model
+- field_a_term: effective degrees of freedom
+  field_b_term: Bayesian model complexity measure
+related_unknowns:
+- u-ridge-as-gaussian-map-prior-identifiability
+related_hypotheses:
+- h-ridge-penalty-matches-bayesian-width-in-neural-decoding
+cross_pollination_opportunities:
+- Use empirical-Bayes ridge in genomic prediction pipelines with calibration diagnostics from
+  spatial statistics.
+- Compare ridge MAP to variational BNN mean-field approximations in low-data scientific regression.
+communication_gap: Statistics curricula teach ridge as penalization; some ML courses omit
+  the Gaussian prior story, hindering uncertainty quantification links.
+last_reviewed: '2026-05-07'
+references:
+- doi: 10.1080/00401706.1970.10488634
+  note: Hoerl & Kennard (1970) — ridge regression foundations
+- doi: 10.1007/978-0-387-84858-7_7
+  note: Murphy (2012) — probabilistic interpretation of ridge/MAP (handbook chapter DOI cluster)

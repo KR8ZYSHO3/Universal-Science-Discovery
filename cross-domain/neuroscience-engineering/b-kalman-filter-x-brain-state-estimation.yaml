@@ -1,0 +1,47 @@
+id: b-kalman-filter-x-brain-state-estimation
+title: Kalman filtering — recursive Bayesian state estimation for linear-Gaussian dynamics
+  — maps onto neural circuits that combine a forward prediction with a sensory correction,
+  motivating tractable experimental tests in perception and motor control.
+status: established
+fields:
+- neuroscience
+- engineering
+- signal-processing
+- computational-neuroscience
+bridge_claim: 'The Kalman filter alternates prediction using a dynamics model with an innovation
+  update weighted by the Kalman gain, minimizing mean-squared estimation error under Gaussian
+  assumptions. Canonical neural models of perception and sensorimotor integration (e.g., optimal
+  feedback control sketches, predictive coding linearizations) implement the same recursive
+  structure: an internal forward model proposes a state estimate, and sensory prediction errors
+  produce a correction proportional to reliability. The bridge is not that brains are strictly
+  linear-Gaussian; it is that Kalman filtering is the unique scalable prototype for prediction–correction
+  with tunable gains, guiding when neural populations should behave like variance-weighted
+  error correctors versus nonlinear particle-like schemes.'
+translation_table:
+- field_a_term: state vector x_t
+  field_b_term: latent stimulus or body state represented in cortex
+- field_a_term: process noise covariance Q
+  field_b_term: internal variability / drift in neural dynamics
+- field_a_term: measurement noise covariance R
+  field_b_term: sensory noise and ambiguity
+- field_a_term: Kalman gain K
+  field_b_term: effective feedforward sensory weighting
+related_unknowns:
+- u-kalman-filter-neural-implementation-limits
+related_hypotheses:
+- h-sensory-cortex-implements-approximate-kalman-updates
+cross_pollination_opportunities:
+- Use neural decoding to estimate empirical Kalman gains across attention and cue reliability
+  manipulations.
+- Co-design brain–machine interfaces with Kalman-family decoders matched to observed neural
+  tuning drift.
+communication_gap: Control and robotics textbooks present Kalman filters as standard; systems
+  neuroscience often uses related but differently named linear dynamical models without linking
+  gains to Q/R ratios.
+last_reviewed: '2026-05-07'
+references:
+- doi: 10.1115/1.3662552
+  note: Kalman (1960) — discrete-time linear filtering
+- doi: 10.1038/nn.2733
+  note: Representative discussion of Bayesian cue integration in perception (example bridge
+    paper)

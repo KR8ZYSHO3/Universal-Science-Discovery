@@ -1,0 +1,40 @@
+id: b-lidar-x-inverse-problems
+title: LiDAR point clouds are discrete samples of a scene geometry obtained by solving ranging
+  inverse problems — echo timing and beam spreading couple engineering sensing to geometric
+  tomography.
+status: established
+fields:
+- remote-sensing
+- inverse-problems
+- geometry
+- engineering
+bridge_claim: 'A LiDAR system estimates range by relating emitted pulse travel time (and waveform
+  shape for full-waveform systems) to distance, under assumptions about scattering and noise.
+  Reconstructing surfaces, canopy profiles, or urban meshes from point sets is ill-posed:
+  infinitely many continuous surfaces explain finite samples. Regularization and Bayesian
+  priors (smoothness, sparsity in a wavelet basis, Manhattan-world building constraints) mirror
+  classical inverse scattering and tomography. The bridge imports stability estimates, uncertainty
+  quantification, and convergence theory from mathematics into geospatial engineering pipelines.'
+translation_table:
+- field_a_term: forward operator (wave propagation + detection)
+  field_b_term: LiDAR range equation with beam convolution
+- field_a_term: Tikhonov regularization
+  field_b_term: surface smoothing penalties in mesh fitting
+- field_a_term: non-uniqueness / nullspace
+  field_b_term: occlusions and missing returns creating geometric ambiguities
+related_unknowns:
+- u-lidar-scene-reconstruction-nonuniqueness
+related_hypotheses:
+- h-sparsity-priors-stabilize-lidar-surface-recovery
+cross_pollination_opportunities:
+- Apply computational microlocal analysis ideas to predict edge artifacts in urban LiDAR meshes.
+- Co-design sensor waveforms using optimal experimental design for foliage penetration.
+communication_gap: Geomatics workflows emphasize heuristics and SLAM; inverse-problems theory
+  is often black-boxed in software stacks, limiting uncertainty certificates.
+last_reviewed: '2026-05-07'
+references:
+- doi: 10.1109/TGRS.2004.839552
+  note: Representative full-waveform / LiDAR signal processing bridge paper in remote sensing
+- doi: 10.1029/2001RS002475
+  note: Harding et al. (2001) — airborne LiDAR vegetation mapping methodology (geometric inverse
+    flavor)
