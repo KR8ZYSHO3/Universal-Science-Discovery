@@ -1,0 +1,65 @@
+id: b-gene-expression-noise-x-information-theory
+title: >
+  Gene Expression Noise x Information Theory - transcriptional channel capacity
+status: proposed
+fields:
+  - biology
+  - computer-science
+  - information-theory
+bridge_claim: >
+  Gene regulatory networks face a fundamental channel capacity limit: the maximum
+  mutual information between transcription factor concentration (input) and target
+  gene expression (output) is bounded by the noise in the system; cells near this
+  limit implement near-optimal regulatory strategies predicted by information theory,
+  measurable by single-cell RNA sequencing.
+translation_table:
+  - field_a_term: Transcription factor concentration (input signal)
+    field_b_term: Channel input X
+    note: >
+      The concentration of an activating or repressing transcription factor is the
+      input variable; its distribution (set by upstream signaling) determines the
+      prior over the channel input.
+  - field_a_term: Target gene mRNA/protein level (output)
+    field_b_term: Channel output Y
+    note: >
+      The resulting expression level of the regulated gene is the noisy channel
+      output; intrinsic noise (transcriptional bursting) and extrinsic noise
+      (cell-to-cell variation in TF copy number) together define the channel noise.
+  - field_a_term: Cell-to-cell expression variability (noise, eta^2)
+    field_b_term: Channel noise power
+    note: >
+      The Fano factor and coefficient of variation of expression across cells
+      set the effective SNR of the regulatory channel; higher noise compresses
+      the capacity below the noiseless log2(n_states) bound.
+  - field_a_term: Optimal regulatory response (Hill function shape)
+    field_b_term: Channel capacity-achieving input distribution
+    note: >
+      The input TF distribution that maximizes mutual information matches the
+      experimentally observed TF concentration distribution in bacteria and
+      yeast, suggesting evolution has tuned regulatory strategies toward capacity.
+communication_gap: >
+  Information-theoretic analysis of gene regulation was pioneered by Tkacik and
+  Walczak around 2008 but has not been widely adopted by molecular biologists who
+  typically analyze single gene-pair interactions rather than information flows
+  across regulatory networks.
+cross_pollination_opportunities:
+  - >
+    Use single-cell RNA-seq data to compute mutual information between all TF-target
+    pairs in a regulatory network, identifying information bottlenecks that limit
+    cellular decision-making fidelity.
+  - >
+    Apply rate-distortion theory to ask how much of the TF signal is actually used
+    by the cell, quantifying regulatory efficiency and identifying wasteful noise
+    without functional benefit.
+  - >
+    Design synthetic promoters with noise characteristics that maximize information
+    transfer for specific input TF distributions, guided by capacity-achieving
+    channel design principles.
+related_unknowns:
+  - u-gene-expression-noise-x-information-theory
+references:
+  - doi: "10.1073/pnas.0604883103"
+    note: "Tkacik, Walczak & Bialek (2008) - information flow and optimization in gene expression; PNAS 105:12265"
+  - doi: "10.1016/j.cell.2013.02.039"
+    note: "Eldar & Elowitz (2010) - functional roles for noise in genetic circuits; Nature 467:167"
+last_reviewed: "2026-05-07"

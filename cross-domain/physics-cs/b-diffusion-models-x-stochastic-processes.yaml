@@ -1,0 +1,64 @@
+id: b-diffusion-models-x-stochastic-processes
+title: >
+  Diffusion Generative Models x Stochastic Differential Equations - score matching as time-reversed diffusion
+status: proposed
+fields:
+  - computer-science
+  - mathematics
+  - physics
+bridge_claim: >
+  Diffusion generative models (DALL-E, Stable Diffusion) learn to reverse a stochastic
+  diffusion process (data to noise) by estimating the score function nabla_x log p(x);
+  the generative SDE is the time-reversal of the forward Ito diffusion, grounded in
+  Anderson's time-reversal theorem - making modern AI image generation a direct
+  application of stochastic process theory.
+translation_table:
+  - field_a_term: Forward noising process (data -> Gaussian noise over time T)
+    field_b_term: "Forward Ito SDE: dX = f(X,t)dt + g(t)dW"
+    note: >
+      The forward diffusion gradually corrupts data by adding Gaussian noise; this is
+      an Ito stochastic differential equation with drift f (mean-reverting) and
+      diffusion coefficient g(t); at time T, the distribution approaches pure noise.
+  - field_a_term: Reverse denoising process (noise -> data sample)
+    field_b_term: Time-reversed SDE (Anderson 1982)
+    note: >
+      Anderson's theorem states the time-reversal of an Ito diffusion is also an
+      Ito SDE: dX = [f - g^2 * nabla log p_t(X)] dt + g dW_bar; the score function
+      nabla log p_t is the only unknown and is learned by the neural network.
+  - field_a_term: Score network (denoising neural network)
+    field_b_term: Score function estimator s_theta(x,t) ~ nabla log p_t(x)
+    note: >
+      The neural network is trained to estimate the score (gradient of log density)
+      at each noise level; this is equivalent to learning to denoise corrupted data
+      by minimizing weighted denoising score matching objectives.
+  - field_a_term: DDPM noise schedule (beta_1, ..., beta_T)
+    field_b_term: Variance schedule g^2(t) of the forward SDE
+    note: >
+      The discrete noise schedule corresponds to the variance function of the forward
+      SDE; continuous-time SDE formulations (Song et al. 2021) unify DDPM, SMLD, and
+      other discrete schedules as special cases.
+communication_gap: >
+  Stochastic differential equations (Ito, 1944) and time-reversal theorems (Anderson,
+  1982) existed decades before diffusion models; the explicit connection was made by
+  Song et al. (2021) and Ho et al. (2020), enabling continuous-time generalization
+  and principled design of noise schedules using SDE theory.
+cross_pollination_opportunities:
+  - >
+    Apply numerical SDE solvers (Euler-Maruyama, Milstein, stochastic Runge-Kutta)
+    to design faster diffusion model samplers, replacing heuristic DDIM with
+    theory-grounded ODE solvers.
+  - >
+    Use Fokker-Planck equations to analyze the probability flow ODE of diffusion
+    models, establishing convergence guarantees and optimal transport interpretations.
+  - >
+    Import path integral methods from physics to compute exact likelihoods under
+    diffusion models, avoiding the score matching approximation for importance-
+    sampling-based evaluation.
+related_unknowns:
+  - u-diffusion-models-x-stochastic-processes
+references:
+  - doi: "10.48550/arXiv.2011.13456"
+    note: "Song et al. (2021) - score-based generative modeling through SDEs; ICLR 2021 Outstanding Paper"
+  - doi: "10.48550/arXiv.2006.11239"
+    note: "Ho et al. (2020) - denoising diffusion probabilistic models; NeurIPS 2020"
+last_reviewed: "2026-05-07"

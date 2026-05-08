@@ -1,0 +1,41 @@
+id: h-expander-graphs-x-error-correcting-codes
+title: >
+  Tanner graph spectral gap is a stronger predictor of LDPC code threshold
+  performance under belief propagation than variable or check node degree
+  distributions alone, and codes constructed from Ramanujan graphs achieve
+  belief propagation thresholds within 0.1 dB of the Shannon limit.
+status: active
+priority: high
+impact_score: 0.83
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - doi: "10.1109/18.910575"
+    type: supporting
+    confidence: 0.87
+    note: "Sipser & Spielman (1996) - expander codes achieve linear distance; spectral gap controls code parameters"
+  - type: supporting
+    note: "Richardson & Urbanke (2001) - density evolution: threshold analysis of LDPC codes under BP; confirms spectral structure importance"
+    confidence: 0.84
+  - type: related
+    note: "Leverrier, Tillich & Zemor (2022) - quantum expander codes with constant rate and linear distance; Nature 2022"
+    confidence: 0.82
+
+unknowns_addressed:
+  - u-expander-graphs-x-error-correcting-codes
+
+proposed_tests:
+  - description: >
+      Construct a family of LDPC codes with Tanner graphs of varying spectral gap
+      (from random bipartite to LPS Ramanujan graphs) at fixed rate 1/2;
+      measure BP decoding threshold by density evolution and compare to spectral gap.
+    method: "Density evolution simulation for 100 Tanner graph families; measure threshold as function of lambda_2(T)"
+    prediction: "BP threshold increases monotonically with spectral gap; Ramanujan graphs achieve threshold within 0.1 dB of Shannon"
+
+related_disciplines:
+  - mathematics
+  - computer-science
+  - information-theory
+  - quantum-computing

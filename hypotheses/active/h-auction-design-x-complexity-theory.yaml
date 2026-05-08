@@ -1,0 +1,41 @@
+id: h-auction-design-x-complexity-theory
+title: >
+  No polynomial-time truthful mechanism achieves better than O(sqrt(m))-approximation
+  to optimal revenue for combinatorial auctions with m items and submodular
+  valuations, establishing a computational hardness lower bound for truthful
+  multi-item auction design under standard complexity assumptions.
+status: active
+priority: medium
+impact_score: 0.77
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - doi: "10.1145/501720.501721"
+    type: supporting
+    confidence: 0.82
+    note: "Conitzer & Sandholm (2002) - computing optimal mechanisms is NP-hard; establishes computational barrier"
+  - type: supporting
+    note: "Dobzinski & Nisan (2006) - approximation of multi-item auctions; current best ratio O(log m) for subadditive valuations"
+    confidence: 0.78
+  - type: contradicting
+    note: "Cai, Devanur & Weinberg (2016) - constant-factor approximation for additive bidders; truthfulness compatible with good approximation in restricted settings"
+    confidence: 0.74
+
+unknowns_addressed:
+  - u-auction-design-x-complexity-theory
+
+proposed_tests:
+  - description: >
+      Attempt to design a polynomial-time truthful mechanism for 2-item 2-bidder
+      auctions with correlated submodular valuations that achieves better than
+      O(1)-approximation; formal proof or counterexample needed.
+    method: "Formal mechanism design + complexity reduction from known hard combinatorial problems (set cover, matching)"
+    prediction: "No such mechanism exists for general correlated valuations; constant approximation only for independent or additive cases"
+
+related_disciplines:
+  - economics
+  - computer-science
+  - mathematics
+  - game-theory

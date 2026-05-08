@@ -1,0 +1,41 @@
+id: h-metabolic-flux-x-linear-programming
+title: >
+  Metabolic flux objective functions shift from biomass maximization to ATP-per-
+  carbon maximization under carbon limitation, and this shift is detectable by
+  comparing 13C MFA flux distributions to FBA predictions under different C:N
+  ratios, falsifying single-objective FBA models.
+status: active
+priority: medium
+impact_score: 0.75
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - doi: "10.1038/nbt.1614"
+    type: supporting
+    confidence: 0.85
+    note: "Orth et al. (2010) - FBA review; biomass maximization works well in exponential growth but less well in stationary phase"
+  - type: supporting
+    note: "Schuetz et al. (2012) - multi-objective optimality in E. coli metabolism across 25 environments; no single objective"
+    confidence: 0.78
+  - type: contradicting
+    note: "Edwards & Palsson (2000) - E. coli FBA growth predictions accurate across 6 carbon sources, supporting single biomass objective"
+    confidence: 0.72
+
+unknowns_addressed:
+  - u-metabolic-flux-x-linear-programming
+
+proposed_tests:
+  - description: >
+      Grow E. coli in chemostats at 5 different C:N ratios; measure 13C-labeling
+      fluxes; compare to FBA predictions from biomass-maximization vs
+      ATP-maximization objectives.
+    method: "13C metabolic flux analysis + genome-scale FBA; objective function comparison via chi-square fitness"
+    prediction: "At C:N < 1 (carbon-limited), ATP-maximization fits measured fluxes better; at C:N > 5, biomass-maximization wins"
+
+related_disciplines:
+  - systems-biology
+  - microbiology
+  - mathematics
+  - biochemistry

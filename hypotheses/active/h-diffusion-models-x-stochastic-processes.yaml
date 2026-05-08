@@ -1,0 +1,41 @@
+id: h-diffusion-models-x-stochastic-processes
+title: >
+  The minimum number of sampling steps for epsilon-accurate diffusion model generation
+  scales as O(d/epsilon^2) where d is the intrinsic data dimensionality, and this
+  bound is achievable by the probability flow ODE with optimal step-size scheduling
+  derived from the data's local curvature.
+status: active
+priority: medium
+impact_score: 0.79
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - doi: "10.48550/arXiv.2011.13456"
+    type: supporting
+    confidence: 0.84
+    note: "Song et al. (2021) - SDE framework unifies DDPM/SMLD; probability flow ODE enables deterministic sampling"
+  - type: supporting
+    note: "Chen et al. (2022) - sampling is as easy as learning the score; polynomial complexity for log-concave distributions"
+    confidence: 0.77
+  - type: related
+    note: "Lu et al. (2022) - DPM-Solver: fast ODE solver reduces steps to 10-20 without quality loss for many datasets"
+    confidence: 0.80
+
+unknowns_addressed:
+  - u-diffusion-models-x-stochastic-processes
+
+proposed_tests:
+  - description: >
+      Measure FID vs number of sampling steps for datasets with known intrinsic
+      dimensionality (d=2 MNIST manifold vs d~50 CelebA manifold); test whether
+      the step count scaling with d matches the theoretical O(d/epsilon^2) prediction.
+    method: "FID evaluation at 1,2,4,8,16,50,100 steps for datasets of known intrinsic dimension; fit scaling exponent"
+    prediction: "Step count for FID < epsilon scales linearly with intrinsic d (not ambient D); exponent ~1/epsilon^2"
+
+related_disciplines:
+  - machine-learning
+  - mathematics
+  - stochastic-processes
+  - deep-learning

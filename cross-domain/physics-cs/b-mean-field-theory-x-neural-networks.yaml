@@ -1,0 +1,64 @@
+id: b-mean-field-theory-x-neural-networks
+title: >
+  Mean Field Theory x Deep Neural Networks - infinite-width limit as Gaussian process
+status: proposed
+fields:
+  - physics
+  - computer-science
+  - statistical-mechanics
+bridge_claim: >
+  In the infinite-width limit, a deep neural network at initialization is exactly a
+  Gaussian process with a kernel determined by the activation function (NNGP kernel);
+  mean field theory of neural networks predicts the edge-of-chaos initialization
+  condition (variance preservation) that enables training of very deep networks.
+translation_table:
+  - field_a_term: Pre-activations at layer l (hidden unit values before activation)
+    field_b_term: Gaussian random field (mean-field approximation)
+    note: >
+      As width -> infinity, each pre-activation is a sum of infinitely many
+      independent terms, converging to Gaussian by CLT - the mean-field limit;
+      the resulting distribution is determined solely by the variance propagation
+      equations.
+  - field_a_term: Variance propagation through activation functions
+    field_b_term: Mean-field self-consistency equations
+    note: >
+      The variance of pre-activations propagates through the network via
+      sigma^2_{l+1} = sigma_w^2 * E[phi(z)^2] + sigma_b^2, a mean-field
+      fixed-point equation whose solution determines the initialization distribution.
+  - field_a_term: Edge-of-chaos condition (chi = 1, order-to-chaos transition)
+    field_b_term: Critical point of mean-field dynamics
+    note: >
+      The mean-field order parameter chi (Jacobian eigenvalue) equals 1 at the
+      critical point between ordered (chi < 1, vanishing gradient) and chaotic
+      (chi > 1, exploding gradient) phases; training is possible only at this
+      edge-of-chaos critical point.
+  - field_a_term: NNGP kernel K^l(x,x')
+    field_b_term: Gaussian process covariance function
+    note: >
+      The dot-product kernel computed by the mean-field recursion is the covariance
+      of the infinite-width neural network Gaussian process; it determines the
+      generalization properties without any training.
+communication_gap: >
+  Statistical physicists developed mean-field theory of disordered systems (Sherrington-
+  Kirkpatrick model, Parisi replica method) in the 1970s-80s; its application to deep
+  learning was made explicit only around 2017 (Poole et al., Lee et al.) despite strong
+  mathematical parallels available for decades.
+cross_pollination_opportunities:
+  - >
+    Use the mean-field phase diagram (sigma_w vs sigma_b space) to predict optimal
+    initialization hyperparameters for any activation function, replacing manual
+    grid search with analytic computation.
+  - >
+    Apply replica method from disordered systems to analyze the loss landscape of
+    overparameterized networks, predicting the existence of spurious local minima.
+  - >
+    Import finite-size scaling theory to understand how mean-field predictions break
+    down for finite-width networks, quantifying the width needed for NNGP approximation.
+related_unknowns:
+  - u-mean-field-theory-x-neural-networks
+references:
+  - doi: "10.48550/arXiv.1711.00165"
+    note: "Lee et al. (2018) - deep neural networks as Gaussian processes; ICLR 2018"
+  - doi: "10.48550/arXiv.1606.05340"
+    note: "Poole et al. (2016) - exponential expressivity from shallow networks at the edge of chaos"
+last_reviewed: "2026-05-07"

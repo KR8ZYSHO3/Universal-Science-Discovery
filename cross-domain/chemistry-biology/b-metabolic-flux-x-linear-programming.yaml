@@ -1,0 +1,64 @@
+id: b-metabolic-flux-x-linear-programming
+title: >
+  Metabolic Flux Analysis x Linear Programming - stoichiometric constraints as convex polytope
+status: proposed
+fields:
+  - biology
+  - mathematics
+  - systems-biology
+bridge_claim: >
+  Flux balance analysis (FBA) models cellular metabolism as a linear program: maximize
+  biomass production subject to stoichiometric equality constraints and thermodynamic
+  inequality constraints; the feasible flux space is a convex polytope and the optimal
+  metabolic state is a vertex - making systems biology a branch of linear programming.
+translation_table:
+  - field_a_term: Stoichiometric matrix S (m reactions x n metabolites)
+    field_b_term: Constraint matrix A in LP (Ax = b, x >= 0)
+    note: >
+      Each row of S is a metabolite mass balance; steady-state assumption
+      (dC/dt = 0) gives Sv = 0, which is the LP equality constraint; upper and
+      lower bounds on fluxes (thermodynamic reversibility, enzyme capacity) give
+      the inequality constraints.
+  - field_a_term: Flux distribution vector v (mmol/gDW/h)
+    field_b_term: Decision variable vector x in LP
+    note: >
+      The vector of all reaction fluxes is the LP decision variable; each feasible
+      flux distribution is a point in the flux polytope; optimizing biomass yield
+      finds the flux vertex maximizing the objective function.
+  - field_a_term: Optimal growth flux (biomass reaction rate)
+    field_b_term: LP objective function value
+    note: >
+      The biomass reaction is a pseudo-reaction with stoichiometry equal to the dry-
+      weight composition of the cell; maximizing its flux is the LP objective, equivalent
+      to maximizing growth rate subject to nutrient constraints.
+  - field_a_term: Extreme ray (thermodynamic unfeasible direction)
+    field_b_term: Infeasibility certificate (LP dual variable)
+    note: >
+      Thermodynamic infeasibility (net ATP consumption without energy source) corresponds
+      to an unbounded LP ray; adding thermodynamic constraints (loop-law) restricts the
+      polytope to eliminate these rays.
+communication_gap: >
+  Linear programming theory (simplex method, duality) has been mature since 1947,
+  but its systematic application to genome-scale metabolic models only began in the
+  1990s (Varma & Palsson); most biology textbooks do not present metabolism as an
+  optimization problem, impeding import of 70 years of LP theory.
+cross_pollination_opportunities:
+  - >
+    Apply LP sensitivity analysis (shadow prices, ranging) to genome-scale metabolic
+    models to predict which nutrient constraints are most limiting for growth, guiding
+    fermentation medium optimization.
+  - >
+    Use LP duality to interpret metabolic flux as a resource allocation problem:
+    the dual variables are shadow prices of metabolites, analogous to prices in
+    competitive equilibrium theory.
+  - >
+    Import integer programming (MILP) methods to model on/off gene regulation in
+    metabolism, solving problems like minimal gene knockouts for metabolic engineering.
+related_unknowns:
+  - u-metabolic-flux-x-linear-programming
+references:
+  - doi: "10.1038/nbt.1614"
+    note: "Orth, Thiele & Palsson (2010) - what is flux balance analysis? Nature Biotechnology 28:245"
+  - doi: "10.1038/msb.2013.18"
+    note: "Bordbar et al. (2014) - constraint-based models predict metabolic and associated cellular functions"
+last_reviewed: "2026-05-07"

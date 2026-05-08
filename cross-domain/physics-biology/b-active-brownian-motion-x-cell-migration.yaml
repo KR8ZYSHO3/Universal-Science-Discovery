@@ -1,0 +1,64 @@
+id: b-active-brownian-motion-x-cell-migration
+title: >
+  Active Brownian Motion x Cell Migration - self-propelled particles in 2D
+status: proposed
+fields:
+  - biology
+  - physics
+  - biophysics
+bridge_claim: >
+  Migrating cells (neutrophils, cancer cells) exhibit active Brownian motion:
+  directional persistence at short timescales and diffusive behavior at long
+  timescales, described by the active Ornstein-Uhlenbeck process; the persistence
+  time and effective diffusivity are controlled by internal cytoskeletal polarization
+  dynamics and external chemokine gradients.
+translation_table:
+  - field_a_term: Cell crawling velocity (mu/h) with persistence
+    field_b_term: Self-propulsion velocity of active Brownian particle
+    note: >
+      A migrating cell maintains approximately constant speed with slowly
+      reorienting direction, exactly matching the active Brownian particle model
+      where self-propulsion speed v_0 is constant and orientation diffuses with
+      rotational diffusivity D_r.
+  - field_a_term: Persistence time (tau = 1/D_r, minutes to hours)
+    field_b_term: Rotational diffusion time of active Brownian particle
+    note: >
+      The persistence time tau over which the cell maintains its direction is
+      1/(2D_r) in 2D; it is set by the turnover time of the cytoskeletal polarity
+      complex (Rac/Cdc42) and directly measurable from cell trajectory statistics.
+  - field_a_term: Effective long-time diffusivity (D_eff = v_0^2 * tau / 2)
+    field_b_term: Long-time diffusion coefficient of active particle
+    note: >
+      At timescales >> tau, cell trajectories become diffusive with D_eff = v_0^2 *
+      tau / (d-1) in d dimensions - the active Brownian particle result, relating
+      macroscopic cell spreading to microscopic motility parameters.
+  - field_a_term: Chemotaxis bias (gradient-directed migration)
+    field_b_term: Active particle with biased angular diffusion
+    note: >
+      Chemokine gradients bias the rotational diffusion of the cell's polarity
+      axis toward the chemoattractant, equivalent to an active Brownian particle
+      with a preferred orientation - adding drift to the diffusive regime.
+communication_gap: >
+  Active matter physics (Vicsek model, active Brownian particles) and cell biology
+  developed independently; the ABP model was systematically applied to single cell
+  migration only after ~2010, despite single-cell tracking methods being available
+  since the 1980s.
+cross_pollination_opportunities:
+  - >
+    Use ABP theory to derive the optimal chemokine gradient steepness for
+    maximum cell-migration precision, guiding design of microfluidic chemotaxis assays.
+  - >
+    Apply run-and-tumble models (bacterial motility) to cells that alternate between
+    fast-moving and stationary phases (amoeboid vs mesenchymal migration).
+  - >
+    Import active matter collective motion theory (Vicsek model, motility-induced
+    phase separation) to predict when cancer cell populations will form cohesive
+    invasive streams vs dispersed invasion.
+related_unknowns:
+  - u-active-brownian-motion-x-cell-migration
+references:
+  - doi: "10.1073/pnas.1118355109"
+    note: "Maiuri et al. (2015) - actin flow mediates a coupling between cell morphology and migration velocity; PNAS 112:1475"
+  - doi: "10.1088/1367-2630/13/7/073036"
+    note: "Trepat et al. (2009) - forces behind collective cell migration; active Brownian motion description"
+last_reviewed: "2026-05-07"

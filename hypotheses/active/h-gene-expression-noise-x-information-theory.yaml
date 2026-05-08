@@ -1,0 +1,45 @@
+id: h-gene-expression-noise-x-information-theory
+title: >
+  Developmental gene regulatory networks operating near channel capacity maximize
+  positional information in morphogen gradients and produce sharper cell fate
+  boundaries, measurable as reduced cell fate assignment error in single-cell atlases.
+status: active
+priority: medium
+impact_score: 0.78
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - doi: "10.1073/pnas.0604883103"
+    type: supporting
+    confidence: 0.82
+    note: "Tkacik et al. (2008) - mutual information near capacity in Drosophila gap gene network"
+  - type: supporting
+    note: "Dubuis et al. (2013) - positional information in Drosophila measured at ~4 bits, consistent with capacity limit"
+    confidence: 0.79
+  - type: related
+    note: "Eldar & Elowitz (2010) - noise can be functional; distinguishes cases where noise is exploited vs tolerated"
+    confidence: 0.71
+
+unknowns_addressed:
+  - u-gene-expression-noise-x-information-theory
+
+proposed_tests:
+  - description: >
+      Compute mutual information between graded morphogen inputs and discrete cell
+      fate outputs in multiple developmental systems using single-cell RNA-seq
+      datasets; compare to theoretical channel capacity.
+    method: "Non-parametric mutual information estimation (KSG estimator) on scRNA-seq; compare I(TF;fate) to H(input)"
+    prediction: "Developmental decision circuits achieve >80% of theoretical capacity; housekeeping genes achieve <40%"
+  - description: >
+      Introduce synthetic noise amplifiers (high-burst promoters) in capacity-near-
+      optimal circuits and measure cell fate assignment error rate by live imaging.
+    method: "Optogenetic morphogen gradient + live cell fate reporter; measure boundary sharpness as function of noise level"
+    prediction: "Fate boundary width scales inversely with mutual information as predicted by capacity theory"
+
+related_disciplines:
+  - systems-biology
+  - information-theory
+  - developmental-biology
+  - molecular-biology
