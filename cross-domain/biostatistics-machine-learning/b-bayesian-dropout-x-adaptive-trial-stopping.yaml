@@ -1,0 +1,32 @@
+id: b-bayesian-dropout-x-adaptive-trial-stopping
+title: Bayesian dropout uncertainty bridges approximate posterior inference and adaptive clinical-trial stopping decisions.
+status: proposed
+fields:
+- biostatistics
+- machine-learning
+- medicine
+bridge_claim: 'Speculative analogy (to be empirically validated): Monte Carlo dropout predictive uncertainty can inform adaptive stopping boundaries similarly to posterior predictive criteria in Bayesian trial monitoring.'
+translation_table:
+- field_a_term: dropout posterior samples
+  field_b_term: predictive probability draws
+  note: Both estimate uncertainty in treatment-effect predictions.
+- field_a_term: uncertainty thresholding
+  field_b_term: stopping boundary rule
+  note: Decision thresholds determine continuation versus stopping actions.
+- field_a_term: epistemic uncertainty
+  field_b_term: information value of additional enrollment
+  note: High uncertainty motivates continued recruitment.
+related_unknowns:
+- u-bayesian-dropout-trial-decision-calibration-gap
+related_hypotheses:
+- h-bayesian-dropout-uncertainty-improves-adaptive-trial-decisions
+cross_pollination_opportunities:
+- Compare dropout-derived uncertainty to classical Bayesian monitoring under identical simulation priors.
+- Use trial-simulation frameworks to test robustness to recruitment and endpoint delays.
+communication_gap: Clinical trialists rely on interpretable posterior decision rules, while deep-learning uncertainty estimates are often weakly calibrated for regulatory contexts.
+last_reviewed: '2026-05-08'
+references:
+- arxiv: '1506.02142'
+  note: Dropout as a Bayesian Approximation.
+- url: https://www.fda.gov/regulatory-information/search-fda-guidance-documents/adaptive-design-clinical-trials-drugs-and-biologics-guidance-industry
+  note: FDA adaptive trial design guidance.

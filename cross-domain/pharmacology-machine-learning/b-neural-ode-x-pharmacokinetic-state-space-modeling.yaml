@@ -1,0 +1,32 @@
+id: b-neural-ode-x-pharmacokinetic-state-space-modeling
+title: Neural ODE parameterization bridges continuous-depth learning and pharmacokinetic state-space modeling for sparse therapeutic-drug monitoring.
+status: proposed
+fields:
+- pharmacology
+- machine-learning
+- dynamical-systems
+bridge_claim: 'Speculative analogy (to be empirically validated): continuous-time latent dynamics learned by neural ordinary differential equations can serve as constrained surrogates for compartmental PK models when sampling is sparse and patient-specific variability is high.'
+translation_table:
+- field_a_term: neural ODE latent flow
+  field_b_term: drug concentration state trajectory
+  note: Both are continuous-time trajectories inferred from irregular observations.
+- field_a_term: adjoint sensitivity
+  field_b_term: PK parameter identifiability
+  note: Gradient pathways map to sensitivity of concentration predictions to kinetic parameters.
+- field_a_term: latent state regularization
+  field_b_term: physiologic plausibility constraints
+  note: Regularizers enforce nonnegative concentrations and realistic clearance scales.
+related_unknowns:
+- u-neural-ode-pk-identifiability-under-sparse-sampling
+related_hypotheses:
+- h-neural-ode-priors-improve-pk-state-forecasting
+cross_pollination_opportunities:
+- Pair neural ODE priors with therapeutic drug monitoring cohorts to test out-of-distribution dosing robustness.
+- Use pharmacometric identifiability diagnostics to improve neural ODE uncertainty calibration.
+communication_gap: Pharmacometrics emphasizes mechanistic compartment structure, while ML emphasizes function approximation; shared validation benchmarks are still limited.
+last_reviewed: '2026-05-08'
+references:
+- arxiv: '1806.07366'
+  note: Neural Ordinary Differential Equations.
+- url: https://www.fda.gov/drugs/science-and-research-drugs/model-informed-drug-development-program
+  note: FDA overview of model-informed drug development context.

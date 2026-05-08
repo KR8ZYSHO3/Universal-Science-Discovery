@@ -4,6 +4,10 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 ## Last updated
 
+- 2026-05-08 — **Wave 86 — 12 new bridges (1,099 catalog)**:
+**Bridges:** neural ODE pharmacokinetic state-space modeling; neural CDE irregular ICU trajectories; diffusion priors for accelerated MRI inversion; SimCLR-style multi-omics latent alignment; federated averaging for multi-site epidemic forecasting; Bayesian dropout for adaptive trial stopping; transformer attention for longitudinal EHR reasoning; U-Net satellite flood mapping; residual-learning robustness in histopathology domain shift; VAE latent screening for catalyst discovery; graph convolution for transmission-network inference; masked autoencoding priors for low-SNR cryo-EM reconstruction (**all bridge claims explicitly marked as speculative analogies**).
+**Unknowns / hypotheses:** +12 each (paired to bridges).
+**Artifacts:** `docs/knowledge_graph.json` rebuilt (**3,785 nodes**, **4,397 edges**); catalog counts: **1,384 unknowns**, **1,250 hypotheses**, **1,099 bridges**; `dashboard/index.html` stats refreshed; `canvases/Progress.canvas.tsx` synced; `python scripts/validate_schemas.py` — **0 errors** (local run).
 - 2026-05-08 — **Wave 85 — 12 new bridges (1,087 catalog)**:
 **Bridges:** sparse equation discovery ↔ host-pathogen dynamics; optimal transport couplings ↔ single-cell lineage mapping; elastic-net regularization ↔ polygenic-risk stability; lasso sparsity ↔ biomarker panel design; compressed sensing ↔ accelerated MRI protocol design; U-Net segmentation ↔ histopathology quantification; residual learning ↔ retinal screening robustness; LSTM sequence memory ↔ ICU physiology forecasting; transformer attention ↔ protein language-model fitness prediction; variational autoencoders ↔ single-cell latent denoising; AlphaFold structure priors ↔ enzyme-screen pruning; DESeq2 shrinkage estimation ↔ low-count clinical biomarker surveillance (**all bridge claims explicitly marked as speculative analogies**).
 **Unknowns / hypotheses:** +12 each (paired to bridges).

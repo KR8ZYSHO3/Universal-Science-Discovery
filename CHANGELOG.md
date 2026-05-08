@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] — 2026-05-08
 
+### Added — Wave 86 (+12 bridges; catalog **1,099** bridges)
+- Added 12 new cross-domain bridge triplets (bridge + companion unknown + companion hypothesis) spanning neural ODE pharmacokinetic state-space modeling, neural CDE ICU trajectories, diffusion-prior MRI inversion, SimCLR multi-omics alignment, federated epidemic forecasting, Bayesian dropout adaptive trial stopping, transformer EHR temporal reasoning, U-Net satellite flood delineation, ResNet histopathology domain-shift robustness, VAE catalyst latent-space screening, graph-convolution transmission inference, and masked-autoencoder cryo-EM denoising priors; all bridge claims are explicitly labeled as speculative analogies.
+- Regenerated artifacts with full pipeline: `python scripts/validate_schemas.py`, `python -X utf8 scripts/build_graph.py`, `python scripts/update_dashboard_stats.py --apply`, `python scripts/sync-dashboard-from-state.py` (`docs/knowledge_graph.json` now **3,785 nodes**, **4,397 edges**).
+
 ### Added — Wave 85 (+12 bridges; catalog **1,087** bridges)
 - Added 12 new cross-domain bridge triplets (bridge + companion unknown + companion hypothesis) spanning SINDy host-pathogen modeling, optimal-transport lineage mapping, elastic-net PRS stabilization, lasso biomarker panel sparsification, compressed-sensing MRI acceleration, U-Net pathology quantification, residual retinal screening robustness, LSTM ICU forecasting, transformer protein fitness modeling, VAE single-cell denoising, AlphaFold-guided enzyme screening, and DESeq2-style shrinkage for clinical biomarker monitoring; all bridge claims are explicitly labeled as speculative analogies.
 - Regenerated artifacts with full pipeline: `python scripts/validate_schemas.py`, `python -X utf8 scripts/build_graph.py`, `python scripts/update_dashboard_stats.py --apply`, `python scripts/sync-dashboard-from-state.py` (`docs/knowledge_graph.json` now **3,749 nodes**, **4,337 edges**).
