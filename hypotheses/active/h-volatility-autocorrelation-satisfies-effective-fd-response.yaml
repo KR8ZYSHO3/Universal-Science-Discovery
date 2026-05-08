@@ -1,0 +1,35 @@
+id: h-volatility-autocorrelation-satisfies-effective-fd-response
+title: >
+  In calm regimes, integrated absolute-return autocorrelation up to intraday horizons scales with subsequent
+  realized variance proxies similarly to a phenomenological fluctuation–dissipation ratio — breaks down around
+  scheduled macro releases; treat as empirical hypothesis not physics law.
+status: active
+priority: medium
+impact_score: 0.46
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - doi: "10.1143/JPSJ.12.570"
+    type: related
+    confidence: 0.4
+    note: "FD theorem motivates sum-rule thinking, not literal market equilibrium."
+  - doi: "10.1038/35102715"
+    type: related
+    confidence: 0.45
+    note: "Scaling and correlation structure in financial time series."
+
+unknowns_addressed:
+  - u-fluctuation-dissipation-stationary-market-assumption-breakdown
+
+proposed_tests:
+  - description: >
+      Split trading days into pre/post macro announcement windows; estimate correlation integrals and
+      compare to forward realized variance; test for ratio stability only in pre-window subset.
+    method: Event study with multiple testing correction.
+    prediction: Ratio stability fails post-announcement if hypothesis is regime-specific.
+
+related_disciplines:
+  - finance
+  - statistical-physics

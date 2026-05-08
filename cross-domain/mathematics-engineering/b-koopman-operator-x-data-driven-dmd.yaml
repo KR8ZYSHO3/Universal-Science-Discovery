@@ -1,0 +1,43 @@
+id: b-koopman-operator-x-data-driven-dmd
+title: >
+  Koopman (linear evolution on observables) ↔ dynamic mode decomposition and extended DMD for nonlinear
+  flows (operator theory ↔ data-driven fluid mechanics)
+status: established
+fields:
+  - mathematics
+  - fluid-mechanics
+  - dynamical-systems
+  - control-engineering
+bridge_claim: >
+  The Koopman operator advances observables linearly even when state dynamics are nonlinear. Dynamic mode
+  decomposition approximates Koopman eigenfunctions and eigenvalues from trajectory data, yielding spatial
+  modes that oscillate and decay with single frequencies—useful for reduced-order modeling, control, and
+  forecasting. Extended DMD and kernel variants improve finite-dimensional approximations. The bridge is
+  mathematical and computational: both communities study spectral properties, convergence with data, and
+  closure errors when truncating to finitely many modes.
+translation_table:
+  - field_a_term: Koopman eigenfunction phi(x)
+    field_b_term: DMD mode shape extracted from snapshots
+    note: Approximate equality under mild conditions and enough data.
+  - field_a_term: Koopman eigenvalue mu
+    field_b_term: DMD eigenvalue lambda = log(mu)/dt in discrete time
+    note: Links growth/decay/oscillation rates.
+  - field_a_term: spectral expansion of observables
+    field_b_term: rank-r truncated DMD reconstruction
+    note: Truncation controls model error.
+related_unknowns:
+  - u-koopman-dmd-spectrum-convergence-navier-stokes
+related_hypotheses:
+  - h-koopman-linear-dynamics-capture-coherent-structures-limited-window
+cross_pollination_opportunities:
+  - Apply DMD to experimental PIV in wind tunnels; compare to resolvent analysis modes for the same Reynolds number.
+  - Use Koopman-inspired linear predictors for short-horizon control of turbulent boundary layers with explicit error budgets.
+communication_gap: >
+  Functional analysis training differs from fluids labs’ data pipelines; convergence theory for EDMD on
+  turbulent data is still unevenly communicated to practitioners.
+references:
+  - doi: "10.1017/S0022112010001217"
+    note: "Schmid (2010) — dynamic mode decomposition of fluid flows (J. Fluid Mech.)."
+  - doi: "10.1146/annurev-control-062918-053510"
+    note: "Mezić (2019) — Koopman operator methods in control and dynamical systems (Annu. Rev. Control Robot. Auton. Syst.)."
+last_reviewed: "2026-05-07"

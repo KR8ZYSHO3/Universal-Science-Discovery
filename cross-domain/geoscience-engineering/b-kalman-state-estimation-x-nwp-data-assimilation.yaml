@@ -1,0 +1,43 @@
+id: b-kalman-state-estimation-x-nwp-data-assimilation
+title: >
+  Kalman filtering / Kalman–Bucy smoothing ↔ operational data assimilation in numerical weather prediction
+  (estimation theory ↔ geoscience engineering)
+status: established
+fields:
+  - control-engineering
+  - geoscience
+  - meteorology
+  - applied-mathematics
+bridge_claim: >
+  Numerical weather prediction centers fuse observations with model trajectories using variants of Kalman
+  filtering: extended Kalman filters historically, ensemble Kalman filters (EnKF) and four-dimensional
+  variational assimilation (4D-Var) operationally. The shared backbone is recursive Bayesian updating of a
+  high-dimensional state under linearized observation operators and model dynamics, with covariance
+  approximations tailored to geophysical scales. Differences include model error, millions of state
+  dimensions, and localization/inflation heuristics absent from textbook Kalman setups but essential in practice.
+translation_table:
+  - field_a_term: Kalman gain K = P H^T (H P H^T + R)^{-1}
+    field_b_term: assimilation increment weights in EnKF/4D-Var implementations
+    note: Same update algebra skeleton under Gaussian assumptions.
+  - field_a_term: process noise covariance Q
+    field_b_term: model error and stochastic parameterizations in NWP
+    note: Tuned empirically with huge state vectors.
+  - field_a_term: innovation y - H x
+    field_b_term: observation minus background in operational diagnostics
+    note: Monitoring divergence drives cycling QC.
+related_unknowns:
+  - u-ensemble-kalman-assimilation-nonlinear-localization-errors
+related_hypotheses:
+  - h-adaptive-inflation-ensemble-kalman-corrects-extreme-events
+cross_pollination_opportunities:
+  - Export EnKF localization ideas to large-scale robotic mapping SLAM at planetary science scales.
+  - Import robust filtering methods from engineering to handle heavy-tailed observation errors in satellite retrievals.
+communication_gap: >
+  Control textbooks teach low-dimensional LQG; NWP assimilation papers emphasize HPC and geophysical constraints.
+  Students rarely see that EnKF is structurally a Monte Carlo Kalman update.
+references:
+  - doi: "10.1115/1.3662552"
+    note: "Kalman (1960) — linear filtering and prediction (ASME J. Basic Eng.)."
+  - doi: "10.1175/1520-0469(1994)051<1747:ROEOIA>2.0.CO;2"
+    note: "Lorenc (1994) — development of operational assimilation methods (J. Atmos. Sci.)."
+last_reviewed: "2026-05-07"

@@ -1,0 +1,36 @@
+id: h-koopman-linear-dynamics-capture-coherent-structures-limited-window
+title: >
+  For short time windows, a low-rank DMD model captures dominant coherent structures in separated shear layers
+  with bounded reconstruction error, but error grows superlinearly once nonlinearity transfers energy across
+  resolved/unresolved scales — window length should be tuned to a Lyapunov-like decorrelation time of the
+  resolved subspace.
+status: active
+priority: medium
+impact_score: 0.57
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - doi: "10.1017/S0022112010001217"
+    type: related
+    confidence: 0.6
+    note: "DMD empirical success in fluids motivates finite-window hypotheses."
+  - doi: "10.1146/annurev-control-062918-053510"
+    type: related
+    confidence: 0.55
+    note: "Koopman viewpoint clarifies what linear predictors can and cannot capture."
+
+unknowns_addressed:
+  - u-koopman-dmd-spectrum-convergence-navier-stokes
+
+proposed_tests:
+  - description: >
+      Run DMD on DNS slices of a boundary layer at increasing window lengths; measure reconstruction error vs
+      time and flag spurious eigenvalues.
+    method: Compare to Fourier/wavelet baselines; track mode pairing stability.
+    prediction: Optimal window exists; too long mixes distinct branches, too short misses slow modes.
+
+related_disciplines:
+  - fluid-mechanics
+  - mathematics

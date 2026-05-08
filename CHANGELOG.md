@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] — 2026-05-07
 
+### Added — Wave 74 (+12 bridges; catalog **954** bridges)
+- **Themes:** EM skin depth ↔ financial firewalls; Doppler/redshift ↔ option-adjusted carry (speculation flagged); Zeeman structure ↔ RMT level spacing; capillary length ↔ wetting contact lines; Bode integral ↔ waterbed robust control; percolation ↔ cyber lateral movement; Lyapunov sensitivity ↔ bank-run dynamics (caveats); MEG/SQUID ↔ EM inverse source; Koopman ↔ DMD; Kalman filtering ↔ NWP assimilation; Green–Kubo ↔ volatility memory (speculative layer); Debye screening ↔ membrane double layer — each with companion unknown + hypothesis; phenomenology `p-nonhelical-cavity-resonator` linked to non-helical bridge IDs.
+- **Regenerated:** `docs/knowledge_graph.json`, `dashboard/index.html` / `canvases/Progress.canvas.tsx` via `build_graph`, `update_dashboard_stats --apply`, `sync-dashboard-from-state`.
+
 ### Added — Non-helical resonator phenomenology (Turing + Landauer bridges) (+2 bridges, +4 unknowns, +2 hypotheses)
 - **Bridges:** `b-nonhelical-turing-electromagnetic` (Turing / reaction–diffusion *analogy* for mode organization in cavity resonator arrays; speculation and testability called out) and `b-nonhelical-landauer-reversible-em` (reversible EM computation ↔ Landauer / Bennett framework).
 - **Unknowns:** `u-nonhelical-turing-wavelength-scaling`, `u-metamaterial-self-assembly-dynamics`, `u-landauer-limit-nonhelical-resonator`, `u-reversible-em-logic-gate-design`.

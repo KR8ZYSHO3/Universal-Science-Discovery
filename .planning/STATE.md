@@ -4,6 +4,11 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 ## Last updated
 
+- 2026-05-07 — **Wave 74 — 12 new bridges (954 catalog) + phenomenology cross-links**:
+**Bridges:** skin-depth shielding ↔ financial firewalls (analogy strength noted); Doppler/redshift ↔ option-adjusted carry (**speculation**); Zeeman multiplets ↔ RMT level-spacing statistics; capillary length ↔ droplet contact-line dynamics; Bode sensitivity integral ↔ waterbed / robust control; bond percolation ↔ cyber lateral movement; Lyapunov divergence ↔ bank-run amplification (**heavy caveats**); MEG/SQUID forward models ↔ EM inverse source; Koopman operator ↔ DMD; Kalman estimation ↔ NWP assimilation; Green–Kubo correlations ↔ return/volatility memory (**partly speculative**); Debye length ↔ membrane electrical double layer.
+**Unknowns / hypotheses:** +12 each (paired to bridges); `p-nonhelical-cavity-resonator` `candidate_bridges` extended with `b-nonhelical-turing-electromagnetic` and `b-nonhelical-landauer-reversible-em`.
+**Artifacts:** `docs/knowledge_graph.json` rebuilt (**3,350 nodes**, **3,696 edges**); `dashboard/index.html` stats refreshed; `python scripts/validate_schemas.py` — **0 errors** (local run).
+**Git hygiene:** `waves-72-73-bridges` pushed to `origin`; local `main` is **ahead** of `origin/main` by 10 commits (not behind) — sync `main` on GitHub via push or PR as you prefer.
 - 2026-05-07 — **Non-helical resonator phenomenology — 2 bridges (942 catalog), 4 unknowns, 2 hypotheses**:
 **Bridges:** `b-nonhelical-turing-electromagnetic` (Turing / reaction–diffusion mapping for self-organized EM mode patterns — labeled as a testable **analogy**, not an established effect) and `b-nonhelical-landauer-reversible-em` (Landauer / Bennett thermodynamics of computation in high-Q non-helical resonator hardware).
 **Unknowns:** `u-nonhelical-turing-wavelength-scaling`, `u-metamaterial-self-assembly-dynamics`, `u-landauer-limit-nonhelical-resonator`, `u-reversible-em-logic-gate-design`.
