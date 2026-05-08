@@ -1,0 +1,54 @@
+id: b-ant-colony-stigmergy-aco
+title: >
+  Insect swarm stigmergy — indirect coordination through environment-mediated signals
+  such as pheromone trails — is the biological substrate from which ant colony
+  optimisation (ACO) algorithms are derived, and the mathematical analysis of
+  ACO convergence directly predicts which biological swarm behaviors are evolutionarily
+  stable.
+status: proposed
+fields:
+  - biology
+  - computer-science
+  - complex-systems
+  - evolutionary-biology
+bridge_claim: >
+  Ant colonies solve the traveling salesman problem without central control: foragers
+  deposit pheromone on paths, and shorter paths accumulate pheromone faster (more
+  round trips per unit time), positively reinforcing the optimal route. This stigmergic
+  mechanism — indirect coordination through environmental modification — is the basis
+  for ACO algorithms (Dorigo 1992). The bridge is bidirectional and precise: the
+  pheromone update rule tau_{ij}(t+1) = (1-rho)*tau_{ij}(t) + Delta*tau_{ij} is
+  mathematically equivalent to Q-learning with eligibility traces, where rho is the
+  evaporation rate (discount factor), Delta*tau is the reward signal, and the
+  pheromone trail encodes a stochastic policy. ACO convergence theory predicts that
+  the algorithm converges to the global optimum when rho < 1 and Q > 0 — conditions
+  that have direct biological interpretations: if pheromone evaporation is too slow
+  (rho → 0), colonies get trapped on suboptimal paths; if too fast (rho → 1), they
+  cannot collectively remember solutions. Optimality of ant foraging in laboratory
+  binary-bridge experiments has been measured with the precision needed to test
+  ACO convergence rate predictions.
+translation_table:
+  - field_a_term: pheromone concentration tau_{ij}
+    field_b_term: ACO heuristic desirability / Q-table value
+    note: Encodes collective memory of path quality; decays with time (evaporation)
+  - field_a_term: evaporation rate rho
+    field_b_term: learning rate decay / temporal discount factor
+    note: Sets the memory horizon; biological optimum at rho ~ 0.1-0.3 for most tasks
+  - field_a_term: positive feedback (short path gets more pheromone faster)
+    field_b_term: reward amplification in reinforcement learning
+    note: Both create attractor basins around good solutions; both can trap in local optima
+  - field_a_term: probabilistic path selection p_{ij} ~ tau^alpha * eta^beta
+    field_b_term: softmax policy in RL with temperature
+    note: The alpha/beta parameters set exploration-exploitation balance — equivalent to RL temperature
+cross_pollination_opportunities:
+  - Measure pheromone decay rates in real ant species and test whether they match the ACO convergence-optimal evaporation rates predicted by theory
+  - Apply ACO analysis to multi-colony competition (multiple ant species on shared resource) using game theory to predict evolutionarily stable signaling strategies
+  - Use the formal Q-learning equivalence to import deep reinforcement learning function approximation into swarm robotics
+last_reviewed: "2026-05-07"
+references:
+  - doi: 10.1109/4235.996017
+    note: Dorigo & Di Caro (1999) — The ant colony optimization metaheuristic
+  - doi: 10.1007/s11721-007-0004-y
+    note: Dorigo & Birattari (2007) — ant colony optimization
+  - doi: 10.1098/rsif.2012.0878
+    note: Deneubourg et al. — self-organization and optimal foraging in ants

@@ -1,0 +1,50 @@
+id: b-gnn-weisfeiler-lehman-isomorphism
+title: >
+  Graph neural networks are computationally equivalent to the Weisfeiler-Lehman
+  graph isomorphism test, linking the expressive power of GNN architectures to
+  a classical combinatorial algorithm from 1968.
+status: established
+fields:
+  - machine-learning
+  - combinatorics
+  - computer-science
+bridge_claim: >
+  Message-passing graph neural networks (MPGNNs) are at most as powerful as the
+  1-Weisfeiler-Lehman (1-WL) color refinement algorithm: two graphs that 1-WL cannot
+  distinguish will be assigned identical embeddings by any MPGNN, with equality
+  achieved by the GIN architecture using injective aggregation functions; this
+  establishes a precise complexity-theoretic upper bound on GNN discriminative power
+  and motivates higher-order WL-equivalent architectures.
+translation_table:
+  - field_a_term: node feature aggregation in GNN (machine learning)
+    field_b_term: color refinement step in WL algorithm (combinatorics)
+    note: Both compute new node labels by collecting multisets of neighbor labels
+  - field_a_term: readout function / graph embedding (machine learning)
+    field_b_term: canonical graph certificate from WL color histogram (combinatorics)
+    note: The final graph representation is the histogram of stable WL colors
+  - field_a_term: graph isomorphism network GIN (machine learning)
+    field_b_term: injective multiset hash achieving 1-WL power (combinatorics)
+    note: GIN with sum aggregation and MLP achieves the maximum 1-WL expressiveness
+  - field_a_term: higher-order GNNs / k-GNNs (machine learning)
+    field_b_term: k-dimensional WL hierarchy (combinatorics)
+    note: k-WL corresponds to distinguishing graphs via k-tuples rather than individual nodes
+related_unknowns:
+  - u-gnn-expressiveness-beyond-wl
+related_hypotheses:
+  - h-higher-order-gnn-practical-expressiveness
+cross_pollination_opportunities:
+  - Using graph isomorphism theory to design GNN architectures with provably greater expressive power for chemistry and biology applications
+  - Applying GNN training dynamics analysis to understand the computational complexity of approximate graph isomorphism
+communication_gap: >
+  Machine learning researchers develop GNN architectures empirically while combinatorialists
+  study WL algorithms as abstract complexity tools; the Xu et al. (2019) theoretical
+  connection appeared 50 years after the WL algorithm and is still not widely taught
+  in either ML or combinatorics curricula.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.48550/arXiv.1810.00826"
+    note: Xu et al. (2019) - How Powerful are Graph Neural Networks? WL equivalence proof
+  - doi: "10.48550/arXiv.1901.09342"
+    note: Maron et al. (2019) - invariant and equivariant GNNs and higher-order WL
+  - doi: "10.1109/SFCS.1992.267779"
+    note: Cai, Furer & Immerman (1992) - optimal lower bounds for WL graph isomorphism

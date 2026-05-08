@@ -1,0 +1,45 @@
+id: b-category-theory-x-functional-programming
+title: >
+  Category theory x Functional programming - functors as type constructors
+status: proposed
+fields:
+  - mathematics
+  - computer_science
+  - type_theory
+  - logic
+bridge_claim: >
+  The Curry-Howard-Lambek correspondence establishes a three-way isomorphism between typed
+  lambda calculus, intuitionistic logic, and Cartesian closed categories; monads in Haskell
+  are exactly monads in category theory (a monoid in the category of endofunctors), making
+  functional programming a form of applied category theory — type constructors are functors,
+  function composition is categorical composition, and polymorphic functions are natural
+  transformations.
+translation_table:
+  - field_a_term: Haskell type constructor (e.g. Maybe, List, IO) (programming)
+    field_b_term: "endofunctor F: C -> C in category theory (mathematics)"
+    note: Every Haskell Functor instance is a categorical endofunctor; fmap is the action on morphisms (functions)
+  - field_a_term: Haskell monad (return, bind >>= operations) (programming)
+    field_b_term: monad (T, eta, mu) — monoid in endofunctor category (category theory)
+    note: return is the unit natural transformation eta, bind encodes the multiplication mu; monad laws are exactly the monoid laws
+  - field_a_term: polymorphic function (parametric polymorphism) (type theory)
+    field_b_term: natural transformation between functors (category theory)
+    note: "Wadler's theorems for free: every parametrically polymorphic function is a natural transformation by Reynold's parametricity"
+  - field_a_term: Curry-Howard isomorphism (propositions as types, proofs as programs) (logic/CS)
+    field_b_term: Lambek correspondence (propositions as objects, proofs as morphisms) (category theory)
+    note: The three-way Curry-Howard-Lambek isomorphism unifies logic, type theory, and Cartesian closed categories
+communication_gap: >
+  Category theorists (Eilenberg & Mac Lane 1945) and computer scientists developing
+  functional programming (McCarthy 1958, Landin 1966) worked independently; the connection
+  through Cartesian closed categories was noted by Lawvere (1969) and Lambek (1980) but
+  only entered practical programming through Haskell monads (Wadler 1992) — decades after
+  the mathematical theory was complete, illustrating the slow transfer of abstract
+  mathematics to programming language design.
+cross_pollination_opportunities:
+  - Apply categorical universal properties (limits, colimits, adjunctions) to design type system features such as GADTs, dependent types, and effect systems with clean compositionality guarantees
+  - Use topos theory (a categorical generalization of set theory) to develop new foundations for constructive mathematics that are directly computable, bridging proof assistants (Coq, Agda) and mathematics
+related_unknowns:
+  - u-category-theory-x-functional-programming
+references:
+  - doi: "10.1145/75277.75285"
+    note: "Wadler (1989) - Theorems for free! FPCA 1989; establishes natural transformation interpretation of polymorphism"
+last_reviewed: "2026-05-07"

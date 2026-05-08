@@ -1,0 +1,64 @@
+id: bg-neuromorphic-computing-at-scale
+title: Neuromorphic computing at scale — brain-matched energy efficiency for AI inference
+breakthrough_description: >
+  The human brain performs general-purpose intelligence at approximately 20 watts.
+  Running a 70-billion parameter large language model requires ~70 watts per token
+  generated at the GPU level, and a full inference data center serving millions of
+  users consumes megawatts. Neuromorphic chips (Intel Loihi 2, IBM TrueNorth,
+  BrainScaleS) demonstrate 100-1,000× energy efficiency improvements over GPUs for
+  sparse spike-based workloads, but cannot run the dense matrix multiplications
+  that underpin transformer models and modern deep learning. The architectural
+  mismatch — neuromorphic hardware is optimized for asynchronous event-driven
+  computation, while AI workloads are dominated by synchronous dense linear algebra —
+  is the core barrier. The breakthrough needed: either a neuromorphic architecture
+  that can efficiently execute dense matrix operations, or a new AI algorithm family
+  that achieves competitive accuracy using sparse event-driven computation executable
+  on neuromorphic hardware at brain-scale energy efficiency.
+source_domain: computer-science
+current_trl: 3
+world_reshaping_potential: significant
+blocking_gaps:
+  - gap_title: Sparse spike-coded representations achieve lower accuracy than dense activations
+    gap_description: >
+      Converting a trained dense neural network to a spiking neural network (SNN)
+      by rate-coding activations as spike frequencies incurs 5-15% accuracy loss
+      on image classification benchmarks relative to the original ANN. Direct SNN
+      training methods (surrogate gradient, STBP) narrow this gap but have not
+      matched transformer accuracy on language tasks at any scale. The fundamental
+      challenge is that sparsity and temporal coding require many time steps to
+      accumulate sufficient signal, increasing latency and offsetting some of the
+      energy gains.
+    blocking_domain: computer-science
+    gap_type: algorithmic
+  - gap_title: In-memory computing with analog crossbars has unacceptable write endurance
+    gap_description: >
+      Analog in-memory computing (IMC) performs matrix-vector multiplication by
+      programming conductances (weights) into resistive RAM (ReRAM) or phase-change
+      memory crossbar arrays and reading the current sum as the dot product. This
+      eliminates weight-memory bandwidth as a bottleneck. However, ReRAM cells
+      have 10^6-10^8 write cycles before failure — far below the continuous weight
+      update requirements of online learning and model fine-tuning. Read noise and
+      device-to-device variability also accumulate errors in deep networks requiring
+      compensation circuits that erode the energy advantage.
+    blocking_domain: materials-science
+    gap_type: materials
+  - gap_title: No programming model or compiler ecosystem for neuromorphic hardware
+    gap_description: >
+      PyTorch and CUDA have a deep ecosystem of models, training infrastructure,
+      and tooling. Neuromorphic chips require entirely different programming models
+      (event-driven, temporal coding) with no standard interface. Each chip vendor
+      has proprietary tooling incompatible with adjacent platforms. Converting the
+      large body of existing deep learning models to neuromorphic execution requires
+      algorithmic redesign, not just compilation — a barrier that prevents industry
+      adoption even when the hardware efficiency case is compelling.
+    blocking_domain: computer-science
+    gap_type: engineering
+required_bridges:
+  - b-spike-coding-neuromorphic
+  - b-openalex-renormalization-group-deep-learning
+references:
+  - "Davies et al. (2018) Loihi: A neuromorphic manycore processor with on-chip learning. IEEE Micro 38:82-99."
+  - "Merolla et al. (2014) A million spiking-neuron integrated circuit with a scalable communication network. Science 345:668-673."
+  - "Roy et al. (2019) Towards spike-based machine intelligence with neuromorphic computing. Nature 575:607-617."
+  - "Sebastian et al. (2020) Memory devices and applications for in-memory computing. Nat Nanotechnol 15:529-544."
+last_reviewed: "2026-05-07"

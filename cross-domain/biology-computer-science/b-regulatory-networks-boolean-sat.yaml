@@ -1,0 +1,54 @@
+id: b-regulatory-networks-boolean-sat
+title: >
+  Gene regulatory network behavior under combinatorial transcription factor inputs
+  maps onto Boolean satisfiability (SAT), making the computation of network steady
+  states NP-complete in general and connecting systems biology to theoretical
+  computer science.
+status: established
+fields:
+  - systems-biology
+  - computer-science
+  - mathematics
+bridge_claim: >
+  Stuart Kauffman's Boolean network model assigns each gene a Boolean function of
+  its regulators; finding the attractors (stable gene expression states) of a
+  Boolean regulatory network with N genes and K inputs per gene is equivalent to
+  solving a system of Boolean equations—a form of SAT—with attractors corresponding
+  to satisfying assignments of the full network state; for K >= 2 this is NP-hard
+  in the worst case, linking the complexity of cell fate determination to the
+  complexity class NP and motivating approximation algorithms from satisfiability
+  research for regulatory network analysis.
+translation_table:
+  - field_a_term: gene regulatory network attractor (systems biology)
+    field_b_term: satisfying assignment in Boolean SAT (computer science)
+    note: A stable cell state corresponds to a fixed point of the Boolean dynamics, i.e., a SAT solution
+  - field_a_term: Boolean update function per gene f_i(x_1,...,x_K) (systems biology)
+    field_b_term: clause in CNF formula (computer science)
+    note: Each gene's regulation logic is a Boolean function that must be simultaneously satisfied
+  - field_a_term: cell fate transition (systems biology)
+    field_b_term: movement between SAT solutions in the Boolean space (computer science)
+    note: Waddington landscape attractors are separated by unsatisfied constraint regions
+  - field_a_term: feedback loop in regulatory network (systems biology)
+    field_b_term: clause cycle / unit propagation structure (SAT)
+    note: Positive feedback loops stabilize attractors; negative feedback creates oscillatory solutions
+related_unknowns:
+  - u-regulatory-network-attractor-enumeration
+related_hypotheses:
+  - h-kauffman-network-criticality-cell-types
+cross_pollination_opportunities:
+  - Applying modern SAT solvers (DPLL, CDCL) to enumerate attractors in large Boolean gene regulatory networks
+  - Using regulatory network satisfiability analysis to predict drug combinations that force cancer cells into terminal differentiation
+communication_gap: >
+  Systems biologists build regulatory network models using differential equations
+  or Boolean logic while computer scientists develop SAT algorithms; the NP-hardness
+  of attractor finding in Boolean networks has been known since the 2000s but modern
+  SAT-solver technology has not been systematically applied to biological network
+  attractor enumeration at genome scale.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1126/science.161.3843.802"
+    note: Kauffman (1969) - metabolic stability and epigenesis in randomly constructed genetic nets
+  - doi: "10.1007/978-3-540-25974-4_17"
+    note: Akutsu et al. (2000) - NP-hardness of finding attractors in Boolean networks
+  - doi: "10.1371/journal.pcbi.1000702"
+    note: Saez-Rodriguez et al. (2011) - logic-based models for signaling network analysis

@@ -1,0 +1,49 @@
+id: b-animal-migration-optimal-foraging-theory
+title: >
+  Animal migration routes and stopover decisions are predicted by optimal foraging
+  theory and dynamic programming, treating migration as an energy-budget optimization
+  problem with the same mathematical structure as economic resource allocation.
+status: established
+fields:
+  - ecology
+  - mathematics
+bridge_claim: >
+  Migration is an optimal control problem: a bird maximizes total fitness (arrival mass,
+  breeding date) by choosing when to depart, which stopover sites to use, and how much
+  fuel to carry, subject to predation and weather stochasticity. Stochastic dynamic
+  programming (Bellman equation) solves this exactly, and continuous-time versions
+  map onto Pontryagin's maximum principle. The optimal migration speed follows the
+  same marginal-value theorem used for patch-leaving decisions in classic foraging theory.
+translation_table:
+  - field_a_term: migratory bird departure decision (ecology)
+    field_b_term: stopping criterion in dynamic programming (mathematics)
+    note: Optimal departure time maximizes the value function V(fat reserve, date, location)
+  - field_a_term: fuel deposition rate at stopover (ecology)
+    field_b_term: reward rate in marginal-value theorem (mathematics)
+    note: Birds should leave a stopover when instantaneous gain rate falls to the travel-averaged rate
+  - field_a_term: carry-over effects between breeding and wintering (ecology)
+    field_b_term: state-dependent fitness landscape (mathematics)
+    note: Body condition is a state variable coupling seasons in the Bellman recursion
+  - field_a_term: wind assistance / atmospheric corridor (ecology)
+    field_b_term: stochastic environment in Markov decision process (mathematics)
+    note: Wind fields enter as random transitions in the MDP state space
+related_unknowns:
+  - u-migratory-connectivity-climate-mismatch
+related_hypotheses:
+  - h-energy-minimization-migration-route-selection
+cross_pollination_opportunities:
+  - Applying robust MDP methods from operations research to migration under climate uncertainty
+  - Using GPS tracking data to estimate the fitness landscape and validate dynamic programming predictions
+communication_gap: >
+  Ornithologists tracking migration and applied mathematicians solving optimal control
+  problems rarely co-publish; the optimal migration theory literature (Alerstam, Houston)
+  is mature but underused in conservation planning, where managers still rely on
+  descriptive phenological data.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1086/283741"
+    note: Alerstam & Hedenstrom (1998) — review of optimal migration theory and dynamic programming
+  - doi: "10.1086/284375"
+    note: Houston (1998) — marginal value theorem applied to migratory fueling decisions
+  - doi: "10.1890/07-0834.1"
+    note: Bauer et al. (2011) — stochastic dynamic programming model of shorebird migration

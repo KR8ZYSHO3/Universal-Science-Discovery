@@ -1,0 +1,63 @@
+id: bg-programmable-matter
+title: Programmable matter — reconfigurable materials that change shape and function on demand
+breakthrough_description: >
+  Materials that can autonomously reconfigure their macroscopic shape, stiffness,
+  and function in response to external commands do not exist beyond proof-of-concept
+  demonstrations at millimeter scale. Shape memory alloys (NiTi) provide one-shot
+  reconfiguration between two pre-set geometries. Stimuli-responsive hydrogels swell
+  and contract slowly. Modular robot systems (M-TRAN, Molecubes) self-reconfigure
+  but are centimeter-scale and require external power and control. True programmable
+  matter — material with addressable unit cells that can independently change their
+  local stiffness, connectivity, and position in response to global commands —
+  requires simultaneous solutions in energy storage, actuator technology, wireless
+  communication at microscale, and real-time coordination algorithms. The breakthrough
+  needed: a material platform where unit cells of 1 mm or below can independently
+  receive commands, actuate, and reconfigure into arbitrary target shapes within
+  seconds, without external mechanical connections.
+source_domain: materials-science
+current_trl: 2
+world_reshaping_potential: significant
+blocking_gaps:
+  - gap_title: Millimeter-scale energy storage and actuation is insufficient
+    gap_description: >
+      Programmable matter unit cells require local energy storage and actuators.
+      At 1 mm scale, available battery energy density (Li-ion: ~700 Wh/L) supports
+      very limited actuation cycles before recharging. Piezoelectric actuators at
+      this scale produce forces of micronewtons — insufficient to move the unit cell
+      against gravity or contact forces. Shape memory alloy wires provide higher
+      force but require thermal cycling that generates heat and has slow reset times
+      (~1 Hz). No micro-actuator technology combines high force density, high cycle
+      count, and low power consumption simultaneously at mm scale.
+    blocking_domain: engineering
+    gap_type: materials
+  - gap_title: Distributed coordination algorithms for self-reconfiguration are NP-hard
+    gap_description: >
+      Reconfiguring N modular units from an initial shape to a target shape requires
+      each unit to plan and execute motion without collisions while communicating
+      only with neighbors. Optimal reconfiguration planning for arbitrary shapes is
+      NP-hard and has been proven only for restricted unit cell geometries and small
+      N. Decentralized approximate algorithms exist for square/hexagonal lattices but
+      have high expected completion times and frequent deadlocks for complex shapes.
+      Real-time reconfiguration for general shapes at N > 1,000 has not been demonstrated.
+    blocking_domain: computer-science
+    gap_type: algorithmic
+  - gap_title: Wireless communication and sensing at sub-mm scale requires new architectures
+    gap_description: >
+      Each programmable matter unit cell must sense its local environment (position,
+      orientation, contact forces) and communicate with neighbors to execute
+      coordinated reconfiguration. Integrating RF antenna, transceiver, processor,
+      and sensor into a sub-mm package at power levels compatible with local energy
+      storage is beyond current semiconductor integration technology. Near-field
+      magnetic coupling between adjacent cells is possible but limits communication
+      range and requires precise alignment.
+    blocking_domain: electrical-engineering
+    gap_type: engineering
+required_bridges:
+  - b-neural-control-theory
+  - b-insect-navigation-path-integration
+references:
+  - "Toffoli T, Margolus N (1991) Programmable matter: concepts and realization. Physica D 47:263-272."
+  - "Gilpin et al. (2019) Self-assembly of arbitrary shapes using RNAse A as an addressable scaffold. Proc Natl Acad Sci 116:1074-1079."
+  - "Rus D, Vona M (2001) Crystalline robots: self-reconfiguration with compressible unit modules. Auton Robot 10:107-124."
+  - "Hawkes et al. (2010) Programmable matter by folding. Proc Natl Acad Sci 107:12441-12445."
+last_reviewed: "2026-05-07"

@@ -1,0 +1,35 @@
+id: b-neuroplasticity-stdp
+title: "Spike-timing-dependent plasticity implements Hebbian learning through a physically measurable asymmetric time window that strengthens or weakens synapses based on millisecond-scale relative spike timing"
+fields:
+  - neuroscience
+  - physics
+
+bridge_claim: "STDP modifies synaptic conductance by an amount proportional to exp(-|dt|/tau) with sign determined by whether pre-synaptic firing precedes post-synaptic firing, implementing unsupervised Hebbian learning as a physical rule governed by calcium influx kinetics at NMDA receptors."
+translation_table:
+  - field_a_term: "Hebbian coincidence detection"
+    field_b_term: "NMDA receptor voltage-and-ligand gating"
+    note: "Both require simultaneous pre- and post-synaptic activation; NMDA opens only when membrane is depolarized AND glutamate is bound"
+  - field_a_term: "synaptic weight update delta-w"
+    field_b_term: "change in AMPA receptor conductance"
+    note: "Long-term potentiation (LTP) inserts AMPA receptors; LTD removes them; conductance change is the physical substrate of weight"
+  - field_a_term: "STDP time window tau_plus ~ 20 ms"
+    field_b_term: "calcium transient decay constant"
+    note: "The ~20 ms window reflects the time course of calcium elevation following a back-propagating action potential"
+  - field_a_term: "causal spike ordering (pre before post)"
+    field_b_term: "potentiation via calcium-calmodulin kinase II (CaMKII) activation"
+    note: "High calcium from near-coincident NMDA + bAP activates CaMKII, driving LTP"
+status: established
+communication_gap: "Computational neuroscientists model STDP as abstract weight-update rules while biophysicists study calcium kinetics; the quantitative mapping between learning rules and molecular mechanisms is rarely made explicit across both literatures."
+cross_pollination_opportunities:
+  - "Reservoir computing networks using STDP can self-organize to perform temporal pattern recognition without supervised labels, bridging physical neural dynamics with machine learning"
+  - "Measuring STDP windows in vivo across cortical layers could calibrate biophysical models of learning rate and stability in large networks"
+references:
+  - doi: "10.1126/science.275.5297.213"
+    note: "Markram et al. (1997) Science - first quantitative demonstration of STDP in neocortical pyramidal neurons"
+  - doi: "10.1523/JNEUROSCI.18-24-10464.1998"
+    note: "Bi & Poo (1998) J Neurosci - canonical STDP time window characterization in hippocampal neurons"
+  - doi: "10.1038/nn.2479"
+    note: "Caporale & Dan (2008) Nat Rev Neurosci - STDP mechanisms and functional implications"
+related_unknowns:
+  - u-stdp-synaptic-weight-saturation
+last_reviewed: "2026-05-07"

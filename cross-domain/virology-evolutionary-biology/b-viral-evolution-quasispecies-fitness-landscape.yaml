@@ -1,0 +1,50 @@
+id: b-viral-evolution-quasispecies-fitness-landscape
+title: >
+  RNA virus populations evolve as quasispecies — clouds of mutant sequences near a
+  fitness landscape peak — a concept borrowed from the physics of spin glasses and
+  applied to virology, explaining error catastrophe, lethal mutagenesis, and immune escape.
+status: established
+fields:
+  - virology
+  - evolutionary-biology
+bridge_claim: >
+  Eigen's quasispecies equation describes an RNA virus population as a distribution
+  over sequence space: ẋᵢ = Σⱼ Wᵢⱼ xⱼ − Φxᵢ, where Wᵢⱼ is the mutation-selection
+  matrix and Φ normalizes the population. The dominant eigenvector (master sequence
+  + mutant cloud) is the quasispecies. Above the error threshold μ > μ_crit = ln(W_max)/L,
+  the quasispecies delocalizes across sequence space (error catastrophe), analogous
+  to a phase transition in a disordered system. The fitness landscape analogy (Wright)
+  — with peaks, valleys, and neutral networks — provides geometric intuition.
+translation_table:
+  - field_a_term: RNA virus mutation rate per base per replication (virology)
+    field_b_term: error rate in quasispecies / transition matrix entry (evolutionary biology)
+    note: RNA polymerase lacks proofreading; u ≈ 10⁻⁴ per base is near the error threshold
+  - field_a_term: dominant viral sequence / consensus sequence (virology)
+    field_b_term: master sequence (dominant eigenvector of mutation-selection matrix) (evolutionary biology)
+    note: Consensus ≠ master sequence when the mutant cloud has a different mean fitness
+  - field_a_term: lethal mutagenesis by mutagens (ribavirin) (virology)
+    field_b_term: driving the population above the error threshold (evolutionary biology)
+    note: Increasing μ beyond μ_crit destroys the quasispecies — basis of antiviral strategy
+  - field_a_term: immune escape variant selection (virology)
+    field_b_term: adaptive walk on rugged fitness landscape (evolutionary biology)
+    note: Immune pressure shifts the fitness landscape; the quasispecies cloud rapidly adapts
+related_unknowns:
+  - u-rna-virus-error-threshold-experimental-validation
+related_hypotheses:
+  - h-lethal-mutagenesis-quasispecies-antiviral-strategy
+cross_pollination_opportunities:
+  - Using fitness landscape inference from deep sequencing data to predict vaccine escape mutations
+  - Applying spin-glass theory (NK model) to compute the ruggedness of viral protein fitness landscapes
+communication_gap: >
+  Virologists and evolutionary biologists are familiar with quasispecies conceptually,
+  but the mathematical connection to eigenvalue problems and spin-glass physics is
+  underappreciated; most virologists use quasispecies as a metaphor rather than
+  applying the Eigen equation quantitatively.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1007/BF02460040"
+    note: Eigen (1971) — self-organization of matter and evolution of biological macromolecules
+  - doi: "10.1016/j.cell.2006.05.049"
+    note: Domingo et al. (2006) — quasispecies dynamics and RNA virus biology
+  - doi: "10.1371/journal.ppat.1000005"
+    note: Perales et al. (2010) — lethal mutagenesis and the fate of RNA viruses

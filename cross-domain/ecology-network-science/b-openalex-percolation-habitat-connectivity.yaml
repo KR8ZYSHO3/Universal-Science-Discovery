@@ -1,0 +1,70 @@
+id: b-openalex-percolation-habitat-connectivity
+title: >
+  Habitat connectivity in fragmented landscapes undergoes a percolation transition
+  where a critical fragmentation threshold determines whether species can disperse
+  across the entire landscape or are confined to isolated patches — the same
+  universality class as bond percolation on a two-dimensional lattice.
+status: proposed
+fields:
+  - ecology
+  - network-science
+  - statistical-physics
+  - conservation-biology
+bridge_claim: >
+  Landscape ecology studies how habitat fragmentation affects species persistence
+  and dispersal. Statistical physics provides the exact framework: a binary habitat
+  map (habitat / non-habitat pixels) is formally a site-percolation problem on a
+  2D lattice. When the fraction of habitat h exceeds the percolation threshold
+  h_c ≈ 0.593 (2D square lattice site percolation), a giant cluster of connected
+  habitat spans the landscape, enabling long-distance dispersal. Below h_c, the
+  landscape fragments into isolated patches of bounded size, and species requiring
+  landscape-spanning connectivity face local extinction. This transition exhibits
+  critical phenomena: the mean patch size diverges as h → h_c, the distribution
+  of patch sizes follows a power law with universal exponents, and correlation
+  lengths diverge. The universality of these exponents (independent of landscape
+  geometry details) means that habitat fragmentation effects predicted from
+  statistical physics apply across ecosystems — from tropical forest fragmentation
+  to arctic sea ice habitats. Higgins et al. (2002) demonstrated the power of
+  heterogeneity quantification methods for understanding ecological variation, and
+  the same statistical machinery (I^2, variance components) applies to quantifying
+  whether fragmentation heterogeneity drives meta-analytic outcomes in conservation
+  studies.
+translation_table:
+  - field_a_term: site occupation probability p (habitat fraction)
+    field_b_term: proportion of landscape covered by suitable habitat
+    note: The control parameter; h_c ≈ 0.593 for 2D square lattice site percolation
+  - field_a_term: percolation threshold p_c
+    field_b_term: critical habitat fragmentation threshold for landscape connectivity
+    note: Below this threshold, no continuous dispersal corridor crosses the landscape
+  - field_a_term: giant connected component
+    field_b_term: landscape-spanning habitat corridor
+    note: The single connected patch that crosses the entire landscape above threshold
+  - field_a_term: correlation length xi ~ |p - p_c|^{-nu}
+    field_b_term: mean dispersal distance achievable near the fragmentation threshold
+    note: Diverges at criticality — near the threshold, local decisions have landscape-scale consequences
+  - field_a_term: power-law patch size distribution
+    field_b_term: species-area relationship with universal exponents near fragmentation threshold
+    note: Predicts how many species survive as a function of remaining habitat fraction
+related_unknowns:
+  - u-percolation-threshold-habitat-connectivity
+related_hypotheses:
+  - h-habitat-percolation-species-persistence
+cross_pollination_opportunities:
+  - Measure the fractal dimension of forest edges in satellite imagery and compare with 2D percolation cluster boundaries to test universality class membership
+  - Apply finite-size scaling to predict minimum viable habitat fraction for umbrella species without requiring full-landscape surveys
+  - Design conservation reserve networks using percolation-optimal placement algorithms that maximize connectivity per unit area
+  - Use percolation theory to set evidence-based critical threshold values for habitat loss trigger points in environmental impact assessments
+communication_gap: >
+  Landscape ecologists and conservation biologists rarely engage with the statistical
+  physics percolation literature. Physicists working on percolation are unaware of
+  the empirical literature on habitat fragmentation. The quantitative equivalence
+  between site percolation and habitat connectivity was noted in theoretical ecology
+  but has not been systematically exploited for field predictions or policy.
+last_reviewed: "2026-05-07"
+references:
+  - doi: 10.1002/sim.1186
+    note: Higgins et al. (2002) Quantifying heterogeneity in meta-analysis — 36,378 citations; statistical tools for ecological variance primary reference
+  - doi: 10.1890/0012-9658(2000)081[0736:PCLLC]2.0.CO;2
+    note: With & Crist (1995) — critical thresholds in landscape connectivity and percolation
+  - doi: 10.1103/PhysRevE.58.R5257
+    note: Stauffer & Aharony — introduction to percolation theory universality classes

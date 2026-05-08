@@ -1,0 +1,29 @@
+id: u-quantum-annealing-simulated
+title: "Does quantum annealing provide a provable computational advantage over classical simulated annealing for any practically relevant optimization problem class, and on what problem instances?"
+status: open
+priority: critical
+disciplines:
+  - quantum-computing
+  - combinatorics
+  - theoretical-computer-science
+summary: >
+  Despite D-Wave systems having operated for >10 years, no peer-reviewed study
+  has established a definitive quantum speedup for quantum annealing over the
+  best classical algorithms (simulated annealing, tabu search, branch-and-bound).
+  Google's 2023 result showed quantum annealing speedup for random Ising instances
+  but not for practical optimization problems. The fundamental question is whether
+  the thin-barrier advantage of quantum tunneling (exponential in √ΔE·W/ℏ)
+  translates to real-world instance classes (logistics, drug design, financial
+  portfolio). The challenge: for NP-hard problems, the minimum gap Δ at the
+  optimal anneal time may close exponentially with problem size, negating
+  any tunneling advantage.
+systematic_gaps:
+  - "Rigorous asymptotic complexity comparison between QA and SA for specific problem classes (MAX-CUT, graph coloring, protein folding on lattice) has not been established."
+  - "The minimum spectral gap Δ(n) as a function of problem size for practically relevant QUBO instances is unknown; this determines the required coherence time for QA advantage."
+  - "Fair benchmarking (same hardware quality, same time budget) between D-Wave and state-of-the-art classical solvers has been contested in the literature."
+related_bridges:
+  - b-quantum-annealing-simulated-annealing
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1126/science.284.5415.779"
+    note: "Kadowaki & Nishimori (1998) Quantum annealing in the transverse Ising model"

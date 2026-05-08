@@ -1,0 +1,35 @@
+id: b-vicsek-active-matter-flocking
+title: "The Vicsek model demonstrates that local velocity alignment among self-propelled particles spontaneously generates long-range orientational order in 2D, explaining collective motion in bird flocks, fish schools, and bacterial swarms through a minimal active matter model"
+fields:
+  - physics
+  - biology
+
+bridge_claim: "N self-propelled particles with speed v0 aligning with neighbors within radius r undergo a continuous noise-driven phase transition at critical noise eta_c from a disordered gas phase (no net motion) to a polar ordered phase (coherent flock), with the order parameter phi = |sum(v_i)|/(N*v0) serving as the magnetization analog in a non-equilibrium system with no Hamiltonian."
+translation_table:
+  - field_a_term: "local velocity alignment rule theta_i(t+1) = <theta_j>_{|r_ij|<r} + noise"
+    field_b_term: "ferromagnetic spin alignment in XY model without detailed balance"
+    note: "Unlike equilibrium XY model, Vicsek particles self-propel, breaking time-reversal symmetry and allowing long-range order in 2D"
+  - field_a_term: "noise parameter eta (angular deviation)"
+    field_b_term: "effective temperature in non-equilibrium system"
+    note: "Increasing eta destroys order; the eta_c transition is discontinuous (first-order) at large N, debated at small N"
+  - field_a_term: "starling murmuration long-range correlations"
+    field_b_term: "scale-free correlation length xi >> r (interaction range)"
+    note: "Empirical correlations in starling flocks extend over the entire flock; consistent with proximity to criticality"
+  - field_a_term: "bacterial collective motion (E. coli swarms)"
+    field_b_term: "Toner-Tu hydrodynamic theory for polar active fluids"
+    note: "Toner-Tu equations add advective nonlinearity to XY hydrodynamics; predict unique anomalous scaling exponents"
+status: established
+communication_gap: "Physicists study active matter phase transitions theoretically while biologists measure collective animal behavior empirically; quantitative comparison requires translating biophysical parameters (alignment strength, noise) into measurable behavioral metrics (nearest-neighbor correlation, speed distribution)."
+cross_pollination_opportunities:
+  - "Inferring effective alignment strength and noise from field data on animal collectives using maximum entropy methods, connecting behavioral ecology to statistical physics"
+  - "Designing synthetic active matter systems (Janus particles, nanomotors) using Vicsek model predictions to achieve programmable collective behavior for microrobotics"
+references:
+  - doi: "10.1103/PhysRevLett.75.1226"
+    note: "Vicsek et al. (1995) PRL - original Vicsek model paper demonstrating phase transition in collective motion"
+  - doi: "10.1103/PhysRevLett.75.4326"
+    note: "Toner & Tu (1995) PRL - hydrodynamic theory of flocking: Toner-Tu equations"
+  - doi: "10.1126/science.1215776"
+    note: "Cavagna et al. (2010) PNAS - scale-free correlations in starling flocks empirically measured"
+related_unknowns:
+  - u-vicsek-transition-order-finite-systems
+last_reviewed: "2026-05-07"

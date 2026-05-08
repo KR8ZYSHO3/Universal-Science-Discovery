@@ -1,0 +1,24 @@
+id: h-tda-x-shape-recognition
+title: Persistent homology with atom-type weighted Vietoris-Rips filtration achieves ΔlogIC₅₀ ≤ 0.3 RMSE for drug-target binding affinity prediction on ChEMBL benchmarks, outperforming unweighted TDA by >30% and matching graph neural network performance with 10× fewer parameters
+status: active
+priority: high
+impact_score: 0.77
+created: '2026-05-07'
+last_updated: '2026-05-07'
+author: wave-67-agent
+unknowns_addressed:
+  - u-tda-x-shape-recognition
+related_disciplines:
+  - mathematics
+  - computer_science
+  - chemistry
+evidence_links:
+  - type: supporting
+    doi: "10.1090/S0273-0979-09-01249-X"
+    note: "Carlsson (2009) — Topology and data; foundational TDA stability theory"
+    confidence: 0.78
+  - type: related
+    note: "Cang & Wei (2017) — TopologyNet: Topology based deep convolutional and multi-task neural networks; PLOS Comput Biol 13:e1005690"
+    confidence: 0.75
+proposed_tests:
+  - description: Implement four filtration strategies (unweighted Vietoris-Rips, atom-type weighted VR, alpha complex, element-specific persistent homology) for 3D molecular structures; compute persistence diagrams for 20,000 protein-ligand complexes from PDBbind 2020; vectorize using persistence landscape; train gradient boosting models for IC₅₀ prediction; evaluate on core set (285 complexes); compare RMSE in logIC₅₀ across filtrations and against reported GNN baselines (SchNet, DimeNet); use 5-fold cross-validation with scaffold splits to avoid data leakage.

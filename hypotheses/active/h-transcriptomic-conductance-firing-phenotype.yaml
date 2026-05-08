@@ -1,0 +1,28 @@
+id: h-transcriptomic-conductance-firing-phenotype
+title: "Ion channel mRNA expression profiles from single-cell RNA-seq can predict HH conductance parameters with sufficient accuracy to reproduce firing phenotype in 70% of neuron types"
+status: active
+priority: high
+impact_score: 0.78
+created: "2026-05-07"
+last_updated: "2026-05-07"
+related_disciplines:
+  - neuroscience
+  - biophysics
+unknowns_addressed:
+  - u-hodgkin-huxley-channel-heterogeneity-neuron-diversity
+evidence_links:
+  - doi: "10.1016/j.cell.2019.05.031"
+    type: supporting
+    confidence: 0.65
+    note: "Allen Brain Cell Atlas - transcriptomic classification of mouse cortical neurons with matched patch-clamp electrophysiology"
+  - doi: "10.1371/journal.pcbi.1002051"
+    type: related
+    confidence: 0.58
+    note: "Marder & Taylor (2011) - degeneracy in conductance-based models: many parameter sets produce same phenotype"
+proposed_tests:
+  - description: >
+      Use the Allen Cell Types Database (Patch-seq) to train a random forest regressor
+      from log-normalized channel mRNA counts to HH conductance parameters (g_Na, g_K,
+      g_A, g_h, etc.) in 500 cortical neurons. Simulate HH models with predicted
+      parameters, compare firing patterns (regular spiking, bursting, fast spiking)
+      to electrophysiology. Prediction: >70% correct phenotype classification.

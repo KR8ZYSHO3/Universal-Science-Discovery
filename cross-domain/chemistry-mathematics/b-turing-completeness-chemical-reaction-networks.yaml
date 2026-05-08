@@ -1,0 +1,50 @@
+id: b-turing-completeness-chemical-reaction-networks
+title: >
+  Chemical reaction networks (CRNs) are Turing-complete: any computable function
+  can be implemented by a finite set of molecular species and mass-action reactions,
+  bridging theoretical computer science and chemistry.
+status: established
+fields:
+  - chemistry
+  - computer-science
+  - mathematics
+bridge_claim: >
+  Soloveichik et al. (2008) proved that stochastic CRNs are Turing-complete: given
+  arbitrary initial molecule counts, a finite CRN can simulate any register machine
+  and hence compute any computable function. Deterministic CRNs (ODEs) can implement
+  continuous analog computation. This means the chemistry of a cell is in principle
+  computationally universal, and digital logic circuits can be built from DNA strand-
+  displacement reactions — a claim experimentally validated by Qian & Winfree (2011).
+translation_table:
+  - field_a_term: molecular species population (chemistry)
+    field_b_term: register value in register machine (computer science)
+    note: Copy-number of a species encodes an integer; reactions implement increment/decrement
+  - field_a_term: bimolecular reaction A + B → C (chemistry)
+    field_b_term: conditional decrement / test-and-branch instruction (computer science)
+    note: Catalytic and annihilation reactions implement the primitives of a register machine
+  - field_a_term: chemical equilibrium / steady state (chemistry)
+    field_b_term: halting state of a computation (computer science)
+    note: The computation halts when the system reaches a designated species-count indicator
+  - field_a_term: DNA strand displacement cascade (chemistry)
+    field_b_term: logic gate / Boolean circuit (computer science)
+    note: DNA toeholds implement OR, AND, NOT gates; fan-out is achieved by signal amplification
+related_unknowns:
+  - u-crn-computational-complexity-noise
+related_hypotheses:
+  - h-dna-strand-displacement-universal-computation
+cross_pollination_opportunities:
+  - Designing CRN-based molecular computers for in-vivo diagnostics using compiler tools from CS
+  - Using computational complexity theory to predict which CRNs are robust to molecular noise
+communication_gap: >
+  Chemists and biochemists working on reaction networks rarely engage with theoretical
+  computer science, and computer scientists working on molecular computation rarely
+  read physical chemistry journals; the DNA computing community has bridged this gap
+  experimentally but the broader theoretical connection remains underexploited.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1145/1374376.1374480"
+    note: Soloveichik et al. (2008) — Turing universality of stochastic CRNs
+  - doi: "10.1126/science.1200962"
+    note: Qian & Winfree (2011) — molecular logic gates via DNA strand displacement
+  - doi: "10.1145/2422375.2422400"
+    note: Chen et al. (2014) — deterministic function computation with CRNs

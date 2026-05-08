@@ -1,0 +1,53 @@
+id: b-supply-chain-network-robustness
+title: >
+  Supply chain resilience is determined by network topology in the same way as
+  infrastructure robustness in complex systems theory, with the Barabasi-Albert
+  scale-free network model predicting that targeted hub disruption causes cascading
+  failures while random disruption is absorbed.
+status: established
+fields:
+  - operations-research
+  - complex-systems
+  - network-science
+bridge_claim: >
+  Supply chain networks mapped as directed graphs (nodes = firms, edges = supplier-buyer
+  relationships) exhibit scale-free degree distributions with a small number of
+  high-degree hub suppliers; Barabasi-Albert robustness theory predicts these networks
+  are robust to random firm failures (probability inversely proportional to degree)
+  but fragile to targeted disruption of hub suppliers, matching observed supply chain
+  disruptions (COVID-19, semiconductor shortages) where single-source critical
+  components caused cascading production halts across industries.
+translation_table:
+  - field_a_term: critical supplier / bottleneck (operations research)
+    field_b_term: hub node in scale-free network (complex systems)
+    note: High-degree supplier nodes are simultaneously most valuable and most disruptive when removed
+  - field_a_term: supply chain disruption propagation (operations research)
+    field_b_term: cascade failure / percolation threshold (complex systems)
+    note: Firm failure propagates downstream when inventory buffers are exhausted; maps to percolation on networks
+  - field_a_term: safety stock / redundancy (operations research)
+    field_b_term: network redundancy / path multiplicity (complex systems)
+    note: Dual sourcing increases effective network connectivity, raising the percolation threshold
+  - field_a_term: just-in-time inventory (operations research)
+    field_b_term: reducing edge weight / path redundancy (complex systems)
+    note: JIT reduces system robustness by minimizing buffering exactly as reducing edge weights lowers robustness
+related_unknowns:
+  - u-supply-chain-network-topology-resilience
+related_hypotheses:
+  - h-supply-chain-percolation-threshold-dual-sourcing
+cross_pollination_opportunities:
+  - Applying network robustness optimization algorithms to redesign supply chains for geopolitical risk
+  - Using firm-level transaction data to map empirical supply chain networks and test scale-free robustness predictions
+communication_gap: >
+  Operations researchers optimize supply chains using scheduling and inventory models
+  while network scientists develop robustness theory abstractly; firm-level supply
+  chain network data became available only with recent advances in economic tracking,
+  and the quantitative connection to Barabasi-Albert robustness is still not widely
+  used in supply chain management practice.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1038/35019019"
+    note: Albert, Jeong & Barabasi (2000) - error and attack tolerance of complex networks
+  - doi: "10.1126/science.1257856"
+    note: Acemoglu et al. (2012) - network origins of aggregate fluctuations (supply network cascades)
+  - doi: "10.1038/s41586-020-2649-2"
+    note: Carvalho et al. (2021) - supply chain disruptions from COVID-19 as network cascade

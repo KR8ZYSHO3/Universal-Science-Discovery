@@ -39,19 +39,22 @@ The project is recognized as “the most ambitious open science infrastructure p
 
 ---
 
-**Phase 0 Status (May 2026): SUBSTANTIALLY COMPLETE**
+**Phase 0 Status (May 2026): SUBSTANTIALLY COMPLETE — transitioning to Phase 1**
 
 | Milestone | Status |
 |---|---|
-| Seeded disciplines (Physics, Biology, CS, + 38 more) | 41 domains |
-| 500+ high-quality structured entries | 1,957 total (458 bridges + 814 unknowns + 681 hypotheses) — waves 32 & 33 complete |
-| Core governance + legal framework | CC BY 4.0 + MIT, CONTRIBUTING.md, CODE_OF_CONDUCT.md |
-| Knowledge graph + search | 1042 nodes, Lunr full-text search, D3.js visualization |
-| Basic contributor infrastructure | Issue templates, PR template, GitHub Discussions |
+| Seeded disciplines (Physics, Biology, CS, + 38 more) | ✅ 55+ domains |
+| 500+ high-quality structured entries | ✅ 3,038 total (868 bridges + 1,151 unknowns + 1,019 hypotheses) |
+| Core governance + legal framework | ✅ CC BY 4.0 + MIT, CONTRIBUTING.md, CODE_OF_CONDUCT.md |
+| Knowledge graph + search | ✅ 3,072 nodes, 3,259 edges; Lunr full-text search; D3.js visualization |
+| Basic contributor infrastructure | ✅ Issue templates, PR template, GitHub Discussions |
 | First Unknowns Hackathon | Planned June 2026 (docs/events/hackathon-2026-06.md) |
 | First 50 contributors | Pending public launch |
+| OpenAlex automation pipeline | ✅ Weekly cron job live |
+| Pioneer lineage system | ✅ 18 pioneers |
+| Breakthrough gaps catalog | ✅ 12 gaps |
 
-**Transitioning to Phase 1 work: custom domain, submission portal, arXiv preprint.**
+**Next priority: arXiv preprint submission + 1,000-bridge milestone.**
 
 ---
 
@@ -61,52 +64,82 @@ The project is recognized as “the most ambitious open science infrastructure p
 
 | Metric | Phase 0 Target | Current (2026-05-07) | Status |
 |--------|---------------|----------------------|--------|
-| Cross-domain bridges | 500+ | **470** | 94% — 30 to go |
-| Unknowns | 500+ | **817** | ✅ Exceeded |
-| Hypotheses | 300+ | **681** | ✅ Exceeded |
-| Pioneers | — | **13** | On track |
+| Cross-domain bridges | 500+ | **868** | ✅ Exceeded (next: 1,000) |
+| Unknowns | 500+ | **1,151** | ✅ Exceeded |
+| Hypotheses | 300+ | **1,019** | ✅ Exceeded |
+| Pioneers | — | **18** | ✅ Growing |
 | Breakthrough gaps | — | **12** | Expanding |
-| Knowledge graph nodes | 1,000+ | **1,982** | ✅ Exceeded |
-| Knowledge graph edges | — | **2,069** | — |
+| Knowledge graph nodes | 1,000+ | **3,072** | ✅ Exceeded (3× target) |
+| Knowledge graph edges | — | **3,259** | — |
 | Scientific domains | 15+ | **55+** | ✅ Exceeded |
 | Orphan unknowns | 0 | **0** | ✅ Clean |
 | Schema errors | 0 | **0** | ✅ Clean |
 
-### Milestones achieved this session (overnight build, Waves 17–35)
+### Milestones achieved (Waves 1–67 + OA-1)
 
-- **300-bridge milestone** — Wave 20 (2026-05-06)
-- **350-bridge milestone** — Wave 24 (2026-05-06)
-- **400-bridge milestone** — Wave 29 (2026-05-06)
-- **1,000 graph nodes** — Wave 10 (2026-05-06)
-- **2,000 graph nodes** — Wave 32+ (2026-05-07)
-- **Zero orphan unknowns** — maintained throughout
-- **Lyme disease breakthrough-gap cluster** added
-- **13 pioneer profiles** complete
-- **Dashboard** updated with 400-bridge gold milestone banner
+- [x] **100-bridge milestone** — Wave 7 (2026-05-05)
+- [x] **250-bridge milestone** — Wave 17 (2026-05-06)
+- [x] **300-bridge milestone** — Wave 20 (2026-05-06)
+- [x] **350-bridge milestone** — Wave 24 (2026-05-06)
+- [x] **400-bridge milestone** — Wave 29 (2026-05-06)
+- [x] **500-bridge milestone** — Wave 36 (2026-05-07)
+- [x] **600-bridge milestone** — Wave 45 (2026-05-07)
+- [x] **700-bridge milestone** — Wave 54 (2026-05-07)
+- [x] **800-bridge milestone** — Wave 62 (2026-05-07)
+- [x] **1,000 graph nodes** — Wave 10 (2026-05-06)
+- [x] **3,000 graph nodes** — Wave 65 (2026-05-07)
+- [x] **1,000 hypotheses** — Wave 66/67 (2026-05-07)
+- [x] **OpenAlex automation pipeline** — weekly cron job live (2026-05-07)
+- [x] **Pioneer lineage system** — 18 pioneers (2026-05-07)
+- [x] **Breakthrough gaps catalog** — 12 gaps (2026-05-06)
+- [x] **Zero orphan unknowns** — maintained throughout all waves
+- [ ] **1,000 bridges** ← next major target
+- [ ] arXiv preprint submission (author: Brandon Shoemaker)
+- [ ] First external citation / contributor
 
 ### Phase 0 vs. milestones
 
 | Phase 0 Milestone | Status |
 |---|---|
 | Seeded disciplines (Physics, Biology, CS, + more) | ✅ 55+ domains |
-| 500+ high-quality structured entries | ✅ 1,968 total (470 bridges + 817 unknowns + 681 hypotheses) |
+| 500+ high-quality structured entries | ✅ 3,038 total (868 bridges + 1,151 unknowns + 1,019 hypotheses) |
 | Core governance + legal framework | ✅ CC BY 4.0 + MIT, CONTRIBUTING.md, CODE_OF_CONDUCT.md |
-| Knowledge graph + search | ✅ 1,982 nodes, 2,069 edges; Lunr full-text search; D3.js visualization |
+| Knowledge graph + search | ✅ 3,072 nodes, 3,259 edges; Lunr full-text search; D3.js visualization |
 | Basic contributor infrastructure | ✅ Issue templates, PR template, GitHub Discussions |
 | First Unknowns Hackathon | Planned June 2026 |
 | First 50 contributors | Pending public launch |
 
-### Estimated timeline to Phase 1 readiness
+### Phase 1 prerequisites
 
-| Task | ETA |
-|------|-----|
-| 500 bridges reached | ~1–2 build sessions (days) |
-| arXiv preprint submitted | 1–2 weeks (PDF conversion + submission) |
-| D3 graph working on GitHub Pages | 1–3 days (debug session) |
-| Custom domain live | 1 week |
-| First public announcement + community launch | ~June 2026 |
+| Task | Status | ETA |
+|------|--------|-----|
+| 1,000 bridges | In progress (868 now; 9 stubs in drafts/) | ~2–4 build sessions |
+| arXiv preprint submitted | Ready to convert + submit | 1–2 weeks |
+| D3 graph working on GitHub Pages | Reliability ongoing | 1–3 days |
+| Custom domain live | Not started | 1 week |
+| First public announcement + community launch | Pending arXiv DOI | ~June 2026 |
 
-**Phase 1 readiness estimated: June–July 2026**, contingent on arXiv submission and first public community push.
+**Phase 1 readiness estimated: June–July 2026**, contingent on arXiv submission and first external contributors.
+
+---
+
+## Data Source Integration Roadmap
+
+### Active
+- **arXiv** (OAI-PMH) — physics, CS, math, biology preprints
+
+### 90-Day Plan (Phase 0 completion)
+- **OpenAlex** ✅ harvester built (`scripts/harvesters/harvest_openalex.py`) — cross-domain concept pair scanning
+- **PubMed/NCBI** — biomedical literature for medicine/neuroscience bridges
+- **Semantic Scholar** — AI-extracted concept tagging at scale
+- **CrossRef** — DOI verification and reference list extraction
+
+### Phase 1 Targets
+- **NASA ADS** — astronomy/astrophysics
+- **INSPIRE-HEP** — high-energy physics
+- **Wikidata** — structured concept facts for translation tables
+
+See `docs/DATA_SOURCES.md` for full integration architecture.
 
 ---
 

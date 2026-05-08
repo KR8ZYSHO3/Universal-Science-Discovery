@@ -1,0 +1,51 @@
+id: b-microfluidics-stokes-flow-low-reynolds-number
+title: >
+  Microfluidic devices operate in the low-Reynolds-number Stokes flow regime where
+  viscosity dominates inertia, enabling exact analytical solutions (Stokes equations)
+  and reversible, programmable flow patterns that are exploited in lab-on-a-chip
+  technologies for biological assays.
+status: established
+fields:
+  - engineering
+  - fluid-mechanics
+bridge_claim: >
+  At Re ≪ 1 (typical microfluidic channels: Re ~ 10⁻³–10⁻¹), the Navier-Stokes
+  equations reduce to the Stokes equations: η∇²u = ∇p, ∇·u = 0. These are linear
+  and time-reversible (Purcell's scallop theorem). Exact solutions exist for arbitrary
+  channel geometries via the Hele-Shaw approximation: u ≈ −(h²/12η)∇p (lubrication
+  theory). This allows precise engineering of droplet generation (T-junction), chaotic
+  mixing (herringbone channels), and size-based cell sorting — all derived from
+  closed-form Stokes solutions.
+translation_table:
+  - field_a_term: microfluidic channel flow (engineering)
+    field_b_term: Stokes flow / creeping flow (fluid mechanics)
+    note: Channel Re ~ 10⁻²; inertial terms (Re·Du/Dt) are negligible vs. viscous terms
+  - field_a_term: droplet generation at T-junction (engineering)
+    field_b_term: Rayleigh-Plateau instability in Stokes regime (fluid mechanics)
+    note: Droplet size set by capillary number Ca = ηU/γ; Stokes flow controls pinch-off timing
+  - field_a_term: Dean flow in curved microchannels (engineering)
+    field_b_term: secondary flow / inertial correction to Stokes (fluid mechanics)
+    note: Weak inertia (Re·δ/R) generates cross-stream Dean vortices used for cell focusing
+  - field_a_term: electro-osmotic flow in microchannels (engineering)
+    field_b_term: Stokes equation with body force (Debye layer driving term) (fluid mechanics)
+    note: "EOF obeys Helmholtz-Smoluchowski: u_EOF = −(εζ/η)E — a Stokes flow driven by electric body force"
+related_unknowns:
+  - u-microfluidic-chaotic-mixing-optimization
+related_hypotheses:
+  - h-stokes-flow-deterministic-lateral-displacement-cell-sorting
+cross_pollination_opportunities:
+  - Using Stokes flow exact solutions to design paper microfluidics with capillary-driven Hele-Shaw flow
+  - Applying lubrication theory from fluid mechanics to optimize the gap geometry in microfluidic valves
+communication_gap: >
+  Microfluidic engineers often use finite-element simulation (COMSOL) without deriving
+  Stokes flow analytical solutions that would give clearer scaling laws; conversely,
+  fluid mechanics theorists rarely engage with the specific constraints of PDMS
+  fabrication and biological sample handling.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1146/annurev.fluid.36.050802.122124"
+    note: Squires & Quake (2005) — microfluidics — fluid physics at the nanoliter scale
+  - doi: "10.1073/pnas.97.7.3118"
+    note: Whitesides & Stroock (2001) — flexible methods for microfluidics
+  - doi: "10.1073/pnas.97.9.5083"
+    note: Stroock et al. (2002) — chaotic mixer for microchannels using herringbone ridges

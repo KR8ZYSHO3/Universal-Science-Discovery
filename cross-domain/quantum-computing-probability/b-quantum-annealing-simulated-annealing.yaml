@@ -1,0 +1,55 @@
+id: b-quantum-annealing-simulated-annealing
+title: "Quantum annealing replaces thermal fluctuations with quantum tunneling: the transverse-field Ising model H=-Γ(t)Σσᵢˣ - J·Σσᵢᶻσⱼᶻ maps optimization onto adiabatic quantum evolution, generalizing simulated annealing"
+status: established
+fields:
+  - quantum-computing
+  - combinatorics
+  - statistical-physics
+bridge_claim: >
+  Simulated annealing (SA) solves combinatorial optimization by sampling
+  from the Boltzmann distribution P(s) ∝ exp(-E(s)/T), decreasing T to
+  concentrate probability on the minimum. Quantum annealing (QA) adds a
+  transverse field Γ(t): H(t) = -Γ(t)·Σᵢσᵢˣ - Σᵢⱼ Jᵢⱼσᵢᶻσⱼᶻ. At t=0,
+  Γ large: ground state is a product state (all spins in superposition).
+  As Γ→0, H approaches the target Ising Hamiltonian. The adiabatic theorem
+  guarantees convergence to the ground state if the anneal is slow relative
+  to the inverse gap Δ⁻¹ (minimum energy gap). The quantum advantage over SA:
+  tunneling through barriers of height ΔE and width W scales as exp(-√(ΔE)·W/ℏ)
+  vs classical thermal hopping exp(-ΔE/T). For thin-barrier problems, QA
+  outperforms SA; for rough-landscape problems, neither has proven advantage.
+  The D-Wave machine implements QA on a Chimera/Pegasus graph.
+translation_table:
+  - field_a_term: "simulated annealing temperature schedule T(t)"
+    field_b_term: "quantum annealing transverse field schedule Γ(t)"
+    note: "Both are 'annealing schedules' driving a phase transition from disordered to ordered state"
+  - field_a_term: "thermal excitation over energy barrier ΔE (classical)"
+    field_b_term: "quantum tunneling through energy barrier — WKB tunneling rate"
+    note: "Quantum tunneling rate ∝ exp(-√(m·ΔE)·W/ℏ) vs thermal rate exp(-ΔE/T)"
+  - field_a_term: "combinatorial optimization problem QUBO: min xᵀQx"
+    field_b_term: "Ising model energy E = Σᵢⱼ Jᵢⱼσᵢσⱼ + Σᵢhᵢσᵢ"
+    note: "All QUBO problems map to Ising with J_ij = Q_ij/4, h_i from diagonal Q"
+  - field_a_term: "D-Wave 5000Q hardware graph connectivity"
+    field_b_term: "Chimera/Pegasus graph structure limiting which Jᵢⱼ can be nonzero"
+    note: "Problem sparsity must match hardware graph or minor embedding adds overhead qubits"
+related_unknowns:
+  - u-quantum-annealing-simulated
+related_hypotheses:
+  - h-quantum-annealing-simulated-annealing
+cross_pollination_opportunities:
+  - "Hybrid quantum-classical algorithms: quantum annealing can be combined with classical post-processing (tabu search, local search) in a hybrid workflow that uses the quantum processor as a subroutine, connecting quantum computing to classical operations research heuristics."
+  - "Coherent Ising machines (optical parametric oscillators): laser-based systems implement the same transverse-field Ising model by coupling laser pulse amplitudes, achieving all-to-all connectivity unavailable in D-Wave — connecting quantum optics to combinatorial optimization."
+communication_gap: >
+  Operations researchers who use simulated annealing for scheduling and logistics
+  optimization are largely unaware of the mathematical connection to quantum
+  annealing and the Ising model. Quantum computing researchers working on QA
+  often present it as a hardware problem without connection to the classical
+  combinatorics literature where problem hardness (phase transitions, typical-case
+  complexity) is well-characterized.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1126/science.220.4598.671"
+    note: "Kirkpatrick, Gelatt & Vecchi (1983) Optimization by simulated annealing. Science 220:671"
+  - doi: "10.1126/science.284.5415.779"
+    note: "Kadowaki & Nishimori (1998) Quantum annealing in the transverse Ising model. Phys Rev E 58:5355"
+  - doi: "10.1038/s41586-018-0170-0"
+    note: "Hauke et al. (2020) Perspectives of quantum annealing. Rep Prog Phys 83:054401"

@@ -1,0 +1,42 @@
+id: b-population-genetics-x-random-matrix
+title: >
+  Population genetics x Random matrix theory — allele covariance as Wishart ensemble
+status: proposed
+fields:
+  - biology
+  - mathematics
+  - statistics
+bridge_claim: >
+  The covariance matrix of allele frequencies across a neutrally evolving population
+  follows the Marchenko-Pastur distribution of the Wishart random matrix ensemble;
+  deviations from this null distribution identify loci under selection, providing a
+  principled statistical test for selective sweeps.
+translation_table:
+  - field_a_term: Allele frequency covariance matrix (neutral evolution)
+    field_b_term: Wishart random matrix ensemble
+    note: >
+      Under drift alone, the sample covariance matrix of allele frequencies is a
+      Wishart matrix; its eigenvalue spectrum follows the Marchenko-Pastur law.
+  - field_a_term: Eigenvalue outliers (selected loci)
+    field_b_term: Spiked covariance matrix deviations from MP bulk
+    note: >
+      Loci under selection create eigenvalue outliers above the Marchenko-Pastur
+      upper edge — exactly the signal RMT spike detection methods identify.
+communication_gap: >
+  Population geneticists and random matrix theorists publish in entirely separate
+  journals. The RMT null model for population structure was proposed by Patterson,
+  Price & Reich (2006) but RMT tools are rarely imported into population genetics
+  software packages.
+cross_pollination_opportunities:
+  - >
+    Apply RMT spike detection to GWAS summary statistics to identify polygenic
+    selection signals below standard significance thresholds.
+  - >
+    Use RMT free probability theory to disentangle population structure from
+    selection signals in admixed populations.
+related_unknowns:
+  - u-rmt-selective-sweep-detection-power
+references:
+  - doi: "10.1371/journal.pgen.0020190"
+    note: "Patterson, Price & Reich (2006) — population structure and eigenanalysis; foundational RMT connection"
+last_reviewed: "2026-05-07"

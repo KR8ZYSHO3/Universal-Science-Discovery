@@ -1,0 +1,35 @@
+id: b-spin-glass-replica-optimization
+title: "The replica method from spin-glass theory exactly characterizes the typical-case complexity of random constraint satisfaction problems, revealing phase transitions from easy to hard to unsatisfiable regimes that govern practical algorithm performance"
+fields:
+  - physics
+  - computer-science
+
+bridge_claim: "The free energy of an Ising spin glass with random couplings, computed via the replica trick and replica-symmetry breaking (RSB) ansatz, maps exactly onto the satisfiability threshold of random k-SAT at clause-to-variable ratio alpha_c, predicting the hard-easy phase transition that explains why search algorithms fail exponentially near alpha_c."
+translation_table:
+  - field_a_term: "spin glass free energy F = -kT ln Z"
+    field_b_term: "log-partition function of random k-SAT formula"
+    note: "Both are quenched averages over random disorder; the replica trick averages ln Z = lim_{n->0} (Z^n - 1)/n"
+  - field_a_term: "replica-symmetry breaking (RSB)"
+    field_b_term: "exponentially many metastable solution clusters in k-SAT"
+    note: "RSB signals that solutions cluster into exponentially many well-separated groups; search algorithms get trapped between clusters"
+  - field_a_term: "Parisi order parameter q(x)"
+    field_b_term: "overlap distribution P(q) between random solutions"
+    note: "P(q) = delta(q) (RS phase, easy) or broad distribution (RSB phase, hard)"
+  - field_a_term: "SAT/UNSAT phase transition alpha_c"
+    field_b_term: "thermodynamic phase transition in spin glass free energy"
+    note: "alpha_c for 3-SAT ~ 4.267; exactly predicted by cavity method (belief propagation at zero temperature)"
+status: established
+communication_gap: "Complexity theorists study worst-case hardness while statistical physicists analyze typical-case phase transitions; the replica/cavity method bridges typical-case analysis (physics) to algorithm design (CS), but the mathematical formalism is non-rigorous and rarely taught in CS programs."
+cross_pollination_opportunities:
+  - "Belief propagation algorithms derived from the cavity method solve random k-SAT near the phase transition far better than DPLL variants, enabling practical SAT solvers informed by physics"
+  - "Survey propagation, a message-passing algorithm from RSB theory, can guide backtracking search away from clustered solution spaces, improving large-instance combinatorial optimization"
+references:
+  - doi: "10.1126/science.1073287"
+    note: "Mezard et al. (2002) Science - replica and cavity method predict 3-SAT threshold"
+  - doi: "10.1073/pnas.90.22.10844"
+    note: "Kirkpatrick & Selman (1994) Science - phase transition in random 3-SAT"
+  - doi: "10.1007/978-3-540-24605-3_37"
+    note: "Mezard & Montanari (2009) - Information, Physics, Computation: RSB and belief propagation"
+related_unknowns:
+  - u-replica-symmetry-breaking-algorithmic-hardness
+last_reviewed: "2026-05-07"

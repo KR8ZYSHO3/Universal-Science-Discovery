@@ -1,0 +1,49 @@
+id: b-dendrite-growth-diffusion-limited-aggregation
+title: >
+  Dendritic crystal growth is governed by the same diffusion-limited aggregation
+  mathematics that generates fractal clusters in statistical physics, with the
+  Mullins-Sekerka instability controlling tip-splitting and branch morphology.
+status: established
+fields:
+  - materials-science
+  - statistical-physics
+bridge_claim: >
+  Solidification dendrites grow by the same rule as DLA (diffusion-limited aggregation):
+  the local growth rate is proportional to the gradient of a Laplacian field (heat or solute
+  diffusion), so the interface is unstable to perturbations (Mullins-Sekerka instability)
+  and develops fractal, branching arms with dimension D ≈ 1.7 in 2-D — identical to DLA
+  clusters grown by random walkers. The phase-field model unifies both phenomena in a
+  single variational framework.
+translation_table:
+  - field_a_term: dendrite tip radius and growth velocity (materials science)
+    field_b_term: DLA cluster tip dynamics (statistical physics)
+    note: Both obey the same Laplacian growth law; tip radius scales with diffusion length
+  - field_a_term: Mullins-Sekerka morphological instability (materials science)
+    field_b_term: tip-splitting in DLA (statistical physics)
+    note: Linear stability analysis of a planar front maps onto the DLA branching criterion
+  - field_a_term: anisotropic surface energy / crystallographic symmetry (materials science)
+    field_b_term: anisotropy-controlled fractal dimension (statistical physics)
+    note: Cubic surface energy anisotropy selects four-fold dendritic symmetry vs. isotropic DLA
+  - field_a_term: solute or thermal diffusion field (materials science)
+    field_b_term: harmonic potential / random-walk probability field (statistical physics)
+    note: Both fields satisfy ∇²u = 0 at quasi-steady state; growth velocity ∝ ∇u·n̂
+related_unknowns:
+  - u-dendrite-selection-operating-point
+related_hypotheses:
+  - h-phase-field-universality-solidification-DLA
+cross_pollination_opportunities:
+  - Importing DLA renormalization-group results to predict dendrite tip selection without free parameters
+  - Using materials-science anisotropy models to understand why DLA clusters develop preferred growth directions
+communication_gap: >
+  Materials scientists studying solidification and statistical physicists studying DLA
+  use identical mathematics but publish in separate journals (Acta Materialia vs.
+  Physical Review Letters); the phase-field community bridges them, but many solidification
+  engineers remain unaware of the fractal-geometry literature.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1103/PhysRevLett.52.1433"
+    note: Witten & Sander (1981) — original DLA model showing Laplacian growth mechanism
+  - doi: "10.1007/BF00900659"
+    note: Mullins & Sekerka (1964) — morphological instability of a solidifying interface
+  - doi: "10.1103/RevModPhys.74.991"
+    note: Karma & Rappel (2002) — phase-field model unifying dendrite growth and DLA

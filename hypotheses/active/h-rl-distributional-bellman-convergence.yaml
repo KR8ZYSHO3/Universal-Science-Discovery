@@ -1,0 +1,44 @@
+id: h-rl-distributional-bellman-convergence
+title: >
+  Distributional RL (C51/QR-DQN) converges in the deadly triad regime where standard
+  Q-learning diverges because distributional Bellman operators preserve a stronger
+  contraction in Wasserstein space
+status: active
+priority: high
+impact_score: 0.77
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: wave-63-agent
+unknowns_addressed:
+  - u-reinforcement-learning-x-bellman-equation
+related_disciplines:
+  - computer_science
+  - mathematics
+  - control_theory
+  - optimization
+evidence_links:
+  - type: supporting
+    doi: "10.1007/BF00992696"
+    note: "Watkins & Dayan (1992) - Q-learning convergence proof in tabular case; deadly triad breaks this in function approximation"
+    confidence: 0.85
+  - type: related
+    note: "Bellemare et al. (2017) - A distributional perspective on RL; ICML 2017 — C51 distributional Q-learning"
+    confidence: 0.82
+  - type: supporting
+    note: "Rowland et al. (2018) - Analysis of distributional RL; ICML 2018 — Wasserstein contraction for distributional Bellman"
+    confidence: 0.80
+proposed_tests:
+  - description: >
+      Construct a minimal deadly triad counterexample (2-state MDP with linear
+      function approximation and off-policy sampling that causes Q-learning to
+      diverge); test whether C51 and QR-DQN converge on this counterexample and
+      whether Wasserstein Bellman contraction can be verified analytically.
+    method: "Baird's counterexample MDP; run Q-learning, C51, QR-DQN for 100,000 steps; measure Q-value and distribution divergence; analytical contraction verification"
+    prediction: "Q-learning diverges on Baird's counterexample; C51 and QR-DQN converge to bounded values; Wasserstein Bellman operator has contraction constant < 1 analytically"
+  - description: >
+      Prove (or provide strong numerical evidence for) the Wasserstein contraction
+      constant of the distributional Bellman operator under linear function approximation;
+      compare to the spectral radius of the standard Bellman operator to quantify
+      improvement.
+    method: "Power iteration on distributional Bellman operator for random MDPs; measure contraction ratio vs. standard Bellman; compare spectral radii"
+    prediction: "Distributional Bellman Wasserstein contraction constant is <= gamma*rho where rho < 1 depends on distribution support; standard Bellman has rho = 1 (no contraction)"

@@ -1,0 +1,40 @@
+id: h-variational-inference-free-energy-rg
+title: >
+  Renormalization group flow equations guide optimal variational family design for
+  hierarchical posteriors by identifying relevant degrees of freedom at each scale
+status: active
+priority: high
+impact_score: 0.82
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: wave-62-agent
+unknowns_addressed:
+  - u-variational-inference-x-free-energy
+related_disciplines:
+  - computer_science
+  - physics
+  - machine_learning
+  - statistical_mechanics
+evidence_links:
+  - type: supporting
+    doi: "10.1162/neco.1995.7.5.1022"
+    note: "Hinton & Zemel (1994) - Helmholtz machines connect variational inference to thermodynamic free energy"
+    confidence: 0.78
+  - type: supporting
+    note: "Rezende & Viola (2018) - Taming VAEs; renormalization-inspired hierarchical posteriors outperform mean-field on multimodal targets"
+    confidence: 0.71
+proposed_tests:
+  - description: >
+      Apply Wilsonian renormalization group to a hierarchical VAE by computing how
+      information propagates from fine-grained to coarse-grained latent variables;
+      compare approximation error to a control non-hierarchical VAE on datasets with
+      known multi-scale structure (natural images, protein sequences).
+    method: "Compare ELBO, test log-likelihood, and posterior coverage (effective sample size) between RG-inspired hierarchical VAE and mean-field baseline"
+    prediction: "RG-inspired hierarchical posterior reduces free energy gap by >20% on multi-scale datasets with identified relevant operators"
+  - description: >
+      Identify the phase transition in posterior approximation quality as a function
+      of variational family expressiveness on a 2D Ising model posterior (known ground
+      truth), measuring approximation error vs. temperature across the ferromagnetic
+      transition.
+    method: "Exact posterior computation for small Ising models vs. variational approximation; measure KL divergence as function of T near T_c"
+    prediction: "Mean-field variational inference fails (KL divergence diverges) at T_c; hierarchical variational families maintain bounded KL error"

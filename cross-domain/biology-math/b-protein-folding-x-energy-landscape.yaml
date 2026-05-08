@@ -1,0 +1,45 @@
+id: b-protein-folding-x-energy-landscape
+title: >
+  Protein folding x Energy landscape theory - funnel topology as folding code
+status: proposed
+fields:
+  - biology
+  - physics
+  - chemistry
+  - statistical_mechanics
+bridge_claim: >
+  The protein folding problem is solved when the free energy landscape has a funnel topology
+  directing all unfolded conformations toward the native state; frustration (conflicting
+  interactions between residues) flattens the funnel and causes misfolding, kinetic traps,
+  and aggregation — connecting protein structure prediction to spin-glass energy landscape
+  theory and explaining why evolution has selected sequences with minimal frustration (the
+  principle of minimal frustration, Bryngelson and Wolynes 1987).
+translation_table:
+  - field_a_term: protein native state (structural biology)
+    field_b_term: global free energy minimum / ground state of energy landscape (statistical mechanics)
+    note: The native fold is the ground state; Anfinsen's thermodynamic hypothesis states all information is in the sequence (landscape)
+  - field_a_term: protein misfolding and aggregation (biochemistry)
+    field_b_term: kinetic trapping in local free energy minima / frustrated landscape (spin glass theory)
+    note: Frustration from competing interactions creates local minima that trap misfolded states — the spin glass analogy is exact
+  - field_a_term: Levinthal's paradox — folding faster than random search (biophysics)
+    field_b_term: funnel landscape topology biasing search toward native state (statistical mechanics)
+    note: "The funnel resolves Levinthal's paradox: the landscape is not random but biased toward the native state by evolution"
+  - field_a_term: phi-value analysis of folding transition state (biophysics)
+    field_b_term: saddle point / transition state geometry on energy landscape (physics)
+    note: Phi-values measure the fraction of native contacts at the transition state, mapping out the landscape saddle topology
+communication_gap: >
+  Biochemists studying protein folding kinetics and physicists studying spin glasses and
+  energy landscapes developed independent frameworks; the energy landscape theory of protein
+  folding (Wolynes, Onuchic, Dill — 1990s) synthesized these, but the connection to AlphaFold2
+  (which implicitly uses funnel topology through attention mechanisms) has not been fully
+  formalized, representing an outstanding bridge between theory and modern ML-based
+  structure prediction.
+cross_pollination_opportunities:
+  - Apply spin-glass replica theory to compute the density of kinetic traps in misfolded protein landscapes, predicting aggregation propensity from sequence alone
+  - Use energy landscape formalism to design proteins with multiple stable folds (metamorphic proteins) by engineering competing minima for use as molecular switches
+related_unknowns:
+  - u-protein-folding-x-energy-landscape
+references:
+  - doi: "10.1038/nsb0198-10"
+    note: "Dill & Chan (1997) - From Levinthal to pathways to funnels; Nature Struct Biol 4:10 — funnel topology review"
+last_reviewed: "2026-05-07"

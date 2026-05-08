@@ -1,0 +1,26 @@
+id: h-rmt-selective-sweep-detection-power
+title: >
+  The RMT eigenvalue spike test for selective sweeps achieves at least 2x higher
+  power (at fixed 5% FPR) than Fst-based tests in admixed populations with at least
+  20% admixture, as measured on coalescent-simulated genomes with known sweep locations.
+status: active
+created: "2026-05-07"
+last_updated: "2026-05-07"
+priority: medium
+unknowns_addressed:
+  - u-rmt-selective-sweep-detection-power
+related_disciplines:
+  - biology
+  - mathematics
+  - statistics
+evidence_links:
+  - type: supporting
+    doi: "10.1371/journal.pgen.0020190"
+    note: "Patterson, Price & Reich (2006) — RMT connection to population structure"
+proposed_tests:
+  - discipline: biology
+    description: >
+      Simulate 1000 coalescent genomes (msprime) with 20% admixture and 50 selective
+      sweep loci at known positions. Apply RMT eigenvalue spike test and Fst test.
+      Compute ROC curves. If RMT power at 5% FPR is less than 2x Fst power,
+      hypothesis is falsified.

@@ -66,6 +66,24 @@ properties:
     items:
       type: string
     minItems: 1
+  seeded_bridges:
+    type: array
+    items:
+      type: string
+    description: "IDs of cross-domain bridges in this repository that directly trace to this pioneer's work"
+  modern_open_problems:
+    type: array
+    items:
+      type: object
+      required: [title, rationale]
+      properties:
+        title:
+          type: string
+        unknown_id:
+          type: string
+        rationale:
+          type: string
+    description: "Open problems in the repo that match this pioneer's intellectual style and tools"
   last_reviewed:
     type: string
     format: date

@@ -1,0 +1,24 @@
+id: h-quantum-walk-x-classical-random-walk
+title: Continuous-time quantum walk on the complete bipartite graph K_{N,N} achieves hitting time O(N^(1/2)) vs. O(N) classically, and this exponential speedup persists under dephasing noise up to decoherence rate γ_c ≈ 1/(2N·t_walk), predicting a noise threshold that is reachable with current superconducting qubit coherence times for N ≤ 100
+status: active
+priority: high
+impact_score: 0.81
+created: '2026-05-07'
+last_updated: '2026-05-07'
+author: wave-67-agent
+unknowns_addressed:
+  - u-quantum-walk-x-classical-random-walk
+related_disciplines:
+  - physics
+  - computer_science
+  - mathematics
+evidence_links:
+  - type: supporting
+    doi: "10.1103/PhysRevA.48.1687"
+    note: "Aharonov et al. — Quantum walks and search algorithms; quadratic speedup foundation"
+    confidence: 0.81
+  - type: related
+    note: "Childs et al. (2003) — Exponential algorithmic speedup by quantum walk; STOC 2003:59"
+    confidence: 0.78
+proposed_tests:
+  - description: Simulate continuous-time quantum walk on K_{N,N} for N = 4, 8, 16, 32, 64 on a density matrix simulator (QuTiP) with dephasing noise at rates γ = 0, 1/N, 2/N, 4/N (1/time units); measure mean hitting time T(γ, N); fit T(γ=0) ∝ N^α and compare to classical T ∝ N prediction; determine critical γ_c(N) where T(γ_c) = 2·T(γ=0); test whether γ_c scales as 1/(N·t_walk) as predicted; compare to 127-qubit IBM Eagle coherence times (T₂ ≈ 100-200 μs) to assess N ≤ 100 feasibility.

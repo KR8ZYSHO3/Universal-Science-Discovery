@@ -1,0 +1,60 @@
+id: b-photoreceptor-adaptation-weber-fechner-logarithmic
+title: >
+  Photoreceptor light adaptation — the ability of rod and cone cells to maintain
+  sensitivity across 10 orders of magnitude of light intensity — is explained by
+  the Weber-Fechner law and logarithmic compression: the response is proportional
+  to log(I/I₀), which maximizes information capacity given the biochemical noise
+  floor and the statistics of natural scenes.
+status: established
+fields:
+  - neuroscience
+  - physics
+  - sensory-biology
+bridge_claim: >
+  Weber's law states ΔI/I = k (the just-noticeable difference is a constant
+  fraction of background). Fechner's integration gives perceived magnitude
+  S = k·log(I/I₀). Biophysically, photoreceptor adaptation is implemented by
+  Ca²⁺-dependent feedback on guanylyl cyclase and PDE: the Hill function response
+  R/R_max = I^n/(I^n + I_half^n) with I_half shifting with background (gain
+  control) gives near-logarithmic compression across decades of intensity.
+  Efficient coding theory (Laughlin 1981) derives the optimal receptor transfer
+  function as the cumulative distribution of natural image contrasts: since natural
+  scenes have 1/f² power spectra and log-normally distributed intensities, the
+  optimal gain function is logarithmic. The Shannon mutual information I(S;R)
+  between stimulus S and response R is maximized when the response histogram is
+  uniform — achieved by log compression when the input is log-normally distributed.
+translation_table:
+  - field_a_term: light adaptation / gain control (neuroscience)
+    field_b_term: logarithmic input-output compression (physics/information theory)
+    note: Ca2+-mediated feedback shifts I_half to maintain sensitivity; equivalent to log compression
+  - field_a_term: Weber's law ΔI/I = const (neuroscience)
+    field_b_term: multiplicative noise model σ ∝ μ (physics)
+    note: Weber's law implies photon shot noise at high intensities dominates psychophysical threshold
+  - field_a_term: photoreceptor dynamic range (neuroscience)
+    field_b_term: information capacity under constraint (information theory)
+    note: Log compression maximizes bits transmitted per unit of metabolic cost given neural noise
+  - field_a_term: dark-adapted vs light-adapted sensitivity (neuroscience)
+    field_b_term: operating point on logarithmic transfer curve (physics)
+    note: Dark adaptation resets I_half to lowest background; light adaptation shifts operating point up
+related_unknowns:
+  - u-photoreceptor-adaptation-speed-limits-calcium-diffusion
+related_hypotheses:
+  - h-efficient-coding-theory-explains-entire-retinal-circuit-design
+cross_pollination_opportunities:
+  - Applying compressive sensing theory to understand how the retina encodes natural scenes efficiently using logarithmic compression as a first-stage nonlinearity
+  - Using Weber-Fechner principles to design camera sensors and HDR imaging pipelines that mimic biological photoreceptor adaptation
+communication_gap: >
+  Visual neuroscientists studying photoreceptor biophysics and information theorists
+  studying efficient neural coding share the logarithmic compression framework, but
+  the full quantitative connection from biophysical Ca²⁺ feedback to mutual
+  information maximization is rarely presented in either neuroscience or physics
+  curricula; the efficient coding derivation (Laughlin 1981) is a key bridge paper
+  that remains underutilized in photoreceptor biology.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1007/BF00336124"
+    note: Laughlin (1981) - a simple coding procedure enhances a neuron's information capacity
+  - doi: "10.1523/JNEUROSCI.0013-07.2007"
+    note: Sampath & Rieke (2004) - occlusion of rhodopsin recovery and the regulation of light adaptation
+  - doi: "10.1146/annurev.neuro.28.061604.135730"
+    note: Fain et al. (2001) - adaptation in vertebrate photoreceptors (review)

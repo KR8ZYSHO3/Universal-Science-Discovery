@@ -1,0 +1,36 @@
+id: h-meg-sparse-inverse-solution-epilepsy
+title: "Compressed sensing sparse inverse solutions for MEG source localization will outperform minimum-norm estimates for focal epileptic spike sources, achieving spatial localization accuracy within 5 mm of intracranial EEG ground truth in >80% of patients when the sparsity prior is calibrated to the number of simultaneously active sources estimated from ICA decomposition"
+status: active
+priority: high
+impact_score: 0.75
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - doi: "10.1016/j.neuroimage.2003.10.036"
+    type: supporting
+    confidence: 0.70
+    note: "Hämäläinen & Ilmoniemi (1994) - minimum norm inverse for MEG; baseline comparison"
+  - doi: "10.1093/biostatistics/kxm045"
+    type: related
+    confidence: 0.65
+    note: "Friedman et al. (2008) - graphical lasso; sparse precision estimation"
+  - type: supporting
+    note: "Gramfort et al. (2012) - mixed norm estimate for MEG/EEG source localization"
+
+unknowns_addressed:
+  - u-meg-inverse-source-localization
+
+proposed_tests:
+  - description: >
+      Retrospective comparison of MEG spike source localization accuracy (vs iEEG ground truth) using:
+      (1) minimum norm, (2) LCMV beamformer, (3) sparse Bayesian learning with sparsity calibrated by ICA,
+      (4) MxNE mixed norm. Compare 5mm localization accuracy across 20 epilepsy patients with intracranial validation.
+    method: "MEG + simultaneous iEEG in epilepsy monitoring unit; spatiotemporal source modeling comparison"
+    prediction: "Sparse methods with ICA-calibrated sparsity should achieve <5 mm error in >80% of spikes vs ~70% for minimum norm"
+
+related_disciplines:
+  - neuroscience
+  - mathematics
+  - clinical-medicine

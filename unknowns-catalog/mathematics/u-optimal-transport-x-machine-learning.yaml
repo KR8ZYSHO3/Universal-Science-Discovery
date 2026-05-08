@@ -1,0 +1,21 @@
+id: u-optimal-transport-x-machine-learning
+title: Does the Wasserstein metric's geometric sensitivity to support structure make it a better metric for generative model
+  evaluation than Fréchet Inception Distance (FID), and can it be computed scalably for high-dimensional distributions?
+status: open
+priority: medium
+disciplines:
+- mathematics
+- computer_science
+- statistics
+summary: 'FID is the de facto standard for evaluating generative models but is insensitive to mode collapse and high-frequency
+  artefacts. Wasserstein distance is theoretically superior (metrises weak convergence, detects support mismatch) but computing
+  it for high-dimensional distributions (d > 1000) requires O(n² log n / ε²) via Sinkhorn, which is prohibitive for large
+  image datasets. Key unknowns: (1) whether sliced Wasserstein (random 1D projections) preserves distributional discrimination
+  power of full W₂ in high dimensions, (2) optimal choice of regularisation ε for Sinkhorn approximation in practice.'
+systematic_gaps:
+- No large-scale empirical comparison of Wasserstein vs. FID for detecting specific generative model failure modes
+- Sliced Wasserstein approximation quality relative to true W₂ in dimensions > 100 is uncharacterised
+- Optimal Sinkhorn regularisation ε as a function of dataset size and dimension has no closed-form rule
+related_bridges:
+- b-optimal-transport-x-machine-learning
+last_reviewed: '2026-05-07'

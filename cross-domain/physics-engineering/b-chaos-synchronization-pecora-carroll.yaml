@@ -1,0 +1,37 @@
+id: b-chaos-synchronization-pecora-carroll
+title: >
+  Chaotic oscillators can be synchronized by unidirectional coupling (Pecora-Carroll synchronization) when the conditional Lyapunov exponents of the driven system are all negative, enabling secure communications, coordinated sensor networks, and biological rhythm entrainment
+status: established
+fields:
+  - physics
+  - engineering
+bridge_claim: >
+  Pecora & Carroll (1990) demonstrated that a chaotic drive system (x-subsystem) can force a response system (y-subsystem with identical equations) into identical synchrony x(t) = y(t) when all conditional Lyapunov exponents (CLEs) of the y-subsystem, with x(t) as the driving signal, are negative (λ_max^CLE < 0); this phase-space contraction condition is equivalent to the response system being globally asymptotically stable under chaotic driving, bridging nonlinear dynamics theory in physics with engineering applications in secure communications (message masking), robotics (coordinated oscillators), and neuroscience (neural synchrony).
+translation_table:
+  - field_a_term: "conditional Lyapunov exponents λ_CLE of driven subsystem (physics)"
+    field_b_term: "stability eigenvalues of the response system's linearization along the chaotic attractor (physics)"
+    note: "λ_max^CLE < 0 ensures exponential convergence of response trajectory to drive trajectory; synchronization manifold is stable"
+  - field_a_term: "Pecora-Carroll identical synchronization x(t)=y(t) (physics)"
+    field_b_term: "zero-error tracking of drive signal by response system (engineering)"
+    note: "Synchronization is exact for identical systems; generalized synchronization y = Φ(x) holds for non-identical systems"
+  - field_a_term: "message masking in chaotic carrier (physics)"
+    field_b_term: "chaos-based spread-spectrum modulation for covert communications (engineering)"
+    note: "Signal s(t) is added to chaotic carrier x(t); receiver synchronizes to x(t) and subtracts it, recovering s(t) — requires λ_max^CLE < 0"
+  - field_a_term: "basin of synchronization in coupling parameter space (physics)"
+    field_b_term: "engineering design constraint: minimum coupling strength for synchronization (engineering)"
+    note: "Coupling strength κ must exceed threshold κ_c where λ_max^CLE first becomes negative; engineering design requires κ >> κ_c for robustness"
+communication_gap: >
+  Nonlinear physicists study chaos synchronization theoretically while electrical engineers design communications and control systems; the Pecora-Carroll framework is well-known in the nonlinear dynamics community but its practical application in secure communications has been limited by the finding that chaos-based encryption is not cryptographically secure against waveform analysis.
+cross_pollination_opportunities:
+  - "Using Pecora-Carroll synchronization conditions to analyze the stability of coupled neural oscillator networks in the brain, predicting which coupling topologies enable phase-locked rhythm generation"
+  - "Designing synchronized chaotic laser networks for optical computing and true random number generation based on conditional Lyapunov exponent engineering"
+references:
+  - doi: "10.1103/PhysRevLett.64.821"
+    note: "Pecora & Carroll (1990) - synchronization in chaotic systems"
+  - doi: "10.1038/35023206"
+    note: "Pecora et al. (2014) - cluster synchronization and isolated desynchronization in complex networks"
+related_unknowns:
+  - u-chaos-synchronization-noise-robustness-threshold
+related_hypotheses:
+  - h-pecora-carroll-synchronization-noise-tolerance-lyapunov
+last_reviewed: "2026-05-07"

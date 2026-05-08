@@ -1,0 +1,45 @@
+id: b-pagerank-x-markov-chain
+title: >
+  PageRank x Markov chain stationary distribution - web ranking as random walk
+status: proposed
+fields:
+  - computer_science
+  - mathematics
+  - linear_algebra
+  - probability
+bridge_claim: >
+  Google's PageRank algorithm computes the stationary distribution of a random walk on
+  the web graph with teleportation probability alpha; this is exactly the left eigenvector
+  of the Google matrix G = alpha * H + (1-alpha) * e * v^T (Markov transition matrix),
+  making web search a problem in Markov chain theory and the Perron-Frobenius theorem —
+  the fundamental theorem guaranteeing a unique stationary distribution for irreducible,
+  aperiodic Markov chains.
+translation_table:
+  - field_a_term: PageRank score pi(v) of web page v (computer science)
+    field_b_term: stationary probability of state v in ergodic Markov chain (mathematics)
+    note: PageRank is the stationary distribution; high-rank pages are those the random surfer spends most time on at stationarity
+  - field_a_term: hyperlink from page i to page j (web graph)
+    field_b_term: transition probability p(i -> j) in Markov chain (probability theory)
+    note: Each hyperlink defines a transition probability; pages with many outlinks have uniform transition probabilities (equal weight)
+  - field_a_term: teleportation probability (1-alpha) to random page (PageRank)
+    field_b_term: mixing term ensuring irreducibility and aperiodicity (Markov chain theory)
+    note: Teleportation makes the chain irreducible (all states reachable) and aperiodic, guaranteeing unique stationary distribution
+  - field_a_term: power iteration for PageRank convergence (numerical linear algebra)
+    field_b_term: Markov chain Monte Carlo (MCMC) convergence to stationary distribution (statistics)
+    note: PageRank power iteration is MCMC for the Google matrix stationary distribution; convergence rate = second eigenvalue
+communication_gap: >
+  Web engineers developing search ranking (Brin and Page 1998) and probabilists studying
+  Markov chains and random walks developed independent frameworks; the connection was
+  implicit in the original PageRank paper but the Markov chain interpretation with
+  Perron-Frobenius theory was formalized by Langville and Meyer (2006) — enabling mixing
+  time analysis, sensitivity analysis, and distributed algorithms from Markov chain theory
+  to improve practical search ranking.
+cross_pollination_opportunities:
+  - Apply Markov chain mixing time theory (spectral gap, conductance) to analyze the convergence rate and sensitivity of PageRank to link manipulation, improving spam detection
+  - Use PageRank stationary distribution interpretation to design novel centrality measures for biological and social networks, applying random walk theory to protein interaction and citation networks
+related_unknowns:
+  - u-pagerank-x-markov-chain
+references:
+  - doi: "10.1016/S0169-7552(98)00110-X"
+    note: "Brin & Page (1998) - The anatomy of a large-scale hypertextual web search engine; Computer Networks 30:107"
+last_reviewed: "2026-05-07"

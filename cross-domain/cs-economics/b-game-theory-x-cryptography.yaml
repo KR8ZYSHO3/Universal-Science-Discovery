@@ -1,0 +1,46 @@
+id: b-game-theory-x-cryptography
+title: >
+  Game theory x Cryptography - Nash equilibrium as protocol security
+status: proposed
+fields:
+  - economics
+  - computer_science
+  - mathematics
+  - cryptography
+bridge_claim: >
+  Cryptographic protocol security (no computationally bounded adversary can profitably
+  deviate) is a Nash equilibrium condition in a game where parties are rational agents
+  maximizing expected utility; rational cryptography formalizes cryptographic security
+  as computational game theory — zero-knowledge proofs are incentive-compatible
+  mechanisms, blockchain security is a Nash equilibrium of the mining game, and
+  mechanism design determines which cryptographic protocols are self-enforcing without
+  external trusted parties.
+translation_table:
+  - field_a_term: cryptographic security under computational assumptions (cryptography)
+    field_b_term: Nash equilibrium in game with computationally bounded strategies (game theory)
+    note: Security = no polynomial-time adversary can improve utility by deviating; this is Nash equilibrium where strategies are PPT algorithms
+  - field_a_term: zero-knowledge proof (ZKP) soundness and zero-knowledge properties (cryptography)
+    field_b_term: incentive-compatible mechanism where prover cannot gain by lying (mechanism design)
+    note: ZKP soundness = no profitable deviation for dishonest prover; zero-knowledge = honest verifier gains no information beyond validity
+  - field_a_term: blockchain mining Nash equilibrium (selfish mining) (cryptography/distributed systems)
+    field_b_term: game-theoretic equilibrium of mining pool strategy game (game theory)
+    note: Eyal & Sirer (2014) showed selfish mining is a Nash equilibrium that destabilizes blockchain security — game theory predicts the attack
+  - field_a_term: protocol composition in multi-party computation (cryptography)
+    field_b_term: iterated game / mechanism composition in game theory (game theory)
+    note: Universal composability (Canetti 2001) is the cryptographic analog of Nash equilibrium in iterated games — protocols that are secure when run concurrently
+communication_gap: >
+  Cryptographers developing protocol security proofs (Goldwasser, Micali 1982) and
+  game theorists developing mechanism design (Hurwicz, Maskin, Myerson — Nobel 2007)
+  worked independently; the rational cryptography program (Halpern & Teague 2004,
+  Katz 2008) formalized the connection, enabling blockchain incentive mechanism design
+  — but the full synthesis (when game-theoretic equilibrium coincides with cryptographic
+  security, and when it does not) remains an active research area.
+cross_pollination_opportunities:
+  - Apply mechanism design theory to design blockchain consensus protocols that are Nash equilibria for rational miners, preventing selfish mining without requiring honest majority assumptions
+  - Use cooperative game theory (Shapley value) to fairly distribute rewards in multi-party computation protocols, incentivizing honest participation without trusted coordinators
+related_unknowns:
+  - u-game-theory-x-cryptography
+references:
+  - doi: "10.1007/3-540-44647-8_1"
+    note: "Goldreich (2001) - Foundations of Cryptography Vol. 1; security definitions as game-theoretic formulations"
+last_reviewed: "2026-05-07"

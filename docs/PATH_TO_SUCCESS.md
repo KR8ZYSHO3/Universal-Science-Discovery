@@ -1,33 +1,41 @@
 # Path to Success — USDR Strategic Roadmap
 
-**Last updated:** 2026-05-06 (post Wave 10)
+**Last updated:** 2026-05-07 (post Waves 57-67 + OA-1 — full audit)
 
 ---
 
 ## Where We Are (May 2026)
 
-The Universal Science Discovery Repository has completed its content-build sprint. The infrastructure is real and working:
+The Universal Science Discovery Repository has completed a major content-build sprint (Waves 1–67). The infrastructure is mature and the automation pipeline is live:
 
-**Catalog (Wave 10 complete):**
-- 180 cross-domain mathematical bridges with translation tables and DOI references
-- 619 open unknowns across 41 scientific domains
-- 173 testable hypotheses linked to unknowns
-- 13 pioneer profiles seeding further bridges
-- 11 breakthrough gaps tracking the most important unsolved cross-domain problems
-- 4 pre-formal observations in the phenomenology catalog
-- 1,000-node knowledge graph (910 edges)
+**Catalog (Waves 57-67 complete — verified 2026-05-07):**
+- **868** cross-domain mathematical bridges with translation tables and DOI references
+- **1,151** open unknowns across 55+ scientific domains (0 orphans)
+- **1,019** testable hypotheses linked to unknowns (crossed 1,000-hypothesis milestone)
+- **18** pioneer profiles seeding further bridges
+- **12** breakthrough gaps tracking the most important unsolved cross-domain problems
+- **4** pre-formal observations in the phenomenology catalog
+- **3,072-node** knowledge graph (3,259 edges) — crossed 3,000-node milestone
 
 **Infrastructure:**
-- Schema validation CI on every PR (0 failures at Wave 10)
+- Schema validation CI on every PR (0 errors, 0 warnings — verified 2026-05-07)
 - Static JSON API at `api/v1/` (unknowns, bridges, hypotheses, domains, graph)
 - Interactive D3 graph dashboard with Lunr.js full-text search
-- 41 domain landing pages auto-generated from catalog
+- 55+ domain landing pages auto-generated from catalog
 - Bridge explainer HTML pages for featured bridges
 - Pioneer profiles section and breakthrough gaps tracker
 - arXiv preprint ready (`docs/preprint/usdr_preprint.md`)
 - Dual licensing: CC BY 4.0 (content) + MIT (code)
+- **OpenAlex weekly harvest cron job** — automation continuous growth pipeline live
+- **PubMed + Semantic Scholar harvesters** — built and operational
+- **9 draft bridge stubs** in `drafts/bridges/` from OpenAlex harvest, awaiting promotion
 
-**What we do NOT yet have:**
+**Strategic shift — bridge count is no longer the bottleneck:**
+The automation pipeline (OpenAlex cron + harvesters) ensures continuous bridge growth. The new bottlenecks are:
+1. **Discoverability** — arXiv preprint, Reddit/LinkedIn post, domain expert outreach
+2. **Contributor on-ramp** — good-first-issues, QUICK_START_CONTRIBUTING.md, submission portal
+
+**What we still do NOT have:**
 - Any external contributors
 - An arXiv DOI / academic citation
 - A custom domain
@@ -46,6 +54,17 @@ Success looks like:
 - Contributed to by domain experts across fields
 - Referenced by arXiv Labs and similar science infrastructure
 - Stable enough to outlast any single contributor
+
+---
+
+## Current Priority Stack (Updated 2026-05-07)
+
+Bridge count is no longer the bottleneck — the automation pipeline handles continuous growth. The new priority stack:
+
+1. **Discoverability** — arXiv preprint, Reddit/LinkedIn, researcher outreach
+2. **Contributor on-ramp** — good-first-issues, QUICK_START_CONTRIBUTING.md, submission portal
+3. **Bridge promotion** — 9 stubs in `drafts/bridges/` ready to become full bridges
+4. **Dashboard reliability** — D3 interactive graph must load on GitHub Pages consistently
 
 ---
 
@@ -243,16 +262,18 @@ python scripts/audit_quality.py      # review any WARN items
 
 ## Metrics to Track
 
-| Metric | Current (May 2026) | 3-month target | 12-month target |
+| Metric | Current (2026-05-07) | 3-month target | 12-month target |
 |--------|--------------------|----------------|-----------------|
-| Cross-domain bridges | 180 | 250 | 500 |
+| Cross-domain bridges | **868** | 1,000 | 2,000 |
 | External contributors | 0 | 3 | 20 |
 | GitHub stars | ~0 public | 100 | 500 |
 | arXiv citations | 0 | 1 (self) | 10 |
 | Monthly dashboard visitors | unknown | 500 | 5,000 |
 | Breakthrough gaps with active research linked | 0 | 2 | 5 |
-| Domains with ≥5 bridges | ~8 | 15 | 25 |
-| Orphan unknowns (no connections) | 300 | 150 | 50 |
+| Domains with ≥5 bridges | ~20 | 30 | 50 |
+| Orphan unknowns (no connections) | **0** | 0 | 0 |
+| Hypotheses | **1,019** | 1,200 | 2,500 |
+| Unknowns | **1,151** | 1,400 | 3,000 |
 
 ---
 

@@ -1,0 +1,63 @@
+id: b-reaction-networks-x-petri-nets
+title: >
+  Reaction Networks x Petri Nets — chemical stoichiometry as token flow
+status: proposed
+fields:
+  - chemistry
+  - computer_science
+  - mathematics
+bridge_claim: >
+  Chemical reaction networks (CRNs) are exactly Petri nets: species are places,
+  reactions are transitions, stoichiometric coefficients are arc weights, and
+  concentration dynamics are token flows; Petri net reachability theory decides
+  CRN persistence (no species goes extinct) and provides a complete computational
+  model of chemistry.
+translation_table:
+  - field_a_term: Chemical species (S_i)
+    field_b_term: Place in Petri net
+    note: >
+      Each molecular species maps to a Petri net place; the number of molecules
+      (or concentration) corresponds to the token count at that place.
+  - field_a_term: Chemical reaction (stoichiometric equation)
+    field_b_term: Transition in Petri net
+    note: >
+      Each reaction consumes tokens from reactant places (stoichiometric coefficients
+      = input arc weights) and deposits tokens at product places (output arc weights);
+      the reaction fires when all reactant places have sufficient tokens.
+  - field_a_term: Mass-action kinetics (rate = k·∏[S_i]^νi)
+    field_b_term: Stochastic Petri net firing rates
+    note: >
+      Stochastic Petri nets assign firing rates to transitions; mass-action kinetics
+      give the exact firing rate as a function of token counts, connecting chemical
+      kinetics to Petri net dynamics.
+  - field_a_term: CRN persistence (no species extinction)
+    field_b_term: Petri net liveness (all transitions can fire)
+    note: >
+      A CRN is persistent if no species concentration reaches zero from positive
+      initial conditions; this is equivalent to Petri net liveness (no dead
+      transition), decidable by linear programming over the place invariants.
+communication_gap: >
+  Chemists developed stoichiometric network analysis (Clarke 1980s) independently
+  of computer scientists developing Petri net theory (Petri 1962); the isomorphism
+  between CRNs and Petri nets was recognized by chemists (Schuster, Heinrich) in the
+  1990s but not adopted by the CS Petri net community, creating two separate bodies
+  of literature on identical mathematical objects.
+cross_pollination_opportunities:
+  - >
+    Apply Petri net model checking (reachability analysis, deadlock detection) to
+    validate biological regulatory network models — verifying that no species can
+    go extinct from any physiological initial condition.
+  - >
+    Use CRN universality (Soloveichik et al. 2010: CRNs can compute any computable
+    function) to design DNA strand displacement circuits that implement arbitrary
+    algorithms in wet chemistry.
+  - >
+    Import Petri net invariant theory (T-invariants as reaction cycles, P-invariants
+    as conservation laws) into metabolic network analysis for systematic identification
+    of conserved moieties.
+related_unknowns:
+  - u-reaction-networks-x-petri-nets
+references:
+  - doi: "10.1007/978-3-642-14684-8_1"
+    note: "Angeli (2011) — Petri nets, chemical reaction networks; Lecture Notes in Mathematics"
+last_reviewed: "2026-05-07"

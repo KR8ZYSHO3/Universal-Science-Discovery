@@ -1,0 +1,57 @@
+id: b-seismograph-matched-filter-cross-correlation
+title: >
+  Seismic signal detection uses matched filtering and cross-correlation from signal
+  processing theory: a template waveform from a known event is cross-correlated with
+  continuous seismic recordings to detect repeating earthquakes at signal-to-noise
+  ratios far below the detection threshold of traditional STA/LTA methods.
+status: established
+fields:
+  - seismology
+  - signal-processing
+  - geophysics
+bridge_claim: >
+  The matched filter is the optimal linear filter for detecting a known signal s(t)
+  in white Gaussian noise: h(t) = s(T-t) (time-reversed template). The output
+  cross-correlation C(τ) = ∫s(t)·x(t+τ)dt achieves the maximum SNR = 2E/N₀ at
+  detection time (E = signal energy, N₀ = noise power spectral density). In
+  seismology, the cross-correlation coefficient CC = C(τ)/(σ_s·σ_x) identifies
+  template-matching events; the threshold CC > 0.8 typically identifies genuine
+  repeating earthquakes with magnitudes 1-2 units below catalog completeness
+  threshold. Waveform cross-correlation also provides differential travel-time
+  measurements δt with precision ~dt/CC × (1/SNR), enabling tomographic inversions
+  with sub-sample timing accuracy — directly applying the Cramér-Rao bound from
+  estimation theory to seismic phase picking.
+translation_table:
+  - field_a_term: template event waveform (seismology)
+    field_b_term: matched filter template s(t) (signal processing)
+    note: Known reference earthquake waveform acts as the optimal detection filter
+  - field_a_term: seismic catalog detection threshold (seismology)
+    field_b_term: minimum detectable signal level / SNR threshold (signal processing)
+    note: Matched filtering lowers the detection threshold by ~1.5-2 magnitude units
+  - field_a_term: cross-correlation coefficient CC (seismology)
+    field_b_term: normalized cross-correlation output (signal processing)
+    note: CC ∈ [-1,1] measures waveform similarity; high CC identifies repeating earthquakes
+  - field_a_term: differential travel time δt (seismology)
+    field_b_term: time delay estimation (signal processing)
+    note: Sub-sample timing from cross-correlation peak enables high-precision hypocenter relocation
+related_unknowns:
+  - u-seismic-matched-filter-completeness-limits-induced-seismicity
+related_hypotheses:
+  - h-deep-learning-seismic-detection-vs-matched-filter-completeness
+cross_pollination_opportunities:
+  - Applying compressed sensing and sparse recovery algorithms from signal processing to detect microseismic events in induced seismicity monitoring
+  - Using ambient seismic noise cross-correlation for subsurface velocity tomography, directly applying interferometry theory from signal processing
+communication_gap: >
+  Seismologists and signal processing engineers share cross-correlation mathematics
+  but developed parallel terminologies and communities; modern earthquake seismology
+  increasingly recruits signal processing expertise, but template-matching seismology
+  as a formal matched-filter application was only systematically developed from the
+  2000s onward, leaving gaps in applying modern signal detection theory to seismic monitoring.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1785/0120080010"
+    note: Gibbons & Ringdal (2006) - detection of low-magnitude seismic events using matched filters
+  - doi: "10.1126/science.1228330"
+    note: Shelly et al. (2007) - non-volcanic tremor and low-frequency earthquakes detected by template matching
+  - doi: "10.1785/0220120049"
+    note: Chamberlain et al. (2014) - EQcorrscan open-source matched filter seismology

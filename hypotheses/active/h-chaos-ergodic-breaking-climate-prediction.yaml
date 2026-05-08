@@ -1,0 +1,45 @@
+id: h-chaos-ergodic-breaking-climate-prediction
+title: >
+  Climate models exhibit ergodicity breaking on multi-decadal timescales due to
+  slow manifold dynamics, limiting the validity of time-averaged climate statistics
+  as ensemble averages
+status: active
+priority: high
+impact_score: 0.80
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: wave-63-agent
+unknowns_addressed:
+  - u-chaos-x-ergodic-theory
+related_disciplines:
+  - mathematics
+  - physics
+  - dynamical_systems
+  - climate_science
+evidence_links:
+  - type: supporting
+    doi: "10.1007/BF01646553"
+    note: "Ruelle & Takens (1971) - Strange attractors; climate system as high-dimensional chaotic attractor"
+    confidence: 0.78
+  - type: related
+    note: "Lucarini & Chekroun (2023) - Theoretical tools for understanding the climate crisis; Nat Rev Physics — ergodicity in climate models"
+    confidence: 0.76
+  - type: supporting
+    note: "Ghil & Lucarini (2020) - The physics of climate variability and climate change; Rev Mod Phys 92:035002"
+    confidence: 0.79
+proposed_tests:
+  - description: >
+      Analyze a 10,000-year control run of CESM2 (Community Earth System Model);
+      measure the convergence of time-averaged climate statistics (global mean
+      temperature, ENSO frequency) as a function of averaging window length T;
+      test whether convergence follows ergodic prediction (variance ~ 1/T) or
+      shows deviations indicating ergodicity breaking.
+    method: "CESM2 control run analysis; block-bootstrap confidence intervals; ergodic convergence test comparing 1/T slope vs. measured variance decay"
+    prediction: "AMOC-related climate statistics show ergodicity breaking with variance decaying slower than 1/T for T < 500 years; GMST converges ergodically faster"
+  - description: >
+      Compare ensemble spread (across initial conditions) vs. long-time average
+      spread (single simulation) for multi-decadal climate projections; test whether
+      they are equal (ergodic) or diverge (ergodicity breaking) as a function of
+      forcing scenario.
+    method: "CMIP6 large ensemble (MPI-ESM1-2-LR 100-member ensemble) vs. single 1000-year run; Wasserstein distance between ensemble and temporal distributions"
+    prediction: "Ensemble and temporal distributions converge within Wasserstein distance epsilon < 0.1 for 20-year means; diverge for 100-year means due to slow manifold"

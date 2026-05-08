@@ -1,0 +1,53 @@
+id: b-invasive-species-reaction-diffusion
+title: "Invasive species range expansion follows the Fisher-KPP reaction-diffusion equation: the asymptotic front speed c*=2√(rD) depends only on intrinsic growth rate r and diffusivity D"
+status: established
+fields:
+  - ecology
+  - mathematics
+  - applied-mathematics
+bridge_claim: >
+  The density u(x,t) of an invading species satisfies the Fisher-KPP PDE:
+  ∂u/∂t = D·∂²u/∂x² + ru(1-u/K)
+  where D is spatial diffusivity (km²/yr), r is intrinsic growth rate (yr⁻¹),
+  and K is carrying capacity. For localized initial conditions, the solution
+  develops into a traveling wave that propagates at the minimum wave speed
+  c* = 2√(rD), regardless of the initial condition (pulled wave solution).
+  This was proved by Kolmogorov, Petrovsky & Piskunov (1937) and independently
+  applied to population biology by Fisher (1937). The front speed depends only
+  on the linearization near zero density — the "pulled" wave property. For
+  fat-tailed dispersal kernels (Lévy-like), c* accelerates with time (accelerating
+  invasion), connecting reaction-diffusion theory to dispersal kernel ecology.
+translation_table:
+  - field_a_term: "range expansion front of an invading species"
+    field_b_term: "traveling wave solution of the Fisher-KPP PDE"
+    note: "Wave speed c=2√(rD) predicted from parameters measurable at low density"
+  - field_a_term: "intrinsic growth rate r (demographic)"
+    field_b_term: "reaction term slope f'(0) at zero density in the KPP condition"
+    note: "KPP condition: f(u)/u ≤ f'(0) for all u>0 ensures c*=2√(Df'(0))"
+  - field_a_term: "dispersal diffusivity D (random walk variance/2t)"
+    field_b_term: "diffusion coefficient in Fick's second law"
+    note: "D estimated from mark-recapture displacement data: D = MSD/4t in 2D"
+  - field_a_term: "Allee effect (per-capita growth negative below threshold)"
+    field_b_term: "bistable reaction term — violates KPP condition, produces pushed waves"
+    note: "Pushed waves with Allee effect have c > c* and are selected by initial condition"
+related_unknowns:
+  - u-invasive-species-reaction-diffusion
+related_hypotheses:
+  - h-invasive-species-reaction-diffusion
+cross_pollination_opportunities:
+  - "Optimal control of invasion fronts: reaction-diffusion models enable optimal placement of barriers and control resources to minimize front speed, using calculus of variations and Hamilton-Jacobi theory from applied mathematics."
+  - "Climate-driven range shifts: adding an advection term ∂u/∂t = D∂²u/∂x² + v·∂u/∂x + f(u) (where v is climate velocity) gives the speed of poleward range shifts, directly connecting Fisher-KPP theory to climate change impact models."
+communication_gap: >
+  Ecologists who model invasive species range expansion use empirical curve-fitting
+  (logistic, exponential growth to area) without typically applying the Fisher-KPP
+  framework. The mathematical connection between dispersal kernels (from mark-recapture
+  data) and diffusion coefficients requires a formal diffusion approximation step that
+  is standard in physics but not in ecology curricula.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1111/j.1469-1809.1937.tb02153.x"
+    note: "Fisher (1937) The wave of advance of advantageous genes. Ann Eugen 7:355"
+  - doi: "10.1007/978-3-642-46466-3"
+    note: "Kolmogorov, Petrovsky & Piskunov (1937) Study of the diffusion equation with growth of the quantity of matter and its application to a biology problem"
+  - doi: "10.1016/j.tree.2009.06.013"
+    note: "Hastings et al. (2005) The spatial spread of invasions — new developments in theory and evidence. Ecol Lett 8:91"

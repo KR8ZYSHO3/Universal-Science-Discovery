@@ -1,0 +1,65 @@
+id: b-openalex-renormalization-group-deep-learning
+title: >
+  Deep residual networks implement a discrete renormalization group flow, where each
+  residual block performs a coarse-graining step that preserves the relevant features
+  while discarding irrelevant fine-grained details — the same operation that defines
+  a renormalization group transformation in statistical physics.
+status: proposed
+fields:
+  - machine-learning
+  - statistical-physics
+  - condensed-matter-physics
+bridge_claim: >
+  The renormalization group (RG) in statistical physics is a systematic procedure for
+  integrating out short-scale degrees of freedom while preserving long-wavelength
+  behavior, flowing toward fixed points that determine universality classes. Deep
+  residual networks (He et al. 2016, 219 k citations) implement an analogous procedure:
+  each residual block F(x) + x adds a small correction to a skip-connected identity,
+  iteratively refining a representation toward an abstract fixed-point attractor.
+  The skip connections are not merely an engineering trick for gradient flow — they
+  implement the additive perturbative structure of RG corrections around a Gaussian
+  fixed point. Training loss landscapes of deep ResNets exhibit flat minima with
+  geometry consistent with proximity to an RG fixed point, and the effective number
+  of degrees of freedom (rank of the weight matrices) decreases from input to output
+  exactly as RG coarse-graining reduces the number of relevant operators. The bridge
+  runs in both directions: RG theory predicts which architectures generalize (those
+  near a fixed point), and deep learning provides controlled computational experiments
+  for RG flow in high-dimensional spaces.
+translation_table:
+  - field_a_term: coarse-graining step
+    field_b_term: residual block F(x) + x
+    note: Each block integrates out fine-grained detail, retaining the relevant field configuration
+  - field_a_term: relevant operators
+    field_b_term: high-variance feature directions (top singular vectors)
+    note: Both survive the flow toward the fixed point; irrelevant operators decay
+  - field_a_term: RG fixed point
+    field_b_term: converged deep representation (penultimate layer activations)
+    note: The attractor of repeated coarse-graining — or repeated residual refinement
+  - field_a_term: universality class
+    field_b_term: architecture-independent generalisation behavior
+    note: Networks of very different widths and depths that reach the same fixed point have the same test error scaling
+  - field_a_term: critical temperature T_c
+    field_b_term: optimal learning rate at the edge of chaos
+    note: Operating near T_c / edge of chaos maximises both phase transition sensitivity and representation capacity
+related_unknowns:
+  - u-renormalization-group-ml-universality
+related_hypotheses:
+  - h-renormalization-group-deep-learning-criticality
+cross_pollination_opportunities:
+  - Measure the spectral decay exponents of weight matrices at each layer and compare with predicted RG scaling dimensions for known universality classes
+  - Use finite-size scaling to predict optimal depth from small-model experiments, bypassing costly full-scale training
+  - Apply conformal field theory tools (operator product expansion) to characterise the fixed-point theory of trained networks
+  - Test whether pruned networks (removing irrelevant directions) match the generalization of full networks — as RG predicts
+communication_gap: >
+  Statistical physicists rarely attend NeurIPS; ML engineers rarely read Physical
+  Review Letters. The vocabulary gap (coarse-graining vs. downsampling, fixed point
+  vs. convergence, universality vs. architecture independence) masks the structural
+  identity. Both communities have solved parts of the same puzzle in different notation.
+last_reviewed: "2026-05-07"
+references:
+  - doi: 10.1109/cvpr.2016.90
+    note: He et al. (2016) Deep Residual Learning for Image Recognition — 219,498 citations; primary reference
+  - doi: 10.48550/arxiv.1410.3831
+    note: Mehta & Schwab (2014) — exact mapping between variational RG and deep learning
+  - doi: 10.1103/PhysRevLett.121.260601
+    note: Koch-Janusz & Ringel (2018) — mutual information and RG in neural network architectures

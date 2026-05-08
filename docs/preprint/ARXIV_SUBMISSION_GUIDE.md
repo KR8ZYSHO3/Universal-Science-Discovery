@@ -43,7 +43,7 @@ pandoc docs/preprint/usdr_preprint.md \
 5. Upload PDF
 6. Fill in metadata:
    - Title: "Universal Science Discovery Repository: An Open Infrastructure for Cross-Domain Mathematical Bridge Mapping"
-   - Authors: [your name]
+   - Authors: Brandon Shoemaker
    - Abstract: [copy from preprint]
 7. Submit — paper goes live within 1-2 business days
 

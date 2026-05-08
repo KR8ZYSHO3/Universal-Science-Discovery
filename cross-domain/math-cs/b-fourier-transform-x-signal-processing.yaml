@@ -1,0 +1,41 @@
+id: b-fourier-transform-x-signal-processing
+title: >
+  Fourier transform x Signal processing — frequency domain as dual representation
+status: proposed
+fields:
+  - mathematics
+  - computer-science
+  - signal-processing
+bridge_claim: >
+  The discrete Fourier transform (DFT) and its fast algorithm (FFT) provide an exact dual
+  representation of any finite signal in the frequency domain; the convolution theorem
+  (multiplication in frequency = convolution in time) reduces O(n^2) correlation to O(n log n)
+  FFT — the mathematical backbone of all digital signal processing, communications, and
+  numerical PDE solvers.
+translation_table:
+  - field_a_term: DFT frequency bin X[k] (signal processing)
+    field_b_term: Fourier coefficient in orthonormal basis expansion (mathematics)
+    note: The DFT decomposes a signal into complex exponential basis functions; this is an exact isometry (Parseval's theorem)
+  - field_a_term: convolution in time domain (signal processing)
+    field_b_term: pointwise multiplication in frequency domain (mathematics)
+    note: The convolution theorem is the mathematical fact that the Fourier transform diagonalizes convolution operators
+  - field_a_term: FFT butterfly algorithm (computer science)
+    field_b_term: divide-and-conquer factorization of DFT matrix (mathematics)
+    note: The FFT exploits the factorization of the DFT matrix into sparse factors using roots of unity, reducing O(n^2) to O(n log n)
+  - field_a_term: Nyquist sampling theorem (signal processing)
+    field_b_term: Paley-Wiener theorem / bandlimited functions (mathematics)
+    note: Shannon's sampling theorem is a consequence of the Paley-Wiener theorem; band-limiting in frequency implies exact reconstruction from samples at 2B Hz
+communication_gap: >
+  Pure mathematicians studying Fourier analysis and electrical engineers developing signal
+  processing algorithms developed the same theory independently; Cooley and Tukey's 1965
+  FFT paper was not recognized as rediscovering Gauss's 1805 algorithm until the history
+  was researched afterward, illustrating how disciplinary separation delays algorithm diffusion.
+cross_pollination_opportunities:
+  - Apply noncommutative Fourier analysis on groups to design signal processing algorithms for non-Euclidean domains (graphs, spheres, manifolds) in geometric deep learning
+  - Use number-theoretic transforms (NTT, FFT over finite fields) to accelerate polynomial multiplication in post-quantum cryptography implementations
+related_unknowns:
+  - u-fourier-transform-x-signal-processing
+references:
+  - doi: "10.1090/S0025-5718-1965-0178586-1"
+    note: "Cooley & Tukey (1965) - An algorithm for the machine calculation of complex Fourier series; Math Comp 19:297"
+last_reviewed: "2026-05-07"

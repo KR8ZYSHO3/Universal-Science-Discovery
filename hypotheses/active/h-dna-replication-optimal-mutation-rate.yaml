@@ -1,0 +1,43 @@
+id: h-dna-replication-optimal-mutation-rate
+title: >
+  DNA replication error rates are near the information-theoretically optimal mutation
+  rate for the organism's effective population size and fitness landscape ruggedness
+status: active
+priority: high
+impact_score: 0.79
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: wave-63-agent
+unknowns_addressed:
+  - u-dna-replication-x-error-correction
+related_disciplines:
+  - biology
+  - computer_science
+  - information_theory
+  - molecular_biology
+evidence_links:
+  - type: supporting
+    doi: "10.1146/annurev.biochem.74.082803.133250"
+    note: "Kunkel & Erie (2005) - DNA mismatch repair achieves ~10^-9 error rate; three-stage pipeline"
+    confidence: 0.82
+  - type: related
+    note: "Drake (1991) - A constant rate of spontaneous mutation in DNA-based microbes; PNAS 88:7160 — universal mutation rate per genome per generation"
+    confidence: 0.79
+  - type: supporting
+    note: "Wilke (2001) - Quasispecies theory and the error catastrophe; threshold mutation rate for information preservation"
+    confidence: 0.74
+proposed_tests:
+  - description: >
+      Derive the optimal mutation rate mu* as a function of effective population size
+      Ne and fitness landscape correlation length xi (quasispecies model); test whether
+      observed mutation rates across 100+ organisms follow the predicted mu* ~ 1/(Ne * xi)
+      scaling relationship from information theory.
+    method: "Mutation rate data from Sung et al. (2016) mutation accumulation experiments; Ne from population genetics estimates; fitness landscape xi from DMS data"
+    prediction: "Observed mutation rate vs Ne follows mu* = C/(Ne * xi) with C = 1/ln(Ne) within 2-fold across all domains of life"
+  - description: >
+      Test whether stress-induced mutagenesis (SOS response in bacteria, increased
+      error rate under starvation) implements an optimal strategy of increasing
+      mutation rate under low fitness (environmental stress), as predicted by
+      Bayesian-optimal information acquisition.
+    method: "Fluctuation tests measuring mutation rate in E. coli under nutrient stress vs. optimal growth; compare to predicted optimal mu*(stress) from quasispecies theory"
+    prediction: "SOS-induced mutation rate increase is within 3-fold of the theoretically optimal rate for exploring the fitness landscape under stress conditions"

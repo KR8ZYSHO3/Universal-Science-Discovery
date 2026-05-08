@@ -1,0 +1,62 @@
+id: b-social-network-centrality-x-eigenvector
+title: >
+  Social Network Centrality x Eigenvector Methods — PageRank as Katz centrality
+status: proposed
+fields:
+  - computer_science
+  - mathematics
+  - network-science
+bridge_claim: >
+  Social network centrality measures (PageRank, Katz centrality, eigenvector centrality,
+  HITS) are all variants of the dominant eigenvector of the adjacency or transition matrix;
+  the attenuation factor in Katz centrality controls which length paths dominate, and all
+  measures converge in the limit of large networks to the Perron-Frobenius eigenvector.
+translation_table:
+  - field_a_term: PageRank vector (Google's link algorithm)
+    field_b_term: Dominant left eigenvector of Google matrix G = αA/k + (1-α)ee^T/n
+    note: >
+      The Google matrix G is a stochastic matrix; PageRank is the stationary
+      distribution of the random walk on G — exactly the dominant eigenvector by
+      the Perron-Frobenius theorem, with dangling node correction.
+  - field_a_term: Katz centrality x = (I - αA)^(-1)·1
+    field_b_term: Resolvent of the adjacency matrix
+    note: >
+      Katz centrality sums contributions from all paths weighted by α^(path length);
+      the geometric series (I - αA)^(-1) = Σ (αA)^k is the resolvent, converging
+      when α < 1/λ_max (spectral radius condition).
+  - field_a_term: HITS (hubs and authorities)
+    field_b_term: Dominant singular vectors of adjacency matrix
+    note: >
+      HITS computes hub scores (AᵀA eigenvector) and authority scores (AAᵀ eigenvector)
+      — the dominant right and left singular vectors of the adjacency matrix A,
+      equivalent to a rank-1 SVD approximation.
+  - field_a_term: Eigenvector centrality (Bonacich 1972)
+    field_b_term: Dominant eigenvector of symmetric adjacency matrix
+    note: >
+      For undirected networks, eigenvector centrality x = λ_max^(-1)Ax is the
+      dominant eigenvector; Perron-Frobenius theorem guarantees positive entries
+      (all centralities are positive) for connected graphs.
+communication_gap: >
+  Sociologists developed centrality measures (Bonacich 1972) independently of computer
+  scientists developing PageRank (Brin & Page 1998); the spectral unification of all
+  centrality measures was recognized by physicists studying network theory (Newman 2003)
+  but is still not universally taught in social network analysis courses.
+cross_pollination_opportunities:
+  - >
+    Apply spectral centrality theory to design robust influence maximization algorithms
+    for epidemics on networks — targeting the Katz centrality eigenvector rather than
+    degree centrality for optimal vaccination strategies.
+  - >
+    Use non-backtracking centrality (Hashimoto matrix eigenvector) to identify
+    influential nodes in networks with tree-like local structure where standard
+    eigenvector centrality is ill-conditioned.
+  - >
+    Import Chebyshev polynomial approximations of the adjacency matrix resolvent
+    to compute approximate Katz centrality in large-scale networks without explicit
+    matrix inversion.
+related_unknowns:
+  - u-social-network-centrality-x-eigenvector
+references:
+  - doi: "10.1080/0022250X.1972.9989806"
+    note: "Bonacich (1972) — Factoring and weighting approaches to status scores and clique identification; J Math Sociol 2:113"
+last_reviewed: "2026-05-07"

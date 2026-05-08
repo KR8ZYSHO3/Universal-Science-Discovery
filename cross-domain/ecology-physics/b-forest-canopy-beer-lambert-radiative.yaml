@@ -1,0 +1,37 @@
+id: b-forest-canopy-beer-lambert-radiative
+title: >
+  Light extinction through a forest canopy follows a modified Beer-Lambert law: PAR irradiance decreases exponentially with cumulative leaf area index I(L) = I_0 exp(-k·L), where the extinction coefficient k depends on leaf angle distribution and solar zenith angle, connecting plant canopy ecology to radiative transfer theory
+status: established
+fields:
+  - ecology
+  - optics
+bridge_claim: >
+  Photosynthetically active radiation (PAR) through a plant canopy is attenuated according to I(z) = I_0 exp(-k · LAI(z)), directly analogous to Beer-Lambert attenuation of light in an absorbing medium with extinction coefficient k (= G(θ)/cos(θ) where G is the projection function of leaf angles and θ is solar zenith angle); this maps forest canopy radiation ecology onto spectroscopic attenuation law in optics, enabling leaf area index retrieval from satellite remote sensing and photosynthesis modeling from radiative transfer theory.
+translation_table:
+  - field_a_term: "leaf area index LAI = ∫leaf area dz per unit ground area (ecology)"
+    field_b_term: "optical depth τ = k·L of an absorbing layer (optics)"
+    note: "LAI plays the role of optical depth; each unit of LAI attenuates PAR by factor exp(-k) where k ≈ 0.5 for spherical leaf distribution"
+  - field_a_term: "canopy light extinction coefficient k (ecology)"
+    field_b_term: "absorption cross-section per unit leaf area in the Beer-Lambert law (optics)"
+    note: "k = G(θ_sun)/cos(θ_sun) where G is the mean projection of leaf area onto a horizontal plane"
+  - field_a_term: "canopy gap fraction P(θ) (ecology)"
+    field_b_term: "transmittance of the canopy layer for a given solar angle (optics)"
+    note: "P(θ) = exp(-G(θ)·LAI/cos(θ)) is the probability of a photon at solar zenith angle θ penetrating the canopy without interception"
+  - field_a_term: "leaf clumping index Ω (ecology)"
+    field_b_term: "departure from random spatial distribution in Beer-Lambert effective LAI (optics)"
+    note: "Clumped leaves (Ω < 1) transmit more light than random distribution; effective LAI = Ω·LAI in modified Beer-Lambert"
+communication_gap: >
+  Forest ecologists measure LAI and light interception through hemispherical photography and PAR sensors while radiative transfer physicists model photon transport in turbid media; the clumping correction to Beer-Lambert for non-random leaf distributions and the anisotropic scattering of photons by leaves are not routinely incorporated in ecological light models.
+cross_pollination_opportunities:
+  - "Using LiDAR point cloud data to estimate leaf clumping index Ω and compute clumping-corrected Beer-Lambert LAI, improving remote sensing retrieval of forest canopy structure"
+  - "Applying Monte Carlo radiative transfer simulations (used in atmospheric optics) to 3D reconstructed forest canopy geometry to model sunfleck dynamics and photosynthesis heterogeneity"
+references:
+  - doi: "10.1016/0168-1923(87)90061-4"
+    note: "Norman & Jarvis (1975) - photosynthesis in Sitka spruce — canopy structure and light interception"
+  - doi: "10.1016/j.agrformet.2008.12.003"
+    note: "Chen et al. (1997) - leaf area index of boreal forests: theory, techniques, and measurements"
+related_unknowns:
+  - u-forest-canopy-clumping-beer-lambert-deviation
+related_hypotheses:
+  - h-clumping-index-primary-productivity-underestimate
+last_reviewed: "2026-05-07"

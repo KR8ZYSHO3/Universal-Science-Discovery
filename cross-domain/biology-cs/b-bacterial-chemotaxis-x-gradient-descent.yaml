@@ -1,0 +1,45 @@
+id: b-bacterial-chemotaxis-x-gradient-descent
+title: >
+  Bacterial chemotaxis x Gradient descent - run-and-tumble as stochastic optimization
+status: proposed
+fields:
+  - biology
+  - computer_science
+  - optimization
+  - biophysics
+bridge_claim: >
+  E. coli chemotaxis (biased random walk toward chemical attractants via run-and-tumble
+  motion) implements stochastic gradient ascent on the chemoattractant concentration
+  field; the methylation-based memory system is an adaptive temporal integrator that
+  computes the temporal gradient of concentration (dc/dt), effectively implementing
+  momentum-based gradient ascent — making bacterial chemotaxis a biological analogue of
+  Adam optimizer or heavy-ball gradient descent at the molecular scale.
+translation_table:
+  - field_a_term: tumbling probability modulation by CheY phosphorylation (microbiology)
+    field_b_term: step size / learning rate modulation in stochastic gradient ascent (optimization)
+    note: High [attractant gradient] decreases tumbling frequency, increasing run length — equivalent to increasing step size in favorable direction
+  - field_a_term: methylation state of chemoreceptors (memory system) (biochemistry)
+    field_b_term: momentum term / exponential moving average of gradients (Adam optimizer)
+    note: Receptor methylation integrates recent concentration history, implementing a low-pass filter equivalent to momentum in gradient descent
+  - field_a_term: run-and-tumble random walk (bacterial motility)
+    field_b_term: stochastic gradient descent with random noise (optimization)
+    note: Tumbling introduces randomness analogous to SGD noise; the bias in run duration creates net drift up the gradient
+  - field_a_term: adaptation to background concentration (receptor adaptation) (biochemistry)
+    field_b_term: adaptive learning rate / gradient normalization (optimization)
+    note: Perfect adaptation normalizes the signal to the background, equivalent to gradient normalization (RMSprop) in adaptive optimizers
+communication_gap: >
+  Microbiologists studying chemotaxis signaling (Adler 1966, Berg & Brown 1972) and
+  optimization researchers developing gradient descent (Robbins & Monro 1951) built
+  separate frameworks for directed search; the algorithmic interpretation of chemotaxis
+  as gradient ascent was formalized by Mello & Tu (2003) and connects to modern machine
+  learning through the exact parallel between methylation adaptation and momentum-based
+  optimizers — a connection rarely exploited in algorithm design.
+cross_pollination_opportunities:
+  - Implement biologically-inspired chemotaxis optimization algorithms where artificial agents use run-and-tumble dynamics with receptor adaptation for gradient-free, noise-robust optimization
+  - Apply information-theoretic analysis of chemotaxis (optimal computation of temporal gradients under noise) to design better learning rate schedules in stochastic optimization
+related_unknowns:
+  - u-bacterial-chemotaxis-x-gradient-descent
+references:
+  - doi: "10.1038/nrm1503"
+    note: "Wadhams & Armitage (2004) - Making sense of it all: bacterial chemotaxis; Nature Rev Mol Cell Biol 5:1024"
+last_reviewed: "2026-05-07"

@@ -1,0 +1,63 @@
+id: b-gut-microbiome-x-lotka-volterra
+title: >
+  Microbial Ecology x Lotka-Volterra — gut microbiome as generalized competitive system
+status: proposed
+fields:
+  - biology
+  - mathematics
+  - ecology
+bridge_claim: >
+  The gut microbiome's species abundance dynamics are quantitatively modeled by
+  generalized Lotka-Volterra equations with interaction matrices inferred from
+  time-series data; stable coexistence corresponds to a feasible equilibrium with
+  all positive species abundances, and dysbiosis is a bifurcation to a new attractor
+  with reduced diversity.
+translation_table:
+  - field_a_term: Microbial species abundance x_i
+    field_b_term: Population variable in gLV system
+    note: >
+      Each species abundance obeys dx_i/dt = x_i(r_i + Σ_j A_ij x_j), where r_i
+      is intrinsic growth rate and A_ij are interaction coefficients (competition,
+      mutualism, predation) inferred from longitudinal 16S rRNA data.
+  - field_a_term: Microbiome interaction matrix A_ij
+    field_b_term: Community matrix in ecological stability theory
+    note: >
+      The eigenspectrum of A determines community stability; random matrix theory
+      (May 1972) predicts a stability-complexity trade-off: highly connected
+      microbiomes are less stable, consistent with observed dysbiosis susceptibility.
+  - field_a_term: Dysbiosis (loss of healthy microbiome)
+    field_b_term: Bifurcation to alternative attractor
+    note: >
+      The healthy microbiome and dysbiotic state are distinct stable equilibria of
+      the gLV system; transitions between them (e.g., antibiotic perturbation) are
+      saddle-node bifurcations with hysteresis — explaining why dysbiosis is
+      difficult to reverse.
+  - field_a_term: Fecal microbiota transplant (FMT) efficacy
+    field_b_term: Basin of attraction size for healthy equilibrium
+    note: >
+      FMT works by pushing the system from the dysbiotic basin of attraction into
+      the healthy basin; ecological theory predicts which perturbation magnitudes
+      and compositions are sufficient.
+communication_gap: >
+  Microbiology developed culture-based and 16S sequencing approaches for characterizing
+  the microbiome without quantitative dynamical models; theoretical ecology had gLV
+  frameworks for decades but lacked microbiome time-series data; the integration
+  accelerated with the Human Microbiome Project (2012) providing the necessary datasets.
+cross_pollination_opportunities:
+  - >
+    Apply ecological resilience theory (early warning signals: critical slowing down,
+    variance increase) to longitudinal microbiome data to predict impending dysbiosis
+    before clinical symptoms appear.
+  - >
+    Use optimal control theory on the gLV system to design probiotic/prebiotic
+    intervention protocols that steer the microbiome toward target healthy attractors
+    with minimal perturbation.
+  - >
+    Import invasion analysis from community ecology to predict which probiotic strains
+    can successfully colonize a dysbiotic microbiome based on the resident community matrix.
+related_unknowns:
+  - u-gut-microbiome-x-lotka-volterra
+references:
+  - doi: "10.1371/journal.pcbi.1003388"
+    note: "Stein et al. (2013) — Ecological modeling from time-series inference; PLOS Comput Biol 9:e1003388"
+last_reviewed: "2026-05-07"

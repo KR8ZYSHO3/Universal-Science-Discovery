@@ -1,0 +1,56 @@
+id: b-black-scholes-heat-equation
+title: "The Black-Scholes option pricing PDE is the heat equation in disguise: the change of variables C(S,t) → u(x,τ) via x=ln(S/K) transforms it into ∂u/∂τ = σ²/2 · ∂²u/∂x²"
+status: established
+fields:
+  - finance
+  - mathematics
+  - physics
+bridge_claim: >
+  The Black-Scholes PDE for a European call option price C(S,t):
+  ∂C/∂t + (1/2)σ²S²·∂²C/∂S² + rS·∂C/∂S - rC = 0
+  becomes the standard heat (diffusion) equation after the substitution
+  x=ln(S/K), τ=T-t, C=e^(αx+βτ)u(x,τ) with appropriate α,β:
+  ∂u/∂τ = (σ²/2)·∂²u/∂x²
+  The terminal condition C(S,T)=max(S-K,0) becomes an initial condition
+  u(x,0)=max(e^x-1,0)·K, solved by the heat kernel (Gaussian Green's function).
+  The Black-Scholes formula is the convolution of this initial condition with the
+  heat kernel — the same integral that appears in diffusion problems. This means
+  all analytical tools of PDE theory (Green's functions, Fourier transforms,
+  boundary value problems) apply directly to option pricing, and physical
+  intuition about diffusion (sigma = volatility = diffusivity) has direct
+  financial interpretation.
+translation_table:
+  - field_a_term: "stock price S(t) under risk-neutral measure"
+    field_b_term: "position of a diffusing particle x(t) = ln(S/S₀)"
+    note: "Itô's lemma gives dx = (r-σ²/2)dt + σdW — arithmetic Brownian motion in log price"
+  - field_a_term: "volatility σ (annualized standard deviation of log returns)"
+    field_b_term: "diffusion coefficient D = σ²/2 in the heat equation"
+    note: "Higher volatility = faster diffusion = wider option price distributions"
+  - field_a_term: "option time value theta = -∂C/∂t"
+    field_b_term: "temporal heat flux — rate of energy dissipation in the diffusion analogy"
+    note: "Theta is always negative for long options (time decay) = heat always flows forward"
+  - field_a_term: "option delta Δ = ∂C/∂S"
+    field_b_term: "spatial gradient of the temperature field (first spatial derivative)"
+    note: "Delta hedging = maintaining zero gradient at the replication portfolio level"
+related_unknowns:
+  - u-black-scholes-heat-equation
+related_hypotheses:
+  - h-black-scholes-heat-equation
+cross_pollination_opportunities:
+  - "Numerical PDE methods from physics (finite difference, Crank-Nicolson, ADI schemes) are directly applicable to option pricing on American options with early exercise boundaries, and physics-trained researchers have contributed important algorithms to computational finance."
+  - "Fractional diffusion equations with Lévy stable drivers generalize Black-Scholes to heavy-tailed return distributions, using the same PDE formalism but replacing the Laplacian with a fractional Laplacian (-Δ)^(α/2), directly connecting mathematical finance to anomalous diffusion physics."
+communication_gap: >
+  The mathematical equivalence between Black-Scholes and the heat equation is
+  presented in advanced mathematical finance textbooks but is rarely taught in
+  physics curricula, even though physicists invented stochastic calculus (Bachelier
+  preceded Einstein in applying Brownian motion to markets in 1900). Finance
+  practitioners who derive the Black-Scholes formula algebraically often do not
+  exploit the full PDE machinery available from mathematical physics.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1086/260062"
+    note: "Black & Scholes (1973) The pricing of options and corporate liabilities. J Polit Econ 81:637"
+  - doi: "10.2307/3003143"
+    note: "Merton (1973) Theory of rational option pricing. Bell J Econ Manag Sci 4:141"
+  - doi: "10.1080/13504860500117503"
+    note: "Wilmott, Howison & Dewynne (1995) The Mathematics of Financial Derivatives. Cambridge UP"

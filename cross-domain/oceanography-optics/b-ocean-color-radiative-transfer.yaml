@@ -1,0 +1,37 @@
+id: b-ocean-color-radiative-transfer
+title: "The apparent color of the ocean surface as measured by satellite remote sensing is determined by the radiative transfer equation governing light propagation through a scattering and absorbing medium: the same mathematical framework (the scalar or vector radiative transfer equation with Mie-theory phase functions) that optical physicists use to model light in clouds, aerosols, and turbid media applies directly to ocean optics"
+status: established
+fields:
+  - oceanography
+  - optics
+  - remote-sensing
+bridge_claim: "Ocean color remote sensing solves the inverse problem of the radiative transfer equation (RTE): the water-leaving radiance L_w(lambda) measured at the top of atmosphere is related to inherent optical properties (absorption a(lambda) and backscattering b_b(lambda)) by the Gordon et al. (1988) model R_rs ~ f/Q * b_b/(a + b_b), where R_rs is remote-sensing reflectance; phytoplankton chlorophyll concentration is retrieved by inverting this relationship using Mie-theory phase functions for scattering, identical in mathematical form to atmospheric aerosol retrievals."
+translation_table:
+  - field_a_term: "water-leaving radiance L_w(lambda) (oceanography)"
+    field_b_term: "diffuse reflectance from a scattering medium (optics)"
+    note: "L_w is the upwelling light exiting the ocean surface; it encodes the depth-integrated absorption and scattering"
+  - field_a_term: "absorption coefficient a(lambda) of seawater + CDOM + phytoplankton (oceanography)"
+    field_b_term: "absorption cross-section in Beer-Lambert-Bouguer law (optics)"
+    note: "Both use the same exponential attenuation framework; total a is the sum of water, CDOM, and particle contributions"
+  - field_a_term: "backscattering coefficient b_b(lambda) of particles (oceanography)"
+    field_b_term: "scattering phase function and asymmetry parameter g (optics)"
+    note: "Mie theory predicts b_b from particle size distribution; g determines forward vs. back scatter ratio"
+  - field_a_term: "chlorophyll-a concentration [Chl] retrieval algorithm (oceanography)"
+    field_b_term: "inversion of radiative transfer equation for composition (optics)"
+    note: "OC3/OC4 band-ratio algorithms are empirical approximations to the full RTE inverse problem"
+related_unknowns:
+  - u-ocean-color-phytoplankton-remote-sensing
+related_hypotheses:
+  - h-ocean-color-chlorophyll-inversion-accuracy
+cross_pollination_opportunities:
+  - "Applying polarized radiative transfer models from atmospheric optics to ocean color to retrieve phytoplankton functional type from satellite multi-angle polarimetry"
+  - "Using deep-learning emulators trained on RTE simulations to dramatically speed up satellite chlorophyll retrievals and uncertainty quantification"
+communication_gap: "Oceanographers develop empirical band-ratio chlorophyll algorithms calibrated to in-situ data while optical physicists work with rigorous radiative transfer theory; the gap is closing with the bio-optical modelling community but operationally validated physics-based retrievals remain computationally expensive."
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1029/JC093iC09p10909"
+    note: "Gordon et al. (1988) - a semianalytic radiance model of ocean color (R_rs bio-optical model)"
+  - doi: "10.1029/2001GB001428"
+    note: "O'Reilly et al. (1998) - ocean color chlorophyll algorithms for SeaWiFS (OC4 algorithm)"
+  - doi: "10.1364/AO.24.003591"
+    note: "Morel & Prieur (1977) - analysis of variations in ocean color (foundational inherent optical properties)"

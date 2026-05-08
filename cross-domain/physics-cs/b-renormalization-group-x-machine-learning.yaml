@@ -1,0 +1,56 @@
+id: b-renormalization-group-x-machine-learning
+title: >
+  Renormalization Group x Machine Learning — coarse-graining as representation learning
+status: proposed
+fields:
+  - physics
+  - computer-science
+  - statistical-mechanics
+bridge_claim: >
+  The renormalization group (RG) flow in statistical physics — iteratively integrating
+  out short-scale degrees of freedom — is mathematically equivalent to the hierarchical
+  feature extraction performed by deep neural networks; both perform optimal lossy
+  compression of information across scales.
+translation_table:
+  - field_a_term: RG block-spin transformation
+    field_b_term: Convolutional pooling layer
+    note: >
+      Both discard fine-grained detail while preserving long-range correlations;
+      Kadanoff block-spin coarse-graining maps directly onto average-pooling in CNNs.
+  - field_a_term: Fixed point of RG flow
+    field_b_term: Learned representation at network depth
+    note: >
+      Stable fixed points correspond to universality classes; deep network representations
+      converge toward invariant feature manifolds.
+  - field_a_term: Relevant vs irrelevant operators
+    field_b_term: High vs low-weight learned features
+    note: >
+      RG relevance (eigenvalue > 1) corresponds to features that survive compression —
+      analogous to large singular values in learned weight matrices.
+  - field_a_term: Renormalization group flow equations
+    field_b_term: Backpropagation gradient flow
+    note: >
+      Both describe how information propagates across scales; the beta function in RG
+      mirrors the chain rule in backprop.
+communication_gap: >
+  Physicists and ML researchers both discovered hierarchical coarse-graining independently;
+  the RG community rarely reads NeurIPS and vice versa, causing 40 years of parallel
+  development.
+cross_pollination_opportunities:
+  - >
+    Use RG universality classes to predict which neural network architectures generalize —
+    networks near critical fixed points may exhibit superior generalization.
+  - >
+    Apply RG beta-function analysis to diagnose vanishing/exploding gradients before
+    training begins.
+  - >
+    Design new pooling operations inspired by real-space RG transformations for spatially
+    heterogeneous data.
+related_unknowns:
+  - u-rg-ml-universality-classes
+references:
+  - doi: "10.1073/pnas.1710026115"
+    note: "Mehta & Schwab (2014) — exact mapping between variational RG and restricted Boltzmann machines"
+  - doi: "10.1103/PhysRevX.8.031003"
+    note: "Koch-Janusz & Ringel (2018) — mutual information maximization connects RG and representation learning"
+last_reviewed: "2026-05-07"

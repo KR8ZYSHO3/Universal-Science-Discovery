@@ -1,0 +1,61 @@
+id: b-predator-detection-signal-detection-theory
+title: >
+  An animal deciding whether a stimulus indicates a predator is solving a
+  binary hypothesis test: signal detection theory maps the vigilance threshold
+  exactly onto the decision boundary of a likelihood-ratio test, and ROC
+  curve analysis quantifies the evolutionary trade-off between false alarms
+  (wasted foraging time) and misses (predation risk).
+status: established
+fields:
+  - evolutionary-biology
+  - statistics
+bridge_claim: >
+  Signal detection theory (SDT) models a sensory decision as choosing between
+  two overlapping distributions: signal + noise (predator present) vs. noise
+  alone (predator absent). The decision criterion beta = P(stimulus|absent) /
+  P(stimulus|present) is set by the cost-benefit ratio (C_false_alarm / C_miss)
+  = (energy_wasted / p_death). Evolution should tune beta to minimise expected
+  fitness cost, making the optimal vigilance threshold a function of predation
+  pressure and foraging payoff - a prediction experimentally testable by
+  manipulating predator cue intensity and observing flight-initiation distance.
+  The receiver-operating characteristic (ROC) curve maps the entire trade-off
+  space: the area under the ROC curve (AUROC) measures sensory discrimination
+  ability d', which evolution should maximise subject to metabolic constraints
+  on sensory organs. This framework unifies psychophysics, ecology, and Bayesian
+  decision theory.
+translation_table:
+  - field_a_term: sensitivity d' (signal detection theory)
+    field_b_term: sensory acuity of the prey animal (evolutionary biology)
+    note: d' = (mu_signal - mu_noise) / sigma; larger d' reduces predation risk per unit vigilance
+  - field_a_term: decision criterion beta (statistics)
+    field_b_term: flight-initiation distance / vigilance threshold (evolutionary biology)
+    note: Optimal beta = C_false_alarm / C_miss proportional to foraging payoff / predation mortality
+  - field_a_term: false alarm rate (statistics)
+    field_b_term: unnecessary vigilance / interrupted foraging bouts (evolutionary biology)
+    note: Each false alarm costs foraging time; high predation pressure reduces tolerable false-alarm rate
+  - field_a_term: AUROC (statistics)
+    field_b_term: overall predator-detection ability (evolutionary biology)
+    note: AUROC = P(correct rejection) independent of criterion; measures sensory system quality
+communication_gap: >
+  Behavioural ecologists know vigilance theory but rarely formalise it as
+  a statistical detection problem; statisticians do not study foraging animals
+  as model systems for optimal decision theory. The mapping requires bridging
+  psychophysics, Bayesian decision theory, and life-history theory.
+cross_pollination_opportunities:
+  - Apply ROC analysis to experimental data on flight-initiation distances
+    across prey species with different predation pressures to test if evolution
+    tracks the optimal SDT criterion
+  - Use information-theoretic capacity limits (Shannon) to bound the maximum
+    vigilance accuracy achievable given retinal or auditory noise levels
+  - Transfer multi-class signal detection (multiple predator types) to model
+    prey behaviour under diverse predator guilds
+related_unknowns:
+  - u-predator-vigilance-roc-optimal-threshold
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1037/h0054346"
+    note: Green & Swets (1966) - Signal Detection Theory and Psychophysics
+  - doi: "10.1016/S0003-3472(80)80028-3"
+    note: Lima & Dill (1990) - behavioral decisions made under the risk of predation
+  - doi: "10.1098/rspb.2005.3165"
+    note: Fernandez-Juricic et al. (2006) - SDT applied to avian vigilance and predator detection

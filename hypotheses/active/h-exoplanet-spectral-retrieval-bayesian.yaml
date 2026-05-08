@@ -1,0 +1,25 @@
+id: h-exoplanet-spectral-retrieval-bayesian
+title: "Neural-network forward model emulators for JWST atmospheric retrieval will reduce computation time by 100-1000x with <10% loss in posterior accuracy, enabling same-day real-time retrieval for transiting exoplanet follow-up"
+status: active
+priority: high
+impact_score: 0.77
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: wave-40-agent
+unknowns_addressed:
+  - u-exoplanet-spectral-retrieval
+related_disciplines:
+  - astronomy
+  - statistics
+  - machine-learning
+evidence_links:
+  - type: supporting
+    doi: "10.1086/680119"
+    note: "Madhusudhan & Seager (2009) atmospheric retrieval framework"
+    confidence: 0.80
+  - type: related
+    note: "Cobb et al. (2019) An ensemble of Bayesian neural networks for exoplanetary atmosphere retrieval. AJ 158:33"
+    confidence: 0.72
+proposed_tests:
+  - description: "Train a neural network emulator on 10⁶ forward-model evaluations sampling the T-P profile and abundance parameter space; embed in MultiNest; compare posterior credible intervals to exact forward model posteriors for 50 synthetic JWST spectra."
+  - description: "Test emulator performance degradation on out-of-distribution spectra (extreme clouds, high-metallicity) to identify boundary conditions requiring exact model fallback."

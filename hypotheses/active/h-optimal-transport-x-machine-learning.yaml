@@ -1,0 +1,28 @@
+id: h-optimal-transport-x-machine-learning
+title: Sliced Wasserstein distance with k = O(d log d) random projections achieves O(1/√d) approximation error relative to
+  W₂ in d dimensions, making it computationally viable for high-dimensional generative model evaluation with strictly better
+  mode-collapse detection than FID
+status: active
+priority: medium
+impact_score: 0.7
+created: '2026-05-07'
+last_updated: '2026-05-07'
+author: wave-64-agent
+unknowns_addressed:
+- u-optimal-transport-x-machine-learning
+related_disciplines:
+- mathematics
+- computer_science
+- statistics
+evidence_links:
+- type: supporting
+  doi: 10.48550/arXiv.1701.07875
+  note: Arjovsky et al. — WGAN demonstrates W₁ captures mode diversity better than JS divergence
+  confidence: 0.72
+- type: related
+  note: Deshpande et al. (2019) — max-sliced Wasserstein distance; CVPR 2019
+  confidence: 0.68
+proposed_tests:
+- description: Generate samples from known mixture distributions in d = 10, 100, 1000 dimensions with varying numbers of modes;
+    compute sliced Wasserstein (k = d log d projections) vs. FID vs. true W₂ (estimated via Sinkhorn with small ε); measure
+    detection rate of mode collapse vs. ground truth.

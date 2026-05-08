@@ -1,0 +1,58 @@
+id: b-neuronal-fatigue-metabolic-depletion-resource-models
+title: >
+  Neuronal fatigue — the declining response of neurons during sustained stimulation —
+  is explained by resource depletion models from biophysics: synaptic vesicle pools,
+  ATP availability, and ion gradient rundown follow first-order depletion kinetics,
+  creating a quantitative bridge between cellular metabolism and neural computation.
+status: established
+fields:
+  - neuroscience
+  - biophysics
+  - computational-neuroscience
+bridge_claim: >
+  The Tsodyks-Markram (TM) resource model of short-term synaptic depression:
+  dx/dt = (1-x)/τ_rec - u·x·δ(t-t_spike) where x ∈ [0,1] is available vesicle
+  fraction, τ_rec is recovery time constant, and u is utilization probability.
+  The effective synaptic strength is A_eff = A·x·u, decaying during high-frequency
+  firing (fatigue). The metabolic counterpart: astrocytic glucose supply rate
+  J_glucose = V_max·[glc]/(K_m + [glc]) (Michaelis-Menten); during sustained
+  firing, ATP demand exceeds supply when firing rate > V_max/(energy per AP).
+  Neural fatigue at the population level follows logistic depletion:
+  d[resource]/dt = -k·firing_rate·[resource] + replenishment, which predicts
+  the characteristic exponential decay of firing rates during sustained stimulation.
+  This maps directly onto resource-limited ecological models (Lotka-Volterra) and
+  metabolic flux analysis.
+translation_table:
+  - field_a_term: synaptic depression / neural fatigue (neuroscience)
+    field_b_term: resource depletion in a driven dynamical system (biophysics)
+    note: Both follow first-order kinetics with depletion proportional to usage rate
+  - field_a_term: vesicle pool size (neuroscience)
+    field_b_term: reservoir capacity in a resource model (biophysics)
+    note: Available vesicle fraction x is the dimensionless resource variable
+  - field_a_term: recovery from fatigue τ_rec (neuroscience)
+    field_b_term: resource replenishment time constant (biophysics)
+    note: τ_rec ≈ 800 ms for typical synapses; sets the low-pass filter cutoff for neural transmission
+  - field_a_term: ATP depletion during prolonged firing (neuroscience)
+    field_b_term: metabolic bottleneck / substrate limitation (biophysics)
+    note: Na/K-ATPase consumes ~50% of neural ATP; sustained high firing can deplete local ATP stores
+related_unknowns:
+  - u-astrocyte-neuron-metabolic-coupling-limits-sustained-firing
+related_hypotheses:
+  - h-neural-fatigue-computational-role-temporal-filtering-adaptation
+cross_pollination_opportunities:
+  - Applying metabolic flux analysis (MFA) techniques from biochemical engineering to constrain ATP budget during neural activity patterns
+  - Using resource depletion models to design neural prosthetics that account for synaptic fatigue in real-time decoding
+communication_gap: >
+  Computational neuroscientists using the Tsodyks-Markram model for short-term
+  plasticity and metabolic neuroscientists studying astrocyte-neuron coupling
+  rarely integrate their frameworks; quantitative metabolic constraints on neural
+  firing patterns (linking fMRI BOLD signals to firing rate limits via ATP budgets)
+  represent an active cross-disciplinary gap despite shared biophysical foundations.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1126/science.275.5297.213"
+    note: Tsodyks & Markram (1997) - the neural code between neocortical pyramidal neurons (TM model)
+  - doi: "10.1073/pnas.94.2.719"
+    note: Markram et al. (1997) - physiology and anatomy of synaptic connections between neocortical pyramidal neurons
+  - doi: "10.1152/jn.00101.2004"
+    note: Attwell & Laughlin (2001) - the energy budget for signaling in the grey matter of the brain

@@ -1,0 +1,32 @@
+id: h-ocean-color-chlorophyll-inversion-accuracy
+title: "A physics-based semi-analytic ocean color inversion algorithm trained on PACE hyperspectral bands (340–900 nm) will retrieve mixed-layer chlorophyll-a concentration with RMSE < 30% across open-ocean Case-1 waters, outperforming the OC4 band-ratio algorithm in all matchup comparisons at > 0.1 mg/m^3"
+status: active
+priority: high
+impact_score: 0.72
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+evidence_links:
+  - doi: "10.1029/JC093iC09p10909"
+    type: supporting
+    confidence: 0.70
+    note: "Gordon et al. (1988) — bio-optical model providing the physics basis for the inversion"
+  - doi: "10.1029/2001GB001428"
+    type: related
+    confidence: 0.65
+    note: "O'Reilly et al. (1998) — OC4 algorithm performance baseline to be beaten"
+  - type: related
+    note: "Werdell et al. (2013) — generalized ocean color inversion model for retrieving marine inherent optical properties"
+unknowns_addressed:
+  - u-ocean-color-phytoplankton-remote-sensing
+proposed_tests:
+  - description: >
+      Apply GIOP-DC semi-analytic inversion to PACE OCI Level-2 radiance products matched to SEABASS
+      in-situ chlorophyll measurements. Compute RMSE and bias vs. OC4 chlorophyll retrievals for
+      identical matchup stations in open ocean (Case-1) and compare distributions.
+    method: "PACE OCI matchup analysis vs. SEABASS in-situ Chl; GIOP-DC vs. OC4 RMSE comparison"
+    prediction: "GIOP-DC achieves RMSE < 30% vs. OC4 RMSE > 40% in the 0.1-1.0 mg/m^3 chlorophyll range"
+related_disciplines:
+  - oceanography
+  - optics
+  - remote-sensing

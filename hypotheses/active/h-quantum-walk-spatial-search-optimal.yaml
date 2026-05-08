@@ -1,0 +1,39 @@
+id: h-quantum-walk-spatial-search-optimal
+title: >
+  Continuous-time quantum walk search on an N-node graph achieves optimal O(sqrt(N))
+  query complexity if and only if the graph's spectral gap Delta_lambda satisfies
+  Delta_lambda = O(1/N), predicting that complete graphs and hypercubes achieve
+  Grover-optimal speedup while expander graphs with O(1) spectral gaps do not.
+status: active
+priority: medium
+impact_score: 0.73
+created: "2026-05-07"
+last_updated: "2026-05-07"
+related_disciplines:
+  - quantum-computing
+  - probability-theory
+  - algorithm-theory
+unknowns_addressed:
+  - u-quantum-walk-decoherence-practical-speedup
+evidence_links:
+  - doi: "10.1145/1060590.1060639"
+    type: supporting
+    confidence: 0.78
+    note: >
+      Szegedy (2004) proves quantum walk speedup is determined by the classical
+      spectral gap; graphs with small spectral gaps allow quantum interference
+      to accumulate amplitude, achieving optimal search.
+  - doi: "10.1103/PhysRevLett.102.180501"
+    type: supporting
+    confidence: 0.68
+    note: >
+      Childs et al. (2009) prove continuous-time quantum walk is universal for
+      quantum computation; complete graphs with small spectral gap Delta=2/N achieve
+      O(sqrt(N)) search, consistent with the hypothesis.
+proposed_tests:
+  - description: >
+      Implement continuous-time quantum walk search on IBM Quantum processors for
+      complete graphs (N = 4, 8, 16) and expander graphs of the same sizes;
+      measure oracle query count to find marked node vs. N; test whether complete
+      graph (Delta ~ 2/N) achieves O(sqrt(N)) while expander (Delta = O(1)) requires
+      O(N) queries, confirming spectral gap criterion.

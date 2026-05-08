@@ -1,0 +1,38 @@
+id: b-crowd-dynamics-social-force-model
+title: "Pedestrian crowd dynamics follow Helbing's social force model — each individual is driven by desired velocity, interpersonal repulsion, and wall avoidance forces — producing emergent phenomena including lane formation and crowd turbulence that match the mathematical structure of active-matter molecular dynamics near a jamming transition"
+status: established
+fields:
+  - physics
+  - social-science
+  - complex-systems
+bridge_claim: "Helbing's social force model (1995) gives m_i * d^2r_i/dt^2 = F_i^drive + sum_j F_{ij}^repulse + F_i^wall, where F_{ij}^repulse = (A*exp((r_i+r_j-d_{ij})/B) + k*g(r_i+r_j-d_{ij})) * n_{ij} + kappa*g(r_i+r_j-d_{ij})*delta_v_i^t * t_{ij}; these are identical in form to a Lennard-Jones-like pair potential in particle physics with anisotropic driving, and the emergent phenomena (bidirectional lane formation, stop-and-go waves, crowd turbulence at density > 6 persons/m^2) correspond to order-disorder phase transitions in active matter."
+translation_table:
+  - field_a_term: "desired velocity drive F_i^drive in social force model (social science)"
+    field_b_term: "external driving force on a particle in driven diffusive system (physics)"
+    note: "Each pedestrian acts as a driven particle with preferred speed; drive minus friction produces the terminal velocity"
+  - field_a_term: "interpersonal repulsion between pedestrians (social science)"
+    field_b_term: "short-range repulsive pair potential in molecular dynamics (physics)"
+    note: "Psychophysical proximity discomfort maps to an exponential potential; contact force maps to hard-sphere constraint"
+  - field_a_term: "lane formation in bidirectional flow (social science)"
+    field_b_term: "spontaneous symmetry breaking / stripe phase in active matter (physics)"
+    note: "Lane formation is a phase transition from disordered to stripe-ordered flow; analyzed with order parameters from condensed matter"
+  - field_a_term: "crowd turbulence at high density (social science)"
+    field_b_term: "velocity correlation length divergence near critical density (physics)"
+    note: "Crowd turbulence shows correlated velocity fluctuations identical to active matter near a glass/jamming transition"
+related_unknowns:
+  - u-crowd-dynamics-panic-transitions
+related_hypotheses:
+  - h-crowd-dynamics-lane-formation-critical-density
+cross_pollination_opportunities:
+  - "Using active matter theory (polar order parameter, Toner-Tu equations) to predict the onset density of crowd turbulence and validate against stadium evacuation data"
+  - "Applying social force model simulations validated by LiDAR pedestrian tracking to design safer evacuation routes in public venues"
+communication_gap: "Urban planners and safety engineers use empirical crowd density guidelines (Level of Service A–F) while physicists model crowd dynamics as active matter; the Helbing social force model bridged these worlds but operational evacuation software rarely uses physics-based parameter calibration from field data."
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1103/PhysRevE.51.4282"
+    note: "Helbing & Molnar (1995) - social force model for pedestrian dynamics (foundational paper)"
+  - doi: "10.1038/438439a"
+    note: "Helbing et al. (2007) - dynamics of crowd disasters: an empirical study (crowd turbulence)"
+  - doi: "10.1073/pnas.1001894107"
+    note: "Moussaid et al. (2011) - how simple rules determine pedestrian behavior and crowd disasters"
+

@@ -1,0 +1,56 @@
+id: b-sir-model-x-compartmental-ode
+title: >
+  Epidemic SIR Model x Compartmental ODE — infection as mass action kinetics
+status: proposed
+fields:
+  - biology
+  - mathematics
+  - epidemiology
+bridge_claim: >
+  The SIR epidemiological model uses mass-action kinetics (dI/dt = βSI - γI) identical
+  to chemical reaction rate equations; the basic reproduction number R₀ = β/γ is both
+  the epidemic threshold and the dominant eigenvalue of the next-generation matrix —
+  unifying epidemiology with chemical kinetics and linear algebra.
+translation_table:
+  - field_a_term: Susceptible-Infected-Recovered (SIR) compartments
+    field_b_term: Chemical species concentrations
+    note: >
+      Each compartment (S, I, R) maps to a chemical species; transitions between
+      compartments are reactions with stoichiometric coefficients.
+  - field_a_term: Transmission rate β (mass-action term βSI)
+    field_b_term: Bimolecular reaction rate constant
+    note: >
+      Mass-action kinetics assumes random mixing; βSI is identical in form to a
+      bimolecular reaction A + B → products with rate constant β.
+  - field_a_term: Basic reproduction number R₀ = β/γ
+    field_b_term: Dominant eigenvalue of next-generation matrix
+    note: >
+      R₀ > 1 implies epidemic growth, exactly as the spectral radius > 1 of the
+      next-generation matrix determines instability of the disease-free equilibrium.
+  - field_a_term: Epidemic threshold (R₀ = 1)
+    field_b_term: Bifurcation point of ODE system
+    note: >
+      At R₀ = 1 the disease-free equilibrium undergoes a transcritical bifurcation;
+      this is the mathematical organizing center of epidemic behavior.
+communication_gap: >
+  Epidemiologists Kermack and McKendrick (1927) derived the SIR model independently of
+  chemical kinetics literature; the equivalence to mass-action reaction networks was
+  noted only decades later, preventing cross-fertilization of methods (e.g., chemical
+  master equation techniques for stochastic epidemics).
+cross_pollination_opportunities:
+  - >
+    Apply chemical network theory (deficiency zero theorem, complex balancing) to
+    classify which compartmental epidemic models have guaranteed stable equilibria
+    regardless of parameter values.
+  - >
+    Use stochastic chemical master equation methods to compute exact extinction
+    probabilities for small-population epidemics, beyond the deterministic SIR approximation.
+  - >
+    Import next-generation matrix theory into metabolic network analysis to identify
+    critical reactions controlling network robustness.
+related_unknowns:
+  - u-sir-model-x-compartmental-ode
+references:
+  - doi: "10.1098/rspa.1927.0118"
+    note: "Kermack & McKendrick (1927) — A contribution to the mathematical theory of epidemics; Proc R Soc A 115:700"
+last_reviewed: "2026-05-07"

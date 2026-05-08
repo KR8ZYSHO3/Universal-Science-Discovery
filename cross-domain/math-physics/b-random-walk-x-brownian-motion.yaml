@@ -1,0 +1,41 @@
+id: b-random-walk-x-brownian-motion
+title: >
+  Random walk x Brownian motion — discrete to continuum limit
+status: proposed
+fields:
+  - mathematics
+  - physics
+  - probability-theory
+bridge_claim: >
+  The continuum limit of a symmetric random walk on a lattice is Brownian motion (Wiener
+  process); Donsker's invariance principle (functional central limit theorem) proves that
+  this convergence holds universally for any finite-variance step distribution, unifying
+  discrete combinatorics with continuous stochastic calculus and underlying polymer physics,
+  financial modeling, and diffusion-limited aggregation.
+translation_table:
+  - field_a_term: random walk step on lattice (combinatorics)
+    field_b_term: Wiener process increment dW_t (stochastic calculus)
+    note: In the limit of small step size and time, the random walk distribution converges to the Gaussian distribution of Brownian increments
+  - field_a_term: number of steps N (combinatorics)
+    field_b_term: continuous time t (stochastic calculus)
+    note: Rescaling by N^(1/2) in space and N in time yields the continuum limit; this is Donsker's theorem
+  - field_a_term: Pascal's triangle / binomial distribution (combinatorics)
+    field_b_term: Gaussian heat kernel / Green's function (PDE theory)
+    note: The binomial distribution of random walk positions converges to the Gaussian under CLT, which is the fundamental solution of the diffusion equation
+  - field_a_term: self-avoiding random walk (combinatorics / polymer physics)
+    field_b_term: excluded volume polymer conformation statistics (physics)
+    note: Self-avoiding walk exponent nu = 3/5 (Flory) deviates from nu = 1/2 for Brownian motion, capturing polymer swelling
+communication_gap: >
+  Probabilists studying random walks and physicists studying Brownian motion developed
+  parallel mathematical frameworks; Donsker's 1951 theorem providing the rigorous convergence
+  proof was not widely cited in physics literature until the development of stochastic calculus
+  in finance made the connection essential.
+cross_pollination_opportunities:
+  - Apply functional central limit theorem universality to prove that mesoscopic physical systems (colloidal particles, polymer chains) obey Brownian motion despite microscopic details
+  - Use random walk lattice algorithms to compute Green's functions for diffusion problems in complex geometries that are intractable analytically
+related_unknowns:
+  - u-random-walk-x-brownian-motion
+references:
+  - doi: "10.1090/S0002-9947-1951-0040613-0"
+    note: "Donsker (1951) - An invariance principle for certain probability limit theorems; Mem AMS 6:1"
+last_reviewed: "2026-05-07"

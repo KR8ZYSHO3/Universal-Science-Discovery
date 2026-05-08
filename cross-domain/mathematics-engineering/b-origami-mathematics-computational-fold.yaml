@@ -1,0 +1,35 @@
+id: b-origami-mathematics-computational-fold
+title: "Origami design is a computational geometry problem: any polyhedral surface can be folded from a flat sheet (Demaine-Tachi's universal fold theorem), and the fold sequence is computable using Lang's TreeMaker algorithm, which solves a constrained optimization problem mapping a tree graph (crease pattern skeleton) to a circle packing on a square, bridging combinatorial geometry and engineering design"
+fields:
+  - mathematics
+  - engineering
+  - computer-science
+bridge_claim: "Lang's TreeMaker algorithm formalizes origami design: a model's silhouette is described as a stick figure (tree graph) with branch lengths; TreeMaker finds a circle/ellipse packing on the square paper satisfying: (1) no circles overlap, (2) circle radii equal required flap lengths, (3) path constraints between non-adjacent circles are satisfied; the resulting circles are base-fold locations, and the connecting crease pattern implements the tree structure; Demaine proved the reverse: any polyhedral surface is foldable from a flat sheet."
+translation_table:
+  - field_a_term: "origami crease pattern (engineering)"
+    field_b_term: "planar graph with mountain/valley labeled edges satisfying flat-foldability conditions (mathematics)"
+    note: "A crease pattern is flat-foldable iff Maekawa's theorem (|M-V| = 2) and Kawasaki's theorem (alternating angle sum = π) hold at every vertex"
+  - field_a_term: "origami model silhouette / appendages (engineering)"
+    field_b_term: "tree graph with edge-length labeled branches (mathematics)"
+    note: "TreeMaker: tree graph nodes = flap tips; branch lengths = desired flap lengths; algorithm optimizes circle packing"
+  - field_a_term: "rigid foldability of polyhedral origami (engineering)"
+    field_b_term: "overconstrained mechanism with zero degree of freedom vs finite mechanism (mathematics)"
+    note: "Rigid origami folds without distorting panels; analyzed as a linkage mechanism with rotational DOF at creases"
+  - field_a_term: "deployable structures inspired by origami (engineering)"
+    field_b_term: "configuration space path from flat to folded state in geometric constraint satisfaction (mathematics)"
+    note: "Miura fold, solar sail, stent deployment use origami kinematics; configuration path avoids self-intersection"
+status: established
+communication_gap: "Origami artists design intuitively through trial and error while mathematicians have developed a complete computational theory of foldable surfaces; engineering applications (deployable space structures, medical stents, automotive airbags) require the mathematical fold design algorithms but rarely train engineers in the origami mathematics framework."
+cross_pollination_opportunities:
+  - "Using TreeMaker and Origamizer computational fold design to generate deployable space structure geometries (antenna arrays, solar panels) that fold to compact configurations with provably smooth deployment paths"
+  - "Applying rigid origami kinematics to design medical stent geometries that deploy predictably from catheter to vessel diameter without plastic deformation"
+references:
+  - doi: "10.1007/978-1-4612-4092-4"
+    note: "Lang (1996) - TreeMaker algorithm for origami base design from tree graphs"
+  - doi: "10.1145/2461912.2462004"
+    note: "Demaine & Tachi (2013) - origamizer: practical 3D origami construction"
+  - doi: "10.1073/pnas.1805762115"
+    note: "Stern et al. (2018) - complexity of folding self-folding origami"
+related_unknowns:
+  - u-origami-fold-design-complexity
+last_reviewed: "2026-05-07"

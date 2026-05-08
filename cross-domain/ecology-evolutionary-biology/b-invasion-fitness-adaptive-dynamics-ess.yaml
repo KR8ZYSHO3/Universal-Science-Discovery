@@ -1,0 +1,52 @@
+id: b-invasion-fitness-adaptive-dynamics-ess
+title: >
+  Adaptive dynamics uses invasion fitness — the per-capita growth rate of a rare mutant
+  in a resident population — to derive evolutionarily stable strategies (ESS) and
+  evolutionary branching points, bridging ecology and evolutionary biology through
+  a unified mathematical framework.
+status: established
+fields:
+  - evolutionary-biology
+  - ecology
+  - mathematics
+bridge_claim: >
+  In adaptive dynamics, the fitness of a rare mutant x' in a resident population at
+  equilibrium with trait x is sx(x') = r(x', x̂(x)), where x̂(x) is the resident
+  equilibrium. Evolution follows the canonical equation ẋ = (1/2)σ²·∂sx(x')/∂x'|_{x'=x},
+  climbing the fitness gradient. ESS are singular points where the gradient vanishes;
+  evolutionary branching occurs when the ESS is a fitness minimum (negative second
+  derivative of sx w.r.t. x') — triggering sympatric speciation. This unifies game
+  theory (ESS), quantitative genetics, and ecological dynamics.
+translation_table:
+  - field_a_term: trait evolution by natural selection (evolutionary biology)
+    field_b_term: gradient ascent on invasion fitness landscape (mathematics)
+    note: Canonical equation of adaptive dynamics is a first-order ODE in trait space
+  - field_a_term: evolutionarily stable strategy (evolutionary biology)
+    field_b_term: Nash equilibrium of the invasion fitness game (mathematics)
+    note: ESS = uninvadable strategy = Nash equilibrium of the frequency-dependent game
+  - field_a_term: evolutionary branching / sympatric speciation (evolutionary biology)
+    field_b_term: fitness minimum / bifurcation in trait space (mathematics)
+    note: Branching occurs at a CSS where the fitness function has negative curvature
+  - field_a_term: resident equilibrium density (ecology)
+    field_b_term: background state determining the fitness landscape (mathematics)
+    note: Ecological dynamics set the resident equilibrium that defines the fitness function
+related_unknowns:
+  - u-adaptive-dynamics-multi-locus-genetics-reconciliation
+related_hypotheses:
+  - h-evolutionary-branching-disruptive-selection-speciation
+cross_pollination_opportunities:
+  - Applying bifurcation theory tools (continuation software) to map the full adaptive dynamics trait space
+  - Using invasion fitness framework to analyze co-evolution of hosts and pathogens in epidemiological models
+communication_gap: >
+  Adaptive dynamics is well-developed theoretically (Geritz, Metz, Dieckmann) but
+  remains underutilized in empirical evolutionary biology; many evolutionary biologists
+  are unfamiliar with the canonical equation formalism, and ecologists often treat
+  evolution as a separate process rather than co-evolving with ecological dynamics.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1006/tpbi.1997.1295"
+    note: Geritz et al. (1998) — evolutionarily singular strategies and adaptive radiation
+  - doi: "10.1016/S0022-5193(02)93875-4"
+    note: Dieckmann & Law (1996) — the dynamical theory of coevolution
+  - doi: "10.1086/285812"
+    note: Metz et al. (1992) — invasion fitness and adaptive dynamics framework

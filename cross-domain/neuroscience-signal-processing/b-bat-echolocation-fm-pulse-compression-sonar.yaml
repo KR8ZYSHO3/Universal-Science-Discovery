@@ -1,0 +1,57 @@
+id: b-bat-echolocation-fm-pulse-compression-sonar
+title: >
+  Bat echolocation uses frequency-modulated (FM) calls that are mathematically
+  equivalent to FM pulse compression in radar/SONAR engineering: the linear
+  frequency sweep creates a time-bandwidth product that enables range resolution
+  far exceeding a simple tone pulse, and the auditory system computes the ambiguity
+  function implicitly to localize prey.
+status: established
+fields:
+  - neuroscience
+  - signal-processing
+  - sensory-biology
+bridge_claim: >
+  An FM chirp s(t) = A·cos(2π(f₀t + ½μt²)) (μ = chirp rate, BW = μ·T) has
+  pulse compression ratio PCR = BW·T >> 1, giving range resolution δr = c/(2·BW)
+  while retaining high energy (SNR = A²T/(2N₀)) from the long pulse duration T.
+  The bat's auditory system effectively computes the matched filter cross-correlation
+  via the neural delay lines and coincidence detectors in the inferior colliculus —
+  an exact analog of the radar receiver processing the ambiguity function
+  χ(τ,ν) = |∫s(t)s*(t-τ)e^{j2πνt}dt|². Bats using constant-frequency (CF)
+  pulses are Doppler-velocity optimized (narrow ν-slice of χ), while FM bats
+  are range-resolution optimized (narrow τ-slice), exactly paralleling
+  radar waveform design trade-offs between range and velocity measurement.
+translation_table:
+  - field_a_term: FM echolocation call (neuroscience)
+    field_b_term: linear frequency-modulated chirp waveform (signal processing)
+    note: Identical mathematical form; bat vocal-motor system generates the radar-equivalent waveform
+  - field_a_term: biosonar range resolution (neuroscience)
+    field_b_term: pulse compression ratio / range resolution δr = c/2BW (signal processing)
+    note: Bat range resolution of ~1 mm corresponds to ~1 ms FM bandwidth of ~100 kHz
+  - field_a_term: auditory delay-tuned neurons (neuroscience)
+    field_b_term: matched filter / correlator bank (signal processing)
+    note: Delay-tuned neurons in mustached bat's IC implement cross-correlation at specific delay τ
+  - field_a_term: CF-FM bat vs FM-only bat (neuroscience)
+    field_b_term: velocity-optimized vs range-optimized radar waveform (signal processing)
+    note: CF component enables Doppler processing; FM component enables high range resolution
+related_unknowns:
+  - u-neural-implementation-ambiguity-function-bat-auditory-cortex
+related_hypotheses:
+  - h-bat-echolocation-inspired-wideband-sonar-underwater
+cross_pollination_opportunities:
+  - Designing bio-inspired sonar systems that mimic bat adaptive call modification (Doppler shift compensation) for underwater target classification
+  - Using matched-filter theory to quantify absolute limits on bat prey localization precision given observed bandwidths
+communication_gap: >
+  The mathematical equivalence between bat echolocation and radar signal processing
+  was recognized by Simmons and Suga in the 1970s-80s, but neuroscientists studying
+  auditory processing and signal processing engineers rarely collaborate; modern
+  computational neuroscience of echolocation is rediscovering ambiguity function
+  theory with renewed interest in neuromorphic sonar systems.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1126/science.178.4059.449"
+    note: Simmons (1972) - bat sonar echo delay resolution and acuity as a pulse-compression system
+  - doi: "10.1038/284462a0"
+    note: Suga (1990) - cortical computational maps for auditory space and biosonar target features
+  - doi: "10.1121/1.381611"
+    note: Kroszczynski (1969) - pulse compression by means of linear-period modulation (FM chirp theory)

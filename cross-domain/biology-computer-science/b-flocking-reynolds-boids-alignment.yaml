@@ -1,0 +1,64 @@
+id: b-flocking-reynolds-boids-alignment
+title: >
+  Animal flocking emerges from three local interaction rules - separation,
+  alignment, cohesion - first encoded by Reynolds' boids algorithm and
+  subsequently formalised in the Vicsek model as a phase transition in
+  collective alignment, bridging biological collective behavior, computer
+  graphics, and statistical physics of active matter.
+status: established
+fields:
+  - biology
+  - computer-science
+  - physics
+bridge_claim: >
+  Reynolds (1987) showed that realistic flocking arises from three steering
+  behaviours: avoid crowding (separation), steer toward average heading
+  (alignment), steer toward average position (cohesion). The Vicsek model
+  (1995) stripped this to the alignment rule alone and showed it undergoes
+  a phase transition: below a noise threshold eta_c, particles spontaneously
+  align (ordered phase, the flock); above eta_c, motion is disordered.
+  This is an active-matter phase transition with no equilibrium analogue.
+  Empirical studies of starling murmurations (Ballerini et al. 2008) revealed
+  that alignment occurs with the nearest k ~ 7 topological neighbours (not
+  metric neighbours within radius r), a fundamental biological modification
+  of the Vicsek model with different universality class. The bridge runs in
+  three directions: CS provides simulation tools for biological hypotheses;
+  biology provides empirical tests and the topological-neighbour discovery;
+  statistical physics provides universality class and critical exponent analysis.
+translation_table:
+  - field_a_term: alignment rule (computer science / Reynolds boids)
+    field_b_term: velocity matching with neighbours in animal flocks (biology)
+    note: Birds match velocity with k ~ 7 topological neighbours; fish with metric radius
+  - field_a_term: Vicsek order parameter phi = |mean velocity| / speed (statistical physics)
+    field_b_term: flock polarisation / collective order (biology)
+    note: phi = 1 (perfect alignment) to 0 (disordered); measurable by tracking individual trajectories
+  - field_a_term: noise threshold eta_c / phase transition (statistical physics)
+    field_b_term: flock breakup at high density perturbation or predator attack (biology)
+    note: Predator attacks drive the system through eta_c transiently; flock reforms below threshold
+  - field_a_term: topological vs. metric interaction range (computer science)
+    field_b_term: topological neighbours in starling murmurations (biology)
+    note: Topological interactions (k nearest) change the universality class from Vicsek metric model
+communication_gap: >
+  Computer graphics researchers developed boids for animation without
+  connecting to statistical physics phase transitions; biologists studying
+  collective behaviour rarely formalise universality class; statistical
+  physicists studying active matter have different notation and emphasis
+  than biologists. Three-way disciplinary gap requires simultaneous
+  expertise in simulation, animal tracking, and statistical physics.
+cross_pollination_opportunities:
+  - Use GPU-accelerated Vicsek simulations to test topological interaction
+    range predictions against 3D starling trajectory data from multiple cameras
+  - Apply active-matter universality class analysis to determine whether
+    fish schools and bird flocks belong to different universality classes
+  - Transfer boids-inspired collective intelligence algorithms to multi-robot
+    systems for distributed formation control
+related_unknowns:
+  - u-flocking-topological-interaction-mechanism
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1145/37401.37406"
+    note: Reynolds (1987) - flocks, herds, and schools; a distributed behavioral model
+  - doi: "10.1103/PhysRevLett.75.1226"
+    note: Vicsek et al. (1995) - novel type of phase transitions in a system of self-driven particles
+  - doi: "10.1073/pnas.0711437105"
+    note: Ballerini et al. (2008) - interaction ruling animal collective behavior depends on topological rather than metric distance

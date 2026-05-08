@@ -1,0 +1,40 @@
+id: b-enzyme-kinetics-x-michaelis-menten
+title: >
+  Enzyme kinetics x Michaelis-Menten — substrate saturation as queueing theory
+status: proposed
+fields:
+  - chemistry
+  - biology
+  - mathematics
+bridge_claim: >
+  The Michaelis-Menten enzyme saturation curve is mathematically identical to an M/M/1
+  queueing model where the enzyme is the server, substrate molecules are customers, and
+  kcat is the service rate; enzyme inhibition kinetics map to different queueing disciplines
+  (priority queues for competitive inhibition), unifying biochemistry with operations research.
+translation_table:
+  - field_a_term: enzyme active site (biochemistry)
+    field_b_term: server in M/M/1 queue (queueing theory)
+    note: The enzyme processes one substrate at a time; Km is the dissociation constant analogous to the arrival-to-service rate ratio
+  - field_a_term: Km (Michaelis constant, biochemistry)
+    field_b_term: traffic intensity ρ = λ/μ (queueing theory)
+    note: Km sets the substrate concentration for half-maximal velocity, equivalent to the load factor at which the queue becomes saturated
+  - field_a_term: competitive inhibition (biochemistry)
+    field_b_term: priority queueing discipline (queueing theory)
+    note: Competitive inhibitor occupies the active site with higher priority than substrate, blocking service — exactly a priority queue
+  - field_a_term: kcat/Km (catalytic efficiency, biochemistry)
+    field_b_term: throughput per unit load (operations research)
+    note: Diffusion-limited enzymes achieve kcat/Km near 10^8-10^9 M^-1 s^-1, the theoretical queueing throughput maximum
+communication_gap: >
+  Biochemists derive the Michaelis-Menten equation from chemical kinetics (rapid equilibrium
+  or steady-state assumptions) without recognizing the isomorphism to queueing theory; operations
+  researchers are unaware that their algorithms have direct biochemical analogs, blocking
+  potential cross-fertilization in metabolic engineering and network pharmacology.
+cross_pollination_opportunities:
+  - Apply queueing network theory to model metabolic flux in multi-enzyme pathways as a network of coupled queues, enabling bottleneck identification
+  - Use enzyme kinetics parameter estimation techniques to fit queueing models in biological systems such as ribosomes translating mRNA
+related_unknowns:
+  - u-enzyme-kinetics-x-michaelis-menten
+references:
+  - doi: "10.1111/j.1432-1033.1994.tb18811.x"
+    note: "Heinrich & Schuster (1994) - The regulation of cellular systems; European J Biochemistry"
+last_reviewed: "2026-05-07"

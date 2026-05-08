@@ -1,0 +1,63 @@
+id: b-laser-cooling-doppler-optical-molasses
+title: >
+  Laser cooling exploits the Doppler effect to selectively absorb photons
+  from the direction of atomic motion, reducing atomic kinetic energy below
+  the Doppler limit kT_D = hbar*Gamma/2; this is entropy reduction by
+  photon-mediated information gain, connecting atomic physics, thermodynamics,
+  and the physics of Maxwell's demon.
+status: established
+fields:
+  - physics
+  - thermodynamics
+  - atomic-physics
+bridge_claim: >
+  In optical molasses, three orthogonal pairs of counter-propagating laser
+  beams are tuned slightly red-detuned from an atomic transition. An atom
+  moving with velocity v preferentially absorbs photons from the beam it
+  moves toward (Doppler blueshift brings that beam into resonance) and the
+  absorbed photon's momentum opposes motion - viscous damping force F = -alpha*v
+  where alpha = hbar*k^2 * 4*delta*Gamma / (delta^2 + Gamma^2/4)^2. This is
+  a damping force without a restoring force - hence "molasses". Thermodynamically,
+  the laser beam carries low-entropy radiation (well-defined frequency, direction)
+  and emits spontaneously in random directions, exporting entropy from the atomic
+  motion. The Doppler cooling limit T_D = hbar*Gamma/(2*k_B) is set by the
+  balance between cooling (stimulated absorption) and heating (spontaneous
+  emission momentum recoil). Sub-Doppler mechanisms (Sisyphus cooling) overcome
+  T_D by exploiting light-shift gradients - a different thermodynamic mechanism
+  that reduces atomic entropy below the Doppler limit.
+translation_table:
+  - field_a_term: entropy reduction in atomic motion (thermodynamics)
+    field_b_term: reduction of thermal velocity spread by photon absorption (atomic physics)
+    note: Laser cooling reduces entropy of translational degrees of freedom below thermal equilibrium
+  - field_a_term: Maxwell's demon (measurement-based entropy reduction) (thermodynamics)
+    field_b_term: Doppler-selective photon absorption (atomic physics)
+    note: Atom moving toward beam absorbs preferentially; photon absorption is velocity-selective measurement
+  - field_a_term: Carnot-like efficiency limit (thermodynamics)
+    field_b_term: Doppler cooling limit T_D = hbar*Gamma / (2 k_B) (atomic physics)
+    note: Fundamental quantum noise (spontaneous emission recoil) sets the minimum achievable temperature
+  - field_a_term: entropy export via radiation (thermodynamics)
+    field_b_term: spontaneous emission of photons in random directions (atomic physics)
+    note: Low-entropy laser photons absorbed; high-entropy (random direction) photons emitted; net entropy export
+communication_gap: >
+  Atomic physicists implement laser cooling as a laboratory technique without
+  always framing it in Maxwell's demon / entropy reduction thermodynamics;
+  thermodynamicists who study Maxwell's demon rarely consider laser cooling as
+  a physical realisation. The quantum thermodynamics connection (information
+  gain from Doppler-selective absorption reducing entropy) is rarely made explicit.
+cross_pollination_opportunities:
+  - Use laser-cooled atomic samples as model Maxwell's demon experiments to
+    test quantum thermodynamic fluctuation theorems at single-atom level
+  - Apply Landauer's principle to calculate minimum laser power required to
+    reduce atomic entropy by a given amount
+  - Transfer laser cooling concepts to optomechanical cooling of macroscopic
+    mechanical resonators for quantum information applications
+related_unknowns:
+  - u-laser-cooling-sub-doppler-quantum-limit
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1103/PhysRevLett.57.1688"
+    note: Chu et al. (1985) - three-dimensional viscous confinement and cooling of atoms; optical molasses
+  - doi: "10.1103/RevModPhys.70.707"
+    note: Phillips (1998) - Nobel Lecture; laser cooling and trapping of neutral atoms
+  - doi: "10.1103/PhysRevA.20.1521"
+    note: Wineland & Itano (1979) - laser cooling of atoms; thermodynamic framework

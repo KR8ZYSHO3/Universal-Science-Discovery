@@ -1,0 +1,51 @@
+id: b-geothermal-energy-subsurface-heat-transport
+title: >
+  Geothermal energy extraction requires modeling subsurface heat and fluid transport
+  governed by coupled thermoporoelastic equations, connecting reservoir engineering
+  to geophysics and the mathematics of heat diffusion in fractured porous media.
+status: established
+fields:
+  - engineering
+  - geophysics
+bridge_claim: >
+  A geothermal reservoir is described by Biot's thermoporoelastic theory: fluid
+  pressure, temperature, and stress are coupled through Darcy flow (u = −(k/η)∇p),
+  Fourier heat conduction (q = −λ∇T), and elastic equilibrium (∇·σ = 0). Fracture
+  permeability dominates over matrix permeability (discrete fracture network models).
+  The thermal breakthrough time — when injected cold water reaches the production well —
+  is predicted by a 1-D advection-diffusion equation with Péclet number Pe = uL/κ.
+  Induced seismicity arises when pore-pressure increase reduces effective stress (Mohr-
+  Coulomb failure), bridging geomechanics and fault mechanics.
+translation_table:
+  - field_a_term: geothermal reservoir permeability (engineering)
+    field_b_term: hydraulic conductivity tensor in Darcy flow (geophysics)
+    note: Fracture permeability k = w³/12 (cubic law) dominates matrix in crystalline rock
+  - field_a_term: thermal breakthrough time (engineering)
+    field_b_term: Péclet number in advection-diffusion equation (geophysics)
+    note: High Pe → advection-dominated; thermal front moves with fluid velocity
+  - field_a_term: enhanced geothermal system (EGS) hydraulic stimulation (engineering)
+    field_b_term: pore-pressure-induced fault reactivation / Mohr-Coulomb criterion (geophysics)
+    note: "Fluid injection reduces effective normal stress: σ'_n = σ_n − p, triggering slip"
+  - field_a_term: doublet well configuration (engineering)
+    field_b_term: dipole source-sink in porous medium (geophysics)
+    note: Injection-production doublet creates a Rankine dipole flow field in the aquifer
+related_unknowns:
+  - u-enhanced-geothermal-induced-seismicity-risk
+related_hypotheses:
+  - h-geothermal-doublet-thermal-lifetime-péclet-scaling
+cross_pollination_opportunities:
+  - Applying geophysical seismic monitoring tools to map fracture networks for optimal geothermal well placement
+  - Using thermoporoelastic simulation tools from petroleum geomechanics to design EGS reservoirs
+communication_gap: >
+  Geothermal engineers and geophysicists share coupled equations but work in separate
+  professional communities (geothermal power industry vs. academic geophysics); induced
+  seismicity risk from EGS has created regulatory challenges requiring closer collaboration
+  between engineers optimizing for extraction and geophysicists studying fault mechanics.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1016/j.geothermics.2010.09.005"
+    note: Tester et al. (2006) — future of geothermal energy (MIT report on EGS)
+  - doi: "10.1007/BF01837056"
+    note: Biot (1956) — thermoelasticity and irreversible thermodynamics in porous media
+  - doi: "10.1016/j.scitotenv.2018.07.098"
+    note: Grigoli et al. (2018) — induced seismicity risk from geothermal stimulation

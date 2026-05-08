@@ -1,0 +1,33 @@
+id: h-nfs-rsa-concrete-security-boundary
+title: "The number field sieve factorization record will reach RSA-2048 (2048-bit modulus) within 15 years using classical computing, requiring approximately 10^18 core-hours based on extrapolation of the L_n[1/3, 1.923] NFS complexity formula to current hardware trends, and this estimate will be confirmed to within a factor of 3 by the next three record factorizations of 1000–1800 bit numbers"
+status: active
+priority: high
+impact_score: 0.80
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+evidence_links:
+  - doi: "10.1007/3-540-49264-X_1"
+    type: supporting
+    confidence: 0.70
+    note: "Lenstra & Lenstra (1993) — NFS complexity analysis; basis for record extrapolation"
+  - doi: "10.1145/3386134"
+    type: supporting
+    confidence: 0.72
+    note: "Bardet et al. (2020) — current NFS factorization records; hardware cost benchmarks"
+  - type: related
+    note: "NIST (2020) — post-quantum cryptography standardization; key size recommendations based on NFS"
+unknowns_addressed:
+  - u-integer-factoring-quantum-classical-boundary
+proposed_tests:
+  - description: >
+      Using published NFS record factorization runtimes and hardware costs from RSA-512 to RSA-829,
+      fit the L_n[1/3, c] model to observed core-hours. Project to RSA-2048. Compare projection to
+      the next two publicly announced factorization records (expected RSA-1024 and RSA-1200 attempts)
+      when they occur and update projection.
+    method: "Log-linear regression of log(core-hours) vs. L_n[1/3,c] function; confidence interval extrapolation to n=2048"
+    prediction: "RSA-2048 requires 10^17–10^19 core-hours on hardware of 2026 generation; next records fall within model confidence interval"
+related_disciplines:
+  - mathematics
+  - computer-science
+  - cryptography

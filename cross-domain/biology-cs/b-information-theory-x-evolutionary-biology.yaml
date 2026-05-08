@@ -1,0 +1,57 @@
+id: b-information-theory-x-evolutionary-biology
+title: >
+  Information Theory x Evolutionary Biology — natural selection as Bayesian inference
+status: proposed
+fields:
+  - biology
+  - computer-science
+  - information-theory
+  - evolutionary-biology
+bridge_claim: >
+  Natural selection updates the population's genetic prior toward higher fitness using
+  the same mathematical operation as Bayesian belief updating; Fisher's fundamental
+  theorem of natural selection is the biological analogue of the data processing
+  inequality in information theory.
+translation_table:
+  - field_a_term: Allele frequency distribution (prior)
+    field_b_term: Prior probability distribution
+    note: >
+      The population's initial allele distribution is the prior; selection is the
+      likelihood function.
+  - field_a_term: Fitness landscape W(g)
+    field_b_term: Likelihood function P(data|hypothesis)
+    note: >
+      Fitness evaluates how well a genotype explains the environment — mathematically
+      identical to a likelihood function.
+  - field_a_term: Fisher's fundamental theorem (dW/dt = Var(W))
+    field_b_term: Rate of KL divergence reduction
+    note: >
+      The rate of fitness increase equals the genetic variance, which is also the rate
+      of KL divergence reduction between current and optimal allele distribution.
+  - field_a_term: Genetic drift
+    field_b_term: Sampling noise in Bayesian updating
+    note: >
+      Finite population size introduces stochastic sampling error in the selection
+      update — exactly analogous to Monte Carlo noise in Bayesian MCMC.
+communication_gap: >
+  Biologists focus on mechanism and contingency; information theorists focus on
+  optimality and compression. The mathematical isomorphism was noted by Frank (2009)
+  but has not widely penetrated either field's textbooks.
+cross_pollination_opportunities:
+  - >
+    Use channel capacity bounds to predict the maximum rate of adaptive evolution given
+    mutation rate and population size.
+  - >
+    Apply variational inference algorithms to design synthetic evolutionary systems
+    with targeted fitness landscapes.
+  - >
+    Use evolutionary dynamics to benchmark Bayesian optimization algorithms on rugged
+    fitness landscapes.
+related_unknowns:
+  - u-channel-capacity-evolution-rate
+references:
+  - doi: "10.1111/j.1469-185X.2009.00089.x"
+    note: "Frank (2009) — natural selection maximizes Fisher information — foundational connection"
+  - doi: "10.1098/rspb.2013.2372"
+    note: "Krakauer et al. (2014) — information theory of individuality and evolution"
+last_reviewed: "2026-05-07"

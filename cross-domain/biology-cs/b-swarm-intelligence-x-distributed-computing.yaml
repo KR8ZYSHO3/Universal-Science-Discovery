@@ -1,0 +1,45 @@
+id: b-swarm-intelligence-x-distributed-computing
+title: >
+  Swarm intelligence x Distributed computing - ant colony as consensus algorithm
+status: proposed
+fields:
+  - biology
+  - computer_science
+  - complex_systems
+  - distributed_systems
+bridge_claim: >
+  Ant colony optimization (ACO) and honeybee swarm decision-making implement distributed
+  consensus algorithms without central coordination; pheromone reinforcement in ACO is
+  distributed gradient ascent on solution quality where each ant is a gradient estimator,
+  and quorum sensing in honeybee swarming (bees voting for nest sites by waggle dance
+  intensity) is functionally equivalent to a Byzantine fault-tolerant consensus protocol
+  where the quorum threshold prevents premature convergence to suboptimal sites.
+translation_table:
+  - field_a_term: pheromone trail concentration tau_ij on edge (i,j) (ant colony)
+    field_b_term: gradient estimate for path quality / belief in distributed optimization (computer science)
+    note: Pheromone concentration is a distributed stochastic gradient; stronger pheromone = higher belief in solution quality
+  - field_a_term: evaporation rate rho in pheromone update (ant colony optimization)
+    field_b_term: forgetting factor / momentum decay in distributed gradient descent (optimization)
+    note: Pheromone evaporation prevents premature convergence to local optima, equivalent to momentum decay in adaptive optimizers
+  - field_a_term: quorum threshold Q for honeybee nest site selection (biology)
+    field_b_term: Byzantine quorum / 2/3 majority threshold in distributed consensus (computer science)
+    note: Bees commit to a nest only after >Q scouts visit it, preventing convergence to poorly-explored sites analogous to BFT quorum systems
+  - field_a_term: waggle dance duration proportional to site quality (biology)
+    field_b_term: weighted vote in distributed voting protocol (distributed systems)
+    note: Dance duration encodes site quality; bees stop dancing when they visit competing sites — implementing preference aggregation
+communication_gap: >
+  Entomologists studying social insect collective behavior (Wilson 1971, Seeley 1995)
+  and computer scientists developing distributed algorithms (Lamport 1982, Castro &
+  Liskov 1999) built parallel theories of decentralized decision-making; Dorigo and
+  Gambardella (1997) formalized ACO, but the connection between honeybee quorum sensing
+  and Byzantine fault-tolerant consensus (Seeley & Visscher 2004) was only recently
+  appreciated, offering biological precedents for robust decentralized computing.
+cross_pollination_opportunities:
+  - Implement honeybee quorum sensing protocols in peer-to-peer networks to achieve Byzantine fault-tolerant consensus without trusted coordinators, improving blockchain scalability
+  - Apply ant colony optimization with biologically-calibrated evaporation rates to network routing problems, using the pheromone-gradient duality to certify convergence to near-optimal solutions
+related_unknowns:
+  - u-swarm-intelligence-x-distributed-computing
+references:
+  - doi: "10.1007/BF00992699"
+    note: "Dorigo & Gambardella (1997) - Ant colony system: A cooperative learning approach to TSP; IEEE Trans Evol Comput 1:53"
+last_reviewed: "2026-05-07"

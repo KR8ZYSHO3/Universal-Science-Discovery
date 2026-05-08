@@ -1,0 +1,61 @@
+id: b-intestinal-crypt-stem-cell-moran-process
+title: >
+  Intestinal crypt stem cell competition is a Moran process: a fixed-size
+  pool of stem cells undergoes neutral drift where clones expand and contract
+  stochastically until monoclonality, with fixation probability and time
+  determined by the mathematical theory of finite Moran populations.
+status: established
+fields:
+  - biology
+  - mathematics
+  - probability-theory
+bridge_claim: >
+  The Moran process models a fixed population of N individuals where, at each
+  step, one individual reproduces and one dies - reproduction is proportional to
+  fitness. For neutral mutations, fixation probability is exactly 1/N and mean
+  fixation time is N*(N-1) cell generations. The intestinal crypt contains ~5-15
+  stem cells (Lgr5+ cells) in the crypt base. Clonal tracing experiments
+  (Williams et al. 2010; Lopez-Garcia et al. 2010) show that initially
+  polyclonal crypts stochastically convert to monoclonal (all cells descending
+  from one founder) with kinetics exactly matching the neutral Moran process.
+  This mathematical prediction (fixation in ~7 cell divisions at N=5) was
+  experimentally confirmed to within measurement error. The bridge enables
+  quantitative inference of stem cell number from clonal dynamics, and
+  distinguishes neutral drift from positive selection using fixation time
+  distributions.
+translation_table:
+  - field_a_term: Moran process population size N (mathematics)
+    field_b_term: number of functional stem cells per crypt (biology)
+    note: N inferred from fixation time distribution; N ~ 5 in mouse small intestine
+  - field_a_term: fixation probability 1/N (mathematics)
+    field_b_term: probability a single mutant stem cell takes over the crypt (biology)
+    note: Neutral mutant (e.g., reporter-positive cell) fixes with probability 1/N
+  - field_a_term: mean fixation time ~ N^2 cell generations (mathematics)
+    field_b_term: time for crypt to become monoclonal after labelling (biology)
+    note: Mouse small intestine crypts become monoclonal in ~weeks; consistent with N ~ 5
+  - field_a_term: selection coefficient s (mathematics)
+    field_b_term: fitness advantage of oncogenic stem cell mutation (biology)
+    note: Even small s > 0 accelerates fixation; explains early cancer clone expansion
+communication_gap: >
+  Cell biologists study stem cell competition without applying Moran process
+  mathematics; population geneticists study neutral drift without working
+  with intestinal organoids. The quantitative confirmation of Moran predictions
+  in intestinal crypts is one of the best-validated examples of neutral
+  evolution at the cellular scale.
+cross_pollination_opportunities:
+  - Use Moran process inference to estimate stem cell numbers in human colonic
+    crypts from clonal architecture data (somatic mutation sequencing)
+  - Apply selection coefficient estimation (from fixation time acceleration) to
+    APC mutations in colon to quantify earliest steps in colorectal cancer
+  - Transfer Moran process to other epithelial tissues (skin, oesophagus) to
+    infer stem cell pool sizes and test neutral drift universality
+related_unknowns:
+  - u-intestinal-crypt-stem-cell-moran-selection
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1038/nature08709"
+    note: Lopez-Garcia et al. (2010) - intestinal stem cell replacement follows a neutral drift process
+  - doi: "10.1038/nature08733"
+    note: Snippert et al. (2010) - intestinal crypt homeostasis results from neutral competition between symmetrically dividing Lgr5 stem cells
+  - doi: "10.1371/journal.pbio.0040030"
+    note: Williams et al. (2010) - neutral drift in human colon crypts

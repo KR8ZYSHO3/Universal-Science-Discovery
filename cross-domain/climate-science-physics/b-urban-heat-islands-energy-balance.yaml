@@ -1,0 +1,53 @@
+id: b-urban-heat-islands-energy-balance
+title: "Urban heat islands arise from the surface energy balance equation: Q* = QH + QE + QG where reduced QE (latent heat from evapotranspiration) increases QH (sensible heat), raising urban air temperature 1-8°C above rural areas"
+status: established
+fields:
+  - urban-science
+  - atmospheric-physics
+  - climate-science
+bridge_claim: >
+  The urban surface energy balance (SEB) partitions net radiation Q* into
+  latent heat flux QE (evapotranspiration), sensible heat flux QH (heating air),
+  and ground heat flux QG: Q* = QH + QE + QG + QA where QA is anthropogenic
+  heat (A/C, vehicles). The urban heat island (UHI) magnitude ΔT = T_urban - T_rural
+  is driven by: (1) reduced QE — impervious surfaces prevent evapotranspiration,
+  the main cooling mechanism; (2) increased QG — high thermal mass of concrete
+  stores daytime heat and releases it at night (thermal effusivity e=√(kρc_p));
+  (3) added QA from human activities; (4) reduced sky view factor (urban canyon
+  trapping longwave radiation). Oke's (1982) SEB measurements in urban canyons
+  quantify each term. The Bowen ratio β=QH/QE ≈ 5-10 in urban areas vs. ≈ 0.5
+  in vegetated rural areas directly explains the temperature excess.
+translation_table:
+  - field_a_term: "urban surface albedo α (fraction of solar radiation reflected)"
+    field_b_term: "determines Q* = S(1-α) + L_down - L_up = net radiation"
+    note: "Urban α~0.1-0.15 (dark asphalt) vs rural α~0.2-0.25 (vegetation); Q* higher in cities"
+  - field_a_term: "Bowen ratio β = QH/QE"
+    field_b_term: "energy balance partitioning parameter — high β means energy goes to heating air"
+    note: "Cool roofs/green roofs reduce β by restoring evaporative cooling component QE"
+  - field_a_term: "urban canyon sky view factor Ψ_sky"
+    field_b_term: "geometric fraction of sky visible from street level; determines longwave trapping"
+    note: "Ψ_sky ~ 0.3-0.7 in urban canyons; reduces longwave emission at night, raising night temperature"
+  - field_a_term: "thermal effusivity of urban materials e = √(kρc_p)"
+    field_b_term: "material property controlling ground heat storage QG"
+    note: "Concrete e~1800 J·m⁻²·K⁻¹·s⁻¹/² vs soil e~400 — cities store ~4x more daytime heat"
+related_unknowns:
+  - u-urban-heat-islands
+related_hypotheses:
+  - h-urban-heat-islands-energy-balance
+cross_pollination_opportunities:
+  - "Radiative cooling materials: sub-ambient radiative cooling (emitting at 8-13 μm atmospheric window) directly reduces the longwave component of Q* and can contribute negative QH — connecting atmospheric radiation physics to urban cooling materials design."
+  - "Cool city parametrization in regional climate models: SEB parameters for urban canopy are required inputs to WRF and CESM for urban climate projections; urban materials databases (NUDAPT, LCZ) translate energy balance physics into model-ready parameters."
+communication_gap: >
+  Urban planners and city governments who address UHI through green infrastructure
+  and cool pavements rarely connect to the SEB physics that explains why these
+  interventions work quantitatively. Atmospheric physicists who model urban energy
+  balance publish in boundary-layer meteorology journals with limited reach to
+  urban planning and public health communities who need the results.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1175/1520-0450(1982)021<1553:SSBUFB>2.0.CO;2"
+    note: "Oke (1982) The energetic basis of the urban heat island. Q J Roy Meteorol Soc 108:1"
+  - doi: "10.1002/joc.1813"
+    note: "Stewart & Oke (2012) Local climate zones for urban ecosystem studies. Bull Am Meteorol Soc 93:1879"
+  - doi: "10.1175/BAMS-D-12-00013.1"
+    note: "Grimmond et al. (2010) The international urban energy balance models comparison project. J Appl Meteorol"

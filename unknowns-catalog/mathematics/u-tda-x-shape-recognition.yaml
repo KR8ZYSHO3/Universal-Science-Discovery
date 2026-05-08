@@ -1,0 +1,25 @@
+id: u-tda-x-shape-recognition
+title: Can persistent homology provide a computationally tractable and statistically powerful shape fingerprint for 3D molecular structures that outperforms graph-based molecular descriptors for drug-target binding affinity prediction, and what is the optimal filtration for biochemical data?
+status: open
+priority: high
+disciplines:
+  - mathematics
+  - computer_science
+  - chemistry
+  - biology
+summary: >
+  Persistent homology provides provably stable shape fingerprints via persistence diagrams,
+  but its application to drug discovery faces challenges: (1) the optimal filtration
+  (Vietoris-Rips, alpha complex, Čech, weighted Rips with atomic radii) for biological
+  molecules is not established; (2) the statistical properties of persistence diagram
+  estimators (bias, variance) under molecular conformation sampling are not characterized;
+  (3) whether TDA features add predictive power beyond graph neural networks (which
+  encode 3D molecular geometry) for binding affinity prediction is unclear from existing
+  benchmarks which lack proper train/test splits.
+systematic_gaps:
+  - No systematic comparison of filtration choices (with atom-type weighting vs. distance-only) for protein-ligand binding prediction
+  - Persistence diagram vectorization methods (persistence landscape, silhouette, image) have not been compared on a large diverse drug dataset
+  - Computational scaling of persistent homology for proteins > 1000 atoms is cubic; no linear-time approximation preserves stability theorem guarantees
+related_bridges:
+  - b-tda-x-shape-recognition
+last_reviewed: "2026-05-07"

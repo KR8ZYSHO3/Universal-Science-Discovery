@@ -1,0 +1,58 @@
+id: b-extreme-value-theory-x-risk-modeling
+title: >
+  Extreme Value Theory x Risk Modeling — Gumbel distribution as tail statistics
+status: proposed
+fields:
+  - mathematics
+  - economics
+  - statistics
+bridge_claim: >
+  Extreme value theory (Fisher-Tippett-Gnedenko theorem) proves that maxima of iid
+  random variables converge to one of three distributions (Gumbel, Fréchet, Weibull)
+  regardless of the underlying distribution; this universality underpins all financial
+  VaR models, flood risk assessment, and structural failure analysis.
+translation_table:
+  - field_a_term: Generalized extreme value (GEV) distribution
+    field_b_term: Limiting distribution of block maxima
+    note: >
+      The GEV unifies Gumbel (ξ=0), Fréchet (ξ>0), and Weibull (ξ<0) distributions;
+      the shape parameter ξ (tail index) determines whether the tail is light, heavy,
+      or bounded.
+  - field_a_term: Fréchet domain of attraction (heavy tails)
+    field_b_term: Power-law tail in financial returns
+    note: >
+      Stock returns with power-law tails (Pareto-like) lie in the Fréchet domain,
+      implying infinite variance for ξ > 0.5; this invalidates Gaussian VaR models
+      for assets with fat-tailed return distributions.
+  - field_a_term: Return period T for extreme events
+    field_b_term: Value at Risk (VaR) at confidence level 1-1/T
+    note: >
+      A 100-year flood corresponds to the 99th percentile of annual maxima; VaR at
+      99% is the 1-year return level — direct mapping between hydrology and finance.
+  - field_a_term: Generalized Pareto distribution (GPD) for exceedances
+    field_b_term: Peaks-over-threshold model for tail risk
+    note: >
+      The Pickands-Balkema-de Haan theorem shows that exceedances above a high
+      threshold converge to GPD; this enables efficient tail estimation using
+      fewer data points than block maxima methods.
+communication_gap: >
+  EVT was developed by statisticians and engineers for infrastructure design (flood
+  levees, wind loads) decades before finance adopted VaR in the 1990s; regulatory
+  capital requirements (Basel III) incorporate EVT through Expected Shortfall but
+  many practitioners remain unaware of the full mathematical foundation.
+cross_pollination_opportunities:
+  - >
+    Apply EVT spectral measures (Pickands dependence function) to multivariate tail
+    risk in portfolio theory, capturing tail dependence beyond copula models.
+  - >
+    Import hydrology's regional frequency analysis (pooling extreme flood records)
+    to improve tail estimation for rare financial crises with limited historical data.
+  - >
+    Use EVT for operational risk modeling in AI systems: rare adversarial inputs
+    follow heavy-tailed distributions analogous to structural load extremes.
+related_unknowns:
+  - u-extreme-value-theory-x-risk-modeling
+references:
+  - doi: "10.1017/CBO9780511870156"
+    note: "Coles (2001) — An Introduction to Statistical Modeling of Extreme Values; Cambridge University Press"
+last_reviewed: "2026-05-07"

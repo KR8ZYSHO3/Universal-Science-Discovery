@@ -1,0 +1,54 @@
+id: b-qkd-information-theoretic-security
+title: >
+  Quantum key distribution achieves information-theoretic security (unconditional
+  security independent of adversary computing power) by exploiting quantum measurement
+  disturbance, bridging quantum computing and cryptography through the quantum
+  no-cloning theorem and Shannon's one-time pad.
+status: established
+fields:
+  - quantum-computing
+  - cryptography
+  - information-theory
+bridge_claim: >
+  BB84 quantum key distribution achieves information-theoretic security (proven
+  secure against computationally unbounded adversaries) because any eavesdropping
+  measurement on quantum states introduces detectable disturbance by the quantum
+  no-cloning theorem; the resulting secure key rate r_key = H(X|E) >= 1 - h(QBER)
+  (where H(X|E) is conditional entropy of key given eavesdropper information and
+  h is binary entropy) maps quantum channel fidelity to Shannon information-theoretic
+  security, combining quantum mechanics with Shannon's proof that the one-time pad
+  achieves perfect secrecy.
+translation_table:
+  - field_a_term: quantum channel QBER (quantum error rate) (quantum computing)
+    field_b_term: mutual information I(X;E) between key and eavesdropper (information theory)
+    note: Higher QBER increases eavesdropper information; security requires QBER < 11% for BB84
+  - field_a_term: quantum no-cloning theorem (quantum physics)
+    field_b_term: lower bound on disturbance from any measurement (cryptography)
+    note: No-cloning prevents copying quantum states; any measurement disturbs the state detectably
+  - field_a_term: privacy amplification (QKD protocol)
+    field_b_term: information-theoretic hashing to reduce eavesdropper information (cryptography)
+    note: Universal hash families extract a shorter key with negligible eavesdropper information
+  - field_a_term: BB84 protocol / E91 entanglement-based QKD (quantum computing)
+    field_b_term: key agreement with information-theoretic security (cryptography)
+    note: Both achieve Shannon-secure key distribution; E91 security proven via violation of Bell inequalities
+related_unknowns:
+  - u-qkd-practical-implementation-side-channels
+related_hypotheses:
+  - h-qkd-satellite-global-scale-feasibility
+cross_pollination_opportunities:
+  - Developing post-quantum classical cryptography (lattice-based) alongside QKD as complementary layers of security
+  - Applying device-independent QKD (security from Bell test violations) to eliminate side-channel vulnerabilities in practical implementations
+communication_gap: >
+  Quantum information researchers develop QKD protocols and security proofs while
+  cryptographers develop classical security models; the transition from information-theoretic
+  security proofs to practical QKD implementations (accounting for side channels,
+  finite key effects, device imperfections) requires expertise in both fields that
+  is rarely combined.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1007/BF00191318"
+    note: Bennett & Brassard (1984/2014) - quantum cryptography, public key distribution and coin tossing
+  - doi: "10.1103/RevModPhys.74.145"
+    note: Gisin et al. (2002) - quantum cryptography review; information-theoretic security proofs
+  - doi: "10.1126/science.abb0525"
+    note: Chen et al. (2021) - twin-field QKD over 511 km of optical fiber

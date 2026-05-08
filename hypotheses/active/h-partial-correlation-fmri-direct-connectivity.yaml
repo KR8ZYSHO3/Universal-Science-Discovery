@@ -1,0 +1,36 @@
+id: h-partial-correlation-fmri-direct-connectivity
+title: "Partial correlations estimated by graphical lasso from resting-state fMRI are more accurate indicators of direct structural connectivity than full correlations, with optimal regularization parameter λ determined by cross-validation against diffusion tractography rather than statistical criteria, and graph Laplacian regularization outperforms standard graphical lasso for brain network topology"
+status: active
+priority: high
+impact_score: 0.72
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - doi: "10.1016/j.neuroimage.2013.04.038"
+    type: supporting
+    confidence: 0.65
+    note: "Smith et al. (2013) - comparison of functional connectivity methods against known ground truth"
+  - doi: "10.1093/biostatistics/kxm045"
+    type: related
+    confidence: 0.75
+    note: "Friedman et al. (2008) - graphical lasso; precision matrix estimation"
+  - type: contradicting
+    note: "Friston (2011) - functional and effective connectivity: direct comparison shows full correlation often more reproducible"
+
+unknowns_addressed:
+  - u-fmri-connectivity-graphical-model-validity
+
+proposed_tests:
+  - description: >
+      In the HCP dataset, compare functional connectivity estimated by: (1) full correlation, (2) graphical
+      lasso (λ by BIC), (3) graphical lasso (λ by DTI cross-validation), (4) graph-regularized precision
+      matrix. Validate against known structural connectivity from multi-shell DWI tractography in N=200 subjects.
+    method: "GLASSO optimization in R + comparison to probabilistic tractography edges using ROC analysis"
+    prediction: "DTI-calibrated graphical lasso should achieve AUROC > 0.75 for structural edge detection vs ~0.65 for full correlation"
+
+related_disciplines:
+  - neuroscience
+  - statistics
+  - mathematics

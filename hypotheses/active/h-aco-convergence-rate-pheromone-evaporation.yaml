@@ -1,0 +1,27 @@
+id: h-aco-convergence-rate-pheromone-evaporation
+title: "ACO convergence rate to the TSP optimal tour scales as O(n^2 / rho) where rho is the evaporation rate, predicting that low evaporation rates converge faster on structured instances but slower on random ones"
+status: active
+priority: medium
+impact_score: 0.62
+created: "2026-05-07"
+last_updated: "2026-05-07"
+related_disciplines:
+  - computer-science
+  - biology
+unknowns_addressed:
+  - u-ant-colony-optimization-convergence-rate
+evidence_links:
+  - doi: "10.1613/jair.1177"
+    type: supporting
+    confidence: 0.60
+    note: "Dorigo & Gambardella (1997) - empirical convergence on TSP benchmark instances"
+  - doi: "10.1007/s10472-006-9014-0"
+    type: related
+    confidence: 0.55
+    note: "Neumann & Witt (2006) - runtime analysis of ACO for shortest path problems"
+proposed_tests:
+  - description: >
+      Run MAX-MIN Ant System on 100 random TSP instances of sizes n = 50, 100, 200, 500
+      with rho = 0.02, 0.05, 0.1, 0.2. Measure iterations to < 2% of optimal tour length.
+      Fit convergence iterations ~ n^alpha / rho^beta. Prediction: alpha ~ 2, beta ~ 1
+      for structured (clustered) instances; beta > 1 for random uniform instances.

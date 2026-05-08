@@ -1,0 +1,59 @@
+id: b-quantum-dot-blinking-renewal-process
+title: >
+  Quantum dot fluorescence intermittency (blinking) obeys power-law on-time
+  and off-time distributions that follow a renewal process with Levy-stable
+  statistics, connecting single-particle quantum physics to renewal theory
+  and anomalous diffusion through the universal power-law trap model.
+status: established
+fields:
+  - quantum-physics
+  - statistics
+bridge_claim: >
+  Individual CdSe quantum dots exhibit binary fluorescence switching between
+  bright (on) and dark (off) states. Empirically, P(t_on) ~ t^{-alpha} and
+  P(t_off) ~ t^{-beta} with alpha, beta in (1, 2), meaning mean on/off times
+  diverge - a hallmark of Levy-stable statistics and anomalous renewal processes.
+  The renewal-process framework (Cox 1962) describes blinking as a sequence
+  of waiting times drawn from heavy-tailed distributions; the power-law exponents
+  are reproducible across QD size and composition. Statistically, this produces
+  ergodicity breaking: time-averaged fluorescence differs from ensemble average,
+  so blinking QDs violate standard fluorescence correlation spectroscopy assumptions.
+  The trap model (electrons trapped in surface states with a distribution of
+  barrier heights E_b uniformly distributed leading to P(t) ~ e^{-t/tau_0}) 
+  provides the physical mechanism for the power law. Statistics provides the
+  framework for anomalous transport; quantum physics provides the mechanism.
+translation_table:
+  - field_a_term: Levy-stable waiting time distribution (statistics)
+    field_b_term: power-law on/off time distribution in QD blinking (quantum physics)
+    note: P(t) ~ t^{-alpha} with 1 < alpha < 2; mean waiting time diverges
+  - field_a_term: renewal process (statistics)
+    field_b_term: sequence of on/off switching events in a single QD (quantum physics)
+    note: Each blinking event is an inter-renewal interval; process lacks characteristic timescale
+  - field_a_term: ergodicity breaking (statistics)
+    field_b_term: non-ergodic fluorescence time traces (quantum physics)
+    note: Time-average photon count converges to ensemble average only for measurement times >> mean trap time
+  - field_a_term: anomalous diffusion exponent (statistics)
+    field_b_term: power-law exponent of trap depth distribution (quantum physics)
+    note: Exponential distribution of trap barriers E_b ~ Uniform generates power-law waiting times
+communication_gap: >
+  Quantum dot experimentalists fit power laws to blinking data without engaging
+  with the mathematical machinery of renewal theory and Levy processes; statisticians
+  studying anomalous renewal processes have not systematically used QD blinking
+  as a model system to test analytical predictions.
+cross_pollination_opportunities:
+  - Apply Levy renewal theory to test whether QD blinking exponents are universal
+    across materials (CdSe, InP, perovskite) or depend on surface chemistry
+  - Use ergodicity-breaking analysis (Bel & Barkai 2005) to correct single-molecule
+    FRET experiments that use QDs as labels
+  - Transfer power-law trap models from QD blinking to anomalous diffusion in
+    disordered materials (glasses, porous media)
+related_unknowns:
+  - u-quantum-dot-blinking-power-law-mechanism
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1038/376144a0"
+    note: Nirmal et al. (1996) - fluorescence intermittency in single cadmium selenide nanocrystals
+  - doi: "10.1038/35098009"
+    note: Kuno et al. (2001) - nonexponential blinking kinetics of single CdSe quantum dots
+  - doi: "10.1103/PhysRevLett.94.240602"
+    note: Bel & Barkai (2005) - weak ergodicity breaking in the continuous time random walk

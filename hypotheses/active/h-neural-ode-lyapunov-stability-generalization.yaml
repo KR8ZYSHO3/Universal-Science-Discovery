@@ -1,0 +1,40 @@
+id: h-neural-ode-lyapunov-stability-generalization
+title: >
+  Neural ODEs with Lyapunov-stable vector fields generalize better than unstable ones,
+  and adversarial examples correspond to initial conditions near Lyapunov function
+  saddle points
+status: active
+priority: medium
+impact_score: 0.74
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: wave-63-agent
+unknowns_addressed:
+  - u-neural-ode-x-dynamical-systems
+related_disciplines:
+  - computer_science
+  - mathematics
+  - dynamical_systems
+  - machine_learning
+evidence_links:
+  - type: supporting
+    doi: "10.48550/arXiv.1806.07366"
+    note: "Chen et al. (2018) - Neural ODEs; implicit continuous-depth regularization via adjoint sensitivity method"
+    confidence: 0.80
+  - type: related
+    note: "Galimberti et al. (2021) - Stable Neural Flows; stability constraints on Neural ODE vector fields improve robustness"
+    confidence: 0.73
+proposed_tests:
+  - description: >
+      Train Neural ODEs on CIFAR-10 with and without Lyapunov stability regularization
+      (penalizing positive Jacobian eigenvalues of the vector field); compare
+      test accuracy, adversarial robustness (PGD-20), and OOD generalization
+      (CIFAR-10-C) between stable and unstable trained models.
+    method: "PyTorch Neural ODE implementation (torchdiffeq); Lyapunov regularization via spectral norm constraint; adversarial evaluation with AutoAttack"
+    prediction: "Stable Neural ODEs achieve >5% improvement in adversarial accuracy and >3% OOD accuracy vs. unconstrained baseline at same clean accuracy"
+  - description: >
+      Map the Lyapunov function landscape of a trained Neural ODE classifier and
+      identify saddle points; test whether adversarial examples are concentrated
+      near saddle points of the learned Lyapunov function vs. random perturbations.
+    method: "Compute Lyapunov function V(x) via SOS programming on Neural ODE vector field; identify saddle points; measure proximity of adversarial examples to saddles"
+    prediction: ">80% of successful PGD adversarial examples are within 2x Lyapunov norm of the nearest saddle point vs. <20% for random examples"

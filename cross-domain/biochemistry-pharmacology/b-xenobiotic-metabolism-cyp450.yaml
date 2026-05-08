@@ -1,0 +1,35 @@
+id: b-xenobiotic-metabolism-cyp450
+title: "Xenobiotic metabolism by cytochrome P450 enzymes follows Michaelis-Menten saturable kinetics v = V_max*[S]/(K_m + [S]) where each CYP isoform (CYP3A4, CYP2D6, CYP2C9) has distinct substrate specificity encoded in the active site topology, and competitive inhibition between co-administered drugs follows the Dixon equation for competitive inhibition, providing a biochemical kinetics framework for predicting drug-drug interactions"
+fields:
+  - pharmacology
+  - biochemistry
+  - chemistry
+bridge_claim: "CYP450-mediated drug metabolism maps directly onto Michaelis-Menten enzyme kinetics: the metabolic rate v = V_max*[S]/(K_m + [S]) for each CYP isoform, with K_m reflecting drug-enzyme binding affinity and V_max = k_cat*[E_total] depending on enzyme expression level; competitive inhibition by a second drug yields v = V_max*[S]/(K_m*(1 + [I]/K_i) + [S]), predicting AUC increase = 1/(1 - fm*E_h) where fm is the fraction metabolized by the inhibited pathway; this biochemical framework quantitatively predicts pharmacokinetic drug-drug interactions."
+translation_table:
+  - field_a_term: "CYP450 isoform substrate metabolic rate (pharmacology)"
+    field_b_term: "Michaelis-Menten enzyme velocity v = Vmax[S]/(Km+[S]) (biochemistry)"
+    note: "Each CYP isoform has its own K_m and V_max for each substrate; measured by in vitro microsomal incubation"
+  - field_a_term: "drug-drug interaction via CYP3A4 inhibition (pharmacology)"
+    field_b_term: "competitive enzyme inhibition altering apparent K_m (biochemistry)"
+    note: "Inhibitor raises apparent K_m by factor (1 + [I]/K_i) without changing V_max; increases AUC of victim drug"
+  - field_a_term: "CYP2D6 poor metabolizer phenotype (pharmacology)"
+    field_b_term: "loss-of-function allele reducing k_cat and E_total (biochemistry)"
+    note: "Polymorphic CYP2D6 reduces V_max proportionally to functional allele copies; causes standard dosing toxicity"
+  - field_a_term: "CYP3A4 induction by rifampicin (pharmacology)"
+    field_b_term: "transcriptional upregulation increasing [E_total] and V_max (biochemistry)"
+    note: "PXR nuclear receptor activation by rifampicin upregulates CYP3A4 expression, reducing drug AUC by >10-fold"
+status: established
+communication_gap: "Pharmacologists study drug-drug interactions from clinical observations and population PK studies while biochemists characterize enzyme kinetics in purified systems; translating in vitro CYP kinetic data (K_m, K_i) to quantitative in vivo interaction predictions requires understanding the allometric scaling of hepatic blood flow and microsomal protein binding that bridges enzymology to clinical pharmacokinetics."
+cross_pollination_opportunities:
+  - "Using machine learning trained on CYP crystal structures to predict K_m and K_i from drug chemical structure, enabling in silico drug-drug interaction screening before clinical trials"
+  - "Applying Michaelis-Menten kinetic models to patient CYP genotype data to personalize dosing for drugs with high interindividual CYP variability (warfarin, clopidogrel, codeine)"
+references:
+  - doi: "10.1124/dmd.108.020198"
+    note: "Guengerich (2008) - cytochrome P450 enzymes and drug metabolism"
+  - doi: "10.1002/cpt.1"
+    note: "Rowland Yeo et al. (2013) - prediction of drug-drug interactions from in vitro CYP data"
+  - doi: "10.1038/nrd1666"
+    note: "Rendic & Di Carlo (1997) - human cytochrome P450 enzymes: review of metabolizing activities"
+related_unknowns:
+  - u-cyp450-xenobiotic-metabolic-prediction
+last_reviewed: "2026-05-07"

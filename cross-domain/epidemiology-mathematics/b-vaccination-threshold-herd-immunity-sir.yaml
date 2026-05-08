@@ -1,0 +1,56 @@
+id: b-vaccination-threshold-herd-immunity-sir
+title: >
+  The vaccination threshold for herd immunity is derived analytically from the
+  SIR mathematical model: the critical vaccination fraction p_c = 1 - 1/R₀ ensures
+  the effective reproduction number R_eff < 1, so that epidemic invasion fails when
+  a sufficient fraction of the population is immune.
+status: established
+fields:
+  - epidemiology
+  - mathematical-biology
+  - public-health
+bridge_claim: >
+  The SIR model gives dI/dt = βSI - γI = γI(R₀·S/N - 1), so the epidemic grows
+  (dI/dt > 0) only when S/N > 1/R₀. If a fraction p of the population is vaccinated
+  (assumed perfectly, pre-epidemic), then initial susceptible fraction s₀ = 1 - p.
+  The epidemic fails to invade when s₀ < 1/R₀, yielding the herd immunity threshold:
+  p_c = 1 - 1/R₀. For measles (R₀ ≈ 12-18), p_c ≈ 92-95%; for COVID-19 original
+  strain (R₀ ≈ 2.5-3), p_c ≈ 60-67%; for Omicron (R₀ ≈ 8-15), p_c ≈ 87-93%.
+  The final epidemic size in an unvaccinated population satisfies
+  1 - e^{-R₀·z} = z (implicit equation), derived by integrating the SIR flow.
+  This clean mathematical result from ordinary differential equations is the primary
+  quantitative bridge between mathematical biology and public health policy.
+translation_table:
+  - field_a_term: herd immunity threshold (epidemiology)
+    field_b_term: epidemic extinction condition s₀ < 1/R₀ (mathematical biology)
+    note: Same concept; the threshold is derived analytically from invasion criterion
+  - field_a_term: basic reproduction number R₀ (epidemiology)
+    field_b_term: spectral radius of next-generation matrix (mathematical biology)
+    note: R₀ is the dominant eigenvalue of the NGM; herd immunity threshold follows directly
+  - field_a_term: vaccine coverage fraction p (epidemiology)
+    field_b_term: initial removed fraction in SIR model (mathematical biology)
+    note: Vaccinated individuals start in the R compartment, reducing effective S₀
+  - field_a_term: outbreak extinction (epidemiology)
+    field_b_term: dI/dt < 0 at t=0 (mathematical biology)
+    note: Epidemic fails to grow if initial effective reproduction number R_eff = R₀·s₀ < 1
+related_unknowns:
+  - u-herd-immunity-heterogeneous-populations-network-structure
+related_hypotheses:
+  - h-superspreader-driven-epidemics-lower-herd-immunity-threshold
+cross_pollination_opportunities:
+  - Extending the SIR threshold to network-structured populations where k²/k is the key quantity (replacing R₀ in heterogeneous mixing models)
+  - Applying optimal control theory to vaccination campaigns to minimize disease burden subject to supply constraints
+communication_gap: >
+  The SIR-derived herd immunity threshold has been public health policy guidance
+  since Kermack-McKendrick (1927), but translating the mathematical assumptions
+  (homogeneous mixing, perfect immunity, fixed R₀) to real policy contexts remains
+  challenging; network epidemiology and vaccine waning models complicate the clean
+  1-1/R₀ formula, and the communication gap between modelers and policymakers is significant.
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1098/rspa.1927.0118"
+    note: Kermack & McKendrick (1927) - contribution to mathematical theory of epidemics (original SIR)
+  - doi: "10.1093/aje/kwm088"
+    note: Fine et al. (2011) - herd immunity — a rough guide
+  - doi: "10.1098/rsif.2010.0686"
+    note: Diekmann et al. (2010) - construction of next-generation matrices for compartmental epidemic models

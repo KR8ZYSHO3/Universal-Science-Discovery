@@ -1,0 +1,37 @@
+id: b-soft-robotics-hyperelastic-continuum
+title: >
+  Soft robotic actuators made from elastomeric materials are modeled as nonlinear hyperelastic continua using stored-energy functions (neo-Hookean, Mooney-Rivlin), enabling predictive finite-element simulation of large-deformation actuation and inverse design of pneumatic artificial muscles
+status: proposed
+fields:
+  - engineering
+  - mechanics
+bridge_claim: >
+  Soft robots deform through large elastic strains (>100%) that violate small-strain linear elasticity assumptions; hyperelastic continuum mechanics with stored-energy functions W(F) (e.g., W_neo-Hookean = C1(I1-3) for incompressible rubber) accurately models their stress-strain behavior and enables FEM-based design of pneumatic actuators, dielectric elastomers, and fiber-reinforced muscles, directly bridging robotics engineering (actuator design, trajectory planning) with nonlinear continuum mechanics (constitutive modeling, large deformation theory).
+translation_table:
+  - field_a_term: "soft actuator bending angle vs. pressure curve (engineering)"
+    field_b_term: "deformation-load relationship from hyperelastic FEM simulation (mechanics)"
+    note: "Actuator bending is predicted by integrating the hyperelastic constitutive law under applied pneumatic pressure boundary conditions"
+  - field_a_term: "elastomeric body material (engineering)"
+    field_b_term: "incompressible hyperelastic material with neo-Hookean stored energy W = C1(I1-3) (mechanics)"
+    note: "Silicone (Ecoflex, Dragon Skin) is well-described by neo-Hookean or Mooney-Rivlin models up to ~400% strain"
+  - field_a_term: "fiber reinforcement direction in soft actuator (engineering)"
+    field_b_term: "anisotropic fiber stress in hyperelastic composite model (mechanics)"
+    note: "Fiber angle determines actuation mode: helical fibers produce extension, circumferential fibers produce radial inflation"
+  - field_a_term: "grasping task specification (engineering)"
+    field_b_term: "inverse kinetostatics problem in nonlinear continuum mechanics (mechanics)"
+    note: "Designing a gripper shape requires solving the inverse problem: what geometry produces the desired contact force?"
+communication_gap: >
+  Robotics engineers design soft actuators empirically using trial-and-error fabrication while continuum mechanicists develop constitutive models for rubber and gels; systematic application of hyperelastic FEM as the primary design tool for soft robots is not yet standard practice in the robotics community.
+cross_pollination_opportunities:
+  - "Embedding differentiable FEM simulations of hyperelastic actuators into reinforcement learning loops to automatically design soft robots for manipulation tasks"
+  - "Using digital image correlation to measure full-field strain in soft actuators during operation and validating against neo-Hookean FEM predictions"
+references:
+  - doi: "10.1126/scirobotics.aao1893"
+    note: "Rus & Tolley (2015) - design, fabrication and control of soft robots"
+  - doi: "10.1002/adma.201702673"
+    note: "Mao et al. (2017) - soft electromagnetic actuators"
+related_unknowns:
+  - u-soft-robotics-hyperelastic-inverse-design
+related_hypotheses:
+  - h-neo-hookean-model-predicts-soft-actuator-90pct
+last_reviewed: "2026-05-07"

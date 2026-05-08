@@ -1,0 +1,33 @@
+id: h-frailty-model-mortality-deceleration-test
+title: "A shared frailty survival model with gamma-distributed random effects fitted to the Swedish twin cohort will produce a frailty variance estimate sigma^2 ~ 0.3–0.6 and will accurately predict the late-life mortality deceleration (plateau above age 100) observed in the cohort without requiring a non-monotonic baseline hazard, demonstrating that demographic selection alone explains the mortality plateau"
+status: active
+priority: high
+impact_score: 0.73
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+evidence_links:
+  - doi: "10.2307/2061343"
+    type: supporting
+    confidence: 0.75
+    note: "Vaupel et al. (1979) — frailty model predicts late-life deceleration; foundational theoretical support"
+  - type: supporting
+    note: "Kannisto (1994) — mortality plateau above age 100 in developed countries; empirical target"
+    confidence: 0.80
+  - doi: "10.1093/biomet/73.1.13"
+    type: related
+    confidence: 0.65
+    note: "Clayton (1978) — shared frailty model for twin data"
+unknowns_addressed:
+  - u-frailty-model-biological-age-calibration
+proposed_tests:
+  - description: >
+      Fit a Cox proportional hazards model with shared gamma frailty to Swedish twin cohort mortality
+      data (MTR dataset, twins aged 50+). Estimate sigma^2. Predict marginal mortality hazard h_bar(t)
+      using the Vaupel formula and compare to observed mortality rates at ages 95–110 in the same cohort.
+    method: "Shared frailty Cox model (coxme R package) + predicted vs. observed mortality at ages 95-110"
+    prediction: "sigma^2 estimate = 0.3-0.6; h_bar(t) from frailty model matches observed plateau to within 15% without post-hoc correction"
+related_disciplines:
+  - public-health
+  - statistics
+  - epidemiology

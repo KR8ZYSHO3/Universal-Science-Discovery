@@ -1,0 +1,38 @@
+id: b-legal-argumentation-formal-logic
+title: "Legal reasoning can be formalized as abstract argumentation frameworks where arguments and their defeat relations determine the set of legally justified conclusions via extension semantics"
+fields:
+  - computer-science
+  - mathematics
+
+bridge_claim: "Dung's abstract argumentation framework AF = (AR, attacks) maps legal arguments to nodes and legal rebuttals/undercutters to directed edges, with grounded, preferred, and stable extension semantics providing formal definitions of which legal conclusions are justified, contested, or defeated under different standards of proof."
+translation_table:
+  - field_a_term: "legal argument (claim with supporting reasons)"
+    field_b_term: "node in Dung's argumentation framework"
+    note: "Arguments are abstract; their internal structure (ASPIC+, Carneades) can be separately formalized"
+  - field_a_term: "legal rebuttal or undercutter"
+    field_b_term: "directed attack edge A -> B in (AR, attacks)"
+    note: "A attacks B means A, if accepted, defeats B; rebuttal attacks conclusion, undercutter attacks inference rule"
+  - field_a_term: "legal justification under preponderance of evidence"
+    field_b_term: "grounded extension: the unique minimal complete extension"
+    note: "Grounded extension is skeptical: only accept what cannot be defeated; maps to beyond-reasonable-doubt standard"
+  - field_a_term: "legal justification under balance of probabilities"
+    field_b_term: "preferred extension: maximal admissible set"
+    note: "Preferred extensions are credulous: accept as much as possible without inconsistency"
+  - field_a_term: "burden of proof allocation"
+    field_b_term: "asymmetric attack strength or priority ordering on arguments"
+    note: "ASPIC+ formalizes burden allocation through argument ordering; rebuttals only succeed against equal or weaker arguments"
+status: proposed
+communication_gap: "Legal scholars analyze arguments qualitatively using doctrine while computer scientists develop formal argumentation systems; the operationalization of legal concepts (burden of proof, standards of evidence) into formal semantics remains contested between the two communities."
+cross_pollination_opportunities:
+  - "Automated legal argument mining from case text using NLP to populate argumentation frameworks, enabling computational analysis of case law consistency"
+  - "Using formal argumentation semantics to detect circular reasoning or inconsistency in legislative drafting before enactment"
+references:
+  - doi: "10.1016/0004-3702(95)00021-9"
+    note: "Dung (1995) - On the acceptability of arguments: foundational paper on abstract argumentation"
+  - doi: "10.1007/s10506-006-9036-x"
+    note: "Prakken & Sartor (2006) - law and logic: a review from an argumentation perspective"
+  - doi: "10.1016/j.artint.2010.11.009"
+    note: "Modgil & Prakken (2012) - ASPIC+ framework for structured argumentation"
+related_unknowns:
+  - u-legal-argumentation-formal-completeness
+last_reviewed: "2026-05-07"

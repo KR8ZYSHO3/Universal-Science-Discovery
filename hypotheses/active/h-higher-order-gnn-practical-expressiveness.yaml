@@ -1,0 +1,35 @@
+id: h-higher-order-gnn-practical-expressiveness
+title: >
+  Ring-counting subgraph GNNs that explicitly enumerate cycles up to length 6
+  capture the expressiveness needed for molecular property prediction beyond
+  1-WL, achieving the accuracy of 3-WL while scaling linearly in graph size
+  due to the bounded ring count in drug-like molecules.
+status: active
+priority: medium
+impact_score: 0.67
+created: "2026-05-07"
+last_updated: "2026-05-07"
+related_disciplines:
+  - machine-learning
+  - combinatorics
+  - chemistry
+unknowns_addressed:
+  - u-gnn-expressiveness-beyond-wl
+evidence_links:
+  - doi: "10.48550/arXiv.1810.00826"
+    type: supporting
+    confidence: 0.75
+    note: >
+      Xu et al. (2019) establish 1-WL bound; show GIN achieves it with sum aggregation.
+      Ring structures (cycles) are among the graph motifs 1-WL cannot count.
+  - doi: "10.48550/arXiv.2110.13798"
+    type: supporting
+    confidence: 0.68
+    note: >
+      Zhao et al. (2022) subgraph GNNs with node marking outperform 1-WL on molecular
+      benchmarks; ring counts are key discriminating features for drug property prediction.
+proposed_tests:
+  - description: >
+      Compare ring-aware GNN (explicitly encoding SSSR up to size 6) against standard
+      GIN and 3-IGNN on QM9 molecular property prediction benchmark; test whether
+      ring-counting closes >80% of the performance gap to 3-WL at <5x inference cost.

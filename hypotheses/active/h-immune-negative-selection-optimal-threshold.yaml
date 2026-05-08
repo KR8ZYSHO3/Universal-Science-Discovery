@@ -1,0 +1,45 @@
+id: h-immune-negative-selection-optimal-threshold
+title: >
+  Thymic negative selection sets the self/non-self decision boundary at the
+  information-theoretically optimal threshold that maximizes pathogen detection
+  while minimizing autoimmune probability under evolutionary constraints
+status: active
+priority: medium
+impact_score: 0.74
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: wave-62-agent
+unknowns_addressed:
+  - u-immune-system-x-anomaly-detection
+related_disciplines:
+  - biology
+  - computer_science
+  - immunology
+  - machine_learning
+evidence_links:
+  - type: supporting
+    doi: "10.1162/neco.1994.6.6.1064"
+    note: "Forrest et al. (1994) - Negative selection algorithm; self/non-self discrimination as one-class classification"
+    confidence: 0.80
+  - type: related
+    note: "Matzinger (1994) - Tolerance, danger, and the extended family; danger model proposes context-dependent threshold"
+    confidence: 0.68
+  - type: supporting
+    note: "Segel & Cohen (2001) - Design principles for the immune system; optimal detector density analysis"
+    confidence: 0.72
+proposed_tests:
+  - description: >
+      Model the thymic selection process as a Neyman-Pearson classification problem
+      where the decision threshold (affinity cutoff for negative selection) is
+      optimized to minimize autoimmune risk while maximizing pathogen detection
+      coverage; predict the optimal affinity threshold as a function of self-antigen
+      diversity (MHC polymorphism) and compare to observed thresholds.
+    method: "Computational model of TCR repertoire diversity post-selection; information-theoretic analysis of detection coverage vs. autoimmunity rate"
+    prediction: "Optimal threshold minimizes F1-loss at affinity ~ 10^-7 M Kd, matching observed positive selection affinity window"
+  - description: >
+      Test whether somatic hypermutation in B-cells implements Bayesian updating
+      of antigen recognition by measuring the mutual information between successive
+      affinity maturation rounds in germinal centers and the change in antigen-antibody
+      binding affinity.
+    method: "Single-cell sequencing of germinal center B-cells at multiple timepoints; compute binding affinity from sequence + ML predictor; MI analysis"
+    prediction: "Mutual information between successive SHM rounds and affinity improvement is maximized by the observed mutation rate, not higher or lower rates"

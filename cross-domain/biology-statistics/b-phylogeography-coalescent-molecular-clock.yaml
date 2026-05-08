@@ -1,0 +1,54 @@
+id: b-phylogeography-coalescent-molecular-clock
+title: >
+  Phylogeography uses the coalescent theory from population genetics as a backward-
+  time statistical model to date past population splits and migrations from present-day
+  DNA sequences, with the molecular clock assumption providing the rate calibration
+  that transforms branch lengths in mutations per site into years — making
+  evolutionary biology a direct application of stochastic process theory.
+status: proposed
+fields:
+  - evolutionary-biology
+  - statistics
+  - genetics
+  - phylogenetics
+bridge_claim: >
+  The coalescent (Kingman 1982) describes how a sample of gene copies traces back
+  to a common ancestor, with coalescence events occurring at rate C(k,2)/N_e for
+  k gene copies in a population of effective size N_e. This backward-time Markov
+  chain provides a probabilistic model for the genealogy of any sample of sequences.
+  Combined with a molecular clock (mutation rate mu per site per year), the
+  coalescent gives a full generative model for phylogeographic data: the probability
+  of observing a DNA dataset given a demographic history (bottlenecks, expansions,
+  migrations, isolation). Bayesian phylogeography (BEAST, StarBEAST) inverts this
+  model using MCMC to infer posterior distributions over population histories from
+  sequence data. This is a direct application of Bayesian inverse problems to
+  evolutionary history reconstruction — the same machinery used in seismic tomography,
+  cosmological parameter estimation, and climate reconstruction. The bridge transfers
+  statistical methods (MCMC, Bayesian model selection, hierarchical models) between
+  these fields and makes phylogeographic inference quantitatively comparable with
+  the precision of physical inverse problems.
+translation_table:
+  - field_a_term: coalescent rate C(k,2)/N_e
+    field_b_term: probability of two gene copies sharing a common ancestor in this generation
+    note: Sets the timescale for genealogical merging — inversely proportional to population size
+  - field_a_term: molecular clock mu (mutations per site per year)
+    field_b_term: rate calibration for converting genetic distance to time
+    note: Estimated from fossil-calibrated internal nodes or known external events
+  - field_a_term: MCMC posterior over demographic history
+    field_b_term: Bayesian reconstruction of ancestral population size changes
+    note: Bayesian skyline plot (Drummond et al.) — N_e(t) inferred from sequence data
+  - field_a_term: effective population size N_e
+    field_b_term: genetically inferred population size (may differ from census size)
+    note: N_e integrates over variance in reproductive success and demographic fluctuations
+cross_pollination_opportunities:
+  - Apply information-theoretic model selection to compare coalescent demographic models (constant, exponential, bottleneck) for pathogen outbreak dating
+  - Transfer Gaussian process prior methods from spatial statistics to non-parametric Bayesian skyline analysis of N_e(t)
+  - Use phylogeographic coalescent models to test epidemiological hypotheses about the timing and geographic origin of emerging infectious diseases
+last_reviewed: "2026-05-07"
+references:
+  - doi: 10.1093/genetics/105.3.767
+    note: Kingman (1982) — the coalescent; foundational paper for genealogical stochastic process theory
+  - doi: 10.1093/molbev/msp195
+    note: Drummond et al. (2005) — Bayesian coalescent inference of past population dynamics from molecular sequences
+  - doi: 10.1371/journal.pcbi.1006370
+    note: Bouckaert et al. (2019) — BEAST 2.5; phylogenetic inference using evolutionary models

@@ -1,0 +1,63 @@
+id: b-ecological-succession-x-markov
+title: >
+  Ecological Succession x Markov Chains — community assembly as transition matrix
+status: proposed
+fields:
+  - biology
+  - mathematics
+  - ecology
+bridge_claim: >
+  Ecological succession (community change over time after disturbance) is modeled as
+  a Markov chain where states are community types and transition probabilities depend
+  only on current composition; the stationary distribution of the chain predicts the
+  climax community, and mixing time predicts recovery time after disturbance.
+translation_table:
+  - field_a_term: Seral community stages (pioneer → climax)
+    field_b_term: Markov chain states
+    note: >
+      Each successional community type (bare rock, pioneer herbs, shrubs, climax forest)
+      maps to a state; the transition probability matrix encodes empirically measured
+      probabilities of community change over a fixed time step.
+  - field_a_term: Climax community (stable endpoint)
+    field_b_term: Stationary distribution of Markov chain
+    note: >
+      The stationary distribution π gives the long-run frequency of each community
+      type; if the chain is ergodic (all states communicate), π is unique and equals
+      the climax community composition.
+  - field_a_term: Succession timescale (decades to centuries)
+    field_b_term: Markov chain mixing time (convergence to stationarity)
+    note: >
+      The mixing time bounds how long succession takes; it is determined by the
+      spectral gap (1 - λ₂) of the transition matrix — large spectral gap → fast
+      succession, small gap → slow recovery from disturbance.
+  - field_a_term: Disturbance-reset (fire, logging, storm)
+    field_b_term: Return to initial Markov chain state
+    note: >
+      Disturbance resets the community to an early successional state; the expected
+      time to return to the stationary distribution (mixing time) is the ecological
+      recovery time.
+communication_gap: >
+  Succession ecologists developed empirical community transition matrices in the 1970s
+  (Usher 1979, Horn 1975) without using the full Markov chain mathematical framework
+  (ergodicity, spectral gap, mixing time); mathematical Markov chain theory could
+  provide quantitative recovery time predictions and robustness analyses that ecological
+  field studies have not systematically exploited.
+cross_pollination_opportunities:
+  - >
+    Apply Markov chain Monte Carlo methods to generate synthetic succession trajectories
+    for ecosystems with limited long-term monitoring data, enabling uncertainty
+    quantification for restoration planning.
+  - >
+    Use spectral gap analysis to compare resilience of different ecosystem types —
+    tropical forests vs. boreal forests vs. grasslands — predicting recovery times
+    after disturbance from transition matrix structure.
+  - >
+    Import absorbing Markov chain theory (time to absorption) to model ecosystem
+    collapse: if disturbed states absorb into a degraded state, mean absorption time
+    quantifies ecosystem collapse risk.
+related_unknowns:
+  - u-ecological-succession-x-markov
+references:
+  - doi: "10.2307/1936612"
+    note: "Horn (1975) — Markovian properties of forest succession; Ecology 56:1401"
+last_reviewed: "2026-05-07"
