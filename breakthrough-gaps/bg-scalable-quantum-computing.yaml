@@ -1,0 +1,62 @@
+id: bg-scalable-quantum-computing
+title: Fault-tolerant scalable quantum computing with more than one million logical qubits
+breakthrough_description: >
+  Current quantum computers have 1,000-10,000 physical qubits but physical error
+  rates of 0.1-1% per gate, far above the threshold needed for useful computation.
+  Quantum error correction using surface codes requires approximately 1,000 physical
+  qubits per logical qubit at acceptable overhead, meaning that a million logical
+  qubits — necessary to break RSA-2048 with Shor's algorithm or simulate drug
+  molecules with chemical accuracy — requires roughly one billion physical qubits.
+  No existing or proposed hardware platform is on a credible engineering roadmap
+  to this scale within 30 years. The breakthrough needed: either a hardware platform
+  that reaches physical error rates below 10^-6 (reducing overhead dramatically),
+  or a fundamentally different error correction scheme that achieves fault tolerance
+  with far fewer physical qubits per logical qubit.
+source_domain: quantum-computing
+current_trl: 3
+world_reshaping_potential: transformative
+blocking_gaps:
+  - gap_title: Physical qubit error rates remain 10-1000× above fault-tolerance threshold
+    gap_description: >
+      Surface code fault-tolerant quantum computation requires physical error rates
+      below ~1% (the threshold). State-of-the-art superconducting qubits (Google
+      Willow, IBM Heron) achieve 2-qubit gate error rates of 0.1-0.5% — below
+      surface code threshold but not the much lower rates needed for practical
+      overhead (below ~0.01% for reasonable qubit counts). Trapped-ion qubits
+      achieve lower error rates (~0.001%) but operate 100-1,000× slower than
+      superconductors. No platform achieves simultaneously high speed, low error,
+      and manufacturability at scale.
+    blocking_domain: physics
+    gap_type: engineering
+  - gap_title: Qubit coherence time degrades with chip scale
+    gap_description: >
+      Superconducting qubits are fabricated lithographically, but T1 and T2 coherence
+      times degrade as more qubits are packed onto a chip due to increased two-level
+      system (TLS) noise from material interfaces and crosstalk between qubits.
+      On today's best superconducting processors, coherence times are 10-100
+      microseconds — adequate for small circuits but insufficient for deep fault-tolerant
+      circuits requiring millions of gate operations. Materials science improvements
+      (reducing TLS defect density in Josephson junctions and dielectrics) have
+      provided incremental gains but no order-of-magnitude breakthrough.
+    blocking_domain: materials-science
+    gap_type: materials
+  - gap_title: Classical control and cryogenic interconnects cannot scale to billions of qubits
+    gap_description: >
+      Each superconducting qubit requires individual microwave control and readout
+      lines running to 15-millikelvin cryostats. Current dilution refrigerators have
+      limited wiring density and cooling power. A billion-qubit machine would require
+      either room-temperature classical control integrated into the cryostat (cryo-CMOS)
+      or photonic interconnects that have not been demonstrated at low-enough heat
+      dissipation. The classical control overhead alone represents an unsolved
+      systems engineering challenge.
+    blocking_domain: engineering
+    gap_type: engineering
+required_bridges:
+  - b-boltzmann-shannon-entropy
+  - b-neural-coding-channel-capacity
+references:
+  - "Fowler et al. (2012) Surface codes: towards practical large-scale quantum computation. Phys Rev A 86:032324."
+  - "Acharya et al. (2024) Quantum error correction below the surface code threshold. Nature 638:920-926."
+  - "Shor PW (1994) Algorithms for quantum computation: discrete logarithms and factoring. Proc 35th FOCS, 124-134."
+  - "Preskill J (2018) Quantum computing in the NISQ era and beyond. Quantum 2:79."
+last_reviewed: "2026-05-07"

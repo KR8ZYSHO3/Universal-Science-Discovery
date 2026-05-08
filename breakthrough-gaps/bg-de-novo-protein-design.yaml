@@ -1,0 +1,61 @@
+id: bg-de-novo-protein-design
+title: Rational de novo protein design for arbitrary function
+breakthrough_description: >
+  AlphaFold2 and ESMFold solve the forward problem — predicting 3D structure from
+  amino acid sequence — with near-experimental accuracy. The inverse problem remains
+  largely unsolved: designing a novel sequence that will fold to a target structure
+  and carry out a desired catalytic or binding function. RFdiffusion generates
+  structurally plausible backbones, and ProteinMPNN can assign sequences to those
+  backbones, but the end-to-end pipeline succeeds for novel enzymes at less than 10%
+  of attempts, and the functional fitness landscape is navigated by trial rather than
+  rational design. The breakthrough needed: a design algorithm that reliably predicts
+  the sequence needed to achieve arbitrary molecular function — catalysis of any
+  reaction, binding any target with specified affinity, or assembly into any
+  nanostructure — without requiring experimental iteration.
+source_domain: biochemistry
+current_trl: 3
+world_reshaping_potential: transformative
+blocking_gaps:
+  - gap_title: Sequence-to-function mapping is not computable from structure alone
+    gap_description: >
+      Protein function depends not only on static structure but on dynamics, allostery,
+      solvation, and conformational flexibility on timescales of nanoseconds to seconds.
+      Molecular dynamics simulation of a single protein design candidate requires hours
+      of compute time per microsecond of simulated dynamics. Screening the combinatorial
+      sequence space (20^n for n residues) by simulation is computationally intractable.
+      No machine learning model trained on the ~200,000 known structures generalizes
+      reliably to novel folds outside the training distribution.
+    blocking_domain: computational-biology
+    gap_type: algorithmic
+  - gap_title: Catalytic mechanism design lacks first-principles theory
+    gap_description: >
+      Enzyme catalysis depends on precise placement of catalytic residues, proton
+      relay networks, and conformational gating that evolved over billions of years.
+      Computational enzyme design (Rosetta) has produced artificial Kemp eliminases
+      and retro-aldolases with activities 10^6 below natural enzymes. The gap between
+      designed and evolved catalytic efficiency reflects an incomplete understanding
+      of how electrostatic preorganization, quantum tunneling, and conformational
+      dynamics combine to achieve transition-state stabilization.
+    blocking_domain: chemistry
+    gap_type: scientific
+  - gap_title: Experimental throughput for design-build-test cycles limits iteration
+    gap_description: >
+      Validating a protein design requires gene synthesis, expression, purification,
+      and functional assay — typically 4-8 weeks per design round. High-throughput
+      protein expression platforms (cell-free, yeast display) can screen thousands
+      of variants per week but cannot simultaneously measure all functional properties
+      (stability, activity, specificity, immunogenicity). The feedback loop between
+      computational design and experimental validation is too slow to navigate the
+      fitness landscape efficiently.
+    blocking_domain: molecular-biology
+    gap_type: engineering
+required_bridges:
+  - b-genetic-regulatory-boolean-circuits
+  - b-protein-dna-binding-information-theoretic-specificity
+references:
+  - "Jumper et al. (2021) Highly accurate protein structure prediction with AlphaFold. Nature 596:583-589."
+  - "Watson et al. (2023) De novo design of protein structure and function with RFdiffusion. Nature 620:1089-1100."
+  - "Dauparas et al. (2022) Robust deep learning-based protein sequence design using ProteinMPNN. Science 378:49-56."
+  - "Jiang et al. (2008) De novo computational design of retro-aldol enzymes. Science 319:1387-1391."
+  - "Rothlisberger et al. (2008) Kemp elimination catalysts by computational enzyme design. Nature 453:190-195."
+last_reviewed: "2026-05-07"
