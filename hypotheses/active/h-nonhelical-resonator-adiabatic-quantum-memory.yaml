@@ -1,0 +1,50 @@
+id: h-nonhelical-resonator-adiabatic-quantum-memory
+title: >
+  Cryogenic high-Q non-helical resonators driven with reversible control protocols can exhibit measured energy per irreversible bit-reset approaching order-of-magnitude Landauer k_B T ln(2) once loss channels are separated — excluding stronger claims without calibrated erasure accounting.
+status: active
+priority: high
+impact_score: 0.68
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - doi: "10.1038/nature10872"
+    type: supporting
+    confidence: 0.72
+    note: "Laboratory precedent for measuring Landauer-scale energy exchanges in a controlled platform."
+  - doi: "10.1147/rd.53.0183"
+    type: supporting
+    confidence: 0.88
+    note: "Landauer (1961) — foundational bound tying dissipation to logically irreversible operations."
+  - doi: "10.1147/rd.173.0525"
+    type: related
+    confidence: 0.78
+    note: "Bennett (1973) — reversible computation baseline relevant for protocol design."
+
+unknowns_addressed:
+  - u-landauer-limit-nonhelical-resonator
+  - u-reversible-em-logic-gate-design
+
+proposed_tests:
+  - description: >
+      Implement an explicit bit-reset protocol on a classical resonator-defined memory; vary ramp speed for
+      adiabatic control segments versus abrupt resets while measuring heat deposited into the cryostat per cycle.
+    method: >
+      Calorimetric / thermometer ensemble near devices; synchronize gate clocks with measurement windows;
+      compare reversible vs irreversible branch protocols within identical IO semantics.
+    prediction: >
+      Irreversible branch dissipates at least k_B T ln(2) per erased bit within experimental uncertainty at temperature T;
+      reversible embedding avoids that floor until residual loss dominates.
+
+  - description: >
+      Sweep switching frequency at fixed protocol topology to locate crossover where loss mechanisms dominate Landauer budget.
+    method: >
+      Extract power vs frequency; separate Ohmic control-line dissipation from informational erasure counts.
+    prediction: >
+      Dissipation scales differently between regimes — empirical breakpoint informs engineering limits.
+
+related_disciplines:
+  - electromagnetism
+  - reversible-computing
+  - thermodynamics-of-computation

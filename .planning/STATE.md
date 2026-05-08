@@ -4,19 +4,21 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 ## Last updated
 
+- 2026-05-07 — **Non-helical resonator phenomenology — 2 bridges (942 catalog), 4 unknowns, 2 hypotheses**:
+**Bridges:** `b-nonhelical-turing-electromagnetic` (Turing / reaction–diffusion mapping for self-organized EM mode patterns — labeled as a testable **analogy**, not an established effect) and `b-nonhelical-landauer-reversible-em` (Landauer / Bennett thermodynamics of computation in high-Q non-helical resonator hardware).
+**Unknowns:** `u-nonhelical-turing-wavelength-scaling`, `u-metamaterial-self-assembly-dynamics`, `u-landauer-limit-nonhelical-resonator`, `u-reversible-em-logic-gate-design`.
+**Hypotheses:** `h-nonhelical-turing-cloaking-adaptation`, `h-nonhelical-resonator-adiabatic-quantum-memory`.
+**Artifacts:** `docs/knowledge_graph.json` rebuilt (**3,314 nodes**, **3,634 edges**); `dashboard/index.html` stats refreshed. `python scripts/validate_schemas.py` — **0 errors** (local run).
 - 2026-05-07 — **Waves 72–73 — 24 new bridges (940 bridges catalog / 3,306 graph nodes)**:
-  Wave 72 (12): Marcus electron-transfer / reaction-coordinate framing for enzyme tunneling; softmax attention × cortical divisive normalization; Ricci flow × geometrization overview (Hamilton/Perelman lineage); percolation × polymer gelation; bet hedging × portfolio diversification / covariance structure; plate-boundary slip × fracture mechanics; molecular spectroscopy × matrix diagonalization / normal modes; cryo-EM × Bayesian single-particle reconstruction; advection–diffusion × odor plumes / search; Kauffman Boolean networks × GRN attractor stability; entropy rate × LM perplexity; leaky integrate-and-fire × RC membrane circuits.
-  Wave 73 (12): compressible shocks × traffic shock waves (Rankine–Hugoniot ↔ LWR); metabolic control analysis × local sensitivity / Jacobian; reinforcement learning × patch-foraging / MVT links; helioseismology × inverse eigenvalue problems; biogeochemical box models × dynamical attractors; viral quasispecies × NK rugged landscapes; NMR rotating frame × effective Hamiltonian / quantum control; Hertz contact × spherical indentation / nanoindentation; ant colony optimization × gradient-free metaheuristics; river braiding × SOC-like morphodynamics (**speculative analogy flagged**); Morse homology × Conley index intuition; supply-chain disruption × bond percolation / network reliability.
-  **Artifacts:** 24 bridges + 24 unknowns + 24 hypotheses; `docs/knowledge_graph.json` rebuilt (**3,306 nodes**, **3,616 edges**); `dashboard/index.html` stats refreshed. `python scripts/validate_schemas.py` — **0 errors**.
-
+Wave 72 (12): Marcus electron-transfer / reaction-coordinate framing for enzyme tunneling; softmax attention × cortical divisive normalization; Ricci flow × geometrization overview (Hamilton/Perelman lineage); percolation × polymer gelation; bet hedging × portfolio diversification / covariance structure; plate-boundary slip × fracture mechanics; molecular spectroscopy × matrix diagonalization / normal modes; cryo-EM × Bayesian single-particle reconstruction; advection–diffusion × odor plumes / search; Kauffman Boolean networks × GRN attractor stability; entropy rate × LM perplexity; leaky integrate-and-fire × RC membrane circuits.
+Wave 73 (12): compressible shocks × traffic shock waves (Rankine–Hugoniot ↔ LWR); metabolic control analysis × local sensitivity / Jacobian; reinforcement learning × patch-foraging / MVT links; helioseismology × inverse eigenvalue problems; biogeochemical box models × dynamical attractors; viral quasispecies × NK rugged landscapes; NMR rotating frame × effective Hamiltonian / quantum control; Hertz contact × spherical indentation / nanoindentation; ant colony optimization × gradient-free metaheuristics; river braiding × SOC-like morphodynamics (**speculative analogy flagged**); Morse homology × Conley index intuition; supply-chain disruption × bond percolation / network reliability.
+**Artifacts:** 24 bridges + 24 unknowns + 24 hypotheses; `docs/knowledge_graph.json` rebuilt (**3,306 nodes**, **3,616 edges**); `dashboard/index.html` stats refreshed. `python scripts/validate_schemas.py` — **0 errors**.
 - 2026-05-07 — **Waves 70–71 — 24 new bridges (post-merge totals: 904 bridges, 3,198 graph nodes)**:
-  Wave 70 (12): quantum Zeno × cognitive measurement cadence; Kalman filtering × neural state estimation; hyperbolic geometry × network embeddings; metabolic scaling × fractal-like transport; epidemic-style contagion × financial crises; optimal foraging × explore–exploit / bandits; electrochemical impedance × cell membranes; convolution theorem × CNN layers; ridge regression × Gaussian MAP / shrinkage; contrastive SSL × energy-based / temperature analogies; gauge theory × connection forms on bundles; collective-risk social dilemmas × insurance pools.
-  Wave 71 (12): galaxy red sequence × passive evolution / quenching; LiDAR × inverse problems / geometry; RNA secondary structure × planar graph DP; GRB jets × relativistic hydrodynamics; quorum sensing × evolutionary game theory; neutron-star matter × QCD / nuclear EOS constraints; coastal erosion × diffusive interface models; language contact × graph diffusion / interpolation; finite elements × discrete exterior calculus; skin friction × turbulent boundary layers; MD thermostats × stochastic differential equations; preference elicitation × Vickrey / VCG mechanisms.
-  **Artifacts:** 24 bridges + 24 unknowns + 24 hypotheses; `docs/knowledge_graph.json` rebuilt (**3,198 nodes**, **3,460 edges** after merging latest `main` and regenerating); `dashboard/index.html` stats refreshed. `python scripts/validate_schemas.py` — **0 errors**.
-
+Wave 70 (12): quantum Zeno × cognitive measurement cadence; Kalman filtering × neural state estimation; hyperbolic geometry × network embeddings; metabolic scaling × fractal-like transport; epidemic-style contagion × financial crises; optimal foraging × explore–exploit / bandits; electrochemical impedance × cell membranes; convolution theorem × CNN layers; ridge regression × Gaussian MAP / shrinkage; contrastive SSL × energy-based / temperature analogies; gauge theory × connection forms on bundles; collective-risk social dilemmas × insurance pools.
+Wave 71 (12): galaxy red sequence × passive evolution / quenching; LiDAR × inverse problems / geometry; RNA secondary structure × planar graph DP; GRB jets × relativistic hydrodynamics; quorum sensing × evolutionary game theory; neutron-star matter × QCD / nuclear EOS constraints; coastal erosion × diffusive interface models; language contact × graph diffusion / interpolation; finite elements × discrete exterior calculus; skin friction × turbulent boundary layers; MD thermostats × stochastic differential equations; preference elicitation × Vickrey / VCG mechanisms.
+**Artifacts:** 24 bridges + 24 unknowns + 24 hypotheses; `docs/knowledge_graph.json` rebuilt (**3,198 nodes**, **3,460 edges** after merging latest `main` and regenerating); `dashboard/index.html` stats refreshed. `python scripts/validate_schemas.py` — **0 errors**.
 - 2026-05-07 — **Full audit + documentation update (868 bridges, 3,072 nodes)**:
-  Comprehensive project audit following Waves 57-67 and OpenAlex Wave OA-1.
-
+Comprehensive project audit following Waves 57-67 and OpenAlex Wave OA-1.
   **Current catalog state (superseded by Waves 70–71 entry above for counts):**
   - Bridges: 868 cross-domain bridges
   - Unknowns: 1,151
@@ -27,7 +29,6 @@ Authoritative checklist for humans and agents. Update after each merged PR.
   - Graph edges: 3,259 (from `docs/knowledge_graph.json`)
   - Schema errors: 0 (all records pass `scripts/validate_schemas.py`)
   - Orphan unknowns: 0 (all 1,151 unknowns connected to bridges or hypotheses)
-
   **Recent milestones achieved:**
   - 800-bridge milestone crossed (Wave 62)
   - 1,000-hypothesis milestone crossed (Wave 66/67)
@@ -35,36 +36,26 @@ Authoritative checklist for humans and agents. Update after each merged PR.
   - OpenAlex automation live: weekly cron job (`.github/workflows/harvest-openalex.yml`)
   - 9 bridge stubs in `drafts/bridges/` awaiting review
   - PubMed + Semantic Scholar harvesters built and run
-
   **Current focus:**
   1. Continue bridge building toward 1,000
   2. arXiv preprint submission (author: Brandon Shoemaker)
   3. Promote `drafts/bridges/` stubs to full bridges
   4. Improve dashboard graph loading reliability
   5. Contributor on-ramps (good-first-issues, QUICK_START_CONTRIBUTING.md)
-
 - 2026-05-07 - **Waves 44+45 — THE 600-BRIDGE MILESTONE! 602 bridges, 2,413 graph nodes**: Two waves added 24 new cross-domain bridges (578 → 602), crossing the 600-bridge milestone. Wave 44 (12 bridges): allometric scaling/metabolic geometry, magma fragmentation rheology, epidemiological-demographic transition, quantum entanglement/tensor networks, mutualistic nestedness/robustness, chromatic aberration/dispersion, social learning/cultural transmission, nonlinear optics/solitons, cellular automata universality, Klausmeier dryland vegetation, aerosol nucleation/cloud formation, game-theoretic honest signaling. Wave 45 (12 bridges): MEG inverse source localization, antifreeze proteins/ice crystal habit, gene networks/Waddington landscape, Hawking radiation/Unruh effect, pharmacokinetics/compartmental ODE, ocean acidification/carbonate chemistry, neuroimaging connectivity/graphical models, topological quantum computing/anyons, forest succession/intermediate disturbance, origami mathematics/computational fold, xenobiotic metabolism/CYP450 kinetics, kin selection/Price equation. 24 unknowns + 24 hypotheses added. Graph rebuilt: **2,413 nodes, 2,571 edges**. Dashboard updated with 600-bridge gold milestone banner. All schemas validate clean. STATE.md updated.
-
 - 2026-05-06 - **Wave 20 — THE 300-BRIDGE MILESTONE**: 14 new bridges (287-300) covering glymphatic CSF fluid dynamics (Navier-Stokes/Biot), Wasserstein optimal transport for cell differentiation (Schiebinger/La Manno), biomimetic SLIP locomotion (Full/Lighthill/Dickinson), Li-ion electrochemistry and solid-state batteries (Goodenough/Peled/Janek), network centrality and social influence (Freeman/Bonacich/PageRank), dislocation Taylor/Hall-Petch/Orowan mechanics, loss aversion evolutionary psychology (Kahneman-Tversky/Laibson), geometric measure theory minimal surfaces (Douglas/Almgren/Federer), ecosystem fold bifurcation early warning signals (May/Scheffer/Dakos), Goemans-Williamson SDP MAX-CUT (UGC), SNARE neurotransmitter pharmacology (Südhof), Daubechies wavelet/JPEG-2000 (Mallat/Donoho-Johnstone), urban superlinear/sublinear scaling laws (Bettencourt/Barthelemy), complex systems emergence (Anderson/Tononi/Simon). Dashboard updated with 300-bridge milestone banner. 14 new unknowns + 14 new hypotheses. Validates clean. Graph rebuild pending.
-
 - 2026-05-06 - **Comprehensive audit + PATH_TO_SUCCESS strategic roadmap**: Python script audit (10 scripts), 5 HIGH severity fixes applied (propose_bridges return bug, find_orphan_unknowns Unicode crash + missing-file guard, generate_api bare except, build_citation_index bare except + wrong timestamp). Schema validation: all 1,000+ records PASS. Quality audit: 0 errors, 0 warnings. Created CODE_AUDIT.md, PATH_TO_SUCCESS.md. Updated README.md (current stats, Catalog Types section, Quick Start, Scripts reference, status badges). Updated DOC_MAP.md (catalog types, scripts, GitHub Actions tables). Next priorities: arXiv preprint submission, Reddit r/OpenScience post, custom domain.
-
 - 2026-05-06 - **Wave 10 — 1000-node milestone, 13 pioneers, bridges 171-180**: 1,000 nodes reached. 10 new bridges (b-171 to b-180). Added Einstein and Lovelace pioneer profiles (13 total). 11 breakthrough gaps. Dashboard health fixes. Knowledge graph: 1,000 nodes, 910 edges. API: 619 unknowns, 180 bridges, 173 hypotheses. Validates clean.
-
 - 2026-05-06 - **Wave 3 — Lunr.js full-text search + bridges 101-105 + 5 new hypotheses**: Dashboard catalog search upgraded to Lunr.js inverted index (fetches bridges.json + unknowns.json at load; indexes title, bridge_claim, systematic_gaps, domains; shows result snippets; click-to-highlight in graph). 5 new fully-citable bridges: b-zipf-optimal-coding (#101, linguistics↔information-theory, Zipf/Mandelbrot/Shannon/Piantadosi; **established**), b-crystallography-group-theory (#102, materials-science↔mathematics, Schoenflies/Shechtman/Penrose; **established**), b-free-energy-principle-stat-mech (#103, cognitive-science↔physics, Friston/Helmholtz/Beal/Kingma-Welling; **proposed**), b-tensegrity-cytoskeleton (#104, engineering↔biology, Fuller/Ingber/Wang-Butler-Ingber; **established**), b-efficient-markets-martingale (#105, economics↔information-theory, Fama/Samuelson/Cover-Thomas/Lo; **established**). 4 new cross-domain directories (linguistics-information, materials-science-mathematics, cognitive-science-physics, economics-information). 5 new hypotheses (h-zipf-optimal-coding-universality, h-tensegrity-cancer-mechanics, h-free-energy-aging, h-crystallographic-protein-folding, h-martingale-ecological-pricing). Knowledge graph rebuilt: 771 nodes (+20), 647 edges (+28). API updated: 544 unknowns, 105 bridges, 121 hypotheses. Validates clean.
-
 - 2026-05-05 - **THE 100-BRIDGE MILESTONE — Bridges 85-100 (751+ nodes)**: 16 new fully-citable bridges completing the first 100 cross-domain mathematical bridges: b-symplectic-geometry-mechanics (#85, mathematics↔physics, Arnold/Weyl/Dirac/Kontsevich; established), b-bayesian-brain-predictive-processing (#86, neuroscience↔statistics, Helmholtz/Weiss/Knill-Pouget/Friston; established), b-reaction-network-graph-theory (#87, chemistry↔mathematics, Horn-Jackson/Feinberg deficiency theory; established), b-species-distribution-maxent (#88, ecology↔statistics, Jaynes/Phillips/Elith/Renner-Warton; established), b-mechanobiology-continuum-mechanics (#89, physics↔biology, Discher/Engler/Bi-jamming; established), b-transformer-attention-neural-attention (#90, computer-science↔neuroscience, Vaswani/Treisman/Lindsay; proposed), b-knot-theory-dna-topology (#91, mathematics↔biology, Crick/Adams/Vologodskii; established), b-dissipative-structures-economic-cycles (#92, economics↔physics, Prigogine/Kondratiev/Georgescu-Roegen; proposed), b-cultural-memes-shannon-entropy (#93, social-science↔information-theory, Dawkins/Shannon/Henrich; proposed), b-chaos-control-systems (#94, engineering↔physics, Lorenz/Strogatz/OGY; established), b-kolmogorov-complexity-explanation (#95, philosophy-of-science↔information-theory, Kolmogorov/Solomonoff/Rissanen; established), b-topological-neuroscience (#96, neuroscience↔mathematics, Curto-Itskov/Gardner/Dabaghian; established), b-navier-stokes-atmospheric-dynamics (#97, climate-science↔mathematics, Charney/Holton/Lorenz/Kolmogorov; established), b-mirror-neurons-aesthetic-empathy (#98, art-and-cognition↔neuroscience, Rizzolatti/Gallese-Freedberg/Mori; proposed), b-representation-theory-particles (#99, quantum-physics↔mathematics, Wigner/Weyl/Georgi; established), b-replicator-equations-evolutionary-dynamics (#100, biology↔mathematics, Taylor-Jonker/Maynard-Smith/Price/Hofbauer-Sigmund; established). 14 new cross-domain directories. 16 new unknowns + 16 new hypotheses. Knowledge graph rebuilt: 751 nodes, 619 edges. Dashboard updated to 100 bridges. API: 534 unknowns, 100 bridges, 116 hypotheses. Validates clean.
-
 - 2026-05-05 - **Bridges 75-84 — Arrow/quantum contextuality, DNA error-correcting code, free energy/thermodynamics, Curry-Howard, phenological mismatch, plate tectonics topology, radiation LET biophysics, social capital network science, quantum error correction/holography, commons/game theory (703 nodes)**: 10 new fully-citable bridges: b-arrows-impossibility-quantum-contextuality (#75, economics↔physics/social-science, Arrow/Kochen-Specker/Abramsky; proposed), b-dna-digital-error-correcting-code (#76, biology↔information-theory, Freeland-Hurst/Itzkovitz-Alon/Shannon; established), b-free-energy-principle-thermodynamics (#77, neuroscience↔physics, Friston/Jaynes/Rao-Ballard; proposed), b-curry-howard-proofs-programs (#78, mathematics↔computer-science, Howard/Wadler/Martin-Löf; established), b-phenological-mismatch-synchrony (#79, climate-science↔biology, Visser-Both/Renner-Zohner/Kuramoto; established), b-plate-tectonics-topology (#80, geoscience↔mathematics, McKenzie-Parker/Morgan/Euler; established), b-radiation-biophysics-let (#81, medicine↔physics, Bethe/Bloch/Kellerer-Rossi; established), b-social-capital-network-science (#82, social-science↔mathematics, Granovetter/Burt/Barabási-Albert; established), b-quantum-error-correction-holography (#83, quantum-physics↔information-theory, Ryu-Takayanagi/Almheiri/Pastawski; proposed), b-commons-game-theory-ostrom (#84, ecology↔economics, Hardin/Ostrom/Axelrod/Fudenberg-Maskin; established). 8 new cross-domain directories. 10 new unknowns + 10 new hypotheses. Knowledge graph rebuilt: 703 nodes, 571 edges. Dashboard updated to 84 bridges. Validates clean.
-
 - 2026-05-05 - **Bridges 65-74 — biomineralization, quantum photosynthesis, Lotka-Volterra markets, Zipf, neural control, carbon pricing, induction/Bayes, cultural evolution, geometric control, stellar thermodynamics (693 nodes)**: 10 new fully-citable bridges: b-biomineralization-crystal-growth (#65, materials-science↔biology, Weiner-Addadi/Cahn; established), b-quantum-coherence-photosynthesis (#66, quantum-physics↔biology, Engel/Ishizaki-Fleming; contested), b-lotka-volterra-market-dynamics (#67, economics↔ecology, Lotka/Volterra/Farmer; proposed), b-zipf-law-information-efficiency (#68, mathematics↔linguistics, Zipf/Mandelbrot/Ferrer-i-Cancho; established), b-neural-control-theory (#69, neuroscience↔engineering, Flash-Hogan/Wolpert-Kawato/Todorov; established), b-carbon-pricing-pigouvian (#70, climate-science↔economics, Pigou/Stern/Nordhaus/Ramsey; established), b-induction-bayesian-convergence (#71, philosophy-of-science↔statistics, Hume/Popper/Doob/de-Finetti; established), b-cultural-evolution-darwinian (#72, social-science↔biology, Cavalli-Sforza/Boyd-Richerson/Price; established), b-control-theory-differential-geometry (#73, engineering↔mathematics, Brockett/Pontryagin/Montgomery; established), b-stellar-structure-thermodynamics (#74, astronomy↔physics, Lynden-Bell-Wood/Chandrasekhar; established). 9 new cross-domain directories. 10 new unknowns + 10 new hypotheses. Knowledge graph rebuilt: 693 nodes, 571 edges. Dashboard updated. Validates clean.
-
 - 2026-05-05 - **Bridges 59-64 — earthquake SOC, efficient coding, Bayesian inference, robustness-evolvability, opinion dynamics, aesthetic complexity (663 nodes)**: 6 new fully-citable bridges: b-earthquake-self-organized-criticality (#59, geoscience↔statistical-physics, Gutenberg-Richter as SOC power law, Bak/Tang/Omori; established), b-efficient-coding-perception (#60, cognitive-science↔information-theory, Barlow/Olshausen/Bell-Sejnowski; established), b-bayesian-scientific-inference (#61, philosophy-of-science↔mathematics, Jeffreys/MacKay/Kass-Raftery; established), b-robustness-evolvability-modularity (#62, engineering↔biology, Waddington/Kirschner-Gerhart/Simon; proposed), b-opinion-dynamics-ising (#63, social-science↔physics, Sznajd/Deffuant/Castellano; proposed), b-aesthetic-complexity-information (#64, art-and-cognition↔mathematics, Birkhoff/Taylor/Huron/Schmidhuber; proposed). 5 new cross-domain directories. 6 new unknowns + 6 new hypotheses. Knowledge graph rebuilt: 663 nodes, 521 edges. Dashboard updated. Validates clean.
 - 2026-05-05 - **Bridges 55-58 — AI-draft-to-real-science conversion (645 nodes)**: 4 new fully citable bridges from top-scoring draft proposals: b-neural-criticality-climate-tipping (#55, neuroscience↔climate-science, Beggs/Scheffer/Dakos), b-predictive-coding-grammar (#56, neuroscience↔linguistics, Friston/Hale/Levy/Clark), b-wealth-distribution-statistical-mechanics (#57, economics↔statistical-physics, Dragulescu/Yakovenko/Bouchaud-Mezard), b-topology-disease-progression (#58, mathematics↔medicine, Nicolau/Carlsson/Lum). Each includes full translation table, DOI references, communication_gap, cross_pollination_opportunities. Created 4 new cross-domain directories (neuroscience-climate, neuroscience-linguistics, economics-physics, mathematics-medicine). 4 new unknowns + 4 new hypotheses. Knowledge graph rebuilt: 645 nodes, 472 edges. Dashboard updated. Validates clean.
 - 2026-05-05 - **Bridges 50-54 — astronomy orphan connections targeting largest cluster (633 nodes)**: 5 new bridges (b-blackhole-information-paradox #50, b-baryon-asymmetry-cp-violation #51, b-dark-matter-phase-transition-relics #52, b-cosmic-rays-mutagenesis #53, b-frb-random-matrix #54) with 5 new unknowns + 5 new hypotheses. Created 4 new cross-domain directories (astronomy-information, astronomy-physics, astronomy-biology, astronomy-mathematics). Connected 5 existing astronomy orphan unknowns (black hole info paradox, baryon asymmetry, dark matter identity, FRB origin, UHECR). Orphan count reduced from 329 → 324. Knowledge graph rebuilt: 633 nodes, 443 edges. Dashboard updated. Validates clean.
 - 2026-05-05 - **Bridges 45-49 — co-pilot-proposed medicine and astronomy connections (618 nodes)**: 5 new bridges (b-connectome-neurodegeneration #45, b-climate-tipping-health #46, b-inequality-health-gradient #47, b-language-biomarker-diagnosis #48, b-stellar-forcing-paleoclimate #49) with 5 new unknowns + 5 new hypotheses. Medicine domain now has 4 cross-domain bridges (was 0). Knowledge graph rebuilt: 618 nodes, 398 edges. Dashboard updated. Validates clean.
 - 2026-05-05 - **Content push toward 1,000 entries (603 total)**: 4 new domain directories (geoscience/28, philosophy-of-science/20, engineering/25, art-and-cognition/15) + 4 new bridges (b-seismology-percolation #41, b-philosophy-underdetermination-quantum #42, b-music-physics-resonance #43, b-engineering-reliability-extreme-value #44) + 10 new hypotheses. Knowledge graph rebuilt: 603 nodes, 628 edges. Dashboard updated. Validates clean.
-- 2026-05-05 - **Final content push — Phase 0 target of 500+ achieved (502 entries)**: 4 new domain directories (quantum-physics/25, linguistics/25, social-science/25, economics/25) + gap-filled computer-science (+10), neuroscience (+10), ecology (+8), chemistry (+6). 8 new hypotheses, 2 new bridges (b-linguistic-relativity-quantum-basis \#39, b-social-ising-polarisation \#40). Knowledge graph rebuilt: 502 nodes, 601 edges. Dashboard updated. Validates clean.
+- 2026-05-05 - **Final content push — Phase 0 target of 500+ achieved (502 entries)**: 4 new domain directories (quantum-physics/25, linguistics/25, social-science/25, economics/25) + gap-filled computer-science (+10), neuroscience (+10), ecology (+8), chemistry (+6). 8 new hypotheses, 2 new bridges (b-linguistic-relativity-quantum-basis 39, b-social-ising-polarisation 40). Knowledge graph rebuilt: 502 nodes, 601 edges. Dashboard updated. Validates clean.
 - 2026-05-05 — **Bulk content push to 357 entries (Phase 0: 500+ target)**: 6 new domain directories (materials-science, climate-science, astronomy, medicine, cognitive-science) + 20 new mathematics unknowns; 145 new unknowns, 10 new hypotheses, 2 new bridges (b-climate-tipping-percolation, b-materials-consciousness-criticality). Knowledge graph rebuilt: 357 nodes, 582 edges. Dashboard updated. Validates clean.
 - 2026-05-05 — **Content push to 200 entries**: 6 new bridges (31-36), 45 new unknowns (chemistry/neuroscience/ecology directories created), 11 new hypotheses. Knowledge graph rebuilt: 200 nodes, 421 edges. Dashboard updated. Validates clean.
 - 2026-05-05 — **Knowledge graph + 4 new bridges (27-30)**: `scripts/build_graph.py` → `docs/knowledge_graph.json` (138 nodes, 300 edges). New bridges: b-entropy-arrow-of-time (thermodynamics↔information↔cosmology), b-stochastic-resonance (physics↔sensory-neuroscience), b-maximum-entropy-ecology (MaxEnt↔macroecology, Jaynes→Harte), b-quantum-error-correction-topology (toric code = Z2 gauge theory = topological phase). 4 unknowns + 4 hypotheses. Dashboard: bridges 30, unknowns 73, hypotheses 31, graph-edges 300.
@@ -90,67 +81,71 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 ## Catalog state (2026-05-07 — post Waves 70–71, merged with latest main)
 
-| Type | Count | Directory |
-|------|-------|-----------|
-| Unknowns | **1,187** | `unknowns-catalog/` |
-| Hypotheses | **1,055** | `hypotheses/active/` |
-| Bridges | **904** | `cross-domain/` |
-| Pioneers | **18** | `pioneers/` |
-| Breakthrough gaps | **12** | `breakthrough-gaps/` |
-| Pre-formal observations | **10** | `phenomenology/` |
-| Knowledge graph nodes | **3,198** | `docs/knowledge_graph.json` |
-| Knowledge graph edges | **3,460** | `docs/knowledge_graph.json` |
-| Schemas | **6** | `schemas/` (unknown, hypothesis, bridge, phenomenon, pioneer, breakthrough_gap) |
-| Scientific domains | **55+** | `unknowns-catalog/` subdirs + `dashboard/domains/` |
+
+| Type                    | Count     | Directory                                                                       |
+| ----------------------- | --------- | ------------------------------------------------------------------------------- |
+| Unknowns                | **1,187** | `unknowns-catalog/`                                                             |
+| Hypotheses              | **1,055** | `hypotheses/active/`                                                            |
+| Bridges                 | **904**   | `cross-domain/`                                                                 |
+| Pioneers                | **18**    | `pioneers/`                                                                     |
+| Breakthrough gaps       | **12**    | `breakthrough-gaps/`                                                            |
+| Pre-formal observations | **10**    | `phenomenology/`                                                                |
+| Knowledge graph nodes   | **3,198** | `docs/knowledge_graph.json`                                                     |
+| Knowledge graph edges   | **3,460** | `docs/knowledge_graph.json`                                                     |
+| Schemas                 | **6**     | `schemas/` (unknown, hypothesis, bridge, phenomenon, pioneer, breakthrough_gap) |
+| Scientific domains      | **55+**   | `unknowns-catalog/` subdirs + `dashboard/domains/`                              |
+
 
 ### Bridge network (cross-domain connections)
 
-| Bridge | Fields | Status |
-|--------|--------|--------|
-| b-percolation-oncology | statistical-physics ↔ oncology | proposed |
-| b-criticality-neuroscience | condensed-matter ↔ neuroscience | proposed |
-| b-glymphatic-aging | sleep-medicine ↔ neurology ↔ geroscience | proposed |
-| b-lichen-astrobiology | synthetic-biology ↔ astrobiology | proposed |
-| b-topology-morphogenesis | mathematics/topology ↔ developmental-biology | proposed |
-| b-grokking-criticality | AI/machine-learning ↔ statistical-physics | proposed |
-| b-quantum-biology-navigation | quantum-mechanics ↔ sensory-biology | **established** |
-| b-kibble-zurek-morphogenesis | cosmology ↔ developmental-biology | proposed |
-| b-renormalization-biological-scaling | mathematical-physics ↔ comparative-physiology | proposed |
-| b-percolation-epidemiology | statistical-physics ↔ epidemiology | proposed |
-| b-habitat-percolation-ecology | statistical-physics ↔ conservation-ecology | proposed |
-| b-error-threshold-information | information-theory ↔ molecular-evolution | proposed |
-| b-kuramoto-synchronization | statistical-physics ↔ neuroscience ↔ cardiology ↔ engineering | proposed |
-| b-fisher-information-evolution | statistics ↔ evolutionary-biology ↔ machine-learning | proposed |
-| b-tipping-points-phase-transitions | statistical-physics ↔ climate-science | proposed |
-| b-ising-social-dynamics | statistical-physics ↔ social-science | proposed |
-| b-turing-reaction-diffusion | mathematics ↔ developmental-biology ↔ biophysics | **established** |
-| b-spin-glass-neural-networks | statistical-physics ↔ neuroscience ↔ machine-learning | **established** |
-| b-landauer-information-thermodynamics | thermodynamics ↔ information-theory ↔ computer-science | **established** |
-| b-game-theory-evolution | mathematics ↔ evolutionary-biology ↔ machine-learning | **established** |
-| b-seismology-percolation | seismology ↔ statistical-physics ↔ network-theory | proposed |
-| b-philosophy-underdetermination-quantum | philosophy-of-science ↔ quantum-mechanics ↔ epistemology | proposed |
-| b-music-physics-resonance | acoustics ↔ music-theory ↔ cognitive-neuroscience | **established** |
-| b-engineering-reliability-extreme-value | reliability-engineering ↔ actuarial-science ↔ biology ↔ materials-science | **established** |
-| b-connectome-neurodegeneration | neuroscience ↔ medicine | proposed |
-| b-climate-tipping-health | climate-science ↔ medicine | proposed |
-| b-inequality-health-gradient | economics ↔ medicine | proposed |
-| b-language-biomarker-diagnosis | linguistics ↔ medicine | proposed |
-| b-stellar-forcing-paleoclimate | astronomy ↔ climate-science | proposed |
-| b-blackhole-information-paradox | astronomy ↔ information-theory | proposed |
-| b-baryon-asymmetry-cp-violation | astronomy ↔ particle-physics | proposed |
-| b-dark-matter-phase-transition-relics | astronomy ↔ statistical-physics | proposed |
-| b-cosmic-rays-mutagenesis | astronomy ↔ biology | proposed |
-| b-frb-random-matrix | astronomy ↔ mathematics | proposed |
-| b-neural-criticality-climate-tipping | neuroscience ↔ climate-science | proposed |
-| b-predictive-coding-grammar | neuroscience ↔ linguistics | proposed |
-| b-wealth-distribution-statistical-mechanics | economics ↔ statistical-physics | **established** |
-| b-topology-disease-progression | mathematics ↔ medicine | **established** |
-| b-earthquake-self-organized-criticality | geophysics ↔ statistical-physics | **established** |
-| b-efficient-coding-perception | cognitive-science ↔ information-theory | **established** |
-| b-bayesian-scientific-inference | philosophy-of-science ↔ mathematics | **established** |
-| b-robustness-evolvability-modularity | engineering ↔ evolutionary-biology | proposed |
-| b-opinion-dynamics-ising | social-science ↔ statistical-physics | proposed |
-| b-aesthetic-complexity-information | aesthetics ↔ mathematics ↔ cognitive-science | proposed |
+
+| Bridge                                      | Fields                                                                    | Status          |
+| ------------------------------------------- | ------------------------------------------------------------------------- | --------------- |
+| b-percolation-oncology                      | statistical-physics ↔ oncology                                            | proposed        |
+| b-criticality-neuroscience                  | condensed-matter ↔ neuroscience                                           | proposed        |
+| b-glymphatic-aging                          | sleep-medicine ↔ neurology ↔ geroscience                                  | proposed        |
+| b-lichen-astrobiology                       | synthetic-biology ↔ astrobiology                                          | proposed        |
+| b-topology-morphogenesis                    | mathematics/topology ↔ developmental-biology                              | proposed        |
+| b-grokking-criticality                      | AI/machine-learning ↔ statistical-physics                                 | proposed        |
+| b-quantum-biology-navigation                | quantum-mechanics ↔ sensory-biology                                       | **established** |
+| b-kibble-zurek-morphogenesis                | cosmology ↔ developmental-biology                                         | proposed        |
+| b-renormalization-biological-scaling        | mathematical-physics ↔ comparative-physiology                             | proposed        |
+| b-percolation-epidemiology                  | statistical-physics ↔ epidemiology                                        | proposed        |
+| b-habitat-percolation-ecology               | statistical-physics ↔ conservation-ecology                                | proposed        |
+| b-error-threshold-information               | information-theory ↔ molecular-evolution                                  | proposed        |
+| b-kuramoto-synchronization                  | statistical-physics ↔ neuroscience ↔ cardiology ↔ engineering             | proposed        |
+| b-fisher-information-evolution              | statistics ↔ evolutionary-biology ↔ machine-learning                      | proposed        |
+| b-tipping-points-phase-transitions          | statistical-physics ↔ climate-science                                     | proposed        |
+| b-ising-social-dynamics                     | statistical-physics ↔ social-science                                      | proposed        |
+| b-turing-reaction-diffusion                 | mathematics ↔ developmental-biology ↔ biophysics                          | **established** |
+| b-spin-glass-neural-networks                | statistical-physics ↔ neuroscience ↔ machine-learning                     | **established** |
+| b-landauer-information-thermodynamics       | thermodynamics ↔ information-theory ↔ computer-science                    | **established** |
+| b-game-theory-evolution                     | mathematics ↔ evolutionary-biology ↔ machine-learning                     | **established** |
+| b-seismology-percolation                    | seismology ↔ statistical-physics ↔ network-theory                         | proposed        |
+| b-philosophy-underdetermination-quantum     | philosophy-of-science ↔ quantum-mechanics ↔ epistemology                  | proposed        |
+| b-music-physics-resonance                   | acoustics ↔ music-theory ↔ cognitive-neuroscience                         | **established** |
+| b-engineering-reliability-extreme-value     | reliability-engineering ↔ actuarial-science ↔ biology ↔ materials-science | **established** |
+| b-connectome-neurodegeneration              | neuroscience ↔ medicine                                                   | proposed        |
+| b-climate-tipping-health                    | climate-science ↔ medicine                                                | proposed        |
+| b-inequality-health-gradient                | economics ↔ medicine                                                      | proposed        |
+| b-language-biomarker-diagnosis              | linguistics ↔ medicine                                                    | proposed        |
+| b-stellar-forcing-paleoclimate              | astronomy ↔ climate-science                                               | proposed        |
+| b-blackhole-information-paradox             | astronomy ↔ information-theory                                            | proposed        |
+| b-baryon-asymmetry-cp-violation             | astronomy ↔ particle-physics                                              | proposed        |
+| b-dark-matter-phase-transition-relics       | astronomy ↔ statistical-physics                                           | proposed        |
+| b-cosmic-rays-mutagenesis                   | astronomy ↔ biology                                                       | proposed        |
+| b-frb-random-matrix                         | astronomy ↔ mathematics                                                   | proposed        |
+| b-neural-criticality-climate-tipping        | neuroscience ↔ climate-science                                            | proposed        |
+| b-predictive-coding-grammar                 | neuroscience ↔ linguistics                                                | proposed        |
+| b-wealth-distribution-statistical-mechanics | economics ↔ statistical-physics                                           | **established** |
+| b-topology-disease-progression              | mathematics ↔ medicine                                                    | **established** |
+| b-earthquake-self-organized-criticality     | geophysics ↔ statistical-physics                                          | **established** |
+| b-efficient-coding-perception               | cognitive-science ↔ information-theory                                    | **established** |
+| b-bayesian-scientific-inference             | philosophy-of-science ↔ mathematics                                       | **established** |
+| b-robustness-evolvability-modularity        | engineering ↔ evolutionary-biology                                        | proposed        |
+| b-opinion-dynamics-ising                    | social-science ↔ statistical-physics                                      | proposed        |
+| b-aesthetic-complexity-information          | aesthetics ↔ mathematics ↔ cognitive-science                              | proposed        |
+
 
 ## Current milestone
 
@@ -191,7 +186,6 @@ The repository remains above the 800-bridge threshold and the 1,000-hypothesis t
 4. **Register custom domain** — check usdr.science / sciencebridges.org; configure GitHub Pages CNAME.
 5. **Enable GitHub Discussions** — seed "Introduce yourself", "Bridge proposals", "Open questions" threads.
 
-
 ## Wave 52+53 Milestone — 2026-05-07
 
 - **Waves 52 & 53**: 24 cross-domain bridges added (12 per wave), reaching **698 total bridges**.
@@ -200,7 +194,6 @@ The repository remains above the 800-bridge threshold and the 1,000-hypothesis t
 - **Graph rebuilt**: 2,610 nodes, 2,774 edges.
 - **Knowledge catalog**: 1,005 unknowns · 873 hypotheses · 698 bridges.
 - PRs: #190 (Wave 52), #191 (Wave 53) — both squash-merged to main.
-
 
 ## Wave 54 Milestone — 700+ BRIDGES CROSSED — 2026-05-07
 
@@ -216,3 +209,4 @@ The repository remains above the 800-bridge threshold and the 1,000-hypothesis t
 - **Knowledge catalog**: 1,009 unknowns · 877 hypotheses · 702 bridges (total 2,592).
 - **Dashboard**: milestone banner updated to "702 Cross-Domain Bridges! — THE 700-BRIDGE MILESTONE CROSSED & CONFIRMED".
 - PR: feat/wave-54-700-milestone — squash-merged to main.
+

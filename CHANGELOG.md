@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] — 2026-05-07
 
+### Added — Non-helical resonator phenomenology (Turing + Landauer bridges) (+2 bridges, +4 unknowns, +2 hypotheses)
+- **Bridges:** `b-nonhelical-turing-electromagnetic` (Turing / reaction–diffusion *analogy* for mode organization in cavity resonator arrays; speculation and testability called out) and `b-nonhelical-landauer-reversible-em` (reversible EM computation ↔ Landauer / Bennett framework).
+- **Unknowns:** `u-nonhelical-turing-wavelength-scaling`, `u-metamaterial-self-assembly-dynamics`, `u-landauer-limit-nonhelical-resonator`, `u-reversible-em-logic-gate-design`.
+- **Hypotheses:** `h-nonhelical-turing-cloaking-adaptation`, `h-nonhelical-resonator-adiabatic-quantum-memory` (schema-compliant; narrative mapped into `title` + `proposed_tests`).
+- **Regenerated:** `docs/knowledge_graph.json` and `dashboard/index.html` stats (see latest `build_graph` / `update_dashboard_stats` run on this machine).
+
 ### Added — Waves 72–73 (+24 bridges; regenerated catalog **940** bridges)
 - **Wave 72 (12 bridges):** Marcus ET / reaction-coordinate framing for enzyme tunneling; softmax attention × cortical divisive normalization; Ricci flow × geometrization program (Hamilton/Perelman refs); percolation × polymer gelation; bet hedging × portfolio diversification; plate-boundary mechanics × fracture / stress intensity; molecular spectroscopy × matrix diagonalization; cryo-EM × Bayesian reconstruction; advection–diffusion × odor plumes / foraging; Kauffman Boolean networks × GRN attractors; entropy rate × language-model perplexity; leaky integrate-and-fire × RC membrane circuits.
 - **Wave 73 (12 bridges):** compressible gas shocks × traffic shock waves; metabolic control analysis × local sensitivity analysis; reinforcement learning × patch foraging / marginal value; helioseismology × inverse eigenvalue / spectral inverse problems; biogeochemical cycle box models × dynamical-system attractors; viral quasispecies × NK rugged fitness landscapes; NMR rotating frame × effective Hamiltonian engineering; Hertz contact × spherical indentation; ant colony optimization × gradient-free optimization; river braiding × SOC-like dynamics (**speculation labeled**); Morse homology × Conley index / isolated invariant intuition; supply-chain networks × bond percolation / disruption reliability.

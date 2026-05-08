@@ -1,0 +1,62 @@
+id: b-nonhelical-landauer-reversible-em
+title: >
+  Non-helical cavity resonators ↔ Landauer-limited reversible electromagnetic computation and memory (speculative engineering bridge)
+status: proposed
+fields:
+  - electromagnetism
+  - metamaterials
+  - reversible-computing
+  - quantum-information
+  - thermodynamics-of-computation
+bridge_claim: >
+  Non-helical (e.g. bifilar or meander) resonators in shielded cavities can reduce stray coupling and
+  support high-Q modes that are attractive substrates for adiabatic or logically reversible manipulation
+  of classical electromagnetic state variables (phase, amplitude, frequency). This connects naturally to
+  Landauer’s bound on irreversible erasure (k_B T ln 2 per bit) and Bennett’s framework for reversible
+  computation: logically reversible transformations need not dissipate the Landauer minimum if performed
+  sufficiently slowly, while erasure or coarse-graining of information does. Any claim that a particular
+  geometry “approaches” the Landauer limit is an engineering and measurement question—material loss,
+  control overhead, and finite bandwidth prevent automatic guarantees. The bridge is therefore a design
+  hypothesis: arrange EM degrees of freedom so that reversible gates dominate the protocol and erasure
+  events are explicit and counted.
+translation_table:
+  - field_a_term: "Landauer erasure cost k_B T ln(2) per bit"
+    field_b_term: "Minimum heat associated with irreversible reset of a classical EM memory degree of freedom"
+    note: "Applies when a distinguishable state is merged or discarded without reversible embedding."
+  - field_a_term: "Logically irreversible gate (e.g. erasure of ambiguity)"
+    field_b_term: "Operation that maps distinct resonator states onto one output without redundant DOF"
+    note: "Must budget at least Landauer-scale dissipation in principle."
+  - field_a_term: "Logically reversible gate (Toffoli, Fredkin, reversible embedding)"
+    field_b_term: "Unitary or bijective evolution on an expanded state space including ancillas"
+    note: "No fundamental k_B T ln(2) floor per step if driven adiabatically in ideal hardware."
+  - field_a_term: "Second law / mutual information"
+    field_b_term: "Entropy of hidden variables in lossy lines, amplifiers, or unmodeled radiation"
+    note: "Real circuits dissipate via channels outside the ideal reversible abstraction."
+related_unknowns:
+  - u-landauer-limit-nonhelical-resonator
+  - u-reversible-em-logic-gate-design
+related_hypotheses:
+  - h-nonhelical-resonator-adiabatic-quantum-memory
+cross_pollination_opportunities:
+  - >
+    Design reversible EM protocol graphs (Fredkin/Toffoli embeddings) and count explicit erasures vs
+    reversible steps; compare measured heat per cycle to Landauer at controlled temperature.
+  - >
+    Superconducting or cryogenic high-Q cavities with bifilar / meander structures to separate radiative
+    loss from informational erasure in diagnostics.
+  - >
+    Cross-read neuromorphic and ion-channel literature for energy-per-operation accounting discipline,
+    while avoiding over-claiming biological optimality.
+communication_gap: >
+  Thermodynamics of computation is taught in CS and physics, but electromagnetic engineering curricula
+  rarely connect reversible gate sets to cavity-QED-style hardware; conversely, RF engineers seldom frame
+  measurements in bits erased per protocol. Non-helical geometries add niche fabrication vocabulary that
+  sits outside both communities’ shared examples (CMOS, transmons).
+references:
+  - doi: "10.1038/nature10872"
+    note: "Bérut et al. (2012) — experimental Landauer-related validation philosophy for small systems."
+  - doi: "10.1147/rd.53.0183"
+    note: "Landauer (1961) — minimum heat generation tied to logically irreversible operations."
+  - doi: "10.1147/rd.173.0525"
+    note: "Bennett (1973) — reversible computation and relation to dissipation."
+last_reviewed: "2026-05-07"
