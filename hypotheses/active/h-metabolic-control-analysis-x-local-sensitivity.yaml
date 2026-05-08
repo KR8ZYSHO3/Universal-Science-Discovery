@@ -1,0 +1,28 @@
+id: h-metabolic-control-analysis-x-local-sensitivity
+title: >
+  Sobol total-order indices computed on genome-scale kinetic models will rank enzymes differently than MCA flux control coefficients beyond ±30% perturbation bands — exposing domains where elasticity-local summaries mislead therapeutic targeting prioritization.
+status: active
+priority: medium
+impact_score: 0.53
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - doi: "10.1016/0076-6879(86)13086-1"
+    type: related
+    confidence: 0.68
+    note: MCA matrix lineage baseline for contrast with global sensitivities
+
+unknowns_addressed:
+  - u-mca-global-sensitivity-beyond-log-linear
+
+proposed_tests:
+  - description: >
+      Choose published kinetic models with documented elasticity tensors; compute Sobol indices via variance-based sampling at inhibition strengths spanning clinical plasma concentration ranges.
+    method: Spearman rank correlation between MCA rankings vs Sobol rankings across perturbation percentile sweeps
+    prediction: Correlation drops below 0.5 beyond elasticity-valid ranges on models with strong saturation kinetics
+
+related_disciplines:
+  - systems-biology
+  - mathematics

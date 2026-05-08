@@ -1,0 +1,39 @@
+id: b-entropy-rate-x-language-model-perplexity
+title: >
+  Stochastic process entropy rate h limits optimal prediction bits per symbol for stationary ergodic sources — connecting to cross-entropy training objectives for language models whose perplexity exp(H) measures geometric mean uncertainty per token under the model distribution versus empirical text statistics.
+status: established
+fields:
+  - information-theory
+  - computational-linguistics
+  - machine-learning
+bridge_claim: >
+  Shannon–McMillan–Breiman asymptotic equipartition implies typical sequences carry ~nh bits per n symbols for ergodic processes with entropy rate h.
+  Neural language models minimize average negative log likelihood — estimating cross-entropy against empirical token distributions; perplexity normalizes exponentiating this loss per token.
+  Under ideal calibration on the true data-generating process, perplexity relates to perplexity of the underlying entropy rate bounds though finite samples and nonstationarity break strict equality — still pedagogically linking Claude Shannon’s stochastic process theory with modern NLP evaluation metrics.
+translation_table:
+  - field_a_term: Entropy rate h (bits per symbol)
+    field_b_term: Asymptotic optimal compression bits per token sequence length n divided by n
+    note: Language modeling aspires to approach h from above using predictive distributions.
+  - field_a_term: Cross-entropy H(p,q) between true next-symbol p and model q
+    field_b_term: Average negative log loss minimized during transformer training
+    note: Empirical risk minimization targets cross-entropy which upper bounds unpredictability gap vs h.
+  - field_a_term: Perplexity exp(H)
+    field_b_term: Effective branching factor per token under model uncertainty
+    note: Same exponential rescaling used historically in speech recognition benchmarks.
+communication_gap: >
+  NLP conferences cite perplexity operationally while omitting ergodic theory assumptions; information theory courses rarely demo transformer checkpoints despite natural pedagogical alignment.
+cross_pollination_opportunities:
+  - >
+    Estimate entropy rates of curated corpora using nonparametric entropy estimators and compare asymptotics with massive LM perplexities to quantify nonstationarity gaps by domain.
+  - >
+    Apply universal compression algorithms as sanity checks on LM calibration — mismatched codes reveal domain shift versus entropy rate predictions.
+related_unknowns:
+  - u-entropy-rate-nonstationary-language-data
+related_hypotheses:
+  - h-entropy-rate-x-language-model-perplexity
+references:
+  - doi: "10.1002/j.1538-7305.1948.tb01338.x"
+    note: "Shannon (1948) Bell Syst. Tech. J. — entropy and communication over discrete channels"
+  - doi: "10.1162/coli.2005.31.4.417"
+    note: "Manning & Schütze foundation — statistical NLP perplexity evaluation tradition"
+last_reviewed: "2026-05-07"

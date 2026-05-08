@@ -1,0 +1,39 @@
+id: b-leaky-if-neuron-x-rc-membrane-circuit
+title: >
+  The leaky integrate-and-fire (LIF) subthreshold equation τ_m dV/dt = −(V − V_rest) + R I(t) is the same first-order linear ODE as charging a parallel RC circuit driven by current — capacitance stores charge while leak conductance provides dissipation — establishing direct electrophysiological–circuit metaphors used in neuromorphic engineering datasheets.
+status: established
+fields:
+  - computational-neuroscience
+  - electrical-engineering
+  - neuromorphic-computing
+bridge_claim: >
+  Cell membrane lipid bilayer acts as capacitance C_m per area; ion channels provide conductances g giving τ_m = C_m/g.
+  Subthreshold LIF ignores spike-generation nonlinearities but preserves low-pass filtering: voltage tracks low-frequency input currents while attenuating high-frequency noise — identical amplitude response to an RC low-pass filter with cutoff 1/(2π τ_m).
+  Neuromorphic chips implement physical capacitors and tunable resistors to emulate τ_m for event-driven inferencing, proving the metaphor is not merely pedagogical but operational hardware design.
+translation_table:
+  - field_a_term: Membrane time constant τ_m = C_m / g_leak
+    field_b_term: RC time constant τ = R C in equivalent circuit
+    note: Same exponential relaxation to steady state under step currents.
+  - field_a_term: Input current I injected at soma or dendrite compartment
+    field_b_term: Current source driving RC node voltage
+    note: Linear superposition holds subthreshold for both.
+  - field_a_term: Spike threshold nonlinearity (fire-and-reset)
+    field_b_term: Comparator / Schmitt trigger in silicon neuron circuits
+    note: Adds digital event output absent from passive RC but downstream digital logic restores hybrid modeling path.
+communication_gap: >
+  Neuroscience curricula sometimes teach LIF without explicit circuit diagrams except in neuromorphic tracks; electrical engineering students rarely connect RC labs to Hodgkin–Huxley reductions unless taking computational neuroscience electives.
+cross_pollination_opportunities:
+  - >
+    Standardize bench experiments comparing RC neuron emulation boards with biological patched neurons using identical white-noise current stimuli to validate frequency response overlaps quantitatively.
+  - >
+    Export impedance spectroscopy vocabulary from electrochemistry labs to characterize artificial lipid bilayers used in organ-on-chip neuron interfaces.
+related_unknowns:
+  - u-lif-parameter-identifiability-noisy-synapses
+related_hypotheses:
+  - h-leaky-if-neuron-x-rc-membrane-circuit
+references:
+  - doi: "10.1017/CBO9780511815706"
+    note: "Gerstner & Kistler — Spiking Neuron Models (RC integrate-and-fire derivation)"
+  - doi: "10.1038/nn0603-533"
+    note: "Meffin et al. (2003) — neuromorphic silicon neuron contextual citation cluster"
+last_reviewed: "2026-05-07"

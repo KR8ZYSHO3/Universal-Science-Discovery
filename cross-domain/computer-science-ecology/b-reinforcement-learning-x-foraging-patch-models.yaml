@@ -1,0 +1,38 @@
+id: b-reinforcement-learning-x-foraging-patch-models
+title: >
+  Patch-foraging theory (leave-time optimization via marginal value theorem) parallels reinforcement-learning analyses of exploration versus exploitation in MDPs with episodic resource patches — patch residence policies resemble softmax or ε-greedy action policies under hazard-shaped rewards — linking ecology field studies with RL sample-efficiency benchmarks when environments embed latent patch quality.
+status: established
+fields:
+  - reinforcement-learning
+  - behavioral-ecology
+bridge_claim: >
+  Charnov’s marginal value theorem predicts optimal patch departure when instantaneous intake falls below landscape-average reward rate — analogous to threshold stopping rules in restless bandits.
+  Q-learning and actor–critic algorithms optimize discounted or average rewards while balancing exploration noise — mathematically comparable when patch arrivals follow renewal processes and hazards correspond to MDP transition kernels.
+  Spatial graphs generalize patch networks similarly to partially observable MDPs where cues imperfectly reveal patch state — bridging Stephens–Krebs foraging analyses with modern RL curriculum evaluation suites using sparse rewards.
+translation_table:
+  - field_a_term: Marginal value threshold for leaving patch (ecology)
+    field_b_term: Stopping-time rule comparing continuation value vs outside option (RL/bandits)
+    note: Same optimal stopping structure under hazard-discounted rewards when formulated carefully.
+  - field_a_term: Travel time between patches
+    field_b_term: Mean revisit interval / MDP timestep penalties shaping exploration budgets
+    note: Travel costs mirror RL exploration penalties shaping regret bounds only indirectly via topology.
+  - field_a_term: Environmental stochasticity in prey renewal
+    field_b_term: Stochastic transitions P(s'|s,a) (RL)
+    note: Shared partially observed renewal assumptions motivate POMDP reductions for foragers with sensory limits.
+communication_gap: >
+  Ecology textbooks cite Charnov yet seldom formalize Bellman equations explicitly; RL tutorials emphasize MDP notation without citing empirical marginal-value datasets from hummingbirds or bees carrying centuries of field biology credibility.
+cross_pollination_opportunities:
+  - >
+    Benchmark RL algorithms on simulated patch worlds calibrated on hummingbird feeding telemetry hazard rates rather than synthetic GridWorld defaults.
+  - >
+    Export restless-bandit regret analyses from RL theory into fisheries spatial closures modeled as patch graphs under quota shocks.
+related_unknowns:
+  - u-patch-foraging-partial-observability-wild
+related_hypotheses:
+  - h-reinforcement-learning-x-foraging-patch-models
+references:
+  - doi: "10.1086/282878"
+    note: "Charnov (1976) Am. Nat. — marginal value theorem optimal patch use"
+  - doi: "10.7551/mitpress/6737.001.0001"
+    note: "Sutton & Barto — Reinforcement Learning: An Introduction (MDP policy framing)"
+last_reviewed: "2026-05-07"

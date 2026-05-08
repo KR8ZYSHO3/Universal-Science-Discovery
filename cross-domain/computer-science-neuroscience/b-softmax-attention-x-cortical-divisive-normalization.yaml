@@ -1,0 +1,40 @@
+id: b-softmax-attention-x-cortical-divisive-normalization
+title: >
+  Transformer softmax attention maps token compatibilities through exponentiated scores normalized across keys — paralleling neural models of cortical normalization and gain control where responses are divided by pooled activity to sharpen stimulus contrast and implement competitive dynamics across a neuronal population.
+status: proposed
+fields:
+  - machine-learning
+  - neuroscience
+  - computational-neuroscience
+bridge_claim: >
+  Attention weights are a_ij = softmax_j(q_i · k_j / √d): nonnegative, sum-to-one over j for fixed i, resembling a divisive normalization across locations/channels after an expansive nonlinearity (exp).
+  Canonical cortical normalization (Carandini–Heeger style) divides each unit response by a weighted sum of neighboring activity plus baseline, producing contrast gain control.
+  Both mechanisms implement competitive selection: softmax chooses a distribution over keys; divisive normalization sharpens peaks relative to surround suppression.
+  The analogy is operational at the population level (normalization across alternatives) rather than a claim of algorithmic identity — transformers lack explicit membrane dynamics, while cortex lacks explicit query-key dot products.
+translation_table:
+  - field_a_term: Softmax over attention logits (exp then normalize)
+    field_b_term: Divisive normalization denominator (surround sum + σ)
+    note: Both convert raw comparisons into relative gains bounded by a partition function–like denominator.
+  - field_a_term: Temperature / √d scaling in attention
+    field_b_term: Gain or noise parameter controlling sharpness of competition in normalization models
+    note: Larger temperature softens attention peaks analogously to weaker surround inhibition broadening tuning.
+  - field_a_term: Multi-head attention channels
+    field_b_term: Parallel feature maps or cortical columns with distinct normalization pools
+    note: Heads specialize filters; cortical layers parallel multiple gain-control pathways with different pooling footprints.
+communication_gap: >
+  Deep learning papers rarely cite canonical neuroscience normalization literature; neuroscience papers on transformers often rely on metaphor rather than quantitative mapping between softmax logits and membrane currents.
+cross_pollination_opportunities:
+  - >
+    Fit divisive normalization parameters (surround weights, baseline σ) to approximate softmax attention surfaces on controlled stimuli and quantify prediction gaps when temporal integration matters.
+  - >
+    Design attention variants explicitly tied to conductance-based normalization (spiking attention units) to test whether cortical-like constraints improve robustness or sample efficiency.
+related_unknowns:
+  - u-softmax-attention-cortical-normalization-mapping
+related_hypotheses:
+  - h-softmax-attention-x-cortical-divisive-normalization
+references:
+  - doi: "10.1038/371521a0"
+    note: "Carandini & Heeger (1994) Nature — contrast adaptation and cortical gain control"
+  - doi: "10.48550/arXiv.1706.03762"
+    note: "Vaswani et al. (2017) NeurIPS — Attention Is All You Need (transformer attention)"
+last_reviewed: "2026-05-07"
