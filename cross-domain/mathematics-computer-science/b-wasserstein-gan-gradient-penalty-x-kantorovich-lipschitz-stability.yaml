@@ -1,0 +1,35 @@
+id: b-wasserstein-gan-gradient-penalty-x-kantorovich-lipschitz-stability
+title: >
+  Wasserstein GAN training constrains the critic to approximate a 1-Lipschitz dual potential via gradient penalties or spectral normalization — reframing practical stability as enforcing convex-analytic regularity conditions inherited from Kantorovich optimal transport duality, beyond the coarse statement “WGAN uses Earth mover’s distance.”
+status: established
+fields:
+  - mathematics
+  - computer-science
+  - machine-learning
+bridge_claim: >
+  Kantorovich duality expresses W₁ as a supremum over 1-Lipschitz test functions; empirical WGAN critics approximate this supremum with neural nets, and gradient-penalty variants (Gulrajani et al.) directly penalize dual-feasibility violations (‖∇f‖) along interpolation segments — training stability links to how closely finite-width networks plus penalties realize the Lipschitz constraint, a numerical-analysis flavored perspective atop classical OT.
+translation_table:
+  - field_a_term: Dual feasibility ‖f‖_Lip ≤ 1 in Kantorovich problem
+    field_b_term: spectral norm bounds / gradient penalty on discriminator
+    note: Practical enforcement is approximate; equality with continuous OT holds only in ideal limits.
+  - field_a_term: entropic regularization of OT (Sinkhorn, ε > 0)
+    field_b_term: stochastic smoothing or noise in GAN critics / augmentation pipelines
+    note: Regularization families differ; analogy targets stabilization motifs broadly.
+  - field_a_term: convexity / concavity structure of dual objective
+    field_b_term: convex-concave saddle optimization algorithms used to train critic-generator pairs
+    note: Optimization viewpoint aligns partially with OT algorithms yet architecture matters enormously.
+communication_gap: >
+  OT textbooks emphasize Kantorovich duality proofs while ML tutorials jump to PyTorch snippets — practitioners sometimes overlook that gradient penalties explicitly encode dual feasibility inspired by OT Lip constraints rather than arbitrary heuristics alone.
+cross_pollination_opportunities:
+  - Adapt monotone Kantorovich iteration diagnostics from OT numerics to monitor GAN training curvature along interpolants.
+  - Export Sinkhorn temperature-parameter intuition into schedules for critic entropy bonuses during collapse-prone regimes.
+related_unknowns:
+  - u-wgan-gp-tightness-versus-exact-lipschitz-projections
+related_hypotheses:
+  - h-gradient-penalty-magnitude-tracks-dual-feasibility-proxy-metrics
+references:
+  - doi: "10.48550/arXiv.1704.00028"
+    note: "Gulrajani et al. (2017) — improved WGAN training using gradient penalty (ICML)"
+  - doi: "10.48550/arXiv.1701.07875"
+    note: "Arjovsky, Chintala & Bottou (2017) — Wasserstein GAN; Kantorovich dual framing that motivates Lipschitz critics"
+last_reviewed: "2026-05-07"

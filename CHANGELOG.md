@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] — 2026-05-07
 
+### Added — Wave 77 (+12 bridges; catalog **990** bridges)
+- **Themes:** cardiac alternans ↔ Hopf / bifurcation language; epithelial jamming ↔ glassy colloid rheology; quantum Zeno ↔ watchdog / sampling (**explicit analogy**); complex torus ECDH pedagogy ↔ finite-field ECC (**careful**); forest gaps ↔ Hubbell-style neutral sampling; mantle horizontal kinetic spectra ↔ RB wavelength-selection (**not duplicate mantle convection narrative**); WGAN-GP ↔ Kantorovich dual / Lipschitz constraints (refinement beyond generic Wasserstein GAN ↔ OT); nitrogen-cycle Jacobians ↔ oscillator-style modal stability; DEQ ↔ fixed-point / implicit differentiation; Casimir–Polder–Lifshitz crossover ↔ vdW regimes; vaccination games ↔ herd thresholds; sonoluminescence ↔ cavitation collapse — each with companion unknown + hypothesis.
+- **Regenerated:** `docs/knowledge_graph.json`, `dashboard/index.html`, `canvases/Progress.canvas.tsx` via `build_graph.py`, `update_dashboard_stats.py --apply`, `sync-dashboard-from-state.py` (use `python -X utf8 scripts/build_graph.py` on Windows if console encoding errors).
+
 ### Added — Wave 76 (+12 bridges; catalog **978** bridges)
 - **Themes:** Cherenkov ↔ Mach cone; Wilson RG wavelets / shrinkage denoising (not RG×ML); synaptic tagging ↔ cache coherence (**pedagogical analogy**); ocean acoustic tomography ↔ ultrasound CT; CRISPR multiplex ↔ barcode / Reed–Solomon intuition (**careful wording**); elasticity ↔ stiffness tensor (**caveats**); fluorescence lifetime ↔ MRI T2*; Vicsek flocking ↔ Raft consensus; inflation ↔ epidemic phase plane (**speculation flagged**); ion-channel gating ↔ metastable rate theory; replication fork ↔ ASEP-style traffic; laser linewidth ↔ Leeson phase noise — each with companion unknown + hypothesis.
 - **Regenerated:** `docs/knowledge_graph.json`, `dashboard/index.html`, `canvases/Progress.canvas.tsx` via `build_graph.py`, `update_dashboard_stats.py --apply`, `sync-dashboard-from-state.py`.

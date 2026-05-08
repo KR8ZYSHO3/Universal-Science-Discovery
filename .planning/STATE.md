@@ -4,6 +4,10 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 ## Last updated
 
+- 2026-05-07 — **Wave 77 — 12 new bridges (990 catalog)**:
+**Bridges:** Hopf bifurcation ↔ cardiac alternans (Jacobian-level mapping caveats); epithelial jamming ↔ colloidal glass / rheology; quantum Zeno ↔ watchdog sampling (**labeled analogy**, embedded CS); elliptic curves over ℂ / torus intuition ↔ finite-field ECC pedagogy (**security caveats**); forest gap dynamics ↔ neutral-theory sampling under disturbance; lithospheric planform spectra ↔ Rayleigh–Bénard wavelength selection (**distinct from mantle-RB heat-flow bridges**); WGAN gradient penalty ↔ Kantorovich Lipschitz / dual stability (OT refinement vs generic OT↔ML); nitrogen-cycle Jacobian modes ↔ coupled-oscillator stability (methodological); DEQ implicit layers ↔ fixed-point iteration / IFT sensitivities; Casimir–Polder–Lifshitz crossover ↔ vdW-to-retarded regimes; game-theoretic vaccination ↔ herd-immunity thresholds; sonoluminescence ↔ acoustic cavitation collapse (**mechanism contested**).
+**Unknowns / hypotheses:** +12 each (paired to bridges).
+**Artifacts:** `docs/knowledge_graph.json` rebuilt (**3,458 nodes**, **3,876 edges**); `dashboard/index.html` stats refreshed; `python scripts/validate_schemas.py` — **0 errors** (local run).
 - 2026-05-07 — **Wave 76 — 12 new bridges (978 catalog)**:
 **Bridges:** Cherenkov ↔ Mach/sonic cone; Wilson RG / wavelet shrinkage denoising (distinct from existing RG×ML); synaptic tagging ↔ cache coherence **(labeled analogy)**; ocean acoustic tomography ↔ ultrasound transmission CT; CRISPR multiplex barcodes ↔ Reed–Solomon **intuition only**; price elasticity ↔ elastic stiffness tensor **(caveats)**; FLIM lifetimes ↔ MRI T2* dephasing; Vicsek flocking ↔ Raft consensus stability; cosmic inflation ↔ epidemic phase-plane growth **(heavy speculation)**; ion-channel gating ↔ metastable rate theory; replication fork ↔ ASEP traffic jams **(toy-model scope)**; Schawlow–Townes linewidth ↔ Leeson phase noise.
 **Unknowns / hypotheses:** +12 each (paired to bridges).
