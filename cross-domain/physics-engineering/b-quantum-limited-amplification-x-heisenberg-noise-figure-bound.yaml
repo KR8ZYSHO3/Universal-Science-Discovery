@@ -1,0 +1,43 @@
+id: b-quantum-limited-amplification-x-heisenberg-noise-figure-bound
+title: >
+  Phase-preserving amplifiers add quantum noise bounded by Heisenberg uncertainty — when expressed as excess over
+  classical Johnson noise at the input, this yields a fundamental noise figure floor near 3 dB at high gain for
+  conventional quadrature devices (quantum optics ↔ microwave engineering).
+status: established
+fields:
+  - quantum-physics
+  - microwave-engineering
+  - electrical-engineering
+  - information-theory
+bridge_claim: >
+  Caves derived that a linear phase-preserving amplifier with large gain must introduce noise equivalent to at least
+  half a quantum at the input port when referenced against the signal quadrature, translating into an intrinsic noise
+  figure NF ≥ 3 dB for large gain under standard definitions. This links quantum measurement theory to RF noise figure
+  parlance: beyond classical thermal kT, quantum-added noise is mandatory unless using squeezing or non-standard readout
+  strategies that exchange quadrature uncertainties by protocol design.
+translation_table:
+  - field_a_term: quadrature uncertainty relation ΔX ΔP ≥ ℏ/2
+    field_b_term: minimum added noise number N ≥ ½ for phase-preserving linear amplification (large gain)
+    note: Standard Haus–Caves picture for bosonic modes.
+  - field_a_term: noise figure referenced to thermal noise temperature T₀
+    field_b_term: quantum noise temperature contributions from zero-point fluctuations at GHz in cryogenic LNAs
+    note: At room temperature mm-wave, classical Johnson noise can dominate but quantum floor matters in cryo receivers.
+  - field_a_term: squeezing / phase-sensitive amplification
+    field_b_term: sub–3 dB effective NF strategies when quadratures become asymmetric by design
+    note: Does not violate uncertainty; redistributes noise budgets.
+related_unknowns:
+  - u-quantum-noise-figure-silicon-mm-wave-cryo-vs-room
+related_hypotheses:
+  - h-josephson-paramp-nears-quantum-noise-floor-with-rimp-matched-array
+cross_pollination_opportunities:
+  - Benchmark cryogenic CMOS LNAs against Josephson parametric amplifiers using identical quantum noise accounting conventions.
+  - Export squeezed-state illumination concepts from quantum optics to radar when coherence budgets permit.
+communication_gap: >
+  Microwave datasheets quote NF without mentioning quantum limits; quantum optics literature seldom converts squeezing
+  metrics into IEEE NF unless targeting radio astronomy instrumentation collaborations.
+references:
+  - doi: "10.1103/PhysRevD.26.1817"
+    note: "Caves (1982) — quantum limits on noise in linear amplifiers (Phys. Rev. D)."
+  - doi: "10.1103/PhysRev.128.2407"
+    note: "Haus & Mullen (1962) — quantum noise in linear amplifiers (Phys. Rev.)."
+last_reviewed: "2026-05-07"

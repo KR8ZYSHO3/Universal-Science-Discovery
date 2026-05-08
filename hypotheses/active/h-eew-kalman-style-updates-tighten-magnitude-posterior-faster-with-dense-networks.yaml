@@ -1,0 +1,34 @@
+id: h-eew-kalman-style-updates-tighten-magnitude-posterior-faster-with-dense-networks
+title: >
+  Holding rupture scenario class fixed, doubling effective station density within two rupture lengths of the
+  epicenter halves the median time-to-first magnitude estimate within ±0.5 units compared to sparse-network baselines
+  — dominated by geometric aperture rather than CPU throughput at modern telemetry rates.
+status: active
+priority: high
+impact_score: 0.58
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - doi: "10.1146/annurev.earth.031208.100055"
+    type: related
+    confidence: 0.52
+    note: "Survey establishes EEW dependence on network geometry qualitatively."
+  - type: related
+    confidence: 0.38
+    note: "Needs quantitative OSSE-style replay across dense vs thinned virtual networks."
+
+unknowns_addressed:
+  - u-earthquake-early-warning-bayesian-latency-magnitude-error
+
+proposed_tests:
+  - description: >
+      Replay historical M≥6 events through synthetic station dropout masks at fixed inversion code; measure time to
+      posterior σ(M)<0.5 vs station density surrogate.
+    method: Offline EEW sandbox with archived waveforms.
+    prediction: Posterior stabilization time scales ~1/N_stations within rupture footprint until aperture saturates.
+
+related_disciplines:
+  - geophysics
+  - control-engineering

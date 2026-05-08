@@ -1,0 +1,44 @@
+id: b-wpt-resonator-q-bandwidth-tradeoff-x-matching-network-coexistence
+title: >
+  High-Q resonators sharpen bandwidth in magnetically coupled wireless power links — coupling bandwidth
+  and impedance matching constraints jointly bound multi-frequency coexistence of resonant WPT channels
+  (RF resonator theory ↔ power electronics).
+status: established
+fields:
+  - electrical-engineering
+  - electromagnetism
+  - power-electronics
+  - physics
+bridge_claim: >
+  Resonant inductive WPT treats coils as coupled LC resonators with loaded quality factor Q = ωL/R and
+  fractional bandwidth Δω/ω ~ 1/Q for simple pole pairs. Narrowband matching maximizes link efficiency at a
+  carrier but suppresses adjacent-band coexistence: tighter coils or higher Q shrink the coupling-bandwidth
+  window within which coupled-mode efficiency η(k, Q₁, Q₂) stays near optimum. This is the same Bode/Fano
+  tension familiar in RF matching networks — not contradictory to the Tesla/Kurs coupled-mode efficiency
+  formulas, but an orthogonal constraint on spectral reuse versus coil optimization.
+translation_table:
+  - field_a_term: loaded quality factor Q = ω₀L/R
+    field_b_term: coupling bandwidth / spectral occupancy of the resonant link
+    note: Higher Q improves circulating currents but narrows the frequency window over which matching holds.
+  - field_a_term: resonator pole sharpness ∝ 1/Q
+    field_b_term: tolerance of multi-standard chargers (Qi / proprietary carriers) on shared hardware
+    note: Multi-frequency operation requires either lower Q, staggered tuning, or active cancellation.
+  - field_a_term: coupled-mode steady-state efficiency η(k, Q₁, Q₂)
+    field_b_term: peak efficiency only within the bandwidth where resonator approximation is valid
+    note: Efficiency formulas assume sinusoidal steady state inside the pole bandwidth.
+related_unknowns:
+  - u-wpt-narrowband-q-bandwidth-multi-standard-coexistence
+related_hypotheses:
+  - h-wpt-coexistence-requires-q-bandwidth-renegotiation-per-standard
+cross_pollination_opportunities:
+  - Export overlapping-band duplex constraints from cellular RF coexistence testing to resonant charger EMI labs.
+  - Import tunable matching networks from antenna diversity systems into dynamically retuned WPT coils.
+communication_gap: >
+  Power-electronics WPT papers emphasize η vs distance and κ/Γ figures of merit; RF filter/matching literature
+  quantifies insertion loss versus fractional bandwidth with explicit Bode bounds — cross-citation is sporadic.
+references:
+  - doi: "10.1126/science.1143254"
+    note: "Kurs et al. (2007) — strongly coupled magnetic resonances (Science)."
+  - doi: "10.1109/TPEL.2010.2073493"
+    note: "Sample et al. (2011) — coupled resonators for WPT; bandwidth and range adaptation (IEEE Trans. Power Electron.)."
+last_reviewed: "2026-05-07"

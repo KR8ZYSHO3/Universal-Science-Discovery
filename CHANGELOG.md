@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] — 2026-05-07
 
+### Added — Wave 75 (+12 bridges; catalog **966** bridges)
+- **Themes:** resonant WPT Q–bandwidth coexistence vs matching; Johnson–Nyquist thermal noise ↔ RF noise figure; earthquake early warning ↔ sequential Bayesian source estimation; folding funnel ↔ Polyak–Łojasiewicz optimization geometry (speculation flagged); epsilon-near-zero metamaterials ↔ cavity Q; Fano interference ↔ metamaterial quasi-dark modes; quantum-limited amplification ↔ Heisenberg noise-figure bound; ferrite hysteresis/eddy losses ↔ WPT coil Q; EEW alerting ↔ Wald SPRT sequential decisions (correlation caveats); contact-map sparsity ↔ Hessian cooperativity (speculation flagged); Floquet time modulation ↔ magnet-free nonreciprocity; phased-array beamforming ↔ multi-coil WPT interference — each with companion unknown + hypothesis.
+- **Regenerated:** `docs/knowledge_graph.json`, `dashboard/index.html`, `canvases/Progress.canvas.tsx` via `build_graph.py`, `update_dashboard_stats.py --apply`, `sync-dashboard-from-state.py`.
+
 ### Added — Wave 74 (+12 bridges; catalog **954** bridges)
 - **Themes:** EM skin depth ↔ financial firewalls; Doppler/redshift ↔ option-adjusted carry (speculation flagged); Zeeman structure ↔ RMT level spacing; capillary length ↔ wetting contact lines; Bode integral ↔ waterbed robust control; percolation ↔ cyber lateral movement; Lyapunov sensitivity ↔ bank-run dynamics (caveats); MEG/SQUID ↔ EM inverse source; Koopman ↔ DMD; Kalman filtering ↔ NWP assimilation; Green–Kubo ↔ volatility memory (speculative layer); Debye screening ↔ membrane double layer — each with companion unknown + hypothesis; phenomenology `p-nonhelical-cavity-resonator` linked to non-helical bridge IDs.
 - **Regenerated:** `docs/knowledge_graph.json`, `dashboard/index.html` / `canvases/Progress.canvas.tsx` via `build_graph`, `update_dashboard_stats --apply`, `sync-dashboard-from-state`.

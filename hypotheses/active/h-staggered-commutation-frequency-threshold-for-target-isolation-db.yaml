@@ -1,0 +1,32 @@
+id: h-staggered-commutation-frequency-threshold-for-target-isolation-db
+title: >
+  Achieving ≥20 dB isolation across ≥50 MHz instantaneous bandwidth at GHz carriers requires modulation frequency ≥0.05 ω_carrier
+  for staggered commutated-line cells with realistic switch parasitics — below this ratio, Floquet sidebands overlap passbands and collapse isolation.
+status: active
+priority: medium
+impact_score: 0.39
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - doi: "10.1038/ncomms11217"
+    type: related
+    confidence: 0.41
+    note: "Demonstrates principle; quantitative scaling law still **speculative**."
+  - type: related
+    confidence: 0.30
+    note: "Numeric coefficients depend on switch technology node."
+
+unknowns_addressed:
+  - u-floquet-metamaterial-isolation-bandwidth-loss-tradeoff
+
+proposed_tests:
+  - description: >
+      EM co-simulate commutated lines across Ω/ω sweeps with vendor SPICE switch models; extract isolation vs bandwidth ridge.
+    method: Harmonic balance + Floquet modal analysis.
+    prediction: Isolation collapses below threshold Ω/ω band identified within ±20% across models sharing Ron/Coff ranges.
+
+related_disciplines:
+  - electromagnetism
+  - microwave-engineering

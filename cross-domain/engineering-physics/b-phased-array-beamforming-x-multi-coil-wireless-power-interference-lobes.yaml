@@ -1,0 +1,42 @@
+id: b-phased-array-beamforming-x-multi-coil-wireless-power-interference-lobes
+title: >
+  Arrays of driven coils or phased RF transmitters steer magnetic or propagating fields via controlled phases —
+  array factor mathematics producing main beams and grating lobes parallels phased-array antenna theory applied to
+  multi-coil wireless power routing (antenna arrays ↔ resonant power transfer).
+status: established
+fields:
+  - electrical-engineering
+  - electromagnetism
+  - antenna-theory
+  - power-electronics
+bridge_claim: >
+  Superposition of currents I_k e^{jφ_k} on identical coils spaced distance d creates interference patterns analogous to
+  antenna arrays: peak constructive steering occurs when phase progression matches spatial phase delay.
+  Undersampled spacing produces unwanted lobes — grating lobes in radar vocabulary become parasitic hot spots or unintended
+  coupling paths in WPT barns. This connects textbook phased-array discipline to emerging coil-array chargers without invoking new physics.
+translation_table:
+  - field_a_term: array factor F(θ) = Σ a_k e^{jk·r_k}
+    field_b_term: spatial profile of magnetic vector potential from phased coil currents
+    note: Near-field dominance modifies far-field pattern formulas but interference principle persists.
+  - field_a_term: grating lobe condition for element spacing > λ/2 (propagating regimes)
+    field_b_term: unintended coupling to neighboring vehicles/pads in tile arrays
+    note: Near-field effective wavelengths differ from free-space λ — engineering uses full-wave correction.
+  - field_a_term: beam steering weights (Taylor/Chebyshev)
+    field_b_term: coil current amplitude/phase schedules minimizing peak stray fields subject to efficiency constraints
+    note: Optimization parallels array synthesis targets sidelobe suppression.
+related_unknowns:
+  - u-multi-coil-wpt-array-grating-lobes-cross-talk
+related_hypotheses:
+  - h-half-wavelength-coil-spacing-bound-suppresses-near-field-grating-analogs
+cross_pollination_opportunities:
+  - Import automotive radar calibration rigs to quantify unintended coupling lobes in DWPT roadway coil mats.
+  - Export convex beamforming solvers from 5G massive MIMO to compute safe coil currents under EMI constraints.
+communication_gap: >
+  Wireless charging roadmaps emphasize efficiency maps versus gap; antenna-array textbooks emphasize radiation patterns —
+  practitioners rarely share CAD workflows despite mathematical similarity.
+references:
+  - doi: "10.1109/TPEL.2013.2279268"
+    note: "Nam et al. (2013) — coupled magnetic resonance systems with multiple resonators / positioning context (IEEE Trans. Power Electron.)."
+  - doi: "10.1109/TAP.1964.1138256"
+    note: "Taylor & Ku (1964) — classical aperture synthesis / array factor lineage (IEEE Trans. Antennas Propag.)."
+last_reviewed: "2026-05-07"

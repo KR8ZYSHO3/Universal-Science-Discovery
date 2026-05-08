@@ -4,6 +4,10 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 ## Last updated
 
+- 2026-05-07 — **Wave 75 — 12 new bridges (966 catalog)**:
+**Bridges:** WPT resonator Q–bandwidth tradeoffs ↔ matching / coexistence; Johnson–Nyquist equilibrium fluctuations ↔ RF noise figure; earthquake early warning ↔ recursive Bayesian source estimation; protein folding funnel ↔ Polyak–Łojasiewicz regions (**coarse-graining speculation flagged**); epsilon-near-zero metamaterials ↔ field confinement / Q; Fano asymmetric lineshapes ↔ metamaterial dark-mode Q; quantum-limited amplification ↔ Heisenberg noise-figure bound; soft ferrite hysteresis ↔ WPT coil losses; earthquake alarm policies ↔ Wald SPRT (**optimality caveats under correlated seismic noise**); contact-map sparsity ↔ Hessian low-rank cooperativity (**speculative mapping**); Floquet time-modulated metamaterials ↔ nonreciprocal EM response; phased-array beamforming ↔ multi-coil WPT interference lobes.
+**Unknowns / hypotheses:** +12 each (paired to bridges).
+**Artifacts:** `docs/knowledge_graph.json` rebuilt (**3,386 nodes**, **3,756 edges**); `dashboard/index.html` stats refreshed; `python scripts/validate_schemas.py` — **0 errors** (local run).
 - 2026-05-07 — **Wave 74 — 12 new bridges (954 catalog) + phenomenology cross-links**:
 **Bridges:** skin-depth shielding ↔ financial firewalls (analogy strength noted); Doppler/redshift ↔ option-adjusted carry (**speculation**); Zeeman multiplets ↔ RMT level-spacing statistics; capillary length ↔ droplet contact-line dynamics; Bode sensitivity integral ↔ waterbed / robust control; bond percolation ↔ cyber lateral movement; Lyapunov divergence ↔ bank-run amplification (**heavy caveats**); MEG/SQUID forward models ↔ EM inverse source; Koopman operator ↔ DMD; Kalman estimation ↔ NWP assimilation; Green–Kubo correlations ↔ return/volatility memory (**partly speculative**); Debye length ↔ membrane electrical double layer.
 **Unknowns / hypotheses:** +12 each (paired to bridges); `p-nonhelical-cavity-resonator` `candidate_bridges` extended with `b-nonhelical-turing-electromagnetic` and `b-nonhelical-landauer-reversible-em`.

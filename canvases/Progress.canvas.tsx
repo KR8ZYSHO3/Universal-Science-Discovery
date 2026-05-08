@@ -21,7 +21,7 @@ import {
 
 // @sync-dashboard-begin
 const dashboardSnapshot = {
-  lastUpdated: "2026-05-07 — **Non-helical resonator phenomenology — 2 bridges (942 catalog), 4 unknowns, 2 hypotheses**:",
+  lastUpdated: "2026-05-07 — **Wave 74 — 12 new bridges (954 catalog) + phenomenology cross-links**:",
   currentFocus: [
     "**arXiv preprint**: `docs/preprint/usdr_preprint.md` is ready; next step is PDF conversion and submission to cs.DL (author: Brandon Shoemaker).",
     "**Bridge count toward 1,000**: promote `drafts/bridges/` stubs; continue wave-based build.",
