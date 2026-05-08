@@ -1,0 +1,58 @@
+id: bg-whole-brain-neural-recording
+title: Whole-brain single-neuron resolution recording in awake behaving mammals
+breakthrough_description: >
+  No technology can simultaneously record all ~86 billion neurons in a human brain
+  at single-neuron resolution during natural behavior. Current state-of-the-art
+  (Neuropixels probes) records roughly 10,000 neurons simultaneously — about 0.00001%
+  of the human brain. Light-sheet microscopy achieves complete recording in the
+  transparent C. elegans nervous system (302 neurons) but does not scale to mammals.
+  The breakthrough needed: a technology or combination of technologies that can
+  census rather than sample neural activity across an entire mammalian brain during
+  ongoing cognition and behavior, enabling circuit-level understanding of how
+  computation arises from neural dynamics.
+source_domain: neuroscience
+current_trl: 2
+world_reshaping_potential: transformative
+blocking_gaps:
+  - gap_title: Sensor density and biocompatibility at scale
+    gap_description: >
+      Recording 86 billion neurons requires either implanted electrodes at densities
+      that cause tissue damage and immune response, or optical methods that cannot
+      penetrate deep tissue. Current silicon probes (Neuropixels 2.0: 5,120 channels
+      per shank) cause gliosis around the implant within weeks, degrading signal
+      quality. Scaling to billions of recording sites would require materials that
+      are both mechanically flexible at the micron scale and stable in the ionic
+      environment of brain tissue for years.
+    blocking_domain: materials-science
+    gap_type: materials
+  - gap_title: Data throughput and real-time processing
+    gap_description: >
+      Recording all 86 billion neurons at 30 kHz with 10-bit resolution generates
+      approximately 2.6 × 10^15 bits per second — roughly 30,000× the bandwidth
+      of current Neuropixels systems. No data acquisition, transmission, or real-time
+      spike sorting pipeline exists at this scale. Compression algorithms that
+      preserve spike-timing information while reducing bandwidth by 1,000× have
+      not been demonstrated at biologically relevant noise levels.
+    blocking_domain: computer-science
+    gap_type: engineering
+  - gap_title: Optical scattering limits depth of non-invasive recording
+    gap_description: >
+      Light is multiply scattered after traveling ~1 mm in brain tissue, preventing
+      single-neuron resolution fluorescence imaging below the cortical surface without
+      physical penetration. Two-photon microscopy reaches ~1 mm depth; three-photon
+      extends to ~1.5 mm. The ~7 cm depth of sub-cortical structures (hippocampus,
+      basal ganglia, brainstem) remains inaccessible to optical recording at single-neuron
+      resolution without highly invasive implants or clearing techniques incompatible
+      with live animals.
+    blocking_domain: physics
+    gap_type: engineering
+required_bridges:
+  - b-neural-control-theory
+  - b-spike-coding-neuromorphic
+  - b-bci-signal-decoding
+references:
+  - "Jun et al. (2017) Fully integrated silicon probes for high-density recording of neural activity. Nature 551:232-236."
+  - "Steinmetz et al. (2021) Neuropixels 2.0: A miniaturized high-density probe for stable, long-term brain recordings. Science 372:eabf4588."
+  - "White et al. (1986) The structure of the nervous system of the nematode Caenorhabditis elegans. Phil Trans R Soc Lond B 314:1-340."
+  - "Dombeck et al. (2007) Imaging large-scale neural activity with cellular resolution in awake, mobile mice. Neuron 56:43-57."
+last_reviewed: "2026-05-07"
