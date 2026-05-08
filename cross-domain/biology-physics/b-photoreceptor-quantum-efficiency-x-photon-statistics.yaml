@@ -1,0 +1,68 @@
+id: b-photoreceptor-quantum-efficiency-x-photon-statistics
+title: >
+  Photoreceptor Quantum Efficiency x Photon Statistics - retinal rod as single-photon detector
+status: proposed
+fields:
+  - biology
+  - physics
+  - biophysics
+bridge_claim: >
+  Retinal rod photoreceptors can detect single photons with ~30% quantum efficiency
+  and signal-to-noise ratio that approaches the quantum shot noise limit; the response
+  is stochastic (Poisson-distributed photon arrivals), and the biochemical amplification
+  cascade (one photon triggers 500 cGMP hydrolyzed) performs near-quantum-limited
+  signal amplification, making the rod a biological quantum detector.
+translation_table:
+  - field_a_term: Retinal rod photoreceptor (single cell, ~2 pA single-photon response)
+    field_b_term: Single-photon avalanche diode (SPAD) or photomultiplier tube
+    note: >
+      A retinal rod generates a ~2 pA current pulse upon absorbing a single photon,
+      with a signal-to-noise ratio (~5:1) that approaches the shot noise limit of
+      ideal single-photon detectors; the quantum efficiency (~25-30%) is comparable
+      to many lab-grade SPADs.
+  - field_a_term: Rhodopsin activation (1 photon -> 1 activated R*)
+    field_b_term: Photoelectric effect / photon absorption event
+    note: >
+      A single photon isomerizes 11-cis retinal to all-trans retinal, activating
+      one rhodopsin molecule - the quantum event analogous to photoelectric
+      emission; the isomerization yield (~67%) sets the intrinsic quantum efficiency.
+  - field_a_term: cGMP cascade amplification (1 R* -> 500 PDE activated -> cGMP drop)
+    field_b_term: Avalanche multiplication in SPAD
+    note: >
+      The G-protein cascade amplifies the single-photon signal by a factor of
+      ~500, similar to the avalanche multiplication factor in a SPAD; the gain
+      is controlled by the lifetime of activated transducin.
+  - field_a_term: Dark noise (spontaneous rhodopsin activation rate, ~0.01/rod/s)
+    field_b_term: Dark count rate of single-photon detector
+    note: >
+      Rods have a dark noise (spontaneous photon-like responses from thermal
+      isomerization of rhodopsin) of ~0.01 per rod per second - a dark count
+      rate comparable to cooled silicon SPADs, limiting detection at very low
+      light levels.
+communication_gap: >
+  Quantum optics and visual neuroscience developed independently; Hecht, Shlaer
+  & Pirenne (1942) established that humans can detect 5-7 photons in the 1940s;
+  but the connection to quantum detection theory (Glauber coherence, photon
+  statistics, Poisson counting) has not been fully worked out in the visual
+  neuroscience literature.
+cross_pollination_opportunities:
+  - >
+    Apply quantum detection theory (likelihood ratio test for photon counting) to
+    model the optimal behavioral threshold for dim-light detection, comparing to
+    psychophysical data on human dim-light detection.
+  - >
+    Use photon correlation spectroscopy (HBT experiment) to measure the photon
+    statistics of the light used in psychophysics experiments, verifying that
+    classical vs quantum light sources produce different detection statistics.
+  - >
+    Import noise analysis methods from silicon photomultipliers to characterize
+    rod photoreceptor gain variability, determining whether gain variability
+    or dark noise is the dominant limiting factor for human scotopic vision.
+related_unknowns:
+  - u-photoreceptor-quantum-efficiency-x-photon-statistics
+references:
+  - doi: "10.1126/science.1232602"
+    note: "Rieke & Baylor (1998) - origin of reproducibility in the responses of retinal rods; Biophysical Journal 75:1836"
+  - doi: "10.1038/325143a0"
+    note: "Hecht, Shlaer & Pirenne (1942) - energy, quanta and vision; J Gen Physiol 25:819"
+last_reviewed: "2026-05-07"

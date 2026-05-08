@@ -1,0 +1,41 @@
+id: h-ergodic-theory-x-statistical-mechanics
+title: >
+  The many-body localization transition in 1D disordered spin chains is a true phase
+  transition in the thermodynamic limit, with a critical disorder strength W_c that
+  scales logarithmically with system size L, distinguishing it from a finite-size
+  crossover.
+status: active
+priority: high
+impact_score: 0.86
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - doi: "10.1103/PhysRevLett.73.2875"
+    type: supporting
+    confidence: 0.79
+    note: "Basko, Aleiner & Altshuler (2006) - MBL in interacting systems; argument for sharp transition"
+  - type: supporting
+    note: "Pal & Huse (2010) - many-body localization phase in random XXZ chains; finite-size analysis shows transition"
+    confidence: 0.77
+  - type: contradicting
+    note: "Suntajs et al. (2020) - finite-size drifts in MBL: transition may drift to infinite disorder in thermodynamic limit; PRL"
+    confidence: 0.73
+
+unknowns_addressed:
+  - u-ergodic-theory-x-statistical-mechanics
+
+proposed_tests:
+  - description: >
+      Compute entanglement entropy growth and level statistics for XXZ spin chains
+      L=8 to 22 at disorder strength W=2,3,4,5; extrapolate W_c(L) to thermodynamic
+      limit; test whether W_c(L) ~ const or W_c(L) ~ log(L).
+    method: "Exact diagonalization (QuSpin) + polynomial finite-size scaling of W_c; compare to logarithmic vs constant scaling"
+    prediction: "W_c(L) fits log(L) better than constant, indicating transition drifts to infinity; OR W_c(L) converges to ~3.5"
+
+related_disciplines:
+  - condensed-matter-physics
+  - statistical-mechanics
+  - mathematics
+  - quantum-physics

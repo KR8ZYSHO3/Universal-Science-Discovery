@@ -1,0 +1,66 @@
+id: b-topological-data-analysis-x-cancer-genomics
+title: >
+  Topological Data Analysis x Cancer Genomics - persistent homology of mutation landscapes
+status: proposed
+fields:
+  - mathematics
+  - biology
+  - bioinformatics
+bridge_claim: >
+  Tumor genome somatic mutation patterns form high-dimensional data clouds whose
+  topological features (connected components, loops) reveal cancer subtypes and
+  evolutionary trajectories invisible to clustering methods; TDA of single-cell
+  genomic data identifies cancer stem cell populations as topological outliers with
+  distinct persistence diagram signatures.
+translation_table:
+  - field_a_term: Tumor mutation spectrum (somatic variant matrix, patients x genes)
+    field_b_term: Point cloud in high-dimensional space
+    note: >
+      Each tumor is a point in a space of dimension equal to the number of
+      genomic features; the topology of this point cloud (how points cluster,
+      form loops, are connected) encodes the structure of cancer subtype
+      relationships without assuming Euclidean distance.
+  - field_a_term: Cancer subtype boundaries (e.g. luminal A vs basal breast)
+    field_b_term: Connected components in the Vietoris-Rips complex (beta_0)
+    note: >
+      Persistent 0-dimensional homology identifies connected components that
+      persist across many distance thresholds, corresponding to robust cancer
+      subtype clusters; components that appear and die quickly are noise.
+  - field_a_term: Continuous tumor progression (e.g. from adenoma to carcinoma)
+    field_b_term: Persistent 1-cycles (loops, beta_1) in the data complex
+    note: >
+      If tumor evolution produces a cyclic trajectory (e.g. circular progression
+      of mutation states), TDA captures this as a persistent 1-cycle invisible
+      to tree-based phylogenetic methods.
+  - field_a_term: Cancer stem cell population (rare, high-plasticity cells)
+    field_b_term: Topological outlier (low persistence, isolated point)
+    note: >
+      Cancer stem cells occupy distinct positions in gene expression space;
+      their topological outlier status (high eccentricity in the data complex)
+      can be detected by TDA even when they are too rare for clustering methods.
+communication_gap: >
+  Algebraic topology (homology, persistent homology) is rarely taught in biology
+  or bioinformatics; the TDA literature is mathematically demanding; the Nicolau
+  et al. (2011) PNAS paper introduced TDA to cancer genomics but the method has
+  seen limited adoption due to the conceptual gap between topologists and biologists.
+cross_pollination_opportunities:
+  - >
+    Apply mapper algorithm (topological network) to single-cell RNA-seq cancer
+    atlas datasets to identify rare cell state transitions and cancer stem cell
+    populations that are invisible to UMAP or t-SNE projections.
+  - >
+    Use persistence entropy of tumor mutation landscapes as a prognostic biomarker
+    for cancer survival, testing whether topological complexity predicts treatment
+    response.
+  - >
+    Import Wasserstein distance between persistence diagrams to define a
+    biologically interpretable metric for tumor similarity that captures
+    evolutionary relationships better than Euclidean distance.
+related_unknowns:
+  - u-topological-data-analysis-x-cancer-genomics
+references:
+  - doi: "10.1073/pnas.1102826108"
+    note: "Nicolau, Levine & Carlsson (2011) - topology based data analysis identifies a subgroup of breast cancers with a unique mutational profile and excellent survival; PNAS 108:7265"
+  - doi: "10.1038/nbt.2862"
+    note: "Lum et al. (2013) - extracting insights from the shape of complex data using topology; Scientific Reports"
+last_reviewed: "2026-05-07"

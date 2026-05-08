@@ -1,0 +1,65 @@
+id: b-mantle-rheology-x-viscoelasticity
+title: >
+  Mantle Rheology x Viscoelasticity - Earth's interior as Maxwell fluid
+status: proposed
+fields:
+  - geoscience
+  - physics
+  - materials-science
+bridge_claim: >
+  The Earth's mantle behaves as a Newtonian viscous fluid on geological timescales
+  (glacial isostatic adjustment, eta ~ 10^21 Pa*s) but as an elastic solid on seismic
+  timescales; this Maxwell viscoelastic behavior - with relaxation time tau = eta/G -
+  means mantle rheology is the same physics as silly putty, polymer melts, and
+  viscoelastic fluids, enabling polymer physics methods in geodynamics.
+translation_table:
+  - field_a_term: Mantle viscosity (eta ~ 10^21 Pa*s, lower mantle)
+    field_b_term: Viscosity in Maxwell viscoelastic model
+    note: >
+      The Maxwell model has stress relaxation time tau = eta/G; for the mantle,
+      eta = 10^21 Pa*s and G ~ 10^11 Pa gives tau ~ 10^10 s ~ 300 years, consistent
+      with glacial isostatic adjustment timescales.
+  - field_a_term: Seismic waves (elastic response, milliseconds)
+    field_b_term: Elastic limit of Maxwell model (t << tau)
+    note: >
+      At timescales much shorter than the relaxation time, the Maxwell fluid
+      responds elastically with shear modulus G; seismic waves (period 1-100 s)
+      << tau (300 years) so the mantle is elastic for seismology.
+  - field_a_term: Glacial isostatic adjustment (viscous rebound, 10^3-10^4 years)
+    field_b_term: Viscous flow limit of Maxwell model (t >> tau)
+    note: >
+      At timescales >> tau, the Maxwell fluid flows viscously; postglacial
+      rebound (Scandinavia, North America) occurs over 10,000 years >> tau,
+      so viscous flow equations apply.
+  - field_a_term: Post-seismic deformation (days to decades after earthquake)
+    field_b_term: Maxwell model transient response (t ~ tau)
+    note: >
+      The transient viscoelastic response of the mantle after large earthquakes
+      occurs over timescales comparable to tau, requiring the full Maxwell model
+      rather than purely elastic or viscous approximations.
+communication_gap: >
+  Polymer physics developed Maxwell viscoelasticity for polymer melts (Rouse,
+  Zimm, reptation models); geodynamics independently characterized mantle
+  rheology through glacial rebound studies; cross-fertilization has been
+  limited despite describing the same physics at vastly different scales.
+cross_pollination_opportunities:
+  - >
+    Apply frequency-domain viscoelasticity methods (dynamic modulus E', E'') from
+    polymer physics to mantle seismic attenuation, computing the frequency-
+    dependent Q factor from the Cole-Cole model.
+  - >
+    Use polymer melt reptation theory to model dislocation creep in minerals
+    (olivine), where chains of dislocations move like reptating polymer chains
+    in an entanglement network.
+  - >
+    Import time-temperature superposition from polymer rheology to analyze mantle
+    viscosity as a function of depth (temperature), predicting viscosity profiles
+    from laboratory mineral physics data.
+related_unknowns:
+  - u-mantle-rheology-x-viscoelasticity
+references:
+  - doi: "10.1146/annurev.earth.36.031207.124120"
+    note: "Karato (2008) - deformation of Earth materials: rheology of Earth's interior; Annual Rev Earth Planet Sci"
+  - doi: "10.1029/2004GL021186"
+    note: "Mitrovica & Forte (2004) - new inference of mantle viscosity from joint inversion of GIA data; GRL"
+last_reviewed: "2026-05-07"
