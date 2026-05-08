@@ -1,0 +1,41 @@
+id: h-allosteric-regulation-x-conformational-dynamics
+title: >
+  Allosteric coupling free energy between sites is quantitatively predicted by the
+  mutual information between residue positions in equilibrium MD simulations (linear
+  mutual information decomposition), with Pearson r > 0.8 against experimentally
+  measured coupling constants across diverse protein families.
+status: active
+priority: medium
+impact_score: 0.77
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - doi: "10.1016/j.sbi.2010.01.002"
+    type: supporting
+    confidence: 0.81
+    note: "Boehr et al. (2009) - population shift model; conformational ensemble reshaping is the mechanism"
+  - type: supporting
+    note: "Demerdash, Daily & Mitchell (2009) - structure-based prediction of allostery using elastic network models; R~0.6"
+    confidence: 0.72
+  - type: contradicting
+    note: "Nussinov & Tsai (2015) - allosteric communication through dynamic pathways; not captured by static structure alone"
+    confidence: 0.74
+
+unknowns_addressed:
+  - u-allosteric-regulation-x-conformational-dynamics
+
+proposed_tests:
+  - description: >
+      Run 1 microsecond MD simulations for 20 well-characterized allosteric proteins
+      (adenylate kinase, PDZ domains, GPCRs); compute residue-residue mutual
+      information; predict coupling constants; compare to ITC measurements.
+    method: "Amber/CHARMM MD + quasi-harmonic MI estimation + ITC benchmark dataset (AlloSigMA database)"
+    prediction: "Pearson r > 0.75 between predicted and measured coupling constants; better than elastic network models (r~0.6)"
+
+related_disciplines:
+  - structural-biology
+  - biophysics
+  - computational-biology
+  - protein-science

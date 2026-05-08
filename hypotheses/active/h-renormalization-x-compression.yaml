@@ -1,0 +1,42 @@
+id: h-renormalization-x-compression
+title: >
+  The information bottleneck rate-distortion functional evaluated on a 2D Ising
+  model's spin field produces compression curves whose critical behavior matches
+  the Ising universality class critical exponents (nu=1, eta=1/4) at the phase
+  transition temperature.
+status: active
+priority: medium
+impact_score: 0.76
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - doi: "10.1007/s11538-017-0362-y"
+    type: supporting
+    confidence: 0.80
+    note: "Koch-Janusz & Ringel (2018) - neural RG maximizing mutual information identifies relevant degrees of freedom at Ising critical point"
+  - type: supporting
+    note: "Mehta & Schwab (2014) - exact mapping between restricted Boltzmann machines and variational RG; information compression analogy"
+    confidence: 0.77
+  - type: related
+    note: "Tishby & Schwartz (2015) - information bottleneck in deep learning; rate-distortion as learning objective"
+    confidence: 0.73
+
+unknowns_addressed:
+  - u-renormalization-x-compression
+
+proposed_tests:
+  - description: >
+      Apply information bottleneck compression to 2D Ising Monte Carlo spin
+      configurations at T=T_c, T < T_c, T > T_c; compute compression rate R(D)
+      as a function of temperature; test whether R(D) shows a singularity at T_c
+      with Ising universality class exponents.
+    method: "Monte Carlo Ising + numerical information bottleneck (Blahut-Arimoto) + rate-distortion curve at each T; fit critical exponents near T_c"
+    prediction: "Rate-distortion curve slope diverges at T_c with exponent consistent with Ising universality class; off-critical curves show no singularity"
+
+related_disciplines:
+  - mathematical-physics
+  - information-theory
+  - statistical-mechanics
+  - machine-learning

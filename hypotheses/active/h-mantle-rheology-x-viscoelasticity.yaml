@@ -1,0 +1,41 @@
+id: h-mantle-rheology-x-viscoelasticity
+title: >
+  A Burgers viscoelastic model (Maxwell + Kelvin-Voigt in series) fits global
+  postseismic GPS deformation time series from the 2011 Tohoku-Oki earthquake
+  significantly better than a Maxwell model, revealing a transient viscosity
+  2-5x lower than steady-state viscosity in the asthenosphere.
+status: active
+priority: medium
+impact_score: 0.75
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - doi: "10.1146/annurev.earth.36.031207.124120"
+    type: supporting
+    confidence: 0.80
+    note: "Karato (2008) - transient creep in olivine is predicted from dislocation substructure; Burgers body expected"
+  - type: supporting
+    note: "Sun et al. (2014) - viscoelastic relaxation of the lower crust and upper mantle after the 2011 Tohoku earthquake; Science 338:1411"
+    confidence: 0.82
+  - type: related
+    note: "Freed & Burgmann (2004) - evidence of power-law flow in the lower crust and upper mantle from postseismic deformation; Nature 430:548"
+    confidence: 0.76
+
+unknowns_addressed:
+  - u-mantle-rheology-x-viscoelasticity
+
+proposed_tests:
+  - description: >
+      Fit Maxwell, Burgers, and power-law rheology models to 10-year postseismic
+      GPS time series from Tohoku M9.0 earthquake (800 stations); compare BIC
+      scores; extract transient vs steady-state viscosity from Burgers fit.
+    method: "PyLith/DEFMOD viscoelastic forward model + grid search over viscosity parameters; BIC comparison; bootstrap uncertainty"
+    prediction: "Burgers model preferred (deltaBIC > 20) over Maxwell; transient viscosity eta_T = (3-8) x 10^17 Pa*s vs eta_SS = (5-20) x 10^18 Pa*s"
+
+related_disciplines:
+  - geodynamics
+  - mineral-physics
+  - geophysics
+  - materials-science
