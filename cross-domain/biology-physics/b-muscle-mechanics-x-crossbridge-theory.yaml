@@ -1,0 +1,66 @@
+id: b-muscle-mechanics-x-crossbridge-theory
+title: >
+  Muscle Mechanics x Crossbridge Theory - force-velocity as stochastic motor ensemble
+status: proposed
+fields:
+  - biology
+  - physics
+  - biophysics
+bridge_claim: >
+  Muscle force-velocity relationship (Hill equation: (F+a)(v+b)=const) emerges from
+  the stochastic attachment-detachment kinetics of millions of myosin crossbridges;
+  Huxley's 1957 sliding filament model is a master equation for crossbridge state
+  transitions whose mean-field solution recovers Hill's phenomenological equation -
+  connecting biophysics to stochastic process theory.
+translation_table:
+  - field_a_term: Myosin crossbridge (attached/detached state cycle)
+    field_b_term: Two-state Markov chain (attachment rate f, detachment rate g)
+    note: >
+      Each myosin head cycles between detached (state 1) and attached (state 2)
+      states with position-dependent rates f(x) and g(x); the probability
+      distribution n(x,t) over crossbridge positions follows the Huxley master
+      equation, a transport PDE.
+  - field_a_term: Muscle force (pN per crossbridge, N per muscle)
+    field_b_term: Mean-field average of Markov chain force
+    note: >
+      Total force is the sum of individual crossbridge forces (each ~5 pN);
+      mean-field averaging over the crossbridge position distribution gives
+      macroscopic force from microscopic Markov chain statistics.
+  - field_a_term: Hill equation a/F_0 = b/(v_max) = hyperbolic constant
+    field_b_term: Mean-field steady-state of Huxley master equation
+    note: >
+      The hyperbolic Hill equation is the exact mean-field solution of the
+      Huxley master equation under specific rate function choices; it is the
+      law of large numbers applied to crossbridge ensemble kinetics.
+  - field_a_term: Force-clamp step response (mechanical transient)
+    field_b_term: Relaxation of Markov chain to new steady state
+    note: >
+      After a sudden length step, force recovers through rapid crossbridge
+      re-equilibration; the multiple time constants of recovery correspond to
+      eigenvalues of the Huxley master equation Jacobian.
+communication_gap: >
+  Hill (1938) derived his force-velocity equation phenomenologically from
+  thermodynamic arguments; Huxley (1957) provided the stochastic mechanistic
+  model; the two were linked only gradually through mean-field analysis, and
+  many muscle biologists still use Hill's equation without connecting it to
+  crossbridge master equation foundations.
+cross_pollination_opportunities:
+  - >
+    Apply fluctuation theorems (Jarzynski, Crooks) to single-molecule myosin
+    measurements to determine the free energy landscape of the power stroke
+    from non-equilibrium work distributions.
+  - >
+    Use Markov chain Monte Carlo simulations of the Huxley model to predict
+    muscle force noise (variance above the shot noise floor) as a function of
+    crossbridge number density and stiffness.
+  - >
+    Import generalized Langevin equation formalism to model non-Markovian
+    crossbridge dynamics arising from viscoelastic filament compliance.
+related_unknowns:
+  - u-muscle-mechanics-x-crossbridge-theory
+references:
+  - doi: "10.1098/rspb.1957.0045"
+    note: "Huxley (1957) - muscle structure and theories of contraction; Prog Biophys 7:255"
+  - doi: "10.1038/s41592-018-0227-9"
+    note: "Sweeney & Holzbaur (2016) - motor proteins; annual review integrating crossbridge and stochastic theory"
+last_reviewed: "2026-05-07"

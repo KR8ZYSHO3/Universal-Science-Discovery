@@ -1,0 +1,41 @@
+id: h-muscle-mechanics-x-crossbridge-theory
+title: >
+  A 6-state crossbridge model (pre-power stroke, power stroke, post-power stroke,
+  three detached ATPase states) reproduces all mechanical transients in skeletal
+  muscle within experimental error, and the rate constants are consistent with
+  single-molecule optical trap measurements.
+status: active
+priority: medium
+impact_score: 0.74
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - doi: "10.1098/rspb.1957.0045"
+    type: supporting
+    confidence: 0.85
+    note: "Huxley (1957) - 2-state model recovers Hill equation; foundation for multi-state extensions"
+  - type: supporting
+    note: "Huxley & Simmons (1971) - rapid force recovery suggests at least 4 mechanical states; Nature 233:533"
+    confidence: 0.82
+  - type: related
+    note: "Piazzesi et al. (2007) - single myosin step size from X-ray fiber diffraction; ~11 nm; supports 2-step power stroke"
+    confidence: 0.80
+
+unknowns_addressed:
+  - u-muscle-mechanics-x-crossbridge-theory
+
+proposed_tests:
+  - description: >
+      Fit a 6-state crossbridge model to the complete set of mechanical transients
+      (T1 curve, phase 2 fast recovery, phase 3 slow recovery, steady-state force-
+      velocity) simultaneously; compare to 2- and 4-state models.
+    method: "Global nonlinear least-squares fit of ODE crossbridge model to digitized mechanical transient data from frog muscle"
+    prediction: "6-state model achieves chi^2 < 1.5 per degree of freedom; 4-state and 2-state models show systematic residuals in phase 2 transients"
+
+related_disciplines:
+  - biophysics
+  - cell-biology
+  - structural-biology
+  - physiology

@@ -1,0 +1,42 @@
+id: h-mean-field-theory-x-neural-networks
+title: >
+  Networks initialized at the mean-field edge-of-chaos critical point (chi=1) train
+  successfully to arbitrary depth while networks initialized in the ordered (chi<1)
+  or chaotic (chi>1) phases fail due to vanishing or exploding gradients, with the
+  failure depth scaling as 1/|1-chi|.
+status: active
+priority: medium
+impact_score: 0.81
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - doi: "10.48550/arXiv.1711.00165"
+    type: supporting
+    confidence: 0.88
+    note: "Lee et al. (2018) - NNGP kernel matches finite-width networks at criticality; Gaussian process predictions hold"
+  - doi: "10.48550/arXiv.1606.05340"
+    type: supporting
+    confidence: 0.85
+    note: "Poole et al. (2016) - expressivity and trainability peak at edge of chaos; deep networks require chi=1"
+  - type: related
+    note: "Schoenholz et al. (2017) - depth scales exponentially into ordered phase; linear into chaotic phase"
+    confidence: 0.83
+
+unknowns_addressed:
+  - u-mean-field-theory-x-neural-networks
+
+proposed_tests:
+  - description: >
+      Train 100-layer networks at a range of (sigma_w, sigma_b) initialization
+      parameters spanning ordered, critical, and chaotic phases; measure trainable
+      depth as a function of chi.
+    method: "CIFAR-10 training experiments with varied initialization; measure training loss convergence as function of depth and chi"
+    prediction: "Maximum trainable depth D_max ~ C/|1-chi|; networks at chi=1 succeed at all tested depths"
+
+related_disciplines:
+  - machine-learning
+  - statistical-mechanics
+  - mathematics
+  - deep-learning
