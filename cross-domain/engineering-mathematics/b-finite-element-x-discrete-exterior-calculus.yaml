@@ -1,0 +1,42 @@
+id: b-finite-element-x-discrete-exterior-calculus
+title: Finite element exterior calculus and discrete exterior calculus provide structure-preserving
+  discretizations of Hodge theory, unifying mixed FEM stability with geometric discretization.
+status: established
+fields:
+- finite-element-methods
+- numerical-analysis
+- differential-geometry
+- engineering
+bridge_claim: Partial differential equations on manifolds involving div, grad, and curl fit
+  into de Rham complexes; stable mixed finite elements (Raviart–Thomas, Nedelec) construct
+  discrete complexes that commute with projections. Discrete exterior calculus assigns discrete
+  forms to mesh elements and defines discrete exterior derivative and Hodge star, preserving
+  topological structure. The bridge shows many engineering FEM formulations — mixed Poisson,
+  Maxwell, elasticity in stress–displacement forms — are instances of this geometric program.
+  Stability (inf-sup) parallels exact sequence properties; explicit DEC schemes on simplicial
+  meshes offer alternative routes to the same structure preservation.
+translation_table:
+- field_a_term: mixed variational form
+  field_b_term: pairing of k-forms and (k−1)-forms on a mesh
+- field_a_term: inf-sup stability
+  field_b_term: closed range of discrete exterior derivative
+- field_a_term: Nedelec elements
+  field_b_term: discrete 1-forms for curl-curl problems
+related_unknowns:
+- u-fem-dec-mixed-form-equivalence-limits
+related_hypotheses:
+- h-mixed-fem-for-hodge-laplace-matches-dec-upwind-schemes
+cross_pollination_opportunities:
+- Use DEC-based integrators for plasma and MHD problems where preserving div–curl structure
+  matters.
+- Port FEEC-based error estimators into structural engineering adaptive meshing pipelines.
+communication_gap: Engineering FEM courses emphasize patch tests; mathematics FEEC courses
+  emphasize complexes. Practitioners may not recognize they already implement DEC-adjacent
+  schemes.
+last_reviewed: '2026-05-07'
+references:
+- doi: 10.1090/S0025-5718-10-02339-2
+  note: Arnold, Falk & Winther (2010) — finite element exterior calculus foundation
+- doi: 10.1016/j.cma.2006.12.009
+  note: Hirani (2003) thesis widely cited; see also DEC formulations in CMAME cluster for
+    discrete forms

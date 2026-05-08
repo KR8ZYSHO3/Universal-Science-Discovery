@@ -21,12 +21,13 @@ import {
 
 // @sync-dashboard-begin
 const dashboardSnapshot = {
-  lastUpdated: "2026-05-05 - **Bridges 50-54 — astronomy orphan connections targeting largest cluster (633 nodes)**: 5 new bridges (b-blackhole-information-paradox #50, b-baryon-asymmetry-cp-violation #51, b-dark-matter-phase-transition-relics #52, b-cosmic-rays-mutagenesis #53, b-frb-random-matrix #54) with 5 new unknowns + 5 new hypotheses. Created 4 new cross-domain directories (astronomy-information, astronomy-physics, astronomy-biology, astronomy-mathematics). Connected 5 existing astronomy orphan unknowns (black hole info paradox, baryon asymmetry, dark matter identity, FRB origin, UHECR). Orphan count reduced from 329 → 324. Knowledge graph rebuilt: 633 nodes, 443 edges. Dashboard updated. Validates clean.",
+  lastUpdated: "2026-05-07 — **Waves 70–71 — 24 new bridges (868 → 892)**:",
   currentFocus: [
-    "**Content seeding**: running arXiv harvests (q-bio, cond-mat:stat-mech, nlin, bio-ph) to seed unknowns, hypotheses, and bridges.",
-    "**Bridge discovery**: every harvest is checked against the bridge-discovery prompt in `docs/prompts/bridge_discovery.md`.",
-    "**Contributor discoverability**: GitHub Issues to be created from open unknowns (next action).",
-    "**Schema discipline**: all YAML validated by `scripts/validate_schemas.py` on every PR."
+    "**arXiv preprint**: `docs/preprint/usdr_preprint.md` is ready; next step is PDF conversion and submission to cs.DL (author: Brandon Shoemaker).",
+    "**Bridge count toward 1,000**: promote `drafts/bridges/` stubs; continue wave-based build.",
+    "**Dashboard graph reliability**: D3 interactive graph must load consistently on GitHub Pages.",
+    "**Contributor on-ramps**: good-first-issues, `docs/QUICK_START_CONTRIBUTING.md`.",
+    "**Community outreach**: Reddit r/OpenScience post ready at `docs/outreach/reddit_openscience_post.md`."
   ],
   activeBranches: [
     "`main` — default; all PRs squash-merged here; CI: validate-schemas + mkdocs + markdown-link-check.",
@@ -39,11 +40,7 @@ const dashboardSnapshot = {
     "None."
   ],
   nextActions: [
-    "Create GitHub Issues from the most compelling open unknowns for contributor discoverability.",
-    "Write `u-quantum-biology-decoherence` — the open question raised by b-quantum-biology-navigation.",
-    "Run a `q-bio:q-bio:TO` (tissues and organs) harvest to seed the topology-morphogenesis bridge further.",
-    "Update the developer dashboard stat counts after each PR that adds catalog entries.",
-    "Keep `schemas/unknown.yaml`, `schemas/hypothesis.yaml`, `schemas/bridge.yaml` in sync when adding new optional fields."
+    
   ],
 } as const;
 // @sync-dashboard-end

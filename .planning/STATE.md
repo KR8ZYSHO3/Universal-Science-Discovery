@@ -4,10 +4,15 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 ## Last updated
 
+- 2026-05-07 — **Waves 70–71 — 24 new bridges (868 → 892)**:
+  Wave 70 (12): quantum Zeno × cognitive measurement cadence; Kalman filtering × neural state estimation; hyperbolic geometry × network embeddings; metabolic scaling × fractal-like transport; epidemic-style contagion × financial crises; optimal foraging × explore–exploit / bandits; electrochemical impedance × cell membranes; convolution theorem × CNN layers; ridge regression × Gaussian MAP / shrinkage; contrastive SSL × energy-based / temperature analogies; gauge theory × connection forms on bundles; collective-risk social dilemmas × insurance pools.
+  Wave 71 (12): galaxy red sequence × passive evolution / quenching; LiDAR × inverse problems / geometry; RNA secondary structure × planar graph DP; GRB jets × relativistic hydrodynamics; quorum sensing × evolutionary game theory; neutron-star matter × QCD / nuclear EOS constraints; coastal erosion × diffusive interface models; language contact × graph diffusion / interpolation; finite elements × discrete exterior calculus; skin friction × turbulent boundary layers; MD thermostats × stochastic differential equations; preference elicitation × Vickrey / VCG mechanisms.
+  **Artifacts:** 24 bridges + 24 unknowns + 24 hypotheses; `docs/knowledge_graph.json` rebuilt (**3,162 nodes**, **3,424 edges**); `dashboard/index.html` stats refreshed. `python scripts/validate_schemas.py` — **0 errors**.
+
 - 2026-05-07 — **Full audit + documentation update (868 bridges, 3,072 nodes)**:
   Comprehensive project audit following Waves 57-67 and OpenAlex Wave OA-1.
 
-  **Current catalog state:**
+  **Current catalog state (superseded by Waves 70–71 entry above for counts):**
   - Bridges: 868 cross-domain bridges
   - Unknowns: 1,151
   - Hypotheses: 1,019
@@ -78,18 +83,18 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 - 2026-05-04 — GitHub Pages live + dashboard deployed at [kr8zysho3.github.io/…/dashboard/](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/)
 - 2026-05-03 — Contributor hub visual refresh, CI green, all docs wired.
 
-## Catalog state (2026-05-07 — post Waves 57-67 + OA-1)
+## Catalog state (2026-05-07 — post Waves 70–71)
 
 | Type | Count | Directory |
 |------|-------|-----------|
-| Unknowns | **1,151** | `unknowns-catalog/` |
-| Hypotheses | **1,019** | `hypotheses/active/` |
-| Bridges | **868** | `cross-domain/` |
+| Unknowns | **1,175** | `unknowns-catalog/` |
+| Hypotheses | **1,043** | `hypotheses/active/` |
+| Bridges | **892** | `cross-domain/` |
 | Pioneers | **18** | `pioneers/` |
 | Breakthrough gaps | **12** | `breakthrough-gaps/` |
-| Pre-formal observations | **4** | `phenomenology/` |
-| Knowledge graph nodes | **3,072** | `docs/knowledge_graph.json` |
-| Knowledge graph edges | **3,259** | `docs/knowledge_graph.json` |
+| Pre-formal observations | **10** | `phenomenology/` |
+| Knowledge graph nodes | **3,162** | `docs/knowledge_graph.json` |
+| Knowledge graph edges | **3,424** | `docs/knowledge_graph.json` |
 | Schemas | **6** | `schemas/` (unknown, hypothesis, bridge, phenomenon, pioneer, breakthrough_gap) |
 | Scientific domains | **55+** | `unknowns-catalog/` subdirs + `dashboard/domains/` |
 
@@ -144,9 +149,9 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 ## Current milestone
 
-**Wave 67 complete — 868 bridges, 3,072 graph nodes, 1,019 hypotheses**
+**Waves 70–71 complete — 892 bridges, 3,162 graph nodes, 1,043 hypotheses**
 
-The repository has crossed the 800-bridge threshold (Wave 62), the 1,000-hypothesis threshold (Wave 66/67), and the 3,000-node graph milestone (Wave 65). OpenAlex automation is live with a weekly cron job. Nine bridge stubs sit in `drafts/bridges/` awaiting promotion.
+The repository remains above the 800-bridge threshold and the 1,000-hypothesis threshold; the knowledge graph is now **3,162 nodes / 3,424 edges** after rebuilding post-Waves 70–71. OpenAlex automation is live with a weekly cron job. Nine bridge stubs sit in `drafts/bridges/` awaiting promotion.
 
 ## Current focus
 
