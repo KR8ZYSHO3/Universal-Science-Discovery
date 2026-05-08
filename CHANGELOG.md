@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] — 2026-05-07
 
+### Added — Wave 78 (+12 bridges; catalog **1,002** bridges)
+- **Themes:** Kelvin-Helmholtz cloud billows ↔ plasma shear instability; Poisson counting ↔ decay / neural spike trains; DNA origami ↔ staged compilation (**explicit analogy**); Stone-Weierstrass ↔ universal approximation intuition; elastic net ↔ Laplace+Gaussian MAP prior; Kelvin wake ↔ ship-wave dispersion; Berry phase ↔ polarization parallel transport; Fisher information / Cramer-Rao ↔ dose-spacing design; diffusion MRI ↔ effective-medium tortuosity; Kramers escape ↔ drift-diffusion decision thresholds; Cahn-Hilliard ↔ diffuse-interface segmentation; RANSAC ↔ astronomical source matching — each with companion unknown + hypothesis.
+- **Regenerated:** `docs/knowledge_graph.json` (**3,494 nodes**, **3,936 edges**), `dashboard/index.html`, `canvases/Progress.canvas.tsx` via `build_graph.py`, `update_dashboard_stats.py --apply`, `sync-dashboard-from-state.py`.
+
 ### Added — Wave 77 (+12 bridges; catalog **990** bridges)
 - **Themes:** cardiac alternans ↔ Hopf / bifurcation language; epithelial jamming ↔ glassy colloid rheology; quantum Zeno ↔ watchdog / sampling (**explicit analogy**); complex torus ECDH pedagogy ↔ finite-field ECC (**careful**); forest gaps ↔ Hubbell-style neutral sampling; mantle horizontal kinetic spectra ↔ RB wavelength-selection (**not duplicate mantle convection narrative**); WGAN-GP ↔ Kantorovich dual / Lipschitz constraints (refinement beyond generic Wasserstein GAN ↔ OT); nitrogen-cycle Jacobians ↔ oscillator-style modal stability; DEQ ↔ fixed-point / implicit differentiation; Casimir–Polder–Lifshitz crossover ↔ vdW regimes; vaccination games ↔ herd thresholds; sonoluminescence ↔ cavitation collapse — each with companion unknown + hypothesis.
 - **Regenerated:** `docs/knowledge_graph.json`, `dashboard/index.html`, `canvases/Progress.canvas.tsx` via `build_graph.py`, `update_dashboard_stats.py --apply`, `sync-dashboard-from-state.py` (use `python -X utf8 scripts/build_graph.py` on Windows if console encoding errors).

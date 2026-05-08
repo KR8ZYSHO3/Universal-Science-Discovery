@@ -1,0 +1,24 @@
+id: h-mixing-parameter-matches-posterior-sparsity-stability-curves
+title: >
+  In correlated-design simulations, elastic-net settings expressed as Laplace-Gaussian prior-scale ratios will produce smoother sparsity-stability curves than raw l1_ratio grids; falsified if bootstrap selection instability is unchanged across equivalent predictive error bands.
+status: active
+priority: medium
+impact_score: 0.35
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+evidence_links:
+  - doi: "10.1111/j.1467-9868.2005.00503.x"
+    type: related
+    confidence: 0.45
+    note: Zou and Hastie (2005) elastic net.
+unknowns_addressed:
+  - u-elastic-net-prior-calibration-under-correlated-designs
+proposed_tests:
+  - description: >
+      Simulate grouped correlated predictors; compare raw l1_ratio tuning against prior-scale-ratio grids on predictive error and bootstrap selection stability.
+    method: Seeded benchmark across correlation, signal sparsity, and noise regimes.
+    prediction: Prior-scale grids reduce selection-instability variance by >= 15 percent within one-standard-error predictive bands.
+related_disciplines:
+  - statistics
+  - machine-learning

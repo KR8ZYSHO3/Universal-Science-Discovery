@@ -1,0 +1,33 @@
+id: b-ransac-robust-estimation-x-astronomical-source-matching
+title: >
+  RANSAC-style robust estimation and astronomical source matching share an outlier-dominated geometry problem: infer a transformation or correspondence from sparse inliers while cosmic rays, blends, artifacts, and catalog mismatches act as structured outliers.
+status: proposed
+fields:
+  - robust-statistics
+  - astronomy
+  - computer-science
+bridge_claim: >
+  The bridge is methodological. Astronomical cross-matching can use robust geometric-estimation ideas, but sky-survey outliers are not uniformly random, so standard RANSAC sampling assumptions require domain-specific modification.
+translation_table:
+  - field_a_term: minimal sample consensus set
+    field_b_term: small set of trusted matched stars or sources
+    note: Both seed a candidate transform.
+  - field_a_term: inlier threshold
+    field_b_term: astrometric residual tolerance
+    note: Threshold choice controls precision and recall.
+  - field_a_term: structured outliers
+    field_b_term: blends, artifacts, cosmic rays, proper-motion mismatches
+    note: Survey outliers violate uniform assumptions.
+communication_gap: >
+  Computer vision emphasizes generic geometric models, while astronomy pipelines encode survey-specific priors and quality flags.
+cross_pollination_opportunities:
+  - Benchmark PROSAC-like quality-ranked sampling on astronomical cross-match tasks.
+  - Translate robust-estimation breakdown diagnostics into survey pipeline QA reports.
+related_unknowns:
+  - u-astronomical-source-matching-structured-outlier-robustness
+related_hypotheses:
+  - h-quality-ranked-ransac-improves-astrometric-crossmatch-precision
+references:
+  - doi: "10.1145/358669.358692"
+    note: Fischler and Bolles (1981) RANSAC.
+last_reviewed: "2026-05-07"

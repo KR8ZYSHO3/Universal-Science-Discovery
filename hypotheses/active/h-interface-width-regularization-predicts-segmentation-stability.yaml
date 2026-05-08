@@ -1,0 +1,24 @@
+id: h-interface-width-regularization-predicts-segmentation-stability
+title: >
+  In diffuse-interface segmentation benchmarks, regularization settings that maintain a stable phase-field interface width across pyramid scales will yield lower boundary jitter than settings tuned only for validation Dice score; falsified if boundary variance is unchanged.
+status: active
+priority: medium
+impact_score: 0.32
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+evidence_links:
+  - doi: "10.1063/1.1744102"
+    type: related
+    confidence: 0.45
+    note: Cahn and Hilliard (1958) free energy of nonuniform systems.
+unknowns_addressed:
+  - u-cahn-hilliard-segmentation-parameter-transfer-limits
+proposed_tests:
+  - description: >
+      Run segmentation models across image pyramids; tune one set by Dice and another by stable interface-width criteria; compare boundary jitter and accuracy.
+    method: Reproducible computer-vision benchmark with fixed train/test splits.
+    prediction: Interface-width tuning reduces boundary-jitter variance by >= 15 percent without >2 percent Dice loss.
+related_disciplines:
+  - computer-vision
+  - applied-mathematics
