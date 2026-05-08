@@ -1,0 +1,24 @@
+id: h-cut-cell-conservative-flux-reduces-leakage-medical-seg
+title: >
+  Boundary-aware segmentation losses inspired by flux imbalances reduce topological leakage (incorrect handles) on cortex phantom surfaces versus softmax-only U-Net training — falsified if leakage counts do not drop ≥20% at matched Dice on MICCAI-style phantoms with partial-volume ground truth.
+status: active
+priority: medium
+impact_score: 0.26
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+evidence_links:
+  - arxiv: "1505.04597"
+    type: related
+    confidence: 0.44
+    note: Standard U-Net baseline architecture for controlled ablations.
+unknowns_addressed:
+  - u-cut-cell-segmentation-interface-consistency
+proposed_tests:
+  - description: >
+      Train matched networks with and without flux-balance penalties evaluated on distance-transform leakage metrics relative to known phantom surfaces.
+    method: Semi-synthetic MRI phantoms + topology-aware evaluation scripts.
+    prediction: Flux-regularized models reduce topological errors without collapsing Dice when penalties are scaled via validation curvature.
+related_disciplines:
+  - medical-imaging
+  - numerical-methods

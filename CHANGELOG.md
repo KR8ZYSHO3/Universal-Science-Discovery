@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] — 2026-05-07
 
+### Added — Wave 79 (+12 bridges; catalog **1,014** bridges)
+- **Themes:** flutter/galloping ↔ Hopf onset language; Ricci ↔ Price covariance (**explicit analogy limits**); CTQW spatial search ↔ Grover/spectral geometry; droplet splitting ↔ binary-fission metaphor; microplate absorbance ↔ inverse Beer–Lambert conditioning; tsunami SWE ↔ dispersive/bore regimes; spin-glass RSB imagery ↔ factor covariance clustering (**finance caveats**); LCS retention ↔ larval supply; cut-cell FV ↔ voxel segmentation (**interface analogy**); virial equilibrium ↔ molecular clouds & clusters; RL intrinsic motivation ↔ novelty/information gain; CDM substructure ↔ merger-tree algorithms — each with companion unknown + hypothesis.
+- **Regenerated:** `docs/knowledge_graph.json` (**3,530 nodes**, **3,996 edges**), `dashboard/index.html`, `canvases/Progress.canvas.tsx` via `build_graph.py`, `update_dashboard_stats.py --apply`, `sync-dashboard-from-state.py`.
+
 ### Added — Wave 78 (+12 bridges; catalog **1,002** bridges)
 - **Themes:** Kelvin-Helmholtz cloud billows ↔ plasma shear instability; Poisson counting ↔ decay / neural spike trains; DNA origami ↔ staged compilation (**explicit analogy**); Stone-Weierstrass ↔ universal approximation intuition; elastic net ↔ Laplace+Gaussian MAP prior; Kelvin wake ↔ ship-wave dispersion; Berry phase ↔ polarization parallel transport; Fisher information / Cramer-Rao ↔ dose-spacing design; diffusion MRI ↔ effective-medium tortuosity; Kramers escape ↔ drift-diffusion decision thresholds; Cahn-Hilliard ↔ diffuse-interface segmentation; RANSAC ↔ astronomical source matching — each with companion unknown + hypothesis.
 - **Regenerated:** `docs/knowledge_graph.json` (**3,494 nodes**, **3,936 edges**), `dashboard/index.html`, `canvases/Progress.canvas.tsx` via `build_graph.py`, `update_dashboard_stats.py --apply`, `sync-dashboard-from-state.py`.

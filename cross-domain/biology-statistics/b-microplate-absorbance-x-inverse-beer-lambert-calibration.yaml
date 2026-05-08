@@ -1,0 +1,36 @@
+id: b-microplate-absorbance-x-inverse-beer-lambert-calibration
+title: >
+  96-well microplate photometry inverts measured absorbance (or fluorescence intensity) to analyte concentration using Beer–Lambert linearity or calibration curves — a practical inverse problem whose conditioning, cross-talk, and batch effects parallel instrument-calibration theory in metrology and chemometrics.
+status: established
+fields:
+  - analytical-biology
+  - biophysics
+  - statistics
+  - metrology
+bridge_claim: >
+  For monochromatic light and dilute solutions, absorbance A = ε c l links concentration c to transmission; microplate readers estimate c from A using standard curves, sometimes with linear mixed models for batch/plate effects. The mathematical object is an ill-conditioned linear inverse when multiple absorbing species overlap — motivating chemometric matrix inversion (multi-wavelength fitting) analogous to regularized inverse problems in imaging — though biological assays also introduce pipetting variance and nonlinear saturation outside the linear regime.
+translation_table:
+  - field_a_term: Beer–Lambert optical depth ε c l
+    field_b_term: expected absorbance readout per well
+    note: Linear regime assumes independent absorbers and negligible scattering.
+  - field_a_term: multi-wavelength absorbance vector per well
+    field_b_term: linear mixing model solved by least squares / ridge for concentrations
+    note: Mirrors spectroscopic unmixing and inverse concentration retrieval with positivity constraints.
+  - field_a_term: plate batch random effects (edge effects, evaporation)
+    field_b_term: hierarchical calibration offsets in metrology inter-laboratory studies
+    note: Shared statistical structure — mixed models — even though physics differs.
+communication_gap: >
+  Biochemistry protocols emphasize standard curves and vendor software defaults while analytical chemistry emphasizes uncertainty budgets and propagation — replicate assay scientists rarely publish full inverse-problem conditioning diagnostics per plate.
+cross_pollination_opportunities:
+  - Import ridge/elastic-net concentration inversion from chemometrics into high-throughput screening pipelines with explicit cross-talk matrices among fluorophores.
+  - Export plate-layout randomization designs from experimental design texts into microplate QC dashboards.
+related_unknowns:
+  - u-microplate-inverse-beer-lambert-conditioning
+related_hypotheses:
+  - h-multi-wavelength-beer-lambert-inverse-improves-plate-precision
+references:
+  - doi: "10.1515/iupac.68.3549"
+    note: IUPAC Compendium entry — Beer–Lambert(-Bouguer) law foundations for absorption-based concentration inference.
+  - doi: "10.1016/S0140-6736(75)91492-0"
+    note: Voller et al. (1975) — microplate enzyme-linked immunosorbent assay foundation paper tying plate photometry to quantitative immuno readouts (Lancet).
+last_reviewed: "2026-05-07"

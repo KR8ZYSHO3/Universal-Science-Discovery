@@ -1,0 +1,36 @@
+id: b-dark-matter-substructure-x-halo-merger-tree-algorithms
+title: >
+  Cold dark matter predicts hierarchical assembly: small halos form early and later merge into larger hosts — a process represented computationally by halo merger trees built from N-body simulations using recursive linking algorithms (friends-of-friends, SUBFIND-like catalogs, merger-tree builders), drawing qualitative analogies to tree data structures in algorithms despite radically different physics and noise models.
+status: established
+fields:
+  - cosmology
+  - computational-astrophysics
+  - computer-science
+  - algorithms
+bridge_claim: >
+  Simulation post-processing tracks bound substructures across snapshots, assigning parent–child merge events with heuristic linking rules and uncertainty when disruptive tidal stripping fragments identification. Algorithmically, this resembles maintaining dynamic forest representations under incremental updates — **with caveats**: gravitational dynamics is messy and multi-valued compared with discrete merge heaps in computer science; cross-talk is pedagogical (complexity, bookkeeping, ambiguity resolution) rather than a claim that halo algorithms equal textbook balanced BST operations.
+translation_table:
+  - field_a_term: halo merger event (host accretes satellite)
+    field_b_term: tree edge insertion / union linking record
+    note: Event semantics roughly align at lineage-graph level only.
+  - field_a_term: subhalo tracking ambiguity across snapshots (flybys vs mergers)
+    field_b_term: aliasing / pointer invalidation under adversarial updates
+    note: Shared engineering worry — robust definitions vs corner cases.
+  - field_a_term: mass threshold + linking length in group finders
+    field_b_term: resolution scales / epsilon-neighborhood parameters in clustering
+    note: Parameter sensitivity analogies — domain definitions differ.
+communication_gap: >
+  Cosmology codes emphasize gravity-only clustering statistics while algorithms courses emphasize worst-case complexity — cross-training rarely compares merger-tree builder failure modes with classical DS&A robustness tests.
+cross_pollination_opportunities:
+  - Apply interactive visualization tools from large graph databases to debug merger-tree inconsistencies in simulation suites.
+  - Import uncertainty quantification workflows from ensemble tree builders into hierarchical clustering uncertainty benchmarks.
+related_unknowns:
+  - u-halo-merger-tree-nbody-clustering-analogy
+related_hypotheses:
+  - h-merger-tree-branching-matches-subhalo-statistics-scaling
+references:
+  - doi: "10.1038/nature03597"
+    note: Springel et al. (2005) — Millennium Simulation hierarchical clustering of galaxies and dark matter (Nature).
+  - doi: "10.1093/mnras/stu2039"
+    note: "Lee et al. (2014) — Sussing Merger Trees: impact of merger-tree algorithm choice on galaxy properties (MNRAS)."
+last_reviewed: "2026-05-07"

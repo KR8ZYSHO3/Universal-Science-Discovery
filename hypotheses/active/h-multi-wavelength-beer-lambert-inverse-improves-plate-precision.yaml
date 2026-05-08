@@ -1,0 +1,24 @@
+id: h-multi-wavelength-beer-lambert-inverse-improves-plate-precision
+title: >
+  Ridge-regularized multi-wavelength inversion of overlapping dye spectra reduces cross-well concentration RMSE versus single-wavelength calibration on multiplex microplate benchmarks — falsified if RMSE gains fall below 15% on curated dye-interference panels.
+status: active
+priority: medium
+impact_score: 0.28
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+evidence_links:
+  - doi: "10.1515/iupac.68.3549"
+    type: related
+    confidence: 0.42
+    note: Beer–Lambert foundations supporting linear mixing stacks under stated validity regimes.
+unknowns_addressed:
+  - u-microplate-inverse-beer-lambert-conditioning
+proposed_tests:
+  - description: >
+      Generate synthetic multiplex plates with known concentrations and realistic noise; compare ordinary least squares per dye vs joint ridge inversion with positivity constraints.
+    method: Simulation + wet-lab phantom plates when vendor dye spectra are published.
+    prediction: Joint inversion lowers RMSE and narrows posterior widths when overlap indexes exceed threshold σ_overlap > 0.15.
+related_disciplines:
+  - analytical-biochemistry
+  - statistics
