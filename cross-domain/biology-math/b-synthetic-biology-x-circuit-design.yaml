@@ -1,0 +1,65 @@
+id: b-synthetic-biology-x-circuit-design
+title: >
+  Synthetic Biology x Electronic Circuit Design - gene circuits as logic gates
+status: proposed
+fields:
+  - biology
+  - computer-science
+  - synthetic-biology
+bridge_claim: >
+  Synthetic gene circuits implement Boolean logic (toggle switches, oscillators,
+  band-pass filters) using the same design principles as electronic circuits; the
+  repressilator (three-gene ring oscillator) is the biological equivalent of a ring
+  oscillator, and synthetic bistable switches match the behavior of an SR latch -
+  making electronic CAD methods directly applicable to genetic circuit design.
+translation_table:
+  - field_a_term: Transcription factor repressor (TetR, LacI, cI)
+    field_b_term: NOT gate (inverter)
+    note: >
+      A repressor protein binding its operator prevents transcription of the downstream
+      gene, implementing logical NOT; cascaded inverters form oscillators (repressilator)
+      or bistable switches (toggle switch) just as in CMOS ring oscillators.
+  - field_a_term: Repressilator (3-gene cyclic repressor network)
+    field_b_term: Ring oscillator (3-inverter chain with feedback)
+    note: >
+      Both use an odd number of inversions in a cycle to produce sustained oscillations;
+      the period is determined by the delay around the loop (mRNA/protein half-lives
+      vs gate propagation delay).
+  - field_a_term: Bistable toggle switch (Gardner et al. 2000)
+    field_b_term: SR latch (cross-coupled NOR gates)
+    note: >
+      Mutual repression of two promoters produces two stable states with hysteresis,
+      identical in logic structure to an SR latch; noise-driven switching corresponds
+      to hold-time violations in digital circuits.
+  - field_a_term: Ribosome binding site strength
+    field_b_term: Fan-out / drive strength
+    note: >
+      RBS strength determines translational efficiency and hence how strongly a gene
+      drives downstream processes - the biological analogue of gate drive strength in
+      digital electronics.
+communication_gap: >
+  Electrical engineers developed rigorous CAD flows (SPICE simulation, formal
+  verification, modular composition) over 60 years that synthetic biologists are
+  only beginning to import; conversely, the stochastic and evolutionary robustness
+  of gene circuits provides engineering insights absent from deterministic digital
+  design.
+cross_pollination_opportunities:
+  - >
+    Port electronic CAD tools (hierarchical netlist design, logic synthesis, timing
+    analysis) to genetic circuits, automating the design of complex multi-gene
+    regulatory networks from Boolean truth tables.
+  - >
+    Apply noise-margin analysis from digital electronics to predict bistable switch
+    reliability as a function of gene expression noise level, guiding promoter and
+    RBS selection.
+  - >
+    Use synthetic gene circuits as programmable sensors (band-pass logic for
+    metabolite concentration windows) guided by analog filter design principles.
+related_unknowns:
+  - u-synthetic-biology-x-circuit-design
+references:
+  - doi: "10.1038/35002131"
+    note: "Elowitz & Leibler (2000) - repressilator: a synthetic oscillatory network of transcriptional regulators; Nature 403:335"
+  - doi: "10.1038/35002131"
+    note: "Gardner, Cantor & Collins (2000) - construction of a genetic toggle switch; Nature 403:339"
+last_reviewed: "2026-05-07"

@@ -1,0 +1,66 @@
+id: b-auction-design-x-complexity-theory
+title: >
+  Auction Design x Computational Complexity - optimal auctions as NP-hard problems
+status: proposed
+fields:
+  - economics
+  - computer-science
+  - mathematics
+bridge_claim: >
+  Computing the optimal (revenue-maximizing) mechanism for multi-item auctions with
+  multiple bidders is NP-hard in general (Conitzer & Sandholm 2002); this hardness
+  result explains why real-world auction design relies on simple heuristics (Vickrey,
+  first-price) rather than optimal mechanisms - connecting auction theory to
+  computational complexity.
+translation_table:
+  - field_a_term: Revenue-maximizing mechanism (Myerson optimal auction)
+    field_b_term: NP-hard optimization problem
+    note: >
+      With one item and one bidder, Myerson's single-item optimal mechanism is
+      computationally trivial; with k items and n bidders and correlated valuations,
+      computing the optimal mechanism requires solving an exponentially large LP,
+      which is NP-hard in k and n.
+  - field_a_term: Bidder valuations (drawn from known distribution)
+    field_b_term: Input to optimization algorithm
+    note: >
+      The mechanism designer knows only the distribution from which valuations are
+      drawn, not realized values; the optimal mechanism is computed from this
+      distribution, analogous to offline algorithm design in complexity theory.
+  - field_a_term: VCG mechanism (welfare-maximizing, strategyproof)
+    field_b_term: Polynomial-time approximation algorithm
+    note: >
+      VCG is polynomial-time computable and achieves social welfare maximization
+      (not revenue maximization); it is the natural analogue of a greedy approximation
+      algorithm that runs efficiently at the cost of suboptimal revenue.
+  - field_a_term: Simple auction rules (posted price, sequential)
+    field_b_term: Approximation algorithm with constant factor guarantee
+    note: >
+      Posted-price mechanisms achieve constant-factor approximations to optimal
+      revenue for independent bidders, analogous to FPTAS algorithms; the
+      approximation ratio quantifies the revenue loss from computational tractability.
+communication_gap: >
+  Mechanism design theory (Myerson, Maskin) and computational complexity (Cook,
+  Karp) developed in economics and computer science respectively without
+  cross-fertilization until the emergence of algorithmic mechanism design (Nisan,
+  Ronen 1999), which unified them.
+cross_pollination_opportunities:
+  - >
+    Apply inapproximability results (hardness of approximation) to establish lower
+    bounds on the revenue loss from using simple auction formats, quantifying the
+    price of computational tractability.
+  - >
+    Use fixed-parameter tractability (FPT algorithms) to find parameter regimes
+    (few bidder types, additive valuations) where optimal auctions are efficiently
+    computable.
+  - >
+    Apply machine learning theory (PAC learning) to learn approximately optimal
+    auction mechanisms from bidder data, connecting algorithmic mechanism design
+    to statistical learning theory.
+related_unknowns:
+  - u-auction-design-x-complexity-theory
+references:
+  - doi: "10.1145/501720.501721"
+    note: "Conitzer & Sandholm (2002) - complexity of mechanism design; ACM EC 2002"
+  - doi: "10.1145/509907.509928"
+    note: "Nisan & Ronen (1999) - algorithmic mechanism design; STOC 1999"
+last_reviewed: "2026-05-07"
