@@ -1,0 +1,38 @@
+id: b-next-generation-matrix-control-epidemic-interventions
+title: >
+  Next-generation-matrix epidemiology provides a control-oriented state-space abstraction for adaptive
+  intervention policies targeting dominant transmission modes.
+status: established
+fields:
+  - epidemiology
+  - control-engineering
+  - network-science
+  - public-health
+bridge_claim: >
+  The next-generation matrix (NGM) decomposes compartmental transmission into mode-specific reproduction
+  gains. This maps naturally to control concepts: interventions act as structured gain reductions that
+  should drive the spectral radius below unity while minimizing policy cost and oscillatory overshoot.
+translation_table:
+  - field_a_term: spectral radius rho(K) of NGM
+    field_b_term: closed-loop instability indicator
+    note: rho(K) > 1 corresponds to growth mode amplification.
+  - field_a_term: targeted NPIs/vaccination by subgroup
+    field_b_term: structured feedback gain scheduling
+    note: Interventions are matrix-entry perturbations, not scalar knobs.
+  - field_a_term: variant emergence and contact shifts
+    field_b_term: time-varying plant uncertainty
+    note: Robust adaptive control formulations capture changing transmission topology.
+related_unknowns:
+  - u-epidemic-mpc-next-generation-matrix-robustness
+related_hypotheses:
+  - h-mpc-with-ngm-constraints-reduces-epidemic-overshoot
+cross_pollination_opportunities:
+  - Bring robust MPC uncertainty sets to public-health trigger policy design.
+  - Use control-oriented observability analyses to prioritize surveillance allocation.
+communication_gap: >
+  Epidemiology often reports R_t as a scalar summary, while controller design requires explicit
+  mode structure and actuation limits across subpopulations.
+references:
+  - doi: "10.1007/BF00178324"
+    note: "Diekmann, Heesterbeek, and Metz (1990), formal definition and computation of R0 via next-generation operators."
+last_reviewed: "2026-05-08"

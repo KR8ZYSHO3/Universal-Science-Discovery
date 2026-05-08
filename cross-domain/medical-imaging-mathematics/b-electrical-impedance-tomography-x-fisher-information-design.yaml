@@ -1,0 +1,39 @@
+id: b-electrical-impedance-tomography-x-fisher-information-design
+title: >
+  Electrical impedance tomography (EIT) inverse reconstruction quality is strongly shaped by
+  Fisher-information geometry induced by electrode placement and drive patterns.
+status: proposed
+fields:
+  - medical-imaging
+  - mathematics
+  - inverse-problems
+  - statistics
+bridge_claim: >
+  EIT solves a severely ill-posed boundary-value inverse problem where measurement design can be as
+  important as reconstruction algorithm choice. Fisher-information analysis provides a principled bridge
+  from experimental setup (electrode geometry, current patterns) to expected parameter uncertainty and
+  detectability.
+translation_table:
+  - field_a_term: Jacobian of forward EIT map
+    field_b_term: Fisher-information matrix under assumed noise model
+    note: Sensitivity structure determines local identifiability and variance lower bounds.
+  - field_a_term: electrode drive/measurement protocol
+    field_b_term: optimal experiment design objective
+    note: Protocols can be optimized for lesion detectability instead of only reconstruction sharpness.
+  - field_a_term: regularization and prior structure
+    field_b_term: posterior covariance and credible-region geometry
+    note: Prior-informed design can focus information where clinical decisions need confidence.
+related_unknowns:
+  - u-eit-fisher-information-electrode-geometry-optimality
+related_hypotheses:
+  - h-fisher-information-optimized-eit-electrodes-improve-lesion-detectability
+cross_pollination_opportunities:
+  - Integrate information-based protocol optimization into bedside EIT hardware calibration workflows.
+  - Use Bayesian optimal design loops to co-tune electrode placement and inverse priors.
+communication_gap: >
+  EIT studies typically benchmark reconstruction error post hoc, while design-theoretic analyses can
+  predict uncertainty before data collection.
+references:
+  - doi: "10.1017/S0962492910000061"
+    note: "Bayesian inverse-problem framework relevant for uncertainty-aware EIT design and inference."
+last_reviewed: "2026-05-08"

@@ -1,0 +1,41 @@
+id: b-resonant-wireless-power-transfer-x-coupled-mode-q-bandwidth-limit
+title: >
+  Coupled-mode quality-factor limits in resonant wireless power transfer map directly to the
+  RF bandwidth-efficiency tradeoff in practical charger architectures.
+status: proposed
+fields:
+  - electrical-engineering
+  - applied-physics
+  - electromagnetics
+  - control-engineering
+bridge_claim: >
+  Resonant inductive links are governed by coupled-mode dynamics where transfer efficiency depends
+  on coupling coefficient k and resonator quality factors (Q_tx, Q_rx). Pushing Q upward improves
+  peak efficiency but narrows usable bandwidth and increases detuning sensitivity, matching the
+  engineering observation that adaptive tuning/control loops dominate real-world performance drift.
+translation_table:
+  - field_a_term: coupled-mode critical coupling (k, Q, detuning)
+    field_b_term: impedance-tracking and autotuning loops in WPT chargers
+    note: Peak efficiency occurs near matched loss and coupling, not necessarily at maximal unloaded Q.
+  - field_a_term: modal linewidth and bandwidth
+    field_b_term: load-transient tolerance and coil-misalignment robustness
+    note: Narrow resonances require faster adaptation and tighter mechanical tolerances.
+  - field_a_term: coupling-distance scaling
+    field_b_term: efficiency-range operating envelope
+    note: Mid-range operation is primarily limited by k collapse and retuning latency.
+related_unknowns:
+  - u-wireless-power-transfer-q-bandwidth-coupling-limit
+related_hypotheses:
+  - h-critical-coupling-tracking-improves-mid-range-wireless-power-efficiency
+cross_pollination_opportunities:
+  - Import robust control margins from power electronics to report WPT efficiency with explicit detuning uncertainty.
+  - Reframe WPT benchmark reporting around coupled-mode invariants (kQ products) instead of coil geometry alone.
+communication_gap: >
+  Physics treatments often emphasize ideal coupled resonators, while engineering reports focus on
+  hardware prototyping metrics; the k-Q-bandwidth constraint is the shared core language.
+references:
+  - doi: "10.1126/science.1143254"
+    note: "Kurs et al. (2007), strongly coupled magnetic resonances for mid-range wireless power transfer."
+  - doi: "10.1109/JPROC.2013.2244531"
+    note: "Comprehensive review of wireless power transfer methods and tradeoffs."
+last_reviewed: "2026-05-08"

@@ -41,10 +41,10 @@ A git-native, schema-validated, community-governed catalog of scientific unknown
 
 | Metric                     | Count     | Notes                                                           |
 | -------------------------- | --------- | --------------------------------------------------------------- |
-| **Cross-domain bridges**   | **966**   | Mathematical connections between fields that rarely communicate |
-| **Open unknowns**          | **1,251** | Named, structured research gaps across 55+ disciplines          |
-| **Falsifiable hypotheses** | **1,117** | Testable claims linked to specific unknowns                     |
-| **Knowledge graph nodes**  | **3,386** | Interconnected across 3,756 edges                               |
+| **Cross-domain bridges**   | **1,026** | Mathematical connections between fields that rarely communicate |
+| **Open unknowns**          | **1,311** | Named, structured research gaps across 55+ disciplines          |
+| **Falsifiable hypotheses** | **1,177** | Testable claims linked to specific unknowns                     |
+| **Knowledge graph nodes**  | **3,566** | Interconnected across 4,032 edges                               |
 | **Pioneer profiles**       | **18**    | Scientists whose work seeded cross-domain bridges               |
 | **Breakthrough gaps**      | **24**    | High-priority problems that would reshape entire fields         |
 | **Orphan unknowns**        | **0**     | All unknowns connected to bridges or hypotheses                 |
@@ -121,9 +121,9 @@ python scripts/build_graph.py
 ## Catalog Structure
 
 ```
-cross-domain/{domain-a}-{domain-b}/b-*.yaml   ← 650 bridges
-unknowns-catalog/{domain}/u-*.yaml            ← 981 unknowns
-hypotheses/active|validated|archived/h-*.yaml ← 849 hypotheses
+cross-domain/{domain-a}-{domain-b}/b-*.yaml   ← 1026 bridges
+unknowns-catalog/{domain}/u-*.yaml            ← 1311 unknowns
+hypotheses/active|validated|archived/h-*.yaml ← 1177 hypotheses
 pioneers/pioneer-*.yaml                       ← 18 pioneer profiles
 breakthrough-gaps/bg-*.yaml                   ← 12 breakthrough gaps
 phenomenology/p-*.yaml                        ← pre-formal observations

@@ -1,0 +1,39 @@
+id: b-a-stability-region-x-time-stepping-reaction-diffusion
+title: >
+  A-stability and stiffness-aware time stepping connect numerical-analysis stability regions to
+  physically faithful reaction-diffusion simulation under multiscale kinetics.
+status: established
+fields:
+  - numerical-analysis
+  - computational-physics
+  - applied-mathematics
+  - dynamical-systems
+bridge_claim: >
+  Reaction-diffusion systems often combine fast reactive modes with slower transport scales, making
+  explicit integrators unstable at practical timesteps. Stability-region analysis from numerical
+  analysis directly determines which discretizations preserve qualitative dynamics without introducing
+  spurious oscillations or blow-up.
+translation_table:
+  - field_a_term: A-stability / L-stability of time integrators
+    field_b_term: bounded simulation under stiff reaction eigenmodes
+    note: Integrator choice controls whether fast-decaying modes remain numerically well behaved.
+  - field_a_term: IMEX splitting
+    field_b_term: implicit treatment of stiff chemistry + explicit transport update
+    note: Splitting trades nonlinear solve cost for larger stable timestep windows.
+  - field_a_term: absolute stability region in complex plane
+    field_b_term: admissible dt relative to Jacobian spectrum
+    note: Spectral estimates provide actionable timestep control policies.
+related_unknowns:
+  - u-a-stability-region-operator-splitting-reaction-diffusion
+related_hypotheses:
+  - h-imex-time-stepping-expands-stable-reaction-diffusion-cfl
+cross_pollination_opportunities:
+  - Import control-style robust margin reporting into PDE solver benchmarking.
+  - Publish stability-spectrum diagnostics alongside simulation outcomes for reproducibility.
+communication_gap: >
+  Domain papers often tune timesteps empirically; numerical analysts emphasize spectral constraints.
+  Bridging the two improves reproducibility and interpretability of simulated mechanisms.
+references:
+  - doi: "10.1017/S096249290200001X"
+    note: "Hairer (2002), long-time and structure-preserving insights relevant to stability-sensitive integration."
+last_reviewed: "2026-05-08"
