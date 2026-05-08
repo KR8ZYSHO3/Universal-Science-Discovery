@@ -4,6 +4,10 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 ## Last updated
 
+- 2026-05-08 — **Wave 87 — 12 new bridges (1,111 catalog)**:
+**Bridges:** neural-operator space-weather assimilation; diffusion downscaling for climate bias correction; causal-forest policy elasticity targeting; GNN priors for gene-regulatory perturbations; foundation-model transfer for TCR specificity; active-learning Bayesian optimization for alloy discovery; neural spectral submesoscale ocean forecasting; physics-informed neural operators for aftershock fields; vision-transformer crop stress phenotyping; graph-transformer grid contingency screening; agent-surrogate intervention optimization; protein language-model viral escape forecasting (**all bridge claims explicitly marked as speculative analogies**).
+**Unknowns / hypotheses:** +12 each (paired to bridges).
+**Artifacts:** `docs/knowledge_graph.json` rebuilt (**3,821 nodes**, **4,457 edges**); catalog counts: **1,396 unknowns**, **1,262 hypotheses**, **1,111 bridges**; `dashboard/index.html` stats refreshed; `canvases/Progress.canvas.tsx` synced; `python scripts/validate_schemas.py` — **0 errors** (local run).
 - 2026-05-08 — **Wave 86 — 12 new bridges (1,099 catalog)**:
 **Bridges:** neural ODE pharmacokinetic state-space modeling; neural CDE irregular ICU trajectories; diffusion priors for accelerated MRI inversion; SimCLR-style multi-omics latent alignment; federated averaging for multi-site epidemic forecasting; Bayesian dropout for adaptive trial stopping; transformer attention for longitudinal EHR reasoning; U-Net satellite flood mapping; residual-learning robustness in histopathology domain shift; VAE latent screening for catalyst discovery; graph convolution for transmission-network inference; masked autoencoding priors for low-SNR cryo-EM reconstruction (**all bridge claims explicitly marked as speculative analogies**).
 **Unknowns / hypotheses:** +12 each (paired to bridges).
