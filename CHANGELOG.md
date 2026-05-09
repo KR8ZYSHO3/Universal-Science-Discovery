@@ -7,7 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [Unreleased] — 2026-05-08
+## [Unreleased] — 2026-05-09
+
+### Added — Wave 88 (+12 bridges; catalog **1,123** bridges)
+- Added 12 new cross-domain bridge triplets (bridge + companion unknown + companion hypothesis) spanning variational QAOA versus classical surrogate warm starts, persistent-homology microscopy QC under noise, efficient coding versus information-bottleneck objectives, replicator dynamics field inference for ESS narratives, belief propagation haplotype phasing on linkage graphs, RBMs as Ising-like energy models, spectral clustering for metabolomic module stability, Wasserstein-style DRO framing for climate deep uncertainty, contrastive predictive coding versus multiview self-supervision, contested RG coarse-graining metaphors for depth, EDMD/Koopman linearization for video dynamics forecasting, and sparse-sensor symbolic regression for PDE-structure recovery; speculative analogies are explicitly flagged except where literature establishes the bridge (e.g., BP on graphical models, RBM energy forms).
+- Regenerated artifacts with full pipeline: `python scripts/validate_schemas.py`, `python -X utf8 scripts/build_graph.py`, `python scripts/update_dashboard_stats.py --apply`, `python scripts/sync-dashboard-from-state.py` (`docs/knowledge_graph.json` now **3,857 nodes**, **4,517 edges**).
 
 ### Added — Wave 87 (+12 bridges; catalog **1,111** bridges)
 - Added 12 new cross-domain bridge triplets (bridge + companion unknown + companion hypothesis) spanning neural-operator space-weather assimilation, diffusion climate downscaling bias correction, causal-forest policy heterogeneity targeting, GNN priors for gene-regulatory perturbations, foundation-model transfer for TCR specificity, Bayesian-optimization alloy discovery loops, neural spectral ocean forecasting, physics-informed neural-operator aftershock mapping, vision-transformer crop stress phenotyping, graph-transformer grid contingency screening, agent-surrogate public-health intervention optimization, and protein language-model viral escape landscape forecasting; all bridge claims are explicitly labeled as speculative analogies.

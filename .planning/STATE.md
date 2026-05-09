@@ -4,6 +4,10 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 ## Last updated
 
+- 2026-05-09 — **Wave 88 — 12 new bridges (1,123 catalog)**:
+**Bridges:** QAOA classical surrogate warm-start framing; persistent homology QC for noisy microscopy; efficient coding ↔ information-bottleneck objectives; replicator dynamics empirical ESS inference; belief propagation genotype phasing on linkage graphs; restricted Boltzmann machines ↔ Ising energy models; spectral clustering metabolite modules; distributionally robust optimization climate ambiguity sets; contrastive predictive coding multiview learning; RG coarse-graining metaphors for depth (contested/labeled analogy); EDMD/Koopman linearization for video dynamics; sparse-sensor SINDy-style PDE discovery (**speculative analogies labeled where not literature-established**).
+**Unknowns / hypotheses:** +12 each (paired to bridges).
+**Artifacts:** `docs/knowledge_graph.json` rebuilt (**3,857 nodes**, **4,517 edges**); catalog counts: **1,408 unknowns**, **1,274 hypotheses**, **1,123 bridges**; `dashboard/index.html` stats refreshed; `canvases/Progress.canvas.tsx` synced; `python scripts/validate_schemas.py` — **0 errors** (local run).
 - 2026-05-08 — **Wave 87 — 12 new bridges (1,111 catalog)**:
 **Bridges:** neural-operator space-weather assimilation; diffusion downscaling for climate bias correction; causal-forest policy elasticity targeting; GNN priors for gene-regulatory perturbations; foundation-model transfer for TCR specificity; active-learning Bayesian optimization for alloy discovery; neural spectral submesoscale ocean forecasting; physics-informed neural operators for aftershock fields; vision-transformer crop stress phenotyping; graph-transformer grid contingency screening; agent-surrogate intervention optimization; protein language-model viral escape forecasting (**all bridge claims explicitly marked as speculative analogies**).
 **Unknowns / hypotheses:** +12 each (paired to bridges).

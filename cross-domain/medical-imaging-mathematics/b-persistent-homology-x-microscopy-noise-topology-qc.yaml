@@ -1,0 +1,30 @@
+id: b-persistent-homology-x-microscopy-noise-topology-qc
+title: Persistent homology summaries bridge algebraic topology with microscopy pipelines where segmentation quality can be audited via stability of topological signal under imaging noise.
+status: proposed
+fields:
+- medical-imaging
+- mathematics
+- topology
+bridge_claim: 'Literature-backed mapping (topological data analysis): persistence diagrams quantify stable multiscale features and their stability under bounded geometric noise; speculative analogy for deployment (requires validation per modality): persistence-based QC metrics may flag segmentation failures when barcode summaries diverge from calibrated templates.'
+translation_table:
+- field_a_term: filtration parameter (scale)
+  field_b_term: smoothing kernel width / PSF scale
+  note: Scale choices interact with optics-limited features.
+- field_a_term: bottleneck distance between diagrams
+  field_b_term: QC deviation score versus reference template
+  note: Stability theory motivates distance thresholds only under explicit sampling assumptions.
+- field_a_term: spurious short intervals
+  field_b_term: noise-induced topological artifacts
+  note: Thresholding heuristics remain modality dependent.
+related_unknowns:
+- u-persistent-homology-parameter-stability-noisy-microscopy
+related_hypotheses:
+- h-multiscale-filtration-persistence-improves-microscopy-segmentation-qc
+cross_pollination_opportunities:
+- Release paired datasets with segmentation masks and persistence summaries for community benchmarks.
+- Joint tutorials linking optics PSF models to filtration design choices.
+communication_gap: Topology papers emphasize asymptotic stability while microscopy labs rely on pixel-wise metrics with decades of institutional precedent.
+last_reviewed: '2026-05-09'
+references:
+- doi: "10.1145/997817.997855"
+  note: Stability of persistence diagrams (foundational stability result motivating noise-aware QC language).

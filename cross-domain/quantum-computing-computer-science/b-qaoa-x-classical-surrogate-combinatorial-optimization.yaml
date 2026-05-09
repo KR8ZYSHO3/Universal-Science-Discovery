@@ -1,0 +1,30 @@
+id: b-qaoa-x-classical-surrogate-combinatorial-optimization
+title: Quantum approximate optimization algorithms bridge discrete combinatorial optimization with classical surrogate warm-start and benchmarking workflows.
+status: proposed
+fields:
+- quantum-computing
+- computer-science
+- operations-research
+bridge_claim: 'Established baseline literature maps QAOA-style parameterized quantum circuits onto classical optimization landscapes; related speculative analogy (deployment-dependent): classical surrogate models trained on QAOA expectation traces may accelerate warm starts similarly to classical hyperparameter meta-learning when hardware noise statistics are stable.'
+translation_table:
+- field_a_term: variational circuit parameters
+  field_b_term: surrogate model inputs
+  note: Parameter-response curves can seed classical regressors.
+- field_a_term: expectation estimates / shots
+  field_b_term: noisy labels for supervised surrogates
+  note: Sampling noise couples statistical ML issues with quantum estimation.
+- field_a_term: circuit depth schedule
+  field_b_term: curriculum / continuation schedule
+  note: Both trade bias-variance along an outer optimization loop.
+related_unknowns:
+- u-qaoa-depth-generalization-vs-classical-baselines
+related_hypotheses:
+- h-qaoa-parameter-transfer-improves-surrogate-warm-starts
+cross_pollination_opportunities:
+- Publish paired benchmarks where classical surrogates must predict out-of-distribution circuit depths and noise models.
+- Share calibration protocols so ML papers report hardware noise matched to optimization claims.
+communication_gap: Quantum hardware teams publish physics-centric calibration while classical optimization and ML venues rarely standardize cross-domain reporting of noise-aware surrogate error.
+last_reviewed: '2026-05-09'
+references:
+- arxiv: "1411.4028"
+  note: Quantum Approximate Optimization Algorithm (Farhi et al.).
