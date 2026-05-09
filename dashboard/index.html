@@ -1,15 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark light" />
-  <meta name="description" content="Universal Science Discovery Repository — contributor hub, phase status, and developer dashboard" />
   <title>USDR — Developer Dashboard</title>
+
+  <!-- OpenGraph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/">
+  <meta property="og:title" content="Universal Science Discovery Repository — Map the Unknowns">
+  <meta property="og:description" content="A version-controlled, AI-augmented knowledge engine tracking what humanity doesn't yet know. 1123 cross-domain bridges &#9658; 826+ open unknowns &#9658; 1,982+ knowledge graph nodes &#9658; Open source.">
+  <meta property="og:image" content="https://opengraph.githubassets.com/1/KR8ZYSHO3/Universal-Science-Discovery">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="USDR">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Universal Science Discovery Repository">
+  <meta name="twitter:description" content="Map the unknowns. Accelerate discovery. 1123 cross-domain bridges, 826+ open unknowns, 1,982+ node knowledge graph. All open source.">
+  <meta name="twitter:image" content="https://opengraph.githubassets.com/1/KR8ZYSHO3/Universal-Science-Discovery">
+
+  <!-- SEO -->
+  <meta name="description" content="USDR tracks what science doesn't yet know — a version-controlled catalog of open unknowns, falsifiable hypotheses, and cross-domain mathematical bridges.">
+  <meta name="keywords" content="open science, unknowns, hypotheses, cross-domain, knowledge graph, scientific discovery, open source">
+  <link rel="canonical" href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <script src="https://unpkg.com/marked@12.0.2/marked.min.js"></script>
+  <script src="https://unpkg.com/lunr/lunr.js"></script>
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <style>
     /* ── TOKENS ─────────────────────────────────────────────── */
@@ -676,6 +697,7 @@
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
     }
+    @keyframes kg-spin { to { transform: rotate(360deg); } }
     #kg-svg { width: 100%; height: 100%; display: block; }
     .kg-links line { stroke-opacity: 1; }
     #kg-legend {
@@ -720,6 +742,152 @@
       position: absolute; top: 1rem; right: 1.2rem;
       font-size: .72rem; color: var(--muted); font-family: var(--mono);
       pointer-events: none; opacity: .65;
+    }
+
+    /* ── GRAPH FILTER BUTTONS ──────────────────────────────── */
+    .graph-filters {
+      display: flex; align-items: center; flex-wrap: wrap;
+      gap: .25rem; margin-bottom: .75rem;
+    }
+    .filter-btn {
+      background: transparent;
+      border: 1px solid var(--fc, #4f9cf9);
+      color: var(--fc, #4f9cf9);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-family: var(--font);
+      transition: background .15s, opacity .15s;
+      margin: 0 0.1rem;
+    }
+    .filter-btn.active { background: color-mix(in srgb, var(--fc) 15%, transparent); }
+    .filter-btn:not(.active) { opacity: 0.4; }
+    .filter-btn:focus-visible { outline: 2px solid var(--fc); outline-offset: 2px; }
+
+    /* ── EDGE TYPE LEGEND ──────────────────────────────────── */
+    .edge-legend {
+      position: absolute; bottom: 1.2rem; right: 1.2rem;
+      background: rgba(6,13,26,.82);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: .65rem .9rem;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      pointer-events: none;
+      z-index: 5;
+    }
+    .edge-legend-title {
+      font-size: .68rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; color: var(--muted);
+      margin-bottom: .35rem;
+    }
+    .edge-item {
+      display: flex; align-items: center; gap: .45rem;
+      font-size: .73rem; color: var(--text);
+      margin-top: .28rem;
+    }
+    .edge-swatch {
+      width: 22px; height: 3px; border-radius: 2px;
+      flex-shrink: 0; display: inline-block;
+    }
+
+    /* ── NODE DETAIL PANEL ──────────────────────────────────── */
+    .node-panel {
+      position: absolute;
+      top: 0; right: 0;
+      width: 320px;
+      height: 100%;
+      background: rgba(6,13,26,.97);
+      border-left: 1px solid var(--border-h);
+      overflow-y: auto;
+      padding: 1.5rem 1.25rem 2rem;
+      transform: translateX(100%);
+      transition: transform 0.25s ease;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .node-panel.open { transform: translateX(0); }
+    .node-panel.hidden { display: none; }
+    .panel-close {
+      position: absolute; top: .85rem; right: .9rem;
+      background: none; border: none; color: var(--muted);
+      font-size: 1.1rem; cursor: pointer; line-height: 1;
+      padding: .25rem .4rem; border-radius: var(--r-sm);
+      transition: color .15s, background .15s;
+    }
+    .panel-close:hover { color: var(--text); background: var(--bg-2); }
+    .panel-type-badge {
+      display: inline-flex; align-items: center; gap: .35rem;
+      font-size: .63rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      padding: .2rem .55rem; border-radius: 999px; margin-bottom: .6rem;
+    }
+    .panel-id {
+      font-family: var(--mono); font-size: .7rem; color: var(--muted);
+      margin-bottom: .75rem; word-break: break-all; line-height: 1.4;
+    }
+    .panel-title {
+      font-size: .95rem; font-weight: 600; color: var(--text);
+      margin: 0 0 1rem; line-height: 1.45;
+    }
+    .panel-section-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--muted); margin: 1.1rem 0 .45rem;
+    }
+    .panel-claim {
+      font-size: .82rem; color: #94a3b8; line-height: 1.6;
+      border-left: 2px solid var(--border-h); padding-left: .7rem;
+    }
+    .panel-status {
+      display: inline-flex; align-items: center; gap: .4rem;
+      font-size: .78rem; font-family: var(--mono);
+      padding: .2rem .6rem; border-radius: var(--r-sm);
+      background: var(--bg-2); border: 1px solid var(--border);
+      color: var(--muted); margin-bottom: .5rem;
+    }
+    .panel-status.status-open     { color: var(--warn);   border-color: var(--warn-border);   background: var(--warn-bg); }
+    .panel-status.status-proposed { color: var(--accent);  border-color: rgba(79,156,249,.3);  background: rgba(79,156,249,.07); }
+    .panel-status.status-active   { color: var(--ok);     border-color: var(--ok-border);     background: var(--ok-bg); }
+    .panel-status.status-speculative { color: var(--violet); border-color: rgba(167,139,250,.3); background: rgba(167,139,250,.07); }
+    .translation-table {
+      width: 100%; border-collapse: collapse; font-size: .75rem;
+    }
+    .translation-table th {
+      text-align: left; padding: .25rem .5rem;
+      color: var(--muted); font-weight: 600; font-size: .67rem; letter-spacing: .07em; text-transform: uppercase;
+      border-bottom: 1px solid var(--border);
+    }
+    .translation-table td {
+      padding: .3rem .5rem; border-bottom: 1px solid rgba(26,45,74,.6);
+      color: #94a3b8; vertical-align: top; line-height: 1.4;
+    }
+    .translation-table td:first-child { color: var(--accent); }
+    .panel-connected-list {
+      list-style: none; display: flex; flex-direction: column; gap: .35rem;
+    }
+    .panel-connected-list li {
+      font-size: .78rem; color: var(--muted); font-family: var(--mono);
+      padding: .2rem .4rem; border-radius: var(--r-sm);
+      border: 1px solid var(--border);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .panel-github-link {
+      display: inline-flex; align-items: center; gap: .35rem;
+      margin-top: 1.2rem; color: var(--accent); font-size: .82rem;
+      padding: .4rem .75rem; border-radius: var(--r-sm);
+      border: 1px solid rgba(79,156,249,.25); background: rgba(79,156,249,.06);
+      transition: background .15s, border-color .15s;
+      text-decoration: none !important;
+    }
+    .panel-github-link:hover { background: rgba(79,156,249,.14); border-color: rgba(79,156,249,.5); }
+    .panel-loading {
+      color: var(--muted); font-size: .82rem; text-align: center;
+      padding: 2rem 0; font-family: var(--mono);
+    }
+    .kg-nodes circle.selected {
+      stroke: #fff !important; stroke-width: 2.5 !important;
+      filter: drop-shadow(0 0 6px rgba(255,255,255,.45));
     }
 
     /* ── CATALOG SEARCH ─────────────────────────────────────── */
@@ -788,6 +956,45 @@
       font-size: .78rem; color: var(--muted); margin-top: .5rem;
       font-family: var(--mono);
     }
+    .result-snippet {
+      font-size: .78rem; color: var(--muted); line-height: 1.45;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      max-width: 520px; margin-top: .15rem;
+    }
+    .search-result-card { flex-direction: column; align-items: flex-start; }
+    .search-result-card .result-row {
+      display: flex; align-items: center; gap: .65rem; width: 100%;
+    }
+    .search-powered {
+      font-size: .7rem; color: var(--muted); margin-top: .35rem;
+      font-family: var(--mono);
+    }
+
+    /* ── DOMAIN FILTER CHIPS ────────────────────────────────── */
+    .domain-chips {
+      display: flex; flex-wrap: wrap; gap: .38rem;
+      margin-top: .75rem; max-width: 620px;
+    }
+    .domain-chip {
+      display: inline-flex; align-items: center;
+      height: 28px; padding: 0 .75rem;
+      font-size: .72rem; font-weight: 600; letter-spacing: .02em;
+      border: 1px solid var(--border); border-radius: 999px;
+      background: var(--surface); color: var(--muted);
+      cursor: pointer; white-space: nowrap;
+      transition: border-color .18s, color .18s, background .18s, transform .15s;
+      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+      user-select: none;
+    }
+    .domain-chip:hover {
+      border-color: var(--border-h); color: var(--text); transform: translateY(-1px);
+    }
+    .domain-chip.active {
+      background: var(--accent); border-color: var(--accent);
+      color: #fff; transform: translateY(-1px);
+    }
+    [data-theme="light"] .domain-chip.active { color: #fff; }
+    .activity-fallback { color: var(--accent); font-size: .88rem; }
 
     /* ── DISCOVERY ENGINES ──────────────────────────────────── */
     .engines-grid {
@@ -833,6 +1040,107 @@
       color: var(--muted); background: var(--bg-1);
     }
     .engine-stat-dot { width: 5px; height: 5px; border-radius: 50%; }
+
+    /* ── AI CO-PILOT ─────────────────────────────────────────── */
+    #ai-copilot { scroll-margin-top: calc(var(--nav-h) + 1rem); }
+    .copilot-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.1rem;
+      margin-top: 1.6rem;
+    }
+    @media (max-width: 960px) { .copilot-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .copilot-grid { grid-template-columns: 1fr; } }
+
+    .copilot-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--r-lg); padding: 1.4rem 1.3rem;
+      position: relative; overflow: hidden;
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      transition: transform .2s ease, border-color .2s ease, box-shadow .25s ease;
+      display: flex; flex-direction: column; gap: .6rem;
+    }
+    .copilot-card::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      opacity: 0; transition: opacity .3s;
+      background: radial-gradient(circle at top right, rgba(167,139,250,.07), transparent 60%);
+    }
+    .copilot-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--violet);
+      box-shadow: 0 20px 52px -24px rgba(167,139,250,.28);
+    }
+    .copilot-card:hover::before { opacity: 1; }
+    .copilot-icon { font-size: 1.8rem; line-height: 1; }
+    .copilot-card h3 {
+      font-size: 1rem; font-weight: 700; color: var(--text);
+      margin: 0;
+    }
+    .copilot-card p {
+      font-size: .84rem; color: var(--muted); line-height: 1.55;
+      flex: 1;
+    }
+    .copilot-link {
+      display: inline-flex; align-items: center; gap: .3rem;
+      font-size: .8rem; font-weight: 600;
+      color: var(--violet); text-decoration: none;
+      padding: .28rem .7rem; border-radius: 999px;
+      border: 1px solid rgba(167,139,250,.25);
+      background: rgba(167,139,250,.07);
+      transition: background .2s, border-color .2s;
+      width: fit-content; margin-top: auto;
+    }
+    .copilot-link:hover {
+      background: rgba(167,139,250,.15);
+      border-color: rgba(167,139,250,.5);
+    }
+
+    /* ── DEVELOPER API ───────────────────────────────────────── */
+    #developer-api { scroll-margin-top: calc(var(--nav-h) + 1rem); }
+    .api-endpoints {
+      display: flex; flex-direction: column; gap: .7rem;
+      margin-top: 1.6rem;
+    }
+    .api-endpoint {
+      display: flex; align-items: center; gap: 1rem;
+      padding: .9rem 1.2rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      text-decoration: none; color: var(--text);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      transition: border-color .2s, box-shadow .2s, transform .2s;
+      position: relative; overflow: hidden;
+    }
+    .api-endpoint::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(circle at left center, rgba(79,156,249,.06), transparent 55%);
+      opacity: 0; transition: opacity .3s;
+    }
+    .api-endpoint:hover {
+      border-color: var(--accent);
+      box-shadow: 0 8px 32px -12px rgba(79,156,249,.25);
+      transform: translateX(4px);
+    }
+    .api-endpoint:hover::before { opacity: 1; }
+    .api-endpoint code {
+      font-family: var(--mono); font-size: .82rem;
+      color: var(--teal); white-space: nowrap; flex-shrink: 0;
+      background: rgba(34,211,184,.07); border: 1px solid rgba(34,211,184,.18);
+      border-radius: 5px; padding: .2rem .55rem;
+    }
+    .api-endpoint span {
+      font-size: .84rem; color: var(--muted); flex: 1;
+    }
+    .api-endpoint-badge {
+      font-size: .7rem; font-weight: 600; padding: .15rem .5rem;
+      border-radius: 999px; background: rgba(79,156,249,.12);
+      border: 1px solid rgba(79,156,249,.22); color: var(--accent);
+      white-space: nowrap; flex-shrink: 0;
+    }
+    @media (max-width: 640px) {
+      .api-endpoint { flex-wrap: wrap; gap: .5rem; }
+      .api-endpoint-badge { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -872,8 +1180,8 @@
 
       <div class="pill-row" aria-label="Highlights">
         <span class="pill live"><span class="d"></span> Phase 0 · Foundation 2026</span>
-        <span class="pill">40 cross-domain bridges</span>
-        <span class="pill">401 unknowns · 60 hypotheses · 1 pre-formal observation</span>
+        <span class="pill">1123 cross-domain bridges</span>
+        <span class="pill">1408 unknowns · 1274 hypotheses · 10 pre-formal observations</span>
         <span class="pill">Git-native · Open source</span>
       </div>
 
@@ -885,6 +1193,56 @@
         fields that should be talking to each other but aren't.
       </p>
 
+      <div style="text-align:center; padding:0.75rem 2rem; background:linear-gradient(135deg,rgba(99,102,241,0.15),rgba(168,85,247,0.15)); border:1px solid rgba(168,85,247,0.3); border-radius:12px; margin:1rem auto; max-width:600px;">
+        <span style="font-size:1.1rem; font-weight:600; color:#c4b5fd;">&#x1F389; 1,000+ Knowledge Graph Nodes</span>
+        <span style="color:#94a3b8; font-size:0.9rem; margin-left:0.75rem;">Milestone reached — May 2026</span>
+      </div>
+
+       <div id="milestone-700-bridges" style="text-align:center; padding:1.5rem 2rem; background:linear-gradient(135deg,rgba(16,185,129,0.30),rgba(5,150,105,0.22),rgba(52,211,153,0.15)); border:3px solid rgba(16,185,129,0.90); border-radius:20px; margin:1rem auto; max-width:780px; box-shadow:0 0 48px rgba(16,185,129,0.45), 0 0 0 1px rgba(16,185,129,0.22);">
+        <div style="font-size:0.72rem; font-weight:700; letter-spacing:0.18em; color:#6ee7b7; text-transform:uppercase; margin-bottom:0.3rem; opacity:0.95;">&#x1F31F; Waves 52&#x2013;54 Milestone Achieved &middot; May 7&thinsp;2026 &#x1F31F;</div>
+        <div style="font-size:2.1rem; font-weight:900; color:#10b981; letter-spacing:-0.03em; text-shadow:0 0 36px rgba(16,185,129,0.60);">&#x1F309; 702 Cross-Domain Bridges!</div>
+        <div style="color:#d1fae5; font-size:1rem; margin-top:0.4rem; font-weight:700;">THE 700-BRIDGE MILESTONE &#x2014; CROSSED &amp; CONFIRMED</div>
+        <div style="color:#6ee7b7; font-size:0.92rem; margin-top:0.3rem; font-weight:600;">WAVES 52&#x2013;54 &nbsp;&#x00B7;&nbsp; 702 bridges &middot; 28 new cross-domain connections (waves 52&#x2013;54)</div>
+        <div style="color:#a7f3d0; font-size:0.80rem; margin-top:0.35rem; opacity:0.92; line-height:1.55;">Synaptic SNARE biophysics &middot; Trophic cascade network motifs &middot; Solar wind Alfv&eacute;n turbulence &middot; Spin glass optimization &middot; Hippocampal sharp-wave ripples &middot; Auxetic materials &middot; Microbe-mineral geochemistry &middot; Red Queen coevolution &middot; Soft robotics hyperelastic &middot; Walrasian t&acirc;tonnement &middot; Lymphatic fluid mechanics &middot; Inflationary slow-roll QFT &middot; Fiber bundle gauge theory &middot; Phenotypic plasticity reaction norms &middot; EEG dipole Maxwell &middot; Earthquake dislocation mechanics &middot; Riboswitch RNA aptamer &middot; Betz limit actuator disk &middot; Beer-Lambert forest canopy &middot; Ellsberg ambiguity aversion &middot; Ubiquitin proteostasis &middot; Silicate weathering GEOCARB &middot; Holographic neural memory &middot; Pecora-Carroll chaos sync</div>
+      </div>
+     <div id="milestone-600-bridges" style="text-align:center; padding:1.4rem 2rem; background:linear-gradient(135deg,rgba(251,191,36,0.28),rgba(245,158,11,0.20),rgba(252,211,77,0.15)); border:3px solid rgba(251,191,36,0.85); border-radius:18px; margin:1rem auto; max-width:760px; box-shadow:0 0 40px rgba(251,191,36,0.40), 0 0 0 1px rgba(251,191,36,0.20);">
+        <div style="font-size:0.72rem; font-weight:700; letter-spacing:0.18em; color:#fde68a; text-transform:uppercase; margin-bottom:0.3rem; opacity:0.95;">&#x2728; Wave 45 Milestone Achieved &middot; May 7&thinsp;2026 &#x2728;</div>
+        <div style="font-size:2rem; font-weight:900; color:#fbbf24; letter-spacing:-0.03em; text-shadow:0 0 32px rgba(251,191,36,0.55);">&#x1F4B0; 600 Cross-Domain Bridges!</div>
+        <div style="color:#fef3c7; font-size:1rem; margin-top:0.4rem; font-weight:700;">THE 600-BRIDGE MILESTONE</div>
+        <div style="color:#fde68a; font-size:0.92rem; margin-top:0.3rem; font-weight:600;">WAVES 44+45 &nbsp;&#x00B7;&nbsp; 602 bridges &middot; 957 unknowns &middot; 825 hypotheses &middot; 2,413 graph nodes</div>
+        <div style="color:#fcd34d; font-size:0.80rem; margin-top:0.35rem; opacity:0.92; line-height:1.55;">Allometric scaling &middot; Magma rheology &middot; Demographic transition &middot; Tensor network entanglement &middot; Mutualistic nestedness &middot; Chromatic dispersion &middot; Cultural transmission &middot; Optical solitons &middot; Cellular automata universality &middot; Klausmeier dryland &middot; Aerosol nucleation &middot; Handicap principle &middot; MEG inverse problem &middot; Antifreeze proteins &middot; Waddington landscape &middot; Hawking/Unruh &middot; Pharmacokinetics ODE &middot; Ocean acidification &middot; fMRI graphical models &middot; Topological quantum computing &middot; Forest succession &middot; Origami mathematics &middot; CYP450 kinetics &middot; Price equation</div>
+      </div>
+
+      <div id="milestone-500-bridges" style="text-align:center; padding:1.25rem 2rem; background:linear-gradient(135deg,rgba(168,85,247,0.22),rgba(124,58,237,0.16)); border:3px solid rgba(168,85,247,0.7); border-radius:16px; margin:1rem auto; max-width:720px; box-shadow:0 0 32px rgba(168,85,247,0.30);">
+        <div style="font-size:1.75rem; font-weight:900; color:#c084fc; letter-spacing:-0.02em;">&#x1F680; 500 Cross-Domain Bridges</div>
+        <div style="color:#e9d5ff; font-size:0.98rem; margin-top:0.4rem; font-weight:600;">WAVE 37 MILESTONE — May 7&thinsp;2026 &nbsp;&#x00B7;&nbsp; 494 bridges &middot; 849 unknowns &middot; 717 hypotheses &middot; 2,089 graph nodes</div>
+        <div style="color:#d8b4fe; font-size:0.82rem; margin-top:0.45rem; opacity:0.9;">Fermentation/thermodynamics &middot; Shockley-Queisser limit &middot; Memory reconsolidation/LTP &middot; Evolutionary graph fixation &middot; Turbulence/renormalization group &middot; Metabolic scaling/fractal vasculature &middot; Social contagion thresholds &middot; Predictive coding/free energy &middot; Synthetic XNA genetics &middot; Dark energy/vacuum energy &middot; Forest fire SOC &middot; Circadian molecular oscillator</div>
+      </div>
+
+      <div id="milestone-400-bridges" style="text-align:center; padding:1rem 2rem; background:linear-gradient(135deg,rgba(251,191,36,0.18),rgba(245,158,11,0.12)); border:2px solid rgba(251,191,36,0.55); border-radius:14px; margin:1rem auto; max-width:680px; box-shadow:0 0 24px rgba(251,191,36,0.18);">
+        <div style="font-size:1.55rem; font-weight:800; color:#fbbf24; letter-spacing:-0.01em;">&#x1F3C6; 400+ Cross-Domain Bridges</div>
+        <div style="color:#fde68a; font-size:0.95rem; margin-top:0.35rem; font-weight:500;">Wave 29 milestone — May 6&thinsp;2026 &nbsp;&#x00B7;&nbsp; 413 bridges &middot; 790 unknowns &middot; 657 hypotheses &middot; 1,887 graph nodes</div>
+        <div style="color:#94a3b8; font-size:0.82rem; margin-top:0.4rem;">Stochastic gene expression &middot; Scientific method epistemology &middot; Hodgkin-Huxley cable equation &middot; Thermodynamics convex duality &middot; Complexity economics &middot; Neuromuscular Hill equation &middot; TKNN Chern number &middot; Allelopathy coevolution &middot; Computational psychiatry &middot; LOB market microstructure &middot; Population vector motor cortex &middot; PKS/NRPS drug discovery</div>
+      </div>
+
+      <div style="text-align:center; padding:0.85rem 2rem; background:linear-gradient(135deg,rgba(16,185,129,0.15),rgba(5,150,105,0.12)); border:1px solid rgba(16,185,129,0.4); border-radius:12px; margin:0.75rem auto 0.75rem; max-width:640px; box-shadow:0 4px 16px -4px rgba(16,185,129,0.2);">
+        <span style="font-size:1.15rem; font-weight:700; color:#34d399;">🌉 250+ Cross-Domain Bridges</span>
+        <span style="color:#6ee7b7; font-size:0.9rem; margin-left:0.75rem;">Wave 16 · May 2026</span>
+      </div>
+
+      <div style="text-align:center; padding:1rem 2rem; background:linear-gradient(135deg,rgba(251,191,36,0.18),rgba(245,158,11,0.12)); border:2px solid rgba(251,191,36,0.55); border-radius:14px; margin:0.5rem auto 0.75rem; max-width:680px; box-shadow:0 6px 24px -6px rgba(251,191,36,0.35);">
+        <div style="font-size:1.5rem; font-weight:800; color:#fbbf24; letter-spacing:-0.5px;">🎯 300 Cross-Domain Bridges</div>
+        <div style="color:#fde68a; font-size:0.95rem; margin-top:0.3rem; font-weight:600;">THE 300-BRIDGE MILESTONE — Wave 20 · May 2026</div>
+        <div style="color:#fcd34d; font-size:0.8rem; margin-top:0.25rem; opacity:0.85;">Glymphatic fluid dynamics · Wasserstein cell fate · Biomimetic SLIP locomotion · Solid-state batteries · Network centrality · Dislocation mechanics · Behavioral economics evolution · GMT minimal surfaces · Ecosystem bifurcation · SDP MAX-CUT · SNARE pharmacology · Wavelet compression · Urban scaling · Complex systems emergence</div>
+      </div>
+
+      <div style="text-align:center; padding:1.1rem 2rem; background:linear-gradient(135deg,rgba(250,204,21,0.22),rgba(234,179,8,0.16),rgba(251,191,36,0.10)); border:2px solid rgba(250,204,21,0.70); border-radius:16px; margin:0.5rem auto 1.5rem; max-width:720px; box-shadow:0 8px 32px -8px rgba(250,204,21,0.50), 0 0 0 1px rgba(250,204,21,0.15);">
+        <div style="font-size:0.75rem; font-weight:700; letter-spacing:0.15em; color:#fde68a; text-transform:uppercase; margin-bottom:0.3rem; opacity:0.9;">✦ Wave 24 Milestone Achieved · May 2026 ✦</div>
+        <div style="font-size:1.75rem; font-weight:900; color:#fbbf24; letter-spacing:-0.5px; text-shadow:0 0 24px rgba(250,204,21,0.4);">🏆 350+ Cross-Domain Bridges</div>
+        <div style="color:#fef08a; font-size:1rem; margin-top:0.35rem; font-weight:700;">THE 350-BRIDGE MILESTONE</div>
+        <div style="color:#fde68a; font-size:0.82rem; margin-top:0.3rem; opacity:0.90; line-height:1.5;">BCS Cooper pair phonon attraction · Jackson-Wolinsky network formation · Saffman-Delbrück lipid raft phase separation · Galerkin FEM isogeometric analysis · Munk-Wunsch thermohaline turbulence · Wilson-Cowan neural field alpha/gamma waves · Pontryagin bang-bang adaptive cancer therapy · Hanson LMSR prediction markets · Verlet MD metadynamics free energy · Huh lung-on-chip FDA Act · Standard Model SU(3)×SU(2)×U(1) Higgs · Tononi-Cirelli synaptic homeostasis + glymphatic sleep</div>
+      </div>
+
       <div class="stat-deck" aria-label="Repository statistics">
         <div class="stat-card">
           <div class="n dim" id="stat-stars">—</div>
@@ -895,23 +1253,23 @@
           <div class="lbl">Contributors</div>
         </div>
         <div class="stat-card">
-          <div class="n" id="stat-hyp">60</div>
+          <div class="n" id="stat-hyp">1274</div>
           <div class="lbl">Active Hypotheses</div>
         </div>
         <div class="stat-card">
-          <div class="n" id="stat-unk">401</div>
+          <div class="n" id="stat-unk">1408</div>
           <div class="lbl">Tracked Unknowns</div>
         </div>
         <div class="stat-card">
-          <div class="n" id="stat-bridges">40</div>
+          <div class="n" id="stat-bridges">1123</div>
           <div class="lbl">Cross-domain Bridges</div>
         </div>
         <div class="stat-card">
-          <div class="n" id="stat-phenom">1</div>
+          <div class="n" id="stat-phenom">10</div>
           <div class="lbl">Pre-formal Observations</div>
         </div>
         <div class="stat-card">
-          <div class="n" id="stat-graph-edges">582</div>
+          <div class="n" id="stat-graph-edges">910</div>
           <div class="lbl">Knowledge Graph Edges</div>
         </div>
       </div>
@@ -935,8 +1293,14 @@
   <div class="hub-nav-wrap">
     <nav class="hub-nav" aria-label="Page sections">
       <a href="#start">Start here</a>
+      <a href="domains/" class="nav-link">Browse domains</a>
+      <a href="explainers/" class="nav-link">Explainers</a>
       <a href="#catalog-search">Search</a>
       <a href="#discovery-engines">Engines</a>
+      <a href="#pioneers">Pioneers</a>
+      <a href="#breakthrough-gaps">Breakthroughs</a>
+      <a href="#ai-copilot">AI co-pilot</a>
+      <a href="#developer-api">API</a>
       <a href="#knowledge-graph">Knowledge graph</a>
       <a href="#workstreams">Workstreams</a>
       <a href="#status">Status</a>
@@ -970,6 +1334,7 @@
         </svg>
         <span class="search-kbd">/</span>
       </div>
+      <div id="domain-chips" class="domain-chips" aria-label="Filter by domain" role="group"></div>
       <div id="search-results" class="search-results" aria-live="polite" aria-label="Search results"></div>
       <div id="search-count-note" class="search-count-note" hidden></div>
     </section>
@@ -986,19 +1351,326 @@
       <div class="engines-grid" id="engines-grid" aria-label="Discovery engines"></div>
     </section>
 
+    <!-- ══════════════════════════════════════════════ PIONEERS -->
+    <section id="pioneers" style="padding:4rem 2rem; background: rgba(255,255,255,0.02);">
+      <h2 style="text-align:center; font-size:2rem; margin-bottom:0.5rem;">Scientific Pioneers</h2>
+      <p style="text-align:center; color:#94a3b8; margin-bottom:2rem;">
+        Foundational scientists whose work seeds cross-domain bridges — including underappreciated contributions ripe for rediscovery.
+      </p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.5rem; max-width:1100px; margin:0 auto;">
+        <!-- Tesla card -->
+        <div class="pioneer-card" data-pioneer-id="pioneer-nikola-tesla" style="background:rgba(255,215,0,0.08); border:1px solid rgba(255,215,0,0.3); border-radius:12px; padding:1.5rem; cursor:pointer; transition:box-shadow 0.2s;">
+          <div style="font-size:2rem; margin-bottom:0.5rem;">⚡</div>
+          <h3 style="color:#ffd700; margin:0 0 0.5rem;">Nikola Tesla</h3>
+          <p style="color:#94a3b8; font-size:0.9rem; margin:0;">AC power · Wireless energy · Bladeless turbine · Earth-ionosphere resonance</p>
+        </div>
+        <!-- Maxwell card -->
+        <div class="pioneer-card" data-pioneer-id="pioneer-james-clerk-maxwell" style="background:rgba(255,215,0,0.08); border:1px solid rgba(255,215,0,0.3); border-radius:12px; padding:1.5rem; cursor:pointer; transition:box-shadow 0.2s;">
+          <div style="font-size:2rem; margin-bottom:0.5rem;">🌊</div>
+          <h3 style="color:#ffd700; margin:0 0 0.5rem;">James Clerk Maxwell</h3>
+          <p style="color:#94a3b8; font-size:0.9rem; margin:0;">Unified electromagnetism · Statistical mechanics · Maxwell's demon</p>
+        </div>
+        <!-- Boltzmann card -->
+        <div class="pioneer-card" data-pioneer-id="pioneer-ludwig-boltzmann" style="background:rgba(255,215,0,0.08); border:1px solid rgba(255,215,0,0.3); border-radius:12px; padding:1.5rem; cursor:pointer; transition:box-shadow 0.2s;">
+          <div style="font-size:2rem; margin-bottom:0.5rem;">🔥</div>
+          <h3 style="color:#ffd700; margin:0 0 0.5rem;">Ludwig Boltzmann</h3>
+          <p style="color:#94a3b8; font-size:0.9rem; margin:0;">S = k ln W · Arrow of time · Statistical foundations</p>
+        </div>
+        <!-- Noether card -->
+        <div class="pioneer-card" data-pioneer-id="pioneer-emmy-noether" style="background:rgba(255,215,0,0.08); border:1px solid rgba(255,215,0,0.3); border-radius:12px; padding:1.5rem; cursor:pointer; transition:box-shadow 0.2s;">
+          <div style="font-size:2rem; margin-bottom:0.5rem;">🔮</div>
+          <h3 style="color:#ffd700; margin:0 0 0.5rem;">Emmy Noether</h3>
+          <p style="color:#94a3b8; font-size:0.9rem; margin:0;">Symmetry → conservation laws · Abstract algebra · Gauge invariance</p>
+        </div>
+        <!-- Shannon card -->
+        <div class="pioneer-card" data-pioneer-id="pioneer-claude-shannon" style="background:rgba(255,215,0,0.08); border:1px solid rgba(255,215,0,0.3); border-radius:12px; padding:1.5rem; cursor:pointer; transition:box-shadow 0.2s;">
+          <div style="font-size:2rem; margin-bottom:0.5rem;">📡</div>
+          <h3 style="color:#ffd700; margin:0 0 0.5rem;">Claude Shannon</h3>
+          <p style="color:#94a3b8; font-size:0.9rem; margin:0;">Information entropy · Channel capacity · Boolean circuits</p>
+        </div>
+        <!-- Turing card -->
+        <div class="pioneer-card" data-pioneer-id="pioneer-alan-turing" style="background:rgba(255,215,0,0.08); border:1px solid rgba(255,215,0,0.3); border-radius:12px; padding:1.5rem; cursor:pointer; transition:box-shadow 0.2s;">
+          <div style="font-size:2rem; margin-bottom:0.5rem;">🤖</div>
+          <h3 style="color:#ffd700; margin:0 0 0.5rem;">Alan Turing</h3>
+          <p style="color:#94a3b8; font-size:0.9rem; margin:0;">Turing machine · Halting problem · Morphogenesis reaction-diffusion</p>
+        </div>
+        <!-- Feynman card -->
+        <div class="pioneer-card" data-pioneer-id="pioneer-richard-feynman" style="background:rgba(255,215,0,0.08); border:1px solid rgba(255,215,0,0.3); border-radius:12px; padding:1.5rem; cursor:pointer; transition:box-shadow 0.2s;">
+          <div style="font-size:2rem; margin-bottom:0.5rem;">⚛️</div>
+          <h3 style="color:#ffd700; margin:0 0 0.5rem;">Richard Feynman</h3>
+          <p style="color:#94a3b8; font-size:0.9rem; margin:0;">QED path integrals · Feynman diagrams · Quantum computing pioneer</p>
+        </div>
+        <!-- McClintock card -->
+        <div class="pioneer-card" data-pioneer-id="pioneer-barbara-mcclintock" style="background:rgba(255,215,0,0.08); border:1px solid rgba(255,215,0,0.3); border-radius:12px; padding:1.5rem; cursor:pointer; transition:box-shadow 0.2s;">
+          <div style="font-size:2rem; margin-bottom:0.5rem;">🌽</div>
+          <h3 style="color:#ffd700; margin:0 0 0.5rem;">Barbara McClintock</h3>
+          <p style="color:#94a3b8; font-size:0.9rem; margin:0;">Transposable elements · Genome plasticity · Epigenetic regulation</p>
+        </div>
+        <!-- Darwin card -->
+        <div class="pioneer-card" data-pioneer-id="pioneer-charles-darwin" style="background:rgba(255,215,0,0.08); border:1px solid rgba(255,215,0,0.3); border-radius:12px; padding:1.5rem; cursor:pointer; transition:box-shadow 0.2s;">
+          <div style="font-size:2rem; margin-bottom:0.5rem;">🐢</div>
+          <h3 style="color:#ffd700; margin:0 0 0.5rem;">Charles Darwin</h3>
+          <p style="color:#94a3b8; font-size:0.9rem; margin:0;">Natural selection · Common descent · Sexual selection · Earthworm geology</p>
+        </div>
+        <!-- Franklin card -->
+        <div class="pioneer-card" data-pioneer-id="pioneer-rosalind-franklin" style="background:rgba(255,215,0,0.08); border:1px solid rgba(255,215,0,0.3); border-radius:12px; padding:1.5rem; cursor:pointer; transition:box-shadow 0.2s;">
+          <div style="font-size:2rem; margin-bottom:0.5rem;">🔬</div>
+          <h3 style="color:#ffd700; margin:0 0 0.5rem;">Rosalind Franklin</h3>
+          <p style="color:#94a3b8; font-size:0.9rem; margin:0;">Photo 51 · DNA X-ray crystallography · Virus structure · Carbon microstructure</p>
+        </div>
+        <!-- von Neumann card -->
+        <div class="pioneer-card" data-pioneer-id="pioneer-john-von-neumann" style="background:rgba(255,215,0,0.08); border:1px solid rgba(255,215,0,0.3); border-radius:12px; padding:1.5rem; cursor:pointer; transition:box-shadow 0.2s;">
+          <div style="font-size:2rem; margin-bottom:0.5rem;">🎮</div>
+          <h3 style="color:#ffd700; margin:0 0 0.5rem;">John von Neumann</h3>
+          <p style="color:#94a3b8; font-size:0.9rem; margin:0;">Stored-program computer · Game theory · Quantum formalism · Self-reproducing automata</p>
+        </div>
+        <!-- Einstein card -->
+        <div class="pioneer-card" data-pioneer-id="pioneer-albert-einstein" style="background:rgba(255,215,0,0.08); border:1px solid rgba(255,215,0,0.3); border-radius:12px; padding:1.5rem; cursor:pointer; transition:box-shadow 0.2s;">
+          <div style="font-size:2rem; margin-bottom:0.5rem;">🌌</div>
+          <h3 style="color:#ffd700; margin:0 0 0.5rem;">Albert Einstein</h3>
+          <p style="color:#94a3b8; font-size:0.9rem; margin:0;">Special &amp; general relativity · Photoelectric effect · Brownian motion · Bose–Einstein condensate</p>
+        </div>
+        <!-- Lovelace card -->
+        <div class="pioneer-card" data-pioneer-id="pioneer-ada-lovelace" style="background:rgba(255,215,0,0.08); border:1px solid rgba(255,215,0,0.3); border-radius:12px; padding:1.5rem; cursor:pointer; transition:box-shadow 0.2s;">
+          <div style="font-size:2rem; margin-bottom:0.5rem;">💻</div>
+          <h3 style="color:#ffd700; margin:0 0 0.5rem;">Ada Lovelace</h3>
+          <p style="color:#94a3b8; font-size:0.9rem; margin:0;">First algorithm · General-purpose computing vision · Analytical Engine programming</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════ BREAKTHROUGH GAPS -->
+    <section id="breakthrough-gaps" style="padding:4rem 2rem;">
+      <h2 style="text-align:center; font-size:2rem; margin-bottom:0.5rem;">Breakthrough Gaps</h2>
+      <p style="text-align:center; color:#94a3b8; margin-bottom:2rem;">
+        World-reshaping breakthroughs stalled by cross-domain knowledge gaps. These are the bridges science needs to build.
+      </p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; max-width:1100px; margin:0 auto;">
+        <div style="background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.3); border-radius:12px; padding:1.5rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;">💧</span>
+            <span style="background:rgba(239,68,68,0.2); color:#fca5a5; padding:0.2rem 0.6rem; border-radius:999px; font-size:0.75rem;">TRL 4</span>
+          </div>
+          <h3 style="color:#fca5a5; margin:0 0 0.5rem; font-size:1rem;">Low-Temp Water Splitting</h3>
+          <p style="color:#94a3b8; font-size:0.85rem; margin:0;">Catalyst exists. Scale-up materials science + grid economics bridge missing.</p>
+        </div>
+        <div style="background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.3); border-radius:12px; padding:1.5rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;">⚛️</span>
+            <span style="background:rgba(239,68,68,0.2); color:#fca5a5; padding:0.2rem 0.6rem; border-radius:999px; font-size:0.75rem;">TRL 3</span>
+          </div>
+          <h3 style="color:#fca5a5; margin:0 0 0.5rem; font-size:1rem;">Fault-Tolerant Quantum Computing</h3>
+          <p style="color:#94a3b8; font-size:0.85rem; margin:0;">Error correction theory complete. 1000:1 overhead + cryogenic engineering gaps remain.</p>
+        </div>
+        <div style="background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.3); border-radius:12px; padding:1.5rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;">🧲</span>
+            <span style="background:rgba(239,68,68,0.2); color:#fca5a5; padding:0.2rem 0.6rem; border-radius:999px; font-size:0.75rem;">TRL 2</span>
+          </div>
+          <h3 style="color:#fca5a5; margin:0 0 0.5rem; font-size:1rem;">Room-Temperature Superconductivity</h3>
+          <p style="color:#94a3b8; font-size:0.85rem; margin:0;">High-Tc materials exist. Pairing mechanism beyond BCS unknown.</p>
+        </div>
+        <div style="background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.3); border-radius:12px; padding:1.5rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;">💉</span>
+            <span style="background:rgba(239,68,68,0.2); color:#fca5a5; padding:0.2rem 0.6rem; border-radius:999px; font-size:0.75rem;">TRL 6</span>
+          </div>
+          <h3 style="color:#fca5a5; margin:0 0 0.5rem; font-size:1rem;">Programmable mRNA Medicine</h3>
+          <p style="color:#94a3b8; font-size:0.85rem; margin:0;">Platform proven by COVID vaccines. Tissue targeting + immune tolerance gaps block universal use.</p>
+        </div>
+        <div style="background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.3); border-radius:12px; padding:1.5rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;">🌍</span>
+            <span style="background:rgba(239,68,68,0.2); color:#fca5a5; padding:0.2rem 0.6rem; border-radius:999px; font-size:0.75rem;">TRL 7</span>
+          </div>
+          <h3 style="color:#fca5a5; margin:0 0 0.5rem; font-size:1rem;">Direct Air Carbon Capture</h3>
+          <p style="color:#94a3b8; font-size:0.85rem; margin:0;">Plants operational. 10-20× above thermodynamic minimum energy cost. Sorbent chemistry gap.</p>
+        </div>
+        <div style="background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.3); border-radius:12px; padding:1.5rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;">🧠</span>
+            <span style="background:rgba(239,68,68,0.2); color:#fca5a5; padding:0.2rem 0.6rem; border-radius:999px; font-size:0.75rem;">TRL 5</span>
+          </div>
+          <h3 style="color:#fca5a5; margin:0 0 0.5rem; font-size:1rem;">High-Bandwidth Brain-Computer Interfaces</h3>
+          <p style="color:#94a3b8; font-size:0.85rem; margin:0;">1024-channel implants demonstrated. Biocompatibility, decode algorithms, and wireless bandwidth gaps remain.</p>
+        </div>
+        <div style="background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.3); border-radius:12px; padding:1.5rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;">☀️</span>
+            <span style="background:rgba(239,68,68,0.2); color:#fca5a5; padding:0.2rem 0.6rem; border-radius:999px; font-size:0.75rem;">TRL 4</span>
+          </div>
+          <h3 style="color:#fca5a5; margin:0 0 0.5rem; font-size:1rem;">Commercial Fusion Energy</h3>
+          <p style="color:#94a3b8; font-size:0.85rem; margin:0;">NIF achieved ignition (2022). Plasma instability, tritium breeding, and materials radiation hardness gaps block commercialization.</p>
+        </div>
+        <div style="background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.3); border-radius:12px; padding:1.5rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;">🦠</span>
+            <span style="background:rgba(239,68,68,0.2); color:#fca5a5; padding:0.2rem 0.6rem; border-radius:999px; font-size:0.75rem;">TRL 3</span>
+          </div>
+          <h3 style="color:#fca5a5; margin:0 0 0.5rem; font-size:1rem;">New Antibiotic Classes</h3>
+          <p style="color:#94a3b8; font-size:0.85rem; margin:0;">No novel antibiotic class since 2003. Market failure + novel target identification + phage therapy pathway all blocking.</p>
+        </div>
+        <div style="background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.3); border-radius:12px; padding:1.5rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;">🧬</span>
+            <span style="background:rgba(239,68,68,0.2); color:#fca5a5; padding:0.2rem 0.6rem; border-radius:999px; font-size:0.75rem;">TRL 3</span>
+          </div>
+          <h3 style="color:#fca5a5; margin:0 0 0.5rem; font-size:1rem;">Alzheimer's Disease Mechanism</h3>
+          <p style="color:#94a3b8; font-size:0.85rem; margin:0;">Amyloid antibodies modestly effective. Causal mechanism, glymphatic dysfunction, and BBB delivery gaps unsolved.</p>
+        </div>
+        <div style="background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.3); border-radius:12px; padding:1.5rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;">🌿</span>
+            <span style="background:rgba(239,68,68,0.2); color:#fca5a5; padding:0.2rem 0.6rem; border-radius:999px; font-size:0.75rem;">TRL 3</span>
+          </div>
+          <h3 style="color:#fca5a5; margin:0 0 0.5rem; font-size:1rem;">Artificial Photosynthesis</h3>
+          <p style="color:#94a3b8; font-size:0.85rem; margin:0;">Natural photosynthesis 1-2% efficient. Water oxidation catalyst durability + whole-system integration gaps blocking scale-up.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════ AI CO-PILOT -->
+    <section id="ai-copilot">
+      <div>
+        <span class="section-tag">AI Co-pilot</span>
+        <h2 class="section-title">Automated knowledge-graph analysis</h2>
+        <p class="section-desc">
+          Three scripts that continuously mine the knowledge graph — surfacing gaps,
+          proposing novel cross-domain connections, and flagging low-quality entries
+          for human review.
+        </p>
+        <!-- live bridge proposal counter -->
+        <div id="bridge-proposal-counter" style="
+          margin-top:1rem; padding:0.9rem 1.2rem;
+          background:rgba(99,102,241,0.12); border:1px solid rgba(99,102,241,0.35);
+          border-radius:0.75rem; font-size:0.95rem; line-height:1.55;
+          display:inline-block; min-width:200px;">
+          <span id="bpc-loading" style="opacity:0.6">Loading AI proposal counts…</span>
+          <span id="bpc-content" style="display:none">
+            <strong id="bpc-total"></strong> high-priority bridges proposed by AI co-pilot
+            — <strong id="bpc-pioneer"></strong> from pioneer seeds,
+            <strong id="bpc-gap"></strong> from breakthrough gaps
+          </span>
+        </div>
+      </div>
+      <div class="copilot-grid">
+        <div class="copilot-card">
+          <span class="copilot-icon">🔭</span>
+          <h3>Bridge Proposals</h3>
+          <p>Domain pairs with high unknown density and no existing bridge — the most
+          fertile candidates for the next cross-domain discovery.</p>
+          <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/docs/bridge_proposals.json"
+             class="copilot-link" target="_blank" rel="noopener">View proposals ↗</a>
+        </div>
+        <div class="copilot-card">
+          <span class="copilot-icon">🎯</span>
+          <h3>Priority Targets</h3>
+          <p>Unknowns with no hypothesis or bridge edge — the highest-impact contribution
+          opportunities in the graph today.</p>
+          <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/docs/orphan_unknowns.md"
+             class="copilot-link" target="_blank" rel="noopener">View targets ↗</a>
+        </div>
+        <div class="copilot-card">
+          <span class="copilot-icon">✅</span>
+          <h3>Quality Audit</h3>
+          <p>Automated quality checks across all 401 catalog entries — errors, warnings,
+          and improvement opportunities surfaced automatically.</p>
+          <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/docs/quality_report.md"
+             class="copilot-link" target="_blank" rel="noopener">View audit ↗</a>
+        </div>
+        <div class="copilot-card">
+          <span class="copilot-icon">🧪</span>
+          <h3>Hypothesis Generator</h3>
+          <p>Pattern-matching engine that detects which mathematical framework (phase
+          transitions, information theory, scaling laws) best connects two domains,
+          then drafts bridge YAMLs for expert review.</p>
+          <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/docs/HYPOTHESIS_GENERATION.md"
+             class="copilot-link" target="_blank" rel="noopener">How it works →</a>
+        </div>
+        <div class="copilot-card">
+          <span class="copilot-icon">📚</span>
+          <h3>Citation Index</h3>
+          <p>Papers cited across multiple bridges — the most cross-domain influential works in the scientific literature. Shannon, Turing, Fisher, and their equivalents.</p>
+          <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/docs/citation_index.md" class="copilot-link" target="_blank" rel="noopener">View index →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ DEVELOPER API -->
+    <section id="developer-api">
+      <div>
+        <span class="section-tag">Developer API</span>
+        <h2 class="section-title">Static JSON endpoints</h2>
+        <p class="section-desc">
+          No authentication. No rate limits. Served directly from GitHub Pages.
+          Base URL: <code style="font-family:var(--mono);font-size:.84rem;color:var(--teal);">https://kr8zysho3.github.io/Universal-Science-Discovery/api/v1/</code>
+        </p>
+      </div>
+      <div class="api-endpoints">
+        <a href="../api/v1/meta.json" class="api-endpoint" target="_blank" rel="noopener">
+          <code>GET /api/v1/meta.json</code>
+          <span>Catalog statistics, counts, and metadata</span>
+          <span class="api-endpoint-badge">~1 KB</span>
+        </a>
+        <a href="../api/v1/bridges.json" class="api-endpoint" target="_blank" rel="noopener">
+          <code>GET /api/v1/bridges.json</code>
+          <span>All 1123 cross-domain bridges with translation tables and references</span>
+          <span class="api-endpoint-badge">~213 KB</span>
+        </a>
+        <a href="../api/v1/unknowns.json" class="api-endpoint" target="_blank" rel="noopener">
+          <code>GET /api/v1/unknowns.json</code>
+          <span>All 619 open unknowns with domain, status, and file path</span>
+          <span class="api-endpoint-badge">~451 KB</span>
+        </a>
+        <a href="../api/v1/hypotheses.json" class="api-endpoint" target="_blank" rel="noopener">
+          <code>GET /api/v1/hypotheses.json</code>
+          <span>All 173 hypotheses with priority, impact score, and evidence links</span>
+          <span class="api-endpoint-badge">~114 KB</span>
+        </a>
+        <a href="../api/v1/domains.json" class="api-endpoint" target="_blank" rel="noopener">
+          <code>GET /api/v1/domains.json</code>
+          <span>Per-domain summary statistics (unknowns and bridge counts)</span>
+          <span class="api-endpoint-badge">~2 KB</span>
+        </a>
+        <a href="../api/v1/graph.json" class="api-endpoint" target="_blank" rel="noopener">
+          <code>GET /api/v1/graph.json</code>
+          <span>Full knowledge graph — 1,000 nodes, 910 edges</span>
+          <span class="api-endpoint-badge">~578 KB</span>
+        </a>
+        <a href="../api/v1/bridge_proposals.json" class="api-endpoint" target="_blank" rel="noopener">
+          <code>GET /api/v1/bridge_proposals.json</code>
+          <span>AI co-pilot bridge proposals ranked by novelty score</span>
+          <span class="api-endpoint-badge">~6 KB</span>
+        </a>
+      </div>
+    </section>
+
     <!-- ════════════════════════════════════════ KNOWLEDGE GRAPH -->
     <section class="graph-section" id="knowledge-graph" aria-label="Knowledge graph">
       <span class="section-tag">Knowledge Graph</span>
       <h2 class="section-title">Cross-domain connection map</h2>
       <p class="section-desc">
-        Force-directed graph of all 502 nodes — bridges, unknowns, hypotheses, and phenomena.
-        Hover a node to inspect it. Drag to reposition. Scroll or pinch to zoom.
+        Force-directed graph of all 663 nodes — bridges, unknowns, hypotheses, and phenomena.
+        Hover a node to inspect it. Click a node for full details. Drag to reposition. Scroll or pinch to zoom.
       </p>
       <div class="graph-stats-bar" id="kg-stats-bar">
-        <span id="kg-node-count">502</span> nodes &nbsp;·&nbsp;
-        <span id="kg-edge-count">300</span> edges<span id="kg-top-node"></span>
+        <span id="kg-node-count">1000</span> nodes &nbsp;·&nbsp;
+        <span id="kg-edge-count">910</span> edges<span id="kg-top-node"></span>
+      </div>
+      <div class="graph-filters" role="group" aria-label="Node type filters">
+        <button class="filter-btn active" data-type="bridge" style="--fc:#4f9cf9">● Bridges</button>
+        <button class="filter-btn active" data-type="unknown" style="--fc:#f97316">● Unknowns</button>
+        <button class="filter-btn active" data-type="hypothesis" style="--fc:#22d3b8">● Hypotheses</button>
+        <button class="filter-btn active" data-type="phenomenon" style="--fc:#a78bfa">● Phenomena</button>
       </div>
       <div id="graph-container">
+        <div id="kg-loading-spinner" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;z-index:5;pointer-events:none;">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" style="animation:kg-spin 1s linear infinite;" aria-hidden="true">
+            <circle cx="20" cy="20" r="16" stroke="rgba(79,156,249,0.2)" stroke-width="4"/>
+            <path d="M20 4a16 16 0 0 1 16 16" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+          <span style="color:var(--muted);font-size:.82rem;font-family:var(--mono)">Loading knowledge graph…</span>
+        </div>
         <svg id="kg-svg" aria-label="Knowledge graph force-directed visualization"></svg>
         <div id="kg-legend">
           <div class="kg-legend-item"><div class="kg-legend-dot" style="background:#4f9cf9"></div>Bridge</div>
@@ -1006,8 +1678,21 @@
           <div class="kg-legend-item"><div class="kg-legend-dot" style="background:#22d3b8"></div>Hypothesis</div>
           <div class="kg-legend-item"><div class="kg-legend-dot" style="background:#a78bfa"></div>Phenomenon</div>
         </div>
-        <div class="kg-zoom-hint">scroll to zoom · drag to pan</div>
+        <div class="edge-legend" aria-label="Edge relation types">
+          <div class="edge-legend-title">Connections</div>
+          <div class="edge-item"><span class="edge-swatch" style="background:#4f9cf9"></span>addresses_unknown</div>
+          <div class="edge-item"><span class="edge-swatch" style="background:#22d3b8"></span>suggests_hypothesis</div>
+          <div class="edge-item"><span class="edge-swatch" style="background:#f97316"></span>related_bridge</div>
+          <div class="edge-item"><span class="edge-swatch" style="background:#a78bfa"></span>cross_pollination</div>
+        </div>
+        <div class="kg-zoom-hint">scroll to zoom · drag to pan · click node for details</div>
         <div id="kg-tooltip" class="kg-tooltip hidden"></div>
+        <div id="node-detail-panel" class="node-panel hidden" role="dialog" aria-label="Node details" aria-modal="false">
+          <button class="panel-close" id="panel-close" aria-label="Close panel">✕</button>
+          <div id="panel-content">
+            <div class="panel-loading">Select a node…</div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1794,27 +2479,45 @@
 
     /* ── ACTIVITY FEED ───────────────────────────────────────── */
     var feedEl = document.getElementById('activity-feed');
-    if (!isFile) {
-      ghFetch('/commits?per_page=6').then(function (commits) {
-        feedEl.innerHTML = '';
-        commits.forEach(function (c) {
-          var av  = c.author ? c.author.avatar_url : '';
-          var who = c.author ? c.author.login : (c.commit.author ? c.commit.author.name : '?');
+    var FEED_PREFIX_RE = /^(feat|fix|docs|content|chore):/i;
+
+    function renderFeedCommits(commits) {
+      feedEl.innerHTML = '';
+      var filtered = commits
+        .filter(function (c) {
           var msg = c.commit.message.split('\n')[0];
-          var a   = document.createElement('a');
-          a.className = 'commit-row';
-          a.href = c.html_url; a.target = '_blank'; a.rel = 'noopener';
-          a.setAttribute('aria-label', msg + ' by ' + who);
-          a.innerHTML =
-            '<div class="commit-av">' + (av ? '<img src="'+av+'" alt="'+who+'" loading="lazy"/>' : '') + '</div>' +
-            '<div><div class="commit-msg">' + msg.replace(/</g,'&lt;') + '</div>' +
-              '<div class="commit-sub">' + who + ' · ' + timeAgo(c.commit.author.date) + '</div>' +
-            '</div>' +
-            '<span class="commit-sha">' + c.sha.slice(0,7) + '</span>';
-          feedEl.appendChild(a);
-        });
+          return FEED_PREFIX_RE.test(msg);
+        })
+        .slice(0, 8);
+
+      if (!filtered.length) {
+        feedEl.innerHTML = '<div class="feed-msg"><a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/commits/main" class="activity-fallback" target="_blank" rel="noopener">View recent activity on GitHub →</a></div>';
+        return;
+      }
+
+      filtered.forEach(function (c) {
+        var av  = c.author ? c.author.avatar_url : '';
+        var who = c.author ? c.author.login : (c.commit.author ? c.commit.author.name : '?');
+        var msg = c.commit.message.split('\n')[0].substring(0, 80);
+        var a   = document.createElement('a');
+        a.className = 'commit-row';
+        a.href = c.html_url; a.target = '_blank'; a.rel = 'noopener';
+        a.setAttribute('aria-label', msg + ' by ' + who);
+        a.innerHTML =
+          '<div class="commit-av">' + (av ? '<img src="'+av+'" alt="'+who+'" loading="lazy"/>' : '') + '</div>' +
+          '<div><div class="commit-msg">' + msg.replace(/</g,'&lt;') + '</div>' +
+            '<div class="commit-sub">' + who + ' · ' + timeAgo(c.commit.author.date) + '</div>' +
+          '</div>' +
+          '<span class="commit-sha">' + c.sha.slice(0,7) + '</span>';
+        feedEl.appendChild(a);
+      });
+    }
+
+    if (!isFile) {
+      ghFetch('/commits?per_page=20').then(function (commits) {
+        renderFeedCommits(commits);
       }).catch(function () {
-        feedEl.innerHTML = '<div class="feed-msg err">Could not load commits — GitHub API may be rate-limited.</div>';
+        feedEl.innerHTML = '<div class="feed-msg"><a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/commits/main" class="activity-fallback" target="_blank" rel="noopener">View recent activity on GitHub →</a></div>';
       });
     } else {
       feedEl.innerHTML = '<div class="feed-msg">Start <code>python -m http.server 8765</code> to see live commits.</div>';
@@ -1905,7 +2608,7 @@
 
     /* ── SCROLL SPY ──────────────────────────────────────────── */
     var navLinks = [].slice.call(document.querySelectorAll('.hub-nav a'));
-    var sections = navLinks.map(function (a) { return document.querySelector(a.getAttribute('href')); }).filter(Boolean);
+    var sections = navLinks.map(function (a) { var h = a.getAttribute('href'); return h && h.startsWith('#') ? document.querySelector(h) : null; }).filter(Boolean);
     var navWrap  = document.querySelector('.hub-nav-wrap');
     var spyTick  = null;
     function updateSpy() {
@@ -1956,7 +2659,13 @@
     function nodeColor(d) { return NODE_COLOR[d.type]  || '#6b8aac'; }
     function edgeColor(d) { return EDGE_COLOR[d.relation] || 'rgba(107,138,172,.18)'; }
 
+    function hideSpinner() {
+      var s = document.getElementById('kg-loading-spinner');
+      if (s) s.style.display = 'none';
+    }
+
     function renderFallback(msg) {
+      hideSpinner();
       var c = document.getElementById('graph-container');
       if (!c) return;
       c.innerHTML = '<div class="kg-fallback">'
@@ -1973,13 +2682,24 @@
     var tipEl  = document.getElementById('kg-tooltip');
     if (!svgEl) return;
 
-    var kgPaths = ['../docs/knowledge_graph.json', 'knowledge_graph.json', 'docs/knowledge_graph.json'];
+    /* Build absolute path from current page location for GitHub Pages compatibility */
+    var _base = window.location.href.replace(/\/[^\/]*$/, '/').replace(/\/dashboard\/$/, '/');
+    var kgPaths = [
+      _base + 'api/v1/graph.json',
+      _base + 'docs/knowledge_graph.json',
+      '../api/v1/graph.json',
+      '../docs/knowledge_graph.json',
+      'knowledge_graph.json',
+      'docs/knowledge_graph.json'
+    ];
     (function tryNextPath(paths) {
       if (!paths.length) {
         if (window.location.protocol === 'file:') {
           renderFallback('Run a local server to see the interactive graph:<br><code>python -m http.server 8765</code>');
         } else {
-          renderFallback('Could not load knowledge_graph.json — all paths failed.');
+          renderFallback('Graph data is loading\u2026 if this persists, '
+            + '<a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/" '
+            + 'style="color:var(--accent)" target="_blank" rel="noopener">try the GitHub Pages version</a>.');
         }
         return;
       }
@@ -1993,31 +2713,154 @@
     })(kgPaths);
 
     function handleData(data) {
+        hideSpinner();
         var nodes = data.nodes.map(function (n) { return Object.assign({}, n); });
         var edges = data.edges.map(function (e) { return Object.assign({}, e); });
 
         /* ── BUILD SEARCH INDEX ──────────────────────────────── */
-        var searchIndex = data.nodes.map(function (n) {
+        /* Catalog map: id → enriched entry (title, type, domain, description) */
+        var catalogMap = {};
+        data.nodes.forEach(function (n) {
           var domain = '';
           if (n.fields) {
             domain = Array.isArray(n.fields) ? n.fields.join(', ') : String(n.fields);
           }
-          return {
-            id:         n.id,
-            type:       n.type || 'unknown',
-            title:      n.title || n.id,
-            domain:     domain,
-            searchText: ((n.title || '') + ' ' + n.id + ' ' + domain).toLowerCase()
+          catalogMap[n.id] = {
+            id:          n.id,
+            type:        n.type || 'unknown',
+            title:       (n.title || n.id).replace(/\n/g, ' ').trim(),
+            domain:      domain,
+            description: '',
+            bridge_claim:'',
+            searchText:  ((n.title || '') + ' ' + n.id + ' ' + domain).toLowerCase()
           };
         });
 
-        var inputEl     = document.getElementById('catalog-search-input');
-        var resultsEl   = document.getElementById('search-results');
-        var countNoteEl = document.getElementById('search-count-note');
+        /* Enrich with bridge_claim and systematic_gaps from API */
+        var _apiBase = (function () {
+          var loc = window.location.href;
+          if (loc.includes('github.io')) return 'https://kr8zysho3.github.io/Universal-Science-Discovery/';
+          if (loc.includes('/dashboard/')) return loc.replace(/dashboard\/.*$/, '');
+          return '../';
+        })();
+
+        var searchIndex = Object.values(catalogMap);
+        var lunrIndex   = null;
+
+        function buildLunrIndex(entries) {
+          if (typeof lunr === 'undefined') return null;
+          return lunr(function () {
+            this.ref('id');
+            this.field('title',       { boost: 10 });
+            this.field('bridge_claim',{ boost: 5  });
+            this.field('description', { boost: 5  });
+            this.field('domain',      { boost: 2  });
+            var self = this;
+            entries.forEach(function (doc) {
+              self.add({
+                id:          doc.id,
+                title:       doc.title,
+                bridge_claim:doc.bridge_claim,
+                description: doc.description,
+                domain:      doc.domain
+              });
+            });
+          });
+        }
+
+        function enrichAndRebuildIndex(bridgesData, unknownsData) {
+          if (bridgesData && bridgesData.items) {
+            bridgesData.items.forEach(function (b) {
+              if (catalogMap[b.id]) {
+                catalogMap[b.id].bridge_claim = (b.bridge_claim || '').substring(0, 400);
+              }
+            });
+          }
+          if (unknownsData && unknownsData.items) {
+            unknownsData.items.forEach(function (u) {
+              if (catalogMap[u.id]) {
+                catalogMap[u.id].description = (u.systematic_gaps || '').substring(0, 400);
+                if (!catalogMap[u.id].domain && u.domain) {
+                  catalogMap[u.id].domain = u.domain;
+                }
+              }
+            });
+          }
+          searchIndex = Object.values(catalogMap);
+          lunrIndex   = buildLunrIndex(searchIndex);
+          if (inputEl) {
+            inputEl.placeholder = 'Search ' + searchIndex.length + ' entries \u2014 titles, claims, domains\u2026';
+          }
+          if (inputEl && inputEl.value.trim()) doSearch(inputEl.value);
+        }
+
+        Promise.all([
+          fetch(_apiBase + 'api/v1/bridges.json').then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; }),
+          fetch(_apiBase + 'api/v1/unknowns.json').then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; })
+        ]).then(function (results) {
+          enrichAndRebuildIndex(results[0], results[1]);
+        });
+
+        /* Build a basic index immediately from graph data while API loads */
+        lunrIndex = buildLunrIndex(searchIndex);
+
+        var inputEl      = document.getElementById('catalog-search-input');
+        var resultsEl    = document.getElementById('search-results');
+        var countNoteEl  = document.getElementById('search-count-note');
+        var chipsEl      = document.getElementById('domain-chips');
+        var activeDomain = 'all';
 
         if (inputEl) {
           inputEl.placeholder = 'Search ' + searchIndex.length + ' entries \u2014 unknowns, bridges, hypotheses\u2026';
         }
+
+        /* ── BUILD DOMAIN CHIPS ──────────────────────────────── */
+        var domainSet = new Set();
+        searchIndex.forEach(function (n) {
+          if (n.domain) {
+            n.domain.split(/[,;]+/).forEach(function (d) {
+              var trimmed = d.trim();
+              if (trimmed) domainSet.add(trimmed);
+            });
+          }
+        });
+        var domains = Array.from(domainSet).sort();
+
+        function buildDomainChips() {
+          if (!chipsEl || !domains.length) return;
+          chipsEl.innerHTML = '';
+          var allChip = document.createElement('button');
+          allChip.className = 'domain-chip active';
+          allChip.textContent = 'All';
+          allChip.setAttribute('aria-pressed', 'true');
+          allChip.addEventListener('click', function () { setActiveDomain('all'); });
+          chipsEl.appendChild(allChip);
+
+          domains.forEach(function (d) {
+            var chip = document.createElement('button');
+            chip.className = 'domain-chip';
+            chip.textContent = d.charAt(0).toUpperCase() + d.slice(1);
+            chip.dataset.domain = d.toLowerCase();
+            chip.setAttribute('aria-pressed', 'false');
+            chip.addEventListener('click', function () { setActiveDomain(d.toLowerCase()); });
+            chipsEl.appendChild(chip);
+          });
+        }
+
+        function setActiveDomain(domain) {
+          activeDomain = domain;
+          if (chipsEl) {
+            Array.from(chipsEl.querySelectorAll('.domain-chip')).forEach(function (chip) {
+              var isActive = (domain === 'all' && chip.textContent === 'All') ||
+                             (chip.dataset.domain === domain);
+              chip.classList.toggle('active', isActive);
+              chip.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+            });
+          }
+          doSearch(inputEl ? inputEl.value : '');
+        }
+
+        buildDomainChips();
 
         function typeLabel(t) {
           return { bridge:'Bridge', unknown:'Unknown', hypothesis:'Hypothesis', phenomenon:'Phenomenon' }[t] || t;
@@ -2026,6 +2869,12 @@
         function showSearchPlaceholder() {
           if (resultsEl) resultsEl.innerHTML = '';
           if (countNoteEl) countNoteEl.hidden = true;
+        }
+
+        function snippet(text, maxLen) {
+          if (!text) return '';
+          text = text.replace(/\n/g,' ').trim();
+          return text.length > maxLen ? text.substring(0, maxLen) + '\u2026' : text;
         }
 
         function renderSearchResults(results, total) {
@@ -2043,25 +2892,55 @@
             var card = document.createElement('div');
             card.className = 'search-result-card';
             var t = (n.type || 'unknown').toLowerCase();
+            var desc = n.bridge_claim || n.description || '';
+            var snip = snippet(desc, 160);
             card.innerHTML =
-              '<span class="type-badge type-' + t + '">' + typeLabel(t) + '</span>' +
-              '<span class="result-title">' + (n.title || n.id).replace(/</g, '&lt;') + '</span>' +
-              (n.domain ? '<span class="result-domain">' + n.domain.replace(/</g, '&lt;') + '</span>' : '');
+              '<div class="result-row">' +
+                '<span class="type-badge type-' + t + '">' + typeLabel(t) + '</span>' +
+                '<span class="result-title">' + esc(n.title || n.id) + '</span>' +
+                (n.domain ? '<span class="result-domain">' + esc(n.domain) + '</span>' : '') +
+              '</div>' +
+              (snip ? '<div class="result-snippet">' + esc(snip) + '</div>' : '');
+            card.addEventListener('click', function () { highlightNode(n.id); });
             resultsEl.appendChild(card);
           });
           if (countNoteEl) {
             countNoteEl.textContent = (total > results.length)
-              ? 'Showing ' + results.length + ' of ' + total + ' matches.'
-              : total + ' match' + (total === 1 ? '' : 'es') + '.';
+              ? 'Showing ' + results.length + ' of ' + total + ' matches \u2014 powered by Lunr.js'
+              : total + ' match' + (total === 1 ? '' : 'es') + ' \u2014 powered by Lunr.js';
             countNoteEl.hidden = false;
           }
         }
 
         function doSearch(query) {
-          var q = query.toLowerCase().trim();
-          if (!q) { showSearchPlaceholder(); return; }
-          var all = searchIndex.filter(function (n) { return n.searchText.includes(q); });
-          renderSearchResults(all.slice(0, 20), all.length);
+          var q = query.trim();
+          var domainFilter = (activeDomain && activeDomain !== 'all') ? activeDomain : null;
+
+          if (!q && !domainFilter) { showSearchPlaceholder(); return; }
+
+          var results;
+          if (q && lunrIndex) {
+            /* Lunr full-text search — try exact then wildcard */
+            var lunrResults;
+            try { lunrResults = lunrIndex.search(q); } catch (e) { lunrResults = []; }
+            if (lunrResults.length === 0) {
+              try { lunrResults = lunrIndex.search(q + '*'); } catch (e) { lunrResults = []; }
+            }
+            var idSet = {};
+            lunrResults.forEach(function (r) { idSet[r.ref] = r.score; });
+            results = searchIndex.filter(function (n) { return idSet[n.id] !== undefined; });
+            results.sort(function (a, b) { return (idSet[b.id] || 0) - (idSet[a.id] || 0); });
+          } else {
+            results = searchIndex;
+          }
+
+          if (domainFilter) {
+            results = results.filter(function (n) {
+              return (n.domain || '').toLowerCase().includes(domainFilter);
+            });
+          }
+
+          renderSearchResults(results.slice(0, 25), results.length);
         }
 
         if (inputEl) {
@@ -2070,6 +2949,36 @@
             clearTimeout(debounceTimer);
             debounceTimer = setTimeout(function () { doSearch(inputEl.value); }, 80);
           });
+        }
+
+        /* Scroll to graph and open detail panel for a node from search results */
+        function highlightNode(nodeId) {
+          var graphSection = document.getElementById('knowledge-graph');
+          if (graphSection) graphSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+          /* Use a small delay so the scroll completes before the panel opens */
+          setTimeout(function () {
+            var d = nodeMap ? nodeMap[nodeId] : null;
+            if (!d) {
+              d = { id: nodeId, type: nodeId.startsWith('b-') ? 'bridge' : nodeId.startsWith('u-') ? 'unknown' : 'hypothesis', title: nodeId };
+            }
+            if (typeof highlightNeighborhood === 'function') highlightNeighborhood(nodeId);
+            if (typeof openPanel === 'function') {
+              openPanel(d);
+              if (contentEl) contentEl.innerHTML = '<div class="panel-loading">Loading\u2026</div>';
+              var type = d.id.startsWith('b-') ? 'bridge' : d.id.startsWith('u-') ? 'unknown' : d.id.startsWith('h-') ? 'hypothesis' : 'phenomenon';
+              if (typeof loadNodeDetails === 'function') {
+                loadNodeDetails(d.id, type).then(function (result) {
+                  if (result && typeof parseYamlFields === 'function' && typeof renderPanel === 'function') {
+                    var fields = parseYamlFields(result.text);
+                    renderPanel(d, fields, result.path, edges);
+                  } else if (contentEl) {
+                    contentEl.innerHTML = '<p class="panel-id">' + esc(d.id) + '</p><p class="panel-title">' + esc(d.title || d.id) + '</p>';
+                  }
+                });
+              }
+            }
+          }, 350);
         }
 
         /* keyboard shortcut: / focuses search */
@@ -2089,11 +2998,17 @@
           return nodeIds.has(s) && nodeIds.has(t);
         });
 
+        /* Quick node lookup by id */
+        var nodeMap = {};
+        nodes.forEach(function (n) { nodeMap[n.id] = n; });
+
         /* stats bar */
         var nc = (data.meta && data.meta.node_count) ? data.meta.node_count : nodes.length;
         var ec = (data.meta && data.meta.edge_count)  ? data.meta.edge_count  : edges.length;
         document.getElementById('kg-node-count').textContent = nc;
         document.getElementById('kg-edge-count').textContent = ec;
+        var sge = document.getElementById('stat-graph-edges');
+        if (sge) sge.textContent = ec;
 
         /* top-connected node */
         var deg = {};
@@ -2161,6 +3076,338 @@
                 d.fx = null; d.fy = null;
               })
           );
+
+        /* ── FILTER TOGGLES ─────────────────────────────────── */
+        var activeTypes = new Set(['bridge', 'unknown', 'hypothesis', 'phenomenon']);
+        var focusNodeId = null;
+
+        function applyFilterOpacity() {
+          node.style('opacity', function (d) {
+            return activeTypes.has(d.type) ? 1 : 0.05;
+          }).style('pointer-events', function (d) {
+            return activeTypes.has(d.type) ? 'all' : 'none';
+          });
+          link.style('opacity', function (d) {
+            var srcNode = nodeMap[typeof d.source === 'object' ? d.source.id : d.source];
+            var tgtNode = nodeMap[typeof d.target === 'object' ? d.target.id : d.target];
+            var srcType = srcNode ? srcNode.type : undefined;
+            var tgtType = tgtNode ? tgtNode.type : undefined;
+            return (activeTypes.has(srcType) && activeTypes.has(tgtType)) ? 0.3 : 0.02;
+          });
+          node.attr('stroke', 'rgba(255,255,255,0.14)').attr('stroke-width', 1);
+        }
+
+        function highlightNeighborhood(nodeId) {
+          focusNodeId = nodeId;
+          var neighbors = new Set([nodeId]);
+          edges.forEach(function (e) {
+            var src = typeof e.source === 'object' ? e.source.id : e.source;
+            var tgt = typeof e.target === 'object' ? e.target.id : e.target;
+            if (src === nodeId) neighbors.add(tgt);
+            if (tgt === nodeId) neighbors.add(src);
+          });
+
+          node.style('opacity', function (d) {
+            if (!activeTypes.has(d.type)) return 0.05;
+            return neighbors.has(d.id) ? 1 : 0.1;
+          }).style('pointer-events', function (d) {
+            return activeTypes.has(d.type) ? 'all' : 'none';
+          });
+
+          link.style('opacity', function (d) {
+            var src = typeof d.source === 'object' ? d.source.id : d.source;
+            var tgt = typeof d.target === 'object' ? d.target.id : d.target;
+            return (src === nodeId || tgt === nodeId) ? 0.8 : 0.05;
+          });
+
+          node.attr('stroke', function (d) {
+            return d.id === nodeId ? '#fff' : 'rgba(255,255,255,0.14)';
+          }).attr('stroke-width', function (d) {
+            return d.id === nodeId ? 2 : 1;
+          });
+        }
+
+        function resetHighlight() {
+          focusNodeId = null;
+          applyFilterOpacity();
+        }
+
+        document.querySelectorAll('.filter-btn').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var type = btn.dataset.type;
+            btn.classList.toggle('active');
+            if (activeTypes.has(type)) activeTypes.delete(type);
+            else activeTypes.add(type);
+            if (focusNodeId) {
+              highlightNeighborhood(focusNodeId);
+            } else {
+              applyFilterOpacity();
+            }
+          });
+        });
+
+        /* ── NODE DETAIL PANEL ──────────────────────────────── */
+        var panelEl   = document.getElementById('node-detail-panel');
+        var contentEl = document.getElementById('panel-content');
+        var closeBtn  = document.getElementById('panel-close');
+
+        var TYPE_EMOJI = { bridge: '🔵', unknown: '🟠', hypothesis: '🟢', phenomenon: '🟣' };
+        var TYPE_LABEL = { bridge: 'Bridge', unknown: 'Unknown', hypothesis: 'Hypothesis', phenomenon: 'Phenomenon' };
+
+        /* build candidate file paths for a given node id + type */
+        function getFilePaths(nodeId, type) {
+          if (type === 'bridge') {
+            var dirs = [
+              'physics-ecology','physics-finance','physics-neuroscience','physics-computing',
+              'physics-information','physics-complexity','physics-climate','physics-social',
+              'physics-networks','physics-epidemiology','physics-oncology','physics-ai',
+              'physics-engineering-neuroscience','physics-physics','mathematics-biology',
+              'mathematics-evolution','neuroscience-medicine','climate-medicine',
+              'economics-medicine','astronomy-climate','linguistics-medicine',
+              'quantum-biology','social-physics','statistics-evolution','music-physics',
+              'philosophy-quantum','linguistics-physics','engineering-biology',
+              'seismology-physics','biology-astrobiology','information-evolution',
+              'cosmology-biology','biology-medicine','ai-physics',
+              'physics-biology','mathematics-information',
+              'astronomy-physics','astronomy-biology','astronomy-mathematics'
+            ];
+            return dirs.map(function (d) { return 'cross-domain/' + d + '/' + nodeId + '.yaml'; });
+          }
+          if (type === 'unknown') {
+            var domains = [
+              'biology','physics','chemistry','neuroscience','ecology',
+              'computer-science','mathematics','materials-science',
+              'climate-science','astronomy','medicine','cognitive-science',
+              'quantum-physics','linguistics','social-science','economics',
+              'geoscience','philosophy-of-science','engineering','art-and-cognition'
+            ];
+            return domains.map(function (d) { return 'unknowns-catalog/' + d + '/' + nodeId + '.yaml'; });
+          }
+          if (type === 'hypothesis') {
+            return ['hypotheses/active/' + nodeId + '.yaml', 'hypotheses/speculative/' + nodeId + '.yaml'];
+          }
+          return ['phenomenology/physics/' + nodeId + '.yaml', 'phenomenology/' + nodeId + '.yaml'];
+        }
+
+        async function loadNodeDetails(nodeId, type) {
+          var paths = getFilePaths(nodeId, type);
+          for (var i = 0; i < paths.length; i++) {
+            try {
+              var url = 'https://raw.githubusercontent.com/KR8ZYSHO3/Universal-Science-Discovery/main/' + paths[i];
+              var res = await fetch(url);
+              if (res.ok) {
+                var text = await res.text();
+                return { text: text, path: paths[i] };
+              }
+            } catch (e) { /* try next */ }
+          }
+          return null;
+        }
+
+        function parseYamlFields(yamlText) {
+          var fields = {};
+
+          var titleMatch = yamlText.match(/^title:\s*[>|]?\s*\n?([\s\S]*?)(?=\n\w|\n#|$)/m);
+          if (titleMatch) {
+            var raw = titleMatch[1].replace(/^\s{2,}/mg, ' ').replace(/\n/g, ' ').trim();
+            fields.title = raw.replace(/^["']|["']$/g, '');
+          }
+          if (!fields.title) {
+            var simple = yamlText.match(/^title:\s*["']?(.+?)["']?\s*$/m);
+            if (simple) fields.title = simple[1].trim();
+          }
+
+          var claimMatch = yamlText.match(/^bridge_claim:\s*[>|]?\s*\n([\s\S]*?)(?=\n\w|\n#|$)/m);
+          if (claimMatch) {
+            var claimRaw = claimMatch[1].replace(/^\s{2,}/mg, '').replace(/\n{3,}/g, '\n\n').trim();
+            fields.bridge_claim = claimRaw.split('\n\n')[0].replace(/\n/g, ' ').trim();
+          } else {
+            var inlineClaimMatch = yamlText.match(/^bridge_claim:\s*["']?(.+?)["']?\s*$/m);
+            if (inlineClaimMatch) fields.bridge_claim = inlineClaimMatch[1].trim();
+          }
+
+          var statusMatch = yamlText.match(/^status:\s*["']?(.+?)["']?\s*$/m);
+          if (statusMatch) fields.status = statusMatch[1].trim();
+
+          var questionMatch = yamlText.match(/^question:\s*[>|]?\s*\n?([\s\S]*?)(?=\n\w|\n#|$)/m);
+          if (questionMatch) {
+            fields.question = questionMatch[1].replace(/^\s{2,}/mg, ' ').replace(/\n/g, ' ').trim();
+          } else {
+            var qInline = yamlText.match(/^question:\s*["']?(.+?)["']?\s*$/m);
+            if (qInline) fields.question = qInline[1].trim();
+          }
+
+          /* translation_table: handles field_a_term/field_b_term format */
+          var ttSection = yamlText.match(/^translation_table:([\s\S]*?)(?=\n[a-zA-Z_]|\n#|$)/m);
+          if (ttSection) {
+            var entries = [];
+            var aMatches = Array.from(ttSection[1].matchAll(/field_a_term:\s*["']?(.+?)["']?\s*$/mg));
+            var bMatches = Array.from(ttSection[1].matchAll(/field_b_term:\s*["']?(.+?)["']?\s*$/mg));
+            for (var j = 0; j < Math.min(aMatches.length, bMatches.length, 6); j++) {
+              entries.push({ source: aMatches[j][1].trim(), target: bMatches[j][1].trim() });
+            }
+            fields.translation_table = entries;
+          }
+
+          /* related nodes */
+          var ruMatch = yamlText.match(/^related_unknowns:([\s\S]*?)(?=\n[a-zA-Z_]|\n#|$)/m);
+          if (ruMatch) {
+            fields.related_unknowns = Array.from(ruMatch[1].matchAll(/^\s*-\s*(.+)\s*$/mg)).map(function (m) { return m[1].trim().replace(/^["']|["']$/g, ''); });
+          }
+          var rhMatch = yamlText.match(/^related_hypotheses:([\s\S]*?)(?=\n[a-zA-Z_]|\n#|$)/m);
+          if (rhMatch) {
+            fields.related_hypotheses = Array.from(rhMatch[1].matchAll(/^\s*-\s*(.+)\s*$/mg)).map(function (m) { return m[1].trim().replace(/^["']|["']$/g, ''); });
+          }
+          var rbMatch = yamlText.match(/^related_bridges:([\s\S]*?)(?=\n[a-zA-Z_]|\n#|$)/m);
+          if (rbMatch) {
+            fields.related_bridges = Array.from(rbMatch[1].matchAll(/^\s*-\s*(.+)\s*$/mg)).map(function (m) { return m[1].trim().replace(/^["']|["']$/g, ''); });
+          }
+
+          return fields;
+        }
+
+        function esc(s) {
+          return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+        }
+
+        function renderPanel(d, fields, path, edges) {
+          var type = (d.type || 'unknown').toLowerCase();
+          var emoji = TYPE_EMOJI[type] || '⚪';
+          var label = TYPE_LABEL[type] || type;
+          var displayTitle = fields.title || d.title || d.id;
+          if (displayTitle.length > 160) displayTitle = displayTitle.slice(0, 160) + '…';
+
+          /* find connected node ids from edges */
+          var nodeId = d.id;
+          var connectedIds = [];
+          edges.forEach(function (e) {
+            var s = typeof e.source === 'object' ? e.source.id : e.source;
+            var t = typeof e.target === 'object' ? e.target.id : e.target;
+            if (s === nodeId && !connectedIds.includes(t)) connectedIds.push(t);
+            if (t === nodeId && !connectedIds.includes(s)) connectedIds.push(s);
+          });
+
+          var html = '';
+          html += '<span class="panel-type-badge type-' + type + '">' + emoji + ' ' + esc(label) + '</span>';
+          html += '<p class="panel-id">' + esc(nodeId) + '</p>';
+          html += '<p class="panel-title">' + esc(displayTitle) + '</p>';
+
+          if (fields.status) {
+            var statusClass = 'status-' + fields.status.toLowerCase().replace(/\s+/g, '-');
+            html += '<span class="panel-status ' + statusClass + '">' + esc(fields.status) + '</span>';
+          }
+
+          if (fields.question) {
+            html += '<p class="panel-section-label">Question</p>';
+            html += '<p class="panel-claim">' + esc(fields.question.slice(0, 300) + (fields.question.length > 300 ? '…' : '')) + '</p>';
+          }
+
+          if (fields.bridge_claim) {
+            html += '<p class="panel-section-label">Bridge Claim</p>';
+            var claimText = fields.bridge_claim.slice(0, 300) + (fields.bridge_claim.length > 300 ? '…' : '');
+            html += '<p class="panel-claim">' + esc(claimText) + '</p>';
+          }
+
+          if (fields.translation_table && fields.translation_table.length) {
+            html += '<p class="panel-section-label">Translation Table</p>';
+            html += '<table class="translation-table"><thead><tr><th>Source</th><th>Target</th></tr></thead><tbody>';
+            fields.translation_table.forEach(function (row) {
+              html += '<tr><td>' + esc(row.source) + '</td><td>' + esc(row.target) + '</td></tr>';
+            });
+            html += '</tbody></table>';
+          }
+
+          /* connected nodes from edge list */
+          if (connectedIds.length) {
+            html += '<p class="panel-section-label">Connected Nodes</p>';
+            html += '<ul class="panel-connected-list">';
+            connectedIds.slice(0, 8).forEach(function (id) {
+              html += '<li title="' + esc(id) + '">' + esc(id) + '</li>';
+            });
+            if (connectedIds.length > 8) {
+              html += '<li style="color:var(--muted);font-size:.72rem">+ ' + (connectedIds.length - 8) + ' more…</li>';
+            }
+            html += '</ul>';
+          } else {
+            /* fall back to YAML related_ fields */
+            var related = [].concat(fields.related_unknowns || [], fields.related_hypotheses || [], fields.related_bridges || []);
+            if (related.length) {
+              html += '<p class="panel-section-label">Related Entries</p>';
+              html += '<ul class="panel-connected-list">';
+              related.slice(0, 6).forEach(function (id) {
+                html += '<li title="' + esc(id) + '">' + esc(id) + '</li>';
+              });
+              html += '</ul>';
+            }
+          }
+
+          var ghPath = 'https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/' + path;
+          html += '<a href="' + ghPath + '" class="panel-github-link" target="_blank" rel="noopener">View on GitHub ↗</a>';
+
+          contentEl.innerHTML = html;
+        }
+
+        function openPanel(d) {
+          panelEl.classList.remove('hidden');
+          /* force reflow so transition fires */
+          panelEl.getBoundingClientRect();
+          panelEl.classList.add('open');
+        }
+
+        function closePanel() {
+          panelEl.classList.remove('open');
+          svg.selectAll('circle').classed('selected', false);
+        }
+
+        if (closeBtn) {
+          closeBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            closePanel();
+          });
+        }
+
+        /* close on Escape */
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && panelEl && panelEl.classList.contains('open')) closePanel();
+        });
+
+        /* click on SVG background closes panel and resets highlights */
+        svgEl.addEventListener('click', function (e) {
+          if (e.target === svgEl || e.target.tagName === 'svg') {
+            closePanel();
+            resetHighlight();
+          }
+        });
+
+        /* node click */
+        node.on('click', function (event, d) {
+          event.stopPropagation();
+
+          svg.selectAll('circle').classed('selected', function (n) { return n.id === d.id; });
+          highlightNeighborhood(d.id);
+
+          openPanel(d);
+          contentEl.innerHTML = '<div class="panel-loading">Loading…</div>';
+
+          var type = d.id.startsWith('b-') ? 'bridge'
+                   : d.id.startsWith('u-') ? 'unknown'
+                   : d.id.startsWith('h-') ? 'hypothesis'
+                   : 'phenomenon';
+
+          loadNodeDetails(d.id, type).then(function (result) {
+            if (result) {
+              var fields = parseYamlFields(result.text);
+              renderPanel(d, fields, result.path, edges);
+            } else {
+              contentEl.innerHTML =
+                '<span class="panel-type-badge type-' + type + '">' + (TYPE_EMOJI[type] || '⚪') + ' ' + esc(TYPE_LABEL[type] || type) + '</span>' +
+                '<p class="panel-id">' + esc(d.id) + '</p>' +
+                '<p class="panel-title">' + esc(d.title || d.id) + '</p>' +
+                '<p style="color:var(--muted);font-size:.8rem;margin-top:.5rem">Full details not available in preview mode.</p>' +
+                '<a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/search?q=' + encodeURIComponent(d.id) + '" class="panel-github-link" target="_blank" rel="noopener">Search on GitHub ↗</a>';
+            }
+          });
+        });
 
         /* tooltip */
         node
@@ -2302,6 +3549,151 @@
     }
   })();
   </script>
+  <!-- ══ PIONEER DETAIL PANEL ══════════════════════════════════════ -->
+  <div id="pioneer-detail-panel" style="display:none; position:fixed; right:0; top:0; width:420px; height:100vh; background:var(--surface-solid); border-left:2px solid var(--accent); padding:2rem; overflow-y:auto; z-index:1000; box-shadow:-4px 0 24px rgba(0,0,0,0.45);">
+    <button onclick="document.getElementById('pioneer-detail-panel').style.display='none'" style="float:right; background:none; border:none; color:var(--muted); font-size:1.5rem; cursor:pointer; line-height:1;" aria-label="Close pioneer panel">×</button>
+    <div id="pioneer-detail-content"></div>
+  </div>
+
+  <script>
+  /* ── Pioneer lineage — load JSON and wire card click handlers ── */
+  (function () {
+    var _pioneerLineage = {};
+
+    function esc(s) {
+      return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    function showPioneerDetail(p) {
+      var statusColor = { established: '#22c55e', contested: '#f59e0b', proposed: '#6366f1' };
+      function sColor(st) { return statusColor[st] || '#6366f1'; }
+
+      var bridgesHtml = (p.seeded_bridges && p.seeded_bridges.length > 0)
+        ? '<h4 style="color:var(--accent);margin-top:1.5rem;margin-bottom:0.75rem;">Bridges Seeded</h4>' +
+          p.seeded_bridges.map(function (b) {
+            var c = sColor(b.status);
+            var domains = (b.domains || []).join(' \u2194 ');
+            return '<div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:0.75rem;margin-bottom:0.5rem;">' +
+              '<div style="font-weight:600;font-size:0.85rem;line-height:1.4;">' + esc(b.title) + '</div>' +
+              (domains ? '<div style="font-size:0.75rem;color:var(--muted);margin-top:0.2rem;">' + esc(domains) + '</div>' : '') +
+              '<span style="display:inline-block;margin-top:0.35rem;font-size:0.7rem;padding:2px 8px;border-radius:4px;background:' + c + '22;color:' + c + ';border:1px solid ' + c + '44;">' + esc(b.status) + '</span>' +
+              '</div>';
+          }).join('')
+        : '<p style="color:var(--muted);font-size:0.85rem;margin-top:1rem;">No directly seeded bridges found yet.</p>';
+
+      var modernHtml = (p.modern_open_problems && p.modern_open_problems.length > 0)
+        ? '<h4 style="color:var(--accent);margin-top:1.5rem;margin-bottom:0.75rem;">What Would They Work On Today?</h4>' +
+          p.modern_open_problems.map(function (m) {
+            return '<div style="background:rgba(99,102,241,0.08);border-left:3px solid var(--accent);padding:0.75rem;margin-bottom:0.5rem;border-radius:0 8px 8px 0;">' +
+              '<div style="font-weight:600;font-size:0.82rem;line-height:1.4;">' + esc(m.title || '') + '</div>' +
+              (m.rationale ? '<div style="font-size:0.75rem;color:var(--muted);margin-top:0.3rem;line-height:1.5;">' + esc(m.rationale) + '</div>' : '') +
+              '</div>';
+          }).join('')
+        : '';
+
+      var lifespan = p.birth_year
+        ? p.birth_year + (p.death_year ? '\u2013' + p.death_year : '\u2013present')
+        : '';
+      var meta = [lifespan, (p.fields || []).join(', ')].filter(Boolean).join(' \u00b7 ');
+
+      document.getElementById('pioneer-detail-content').innerHTML =
+        '<h2 style="margin:0 0 0.3rem;font-size:1.4rem;">' + esc(p.name) + '</h2>' +
+        (meta ? '<div style="color:var(--muted);font-size:0.82rem;margin-bottom:1rem;">' + esc(meta) + '</div>' : '') +
+        (p.key_insight ? '<p style="font-size:0.88rem;line-height:1.65;color:var(--muted);">' + esc(p.key_insight) + '\u2026</p>' : '') +
+        bridgesHtml +
+        modernHtml;
+
+      document.getElementById('pioneer-detail-panel').style.display = 'block';
+    }
+
+    function attachPioneerCardListeners() {
+      document.querySelectorAll('.pioneer-card, [data-pioneer-id]').forEach(function (card) {
+        if (card._pioneerListenerAdded) return;
+        card._pioneerListenerAdded = true;
+        card.addEventListener('click', function () {
+          var pid = card.getAttribute('data-pioneer-id');
+          if (!pid) {
+            var nameEl = card.querySelector('h3, h4, strong, .pioneer-name');
+            if (nameEl) {
+              var name = nameEl.textContent.trim().toLowerCase();
+              pid = Object.keys(_pioneerLineage).find(function (k) {
+                return _pioneerLineage[k].name.toLowerCase() === name ||
+                       name.includes(_pioneerLineage[k].name.toLowerCase().split(' ').pop());
+              });
+            }
+          }
+          if (!pid || !_pioneerLineage[pid]) return;
+          showPioneerDetail(_pioneerLineage[pid]);
+        });
+        card.addEventListener('mouseenter', function () { card.style.boxShadow = '0 0 0 2px var(--accent)'; });
+        card.addEventListener('mouseleave', function () { card.style.boxShadow = ''; });
+      });
+    }
+
+    /* Close panel on Escape */
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        var panel = document.getElementById('pioneer-detail-panel');
+        if (panel) panel.style.display = 'none';
+      }
+    });
+
+    /* Close panel when clicking outside of it */
+    document.addEventListener('click', function (e) {
+      var panel = document.getElementById('pioneer-detail-panel');
+      if (!panel || panel.style.display === 'none') return;
+      if (!panel.contains(e.target) && !e.target.closest('.pioneer-card, [data-pioneer-id]')) {
+        panel.style.display = 'none';
+      }
+    });
+
+    var _pioneerApiBase = (function () {
+      var loc = window.location.href;
+      if (loc.includes('github.io')) return 'https://kr8zysho3.github.io/Universal-Science-Discovery/';
+      if (loc.includes('/dashboard/')) return loc.replace(/dashboard\/.*$/, '');
+      return '../';
+    })();
+
+    fetch(_pioneerApiBase + 'api/v1/pioneer_lineage.json')
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .catch(function () { return null; })
+      .then(function (data) {
+        if (data) {
+          _pioneerLineage = data;
+          attachPioneerCardListeners();
+        }
+      });
+  })();
+  </script>
+
+  <script>
+  /* AI Co-pilot — live bridge proposal counter */
+  (function () {
+    var counter = document.getElementById('bridge-proposal-counter');
+    if (!counter) return;
+    var apiUrl = '../api/v1/bridge_proposals.json';
+    fetch(apiUrl)
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+      .then(function (data) {
+        var summary = data.summary || {};
+        var pioneer = summary.pioneer_seed_count != null ? summary.pioneer_seed_count : '?';
+        var gap     = summary.breakthrough_gap_count != null ? summary.breakthrough_gap_count : '?';
+        var total   = (typeof pioneer === 'number' && typeof gap === 'number')
+                      ? (pioneer + gap) : (summary.missing_count || '?');
+        document.getElementById('bpc-total').textContent   = total;
+        document.getElementById('bpc-pioneer').textContent = pioneer;
+        document.getElementById('bpc-gap').textContent     = gap;
+        document.getElementById('bpc-loading').style.display  = 'none';
+        document.getElementById('bpc-content').style.display  = 'inline';
+      })
+      .catch(function () {
+        /* Gracefully degrade — show static text when offline / no server */
+        document.getElementById('bpc-loading').textContent =
+          'AI co-pilot: pioneer seeds + breakthrough-gap bridges awaiting build.';
+      });
+  })();
+  </script>
 </body>
 </html>
+
 

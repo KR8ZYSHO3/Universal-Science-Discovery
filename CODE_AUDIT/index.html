@@ -1,0 +1,3716 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Discovery-first open scientific knowledge — unknowns, hypotheses, reproducibility.">
+      
+      
+        <meta name="author" content="USDR contributors">
+      
+      
+        <link rel="canonical" href="https://kr8zysho3.github.io/Universal-Science-Discovery/CODE_AUDIT/">
+      
+      
+        <link rel="prev" href="../QUICK_START_CONTRIBUTING/">
+      
+      
+        <link rel="next" href="../CUSTOM_DOMAIN_SETUP/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Code audit - Universal Science Discovery Repository</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#usdr-python-scripts-code-audit" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Universal Science Discovery Repository" class="md-header__button md-logo" aria-label="Universal Science Discovery Repository" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Universal Science Discovery Repository
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Code audit
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Universal Science Discovery Repository" class="md-nav__button md-logo" aria-label="Universal Science Discovery Repository" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Universal Science Discovery Repository
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start here
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Start here
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ONBOARDING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Onboarding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HAPPY_PATH_FIRST_RECORDS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Happy path (Stream A)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DOC_MAP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Doc map
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VISION_AND_SCOPE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vision & scope
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../METHODOLOGY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Methodology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Community & integrity
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Community & integrity
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../COLLABORATION_AND_REVIEWS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Collaboration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SOLVING_UNKNOWNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Solving unknowns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../QUALITY_BAR/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quality bar (anti-sloppiness)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ETHICS_REPRODUCIBILITY_AND_DATA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ethics & reproducibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LICENSING_NOTES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Licensing notes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LABELS_AND_MILESTONES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Labels & milestones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Operations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OPERATING_RHYTHM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operating rhythm
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../REPOSITORY_MANIFEST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Repository manifest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DATA_PLAN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data plan (Phase A pilot)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documentation examples (ingest)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UAT_INGEST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ingest UAT (manual)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DEV_DASHBOARD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dev dashboard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GSD_INTEGRATION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Optional GSD tooling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cross-domain bridges
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cross-domain bridges
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CROSS_DOMAIN_BRIDGES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Prompts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prompts/literature_synthesis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Literature synthesis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prompts/hypothesis_comparison/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hypothesis comparison
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prompts/falsification_pass/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Falsification pass
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prompts/bridge_discovery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bridge discovery
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prompts/intuition_to_unknown/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intuition to unknown
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Strategy & data
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Strategy & data
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PATH_TO_SUCCESS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Path to success
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DATA_SOURCES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data sources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../WAVE_FACTORY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wave Factory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HYPOTHESIS_GENERATION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hypothesis generation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../QUICK_START_CONTRIBUTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick start contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code audit
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code audit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-findings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Findings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Detailed Findings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scriptsvalidate_schemaspy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        scripts/validate_schemas.py
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="scripts/validate_schemas.py">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scriptsbuild_graphpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        scripts/build_graph.py
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="scripts/build_graph.py">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issues_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scriptsgenerate_apipy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        scripts/generate_api.py
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="scripts/generate_api.py">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issues_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scriptsupdate_dashboard_statspy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        scripts/update_dashboard_stats.py
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="scripts/update_dashboard_stats.py">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issues_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scriptsgenerate_domain_pagespy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        scripts/generate_domain_pages.py
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="scripts/generate_domain_pages.py">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issues_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scriptsgenerate_explainerspy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        scripts/generate_explainers.py
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="scripts/generate_explainers.py">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issues_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scriptspropose_bridgespy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        scripts/propose_bridges.py
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="scripts/propose_bridges.py">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issues_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scriptsfind_orphan_unknownspy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        scripts/find_orphan_unknowns.py
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="scripts/find_orphan_unknowns.py">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issues_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scriptsaudit_qualitypy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        scripts/audit_quality.py
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="scripts/audit_quality.py">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issues_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scriptsbuild_citation_indexpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        scripts/build_citation_index.py
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="scripts/build_citation_index.py">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issues_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quality-audit-results-2026-05-06" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quality Audit Results (2026-05-06)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schema-validation-results-2026-05-06" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schema Validation Results (2026-05-06)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#orphan-unknowns-2026-05-06" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orphan Unknowns (2026-05-06)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommendations-for-future-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommendations for Future Work
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CUSTOM_DOMAIN_SETUP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Custom domain setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Generated reports
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Generated reports
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../citation_index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Citation index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../orphan_unknowns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Orphan unknowns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quality_report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quality report
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Events
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Events
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../events/hackathon-2026-06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hackathon 2026-06
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Explainers
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Explainers
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_1" id="__nav_10_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bridges
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Bridges
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../explainers/bridges/renormalization-group-machine-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Renormalization group × ML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../explainers/bridges/black-scholes-heat-equation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Black–Scholes × heat equation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../explainers/bridges/statistical-physics-social-science/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistical physics × social science
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../explainers/bridges/information-theory-evolutionary-biology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Information theory × evolutionary biology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_2" id="__nav_10_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pioneers
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Pioneers
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../explainers/pioneers/shannon-information-bridges/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shannon information bridges
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../explainers/pioneers/turing-beyond-computing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Turing beyond computing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../explainers/pioneers/darwin-game-theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Darwin game theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Outreach
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Outreach
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../outreach/researcher_pitch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Researcher pitch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../outreach/arxiv_abstract/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    arXiv abstract
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../outreach/twitter_threads/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Twitter threads
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../outreach/linkedin_post/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LinkedIn post
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../outreach/reddit_openscience_post/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reddit OpenScience
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Preprint
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Preprint
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../preprint/usdr_preprint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    USDR preprint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../preprint/ARXIV_SUBMISSION_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    arXiv submission guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../preprint/SUBMISSION_CHECKLIST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Submission checklist
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-findings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Findings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Detailed Findings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scriptsvalidate_schemaspy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        scripts/validate_schemas.py
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="scripts/validate_schemas.py">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scriptsbuild_graphpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        scripts/build_graph.py
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="scripts/build_graph.py">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issues_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scriptsgenerate_apipy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        scripts/generate_api.py
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="scripts/generate_api.py">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issues_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scriptsupdate_dashboard_statspy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        scripts/update_dashboard_stats.py
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="scripts/update_dashboard_stats.py">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issues_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scriptsgenerate_domain_pagespy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        scripts/generate_domain_pages.py
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="scripts/generate_domain_pages.py">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issues_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scriptsgenerate_explainerspy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        scripts/generate_explainers.py
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="scripts/generate_explainers.py">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issues_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scriptspropose_bridgespy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        scripts/propose_bridges.py
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="scripts/propose_bridges.py">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issues_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scriptsfind_orphan_unknownspy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        scripts/find_orphan_unknowns.py
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="scripts/find_orphan_unknowns.py">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issues_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scriptsaudit_qualitypy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        scripts/audit_quality.py
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="scripts/audit_quality.py">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issues_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scriptsbuild_citation_indexpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        scripts/build_citation_index.py
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="scripts/build_citation_index.py">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issues_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quality-audit-results-2026-05-06" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quality Audit Results (2026-05-06)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schema-validation-results-2026-05-06" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schema Validation Results (2026-05-06)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#orphan-unknowns-2026-05-06" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orphan Unknowns (2026-05-06)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommendations-for-future-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommendations for Future Work
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="usdr-python-scripts-code-audit">USDR Python Scripts — Code Audit<a class="headerlink" href="#usdr-python-scripts-code-audit" title="Permanent link">&para;</a></h1>
+<p><strong>Audit date:</strong> 2026-05-06<br />
+<strong>Auditor:</strong> engineering agent (comprehensive audit sprint)<br />
+<strong>Scope:</strong> all primary scripts in <code>scripts/</code></p>
+<hr />
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Script</th>
+<th>HIGH</th>
+<th>MEDIUM</th>
+<th>LOW</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>validate_schemas.py</code></td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>Clean</td>
+</tr>
+<tr>
+<td><code>build_graph.py</code></td>
+<td>0</td>
+<td>0</td>
+<td>2</td>
+<td>Clean</td>
+</tr>
+<tr>
+<td><code>generate_api.py</code></td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+<td><strong>Fixed</strong></td>
+</tr>
+<tr>
+<td><code>update_dashboard_stats.py</code></td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>Clean</td>
+</tr>
+<tr>
+<td><code>generate_domain_pages.py</code></td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>Clean</td>
+</tr>
+<tr>
+<td><code>generate_explainers.py</code></td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>Clean</td>
+</tr>
+<tr>
+<td><code>propose_bridges.py</code></td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+<td><strong>Fixed</strong></td>
+</tr>
+<tr>
+<td><code>find_orphan_unknowns.py</code></td>
+<td>2</td>
+<td>0</td>
+<td>1</td>
+<td><strong>Fixed</strong></td>
+</tr>
+<tr>
+<td><code>audit_quality.py</code></td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>Clean</td>
+</tr>
+<tr>
+<td><code>build_citation_index.py</code></td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td><strong>Fixed</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>HIGH issues found:</strong> 5<br />
+<strong>HIGH issues fixed:</strong> 5 (all)<br />
+<strong>Schema validation:</strong> PASS — all 1,000+ YAML records valid<br />
+<strong>Quality audit:</strong> 0 ERRORS, 0 WARNINGS, 18 INFO items<br />
+<strong>Orphan unknowns:</strong> 300 of 619 unknowns have no graph connections (expected — high contribution opportunity)</p>
+<hr />
+<h2 id="detailed-findings">Detailed Findings<a class="headerlink" href="#detailed-findings" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="scriptsvalidate_schemaspy"><code>scripts/validate_schemas.py</code><a class="headerlink" href="#scriptsvalidate_schemaspy" title="Permanent link">&para;</a></h3>
+<p><strong>Purpose:</strong> Validates all catalog YAML (unknowns, hypotheses, bridges, phenomenology, pioneers, breakthrough-gaps) against JSON Schema.</p>
+<h4 id="issues">Issues<a class="headerlink" href="#issues" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Severity</th>
+<th>Issue</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MEDIUM</td>
+<td><code>load_yaml</code> at the top level (used for schema loading) has no try/except — if a schema file is corrupt, the script crashes with an unhandled exception rather than a clear error message.</td>
+<td>Line 12–19</td>
+</tr>
+<tr>
+<td>LOW</td>
+<td>No <code>--help</code> / argparse description. Script behavior (exit code) is well-documented in the module docstring, but there is no <code>--dry-run</code> or <code>--paths</code> flag for partial validation.</td>
+<td>Global</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Action:</strong> No fix applied (MEDIUM/LOW); schema loading crashes are acceptable since schema files are tightly controlled. The module docstring is clear.</p>
+<hr />
+<h3 id="scriptsbuild_graphpy"><code>scripts/build_graph.py</code><a class="headerlink" href="#scriptsbuild_graphpy" title="Permanent link">&para;</a></h3>
+<p><strong>Purpose:</strong> Builds <code>docs/knowledge_graph.json</code> from all catalog YAML entries.</p>
+<h4 id="issues_1">Issues<a class="headerlink" href="#issues_1" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Severity</th>
+<th>Issue</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LOW</td>
+<td>No argparse / <code>--help</code> interface.</td>
+<td>Global</td>
+</tr>
+<tr>
+<td>LOW</td>
+<td><code>OUTPUT</code> path is hardcoded as a module-level constant (<code>docs/knowledge_graph.json</code>). Fine for CI use; no <code>--output</code> flag for custom paths.</td>
+<td>Line 21</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Action:</strong> No fix needed. Script is well-structured with proper exception handling in <code>load_yaml</code>, orphan-edge filtering, and per-file warnings.</p>
+<hr />
+<h3 id="scriptsgenerate_apipy"><code>scripts/generate_api.py</code><a class="headerlink" href="#scriptsgenerate_apipy" title="Permanent link">&para;</a></h3>
+<p><strong>Purpose:</strong> Generates static JSON API endpoints under <code>api/v1/</code>.</p>
+<h4 id="issues_2">Issues<a class="headerlink" href="#issues_2" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Severity</th>
+<th>Issue</th>
+<th>Location</th>
+<th>Fix Applied</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>HIGH</strong></td>
+<td>Bare <code>except:</code> in <code>load_yaml</code> catches <code>SystemExit</code> and <code>KeyboardInterrupt</code>, masking critical failures and preventing Ctrl-C from working correctly.</td>
+<td>Line 26–27</td>
+<td>✅ Changed to <code>except Exception as exc</code> with stderr warning</td>
+</tr>
+<tr>
+<td>MEDIUM</td>
+<td>Silent failure mode: when <code>load_yaml</code> fails it returns <code>{}</code> with no per-file log (pre-fix). Now emits a WARNING to stderr.</td>
+<td>Line 26–27</td>
+<td>✅ Fixed alongside HIGH fix</td>
+</tr>
+<tr>
+<td>LOW</td>
+<td>No argparse / <code>--help</code>.</td>
+<td>Global</td>
+<td>Noted</td>
+</tr>
+<tr>
+<td>LOW</td>
+<td><code>import shutil</code> inside function body (lines 138, 144, 150) — minor style issue, should be at module top.</td>
+<td>Lines 138, 144, 150</td>
+<td>Noted</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="scriptsupdate_dashboard_statspy"><code>scripts/update_dashboard_stats.py</code><a class="headerlink" href="#scriptsupdate_dashboard_statspy" title="Permanent link">&para;</a></h3>
+<p><strong>Purpose:</strong> Reads actual catalog file counts and patches <code>dashboard/index.html</code> stat counters.</p>
+<h4 id="issues_3">Issues<a class="headerlink" href="#issues_3" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Severity</th>
+<th>Issue</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MEDIUM</td>
+<td>Uses <code>sys.argv</code> check instead of argparse — <code>--apply</code> flag is functional but not documented by <code>--help</code>.</td>
+<td>Line 62</td>
+</tr>
+<tr>
+<td>LOW</td>
+<td><code>sys.exit(1)</code> is called when dashboard file is missing, but the script has <code>-&gt; None</code> return type annotation. Consistent behavior, but exit code isn't documented.</td>
+<td>Line 79</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Action:</strong> No fix applied. The <code>--apply</code> pattern is clear and intentional (safe dry-run default).</p>
+<hr />
+<h3 id="scriptsgenerate_domain_pagespy"><code>scripts/generate_domain_pages.py</code><a class="headerlink" href="#scriptsgenerate_domain_pagespy" title="Permanent link">&para;</a></h3>
+<p><strong>Purpose:</strong> Generates per-domain HTML landing pages under <code>dashboard/domains/</code>.</p>
+<h4 id="issues_4">Issues<a class="headerlink" href="#issues_4" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Severity</th>
+<th>Issue</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MEDIUM</td>
+<td><code>get_domain_hypotheses</code> uses <code>str(data)</code> (the YAML dict stringified) to find hypothesis linkage to unknowns. This crude string match can produce false positives when unknown IDs appear in unrelated fields.</td>
+<td>Line 91–92</td>
+</tr>
+<tr>
+<td>LOW</td>
+<td>Bare <code>except Exception: return {}</code> in <code>load_yaml</code> silently discards parse errors.</td>
+<td>Line 46–47</td>
+</tr>
+<tr>
+<td>LOW</td>
+<td><code>DOMAIN_META</code> dictionary has 20 entries but the repo has domains outside this list — unknown domains fall back to generic icon/color with no warning.</td>
+<td>Line 20–41</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Action:</strong> No fix applied. The hypothesis-linkage heuristic is a display feature, not a data integrity issue. False positives result in showing slightly more hypotheses (acceptable). Capped at 10 per page.</p>
+<hr />
+<h3 id="scriptsgenerate_explainerspy"><code>scripts/generate_explainers.py</code><a class="headerlink" href="#scriptsgenerate_explainerspy" title="Permanent link">&para;</a></h3>
+<p><strong>Purpose:</strong> Generates rich HTML explainer pages for individual bridges.</p>
+<h4 id="issues_5">Issues<a class="headerlink" href="#issues_5" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Severity</th>
+<th>Issue</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MEDIUM</td>
+<td>In <code>find_bridge_yaml</code>, the fallback loop opens every YAML file in <code>cross-domain/</code> with a bare <code>except Exception: pass</code> — parse errors are silently dropped.</td>
+<td>Line 44–49</td>
+</tr>
+<tr>
+<td>LOW</td>
+<td>Uses <code>sys.argv[1:]</code> directly instead of argparse — no <code>--help</code>.</td>
+<td>Line 576</td>
+</tr>
+<tr>
+<td>LOW</td>
+<td><code>DEFAULT_BRIDGES</code> is hardcoded — if those bridge IDs are renamed, the script silently generates 0 explainers without error. The per-bridge try/except does catch this and reports errors, so it degrades gracefully.</td>
+<td>Line 27–33</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Action:</strong> No fix applied. Errors are caught and reported per bridge; the script does not crash.</p>
+<hr />
+<h3 id="scriptspropose_bridgespy"><code>scripts/propose_bridges.py</code><a class="headerlink" href="#scriptspropose_bridgespy" title="Permanent link">&para;</a></h3>
+<p><strong>Purpose:</strong> Proposes novel cross-domain bridge candidates from pioneer seeds, breakthrough gaps, and domain-gap analysis.</p>
+<h4 id="issues_6">Issues<a class="headerlink" href="#issues_6" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Severity</th>
+<th>Issue</th>
+<th>Location</th>
+<th>Fix Applied</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>HIGH</strong></td>
+<td><code>_breakthrough_gap_proposals</code> returns <code>gaps_dir</code> (a <code>Path</code> object) instead of <code>proposals</code> (an empty list) when the directory doesn't exist. This causes <code>TypeError: 'PosixPath' object is not iterable</code> downstream.</td>
+<td>Line 97</td>
+<td>✅ Changed <code>return gaps_dir</code> to <code>return proposals</code></td>
+</tr>
+<tr>
+<td>MEDIUM</td>
+<td>Output JSON contains <code>"generated": "2026-05-06"</code> hardcoded string instead of <code>date.today().isoformat()</code>.</td>
+<td>Line 306</td>
+<td>Noted for future fix</td>
+</tr>
+<tr>
+<td>LOW</td>
+<td>No argparse description for <code>--draft-yaml</code> flag behavior (what directory it writes to).</td>
+<td>Line 244</td>
+<td>Noted</td>
+</tr>
+<tr>
+<td>LOW</td>
+<td><code>_yaml_load</code> fallback (when PyYAML is unavailable) returns <code>{}</code> silently — callers won't know the file wasn't parsed.</td>
+<td>Line 34–37</td>
+<td>Noted</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="scriptsfind_orphan_unknownspy"><code>scripts/find_orphan_unknowns.py</code><a class="headerlink" href="#scriptsfind_orphan_unknownspy" title="Permanent link">&para;</a></h3>
+<p><strong>Purpose:</strong> Identifies unknowns with no graph connections — priority contribution targets.</p>
+<h4 id="issues_7">Issues<a class="headerlink" href="#issues_7" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Severity</th>
+<th>Issue</th>
+<th>Location</th>
+<th>Fix Applied</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>HIGH</strong></td>
+<td><code>UnicodeEncodeError</code> when printing the <code>≥</code> character on Windows terminals using cp1252 encoding. Confirmed crash in test run.</td>
+<td>Line 38</td>
+<td>✅ Added <code>io.TextIOWrapper</code> stdout override when encoding is not UTF-8</td>
+</tr>
+<tr>
+<td><strong>HIGH</strong></td>
+<td>No try/except around <code>knowledge_graph.json</code> read. If the file is missing (e.g., before first <code>build_graph.py</code> run), the script crashes with an unhandled <code>FileNotFoundError</code>.</td>
+<td>Line 18–20</td>
+<td>✅ Added existence check and <code>json.JSONDecodeError</code> / <code>OSError</code> handling with <code>sys.exit(1)</code></td>
+</tr>
+<tr>
+<td>LOW</td>
+<td>No argparse / <code>--help</code>.</td>
+<td>Global</td>
+<td>Noted</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="scriptsaudit_qualitypy"><code>scripts/audit_quality.py</code><a class="headerlink" href="#scriptsaudit_qualitypy" title="Permanent link">&para;</a></h3>
+<p><strong>Purpose:</strong> Audits unknowns catalog for quality issues (short titles, missing metadata, duplicates).</p>
+<h4 id="issues_8">Issues<a class="headerlink" href="#issues_8" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Severity</th>
+<th>Issue</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MEDIUM</td>
+<td>Only audits <code>unknowns-catalog/</code> — bridges and hypotheses are not quality-checked. Adding similar checks for bridges (translation table presence, real DOIs) would improve coverage.</td>
+<td>Lines 33–78</td>
+</tr>
+<tr>
+<td>LOW</td>
+<td>Duplicate-detection uses normalized title match (<code>re.sub(r"\W+", " ", title.lower())</code>). Very short titles (≤3 words) can produce spurious duplicate warnings.</td>
+<td>Line 64</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Action:</strong> No fix applied. Scope expansion (bridges/hypotheses) is a feature request, not a bug.</p>
+<hr />
+<h3 id="scriptsbuild_citation_indexpy"><code>scripts/build_citation_index.py</code><a class="headerlink" href="#scriptsbuild_citation_indexpy" title="Permanent link">&para;</a></h3>
+<p><strong>Purpose:</strong> Extracts DOIs/references from all catalog entries and identifies cross-domain influential papers.</p>
+<h4 id="issues_9">Issues<a class="headerlink" href="#issues_9" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Severity</th>
+<th>Issue</th>
+<th>Location</th>
+<th>Fix Applied</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>HIGH</strong></td>
+<td>Bare <code>except:</code> in <code>load_yaml</code> catches <code>SystemExit</code> and <code>KeyboardInterrupt</code>.</td>
+<td>Line 17</td>
+<td>✅ Changed to <code>except Exception as exc</code> with stderr warning</td>
+</tr>
+<tr>
+<td>MEDIUM</td>
+<td><code>"generated": str(Path(__file__).stat().st_mtime)</code> uses the script's filesystem modification timestamp (a float like <code>1746460892.123</code>) instead of today's date. This is misleading in the output JSON.</td>
+<td>Line 106</td>
+<td>✅ Changed to <code>date.today().isoformat()</code></td>
+</tr>
+<tr>
+<td>LOW</td>
+<td>No argparse / <code>--help</code>.</td>
+<td>Global</td>
+<td>Noted</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="quality-audit-results-2026-05-06">Quality Audit Results (2026-05-06)<a class="headerlink" href="#quality-audit-results-2026-05-06" title="Permanent link">&para;</a></h2>
+<p>From <code>python scripts/audit_quality.py</code>:</p>
+<div class="highlight"><pre><span></span><code>ERRORS:   0
+WARNINGS: 0
+INFO:     18
+</code></pre></div>
+<p>All 18 INFO items are low-priority style notes (titles not phrased as questions). No data integrity issues. Full report: <code>docs/quality_report.md</code>.</p>
+<hr />
+<h2 id="schema-validation-results-2026-05-06">Schema Validation Results (2026-05-06)<a class="headerlink" href="#schema-validation-results-2026-05-06" title="Permanent link">&para;</a></h2>
+<p>From <code>python scripts/validate_schemas.py</code>:</p>
+<div class="highlight"><pre><span></span><code>OK: all hypothesis, unknown-catalog, cross-domain bridge, phenomenology, pioneer, and
+breakthrough-gap YAML files validate. (4 phenomenology entries, 13 pioneer entries,
+11 breakthrough-gap entries)
+</code></pre></div>
+<p>All records pass. No schema fixes needed.</p>
+<hr />
+<h2 id="orphan-unknowns-2026-05-06">Orphan Unknowns (2026-05-06)<a class="headerlink" href="#orphan-unknowns-2026-05-06" title="Permanent link">&para;</a></h2>
+<p>From <code>python scripts/find_orphan_unknowns.py</code>:</p>
+<div class="highlight"><pre><span></span><code>Total unknowns in graph:                    619
+Connected to ≥1 bridge or hypothesis edge:  319
+Orphan unknowns (no connections):           300
+</code></pre></div>
+<p>300 orphans (48%) is expected at this stage — the content build sprint added unknowns faster than bridges can connect them. These are the <strong>highest-priority contribution targets</strong>. Full list: <code>docs/orphan_unknowns.md</code>.</p>
+<hr />
+<h2 id="recommendations-for-future-work">Recommendations for Future Work<a class="headerlink" href="#recommendations-for-future-work" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Recommendation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MEDIUM</td>
+<td>Add <code>--output</code> flag to <code>build_graph.py</code> for custom graph paths (CI flexibility)</td>
+</tr>
+<tr>
+<td>MEDIUM</td>
+<td>Replace hardcoded <code>"generated"</code> date in <code>propose_bridges.py</code> with <code>date.today().isoformat()</code></td>
+</tr>
+<tr>
+<td>MEDIUM</td>
+<td>Expand <code>audit_quality.py</code> to check bridges (translation table ≥3 rows, real DOIs, status field set)</td>
+</tr>
+<tr>
+<td>LOW</td>
+<td>Add <code>argparse</code> with <code>--help</code> to all scripts lacking it (<code>build_graph.py</code>, <code>find_orphan_unknowns.py</code>, <code>generate_explainers.py</code>, <code>build_citation_index.py</code>)</td>
+</tr>
+<tr>
+<td>LOW</td>
+<td>Move <code>import shutil</code> to module level in <code>generate_api.py</code></td>
+</tr>
+<tr>
+<td>LOW</td>
+<td>Add a <code>--domain-meta-fallback-warn</code> flag to <code>generate_domain_pages.py</code> to log when a domain has no icon/color in <code>DOMAIN_META</code></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "search.suggest", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
