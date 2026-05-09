@@ -34,6 +34,7 @@ Missing source files are skipped safely.
   - `drafts/wave_factory/cross-domain/**/b-*.yaml`
   - `drafts/wave_factory/unknowns-catalog/**/u-*.yaml`
   - `drafts/wave_factory/hypotheses/active/h-*.yaml`
+- **`drafts/wave_factory/` is gitignored** — it is machine-local staging only. Regenerate with `wave_factory.py` when needed; **promote** reviewed triples into canonical folders with `promote_wave_factory_batch.py`.
 - Low-confidence records are explicitly tagged `SPECULATIVE` in generated bridge/hypothesis text.
 
 ### CLI examples

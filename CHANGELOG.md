@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] — 2026-05-09
 
+### Changed — Docs CI & contributor hygiene
+- **MkDocs:** Added missing pages to `mkdocs.yml` nav (strategy docs, Wave Factory, explainers, outreach, preprint, generated reports) so `mkdocs build --strict` passes without omitted-file warnings.
+- **Graph tooling:** Refactored `scripts/build_graph.py` with `build_nodes_and_raw_edges` / `filter_orphan_edges`; added `--report-orphans` to list YAML cross-reference IDs that point to missing catalog nodes.
+- **Wave Factory:** `drafts/wave_factory/` is now **gitignored**; removed tracked staging files from the index (regenerate locally). Documented in `docs/WAVE_FACTORY.md`.
+- **New doc:** `docs/SOLVING_UNKNOWNS.md` — resolution ladder and evidence bar for closing unknowns; linked from `docs/DOC_MAP.md`.
+
 ### Added — Wave 88 (+12 bridges; catalog **1,123** bridges)
 - Added 12 new cross-domain bridge triplets (bridge + companion unknown + companion hypothesis) spanning variational QAOA versus classical surrogate warm starts, persistent-homology microscopy QC under noise, efficient coding versus information-bottleneck objectives, replicator dynamics field inference for ESS narratives, belief propagation haplotype phasing on linkage graphs, RBMs as Ising-like energy models, spectral clustering for metabolomic module stability, Wasserstein-style DRO framing for climate deep uncertainty, contrastive predictive coding versus multiview self-supervision, contested RG coarse-graining metaphors for depth, EDMD/Koopman linearization for video dynamics forecasting, and sparse-sensor symbolic regression for PDE-structure recovery; speculative analogies are explicitly flagged except where literature establishes the bridge (e.g., BP on graphical models, RBM energy forms).
 - Regenerated artifacts with full pipeline: `python scripts/validate_schemas.py`, `python -X utf8 scripts/build_graph.py`, `python scripts/update_dashboard_stats.py --apply`, `python scripts/sync-dashboard-from-state.py` (`docs/knowledge_graph.json` now **3,857 nodes**, **4,517 edges**).

@@ -2,7 +2,7 @@
 
 This map is the Phase 0 traceability layer. When you change a guiding document, update the corresponding behaviors (rules, templates, or this map) in the same change.
 
-**Last updated:** 2026-05-06 — reflects Wave 10 state (1,000 nodes, 180 bridges, 6 catalog types).
+**Last updated:** 2026-05-09 — includes `SOLVING_UNKNOWNS.md`, Wave Factory gitignore note, and `build_graph.py --report-orphans`.
 
 ## Policy documents
 
@@ -11,6 +11,7 @@ This map is the Phase 0 traceability layer. When you change a guiding document, 
 | [VISION_AND_SCOPE.md](VISION_AND_SCOPE.md) | Mission, boundaries, what belongs in-repo | README framing; issue labels; scope checks in AGENTS and Cursor rules |
 | [METHODOLOGY.md](METHODOLOGY.md) | Claims vs hypotheses, evidence bars, workflows | PR template checklist; `finding_review` and `hypothesis_thread` issue templates; prompt templates in [prompts/](prompts/) |
 | [ETHICS_REPRODUCIBILITY_AND_DATA.md](ETHICS_REPRODUCIBILITY_AND_DATA.md) | Data classes, privacy, reproducibility | `.gitignore`; [data/README.md](../data/README.md); no raw restricted data in git |
+| [SOLVING_UNKNOWNS.md](SOLVING_UNKNOWNS.md) | How an unknown moves from open → partial → resolved | Hypothesis evidence links; status updates; graph orphan checks via `build_graph.py --report-orphans` |
 | [QUALITY_BAR.md](QUALITY_BAR.md) | Explicit quality / anti-sloppiness playbook | CI gates; review lanes; def. of done; links [METHODOLOGY.md](METHODOLOGY.md), [COLLABORATION_AND_REVIEWS.md](COLLABORATION_AND_REVIEWS.md), [HAPPY_PATH_FIRST_RECORDS.md](HAPPY_PATH_FIRST_RECORDS.md) |
 | [COLLABORATION_AND_REVIEWS.md](COLLABORATION_AND_REVIEWS.md) | Contributions, review expectations | [CONTRIBUTING.md](../CONTRIBUTING.md); PR template; branch protection notes in [OPERATING_RHYTHM.md](OPERATING_RHYTHM.md) |
 | [OPERATING_RHYTHM.md](OPERATING_RHYTHM.md) | Cadence, versioning, when to sync rules/CI; milestone doc + contributor hub | Doc/CI updates; release/tag policy; CHANGELOG, `dashboard/index.html`, `http://localhost:8765/dashboard/` check per `.cursor/rules/documentation-and-dashboard.mdc` |
