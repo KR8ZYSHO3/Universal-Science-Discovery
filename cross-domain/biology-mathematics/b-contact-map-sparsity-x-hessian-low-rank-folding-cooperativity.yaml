@@ -1,0 +1,43 @@
+id: b-contact-map-sparsity-x-hessian-low-rank-folding-cooperativity
+title: >
+  Native contact maps of proteins are sparse graphs; near-native basins of simplified energy models often exhibit
+  low effective Hessian rank along cooperative contacts — graph sparsity ↔ curvature cooperativity in folding landscapes
+  (structural biology ↔ numerical optimization geometry).
+status: proposed
+fields:
+  - structural-biology
+  - biophysics
+  - applied-mathematics
+  - computational-biology
+bridge_claim: >
+  Order-disorder transitions in folding networks concentrate curvature directions along subsets of contacts that become
+  simultaneously satisfied — resembling low-rank Hessian structure in optimization where only a few eigenmodes dominate
+  early convergence. This **speculative analogy** links contact-graph topology statistics (clustering, hub residues) to how
+  sharply the energy landscape narrows near the native ensemble; rigorously proving correspondence requires explicit choice of
+  coarse-grained potential and remains open.
+translation_table:
+  - field_a_term: adjacency / contact map graph G
+    field_b_term: sparsity pattern of Hessian off-diagonal dominance in reduced coordinates
+    note: Depends on coordinate choice (Cartesian vs internal).
+  - field_a_term: cooperative contact clusters (foldons)
+    field_b_term: eigenbundle associated with largest Hessian eigenvalues near transition states (for toy models)
+    note: Parallel is illustrative; experimental phi-values probe cooperativity differently.
+  - field_a_term: hub residues mediating many contacts
+    field_b_term: high leverage directions in sensitivity analysis / dominant Hessian vectors in ENM approximations
+    note: Elastic network models already bridge graphs to spectra — we emphasize optimization curvature reading.
+related_unknowns:
+  - u-contact-graph-hessian-rank-native-basin-surrogate
+related_hypotheses:
+  - h-low-rank-hessian-surrogate-predicts-two-state-phi-profile-class
+cross_pollination_opportunities:
+  - Apply matrix sketching techniques from randomized numerical linear algebra to elastic network Hessians across PDB ensembles.
+  - Compare folding transition-state ensembles ranked by phi-values to effective rank estimates from MD Hessian sampling.
+communication_gap: >
+  Structural biologists publish contact maps as intuitive summaries; optimization theorists discuss Hessian rank without
+  molecular coordinates — intermediate coarse-graining steps rarely standardized.
+references:
+  - doi: "10.1073/pnas.0908149106"
+    note: "Das et al. (2009) — geometric coupling between folding pathways and native topology (PNAS)."
+  - doi: "10.1021/jp407558m"
+    note: "Matysiak & Clementi (2006) — folding networks / folding pathways coarse modeling context (J. Phys. Chem. B)."
+last_reviewed: "2026-05-07"

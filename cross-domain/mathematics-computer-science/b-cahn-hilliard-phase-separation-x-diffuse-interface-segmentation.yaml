@@ -1,0 +1,35 @@
+id: b-cahn-hilliard-phase-separation-x-diffuse-interface-segmentation
+title: >
+  Cahn-Hilliard phase-separation models and diffuse-interface image segmentation share an energy-minimization template: interfaces are penalized by smoothness and contrast terms while domains evolve toward separated phases or labeled regions.
+status: proposed
+fields:
+  - mathematics
+  - computer-science
+  - materials-science
+bridge_claim: >
+  The bridge is mathematical rather than material: segmentation algorithms can borrow phase-field regularization intuition, but image classes are not thermodynamic phases. The useful transfer is in interface-width, curvature, and energy-landscape diagnostics.
+translation_table:
+  - field_a_term: order parameter concentration
+    field_b_term: soft region-membership function
+    note: Both encode smooth region identity.
+  - field_a_term: interfacial energy or gradient penalty
+    field_b_term: boundary regularization
+    note: Both penalize rough boundaries.
+  - field_a_term: spinodal coarsening
+    field_b_term: iterative label smoothing and region merging
+    note: The analogy is limited by nonconserved labels.
+communication_gap: >
+  Materials modelers focus on conservation and physical coarsening, while computer-vision practitioners tune loss terms for segmentation accuracy and speed.
+cross_pollination_opportunities:
+  - Use phase-field interface-width diagnostics to choose segmentation regularization parameters.
+  - Compare segmentation failure modes with metastable phase-field states.
+related_unknowns:
+  - u-cahn-hilliard-segmentation-parameter-transfer-limits
+related_hypotheses:
+  - h-interface-width-regularization-predicts-segmentation-stability
+references:
+  - doi: "10.1063/1.1744102"
+    note: Cahn and Hilliard (1958) free energy of nonuniform systems.
+  - doi: "10.1109/83.902291"
+    note: Chan and Vese (2001) active contours without edges for image segmentation.
+last_reviewed: "2026-05-07"

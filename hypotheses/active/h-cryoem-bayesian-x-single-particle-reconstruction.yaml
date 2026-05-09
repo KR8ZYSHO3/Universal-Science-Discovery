@@ -1,0 +1,28 @@
+id: h-cryoem-bayesian-x-single-particle-reconstruction
+title: >
+  Frozen RELION hyperprior sweeps on benchmark particle stacks will yield posterior MAP volumes whose voxel-wise credible intervals overlap CryoSPARC variability estimates within calibrated tolerance bands when forward models matched across GPU pipelines — falsifying claims of incompatible Bayesian interpretations solely due to software branding.
+status: active
+priority: medium
+impact_score: 0.5
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - doi: "10.1038/nmeth.1907"
+    type: supporting
+    confidence: 0.82
+    note: Bayesian RELION backbone methodology reference point
+
+unknowns_addressed:
+  - u-cryoem-bayesian-map-calibration-across-platforms
+
+proposed_tests:
+  - description: >
+      Process identical EMPIAR datasets through synchronized preprocessing forks differing only by MAP versus sampled posterior modes with identical noise models.
+    method: Distribution-free tests comparing voxel-wise variance pools mapped onto atomic validation metrics (FSC-free local variance overlays)
+    prediction: Posterior interval overlaps exceed 80% on smoothed bands outside flexible tip regions when hyperpriors aligned numerically
+
+related_disciplines:
+  - structural-biology
+  - statistics

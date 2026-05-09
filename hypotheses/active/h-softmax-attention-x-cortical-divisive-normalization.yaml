@@ -1,0 +1,32 @@
+id: h-softmax-attention-x-cortical-divisive-normalization
+title: >
+  Attention temperature tuning that matches cortical surround-suppression width on contour-integration tasks will predict psychophysical threshold curves better than softmax-free convolution baselines on identical stimuli.
+status: active
+priority: medium
+impact_score: 0.48
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - doi: "10.48550/arXiv.1706.03762"
+    type: related
+    confidence: 0.65
+    note: Transformer attention baseline mechanics for softmax sharpness
+  - doi: "10.1038/371521a0"
+    type: supporting
+    confidence: 0.72
+    note: Cortical normalization phenomenology
+
+unknowns_addressed:
+  - u-softmax-attention-cortical-normalization-mapping
+
+proposed_tests:
+  - description: >
+      Train constrained softmax-like decoders with explicit surround kernels on contour stimuli while recording V1 populations in behaving mice.
+    method: Neural decoding benchmark comparing softmax-surround hybrid vs pure convolution decoders on matched stimulus suites
+    prediction: Hybrid decoders reduce prediction error on orientation-pop-out thresholds parameterized by surround bandwidth
+
+related_disciplines:
+  - neuroscience
+  - machine-learning

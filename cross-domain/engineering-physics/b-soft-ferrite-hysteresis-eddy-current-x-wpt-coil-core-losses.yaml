@@ -1,0 +1,42 @@
+id: b-soft-ferrite-hysteresis-eddy-current-x-wpt-coil-core-losses
+title: >
+  Soft ferrite cores reduce reluctance and concentrate flux in wireless power coils but introduce hysteresis and
+  eddy-current losses that lower effective quality factor — magnetic domain physics ↔ resonant link efficiency budgets.
+status: established
+fields:
+  - materials-science
+  - electrical-engineering
+  - magnetism
+  - power-electronics
+bridge_claim: >
+  Gapped MnZn/NiZn ferrites below saturation exhibit hysteretic B–H loops whose cycle dissipation adds equivalent series
+  resistance to resonant windings; laminated or powdered cores suppress eddy currents at MHz but cannot eliminate
+  domain-wall losses. In coupled-mode WPT models this manifests as increased κᵢ = ω/2Qᵢ loss rates — trading flux guidance
+  against Q. This bridge ties classical magnetic materials engineering to the same Q depression parameters appearing in
+  Tesla/Kurs resonator analyses.
+translation_table:
+  - field_a_term: hysteresis loss per cycle ∮ H·dB
+    field_b_term: equivalent series resistance increment ΔR_hys in coil model
+    note: Frequency and flux swing dependent; nonlinear harmonics complicate linear Q definitions.
+  - field_a_term: eddy-current screening in bulk ferrite
+    field_b_term: frequency rolloff of effective permeability μ(f)
+    note: Powder cores trade permeability for higher usable frequency.
+  - field_a_term: saturation flux density B_sat
+    field_b_term: peak current before nonlinear permeability collapses Q and detunes resonance
+    note: Thermal drift moves operating point.
+related_unknowns:
+  - u-soft-ferrite-nonlinear-permeability-wpt-harmonic-loss
+related_hypotheses:
+  - h-gapped-ferrite-bias-point-maximizes-wpt-q-under-saturation-margin
+cross_pollination_opportunities:
+  - Cross-map ferrite datasheets (Steinmetz coefficients) into coupled-mode time-domain co-simulations for Qi interoperability testing.
+  - Import magnetic Barkhausen noise diagnostics from NDT to detect microcracking in charger ferrite tiles after thermal cycling.
+communication_gap: >
+  Ferrite vendors publish core loss curves at sine excitation; WPT systems carry PWM harmonics and spatial bias fields—
+  standardized translation to equivalent Q is inconsistent across suppliers.
+references:
+  - doi: "10.1109/TPEL.2014.2336816"
+    note: "Hui et al. (2014) — wireless charging platform design including magnetic materials context (IEEE Trans. Power Electron.)."
+  - doi: "10.1109/TMAG.2007.912763"
+    note: "Reisinger et al. (2007) — ferrite materials survey relevant to MHz magnetics (IEEE Trans. Magn.)."
+last_reviewed: "2026-05-07"

@@ -1,0 +1,44 @@
+id: b-meg-squid-forward-x-em-inverse-source
+title: >
+  MEG/EEG forward modeling and SQUID magnetometry ↔ elliptic/inverse electromagnetic source problems in
+  conducting media (neuroimaging ↔ applied mathematics)
+status: established
+fields:
+  - neuroscience
+  - applied-mathematics
+  - electromagnetism
+  - inverse-problems
+bridge_claim: >
+  Magnetoencephalography measures magnetic fields outside the head produced by neural currents; SQUID arrays
+  sample those fields at many locations. Recovering distributed current sources is a severely ill-posed inverse
+  problem requiring regularization, subspace constraints, or sparsity priors—mathematically akin to inverse
+  source problems for quasi-static Maxwell equations in volume conductors. The bridge is operational:
+  forward models (single-layer sphere, BEM, FEM) parallel boundary-integral formulations in EM scattering,
+  while inversion techniques (minimum-norm, beamformers, Bayesian priors) mirror methods in geophysical EM
+  inversion and antenna diagnostics.
+translation_table:
+  - field_a_term: volume conductor Green function / lead field matrix L
+    field_b_term: forward operator mapping source currents to boundary fields
+    note: Same linear algebra skeleton as discrete EM forward models.
+  - field_a_term: SQUID sensor geometry and noise covariance
+    field_b_term: measurement operator weights in regularized inversion
+    note: Array design sets conditioning of L.
+  - field_a_term: depth-weighted minimum norm / beamformer output
+    field_b_term: Tikhonov / sparsity-regularized EM source reconstructions
+    note: Regularization choice sets spatial bias.
+related_unknowns:
+  - u-meg-inverse-source-nonunique-regularization-bounds
+related_hypotheses:
+  - h-squid-array-regularization-improves-meg-source-localization
+cross_pollination_opportunities:
+  - Port open-source EM inversion toolkits from geophysics to benchmark MEG forward/inverse pipelines on phantom data.
+  - Use MEG array calibration protocols to inform inverse scattering sensor placement design.
+communication_gap: >
+  Neuroimaging toolboxes hide PDE details; applied math EM groups rarely publish on cortical geometry. Noise
+  models and physiological priors differ substantially from industrial EM inverse problems.
+references:
+  - doi: "10.1016/0013-4694(87)90087-2"
+    note: "Sarvas (1987) — basic formulas for magnetic fields from currents in spherically symmetric conductors."
+  - doi: "10.1098/rstb.1996.0126"
+    note: "Ilmoniemi et al. (1996) — MEG inverse problem and instrumentation context (Phil. Trans. R. Soc.)."
+last_reviewed: "2026-05-07"

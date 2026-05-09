@@ -1,0 +1,28 @@
+id: h-gradient-penalty-magnitude-tracks-dual-feasibility-proxy-metrics
+title: >
+  On CIFAR-style benchmarks with matched architectures, the median L2 norm of critic gradients along convex combinations of real–fake batches will correlate negatively with inception-score collapse events when λ_GP is swept — falsified if training collapses while gradient norms remain uniformly small (indicating other failure modes dominate).
+status: active
+priority: medium
+impact_score: 0.44
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - doi: "10.48550/arXiv.1704.00028"
+    type: related
+    confidence: 0.5
+    note: Original empirical motivation linking penalties to training stability
+
+unknowns_addressed:
+  - u-wgan-gp-tightness-versus-exact-lipschitz-projections
+
+proposed_tests:
+  - description: >
+      Train WGAN-GP critics while logging ‖∇f‖ along batches and correlating with FID spikes across λ_GP grid searches with multiple seeds.
+    method: Automated PyTorch/TensorFlow harness with harmonized metrics
+    prediction: Spearman ρ ≤ −0.4 between median ‖∇f‖ violations and FID degradation episodes within controlled sweeps
+
+related_disciplines:
+  - machine-learning
+  - applied-mathematics

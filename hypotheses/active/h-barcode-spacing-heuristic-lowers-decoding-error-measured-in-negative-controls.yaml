@@ -1,0 +1,28 @@
+id: h-barcode-spacing-heuristic-lowers-decoding-error-measured-in-negative-controls
+title: >
+  Increasing minimum pairwise Hamming distance among synthesized barcode adapters beyond empirically tuned thresholds will monotonically reduce negative-control misassignment rates in multiplexed CRISPR pools holding sequencing depth fixed — falsified if PCR chimera dominance yields error floors independent of spacing.
+status: active
+priority: high
+impact_score: 0.55
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - doi: "10.2307/1907238"
+    type: related
+    confidence: 0.35
+    note: Classical block-code distance intuition reference point only
+
+unknowns_addressed:
+  - u-crispr-multiplex-error-floor-vs-code-distance
+
+proposed_tests:
+  - description: >
+      Synthesize barcode libraries on a ladder of Hamming distances; run replicate Perturb-seq decoding with controlled sequencing depth; quantify misassignment via spike-ins.
+    method: Wet-lab factorial experiment plus computational demultiplexing receiver operating curves
+    prediction: Misassignment falls until sequencing-depth floor; slope vs Hamming distance positive before floor
+
+related_disciplines:
+  - biology
+  - genomics

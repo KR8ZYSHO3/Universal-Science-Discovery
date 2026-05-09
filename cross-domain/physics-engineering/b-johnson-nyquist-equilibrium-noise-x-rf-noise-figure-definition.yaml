@@ -1,0 +1,44 @@
+id: b-johnson-nyquist-equilibrium-fluctuations-x-rf-noise-figure-definition
+title: >
+  Johnson–Nyquist voltage fluctuations in resistors at temperature T set the available thermal noise power
+  kT per hertz; RF noise figure F quantifies how much a two-port exceeds that reference — thermodynamic
+  equilibrium noise ↔ linear receiver metrics.
+status: established
+fields:
+  - statistical-physics
+  - electrical-engineering
+  - physics
+  - microwave-engineering
+bridge_claim: >
+  A resistor R at absolute temperature T exhibits open-circuit noise voltage spectral density
+  S_v = 4 k T R (Nyquist–Johnson), equivalent to available noise power kT B in bandwidth B at the input of a
+  matched resistive source. The IEEE noise figure F = (S/N)_in / (S/N)_out (with matched input) therefore
+  measures excess noise above this thermodynamic floor. This is the clean bridge from equilibrium
+  fluctuation–dissipation physics to the everyday RF design quantity NF = 10 log₁₀ F.
+translation_table:
+  - field_a_term: Johnson–Nyquist spectral density S_v = 4kTR
+    field_b_term: input-referred noise voltage in LNA and mixer budgets
+    note: Same kT per hertz that defines NF reference temperature T₀ (often 290 K).
+  - field_a_term: Nyquist relation linking dissipative conductance and fluctuations
+    field_b_term: resistive parts of antenna radiation resistance contributing thermal noise
+    note: Classical limit before quantum corrections dominate at mm-wave THz.
+  - field_a_term: equilibrium thermal noise power kTB
+    field_b_term: sensitivity floors in cascaded receiver Friis formulas
+    note: Cascaded NF algebra assumes additive excess noise above kTB reference.
+related_unknowns:
+  - u-rf-noise-figure-two-port-correlation-matrix-room-temperature
+related_hypotheses:
+  - h-correlated-port-noise-matrix-lowers-effective-nf-two-port
+cross_pollination_opportunities:
+  - Teach statistical mechanics labs that NF meters literally compare excess noise to kTB using calibrated noise sources.
+  - Import quantum optics noise-correlation notation into mm-wave beamforming IC documentation when ports are coupled.
+communication_gap: >
+  Thermodynamics texts derive Nyquist–Johnson from detailed balance; microwave courses quote NF without always
+  tracing the matched-source convention back to its equilibrium noise identity — confusing when designers mix
+  physical temperature with noise temperature T_e.
+references:
+  - doi: "10.1103/PhysRev.32.97"
+    note: "Johnson (1928) — thermal agitation of electricity in conductors (Phys. Rev.)."
+  - doi: "10.1103/PhysRev.32.110"
+    note: "Nyquist (1928) — thermal agitation of electric charge in conductors (Phys. Rev.)."
+last_reviewed: "2026-05-07"

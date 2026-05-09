@@ -1,0 +1,32 @@
+id: b-ddpm-x-accelerated-mri-inverse-reconstruction
+title: Diffusion probabilistic models bridge score-based generative priors and accelerated MRI inverse reconstruction under undersampling.
+status: proposed
+fields:
+- medical-imaging
+- machine-learning
+- inverse-problems
+bridge_claim: 'Speculative analogy (to be empirically validated): DDPM score fields can act as learned regularizers in MRI inverse problems, replacing hand-crafted priors while preserving fidelity constraints from scanner physics.'
+translation_table:
+- field_a_term: score function
+  field_b_term: inverse-problem regularizer gradient
+  note: Both guide reconstruction toward high-likelihood anatomical structure.
+- field_a_term: diffusion denoising trajectory
+  field_b_term: iterative reconstruction refinement
+  note: Stepwise denoising parallels iterative consistency updates.
+- field_a_term: data-consistency projection
+  field_b_term: k-space physics constraint
+  note: Reconstructions are projected back to measured k-space samples.
+related_unknowns:
+- u-ddpm-mri-prior-mismatch-artifact-risk
+related_hypotheses:
+- h-ddpm-priors-reduce-mri-reconstruction-error-at-fixed-dose
+cross_pollination_opportunities:
+- Benchmark diffusion-prior reconstructions against compressed sensing protocols at matched acquisition times.
+- Adopt radiology QA scoring for hallucination and subtle-lesion preservation audits.
+communication_gap: Generative-model papers optimize perceptual metrics, while radiology pipelines require pathology-preserving reliability and auditability.
+last_reviewed: '2026-05-08'
+references:
+- arxiv: '2006.11239'
+  note: Denoising Diffusion Probabilistic Models.
+- url: https://mridata.org/
+  note: fastMRI ecosystem and accelerated MRI benchmarking context.

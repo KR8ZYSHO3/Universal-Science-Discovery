@@ -1,0 +1,30 @@
+id: b-restricted-boltzmann-machine-x-ising-energy-based-models
+title: Restricted Boltzmann machines explicitly instantiate energy-based graphical models whose equilibrium statistics resemble Ising-like Boltzmann distributions used in statistical physics pedagogy.
+status: established
+fields:
+- physics
+- computer-science
+- machine-learning
+bridge_claim: 'Established modeling correspondence: RBMs define bipartite energy functions whose Gibbs distribution parallels Boltzmann weights on interacting latent-visible spins up to representation choices; speculative analogy for training dynamics—optimization trajectories need not mirror physical equilibration timescales without explicit noise schedules.'
+translation_table:
+- field_a_term: energy function E(v,h)
+  field_b_term: Hamiltonian / Ising energy on effective spins
+  note: Constants absorbed into temperature conventions differ by convention.
+- field_a_term: partition function
+  field_b_term: normalizing constant / free-energy landscape
+  note: Intractability mirrors physics models.
+- field_a_term: contrastive divergence updates
+  field_b_term: short-time relaxation approximations
+  note: Algorithmic approximation introduces ML-specific bias.
+related_unknowns:
+- u-rbm-training-critical-slowdown-near-phase-boundaries
+related_hypotheses:
+- h-annealed-rbm-pretraining-improves-phase-diagram-discovery
+cross_pollination_opportunities:
+- Cross-teach spin-glass phase diagrams alongside RBM loss landscapes using shared energy notation.
+- Publish benchmarks linking MCMC mixing diagnostics to RBM training instability metrics.
+communication_gap: Physics emphasizes phase transitions and mixed phases while ML venues emphasize downstream task performance without thermodynamic interpretation consistency.
+last_reviewed: '2026-05-09'
+references:
+- url: https://www.cs.toronto.edu/~hinton/absps/guideTR.pdf
+  note: Practical guide to training RBMs (canonical ML-side reference document).

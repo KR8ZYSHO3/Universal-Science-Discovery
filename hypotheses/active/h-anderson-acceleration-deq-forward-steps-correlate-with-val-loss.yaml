@@ -1,0 +1,28 @@
+id: h-anderson-acceleration-deq-forward-steps-correlate-with-val-loss
+title: >
+  On standard vision benchmarks with matched DEQ width, enabling Anderson acceleration for forward equilibrium solves will reduce median residual iterations without increasing validation loss versus pure Picard iteration when backward passes use matched adjoint tolerances — falsified if acceleration shortcuts introduce gradient bias that hurts accuracy despite fewer forward steps.
+status: active
+priority: medium
+impact_score: 0.41
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - doi: "10.48550/arXiv.1909.01377"
+    type: related
+    confidence: 0.45
+    note: DEQ training pipeline baseline for solver comparisons
+
+unknowns_addressed:
+  - u-deq-solver-tolerance-versus-generalization-gap
+
+proposed_tests:
+  - description: >
+      Train identical DEQ architectures with Picard vs Anderson forward solvers; log iteration counts, residual norms, and validation metrics across tolerance sweeps.
+    method: Controlled PyTorch/JAX experiments with synchronized seeds
+    prediction: ≥15% iteration reduction at iso-validation accuracy when acceleration preserves residual norms below backward-pass thresholds
+
+related_disciplines:
+  - machine-learning
+  - numerical-analysis

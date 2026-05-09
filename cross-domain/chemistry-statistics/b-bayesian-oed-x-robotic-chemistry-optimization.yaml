@@ -1,0 +1,39 @@
+id: b-bayesian-oed-x-robotic-chemistry-optimization
+title: Bayesian optimal experimental design (OED) provides a principled acquisition
+  framework for robotic chemistry optimization loops.
+status: proposed
+fields:
+- chemistry
+- statistics
+- automation
+- experimental-design
+bridge_claim: Robotic chemistry platforms can rank candidate experiments by expected
+  information gain instead of heuristic exploration. The bridge operationalizes uncertainty-aware
+  design and creates auditable stopping criteria.
+translation_table:
+- field_a_term: Expected information gain
+  field_b_term: Experiment acquisition score
+  note: Prioritizes experiments that reduce posterior uncertainty.
+- field_a_term: Posterior entropy
+  field_b_term: Model uncertainty over reaction outcomes
+  note: Quantifies remaining ignorance for stop/go decisions.
+- field_a_term: Lookahead utility
+  field_b_term: Multi-step robot planning objective
+  note: Balances immediate yield and long-term information.
+related_unknowns:
+- u-oed-utility-misspecification-under-nonstationary-chemistry
+related_hypotheses:
+- h-lookahead-oed-reduces-experiments-to-target-yield
+cross_pollination_opportunities:
+- Build shared benchmark datasets with identical uncertainty-reporting protocols across
+  both domains.
+- Compare baseline domain-specific workflows against explicitly transferred methods
+  under matched compute budgets.
+communication_gap: Adjacent communities use different software stacks and validation
+  norms, so mathematically equivalent tools are often rediscovered in parallel.
+references:
+- doi: 10.1098/rsta.1922.0009
+  note: Fisher (1922) estimation and information.
+- doi: 10.1017/S0962492910000061
+  note: Stuart (2010) Bayesian inverse-problem foundations.
+last_reviewed: '2026-05-08'

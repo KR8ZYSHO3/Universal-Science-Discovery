@@ -1,0 +1,43 @@
+id: b-protein-folding-funnel-x-polyak-lojasiewicz-optimization-region
+title: >
+  Funneled folding landscapes imply gradient-like descent toward the native basin along collective coordinates —
+  modern optimization theory formalizes “geometry-dominated” nonconvex minimization via Polyak–Łojasiewicz (PL)
+  inequalities near sharp minima (biophysics ↔ continuous optimization).
+status: proposed
+fields:
+  - biophysics
+  - mathematical-biology
+  - optimization
+  - chemistry
+bridge_claim: >
+  Energy landscape theory pictures folding as movement on a rough free energy surface G(Q) that becomes
+  funnel-shaped toward the native ensemble. In optimization, PL regions satisfy ‖∇f‖² ≥ μ(f−f*) — guaranteeing
+  linear convergence of gradient methods despite nonconvexity. Mapping PL constants to physical funnel steepness
+  is not a literal identity (folding is stochastic; coordinates are many-body), but the bridge supplies shared
+  language: cooperativity as curvature control, traps as spurious local geometry violating PL-like growth.
+translation_table:
+  - field_a_term: folding funnel steepness near native basin
+    field_b_term: Polyak–Łojasiewicz-type gradient dominance parameter μ (when an appropriate smooth surrogate exists)
+    note: PL is defined for smooth objectives on Euclidean spaces; free energy surfaces require coarse-graining caveats.
+  - field_a_term: kinetic traps / misfolding
+    field_b_term: regions where gradient descent (on surrogates) stalls — violation of PL-like inequalities
+    note: Analogical; trap kinetics include entropy barriers not captured by deterministic gradient scaling alone.
+  - field_a_term: reaction coordinate Q (fraction native contacts)
+    field_b_term: chart on which a landscape surrogate f(Q) might be PL in toy models
+    note: One-dimensional projections lose frustration degrees of freedom.
+related_unknowns:
+  - u-protein-folding-pl-constant-coarse-grained-surrogate
+related_hypotheses:
+  - h-two-state-folders-admit-pl-like-surrogate-on-contact-order-parameter
+cross_pollination_opportunities:
+  - Build ML surrogates of molecular force fields restricted to low-dimensional collective variables; test PL constants vs folding rates.
+  - Compare neural network loss landscapes trained on protein energy proxies with folding funnel phenomenology in toy lattice proteins.
+communication_gap: >
+  Protein folders cite “funnels” qualitatively; optimization theorists prove PL guarantees for neural nets—cross-field
+  citations remain thin, and equating PL constants to physical barrier heights would be **speculative** without explicit coarse-graining.
+references:
+  - doi: "10.1073/pnas.95.10.5921"
+    note: "Onuchic et al. (1998) — folding funnels and reaction pathways (PNAS)."
+  - doi: "10.1007/978-3-319-46128-1_50"
+    note: "Karimi, Nutini & Schmidt (2016) — linear convergence under Polyak–Łojasiewicz (ECML PKDD proceedings)."
+last_reviewed: "2026-05-07"

@@ -1,0 +1,39 @@
+id: b-bayesian-inverse-imaging-x-uncertainty-quantification
+title: >
+  Bayesian inverse imaging translates PDE-constrained reconstruction into posterior uncertainty maps,
+  bridging deterministic regularization and statistical calibration.
+status: proposed
+fields:
+  - medical-imaging
+  - statistics
+  - applied-mathematics
+  - inverse-problems
+bridge_claim: >
+  Many imaging reconstructions solve ill-posed inverse problems with hand-tuned penalties, while
+  Bayesian inverse methods place priors on latent fields and infer posterior distributions that
+  expose uncertainty, not only point estimates. This creates a direct bridge between classical
+  regularization and calibrated confidence statements needed for clinical decision support.
+translation_table:
+  - field_a_term: Tikhonov/TV regularization parameter
+    field_b_term: prior precision and structure in Bayesian models
+    note: Hyperpriors convert fixed tuning into inferable uncertainty scales.
+  - field_a_term: inverse problem non-uniqueness
+    field_b_term: posterior multimodality and credible sets
+    note: Identifiability limits become explicit rather than hidden in a single reconstruction.
+  - field_a_term: forward-model mismatch
+    field_b_term: hierarchical likelihood error models
+    note: Model discrepancy can be propagated to voxelwise uncertainty.
+related_unknowns:
+  - u-bayesian-imaging-inverse-problem-posterior-calibration
+related_hypotheses:
+  - h-hierarchical-bayesian-priors-improve-imaging-inverse-coverage
+cross_pollination_opportunities:
+  - Port simulation-based calibration workflows from statistics into routine reconstruction QA pipelines.
+  - Adopt posterior predictive checks as a standard acceptance test for imaging reconstruction algorithms.
+communication_gap: >
+  Imaging papers often report reconstruction quality metrics only, while UQ work emphasizes posterior
+  validity; practitioners need both in a single operational protocol.
+references:
+  - doi: "10.1017/S0962492910000061"
+    note: "Stuart (2010), Bayesian inverse problems: foundations and algorithmic implications."
+last_reviewed: "2026-05-08"

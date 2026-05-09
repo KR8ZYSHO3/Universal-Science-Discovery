@@ -1,0 +1,33 @@
+id: h-gapped-ferrite-bias-point-maximizes-wpt-q-under-saturation-margin
+title: >
+  For MnZn pads used in Qi-class chargers, operating peak H-field ~60–70% of saturation minimizes hysteresis loss while
+  preserving coupling — yielding higher loaded Q than either under-driven (weak coupling) or saturated (μ collapse) regimes.
+status: active
+priority: medium
+impact_score: 0.43
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - doi: "10.1109/TPEL.2014.2336816"
+    type: related
+    confidence: 0.44
+    note: "Design practice stresses flux guidance but leaves nonlinear loss optimum implicit."
+  - type: related
+    confidence: 0.35
+    note: "Product geometries differ; hypothesis is **engineering-testable** but not universal."
+
+unknowns_addressed:
+  - u-soft-ferrite-nonlinear-permeability-wpt-harmonic-loss
+
+proposed_tests:
+  - description: >
+      Sweep transmit coil current at fixed gap; measure coil effective R(f) via impedance analyzer and thermal camera on ferrite;
+      locate Q maximum versus H_peak/H_sat inferred from B–H minor loops on coupon cores.
+    method: Harmonic current injection + calorimetry on ferrite coupons.
+    prediction: Clear interior optimum in Q vs drive current before saturation knee.
+
+related_disciplines:
+  - materials-science
+  - power-electronics

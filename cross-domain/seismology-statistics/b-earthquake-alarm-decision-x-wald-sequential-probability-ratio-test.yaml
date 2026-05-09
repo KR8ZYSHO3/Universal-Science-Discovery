@@ -1,0 +1,44 @@
+id: b-earthquake-alarm-decision-x-wald-sequential-probability-ratio-test
+title: >
+  Earthquake early warning public alerting is not pure estimation: stakeholders face sequential decisions under
+  latency — Wald’s sequential probability ratio test formalizes threshold policies balancing false alarms and misses,
+  complementing recursive Bayesian magnitude tracking (seismology ↔ sequential hypothesis testing).
+status: established
+fields:
+  - seismology
+  - statistics
+  - decision-theory
+  - civil-engineering
+bridge_claim: >
+  EEW systems trigger alerts when predicted shaking exceeds thresholds at sites with lead time > desired seconds.
+  Wald’s SPRT analyzes sequential likelihood ratios until crossing boundaries A,B controlling type-I/type-II error rates with
+  minimal expected sample size under i.i.d. assumptions (often violated in seismic noise). The bridge is conceptual but
+  operational: utilities tune thresholds knowing missed events and false alarms carry asymmetric losses — matching SPRT’s
+  controlled-error framing even when likelihood models are approximate.
+translation_table:
+  - field_a_term: likelihood ratio Λ_n after each incoming waveform snippet
+    field_b_term: Wald statistic compared to stopping boundaries
+    note: Real EEW uses heuristic thresholds and ensemble voting; SPRT is idealized baseline.
+  - field_a_term: false alarm vs missed event societal costs
+    field_b_term: asymmetric boundary selection in sequential tests
+    note: Civil protection emphasizes misses differently than laboratory QC applications.
+  - field_a_term: correlated aftershocks / nonstationary noise
+    field_b_term: SPRT i.i.d. assumptions break — requires martingale or robust variants
+    note: >
+      Bridge_claim caveat — **direct SPRT optimality is contested** under correlated seismic data.
+related_unknowns:
+  - u-earthquake-alert-threshold-sprt-under-correlated-noise
+related_hypotheses:
+  - h-aftershock-clustering-inflates-sprt-false-alarm-rate-fixed-boundaries
+cross_pollination_opportunities:
+  - Import online change-point robust likelihoods from finance jump detection into EEW likelihood ratios.
+  - Export EEW drill datasets to test sequential decision dashboards under realistic human-response delays.
+communication_gap: >
+  Operations centers speak thresholds and polygon alerts; mathematical statistics curricula teach Wald stopping—cross-training
+  between agencies and academic statistics remains uneven.
+references:
+  - doi: "10.1214/aoms/1177731118"
+    note: "Wald (1945) — sequential tests of statistical hypotheses (Ann. Math. Stat.)."
+  - doi: "10.1146/annurev.earth.031208.100055"
+    note: "Allen et al. (2009) — EEW systems overview providing operational decision context (Annu. Rev. Earth Planet. Sci.)."
+last_reviewed: "2026-05-07"

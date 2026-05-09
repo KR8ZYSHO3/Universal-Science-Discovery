@@ -1,0 +1,23 @@
+id: u-cut-cell-segmentation-interface-consistency
+title: >
+  Can explicit finite-volume-style flux consistency constraints at curved boundaries reduce topological leakage and boundary jitter in voxel medical segmentations compared with unconstrained CNN softmax outputs — without sacrificing recall?
+status: open
+priority: medium
+disciplines:
+  - medical-imaging
+  - numerical-methods
+summary: >
+  Partial-volume voxels admit fractional occupancy analogous to cut-cell volume fractions, yet deep networks rarely enforce discrete conservation or divergence constraints across slices. Physics-informed regularization may improve interface fidelity when validated against phantom surfaces with known geometry.
+systematic_gaps:
+  - Public MRI/CT volumes with subvoxel surface truth suitable for flux-style penalties near thin structures.
+  - Training protocols comparing Dice versus flux-balanced losses with matched compute budgets.
+suggested_hypotheses:
+  - h-cut-cell-conservative-flux-reduces-leakage-medical-seg
+related_bridges:
+  - b-cut-cell-finite-volume-x-voxel-medical-segmentation
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.1016/0021-9991(89)90035-1"
+    note: Berger & Colella (1989) — adaptive mesh refinement with embedded boundaries / refinement foundations (J Comput Phys).
+  - arxiv: "1505.04597"
+    note: Ronneberger et al. (2015) — U-Net segmentation baseline widely used in medical imaging (arXiv).

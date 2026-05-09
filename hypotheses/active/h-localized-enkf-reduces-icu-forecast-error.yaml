@@ -1,0 +1,30 @@
+id: h-localized-enkf-reduces-icu-forecast-error
+title: Covariance localization in ICU EnKF pipelines reduces 6-hour hemodynamic forecast
+  error versus non-localized baselines.
+status: active
+priority: high
+impact_score: 0.69
+created: '2026-05-08'
+last_updated: '2026-05-08'
+author: USDR
+evidence_links:
+- doi: 10.1115/1.3662552
+  type: related
+  confidence: 0.57
+  note: Kalman (1960) linear filtering and prediction.
+- doi: 10.1175/1520-0469(1994)051<1747:ROEOIA>2.0.CO;2
+  type: related
+  confidence: 0.57
+  note: Lorenc (1994) data assimilation foundations.
+unknowns_addressed:
+- u-ensemble-kalman-icu-parameter-identifiability
+proposed_tests:
+- description: Run a controlled retrospective benchmark with strict train/validation
+    temporal splits and ablation against accepted domain baselines.
+  method: Matched-protocol cross-validation plus uncertainty calibration audit.
+  prediction: Localized EnKF decreases median 6-hour MAP forecast MAE by at least
+    12% in retrospective ICU replay studies.
+related_disciplines:
+- medicine
+- control-engineering
+- bayesian-inference

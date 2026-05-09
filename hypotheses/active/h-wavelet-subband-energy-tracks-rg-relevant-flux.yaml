@@ -1,0 +1,28 @@
+id: h-wavelet-subband-energy-tracks-rg-relevant-flux
+title: >
+  For designated short-range Ising-family lattice models, energy flux captured in the first k dyadic wavelet subbands after block-spin RG steps will correlate monotonically with numerically integrated beta-function flow of nearest-neighbor coupling — falsified if wavelet bands mis-track operator relevance ranking versus spectrum of linearized RG at criticality.
+status: active
+priority: medium
+impact_score: 0.48
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - doi: "10.1109/34.192463"
+    type: related
+    confidence: 0.45
+    note: Mallat multiresolution formalism
+
+unknowns_addressed:
+  - u-rg-wavelet-beta-function-quantitative-map
+
+proposed_tests:
+  - description: >
+      Implement Daubechies wavelet filters on 2D Ising spin blocks during Monte Carlo RG iterations; regress subband energy changes against numerically estimated coupling drift.
+    method: Lattice simulation + wavelet packet bookkeeping at varying temperatures around critical point
+    prediction: Spearman ρ ≥ 0.7 between subband energy ranking and linearized RG relevance ordering at critical window
+
+related_disciplines:
+  - physics
+  - mathematics

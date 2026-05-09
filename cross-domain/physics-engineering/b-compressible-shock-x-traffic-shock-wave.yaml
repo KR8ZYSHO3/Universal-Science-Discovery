@@ -1,0 +1,38 @@
+id: b-compressible-shock-x-traffic-shock-wave
+title: >
+  Compressible gas dynamics describes shocks as discontinuities satisfying Rankine–Hugoniot jump conditions across characteristics — Lighthill–Whitham macroscopic traffic models treat vehicle density similarly, yielding kinematic shock waves propagating backward through queues — sharing hyperbolic conservation-law structure despite vastly different constitutive flux-density relations.
+status: established
+fields:
+  - fluid-mechanics
+  - transportation-engineering
+bridge_claim: >
+  Both Euler shocks and LWR traffic shocks arise where characteristics intersect in hyperbolic conservation laws ∂ρ/∂t + ∂q/∂x = 0 with closure q(ρ).
+  Rankine–Hugoniot speeds match observed jam propagation upstream — analogous to shock speeds from mass/momentum jumps in gases though microscopic physics differs entirely.
+  Pedagogically the analogy trains engineers to import numerical schemes (Godunov, ENO) across disciplines — while empirical fundamental diagrams differ from ideal gas closures.
+translation_table:
+  - field_a_term: Shock speed from RH jumps (gas dynamics)
+    field_b_term: Jam propagation speed for density discontinuities (traffic)
+    note: Same weak-solution jump conditions across conservation-law interfaces.
+  - field_a_term: Rarefaction fan expansion waves
+    field_b_term: Acceleration waves dispersing congested regions after green-light releases
+    note: Mathematical structure parallel though traffic uses concave/convex fundamental diagrams with varied shapes.
+  - field_a_term: Riemann problem initial discontinuity
+    field_b_term: Sudden braking front vs open road traffic initial condition
+    note: Shared textbook exercise framing for hyperbolic PDE courses cross-listed between departments.
+communication_gap: >
+  Applied math courses teach gas shocks first; transportation departments teaching LWR often omit explicit naming of Rankine–Hugoniot despite identical algebra — causing missed transfer when students cross-register.
+cross_pollination_opportunities:
+  - >
+    Shared lecture notebooks solving Sod shock tube vs traffic light release using identical finite-volume code skeletons with swapped flux functions.
+  - >
+    Import second-order traffic pressure models (Aw–Rascle–Zhang) alongside Navier–Stokes shock structure analogies for graduate reading seminars.
+related_unknowns:
+  - u-traffic-shock-microscopic-validation
+related_hypotheses:
+  - h-compressible-shock-x-traffic-shock-wave
+references:
+  - doi: "10.1098/rspa.1955.0068"
+    note: "Lighthill & Whitham (1955) Proc. R. Soc. — kinematic wave theory on roads (traffic shock foundations)"
+  - doi: "10.1017/CBO9780511791253"
+    note: "LeVeque — Finite Volume Methods for Hyperbolic Problems (shared conservation-law numerics)"
+last_reviewed: "2026-05-07"

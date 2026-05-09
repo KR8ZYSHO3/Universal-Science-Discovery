@@ -1,0 +1,21 @@
+id: u-deq-solver-tolerance-versus-generalization-gap
+title: >
+  How sensitive are DEQ generalization metrics to forward fixed-point solver tolerances and backward adjoint solve accuracy — does premature termination bias gradients enough to shift validation error beyond optimizer noise?
+status: open
+priority: medium
+disciplines:
+  - computer-science
+  - numerical-analysis
+summary: >
+  Practitioners tune tolerances heuristically; systematic ablations linking solver budgets to generalization and calibration curves remain limited in published benchmarks.
+systematic_gaps:
+  - Multi-seed studies isolating forward versus backward tolerance interactions on identical architectures
+  - Comparison of Jacobian-free adjoint approximations versus exact implicit differentiation in small models
+suggested_hypotheses:
+  - h-anderson-acceleration-deq-forward-steps-correlate-with-val-loss
+related_bridges:
+  - b-deep-equilibrium-models-x-fixed-point-iteration
+last_reviewed: "2026-05-07"
+references:
+  - doi: "10.48550/arXiv.1909.01377"
+    note: DEQ baseline motivating solver questions

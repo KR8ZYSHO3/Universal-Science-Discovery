@@ -1,0 +1,31 @@
+id: h-imex-time-stepping-expands-stable-reaction-diffusion-cfl
+title: >
+  For stiff reaction-diffusion systems, IMEX integrators increase the stable timestep envelope and
+  reduce qualitative artifact rates compared to purely explicit schemes at equal compute budget.
+status: active
+priority: medium
+impact_score: 0.6
+created: "2026-05-08"
+last_updated: "2026-05-08"
+author: USDR
+
+evidence_links:
+  - doi: "10.1017/S096249290200001X"
+    type: related
+    confidence: 0.45
+    note: "Structure- and stability-aware integration principles motivate stiff-split methods."
+
+unknowns_addressed:
+  - u-a-stability-region-operator-splitting-reaction-diffusion
+
+proposed_tests:
+  - description: >
+      Sweep timestep and stiffness regimes across canonical reaction-diffusion benchmarks; compare
+      instability incidence, phase errors, and compute cost for explicit vs IMEX families.
+    method: Reproducible solver benchmark suite with shared Jacobian-spectrum diagnostics.
+    prediction: IMEX methods achieve >=2x larger stable dt at equivalent artifact thresholds.
+
+related_disciplines:
+  - numerical-analysis
+  - computational-physics
+  - applied-mathematics

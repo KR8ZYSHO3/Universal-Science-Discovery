@@ -1,0 +1,35 @@
+id: h-zero-trust-control-raises-effective-percolation-threshold
+title: >
+  Implementing least-privilege identity segmentation and device compliance gates increases the effective
+  percolation threshold p_c on measured enterprise graphs, measurably shrinking giant-component probability in
+  Monte Carlo hop models seeded at random workstations.
+status: active
+priority: high
+impact_score: 0.7
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - url: "https://csrc.nist.gov/publications/detail/sp/800-207/final"
+    type: related
+    confidence: 0.6
+    note: "Architectural guidance consistent with raising p_c; not a mathematical proof by itself."
+  - doi: "10.1103/RevModPhys.45.574"
+    type: related
+    confidence: 0.55
+    note: "Percolation threshold language for interpreting simulations."
+
+unknowns_addressed:
+  - u-graph-percolation-lateral-movement-detection-threshold
+
+proposed_tests:
+  - description: >
+      Build before/after graphs from IAM exports across a zero-trust rollout; estimate reachability to
+      domain admin from random seeds via Monte Carlo percolation-style sampling.
+    method: Graph snapshots with ethical review; synthetic attacker policies.
+    prediction: Post-rollout reachability curves shift right (higher criticality) versus baseline.
+
+related_disciplines:
+  - cybersecurity
+  - mathematics

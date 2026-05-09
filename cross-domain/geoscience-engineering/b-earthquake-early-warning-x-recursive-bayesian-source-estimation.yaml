@@ -1,0 +1,44 @@
+id: b-earthquake-early-warning-x-recursive-bayesian-source-estimation
+title: >
+  Earthquake early warning systems fuse sparse P-wave arrivals into evolving magnitude and location estimates
+  before destructive S-waves arrive — the operational backbone is recursive Bayesian / Kalman-style updating of
+  seismic source parameters under latency constraints (seismology ↔ estimation theory).
+status: established
+fields:
+  - geophysics
+  - seismology
+  - control-engineering
+  - applied-mathematics
+bridge_claim: >
+  EEW pipelines ingest triggers from dense networks, invert for centroid stress drop proxies and magnitude as
+  data arrive; early magnitude estimates have large variance that contracts as more stations contribute—behavior
+  formally analogous to filtering states x_{t+1} = F(x_t) + w with observations y_t = H x_t + v. Methods vary
+  (template fitting vs earthquake nucleation priors), but the conceptual bridge is sequential Bayesian inference on
+  rupture evolution—not identical to mesoscale EnKF where localization dominates, but sharing the same update logic.
+translation_table:
+  - field_a_term: P-wave hypocenter pick latency Δt
+    field_b_term: filter initialization delay before first credible posterior on magnitude M
+    note: Blind zones near the epicenter reflect insufficient geometric aperture — analogous to unobservable partial states.
+  - field_a_term: Virtual seismogram stacks / finite-fault back-projection (as more data accrue)
+    field_b_term: innovation updates shrinking posterior covariance
+    note: Not a linear-Gaussian fault model in practice, but the information accrual pattern matches filtering.
+  - field_a_term: false/missed alert costs
+    field_b_term: decision-theoretic loss outside pure L2 estimation (ties to separate hypothesis testing bridge)
+    note: EEW is not only estimation; public alerting injects social loss functions.
+related_unknowns:
+  - u-earthquake-early-warning-bayesian-latency-magnitude-error
+related_hypotheses:
+  - h-eew-kalman-style-updates-tighten-magnitude-posterior-faster-with-dense-networks
+cross_pollination_opportunities:
+  - Cross-validate nucleation-based priors with particle filter seismology used in strong-motion engineering.
+  - Import robust M-estimators from geodesy to downweight outlier stations in real-time source inversion.
+communication_gap: >
+  Seismology operational documents describe “real-time source determination” with center-specific names; control
+  engineers recognize Kalman structure but may not know earth structure limitations (3D Green’s function errors)
+  that dominate “process noise” in EEW.
+references:
+  - doi: "10.1146/annurev.earth.031208.100055"
+    note: "Allen et al. (2009) — earthquake early warning systems (Annu. Rev. Earth Planet. Sci.)."
+  - doi: "10.1115/1.3662552"
+    note: "Kalman (1960) — linear filtering update algebra baseline (ASME J. Basic Eng.)."
+last_reviewed: "2026-05-07"

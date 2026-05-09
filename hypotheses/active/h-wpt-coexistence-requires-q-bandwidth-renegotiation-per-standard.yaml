@@ -1,0 +1,35 @@
+id: h-wpt-coexistence-requires-q-bandwidth-renegotiation-per-standard
+title: >
+  For fixed coil geometry, simultaneously satisfying two resonant WPT carrier frequencies at ≥90% of
+  single-carrier peak efficiency requires lowering loaded Q or splitting transmit/receive resonance — implying
+  per-standard impedance schedules rather than one universal high-Q tune.
+status: active
+priority: medium
+impact_score: 0.52
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - doi: "10.1126/science.1143254"
+    type: related
+    confidence: 0.55
+    note: "Strong-coupling regime validated at single carrier; multi-carrier extension unstated."
+  - doi: "10.1109/TPEL.2010.2073493"
+    type: related
+    confidence: 0.48
+    note: "Bandwidth-range coupling implies spectral width trades exist empirically."
+
+unknowns_addressed:
+  - u-wpt-narrowband-q-bandwidth-multi-standard-coexistence
+
+proposed_tests:
+  - description: >
+      Bench-test identical coil pairs at two tunable carriers with vector network analyzer sweeps; measure η(f₁,f₂)
+      grid versus loaded Q controlled by series resistance steps.
+    method: Two-port S-parameter extraction + DC load efficiency mapping.
+    prediction: Efficiency contours shrink elliptically in carrier-spacing/Q plane with ridge along lowered-Q diagonal.
+
+related_disciplines:
+  - electrical-engineering
+  - electromagnetism

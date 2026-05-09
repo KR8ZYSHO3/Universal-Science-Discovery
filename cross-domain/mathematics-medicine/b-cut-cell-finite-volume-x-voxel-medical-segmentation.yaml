@@ -1,0 +1,36 @@
+id: b-cut-cell-finite-volume-x-voxel-medical-segmentation
+title: >
+  Cartesian cut-cell and embedded-boundary finite-volume methods conservatively integrate hyperbolic conservation laws on grids that intersect curved interfaces — conceptually adjacent to voxelized medical image segmentation where partial-volume effects allocate tissue fractions across cubic cells, though clinical pipelines emphasize learned classifiers rather than explicit finite-volume flux bookkeeping.
+status: proposed
+fields:
+  - numerical-analysis
+  - computational-fluid-dynamics
+  - medical-imaging
+  - computer-science
+bridge_claim: >
+  Finite-volume schemes maintain discrete conservation ∑ F·n Δt across faces; cut-cell methods redistribute fluxes when an embedded boundary slices Cartesian cells. Voxel segmentation assigns partial tissue labels per voxel analogous to volume fractions — **speculative isomorphism**: both manipulate cell-wise occupancy against an implicit surface, yet CFD demands stability constraints (CFL, positivity) while segmentation CNNs optimize pixel-wise losses without guaranteeing discrete conservation laws. Transferable insight is mainly geometric: consistent partial-volume modeling mirrors cut-cell fraction definitions when surfaces intersect voxel grids.
+translation_table:
+  - field_a_term: cut-cell volume fraction α in intersected Cartesian cell
+    field_b_term: partial-volume fraction of tissue class i in MRI voxel
+    note: Shared geometric fraction idea — different validation targets (flux stability vs Dice score).
+  - field_a_term: ghost-fluid / face flux redistribution near boundaries
+    field_b_term: boundary-aware convolution / surface-aware loss weighting in segmentation networks
+    note: Algorithmic analogy — not identical mathematics.
+  - field_a_term: small-cell stability fixes (merging, redistribution)
+    field_b_term: morphological post-processing / topology constraints on segmentations
+    note: Both tackle irregular small features near interfaces.
+communication_gap: >
+  CFD workshops publish cut-cell stability proofs while MICCAI emphasizes benchmark Dice scores — partial-volume physics appears in MRI physics circles but rarely cites finite-volume literature vocabulary.
+cross_pollination_opportunities:
+  - Encode discrete divergence-free priors or flux-balanced losses as physics-informed regularizers for semantic segmentation near organ boundaries.
+  - Import explicit partial-volume forward models from MRI physics into cut-cell fraction estimation tutorials as unified geometry exercises.
+related_unknowns:
+  - u-cut-cell-segmentation-interface-consistency
+related_hypotheses:
+  - h-cut-cell-conservative-flux-reduces-leakage-medical-seg
+references:
+  - doi: "10.1016/0021-9991(89)90035-1"
+    note: Berger & Colella (1989) — local adaptive mesh refinement for shock hydrodynamics (embedded-boundary / refinement lineage informing cut-cell methods).
+  - arxiv: "1505.04597"
+    note: Ronneberger et al. (2015) — U-Net convolutional networks for biomedical image segmentation (MICCAI; arXiv preprint widely cited).
+last_reviewed: "2026-05-07"

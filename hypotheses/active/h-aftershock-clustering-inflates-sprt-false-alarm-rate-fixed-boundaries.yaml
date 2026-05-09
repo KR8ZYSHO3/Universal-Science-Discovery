@@ -1,0 +1,33 @@
+id: h-aftershock-clustering-inflates-sprt-false-alarm-rate-fixed-boundaries
+title: >
+  Holding Wald boundaries fixed, correlated aftershock waveforms increase the empirical weekly false-alert rate versus
+  nominal α predicted under independence — requiring inflation factors ~2–5× (scenario-dependent) for regulatory parity.
+status: active
+priority: high
+impact_score: 0.51
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - doi: "10.1214/aoms/1177731118"
+    type: related
+    confidence: 0.40
+    note: "Theory assumes independent increments; mismatch expected."
+  - type: related
+    confidence: 0.36
+    note: "Inflation factor numeric range is **speculative pending catalog replay studies**."
+
+unknowns_addressed:
+  - u-earthquake-alert-threshold-sprt-under-correlated-noise
+
+proposed_tests:
+  - description: >
+      Replay aftershock-rich intervals (e.g., Ridgecrest sequence) through EEW scoring engines with synthetic thresholds;
+      compare empirical alert clusters to Poisson null for independence.
+    method: Hazard-style bootstrap on waveform archives.
+    prediction: Clustering statistic rejects independence at p<0.01 for realistic tuning parameters.
+
+related_disciplines:
+  - seismology
+  - statistics

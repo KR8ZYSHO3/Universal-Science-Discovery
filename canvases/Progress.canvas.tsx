@@ -21,7 +21,7 @@ import {
 
 // @sync-dashboard-begin
 const dashboardSnapshot = {
-  lastUpdated: "2026-05-07 — **Waves 70–71 — 24 new bridges (post-merge totals: 904 bridges, 3,198 graph nodes)**:",
+  lastUpdated: "2026-05-09 — **Integration hygiene (MkDocs strict, graph orphan reporter, Wave Factory staging)**:",
   currentFocus: [
     "**arXiv preprint**: `docs/preprint/usdr_preprint.md` is ready; next step is PDF conversion and submission to cs.DL (author: Brandon Shoemaker).",
     "**Bridge count toward 1,000**: promote `drafts/bridges/` stubs; continue wave-based build.",

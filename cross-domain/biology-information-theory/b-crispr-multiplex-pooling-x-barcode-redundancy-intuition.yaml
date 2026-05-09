@@ -1,0 +1,35 @@
+id: b-crispr-multiplex-pooling-x-barcode-redundancy-intuition
+title: >
+  Multiplexed CRISPR perturbation screens pool many distinct guide RNAs or targets into bulk assays and infer genetic effects by decoding barcode identities — abstractly reminiscent of designing redundant identifiers so pooled measurements tolerate dropout or misreads — **not** claiming biological machinery implements Reed–Solomon codes; only an information-design analogy for experimental planning.
+status: proposed
+fields:
+  - biology
+  - information-theory
+  - genomics
+bridge_claim: >
+  High-throughput pooled CRISPR experiments assign binary-like signatures to perturbations so downstream sequencing demultiplexes signals — coding theory supplies intuition about Hamming distance and redundancy versus noise — practitioners borrow language (“barcodes”, “collision”) compatible with classical coding frameworks without implying cells execute Galois-field arithmetic on DNA — analogy aids primer layout and sequencing-depth budgeting.
+translation_table:
+  - field_a_term: sgRNA / barcode identifier attached to a perturbation construct
+    field_b_term: Codeword symbol in a block code alphabet
+    note: Informatics abstraction for pooled decoding responsibilities only.
+  - field_a_term: Sequencing dropout / PCR skew degrading identity calls
+    field_b_term: Erasure / asymmetric noise channels in coding theory
+    note: Shared worry motivates replicate libraries and diversity spacing.
+  - field_a_term: Multiplex pool complexity versus assay saturation
+    field_b_term: Code rate versus minimum distance tradeoffs (informal intuition)
+    note: Prevents oversubscribing pools without statistical separation guarantees.
+communication_gap: >
+  Molecular biologists adopt sequencing-heavy pooled screens faster than they absorb formal channel-capacity constraints; coding theorists seldom publish in CRISPR assay journals — metaphor bridges planning conversations without substituting for assay-specific validation.
+cross_pollination_opportunities:
+  - Workshop pairing primer-design optimization with Hamming-distance spacing constraints explicitly labeled as heuristics.
+  - Simulation notebooks estimating collision probability vs pool size using occupancy arguments borrowed from coding bounds (clearly labeled analogies).
+related_unknowns:
+  - u-crispr-multiplex-error-floor-vs-code-distance
+related_hypotheses:
+  - h-barcode-spacing-heuristic-lowers-decoding-error-measured-in-negative-controls
+references:
+  - doi: "10.1126/science.1247005"
+    note: "Shalem et al. (2014) — genome-scale CRISPR-Cas9 knockout screening in human cells"
+  - doi: "10.2307/1907238"
+    note: "Reed & Solomon (1960) — polynomial codes over certain finite fields"
+last_reviewed: "2026-05-07"

@@ -1,0 +1,35 @@
+id: b-deep-equilibrium-models-x-fixed-point-iteration
+title: >
+  Deep equilibrium networks (DEQs) define implicit layers by finding z* such that z* = f_θ(z*; x) — training uses implicit differentiation rooted in fixed-point / monotonic operator theory — connecting modern implicit deep learning to classical numerical analysis of Banach iterations, Anderson acceleration, and Jacobian-based sensitivity formulas.
+status: established
+fields:
+  - computer-science
+  - mathematics
+  - numerical-analysis
+bridge_claim: >
+  Forward inference solves z = f(z) via root-finding or fixed-point iteration; reverse-mode derivatives apply the implicit function theorem (I − J)^{-1} structure analogous to adjoint sensitivity analysis for equilibrium constraints — practical DEQs trade finite-depth unrolls for convergence diagnostics borrowed from numerical nonlinear equations literature.
+translation_table:
+  - field_a_term: fixed-point equation z = f_θ(z; x)
+    field_b_term: nonlinear residual F(z)=0 formulations in numerical analysis
+    note: Equivalent root-finding viewpoints with different solver emphasis.
+  - field_a_term: implicit differentiation via adjoint linear solve involving Jacobian inverse
+    field_b_term: sensitivity analysis of steady-state constrained dynamical systems
+    note: Same linear algebra backbone as equilibrium continuation methods at linear algebra level.
+  - field_a_term: solver tolerance ε controlling DEQ forward convergence
+    field_b_term: termination criteria in damped fixed-point / Newton-Krylov solvers
+    note: Shared engineering concerns about backward stability versus gradient bias.
+communication_gap: >
+  Deep learning courses spotlight autograd through layers while numerical PDE courses teach Newton–Krylov schemes — implicit neural papers deliberately reunify these traditions yet textbooks rarely cross-list prerequisites.
+cross_pollination_opportunities:
+  - Teach DEQs alongside Anderson acceleration demos using identical residual plots for toy residual maps.
+  - Export Krylov linear solvers from scientific computing libraries into DEQ backward passes with GPU batching patterns.
+related_unknowns:
+  - u-deq-solver-tolerance-versus-generalization-gap
+related_hypotheses:
+  - h-anderson-acceleration-deq-forward-steps-correlate-with-val-loss
+references:
+  - doi: "10.48550/arXiv.1909.01377"
+    note: "Bai, Kolter & Koltun (2019) — deep equilibrium models (ICLR)"
+  - doi: "10.1137/1.9781611970944"
+    note: "Kelley (1995) — iterative methods for linear and nonlinear equations (fixed-point foundation)"
+last_reviewed: "2026-05-07"

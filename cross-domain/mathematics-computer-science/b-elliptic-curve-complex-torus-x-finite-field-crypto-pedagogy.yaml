@@ -1,0 +1,35 @@
+id: b-elliptic-curve-complex-torus-x-finite-field-crypto-pedagogy
+title: >
+  Elliptic curves over ℂ form complex tori (compact genus-one Riemann surfaces) where the group law comes from analytic geometry — modern ECC uses curves over finite fields where points form finite Abelian groups with no literal torus topology; pedagogy often introduces the complex picture first for intuition, then warns that cryptographic security lives in discrete logarithms on 𝔽_q-rational points.
+status: established
+fields:
+  - mathematics
+  - computer-science
+  - cryptography
+bridge_claim: >
+  The chord-and-tangent group law is uniform across fields — explaining why textbooks illustrate ℂ/Λ pictorially — but security proofs and side-channel engineering operate on Galois cohomology, embedding degrees, and curve orders over finite fields — **the torus mental model must not be mistaken for the cryptographic group actually implemented**.
+translation_table:
+  - field_a_term: complex elliptic curve E(ℂ) ≅ ℂ/Λ as a torus
+    field_b_term: cyclic subgroups of E(𝔽_q) used in ECDH / ECDSA implementations
+    note: Same abstract group law definition; different topological pictures and arithmetic degrees.
+  - field_a_term: fundamental parallelogram periodicity
+    field_b_term: modular reduction of scalar multiplication k·P over 𝔽_q
+    note: Periodicity intuition motivates wrap-around diagrams only metaphorically for finite fields.
+  - field_a_term: analytic uniformization (Weierstrass ℘)
+    field_b_term: explicit formulas for point addition in projective coordinates on chip
+    note: Engineers implement rational formulas; analysts use expansions — complementary views.
+communication_gap: >
+  Algebraic geometry curricula visualize complex tori while applied cryptography courses jump straight to NIST curves — newcomers may over-identify torus geometry with protocol safety unless instructors foreground finite-field discrete logarithm hardness.
+cross_pollination_opportunities:
+  - Interactive notebooks plotting ℂ/Λ addition alongside 𝔽_p simulations with identical formal group laws but differing cardinality warnings.
+  - Pairing-based cryptography lectures coupling pairing divisors on curves with torus intuition while separating pairing-friendly parameter hazards.
+related_unknowns:
+  - u-ecc-torus-intuition-misconception-rates
+related_hypotheses:
+  - h-sequence-complex-torus-first-ecc-exam-performance
+references:
+  - doi: "10.1007/978-1-4612-0441-1"
+    note: "Silverman (1986/2009) — Arithmetic of Elliptic Curves (complex uniformization + general theory)"
+  - doi: "10.1007/978-1-4939-1711-7"
+    note: "Washington — Elliptic Curve Number Theory and Cryptography (finite-field protocols)"
+last_reviewed: "2026-05-07"

@@ -20,6 +20,16 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "docs" / "knowledge_graph.json"
 
+
+def _configure_stdio_utf8() -> None:
+    """Use UTF-8 for stdout/stderr so Unicode IDs/titles print on Windows consoles."""
+    for stream in (sys.stdout, sys.stderr):
+        try:
+            stream.reconfigure(encoding="utf-8")
+        except (AttributeError, OSError, ValueError):
+            pass
+
+
 # Cross-reference field names and their relation label
 EDGE_FIELDS: list[tuple[str, str]] = [
     ("related_unknowns",      "related_unknown"),
@@ -84,7 +94,8 @@ def extract_ref_ids(field_value: list | None) -> list[str]:
     return [i for i in ids if i]
 
 
-def build_graph() -> tuple[list[dict], list[dict]]:
+def build_nodes_and_raw_edges() -> tuple[list[dict], list[dict]]:
+    """Collect nodes and every cross-reference edge before orphan filtering."""
     nodes: list[dict] = []
     edges: list[dict] = []
     seen_edges: set[tuple[str, str, str]] = set()
@@ -139,7 +150,14 @@ def build_graph() -> tuple[list[dict], list[dict]]:
                         "relation": relation,
                     })
 
-    # Filter out orphan edges (endpoints not present in node set)
+    return nodes, edges
+
+
+def filter_orphan_edges(
+    nodes: list[dict],
+    edges: list[dict],
+) -> tuple[list[dict], int]:
+    """Drop edges whose source or target ID is missing from the node set."""
     node_ids = {n["id"] for n in nodes}
     valid_edges: list[dict] = []
     orphan_count = 0
@@ -154,8 +172,12 @@ def build_graph() -> tuple[list[dict], list[dict]]:
             "(endpoints not in node set)",
             file=sys.stderr,
         )
-    edges = valid_edges
+    return valid_edges, orphan_count
 
+
+def build_graph() -> tuple[list[dict], list[dict]]:
+    nodes, edges = build_nodes_and_raw_edges()
+    edges, _orphan_count = filter_orphan_edges(nodes, edges)
     return nodes, edges
 
 
@@ -179,6 +201,11 @@ def top_nodes_by_degree(
 
 
 def main() -> int:
+    _configure_stdio_utf8()
+    args = [a for a in sys.argv[1:] if a]
+    if "--report-orphans" in args:
+        return report_orphan_cross_refs()
+
     print("Building USDR knowledge graph…")
     nodes, edges = build_graph()
 
@@ -205,6 +232,42 @@ def main() -> int:
         short_title = (title[:70] + "…") if len(title) > 70 else title
         print(f"  {rank}. {nid}  (degree={deg})  {short_title}")
 
+    return 0
+
+
+def report_orphan_cross_refs() -> int:
+    """Print missing edge endpoints (helps fix stale YAML cross-references)."""
+    nodes, raw_edges = build_nodes_and_raw_edges()
+    node_ids = {n["id"] for n in nodes}
+    missing_sources: dict[str, int] = defaultdict(int)
+    missing_targets: dict[str, int] = defaultdict(int)
+    for edge in raw_edges:
+        if edge["source"] not in node_ids:
+            missing_sources[edge["source"]] += 1
+        if edge["target"] not in node_ids:
+            missing_targets[edge["target"]] += 1
+
+    print("Orphan cross-reference report (IDs referenced but not in graph)")
+    print(f"  Nodes in graph: {len(node_ids)}")
+    print(f"  Raw edges: {len(raw_edges)}")
+    missing_tgt_sorted = sorted(
+        missing_targets.items(),
+        key=lambda x: (-x[1], x[0]),
+    )
+    missing_src_sorted = sorted(
+        missing_sources.items(),
+        key=lambda x: (-x[1], x[0]),
+    )
+    print(f"\nMissing targets ({len(missing_tgt_sorted)} distinct IDs):")
+    for tid, cnt in missing_tgt_sorted[:40]:
+        print(f"  {cnt:5d}  {tid}")
+    if len(missing_tgt_sorted) > 40:
+        print(f"  ... and {len(missing_tgt_sorted) - 40} more")
+    print(f"\nMissing sources ({len(missing_src_sorted)} distinct IDs):")
+    for sid, cnt in missing_src_sorted[:15]:
+        print(f"  {cnt:5d}  {sid}")
+    if len(missing_src_sorted) > 15:
+        print(f"  ... and {len(missing_src_sorted) - 15} more")
     return 0
 
 

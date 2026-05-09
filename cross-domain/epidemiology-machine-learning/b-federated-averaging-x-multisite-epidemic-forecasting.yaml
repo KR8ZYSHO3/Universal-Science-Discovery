@@ -1,0 +1,32 @@
+id: b-federated-averaging-x-multisite-epidemic-forecasting
+title: Federated averaging bridges distributed optimization and multi-site epidemic forecasting when patient-level data sharing is constrained.
+status: proposed
+fields:
+- epidemiology
+- machine-learning
+- distributed-systems
+bridge_claim: 'Speculative analogy (to be empirically validated): FedAvg-style decentralized optimization can combine geographically distributed surveillance models while preserving local governance constraints and reducing centralization bottlenecks.'
+translation_table:
+- field_a_term: client update
+  field_b_term: site-specific epidemiologic model gradient
+  note: Each health system contributes local parameter shifts.
+- field_a_term: server aggregation
+  field_b_term: regional consensus forecast
+  note: Weighted aggregation approximates pooled learning without raw-data transfer.
+- field_a_term: non-IID drift
+  field_b_term: cross-site outbreak heterogeneity
+  note: Performance depends on heterogeneity-aware aggregation.
+related_unknowns:
+- u-federated-epidemic-model-drift-across-sites
+related_hypotheses:
+- h-federated-ensembles-improve-cross-site-epidemic-generalization
+cross_pollination_opportunities:
+- Use federated optimization diagnostics to detect when local outbreak dynamics are too divergent for pooled updates.
+- Pair privacy-preserving analytics with public-health governance audits to improve trust and adoption.
+communication_gap: Public-health teams focus on policy-timely reliability, while federated ML studies often optimize communication efficiency on benchmark datasets.
+last_reviewed: '2026-05-08'
+references:
+- arxiv: '1602.05629'
+  note: Communication-Efficient Learning of Deep Networks from Decentralized Data (FedAvg).
+- url: https://www.who.int/emergencies/surveillance
+  note: WHO disease surveillance context.

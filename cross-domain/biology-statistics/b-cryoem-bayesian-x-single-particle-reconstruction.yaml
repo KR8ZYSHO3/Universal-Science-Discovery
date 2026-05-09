@@ -1,0 +1,39 @@
+id: b-cryoem-bayesian-x-single-particle-reconstruction
+title: >
+  Single-particle cryo-EM reconstructs 3D density maps by aligning noisy particle images whose orientations are latent variables — Bayesian posteriors over maps and alignment parameters (e.g., RELION marginalization) mirror hierarchical inverse problems in statistics where hyperpriors stabilize ill-posed tomographic reconstruction under extreme noise.
+status: established
+fields:
+  - structural-biology
+  - statistics
+  - inverse-problems
+bridge_claim: >
+  Cryo-EM SPA treats each micrograph particle as a noisy projection of an unknown 3D volume V(r); orientation θ is hidden per particle.
+  Algorithms alternate between refining θ estimates and updating V — analogous to expectation-maximization yet modern pipelines incorporate explicit Bayesian priors on map smoothness and marginalize uncertainties.
+  This mirrors statistical inverse problems: likelihood from electron optics forward model + regularizing prior yields MAP or posterior samples; empirical Bayes tuning of priors parallels shrinkage methods in high-dimensional statistics.
+translation_table:
+  - field_a_term: Latent orientation θ per particle (cryo-EM)
+    field_b_term: Missing nuisance parameters in hierarchical Bayesian models
+    note: Both require marginalization or optimization over large latent spaces.
+  - field_a_term: 3D volume V(r) reconstruction
+    field_b_term: Unknown high-dimensional parameter with tomographic forward operator A_θ
+    note: Linearized forward models resemble Radon-like operators under weak-phase object approximations.
+  - field_a_term: Gold-standard FSC resolution metrics
+    field_b_term: Posterior predictive checks / cross-validation splits in Bayesian inverse problems
+    note: Both assess reliability rather than point estimates alone.
+communication_gap: >
+  Structural biology training emphasizes hardware and sample prep more than Bayesian hierarchical modeling; statistics departments rarely assign cryo-EM datasets despite pedagogical value for non-asymptotic inverse problems.
+cross_pollination_opportunities:
+  - >
+    Import shrinkage priors from spike-and-slab variable selection into map denoising for sub-2 Å reconstructions with uncertainty quantification maps for drug discovery risk assessment.
+  - >
+    Export expectation-propagation ideas from cryo-EM software back into astronomical weak lensing tomography with similar latent orientation nuisances.
+related_unknowns:
+  - u-cryoem-bayesian-map-calibration-across-platforms
+related_hypotheses:
+  - h-cryoem-bayesian-x-single-particle-reconstruction
+references:
+  - doi: "10.1038/nmeth.1907"
+    note: "Scheres (2012) Nature Methods — Bayesian approach for cryo-EM structure determination with RELION"
+  - doi: "10.1073/pnas.0305949101"
+    note: "Frank (2004) PNAS perspective — single-particle reconstruction trajectory"
+last_reviewed: "2026-05-07"

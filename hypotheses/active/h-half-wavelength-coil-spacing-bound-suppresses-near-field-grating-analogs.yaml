@@ -1,0 +1,32 @@
+id: h-half-wavelength-coil-spacing-bound-suppresses-near-field-grating-analogs
+title: >
+  When driven at wireless charging frequencies with phased currents, planar coil mats exhibit peak stray-field sidelobe growth
+  once lateral spacing exceeds ~0.35–0.45× the effective magnetic wavelength in the coupled medium — motivating spacing caps even when classical half-wave far-field grating criteria do not literally apply.
+status: active
+priority: medium
+impact_score: 0.40
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - doi: "10.1109/TPEL.2013.2279268"
+    type: related
+    confidence: 0.39
+    note: "Multi-coil contexts motivate interference thinking."
+  - type: related
+    confidence: 0.31
+    note: "Effective wavelength in ferrite-backed substrates differs from air — numerical prefactor **speculative**."
+
+unknowns_addressed:
+  - u-multi-coil-wpt-array-grating-lobes-cross-talk
+
+proposed_tests:
+  - description: >
+      Full-wave simulate 1×N coil mats with ferrite backing at varied spacing; extract magnetic field peak sidelobe index versus spacing normalized by computed effective wavelength from dispersion curve.
+    method: FEM + harmonic steady-state; sweep phase schedules mimicking beam steering.
+    prediction: Sidelobe ratio rises sharply beyond empirical spacing threshold band.
+
+related_disciplines:
+  - electrical-engineering
+  - electromagnetism

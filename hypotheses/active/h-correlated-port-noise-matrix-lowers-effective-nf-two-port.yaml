@@ -1,0 +1,34 @@
+id: h-correlated-port-noise-matrix-lowers-effective-nf-two-port
+title: >
+  For coupled antenna ports whose Johnson–Nyquist noise shares a common physical resistor network, the
+  effective scalar noise figure of an optimized linear combiner can fall below the Friis cascade of individual
+  branches — correlated equilibrium noise is partially cancellable like classical common-mode subtraction.
+status: active
+priority: medium
+impact_score: 0.50
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - doi: "10.1103/PhysRev.32.97"
+    type: related
+    confidence: 0.45
+    note: "Johnson equilibrium thermal noise baseline; correlations arise from shared dissipative elements."
+  - type: related
+    confidence: 0.40
+    note: "Speculative for classical RF; quantum squeezing uses different mechanisms — analogy must not be conflated."
+
+unknowns_addressed:
+  - u-rf-noise-figure-two-port-correlation-matrix-room-temperature
+
+proposed_tests:
+  - description: >
+      Fabricate a weakly coupled two-port antenna structure; measure full 2×2 noise covariance vs temperature;
+      compare optimum beamformer output noise to scalar Friis prediction from branch NF alone.
+    method: Cold/hot noise source calibration at both ports with correlation estimation.
+    prediction: Output noise temperature drops measurably below Friis stack when common resistor branches dominate covariance.
+
+related_disciplines:
+  - electrical-engineering
+  - statistical-physics

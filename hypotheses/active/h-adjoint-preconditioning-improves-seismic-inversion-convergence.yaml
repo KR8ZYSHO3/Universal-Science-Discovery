@@ -1,0 +1,30 @@
+id: h-adjoint-preconditioning-improves-seismic-inversion-convergence
+title: Applying backprop-inspired gradient normalization to adjoint seismic inversion
+  reduces early-iteration misfit stagnation.
+status: active
+priority: high
+impact_score: 0.69
+created: '2026-05-08'
+last_updated: '2026-05-08'
+author: USDR
+evidence_links:
+- doi: 10.1111/j.1365-246X.2005.02489.x
+  type: related
+  confidence: 0.57
+  note: Tromp et al. (2005) adjoint-state sensitivity framework.
+- doi: 10.1038/323533a0
+  type: related
+  confidence: 0.57
+  note: Rumelhart et al. (1986) backpropagation in multilayer networks.
+unknowns_addressed:
+- u-adjoint-seismic-backprop-gradient-stability
+proposed_tests:
+- description: Run a controlled retrospective benchmark with strict train/validation
+    temporal splits and ablation against accepted domain baselines.
+  method: Matched-protocol cross-validation plus uncertainty calibration audit.
+  prediction: Normalized adjoint gradients improve first-50-iteration waveform misfit
+    reduction by at least 15% on noisy field-like datasets.
+related_disciplines:
+- geophysics
+- computer-science
+- optimization

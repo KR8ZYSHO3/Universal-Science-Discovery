@@ -1,0 +1,35 @@
+id: b-elastic-net-map-x-laplace-gaussian-composite-prior
+title: >
+  Elastic net regularization can be read as MAP estimation under a composite sparsity-and-shrinkage prior: the L1 term behaves like a Laplace prior, while the L2 term behaves like a Gaussian prior that stabilizes correlated predictors.
+status: established
+fields:
+  - statistics
+  - machine-learning
+  - computer-science
+bridge_claim: >
+  The bridge makes the frequentist penalty/Bayesian prior equivalence explicit for model selection under correlated designs. It is useful for calibrating regularization paths, but posterior uncertainty requires a full probabilistic model rather than only the MAP optimum.
+translation_table:
+  - field_a_term: L1 penalty
+    field_b_term: Laplace sparsity prior
+    note: MAP equivalence for sparsity.
+  - field_a_term: L2 penalty
+    field_b_term: Gaussian shrinkage prior
+    note: MAP equivalence for ridge stabilization.
+  - field_a_term: grouping effect for correlated predictors
+    field_b_term: prior-induced sharing of coefficient mass
+    note: Interpretability depends on calibration.
+communication_gap: >
+  ML implementations present alpha and l1_ratio as optimizer knobs, while Bayesian statisticians discuss prior scale and posterior sensitivity.
+cross_pollination_opportunities:
+  - Express elastic-net tuning grids as prior-scale grids for domain experts.
+  - Benchmark posterior-inspired stability diagnostics against cross-validation-only selection.
+related_unknowns:
+  - u-elastic-net-prior-calibration-under-correlated-designs
+related_hypotheses:
+  - h-mixing-parameter-matches-posterior-sparsity-stability-curves
+references:
+  - doi: "10.1111/j.1467-9868.2005.00503.x"
+    note: Zou and Hastie (2005) elastic net.
+  - doi: "10.1198/016214508000000337"
+    note: Park and Casella Bayesian lasso context for L1 as Laplace prior.
+last_reviewed: "2026-05-07"

@@ -1,0 +1,32 @@
+id: b-simclr-x-multiomics-latent-alignment
+title: Contrastive representation learning bridges SimCLR invariance objectives and multi-omics latent alignment across assay modalities.
+status: proposed
+fields:
+- systems-biology
+- machine-learning
+- statistics
+bridge_claim: 'Speculative analogy (to be empirically validated): contrastive objectives that maximize agreement between paired views can align transcriptomic, epigenomic, and proteomic profiles into shared latent coordinates while suppressing batch artifacts.'
+translation_table:
+- field_a_term: positive pair
+  field_b_term: matched multi-omic sample views
+  note: Paired modalities define cross-view consistency targets.
+- field_a_term: augmentation invariance
+  field_b_term: batch-effect robustness
+  note: Invariance regularization may reduce assay-specific nuisance variation.
+- field_a_term: temperature-scaled contrastive loss
+  field_b_term: modality-separation control
+  note: Temperature tunes inter-class versus intra-class compactness.
+related_unknowns:
+- u-simclr-multiomics-batch-effect-collapse-risk
+related_hypotheses:
+- h-contrastive-pretraining-improves-multiomics-transfer-stability
+cross_pollination_opportunities:
+- Build modality-missingness benchmarks to compare contrastive pretraining and probabilistic harmonization methods.
+- Use single-cell perturbation datasets to test whether aligned latents preserve causal biological response structure.
+communication_gap: Contrastive ML benchmarks emphasize generic transfer, while systems biology requires mechanistic interpretability and assay-aware uncertainty estimates.
+last_reviewed: '2026-05-08'
+references:
+- arxiv: '2002.05709'
+  note: A Simple Framework for Contrastive Learning of Visual Representations (SimCLR).
+- url: https://www.nature.com/articles/s41586-021-03922-0
+  note: Representative multi-omics atlas motivation.

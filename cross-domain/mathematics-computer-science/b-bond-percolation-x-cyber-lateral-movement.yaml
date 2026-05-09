@@ -1,0 +1,44 @@
+id: b-bond-percolation-x-cyber-lateral-movement
+title: >
+  Bond/site percolation thresholds on graphs ↔ lateral movement probability and blast-radius growth in
+  enterprise networks (probability ↔ cybersecurity)
+status: proposed
+fields:
+  - mathematics
+  - computer-science
+  - cybersecurity
+  - network-science
+bridge_claim: >
+  Lateral movement after initial compromise is often modeled as random or attacker-chosen hops on a graph
+  of hosts, accounts, and trust relationships. Bond percolation (edges open with probability p) and site
+  percolation (nodes compromised) both exhibit a sharp emergence of giant connected components near p_c.
+  Defensive segmentation raises p_c by pruning edges or hardening nodes. The mapping is mathematical and
+  operational: red-team paths resemble percolation exploration, while blue teams seek to keep the compromised
+  subgraph subcritical. Human adaptivity breaks strict Bernoulli assumptions, so p is at best an effective
+  parameter summarizing controls, patching cadence, and credential hygiene.
+translation_table:
+  - field_a_term: bond occupation probability p
+    field_b_term: probability an exposed trust edge is actually usable by an intruder
+    note: Controlled by MFA, tiering, and least privilege.
+  - field_a_term: giant component emergence at p_c
+    field_b_term: domain-wide compromise reachable from one foothold
+    note: Operational blast radius analog.
+  - field_a_term: finite-size scaling near threshold
+    field_b_term: probability that a red-team exercise reaches crown-jewel assets in bounded time
+    note: Stress-test interpretation.
+related_unknowns:
+  - u-graph-percolation-lateral-movement-detection-threshold
+related_hypotheses:
+  - h-zero-trust-control-raises-effective-percolation-threshold
+cross_pollination_opportunities:
+  - Import percolation finite-size scaling estimators to quantify how often tabletop exercises should be rerun as graphs drift.
+  - Export MITRE ATT&CK tactic chains as empirical edge sets to calibrate graph generators against Bernoulli baselines.
+communication_gap: >
+  Security vendors rarely publish topology sufficient for percolation fits; mathematicians rarely encode
+  MFA, conditional access, or EDR containment in edge probabilities. Shared datasets are scarce.
+references:
+  - doi: "10.1103/RevModPhys.45.574"
+    note: "Essam (1973) — percolation theory review (classical mathematical anchor)."
+  - url: "https://csrc.nist.gov/publications/detail/sp/800-207/final"
+    note: "NIST SP 800-207 — Zero Trust Architecture (defensive segmentation framing)."
+last_reviewed: "2026-05-07"

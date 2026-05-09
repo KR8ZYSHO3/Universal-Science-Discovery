@@ -1,0 +1,37 @@
+id: b-metabolic-control-analysis-x-local-sensitivity
+title: >
+  Metabolic control analysis (MCA) defines flux control coefficients C^J_i = (∂ln|J|/∂ln p_i) as logarithmic sensitivities of steady-state pathway fluxes to enzyme activities — structurally identical to normalized Jacobian sensitivities and elasticity coefficients in nonlinear dynamical systems theory applied to biochemical networks.
+status: established
+fields:
+  - systems-biology
+  - mathematics
+bridge_claim: >
+  MCA summarizes how small parameter perturbations around steady states propagate to fluxes — directly analogous to sensitivity analysis of steady solutions of ODEs dx/dt = f(x,p) where ∂x/∂p solves an adjoint linearization.
+  Summation and connectivity theorems constrain coefficient networks — mirroring conservation laws arising from stoichiometry matrices — embedding MCA inside broader matrix calculus used in numerical optimization and dynamical systems.
+translation_table:
+  - field_a_term: Flux control coefficient C^J_i (MCA)
+    field_b_term: ∂ln J / ∂ln v_i steady-state sensitivity (implicit differentiation)
+    note: Matches logarithmic derivatives common in uncertainty quantification of kinetic models.
+  - field_a_term: Elasticity ε^v_j = ∂ln v / ∂ln s_j
+    field_b_term: Partial derivative of rate law w.r.t. substrate in Jacobian blocks
+    note: Same local linearization objects assembled into scaled Jacobian matrices.
+  - field_a_term: Summation theorem Σ_i C^J_i = 1 (for simple chains under stated assumptions)
+    field_b_term: Matrix identities linking rows of sensitivity matrices to conserved stoichiometric subspaces
+    note: Structural constraints analogous to rank-nullspace projections in mass-balance ODEs.
+communication_gap: >
+  Biochemical MCA literature uses enzyme-centric notation uncommon in math departments; conversely pure sensitivity-analysis textbooks rarely cite connectivity theorems discovered in metabolic control papers.
+cross_pollination_opportunities:
+  - >
+    Automatic differentiation frameworks for genome-scale kinetic models could export standardized MCA tables alongside engineering-style Sobol indices for uncertainty comparisons on identical models.
+  - >
+    Teach implicit function theorem proofs simultaneously using MCA summation theorems as motivating biochemical examples in graduate applied analysis courses.
+related_unknowns:
+  - u-mca-global-sensitivity-beyond-log-linear
+related_hypotheses:
+  - h-metabolic-control-analysis-x-local-sensitivity
+references:
+  - doi: "10.1016/0076-6879(86)13086-1"
+    note: "Fell, Sauro & Small (1986) Methods in Enzymology — control analysis methods and matrix formulation"
+  - doi: "10.1016/0301-4622(95)90002-5"
+    note: "Fell (1995) J. Theor. Biol. — review of metabolic control in pathway context"
+last_reviewed: "2026-05-07"

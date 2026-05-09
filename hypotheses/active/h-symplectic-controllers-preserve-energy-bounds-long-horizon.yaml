@@ -1,0 +1,31 @@
+id: h-symplectic-controllers-preserve-energy-bounds-long-horizon
+title: >
+  In mechanics-dominated planning tasks, symplectic rollout models produce lower long-horizon energy
+  drift and fewer constraint violations than non-symplectic integrators at comparable runtime.
+status: active
+priority: medium
+impact_score: 0.58
+created: "2026-05-08"
+last_updated: "2026-05-08"
+author: USDR
+
+evidence_links:
+  - doi: "10.1017/S096249290200001X"
+    type: related
+    confidence: 0.57
+    note: "Long-time conservation properties motivate reduced rollout bias in control pipelines."
+
+unknowns_addressed:
+  - u-symplectic-discretization-bias-long-horizon-control
+
+proposed_tests:
+  - description: >
+      Evaluate identical controllers with symplectic vs non-symplectic internal rollout models over
+      long episodes; track invariant drift and safety-constraint violations.
+    method: Shared benchmark suite spanning underactuated mechanical systems.
+    prediction: Symplectic rollouts reduce cumulative constraint violations by >=15%.
+
+related_disciplines:
+  - control-engineering
+  - applied-mathematics
+  - robotics

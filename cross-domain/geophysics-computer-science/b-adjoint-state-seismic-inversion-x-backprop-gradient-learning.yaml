@@ -1,0 +1,40 @@
+id: b-adjoint-state-seismic-inversion-x-backprop-gradient-learning
+title: Adjoint-state seismic inversion and neural-network backpropagation share the
+  same reverse-mode gradient calculus.
+status: proposed
+fields:
+- geophysics
+- computer-science
+- inverse-problems
+- optimization
+bridge_claim: Both full-waveform seismic inversion and deep learning compute gradients
+  by propagating sensitivities backward through a forward model. The mapping is non-trivial
+  because it lets geophysics borrow optimization diagnostics from ML and lets ML borrow
+  PDE-constrained preconditioning from geophysics.
+translation_table:
+- field_a_term: Forward wave simulation
+  field_b_term: Forward neural pass
+  note: Both generate state trajectories used by the reverse pass.
+- field_a_term: Adjoint wavefield
+  field_b_term: Backpropagated error signal
+  note: Both are reverse-mode automatic differentiation objects.
+- field_a_term: "Fr\xE9chet kernel"
+  field_b_term: Parameter gradient
+  note: Both encode sensitivity of loss to parameters.
+related_unknowns:
+- u-adjoint-seismic-backprop-gradient-stability
+related_hypotheses:
+- h-adjoint-preconditioning-improves-seismic-inversion-convergence
+cross_pollination_opportunities:
+- Build shared benchmark datasets with identical uncertainty-reporting protocols across
+  both domains.
+- Compare baseline domain-specific workflows against explicitly transferred methods
+  under matched compute budgets.
+communication_gap: Adjacent communities use different software stacks and validation
+  norms, so mathematically equivalent tools are often rediscovered in parallel.
+references:
+- doi: 10.1111/j.1365-246X.2005.02489.x
+  note: Tromp et al. (2005) adjoint-state sensitivity framework.
+- doi: 10.1038/323533a0
+  note: Rumelhart et al. (1986) backpropagation in multilayer networks.
+last_reviewed: '2026-05-08'

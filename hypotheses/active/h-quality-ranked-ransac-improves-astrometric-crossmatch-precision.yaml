@@ -1,0 +1,24 @@
+id: h-quality-ranked-ransac-improves-astrometric-crossmatch-precision
+title: >
+  In simulated astronomical cross-matching with clustered artifacts, quality-ranked RANSAC sampling will reduce false matches by at least 20 percent versus uniform RANSAC at fixed recall; falsified if ranked sampling overfits survey-quality flags and loses recall.
+status: active
+priority: medium
+impact_score: 0.38
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+evidence_links:
+  - doi: "10.1145/358669.358692"
+    type: related
+    confidence: 0.45
+    note: Fischler and Bolles (1981) RANSAC.
+unknowns_addressed:
+  - u-astronomical-source-matching-structured-outlier-robustness
+proposed_tests:
+  - description: >
+      Create sky-patch matching simulations with known transformations and structured artifacts; compare uniform RANSAC, ranked RANSAC, and domain-specific matchers.
+    method: Synthetic-plus-real survey benchmark with fixed metrics.
+    prediction: Ranked RANSAC reduces false-match rate by >= 20 percent at matched recall.
+related_disciplines:
+  - astronomy
+  - robust-statistics

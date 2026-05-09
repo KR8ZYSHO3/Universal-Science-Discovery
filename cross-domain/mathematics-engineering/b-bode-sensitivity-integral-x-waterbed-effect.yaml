@@ -1,0 +1,43 @@
+id: b-bode-sensitivity-integral-x-waterbed-effect
+title: >
+  Bode’s sensitivity integral for minimum-phase plants ↔ the “waterbed effect” tradeoff in LQG/H-infinity
+  robust control (classical control ↔ robust control theory)
+status: established
+fields:
+  - control-engineering
+  - mathematics
+  - robust-control
+bridge_claim: >
+  For stable single-input single-output linear time-invariant systems that are minimum phase, Bode’s
+  sensitivity integral forces integral of log|S(jω)| over frequency to equal zero when using standard
+  weighting conventions—improving disturbance rejection in one band necessarily worsens it elsewhere, the
+  literal waterbed tradeoff. Modern robust control (mixed-sensitivity H-infinity, structured singular values)
+  formalizes this as optimization under convex relaxations. The bridge is pedagogical and mathematical: both
+  communities teach that conservation-like constraints on sensitivity shapes are unavoidable once stability
+  and causality are enforced, even if MIMO extensions and non-minimum-phase zeros complicate the story.
+translation_table:
+  - field_a_term: sensitivity S = 1/(1+PC)
+    field_b_term: closed-loop transfer from disturbance to output in standard feedback diagram
+    note: Same object, different notation across textbooks.
+  - field_a_term: Bode integral of log|S|
+    field_b_term: waterbed constraint on achievable sensitivity templates
+    note: Minimum-phase case gives the starkest zero-sum picture.
+  - field_a_term: complementary sensitivity T = PC/(1+PC)
+    field_b_term: noise amplification / robustness to multiplicative uncertainty
+    note: Classic S+T=1 algebraic coupling.
+related_unknowns:
+  - u-bode-waterbed-multi-loop-multi-objective-tradeoffs
+related_hypotheses:
+  - h-minimum-phase-plants-attain-tighter-bode-bounds
+cross_pollination_opportunities:
+  - Export MIMO generalizations of sensitivity integrals to cross-layer networking control where security and performance trade.
+  - Use waterbed diagrams to explain why simultaneous strong disturbance rejection and aggressive tracking is impossible without changing plant or sensor architecture.
+communication_gap: >
+  Classical Bode lectures emphasize graphical Nyquist/Bode plots; modern robust control emphasizes LMIs and
+  synthesis software. Students may miss that the integral constraints are the same physical content.
+references:
+  - doi: "10.1109/TAC.1978.1101643"
+    note: "Doyle (1978) — guaranteed margins for LQG regulators; classic waterbed framing."
+  - doi: "10.1109/9.570020"
+    note: "Freudenberg & Looze (1985) — right half-plane zeros and design tradeoffs (IEEE Trans. Automat. Control)."
+last_reviewed: "2026-05-07"

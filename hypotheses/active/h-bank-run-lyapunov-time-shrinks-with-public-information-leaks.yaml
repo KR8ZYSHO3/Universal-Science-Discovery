@@ -1,0 +1,34 @@
+id: h-bank-run-lyapunov-time-shrinks-with-public-information-leaks
+title: >
+  In stylized withdrawal-belief dynamics, credible leaks that reduce deposit-insurance trust shrink the
+  effective divergence timescale between nearby trajectories — a metaphorical Lyapunov time — but real
+  payment systems may saturate due to circuit breakers; treat as hypothesis not theorem.
+status: active
+priority: medium
+impact_score: 0.48
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - doi: "10.2307/1884828"
+    type: related
+    confidence: 0.58
+    note: "Foundational multiple-equilibrium framing for runs."
+  - type: related
+    confidence: 0.35
+    note: "Lyapunov language is heuristic without an identified smooth flow model."
+
+unknowns_addressed:
+  - u-financial-lyapunov-time-versus-policy-interventions
+
+proposed_tests:
+  - description: >
+      Agent-based bank-run toy model with and without insurance credibility shocks; estimate finite-time
+      divergence rates between seeds.
+    method: Monte Carlo over belief noise; log sensitivity growth before saturation.
+    prediction: Credible negative shocks increase short-horizon divergence rates until hard stops engage.
+
+related_disciplines:
+  - economics
+  - dynamical-systems

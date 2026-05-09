@@ -1,0 +1,39 @@
+id: b-symplectic-integrators-x-long-horizon-control
+title: >
+  Symplectic integration from geometric mechanics improves long-horizon optimal-control rollout
+  fidelity by reducing numerical energy drift in Hamiltonian-like systems.
+status: established
+fields:
+  - control-engineering
+  - mathematics
+  - computational-physics
+  - optimization
+bridge_claim: >
+  Long-horizon control and planning often propagate dynamics for thousands of steps; non-structure-
+  preserving integrators can accumulate energy and phase drift that distorts optimization outcomes.
+  Symplectic methods preserve geometric invariants better, aligning numerical trajectory quality with
+  true dynamical constraints in mechanics-dominated applications.
+translation_table:
+  - field_a_term: symplectic map preservation
+    field_b_term: reduced long-horizon model-bias in trajectory optimization
+    note: Better invariance preservation yields more reliable policy gradients and constraints.
+  - field_a_term: backward error analysis
+    field_b_term: modified-Hamiltonian interpretation of rollout error
+    note: Error behaves like nearby dynamics rather than arbitrary drift.
+  - field_a_term: near-conservation of invariants
+    field_b_term: improved feasibility for energy- or momentum-limited controllers
+    note: Constraint violation growth is slowed over planning horizons.
+related_unknowns:
+  - u-symplectic-discretization-bias-long-horizon-control
+related_hypotheses:
+  - h-symplectic-controllers-preserve-energy-bounds-long-horizon
+cross_pollination_opportunities:
+  - Bring geometric integration defaults into model predictive control toolkits for mechanical systems.
+  - Expose invariant-drift diagnostics in control benchmark leaderboards.
+communication_gap: >
+  Control pipelines frequently treat integrators as interchangeable implementation detail, while
+  geometric numerical analysis shows discretization choice can dominate long-horizon bias.
+references:
+  - doi: "10.1017/S096249290200001X"
+    note: "Hairer (2002), geometric integration and long-time conservation properties."
+last_reviewed: "2026-05-08"

@@ -1,0 +1,36 @@
+id: b-quantum-zeno-x-watchdog-sampling-analogy
+title: >
+  Frequent projective measurement in the quantum Zeno effect freezes coherent evolution by collapsing survival probability toward unity when interrogations occur faster than the intrinsic transition rate — a discrete-time template analogous (only analogically) to microcontroller watchdog timers and control-loop sampling that repeatedly reset or observe state to prevent runaway dynamics.
+status: proposed
+fields:
+  - quantum-physics
+  - computer-science
+  - embedded-systems
+  - control-theory
+bridge_claim: >
+  Quantum survival amplitude after N measurements scales roughly as (1 − ΓΔt)^N for short intervals Δt, motivating exponential-in-(measurement rate) suppression resembling heuristic reliability gains when watchdog kicks arrive faster than fault accumulation timescales — **no claim that firmware executes quantum projections**: the bridge exports intuition about sampling cadence versus intrinsic transition rates, not hardware isomorphism.
+translation_table:
+  - field_a_term: measurement interval Δt versus coupling strength / transition rate Γ
+    field_b_term: watchdog period versus estimated worst-case fault dwell time
+    note: Both tune cadence relative to an intrinsic rate — purely heuristic correspondence.
+  - field_a_term: survival probability under repeated projections (Zeno suppression)
+    field_b_term: probability of retaining safe controller state when resets preempt faults
+    note: Formal mathematics differs (quantum probability vs reliability engineering).
+  - field_a_term: quantum anti-Zeno acceleration regime at intermediate rates
+    field_b_term: sampling too slowly can miss faults; oversampling may waste CPU — analogous trade curve only at qualitative level
+    note: Anti-Zeno physics is subtle; embedded scheduling tradeoffs are deterministic plus stochastic failure models — analogy must stay qualitative.
+communication_gap: >
+  Quantum optics textbooks derive Zeno scalings with projection operators while embedded-systems courses discuss watchdogs without dynamical-system hazard rates — practitioners rarely share notation even when designing ion-trap experiments versus flight software.
+cross_pollination_opportunities:
+  - Teach embedded reliability using calibrated ion-trap Zeno demos as metaphors for cadence constraints when Γ is measurable.
+  - Export hazard-rate modeling vocabulary into introductory quantum-control labs describing finite measurement cadence sweeps.
+related_unknowns:
+  - u-quantum-zeno-watchdog-quantitative-mapping
+related_hypotheses:
+  - h-student-transfer-zeno-curve-to-sampling-stability-drills
+references:
+  - doi: "10.1103/PhysRevLett.74.1259"
+    note: "Itano et al. (1995) — experimental quantum Zeno effect"
+  - doi: "10.1103/PhysRevA.41.2295"
+    note: "Facchi & Pascazio (1990) — quantum Zeno dynamics framework"
+last_reviewed: "2026-05-07"

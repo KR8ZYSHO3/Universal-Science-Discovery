@@ -1,0 +1,34 @@
+id: h-minimum-phase-plants-attain-tighter-bode-bounds
+title: >
+  For a fixed unstable plant pole set, minimum-phase designs achieve strictly better achievable sensitivity
+  templates than any non-minimum-phase embedding with identical loop gain budget — standard theorem package
+  but worth restating as a falsifiable design audit checklist for cyber-physical retrofits.
+status: active
+priority: medium
+impact_score: 0.58
+created: "2026-05-07"
+last_updated: "2026-05-07"
+author: USDR
+
+evidence_links:
+  - doi: "10.1109/TAC.1978.1101643"
+    type: supporting
+    confidence: 0.72
+    note: "Classic LQG robustness limitations motivating waterbed language."
+  - type: related
+    confidence: 0.55
+    note: "MIMO extensions are textbook material but must be checked case-by-case in applications."
+
+unknowns_addressed:
+  - u-bode-waterbed-multi-loop-multi-objective-tradeoffs
+
+proposed_tests:
+  - description: >
+      Compare two controller syntheses on the same plant with and without an added RHP zero in the sensor
+      path; quantify achievable H-infinity sensitivity bounds.
+    method: hinfsyn / hinfstruct with identical weights.
+    prediction: Non-minimum-phase embedding worsens best achievable mixed-sensitivity cost.
+
+related_disciplines:
+  - control-engineering
+  - mathematics
