@@ -1,6 +1,7 @@
 name: Rebuild Knowledge Graph
 
 on:
+  workflow_dispatch:
   push:
     branches: [main]
     paths:
@@ -16,6 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      pull-requests: write
     steps:
       - uses: actions/checkout@v6
         with:
@@ -49,32 +51,42 @@ jobs:
       - name: Render breakthrough gaps hub section
         run: python scripts/render_breakthrough_gaps_hub.py --apply
 
-      - name: Stage domain pages
-        run: git add dashboard/domains/
-
       - name: Generate static API
         run: python scripts/generate_api.py
 
       - name: Build citation index
         run: python scripts/build_citation_index.py
 
-      - name: Stage citation index
-        run: git add docs/citation_index.json docs/citation_index.md
+      # Branch protection on `main` rejects direct `git push` from `GITHUB_TOKEN`
+      # ("Commit updated artifacts and push to main" was failing at that step).
+      # Open/update a bot PR instead; merging does not re-trigger this workflow (paths filter).
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "bot: auto-rebuild knowledge graph and dashboard stats [skip ci]"
+          branch: bot/auto-knowledge-graph-rebuild
+          committer: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+          author: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+          title: "bot: auto-rebuild knowledge graph and dashboard stats"
+          body: |
+            Automated update from **Rebuild Knowledge Graph** after catalog YAML changed on `main`.
 
-      - name: Stage API files
-        run: git add api/
+            Merge when checks pass to refresh:
 
-      # Push directly to main — auto-merge via `gh` fails under typical branch-protection rules.
-      # Paths filter excludes generated artifacts, so this push does not re-trigger this workflow.
-      - name: Commit updated artifacts and push to main
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/knowledge_graph.json docs/orphan_unknowns.md docs/bridge_proposals.json docs/citation_index.json docs/citation_index.md dashboard/index.html dashboard/domains/ api/
-          if git diff --staged --quiet; then
-            echo "No changes to commit"
-            exit 0
-          fi
-          git commit -m "bot: auto-rebuild knowledge graph and dashboard stats [skip ci]"
-          git pull --rebase origin main
-          git push origin HEAD:main
+            - `docs/knowledge_graph.json`, `docs/orphan_unknowns.md`, `docs/bridge_proposals.json`
+            - `docs/citation_index.json`, `docs/citation_index.md`
+            - `dashboard/index.html`, `dashboard/domains/`
+            - `api/v1/`
+
+            Direct push to `main` is blocked for `github-actions[bot]` under repository branch protection; this PR is the delivery path.
+          delete-branch: false
+          add-paths: |
+            docs/knowledge_graph.json
+            docs/orphan_unknowns.md
+            docs/bridge_proposals.json
+            docs/citation_index.json
+            docs/citation_index.md
+            dashboard/index.html
+            dashboard/domains/**
+            api/**
