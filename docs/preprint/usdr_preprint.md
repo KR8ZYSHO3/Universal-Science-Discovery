@@ -558,7 +558,7 @@ universality class proofs is not in the standard reading list for conservation b
 
 ## 8. Current Status and Roadmap
 
-**8.1 Phase 0 status.** The repository has completed its initial seeding phase and
+**8.1 Foundation (Phase 0) status.** As defined in the project roadmap, foundation infrastructure and seeding are complete; calendar-dependent adoption milestones are tracked under **Phase 1 — Discovery & adoption**. The repository completed its initial seeding phase and
 continues to grow, now containing approximately 2,300+ entries across 22 domains. The
 governance infrastructure is live: schema validation CI, pull request templates,
 contribution guidelines, and the AI co-pilot tooling suite are all operational. The

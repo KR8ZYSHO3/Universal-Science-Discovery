@@ -221,10 +221,10 @@ CI also runs this automatically. A PR with failing validation will not be merged
 
 ## Community
 
-GitHub Issues and Discussions are the primary coordination channel while the project is in Phase 0. Discord/forum will be announced when ready.
+GitHub Issues and Discussions are the primary coordination channel during **Phase 1 — Discovery & adoption**. Discord/forum will be announced when ready.
 
 ---
 
 ## Recognition
 
-All contributors whose PRs are merged are listed in [CONTRIBUTORS.md](CONTRIBUTORS.md). Maintainers add contributors manually during Phase 0; Phase 1 will automate this via a GitHub Action.
+All contributors whose PRs are merged are listed in [CONTRIBUTORS.md](CONTRIBUTORS.md). Maintainers add contributors manually during Phase 1; **Phase 2 — Momentum** will automate this via a GitHub Action once scale warrants it.

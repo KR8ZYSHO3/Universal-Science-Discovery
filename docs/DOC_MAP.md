@@ -1,8 +1,8 @@
 # Guiding documents → repository behaviors
 
-This map is the Phase 0 traceability layer. When you change a guiding document, update the corresponding behaviors (rules, templates, or this map) in the same change.
+This map is the project traceability layer (delivered as part of **Phase 0 — Foundation**, now complete). When you change a guiding document, update the corresponding behaviors (rules, templates, or this map) in the same change.
 
-**Last updated:** 2026-05-10 — discovery UX: hub hero callout for catalog search; CONTRIBUTING / MkDocs onboarding links to `#catalog-search`.
+**Last updated:** 2026-05-10 — breakthrough gaps: hub grid from `render_breakthrough_gaps_hub.py`, API `breakthrough_gaps.json`, steward doc `BREAKTHROUGH_GAPS.md`; roadmap § integrated priorities.
 
 ## Policy documents
 
@@ -28,6 +28,7 @@ This map is the Phase 0 traceability layer. When you change a guiding document, 
 | [DEV_DASHBOARD.md](DEV_DASHBOARD.md) | Meta checklist: active branches, shipped items, blockers | Edits [.planning/STATE.md](../.planning/STATE.md); optional sync to Canvas via `scripts/sync-dashboard-from-state.py`; [HTML dashboard](../dashboard/index.html) + [dashboard/README.md](../dashboard/README.md) for browser use |
 | [GSD_INTEGRATION.md](GSD_INTEGRATION.md) | Optional get-shit-done / spec-driven workflows in Cursor | Boundaries vs [METHODOLOGY.md](METHODOLOGY.md), [DATA_PLAN.md](DATA_PLAN.md), [LEGAL.md](../LEGAL.md); does not replace contributor onboarding |
 | [PATH_TO_SUCCESS.md](PATH_TO_SUCCESS.md) | Strategic roadmap: discoverability, community growth, long-term sustainability | arXiv preprint submission; outreach; custom domain; external contributor recruitment |
+| [BREAKTHROUGH_GAPS.md](BREAKTHROUGH_GAPS.md) | Stewardship + phase-plan tie-in for `breakthrough-gaps/bg-*.yaml` | `render_breakthrough_gaps_hub.py`; `generate_api.py`; `schemas/breakthrough_gap.yaml`; [ROADMAP.md](../ROADMAP.md) integrated priorities |
 | [CODE_AUDIT.md](CODE_AUDIT.md) | Python script audit findings and fix history | Script quality standards; HIGH severity issues fixed; MEDIUM/LOW backlog |
 
 ## Catalog types and schemas

@@ -24,6 +24,10 @@ Double-clicking `index.html` works for **static links**, but the **roadmap/state
 
 The [README](../README.md) and [CONTRIBUTING](../CONTRIBUTING.md) point newcomers here. Open **[index.html](index.html)** from a clone (or view raw on GitHub under `dashboard/` once that path exists on the default branch); for a guided read, use [docs/ONBOARDING.md](../docs/ONBOARDING.md).
 
+## Domain landing pages (`domains/`)
+
+Static HTML per discipline under **`dashboard/domains/`** (and **`domains/index.html`**). Counts and bridge lists are **generated** from the YAML catalog — run **`python scripts/generate_domain_pages.py`** from the repo root after adding or reshaping bridges/unknowns so numbers stay honest. Matching logic lives in **`scripts/domain_matching.py`** (bridges use schema **`fields`**, not legacy `source_domain` / `target_domain`). CI checks **`scripts/verify_domain_pages.py`**.
+
 ## Publishing & privacy notes
 
 This is **not** automatically the public project website unless you add hosting (e.g. copy `dashboard/` to static hosting or wire GitHub Pages). The main **policy docs site** may be built with MkDocs separately; this hub is for **developers who have the repo**.

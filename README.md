@@ -179,12 +179,13 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for full instructions and [docs/QUICK_STA
 ## Roadmap
 
 
-| Phase                              | Timeline  | Goal                                                                                       |
-| ---------------------------------- | --------- | ------------------------------------------------------------------------------------------ |
-| **Phase 0: Foundation** *(active)* | 2026      | 1,000+ bridges · first 50 contributors · arXiv preprint · Hackathon                        |
-| **Phase 1: Momentum**              | 2027–2028 | 10,000+ entries · institutional partners · AI co-pilot · 500 contributors                  |
-| **Phase 2: Acceleration**          | 2029–2031 | 100,000+ entries · autonomous discovery agents · global research labs                      |
-| **Phase 3: Transformation**        | 2032–2035 | The default interface through which researchers interact with the open frontier of science |
+| Phase                                        | Timeline  | Goal                                                                                       |
+| -------------------------------------------- | --------- | ------------------------------------------------------------------------------------------ |
+| **Phase 0: Foundation** *(complete)*         | 2026      | Governance · schemas · CI · seeded catalog · knowledge graph · contributor hub · automation |
+| **Phase 1: Discovery & adoption** *(active)* | 2026–2027 | arXiv DOI · public launch & outreach · first contributors · hackathon · custom domain       |
+| **Phase 2: Momentum**                        | 2027–2028 | 10,000+ entries · institutional partners · AI co-pilot · 500 contributors              |
+| **Phase 3: Acceleration**                    | 2029–2031 | 100,000+ entries · autonomous discovery agents · global research labs                      |
+| **Phase 4: Transformation**                  | 2032–2035 | The default interface through which researchers interact with the open frontier of science |
 
 
 ---

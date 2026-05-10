@@ -3,17 +3,56 @@
 Generate per-domain landing pages from the USDR catalog.
 Output: dashboard/domains/{domain}.html
 
+Bridge counts use `fields` from each bridge YAML (see schemas/bridge.yaml) and
+`scripts/domain_matching.py` to align discipline tags with `unknowns-catalog/<domain>/`
+folder names — **not** legacy `source_domain` / `target_domain` keys.
+
 Usage:
     python scripts/generate_domain_pages.py
     python scripts/generate_domain_pages.py --domain biology
+    python scripts/verify_domain_pages.py
 """
 import yaml
-import json
 import argparse
 from pathlib import Path
 from datetime import date
 
+from domain_matching import catalog_domain_matches_field_tag, summarize_fields_line
+
 ROOT = Path(__file__).parent.parent
+
+# Filled by build_bridge_index(); avoids scanning cross-domain/ once per domain folder.
+_BRIDGE_INDEX: dict[str, list] | None = None
+
+
+def all_domain_slugs() -> list[str]:
+    return sorted([d.name for d in (ROOT / "unknowns-catalog").iterdir() if d.is_dir()])
+
+
+def build_bridge_index() -> dict[str, list]:
+    """Single pass over all bridge YAML: assign each bridge to every matching catalog domain."""
+    global _BRIDGE_INDEX
+    slugs = all_domain_slugs()
+    index: dict[str, list] = {s: [] for s in slugs}
+    for p in sorted((ROOT / "cross-domain").rglob("b-*.yaml")):
+        data = load_yaml(p)
+        if not data:
+            continue
+        fields = data.get("fields") or []
+        if not fields:
+            continue
+        entry = {
+            "id": data.get("id", p.stem),
+            "title": data.get("title", p.stem),
+            "fields_line": summarize_fields_line(fields),
+            "bridge_claim": (data.get("bridge_claim", "") or "")[:200],
+            "file": str(p.relative_to(ROOT)),
+        }
+        for s in slugs:
+            if any(catalog_domain_matches_field_tag(s, f) for f in fields):
+                index[s].append(entry)
+    _BRIDGE_INDEX = index
+    return index
 DASHBOARD = ROOT / "dashboard"
 DOMAINS_DIR = DASHBOARD / "domains"
 
@@ -62,24 +101,12 @@ def get_domain_unknowns(domain):
             })
     return entries
 
-def get_domain_bridges(domain):
-    bridges = []
-    for p in sorted((ROOT / "cross-domain").rglob("b-*.yaml")):
-        data = load_yaml(p)
-        if not data:
-            continue
-        src = data.get("source_domain", "")
-        tgt = data.get("target_domain", "")
-        if domain in (src, tgt):
-            other = tgt if domain == src else src
-            bridges.append({
-                "id": data.get("id", p.stem),
-                "title": data.get("title", p.stem),
-                "other_domain": other,
-                "bridge_claim": (data.get("bridge_claim", "") or "")[:200],
-                "file": str(p.relative_to(ROOT))
-            })
-    return bridges
+def get_domain_bridges(domain: str) -> list:
+    """Bridges whose `fields` match this catalog domain (uses cached index)."""
+    global _BRIDGE_INDEX
+    if _BRIDGE_INDEX is None:
+        build_bridge_index()
+    return _BRIDGE_INDEX.get(domain, [])
 
 def get_domain_hypotheses(domain, unknowns):
     unknown_ids = {u["id"] for u in unknowns}
@@ -88,15 +115,20 @@ def get_domain_hypotheses(domain, unknowns):
         data = load_yaml(p)
         if not data:
             continue
-        hyp_text = str(data)
-        if any(uid in hyp_text for uid in list(unknown_ids)[:10]):
-            hypotheses.append({
-                "id": data.get("id", p.stem),
-                "title": data.get("title", p.stem),
-                "status": data.get("status", "active"),
-                "priority": data.get("priority", "medium"),
-                "file": str(p.relative_to(ROOT))
-            })
+        addressed = data.get("unknowns_addressed") or []
+        related = data.get("related_disciplines") or []
+        matched = any(uid in unknown_ids for uid in addressed)
+        if not matched:
+            matched = any(catalog_domain_matches_field_tag(domain, d) for d in related)
+        if not matched:
+            continue
+        hypotheses.append({
+            "id": data.get("id", p.stem),
+            "title": data.get("title", p.stem),
+            "status": data.get("status", "active"),
+            "priority": data.get("priority", "medium"),
+            "file": str(p.relative_to(ROOT)),
+        })
     return hypotheses[:10]  # cap at 10
 
 def generate_page(domain, unknowns, bridges, hypotheses, meta):
@@ -120,7 +152,7 @@ def generate_page(domain, unknowns, bridges, hypotheses, meta):
         f'''<div class="entry-card bridge-card">
           <span class="entry-badge bridge-badge">Bridge</span>
           <a href="{gh_base}/{b["file"]}" target="_blank" class="entry-title">{b["title"]}</a>
-          <p class="bridge-other">↔ {b["other_domain"].replace("-", " ").title()}</p>
+          <p class="bridge-other">Fields: {b["fields_line"]}</p>
           {f'<p class="bridge-claim">{b["bridge_claim"]}...</p>' if b["bridge_claim"] else ""}
         </div>'''
         for b in bridges
@@ -236,6 +268,7 @@ def generate_page(domain, unknowns, bridges, hypotheses, meta):
 </html>'''
 
 def main():
+    global _BRIDGE_INDEX
     parser = argparse.ArgumentParser()
     parser.add_argument("--domain", type=str, default=None, help="Generate for a single domain")
     args = parser.parse_args()
@@ -245,6 +278,9 @@ def main():
     domains = [d.name for d in (ROOT / "unknowns-catalog").iterdir() if d.is_dir()]
     if args.domain:
         domains = [args.domain]
+
+    _BRIDGE_INDEX = None
+    build_bridge_index()
 
     generated = []
     for domain in sorted(domains):
@@ -261,10 +297,11 @@ def main():
         generated.append((domain, len(unknowns), len(bridges)))
         print(f"Generated {out.name} ({len(unknowns)} unknowns, {len(bridges)} bridges)")
 
-    generate_index(generated)
+    unique_bridge_files = sum(1 for _ in (ROOT / "cross-domain").rglob("b-*.yaml"))
+    generate_index(generated, unique_bridge_files)
     print(f"\nGenerated {len(generated)} domain pages + index")
 
-def generate_index(domains_data):
+def generate_index(domains_data, unique_bridge_yaml: int):
     cards = "\n".join([
         f'''<a href="{domain}.html" class="domain-card" style="--dc:{DOMAIN_META.get(domain, {}).get("color", "#4f9cf9")}">
           <span class="dc-icon">{DOMAIN_META.get(domain, {}).get("icon", "🔬")}</span>
@@ -275,27 +312,26 @@ def generate_index(domains_data):
     ])
 
     total_unknowns = sum(u for _, u, _ in domains_data)
-    total_bridges = sum(b for _, _, b in domains_data)
     index_html = f'''<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Domains — USDR</title>
-  <meta name="description" content="Browse {len(domains_data)} scientific disciplines in the Universal Science Discovery Repository. {total_unknowns}+ open unknowns, {total_bridges}+ cross-domain bridges.">
+  <meta name="description" content="Browse {len(domains_data)} scientific disciplines in the Universal Science Discovery Repository. {total_unknowns}+ open unknowns; {unique_bridge_yaml}+ bridge records (domain cards count bridges touching each discipline — the same bridge may appear on multiple cards).">
   <link rel="canonical" href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/domains/">
 
   <!-- OpenGraph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/domains/">
   <meta property="og:title" content="Science Domains — USDR">
-  <meta property="og:description" content="{len(domains_data)} disciplines · {total_unknowns}+ open unknowns · {total_bridges}+ cross-domain bridges. Explore the Universal Science Discovery Repository.">
+  <meta property="og:description" content="{len(domains_data)} disciplines · {total_unknowns}+ open unknowns · {unique_bridge_yaml}+ bridges in catalog. Domain cards list bridges whose fields touch that discipline.">
   <meta property="og:image" content="https://opengraph.githubassets.com/1/KR8ZYSHO3/Universal-Science-Discovery">
   <meta property="og:site_name" content="USDR">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Science Domains — USDR">
-  <meta name="twitter:description" content="Browse {len(domains_data)} disciplines with {total_unknowns}+ open unknowns and {total_bridges}+ cross-domain bridges.">
+  <meta name="twitter:description" content="Browse {len(domains_data)} disciplines with {total_unknowns}+ open unknowns; {unique_bridge_yaml}+ bridges in catalog.">
   <meta name="twitter:image" content="https://opengraph.githubassets.com/1/KR8ZYSHO3/Universal-Science-Discovery">
 
   <style>
@@ -316,7 +352,7 @@ def generate_index(domains_data):
 <body>
   <nav><a href="../">← Dashboard</a></nav>
   <h1>Browse by Domain</h1>
-  <p style="color:var(--muted);margin-top:0.5rem">{len(domains_data)} disciplines · click to explore unknowns, bridges, and hypotheses</p>
+  <p style="color:var(--muted);margin-top:0.5rem">{len(domains_data)} disciplines · {unique_bridge_yaml} bridge YAML records · card counts are per-discipline matches (bridges can appear on multiple cards)</p>
   <div class="grid">{cards}</div>
 </body>
 </html>'''

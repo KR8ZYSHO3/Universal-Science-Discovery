@@ -8,6 +8,7 @@ on:
       - 'hypotheses/**'
       - 'cross-domain/**'
       - 'phenomenology/**'
+      - 'breakthrough-gaps/**'
       - 'schemas/**'
 
 jobs:
@@ -48,3 +49,4 @@ jobs:
           echo "| Hypotheses | $(find hypotheses -name 'h-*.yaml' | wc -l) |" >> $GITHUB_STEP_SUMMARY
           echo "| Bridges | $(find cross-domain -name 'b-*.yaml' | wc -l) |" >> $GITHUB_STEP_SUMMARY
           echo "| Phenomena | $(find phenomenology -name 'p-*.yaml' 2>/dev/null | wc -l) |" >> $GITHUB_STEP_SUMMARY
+          echo "| Breakthrough gaps | $(find breakthrough-gaps -maxdepth 1 -name 'bg-*.yaml' 2>/dev/null | wc -l) |" >> $GITHUB_STEP_SUMMARY
