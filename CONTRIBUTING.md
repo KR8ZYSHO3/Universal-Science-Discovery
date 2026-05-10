@@ -20,6 +20,8 @@ See [WHY_CONTRIBUTE.md](WHY_CONTRIBUTE.md) for the full case, and [VISION_COMMUN
 
 **Contributor hub (recommended):** After cloning, run `python -m http.server 8765` from the repo root and open [`dashboard/index.html`](dashboard/index.html) in your browser (local URL `http://localhost:8765/dashboard/`). It maps the full onboarding path, links to open unknowns, and shows CI status at a glance.
 
+**Maintainers — keeping the hub in sync:** Follow the ordered checklist in **[docs/DEV_DASHBOARD.md](docs/DEV_DASHBOARD.md)** (catalog batches, STATE → Canvas, verification). CI runs `scripts/verify_dashboard_consistency.py` to catch stale headline numbers.
+
 ### Before you add a record — search first
 
 Avoid duplicate unknowns and hypotheses:

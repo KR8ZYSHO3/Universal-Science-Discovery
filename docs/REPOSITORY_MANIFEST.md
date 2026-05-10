@@ -6,6 +6,8 @@ Exhaustive index of **tracked** paths (excluding `.git`), what each is for, and 
 |------|------|---------|---------------------------|
 | [README.md](../README.md) | Entry | Project hub, links to core docs | [VISION_AND_SCOPE.md](VISION_AND_SCOPE.md), [DOC_MAP.md](DOC_MAP.md) |
 | [AGENTS.md](../AGENTS.md) | Policy | Instructions for AI assistants | All `docs/*.md` policy set; [DOC_MAP.md](DOC_MAP.md) |
+| [.planning/STATE.md](../.planning/STATE.md) | Meta | Maintainer checklist + catalog snapshot | [DEV_DASHBOARD.md](DEV_DASHBOARD.md), [ROADMAP.md](../ROADMAP.md) |
+| [.planning/reports/USDR_FULL_AUDIT_2026-05.md](../.planning/reports/USDR_FULL_AUDIT_2026-05.md) | Report | Full-repository audit (May 2026): inventory, drift, backlog | [DOC_MAP.md](DOC_MAP.md), [ROADMAP.md](../ROADMAP.md) |
 | [CONTRIBUTING.md](../CONTRIBUTING.md) | Policy | Human contribution workflow | [COLLABORATION_AND_REVIEWS.md](COLLABORATION_AND_REVIEWS.md), [METHODOLOGY.md](METHODOLOGY.md) |
 | [CODE_OF_CONDUCT.md](../CODE_OF_CONDUCT.md) | Policy | Expected community behavior | [CONTRIBUTING.md](../CONTRIBUTING.md) |
 | [SECURITY.md](../SECURITY.md) | Policy | Vulnerability reporting | Maintainer contact; ethics doc for sensitive data |
@@ -14,14 +16,15 @@ Exhaustive index of **tracked** paths (excluding `.git`), what each is for, and 
 | [.markdown-link-check.json](../.markdown-link-check.json) | Config | Link checker rules for CI/local | [OPERATING_RHYTHM.md](OPERATING_RHYTHM.md) |
 | [mkdocs.yml](../mkdocs.yml) | Config | MkDocs Material site (sources under `docs/`) | [INTERFACE.md](../INTERFACE.md), [OPERATING_RHYTHM.md](OPERATING_RHYTHM.md), [README.md](../README.md) |
 | [requirements-docs.txt](../requirements-docs.txt) | Config | MkDocs / Material dependencies | [mkdocs.yml](../mkdocs.yml) |
-| [pyproject.toml](../pyproject.toml) | Config | Root pytest entry for `packages/ingest/tests` | [docs/DATA_PLAN.md](DATA_PLAN.md) |
+| [pyproject.toml](../pyproject.toml) | Config | Root pytest entry for `packages/ingest/tests` and `tests/repo_smoke` | [docs/DATA_PLAN.md](DATA_PLAN.md), [docs/OPERATING_RHYTHM.md](OPERATING_RHYTHM.md) |
+| [tests/repo_smoke/test_catalog_regression.py](../tests/repo_smoke/test_catalog_regression.py) | Test | Smoke tests: validate schemas, domain pages, dashboard consistency, **`build_graph.py --report-orphans`** | [OPERATING_RHYTHM.md](OPERATING_RHYTHM.md), [.github/workflows/validate-schemas.yml](../.github/workflows/validate-schemas.yml) |
 | [requirements-ingest.txt](../requirements-ingest.txt) | Config | Deps for `usdr-ingest` CLI | [docs/DATA_PLAN.md](DATA_PLAN.md) |
 | [.cursor/rules/science-discovery-core.mdc](../.cursor/rules/science-discovery-core.mdc) | Config | Cursor always-on rules | [AGENTS.md](../AGENTS.md), [DOC_MAP.md](DOC_MAP.md) |
 | [.cursor/rules/agent-execution.mdc](../.cursor/rules/agent-execution.mdc) | Config | Cursor: prefer in-environment installs, tests, git | [AGENTS.md](../AGENTS.md) |
 | [.cursor/rules/documentation-and-dashboard.mdc](../.cursor/rules/documentation-and-dashboard.mdc) | Config | Cursor: keep docs, CHANGELOG, STATE, `dashboard/` hub current; verify `http://localhost:8765/dashboard/` when hub changes | [AGENTS.md](../AGENTS.md), [docs/OPERATING_RHYTHM.md](OPERATING_RHYTHM.md), [docs/DEV_DASHBOARD.md](DEV_DASHBOARD.md) |
 | [.github/dependabot.yml](../.github/dependabot.yml) | Config | Dependency update PRs (Actions) | [OPERATING_RHYTHM.md](OPERATING_RHYTHM.md) |
 | [.github/workflows/markdown-link-check.yml](../.github/workflows/markdown-link-check.yml) | CI | Validates Markdown links | [CONTRIBUTING.md](../CONTRIBUTING.md), [OPERATING_RHYTHM.md](OPERATING_RHYTHM.md) |
-| [.github/workflows/validate-schemas.yml](../.github/workflows/validate-schemas.yml) | CI | Validates hypothesis / unknown YAML against `schemas/` | [schemas/README.md](../schemas/README.md), [OPERATING_RHYTHM.md](OPERATING_RHYTHM.md) |
+| [.github/workflows/validate-schemas.yml](../.github/workflows/validate-schemas.yml) | CI | **`pytest tests/repo_smoke`** — catalog YAML, domain pages, dashboard consistency, orphan xref report | [schemas/README.md](../schemas/README.md), [OPERATING_RHYTHM.md](OPERATING_RHYTHM.md), [tests/repo_smoke/test_catalog_regression.py](../tests/repo_smoke/test_catalog_regression.py) |
 | [.github/workflows/mkdocs-build.yml](../.github/workflows/mkdocs-build.yml) | CI | Builds MkDocs site from `docs/` (`mkdocs build --strict`); uploads `site` artifact where configured | [INTERFACE.md](../INTERFACE.md), [OPERATING_RHYTHM.md](OPERATING_RHYTHM.md), [mkdocs.yml](../mkdocs.yml) |
 | [.github/workflows/ingest-ci.yml](../.github/workflows/ingest-ci.yml) | CI | Pytest for `packages/ingest` | [docs/DATA_PLAN.md](DATA_PLAN.md), [LEGAL.md](../LEGAL.md) |
 | [.github/workflows/mkdocs-gh-pages.yml](../.github/workflows/mkdocs-gh-pages.yml) | CI | On push to `main`: `mkdocs build --strict`, deploy `./site` to branch `gh-pages` (peaceiris/actions-gh-pages@v4). **Live:** `https://kr8zysho3.github.io/Universal-Science-Discovery/` after Pages source is `gh-pages` / root | [INTERFACE.md](../INTERFACE.md), [README.md](../README.md) |
@@ -66,6 +69,7 @@ Exhaustive index of **tracked** paths (excluding `.git`), what each is for, and 
 | [scripts/generate_domain_pages.py](../scripts/generate_domain_pages.py) | Tool | Writes `dashboard/domains/*.html` from catalog + bridge `fields` | [dashboard/README.md](../dashboard/README.md), `scripts/domain_matching.py` |
 | [scripts/render_breakthrough_gaps_hub.py](../scripts/render_breakthrough_gaps_hub.py) | Tool | Injects Breakthrough Gaps card grid into `dashboard/index.html` from `breakthrough-gaps/bg-*.yaml` | [docs/BREAKTHROUGH_GAPS.md](BREAKTHROUGH_GAPS.md), `.github/workflows/build-graph.yml` |
 | [scripts/verify_domain_pages.py](../scripts/verify_domain_pages.py) | Tool | CI regression: minimum bridge counts visible per domain | `.github/workflows/validate-schemas.yml` |
+| [scripts/verify_dashboard_consistency.py](../scripts/verify_dashboard_consistency.py) | Tool | CI + local: headline hub counts match YAML + `docs/knowledge_graph.json` | [docs/DEV_DASHBOARD.md](DEV_DASHBOARD.md), `.github/workflows/validate-schemas.yml` |
 | [scripts/requirements-validate.txt](../scripts/requirements-validate.txt) | Config | Deps for `validate_schemas.py` | [scripts/README.md](../scripts/README.md) |
 | [scripts/sync-dashboard-from-state.py](../scripts/sync-dashboard-from-state.py) | Tool | Rewrites Canvas snapshot from `.planning/STATE.md` | [docs/DEV_DASHBOARD.md](DEV_DASHBOARD.md) |
 | [scripts/generate-ingest-example-jsonl.py](../scripts/generate-ingest-example-jsonl.py) | Tool | Regenerate `docs/examples/arxiv-oai-metadata-sample.v1.jsonl` from offline fixtures | [docs/examples/README.md](examples/README.md) |

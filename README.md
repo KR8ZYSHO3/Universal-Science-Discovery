@@ -51,7 +51,7 @@ A git-native, schema-validated, community-governed catalog of scientific unknown
 | **Schema errors**          | **0**     | All entries pass CI validation on every PR                      |
 
 
-Every entry is YAML, schema-validated, DOI-linked, and version-controlled. The knowledge graph is rebuilt deterministically from source files on every push.
+Entries are YAML and schema-validated in CI; bridges and many records cite primary literature (DOIs/arXiv where applicable — see per-record `references`). The knowledge graph is rebuilt deterministically from source files on every push.
 
 ---
 
@@ -121,9 +121,8 @@ Drafts are intentionally staged (not auto-promoted) so human review remains the 
 git clone https://github.com/KR8ZYSHO3/Universal-Science-Discovery.git
 cd Universal-Science-Discovery
 
-# View the live dashboard locally
+# View the live dashboard locally (path: dashboard/index.html — URL in dashboard/README.md)
 python -m http.server 8765
-# → http://localhost:8765/dashboard/
 
 # Validate the entire catalog
 pip install pyyaml jsonschema

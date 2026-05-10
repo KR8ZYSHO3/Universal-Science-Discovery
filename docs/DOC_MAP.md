@@ -2,7 +2,7 @@
 
 This map is the project traceability layer (delivered as part of **Phase 0 — Foundation**, now complete). When you change a guiding document, update the corresponding behaviors (rules, templates, or this map) in the same change.
 
-**Last updated:** 2026-05-10 — breakthrough gaps: hub grid from `render_breakthrough_gaps_hub.py`, API `breakthrough_gaps.json`, steward doc `BREAKTHROUGH_GAPS.md`; roadmap § integrated priorities.
+**Last updated:** 2026-05-10 — **`tests/repo_smoke`** (includes **`build_graph.py --report-orphans`**) + **`validate-schemas.yml`** pytest bundle; **`OPERATING_RHYTHM.md`** dual-workflow / branch-protection notes; breakthrough gaps hub grid / API / steward doc; roadmap § integrated priorities + audit backlog; **repo audit:** [May 2026 full audit report](../.planning/reports/USDR_FULL_AUDIT_2026-05.md).
 
 ## Policy documents
 
@@ -46,10 +46,11 @@ This map is the project traceability layer (delivered as part of **Phase 0 — F
 
 | Script | Purpose | CI? |
 |--------|---------|-----|
-| `scripts/validate_schemas.py` | Validate all catalog YAML against JSON Schema | ✅ (validate.yml) |
+| `scripts/validate_schemas.py` | Validate all catalog YAML against JSON Schema | ✅ (`validate-schemas.yml` via **`pytest tests/repo_smoke`**; also **`validate.yml`** on path-filtered PRs) |
 | `scripts/build_graph.py` | Build `docs/knowledge_graph.json` | ✅ (build-graph.yml) |
 | `scripts/generate_api.py` | Generate static JSON API under `api/v1/` | ✅ (build-graph.yml) |
 | `scripts/update_dashboard_stats.py` | Patch stat counters, hero **catalog snapshot** spans (`snap-*`, between `DASHBOARD_CATALOG_SNAPSHOT_*` markers), social meta, API blurbs, and graph placeholders in `dashboard/index.html` (reads `docs/knowledge_graph.json` meta for nodes/edges, with array-length fallback) | ✅ (build-graph.yml) |
+| `scripts/verify_dashboard_consistency.py` | Fail CI if `snap-*` / key `stat-*` / hero pill counts disagree with YAML catalog + `docs/knowledge_graph.json` | ✅ (validate-schemas.yml) |
 | `scripts/generate_domain_pages.py` | Per-domain HTML pages under `dashboard/domains/` | ✅ (pages.yml) |
 | `scripts/generate_explainers.py` | Bridge explainer HTML pages under `dashboard/explainers/` | ✅ (pages.yml) |
 | `scripts/propose_bridges.py` | Propose novel bridge candidates | Manual |
@@ -57,13 +58,20 @@ This map is the project traceability layer (delivered as part of **Phase 0 — F
 | `scripts/audit_quality.py` | Flag low-quality catalog entries | Manual |
 | `scripts/build_citation_index.py` | Extract and rank cross-referenced papers | Manual |
 
+## Planning / audit artifacts
+
+| Artifact | Purpose |
+|----------|---------|
+| [May 2026 full audit report](../.planning/reports/USDR_FULL_AUDIT_2026-05.md) | Periodic full-repo audit (inventory, drift, prioritized backlog); drives **ROADMAP.md** § Audit backlog |
+
 ## GitHub Actions workflows
 
 | Workflow | Trigger | What it does |
 |----------|---------|--------------|
-| `.github/workflows/validate.yml` | Push / PR to `main` | Runs `validate_schemas.py`; blocks merge on failure |
+| `.github/workflows/validate.yml` | PR to `main` (catalog-related paths only) | Runs `validate_schemas.py` + **`audit_quality.py`** + uploads quality report artifact |
+| `.github/workflows/validate-schemas.yml` | Push / PR to `main` | **`pytest tests/repo_smoke`** — `validate_schemas.py`, `verify_domain_pages.py`, `verify_dashboard_consistency.py`, `build_graph.py --report-orphans` |
 | `.github/workflows/build-graph.yml` | Push to `main` | Rebuilds knowledge graph, generates API, updates dashboard stats |
-| `.github/workflows/pages.yml` | Push to `main` | Deploys `dashboard/` to GitHub Pages |
+| `.github/workflows/pages.yml` | Push to `main` (paths: `dashboard/**`, `docs/**`, this workflow) | Deploys site artifact to GitHub Pages; generates **`dashboard/deploy-info.json`** at deploy time so the hub can show whether the hosted build matches **`main`** |
 
 ## Supporting files (see manifest)
 

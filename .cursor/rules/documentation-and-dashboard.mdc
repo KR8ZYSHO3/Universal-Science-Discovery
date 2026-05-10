@@ -20,7 +20,13 @@ Treat **up-to-date documentation as continuous work**, not an afterthought. When
 
 ## Contributor hub (`dashboard/`)
 
-The HTML **contributor hub** is `dashboard/index.html`. It is the guided entry for new contributors (`http://localhost:8765/dashboard/` after `python -m http.server 8765` from repo root). It may load **Google Fonts** and **`marked`** from CDNs when online; **`dashboard/README.md`** describes privacy/offline behavior.
+**Methodical upkeep:** Follow **[docs/DEV_DASHBOARD.md](../../docs/DEV_DASHBOARD.md)** (“Contributor hub maintenance playbook”) so counts, generated sections, and STATE/Canvas stay aligned; CI runs **`scripts/verify_dashboard_consistency.py`** on PRs.
+
+The HTML **contributor hub** is [`dashboard/index.html`](../../dashboard/index.html). It is the guided entry for new contributors: from the repo root run `python -m http.server 8765`, then open that file in the browser (local URL `http://localhost:8765/dashboard/`). It may load **Google Fonts** and **`marked`** from CDNs when online; **`dashboard/README.md`** describes privacy/offline behavior.
+
+**Domain landing pages (`dashboard/domains/`)** must stay aligned with the YAML catalog: bridge counts come from each bridge’s **`fields`** list matched to `unknowns-catalog/<domain>/` (see **`scripts/domain_matching.py`**). After batches of **bridges / unknowns / hypotheses**, regenerate pages — **`python scripts/generate_domain_pages.py`** (runs in **`build-graph.yml`** when catalog paths change). CI runs **`python scripts/verify_domain_pages.py`** (minimum bridge visibility checks). Ship regenerated HTML with the same PR as the catalog change when feasible.
+
+**Breakthrough gaps (`breakthrough-gaps/*.yaml`)** drive the hub “Breakthrough Gaps” grid via **`scripts/render_breakthrough_gaps_hub.py --apply`** (also runs from **`build-graph.yml`** when gap YAML changes). Steward expectations: **`docs/BREAKTHROUGH_GAPS.md`**.
 
 **Domain landing pages (`dashboard/domains/`)** must stay aligned with the YAML catalog: bridge counts come from each bridge’s **`fields`** list matched to `unknowns-catalog/<domain>/` (see **`scripts/domain_matching.py`**). After batches of **bridges / unknowns / hypotheses**, regenerate pages — **`python scripts/generate_domain_pages.py`** (runs in **`build-graph.yml`** when catalog paths change). CI runs **`python scripts/verify_domain_pages.py`** (minimum bridge visibility checks). Ship regenerated HTML with the same PR as the catalog change when feasible.
 
@@ -29,7 +35,7 @@ The HTML **contributor hub** is `dashboard/index.html`. It is the guided entry f
 - If **onboarding paths**, **section order**, **key links**, or **major hub UX** (layout, theme, nav) change, update **`dashboard/index.html`** and, when maintainers need the story, **`dashboard/README.md`** / **`docs/DEV_DASHBOARD.md`**.
 - If **unknown/hypothesis schemas** or **seed YAML examples** change the steps a newcomer follows, update **`docs/HAPPY_PATH_FIRST_RECORDS.md`** (Stream A) in the same change.
 - After editing **`.planning/STATE.md`**, refresh the Cursor Canvas snapshot in `canvases/Progress.canvas.tsx` when that file exists; run **`python scripts/sync-dashboard-from-state.py`** (Canvas embeds constants; the HTML hub loads STATE live only over HTTP).
-- Before considering work **done**, sanity-check the hub: start **`python -m http.server 8765`** from the repo root, open **`http://localhost:8765/dashboard/`**, confirm sections load, theme/nav if you touched them, and links are not broken for the paths you changed.
+- Before considering work **done**, sanity-check the hub: start **`python -m http.server 8765`** from the repo root, open **[`dashboard/index.html`](../../dashboard/index.html)** at **`http://localhost:8765/dashboard/`**, confirm sections load, theme/nav if you touched them, and links are not broken for the paths you changed.
 
 ## MkDocs
 
