@@ -43,8 +43,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - README license badges now point **CC BY** → [`LICENSE`](LICENSE) and **MIT** → [`LICENSE-CODE`](LICENSE-CODE) (they previously both pointed at `LICENSE`).
 - [`docs/LICENSING_NOTES.md`](docs/LICENSING_NOTES.md) aligned with the dual-license layout at the repo root.
 
-### Fixed — CI markdown-link-check (localhost)
-- **CONTRIBUTING.md**, **docs/OPERATING_RHYTHM.md**, **dashboard/README.md:** Replaced clickable `http://localhost:8765/...` Markdown links with repo-relative links + URL in backticks (CI cannot fetch localhost). **`.markdown-link-check.json`:** Ignore pattern now matches localhost URLs **with a port**.
+### Fixed — CI markdown-link-check (localhost hub URLs)
+- **`.markdown-link-check.json`:** Ignore pattern matches **`http://localhost`** / **`https://localhost`** with **optional port** and any trailing path/query/fragment (prefix rule).
+- **Docs/rules:** Prefer **[`dashboard/index.html`](…)** for navigation; keep **`http://localhost:8765/dashboard/`** only in **backticks** or point readers to **`dashboard/README.md`** / **`README.md`** quick-start comments instead of bare localhost URLs in prose. Updated **`AGENTS.md`**, **`.cursor/rules/documentation-and-dashboard.mdc`**, **`.cursor/rules/science-discovery-core.mdc`**, **`README.md`**, **`WORKSTREAMS.md`**, **`dashboard/README.md`** (alongside earlier **`CONTRIBUTING.md`**, **`docs/OPERATING_RHYTHM.md`** fixes).
 
 ### Fixed — CI markdown-link-check (DOI)
 - **`docs/citation_index.md`:** Table links now use `https://doi.org/10…` (previously `10…` was treated as a relative path). **`.markdown-link-check.json`:** Ignore **`https://doi.org/`** (and legacy **`dx.doi.org`**) — automated checks often get **403** from doi.org in CI; identifiers remain standard for readers.

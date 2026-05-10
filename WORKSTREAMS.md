@@ -172,9 +172,8 @@ python scripts/validate_schemas.py
 python -m pytest packages/ingest/tests
 python -m mkdocs build --strict
 
-# Open the contributor hub
+# Open the contributor hub (dashboard/index.html — local URL in dashboard/README.md)
 python -m http.server 8765
-# then visit http://localhost:8765/dashboard/
 ```
 
 See `docs/OPERATING_RHYTHM.md` for the full daily workflow and CI gate details.

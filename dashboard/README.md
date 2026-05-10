@@ -16,7 +16,7 @@ From the **repository root** (parent of `dashboard/`):
 python -m http.server 8765
 ```
 
-Open `http://localhost:8765/dashboard/` after starting the server, or browse [`index.html`](index.html) from this folder on GitHub.
+After `python -m http.server 8765` from the repo root, open [`dashboard/index.html`](index.html) in the browser (local URL `http://localhost:8765/dashboard/`), or browse [`index.html`](index.html) from this folder on GitHub.
 
 Double-clicking `index.html` works for **static links**, but the **roadmap/state panels** need the server (browser security).
 

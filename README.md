@@ -121,9 +121,8 @@ Drafts are intentionally staged (not auto-promoted) so human review remains the 
 git clone https://github.com/KR8ZYSHO3/Universal-Science-Discovery.git
 cd Universal-Science-Discovery
 
-# View the live dashboard locally
+# View the live dashboard locally (path: dashboard/index.html — URL in dashboard/README.md)
 python -m http.server 8765
-# → http://localhost:8765/dashboard/
 
 # Validate the entire catalog
 pip install pyyaml jsonschema
