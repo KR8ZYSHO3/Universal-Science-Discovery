@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] — 2026-05-09
 
+### Fixed — CI Rebuild Knowledge Graph (branch protection vs bot push)
+- **`.github/workflows/build-graph.yml`:** Replaced failing **direct `git push` to `main`** (step **Commit updated artifacts and push to main**) with **`peter-evans/create-pull-request@v7`** onto branch **`bot/auto-knowledge-graph-rebuild`** so `GITHUB_TOKEN` can land artifacts while **`main`** stays protected; added **`workflow_dispatch`** for manual reruns. **`docs/DOC_MAP.md`:** workflow row updated.
+
 ### Fixed — CI markdown-link-check (malformed Markdown links)
 - **`CHANGELOG.md`**, **`.planning/STATE.md`**, **`ROADMAP.md`**, **`docs/DOC_MAP.md`:** Removed placeholder `(...)` ellipsis URLs and **nested backticks** inside `[link](url)` for the May 2026 audit report so **`markdown-link-check`** resolves paths correctly (avoids HTTP **400** from bogus targets).
 

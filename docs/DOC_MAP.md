@@ -70,7 +70,7 @@ This map is the project traceability layer (delivered as part of **Phase 0 — F
 |----------|---------|--------------|
 | `.github/workflows/validate.yml` | PR to `main` (catalog-related paths only) | Runs `validate_schemas.py` + **`audit_quality.py`** + uploads quality report artifact |
 | `.github/workflows/validate-schemas.yml` | Push / PR to `main` | **`pytest tests/repo_smoke`** — `validate_schemas.py`, `verify_domain_pages.py`, `verify_dashboard_consistency.py`, `build_graph.py --report-orphans` |
-| `.github/workflows/build-graph.yml` | Push to `main` | Rebuilds knowledge graph, generates API, updates dashboard stats |
+| `.github/workflows/build-graph.yml` | Catalog YAML push to `main`, or **Actions → manual run** | Rebuilds knowledge graph, generates API, updates dashboard stats; opens or updates PR **`bot/auto-knowledge-graph-rebuild`** when artifacts drift (branch protection blocks bot push to `main`) |
 | `.github/workflows/pages.yml` | Push to `main` (paths: `dashboard/**`, `docs/**`, this workflow) | Deploys site artifact to GitHub Pages; generates **`dashboard/deploy-info.json`** at deploy time so the hub can show whether the hosted build matches **`main`** |
 
 ## Supporting files (see manifest)
