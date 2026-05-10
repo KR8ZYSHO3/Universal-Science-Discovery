@@ -21,7 +21,7 @@ import {
 
 // @sync-dashboard-begin
 const dashboardSnapshot = {
-  lastUpdated: "2026-05-10 — **GitHub Pages hub freshness banner**: **`pages.yml`** writes **`dashboard/deploy-info.json`** (gitignored) into each deploy; **`dashboard/index.html`** compares that SHA to **`main`** via the GitHub API so visitors see **current vs behind** with a compare link.",
+  lastUpdated: "2026-05-10 — **Full repository audit (May 2026)** — **[`.planning/reports/USDR_FULL_AUDIT_2026-05.md`](reports/USDR_FULL_AUDIT_2026-05.md)** (inventory, drift, CI/security snapshot, prioritized issues). **Next:** (1) keep ROADMAP/STATE/README counts in sync after each wave; (2) qualify README DOI wording / document dual `validate*.yml` gates; (3) add incremental `scripts/` smoke tests.",
   currentFocus: [
     "**Roadmap posture**: Foundation (**Phase 0**) is complete; discoverability + first contributors are **Phase 1** targets — not blockers for ongoing development.",
     "**arXiv preprint**: `docs/preprint/usdr_preprint.md` is ready; next step is PDF conversion and submission to cs.DL (author: Brandon Shoemaker).",
