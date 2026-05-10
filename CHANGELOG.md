@@ -9,6 +9,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] — 2026-05-09
 
+### Added — May 2026 full repository audit
+- **[`.planning/reports/USDR_FULL_AUDIT_2026-05.md`](.planning/reports/USDR_FULL_AUDIT_2026-05.md):** Structured inventory, documentation drift, CI/security snapshot, and prioritized issues.
+- **[`ROADMAP.md`](ROADMAP.md):** § **Audit backlog (2026-05)** + refreshed foundation snapshot counts (aligned with README / graph meta).
+- **[`.planning/STATE.md`](.planning/STATE.md):** Audit completion note, **next** items, and catalog table refreshed to current YAML totals.
+- **[`docs/DOC_MAP.md`](docs/DOC_MAP.md), [`docs/REPOSITORY_MANIFEST.md`](docs/REPOSITORY_MANIFEST.md):** Traceability for the audit report and clarified **`validate.yml`** vs **`validate-schemas.yml`** roles.
+
+### Changed — README precision (literature links)
+- **[`README.md`](README.md):** Replaced blanket “every entry DOI-linked” wording with schema/record-type-accurate language on citations.
+
+### Changed — Contributor hub (Discovery Engines + breakthrough search affordance)
+- **[`dashboard/index.html`](dashboard/index.html):** Discovery Engines intro clarifies curated thematic shortcuts; link to maintainer playbook on GitHub.
+- **`scripts/render_breakthrough_gaps_hub.py` / hub:** Breakthrough cards carry **`data-search-query`** (catalog-oriented snippet); **Alt-click** a card jumps to **Catalog search** with that query (ordinary click still opens YAML on GitHub).
+
 ### Changed — Preprint statistics aligned with live catalog
 - **`docs/preprint/usdr_preprint.md` / `.html`:** Abstract, §3.3–3.6, §5.1 (gap rankings), §8.1, and conclusion updated from stale **578-bridge / ~2.3k-entry** figures to current README/graph counts (**1,123** bridges, **1,408** unknowns, **1,274** hypotheses, **3,857** nodes / **4,517** edges, **18** pioneers, **24** breakthrough gaps, **~249** domain browse pages). **`scripts/render_preprint_html.py --apply`** regenerates HTML from the Markdown using **`markdown`** (listed in **`requirements-docs.txt`**).
 

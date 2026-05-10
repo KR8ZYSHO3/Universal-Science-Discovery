@@ -2,7 +2,7 @@
 
 This map is the project traceability layer (delivered as part of **Phase 0 — Foundation**, now complete). When you change a guiding document, update the corresponding behaviors (rules, templates, or this map) in the same change.
 
-**Last updated:** 2026-05-10 — breakthrough gaps: hub grid from `render_breakthrough_gaps_hub.py`, API `breakthrough_gaps.json`, steward doc `BREAKTHROUGH_GAPS.md`; roadmap § integrated priorities.
+**Last updated:** 2026-05-10 — breakthrough gaps: hub grid from `render_breakthrough_gaps_hub.py`, API `breakthrough_gaps.json`, steward doc `BREAKTHROUGH_GAPS.md`; roadmap § integrated priorities; **repo audit:** [`.planning/reports/USDR_FULL_AUDIT_2026-05.md`](../.planning/reports/USDR_FULL_AUDIT_2026-05.md) (hub UX debt + documentation drift inventory).
 
 ## Policy documents
 
@@ -58,11 +58,18 @@ This map is the project traceability layer (delivered as part of **Phase 0 — F
 | `scripts/audit_quality.py` | Flag low-quality catalog entries | Manual |
 | `scripts/build_citation_index.py` | Extract and rank cross-referenced papers | Manual |
 
+## Planning / audit artifacts
+
+| Artifact | Purpose |
+|----------|---------|
+| [`.planning/reports/USDR_FULL_AUDIT_2026-05.md`](../.planning/reports/USDR_FULL_AUDIT_2026-05.md) | Periodic full-repo audit (inventory, drift, prioritized backlog); drives **ROADMAP.md** § Audit backlog |
+
 ## GitHub Actions workflows
 
 | Workflow | Trigger | What it does |
 |----------|---------|--------------|
-| `.github/workflows/validate.yml` | Push / PR to `main` | Runs `validate_schemas.py`; blocks merge on failure |
+| `.github/workflows/validate.yml` | PR to `main` (catalog-related paths only) | Runs `validate_schemas.py` + uploads quality report artifact |
+| `.github/workflows/validate-schemas.yml` | Push / PR to `main` | Validates catalog YAML; `verify_domain_pages.py`; `verify_dashboard_consistency.py` |
 | `.github/workflows/build-graph.yml` | Push to `main` | Rebuilds knowledge graph, generates API, updates dashboard stats |
 | `.github/workflows/pages.yml` | Push to `main` (paths: `dashboard/**`, `docs/**`, this workflow) | Deploys site artifact to GitHub Pages; generates **`dashboard/deploy-info.json`** at deploy time so the hub can show whether the hosted build matches **`main`** |
 

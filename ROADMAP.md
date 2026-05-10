@@ -90,21 +90,33 @@ Recent work surfaced cross-cutting needs (dashboard truthfulness, CI visibility,
 
 **Rule of thumb:** merge-worthy batches that touch **content visible on the hub** should ship **regenerated dashboard fragments + docs** in the same PR or an immediate follow-up (see `.cursor/rules/documentation-and-dashboard.mdc`).
 
+### Audit backlog (2026-05)
+
+Structured findings and evidence: **[`.planning/reports/USDR_FULL_AUDIT_2026-05.md`](.planning/reports/USDR_FULL_AUDIT_2026-05.md)**.
+
+- Refresh **ROADMAP** foundation snapshot numbers whenever README/graph meta step forward (avoid frozen “868 bridge” era leaking into narrative).
+- Keep **`.planning/STATE.md` catalog table** aligned with README after each merge-worthy wave (bridges / unknowns / hypotheses / breakthrough gaps).
+- Soften or qualify **README** “every entry DOI-linked” language against actual schema minimums per record type.
+- Document **dual validation workflows** (`validate.yml` path-filtered vs `validate-schemas.yml`) for contributors and branch-protection expectations.
+- Add **incremental pytest smoke tests** for critical `scripts/` entry points (validate, graph orphan report, dashboard consistency).
+- Drive **Discovery Engines** metrics from data or drop static unknown counts in `dashboard/index.html` to prevent silent drift.
+- Continue **GitHub Pages graph reliability** work with captured console/network traces per incident.
+
 ---
 
-## Foundation achievement snapshot (as of 2026-05-07)
+## Foundation achievement snapshot (as of 2026-05-10)
 
 ### Current counts
 
-| Metric | Foundation target | Current (2026-05-07) | Status |
+| Metric | Foundation target | Current (2026-05-10) | Status |
 |--------|---------------|----------------------|--------|
-| Cross-domain bridges | 500+ | **868** | ✅ Exceeded (next: 1,000) |
-| Unknowns | 500+ | **1,151** | ✅ Exceeded |
-| Hypotheses | 300+ | **1,019** | ✅ Exceeded |
+| Cross-domain bridges | 500+ | **1,123** | ✅ Exceeded (next: ongoing catalog growth) |
+| Unknowns | 500+ | **1,408** | ✅ Exceeded |
+| Hypotheses | 300+ | **1,274** | ✅ Exceeded |
 | Pioneers | — | **18** | ✅ Growing |
-| Breakthrough gaps | — | **24+** | Living catalog (`breakthrough-gaps/`) |
-| Knowledge graph nodes | 1,000+ | **3,072** | ✅ Exceeded (3× target) |
-| Knowledge graph edges | — | **3,259** | — |
+| Breakthrough gaps | — | **24** | Living catalog (`breakthrough-gaps/`) |
+| Knowledge graph nodes | 1,000+ | **3,857** | ✅ Exceeded |
+| Knowledge graph edges | — | **4,517** | — |
 | Scientific domains | 15+ | **55+** | ✅ Exceeded |
 | Orphan unknowns | 0 | **0** | ✅ Clean |
 | Schema errors | 0 | **0** | ✅ Clean |
@@ -127,7 +139,7 @@ Recent work surfaced cross-cutting needs (dashboard truthfulness, CI visibility,
 - [x] **Pioneer lineage system** — 18 pioneers (2026-05-07)
 - [x] **Breakthrough gaps catalog** — expanded set in `breakthrough-gaps/` (hub + API stay synced via `render_breakthrough_gaps_hub.py`)
 - [x] **Zero orphan unknowns** — maintained throughout all waves
-- [ ] **1,000 bridges** ← ongoing engineering target
+- [x] **1,000+ bridges** — crossed (see README / graph meta for live total)
 - [ ] arXiv preprint submission (Phase 1 — author: Brandon Shoemaker)
 - [ ] First external citation / contributor (Phase 1)
 
@@ -136,7 +148,7 @@ Recent work surfaced cross-cutting needs (dashboard truthfulness, CI visibility,
 | Foundation gate | Status |
 |---|---|
 | Seeded disciplines (Physics, Biology, CS, + more) | ✅ 55+ domains |
-| 500+ high-quality structured entries | ✅ 3,038 total (868 bridges + 1,151 unknowns + 1,019 hypotheses) |
+| 500+ high-quality structured entries | ✅ 4,805+ total (1,123 bridges + 1,408 unknowns + 1,274 hypotheses — see README) |
 | Core governance + legal framework | ✅ CC BY 4.0 + MIT, CONTRIBUTING.md, CODE_OF_CONDUCT.md |
 | Knowledge graph + search | ✅ 3,072 nodes, 3,259 edges; Lunr full-text search; D3.js visualization |
 | Basic contributor infrastructure | ✅ Issue templates, PR template, GitHub Discussions |
@@ -154,7 +166,7 @@ Momentum starts once Discovery & adoption has produced a **citable anchor** (typ
 
 | Task | Status | ETA |
 |------|--------|-----|
-| 1,000 bridges | In progress (see catalog + `drafts/bridges/`) | Ongoing engineering |
+| 1,000 bridges | ✅ Exceeded — continued depth in catalog + `drafts/bridges/` | Ongoing engineering |
 | arXiv preprint submitted | Ready to convert + submit | 1–2 weeks |
 | D3 graph working on GitHub Pages | Reliability ongoing | Rolling |
 | Custom domain live | Not started | ~1 week |

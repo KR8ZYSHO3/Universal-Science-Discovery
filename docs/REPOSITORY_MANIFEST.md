@@ -6,6 +6,8 @@ Exhaustive index of **tracked** paths (excluding `.git`), what each is for, and 
 |------|------|---------|---------------------------|
 | [README.md](../README.md) | Entry | Project hub, links to core docs | [VISION_AND_SCOPE.md](VISION_AND_SCOPE.md), [DOC_MAP.md](DOC_MAP.md) |
 | [AGENTS.md](../AGENTS.md) | Policy | Instructions for AI assistants | All `docs/*.md` policy set; [DOC_MAP.md](DOC_MAP.md) |
+| [.planning/STATE.md](../.planning/STATE.md) | Meta | Maintainer checklist + catalog snapshot | [DEV_DASHBOARD.md](DEV_DASHBOARD.md), [ROADMAP.md](../ROADMAP.md) |
+| [.planning/reports/USDR_FULL_AUDIT_2026-05.md](../.planning/reports/USDR_FULL_AUDIT_2026-05.md) | Report | Full-repository audit (May 2026): inventory, drift, backlog | [DOC_MAP.md](DOC_MAP.md), [ROADMAP.md](../ROADMAP.md) |
 | [CONTRIBUTING.md](../CONTRIBUTING.md) | Policy | Human contribution workflow | [COLLABORATION_AND_REVIEWS.md](COLLABORATION_AND_REVIEWS.md), [METHODOLOGY.md](METHODOLOGY.md) |
 | [CODE_OF_CONDUCT.md](../CODE_OF_CONDUCT.md) | Policy | Expected community behavior | [CONTRIBUTING.md](../CONTRIBUTING.md) |
 | [SECURITY.md](../SECURITY.md) | Policy | Vulnerability reporting | Maintainer contact; ethics doc for sensitive data |
