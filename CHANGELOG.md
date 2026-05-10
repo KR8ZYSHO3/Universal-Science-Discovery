@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] — 2026-05-09
 
+### Fixed — CI markdown-link-check (malformed Markdown links)
+- **`CHANGELOG.md`**, **`.planning/STATE.md`**, **`ROADMAP.md`**, **`docs/DOC_MAP.md`:** Removed placeholder `(...)` ellipsis URLs and **nested backticks** inside `[link](url)` for the May 2026 audit report so **`markdown-link-check`** resolves paths correctly (avoids HTTP **400** from bogus targets).
+
 ### Changed — Discovery Engines hub cards (honest metrics)
 - **`dashboard/index.html`:** Removed static per-theme **unknown** counts; cards now show only **spotlight bridge** counts derived from each theme’s bridge ID list (curated shortcuts, not catalog totals).
 
@@ -20,7 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **`docs/OPERATING_RHYTHM.md`:** Documents **`validate.yml`** (path-filtered + quality audit) vs **`validate-schemas.yml`** (every PR/push); branch-protection guidance; status-check table includes **`validate.yml`**.
 
 ### Added — May 2026 full repository audit
-- **[`.planning/reports/USDR_FULL_AUDIT_2026-05.md`](.planning/reports/USDR_FULL_AUDIT_2026-05.md):** Structured inventory, documentation drift, CI/security snapshot, and prioritized issues.
+- **[May 2026 full audit report](.planning/reports/USDR_FULL_AUDIT_2026-05.md):** Structured inventory, documentation drift, CI/security snapshot, and prioritized issues.
 - **[`ROADMAP.md`](ROADMAP.md):** § **Audit backlog (2026-05)** + refreshed foundation snapshot counts (aligned with README / graph meta).
 - **[`.planning/STATE.md`](.planning/STATE.md):** Audit completion note, **next** items, and catalog table refreshed to current YAML totals.
 - **[`docs/DOC_MAP.md`](docs/DOC_MAP.md), [`docs/REPOSITORY_MANIFEST.md`](docs/REPOSITORY_MANIFEST.md):** Traceability for the audit report and clarified **`validate.yml`** vs **`validate-schemas.yml`** roles.
@@ -80,7 +83,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed — CI markdown-link-check (localhost hub URLs)
 - **`.markdown-link-check.json`:** Ignore pattern matches **`http://localhost`** / **`https://localhost`** with **optional port** and any trailing path/query/fragment (prefix rule).
-- **Docs/rules:** Prefer **[`dashboard/index.html`](…)** for navigation; keep **`http://localhost:8765/dashboard/`** only in **backticks** or point readers to **`dashboard/README.md`** / **`README.md`** quick-start comments instead of bare localhost URLs in prose. Updated **`AGENTS.md`**, **`.cursor/rules/documentation-and-dashboard.mdc`**, **`.cursor/rules/science-discovery-core.mdc`**, **`README.md`**, **`WORKSTREAMS.md`**, **`dashboard/README.md`** (alongside earlier **`CONTRIBUTING.md`**, **`docs/OPERATING_RHYTHM.md`** fixes).
+- **Docs/rules:** Prefer **`dashboard/index.html`** (repo-relative path) for navigation; keep **`http://localhost:8765/dashboard/`** only in **backticks** or point readers to **`dashboard/README.md`** / **`README.md`** quick-start comments instead of bare localhost URLs in prose. Updated **`AGENTS.md`**, **`.cursor/rules/documentation-and-dashboard.mdc`**, **`.cursor/rules/science-discovery-core.mdc`**, **`README.md`**, **`WORKSTREAMS.md`**, **`dashboard/README.md`** (alongside earlier **`CONTRIBUTING.md`**, **`docs/OPERATING_RHYTHM.md`** fixes).
 
 ### Fixed — CI markdown-link-check (DOI)
 - **`docs/citation_index.md`:** Table links now use `https://doi.org/10…` (previously `10…` was treated as a relative path). **`.markdown-link-check.json`:** Ignore **`https://doi.org/`** (and legacy **`dx.doi.org`**) — automated checks often get **403** from doi.org in CI; identifiers remain standard for readers.

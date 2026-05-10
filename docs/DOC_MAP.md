@@ -2,7 +2,7 @@
 
 This map is the project traceability layer (delivered as part of **Phase 0 — Foundation**, now complete). When you change a guiding document, update the corresponding behaviors (rules, templates, or this map) in the same change.
 
-**Last updated:** 2026-05-10 — **`tests/repo_smoke`** (includes **`build_graph.py --report-orphans`**) + **`validate-schemas.yml`** pytest bundle; **`OPERATING_RHYTHM.md`** dual-workflow / branch-protection notes; breakthrough gaps hub grid / API / steward doc; roadmap § integrated priorities + audit backlog; **repo audit:** [`.planning/reports/USDR_FULL_AUDIT_2026-05.md`](../.planning/reports/USDR_FULL_AUDIT_2026-05.md).
+**Last updated:** 2026-05-10 — **`tests/repo_smoke`** (includes **`build_graph.py --report-orphans`**) + **`validate-schemas.yml`** pytest bundle; **`OPERATING_RHYTHM.md`** dual-workflow / branch-protection notes; breakthrough gaps hub grid / API / steward doc; roadmap § integrated priorities + audit backlog; **repo audit:** [May 2026 full audit report](../.planning/reports/USDR_FULL_AUDIT_2026-05.md).
 
 ## Policy documents
 
@@ -62,7 +62,7 @@ This map is the project traceability layer (delivered as part of **Phase 0 — F
 
 | Artifact | Purpose |
 |----------|---------|
-| [`.planning/reports/USDR_FULL_AUDIT_2026-05.md`](../.planning/reports/USDR_FULL_AUDIT_2026-05.md) | Periodic full-repo audit (inventory, drift, prioritized backlog); drives **ROADMAP.md** § Audit backlog |
+| [May 2026 full audit report](../.planning/reports/USDR_FULL_AUDIT_2026-05.md) | Periodic full-repo audit (inventory, drift, prioritized backlog); drives **ROADMAP.md** § Audit backlog |
 
 ## GitHub Actions workflows
 

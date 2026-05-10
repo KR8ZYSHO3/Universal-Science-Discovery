@@ -92,7 +92,7 @@ Recent work surfaced cross-cutting needs (dashboard truthfulness, CI visibility,
 
 ### Audit backlog (2026-05)
 
-Structured findings and evidence: **[`.planning/reports/USDR_FULL_AUDIT_2026-05.md`](.planning/reports/USDR_FULL_AUDIT_2026-05.md)**.
+Structured findings and evidence: **[May 2026 full audit report](.planning/reports/USDR_FULL_AUDIT_2026-05.md)**.
 
 - Refresh **ROADMAP** foundation snapshot numbers whenever README/graph meta step forward (avoid frozen “868 bridge” era leaking into narrative).
 - Keep **`.planning/STATE.md` catalog table** aligned with README after each merge-worthy wave (bridges / unknowns / hypotheses / breakthrough gaps).
