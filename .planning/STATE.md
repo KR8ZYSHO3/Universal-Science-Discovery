@@ -4,12 +4,14 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 ## Last updated
 
+- 2026-05-09 — **Catalog cross-reference cleanup (slug orphans)**:
+Repointed stale bridge IDs (optimal-transport vasculature spelling; Tesla phenomenology/pioneer seeds to live bridges); removed dangling `h-*` / `u-*` slug references with no YAML entries. Rebuilt `docs/knowledge_graph.json`. **`python scripts/build_graph.py --report-orphans`** still reports many missing targets that are **full-sentence strings** (not canonical IDs) inside reference lists — treat as a separate normalization pass.
 - 2026-05-09 — **Integration hygiene (MkDocs strict, graph orphan reporter, Wave Factory staging)**:
 **MkDocs:** All previously omitted doc pages added to `mkdocs.yml` nav — `mkdocs build --strict` should pass.
 **Scripts:** `scripts/build_graph.py --report-orphans` lists YAML cross-references to missing catalog IDs (explains filtered orphan edges during graph build).
 **Wave Factory:** `drafts/wave_factory/` gitignored; tracked staging YAML removed from git index — regenerate locally before promotion.
 **Docs:** New `docs/SOLVING_UNKNOWNS.md` (resolution ladder + evidence bar); `docs/DOC_MAP.md` updated.
-**Next:** Merge `waves-72-73-bridges` → `main` when ready (branch ~28 commits ahead of `origin/main`).
+**Next:** Normalize prose-string cross-references to canonical IDs where appropriate (see `--report-orphans`).
 - 2026-05-09 — **Wave 88 — 12 new bridges (1,123 catalog)**:
 **Bridges:** QAOA classical surrogate warm-start framing; persistent homology QC for noisy microscopy; efficient coding ↔ information-bottleneck objectives; replicator dynamics empirical ESS inference; belief propagation genotype phasing on linkage graphs; restricted Boltzmann machines ↔ Ising energy models; spectral clustering metabolite modules; distributionally robust optimization climate ambiguity sets; contrastive predictive coding multiview learning; RG coarse-graining metaphors for depth (contested/labeled analogy); EDMD/Koopman linearization for video dynamics; sparse-sensor SINDy-style PDE discovery (**speculative analogies labeled where not literature-established**).
 **Unknowns / hypotheses:** +12 each (paired to bridges).

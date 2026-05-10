@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] — 2026-05-09
 
+### Fixed — Catalog cross-references (graph orphans)
+- Corrected stale bridge IDs (e.g. `b-optimal-transport-vascular` → `b-optimal-transport-vasculature`) and repointed Tesla-related phenomenology / pioneer `bridge_seeds` to existing bridges (`b-tesla-resonant-wireless-power`, `b-skin-friction-x-boundary-layer`, `b-antenna-theory-electromagnetic-radiation`).
+- Removed YAML references to missing slug hypotheses and unknowns (`h-*` / `u-*` entries that had no catalog files), which were generating orphan edges during `scripts/build_graph.py`.
+- Rebuilt `docs/knowledge_graph.json`. Remaining orphan targets reported by `--report-orphans` are predominantly **prose strings** mis-entered where canonical IDs were expected (follow-up cleanup).
+
 ### Changed — Docs CI & contributor hygiene
 - **MkDocs:** Added missing pages to `mkdocs.yml` nav (strategy docs, Wave Factory, explainers, outreach, preprint, generated reports) so `mkdocs build --strict` passes without omitted-file warnings.
 - **Graph tooling:** Refactored `scripts/build_graph.py` with `build_nodes_and_raw_edges` / `filter_orphan_edges`; added `--report-orphans` to list YAML cross-reference IDs that point to missing catalog nodes.
