@@ -9,8 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] — 2026-05-09
 
+### Changed — Discovery Engines hub cards (honest metrics)
+- **`dashboard/index.html`:** Removed static per-theme **unknown** counts; cards now show only **spotlight bridge** counts derived from each theme’s bridge ID list (curated shortcuts, not catalog totals).
+
 ### Added — Repo script smoke tests + CI consolidation
-- **`tests/repo_smoke/`:** Pytest wrappers for `validate_schemas.py`, `verify_domain_pages.py`, and `verify_dashboard_consistency.py`; root **`pyproject.toml`** includes this path for **`python -m pytest tests/repo_smoke`**.
+- **`tests/repo_smoke/`:** Pytest wrappers for `validate_schemas.py`, `verify_domain_pages.py`, `verify_dashboard_consistency.py`, and **`build_graph.py --report-orphans`**; root **`pyproject.toml`** includes this path for **`python -m pytest tests/repo_smoke`**.
 - **`validate-schemas.yml`:** Runs that pytest bundle (replacing three separate steps) so local runs match CI.
 
 ### Changed — Operating rhythm / CI documentation

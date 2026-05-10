@@ -2,7 +2,7 @@
 
 This map is the project traceability layer (delivered as part of **Phase 0 — Foundation**, now complete). When you change a guiding document, update the corresponding behaviors (rules, templates, or this map) in the same change.
 
-**Last updated:** 2026-05-10 — **`tests/repo_smoke`** + **`validate-schemas.yml`** pytest bundle; **`OPERATING_RHYTHM.md`** dual-workflow / branch-protection notes; breakthrough gaps hub grid / API / steward doc; roadmap § integrated priorities + audit backlog; **repo audit:** [`.planning/reports/USDR_FULL_AUDIT_2026-05.md`](../.planning/reports/USDR_FULL_AUDIT_2026-05.md).
+**Last updated:** 2026-05-10 — **`tests/repo_smoke`** (includes **`build_graph.py --report-orphans`**) + **`validate-schemas.yml`** pytest bundle; **`OPERATING_RHYTHM.md`** dual-workflow / branch-protection notes; breakthrough gaps hub grid / API / steward doc; roadmap § integrated priorities + audit backlog; **repo audit:** [`.planning/reports/USDR_FULL_AUDIT_2026-05.md`](../.planning/reports/USDR_FULL_AUDIT_2026-05.md).
 
 ## Policy documents
 
@@ -69,7 +69,7 @@ This map is the project traceability layer (delivered as part of **Phase 0 — F
 | Workflow | Trigger | What it does |
 |----------|---------|--------------|
 | `.github/workflows/validate.yml` | PR to `main` (catalog-related paths only) | Runs `validate_schemas.py` + **`audit_quality.py`** + uploads quality report artifact |
-| `.github/workflows/validate-schemas.yml` | Push / PR to `main` | **`pytest tests/repo_smoke`** — `validate_schemas.py`, `verify_domain_pages.py`, `verify_dashboard_consistency.py` |
+| `.github/workflows/validate-schemas.yml` | Push / PR to `main` | **`pytest tests/repo_smoke`** — `validate_schemas.py`, `verify_domain_pages.py`, `verify_dashboard_consistency.py`, `build_graph.py --report-orphans` |
 | `.github/workflows/build-graph.yml` | Push to `main` | Rebuilds knowledge graph, generates API, updates dashboard stats |
 | `.github/workflows/pages.yml` | Push to `main` (paths: `dashboard/**`, `docs/**`, this workflow) | Deploys site artifact to GitHub Pages; generates **`dashboard/deploy-info.json`** at deploy time so the hub can show whether the hosted build matches **`main`** |
 

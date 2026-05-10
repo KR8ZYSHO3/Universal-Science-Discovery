@@ -16,7 +16,7 @@ Two workflows run **`scripts/validate_schemas.py`**, but **not on the same PR tr
 
 | Workflow | When it runs | Extras |
 |----------|----------------|--------|
-| [`validate-schemas.yml`](../.github/workflows/validate-schemas.yml) | **Every** PR and push to `main` | **`pytest tests/repo_smoke`** — runs `validate_schemas.py`, `verify_domain_pages.py`, and `verify_dashboard_consistency.py` as one job (same checks as before; single execution path). |
+| [`validate-schemas.yml`](../.github/workflows/validate-schemas.yml) | **Every** PR and push to `main` | **`pytest tests/repo_smoke`** — runs `validate_schemas.py`, `verify_domain_pages.py`, `verify_dashboard_consistency.py`, and **`build_graph.py --report-orphans`** (orphan report is informational; exit **0** even when xref drift exists). |
 | [`validate.yml`](../.github/workflows/validate.yml) (**Validate Catalog**) | PRs to `main` that touch catalog-related **paths** only (`unknowns-catalog/**`, `hypotheses/**`, `cross-domain/**`, `phenomenology/**`, `breakthrough-gaps/**`, `schemas/**`) | Also runs **`audit_quality.py`** and uploads a quality report artifact. |
 
 **Branch protection:** Prefer requiring the job from **`validate-schemas.yml`** on every PR — it always runs. Treat **`validate.yml`** as an **additional** signal on catalog edits (quality report); requiring only **`validate.yml`** would miss merges that skip path filters (for example docs-only PRs still need schema/dashboard consistency via **`validate-schemas.yml`**).

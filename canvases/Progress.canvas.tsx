@@ -21,7 +21,7 @@ import {
 
 // @sync-dashboard-begin
 const dashboardSnapshot = {
-  lastUpdated: "2026-05-10 — **Repo smoke tests + CI docs** — **`tests/repo_smoke`** exercises the same three scripts as **`validate-schemas.yml`** (now invoked via pytest in that workflow). **`docs/OPERATING_RHYTHM.md`** explains **`validate.yml`** vs **`validate-schemas.yml`** for branch protection; **`ROADMAP.md`** audit backlog updated for completed items. **Next:** (1) keep ROADMAP/STATE/README counts in sync after each wave; (2) merge/push branches with hub/dashboard changes when green; (3) optional: add isolated test or workflow step for **`build_graph.py --report-orphans`** if graph xref regressions become frequent.",
+  lastUpdated: "2026-05-10 — **Discovery Engines + orphan smoke** — Hub **Discovery Engines** cards no longer show fabricated unknown totals (spotlight bridge counts only). **`tests/repo_smoke`** now runs **`build_graph.py --report-orphans`** (~8s) alongside schema/domain/dashboard checks. **Next:** (1) keep ROADMAP/STATE/README counts in sync after each wave; (2) merge/push when CI green; (3) optional: **`build_graph`** strict mode to fail CI on orphan xrefs once backlog is tractable.",
   currentFocus: [
     "**Roadmap posture**: Foundation (**Phase 0**) is complete; discoverability + first contributors are **Phase 1** targets — not blockers for ongoing development.",
     "**arXiv preprint**: `docs/preprint/usdr_preprint.md` is ready; next step is PDF conversion and submission to cs.DL (author: Brandon Shoemaker).",
