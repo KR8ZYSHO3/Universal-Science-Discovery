@@ -50,6 +50,7 @@ This map is the project traceability layer (delivered as part of **Phase 0 — F
 | `scripts/build_graph.py` | Build `docs/knowledge_graph.json` | ✅ (build-graph.yml) |
 | `scripts/generate_api.py` | Generate static JSON API under `api/v1/` | ✅ (build-graph.yml) |
 | `scripts/update_dashboard_stats.py` | Patch stat counters, hero **catalog snapshot** spans (`snap-*`, between `DASHBOARD_CATALOG_SNAPSHOT_*` markers), social meta, API blurbs, and graph placeholders in `dashboard/index.html` (reads `docs/knowledge_graph.json` meta for nodes/edges, with array-length fallback) | ✅ (build-graph.yml) |
+| `scripts/verify_dashboard_consistency.py` | Fail CI if `snap-*` / key `stat-*` / hero pill counts disagree with YAML catalog + `docs/knowledge_graph.json` | ✅ (validate-schemas.yml) |
 | `scripts/generate_domain_pages.py` | Per-domain HTML pages under `dashboard/domains/` | ✅ (pages.yml) |
 | `scripts/generate_explainers.py` | Bridge explainer HTML pages under `dashboard/explainers/` | ✅ (pages.yml) |
 | `scripts/propose_bridges.py` | Propose novel bridge candidates | Manual |

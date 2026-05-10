@@ -6,7 +6,7 @@
 2. Sync [AGENTS.md](../AGENTS.md) and [.cursor/rules/](../.cursor/rules/) if agent-facing expectations changed.
 3. Sync issue/PR templates under [.github/](../.github/) if workflow fields need to match.
 4. Merge governance and tooling updates in **one PR** when possible so history stays coherent.
-5. **Milestones and features:** update [CHANGELOG.md](../CHANGELOG.md) (Unreleased), [README.md](../README.md) or deeper docs as needed, [.planning/STATE.md](../.planning/STATE.md), and [dashboard/index.html](../dashboard/index.html) so the contributor hub at `http://localhost:8765/dashboard/` stays accurate; run `mkdocs build --strict` when `docs/` or `mkdocs.yml` changed. Cursor rule: `.cursor/rules/documentation-and-dashboard.mdc`.
+5. **Milestones and features:** update [CHANGELOG.md](../CHANGELOG.md) (Unreleased), [README.md](../README.md) or deeper docs as needed, [.planning/STATE.md](../.planning/STATE.md), and [dashboard/index.html](../dashboard/index.html) so the contributor hub at `http://localhost:8765/dashboard/` stays accurate; run **`python scripts/verify_dashboard_consistency.py`** after stat-changing edits and follow [DEV_DASHBOARD.md](DEV_DASHBOARD.md) for the full hub refresh order; run `mkdocs build --strict` when `docs/` or `mkdocs.yml` changed. Cursor rule: `.cursor/rules/documentation-and-dashboard.mdc`.
 
 ## CI and merges
 

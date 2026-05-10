@@ -28,6 +28,10 @@ The [README](../README.md) and [CONTRIBUTING](../CONTRIBUTING.md) point newcomer
 
 Static HTML per discipline under **`dashboard/domains/`** (and **`domains/index.html`**). Counts and bridge lists are **generated** from the YAML catalog — run **`python scripts/generate_domain_pages.py`** from the repo root after adding or reshaping bridges/unknowns so numbers stay honest. Matching logic lives in **`scripts/domain_matching.py`** (bridges use schema **`fields`**, not legacy `source_domain` / `target_domain`). CI checks **`scripts/verify_domain_pages.py`**.
 
+## Maintainer playbook
+
+See **[docs/DEV_DASHBOARD.md](../docs/DEV_DASHBOARD.md)** for the ordered checklist (graph rebuild, `update_dashboard_stats.py --apply`, domain pages, breakthrough grid, consistency verify). Run **`python scripts/verify_dashboard_consistency.py`** before merge when catalog counts or `dashboard/index.html` stats change.
+
 ## Publishing & privacy notes
 
 **GitHub Pages:** Pushes to `main` that touch `dashboard/**` or `docs/**` run [`.github/workflows/pages.yml`](../.github/workflows/pages.yml). The workflow writes **`deploy-info.json`** (gitignored locally) next to `index.html` with the deployed commit SHA and timestamp. The hub reads that file and compares it to **`main`** via the GitHub API so visitors see whether **https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/** is current.

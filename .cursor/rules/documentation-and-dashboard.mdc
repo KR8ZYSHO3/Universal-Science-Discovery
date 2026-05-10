@@ -20,6 +20,8 @@ Treat **up-to-date documentation as continuous work**, not an afterthought. When
 
 ## Contributor hub (`dashboard/`)
 
+**Methodical upkeep:** Follow **[docs/DEV_DASHBOARD.md](../../docs/DEV_DASHBOARD.md)** (“Contributor hub maintenance playbook”) so counts, generated sections, and STATE/Canvas stay aligned; CI runs **`scripts/verify_dashboard_consistency.py`** on PRs.
+
 The HTML **contributor hub** is [`dashboard/index.html`](../../dashboard/index.html). It is the guided entry for new contributors: from the repo root run `python -m http.server 8765`, then open that file in the browser (local URL `http://localhost:8765/dashboard/`). It may load **Google Fonts** and **`marked`** from CDNs when online; **`dashboard/README.md`** describes privacy/offline behavior.
 
 **Domain landing pages (`dashboard/domains/`)** must stay aligned with the YAML catalog: bridge counts come from each bridge’s **`fields`** list matched to `unknowns-catalog/<domain>/` (see **`scripts/domain_matching.py`**). After batches of **bridges / unknowns / hypotheses**, regenerate pages — **`python scripts/generate_domain_pages.py`** (runs in **`build-graph.yml`** when catalog paths change). CI runs **`python scripts/verify_domain_pages.py`** (minimum bridge visibility checks). Ship regenerated HTML with the same PR as the catalog change when feasible.

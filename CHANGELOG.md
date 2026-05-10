@@ -12,6 +12,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed — Preprint statistics aligned with live catalog
 - **`docs/preprint/usdr_preprint.md` / `.html`:** Abstract, §3.3–3.6, §5.1 (gap rankings), §8.1, and conclusion updated from stale **578-bridge / ~2.3k-entry** figures to current README/graph counts (**1,123** bridges, **1,408** unknowns, **1,274** hypotheses, **3,857** nodes / **4,517** edges, **18** pioneers, **24** breakthrough gaps, **~249** domain browse pages). **`scripts/render_preprint_html.py --apply`** regenerates HTML from the Markdown using **`markdown`** (listed in **`requirements-docs.txt`**).
 
+### Added — Contributor hub maintenance playbook + drift check
+- **`docs/DEV_DASHBOARD.md`:** Methodical “what changed → what to run” table, standard local command order, pre-merge checklist, and links to automation.
+- **`scripts/verify_dashboard_consistency.py`:** Fails if `dashboard/index.html` **snap-** / **stat-** counts (and hero bridge pill) disagree with YAML + `docs/knowledge_graph.json`. Runs in **`validate-schemas.yml`**.
+- **Cross-links:** **`CONTRIBUTING.md`**, **`docs/OPERATING_RHYTHM.md`**, **`dashboard/README.md`**, **`docs/DOC_MAP.md`**, **`docs/REPOSITORY_MANIFEST.md`**, **`AGENTS.md`**, **`.cursor/rules/documentation-and-dashboard.mdc`**, **`scripts/README.md`**.
+
 ### Added — Hosted hub freshness indicator (GitHub Pages)
 - **`pages.yml`:** Before upload, writes **`dashboard/deploy-info.json`** (commit SHA, short SHA, ref, commit timestamp, deploy UTC time). File is **gitignored**; it exists only on the Pages artifact.
 - **`dashboard/index.html`:** Banner under the hero pills compares that build to **`main`** (green when SHAs match; amber with **Compare on GitHub** when `main` has moved). Local **`file://`** and previews without `deploy-info.json` explain how to see freshness on the hosted URL.
