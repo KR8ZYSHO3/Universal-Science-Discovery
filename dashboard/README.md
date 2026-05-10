@@ -30,6 +30,8 @@ Static HTML per discipline under **`dashboard/domains/`** (and **`domains/index.
 
 ## Publishing & privacy notes
 
-This is **not** automatically the public project website unless you add hosting (e.g. copy `dashboard/` to static hosting or wire GitHub Pages). The main **policy docs site** may be built with MkDocs separately; this hub is for **developers who have the repo**.
+**GitHub Pages:** Pushes to `main` that touch `dashboard/**` or `docs/**` run [`.github/workflows/pages.yml`](../.github/workflows/pages.yml). The workflow writes **`deploy-info.json`** (gitignored locally) next to `index.html` with the deployed commit SHA and timestamp. The hub reads that file and compares it to **`main`** via the GitHub API so visitors see whether **https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/** is current.
+
+For other hosts, copy `dashboard/` to static hosting as needed. The main **policy docs site** may be built with MkDocs separately; this hub targets **developers exploring the repo**.
 
 When online, `index.html` loads **Google Fonts** and **`marked`** from `unpkg` for typography and markdown rendering. Air‑gapped or privacy‑strict environments can still use the hub: text and layout work with system fonts if those requests fail; panels fall back if `marked` does not load.

@@ -764,6 +764,48 @@
     .footer-links a { color: var(--muted); font-size: .82rem; }
     .footer-links a:hover { color: var(--accent); }
 
+    /* ── GitHub Pages freshness (deploy-info.json + main) ───── */
+    .pages-deploy-banner {
+      display: none;
+      margin: 1rem auto 0;
+      max-width: min(920px, 92vw);
+      padding: .55rem 1rem;
+      border-radius: var(--r-sm);
+      font-size: .78rem;
+      line-height: 1.45;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      align-items: flex-start;
+      gap: .55rem;
+      flex-wrap: wrap;
+      text-align: left;
+    }
+    .pages-deploy-banner.pages-deploy-sync {
+      border-color: var(--ok-border);
+      background: var(--ok-bg);
+      color: var(--text);
+    }
+    .pages-deploy-banner.pages-deploy-behind {
+      border-color: var(--warn-border);
+      background: var(--warn-bg);
+      color: var(--text);
+    }
+    .pages-deploy-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: .28rem;
+      display: inline-block;
+    }
+    .pages-deploy-dot-ok { background: var(--ok); box-shadow: 0 0 10px rgba(34, 211, 184, 0.35); }
+    .pages-deploy-dot-warn { background: var(--warn); }
+    .pages-deploy-dot-muted { background: var(--muted); opacity: .65; }
+    .pages-deploy-banner a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+    .pages-deploy-banner a:hover { filter: brightness(1.08); }
+    .pages-deploy-banner code { font-family: var(--mono); font-size: .74rem; }
+
     /* ── RESPONSIVE ─────────────────────────────────────────── */
     @media (max-width: 640px) {
       .hero { min-height: 80vh; }
@@ -1284,6 +1326,8 @@
         <span class="pill">1408 unknowns · 1274 hypotheses · 10 pre-formal observations</span>
         <span class="pill">Git-native · Open source</span>
       </div>
+
+      <div class="pages-deploy-banner aos" id="pages-deploy-banner" role="status" aria-live="polite" hidden></div>
 
       <p class="hero-lead">
         The <strong>Universal Science Discovery Repository</strong> — a version-controlled, AI-augmented
@@ -2755,6 +2799,125 @@
         var el=document.getElementById(id); el.textContent='—'; el.classList.remove('dim');
       });
     }
+
+    /* ── GitHub Pages freshness (deploy-info.json vs main) ───── */
+    (function loadPagesDeployFreshness() {
+      var el = document.getElementById('pages-deploy-banner');
+      if (!el) return;
+
+      function show(html, extraClass) {
+        el.removeAttribute('hidden');
+        el.style.display = 'flex';
+        el.className = 'pages-deploy-banner aos' + (extraClass ? ' ' + extraClass : '');
+        el.innerHTML = html;
+        requestAnimationFrame(function () { el.classList.add('in'); });
+      }
+
+      if (isFile) {
+        show(
+          '<span class="pages-deploy-dot pages-deploy-dot-muted"></span>' +
+            '<span>Serve with <code>python -m http.server</code> or open the <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/" target="_blank" rel="noopener">hosted hub</a> to see whether Pages matches <code>main</code>.</span>',
+          'pages-deploy-local'
+        );
+        return;
+      }
+
+      fetch('deploy-info.json', { cache: 'no-store' })
+        .then(function (r) {
+          if (!r.ok) throw new Error('no deploy-info');
+          return r.json();
+        })
+        .then(function (info) {
+          var deploySha = info.sha || '';
+          var short = info.short_sha || (deploySha ? deploySha.slice(0, 7) : '?');
+          var genAt = info.generated_at || '';
+          var ago = genAt ? timeAgo(genAt) : '';
+
+          function renderMatch() {
+            show(
+              '<span class="pages-deploy-dot pages-deploy-dot-ok"></span>' +
+                '<span><strong>Hosted hub</strong> is current: build matches <code>main</code> · <code>' +
+                short +
+                '</code>' +
+                (ago ? ' · deployed ' + ago : '') +
+                '</span>',
+              'pages-deploy-sync'
+            );
+          }
+
+          function renderBehind(mainShort) {
+            var compareUrl =
+              'https://github.com/' +
+              REPO +
+              '/compare/' +
+              encodeURIComponent(short) +
+              '...' +
+              encodeURIComponent(mainShort);
+            show(
+              '<span class="pages-deploy-dot pages-deploy-dot-warn"></span>' +
+                '<span><strong>Hosted hub</strong> may lag <code>main</code>: Pages <code>' +
+                short +
+                '</code> vs latest <code>' +
+                mainShort +
+                '</code>' +
+                (ago ? ' · Pages deploy ' + ago : '') +
+                ' · <a href="' +
+                compareUrl +
+                '" target="_blank" rel="noopener">Compare on GitHub</a></span>',
+              'pages-deploy-behind'
+            );
+          }
+
+          function renderPartial() {
+            show(
+              '<span class="pages-deploy-dot pages-deploy-dot-muted"></span>' +
+                '<span><strong>Hosted build</strong> <code>' +
+                short +
+                '</code>' +
+                (ago ? ' · deployed ' + ago : '') +
+                ' — could not reach GitHub API to confirm <code>main</code>.</span>',
+              ''
+            );
+          }
+
+          if (!deploySha) {
+            renderPartial();
+            return;
+          }
+
+          ghFetch('/commits/main')
+            .then(function (mainC) {
+              var mainSha = mainC.sha || '';
+              if (!mainSha) {
+                renderPartial();
+                return;
+              }
+              var mainShort = mainSha.slice(0, 7);
+              if (deploySha === mainSha) renderMatch();
+              else renderBehind(mainShort);
+            })
+            .catch(function () {
+              renderPartial();
+            });
+        })
+        .catch(function () {
+          if (isGHPages) {
+            show(
+              '<span class="pages-deploy-dot pages-deploy-dot-warn"></span>' +
+                '<span>Could not load <code>deploy-info.json</code> — redeploy Pages from <code>main</code> or check <a href="https://github.com/' +
+                REPO +
+                '/actions" target="_blank" rel="noopener">Actions</a>.</span>',
+              'pages-deploy-unknown'
+            );
+          } else {
+            show(
+              '<span class="pages-deploy-dot pages-deploy-dot-muted"></span>' +
+                '<span>Local preview — commit-vs-<code>main</code> freshness appears on the <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/" target="_blank" rel="noopener">hosted hub</a> after each Pages deploy.</span>',
+              'pages-deploy-local'
+            );
+          }
+        });
+    })();
 
     /* ── ACTIVITY FEED ───────────────────────────────────────── */
     var feedEl = document.getElementById('activity-feed');

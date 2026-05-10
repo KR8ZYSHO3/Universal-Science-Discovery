@@ -63,7 +63,7 @@ This map is the project traceability layer (delivered as part of **Phase 0 — F
 |----------|---------|--------------|
 | `.github/workflows/validate.yml` | Push / PR to `main` | Runs `validate_schemas.py`; blocks merge on failure |
 | `.github/workflows/build-graph.yml` | Push to `main` | Rebuilds knowledge graph, generates API, updates dashboard stats |
-| `.github/workflows/pages.yml` | Push to `main` | Deploys `dashboard/` to GitHub Pages |
+| `.github/workflows/pages.yml` | Push to `main` (paths: `dashboard/**`, `docs/**`, this workflow) | Deploys site artifact to GitHub Pages; generates **`dashboard/deploy-info.json`** at deploy time so the hub can show whether the hosted build matches **`main`** |
 
 ## Supporting files (see manifest)
 

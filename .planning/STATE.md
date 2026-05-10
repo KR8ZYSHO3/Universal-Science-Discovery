@@ -4,6 +4,7 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 ## Last updated
 
+- 2026-05-10 — **GitHub Pages hub freshness banner**: **`pages.yml`** writes **`dashboard/deploy-info.json`** (gitignored) into each deploy; **`dashboard/index.html`** compares that SHA to **`main`** via the GitHub API so visitors see **current vs behind** with a compare link.
 - 2026-05-10 — **CI — GitHub Actions bumps**: **`actions/checkout@v6`** on all workflows; **`pages.yml`:** **`actions/configure-pages@v6`**, **`actions/upload-pages-artifact@v5`**, **`actions/deploy-pages@v5`**; **`validate.yml`:** **`actions/upload-artifact@v7`** — aligns with Dependabot PRs for those actions (e.g. #214–217, #215, #1); close superseded bot PRs after CI is green.
 - 2026-05-10 — **Breakthrough gaps + roadmap tracks**: Hub “Breakthrough Gaps” grid is YAML-generated (`scripts/render_breakthrough_gaps_hub.py`); API `breakthrough_gaps.json`; steward doc `docs/BREAKTHROUGH_GAPS.md`; `ROADMAP.md` § integrated priorities (tracks A–D: discovery, trust surfaces, breakthrough gaps, catalog depth). `build-graph.yml` watches `breakthrough-gaps/**`.
 - 2026-05-09 — **Roadmap rephase — Phase 0 complete · Phase 1 Discovery active**:

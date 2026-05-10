@@ -21,7 +21,7 @@ import {
 
 // @sync-dashboard-begin
 const dashboardSnapshot = {
-  lastUpdated: "2026-05-10 — **CI — GitHub Actions bumps**: **`actions/checkout@v6`** on all workflows; **`pages.yml`:** **`actions/configure-pages@v6`**, **`actions/upload-pages-artifact@v5`**, **`actions/deploy-pages@v5`**; **`validate.yml`:** **`actions/upload-artifact@v7`** — aligns with Dependabot PRs for those actions (e.g. #214–217, #215, #1); close superseded bot PRs after CI is green.",
+  lastUpdated: "2026-05-10 — **GitHub Pages hub freshness banner**: **`pages.yml`** writes **`dashboard/deploy-info.json`** (gitignored) into each deploy; **`dashboard/index.html`** compares that SHA to **`main`** via the GitHub API so visitors see **current vs behind** with a compare link.",
   currentFocus: [
     "**Roadmap posture**: Foundation (**Phase 0**) is complete; discoverability + first contributors are **Phase 1** targets — not blockers for ongoing development.",
     "**arXiv preprint**: `docs/preprint/usdr_preprint.md` is ready; next step is PDF conversion and submission to cs.DL (author: Brandon Shoemaker).",

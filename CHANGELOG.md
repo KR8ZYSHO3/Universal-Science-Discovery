@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] — 2026-05-09
 
+### Added — Hosted hub freshness indicator (GitHub Pages)
+- **`pages.yml`:** Before upload, writes **`dashboard/deploy-info.json`** (commit SHA, short SHA, ref, commit timestamp, deploy UTC time). File is **gitignored**; it exists only on the Pages artifact.
+- **`dashboard/index.html`:** Banner under the hero pills compares that build to **`main`** (green when SHAs match; amber with **Compare on GitHub** when `main` has moved). Local **`file://`** and previews without `deploy-info.json` explain how to see freshness on the hosted URL.
+
 ### Changed — Contributor hub honesty (stats + Phase 1 ring)
 - **Hub:** Replaced stacked historical wave banners with one **live catalog snapshot** row (patched by **`scripts/update_dashboard_stats.py --apply`**); **#status** shows **Phase 0 Foundation complete** strip; progress ring is **Phase 1 only**, **completed milestones only** (no partial credit for in-progress); checklist order aligned with **`ROADMAP.md`** Phase 1.
 
