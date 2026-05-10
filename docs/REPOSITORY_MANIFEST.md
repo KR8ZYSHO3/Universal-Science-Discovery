@@ -37,6 +37,7 @@ Exhaustive index of **tracked** paths (excluding `.git`), what each is for, and 
 | [docs/DOC_MAP.md](DOC_MAP.md) | Policy | Doc → behavior traceability | All guiding docs |
 | [docs/index.md](index.md) | Guide | MkDocs homepage for the `docs/` tree; links to repo root on GitHub | [README.md](../README.md), [INTERFACE.md](../INTERFACE.md), [mkdocs.yml](../mkdocs.yml) |
 | [docs/ONBOARDING.md](ONBOARDING.md) | Guide | First-hour navigation | — |
+| [docs/SOLVING_UNKNOWNS.md](SOLVING_UNKNOWNS.md) | Guide | Status ladder and evidence bar for resolving catalog unknowns | [DOC_MAP.md](DOC_MAP.md), [METHODOLOGY.md](METHODOLOGY.md); orphan checks via `scripts/build_graph.py --report-orphans` |
 | [docs/HAPPY_PATH_FIRST_RECORDS.md](HAPPY_PATH_FIRST_RECORDS.md) | Guide | Stream A happy path: first unknown + hypothesis YAML → PR | [CONTRIBUTING.md](../CONTRIBUTING.md), [METHODOLOGY.md](METHODOLOGY.md), [LEGAL.md](../LEGAL.md), [schemas/unknown.yaml](../schemas/unknown.yaml), [schemas/hypothesis.yaml](../schemas/hypothesis.yaml) |
 | [docs/GSD_INTEGRATION.md](GSD_INTEGRATION.md) | Guide | Optional GSD (get-shit-done / spec-driven) boundaries for maintainers | [METHODOLOGY.md](METHODOLOGY.md), [DATA_PLAN.md](DATA_PLAN.md), [LEGAL.md](../LEGAL.md), [DEV_DASHBOARD.md](DEV_DASHBOARD.md) |
 | [docs/UAT_INGEST.md](UAT_INGEST.md) | Guide | Manual UAT for `usdr-ingest` CLI | [DATA_PLAN.md](DATA_PLAN.md), [LEGAL.md](../LEGAL.md), [packages/ingest/pyproject.toml](../packages/ingest/pyproject.toml) |

@@ -44,7 +44,7 @@ A git-native, schema-validated, community-governed catalog of scientific unknown
 | **Cross-domain bridges**   | **1,123** | Mathematical connections between fields that rarely communicate |
 | **Open unknowns**          | **1,408** | Named, structured research gaps across 55+ disciplines          |
 | **Falsifiable hypotheses** | **1,274** | Testable claims linked to specific unknowns                     |
-| **Knowledge graph nodes**  | **3,821** | Interconnected across 4,457 edges                               |
+| **Knowledge graph nodes**  | **3,857** | Interconnected across 4,517 edges                               |
 | **Pioneer profiles**       | **18**    | Scientists whose work seeded cross-domain bridges               |
 | **Breakthrough gaps**      | **24**    | High-priority problems that would reshape entire fields         |
 | **Orphan unknowns**        | **0**     | All unknowns connected to bridges or hypotheses                 |

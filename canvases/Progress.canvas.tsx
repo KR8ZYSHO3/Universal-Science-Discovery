@@ -21,7 +21,7 @@ import {
 
 // @sync-dashboard-begin
 const dashboardSnapshot = {
-  lastUpdated: "2026-05-09 — **Integration hygiene (MkDocs strict, graph orphan reporter, Wave Factory staging)**:",
+  lastUpdated: "2026-05-09 — **CI: GitHub Actions bumps (checkout v6, Pages deploy stack, upload-artifact v7)**:",
   currentFocus: [
     "**arXiv preprint**: `docs/preprint/usdr_preprint.md` is ready; next step is PDF conversion and submission to cs.DL (author: Brandon Shoemaker).",
     "**Bridge count toward 1,000**: promote `drafts/bridges/` stubs; continue wave-based build.",

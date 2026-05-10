@@ -4,6 +4,10 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 ## Last updated
 
+- 2026-05-09 — **CI: GitHub Actions bumps (checkout v6, Pages deploy stack, upload-artifact v7)**:
+Workflows updated to match Dependabot targets; after merge to `main`, close superseded Dependabot PRs #214–217 and #1 if checks pass.
+- 2026-05-09 — **Documentation audit (README + dashboard stats)**:
+**README** knowledge-graph row aligned with `docs/knowledge_graph.json` meta; **`scripts/update_dashboard_stats.py`** now patches OpenGraph/Twitter text, `stat-graph-edges`, kg placeholder counts, and static API blurbs; **`docs/DOC_MAP.md`**, **`docs/REPOSITORY_MANIFEST.md`** updated. Run `python scripts/update_dashboard_stats.py --apply` after `build_graph` when refreshing the hub.
 - 2026-05-09 — **Integration hygiene (MkDocs strict, graph orphan reporter, Wave Factory staging)**:
 **MkDocs:** All previously omitted doc pages added to `mkdocs.yml` nav — `mkdocs build --strict` should pass.
 **Scripts:** `scripts/build_graph.py --report-orphans` lists YAML cross-references to missing catalog IDs (explains filtered orphan edges during graph build).
