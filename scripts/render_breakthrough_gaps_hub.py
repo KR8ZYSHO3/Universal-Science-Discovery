@@ -71,6 +71,15 @@ def load_gap(path: Path) -> dict | None:
     return data
 
 
+def search_query_attr(title: str, fallback_id: str, max_len: int = 160) -> str:
+    """Short plain-text snippet safe for HTML attribute (double-quoted)."""
+    raw = (title or fallback_id or "").strip()
+    s = " ".join(raw.split())
+    if len(s) > max_len:
+        s = s[: max_len - 1].rstrip() + "…"
+    return html.escape(s, quote=True)
+
+
 def excerpt(text: str, max_len: int = 220) -> str:
     s = " ".join((text or "").split())
     if len(s) <= max_len:
@@ -96,10 +105,12 @@ def render_cards(entries: list[dict]) -> str:
         trl_label = html.escape(str(trl)) if isinstance(trl, int) else "?"
         desc_raw = d.get("breakthrough_description") or ""
         desc = html.escape(excerpt(desc_raw))
+        sq = search_query_attr((d.get("title") or "").strip(), gid)
         icon = GAP_ICONS.get(gid, "◆")
         gh_url = f"{GH_BASE}/{gid}.yaml"
         lines.append(
             f'''        <a href="{gh_url}" target="_blank" rel="noopener" class="gap-hub-card"
+           data-search-query="{sq}"
            style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
            onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
            onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">

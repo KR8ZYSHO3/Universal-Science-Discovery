@@ -21,7 +21,7 @@ import {
 
 // @sync-dashboard-begin
 const dashboardSnapshot = {
-  lastUpdated: "2026-05-10 — **Breakthrough gaps + roadmap tracks**: Hub “Breakthrough Gaps” grid is YAML-generated (`scripts/render_breakthrough_gaps_hub.py`); API `breakthrough_gaps.json`; steward doc `docs/BREAKTHROUGH_GAPS.md`; `ROADMAP.md` § integrated priorities (tracks A–D: discovery, trust surfaces, breakthrough gaps, catalog depth). `build-graph.yml` watches `breakthrough-gaps/**`.",
+  lastUpdated: "2026-05-10 — **Merged `publish/hub-pages-sync` → `main`** — Audit follow-ups, **`tests/repo_smoke`** / **`validate-schemas.yml`** pytest bundle, hub UX (breakthrough Alt-click search, Discovery Engines honesty), dual CI docs in **`OPERATING_RHYTHM.md`**. **Next:** keep README/ROADMAP/STATE counts aligned after catalog waves; optional strict orphan-xref CI once backlog is tractable.",
   currentFocus: [
     "**Roadmap posture**: Foundation (**Phase 0**) is complete; discoverability + first contributors are **Phase 1** targets — not blockers for ongoing development.",
     "**arXiv preprint**: `docs/preprint/usdr_preprint.md` is ready; next step is PDF conversion and submission to cs.DL (author: Brandon Shoemaker).",

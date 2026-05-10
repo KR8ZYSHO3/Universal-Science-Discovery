@@ -16,11 +16,8 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install validators
-        run: pip install pyyaml "jsonschema>=4.20"
+      - name: Install validators + pytest
+        run: pip install pyyaml "jsonschema>=4.20" pytest
 
-      - name: Validate record YAML
-        run: python scripts/validate_schemas.py
-
-      - name: Verify domain landing page bridge indexing
-        run: python scripts/verify_domain_pages.py
+      - name: Catalog YAML + domain pages + dashboard consistency + orphan report
+        run: python -m pytest tests/repo_smoke -v --tb=short

@@ -4,11 +4,15 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 ## Last updated
 
+- 2026-05-10 — **Merged `publish/hub-pages-sync` → `main`** — Audit follow-ups, **`tests/repo_smoke`** / **`validate-schemas.yml`** pytest bundle, hub UX (breakthrough Alt-click search, Discovery Engines honesty), dual CI docs in **`OPERATING_RHYTHM.md`**. **Next:** keep README/ROADMAP/STATE counts aligned after catalog waves; optional strict orphan-xref CI once backlog is tractable.
+- 2026-05-10 — **Discovery Engines + orphan smoke** — Hub **Discovery Engines** cards no longer show fabricated unknown totals (spotlight bridge counts only). **`tests/repo_smoke`** runs **`build_graph.py --report-orphans`** (~8s) alongside schema/domain/dashboard checks.
+- 2026-05-10 — **Repo smoke tests + CI docs** — **`tests/repo_smoke`** bundles catalog validation scripts via pytest in **`validate-schemas.yml`**. **`docs/OPERATING_RHYTHM.md`** explains **`validate.yml`** vs **`validate-schemas.yml`** for branch protection; **`ROADMAP.md`** audit backlog updated for completed items.
+- 2026-05-10 — **Full repository audit (May 2026)** — **[`.planning/reports/USDR_FULL_AUDIT_2026-05.md`](reports/USDR_FULL_AUDIT_2026-05.md)** (inventory, drift, CI/security snapshot, prioritized issues).
+- 2026-05-10 — **GitHub Pages hub freshness banner**: **`pages.yml`** writes **`dashboard/deploy-info.json`** (gitignored) into each deploy; **`dashboard/index.html`** compares that SHA to **`main`** via the GitHub API so visitors see **current vs behind** with a compare link.
+- 2026-05-10 — **CI — GitHub Actions bumps**: **`actions/checkout@v6`** on all workflows; **`pages.yml`:** **`actions/configure-pages@v6`**, **`actions/upload-pages-artifact@v5`**, **`actions/deploy-pages@v5`**; **`validate.yml`:** **`actions/upload-artifact@v7`** — aligns with Dependabot PRs for those actions (e.g. #214–217, #215, #1); close superseded bot PRs after CI is green.
 - 2026-05-10 — **Breakthrough gaps + roadmap tracks**: Hub “Breakthrough Gaps” grid is YAML-generated (`scripts/render_breakthrough_gaps_hub.py`); API `breakthrough_gaps.json`; steward doc `docs/BREAKTHROUGH_GAPS.md`; `ROADMAP.md` § integrated priorities (tracks A–D: discovery, trust surfaces, breakthrough gaps, catalog depth). `build-graph.yml` watches `breakthrough-gaps/**`.
 - 2026-05-09 — **Roadmap rephase — Phase 0 complete · Phase 1 Discovery active**:
 Shifted calendar/community milestones (preprint DOI, outreach, first 50 contributors, hackathon, custom domain) from **Phase 0** into **Phase 1 — Discovery & adoption**; renumbered long-range phases (Momentum → Phase 2, etc.). Updated **ROADMAP.md**, **README.md**, **INTERFACE.md** alignment table, **PATH_TO_SUCCESS.md**, contributor docs, **dashboard/index.html** milestone card + hero pill. Engineering/catalog work continues in parallel — see ROADMAP § “Ongoing engineering”.
-- 2026-05-09 — **CI: GitHub Actions bumps (checkout v6, Pages deploy stack, upload-artifact v7)**:
-Workflows updated to match Dependabot targets; after merge to `main`, close superseded Dependabot PRs #214–217 and #1 if checks pass.
 - 2026-05-09 — **Documentation audit (README + dashboard stats)**:
 **README** knowledge-graph row aligned with `docs/knowledge_graph.json` meta; **`scripts/update_dashboard_stats.py`** now patches OpenGraph/Twitter text, `stat-graph-edges`, kg placeholder counts, and static API blurbs; **`docs/DOC_MAP.md`**, **`docs/REPOSITORY_MANIFEST.md`** updated. Run `python scripts/update_dashboard_stats.py --apply` after `build_graph` when refreshing the hub.
 - 2026-05-09 — **Integration hygiene (MkDocs strict, graph orphan reporter, Wave Factory staging)**:
@@ -157,19 +161,19 @@ Comprehensive project audit following Waves 57-67 and OpenAlex Wave OA-1.
 - 2026-05-04 — GitHub Pages live + dashboard deployed at [kr8zysho3.github.io/…/dashboard/](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/)
 - 2026-05-03 — Contributor hub visual refresh, CI green, all docs wired.
 
-## Catalog state (2026-05-07 — post Waves 70–71, merged with latest main)
+## Catalog state (2026-05-10 — aligned with README + `docs/knowledge_graph.json` meta)
 
 
 | Type                    | Count     | Directory                                                                       |
 | ----------------------- | --------- | ------------------------------------------------------------------------------- |
-| Unknowns                | **1,187** | `unknowns-catalog/`                                                             |
-| Hypotheses              | **1,055** | `hypotheses/active/`                                                            |
-| Bridges                 | **904**   | `cross-domain/`                                                                 |
+| Unknowns                | **1,408** | `unknowns-catalog/`                                                             |
+| Hypotheses              | **1,274** | `hypotheses/active/`                                                            |
+| Bridges                 | **1,123** | `cross-domain/`                                                                 |
 | Pioneers                | **18**    | `pioneers/`                                                                     |
-| Breakthrough gaps       | **12**    | `breakthrough-gaps/`                                                            |
+| Breakthrough gaps       | **24**    | `breakthrough-gaps/`                                                            |
 | Pre-formal observations | **10**    | `phenomenology/`                                                                |
-| Knowledge graph nodes   | **3,198** | `docs/knowledge_graph.json`                                                     |
-| Knowledge graph edges   | **3,460** | `docs/knowledge_graph.json`                                                     |
+| Knowledge graph nodes   | **3,857** | `docs/knowledge_graph.json`                                                     |
+| Knowledge graph edges   | **4,517** | `docs/knowledge_graph.json`                                                     |
 | Schemas                 | **6**     | `schemas/` (unknown, hypothesis, bridge, phenomenon, pioneer, breakthrough_gap) |
 | Scientific domains      | **55+**   | `unknowns-catalog/` subdirs + `dashboard/domains/`                              |
 
@@ -227,9 +231,9 @@ Comprehensive project audit following Waves 57-67 and OpenAlex Wave OA-1.
 
 ## Current milestone
 
-**Waves 70–71 complete — 904 bridges, 3,198 graph nodes, 1,055 hypotheses**
+**Catalog scale (2026-05-10) — 1,123 bridges, 3,857 graph nodes, 1,274 hypotheses**
 
-The repository remains above the 800-bridge threshold and the 1,000-hypothesis threshold; the knowledge graph is now **3,198 nodes / 3,460 edges** after rebuilding following a merge with upstream `main`. OpenAlex automation is live with a weekly cron job. Nine bridge stubs sit in `drafts/bridges/` awaiting promotion.
+The repository remains above prior foundation targets; the knowledge graph meta reads **3,857 nodes / 4,517 edges**. OpenAlex automation is live with a weekly cron job. Promote remaining stubs in `drafts/bridges/` as reviewed.
 
 ## Current focus
 

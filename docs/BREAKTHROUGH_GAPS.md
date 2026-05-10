@@ -9,7 +9,7 @@ This doc ties the breakthrough-gap program to **Phase-plan priorities** alongsid
 ## Where entries live
 
 - **YAML:** [`breakthrough-gaps/`](../breakthrough-gaps/) — one file per gap, validated by [`schemas/breakthrough_gap.yaml`](../schemas/breakthrough_gap.yaml).
-- **Contributor hub:** “Breakthrough Gaps” cards are **generated** from YAML via [`scripts/render_breakthrough_gaps_hub.py`](../scripts/render_breakthrough_gaps_hub.py) (markers in `dashboard/index.html`). Do not hand-edit card grids.
+- **Contributor hub:** “Breakthrough Gaps” cards are **generated** from YAML via [`scripts/render_breakthrough_gaps_hub.py`](../scripts/render_breakthrough_gaps_hub.py) (markers in `dashboard/index.html`). Do not hand-edit card grids. Each card sets **`data-search-query`** for the catalog Lunr search; **Alt-click** a card on the hosted/local hub jumps to **Catalog search** with that text (ordinary click still opens the YAML on GitHub).
 - **API:** [`api/v1/breakthrough_gaps.json`](../api/v1/breakthrough_gaps.json) — summaries emitted by [`scripts/generate_api.py`](../scripts/generate_api.py).
 
 ---

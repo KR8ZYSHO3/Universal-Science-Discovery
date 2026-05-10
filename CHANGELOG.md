@@ -9,6 +9,41 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] — 2026-05-09
 
+### Changed — Discovery Engines hub cards (honest metrics)
+- **`dashboard/index.html`:** Removed static per-theme **unknown** counts; cards now show only **spotlight bridge** counts derived from each theme’s bridge ID list (curated shortcuts, not catalog totals).
+
+### Added — Repo script smoke tests + CI consolidation
+- **`tests/repo_smoke/`:** Pytest wrappers for `validate_schemas.py`, `verify_domain_pages.py`, `verify_dashboard_consistency.py`, and **`build_graph.py --report-orphans`**; root **`pyproject.toml`** includes this path for **`python -m pytest tests/repo_smoke`**.
+- **`validate-schemas.yml`:** Runs that pytest bundle (replacing three separate steps) so local runs match CI.
+
+### Changed — Operating rhythm / CI documentation
+- **`docs/OPERATING_RHYTHM.md`:** Documents **`validate.yml`** (path-filtered + quality audit) vs **`validate-schemas.yml`** (every PR/push); branch-protection guidance; status-check table includes **`validate.yml`**.
+
+### Added — May 2026 full repository audit
+- **[`.planning/reports/USDR_FULL_AUDIT_2026-05.md`](.planning/reports/USDR_FULL_AUDIT_2026-05.md):** Structured inventory, documentation drift, CI/security snapshot, and prioritized issues.
+- **[`ROADMAP.md`](ROADMAP.md):** § **Audit backlog (2026-05)** + refreshed foundation snapshot counts (aligned with README / graph meta).
+- **[`.planning/STATE.md`](.planning/STATE.md):** Audit completion note, **next** items, and catalog table refreshed to current YAML totals.
+- **[`docs/DOC_MAP.md`](docs/DOC_MAP.md), [`docs/REPOSITORY_MANIFEST.md`](docs/REPOSITORY_MANIFEST.md):** Traceability for the audit report and clarified **`validate.yml`** vs **`validate-schemas.yml`** roles.
+
+### Changed — README precision (literature links)
+- **[`README.md`](README.md):** Replaced blanket “every entry DOI-linked” wording with schema/record-type-accurate language on citations.
+
+### Changed — Contributor hub (Discovery Engines + breakthrough search affordance)
+- **[`dashboard/index.html`](dashboard/index.html):** Discovery Engines intro clarifies curated thematic shortcuts; link to maintainer playbook on GitHub.
+- **`scripts/render_breakthrough_gaps_hub.py` / hub:** Breakthrough cards carry **`data-search-query`** (catalog-oriented snippet); **Alt-click** a card jumps to **Catalog search** with that query (ordinary click still opens YAML on GitHub).
+
+### Changed — Preprint statistics aligned with live catalog
+- **`docs/preprint/usdr_preprint.md` / `.html`:** Abstract, §3.3–3.6, §5.1 (gap rankings), §8.1, and conclusion updated from stale **578-bridge / ~2.3k-entry** figures to current README/graph counts (**1,123** bridges, **1,408** unknowns, **1,274** hypotheses, **3,857** nodes / **4,517** edges, **18** pioneers, **24** breakthrough gaps, **~249** domain browse pages). **`scripts/render_preprint_html.py --apply`** regenerates HTML from the Markdown using **`markdown`** (listed in **`requirements-docs.txt`**).
+
+### Added — Contributor hub maintenance playbook + drift check
+- **`docs/DEV_DASHBOARD.md`:** Methodical “what changed → what to run” table, standard local command order, pre-merge checklist, and links to automation.
+- **`scripts/verify_dashboard_consistency.py`:** Fails if `dashboard/index.html` **snap-** / **stat-** counts (and hero bridge pill) disagree with YAML + `docs/knowledge_graph.json`. Runs in **`validate-schemas.yml`**.
+- **Cross-links:** **`CONTRIBUTING.md`**, **`docs/OPERATING_RHYTHM.md`**, **`dashboard/README.md`**, **`docs/DOC_MAP.md`**, **`docs/REPOSITORY_MANIFEST.md`**, **`AGENTS.md`**, **`.cursor/rules/documentation-and-dashboard.mdc`**, **`scripts/README.md`**.
+
+### Added — Hosted hub freshness indicator (GitHub Pages)
+- **`pages.yml`:** Before upload, writes **`dashboard/deploy-info.json`** (commit SHA, short SHA, ref, commit timestamp, deploy UTC time). File is **gitignored**; it exists only on the Pages artifact.
+- **`dashboard/index.html`:** Banner under the hero pills compares that build to **`main`** (green when SHAs match; amber with **Compare on GitHub** when `main` has moved). Local **`file://`** and previews without `deploy-info.json` explain how to see freshness on the hosted URL.
+
 ### Changed — Contributor hub honesty (stats + Phase 1 ring)
 - **Hub:** Replaced stacked historical wave banners with one **live catalog snapshot** row (patched by **`scripts/update_dashboard_stats.py --apply`**); **#status** shows **Phase 0 Foundation complete** strip; progress ring is **Phase 1 only**, **completed milestones only** (no partial credit for in-progress); checklist order aligned with **`ROADMAP.md`** Phase 1.
 
@@ -43,16 +78,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - README license badges now point **CC BY** → [`LICENSE`](LICENSE) and **MIT** → [`LICENSE-CODE`](LICENSE-CODE) (they previously both pointed at `LICENSE`).
 - [`docs/LICENSING_NOTES.md`](docs/LICENSING_NOTES.md) aligned with the dual-license layout at the repo root.
 
-### Fixed — CI markdown-link-check (localhost)
-- **CONTRIBUTING.md**, **docs/OPERATING_RHYTHM.md**, **dashboard/README.md:** Replaced clickable `http://localhost:8765/...` Markdown links with repo-relative links + URL in backticks (CI cannot fetch localhost). **`.markdown-link-check.json`:** Ignore pattern now matches localhost URLs **with a port**.
+### Fixed — CI markdown-link-check (localhost hub URLs)
+- **`.markdown-link-check.json`:** Ignore pattern matches **`http://localhost`** / **`https://localhost`** with **optional port** and any trailing path/query/fragment (prefix rule).
+- **Docs/rules:** Prefer **[`dashboard/index.html`](…)** for navigation; keep **`http://localhost:8765/dashboard/`** only in **backticks** or point readers to **`dashboard/README.md`** / **`README.md`** quick-start comments instead of bare localhost URLs in prose. Updated **`AGENTS.md`**, **`.cursor/rules/documentation-and-dashboard.mdc`**, **`.cursor/rules/science-discovery-core.mdc`**, **`README.md`**, **`WORKSTREAMS.md`**, **`dashboard/README.md`** (alongside earlier **`CONTRIBUTING.md`**, **`docs/OPERATING_RHYTHM.md`** fixes).
 
 ### Fixed — CI markdown-link-check (DOI)
 - **`docs/citation_index.md`:** Table links now use `https://doi.org/10…` (previously `10…` was treated as a relative path). **`.markdown-link-check.json`:** Ignore **`https://doi.org/`** (and legacy **`dx.doi.org`**) — automated checks often get **403** from doi.org in CI; identifiers remain standard for readers.
 
-### Changed — GitHub Actions (Dependabot alignment)
-- Bumped **`actions/checkout`** to **v6** across workflows.
-- **`pages.yml`:** `configure-pages` **v6**, `upload-pages-artifact` **v5**, `deploy-pages` **v5** (matches Dependabot PRs #214–217 / #1).
-- **`validate.yml`:** `upload-artifact` **v7** (matches Dependabot #215).
+### CI — GitHub Actions bumps (checkout v6, Pages stack, upload-artifact v7)
+- Aligns with Dependabot PRs for **`actions/configure-pages`**, **`actions/upload-pages-artifact`**, **`actions/deploy-pages`**, **`actions/upload-artifact`**, and **`actions/checkout`**.
+- **`actions/checkout@v6`** on all workflows under **`.github/workflows/`**.
+- **`pages.yml`:** **`actions/configure-pages@v6`**, **`actions/upload-pages-artifact@v5`**, **`actions/deploy-pages@v5`**.
+- **`validate.yml`:** **`actions/upload-artifact@v7`**.
 
 ### Changed — Documentation audit (stats & contributor hub)
 - **README:** Knowledge graph table aligned with `docs/knowledge_graph.json` meta (**3,857** nodes, **4,517** edges).
