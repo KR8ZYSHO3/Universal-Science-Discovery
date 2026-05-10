@@ -21,7 +21,7 @@ import {
 
 // @sync-dashboard-begin
 const dashboardSnapshot = {
-  lastUpdated: "2026-05-10 — **Breakthrough gaps + roadmap tracks**: Hub “Breakthrough Gaps” grid is YAML-generated (`scripts/render_breakthrough_gaps_hub.py`); API `breakthrough_gaps.json`; steward doc `docs/BREAKTHROUGH_GAPS.md`; `ROADMAP.md` § integrated priorities (tracks A–D: discovery, trust surfaces, breakthrough gaps, catalog depth). `build-graph.yml` watches `breakthrough-gaps/**`.",
+  lastUpdated: "2026-05-10 — **CI — GitHub Actions bumps**: **`actions/checkout@v6`** on all workflows; **`pages.yml`:** **`actions/configure-pages@v6`**, **`actions/upload-pages-artifact@v5`**, **`actions/deploy-pages@v5`**; **`validate.yml`:** **`actions/upload-artifact@v7`** — aligns with Dependabot PRs for those actions (e.g. #214–217, #215, #1); close superseded bot PRs after CI is green.",
   currentFocus: [
     "**Roadmap posture**: Foundation (**Phase 0**) is complete; discoverability + first contributors are **Phase 1** targets — not blockers for ongoing development.",
     "**arXiv preprint**: `docs/preprint/usdr_preprint.md` is ready; next step is PDF conversion and submission to cs.DL (author: Brandon Shoemaker).",

@@ -4,11 +4,10 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 ## Last updated
 
+- 2026-05-10 — **CI — GitHub Actions bumps**: **`actions/checkout@v6`** on all workflows; **`pages.yml`:** **`actions/configure-pages@v6`**, **`actions/upload-pages-artifact@v5`**, **`actions/deploy-pages@v5`**; **`validate.yml`:** **`actions/upload-artifact@v7`** — aligns with Dependabot PRs for those actions (e.g. #214–217, #215, #1); close superseded bot PRs after CI is green.
 - 2026-05-10 — **Breakthrough gaps + roadmap tracks**: Hub “Breakthrough Gaps” grid is YAML-generated (`scripts/render_breakthrough_gaps_hub.py`); API `breakthrough_gaps.json`; steward doc `docs/BREAKTHROUGH_GAPS.md`; `ROADMAP.md` § integrated priorities (tracks A–D: discovery, trust surfaces, breakthrough gaps, catalog depth). `build-graph.yml` watches `breakthrough-gaps/**`.
 - 2026-05-09 — **Roadmap rephase — Phase 0 complete · Phase 1 Discovery active**:
 Shifted calendar/community milestones (preprint DOI, outreach, first 50 contributors, hackathon, custom domain) from **Phase 0** into **Phase 1 — Discovery & adoption**; renumbered long-range phases (Momentum → Phase 2, etc.). Updated **ROADMAP.md**, **README.md**, **INTERFACE.md** alignment table, **PATH_TO_SUCCESS.md**, contributor docs, **dashboard/index.html** milestone card + hero pill. Engineering/catalog work continues in parallel — see ROADMAP § “Ongoing engineering”.
-- 2026-05-09 — **CI: GitHub Actions bumps (checkout v6, Pages deploy stack, upload-artifact v7)**:
-Workflows updated to match Dependabot targets; after merge to `main`, close superseded Dependabot PRs #214–217 and #1 if checks pass.
 - 2026-05-09 — **Documentation audit (README + dashboard stats)**:
 **README** knowledge-graph row aligned with `docs/knowledge_graph.json` meta; **`scripts/update_dashboard_stats.py`** now patches OpenGraph/Twitter text, `stat-graph-edges`, kg placeholder counts, and static API blurbs; **`docs/DOC_MAP.md`**, **`docs/REPOSITORY_MANIFEST.md`** updated. Run `python scripts/update_dashboard_stats.py --apply` after `build_graph` when refreshing the hub.
 - 2026-05-09 — **Integration hygiene (MkDocs strict, graph orphan reporter, Wave Factory staging)**:

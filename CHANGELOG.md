@@ -49,10 +49,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed — CI markdown-link-check (DOI)
 - **`docs/citation_index.md`:** Table links now use `https://doi.org/10…` (previously `10…` was treated as a relative path). **`.markdown-link-check.json`:** Ignore **`https://doi.org/`** (and legacy **`dx.doi.org`**) — automated checks often get **403** from doi.org in CI; identifiers remain standard for readers.
 
-### Changed — GitHub Actions (Dependabot alignment)
-- Bumped **`actions/checkout`** to **v6** across workflows.
-- **`pages.yml`:** `configure-pages` **v6**, `upload-pages-artifact` **v5**, `deploy-pages` **v5** (matches Dependabot PRs #214–217 / #1).
-- **`validate.yml`:** `upload-artifact` **v7** (matches Dependabot #215).
+### CI — GitHub Actions bumps (checkout v6, Pages stack, upload-artifact v7)
+- Aligns with Dependabot PRs for **`actions/configure-pages`**, **`actions/upload-pages-artifact`**, **`actions/deploy-pages`**, **`actions/upload-artifact`**, and **`actions/checkout`**.
+- **`actions/checkout@v6`** on all workflows under **`.github/workflows/`**.
+- **`pages.yml`:** **`actions/configure-pages@v6`**, **`actions/upload-pages-artifact@v5`**, **`actions/deploy-pages@v5`**.
+- **`validate.yml`:** **`actions/upload-artifact@v7`**.
 
 ### Changed — Documentation audit (stats & contributor hub)
 - **README:** Knowledge graph table aligned with `docs/knowledge_graph.json` meta (**3,857** nodes, **4,517** edges).
