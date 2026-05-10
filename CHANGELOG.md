@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] — 2026-05-09
 
+### Changed — Discovery UX (hub + docs)
+- **Contributor hub:** Hero **discovery callout** with jump links to catalog search, domain browse, and knowledge graph (search already existed; now surfaced above milestone banners).
+- **CONTRIBUTING.md:** **Before you add a record — search first** checklist (hosted + local hub, `#catalog-search`, `/` shortcut).
+- **docs/index.md** & **docs/ONBOARDING.md:** Link to hosted `#catalog-search` and tie onboarding to duplicate-avoidance workflow.
+
 ### Fixed — Licensing clarity (README + LICENSING_NOTES)
 - README license badges now point **CC BY** → [`LICENSE`](LICENSE) and **MIT** → [`LICENSE-CODE`](LICENSE-CODE) (they previously both pointed at `LICENSE`).
 - [`docs/LICENSING_NOTES.md`](docs/LICENSING_NOTES.md) aligned with the dual-license layout at the repo root.

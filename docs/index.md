@@ -6,6 +6,7 @@ For the full project overview and repository layout, see the [README on GitHub](
 
 ## Start here
 
+- **[Catalog search & graph](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#catalog-search)** — full-text search over bridges, unknowns, and hypotheses; interactive graph on the same page (JavaScript; or open [`dashboard/index.html`](../dashboard/index.html) locally per [dashboard README](../dashboard/README.md)).
 - [Onboarding](ONBOARDING.md)
 - **[Happy path — first unknown & hypothesis (Stream A)](HAPPY_PATH_FIRST_RECORDS.md)**
 - **[Quality bar — avoid sloppy structure & reviews](QUALITY_BAR.md)**

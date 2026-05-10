@@ -20,6 +20,15 @@ See [WHY_CONTRIBUTE.md](WHY_CONTRIBUTE.md) for the full case, and [VISION_COMMUN
 
 **Contributor hub (recommended):** After cloning, run `python -m http.server 8765` from the repo root and open [`dashboard/index.html`](dashboard/index.html) in your browser (local URL `http://localhost:8765/dashboard/`). It maps the full onboarding path, links to open unknowns, and shows CI status at a glance.
 
+### Before you add a record — search first
+
+Avoid duplicate unknowns and hypotheses:
+
+1. Open the hub locally or use the **[hosted dashboard](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/)** (same UI; needs JavaScript).
+2. Open **[Catalog search](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#catalog-search)** (“Search the knowledge catalog”) — or press **`/`** to focus the search box once it has loaded.
+3. Enter keywords from your topic (discipline, phenomenon, methods).
+4. Read overlapping entries; prefer **linking or extending** an existing YAML `id` over inventing a near-duplicate.
+
 ---
 
 ## What you can contribute

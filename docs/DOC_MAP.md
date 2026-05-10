@@ -2,7 +2,7 @@
 
 This map is the Phase 0 traceability layer. When you change a guiding document, update the corresponding behaviors (rules, templates, or this map) in the same change.
 
-**Last updated:** 2026-05-09 — documentation audit: README graph counts; `update_dashboard_stats.py` patches OG/twitter meta, API blurbs, and graph placeholders from `docs/knowledge_graph.json` meta.
+**Last updated:** 2026-05-10 — discovery UX: hub hero callout for catalog search; CONTRIBUTING / MkDocs onboarding links to `#catalog-search`.
 
 ## Policy documents
 
