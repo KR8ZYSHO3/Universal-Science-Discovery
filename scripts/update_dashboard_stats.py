@@ -7,19 +7,24 @@ Targets:
   - id="stat-unk"   — unknowns count
   - id="stat-bridges" — cross-domain bridges count
   - id="stat-phenom"  — phenomenology entries count
+  - id="stat-graph-edges" — edge count from docs/knowledge_graph.json meta (if present)
+  - id="kg-node-count" / id="kg-edge-count" — placeholders until JS loads the graph
   - pill text "N cross-domain bridges"
   - pill text "N unknowns · N hypotheses · N pre-formal observation"
+  - OpenGraph / Twitter meta descriptions (bridges, unknowns, graph nodes)
 
-Run by GitHub Actions after every merge to main.
+Run by GitHub Actions after every merge to main (after build_graph regenerates JSON).
 Usage:
   python scripts/update_dashboard_stats.py           # dry-run (print counts only)
   python scripts/update_dashboard_stats.py --apply   # write changes to dashboard/index.html
 """
+import json
 import re
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).parent.parent
+GRAPH_JSON = ROOT / "docs" / "knowledge_graph.json"
 
 
 def count_files(pattern: str) -> int:
@@ -42,6 +47,111 @@ def replace_pill_bridges(html: str, new_value: int) -> str:
     result, n = re.subn(pattern, rf'{new_value} cross-domain bridges', html)
     if n == 0:
         print("  WARNING: pill 'cross-domain bridges' not found in HTML", file=sys.stderr)
+    return result
+
+
+def load_graph_meta() -> tuple[int | None, int | None]:
+    """Return (node_count, edge_count) from built knowledge graph, or (None, None)."""
+    if not GRAPH_JSON.exists():
+        return None, None
+    try:
+        data = json.loads(GRAPH_JSON.read_text(encoding="utf-8"))
+        meta = data.get("meta") or {}
+        nc = meta.get("node_count")
+        ec = meta.get("edge_count")
+        if isinstance(nc, int) and isinstance(ec, int):
+            return nc, ec
+    except (OSError, json.JSONDecodeError, TypeError):
+        pass
+    return None, None
+
+
+def replace_span_id(html: str, elem_id: str, new_value: int) -> str:
+    """Replace integer inside <span id=\"...\">NUMBER</span>."""
+    pattern = rf'(<span[^>]*\bid="{re.escape(elem_id)}"[^>]*>)\d+(</span>)'
+    replacement = rf"\g<1>{new_value}\2"
+    result, n = re.subn(pattern, replacement, html)
+    if n == 0:
+        print(f"  WARNING: span id '{elem_id}' not found in HTML", file=sys.stderr)
+    return result
+
+
+def replace_og_descriptions(
+    html: str,
+    bridges: int,
+    unknowns: int,
+    nodes: int,
+) -> str:
+    """Sync social preview strings with headline catalog stats."""
+    og_simple = (
+        f'content="A version-controlled, AI-augmented knowledge engine tracking what humanity doesn\'t yet know. '
+        f"{bridges} cross-domain bridges &#9658; {unknowns} open unknowns &#9658; "
+        f'{nodes} knowledge graph nodes &#9658; Open source."'
+    )
+    html2, n1 = re.subn(
+        r'<meta property="og:description" content="[^"]*"\s*>',
+        f'<meta property="og:description" {og_simple} >',
+        html,
+        count=1,
+    )
+    tw_pat = r'<meta name="twitter:description" content="[^"]*"\s*>'
+    tw_new = (
+        f'<meta name="twitter:description" content="Map the unknowns. Accelerate discovery. '
+        f'{bridges} cross-domain bridges, {unknowns} open unknowns, {nodes} knowledge graph nodes. '
+        f'All open source.">'
+    )
+    html3, n2 = re.subn(tw_pat, tw_new, html2, count=1)
+    if n1 == 0:
+        print("  WARNING: og:description meta not updated", file=sys.stderr)
+    if n2 == 0:
+        print("  WARNING: twitter:description meta not updated", file=sys.stderr)
+    return html3
+
+
+def replace_api_unknowns_blurb(html: str, unknowns: int) -> str:
+    """Fix 'All N open unknowns...' API endpoint description."""
+    pattern = r"All \d+ open unknowns with domain"
+    result, n = re.subn(pattern, f"All {unknowns} open unknowns with domain", html, count=1)
+    if n == 0:
+        print("  WARNING: unknowns API blurb not found", file=sys.stderr)
+    return result
+
+
+def replace_api_hypothesis_blurb(html: str, hypotheses: int) -> str:
+    """Fix 'All N hypotheses...' API endpoint description."""
+    pattern = r"All \d+ hypotheses with priority"
+    result, n = re.subn(pattern, f"All {hypotheses} hypotheses with priority", html, count=1)
+    if n == 0:
+        print("  WARNING: hypotheses API blurb not found", file=sys.stderr)
+    return result
+
+
+def replace_api_graph_blurb(html: str, nodes: int, edges: int) -> str:
+    """Fix graph.json endpoint description."""
+    pattern = (
+        r'(<code>GET /api/v1/graph\.json</code>\s*\n\s*<span>)'
+        r'Full knowledge graph — [^<]+</span>'
+    )
+    repl = (
+        rf"\g<1>Full knowledge graph — {nodes} nodes, {edges} edges "
+        r"(built from catalog YAML; mirrors docs/knowledge_graph.json)</span>"
+    )
+    result, n = re.subn(pattern, repl, html)
+    if n == 0:
+        print("  WARNING: graph API blurb not found", file=sys.stderr)
+    return result
+
+
+def replace_graph_section_desc(html: str) -> str:
+    """Remove stale fixed node count from knowledge graph intro paragraph (one-time migration)."""
+    pattern = (
+        r'Force-directed graph of all \d+ nodes — bridges, unknowns, hypotheses, and phenomena\.'
+    )
+    repl = (
+        "Force-directed graph of the full catalog — bridges, unknowns, hypotheses, and phenomena "
+        "(counts update live when the JSON loads)."
+    )
+    result, n = re.subn(pattern, repl, html)
     return result
 
 
@@ -86,6 +196,24 @@ def main() -> None:
     html = replace_stat_id(html, "stat-phenom", phenomena)
     html = replace_pill_bridges(html, bridges)
     html = replace_pill_summary(html, unknowns, hypotheses, phenomena)
+
+    g_nodes, g_edges = load_graph_meta()
+    if g_nodes is not None and g_edges is not None:
+        print(f"  graph meta: nodes={g_nodes}, edges={g_edges}")
+        html = replace_stat_id(html, "stat-graph-edges", g_edges)
+        html = replace_span_id(html, "kg-node-count", g_nodes)
+        html = replace_span_id(html, "kg-edge-count", g_edges)
+        html = replace_og_descriptions(html, bridges, unknowns, g_nodes)
+        html = replace_api_unknowns_blurb(html, unknowns)
+        html = replace_api_hypothesis_blurb(html, hypotheses)
+        html = replace_api_graph_blurb(html, g_nodes, g_edges)
+        html = replace_graph_section_desc(html)
+    else:
+        print(
+            "  NOTE: docs/knowledge_graph.json missing or no meta — "
+            "skipping graph-derived dashboard patches",
+            file=sys.stderr,
+        )
 
     if html == original:
         print("\nNo changes needed — dashboard is already up to date.")
