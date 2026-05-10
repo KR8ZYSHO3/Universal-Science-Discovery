@@ -489,6 +489,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#planning-audit-artifacts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planning / audit artifacts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#github-actions-workflows" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2591,6 +2602,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#planning-audit-artifacts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planning / audit artifacts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#github-actions-workflows" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2645,7 +2667,7 @@
 
 <h1 id="guiding-documents-repository-behaviors">Guiding documents → repository behaviors<a class="headerlink" href="#guiding-documents-repository-behaviors" title="Permanent link">&para;</a></h1>
 <p>This map is the project traceability layer (delivered as part of <strong>Phase 0 — Foundation</strong>, now complete). When you change a guiding document, update the corresponding behaviors (rules, templates, or this map) in the same change.</p>
-<p><strong>Last updated:</strong> 2026-05-10 — breakthrough gaps: hub grid from <code>render_breakthrough_gaps_hub.py</code>, API <code>breakthrough_gaps.json</code>, steward doc <code>BREAKTHROUGH_GAPS.md</code>; roadmap § integrated priorities.</p>
+<p><strong>Last updated:</strong> 2026-05-10 — <strong><code>tests/repo_smoke</code></strong> (includes <strong><code>build_graph.py --report-orphans</code></strong>) + <strong><code>validate-schemas.yml</code></strong> pytest bundle; <strong><code>OPERATING_RHYTHM.md</code></strong> dual-workflow / branch-protection notes; breakthrough gaps hub grid / API / steward doc; roadmap § integrated priorities + audit backlog; <strong>repo audit:</strong> <a href="../.planning/reports/USDR_FULL_AUDIT_2026-05.md">May 2026 full audit report</a>.</p>
 <h2 id="policy-documents">Policy documents<a class="headerlink" href="#policy-documents" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -2830,7 +2852,7 @@
 <tr>
 <td><code>scripts/validate_schemas.py</code></td>
 <td>Validate all catalog YAML against JSON Schema</td>
-<td>✅ (validate.yml)</td>
+<td>✅ (<code>validate-schemas.yml</code> via <strong><code>pytest tests/repo_smoke</code></strong>; also <strong><code>validate.yml</code></strong> on path-filtered PRs)</td>
 </tr>
 <tr>
 <td><code>scripts/build_graph.py</code></td>
@@ -2846,6 +2868,11 @@
 <td><code>scripts/update_dashboard_stats.py</code></td>
 <td>Patch stat counters, hero <strong>catalog snapshot</strong> spans (<code>snap-*</code>, between <code>DASHBOARD_CATALOG_SNAPSHOT_*</code> markers), social meta, API blurbs, and graph placeholders in <code>dashboard/index.html</code> (reads <code>docs/knowledge_graph.json</code> meta for nodes/edges, with array-length fallback)</td>
 <td>✅ (build-graph.yml)</td>
+</tr>
+<tr>
+<td><code>scripts/verify_dashboard_consistency.py</code></td>
+<td>Fail CI if <code>snap-*</code> / key <code>stat-*</code> / hero pill counts disagree with YAML catalog + <code>docs/knowledge_graph.json</code></td>
+<td>✅ (validate-schemas.yml)</td>
 </tr>
 <tr>
 <td><code>scripts/generate_domain_pages.py</code></td>
@@ -2879,6 +2906,21 @@
 </tr>
 </tbody>
 </table>
+<h2 id="planning-audit-artifacts">Planning / audit artifacts<a class="headerlink" href="#planning-audit-artifacts" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Artifact</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../.planning/reports/USDR_FULL_AUDIT_2026-05.md">May 2026 full audit report</a></td>
+<td>Periodic full-repo audit (inventory, drift, prioritized backlog); drives <strong>ROADMAP.md</strong> § Audit backlog</td>
+</tr>
+</tbody>
+</table>
 <h2 id="github-actions-workflows">GitHub Actions workflows<a class="headerlink" href="#github-actions-workflows" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -2891,8 +2933,13 @@
 <tbody>
 <tr>
 <td><code>.github/workflows/validate.yml</code></td>
+<td>PR to <code>main</code> (catalog-related paths only)</td>
+<td>Runs <code>validate_schemas.py</code> + <strong><code>audit_quality.py</code></strong> + uploads quality report artifact</td>
+</tr>
+<tr>
+<td><code>.github/workflows/validate-schemas.yml</code></td>
 <td>Push / PR to <code>main</code></td>
-<td>Runs <code>validate_schemas.py</code>; blocks merge on failure</td>
+<td><strong><code>pytest tests/repo_smoke</code></strong> — <code>validate_schemas.py</code>, <code>verify_domain_pages.py</code>, <code>verify_dashboard_consistency.py</code>, <code>build_graph.py --report-orphans</code></td>
 </tr>
 <tr>
 <td><code>.github/workflows/build-graph.yml</code></td>
@@ -2901,8 +2948,8 @@
 </tr>
 <tr>
 <td><code>.github/workflows/pages.yml</code></td>
-<td>Push to <code>main</code></td>
-<td>Deploys <code>dashboard/</code> to GitHub Pages</td>
+<td>Push to <code>main</code> (paths: <code>dashboard/**</code>, <code>docs/**</code>, this workflow)</td>
+<td>Deploys site artifact to GitHub Pages; generates <strong><code>dashboard/deploy-info.json</code></strong> at deploy time so the hub can show whether the hosted build matches <strong><code>main</code></strong></td>
 </tr>
 </tbody>
 </table>

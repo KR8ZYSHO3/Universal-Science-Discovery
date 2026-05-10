@@ -764,6 +764,48 @@
     .footer-links a { color: var(--muted); font-size: .82rem; }
     .footer-links a:hover { color: var(--accent); }
 
+    /* ── GitHub Pages freshness (deploy-info.json + main) ───── */
+    .pages-deploy-banner {
+      display: none;
+      margin: 1rem auto 0;
+      max-width: min(920px, 92vw);
+      padding: .55rem 1rem;
+      border-radius: var(--r-sm);
+      font-size: .78rem;
+      line-height: 1.45;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      align-items: flex-start;
+      gap: .55rem;
+      flex-wrap: wrap;
+      text-align: left;
+    }
+    .pages-deploy-banner.pages-deploy-sync {
+      border-color: var(--ok-border);
+      background: var(--ok-bg);
+      color: var(--text);
+    }
+    .pages-deploy-banner.pages-deploy-behind {
+      border-color: var(--warn-border);
+      background: var(--warn-bg);
+      color: var(--text);
+    }
+    .pages-deploy-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: .28rem;
+      display: inline-block;
+    }
+    .pages-deploy-dot-ok { background: var(--ok); box-shadow: 0 0 10px rgba(34, 211, 184, 0.35); }
+    .pages-deploy-dot-warn { background: var(--warn); }
+    .pages-deploy-dot-muted { background: var(--muted); opacity: .65; }
+    .pages-deploy-banner a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+    .pages-deploy-banner a:hover { filter: brightness(1.08); }
+    .pages-deploy-banner code { font-family: var(--mono); font-size: .74rem; }
+
     /* ── RESPONSIVE ─────────────────────────────────────────── */
     @media (max-width: 640px) {
       .hero { min-height: 80vh; }
@@ -1285,6 +1327,8 @@
         <span class="pill">Git-native · Open source</span>
       </div>
 
+      <div class="pages-deploy-banner aos" id="pages-deploy-banner" role="status" aria-live="polite" hidden></div>
+
       <p class="hero-lead">
         The <strong>Universal Science Discovery Repository</strong> — a version-controlled, AI-augmented
         knowledge engine for tracking what humanity <em>doesn't yet know</em>. Unknowns, hypotheses,
@@ -1428,7 +1472,10 @@
         <span class="section-tag">Discovery Engines</span>
         <h2 class="section-title">Curated cross-domain engines</h2>
         <p class="section-desc">
-          Six thematic lenses that surface the most fertile cross-domain bridges — where physics meets biology, computation meets evolution, and equations meet the real world.
+          Six <strong>curated</strong> thematic lenses — shortcut entry points into representative bridges in the catalog, not exhaustive domain coverage.
+        </p>
+        <p class="section-desc" style="margin-top:0.65rem;font-size:0.92rem;color:var(--muted);">
+          Maintainer playbook (regenerate stats, domain pages, breakthrough cards): <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/docs/DEV_DASHBOARD.md" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:underline;">docs/DEV_DASHBOARD.md</a>.
         </p>
       </div>
       <div class="engines-grid" id="engines-grid" aria-label="Discovery engines"></div>
@@ -1528,11 +1575,12 @@
       <p style="text-align:center; color:#94a3b8; margin-bottom:2rem;">
         World-reshaping breakthroughs stalled by cross-domain knowledge gaps. Cards below are generated from the
         <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/tree/main/breakthrough-gaps" style="color:#93c5fd;text-decoration:underline;" target="_blank" rel="noopener">breakthrough-gaps</a>
-        catalog (same YAML CI validates). Click a card to open the source record on GitHub.
+        catalog (same YAML CI validates). <strong>Click</strong> a card to open the source YAML on GitHub; <strong>Alt-click</strong> (Option-click on macOS) jumps to <a href="#catalog-search" style="color:#93c5fd;text-decoration:underline;">Catalog search</a> with a prefilled query.
       </p>
       <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; max-width:1100px; margin:0 auto;">
         <!-- @hub-breakthrough-gaps-grid-begin -->
         <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-carbon-direct-air-capture.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           data-search-query="Economically Viable Direct Air Capture of CO2"
            style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
            onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
            onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
@@ -1544,6 +1592,7 @@
           <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">Direct air capture (DAC) at ~$100/tonne CO₂ (from current $400–1,000/tonne) would make it economically viable to remove atmospheric CO₂ at the gigatonne scale required to meaningfully address climate change. At $100/ton…</p>
         </a>
         <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-mrna-programmable-medicine.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           data-search-query="Programmable mRNA Therapeutics Beyond COVID Vaccines"
            style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
            onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
            onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
@@ -1555,6 +1604,7 @@
           <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">The COVID-19 mRNA vaccines (BioNTech/Pfizer, Moderna, 2020–2021) proved the mRNA platform at TRL 9: design-to-manufacture in months, high efficacy, large-scale production. The platform is now being extended to personali…</p>
         </a>
         <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-neural-interface-bandwidth.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           data-search-query="High-Bandwidth Brain-Computer Interfaces for Restoring and Augmenting Neural Function"
            style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
            onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
            onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
@@ -1566,6 +1616,7 @@
           <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">High-bandwidth brain-computer interfaces (BCIs) — capable of reading and writing neural activity at the resolution of individual neurons across large brain areas — would enable restoration of motor function in paralysis…</p>
         </a>
         <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-fusion-energy-ignition.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           data-search-query="Commercial Fusion Energy — From NIF Ignition to Grid-Scale Power"
            style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
            onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
            onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
@@ -1577,6 +1628,7 @@
           <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">Nuclear fusion — combining hydrogen isotopes to release energy via E=mc² — offers effectively unlimited, low-carbon electricity with no long-lived nuclear waste and inherent safety (no chain reaction, self-extinguishing…</p>
         </a>
         <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-universal-cancer-early-detection.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           data-search-query="Liquid biopsy for universal early-stage cancer detection"
            style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
            onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
            onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
@@ -1588,6 +1640,7 @@
           <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">Detecting any cancer type at stage I from a blood draw — using circulating tumor DNA (ctDNA), cell-free methylation signatures, exosomes, or protein biomarkers — with less than 1% false positive rate and greater than 90…</p>
         </a>
         <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-hydrogen-water-splitting.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           data-search-query="Low-Temperature Electrochemical Water Splitting for Green Hydrogen"
            style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
            onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
            onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
@@ -1599,6 +1652,7 @@
           <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">Scalable, low-cost water splitting using earth-abundant catalysts operating near room temperature would make green hydrogen competitive with natural gas reformation, enabling carbon-neutral fuels, long-duration grid sto…</p>
         </a>
         <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-controlled-nuclear-fusion-power.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           data-search-query="Net energy gain controlled nuclear fusion at commercial scale"
            style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
            onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
            onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
@@ -1610,6 +1664,7 @@
           <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">In December 2022, the National Ignition Facility achieved Q_fusion &gt; 1 for the first time — the fusion reaction released more energy than the laser energy deposited in the fuel capsule. However, accounting for wall-plug…</p>
         </a>
         <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-photosynthesis-efficiency.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           data-search-query="Artificial and Enhanced Photosynthesis — Closing the Efficiency Gap from 1-2% to Theoretical Maximum"
            style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
            onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
            onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
@@ -1621,6 +1676,7 @@
           <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">Natural photosynthesis captures ~1-2% of incident solar energy as chemical energy in biomass — orders of magnitude below the theoretical maximum efficiency (~11% for oxygenic photosynthesis, limited by thermodynamics of…</p>
         </a>
         <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-scientific-knowledge-overload.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           data-search-query="Cross-Disciplinary Scientific Discovery — Systematic Infrastructure for Cross-Domain Mathematical Bridge Translation"
            style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
            onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
            onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
@@ -1632,6 +1688,7 @@
           <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">Scientific literature grows at approximately 4% per year, doubling every 17 years. As of 2024, PubMed alone indexes over 37 million articles; the total corpus of peer-reviewed science across all fields exceeds 100 milli…</p>
         </a>
         <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-alzheimers-mechanism.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           data-search-query="Disease-Modifying Alzheimer&#x27;s Therapy — Resolving the Causal Mechanism"
            style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
            onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
            onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
@@ -1643,6 +1700,7 @@
           <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">Alzheimer&#x27;s disease (AD) affects 55 million people worldwide and is the leading cause of dementia. After 25 years and &gt;100 failed clinical trials, the amyloid hypothesis (Hardy &amp; Higgins 1992) received partial vindicati…</p>
         </a>
         <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-quantum-computing-fault-tolerant.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           data-search-query="Fault-Tolerant Quantum Computation at Practical Scale"
            style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
            onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
            onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
@@ -1654,6 +1712,7 @@
           <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">A fault-tolerant quantum computer with ~1,000 error-corrected logical qubits would break RSA-2048 encryption, simulate quantum chemistry at pharmaceutical-design accuracy (protein folding, drug binding), and solve optim…</p>
         </a>
         <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-scalable-quantum-computing.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           data-search-query="Fault-tolerant scalable quantum computing with more than one million logical qubits"
            style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
            onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
            onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
@@ -1665,6 +1724,7 @@
           <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">Current quantum computers have 1,000-10,000 physical qubits but physical error rates of 0.1-1% per gate, far above the threshold needed for useful computation. Quantum error correction using surface codes requires appro…</p>
         </a>
         <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-aging-reversal-mechanisms.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           data-search-query="Mechanistic understanding and reversal of biological aging"
            style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
            onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
            onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
@@ -1676,6 +1736,7 @@
           <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">Aging is the largest single risk factor for cancer, heart disease, neurodegeneration, and metabolic disease, yet its mechanism is debated. The leading candidate theories include: epigenetic entropy (information theory o…</p>
         </a>
         <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-antibiotic-resistance-crisis.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           data-search-query="New Antibiotic Classes and Alternative Strategies to Overcome Antimicrobial Resistance"
            style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
            onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
            onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
@@ -1687,6 +1748,7 @@
           <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">Antimicrobial resistance (AMR) is projected to cause 10 million deaths per year by 2050 (O&#x27;Neill Review 2016), exceeding cancer mortality. The WHO classifies AMR as one of the top 10 global public health threats. The la…</p>
         </a>
         <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-de-novo-protein-design.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           data-search-query="Rational de novo protein design for arbitrary function"
            style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
            onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
            onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
@@ -1698,6 +1760,7 @@
           <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">AlphaFold2 and ESMFold solve the forward problem — predicting 3D structure from amino acid sequence — with near-experimental accuracy. The inverse problem remains largely unsolved: designing a novel sequence that will f…</p>
         </a>
         <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-room-temperature-superconductivity.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           data-search-query="Ambient-Pressure Room-Temperature Superconductivity"
            style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
            onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
            onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
@@ -1709,6 +1772,7 @@
           <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">A material that superconducts at room temperature and ambient pressure would eliminate resistive losses in electrical grids (~5–10% of generated power), enable compact MRI and fusion magnets without cryogenic infrastruc…</p>
         </a>
         <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-consciousness-neural-correlates.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           data-search-query="Identifying the neural correlates of consciousness and subjective experience"
            style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
            onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
            onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
@@ -1720,6 +1784,7 @@
           <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">The hard problem of consciousness — why and how physical processes in the brain give rise to subjective experience (qualia) — has no agreed scientific framework. The easy problems (explaining cognitive functions like at…</p>
         </a>
         <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-whole-brain-neural-recording.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           data-search-query="Whole-brain single-neuron resolution recording in awake behaving mammals"
            style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
            onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
            onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
@@ -1731,6 +1796,7 @@
           <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">No technology can simultaneously record all ~86 billion neurons in a human brain at single-neuron resolution during natural behavior. Current state-of-the-art (Neuropixels probes) records roughly 10,000 neurons simultan…</p>
         </a>
         <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-whole-earth-climate-model.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           data-search-query="Kilometer-scale global climate model for decadal regional prediction"
            style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
            onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
            onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
@@ -1742,6 +1808,7 @@
           <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">Current operational global climate models run at 25-100 km horizontal resolution. At this resolution, key processes governing regional climate — mesoscale convective systems, cumulus convection, cloud microphysics, orog…</p>
         </a>
         <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-neuromorphic-computing-at-scale.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           data-search-query="Neuromorphic computing at scale — brain-matched energy efficiency for AI inference"
            style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
            onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
            onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
@@ -1753,6 +1820,7 @@
           <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">The human brain performs general-purpose intelligence at approximately 20 watts. Running a 70-billion parameter large language model requires ~70 watts per token generated at the GPU level, and a full inference data cen…</p>
         </a>
         <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-post-treatment-lyme-disease-syndrome.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           data-search-query="Post-Treatment Lyme Disease Syndrome (PTLDS) — Mechanism and Cure"
            style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
            onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
            onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
@@ -1764,6 +1832,7 @@
           <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">Borrelia burgdorferi, the Lyme disease spirochete, causes persistent debilitating symptoms in 10–20% of patients even after standard antibiotic treatment. PTLDS (sometimes called chronic Lyme disease) involves fatigue,…</p>
         </a>
         <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-soil-microbiome-engineering.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           data-search-query="Rational engineering of soil microbiomes for carbon sequestration and crop yield"
            style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
            onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
            onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
@@ -1775,6 +1844,7 @@
           <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">Soil contains approximately 10^9 microorganisms per gram, representing more than 10,000 species per sample interacting through metabolic exchange, competition, and mutualism in networks too complex to model from first p…</p>
         </a>
         <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-programmable-matter.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           data-search-query="Programmable matter — reconfigurable materials that change shape and function on demand"
            style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
            onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
            onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
@@ -1786,6 +1856,7 @@
           <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">Materials that can autonomously reconfigure their macroscopic shape, stiffness, and function in response to external commands do not exist beyond proof-of-concept demonstrations at millimeter scale. Shape memory alloys…</p>
         </a>
         <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-ocean-plastic-remediation.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           data-search-query="Scalable removal and degradation of ocean microplastics"
            style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
            onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
            onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
@@ -2756,6 +2827,125 @@
       });
     }
 
+    /* ── GitHub Pages freshness (deploy-info.json vs main) ───── */
+    (function loadPagesDeployFreshness() {
+      var el = document.getElementById('pages-deploy-banner');
+      if (!el) return;
+
+      function show(html, extraClass) {
+        el.removeAttribute('hidden');
+        el.style.display = 'flex';
+        el.className = 'pages-deploy-banner aos' + (extraClass ? ' ' + extraClass : '');
+        el.innerHTML = html;
+        requestAnimationFrame(function () { el.classList.add('in'); });
+      }
+
+      if (isFile) {
+        show(
+          '<span class="pages-deploy-dot pages-deploy-dot-muted"></span>' +
+            '<span>Serve with <code>python -m http.server</code> or open the <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/" target="_blank" rel="noopener">hosted hub</a> to see whether Pages matches <code>main</code>.</span>',
+          'pages-deploy-local'
+        );
+        return;
+      }
+
+      fetch('deploy-info.json', { cache: 'no-store' })
+        .then(function (r) {
+          if (!r.ok) throw new Error('no deploy-info');
+          return r.json();
+        })
+        .then(function (info) {
+          var deploySha = info.sha || '';
+          var short = info.short_sha || (deploySha ? deploySha.slice(0, 7) : '?');
+          var genAt = info.generated_at || '';
+          var ago = genAt ? timeAgo(genAt) : '';
+
+          function renderMatch() {
+            show(
+              '<span class="pages-deploy-dot pages-deploy-dot-ok"></span>' +
+                '<span><strong>Hosted hub</strong> is current: build matches <code>main</code> · <code>' +
+                short +
+                '</code>' +
+                (ago ? ' · deployed ' + ago : '') +
+                '</span>',
+              'pages-deploy-sync'
+            );
+          }
+
+          function renderBehind(mainShort) {
+            var compareUrl =
+              'https://github.com/' +
+              REPO +
+              '/compare/' +
+              encodeURIComponent(short) +
+              '...' +
+              encodeURIComponent(mainShort);
+            show(
+              '<span class="pages-deploy-dot pages-deploy-dot-warn"></span>' +
+                '<span><strong>Hosted hub</strong> may lag <code>main</code>: Pages <code>' +
+                short +
+                '</code> vs latest <code>' +
+                mainShort +
+                '</code>' +
+                (ago ? ' · Pages deploy ' + ago : '') +
+                ' · <a href="' +
+                compareUrl +
+                '" target="_blank" rel="noopener">Compare on GitHub</a></span>',
+              'pages-deploy-behind'
+            );
+          }
+
+          function renderPartial() {
+            show(
+              '<span class="pages-deploy-dot pages-deploy-dot-muted"></span>' +
+                '<span><strong>Hosted build</strong> <code>' +
+                short +
+                '</code>' +
+                (ago ? ' · deployed ' + ago : '') +
+                ' — could not reach GitHub API to confirm <code>main</code>.</span>',
+              ''
+            );
+          }
+
+          if (!deploySha) {
+            renderPartial();
+            return;
+          }
+
+          ghFetch('/commits/main')
+            .then(function (mainC) {
+              var mainSha = mainC.sha || '';
+              if (!mainSha) {
+                renderPartial();
+                return;
+              }
+              var mainShort = mainSha.slice(0, 7);
+              if (deploySha === mainSha) renderMatch();
+              else renderBehind(mainShort);
+            })
+            .catch(function () {
+              renderPartial();
+            });
+        })
+        .catch(function () {
+          if (isGHPages) {
+            show(
+              '<span class="pages-deploy-dot pages-deploy-dot-warn"></span>' +
+                '<span>Could not load <code>deploy-info.json</code> — redeploy Pages from <code>main</code> or check <a href="https://github.com/' +
+                REPO +
+                '/actions" target="_blank" rel="noopener">Actions</a>.</span>',
+              'pages-deploy-unknown'
+            );
+          } else {
+            show(
+              '<span class="pages-deploy-dot pages-deploy-dot-muted"></span>' +
+                '<span>Local preview — commit-vs-<code>main</code> freshness appears on the <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/" target="_blank" rel="noopener">hosted hub</a> after each Pages deploy.</span>',
+              'pages-deploy-local'
+            );
+          }
+        });
+    })();
+
     /* ── ACTIVITY FEED ───────────────────────────────────────── */
     var feedEl = document.getElementById('activity-feed');
     var FEED_PREFIX_RE = /^(feat|fix|docs|content|chore):/i;
@@ -3296,6 +3486,26 @@
           }
         });
 
+        window.usdrApplyCatalogSearch = function (q) {
+          if (!inputEl) return;
+          inputEl.value = q || '';
+          doSearch(inputEl.value);
+          inputEl.focus();
+        };
+
+        document.addEventListener('click', function (e) {
+          var a = e.target.closest('a.gap-hub-card');
+          if (!a || !a.dataset.searchQuery) return;
+          if (!e.altKey) return;
+          e.preventDefault();
+          e.stopPropagation();
+          if (typeof window.usdrApplyCatalogSearch === 'function') {
+            window.usdrApplyCatalogSearch(a.dataset.searchQuery);
+          }
+          var sec = document.getElementById('catalog-search');
+          if (sec) sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, true);
+
         /* Defensive: drop edges whose source/target node doesn't exist */
         var nodeIds = new Set(nodes.map(function (n) { return n.id; }));
         edges = edges.filter(function (e) {
@@ -3761,7 +3971,6 @@
         icon:     '\u26db\ufe0f',
         description: 'Where quantum mechanics meets life: bird navigation, photosynthesis coherence, enzyme tunneling',
         bridges:  ['b-quantum-biology-navigation', 'b-landauer-information-thermodynamics'],
-        unknowns: 3,
         color:    '#a78bfa'
       },
       {
@@ -3769,7 +3978,6 @@
         icon:     '\ud83c\udf10',
         description: 'Statistical mechanics of human systems: opinion dynamics, polarization phase transitions, economic crashes',
         bridges:  ['b-phase-transitions-social-climate', 'b-social-ising-polarisation', 'b-turbulence-financial-markets'],
-        unknowns: 8,
         color:    '#f97316'
       },
       {
@@ -3777,7 +3985,6 @@
         icon:     '\ud83e\uddec',
         description: 'Evolution, genetics, and neural computation through an information-theoretic lens',
         bridges:  ['b-information-theory-evolution', 'b-game-theory-evolution', 'b-spin-glass-neural-networks'],
-        unknowns: 12,
         color:    '#22d3b8'
       },
       {
@@ -3785,7 +3992,6 @@
         icon:     '\ud83c\udf0d',
         description: 'Percolation and phase transition theory applied to planetary-scale ecological and climate thresholds',
         bridges:  ['b-percolation-ecology', 'b-climate-tipping-percolation', 'b-turing-patterns-ecosystem-tipping'],
-        unknowns: 7,
         color:    '#4ade80'
       },
       {
@@ -3793,7 +3999,6 @@
         icon:     '\ud83e\udde0',
         description: 'Neural avalanches, spin-glass memory, and the brain as a self-organized critical system',
         bridges:  ['b-self-organized-criticality', 'b-spin-glass-neural-networks', 'b-phase-transitions-ml-grokking'],
-        unknowns: 9,
         color:    '#4f9cf9'
       },
       {
@@ -3801,7 +4006,6 @@
         icon:     '\ud83d\udd2c',
         description: 'Turing patterns, optimal transport, and reaction-diffusion systems that explain biological form',
         bridges:  ['b-turing-reaction-diffusion', 'b-optimal-transport-vasculature', 'b-turing-patterns-ecosystem-tipping'],
-        unknowns: 5,
         color:    '#f43f5e'
       }
     ];
@@ -3832,11 +4036,7 @@
         '<div style="display:flex;gap:.5rem;flex-wrap:wrap;">' +
           '<span class="engine-stat">' +
             '<span class="engine-stat-dot" style="background:' + eng.color + '"></span>' +
-            eng.bridges.length + ' bridges' +
-          '</span>' +
-          '<span class="engine-stat">' +
-            '<span class="engine-stat-dot" style="background:' + eng.color + '"></span>' +
-            eng.unknowns + ' unknowns' +
+            eng.bridges.length + ' spotlight bridges' +
           '</span>' +
         '</div>';
       grid.appendChild(card);

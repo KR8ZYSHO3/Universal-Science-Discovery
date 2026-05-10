@@ -835,6 +835,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="CI and merges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dual-catalog-validation-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dual catalog validation workflows
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2594,6 +2611,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="CI and merges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dual-catalog-validation-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dual catalog validation workflows
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2684,14 +2718,38 @@
 <li>Sync <a href="../AGENTS.md">AGENTS.md</a> and <a href="../.cursor/rules/">.cursor/rules/</a> if agent-facing expectations changed.</li>
 <li>Sync issue/PR templates under <a href="../.github/">.github/</a> if workflow fields need to match.</li>
 <li>Merge governance and tooling updates in <strong>one PR</strong> when possible so history stays coherent.</li>
-<li><strong>Milestones and features:</strong> update <a href="../CHANGELOG.md">CHANGELOG.md</a> (Unreleased), <a href="../README.md">README.md</a> or deeper docs as needed, <a href="../.planning/STATE.md">.planning/STATE.md</a>, and <a href="../dashboard/index.html">dashboard/index.html</a> so the contributor hub at <code>http://localhost:8765/dashboard/</code> stays accurate; run <code>mkdocs build --strict</code> when <code>docs/</code> or <code>mkdocs.yml</code> changed. Cursor rule: <code>.cursor/rules/documentation-and-dashboard.mdc</code>.</li>
+<li><strong>Milestones and features:</strong> update <a href="../CHANGELOG.md">CHANGELOG.md</a> (Unreleased), <a href="../README.md">README.md</a> or deeper docs as needed, <a href="../.planning/STATE.md">.planning/STATE.md</a>, and <a href="../dashboard/index.html">dashboard/index.html</a> so the contributor hub at <code>http://localhost:8765/dashboard/</code> stays accurate; run <strong><code>python scripts/verify_dashboard_consistency.py</code></strong> after stat-changing edits and follow <a href="../DEV_DASHBOARD/">DEV_DASHBOARD.md</a> for the full hub refresh order; run <code>mkdocs build --strict</code> when <code>docs/</code> or <code>mkdocs.yml</code> changed. Cursor rule: <code>.cursor/rules/documentation-and-dashboard.mdc</code>.</li>
 </ol>
 <h2 id="ci-and-merges">CI and merges<a class="headerlink" href="#ci-and-merges" title="Permanent link">&para;</a></h2>
+<h3 id="dual-catalog-validation-workflows">Dual catalog validation workflows<a class="headerlink" href="#dual-catalog-validation-workflows" title="Permanent link">&para;</a></h3>
+<p>Two workflows run <strong><code>scripts/validate_schemas.py</code></strong>, but <strong>not on the same PR triggers</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Workflow</th>
+<th>When it runs</th>
+<th>Extras</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../.github/workflows/validate-schemas.yml"><code>validate-schemas.yml</code></a></td>
+<td><strong>Every</strong> PR and push to <code>main</code></td>
+<td><strong><code>pytest tests/repo_smoke</code></strong> — runs <code>validate_schemas.py</code>, <code>verify_domain_pages.py</code>, <code>verify_dashboard_consistency.py</code>, and <strong><code>build_graph.py --report-orphans</code></strong> (orphan report is informational; exit <strong>0</strong> even when xref drift exists).</td>
+</tr>
+<tr>
+<td><a href="../.github/workflows/validate.yml"><code>validate.yml</code></a> (<strong>Validate Catalog</strong>)</td>
+<td>PRs to <code>main</code> that touch catalog-related <strong>paths</strong> only (<code>unknowns-catalog/**</code>, <code>hypotheses/**</code>, <code>cross-domain/**</code>, <code>phenomenology/**</code>, <code>breakthrough-gaps/**</code>, <code>schemas/**</code>)</td>
+<td>Also runs <strong><code>audit_quality.py</code></strong> and uploads a quality report artifact.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Branch protection:</strong> Prefer requiring the job from <strong><code>validate-schemas.yml</code></strong> on every PR — it always runs. Treat <strong><code>validate.yml</code></strong> as an <strong>additional</strong> signal on catalog edits (quality report); requiring only <strong><code>validate.yml</code></strong> would miss merges that skip path filters (for example docs-only PRs still need schema/dashboard consistency via <strong><code>validate-schemas.yml</code></strong>).</p>
 <ul>
 <li>Pull requests should pass <a href="../.github/workflows/markdown-link-check.yml">Markdown link check</a> before merge to <code>main</code>.</li>
 <li><strong>GitHub Pages:</strong> Until the published site at <code>https://kr8zysho3.github.io/Universal-Science-Discovery/</code> returns HTTP <strong>200</strong>, do not use that URL as a markdown <strong>hyperlink</strong> in tracked docs (the checker treats 404 as failure). Use backticks, or add/adjust an entry in <a href="../.markdown-link-check.json">.markdown-link-check.json</a> <code>ignorePatterns</code> if you intentionally link before go-live.</li>
 <li><a href="../.github/dependabot.yml">Dependabot</a> opens weekly PRs to update GitHub Actions; review and merge to reduce supply-chain drift.</li>
-<li>Expand CI (lint, tests) when code under <a href="../scripts/">scripts/</a> grows.</li>
+<li><strong>Repo script smoke tests:</strong> <code>tests/repo_smoke/</code> — run locally with <strong><code>python -m pytest tests/repo_smoke -v</code></strong> (same checks as <strong><code>validate-schemas.yml</code></strong>). Root <strong><code>pyproject.toml</code></strong> includes this path alongside <strong><code>packages/ingest/tests</code></strong>.</li>
 </ul>
 <h2 id="versioning-and-tags">Versioning and tags<a class="headerlink" href="#versioning-and-tags" title="Permanent link">&para;</a></h2>
 <ul>
@@ -2730,7 +2788,11 @@
 </tr>
 <tr>
 <td><a href="../.github/workflows/validate-schemas.yml">validate-schemas.yml</a></td>
-<td><code>validate-schemas / validate-schemas</code></td>
+<td><code>validate-schemas / validate-schemas</code> (runs <strong><code>pytest tests/repo_smoke</code></strong>)</td>
+</tr>
+<tr>
+<td><a href="../.github/workflows/validate.yml">validate.yml</a></td>
+<td><code>Validate Catalog / validate</code> (path-filtered; includes quality audit artifact)</td>
 </tr>
 <tr>
 <td><a href="../.github/workflows/ingest-ci.yml">ingest-ci.yml</a></td>

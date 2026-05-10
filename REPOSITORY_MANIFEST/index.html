@@ -2558,6 +2558,18 @@
 <td>All <code>docs/*.md</code> policy set; <a href="../DOC_MAP/">DOC_MAP.md</a></td>
 </tr>
 <tr>
+<td><a href="../.planning/STATE.md">.planning/STATE.md</a></td>
+<td>Meta</td>
+<td>Maintainer checklist + catalog snapshot</td>
+<td><a href="../DEV_DASHBOARD/">DEV_DASHBOARD.md</a>, <a href="../ROADMAP.md">ROADMAP.md</a></td>
+</tr>
+<tr>
+<td><a href="../.planning/reports/USDR_FULL_AUDIT_2026-05.md">.planning/reports/USDR_FULL_AUDIT_2026-05.md</a></td>
+<td>Report</td>
+<td>Full-repository audit (May 2026): inventory, drift, backlog</td>
+<td><a href="../DOC_MAP/">DOC_MAP.md</a>, <a href="../ROADMAP.md">ROADMAP.md</a></td>
+</tr>
+<tr>
 <td><a href="../CONTRIBUTING.md">CONTRIBUTING.md</a></td>
 <td>Policy</td>
 <td>Human contribution workflow</td>
@@ -2608,8 +2620,14 @@
 <tr>
 <td><a href="../pyproject.toml">pyproject.toml</a></td>
 <td>Config</td>
-<td>Root pytest entry for <code>packages/ingest/tests</code></td>
-<td><a href="../DATA_PLAN/">docs/DATA_PLAN.md</a></td>
+<td>Root pytest entry for <code>packages/ingest/tests</code> and <code>tests/repo_smoke</code></td>
+<td><a href="../DATA_PLAN/">docs/DATA_PLAN.md</a>, <a href="../OPERATING_RHYTHM/">docs/OPERATING_RHYTHM.md</a></td>
+</tr>
+<tr>
+<td><a href="../tests/repo_smoke/test_catalog_regression.py">tests/repo_smoke/test_catalog_regression.py</a></td>
+<td>Test</td>
+<td>Smoke tests: validate schemas, domain pages, dashboard consistency, <strong><code>build_graph.py --report-orphans</code></strong></td>
+<td><a href="../OPERATING_RHYTHM/">OPERATING_RHYTHM.md</a>, <a href="../.github/workflows/validate-schemas.yml">.github/workflows/validate-schemas.yml</a></td>
 </tr>
 <tr>
 <td><a href="../requirements-ingest.txt">requirements-ingest.txt</a></td>
@@ -2650,8 +2668,8 @@
 <tr>
 <td><a href="../.github/workflows/validate-schemas.yml">.github/workflows/validate-schemas.yml</a></td>
 <td>CI</td>
-<td>Validates hypothesis / unknown YAML against <code>schemas/</code></td>
-<td><a href="../schemas/README.md">schemas/README.md</a>, <a href="../OPERATING_RHYTHM/">OPERATING_RHYTHM.md</a></td>
+<td><strong><code>pytest tests/repo_smoke</code></strong> — catalog YAML, domain pages, dashboard consistency, orphan xref report</td>
+<td><a href="../schemas/README.md">schemas/README.md</a>, <a href="../OPERATING_RHYTHM/">OPERATING_RHYTHM.md</a>, <a href="../tests/repo_smoke/test_catalog_regression.py">tests/repo_smoke/test_catalog_regression.py</a></td>
 </tr>
 <tr>
 <td><a href="../.github/workflows/mkdocs-build.yml">.github/workflows/mkdocs-build.yml</a></td>
@@ -2916,6 +2934,12 @@
 <td>Tool</td>
 <td>CI regression: minimum bridge counts visible per domain</td>
 <td><code>.github/workflows/validate-schemas.yml</code></td>
+</tr>
+<tr>
+<td><a href="../scripts/verify_dashboard_consistency.py">scripts/verify_dashboard_consistency.py</a></td>
+<td>Tool</td>
+<td>CI + local: headline hub counts match YAML + <code>docs/knowledge_graph.json</code></td>
+<td><a href="../DEV_DASHBOARD/">docs/DEV_DASHBOARD.md</a>, <code>.github/workflows/validate-schemas.yml</code></td>
 </tr>
 <tr>
 <td><a href="../scripts/requirements-validate.txt">scripts/requirements-validate.txt</a></td>
