@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] — 2026-05-09
 
+### Changed — Preprint statistics aligned with live catalog
+- **`docs/preprint/usdr_preprint.md` / `.html`:** Abstract, §3.3–3.6, §5.1 (gap rankings), §8.1, and conclusion updated from stale **578-bridge / ~2.3k-entry** figures to current README/graph counts (**1,123** bridges, **1,408** unknowns, **1,274** hypotheses, **3,857** nodes / **4,517** edges, **18** pioneers, **24** breakthrough gaps, **~249** domain browse pages). **`scripts/render_preprint_html.py --apply`** regenerates HTML from the Markdown using **`markdown`** (listed in **`requirements-docs.txt`**).
+
 ### Added — Hosted hub freshness indicator (GitHub Pages)
 - **`pages.yml`:** Before upload, writes **`dashboard/deploy-info.json`** (commit SHA, short SHA, ref, commit timestamp, deploy UTC time). File is **gitignored**; it exists only on the Pages artifact.
 - **`dashboard/index.html`:** Banner under the hero pills compares that build to **`main`** (green when SHAs match; amber with **Compare on GitHub** when `main` has moved). Local **`file://`** and previews without `deploy-info.json` explain how to see freshness on the hosted URL.
