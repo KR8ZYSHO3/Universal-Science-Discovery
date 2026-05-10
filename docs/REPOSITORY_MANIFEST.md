@@ -38,6 +38,7 @@ Exhaustive index of **tracked** paths (excluding `.git`), what each is for, and 
 | [docs/index.md](index.md) | Guide | MkDocs homepage for the `docs/` tree; links to repo root on GitHub | [README.md](../README.md), [INTERFACE.md](../INTERFACE.md), [mkdocs.yml](../mkdocs.yml) |
 | [docs/ONBOARDING.md](ONBOARDING.md) | Guide | First-hour navigation | — |
 | [docs/SOLVING_UNKNOWNS.md](SOLVING_UNKNOWNS.md) | Guide | Status ladder and evidence bar for resolving catalog unknowns | [DOC_MAP.md](DOC_MAP.md), [METHODOLOGY.md](METHODOLOGY.md); orphan checks via `scripts/build_graph.py --report-orphans` |
+| [docs/BREAKTHROUGH_GAPS.md](BREAKTHROUGH_GAPS.md) | Guide | Breakthrough-gap steward checklist; ties to roadmap priorities | [breakthrough-gaps/README.md](../breakthrough-gaps/README.md), [ROADMAP.md](../ROADMAP.md) |
 | [docs/HAPPY_PATH_FIRST_RECORDS.md](HAPPY_PATH_FIRST_RECORDS.md) | Guide | Stream A happy path: first unknown + hypothesis YAML → PR | [CONTRIBUTING.md](../CONTRIBUTING.md), [METHODOLOGY.md](METHODOLOGY.md), [LEGAL.md](../LEGAL.md), [schemas/unknown.yaml](../schemas/unknown.yaml), [schemas/hypothesis.yaml](../schemas/hypothesis.yaml) |
 | [docs/GSD_INTEGRATION.md](GSD_INTEGRATION.md) | Guide | Optional GSD (get-shit-done / spec-driven) boundaries for maintainers | [METHODOLOGY.md](METHODOLOGY.md), [DATA_PLAN.md](DATA_PLAN.md), [LEGAL.md](../LEGAL.md), [DEV_DASHBOARD.md](DEV_DASHBOARD.md) |
 | [docs/UAT_INGEST.md](UAT_INGEST.md) | Guide | Manual UAT for `usdr-ingest` CLI | [DATA_PLAN.md](DATA_PLAN.md), [LEGAL.md](../LEGAL.md), [packages/ingest/pyproject.toml](../packages/ingest/pyproject.toml) |
@@ -61,6 +62,10 @@ Exhaustive index of **tracked** paths (excluding `.git`), what each is for, and 
 | [artifacts/README.md](../artifacts/README.md) | Guide | Outputs contract | [METHODOLOGY.md](METHODOLOGY.md) |
 | [scripts/README.md](../scripts/README.md) | Guide | Automation contract | [METHODOLOGY.md](METHODOLOGY.md), [ETHICS_REPRODUCIBILITY_AND_DATA.md](ETHICS_REPRODUCIBILITY_AND_DATA.md) |
 | [scripts/validate_schemas.py](../scripts/validate_schemas.py) | Tool | CI + local YAML validation | [schemas/README.md](../schemas/README.md) |
+| [scripts/domain_matching.py](../scripts/domain_matching.py) | Library | Maps bridge/hypothesis discipline tags to `unknowns-catalog/` domains for dashboard pages | [schemas/bridge.yaml](../schemas/bridge.yaml), [dashboard/README.md](../dashboard/README.md) |
+| [scripts/generate_domain_pages.py](../scripts/generate_domain_pages.py) | Tool | Writes `dashboard/domains/*.html` from catalog + bridge `fields` | [dashboard/README.md](../dashboard/README.md), `scripts/domain_matching.py` |
+| [scripts/render_breakthrough_gaps_hub.py](../scripts/render_breakthrough_gaps_hub.py) | Tool | Injects Breakthrough Gaps card grid into `dashboard/index.html` from `breakthrough-gaps/bg-*.yaml` | [docs/BREAKTHROUGH_GAPS.md](BREAKTHROUGH_GAPS.md), `.github/workflows/build-graph.yml` |
+| [scripts/verify_domain_pages.py](../scripts/verify_domain_pages.py) | Tool | CI regression: minimum bridge counts visible per domain | `.github/workflows/validate-schemas.yml` |
 | [scripts/requirements-validate.txt](../scripts/requirements-validate.txt) | Config | Deps for `validate_schemas.py` | [scripts/README.md](../scripts/README.md) |
 | [scripts/sync-dashboard-from-state.py](../scripts/sync-dashboard-from-state.py) | Tool | Rewrites Canvas snapshot from `.planning/STATE.md` | [docs/DEV_DASHBOARD.md](DEV_DASHBOARD.md) |
 | [scripts/generate-ingest-example-jsonl.py](../scripts/generate-ingest-example-jsonl.py) | Tool | Regenerate `docs/examples/arxiv-oai-metadata-sample.v1.jsonl` from offline fixtures | [docs/examples/README.md](examples/README.md) |
@@ -70,13 +75,13 @@ Exhaustive index of **tracked** paths (excluding `.git`), what each is for, and 
 | [disciplines/physics/README.md](../disciplines/physics/README.md) | Guide | Physics seed + catalog pointers | [METHODOLOGY.md](METHODOLOGY.md), [LEGAL.md](../LEGAL.md) |
 | [disciplines/biology/README.md](../disciplines/biology/README.md) | Guide | Biology seed + catalog pointers | [METHODOLOGY.md](METHODOLOGY.md), [LEGAL.md](../LEGAL.md) |
 | [disciplines/computer-science/README.md](../disciplines/computer-science/README.md) | Guide | CS / AI-for-science stub | [METHODOLOGY.md](METHODOLOGY.md), [AGENTS.md](../AGENTS.md) |
-| [unknowns-catalog/high-priority/u-dark-matter-microphysics.yaml](../unknowns-catalog/high-priority/u-dark-matter-microphysics.yaml) | Content | Phase 0 example unknown | [schemas/unknown.yaml](../schemas/unknown.yaml) |
-| [unknowns-catalog/high-priority/u-aging-interventions-translatability.yaml](../unknowns-catalog/high-priority/u-aging-interventions-translatability.yaml) | Content | Phase 0 example unknown | [schemas/unknown.yaml](../schemas/unknown.yaml) |
-| [hypotheses/active/h-radio-axion-like-dm-constraints.yaml](../hypotheses/active/h-radio-axion-like-dm-constraints.yaml) | Content | Phase 0 example hypothesis | [schemas/hypothesis.yaml](../schemas/hypothesis.yaml) |
-| [hypotheses/active/h-conserved-metabolic-bottlenecks-longevity.yaml](../hypotheses/active/h-conserved-metabolic-bottlenecks-longevity.yaml) | Content | Phase 0 example hypothesis | [schemas/hypothesis.yaml](../schemas/hypothesis.yaml) |
+| [unknowns-catalog/high-priority/u-dark-matter-microphysics.yaml](../unknowns-catalog/high-priority/u-dark-matter-microphysics.yaml) | Content | Seed example unknown | [schemas/unknown.yaml](../schemas/unknown.yaml) |
+| [unknowns-catalog/high-priority/u-aging-interventions-translatability.yaml](../unknowns-catalog/high-priority/u-aging-interventions-translatability.yaml) | Content | Seed example unknown | [schemas/unknown.yaml](../schemas/unknown.yaml) |
+| [hypotheses/active/h-radio-axion-like-dm-constraints.yaml](../hypotheses/active/h-radio-axion-like-dm-constraints.yaml) | Content | Seed example hypothesis | [schemas/hypothesis.yaml](../schemas/hypothesis.yaml) |
+| [hypotheses/active/h-conserved-metabolic-bottlenecks-longevity.yaml](../hypotheses/active/h-conserved-metabolic-bottlenecks-longevity.yaml) | Content | Seed example hypothesis | [schemas/hypothesis.yaml](../schemas/hypothesis.yaml) |
 | [notebooks/README.md](../notebooks/README.md) | Guide | Exploratory analysis contract | [METHODOLOGY.md](METHODOLOGY.md) |
 | [dashboard/index.html](../dashboard/index.html) | UI | Browser dashboard: founding-doc links + live `STATE`/`ROADMAP` via local server | [DEV_DASHBOARD.md](DEV_DASHBOARD.md), [DOC_MAP.md](DOC_MAP.md) |
-| [dashboard/README.md](../dashboard/README.md) | Guide | How to run the HTML dashboard | [DEV_DASHBOARD.md](DEV_DASHBOARD.md) |
+| [dashboard/README.md](../dashboard/README.md) | Guide | How to run the HTML dashboard + regenerate `domains/` and breakthrough-gap cards | [DEV_DASHBOARD.md](DEV_DASHBOARD.md), [BREAKTHROUGH_GAPS.md](BREAKTHROUGH_GAPS.md) |
 
 ## Maintenance rule
 

@@ -80,7 +80,7 @@ No issue for what you want to do? **Open one first**, describe the change, and w
 **Skill needed:** Python, graph databases or RDF, NetworkX or similar.
 **Key files:** `cross-domain/`, `hypotheses/`, `unknowns-catalog/` (these are the nodes), `ARCHITECTURE.md`
 **Browse issues:** https://github.com/KR8ZYSHO3/Universal-Science-Discovery/issues?q=is%3Aopen+label%3Aarea%3Aknowledge-graph
-**Note:** this workstream is Phase 1 (2027+). Phase 0 content seeding must reach critical mass first.
+**Note:** Core catalog → graph export is **foundation-complete**. Heavy federation / new graph backends align with **Phase 2 — Momentum (2027+)**; coordinate with maintainers before large scopes.
 
 ---
 

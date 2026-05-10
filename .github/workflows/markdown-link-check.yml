@@ -13,7 +13,9 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
+      # base-branch default in the action is `master`; this repo uses `main` for PR diffs / modified-file detection.
       - uses: gaurav-nelson/github-action-markdown-link-check@v1
         with:
           use-quiet-mode: yes
           config-file: .markdown-link-check.json
+          base-branch: main

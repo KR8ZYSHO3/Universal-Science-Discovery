@@ -8,17 +8,19 @@ on:
       - 'hypotheses/**'
       - 'cross-domain/**'
       - 'phenomenology/**'
+      - 'breakthrough-gaps/**'
+      - 'scripts/render_breakthrough_gaps_hub.py'
 
 jobs:
   rebuild:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      pull-requests: write
     steps:
       - uses: actions/checkout@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -44,6 +46,9 @@ jobs:
       - name: Generate domain pages
         run: python scripts/generate_domain_pages.py
 
+      - name: Render breakthrough gaps hub section
+        run: python scripts/render_breakthrough_gaps_hub.py --apply
+
       - name: Stage domain pages
         run: git add dashboard/domains/
 
@@ -59,20 +64,17 @@ jobs:
       - name: Stage API files
         run: git add api/
 
-      - name: Commit updated artifacts and open auto-merge PR
+      # Push directly to main — auto-merge via `gh` fails under typical branch-protection rules.
+      # Paths filter excludes generated artifacts, so this push does not re-trigger this workflow.
+      - name: Commit updated artifacts and push to main
         run: |
-          git config user.name "USDR Bot"
-          git config user.email "bot@usdr.science"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add docs/knowledge_graph.json docs/orphan_unknowns.md docs/bridge_proposals.json docs/citation_index.json docs/citation_index.md dashboard/index.html dashboard/domains/ api/
-          git diff --staged --quiet && echo "No changes to commit" && exit 0
-          BRANCH="bot/graph-rebuild-$(date +%Y%m%d-%H%M%S)"
-          git checkout -b "$BRANCH"
-          git commit -m "bot: auto-rebuild knowledge graph and update dashboard stats [skip ci]"
-          git push origin "$BRANCH"
-          gh pr create --title "bot: auto-rebuild knowledge graph [skip ci]" \
-            --body "Automated graph rebuild triggered by content push. Merging immediately." \
-            --base main --head "$BRANCH"
-          sleep 5
-          gh pr merge --squash --delete-branch
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "bot: auto-rebuild knowledge graph and dashboard stats [skip ci]"
+          git pull --rebase origin main
+          git push origin HEAD:main

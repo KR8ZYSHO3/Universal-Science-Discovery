@@ -9,6 +9,8 @@ Targets:
   - id="stat-phenom"  — phenomenology entries count
   - id="stat-graph-edges" — edge count from docs/knowledge_graph.json meta (if present)
   - id="kg-node-count" / id="kg-edge-count" — placeholders until JS loads the graph
+  - Hero snapshot spans id="snap-bridges", snap-unknowns, snap-hypotheses, snap-phenomena,
+    snap-graph-nodes, snap-graph-edges (between HTML markers DASHBOARD_CATALOG_SNAPSHOT_*)
   - pill text "N cross-domain bridges"
   - pill text "N unknowns · N hypotheses · N pre-formal observation"
   - OpenGraph / Twitter meta descriptions (bridges, unknowns, graph nodes)
@@ -51,7 +53,10 @@ def replace_pill_bridges(html: str, new_value: int) -> str:
 
 
 def load_graph_meta() -> tuple[int | None, int | None]:
-    """Return (node_count, edge_count) from built knowledge graph, or (None, None)."""
+    """Return (node_count, edge_count) from built knowledge graph, or (None, None).
+
+    Prefers meta.node_count / meta.edge_count; falls back to len(nodes)/len(edges).
+    """
     if not GRAPH_JSON.exists():
         return None, None
     try:
@@ -61,6 +66,10 @@ def load_graph_meta() -> tuple[int | None, int | None]:
         ec = meta.get("edge_count")
         if isinstance(nc, int) and isinstance(ec, int):
             return nc, ec
+        nodes = data.get("nodes")
+        edges = data.get("edges")
+        if isinstance(nodes, list) and isinstance(edges, list):
+            return len(nodes), len(edges)
     except (OSError, json.JSONDecodeError, TypeError):
         pass
     return None, None
@@ -74,6 +83,31 @@ def replace_span_id(html: str, elem_id: str, new_value: int) -> str:
     if n == 0:
         print(f"  WARNING: span id '{elem_id}' not found in HTML", file=sys.stderr)
     return result
+
+
+def patch_catalog_snapshot_spans(
+    html: str,
+    bridges: int,
+    unknowns: int,
+    hypotheses: int,
+    phenomena: int,
+    graph_nodes: int | None,
+    graph_edges: int | None,
+) -> str:
+    """Update hero catalog snapshot counts (see DASHBOARD_CATALOG_SNAPSHOT_* markers)."""
+    html = replace_span_id(html, "snap-bridges", bridges)
+    html = replace_span_id(html, "snap-unknowns", unknowns)
+    html = replace_span_id(html, "snap-hypotheses", hypotheses)
+    html = replace_span_id(html, "snap-phenomena", phenomena)
+    if graph_nodes is not None and graph_edges is not None:
+        html = replace_span_id(html, "snap-graph-nodes", graph_nodes)
+        html = replace_span_id(html, "snap-graph-edges", graph_edges)
+    else:
+        loose = rf'(<span[^>]*\bid="{re.escape("snap-graph-nodes")}"[^>]*>)[^<]*(</span>)'
+        html, _ = re.subn(loose, r"\g<1>—\2", html)
+        loose2 = rf'(<span[^>]*\bid="{re.escape("snap-graph-edges")}"[^>]*>)[^<]*(</span>)'
+        html, _ = re.subn(loose2, r"\g<1>—\2", html)
+    return html
 
 
 def replace_og_descriptions(
@@ -198,6 +232,9 @@ def main() -> None:
     html = replace_pill_summary(html, unknowns, hypotheses, phenomena)
 
     g_nodes, g_edges = load_graph_meta()
+    html = patch_catalog_snapshot_spans(
+        html, bridges, unknowns, hypotheses, phenomena, g_nodes, g_edges
+    )
     if g_nodes is not None and g_edges is not None:
         print(f"  graph meta: nodes={g_nodes}, edges={g_edges}")
         html = replace_stat_id(html, "stat-graph-edges", g_edges)
@@ -210,8 +247,8 @@ def main() -> None:
         html = replace_graph_section_desc(html)
     else:
         print(
-            "  NOTE: docs/knowledge_graph.json missing or no meta — "
-            "skipping graph-derived dashboard patches",
+            "  NOTE: docs/knowledge_graph.json missing or unreadable — "
+            "graph-derived patches skipped (snapshot graph spans set to em dash)",
             file=sys.stderr,
         )
 

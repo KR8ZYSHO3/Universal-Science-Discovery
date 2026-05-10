@@ -2,6 +2,8 @@
 
 **Last updated:** 2026-05-07 (post Waves 57-67 + OA-1 — full audit)
 
+**Roadmap framing:** **Phase 0 — Foundation** is **complete** (governance, tooling, seeded catalog, graph, automation). Discoverability, outreach, and first-external-contributor milestones sit in **Phase 1 — Discovery & adoption** — see [ROADMAP.md](../ROADMAP.md). Engineering (bridges, harvesters, dashboard) continues in parallel and is not paused waiting on Phase 1.
+
 ---
 
 ## Where We Are (May 2026)
@@ -57,14 +59,15 @@ Success looks like:
 
 ---
 
-## Current Priority Stack (Updated 2026-05-07)
+## Current Priority Stack (Updated 2026-05-10)
 
-Bridge count is no longer the bottleneck — the automation pipeline handles continuous growth. The new priority stack:
+Bridge count is no longer the only bottleneck — automation handles continuous growth. Priorities are **parallel tracks** (see [ROADMAP.md](../ROADMAP.md) § “Integrated development priorities”):
 
-1. **Discoverability** — arXiv preprint, Reddit/LinkedIn, researcher outreach
-2. **Contributor on-ramp** — good-first-issues, QUICK_START_CONTRIBUTING.md, submission portal
-3. **Bridge promotion** — 9 stubs in `drafts/bridges/` ready to become full bridges
-4. **Dashboard reliability** — D3 interactive graph must load on GitHub Pages consistently
+1. **Discoverability & adoption (Phase 1)** — arXiv preprint DOI, coordinated outreach, first external contributors, hackathon.
+2. **Trust surfaces** — contributor hub, `/domains` pages, CI status widget, and static API must reflect git (`update_dashboard_stats.py`, `generate_domain_pages.py`, `verify_domain_pages.py`, `render_breakthrough_gaps_hub.py`, `generate_api.py`); run **`mkdocs build --strict`** when docs change.
+3. **Breakthrough gaps maturity** — steward `breakthrough-gaps/bg-*.yaml`: accurate TRL, blocking gaps, **`required_bridges`** mapped to real `b-*` IDs; hub cards generated from YAML ([BREAKTHROUGH_GAPS.md](BREAKTHROUGH_GAPS.md)).
+4. **Catalog depth** — promote `drafts/bridges/` stubs; waves; harvesters; graph rebuild cadence.
+5. **Dashboard reliability** — D3 interactive graph must load on GitHub Pages consistently.
 
 ---
 

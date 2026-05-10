@@ -137,13 +137,16 @@ content growth on UI polish, and we do not sacrifice content quality for UI feat
 | Frontend | Vanilla HTML/CSS/JS | D3.js v7, Lunr.js |
 | Hosting | GitHub Pages | Free, CDN-backed |
 | API | Static JSON | `api/v1/` directory |
-| Search | Lunr.js (client-side) | Phase 1 → Algolia |
+| Search | Lunr.js (client-side) | Interface Phase 1 → Algolia (see roadmap Phase 2 — Momentum) |
 
 ## Roadmap Alignment
 
-| Roadmap Phase | Interface Deliverable |
+Cross-reference [ROADMAP.md](ROADMAP.md) **project phases** with **this file’s** interface-program phases (the headings “Phase 1/2/3” below mean *interface* phases, not the roadmap).
+
+| USDR roadmap phase ([ROADMAP.md](ROADMAP.md)) | Interface deliverable (this document) |
 |---|---|
-| Phase 0 (2026) | Static dashboard, domain pages, API, knowledge graph — **COMPLETE** |
-| Phase 1 (2027-2028) | Custom domain, submission portal, semantic search, entry permalinks |
-| Phase 2 (2029-2031) | AI co-pilot, literature integration, discovery engine, collaborative annotation |
-| Phase 3 (2032+) | Discovery OS, federated network, experiment planner |
+| Phase 0 — Foundation | Static dashboard, domain pages, API, knowledge graph — **COMPLETE** (“Current State”) |
+| Phase 1 — Discovery & adoption | Credibility + outreach; optional early steps toward custom domain / landing polish |
+| Phase 2 — Momentum | **Interface Phase 1:** Trust & Accessibility — custom domain, submission portal, semantic search, entry permalinks |
+| Phase 3 — Acceleration | **Interface Phase 2:** Interactive Discovery |
+| Phase 4 — Transformation | **Interface Phase 3:** Discovery OS |
