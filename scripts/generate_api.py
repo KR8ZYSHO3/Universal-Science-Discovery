@@ -11,6 +11,7 @@ Endpoints:
   api/v1/domains.json       — domain summary stats
   api/v1/graph.json         — same as docs/knowledge_graph.json (symlink/copy)
   api/v1/bridge_proposals.json — co-pilot proposals
+  api/v1/breakthrough_gaps.json — breakthrough gap summaries
 
 Usage:
     python scripts/generate_api.py
@@ -75,6 +76,23 @@ def main():
                 "file": str(p.relative_to(ROOT))
             })
 
+    # Breakthrough gaps (world-scale stalled breakthroughs)
+    breakthrough_gaps = []
+    for p in sorted((ROOT / "breakthrough-gaps").glob("bg-*.yaml")):
+        d = load_yaml(p)
+        if not d:
+            continue
+        breakthrough_gaps.append({
+            "id": d.get("id", p.stem),
+            "title": d.get("title", ""),
+            "source_domain": d.get("source_domain", ""),
+            "current_trl": d.get("current_trl"),
+            "world_reshaping_potential": d.get("world_reshaping_potential", ""),
+            "blocking_gap_count": len(d.get("blocking_gaps") or []),
+            "required_bridge_count": len(d.get("required_bridges") or []),
+            "file": str(p.relative_to(ROOT)),
+        })
+
     # Collect all hypotheses
     hypotheses = []
     for p in sorted((ROOT / "hypotheses").rglob("h-*.yaml")):
@@ -116,6 +134,7 @@ def main():
             "unknowns": len(unknowns),
             "bridges": len(bridges),
             "hypotheses": len(hypotheses),
+            "breakthrough_gaps": len(breakthrough_gaps),
             "domains": len(domain_stats),
             "total": len(unknowns) + len(bridges) + len(hypotheses)
         },
@@ -124,6 +143,7 @@ def main():
             "unknowns": "api/v1/unknowns.json",
             "bridges": "api/v1/bridges.json",
             "hypotheses": "api/v1/hypotheses.json",
+            "breakthrough_gaps": "api/v1/breakthrough_gaps.json",
             "domains": "api/v1/domains.json",
             "graph": "api/v1/graph.json"
         }
@@ -134,6 +154,7 @@ def main():
     write_json(API_DIR / "unknowns.json", {"count": len(unknowns), "items": unknowns})
     write_json(API_DIR / "bridges.json", {"count": len(bridges), "items": bridges})
     write_json(API_DIR / "hypotheses.json", {"count": len(hypotheses), "items": hypotheses})
+    write_json(API_DIR / "breakthrough_gaps.json", {"count": len(breakthrough_gaps), "items": breakthrough_gaps})
     write_json(API_DIR / "domains.json", {"count": len(domains), "items": domains})
 
     # Copy knowledge graph
@@ -155,9 +176,9 @@ def main():
     if citations_src.exists():
         import shutil
         shutil.copy2(citations_src, API_DIR / "citations.json")
-        print("  copied citation_index.json → api/v1/citations.json")
+        print("  copied citation_index.json -> api/v1/citations.json")
 
-    print(f"\nAPI generated: {len(unknowns)} unknowns, {len(bridges)} bridges, {len(hypotheses)} hypotheses")
+    print(f"\nAPI generated: {len(unknowns)} unknowns, {len(bridges)} bridges, {len(hypotheses)} hypotheses, {len(breakthrough_gaps)} breakthrough gaps")
     print(f"Base URL: https://kr8zysho3.github.io/Universal-Science-Discovery/api/v1/")
 
 if __name__ == "__main__":

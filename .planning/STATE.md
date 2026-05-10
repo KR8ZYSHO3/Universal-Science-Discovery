@@ -4,6 +4,9 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 ## Last updated
 
+- 2026-05-10 — **Breakthrough gaps + roadmap tracks**: Hub “Breakthrough Gaps” grid is YAML-generated (`scripts/render_breakthrough_gaps_hub.py`); API `breakthrough_gaps.json`; steward doc `docs/BREAKTHROUGH_GAPS.md`; `ROADMAP.md` § integrated priorities (tracks A–D: discovery, trust surfaces, breakthrough gaps, catalog depth). `build-graph.yml` watches `breakthrough-gaps/**`.
+- 2026-05-09 — **Roadmap rephase — Phase 0 complete · Phase 1 Discovery active**:
+Shifted calendar/community milestones (preprint DOI, outreach, first 50 contributors, hackathon, custom domain) from **Phase 0** into **Phase 1 — Discovery & adoption**; renumbered long-range phases (Momentum → Phase 2, etc.). Updated **ROADMAP.md**, **README.md**, **INTERFACE.md** alignment table, **PATH_TO_SUCCESS.md**, contributor docs, **dashboard/index.html** milestone card + hero pill. Engineering/catalog work continues in parallel — see ROADMAP § “Ongoing engineering”.
 - 2026-05-09 — **CI: GitHub Actions bumps (checkout v6, Pages deploy stack, upload-artifact v7)**:
 Workflows updated to match Dependabot targets; after merge to `main`, close superseded Dependabot PRs #214–217 and #1 if checks pass.
 - 2026-05-09 — **Documentation audit (README + dashboard stats)**:
@@ -230,6 +233,7 @@ The repository remains above the 800-bridge threshold and the 1,000-hypothesis t
 
 ## Current focus
 
+- **Roadmap posture**: Foundation (**Phase 0**) is complete; discoverability + first contributors are **Phase 1** targets — not blockers for ongoing development.
 - **arXiv preprint**: `docs/preprint/usdr_preprint.md` is ready; next step is PDF conversion and submission to cs.DL (author: Brandon Shoemaker).
 - **Bridge count toward 1,000**: promote `drafts/bridges/` stubs; continue wave-based build.
 - **Dashboard graph reliability**: D3 interactive graph must load consistently on GitHub Pages.

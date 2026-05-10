@@ -21,54 +21,88 @@ This is the **global brain of science** — open, versioned, and built for disco
 
 ---
 
-### Phase 0: Foundation (2026)
+### Phase 0: Foundation (2026) — **COMPLETE**
 
-**Goal:** Launch a credible, high-quality seed that proves the concept and attracts the first wave of serious contributors.
+**Goal:** Ship a credible, schema-backed seed — governance, tooling, automation, and enough structured content — so the project can scale without rewriting fundamentals.
 
-**Key Milestones**
+**Foundation deliverables (closed)**
 
-- Public launch with 2–3 seeded disciplines (Physics, Biology, Computer Science)
-- 500+ high-quality structured entries (knowns, unknowns, hypotheses)
-- Core governance, legal, and ethics framework live
-- First 50 contributors (including domain experts)
-- Basic knowledge graph + search working
-- First “Unknowns Hackathon” (virtual)
+- Core governance, legal, and ethics framework (dual license, CONTRIBUTING, Code of Conduct)
+- Hypothesis / unknown / bridge schemas + CI validation on every PR
+- MkDocs site + contributor hub (`dashboard/`) + static JSON API
+- Seeded disciplines far beyond the original three (55+ domains)
+- 500+ high-quality structured entries — **exceeded** (bridges + unknowns + hypotheses at scale)
+- Knowledge graph build + Lunr search + interactive dashboard graph
+- arXiv OAI-PMH ingest package (Phase B) and OpenAlex automation pipeline
+- GitHub Pages deployment live
 
-**Success Metric:**  
-The project is recognized as “the most ambitious open science infrastructure project since the Human Genome Project.”
+**Success metric (foundation):** The repo behaves like serious infrastructure — reproducible builds, honest labeling of speculation, and a catalog that compounds.
+
+Calendar-dependent outcomes (first waves of contributors, citations, hackathon attendance, coordinated public launch) are tracked under **Phase 1 — Discovery & adoption** so they do not block declaring foundation work complete.
 
 ---
 
-**Phase 0 Status (May 2026): SUBSTANTIALLY COMPLETE — transitioning to Phase 1**
+**Foundation closure checklist (May 2026)**
 
 | Milestone | Status |
 |---|---|
-| Seeded disciplines (Physics, Biology, CS, + 38 more) | ✅ 55+ domains |
-| 500+ high-quality structured entries | ✅ 3,038 total (868 bridges + 1,151 unknowns + 1,019 hypotheses) |
+| Seeded disciplines (Physics, Biology, CS, + more) | ✅ 55+ domains |
+| 500+ high-quality structured entries | ✅ Exceeded |
 | Core governance + legal framework | ✅ CC BY 4.0 + MIT, CONTRIBUTING.md, CODE_OF_CONDUCT.md |
-| Knowledge graph + search | ✅ 3,072 nodes, 3,259 edges; Lunr full-text search; D3.js visualization |
+| Knowledge graph + search | ✅ Built graph + Lunr + D3 visualization |
 | Basic contributor infrastructure | ✅ Issue templates, PR template, GitHub Discussions |
-| First Unknowns Hackathon | Planned June 2026 (docs/events/hackathon-2026-06.md) |
-| First 50 contributors | Pending public launch |
 | OpenAlex automation pipeline | ✅ Weekly cron job live |
-| Pioneer lineage system | ✅ 18 pioneers |
-| Breakthrough gaps catalog | ✅ 12 gaps |
+| Pioneer lineage system | ✅ Growing |
+| Breakthrough gaps catalog | ✅ Live |
 
-**Next priority: arXiv preprint submission + 1,000-bridge milestone.**
+**Ongoing engineering (not gated on Phase 1):** bridge promotion toward 1,000+, dashboard reliability, harvesters, and tooling — see `docs/PATH_TO_SUCCESS.md`.
 
 ---
 
-## Phase 0 Progress (as of 2026-05-07)
+### Phase 1: Discovery & adoption (2026–2027) — **ACTIVE**
+
+**Goal:** Earn discoverability and trust on human timelines — preprint, outreach, first external contributors, and community rituals — while engineering continues in parallel.
+
+**Key milestones**
+
+- arXiv preprint submitted with a citable DOI (`docs/preprint/usdr_preprint.md`)
+- Coordinated public launch (announcement + researcher-facing outreach)
+- Custom domain and stable public URLs for credibility (overlaps `INTERFACE.md` P1.1)
+- Stream A first-contributor happy path validated (`docs/HAPPY_PATH_FIRST_RECORDS.md`)
+- First 50 contributors (including domain experts)
+- First “Unknowns Hackathon” (virtual; see `docs/events/` when scheduled)
+- First external citation or equivalent academic signal
+
+**Success metric:** USDR is findable as infrastructure — not only as a repository insiders already track.
+
+---
+
+### Integrated development priorities (2026 reevaluation)
+
+Recent work surfaced cross-cutting needs (dashboard truthfulness, CI visibility, domain browse pages, breakthrough gaps UX). **These run in parallel with Phase 1** — they are not waiting on mass adoption, and adoption is not waiting on perfect tooling.
+
+| Track | What | Primary artifacts / scripts |
+|-------|------|-----------------------------|
+| **A — Discovery & adoption** | Human-calendar milestones | Preprint, outreach, contributors, hackathon — `docs/PATH_TO_SUCCESS.md` |
+| **B — Trust surfaces** | Anything a newcomer sees must match git | `dashboard/index.html` + `update_dashboard_stats.py`; `dashboard/domains/` + `generate_domain_pages.py` + `verify_domain_pages.py`; CI panel in hub; `mkdocs build --strict` after doc edits |
+| **C — Breakthrough gaps** | World-scale problems ↔ blocking bridges | `breakthrough-gaps/*.yaml`, hub grid via `render_breakthrough_gaps_hub.py`, API `api/v1/breakthrough_gaps.json`, steward guide `docs/BREAKTHROUGH_GAPS.md` |
+| **D — Catalog depth** | Waves, stubs, harvesters | `cross-domain/`, `drafts/`, OpenAlex cadence, graph rebuild |
+
+**Rule of thumb:** merge-worthy batches that touch **content visible on the hub** should ship **regenerated dashboard fragments + docs** in the same PR or an immediate follow-up (see `.cursor/rules/documentation-and-dashboard.mdc`).
+
+---
+
+## Foundation achievement snapshot (as of 2026-05-07)
 
 ### Current counts
 
-| Metric | Phase 0 Target | Current (2026-05-07) | Status |
+| Metric | Foundation target | Current (2026-05-07) | Status |
 |--------|---------------|----------------------|--------|
 | Cross-domain bridges | 500+ | **868** | ✅ Exceeded (next: 1,000) |
 | Unknowns | 500+ | **1,151** | ✅ Exceeded |
 | Hypotheses | 300+ | **1,019** | ✅ Exceeded |
 | Pioneers | — | **18** | ✅ Growing |
-| Breakthrough gaps | — | **12** | Expanding |
+| Breakthrough gaps | — | **24+** | Living catalog (`breakthrough-gaps/`) |
 | Knowledge graph nodes | 1,000+ | **3,072** | ✅ Exceeded (3× target) |
 | Knowledge graph edges | — | **3,259** | — |
 | Scientific domains | 15+ | **55+** | ✅ Exceeded |
@@ -91,35 +125,42 @@ The project is recognized as “the most ambitious open science infrastructure p
 - [x] **1,000 hypotheses** — Wave 66/67 (2026-05-07)
 - [x] **OpenAlex automation pipeline** — weekly cron job live (2026-05-07)
 - [x] **Pioneer lineage system** — 18 pioneers (2026-05-07)
-- [x] **Breakthrough gaps catalog** — 12 gaps (2026-05-06)
+- [x] **Breakthrough gaps catalog** — expanded set in `breakthrough-gaps/` (hub + API stay synced via `render_breakthrough_gaps_hub.py`)
 - [x] **Zero orphan unknowns** — maintained throughout all waves
-- [ ] **1,000 bridges** ← next major target
-- [ ] arXiv preprint submission (author: Brandon Shoemaker)
-- [ ] First external citation / contributor
+- [ ] **1,000 bridges** ← ongoing engineering target
+- [ ] arXiv preprint submission (Phase 1 — author: Brandon Shoemaker)
+- [ ] First external citation / contributor (Phase 1)
 
-### Phase 0 vs. milestones
+### Foundation vs. original gate checklist
 
-| Phase 0 Milestone | Status |
+| Foundation gate | Status |
 |---|---|
 | Seeded disciplines (Physics, Biology, CS, + more) | ✅ 55+ domains |
 | 500+ high-quality structured entries | ✅ 3,038 total (868 bridges + 1,151 unknowns + 1,019 hypotheses) |
 | Core governance + legal framework | ✅ CC BY 4.0 + MIT, CONTRIBUTING.md, CODE_OF_CONDUCT.md |
 | Knowledge graph + search | ✅ 3,072 nodes, 3,259 edges; Lunr full-text search; D3.js visualization |
 | Basic contributor infrastructure | ✅ Issue templates, PR template, GitHub Discussions |
-| First Unknowns Hackathon | Planned June 2026 |
-| First 50 contributors | Pending public launch |
 
-### Phase 1 prerequisites
+### Phase 1 (Discovery) — still open
+
+| Milestone | Status |
+|---|---|
+| First Unknowns Hackathon | Planned (see `docs/events/` when scheduled) |
+| First 50 contributors | Pending broader discoverability |
+
+### Phase 2 (Momentum) prerequisites
+
+Momentum starts once Discovery & adoption has produced a **citable anchor** (typically arXiv DOI) and repeatable contributor intake. Tracking tasks:
 
 | Task | Status | ETA |
 |------|--------|-----|
-| 1,000 bridges | In progress (868 now; 9 stubs in drafts/) | ~2–4 build sessions |
+| 1,000 bridges | In progress (see catalog + `drafts/bridges/`) | Ongoing engineering |
 | arXiv preprint submitted | Ready to convert + submit | 1–2 weeks |
-| D3 graph working on GitHub Pages | Reliability ongoing | 1–3 days |
-| Custom domain live | Not started | 1 week |
+| D3 graph working on GitHub Pages | Reliability ongoing | Rolling |
+| Custom domain live | Not started | ~1 week |
 | First public announcement + community launch | Pending arXiv DOI | ~June 2026 |
 
-**Phase 1 readiness estimated: June–July 2026**, contingent on arXiv submission and first external contributors.
+**Phase 2 (Momentum) readiness estimated: June–July 2026**, contingent on arXiv submission and first external contributors — **not** on pausing catalog or tooling work.
 
 ---
 
@@ -128,13 +169,13 @@ The project is recognized as “the most ambitious open science infrastructure p
 ### Active
 - **arXiv** (OAI-PMH) — physics, CS, math, biology preprints
 
-### 90-Day Plan (Phase 0 completion)
+### Foundation-era integration plan (complete / sustaining)
 - **OpenAlex** ✅ harvester built (`scripts/harvesters/harvest_openalex.py`) — cross-domain concept pair scanning
 - **PubMed/NCBI** — biomedical literature for medicine/neuroscience bridges
 - **Semantic Scholar** — AI-extracted concept tagging at scale
 - **CrossRef** — DOI verification and reference list extraction
 
-### Phase 1 Targets
+### Phase 2 Targets
 - **NASA ADS** — astronomy/astrophysics
 - **INSPIRE-HEP** — high-energy physics
 - **Wikidata** — structured concept facts for translation tables
@@ -145,21 +186,22 @@ See `docs/DATA_SOURCES.md` for full integration architecture.
 
 ### Interface development (cross-cutting; see INTERFACE.md)
 
-The **canonical plan for UX, static site, and the future “Discovery OS”** is [INTERFACE.md](INTERFACE.md). That document is **longer-term** than most Phase 0 tasks: we do **not** block governance, legal clarity, or seeded content on a polished UI. Git stays the source of truth; the interface is always a **view** of the repo.
+The **canonical plan for UX, static site, and the future “Discovery OS”** is [INTERFACE.md](INTERFACE.md). INTERFACE.md uses its **own** Phase 1/2/3 labels for the interface program; map them to **this** roadmap’s phases using the table below. Git stays the source of truth; the interface is always a **view** of the repo.
 
 
 | USDR roadmap (this file) | Interface program ([INTERFACE.md](INTERFACE.md))                                                                                                    |
 | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Phase 0**              | Lock assumptions in INTERFACE.md; when seed content exists, ship a **minimal static site** (docs navigation, contribute links, search placeholder). |
-| **Phase 1**              | Execute INTERFACE.md “Phase 1: Trust & Accessibility” in full; prototype early “Phase 2” features only where they accelerate adoption.              |
-| **Phase 2+**             | INTERFACE.md “Phase 2–3” — interactive graph, co-pilot grounded in the graph, contributor dashboards — as the knowledge graph and community scale.  |
+| **Phase 0 — Foundation** | Static dashboard, domain pages, API, knowledge graph — **COMPLETE** (see INTERFACE.md “Current State”).                                           |
+| **Phase 1 — Discovery & adoption** | Credibility + outreach work (preprint, launch, custom domain when ready); optional early INTERFACE tasks where they reduce friction.                |
+| **Phase 2 — Momentum** | Execute INTERFACE.md **“Phase 1: Trust & Accessibility”** in full; prototype early INTERFACE “Phase 2” features only where they accelerate adoption. |
+| **Phase 3+ (Acceleration / Transformation)** | INTERFACE.md **Phase 2–3** — interactive discovery UX, co-pilot grounded in the graph, contributor dashboards — as the catalog and community scale. |
 
 
 Track interface milestones in issues/PRs as a **separate workstream** from discipline content.
 
 ---
 
-### Phase 1: Momentum (2027–2028)
+### Phase 2: Momentum (2027–2028)
 
 **Goal:** Become the default place where serious researchers go to find open problems and collaborate on breakthroughs.
 
@@ -177,7 +219,7 @@ At least 10 high-impact scientific papers or patents trace their origin to hypot
 
 ---
 
-### Phase 2: Acceleration (2029–2031)
+### Phase 3: Acceleration (2029–2031)
 
 **Goal:** Turn USDR into a self-sustaining discovery machine that actively accelerates the pace of science.
 
@@ -195,7 +237,7 @@ USDR is widely regarded as one of the top 5 most important scientific infrastruc
 
 ---
 
-### Phase 3: Transformation (2032–2035+)
+### Phase 4: Transformation (2032–2035+)
 
 **Goal:** Become the foundational layer of 21st-century science — the “Linux of Discovery.”
 
@@ -216,7 +258,7 @@ Future historians write:
 
 ---
 
-### Guiding Principles Across All Phases
+### Guiding principles across all phases
 
 - **Discovery First** — Every feature must increase the speed or quality of actual scientific breakthroughs
 - **Radical Openness** — Maximum transparency, maximum accessibility, minimum gatekeeping
@@ -228,7 +270,7 @@ Future historians write:
 
 ### How You Can Help Shape This Future
 
-Right now we are in **Phase 0**. The most valuable thing you can do is:
+Foundation (**Phase 0**) is **complete**. The active roadmap track for visibility is **Phase 1 — Discovery & adoption**; catalog and tooling work continues in parallel. The most valuable things you can do now are:
 
 1. Contribute high-quality unknowns and hypotheses in your field
 2. Help build the core tooling and knowledge graph

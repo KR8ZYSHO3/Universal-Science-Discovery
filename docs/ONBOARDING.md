@@ -6,6 +6,8 @@ Path through the repository in **~30 minutes** for a new collaborator or maintai
 
 If you have a **local clone**, open the **contributor hub** at [`dashboard/index.html`](../dashboard/index.html) (see [`dashboard/README.md`](../dashboard/README.md): run `python -m http.server 8765` from the repo root, then `/dashboard/`). It mirrors this onboarding path with links to every step; use this document as the authoritative checklist.
 
+On that hub, use **[Catalog search](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#catalog-search)** (same anchor locally) to look up keywords before adding new YAML — same workflow as [CONTRIBUTING.md](../CONTRIBUTING.md) “search first”.
+
 ## 1. Orientation (5 min)
 
 Read [VISION_AND_SCOPE.md](VISION_AND_SCOPE.md) and [METHODOLOGY.md](METHODOLOGY.md). You should be able to answer:

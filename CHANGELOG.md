@@ -9,8 +9,45 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] — 2026-05-09
 
+### Changed — Contributor hub honesty (stats + Phase 1 ring)
+- **Hub:** Replaced stacked historical wave banners with one **live catalog snapshot** row (patched by **`scripts/update_dashboard_stats.py --apply`**); **#status** shows **Phase 0 Foundation complete** strip; progress ring is **Phase 1 only**, **completed milestones only** (no partial credit for in-progress); checklist order aligned with **`ROADMAP.md`** Phase 1.
+
+### Changed — Breakthrough gaps + phase-plan priorities
+- **Hub:** “Breakthrough Gaps” section is **YAML-driven** — all `breakthrough-gaps/bg-*.yaml` files render as cards via **`scripts/render_breakthrough_gaps_hub.py`** (markers in **`dashboard/index.html`**); cards link to source YAML on GitHub.
+- **API:** **`api/v1/breakthrough_gaps.json`** + **`meta.json`** count/endpoint; **`scripts/generate_api.py`** updated; hub Developer API list includes the new route.
+- **CI:** **`build-graph.yml`** triggers on **`breakthrough-gaps/**`** and runs the renderer; **`validate.yml`** includes **`breakthrough-gaps/**`** in PR paths + summary row.
+- **Docs:** **`docs/BREAKTHROUGH_GAPS.md`** (MkDocs nav), rewritten **`breakthrough-gaps/README.md`**, **`ROADMAP.md`** § integrated development priorities (tracks A–D), **`docs/PATH_TO_SUCCESS.md`** priority stack, **`DOC_MAP.md`**, **`docs/REPOSITORY_MANIFEST.md`**, **`AGENTS.md`**, **`.cursor/rules/documentation-and-dashboard.mdc`**, **`scripts/README.md`**.
+
+### Fixed — Domain landing pages (`dashboard/domains/`) showed 0 bridges
+- **Root cause:** `scripts/generate_domain_pages.py` looked for non-schema keys **`source_domain` / `target_domain`**; bridges use **`fields`** per **`schemas/bridge.yaml`**.
+- **Fix:** Added **`scripts/domain_matching.py`** — normalize tags, hyphen boundary matching (`evolutionary-biology` → biology), and a small **synonym map** (e.g. `biophysics` ↔ biology/physics). **Single-pass bridge index** so regeneration stays fast. Hypotheses now match via **`unknowns_addressed`** and **`related_disciplines`** instead of `str(yaml)` hacks.
+- **CI:** **`validate-schemas.yml`** runs **`python scripts/verify_domain_pages.py`** (minimum counts for biology, physics, mathematics, computer-science).
+- **Docs/rules:** **`dashboard/README.md`**, **`scripts/README.md`**, **`docs/DOC_MAP.md`**, **`docs/REPOSITORY_MANIFEST.md`**, **`AGENTS.md`**, **`.cursor/rules/documentation-and-dashboard.mdc`**. Regenerated all **`dashboard/domains/*.html`** + index.
+
+### Fixed — GitHub Actions + contributor hub CI panel
+- **`markdown-link-check.yml`:** Set **`base-branch: main`** on `gaurav-nelson/github-action-markdown-link-check@v1` (upstream default is `master`, which broke PR/modified-file behavior on this repo).
+- **`build-graph.yml`:** Replaced **`gh pr merge`** automation with a **direct push to `main`** using `github-actions[bot]`, **`fetch-depth: 0`**, and **`git pull --rebase`** — merge via CLI failed under branch protection; generated paths still **do not** re-trigger this workflow.
+- **`dashboard/index.html`:** CI status widget now (**1**) merges runs by **newest `updated_at`** per workflow, (**2**) filters out non-repo workflows (e.g. Dependabot update bundles), (**3**) maps **skipped / cancelled** conclusions, (**4**) labels all `.github/workflows/*.yml` entries including **`validate.yml`**, **`pages.yml`**, **`build-graph.yml`**, **`harvest-openalex.yml`**, (**5**) requests up to **100** runs so sparse workflows are less likely to show **Unknown**.
+
+### Changed — Roadmap phases (foundation vs discovery)
+- **Phase 0 — Foundation** is documented as **complete** (governance, schemas, CI, seeded catalog, graph, hub, automation).
+- **New Phase 1 — Discovery & adoption (2026–2027)** holds calendar- and community-dependent milestones (preprint DOI, outreach, first contributors, hackathon, custom domain) so they do not read as “failed Phase 0” targets.
+- Former roadmap phases are **renumbered:** prior Phase 1 → **Phase 2 (Momentum)**, Phase 2 → **Phase 3 (Acceleration)**, Phase 3 → **Phase 4 (Transformation)**. Updated **`ROADMAP.md`**, **`README.md`**, **`INTERFACE.md`** roadmap alignment, **`CONTRIBUTING.md`**, **`WORKSTREAMS.md`**, **`CONTRIBUTORS.md`**, **`docs/DOC_MAP.md`**, **`docs/REPOSITORY_MANIFEST.md`**, **`docs/PATH_TO_SUCCESS.md`**, **`docs/preprint/usdr_preprint.md`** (+ synced **`docs/preprint/usdr_preprint.html`** §8.1), **`dashboard/index.html`** (hero pill, status section, milestone list), **`.planning/STATE.md`**, **`canvases/Progress.canvas.tsx`** (via sync script), and **`.cursor/rules/usdr-key-documents.mdc`**. **[INTERFACE.md](INTERFACE.md)** internal “Phase 1/2/3” **interface-program** labels are unchanged; the roadmap alignment table now explains how they map to USDR phases.
+
+### Changed — Discovery UX (hub + docs)
+- **Contributor hub:** Hero **discovery callout** with jump links to catalog search, domain browse, and knowledge graph (search already existed; now surfaced above milestone banners).
+- **CONTRIBUTING.md:** **Before you add a record — search first** checklist (hosted + local hub, `#catalog-search`, `/` shortcut).
+- **docs/index.md** & **docs/ONBOARDING.md:** Link to hosted `#catalog-search` and tie onboarding to duplicate-avoidance workflow.
+
+### Fixed — Licensing clarity (README + LICENSING_NOTES)
+- README license badges now point **CC BY** → [`LICENSE`](LICENSE) and **MIT** → [`LICENSE-CODE`](LICENSE-CODE) (they previously both pointed at `LICENSE`).
+- [`docs/LICENSING_NOTES.md`](docs/LICENSING_NOTES.md) aligned with the dual-license layout at the repo root.
+
 ### Fixed — CI markdown-link-check (localhost)
 - **CONTRIBUTING.md**, **docs/OPERATING_RHYTHM.md**, **dashboard/README.md:** Replaced clickable `http://localhost:8765/...` Markdown links with repo-relative links + URL in backticks (CI cannot fetch localhost). **`.markdown-link-check.json`:** Ignore pattern now matches localhost URLs **with a port**.
+
+### Fixed — CI markdown-link-check (DOI)
+- **`docs/citation_index.md`:** Table links now use `https://doi.org/10…` (previously `10…` was treated as a relative path). **`.markdown-link-check.json`:** Ignore **`https://doi.org/`** (and legacy **`dx.doi.org`**) — automated checks often get **403** from doi.org in CI; identifiers remain standard for readers.
 
 ### Changed — GitHub Actions (Dependabot alignment)
 - Bumped **`actions/checkout`** to **v6** across workflows.
