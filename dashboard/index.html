@@ -194,6 +194,105 @@
     .btn-icon svg { width: 18px; height: 18px; }
     .btn-icon:focus-visible, .btn-ghost:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
+    /* Discovery callout — surfaces catalog search above live snapshot */
+    .discovery-callout {
+      margin: 1.15rem auto 0;
+      max-width: 720px;
+      padding: 1rem 1.2rem;
+      border-radius: var(--r);
+      border: 1px solid var(--border-h);
+      background: color-mix(in srgb, var(--accent) 10%, transparent);
+      text-align: center;
+    }
+    .discovery-callout p { margin: 0 0 0.65rem; font-size: 0.98rem; color: var(--text); line-height: 1.55; }
+    .discovery-callout-actions {
+      display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; align-items: center;
+      margin: 0;
+    }
+    .discovery-callout-actions a {
+      display: inline-flex; align-items: center;
+      padding: 0.45rem 0.95rem; border-radius: var(--r-sm);
+      font-weight: 600; font-size: 0.9rem;
+      border: 1px solid var(--accent);
+      background: rgba(79, 156, 249, 0.14);
+      color: var(--accent);
+      text-decoration: none;
+      transition: transform .15s, border-color .15s;
+    }
+    .discovery-callout-actions a:hover { transform: translateY(-1px); border-color: var(--border-h); }
+    .discovery-callout-actions a.discovery-secondary {
+      border-color: var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* Hero catalog snapshot — single source of truth via update_dashboard_stats.py */
+    .catalog-snapshot {
+      margin: 1.25rem auto 0;
+      max-width: 920px;
+      padding: 1rem 1.25rem 1.05rem;
+      border-radius: var(--r-lg);
+      border: 1px solid var(--border-h);
+      background: color-mix(in srgb, var(--surface-solid) 88%, var(--accent) 12%);
+      text-align: center;
+    }
+    .catalog-snapshot-label {
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: .65rem;
+    }
+    .catalog-snapshot-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: center;
+      gap: .35rem .85rem;
+      font-family: var(--mono);
+      font-size: .82rem;
+      line-height: 1.45;
+    }
+    .catalog-snapshot-metric { display: inline-flex; align-items: baseline; gap: .35rem; }
+    .catalog-snapshot-n { font-weight: 700; color: var(--accent); font-size: .95rem; }
+    .catalog-snapshot-l { color: var(--muted); font-weight: 500; font-size: .78rem; text-transform: lowercase; }
+    .catalog-snapshot-sep { color: var(--border-h); user-select: none; }
+    .catalog-snapshot-foot {
+      margin: .75rem 0 0;
+      font-size: .72rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+    .catalog-snapshot-foot code { font-size: .68rem; }
+
+    .phase0-shipped {
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+      flex-wrap: wrap;
+      margin: -0.35rem 0 1.15rem;
+      padding: .52rem .85rem;
+      border-radius: var(--r-sm);
+      border: 1px solid var(--ok-border);
+      background: var(--ok-bg);
+      font-size: .8rem;
+      line-height: 1.4;
+    }
+    .phase0-shipped-badge {
+      font-size: .62rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ok);
+      padding: .12rem .45rem;
+      border-radius: 999px;
+      border: 1px solid var(--ok-border);
+      background: color-mix(in srgb, var(--ok) 12%, transparent);
+    }
+    .phase0-shipped-txt { color: var(--text); font-weight: 600; }
+
     .hero h1 {
       font-size: clamp(2.3rem,6vw,4rem);
       font-weight: 700; letter-spacing: -.035em;
@@ -396,6 +495,7 @@
     .ci-badge.success { background: var(--ok-bg);     border: 1px solid var(--ok-border);     color: var(--ok); }
     .ci-badge.failure { background: var(--danger-bg);  border: 1px solid var(--danger-border);  color: var(--danger); }
     .ci-badge.pending { background: var(--warn-bg);    border: 1px solid var(--warn-border);    color: var(--warn); }
+    .ci-badge.skipped { background: rgba(148,163,184,.10); border: 1px solid var(--border); color: var(--muted); }
     .ci-badge.unknown { background: rgba(107,138,172,.08); border: 1px solid var(--border); color: var(--muted); }
     .ci-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
     .ci-name { font-size: .88rem; font-weight: 600; margin-bottom: .22rem; }
@@ -1179,7 +1279,7 @@
       </h1>
 
       <div class="pill-row" aria-label="Highlights">
-        <span class="pill live"><span class="d"></span> Phase 0 · Foundation 2026</span>
+        <span class="pill live"><span class="d"></span> Phase 1 · Discovery &amp; adoption</span>
         <span class="pill">1123 cross-domain bridges</span>
         <span class="pill">1408 unknowns · 1274 hypotheses · 10 pre-formal observations</span>
         <span class="pill">Git-native · Open source</span>
@@ -1193,55 +1293,38 @@
         fields that should be talking to each other but aren't.
       </p>
 
-      <div style="text-align:center; padding:0.75rem 2rem; background:linear-gradient(135deg,rgba(99,102,241,0.15),rgba(168,85,247,0.15)); border:1px solid rgba(168,85,247,0.3); border-radius:12px; margin:1rem auto; max-width:600px;">
-        <span style="font-size:1.1rem; font-weight:600; color:#c4b5fd;">&#x1F389; 1,000+ Knowledge Graph Nodes</span>
-        <span style="color:#94a3b8; font-size:0.9rem; margin-left:0.75rem;">Milestone reached — May 2026</span>
+      <div class="discovery-callout" role="region" aria-label="Catalog discovery">
+        <p>
+          <strong>Find entries:</strong> full-text search (titles and claims), filter by domain chip,
+          then explore the <a href="#knowledge-graph">interactive knowledge graph</a>.
+          Press <kbd style="font-family:var(--mono);font-size:.78em;background:var(--bg-1);border:1px solid var(--border);border-radius:4px;padding:.1rem .35rem;">/</kbd> anywhere to focus search after you scroll to it.
+        </p>
+        <p class="discovery-callout-actions">
+          <a href="#catalog-search">Jump to catalog search</a>
+          <a href="domains/" class="discovery-secondary">Browse domains</a>
+          <a href="#knowledge-graph" class="discovery-secondary">Knowledge graph</a>
+        </p>
       </div>
 
-       <div id="milestone-700-bridges" style="text-align:center; padding:1.5rem 2rem; background:linear-gradient(135deg,rgba(16,185,129,0.30),rgba(5,150,105,0.22),rgba(52,211,153,0.15)); border:3px solid rgba(16,185,129,0.90); border-radius:20px; margin:1rem auto; max-width:780px; box-shadow:0 0 48px rgba(16,185,129,0.45), 0 0 0 1px rgba(16,185,129,0.22);">
-        <div style="font-size:0.72rem; font-weight:700; letter-spacing:0.18em; color:#6ee7b7; text-transform:uppercase; margin-bottom:0.3rem; opacity:0.95;">&#x1F31F; Waves 52&#x2013;54 Milestone Achieved &middot; May 7&thinsp;2026 &#x1F31F;</div>
-        <div style="font-size:2.1rem; font-weight:900; color:#10b981; letter-spacing:-0.03em; text-shadow:0 0 36px rgba(16,185,129,0.60);">&#x1F309; 702 Cross-Domain Bridges!</div>
-        <div style="color:#d1fae5; font-size:1rem; margin-top:0.4rem; font-weight:700;">THE 700-BRIDGE MILESTONE &#x2014; CROSSED &amp; CONFIRMED</div>
-        <div style="color:#6ee7b7; font-size:0.92rem; margin-top:0.3rem; font-weight:600;">WAVES 52&#x2013;54 &nbsp;&#x00B7;&nbsp; 702 bridges &middot; 28 new cross-domain connections (waves 52&#x2013;54)</div>
-        <div style="color:#a7f3d0; font-size:0.80rem; margin-top:0.35rem; opacity:0.92; line-height:1.55;">Synaptic SNARE biophysics &middot; Trophic cascade network motifs &middot; Solar wind Alfv&eacute;n turbulence &middot; Spin glass optimization &middot; Hippocampal sharp-wave ripples &middot; Auxetic materials &middot; Microbe-mineral geochemistry &middot; Red Queen coevolution &middot; Soft robotics hyperelastic &middot; Walrasian t&acirc;tonnement &middot; Lymphatic fluid mechanics &middot; Inflationary slow-roll QFT &middot; Fiber bundle gauge theory &middot; Phenotypic plasticity reaction norms &middot; EEG dipole Maxwell &middot; Earthquake dislocation mechanics &middot; Riboswitch RNA aptamer &middot; Betz limit actuator disk &middot; Beer-Lambert forest canopy &middot; Ellsberg ambiguity aversion &middot; Ubiquitin proteostasis &middot; Silicate weathering GEOCARB &middot; Holographic neural memory &middot; Pecora-Carroll chaos sync</div>
+      <!-- DASHBOARD_CATALOG_SNAPSHOT_BEGIN -->
+      <div class="catalog-snapshot aos" role="region" aria-label="Catalog snapshot from YAML file counts and built graph meta">
+        <div class="catalog-snapshot-label">Live catalog snapshot</div>
+        <div class="catalog-snapshot-row">
+          <span class="catalog-snapshot-metric"><span class="catalog-snapshot-n"><span id="snap-bridges">1123</span></span><span class="catalog-snapshot-l">bridges</span></span>
+          <span class="catalog-snapshot-sep" aria-hidden="true">·</span>
+          <span class="catalog-snapshot-metric"><span class="catalog-snapshot-n"><span id="snap-unknowns">1408</span></span><span class="catalog-snapshot-l">unknowns</span></span>
+          <span class="catalog-snapshot-sep" aria-hidden="true">·</span>
+          <span class="catalog-snapshot-metric"><span class="catalog-snapshot-n"><span id="snap-hypotheses">1274</span></span><span class="catalog-snapshot-l">hypotheses</span></span>
+          <span class="catalog-snapshot-sep" aria-hidden="true">·</span>
+          <span class="catalog-snapshot-metric"><span class="catalog-snapshot-n"><span id="snap-phenomena">10</span></span><span class="catalog-snapshot-l">phenomena</span></span>
+          <span class="catalog-snapshot-sep" aria-hidden="true">·</span>
+          <span class="catalog-snapshot-metric"><span class="catalog-snapshot-n"><span id="snap-graph-nodes">3857</span></span><span class="catalog-snapshot-l">graph nodes</span></span>
+          <span class="catalog-snapshot-sep" aria-hidden="true">·</span>
+          <span class="catalog-snapshot-metric"><span class="catalog-snapshot-n"><span id="snap-graph-edges">4517</span></span><span class="catalog-snapshot-l">graph edges</span></span>
+        </div>
+        <p class="catalog-snapshot-foot">Updated by <code>python scripts/update_dashboard_stats.py --apply</code> (catalog globs + <code>docs/knowledge_graph.json</code> meta). Wave milestones stay in <a href="../ROADMAP.md">ROADMAP.md</a>.</p>
       </div>
-     <div id="milestone-600-bridges" style="text-align:center; padding:1.4rem 2rem; background:linear-gradient(135deg,rgba(251,191,36,0.28),rgba(245,158,11,0.20),rgba(252,211,77,0.15)); border:3px solid rgba(251,191,36,0.85); border-radius:18px; margin:1rem auto; max-width:760px; box-shadow:0 0 40px rgba(251,191,36,0.40), 0 0 0 1px rgba(251,191,36,0.20);">
-        <div style="font-size:0.72rem; font-weight:700; letter-spacing:0.18em; color:#fde68a; text-transform:uppercase; margin-bottom:0.3rem; opacity:0.95;">&#x2728; Wave 45 Milestone Achieved &middot; May 7&thinsp;2026 &#x2728;</div>
-        <div style="font-size:2rem; font-weight:900; color:#fbbf24; letter-spacing:-0.03em; text-shadow:0 0 32px rgba(251,191,36,0.55);">&#x1F4B0; 600 Cross-Domain Bridges!</div>
-        <div style="color:#fef3c7; font-size:1rem; margin-top:0.4rem; font-weight:700;">THE 600-BRIDGE MILESTONE</div>
-        <div style="color:#fde68a; font-size:0.92rem; margin-top:0.3rem; font-weight:600;">WAVES 44+45 &nbsp;&#x00B7;&nbsp; 602 bridges &middot; 957 unknowns &middot; 825 hypotheses &middot; 2,413 graph nodes</div>
-        <div style="color:#fcd34d; font-size:0.80rem; margin-top:0.35rem; opacity:0.92; line-height:1.55;">Allometric scaling &middot; Magma rheology &middot; Demographic transition &middot; Tensor network entanglement &middot; Mutualistic nestedness &middot; Chromatic dispersion &middot; Cultural transmission &middot; Optical solitons &middot; Cellular automata universality &middot; Klausmeier dryland &middot; Aerosol nucleation &middot; Handicap principle &middot; MEG inverse problem &middot; Antifreeze proteins &middot; Waddington landscape &middot; Hawking/Unruh &middot; Pharmacokinetics ODE &middot; Ocean acidification &middot; fMRI graphical models &middot; Topological quantum computing &middot; Forest succession &middot; Origami mathematics &middot; CYP450 kinetics &middot; Price equation</div>
-      </div>
-
-      <div id="milestone-500-bridges" style="text-align:center; padding:1.25rem 2rem; background:linear-gradient(135deg,rgba(168,85,247,0.22),rgba(124,58,237,0.16)); border:3px solid rgba(168,85,247,0.7); border-radius:16px; margin:1rem auto; max-width:720px; box-shadow:0 0 32px rgba(168,85,247,0.30);">
-        <div style="font-size:1.75rem; font-weight:900; color:#c084fc; letter-spacing:-0.02em;">&#x1F680; 500 Cross-Domain Bridges</div>
-        <div style="color:#e9d5ff; font-size:0.98rem; margin-top:0.4rem; font-weight:600;">WAVE 37 MILESTONE — May 7&thinsp;2026 &nbsp;&#x00B7;&nbsp; 494 bridges &middot; 849 unknowns &middot; 717 hypotheses &middot; 2,089 graph nodes</div>
-        <div style="color:#d8b4fe; font-size:0.82rem; margin-top:0.45rem; opacity:0.9;">Fermentation/thermodynamics &middot; Shockley-Queisser limit &middot; Memory reconsolidation/LTP &middot; Evolutionary graph fixation &middot; Turbulence/renormalization group &middot; Metabolic scaling/fractal vasculature &middot; Social contagion thresholds &middot; Predictive coding/free energy &middot; Synthetic XNA genetics &middot; Dark energy/vacuum energy &middot; Forest fire SOC &middot; Circadian molecular oscillator</div>
-      </div>
-
-      <div id="milestone-400-bridges" style="text-align:center; padding:1rem 2rem; background:linear-gradient(135deg,rgba(251,191,36,0.18),rgba(245,158,11,0.12)); border:2px solid rgba(251,191,36,0.55); border-radius:14px; margin:1rem auto; max-width:680px; box-shadow:0 0 24px rgba(251,191,36,0.18);">
-        <div style="font-size:1.55rem; font-weight:800; color:#fbbf24; letter-spacing:-0.01em;">&#x1F3C6; 400+ Cross-Domain Bridges</div>
-        <div style="color:#fde68a; font-size:0.95rem; margin-top:0.35rem; font-weight:500;">Wave 29 milestone — May 6&thinsp;2026 &nbsp;&#x00B7;&nbsp; 413 bridges &middot; 790 unknowns &middot; 657 hypotheses &middot; 1,887 graph nodes</div>
-        <div style="color:#94a3b8; font-size:0.82rem; margin-top:0.4rem;">Stochastic gene expression &middot; Scientific method epistemology &middot; Hodgkin-Huxley cable equation &middot; Thermodynamics convex duality &middot; Complexity economics &middot; Neuromuscular Hill equation &middot; TKNN Chern number &middot; Allelopathy coevolution &middot; Computational psychiatry &middot; LOB market microstructure &middot; Population vector motor cortex &middot; PKS/NRPS drug discovery</div>
-      </div>
-
-      <div style="text-align:center; padding:0.85rem 2rem; background:linear-gradient(135deg,rgba(16,185,129,0.15),rgba(5,150,105,0.12)); border:1px solid rgba(16,185,129,0.4); border-radius:12px; margin:0.75rem auto 0.75rem; max-width:640px; box-shadow:0 4px 16px -4px rgba(16,185,129,0.2);">
-        <span style="font-size:1.15rem; font-weight:700; color:#34d399;">🌉 250+ Cross-Domain Bridges</span>
-        <span style="color:#6ee7b7; font-size:0.9rem; margin-left:0.75rem;">Wave 16 · May 2026</span>
-      </div>
-
-      <div style="text-align:center; padding:1rem 2rem; background:linear-gradient(135deg,rgba(251,191,36,0.18),rgba(245,158,11,0.12)); border:2px solid rgba(251,191,36,0.55); border-radius:14px; margin:0.5rem auto 0.75rem; max-width:680px; box-shadow:0 6px 24px -6px rgba(251,191,36,0.35);">
-        <div style="font-size:1.5rem; font-weight:800; color:#fbbf24; letter-spacing:-0.5px;">🎯 300 Cross-Domain Bridges</div>
-        <div style="color:#fde68a; font-size:0.95rem; margin-top:0.3rem; font-weight:600;">THE 300-BRIDGE MILESTONE — Wave 20 · May 2026</div>
-        <div style="color:#fcd34d; font-size:0.8rem; margin-top:0.25rem; opacity:0.85;">Glymphatic fluid dynamics · Wasserstein cell fate · Biomimetic SLIP locomotion · Solid-state batteries · Network centrality · Dislocation mechanics · Behavioral economics evolution · GMT minimal surfaces · Ecosystem bifurcation · SDP MAX-CUT · SNARE pharmacology · Wavelet compression · Urban scaling · Complex systems emergence</div>
-      </div>
-
-      <div style="text-align:center; padding:1.1rem 2rem; background:linear-gradient(135deg,rgba(250,204,21,0.22),rgba(234,179,8,0.16),rgba(251,191,36,0.10)); border:2px solid rgba(250,204,21,0.70); border-radius:16px; margin:0.5rem auto 1.5rem; max-width:720px; box-shadow:0 8px 32px -8px rgba(250,204,21,0.50), 0 0 0 1px rgba(250,204,21,0.15);">
-        <div style="font-size:0.75rem; font-weight:700; letter-spacing:0.15em; color:#fde68a; text-transform:uppercase; margin-bottom:0.3rem; opacity:0.9;">✦ Wave 24 Milestone Achieved · May 2026 ✦</div>
-        <div style="font-size:1.75rem; font-weight:900; color:#fbbf24; letter-spacing:-0.5px; text-shadow:0 0 24px rgba(250,204,21,0.4);">🏆 350+ Cross-Domain Bridges</div>
-        <div style="color:#fef08a; font-size:1rem; margin-top:0.35rem; font-weight:700;">THE 350-BRIDGE MILESTONE</div>
-        <div style="color:#fde68a; font-size:0.82rem; margin-top:0.3rem; opacity:0.90; line-height:1.5;">BCS Cooper pair phonon attraction · Jackson-Wolinsky network formation · Saffman-Delbrück lipid raft phase separation · Galerkin FEM isogeometric analysis · Munk-Wunsch thermohaline turbulence · Wilson-Cowan neural field alpha/gamma waves · Pontryagin bang-bang adaptive cancer therapy · Hanson LMSR prediction markets · Verlet MD metadynamics free energy · Huh lung-on-chip FDA Act · Standard Model SU(3)×SU(2)×U(1) Higgs · Tononi-Cirelli synaptic homeostasis + glymphatic sleep</div>
-      </div>
+      <!-- DASHBOARD_CATALOG_SNAPSHOT_END -->
 
       <div class="stat-deck" aria-label="Repository statistics">
         <div class="stat-card">
@@ -1443,89 +1526,277 @@
     <section id="breakthrough-gaps" style="padding:4rem 2rem;">
       <h2 style="text-align:center; font-size:2rem; margin-bottom:0.5rem;">Breakthrough Gaps</h2>
       <p style="text-align:center; color:#94a3b8; margin-bottom:2rem;">
-        World-reshaping breakthroughs stalled by cross-domain knowledge gaps. These are the bridges science needs to build.
+        World-reshaping breakthroughs stalled by cross-domain knowledge gaps. Cards below are generated from the
+        <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/tree/main/breakthrough-gaps" style="color:#93c5fd;text-decoration:underline;" target="_blank" rel="noopener">breakthrough-gaps</a>
+        catalog (same YAML CI validates). Click a card to open the source record on GitHub.
       </p>
       <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; max-width:1100px; margin:0 auto;">
-        <div style="background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.3); border-radius:12px; padding:1.5rem;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
-            <span style="font-size:1.5rem;">💧</span>
-            <span style="background:rgba(239,68,68,0.2); color:#fca5a5; padding:0.2rem 0.6rem; border-radius:999px; font-size:0.75rem;">TRL 4</span>
+        <!-- @hub-breakthrough-gaps-grid-begin -->
+        <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-carbon-direct-air-capture.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
+           onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
+           onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;" aria-hidden="true">🌍</span>
+            <span style="background:rgba(239,68,68,0.2);color:#fca5a5;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;">TRL 7</span>
           </div>
-          <h3 style="color:#fca5a5; margin:0 0 0.5rem; font-size:1rem;">Low-Temp Water Splitting</h3>
-          <p style="color:#94a3b8; font-size:0.85rem; margin:0;">Catalyst exists. Scale-up materials science + grid economics bridge missing.</p>
-        </div>
-        <div style="background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.3); border-radius:12px; padding:1.5rem;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
-            <span style="font-size:1.5rem;">⚛️</span>
-            <span style="background:rgba(239,68,68,0.2); color:#fca5a5; padding:0.2rem 0.6rem; border-radius:999px; font-size:0.75rem;">TRL 3</span>
+          <h3 style="color:#fca5a5;margin:0 0 0.5rem;font-size:1rem;">Economically Viable Direct Air Capture of CO2</h3>
+          <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">Direct air capture (DAC) at ~$100/tonne CO₂ (from current $400–1,000/tonne) would make it economically viable to remove atmospheric CO₂ at the gigatonne scale required to meaningfully address climate change. At $100/ton…</p>
+        </a>
+        <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-mrna-programmable-medicine.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
+           onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
+           onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;" aria-hidden="true">💉</span>
+            <span style="background:rgba(239,68,68,0.2);color:#fca5a5;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;">TRL 6</span>
           </div>
-          <h3 style="color:#fca5a5; margin:0 0 0.5rem; font-size:1rem;">Fault-Tolerant Quantum Computing</h3>
-          <p style="color:#94a3b8; font-size:0.85rem; margin:0;">Error correction theory complete. 1000:1 overhead + cryogenic engineering gaps remain.</p>
-        </div>
-        <div style="background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.3); border-radius:12px; padding:1.5rem;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
-            <span style="font-size:1.5rem;">🧲</span>
-            <span style="background:rgba(239,68,68,0.2); color:#fca5a5; padding:0.2rem 0.6rem; border-radius:999px; font-size:0.75rem;">TRL 2</span>
+          <h3 style="color:#fca5a5;margin:0 0 0.5rem;font-size:1rem;">Programmable mRNA Therapeutics Beyond COVID Vaccines</h3>
+          <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">The COVID-19 mRNA vaccines (BioNTech/Pfizer, Moderna, 2020–2021) proved the mRNA platform at TRL 9: design-to-manufacture in months, high efficacy, large-scale production. The platform is now being extended to personali…</p>
+        </a>
+        <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-neural-interface-bandwidth.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
+           onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
+           onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;" aria-hidden="true">🧠</span>
+            <span style="background:rgba(239,68,68,0.2);color:#fca5a5;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;">TRL 5</span>
           </div>
-          <h3 style="color:#fca5a5; margin:0 0 0.5rem; font-size:1rem;">Room-Temperature Superconductivity</h3>
-          <p style="color:#94a3b8; font-size:0.85rem; margin:0;">High-Tc materials exist. Pairing mechanism beyond BCS unknown.</p>
-        </div>
-        <div style="background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.3); border-radius:12px; padding:1.5rem;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
-            <span style="font-size:1.5rem;">💉</span>
-            <span style="background:rgba(239,68,68,0.2); color:#fca5a5; padding:0.2rem 0.6rem; border-radius:999px; font-size:0.75rem;">TRL 6</span>
+          <h3 style="color:#fca5a5;margin:0 0 0.5rem;font-size:1rem;">High-Bandwidth Brain-Computer Interfaces for Restoring and Augmenting Neural Function</h3>
+          <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">High-bandwidth brain-computer interfaces (BCIs) — capable of reading and writing neural activity at the resolution of individual neurons across large brain areas — would enable restoration of motor function in paralysis…</p>
+        </a>
+        <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-fusion-energy-ignition.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
+           onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
+           onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;" aria-hidden="true">☀️</span>
+            <span style="background:rgba(239,68,68,0.2);color:#fca5a5;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;">TRL 4</span>
           </div>
-          <h3 style="color:#fca5a5; margin:0 0 0.5rem; font-size:1rem;">Programmable mRNA Medicine</h3>
-          <p style="color:#94a3b8; font-size:0.85rem; margin:0;">Platform proven by COVID vaccines. Tissue targeting + immune tolerance gaps block universal use.</p>
-        </div>
-        <div style="background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.3); border-radius:12px; padding:1.5rem;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
-            <span style="font-size:1.5rem;">🌍</span>
-            <span style="background:rgba(239,68,68,0.2); color:#fca5a5; padding:0.2rem 0.6rem; border-radius:999px; font-size:0.75rem;">TRL 7</span>
+          <h3 style="color:#fca5a5;margin:0 0 0.5rem;font-size:1rem;">Commercial Fusion Energy — From NIF Ignition to Grid-Scale Power</h3>
+          <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">Nuclear fusion — combining hydrogen isotopes to release energy via E=mc² — offers effectively unlimited, low-carbon electricity with no long-lived nuclear waste and inherent safety (no chain reaction, self-extinguishing…</p>
+        </a>
+        <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-universal-cancer-early-detection.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
+           onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
+           onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;" aria-hidden="true">🔬</span>
+            <span style="background:rgba(239,68,68,0.2);color:#fca5a5;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;">TRL 4</span>
           </div>
-          <h3 style="color:#fca5a5; margin:0 0 0.5rem; font-size:1rem;">Direct Air Carbon Capture</h3>
-          <p style="color:#94a3b8; font-size:0.85rem; margin:0;">Plants operational. 10-20× above thermodynamic minimum energy cost. Sorbent chemistry gap.</p>
-        </div>
-        <div style="background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.3); border-radius:12px; padding:1.5rem;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
-            <span style="font-size:1.5rem;">🧠</span>
-            <span style="background:rgba(239,68,68,0.2); color:#fca5a5; padding:0.2rem 0.6rem; border-radius:999px; font-size:0.75rem;">TRL 5</span>
+          <h3 style="color:#fca5a5;margin:0 0 0.5rem;font-size:1rem;">Liquid biopsy for universal early-stage cancer detection</h3>
+          <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">Detecting any cancer type at stage I from a blood draw — using circulating tumor DNA (ctDNA), cell-free methylation signatures, exosomes, or protein biomarkers — with less than 1% false positive rate and greater than 90…</p>
+        </a>
+        <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-hydrogen-water-splitting.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
+           onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
+           onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;" aria-hidden="true">💧</span>
+            <span style="background:rgba(239,68,68,0.2);color:#fca5a5;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;">TRL 4</span>
           </div>
-          <h3 style="color:#fca5a5; margin:0 0 0.5rem; font-size:1rem;">High-Bandwidth Brain-Computer Interfaces</h3>
-          <p style="color:#94a3b8; font-size:0.85rem; margin:0;">1024-channel implants demonstrated. Biocompatibility, decode algorithms, and wireless bandwidth gaps remain.</p>
-        </div>
-        <div style="background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.3); border-radius:12px; padding:1.5rem;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
-            <span style="font-size:1.5rem;">☀️</span>
-            <span style="background:rgba(239,68,68,0.2); color:#fca5a5; padding:0.2rem 0.6rem; border-radius:999px; font-size:0.75rem;">TRL 4</span>
+          <h3 style="color:#fca5a5;margin:0 0 0.5rem;font-size:1rem;">Low-Temperature Electrochemical Water Splitting for Green Hydrogen</h3>
+          <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">Scalable, low-cost water splitting using earth-abundant catalysts operating near room temperature would make green hydrogen competitive with natural gas reformation, enabling carbon-neutral fuels, long-duration grid sto…</p>
+        </a>
+        <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-controlled-nuclear-fusion-power.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
+           onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
+           onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;" aria-hidden="true">☀️</span>
+            <span style="background:rgba(239,68,68,0.2);color:#fca5a5;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;">TRL 4</span>
           </div>
-          <h3 style="color:#fca5a5; margin:0 0 0.5rem; font-size:1rem;">Commercial Fusion Energy</h3>
-          <p style="color:#94a3b8; font-size:0.85rem; margin:0;">NIF achieved ignition (2022). Plasma instability, tritium breeding, and materials radiation hardness gaps block commercialization.</p>
-        </div>
-        <div style="background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.3); border-radius:12px; padding:1.5rem;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
-            <span style="font-size:1.5rem;">🦠</span>
-            <span style="background:rgba(239,68,68,0.2); color:#fca5a5; padding:0.2rem 0.6rem; border-radius:999px; font-size:0.75rem;">TRL 3</span>
+          <h3 style="color:#fca5a5;margin:0 0 0.5rem;font-size:1rem;">Net energy gain controlled nuclear fusion at commercial scale</h3>
+          <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">In December 2022, the National Ignition Facility achieved Q_fusion &gt; 1 for the first time — the fusion reaction released more energy than the laser energy deposited in the fuel capsule. However, accounting for wall-plug…</p>
+        </a>
+        <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-photosynthesis-efficiency.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
+           onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
+           onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;" aria-hidden="true">🌿</span>
+            <span style="background:rgba(239,68,68,0.2);color:#fca5a5;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;">TRL 3</span>
           </div>
-          <h3 style="color:#fca5a5; margin:0 0 0.5rem; font-size:1rem;">New Antibiotic Classes</h3>
-          <p style="color:#94a3b8; font-size:0.85rem; margin:0;">No novel antibiotic class since 2003. Market failure + novel target identification + phage therapy pathway all blocking.</p>
-        </div>
-        <div style="background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.3); border-radius:12px; padding:1.5rem;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
-            <span style="font-size:1.5rem;">🧬</span>
-            <span style="background:rgba(239,68,68,0.2); color:#fca5a5; padding:0.2rem 0.6rem; border-radius:999px; font-size:0.75rem;">TRL 3</span>
+          <h3 style="color:#fca5a5;margin:0 0 0.5rem;font-size:1rem;">Artificial and Enhanced Photosynthesis — Closing the Efficiency Gap from 1-2% to Theoretical Maximum</h3>
+          <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">Natural photosynthesis captures ~1-2% of incident solar energy as chemical energy in biomass — orders of magnitude below the theoretical maximum efficiency (~11% for oxygenic photosynthesis, limited by thermodynamics of…</p>
+        </a>
+        <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-scientific-knowledge-overload.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
+           onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
+           onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;" aria-hidden="true">📚</span>
+            <span style="background:rgba(239,68,68,0.2);color:#fca5a5;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;">TRL 3</span>
           </div>
-          <h3 style="color:#fca5a5; margin:0 0 0.5rem; font-size:1rem;">Alzheimer's Disease Mechanism</h3>
-          <p style="color:#94a3b8; font-size:0.85rem; margin:0;">Amyloid antibodies modestly effective. Causal mechanism, glymphatic dysfunction, and BBB delivery gaps unsolved.</p>
-        </div>
-        <div style="background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.3); border-radius:12px; padding:1.5rem;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
-            <span style="font-size:1.5rem;">🌿</span>
-            <span style="background:rgba(239,68,68,0.2); color:#fca5a5; padding:0.2rem 0.6rem; border-radius:999px; font-size:0.75rem;">TRL 3</span>
+          <h3 style="color:#fca5a5;margin:0 0 0.5rem;font-size:1rem;">Cross-Disciplinary Scientific Discovery — Systematic Infrastructure for Cross-Domain Mathematical Bridge Translation</h3>
+          <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">Scientific literature grows at approximately 4% per year, doubling every 17 years. As of 2024, PubMed alone indexes over 37 million articles; the total corpus of peer-reviewed science across all fields exceeds 100 milli…</p>
+        </a>
+        <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-alzheimers-mechanism.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
+           onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
+           onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;" aria-hidden="true">🧬</span>
+            <span style="background:rgba(239,68,68,0.2);color:#fca5a5;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;">TRL 3</span>
           </div>
-          <h3 style="color:#fca5a5; margin:0 0 0.5rem; font-size:1rem;">Artificial Photosynthesis</h3>
-          <p style="color:#94a3b8; font-size:0.85rem; margin:0;">Natural photosynthesis 1-2% efficient. Water oxidation catalyst durability + whole-system integration gaps blocking scale-up.</p>
-        </div>
+          <h3 style="color:#fca5a5;margin:0 0 0.5rem;font-size:1rem;">Disease-Modifying Alzheimer&#x27;s Therapy — Resolving the Causal Mechanism</h3>
+          <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">Alzheimer&#x27;s disease (AD) affects 55 million people worldwide and is the leading cause of dementia. After 25 years and &gt;100 failed clinical trials, the amyloid hypothesis (Hardy &amp; Higgins 1992) received partial vindicati…</p>
+        </a>
+        <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-quantum-computing-fault-tolerant.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
+           onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
+           onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;" aria-hidden="true">⚛️</span>
+            <span style="background:rgba(239,68,68,0.2);color:#fca5a5;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;">TRL 3</span>
+          </div>
+          <h3 style="color:#fca5a5;margin:0 0 0.5rem;font-size:1rem;">Fault-Tolerant Quantum Computation at Practical Scale</h3>
+          <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">A fault-tolerant quantum computer with ~1,000 error-corrected logical qubits would break RSA-2048 encryption, simulate quantum chemistry at pharmaceutical-design accuracy (protein folding, drug binding), and solve optim…</p>
+        </a>
+        <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-scalable-quantum-computing.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
+           onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
+           onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;" aria-hidden="true">⚛️</span>
+            <span style="background:rgba(239,68,68,0.2);color:#fca5a5;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;">TRL 3</span>
+          </div>
+          <h3 style="color:#fca5a5;margin:0 0 0.5rem;font-size:1rem;">Fault-tolerant scalable quantum computing with more than one million logical qubits</h3>
+          <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">Current quantum computers have 1,000-10,000 physical qubits but physical error rates of 0.1-1% per gate, far above the threshold needed for useful computation. Quantum error correction using surface codes requires appro…</p>
+        </a>
+        <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-aging-reversal-mechanisms.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
+           onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
+           onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;" aria-hidden="true">⏳</span>
+            <span style="background:rgba(239,68,68,0.2);color:#fca5a5;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;">TRL 3</span>
+          </div>
+          <h3 style="color:#fca5a5;margin:0 0 0.5rem;font-size:1rem;">Mechanistic understanding and reversal of biological aging</h3>
+          <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">Aging is the largest single risk factor for cancer, heart disease, neurodegeneration, and metabolic disease, yet its mechanism is debated. The leading candidate theories include: epigenetic entropy (information theory o…</p>
+        </a>
+        <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-antibiotic-resistance-crisis.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
+           onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
+           onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;" aria-hidden="true">🦠</span>
+            <span style="background:rgba(239,68,68,0.2);color:#fca5a5;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;">TRL 3</span>
+          </div>
+          <h3 style="color:#fca5a5;margin:0 0 0.5rem;font-size:1rem;">New Antibiotic Classes and Alternative Strategies to Overcome Antimicrobial Resistance</h3>
+          <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">Antimicrobial resistance (AMR) is projected to cause 10 million deaths per year by 2050 (O&#x27;Neill Review 2016), exceeding cancer mortality. The WHO classifies AMR as one of the top 10 global public health threats. The la…</p>
+        </a>
+        <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-de-novo-protein-design.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
+           onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
+           onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;" aria-hidden="true">🧪</span>
+            <span style="background:rgba(239,68,68,0.2);color:#fca5a5;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;">TRL 3</span>
+          </div>
+          <h3 style="color:#fca5a5;margin:0 0 0.5rem;font-size:1rem;">Rational de novo protein design for arbitrary function</h3>
+          <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">AlphaFold2 and ESMFold solve the forward problem — predicting 3D structure from amino acid sequence — with near-experimental accuracy. The inverse problem remains largely unsolved: designing a novel sequence that will f…</p>
+        </a>
+        <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-room-temperature-superconductivity.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
+           onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
+           onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;" aria-hidden="true">🧲</span>
+            <span style="background:rgba(239,68,68,0.2);color:#fca5a5;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;">TRL 2</span>
+          </div>
+          <h3 style="color:#fca5a5;margin:0 0 0.5rem;font-size:1rem;">Ambient-Pressure Room-Temperature Superconductivity</h3>
+          <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">A material that superconducts at room temperature and ambient pressure would eliminate resistive losses in electrical grids (~5–10% of generated power), enable compact MRI and fusion magnets without cryogenic infrastruc…</p>
+        </a>
+        <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-consciousness-neural-correlates.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
+           onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
+           onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;" aria-hidden="true">💭</span>
+            <span style="background:rgba(239,68,68,0.2);color:#fca5a5;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;">TRL 2</span>
+          </div>
+          <h3 style="color:#fca5a5;margin:0 0 0.5rem;font-size:1rem;">Identifying the neural correlates of consciousness and subjective experience</h3>
+          <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">The hard problem of consciousness — why and how physical processes in the brain give rise to subjective experience (qualia) — has no agreed scientific framework. The easy problems (explaining cognitive functions like at…</p>
+        </a>
+        <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-whole-brain-neural-recording.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
+           onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
+           onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;" aria-hidden="true">📡</span>
+            <span style="background:rgba(239,68,68,0.2);color:#fca5a5;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;">TRL 2</span>
+          </div>
+          <h3 style="color:#fca5a5;margin:0 0 0.5rem;font-size:1rem;">Whole-brain single-neuron resolution recording in awake behaving mammals</h3>
+          <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">No technology can simultaneously record all ~86 billion neurons in a human brain at single-neuron resolution during natural behavior. Current state-of-the-art (Neuropixels probes) records roughly 10,000 neurons simultan…</p>
+        </a>
+        <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-whole-earth-climate-model.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
+           onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
+           onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;" aria-hidden="true">🛰️</span>
+            <span style="background:rgba(239,68,68,0.2);color:#fca5a5;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;">TRL 3</span>
+          </div>
+          <h3 style="color:#fca5a5;margin:0 0 0.5rem;font-size:1rem;">Kilometer-scale global climate model for decadal regional prediction</h3>
+          <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">Current operational global climate models run at 25-100 km horizontal resolution. At this resolution, key processes governing regional climate — mesoscale convective systems, cumulus convection, cloud microphysics, orog…</p>
+        </a>
+        <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-neuromorphic-computing-at-scale.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
+           onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
+           onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;" aria-hidden="true">🔌</span>
+            <span style="background:rgba(239,68,68,0.2);color:#fca5a5;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;">TRL 3</span>
+          </div>
+          <h3 style="color:#fca5a5;margin:0 0 0.5rem;font-size:1rem;">Neuromorphic computing at scale — brain-matched energy efficiency for AI inference</h3>
+          <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">The human brain performs general-purpose intelligence at approximately 20 watts. Running a 70-billion parameter large language model requires ~70 watts per token generated at the GPU level, and a full inference data cen…</p>
+        </a>
+        <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-post-treatment-lyme-disease-syndrome.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
+           onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
+           onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;" aria-hidden="true">🩺</span>
+            <span style="background:rgba(239,68,68,0.2);color:#fca5a5;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;">TRL 3</span>
+          </div>
+          <h3 style="color:#fca5a5;margin:0 0 0.5rem;font-size:1rem;">Post-Treatment Lyme Disease Syndrome (PTLDS) — Mechanism and Cure</h3>
+          <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">Borrelia burgdorferi, the Lyme disease spirochete, causes persistent debilitating symptoms in 10–20% of patients even after standard antibiotic treatment. PTLDS (sometimes called chronic Lyme disease) involves fatigue,…</p>
+        </a>
+        <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-soil-microbiome-engineering.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
+           onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
+           onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;" aria-hidden="true">🌱</span>
+            <span style="background:rgba(239,68,68,0.2);color:#fca5a5;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;">TRL 3</span>
+          </div>
+          <h3 style="color:#fca5a5;margin:0 0 0.5rem;font-size:1rem;">Rational engineering of soil microbiomes for carbon sequestration and crop yield</h3>
+          <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">Soil contains approximately 10^9 microorganisms per gram, representing more than 10,000 species per sample interacting through metabolic exchange, competition, and mutualism in networks too complex to model from first p…</p>
+        </a>
+        <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-programmable-matter.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
+           onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
+           onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;" aria-hidden="true">✨</span>
+            <span style="background:rgba(239,68,68,0.2);color:#fca5a5;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;">TRL 2</span>
+          </div>
+          <h3 style="color:#fca5a5;margin:0 0 0.5rem;font-size:1rem;">Programmable matter — reconfigurable materials that change shape and function on demand</h3>
+          <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">Materials that can autonomously reconfigure their macroscopic shape, stiffness, and function in response to external commands do not exist beyond proof-of-concept demonstrations at millimeter scale. Shape memory alloys…</p>
+        </a>
+        <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/breakthrough-gaps/bg-ocean-plastic-remediation.yaml" target="_blank" rel="noopener" class="gap-hub-card"
+           style="text-decoration:none;color:inherit;display:block;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:12px;padding:1.5rem;transition:transform 0.15s ease,border-color 0.15s ease;"
+           onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(239,68,68,0.55)';"
+           onmouseout="this.style.transform='';this.style.borderColor='rgba(239,68,68,0.3)';">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
+            <span style="font-size:1.5rem;" aria-hidden="true">🌊</span>
+            <span style="background:rgba(239,68,68,0.2);color:#fca5a5;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.75rem;">TRL 2</span>
+          </div>
+          <h3 style="color:#fca5a5;margin:0 0 0.5rem;font-size:1rem;">Scalable removal and degradation of ocean microplastics</h3>
+          <p style="color:#94a3b8;font-size:0.85rem;margin:0;line-height:1.45;">Approximately 170 trillion plastic particles are estimated to be in the ocean, with an additional 8-10 million tons entering annually. Macro-plastic removal by systems such as The Ocean Cleanup is technically feasible b…</p>
+        </a>
+        <!-- @hub-breakthrough-gaps-grid-end -->
       </div>
     </section>
 
@@ -1626,6 +1897,11 @@
           <code>GET /api/v1/hypotheses.json</code>
           <span>All 1274 hypotheses with priority, impact score, and evidence links</span>
           <span class="api-endpoint-badge">~114 KB</span>
+        </a>
+        <a href="../api/v1/breakthrough_gaps.json" class="api-endpoint" target="_blank" rel="noopener">
+          <code>GET /api/v1/breakthrough_gaps.json</code>
+          <span>24 breakthrough-gap summaries (TRL, potential, blocking / required-bridge counts)</span>
+          <span class="api-endpoint-badge">~8 KB</span>
         </a>
         <a href="../api/v1/domains.json" class="api-endpoint" target="_blank" rel="noopener">
           <code>GET /api/v1/domains.json</code>
@@ -1909,8 +2185,8 @@
     <section id="status">
       <div>
         <span class="section-tag">Project Status</span>
-        <h2 class="section-title">Phase 0 — Foundation (2026)</h2>
-        <p class="section-desc">Building the credible seed that proves the concept and attracts the first wave of serious contributors.</p>
+        <h2 class="section-title">Phase 1 — Discovery &amp; adoption (2026–2027)</h2>
+        <p class="section-desc"><strong>Phase 0 — Foundation</strong> is complete (governance, schemas, CI, catalog seed, graph, hub). Below are calendar- and community-dependent milestones; development and catalog growth continue in parallel.</p>
       </div>
 
       <div class="status-top">
@@ -1923,23 +2199,27 @@
               Active
             </span>
           </div>
+          <div class="phase0-shipped" role="status">
+            <span class="phase0-shipped-badge">Phase 0</span>
+            <span class="phase0-shipped-txt">Foundation complete — governance, schemas, CI, catalog seed, graph, hub (see <a href="../ROADMAP.md">ROADMAP.md</a>).</span>
+          </div>
           <div class="ring-row">
-            <div class="ring-wrap" role="img" aria-label="Phase 0 progress">
+            <div class="ring-wrap" role="img" aria-label="Phase 1 milestones: share fully completed only (in-progress items do not increase the ring)">
               <svg width="88" height="88" viewBox="0 0 88 88" aria-hidden="true">
                 <circle class="ring-bg" cx="44" cy="44" r="37"/>
                 <circle class="ring-fill" id="ring-fill" cx="44" cy="44" r="37"/>
               </svg>
               <div class="ring-label">
                 <span class="ring-pct" id="ring-pct">0%</span>
-                <span class="ring-sub">done</span>
+                <span class="ring-sub">Phase 1</span>
               </div>
             </div>
             <div class="ring-text">
-              <h3 id="ms-summary">7 / 13 milestones</h3>
-              <p>Foundation &amp; tooling shipped.<br>Content seeding is the next gate.</p>
+              <h3 id="ms-summary">0 / 7 Phase 1 milestones complete</h3>
+              <p>Ring = completed Phase 1 items only. In-progress items still appear in the checklist below.</p>
             </div>
           </div>
-          <ul class="m-list" id="m-list" aria-label="Phase 0 milestones"></ul>
+          <ul class="m-list" id="m-list" aria-label="Phase 1 discovery milestones"></ul>
         </div>
 
         <!-- Activity feed -->
@@ -2253,7 +2533,7 @@
         <div class="panel aos d1">
           <div class="panel-head">
             <h3><span class="panel-dot" style="background:var(--teal)"></span> ROADMAP.md</h3>
-            <span class="panel-sub">Phase 0 → 2035</span>
+            <span class="panel-sub">Phase 0–4 → 2035</span>
           </div>
           <div class="panel-body md loading" id="roadmap-md">Loading…</div>
         </div>
@@ -2399,28 +2679,27 @@
       resize(); init(); loop();
     })();
 
-    /* ── PHASE 0 MILESTONES ──────────────────────────────────── */
+    /* ── PHASE 1 (DISCOVERY & ADOPTION) MILESTONES ───────────── */
+    /* Phase 0 foundation milestones are complete; see ROADMAP.md */
+    /* Order matches ROADMAP.md § Phase 1 — Discovery & adoption */
     var MS = [
-      { done: true,  prog: false, t: 'Core governance, legal & ethics framework' },
-      { done: true,  prog: false, t: 'Schema system (hypothesis, unknown, dataset, ingestion-envelope)' },
-      { done: true,  prog: false, t: 'CI pipelines (schemas, link-check, mkdocs-build)' },
-      { done: true,  prog: false, t: 'MkDocs documentation site' },
-      { done: true,  prog: false, t: 'Contributor hub & developer dashboard' },
-      { done: true,  prog: false, t: 'arXiv OAI-PMH ingest package (Phase B)' },
-      { done: true,  prog: false, t: '3 seeded disciplines (Physics, Biology, CS)' },
-      { done: true,  prog: false, t: 'GitHub Pages deployment live' },
-      { done: false, prog: true,  t: 'Stream A first-contributor happy path validated' },
-      { done: false, prog: false, t: '500+ high-quality structured entries' },
-      { done: false, prog: false, t: 'First 50 contributors' },
-      { done: false, prog: false, t: 'Basic knowledge graph + search' },
+      { done: false, prog: true,  t: 'arXiv preprint submitted with a citable DOI' },
+      { done: false, prog: false, t: 'Coordinated public launch + researcher-facing outreach' },
+      { done: false, prog: false, t: 'Custom domain + stable public URLs (credibility)' },
+      { done: false, prog: true,  t: 'Stream A first-contributor happy path validated (HAPPY_PATH_FIRST_RECORDS.md)' },
+      { done: false, prog: false, t: 'First 50 contributors (incl. domain experts)' },
       { done: false, prog: false, t: 'First Unknowns Hackathon (virtual)' },
+      { done: false, prog: false, t: 'First external citation or equivalent academic signal' },
     ];
 
     (function renderMS() {
       var done = MS.filter(function(m){ return m.done; }).length;
-      var pct  = Math.round(done / MS.length * 100);
+      var prog = MS.filter(function(m){ return m.prog; }).length;
+      /* Ring: strict Phase 1 completion — done:true only (no partial credit for prog) */
+      var pct  = MS.length ? Math.round(Math.min(100, done / MS.length * 100)) : 0;
       document.getElementById('ring-pct').textContent   = pct + '%';
-      document.getElementById('ms-summary').textContent = done + ' / ' + MS.length + ' milestones';
+      document.getElementById('ms-summary').textContent =
+        done + ' / ' + MS.length + ' Phase 1 milestones complete · ' + prog + ' in progress';
       setTimeout(function () {
         document.getElementById('ring-fill').style.strokeDashoffset = 232.5 - (232.5 * pct / 100);
       }, 500);
@@ -2525,16 +2804,40 @@
 
     /* ── CI STATUS ───────────────────────────────────────────── */
     var WF_LABELS = {
-      'validate-schemas.yml':  'Schema Validation',
-      'markdown-link-check.yml': 'Link Check',
-      'mkdocs-build.yml':      'Docs Build',
-      'mkdocs-gh-pages.yml':   'Pages Deploy',
-      'ingest-ci.yml':         'Ingest CI',
+      'validate-schemas.yml':   'Schema validation',
+      'validate.yml':           'Validate catalog',
+      'markdown-link-check.yml': 'Link check',
+      'mkdocs-build.yml':       'Docs build (MkDocs)',
+      'mkdocs-gh-pages.yml':    'Deploy MkDocs to Pages',
+      'pages.yml':              'Deploy dashboard to Pages',
+      'build-graph.yml':        'Rebuild knowledge graph',
+      'ingest-ci.yml':          'Ingest tests',
+      'harvest-openalex.yml':   'Wave Factory / OpenAlex',
     };
     var ciGrid = document.getElementById('ci-grid');
 
+    function mergeLatestByWorkflow(runs) {
+      var latest = {};
+      runs.forEach(function (r) {
+        var wid = r.workflow_id;
+        var prev = latest[wid];
+        if (!prev || new Date(r.updated_at) > new Date(prev.updated_at)) latest[wid] = r;
+      });
+      return latest;
+    }
+
+    function runToCiStatus(run) {
+      if (!run) return 'unknown';
+      if (run.status === 'in_progress' || run.status === 'queued' || run.status === 'waiting') return 'pending';
+      if (run.status !== 'completed') return 'unknown';
+      var c = run.conclusion;
+      if (c === 'success') return 'success';
+      if (c === 'skipped' || c === 'neutral' || c === 'cancelled') return 'skipped';
+      return 'failure';
+    }
+
     function ciCard(label, status, timeStr, url) {
-      var badge = { success:'Passing', failure:'Failing', pending:'Running', unknown:'Unknown' }[status] || 'Unknown';
+      var badge = { success:'Passing', failure:'Failing', pending:'Running', skipped:'Skipped', unknown:'Unknown' }[status] || 'Unknown';
       var div = document.createElement('div');
       div.className = 'ci-card' + (url ? ' clickable' : '');
       div.innerHTML =
@@ -2546,23 +2849,26 @@
     }
 
     if (!isFile) {
-      Promise.all([ghFetch('/actions/workflows'), ghFetch('/actions/runs?per_page=30')])
+      /* No branch filter: some workflows (e.g. validate.yml) only run on pull_request */
+      Promise.all([ghFetch('/actions/workflows'), ghFetch('/actions/runs?per_page=100')])
         .then(function (res) {
-          var workflows = res[0].workflows || [];
-          var runs      = res[1].workflow_runs || [];
-          var latest    = {};
-          runs.forEach(function (r) { if (!latest[r.workflow_id]) latest[r.workflow_id] = r; });
+          var workflows = (res[0].workflows || []).filter(function (wf) {
+            var p = wf.path || '';
+            return wf.state === 'active' && p.indexOf('.github/workflows/') !== -1 && /\.ya?ml$/i.test(p);
+          });
+          var runs = mergeLatestByWorkflow(res[1].workflow_runs || []);
           ciGrid.innerHTML = '';
+          workflows.sort(function (a, b) {
+            var fa = (a.path || '').split('/').pop();
+            var fb = (b.path || '').split('/').pop();
+            return fa.localeCompare(fb);
+          });
           workflows.forEach(function (wf) {
-            var fname  = (wf.path || '').split('/').pop();
-            var label  = WF_LABELS[fname] || wf.name;
-            var run    = latest[wf.id];
-            var status = 'unknown', time = '';
-            if (run) {
-              if      (run.status === 'completed') status = run.conclusion === 'success' ? 'success' : 'failure';
-              else if (run.status === 'in_progress' || run.status === 'queued') status = 'pending';
-              time = timeAgo(run.updated_at);
-            }
+            var fname = (wf.path || '').split('/').pop();
+            var label = WF_LABELS[fname] || wf.name;
+            var run   = runs[wf.id];
+            var status = runToCiStatus(run);
+            var time   = run ? timeAgo(run.updated_at) : '';
             ciGrid.appendChild(ciCard(label, status, time, run ? run.html_url : ''));
           });
           if (!workflows.length) ciGrid.innerHTML = '<div class="ci-card"><div class="ci-name" style="color:var(--muted)">No workflows found</div></div>';
@@ -2572,7 +2878,7 @@
         });
     } else {
       ciGrid.innerHTML = '';
-      Object.keys(WF_LABELS).forEach(function (fname) {
+      Object.keys(WF_LABELS).sort().forEach(function (fname) {
         ciGrid.appendChild(ciCard(WF_LABELS[fname], 'unknown', 'Run server for live status', ''));
       });
     }
