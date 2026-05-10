@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] — 2026-05-09
 
+### Fixed — CI markdown-link-check (localhost)
+- **CONTRIBUTING.md**, **docs/OPERATING_RHYTHM.md**, **dashboard/README.md:** Replaced clickable `http://localhost:8765/...` Markdown links with repo-relative links + URL in backticks (CI cannot fetch localhost). **`.markdown-link-check.json`:** Ignore pattern now matches localhost URLs **with a port**.
+
 ### Changed — GitHub Actions (Dependabot alignment)
 - Bumped **`actions/checkout`** to **v6** across workflows.
 - **`pages.yml`:** `configure-pages` **v6**, `upload-pages-artifact` **v5**, `deploy-pages` **v5** (matches Dependabot PRs #214–217 / #1).
