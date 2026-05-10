@@ -18,7 +18,7 @@ See [WHY_CONTRIBUTE.md](WHY_CONTRIBUTE.md) for the full case, and [VISION_COMMUN
 4. **Validate:** `python scripts/validate_schemas.py`
 5. **Open a PR** — maintainers will review within 7 days
 
-**Contributor hub (recommended):** After cloning, run `python -m http.server 8765` from the repo root and open [http://localhost:8765/dashboard/](http://localhost:8765/dashboard/). It maps the full onboarding path, links to open unknowns, and shows CI status at a glance.
+**Contributor hub (recommended):** After cloning, run `python -m http.server 8765` from the repo root and open [`dashboard/index.html`](dashboard/index.html) in your browser (local URL `http://localhost:8765/dashboard/`). It maps the full onboarding path, links to open unknowns, and shows CI status at a glance.
 
 ---
 

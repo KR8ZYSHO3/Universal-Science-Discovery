@@ -2,7 +2,7 @@
 
 This map is the Phase 0 traceability layer. When you change a guiding document, update the corresponding behaviors (rules, templates, or this map) in the same change.
 
-**Last updated:** 2026-05-09 — includes `SOLVING_UNKNOWNS.md`, Wave Factory gitignore note, and `build_graph.py --report-orphans`.
+**Last updated:** 2026-05-09 — documentation audit: README graph counts; `update_dashboard_stats.py` patches OG/twitter meta, API blurbs, and graph placeholders from `docs/knowledge_graph.json` meta.
 
 ## Policy documents
 
@@ -48,7 +48,7 @@ This map is the Phase 0 traceability layer. When you change a guiding document, 
 | `scripts/validate_schemas.py` | Validate all catalog YAML against JSON Schema | ✅ (validate.yml) |
 | `scripts/build_graph.py` | Build `docs/knowledge_graph.json` | ✅ (build-graph.yml) |
 | `scripts/generate_api.py` | Generate static JSON API under `api/v1/` | ✅ (build-graph.yml) |
-| `scripts/update_dashboard_stats.py` | Patch stat counters in `dashboard/index.html` | ✅ (build-graph.yml) |
+| `scripts/update_dashboard_stats.py` | Patch stat counters, social meta, API blurbs, and graph placeholders in `dashboard/index.html` (reads `docs/knowledge_graph.json` meta for nodes/edges when present) | ✅ (build-graph.yml) |
 | `scripts/generate_domain_pages.py` | Per-domain HTML pages under `dashboard/domains/` | ✅ (pages.yml) |
 | `scripts/generate_explainers.py` | Bridge explainer HTML pages under `dashboard/explainers/` | ✅ (pages.yml) |
 | `scripts/propose_bridges.py` | Propose novel bridge candidates | Manual |
