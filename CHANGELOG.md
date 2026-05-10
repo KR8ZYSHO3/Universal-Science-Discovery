@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] — 2026-05-09
 
+### Added — Repo script smoke tests + CI consolidation
+- **`tests/repo_smoke/`:** Pytest wrappers for `validate_schemas.py`, `verify_domain_pages.py`, and `verify_dashboard_consistency.py`; root **`pyproject.toml`** includes this path for **`python -m pytest tests/repo_smoke`**.
+- **`validate-schemas.yml`:** Runs that pytest bundle (replacing three separate steps) so local runs match CI.
+
+### Changed — Operating rhythm / CI documentation
+- **`docs/OPERATING_RHYTHM.md`:** Documents **`validate.yml`** (path-filtered + quality audit) vs **`validate-schemas.yml`** (every PR/push); branch-protection guidance; status-check table includes **`validate.yml`**.
+
 ### Added — May 2026 full repository audit
 - **[`.planning/reports/USDR_FULL_AUDIT_2026-05.md`](.planning/reports/USDR_FULL_AUDIT_2026-05.md):** Structured inventory, documentation drift, CI/security snapshot, and prioritized issues.
 - **[`ROADMAP.md`](ROADMAP.md):** § **Audit backlog (2026-05)** + refreshed foundation snapshot counts (aligned with README / graph meta).

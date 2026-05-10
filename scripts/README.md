@@ -3,6 +3,7 @@
 Place reproducible automation here (Python, R, Julia, shell, and so on).
 
 - **Record validation:** `python scripts/validate_schemas.py` (see [requirements-validate.txt](requirements-validate.txt); also runs in GitHub Actions).
+- **CI parity (local):** `python -m pytest tests/repo_smoke -v` — runs `validate_schemas.py`, `verify_domain_pages.py`, and `verify_dashboard_consistency.py` (same bundle as **`validate-schemas.yml`**). Requires **`pytest`** (installed in that workflow; not listed in `requirements-validate.txt`).
 - **Contributor hub stats:** `python scripts/update_dashboard_stats.py --apply` — patches `dashboard/index.html` catalog counters, hero **live snapshot** row (`snap-bridges`, `snap-unknowns`, etc.), social meta, and (when `docs/knowledge_graph.json` exists) graph node/edge placeholders and API blurbs. Typical order: `validate_schemas` → `build_graph.py` → `update_dashboard_stats.py --apply`.
 - **Hub drift guard:** `python scripts/verify_dashboard_consistency.py` — asserts YAML + graph JSON match dashboard `snap-*` / `stat-*` / hero pill (runs in **`validate-schemas.yml`**). Full maintainer checklist: **[docs/DEV_DASHBOARD.md](../docs/DEV_DASHBOARD.md)**.
 - **Domain browse pages:** `python scripts/generate_domain_pages.py` — rebuilds `dashboard/domains/*.html` + index from `unknowns-catalog/` + bridge `fields` (see `scripts/domain_matching.py`). Regression check: `python scripts/verify_domain_pages.py`. Also invoked from **`build-graph.yml`** after catalog edits.

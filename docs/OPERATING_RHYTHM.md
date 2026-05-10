@@ -10,10 +10,21 @@
 
 ## CI and merges
 
+### Dual catalog validation workflows
+
+Two workflows run **`scripts/validate_schemas.py`**, but **not on the same PR triggers**:
+
+| Workflow | When it runs | Extras |
+|----------|----------------|--------|
+| [`validate-schemas.yml`](../.github/workflows/validate-schemas.yml) | **Every** PR and push to `main` | **`pytest tests/repo_smoke`** — runs `validate_schemas.py`, `verify_domain_pages.py`, and `verify_dashboard_consistency.py` as one job (same checks as before; single execution path). |
+| [`validate.yml`](../.github/workflows/validate.yml) (**Validate Catalog**) | PRs to `main` that touch catalog-related **paths** only (`unknowns-catalog/**`, `hypotheses/**`, `cross-domain/**`, `phenomenology/**`, `breakthrough-gaps/**`, `schemas/**`) | Also runs **`audit_quality.py`** and uploads a quality report artifact. |
+
+**Branch protection:** Prefer requiring the job from **`validate-schemas.yml`** on every PR — it always runs. Treat **`validate.yml`** as an **additional** signal on catalog edits (quality report); requiring only **`validate.yml`** would miss merges that skip path filters (for example docs-only PRs still need schema/dashboard consistency via **`validate-schemas.yml`**).
+
 - Pull requests should pass [Markdown link check](../.github/workflows/markdown-link-check.yml) before merge to `main`.
 - **GitHub Pages:** Until the published site at `https://kr8zysho3.github.io/Universal-Science-Discovery/` returns HTTP **200**, do not use that URL as a markdown **hyperlink** in tracked docs (the checker treats 404 as failure). Use backticks, or add/adjust an entry in [.markdown-link-check.json](../.markdown-link-check.json) `ignorePatterns` if you intentionally link before go-live.
 - [Dependabot](../.github/dependabot.yml) opens weekly PRs to update GitHub Actions; review and merge to reduce supply-chain drift.
-- Expand CI (lint, tests) when code under [scripts/](../scripts/) grows.
+- **Repo script smoke tests:** `tests/repo_smoke/` — run locally with **`python -m pytest tests/repo_smoke -v`** (same checks as **`validate-schemas.yml`**). Root **`pyproject.toml`** includes this path alongside **`packages/ingest/tests`**.
 
 ## Versioning and tags
 
@@ -42,7 +53,8 @@ Use **Actions → … → workflow run** to copy exact names into branch protect
 |---------------|------------------|
 | [markdown-link-check.yml](../.github/workflows/markdown-link-check.yml) | `markdown-link-check` (job: `markdown-link-check`) |
 | [mkdocs-build.yml](../.github/workflows/mkdocs-build.yml) | `mkdocs-build / mkdocs` |
-| [validate-schemas.yml](../.github/workflows/validate-schemas.yml) | `validate-schemas / validate-schemas` |
+| [validate-schemas.yml](../.github/workflows/validate-schemas.yml) | `validate-schemas / validate-schemas` (runs **`pytest tests/repo_smoke`**) |
+| [validate.yml](../.github/workflows/validate.yml) | `Validate Catalog / validate` (path-filtered; includes quality audit artifact) |
 | [ingest-ci.yml](../.github/workflows/ingest-ci.yml) | `ingest tests / pytest-ingest` |
 
 **Ingest caveat:** [ingest-ci.yml](../.github/workflows/ingest-ci.yml) runs only when PRs touch ingest-related paths (`packages/ingest/`, `requirements-ingest.txt`, envelope schema, etc.). If you mark **`ingest tests / pytest-ingest`** as **required**, GitHub may block merges on docs-only PRs where that workflow did not run. Options: omit it from required checks, use a ruleset that allows skipped optional checks, or touch an ingest path when you need the check to appear.

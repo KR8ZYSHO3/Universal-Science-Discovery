@@ -96,9 +96,9 @@ Structured findings and evidence: **[`.planning/reports/USDR_FULL_AUDIT_2026-05.
 
 - Refresh **ROADMAP** foundation snapshot numbers whenever README/graph meta step forward (avoid frozen “868 bridge” era leaking into narrative).
 - Keep **`.planning/STATE.md` catalog table** aligned with README after each merge-worthy wave (bridges / unknowns / hypotheses / breakthrough gaps).
-- Soften or qualify **README** “every entry DOI-linked” language against actual schema minimums per record type.
-- Document **dual validation workflows** (`validate.yml` path-filtered vs `validate-schemas.yml`) for contributors and branch-protection expectations.
-- Add **incremental pytest smoke tests** for critical `scripts/` entry points (validate, graph orphan report, dashboard consistency).
+- Soften or qualify **README** “every entry DOI-linked” language against actual schema minimums per record type. *(Done 2026-05-10 — README wording.)*
+- Document **dual validation workflows** (`validate.yml` path-filtered vs `validate-schemas.yml`) for contributors and branch-protection expectations. *(Done 2026-05-10 — `docs/OPERATING_RHYTHM.md`.)*
+- Add **incremental pytest smoke tests** for critical `scripts/` entry points. *(Partially done 2026-05-10 — `tests/repo_smoke` covers validate + domain pages + dashboard consistency via `validate-schemas.yml`; optional follow-up: wrap `build_graph.py --report-orphans` or other slow checks separately.)*
 - Drive **Discovery Engines** metrics from data or drop static unknown counts in `dashboard/index.html` to prevent silent drift.
 - Continue **GitHub Pages graph reliability** work with captured console/network traces per incident.
 
