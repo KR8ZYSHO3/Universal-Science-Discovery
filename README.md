@@ -8,8 +8,8 @@
 [Unknowns](unknowns-catalog/)
 [Hypotheses](hypotheses/)
 [Graph Nodes](docs/knowledge_graph.json)
-[License: CC BY 4.0](LICENSE)
-[License: MIT](LICENSE)
+[Catalog & docs: CC BY 4.0](LICENSE)
+[Code & scripts: MIT](LICENSE-CODE)
 [CI](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/actions)
 
 **[Live Dashboard](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/) · [Knowledge Graph](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#knowledge-graph) · [Preprint](docs/preprint/usdr_preprint.md) · [Contribute**](CONTRIBUTING.md)

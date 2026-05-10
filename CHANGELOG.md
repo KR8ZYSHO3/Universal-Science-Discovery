@@ -9,12 +9,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] — 2026-05-09
 
+### Fixed — Licensing clarity (README + LICENSING_NOTES)
+- README license badges now point **CC BY** → [`LICENSE`](LICENSE) and **MIT** → [`LICENSE-CODE`](LICENSE-CODE) (they previously both pointed at `LICENSE`).
+- [`docs/LICENSING_NOTES.md`](docs/LICENSING_NOTES.md) aligned with the dual-license layout at the repo root.
+
 ### Fixed — CI markdown-link-check (localhost)
 - **CONTRIBUTING.md**, **docs/OPERATING_RHYTHM.md**, **dashboard/README.md:** Replaced clickable `http://localhost:8765/...` Markdown links with repo-relative links + URL in backticks (CI cannot fetch localhost). **`.markdown-link-check.json`:** Ignore pattern now matches localhost URLs **with a port**.
 
+<<<<<<< HEAD
 ### Fixed — CI markdown-link-check (DOI)
 - **`docs/citation_index.md`:** Table links now use `https://doi.org/10…` (previously `10…` was treated as a relative path). **`.markdown-link-check.json`:** Ignore **`https://doi.org/`** (and legacy **`dx.doi.org`**) — automated checks often get **403** from doi.org in CI; identifiers remain standard for readers.
 
+=======
+>>>>>>> origin/main
 ### Changed — GitHub Actions (Dependabot alignment)
 - Bumped **`actions/checkout`** to **v6** across workflows.
 - **`pages.yml`:** `configure-pages` **v6**, `upload-pages-artifact` **v5**, `deploy-pages` **v5** (matches Dependabot PRs #214–217 / #1).
