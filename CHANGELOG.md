@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] — 2026-05-09
 
+### Changed — GitHub Actions (Dependabot alignment)
+- Bumped **`actions/checkout`** to **v6** across workflows.
+- **`pages.yml`:** `configure-pages` **v6**, `upload-pages-artifact` **v5**, `deploy-pages` **v5** (matches Dependabot PRs #214–217 / #1).
+- **`validate.yml`:** `upload-artifact` **v7** (matches Dependabot #215).
+
 ### Changed — Documentation audit (stats & contributor hub)
 - **README:** Knowledge graph table aligned with `docs/knowledge_graph.json` meta (**3,857** nodes, **4,517** edges).
 - **`update_dashboard_stats.py`:** Also syncs OpenGraph/Twitter meta, `stat-graph-edges`, knowledge-graph placeholder counts, and API section blurbs (unknowns/hypotheses/graph) from catalog file counts + built graph JSON.
