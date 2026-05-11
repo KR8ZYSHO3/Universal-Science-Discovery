@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] — 2026-05-09
 
+### Fixed — markdown-link-check (arXiv registration URL)
+- **`.markdown-link-check.json`:** Ignore **`https://arxiv.org/user/register`** — automated checks get **406 Not Acceptable**; the link remains valid for humans in preprint docs.
+
 ### Fixed — markdown-link-check vs generated citation index
 - **`scripts/build_citation_index.py`:** Markdown table links now use **`https://doi.org/...`** for bare DOIs. Bare **`[DOI](10.x/...)`** targets were treated as **relative** URLs and returned **HTTP 400** in CI after bot merge **`#226`**.
 
