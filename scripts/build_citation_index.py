@@ -67,6 +67,20 @@ def normalize_doi(doi_str):
     doi = re.sub(r'^doi:', '', doi)
     return doi.strip()
 
+
+def doi_to_resolver_url(doi_str):
+    """Absolute https URL for markdown links (bare `10.x/y` is relative and breaks link-check)."""
+    if not doi_str or doi_str.strip().upper().startswith("TODO"):
+        return ""
+    raw = doi_str.strip()
+    if raw.startswith(("http://", "https://")):
+        return raw
+    norm = normalize_doi(raw)
+    if norm.startswith("10."):
+        return f"https://doi.org/{norm}"
+    return raw
+
+
 def main():
     all_citations = []
 
@@ -131,7 +145,8 @@ def main():
     ]
 
     for ref in cross_domain[:50]:
-        doi_link = f"[DOI]({ref['doi']})" if ref.get("doi") and not ref["doi"].startswith("TODO") else ""
+        doi_url = doi_to_resolver_url(ref.get("doi") or "")
+        doi_link = f"[DOI]({doi_url})" if doi_url else ""
         title = ref["title"][:80] + "..." if len(ref["title"]) > 80 else ref["title"]
         bridges = ", ".join(f"`{e}`" for e in ref["entries"][:5])
         report.append(f"| {ref['count']} | {title} | {doi_link} |\n")

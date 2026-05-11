@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] — 2026-05-09
 
+### Fixed — markdown-link-check (arXiv registration URL)
+- **`.markdown-link-check.json`:** Ignore **`https://arxiv.org/user/register`** — automated checks get **406 Not Acceptable**; the link remains valid for humans in preprint docs.
+
+### Fixed — markdown-link-check vs generated citation index
+- **`scripts/build_citation_index.py`:** Markdown table links now use **`https://doi.org/...`** for bare DOIs. Bare **`[DOI](10.x/...)`** targets were treated as **relative** URLs and returned **HTTP 400** in CI after bot merge **`#226`**.
+
 ### Fixed — CI Rebuild Knowledge Graph (branch protection vs bot push)
 - **`.github/workflows/build-graph.yml`:** Replaced failing **direct `git push` to `main`** (step **Commit updated artifacts and push to main**) with **`peter-evans/create-pull-request@v7`** onto branch **`bot/auto-knowledge-graph-rebuild`** so `GITHUB_TOKEN` can land artifacts while **`main`** stays protected; added **`workflow_dispatch`** for manual reruns. **`docs/DOC_MAP.md`:** workflow row updated.
 
