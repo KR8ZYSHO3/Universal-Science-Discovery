@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] — 2026-05-09
 
+### Changed — Operating rhythm (branch protection checklist)
+- **`docs/OPERATING_RHYTHM.md`:** Documents **classic branch rules** vs **Rulesets**, a recommended **minimum trio** of required status checks (`validate-schemas`, `markdown-link-check`, `mkdocs-build`), and when **path-filtered** workflows should stay optional.
+
 ### Fixed — markdown-link-check (arXiv registration URL)
 - **`.markdown-link-check.json`:** Ignore **`https://arxiv.org/user/register`** — automated checks get **406 Not Acceptable**; the link remains valid for humans in preprint docs.
 
