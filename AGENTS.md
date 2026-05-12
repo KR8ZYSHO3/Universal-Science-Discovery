@@ -35,6 +35,7 @@ See [docs/prompts/](docs/prompts/) for literature synthesis, hypothesis comparis
 - When **`breakthrough-gaps/`** YAML changes, run **`python scripts/render_breakthrough_gaps_hub.py --apply`** and **`python scripts/generate_api.py`** so the hub grid and **`api/v1/breakthrough_gaps.json`** stay aligned — see **`docs/BREAKTHROUGH_GAPS.md`**.
 - If **`canvases/Progress.canvas.tsx`** exists, run **`python scripts/sync-dashboard-from-state.py`** after **`STATE.md`** changes.
 - If **`docs/`** or **`mkdocs.yml`** changes, run **`mkdocs build --strict`**.
+- After substantive merge-worthy work, post a concise Markdown **consultant handoff** (Summary; Changes with paths and PR branches; Human follow-ups; Next steps); optionally overwrite **`.planning/handoffs/GROK_CONSULTANT_LATEST.md`** for an external copy-paste brief — see **`.cursor/rules/documentation-and-dashboard.mdc`**.
 
 See `.cursor/rules/documentation-and-dashboard.mdc` (always apply).
 
