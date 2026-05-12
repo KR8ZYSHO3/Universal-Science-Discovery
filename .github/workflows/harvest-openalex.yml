@@ -4,19 +4,31 @@ on:
   schedule:
     - cron: "0 6 * * 1,4" # Monday + Thursday 06:00 UTC
   workflow_dispatch:
+    inputs:
+      debug:
+        description: Enable Actions step debug logging for manual runs (scheduled runs stay quiet)
+        type: boolean
+        default: false
 
 jobs:
   wave-factory:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       contents: write
       pull-requests: write
+    env:
+      ACTIONS_STEP_DEBUG: ${{ inputs.debug == true && 'true' || 'false' }}
 
     steps:
+      # Full history + token: create-pull-request pushes a new branch; shallow clones
+      # and missing persisted credentials commonly surface as `git` exit 128.
       - uses: actions/checkout@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.11"
 
@@ -69,11 +81,13 @@ jobs:
         run: python scripts/validate_schemas.py
 
       - name: Create PR for staged outputs
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: bot/wave-factory-${{ github.run_id }}
           commit-message: "bot: stage wave factory batch [skip ci]"
+          committer: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+          author: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
           title: "bot: wave factory staged bridge batch"
           body: |
             Automated Wave Factory run:
@@ -83,6 +97,7 @@ jobs:
           labels: |
             automation
             wave-factory
+          delete-branch: false
           add-paths: |
             drafts/openalex_candidates.json
             drafts/pubmed_candidates.json
