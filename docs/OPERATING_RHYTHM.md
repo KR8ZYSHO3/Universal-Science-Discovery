@@ -43,11 +43,24 @@ Recommended for `main` once collaborators join:
 - Require status checks to pass — see **Status check names** below (pick what matches how strictly you want to gate merges).
 - Optionally require an approving review.
 
-These options are configured under **Settings → Branches → Branch protection rules** in the GitHub UI; they are not stored in this repository.
+These options live only on GitHub (not in git). Use either UI:
+
+- **Classic:** **Settings → Branches → Branch protection rules** → edit the rule for `main`.
+- **Rulesets:** **Settings → Rules → Rulesets** → edit (or create) a ruleset that targets `main` → enable **Require status checks to pass** → add checks by name.
+
+### Minimum required checks (recommended trio)
+
+Require checks that run on **every** PR to `main` so docs-only PRs still gate correctly:
+
+1. **`validate-schemas`** (from [`validate-schemas.yml`](../.github/workflows/validate-schemas.yml)) — catalog smoke via **`pytest tests/repo_smoke`**.
+2. **`markdown-link-check`** (from [`markdown-link-check.yml`](../.github/workflows/markdown-link-check.yml)).
+3. **`mkdocs-build`** job **`mkdocs`** (often listed as **`mkdocs-build / mkdocs`**) — [`mkdocs-build.yml`](../.github/workflows/mkdocs-build.yml).
+
+Treat **[`validate.yml`](../.github/workflows/validate.yml)** (**Validate Catalog**) and **[`ingest-ci.yml`](../.github/workflows/ingest-ci.yml)** as **optional** required checks unless you understand **skipped** workflows on path-filtered PRs (see caveats below).
 
 ### Status check names (as GitHub lists them)
 
-Use **Actions → … → workflow run** to copy exact names into branch protection. Typical identifiers:
+Use **Actions → … → workflow run** (or a PR **Checks** tab) to copy **exact** names into branch protection — GitHub’s picker only lists checks that have run recently. Typical identifiers:
 
 | Workflow file | Often appears as |
 |---------------|------------------|
