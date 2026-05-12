@@ -2,7 +2,7 @@
 
 This map is the project traceability layer (delivered as part of **Phase 0 — Foundation**, now complete). When you change a guiding document, update the corresponding behaviors (rules, templates, or this map) in the same change.
 
-**Last updated:** 2026-05-10 — **`tests/repo_smoke`** (includes **`build_graph.py --report-orphans`**) + **`validate-schemas.yml`** pytest bundle; **`OPERATING_RHYTHM.md`** dual-workflow / branch-protection notes; breakthrough gaps hub grid / API / steward doc; roadmap § integrated priorities + audit backlog; **repo audit:** [May 2026 full audit report](../.planning/reports/USDR_FULL_AUDIT_2026-05.md).
+**Last updated:** 2026-05-12 — [MAINTAINER_PRIORITY_PROMPT.md](MAINTAINER_PRIORITY_PROMPT.md) (maintainer/agent Phase 0→1 priority stack); **`tests/repo_smoke`** (includes **`build_graph.py --report-orphans`**) + **`validate-schemas.yml`** pytest bundle; **`OPERATING_RHYTHM.md`** dual-workflow / branch-protection notes; breakthrough gaps hub grid / API / steward doc; roadmap § integrated priorities + audit backlog; **repo audit:** [May 2026 full audit report](../.planning/reports/USDR_FULL_AUDIT_2026-05.md).
 
 ## Policy documents
 
@@ -15,6 +15,7 @@ This map is the project traceability layer (delivered as part of **Phase 0 — F
 | [QUALITY_BAR.md](QUALITY_BAR.md) | Explicit quality / anti-sloppiness playbook | CI gates; review lanes; def. of done; links [METHODOLOGY.md](METHODOLOGY.md), [COLLABORATION_AND_REVIEWS.md](COLLABORATION_AND_REVIEWS.md), [HAPPY_PATH_FIRST_RECORDS.md](HAPPY_PATH_FIRST_RECORDS.md) |
 | [COLLABORATION_AND_REVIEWS.md](COLLABORATION_AND_REVIEWS.md) | Contributions, review expectations | [CONTRIBUTING.md](../CONTRIBUTING.md); PR template; branch protection notes in [OPERATING_RHYTHM.md](OPERATING_RHYTHM.md) |
 | [OPERATING_RHYTHM.md](OPERATING_RHYTHM.md) | Cadence, versioning, when to sync rules/CI; milestone doc + contributor hub | Doc/CI updates; release/tag policy; CHANGELOG, `dashboard/index.html`, `http://localhost:8765/dashboard/` check per `.cursor/rules/documentation-and-dashboard.mdc` |
+| [MAINTAINER_PRIORITY_PROMPT.md](MAINTAINER_PRIORITY_PROMPT.md) | Maintainer/agent priority stack (Phase 0→1): policy paths, work hierarchy, forbidden patterns | Optional mirror in `.cursor/rules/`; keep aligned with [OPERATING_RHYTHM.md](OPERATING_RHYTHM.md) and live workflows |
 | [REPOSITORY_MANIFEST.md](REPOSITORY_MANIFEST.md) | Per-path roles and governing docs | Keeping structure auditable; updates when paths change |
 | [ONBOARDING.md](ONBOARDING.md) | First-hour navigation | Points to all core policies and work directories |
 | [HAPPY_PATH_FIRST_RECORDS.md](HAPPY_PATH_FIRST_RECORDS.md) | Stream A: first unknown + hypothesis YAML → PR | [CONTRIBUTING.md](../CONTRIBUTING.md); [schemas/README.md](../schemas/README.md); [templates/README.md](../templates/README.md); CI validates via `scripts/validate_schemas.py` |

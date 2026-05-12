@@ -56,6 +56,7 @@ Exhaustive index of **tracked** paths (excluding `.git`), what each is for, and 
 | [docs/COLLABORATION_AND_REVIEWS.md](COLLABORATION_AND_REVIEWS.md) | Policy | Review norms, communication | CONTRIBUTING, labels doc |
 | [docs/QUALITY_BAR.md](QUALITY_BAR.md) | Policy | Anti-sloppiness: CI + review lanes + def. of done | [METHODOLOGY.md](METHODOLOGY.md), [COLLABORATION_AND_REVIEWS.md](COLLABORATION_AND_REVIEWS.md), [HAPPY_PATH_FIRST_RECORDS.md](HAPPY_PATH_FIRST_RECORDS.md), [.github/workflows/validate-schemas.yml](../.github/workflows/validate-schemas.yml) |
 | [docs/OPERATING_RHYTHM.md](OPERATING_RHYTHM.md) | Policy | Cadence, CI, tags, protection | Workflows, Dependabot |
+| [docs/MAINTAINER_PRIORITY_PROMPT.md](MAINTAINER_PRIORITY_PROMPT.md) | Policy | Maintainer/agent Phase 0→1 priority stack | [DOC_MAP.md](DOC_MAP.md), [OPERATING_RHYTHM.md](OPERATING_RHYTHM.md), [AGENTS.md](../AGENTS.md) |
 | [docs/prompts/literature_synthesis.md](prompts/literature_synthesis.md) | Prompt | Literature discipline | [METHODOLOGY.md](METHODOLOGY.md) |
 | [docs/prompts/hypothesis_comparison.md](prompts/hypothesis_comparison.md) | Prompt | Compare hypotheses | [METHODOLOGY.md](METHODOLOGY.md) |
 | [docs/prompts/falsification_pass.md](prompts/falsification_pass.md) | Prompt | Red-team / falsification | [METHODOLOGY.md](METHODOLOGY.md) |

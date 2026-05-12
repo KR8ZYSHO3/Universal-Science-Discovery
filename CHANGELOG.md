@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] — 2026-05-09
 
+### Added — Maintainer priority prompt (canonical in docs)
+- **`docs/MAINTAINER_PRIORITY_PROMPT.md`:** Versioned Phase 0→Phase 1 maintainer/agent prompt (corrected policy paths, priority hierarchy, output requirements); **`docs/DOC_MAP.md`** row + last-updated note; **`docs/REPOSITORY_MANIFEST.md`** row; **`mkdocs.yml`** nav under Operations.
+
+### Fixed — CI Wave Factory Cadence (`harvest-openalex.yml`)
+- **`.github/workflows/harvest-openalex.yml`:** **`actions/checkout@v6`** now uses **`fetch-depth: 0`** and explicit **`GITHUB_TOKEN`** (same pattern as **`build-graph.yml`**) so **`peter-evans/create-pull-request`** can push a bot branch without shallow-clone / credential **`git` exit 128**; bumped **`create-pull-request@v6` → `@v7`** with **`github-actions[bot]`** committer/author; **`actions/setup-python@v6`** to avoid Node 20 deprecation on the action runtime.
+
 ### Fixed — markdown-link-check (arXiv registration URL)
 - **`.markdown-link-check.json`:** Ignore **`https://arxiv.org/user/register`** — automated checks get **406 Not Acceptable**; the link remains valid for humans in preprint docs.
 
