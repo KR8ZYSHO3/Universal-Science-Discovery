@@ -889,6 +889,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#minimum-required-checks-recommended-trio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Minimum required checks (recommended trio)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#status-check-names-as-github-lists-them" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2665,6 +2676,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#minimum-required-checks-recommended-trio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Minimum required checks (recommended trio)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#status-check-names-as-github-lists-them" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2767,9 +2789,21 @@
 <li>Require status checks to pass — see <strong>Status check names</strong> below (pick what matches how strictly you want to gate merges).</li>
 <li>Optionally require an approving review.</li>
 </ul>
-<p>These options are configured under <strong>Settings → Branches → Branch protection rules</strong> in the GitHub UI; they are not stored in this repository.</p>
+<p>These options live only on GitHub (not in git). Use either UI:</p>
+<ul>
+<li><strong>Classic:</strong> <strong>Settings → Branches → Branch protection rules</strong> → edit the rule for <code>main</code>.</li>
+<li><strong>Rulesets:</strong> <strong>Settings → Rules → Rulesets</strong> → edit (or create) a ruleset that targets <code>main</code> → enable <strong>Require status checks to pass</strong> → add checks by name.</li>
+</ul>
+<h3 id="minimum-required-checks-recommended-trio">Minimum required checks (recommended trio)<a class="headerlink" href="#minimum-required-checks-recommended-trio" title="Permanent link">&para;</a></h3>
+<p>Require checks that run on <strong>every</strong> PR to <code>main</code> so docs-only PRs still gate correctly:</p>
+<ol>
+<li><strong><code>validate-schemas</code></strong> (from <a href="../.github/workflows/validate-schemas.yml"><code>validate-schemas.yml</code></a>) — catalog smoke via <strong><code>pytest tests/repo_smoke</code></strong>.</li>
+<li><strong><code>markdown-link-check</code></strong> (from <a href="../.github/workflows/markdown-link-check.yml"><code>markdown-link-check.yml</code></a>).</li>
+<li><strong><code>mkdocs-build</code></strong> job <strong><code>mkdocs</code></strong> (often listed as <strong><code>mkdocs-build / mkdocs</code></strong>) — <a href="../.github/workflows/mkdocs-build.yml"><code>mkdocs-build.yml</code></a>.</li>
+</ol>
+<p>Treat <strong><a href="../.github/workflows/validate.yml"><code>validate.yml</code></a></strong> (<strong>Validate Catalog</strong>) and <strong><a href="../.github/workflows/ingest-ci.yml"><code>ingest-ci.yml</code></a></strong> as <strong>optional</strong> required checks unless you understand <strong>skipped</strong> workflows on path-filtered PRs (see caveats below).</p>
 <h3 id="status-check-names-as-github-lists-them">Status check names (as GitHub lists them)<a class="headerlink" href="#status-check-names-as-github-lists-them" title="Permanent link">&para;</a></h3>
-<p>Use <strong>Actions → … → workflow run</strong> to copy exact names into branch protection. Typical identifiers:</p>
+<p>Use <strong>Actions → … → workflow run</strong> (or a PR <strong>Checks</strong> tab) to copy <strong>exact</strong> names into branch protection — GitHub’s picker only lists checks that have run recently. Typical identifiers:</p>
 <table>
 <thead>
 <tr>
