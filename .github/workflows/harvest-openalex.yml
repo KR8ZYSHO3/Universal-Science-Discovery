@@ -76,7 +76,7 @@ jobs:
       - name: Detect Wave Factory output changes
         id: stage
         run: |
-          # Check for any changes in the relevant files without triggering git add / gitignore errors
+          # Pure detection using ls-files — never triggers git add or gitignore errors
           if git ls-files --modified --others --exclude-standard | grep -E '^(drafts/openalex_candidates\.json|drafts/pubmed_candidates\.json|drafts/semantic_scholar_candidates\.json|drafts/wave_factory/)' > /dev/null; then
             echo "changes=1" >> "$GITHUB_OUTPUT"
           else
