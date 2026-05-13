@@ -73,10 +73,28 @@ jobs:
       - name: Validate canonical schemas
         run: python scripts/validate_schemas.py
 
+      - name: Detect Wave Factory output changes
+        id: stage
+        run: |
+          git add \
+            drafts/openalex_candidates.json \
+            drafts/pubmed_candidates.json \
+            drafts/semantic_scholar_candidates.json \
+            drafts/wave_factory
+          if git diff --cached --quiet; then
+            echo "changes=0" >> "$GITHUB_OUTPUT"
+          else
+            echo "changes=1" >> "$GITHUB_OUTPUT"
+          fi
+          git reset HEAD
+
       - name: Create PR for staged outputs
+        if: success() && steps.stage.outputs.changes != '0'
         # v7 required for reliable bot PR creation on ubuntu-24.04
         uses: peter-evans/create-pull-request@v7
         with:
+          skip-commit: true
+          skip-checks: true
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: bot/wave-factory-${{ github.run_id }}
           commit-message: "bot: stage wave factory batch [skip ci]"
