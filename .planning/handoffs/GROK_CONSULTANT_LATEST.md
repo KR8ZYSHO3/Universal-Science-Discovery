@@ -35,3 +35,14 @@ Recent maintainer-facing work spans documentation priority material, CI harvest 
 - Review and merge the two PRs above in the order that matches maintainer risk tolerance (docs branch is low risk; harvest workflow should be validated on a fork or with `workflow_dispatch` before relying on scheduled runs).
 - After merges, confirm scheduled **`harvest-openalex`** behavior and that PR creation succeeds under current Actions permissions.
 - If `OPERATING_RHYTHM` / changelog edits grow large relative to other work, keep using split PRs to keep review focused.
+
+---
+
+## Snapshot — Wave Factory / validation (2026-05-13, `main`)
+
+- **Local tests:** `python -m pytest tests/repo_smoke` → **4 passed** (same bundle as **`validate-schemas.yml`**).
+- **`.github/workflows/harvest-openalex.yml` (Wave Factory Cadence):**
+  - **`workflow_dispatch`** has **no `inputs`** block. For verbose runner logs use GitHub’s **Re-run jobs** UI and enable **“Enable debug logging”** when the repository/org allows it, or set repository/environment secrets **`ACTIONS_RUNNER_DEBUG`** / **`ACTIONS_STEP_DEBUG`** to `true` for a targeted rerun (see GitHub Actions documentation for debug logging).
+  - **Create Pull Request** step: **`add-paths`** lists **three** tracked JSON files (`drafts/openalex_candidates.json`, `drafts/pubmed_candidates.json`, `drafts/semantic_scholar_candidates.json`) only. **`drafts/wave_factory/`** stays **gitignored** (see `.gitignore`), so it is intentionally **not** in `add-paths` (see **CHANGELOG** Unreleased Wave Factory CPR note). **`skip-commit`** / **`skip-checks`** are **not** passed to `peter-evans/create-pull-request@v7`; the commit message includes **`[skip ci]`** to limit redundant CI on the bot branch.
+  - **Change detection** step uses **`git ls-files --modified --others --exclude-standard`** piped to **`grep -E`** for the JSON paths and (in the pattern) `drafts/wave_factory/` — note ignored paths will not appear in `ls-files` unless force-added.
+- **Handoff hygiene:** Older bullets in **“Branch `fix/harvest-openalex-git-128`”** above may describe **`workflow_dispatch` debug `inputs`** that are **not** present on current `main`; treat this snapshot as the corrected description until that branch is merged or the file is rewritten.

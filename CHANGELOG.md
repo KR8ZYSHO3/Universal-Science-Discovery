@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] — 2026-05-09
 
+### Added — Contributor onboarding baseline
+- **CONTRIBUTING.md:** Local checks table (`pytest tests/repo_smoke`, `validate_schemas.py`, `mkdocs build --strict`), PR branch naming (`feat/`, `docs/`, `fix/`), link to the PR template, and a **good first issue** workflow.
+- **`.github/ISSUE_TEMPLATE`:** Bug (YAML) and feature (Markdown) templates point at the same checks; removed duplicate legacy **`bug_report.md`** in favor of **`bug_report.yml`**.
+- **`docs/DOC_MAP.md`**, **`docs/REPOSITORY_MANIFEST.md`**, **`AGENTS.md`**, **`docs/DEV_DASHBOARD.md`:** Traceability + stub for planned dashboard Phase A (search → graph highlight → GitHub).
+
 ### Fixed — CI Wave Factory (`harvest-openalex.yml` create-pull-request)
 - fix: bump create-pull-request to v7 (fixes git credential failure in Wave Factory)
 - fix(ci): make Wave Factory tolerant of empty batches (`steps.stage` changes gate only)

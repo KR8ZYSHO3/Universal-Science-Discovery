@@ -15,8 +15,8 @@ See [WHY_CONTRIBUTE.md](WHY_CONTRIBUTE.md) for the full case, and [VISION_COMMUN
 1. **Fork → clone** this repository
 2. **Pick an open issue** from the [Issues tab](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/issues) — look for `good first issue`
 3. **Add your entry** (see sections below for Unknown / Hypothesis / Bridge / Phenomenon)
-4. **Validate:** `python scripts/validate_schemas.py`
-5. **Open a PR** — maintainers will review within 7 days
+4. **Validate locally** (see [Run checks locally](#run-checks-locally) below)
+5. **Open a PR** — maintainers will review within 7 days (see [Open a pull request](#open-a-pull-request))
 
 **Contributor hub (recommended):** After cloning, run `python -m http.server 8765` from the repo root and open [`dashboard/index.html`](dashboard/index.html) in your browser (local URL `http://localhost:8765/dashboard/`). It maps the full onboarding path, links to open unknowns, and shows CI status at a glance.
 
@@ -184,15 +184,39 @@ See [docs/METHODOLOGY.md](docs/METHODOLOGY.md) for the full scientific standards
 
 ---
 
-## Validation
+## Run checks locally
 
-Run before every PR:
+Run these from the **repository root** before you push. They mirror what CI runs for catalog and docs hygiene.
 
-```bash
-python scripts/validate_schemas.py
-```
+| Check | Command | When |
+|-------|-----------|------|
+| Schema validation (all catalog YAML) | `python scripts/validate_schemas.py` | Always for catalog or schema changes |
+| Repo smoke bundle (schemas, domain pages, dashboard counts, graph orphan report) | `python -m pytest tests/repo_smoke` | Before every PR; matches [`.github/workflows/validate-schemas.yml`](.github/workflows/validate-schemas.yml) |
+| MkDocs site | `mkdocs build --strict` | Whenever you change `docs/` or `mkdocs.yml` (matches [`.github/workflows/mkdocs-build.yml`](.github/workflows/mkdocs-build.yml)) |
 
-CI also runs this automatically. A PR with failing validation will not be merged.
+Path-filtered PRs may also run [`.github/workflows/validate.yml`](.github/workflows/validate.yml) when only certain catalog paths change; the smoke test above still catches most regressions early.
+
+If checks fail, fix locally first — a PR with failing CI will not be merged.
+
+---
+
+## Open a pull request
+
+1. **Branch from `main`** with a short, descriptive name:
+   - `feat/` — new catalog entries, scripts, or user-visible behavior
+   - `docs/` — documentation, templates, onboarding only
+   - `fix/` — bug fixes (CI, schemas, links, dashboard drift)
+2. **Commit** in small, reviewable slices (one logical change per commit when possible).
+3. **Open the PR against `main`** and fill in the checklist from the [**pull request template**](.github/pull_request_template.md) (GitHub loads it automatically for new PRs).
+
+---
+
+## Good first issue
+
+1. **Pick an issue** labeled `good first issue` in the [Issues tab](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/issues), or propose a tiny docs/link fix via a `docs/` branch.
+2. **Comment** that you are working on it so work is not duplicated.
+3. **Run** `python -m pytest tests/repo_smoke` and `python scripts/validate_schemas.py` (and `mkdocs build --strict` if you touched `docs/`).
+4. **Keep scope small** — one unknown, one hypothesis, one bridge, or one focused docs/CI fix per PR makes review fast and sets you up for a clean merge.
 
 ---
 
