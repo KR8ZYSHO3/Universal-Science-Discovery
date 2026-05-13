@@ -7,7 +7,7 @@ on:
 
 jobs:
   wave-factory:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       contents: write
       pull-requests: write
@@ -74,7 +74,7 @@ jobs:
         run: python scripts/validate_schemas.py
 
       - name: Create PR for staged outputs
-        # v7+ recommended: v6 on older Node runtimes; align with build-graph.yml bot PR path.
+        # v7 required for reliable bot PR creation on ubuntu-24.04
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}

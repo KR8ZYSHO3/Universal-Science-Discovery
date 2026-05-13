@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased] — 2026-05-09
 
 ### Fixed — CI Wave Factory (`harvest-openalex.yml` create-pull-request)
-- **`.github/workflows/harvest-openalex.yml`:** Bump **`peter-evans/create-pull-request@v6` → `@v7`**, checkout **`fetch-depth: 0`** + **`GITHUB_TOKEN`**, bot **committer/author**, **`delete-branch: false`**, **`actions/setup-python@v6`** — avoids **`git` exit 128** on **Create PR for staged outputs**.
+- fix: bump create-pull-request to v7 (fixes git credential failure in Wave Factory)
 
 ### Fixed — markdown-link-check (arXiv registration URL)
 - **`.markdown-link-check.json`:** Ignore **`https://arxiv.org/user/register`** — automated checks get **406 Not Acceptable**; the link remains valid for humans in preprint docs.
