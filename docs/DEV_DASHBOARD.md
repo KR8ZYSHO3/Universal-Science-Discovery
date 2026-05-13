@@ -8,6 +8,10 @@ For a **single web page** for **contributors**: ordered “start here” path, l
 
 The Cursor Canvas at [`canvases/Progress.canvas.tsx`](../canvases/Progress.canvas.tsx) is optional; the HTML hub is the main browser entry for people exploring the repo. **Agents:** `.cursor/rules/documentation-and-dashboard.mdc` (always on) requires keeping docs, CHANGELOG, STATE, and this hub aligned — especially at milestones — and spot-checking the hub after hub-affecting edits.
 
+### Planned UX — catalog search → graph highlight → GitHub (Phase A)
+
+**Not implemented yet.** Target flow: from **catalog search** in the hub, jump to a **knowledge-graph** view that highlights the selected record, with a clear **“open on GitHub”** path to the source YAML. Track and break down work on a dedicated **`feat/dashboard-search-graph-flow`** branch or issue when you split implementation from docs-only PRs; keep CDN-heavy hub changes behind the usual local `http://localhost:8765/dashboard/` smoke check.
+
 ---
 
 ## Contributor hub maintenance playbook (methodical)

@@ -2,18 +2,18 @@
 
 This map is the project traceability layer (delivered as part of **Phase 0 — Foundation**, now complete). When you change a guiding document, update the corresponding behaviors (rules, templates, or this map) in the same change.
 
-**Last updated:** 2026-05-10 — **`tests/repo_smoke`** (includes **`build_graph.py --report-orphans`**) + **`validate-schemas.yml`** pytest bundle; **`OPERATING_RHYTHM.md`** dual-workflow / branch-protection notes; breakthrough gaps hub grid / API / steward doc; roadmap § integrated priorities + audit backlog; **repo audit:** [May 2026 full audit report](../.planning/reports/USDR_FULL_AUDIT_2026-05.md).
+**Last updated:** 2026-05-13 — **CONTRIBUTING.md** documents local checks (`pytest tests/repo_smoke`, `validate_schemas.py`, `mkdocs build --strict`); **bug / feature** issue templates link those checks; **DEV_DASHBOARD.md** stubs planned hub “search → graph → GitHub” Phase A. Earlier: **`tests/repo_smoke`** + **`validate-schemas.yml`**; **`OPERATING_RHYTHM.md`** dual-workflow notes; breakthrough gaps hub; roadmap § audit backlog; **repo audit:** [May 2026 full audit report](../.planning/reports/USDR_FULL_AUDIT_2026-05.md).
 
 ## Policy documents
 
 | Guiding document | What it governs | Concrete behaviors |
 |------------------|-----------------|----------------------|
 | [VISION_AND_SCOPE.md](VISION_AND_SCOPE.md) | Mission, boundaries, what belongs in-repo | README framing; issue labels; scope checks in AGENTS and Cursor rules |
-| [METHODOLOGY.md](METHODOLOGY.md) | Claims vs hypotheses, evidence bars, workflows | PR template checklist; `finding_review` and `hypothesis_thread` issue templates; prompt templates in [prompts/](prompts/) |
+| [METHODOLOGY.md](METHODOLOGY.md) | Claims vs hypotheses, evidence bars, workflows | PR template checklist; **`bug_report.yml`** / **`feature_request.md`** (local checks → **CONTRIBUTING.md**); `finding_review` and `hypothesis_thread` issue templates; prompt templates in [prompts/](prompts/) |
 | [ETHICS_REPRODUCIBILITY_AND_DATA.md](ETHICS_REPRODUCIBILITY_AND_DATA.md) | Data classes, privacy, reproducibility | `.gitignore`; [data/README.md](../data/README.md); no raw restricted data in git |
 | [SOLVING_UNKNOWNS.md](SOLVING_UNKNOWNS.md) | How an unknown moves from open → partial → resolved | Hypothesis evidence links; status updates; graph orphan checks via `build_graph.py --report-orphans` |
 | [QUALITY_BAR.md](QUALITY_BAR.md) | Explicit quality / anti-sloppiness playbook | CI gates; review lanes; def. of done; links [METHODOLOGY.md](METHODOLOGY.md), [COLLABORATION_AND_REVIEWS.md](COLLABORATION_AND_REVIEWS.md), [HAPPY_PATH_FIRST_RECORDS.md](HAPPY_PATH_FIRST_RECORDS.md) |
-| [COLLABORATION_AND_REVIEWS.md](COLLABORATION_AND_REVIEWS.md) | Contributions, review expectations | [CONTRIBUTING.md](../CONTRIBUTING.md); PR template; branch protection notes in [OPERATING_RHYTHM.md](OPERATING_RHYTHM.md) |
+| [COLLABORATION_AND_REVIEWS.md](COLLABORATION_AND_REVIEWS.md) | Contributions, review expectations | [CONTRIBUTING.md](../CONTRIBUTING.md) (local checks, PR branch naming, `good first issue` path); [`.github/pull_request_template.md`](../.github/pull_request_template.md); [`.github/ISSUE_TEMPLATE/bug_report.yml`](../.github/ISSUE_TEMPLATE/bug_report.yml) + [`.github/ISSUE_TEMPLATE/feature_request.md`](../.github/ISSUE_TEMPLATE/feature_request.md); branch protection notes in [OPERATING_RHYTHM.md](OPERATING_RHYTHM.md) |
 | [OPERATING_RHYTHM.md](OPERATING_RHYTHM.md) | Cadence, versioning, when to sync rules/CI; milestone doc + contributor hub | Doc/CI updates; release/tag policy; CHANGELOG, `dashboard/index.html`, `http://localhost:8765/dashboard/` check per `.cursor/rules/documentation-and-dashboard.mdc` |
 | [REPOSITORY_MANIFEST.md](REPOSITORY_MANIFEST.md) | Per-path roles and governing docs | Keeping structure auditable; updates when paths change |
 | [ONBOARDING.md](ONBOARDING.md) | First-hour navigation | Points to all core policies and work directories |
@@ -25,7 +25,7 @@ This map is the project traceability layer (delivered as part of **Phase 0 — F
 | [DATA_PLAN.md](DATA_PLAN.md) | Phase A external metadata pilot; envelope schema | Must stay consistent with [ARCHITECTURE.md](../ARCHITECTURE.md) ingestion section and [LEGAL.md](../LEGAL.md) before Phase B jobs land |
 | [examples/README.md](examples/README.md) | Checked-in **synthetic** ingest JSONL exemplar + regen note | Traceable to [DATA_PLAN.md](DATA_PLAN.md) stretch item; rows validated in `packages/ingest/tests/test_envelope_schema.py` |
 | [UAT_INGEST.md](UAT_INGEST.md) | Manual acceptance checks for `usdr-ingest` | Implements [DATA_PLAN.md](DATA_PLAN.md) QA; automated checks in `packages/ingest/tests` |
-| [DEV_DASHBOARD.md](DEV_DASHBOARD.md) | Meta checklist: active branches, shipped items, blockers | Edits [.planning/STATE.md](../.planning/STATE.md); optional sync to Canvas via `scripts/sync-dashboard-from-state.py`; [HTML dashboard](../dashboard/index.html) + [dashboard/README.md](../dashboard/README.md) for browser use |
+| [DEV_DASHBOARD.md](DEV_DASHBOARD.md) | Meta checklist: active branches, shipped items, blockers; stub for planned **Phase A** hub flow (search → graph highlight → GitHub) | Edits [.planning/STATE.md](../.planning/STATE.md); optional sync to Canvas via `scripts/sync-dashboard-from-state.py`; [HTML dashboard](../dashboard/index.html) + [dashboard/README.md](../dashboard/README.md) for browser use |
 | [GSD_INTEGRATION.md](GSD_INTEGRATION.md) | Optional get-shit-done / spec-driven workflows in Cursor | Boundaries vs [METHODOLOGY.md](METHODOLOGY.md), [DATA_PLAN.md](DATA_PLAN.md), [LEGAL.md](../LEGAL.md); does not replace contributor onboarding |
 | [PATH_TO_SUCCESS.md](PATH_TO_SUCCESS.md) | Strategic roadmap: discoverability, community growth, long-term sustainability | arXiv preprint submission; outreach; custom domain; external contributor recruitment |
 | [BREAKTHROUGH_GAPS.md](BREAKTHROUGH_GAPS.md) | Stewardship + phase-plan tie-in for `breakthrough-gaps/bg-*.yaml` | `render_breakthrough_gaps_hub.py`; `generate_api.py`; `schemas/breakthrough_gap.yaml`; [ROADMAP.md](../ROADMAP.md) integrated priorities |

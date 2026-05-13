@@ -28,6 +28,7 @@ See [docs/prompts/](docs/prompts/) for literature synthesis, hypothesis comparis
 
 ## Documentation and contributor hub
 
+- **Human contributors:** Local checks are summarized in **[CONTRIBUTING.md](CONTRIBUTING.md)** (`python -m pytest tests/repo_smoke`, `python scripts/validate_schemas.py`, and **`mkdocs build --strict`** when `docs/` or `mkdocs.yml` change).
 - **Hub upkeep playbook:** **[docs/DEV_DASHBOARD.md](docs/DEV_DASHBOARD.md)** — what to run when catalog YAML, breakthrough gaps, STATE, or `dashboard/index.html` changes; includes **`scripts/verify_dashboard_consistency.py`** (also CI).
 - Treat **documentation as part of the deliverable**: when you finish a milestone or merge-worthy feature, update **`README.md`**, **`CHANGELOG.md` (Unreleased)**, relevant **`docs/*.md`**, **`docs/DOC_MAP.md`** / **`docs/REPOSITORY_MANIFEST.md`** when paths or traceability change, and **`.planning/STATE.md`** for maintainer status.
 - Keep **`dashboard/index.html`** aligned with onboarding and links; after hub-affecting edits, verify locally via `python -m http.server 8765` from the repo root (**`http://localhost:8765/dashboard/`**).

@@ -30,7 +30,7 @@ Exhaustive index of **tracked** paths (excluding `.git`), what each is for, and 
 | [.github/workflows/mkdocs-gh-pages.yml](../.github/workflows/mkdocs-gh-pages.yml) | CI | On push to `main`: `mkdocs build --strict`, deploy `./site` to branch `gh-pages` (peaceiris/actions-gh-pages@v4). **Live:** `https://kr8zysho3.github.io/Universal-Science-Discovery/` after Pages source is `gh-pages` / root | [INTERFACE.md](../INTERFACE.md), [README.md](../README.md) |
 | [.github/pull_request_template.md](../.github/pull_request_template.md) | Template | PR checklist | [METHODOLOGY.md](METHODOLOGY.md), [ETHICS_REPRODUCIBILITY_AND_DATA.md](ETHICS_REPRODUCIBILITY_AND_DATA.md) |
 | [.github/ISSUE_TEMPLATE/config.yml](../.github/ISSUE_TEMPLATE/config.yml) | Template | Issue chooser config | — |
-| [.github/ISSUE_TEMPLATE/bug_report.md](../.github/ISSUE_TEMPLATE/bug_report.md) | Template | Bugs / inaccuracies | [METHODOLOGY.md](METHODOLOGY.md) |
+| [.github/ISSUE_TEMPLATE/bug_report.yml](../.github/ISSUE_TEMPLATE/bug_report.yml) | Template | Structured bug report (catalog, dashboard, scripts) | [METHODOLOGY.md](METHODOLOGY.md), [CONTRIBUTING.md](../CONTRIBUTING.md) |
 | [.github/ISSUE_TEMPLATE/feature_request.md](../.github/ISSUE_TEMPLATE/feature_request.md) | Template | Tooling / repo features | [VISION_AND_SCOPE.md](VISION_AND_SCOPE.md) |
 | [.github/ISSUE_TEMPLATE/finding_review.md](../.github/ISSUE_TEMPLATE/finding_review.md) | Template | Finding proposals / reviews | [METHODOLOGY.md](METHODOLOGY.md) |
 | [.github/ISSUE_TEMPLATE/methods_change.md](../.github/ISSUE_TEMPLATE/methods_change.md) | Template | Protocol / analysis changes | [METHODOLOGY.md](METHODOLOGY.md) |
