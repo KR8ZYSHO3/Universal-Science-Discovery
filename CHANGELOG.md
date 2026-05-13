@@ -11,7 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed — CI Wave Factory (`harvest-openalex.yml` create-pull-request)
 - fix: bump create-pull-request to v7 (fixes git credential failure in Wave Factory)
-- fix(ci): make Wave Factory tolerant of empty batches (skip-commit + skip-checks)
+- fix(ci): make Wave Factory tolerant of empty batches (`steps.stage` changes gate only)
+- fix(ci): Wave Factory CPR `add-paths` lists only candidate JSON files (not gitignored `drafts/wave_factory/**`); drop invalid `skip-commit` / `skip-checks` inputs (not in CPR v7)
 
 ### Fixed — markdown-link-check (arXiv registration URL)
 - **`.markdown-link-check.json`:** Ignore **`https://arxiv.org/user/register`** — automated checks get **406 Not Acceptable**; the link remains valid for humans in preprint docs.
