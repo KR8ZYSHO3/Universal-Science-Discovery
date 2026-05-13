@@ -76,17 +76,12 @@ jobs:
       - name: Detect Wave Factory output changes
         id: stage
         run: |
-          git add \
-            drafts/openalex_candidates.json \
-            drafts/pubmed_candidates.json \
-            drafts/semantic_scholar_candidates.json \
-            drafts/wave_factory
-          if git diff --cached --quiet; then
-            echo "changes=0" >> "$GITHUB_OUTPUT"
-          else
+          # Check for any changes in the relevant files without triggering git add / gitignore errors
+          if git ls-files --modified --others --exclude-standard | grep -E '^(drafts/openalex_candidates\.json|drafts/pubmed_candidates\.json|drafts/semantic_scholar_candidates\.json|drafts/wave_factory/)' > /dev/null; then
             echo "changes=1" >> "$GITHUB_OUTPUT"
+          else
+            echo "changes=0" >> "$GITHUB_OUTPUT"
           fi
-          git reset HEAD
 
       - name: Create PR for staged outputs
         if: success() && steps.stage.outputs.changes != '0'
