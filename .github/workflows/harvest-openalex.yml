@@ -76,7 +76,7 @@ jobs:
       - name: Detect Wave Factory output changes
         id: stage
         run: |
-          # Check for any changes in the relevant files without triggering git add / gitignore errors
+          # Pure detection using ls-files — never triggers git add or gitignore errors
           if git ls-files --modified --others --exclude-standard | grep -E '^(drafts/openalex_candidates\.json|drafts/pubmed_candidates\.json|drafts/semantic_scholar_candidates\.json|drafts/wave_factory/)' > /dev/null; then
             echo "changes=1" >> "$GITHUB_OUTPUT"
           else
@@ -88,8 +88,6 @@ jobs:
         # v7 required for reliable bot PR creation on ubuntu-24.04
         uses: peter-evans/create-pull-request@v7
         with:
-          skip-commit: true
-          skip-checks: true
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: bot/wave-factory-${{ github.run_id }}
           commit-message: "bot: stage wave factory batch [skip ci]"
@@ -109,4 +107,3 @@ jobs:
             drafts/openalex_candidates.json
             drafts/pubmed_candidates.json
             drafts/semantic_scholar_candidates.json
-            drafts/wave_factory/**
