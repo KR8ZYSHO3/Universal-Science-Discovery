@@ -84,7 +84,7 @@ Exhaustive index of **tracked** paths (excluding `.git`), what each is for, and 
 | [hypotheses/active/h-radio-axion-like-dm-constraints.yaml](../hypotheses/active/h-radio-axion-like-dm-constraints.yaml) | Content | Seed example hypothesis | [schemas/hypothesis.yaml](../schemas/hypothesis.yaml) |
 | [hypotheses/active/h-conserved-metabolic-bottlenecks-longevity.yaml](../hypotheses/active/h-conserved-metabolic-bottlenecks-longevity.yaml) | Content | Seed example hypothesis | [schemas/hypothesis.yaml](../schemas/hypothesis.yaml) |
 | [notebooks/README.md](../notebooks/README.md) | Guide | Exploratory analysis contract | [METHODOLOGY.md](METHODOLOGY.md) |
-| [dashboard/index.html](../dashboard/index.html) | UI | Browser dashboard: founding-doc links + live `STATE`/`ROADMAP` via local server | [DEV_DASHBOARD.md](DEV_DASHBOARD.md), [DOC_MAP.md](DOC_MAP.md) |
+| [dashboard/index.html](../dashboard/index.html) | UI | Browser dashboard: founding-doc links + live `STATE`/`ROADMAP` via local server; Lunr catalog search; D3 graph with zoom-to-search-hit + neighborhood highlight; GitHub blob/raw + filename search links for catalog YAML | [DEV_DASHBOARD.md](DEV_DASHBOARD.md), [DOC_MAP.md](DOC_MAP.md) |
 | [dashboard/README.md](../dashboard/README.md) | Guide | How to run the HTML dashboard + regenerate `domains/` and breakthrough-gap cards | [DEV_DASHBOARD.md](DEV_DASHBOARD.md), [BREAKTHROUGH_GAPS.md](BREAKTHROUGH_GAPS.md) |
 
 ## Maintenance rule

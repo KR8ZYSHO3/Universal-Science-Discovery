@@ -21,7 +21,7 @@ import {
 
 // @sync-dashboard-begin
 const dashboardSnapshot = {
-  lastUpdated: "2026-05-10 — **Merged `publish/hub-pages-sync` → `main`** — Audit follow-ups, **`tests/repo_smoke`** / **`validate-schemas.yml`** pytest bundle, hub UX (breakthrough Alt-click search, Discovery Engines honesty), dual CI docs in **`OPERATING_RHYTHM.md`**. **Next:** keep README/ROADMAP/STATE counts aligned after catalog waves; optional strict orphan-xref CI once backlog is tractable.",
+  lastUpdated: "2026-05-14 — **Dashboard Phase A (hub)** — **`dashboard/index.html`:** catalog search → graph neighborhood highlight + D3 zoom-to-node; GitHub **blob/raw** + per-card **View YAML** (repo filename search). Landed on **`feat/dashboard-search-graph-flow`** for PR. **Next:** merge after `verify_dashboard_consistency` + local `http://localhost:8765/dashboard/` smoke; optional Wave Factory checklist run (see **`.planning/handoffs/GROK_CONSULTANT_LATEST.md`**).",
   currentFocus: [
     "**Roadmap posture**: Foundation (**Phase 0**) is complete; discoverability + first contributors are **Phase 1** targets — not blockers for ongoing development.",
     "**arXiv preprint**: `docs/preprint/usdr_preprint.md` is ready; next step is PDF conversion and submission to cs.DL (author: Brandon Shoemaker).",

@@ -4,6 +4,7 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 
 ## Last updated
 
+- 2026-05-14 — **Dashboard Phase A (hub)** — **`dashboard/index.html`:** catalog search → graph neighborhood highlight + D3 zoom-to-node; GitHub **blob/raw** + per-card **View YAML** (repo filename search). Landed on **`feat/dashboard-search-graph-flow`** for PR. **Next:** merge after `verify_dashboard_consistency` + local `http://localhost:8765/dashboard/` smoke; optional Wave Factory checklist run (see **`.planning/handoffs/GROK_CONSULTANT_LATEST.md`**).
 - 2026-05-10 — **Merged `publish/hub-pages-sync` → `main`** — Audit follow-ups, **`tests/repo_smoke`** / **`validate-schemas.yml`** pytest bundle, hub UX (breakthrough Alt-click search, Discovery Engines honesty), dual CI docs in **`OPERATING_RHYTHM.md`**. **Next:** keep README/ROADMAP/STATE counts aligned after catalog waves; optional strict orphan-xref CI once backlog is tractable.
 - 2026-05-10 — **Discovery Engines + orphan smoke** — Hub **Discovery Engines** cards no longer show fabricated unknown totals (spotlight bridge counts only). **`tests/repo_smoke`** runs **`build_graph.py --report-orphans`** (~8s) alongside schema/domain/dashboard checks.
 - 2026-05-10 — **Repo smoke tests + CI docs** — **`tests/repo_smoke`** bundles catalog validation scripts via pytest in **`validate-schemas.yml`**. **`docs/OPERATING_RHYTHM.md`** explains **`validate.yml`** vs **`validate-schemas.yml`** for branch protection; **`ROADMAP.md`** audit backlog updated for completed items.

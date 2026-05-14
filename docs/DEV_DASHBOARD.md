@@ -8,9 +8,9 @@ For a **single web page** for **contributors**: ordered “start here” path, l
 
 The Cursor Canvas at [`canvases/Progress.canvas.tsx`](../canvases/Progress.canvas.tsx) is optional; the HTML hub is the main browser entry for people exploring the repo. **Agents:** `.cursor/rules/documentation-and-dashboard.mdc` (always on) requires keeping docs, CHANGELOG, STATE, and this hub aligned — especially at milestones — and spot-checking the hub after hub-affecting edits.
 
-### Planned UX — catalog search → graph highlight → GitHub (Phase A)
+### Phase A hub flow — catalog search → graph focus → GitHub (implemented)
 
-**Not implemented yet.** Target flow: from **catalog search** in the hub, jump to a **knowledge-graph** view that highlights the selected record, with a clear **“open on GitHub”** path to the source YAML. Track and break down work on a dedicated **`feat/dashboard-search-graph-flow`** branch or issue when you split implementation from docs-only PRs; keep CDN-heavy hub changes behind the usual local `http://localhost:8765/dashboard/` smoke check.
+**Shipped in hub JS (`dashboard/index.html`):** choosing a **catalog search** hit scrolls to **Knowledge graph**, **highlights** the node neighborhood, **zoom/pans** (D3) toward that node when layout coordinates exist, and opens the **detail panel** (YAML preview via raw GitHub). Each result card includes **View YAML on GitHub** (repo-scoped code search by filename). The node panel offers **blob** and **raw** links built from `GITHUB_REPO_OWNER` / `GITHUB_REPO_NAME` / `GITHUB_DEFAULT_BRANCH`. Prefer verifying behavior with a local server: `python -m http.server 8765` → `http://localhost:8765/dashboard/`. Large refactors should still land on a short-lived branch (for example **`feat/dashboard-search-graph-flow`**) with the same smoke check.
 
 ---
 
