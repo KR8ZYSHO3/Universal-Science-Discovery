@@ -60,3 +60,9 @@ Maintainers: **do not** treat the Wave Factory Cadence run as verified from this
 5. Paste the **run URL** (and PR link if opened) into maintainer notes or a follow-up PR description.
 
 **Note:** Verifying green status or PR contents requires maintainer auth (for example **`gh run list` / `gh run view`** with a logged-in **`gh`**, or the Actions UI). This file records **checklist-only** expectations unless a maintainer pastes a confirmed run URL.
+
+---
+
+## Append — 2026-05-14 (`content/phase1-bounded-wave-1`)
+
+**Bounded content wave — deferred (documentation-only branch).** No new **`cross-domain/`**, **`unknowns-catalog/`**, or **`hypotheses/`** YAML: **`gh`** was not authenticated in the agent environment, and **`drafts/bridges/`** stubs require maintainer review before promotion. See **`CHANGELOG.md`** Unreleased **Notes** for the same statement. **Dashboard Phase B** ships separately: PR from **`feat/dashboard-ux-polish`** → **`main`**.
