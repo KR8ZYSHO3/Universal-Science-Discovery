@@ -978,6 +978,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#phase-c-hub-ideas-planned-not-shipped" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase C hub ideas (planned — not shipped)
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2625,6 +2636,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#phase-c-hub-ideas-planned-not-shipped" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase C hub ideas (planned — not shipped)
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2740,6 +2762,30 @@
 <p>The Cursor Canvas at <a href="../canvases/Progress.canvas.tsx"><code>canvases/Progress.canvas.tsx</code></a> is optional; the HTML hub is the main browser entry for people exploring the repo. <strong>Agents:</strong> <code>.cursor/rules/documentation-and-dashboard.mdc</code> (always on) requires keeping docs, CHANGELOG, STATE, and this hub aligned — especially at milestones — and spot-checking the hub after hub-affecting edits.</p>
 <h3 id="phase-a-hub-flow-catalog-search-graph-focus-github-implemented">Phase A hub flow — catalog search → graph focus → GitHub (implemented)<a class="headerlink" href="#phase-a-hub-flow-catalog-search-graph-focus-github-implemented" title="Permanent link">&para;</a></h3>
 <p><strong>Shipped in hub JS (<code>dashboard/index.html</code>):</strong> choosing a <strong>catalog search</strong> hit scrolls to <strong>Knowledge graph</strong>, <strong>highlights</strong> the node neighborhood, <strong>zoom/pans</strong> (D3) toward that node when layout coordinates exist, and opens the <strong>detail panel</strong> (YAML preview via raw GitHub). Each result card includes <strong>View YAML on GitHub</strong> (repo-scoped code search by filename). The node panel offers <strong>blob</strong> and <strong>raw</strong> links built from <code>GITHUB_REPO_OWNER</code> / <code>GITHUB_REPO_NAME</code> / <code>GITHUB_DEFAULT_BRANCH</code>. Prefer verifying behavior with a local server: <code>python -m http.server 8765</code> → <code>http://localhost:8765/dashboard/</code>. Large refactors should still land on a short-lived branch (for example <strong><code>feat/dashboard-search-graph-flow</code></strong>) with the same smoke check.</p>
+<h3 id="phase-c-hub-ideas-planned-not-shipped">Phase C hub ideas (planned — not shipped)<a class="headerlink" href="#phase-c-hub-ideas-planned-not-shipped" title="Permanent link">&para;</a></h3>
+<p><strong>Purpose:</strong> capture the next UX layer after search → graph → GitHub without committing to a heavy client bundle prematurely.</p>
+<table>
+<thead>
+<tr>
+<th>Idea</th>
+<th>Direction</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Smart recommendations</strong></td>
+<td>Surfacing high-leverage bridges / unknowns from graph metrics or maintainer-curated scores</td>
+<td>Needs a spec for what “smart” optimizes (connectivity, novelty, harvest rank) and whether results are static JSON or computed in CI.</td>
+</tr>
+<tr>
+<td><strong>Orphan / xref explorer</strong></td>
+<td>In-browser list of contribution targets</td>
+<td>Today use <strong><code>python scripts/find_orphan_unknowns.py</code></strong> and <strong><code>python -X utf8 scripts/build_graph.py --report-orphans</code></strong> (also exercised via <strong><code>tests/repo_smoke</code></strong>). A hub panel would likely consume a small generated JSON from those scripts rather than recomputing in the browser.</td>
+</tr>
+</tbody>
+</table>
+<p>When one of the above is implemented, promote it from this stub into the playbook table in § <strong>1) What changed? → What to refresh</strong> and link any new scripts from <strong><code>docs/DOC_MAP.md</code></strong>.</p>
 <hr />
 <h2 id="contributor-hub-maintenance-playbook-methodical">Contributor hub maintenance playbook (methodical)<a class="headerlink" href="#contributor-hub-maintenance-playbook-methodical" title="Permanent link">&para;</a></h2>
 <p>Use this so <strong><code>dashboard/index.html</code></strong>, generated HTML, API JSON, and <strong>README headline metrics</strong> do not drift from the YAML catalog.</p>
