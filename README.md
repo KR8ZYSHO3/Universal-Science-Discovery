@@ -44,12 +44,14 @@ A git-native, schema-validated, community-governed catalog of scientific unknown
 | **Cross-domain bridges**   | **1,123** | Mathematical connections between fields that rarely communicate |
 | **Open unknowns**          | **1,408** | Named, structured research gaps across 55+ disciplines          |
 | **Falsifiable hypotheses** | **1,274** | Testable claims linked to specific unknowns                     |
-| **Knowledge graph nodes**  | **3,857** | Interconnected across 4,517 edges                               |
-| **Pioneer profiles**       | **18**    | Scientists whose work seeded cross-domain bridges               |
-| **Breakthrough gaps**      | **24**    | High-priority problems that would reshape entire fields         |
-| **Orphan unknowns**        | **0**     | All unknowns connected to bridges or hypotheses                 |
+| **Phenomenology records**  | **10**    | Pre-formal observations (`phenomenology/**/p-*.yaml`)           |
+| **Knowledge graph nodes**  | **3,857** | Interconnected across 4,517 edges (`docs/knowledge_graph.json`) |
+| **Pioneer profiles**       | **18**    | `pioneers/*.yaml` — lineage context for seeded bridges            |
+| **Breakthrough gaps**      | **24**    | `breakthrough-gaps/bg-*.yaml` — stewarded high-impact gaps      |
+| **Orphan unknowns**        | **0**     | `scripts/find_orphan_unknowns.py` — none disconnected in graph  |
 | **Schema errors**          | **0**     | All entries pass CI validation on every PR                      |
 
+*Headline catalog totals (bridges, unknowns, hypotheses, phenomenology) and graph node/edge counts are checked by **`python scripts/verify_dashboard_consistency.py`** against YAML globs and `docs/knowledge_graph.json` meta.*
 
 Entries are YAML and schema-validated in CI; bridges and many records cite primary literature (DOIs/arXiv where applicable — see per-record `references`). The knowledge graph is rebuilt deterministically from source files on every push.
 

@@ -39,3 +39,24 @@ Maintainers: complete manually and paste evidence when done.
 5. Paste the **run URL** (and PR link if opened) into maintainer notes.
 
 **Note:** Confirming green status requires maintainer auth (Actions UI or authenticated **`gh`**).
+
+---
+
+## Append — 2026-05-14 (Phase B follow-up + bounded content)
+
+### Summary
+
+**Phase A** is merged on **`origin/main`** (**`e01d55a`**, PR #244). **`feat/dashboard-ux-polish`** was **rebased onto `origin/main`** (duplicate Phase A commits dropped as already-upstream); it carries incremental Phase B polish plus README / playbook / STATE updates.
+
+**Bounded content wave:** **`gh` is not authenticated** in the agent environment; **`drafts/bridges/`** holds **18** OpenAlex stubs — **not auto-promoted** without maintainer review. Companion branch **`content/phase1-bounded-wave-1`** (separate PR from `main`) documents **deferral** only (`CHANGELOG` + this append). When **`gh auth login`** is available, triage **good first issue**: https://github.com/KR8ZYSHO3/Universal-Science-Discovery/issues?q=is%3Aopen+label%3A%22good+first+issue%22
+
+### PR / compare links
+
+| Branch | Purpose | Compare |
+|--------|---------|---------|
+| **`feat/dashboard-ux-polish`** | Hub UX + docs hygiene | `https://github.com/KR8ZYSHO3/Universal-Science-Discovery/compare/main...feat/dashboard-ux-polish` |
+| **`content/phase1-bounded-wave-1`** | Content wave deferral note (no new catalog YAML this session) | `https://github.com/KR8ZYSHO3/Universal-Science-Discovery/compare/main...content/phase1-bounded-wave-1` |
+
+### Catalog truth (reproducible)
+
+`python scripts/verify_dashboard_consistency.py` → **bridges=1123, unknowns=1408, hypotheses=1274, phenomena=10, graph_nodes=3857, graph_edges=4517** (matches `docs/knowledge_graph.json` meta).

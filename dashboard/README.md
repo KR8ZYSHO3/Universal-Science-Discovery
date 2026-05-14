@@ -7,7 +7,8 @@ This folder is part of the **git repository**. Anyone who **clones** USDR gets a
 - Points to **folders** where work happens (`unknowns-catalog/`, `hypotheses/`, …)
 - For **maintainers**, can **live-load** [`.planning/STATE.md`](../.planning/STATE.md) and [`ROADMAP.md`](../ROADMAP.md) when served over HTTP
 - **Presentation:** glassmorphism sticky nav with section highlight, **light/dark theme** (saved in `localStorage`), gradient hero, and card hover depth — uses **Google Fonts** (DM Sans, JetBrains Mono) when online; `prefers-reduced-motion` tones down CSS animation, the **particle canvas** (static frame instead of a continuous loop), and decorative spinners where applicable.
-- **Catalog search → graph:** Lunr + domain chips in **`dashboard/index.html`**; a short **status line** shows while the graph JSON and optional API metadata load; choosing a result scrolls to **Knowledge graph**, highlights the neighborhood, zooms toward the node (D3), and opens the YAML panel. **GitHub:** panel blob + raw links; each hit row includes **View YAML on GitHub** (repo-scoped filename search).
+- **Catalog search → graph:** Lunr + domain chips in **`dashboard/index.html`**; a short **status line** shows while the graph JSON and optional API metadata load; choosing a result scrolls to **Knowledge graph**, highlights the neighborhood, zooms toward the node (D3), and opens the YAML panel. **GitHub:** panel blob + raw links; each hit row includes **View YAML on GitHub** (repo-scoped filename search). The graph chrome shows **touch-oriented zoom hints** on coarse pointers (`hover: none` + `pointer: coarse`); the loading line exposes **`aria-live="polite"`** while D3 hydrates.
+- **Strategic checklist:** the live snapshot footnote links **`docs/PATH_TO_SUCCESS.md`** (bounded content waves) next to **`ROADMAP.md`**.
 
 ## Run it locally
 

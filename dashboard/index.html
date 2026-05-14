@@ -902,6 +902,11 @@
       font-size: .72rem; color: var(--muted); font-family: var(--mono);
       pointer-events: none; opacity: .65;
     }
+    .kg-zoom-hint-touch { display: none; }
+    @media (hover: none) and (pointer: coarse) {
+      .kg-zoom-hint-desktop { display: none; }
+      .kg-zoom-hint-touch { display: inline; }
+    }
 
     /* ── GRAPH FILTER BUTTONS ──────────────────────────────── */
     .graph-filters {
@@ -1412,7 +1417,7 @@
           <span class="catalog-snapshot-sep" aria-hidden="true">·</span>
           <span class="catalog-snapshot-metric"><span class="catalog-snapshot-n"><span id="snap-graph-edges">4517</span></span><span class="catalog-snapshot-l">graph edges</span></span>
         </div>
-        <p class="catalog-snapshot-foot">Updated by <code>python scripts/update_dashboard_stats.py --apply</code> (catalog globs + <code>docs/knowledge_graph.json</code> meta). Wave milestones stay in <a href="../ROADMAP.md">ROADMAP.md</a>.</p>
+        <p class="catalog-snapshot-foot">Updated by <code>python scripts/update_dashboard_stats.py --apply</code> (catalog globs + <code>docs/knowledge_graph.json</code> meta). Wave milestones stay in <a href="../ROADMAP.md">ROADMAP.md</a>; bounded PR-sized content batches and validation reminders are in <a href="../docs/PATH_TO_SUCCESS.md">docs/PATH_TO_SUCCESS.md</a>.</p>
       </div>
       <!-- DASHBOARD_CATALOG_SNAPSHOT_END -->
 
@@ -2063,7 +2068,7 @@
             <circle cx="20" cy="20" r="16" stroke="rgba(79,156,249,0.2)" stroke-width="4"/>
             <path d="M20 4a16 16 0 0 1 16 16" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/>
           </svg>
-          <span style="color:var(--muted);font-size:.82rem;font-family:var(--mono)">Loading knowledge graph…</span>
+          <span id="kg-loading-label" style="color:var(--muted);font-size:.82rem;font-family:var(--mono)" role="status" aria-live="polite">Loading knowledge graph…</span>
         </div>
         <svg id="kg-svg" aria-label="Knowledge graph force-directed visualization"></svg>
         <div id="kg-legend">
@@ -2079,7 +2084,7 @@
           <div class="edge-item"><span class="edge-swatch" style="background:#f97316"></span>related_bridge</div>
           <div class="edge-item"><span class="edge-swatch" style="background:#a78bfa"></span>cross_pollination</div>
         </div>
-        <div class="kg-zoom-hint">scroll to zoom · drag to pan · click node for details</div>
+        <div class="kg-zoom-hint" aria-hidden="true"><span class="kg-zoom-hint-desktop">scroll to zoom · drag to pan · click node for details</span><span class="kg-zoom-hint-touch">pinch to zoom · drag to pan · tap node for details</span></div>
         <div id="kg-tooltip" class="kg-tooltip hidden"></div>
         <div id="node-detail-panel" class="node-panel hidden" role="dialog" aria-label="Node details" aria-modal="false">
           <button class="panel-close" id="panel-close" aria-label="Close panel">✕</button>
