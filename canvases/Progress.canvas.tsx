@@ -21,7 +21,7 @@ import {
 
 // @sync-dashboard-begin
 const dashboardSnapshot = {
-  lastUpdated: "2026-05-14 — **Dashboard Phase A (hub)** — **`dashboard/index.html`:** catalog search → graph neighborhood highlight + D3 zoom-to-node; GitHub **blob/raw** + per-card **View YAML** (repo filename search). Landed on **`feat/dashboard-search-graph-flow`** for PR. **Next:** merge after `verify_dashboard_consistency` + local `http://localhost:8765/dashboard/` smoke; optional Wave Factory checklist run (see **`.planning/handoffs/GROK_CONSULTANT_LATEST.md`**).",
+  lastUpdated: "2026-05-14 — **Dashboard Phase A + B (hub)** — Phase A commits live on **`feat/dashboard-search-graph-flow`** (tip **`34973ac`**); **`origin/main`** remains **`bce6bac`** until a maintainer merges via **PR** (`git push origin main` rejected: rules require PR). Compare: https://github.com/KR8ZYSHO3/Universal-Science-Discovery/compare/main...feat/dashboard-search-graph-flow — **Phase B** on **`feat/dashboard-ux-polish`:** catalog search **status line** + `aria-busy`, responsive graph **`clamp`** height / touch-friendly filters, **theme-aware** graph overlays, **`prefers-reduced-motion`** (particle canvas static frame + spinner/hover tweaks). **Catalog / graph meta** unchanged: **3857** nodes, **4517** edges in `docs/knowledge_graph.json`. **Wave Factory:** merge bot PR when green; paste **Actions run URL** (see **`.planning/handoffs/GROK_CONSULTANT_LATEST.md`**).",
   currentFocus: [
     "**Roadmap posture**: Foundation (**Phase 0**) is complete; discoverability + first contributors are **Phase 1** targets — not blockers for ongoing development.",
     "**arXiv preprint**: `docs/preprint/usdr_preprint.md` is ready; next step is PDF conversion and submission to cs.DL (author: Brandon Shoemaker).",

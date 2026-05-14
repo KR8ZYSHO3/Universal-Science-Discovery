@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] — 2026-05-09
 
+### Added — Contributor hub Phase B (UX polish)
+- **`dashboard/index.html`:** Catalog search **status line** while graph JSON and API metadata hydrate the Lunr index (`aria-busy` on the input). **Knowledge graph** container uses **responsive `clamp` height**, larger **touch targets** for filter chips on narrow viewports, and **theme-aware** legend/tooltip/panel backgrounds (`color-mix` with `var(--surface-solid)`). **`prefers-reduced-motion`:** disables continuous **particle canvas** animation (single static frame), tones hover transforms, and stills the graph loading spinner CSS.
+- **`dashboard/README.md`:** Notes the status line and reduced-motion behavior.
+- **`docs/PATH_TO_SUCCESS.md`:** **Content wave kickoff** section — PR-sized batches, validation checklist, Wave Factory bot merge + run URL reminder, link to **good first issue** search.
+
 ### Added — Contributor hub Phase A (search → graph → GitHub)
 - **`dashboard/index.html`:** Catalog search selects a card → scrolls to the knowledge graph, highlights the node neighborhood, animates **D3 zoom/pan** toward the node when coordinates exist, and opens the YAML detail panel. Search cards link **View YAML on GitHub** (repo code search by `filename:<id>.yaml`). Node panel adds explicit **blob** + **raw** GitHub URLs via shared `GITHUB_*` constants.
 - **`docs/DEV_DASHBOARD.md`**, **`docs/DOC_MAP.md`**, **`docs/REPOSITORY_MANIFEST.md`**, **`dashboard/README.md`**, **`.planning/handoffs/GROK_CONSULTANT_LATEST.md`**, **`.planning/STATE.md`:** Traceability + maintainer checklist updates.
