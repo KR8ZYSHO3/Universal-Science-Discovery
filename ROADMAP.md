@@ -148,7 +148,7 @@ Structured findings and evidence: **[May 2026 full audit report](.planning/repor
 | Foundation gate | Status |
 |---|---|
 | Seeded disciplines (Physics, Biology, CS, + more) | ✅ 55+ domains |
-| 500+ high-quality structured entries | ✅ 4,805+ total (1,123 bridges + 1,408 unknowns + 1,274 hypotheses — see README) |
+| 500+ high-quality structured entries | ✅ 4,805+ total (1,123 bridges + 1,408 unknowns + 1,274 hypotheses + 10 phenomenology — see README; headline counts match `verify_dashboard_consistency.py` + graph meta) |
 | Core governance + legal framework | ✅ CC BY 4.0 + MIT, CONTRIBUTING.md, CODE_OF_CONDUCT.md |
 | Knowledge graph + search | ✅ 3,857 nodes, 4,517 edges; Lunr full-text search; D3.js visualization |
 | Basic contributor infrastructure | ✅ Issue templates, PR template, GitHub Discussions |
