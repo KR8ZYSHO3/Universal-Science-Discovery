@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] — 2026-05-09
 
+### Notes — Bounded content wave deferred (2026-05-14)
+- **`gh` CLI:** not authenticated in the agent/maintainer sandbox — run **`gh auth login`** or use the GitHub web UI for **good first issue** triage (`is:open` `label:"good first issue"`).
+- **`drafts/bridges/`:** OpenAlex stubs are present; promotion to **`cross-domain/`** requires human expert review per **`docs/METHODOLOGY.md`** (Data Harvesting pipeline).
+- **No new catalog YAML** in this branch; dashboard Phase B ships via **`feat/dashboard-ux-polish`**; rerun a bounded content wave when **`gh`** is available or reviewed drafts are ready.
+
 ### Added — Contributor hub Phase A (search → graph → GitHub)
 - **`dashboard/index.html`:** Catalog search selects a card → scrolls to the knowledge graph, highlights the node neighborhood, animates **D3 zoom/pan** toward the node when coordinates exist, and opens the YAML detail panel. Search cards link **View YAML on GitHub** (repo code search by `filename:<id>.yaml`). Node panel adds explicit **blob** + **raw** GitHub URLs via shared `GITHUB_*` constants.
 - **`docs/DEV_DASHBOARD.md`**, **`docs/DOC_MAP.md`**, **`docs/REPOSITORY_MANIFEST.md`**, **`dashboard/README.md`**, **`.planning/handoffs/GROK_CONSULTANT_LATEST.md`**, **`.planning/STATE.md`:** Traceability + maintainer checklist updates.
