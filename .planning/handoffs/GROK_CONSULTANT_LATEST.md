@@ -46,3 +46,17 @@ Recent maintainer-facing work spans documentation priority material, CI harvest 
   - **Create Pull Request** step: **`add-paths`** lists **three** tracked JSON files (`drafts/openalex_candidates.json`, `drafts/pubmed_candidates.json`, `drafts/semantic_scholar_candidates.json`) only. **`drafts/wave_factory/`** stays **gitignored** (see `.gitignore`), so it is intentionally **not** in `add-paths` (see **CHANGELOG** Unreleased Wave Factory CPR note). **`skip-commit`** / **`skip-checks`** are **not** passed to `peter-evans/create-pull-request@v7`; the commit message includes **`[skip ci]`** to limit redundant CI on the bot branch.
   - **Change detection** step uses **`git ls-files --modified --others --exclude-standard`** piped to **`grep -E`** for the JSON paths and (in the pattern) `drafts/wave_factory/` — note ignored paths will not appear in `ls-files` unless force-added.
 - **Handoff hygiene:** Older bullets in **“Branch `fix/harvest-openalex-git-128`”** above may describe **`workflow_dispatch` debug `inputs`** that are **not** present on current `main`; treat this snapshot as the corrected description until that branch is merged or the file is rewritten.
+
+---
+
+## Final Wave Factory validation checklist (May 2026)
+
+Maintainers: **do not** treat the Wave Factory Cadence run as verified from this handoff alone (agents may lack authenticated `gh` / Actions API access). Complete the checklist manually and paste evidence when done.
+
+1. On GitHub **Actions** for **`KR8ZYSHO3/Universal-Science-Discovery`**, select workflow **Wave Factory Cadence** (`.github/workflows/harvest-openalex.yml`).
+2. From the default branch **`main`**, use **Run workflow** → **Run workflow** (this workflow’s **`workflow_dispatch`** has **no inputs** on current `main`).
+3. Enable **debug logging** for that run (UI: re-run with **Enable debug logging**, or use org/repo settings / secrets **`ACTIONS_RUNNER_DEBUG`** / **`ACTIONS_STEP_DEBUG`** when policy allows — see GitHub Actions documentation).
+4. Wait for a **green** conclusion. If **`steps.stage.outputs.changes != '0'`**, confirm the automation produced a **clean bot PR** with only the expected candidate JSON updates (per **CHANGELOG** / workflow comments on `add-paths`).
+5. Paste the **run URL** (and PR link if opened) into maintainer notes or a follow-up PR description.
+
+**Note:** Verifying green status or PR contents requires maintainer auth (for example **`gh run list` / `gh run view`** with a logged-in **`gh`**, or the Actions UI). This file records **checklist-only** expectations unless a maintainer pastes a confirmed run URL.

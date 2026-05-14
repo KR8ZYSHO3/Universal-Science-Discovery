@@ -7,6 +7,7 @@ This folder is part of the **git repository**. Anyone who **clones** USDR gets a
 - Points to **folders** where work happens (`unknowns-catalog/`, `hypotheses/`, …)
 - For **maintainers**, can **live-load** [`.planning/STATE.md`](../.planning/STATE.md) and [`ROADMAP.md`](../ROADMAP.md) when served over HTTP
 - **Presentation:** glassmorphism sticky nav with section highlight, **light/dark theme** (saved in `localStorage`), gradient hero, and card hover depth — uses **Google Fonts** (DM Sans, JetBrains Mono) when online; `prefers-reduced-motion` tones down animation
+- **Catalog search → graph:** Lunr + domain chips in **`dashboard/index.html`**; choosing a result scrolls to **Knowledge graph**, highlights the neighborhood, zooms toward the node (D3), and opens the YAML panel. **GitHub:** panel blob + raw links; each hit row includes **View YAML on GitHub** (repo-scoped filename search).
 
 ## Run it locally
 

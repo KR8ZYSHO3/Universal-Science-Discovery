@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] — 2026-05-09
 
+### Added — Contributor hub Phase A (search → graph → GitHub)
+- **`dashboard/index.html`:** Catalog search selects a card → scrolls to the knowledge graph, highlights the node neighborhood, animates **D3 zoom/pan** toward the node when coordinates exist, and opens the YAML detail panel. Search cards link **View YAML on GitHub** (repo code search by `filename:<id>.yaml`). Node panel adds explicit **blob** + **raw** GitHub URLs via shared `GITHUB_*` constants.
+- **`docs/DEV_DASHBOARD.md`**, **`docs/DOC_MAP.md`**, **`docs/REPOSITORY_MANIFEST.md`**, **`dashboard/README.md`**, **`.planning/handoffs/GROK_CONSULTANT_LATEST.md`**, **`.planning/STATE.md`:** Traceability + maintainer checklist updates.
+
 ### Added — Contributor onboarding baseline
 - **CONTRIBUTING.md:** Local checks table (`pytest tests/repo_smoke`, `validate_schemas.py`, `mkdocs build --strict`), PR branch naming (`feat/`, `docs/`, `fix/`), link to the PR template, and a **good first issue** workflow.
 - **`.github/ISSUE_TEMPLATE`:** Bug (YAML) and feature (Markdown) templates point at the same checks; removed duplicate legacy **`bug_report.md`** in favor of **`bug_report.yml`**.
