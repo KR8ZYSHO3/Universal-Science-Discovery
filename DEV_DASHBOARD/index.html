@@ -968,10 +968,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#planned-ux-catalog-search-graph-highlight-github-phase-a" class="md-nav__link">
+  <a href="#phase-a-hub-flow-catalog-search-graph-focus-github-implemented" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Planned UX — catalog search → graph highlight → GitHub (Phase A)
+        Phase A hub flow — catalog search → graph focus → GitHub (implemented)
       
     </span>
   </a>
@@ -2615,10 +2615,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#planned-ux-catalog-search-graph-highlight-github-phase-a" class="md-nav__link">
+  <a href="#phase-a-hub-flow-catalog-search-graph-focus-github-implemented" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Planned UX — catalog search → graph highlight → GitHub (Phase A)
+        Phase A hub flow — catalog search → graph focus → GitHub (implemented)
       
     </span>
   </a>
@@ -2738,8 +2738,8 @@
 <h2 id="html-dashboard-browser">HTML dashboard (browser)<a class="headerlink" href="#html-dashboard-browser" title="Permanent link">&para;</a></h2>
 <p>For a <strong>single web page</strong> for <strong>contributors</strong>: ordered “start here” path, links to policies and to <strong><code>unknowns-catalog/</code></strong> / <strong><code>hypotheses/</code></strong>, plus maintainer <strong>live</strong> <code>STATE</code> + <code>ROADMAP</code> when served locally — use <a href="../dashboard/index.html"><code>dashboard/index.html</code></a>. The page includes optional <strong>light/dark</strong> theme, sticky section nav with scroll highlight, and loads <strong>Google Fonts</strong> / <strong><code>marked</code></strong> / <strong>lunr</strong> / <strong>d3</strong> from CDNs when online — see <a href="../dashboard/README.md"><code>dashboard/README.md</code></a>. From the repo root run <code>python -m http.server 8765</code>, then open <a href="../dashboard/index.html"><code>dashboard/index.html</code></a> (URL <code>http://localhost:8765/dashboard/</code>).</p>
 <p>The Cursor Canvas at <a href="../canvases/Progress.canvas.tsx"><code>canvases/Progress.canvas.tsx</code></a> is optional; the HTML hub is the main browser entry for people exploring the repo. <strong>Agents:</strong> <code>.cursor/rules/documentation-and-dashboard.mdc</code> (always on) requires keeping docs, CHANGELOG, STATE, and this hub aligned — especially at milestones — and spot-checking the hub after hub-affecting edits.</p>
-<h3 id="planned-ux-catalog-search-graph-highlight-github-phase-a">Planned UX — catalog search → graph highlight → GitHub (Phase A)<a class="headerlink" href="#planned-ux-catalog-search-graph-highlight-github-phase-a" title="Permanent link">&para;</a></h3>
-<p><strong>Not implemented yet.</strong> Target flow: from <strong>catalog search</strong> in the hub, jump to a <strong>knowledge-graph</strong> view that highlights the selected record, with a clear <strong>“open on GitHub”</strong> path to the source YAML. Track and break down work on a dedicated <strong><code>feat/dashboard-search-graph-flow</code></strong> branch or issue when you split implementation from docs-only PRs; keep CDN-heavy hub changes behind the usual local <code>http://localhost:8765/dashboard/</code> smoke check.</p>
+<h3 id="phase-a-hub-flow-catalog-search-graph-focus-github-implemented">Phase A hub flow — catalog search → graph focus → GitHub (implemented)<a class="headerlink" href="#phase-a-hub-flow-catalog-search-graph-focus-github-implemented" title="Permanent link">&para;</a></h3>
+<p><strong>Shipped in hub JS (<code>dashboard/index.html</code>):</strong> choosing a <strong>catalog search</strong> hit scrolls to <strong>Knowledge graph</strong>, <strong>highlights</strong> the node neighborhood, <strong>zoom/pans</strong> (D3) toward that node when layout coordinates exist, and opens the <strong>detail panel</strong> (YAML preview via raw GitHub). Each result card includes <strong>View YAML on GitHub</strong> (repo-scoped code search by filename). The node panel offers <strong>blob</strong> and <strong>raw</strong> links built from <code>GITHUB_REPO_OWNER</code> / <code>GITHUB_REPO_NAME</code> / <code>GITHUB_DEFAULT_BRANCH</code>. Prefer verifying behavior with a local server: <code>python -m http.server 8765</code> → <code>http://localhost:8765/dashboard/</code>. Large refactors should still land on a short-lived branch (for example <strong><code>feat/dashboard-search-graph-flow</code></strong>) with the same smoke check.</p>
 <hr />
 <h2 id="contributor-hub-maintenance-playbook-methodical">Contributor hub maintenance playbook (methodical)<a class="headerlink" href="#contributor-hub-maintenance-playbook-methodical" title="Permanent link">&para;</a></h2>
 <p>Use this so <strong><code>dashboard/index.html</code></strong>, generated HTML, API JSON, and <strong>README headline metrics</strong> do not drift from the YAML catalog.</p>

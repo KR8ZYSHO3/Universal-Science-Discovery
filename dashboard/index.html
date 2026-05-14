@@ -1023,6 +1023,10 @@
       text-decoration: none !important;
     }
     .panel-github-link:hover { background: rgba(79,156,249,.14); border-color: rgba(79,156,249,.5); }
+    .panel-gh-row {
+      display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-top: 1rem;
+    }
+    .panel-gh-row .panel-github-link { margin-top: 0; }
     .panel-loading {
       color: var(--muted); font-size: .82rem; text-align: center;
       padding: 2rem 0; font-family: var(--mono);
@@ -1070,10 +1074,25 @@
       background: var(--surface); border: 1px solid var(--border);
       border-radius: var(--r);
       backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-      transition: border-color .18s, transform .18s;
-      cursor: default;
+      transition: border-color .18s, transform .18s, box-shadow .18s;
+      cursor: pointer;
     }
     .search-result-card:hover { border-color: var(--border-h); transform: translateX(3px); }
+    .search-result-card--active {
+      border-color: rgba(79,156,249,.5);
+      box-shadow: 0 0 0 1px rgba(79,156,249,.18);
+    }
+    .result-actions {
+      width: 100%;
+      margin-top: .4rem;
+      display: flex; flex-wrap: wrap; gap: .55rem; align-items: center;
+    }
+    .result-gh-yaml {
+      font-size: .72rem; font-weight: 600; font-family: var(--font);
+      color: var(--accent); text-decoration: none !important;
+      padding: .15rem 0;
+    }
+    .result-gh-yaml:hover { text-decoration: underline !important; }
     .type-badge {
       flex-shrink: 0;
       font-size: .63rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase;
@@ -3155,6 +3174,23 @@
     function nodeColor(d) { return NODE_COLOR[d.type]  || '#6b8aac'; }
     function edgeColor(d) { return EDGE_COLOR[d.relation] || 'rgba(107,138,172,.18)'; }
 
+    /* Canonical repo for blob/raw links (matches GitHub Pages project path) */
+    var GITHUB_REPO_OWNER = 'KR8ZYSHO3';
+    var GITHUB_REPO_NAME = 'Universal-Science-Discovery';
+    var GITHUB_DEFAULT_BRANCH = 'main';
+    function githubRepoBase() {
+      return 'https://github.com/' + GITHUB_REPO_OWNER + '/' + GITHUB_REPO_NAME;
+    }
+    function githubBlobUrl(relPath) {
+      return githubRepoBase() + '/blob/' + GITHUB_DEFAULT_BRANCH + '/' + relPath;
+    }
+    function githubRawUrl(relPath) {
+      return 'https://raw.githubusercontent.com/' + GITHUB_REPO_OWNER + '/' + GITHUB_REPO_NAME + '/' + GITHUB_DEFAULT_BRANCH + '/' + relPath;
+    }
+    function githubFilenameSearchUrl(nodeId) {
+      return githubRepoBase() + '/search?q=' + encodeURIComponent('filename:' + nodeId + '.yaml') + '&type=code';
+    }
+
     function hideSpinner() {
       var s = document.getElementById('kg-loading-spinner');
       if (s) s.style.display = 'none';
@@ -3212,6 +3248,8 @@
         hideSpinner();
         var nodes = data.nodes.map(function (n) { return Object.assign({}, n); });
         var edges = data.edges.map(function (e) { return Object.assign({}, e); });
+        /* Filled after D3 zoom + simulation exist; used by catalog search → graph focus */
+        var focusGraphCamera = function () {};
 
         /* ── BUILD SEARCH INDEX ──────────────────────────────── */
         /* Catalog map: id → enriched entry (title, type, domain, description) */
@@ -3358,6 +3396,10 @@
 
         buildDomainChips();
 
+        var lastSearchResults = [];
+        var lastSearchTotal = 0;
+        var selectedSearchId = null;
+
         function typeLabel(t) {
           return { bridge:'Bridge', unknown:'Unknown', hypothesis:'Hypothesis', phenomenon:'Phenomenon' }[t] || t;
         }
@@ -3365,6 +3407,7 @@
         function showSearchPlaceholder() {
           if (resultsEl) resultsEl.innerHTML = '';
           if (countNoteEl) countNoteEl.hidden = true;
+          selectedSearchId = null;
         }
 
         function snippet(text, maxLen) {
@@ -3390,14 +3433,24 @@
             var t = (n.type || 'unknown').toLowerCase();
             var desc = n.bridge_claim || n.description || '';
             var snip = snippet(desc, 160);
+            card.classList.toggle('search-result-card--active', selectedSearchId === n.id);
+            var ghSearch = githubFilenameSearchUrl(n.id);
             card.innerHTML =
               '<div class="result-row">' +
                 '<span class="type-badge type-' + t + '">' + typeLabel(t) + '</span>' +
                 '<span class="result-title">' + esc(n.title || n.id) + '</span>' +
                 (n.domain ? '<span class="result-domain">' + esc(n.domain) + '</span>' : '') +
               '</div>' +
-              (snip ? '<div class="result-snippet">' + esc(snip) + '</div>' : '');
-            card.addEventListener('click', function () { highlightNode(n.id); });
+              (snip ? '<div class="result-snippet">' + esc(snip) + '</div>' : '') +
+              '<div class="result-actions">' +
+                '<a class="result-gh-yaml" href="' + ghSearch + '" target="_blank" rel="noopener" title="GitHub code search in this repo for this catalog filename">View YAML on GitHub ↗</a>' +
+              '</div>';
+            card.addEventListener('click', function (e) {
+              if (e.target.closest('a.result-gh-yaml')) return;
+              selectedSearchId = n.id;
+              renderSearchResults(lastSearchResults, lastSearchTotal);
+              highlightNode(n.id);
+            });
             resultsEl.appendChild(card);
           });
           if (countNoteEl) {
@@ -3436,7 +3489,9 @@
             });
           }
 
-          renderSearchResults(results.slice(0, 25), results.length);
+          lastSearchResults = results.slice(0, 25);
+          lastSearchTotal = results.length;
+          renderSearchResults(lastSearchResults, lastSearchTotal);
         }
 
         if (inputEl) {
@@ -3459,6 +3514,7 @@
               d = { id: nodeId, type: nodeId.startsWith('b-') ? 'bridge' : nodeId.startsWith('u-') ? 'unknown' : 'hypothesis', title: nodeId };
             }
             if (typeof highlightNeighborhood === 'function') highlightNeighborhood(nodeId);
+            if (typeof focusGraphCamera === 'function') focusGraphCamera(nodeId);
             if (typeof openPanel === 'function') {
               openPanel(d);
               if (contentEl) contentEl.innerHTML = '<div class="panel-loading">Loading\u2026</div>';
@@ -3548,12 +3604,13 @@
         var svg = d3.select(svgEl);
         var g   = svg.append('g');
 
-        /* zoom + pan */
-        svg.call(
-          d3.zoom().scaleExtent([0.15, 8]).on('zoom', function (event) {
+        /* zoom + pan (behavior stored for programmatic focus from catalog search) */
+        var zoomBehavior = d3.zoom()
+          .scaleExtent([0.15, 8])
+          .on('zoom', function (event) {
             g.attr('transform', event.transform);
-          })
-        );
+          });
+        svg.call(zoomBehavior);
 
         /* force simulation */
         var sim = d3.forceSimulation(nodes)
@@ -3709,7 +3766,7 @@
           var paths = getFilePaths(nodeId, type);
           for (var i = 0; i < paths.length; i++) {
             try {
-              var url = 'https://raw.githubusercontent.com/KR8ZYSHO3/Universal-Science-Discovery/main/' + paths[i];
+              var url = githubRawUrl(paths[i]);
               var res = await fetch(url);
               if (res.ok) {
                 var text = await res.text();
@@ -3857,8 +3914,12 @@
             }
           }
 
-          var ghPath = 'https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/' + path;
-          html += '<a href="' + ghPath + '" class="panel-github-link" target="_blank" rel="noopener">View on GitHub ↗</a>';
+          var ghBlob = githubBlobUrl(path);
+          var ghRaw = githubRawUrl(path);
+          html += '<div class="panel-gh-row">';
+          html += '<a href="' + ghBlob + '" class="panel-github-link" target="_blank" rel="noopener">View YAML on GitHub ↗</a>';
+          html += '<a href="' + ghRaw + '" class="panel-github-link" target="_blank" rel="noopener">Raw file ↗</a>';
+          html += '</div>';
 
           contentEl.innerHTML = html;
         }
@@ -3901,6 +3962,7 @@
 
           svg.selectAll('circle').classed('selected', function (n) { return n.id === d.id; });
           highlightNeighborhood(d.id);
+          focusGraphCamera(d.id);
 
           openPanel(d);
           contentEl.innerHTML = '<div class="panel-loading">Loading…</div>';
@@ -3920,7 +3982,7 @@
                 '<p class="panel-id">' + esc(d.id) + '</p>' +
                 '<p class="panel-title">' + esc(d.title || d.id) + '</p>' +
                 '<p style="color:var(--muted);font-size:.8rem;margin-top:.5rem">Full details not available in preview mode.</p>' +
-                '<a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/search?q=' + encodeURIComponent(d.id) + '" class="panel-github-link" target="_blank" rel="noopener">Search on GitHub ↗</a>';
+                '<a href="' + githubRepoBase() + '/search?q=' + encodeURIComponent(d.id) + '" class="panel-github-link" target="_blank" rel="noopener">Search on GitHub ↗</a>';
             }
           });
         });
@@ -3960,6 +4022,21 @@
             .attr('cx', function (d) { return d.x; })
             .attr('cy', function (d) { return d.y; });
         });
+
+        focusGraphCamera = function (nodeId) {
+          var d = nodeMap[nodeId];
+          if (!d || typeof d.x !== 'number' || typeof d.y !== 'number' || isNaN(d.x) || isNaN(d.y)) return;
+          var k = 2.25;
+          var t = d3.zoomIdentity.translate(w / 2, h / 2).scale(k).translate(-d.x, -d.y);
+          var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          var dur = reduceMotion ? 0 : 420;
+          if (dur === 0) {
+            svg.call(zoomBehavior.transform, t);
+          } else {
+            svg.transition().duration(dur).ease(d3.easeCubicOut).call(zoomBehavior.transform, t);
+          }
+          node.classed('selected', function (n) { return n.id === nodeId; });
+        };
     }
   })();
 
