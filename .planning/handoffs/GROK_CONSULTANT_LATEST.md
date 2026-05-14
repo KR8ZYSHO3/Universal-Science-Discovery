@@ -4,7 +4,13 @@ Brief for an external consultant. Factual snapshot only; no invented issue IDs.
 
 ## Summary
 
-**Dashboard Phase A** is merged on **`main`** (PR **#244**, e.g. `e01d55a` era — verify on GitHub). **Dashboard Phase B** (hub UX: loading/status for catalog search, `prefers-reduced-motion` for particle canvas and spinners, responsive graph height, theme-aware graph overlays, PATH_TO_SUCCESS cross-links) ships from **`feat/dashboard-ux-polish`** — open/merge PR vs **`main`**. **`docs/PATH_TO_SUCCESS.md`** includes a **Content wave kickoff** checklist (bounded waves, Wave Factory traceability). **`content/phase1-bounded-wave-1`** is a **documentation-only** branch recording that a bounded content wave was **deferred** (no new catalog YAML without maintainer review / authenticated `gh`).
+**Dashboard Phase A** (`feat/dashboard-search-graph-flow`) is merged to main via PR #244.
+
+**Phase B** UX polish is ready on `feat/dashboard-ux-polish`.
+
+**Wave Factory** is stable and green.
+
+Bounded content wave is deferred (documentation-only) until maintainer review of `drafts/`.
 
 ## Changes (agent workspace)
 
