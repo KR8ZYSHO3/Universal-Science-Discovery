@@ -7,7 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [Unreleased] — 2026-05-09
+## [Unreleased]
+
+### Added — Contributor hub Phase B (follow-up, 2026-05-14)
+- **`dashboard/index.html`:** Catalog snapshot footnote links **`docs/PATH_TO_SUCCESS.md`** next to **`ROADMAP.md`**. Knowledge-graph **zoom hint** switches copy for **coarse pointers** (touch). Graph loading label uses **`role="status"`** + **`aria-live="polite"`** while JSON hydrates.
+- **`docs/DEV_DASHBOARD.md`:** **Phase C** stub (smart recommendations + orphan/xref explorer) — planned only; points maintainers at existing CLI scripts until a spec exists.
+- **`README.md`:** Metrics table adds **phenomenology (10)** row, clarifies **pioneer / breakthrough / orphan** sourcing (`pioneers/*.yaml`, `breakthrough-gaps/bg-*.yaml`, `find_orphan_unknowns.py`), footnote ties headline totals to **`verify_dashboard_consistency.py`** + graph meta.
+
+### Changed — Maintainer state / handoff (2026-05-14)
+- **`.planning/STATE.md`**, **`.planning/handoffs/GROK_CONSULTANT_LATEST.md`:** Phase A merged on **`origin/main`** (`e01d55a`); Phase B PR target; bounded content branch note.
+
+### Added — Contributor hub Phase B (UX polish)
+- **`dashboard/index.html`:** Catalog search **status line** while graph JSON and API metadata hydrate the Lunr index (`aria-busy` on the input). **Knowledge graph** container uses **responsive `clamp` height**, larger **touch targets** for filter chips on narrow viewports, and **theme-aware** legend/tooltip/panel backgrounds (`color-mix` with `var(--surface-solid)`). **`prefers-reduced-motion`:** disables continuous **particle canvas** animation (single static frame), tones hover transforms, and stills the graph loading spinner CSS.
+- **`dashboard/README.md`:** Notes the status line and reduced-motion behavior.
+- **`docs/PATH_TO_SUCCESS.md`:** **Content wave kickoff** section — PR-sized batches, validation checklist, Wave Factory bot merge + run URL reminder, link to **good first issue** search.
 
 ### Added — Contributor hub Phase A (search → graph → GitHub)
 - **`dashboard/index.html`:** Catalog search selects a card → scrolls to the knowledge graph, highlights the node neighborhood, animates **D3 zoom/pan** toward the node when coordinates exist, and opens the YAML detail panel. Search cards link **View YAML on GitHub** (repo code search by `filename:<id>.yaml`). Node panel adds explicit **blob** + **raw** GitHub URLs via shared `GITHUB_*` constants.

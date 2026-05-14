@@ -4,59 +4,59 @@ Brief for an external consultant. Factual snapshot only; no invented issue IDs.
 
 ## Summary
 
-Recent maintainer-facing work spans documentation priority material, CI harvest workflow hardening, and supporting automation hygiene (graph bot PR path, markdown link checks for DOI/arXiv, citation index generator, and optional split PRs for `OPERATING_RHYTHM` / changelog when scope warrants).
+**Dashboard Phase A** (`feat/dashboard-search-graph-flow`, tip `34973ac`) is **not merged to `origin/main`** (still at `bce6bac`). A maintainer can merge the same commits via **GitHub PR** because **`main` is protected** (direct push rejected: GH013). **Phase B** contributor-hub UX polish is prepared on **`feat/dashboard-ux-polish`** (loading/status for catalog search, `prefers-reduced-motion` for the particle canvas and spinners, responsive graph height, theme-aware graph overlays). **Docs:** `docs/PATH_TO_SUCCESS.md` adds a **Content wave kickoff** checklist (bounded waves, Wave Factory traceability).
 
-## Changes
+## Changes (agent workspace)
 
-### Branch `docs/maintainer-priority-prompt-2026-05`
-
-- Added or updated **`docs/MAINTAINER_PRIORITY_PROMPT.md`**, **`docs/DOC_MAP.md`**, **`docs/REPOSITORY_MANIFEST.md`**, **`CHANGELOG.md`**, and MkDocs navigation for discoverability.
-- Open a PR from this branch (maintainer merges manually):  
-  `https://github.com/KR8ZYSHO3/Universal-Science-Discovery/pull/new/docs/maintainer-priority-prompt-2026-05`
-
-### Branch `fix/harvest-openalex-git-128` (commit `12889d8`)
-
-- **`.github/workflows/harvest-openalex.yml`**: `ubuntu-24.04`; `actions/checkout` with `fetch-depth: 0` and token as needed for history/PR flows; `actions/setup-python@v6`; `peter-evans/create-pull-request@v7` with explicit bot identity; `workflow_dispatch` debug input mapped to **`ACTIONS_STEP_DEBUG`** for troubleshooting.
-- **`CHANGELOG.md`**: **Unreleased** bullet documenting the workflow updates.
-- Open a PR from this branch:  
-  `https://github.com/KR8ZYSHO3/Universal-Science-Discovery/pull/new/fix/harvest-openalex-git-128`
-
-### Cursor / agent habit (this repo)
-
-- **`.cursor/rules/documentation-and-dashboard.mdc`**: after substantive merge-worthy work, agents should post a short Markdown handoff in chat (Summary / Changes / Human follow-ups / Next steps) and may mirror it here (**`GROK_CONSULTANT_LATEST.md`**).
-- **`AGENTS.md`**: one-line pointer under the documentation section.
+| Area | Detail |
+|------|--------|
+| Phase A merge | Local fast-forward `main` → `34973ac`; **`git push origin main`** → **rejected** (PR required). |
+| PR link (Phase A) | https://github.com/KR8ZYSHO3/Universal-Science-Discovery/compare/main...feat/dashboard-search-graph-flow |
+| Phase B branch | `feat/dashboard-ux-polish` from updated local `main` — **`dashboard/index.html`**, **`dashboard/README.md`**, **`docs/PATH_TO_SUCCESS.md`**, **`CHANGELOG.md`**, **`.planning/STATE.md`**, this handoff. |
+| Verification (local on Phase B tree) | Run **`python scripts/verify_dashboard_consistency.py`**, **`python -m pytest tests/repo_smoke`**, **`mkdocs build --strict`** after doc edits. |
 
 ## Human follow-ups
 
-- **GitHub → Settings → Actions → General**: workflows that open or update PRs need appropriate permissions (read/write for `contents` where applicable, and **allow GitHub Actions to create and approve pull requests** where the bot already does so for graph-related automation). Re-check when adding or tightening org/repo policy; same settings family applies to harvest PR automation.
+1. **Merge Phase A** via the compare/PR link above (or open PR from `feat/dashboard-search-graph-flow` → `main`). Do not expect agents to push `main` directly.
+2. **Wave Factory checklist:** merge the bot PR when green; paste the **successful Actions run URL** (and PR link if opened) into maintainer notes or a PR description — same expectations as the **Final Wave Factory validation checklist** block below.
+3. **`gh` CLI:** not authenticated in this environment; for **good first issue** triage use the web UI: https://github.com/KR8ZYSHO3/Universal-Science-Discovery/issues?q=is%3Aopen+label%3A%22good+first+issue%22
 
 ## Next steps
 
-- Review and merge the two PRs above in the order that matches maintainer risk tolerance (docs branch is low risk; harvest workflow should be validated on a fork or with `workflow_dispatch` before relying on scheduled runs).
-- After merges, confirm scheduled **`harvest-openalex`** behavior and that PR creation succeeds under current Actions permissions.
-- If `OPERATING_RHYTHM` / changelog edits grow large relative to other work, keep using split PRs to keep review focused.
-
----
-
-## Snapshot — Wave Factory / validation (2026-05-13, `main`)
-
-- **Local tests:** `python -m pytest tests/repo_smoke` → **4 passed** (same bundle as **`validate-schemas.yml`**).
-- **`.github/workflows/harvest-openalex.yml` (Wave Factory Cadence):**
-  - **`workflow_dispatch`** has **no `inputs`** block. For verbose runner logs use GitHub’s **Re-run jobs** UI and enable **“Enable debug logging”** when the repository/org allows it, or set repository/environment secrets **`ACTIONS_RUNNER_DEBUG`** / **`ACTIONS_STEP_DEBUG`** to `true` for a targeted rerun (see GitHub Actions documentation for debug logging).
-  - **Create Pull Request** step: **`add-paths`** lists **three** tracked JSON files (`drafts/openalex_candidates.json`, `drafts/pubmed_candidates.json`, `drafts/semantic_scholar_candidates.json`) only. **`drafts/wave_factory/`** stays **gitignored** (see `.gitignore`), so it is intentionally **not** in `add-paths` (see **CHANGELOG** Unreleased Wave Factory CPR note). **`skip-commit`** / **`skip-checks`** are **not** passed to `peter-evans/create-pull-request@v7`; the commit message includes **`[skip ci]`** to limit redundant CI on the bot branch.
-  - **Change detection** step uses **`git ls-files --modified --others --exclude-standard`** piped to **`grep -E`** for the JSON paths and (in the pattern) `drafts/wave_factory/` — note ignored paths will not appear in `ls-files` unless force-added.
-- **Handoff hygiene:** Older bullets in **“Branch `fix/harvest-openalex-git-128`”** above may describe **`workflow_dispatch` debug `inputs`** that are **not** present on current `main`; treat this snapshot as the corrected description until that branch is merged or the file is rewritten.
+- Merge Phase A PR, then rebase or merge **`feat/dashboard-ux-polish`** onto updated **`main`** and open a second PR for Phase B.
+- After any **`STATE.md`** edit that should appear in the Cursor canvas, run **`python scripts/sync-dashboard-from-state.py`**.
 
 ---
 
 ## Final Wave Factory validation checklist (May 2026)
 
-Maintainers: **do not** treat the Wave Factory Cadence run as verified from this handoff alone (agents may lack authenticated `gh` / Actions API access). Complete the checklist manually and paste evidence when done.
+Maintainers: complete manually and paste evidence when done.
 
 1. On GitHub **Actions** for **`KR8ZYSHO3/Universal-Science-Discovery`**, select workflow **Wave Factory Cadence** (`.github/workflows/harvest-openalex.yml`).
-2. From the default branch **`main`**, use **Run workflow** → **Run workflow** (this workflow’s **`workflow_dispatch`** has **no inputs** on current `main`).
-3. Enable **debug logging** for that run (UI: re-run with **Enable debug logging**, or use org/repo settings / secrets **`ACTIONS_RUNNER_DEBUG`** / **`ACTIONS_STEP_DEBUG`** when policy allows — see GitHub Actions documentation).
-4. Wait for a **green** conclusion. If **`steps.stage.outputs.changes != '0'`**, confirm the automation produced a **clean bot PR** with only the expected candidate JSON updates (per **CHANGELOG** / workflow comments on `add-paths`).
-5. Paste the **run URL** (and PR link if opened) into maintainer notes or a follow-up PR description.
+2. From **`main`**, use **Run workflow** (this workflow’s **`workflow_dispatch`** has **no inputs** on current `main` unless changed upstream).
+3. Enable **debug logging** for that run when policy allows.
+4. Wait for a **green** conclusion. If candidate JSON changes land, confirm the bot PR scope matches **`add-paths`** expectations in the workflow.
+5. Paste the **run URL** (and PR link if opened) into maintainer notes.
 
-**Note:** Verifying green status or PR contents requires maintainer auth (for example **`gh run list` / `gh run view`** with a logged-in **`gh`**, or the Actions UI). This file records **checklist-only** expectations unless a maintainer pastes a confirmed run URL.
+**Note:** Confirming green status requires maintainer auth (Actions UI or authenticated **`gh`**).
+
+---
+
+## Append — 2026-05-14 (Phase B follow-up + bounded content)
+
+### Summary
+
+**Phase A** is merged on **`origin/main`** (**`e01d55a`**, PR #244). **`feat/dashboard-ux-polish`** was **rebased onto `origin/main`** (duplicate Phase A commits dropped as already-upstream); it carries incremental Phase B polish plus README / playbook / STATE updates.
+
+**Bounded content wave:** **`gh` is not authenticated** in the agent environment; **`drafts/bridges/`** holds **18** OpenAlex stubs — **not auto-promoted** without maintainer review. Companion branch **`content/phase1-bounded-wave-1`** (separate PR from `main`) documents **deferral** only (`CHANGELOG` + this append). When **`gh auth login`** is available, triage **good first issue**: https://github.com/KR8ZYSHO3/Universal-Science-Discovery/issues?q=is%3Aopen+label%3A%22good+first+issue%22
+
+### PR / compare links
+
+| Branch | Purpose | Compare |
+|--------|---------|---------|
+| **`feat/dashboard-ux-polish`** | Hub UX + docs hygiene | `https://github.com/KR8ZYSHO3/Universal-Science-Discovery/compare/main...feat/dashboard-ux-polish` |
+| **`content/phase1-bounded-wave-1`** | Content wave deferral note (no new catalog YAML this session) | `https://github.com/KR8ZYSHO3/Universal-Science-Discovery/compare/main...content/phase1-bounded-wave-1` |
+
+### Catalog truth (reproducible)
+
+`python scripts/verify_dashboard_consistency.py` → **bridges=1123, unknowns=1408, hypotheses=1274, phenomena=10, graph_nodes=3857, graph_edges=4517** (matches `docs/knowledge_graph.json` meta).

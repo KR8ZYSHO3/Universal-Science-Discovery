@@ -12,6 +12,17 @@ The Cursor Canvas at [`canvases/Progress.canvas.tsx`](../canvases/Progress.canva
 
 **Shipped in hub JS (`dashboard/index.html`):** choosing a **catalog search** hit scrolls to **Knowledge graph**, **highlights** the node neighborhood, **zoom/pans** (D3) toward that node when layout coordinates exist, and opens the **detail panel** (YAML preview via raw GitHub). Each result card includes **View YAML on GitHub** (repo-scoped code search by filename). The node panel offers **blob** and **raw** links built from `GITHUB_REPO_OWNER` / `GITHUB_REPO_NAME` / `GITHUB_DEFAULT_BRANCH`. Prefer verifying behavior with a local server: `python -m http.server 8765` → `http://localhost:8765/dashboard/`. Large refactors should still land on a short-lived branch (for example **`feat/dashboard-search-graph-flow`**) with the same smoke check.
 
+### Phase C hub ideas (planned — not shipped)
+
+**Purpose:** capture the next UX layer after search → graph → GitHub without committing to a heavy client bundle prematurely.
+
+| Idea | Direction | Notes |
+|------|-----------|--------|
+| **Smart recommendations** | Surfacing high-leverage bridges / unknowns from graph metrics or maintainer-curated scores | Needs a spec for what “smart” optimizes (connectivity, novelty, harvest rank) and whether results are static JSON or computed in CI. |
+| **Orphan / xref explorer** | In-browser list of contribution targets | Today use **`python scripts/find_orphan_unknowns.py`** and **`python -X utf8 scripts/build_graph.py --report-orphans`** (also exercised via **`tests/repo_smoke`**). A hub panel would likely consume a small generated JSON from those scripts rather than recomputing in the browser. |
+
+When one of the above is implemented, promote it from this stub into the playbook table in § **1) What changed? → What to refresh** and link any new scripts from **`docs/DOC_MAP.md`**.
+
 ---
 
 ## Contributor hub maintenance playbook (methodical)
