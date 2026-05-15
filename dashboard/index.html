@@ -3040,10 +3040,10 @@
 
       fetch('deploy-info.json', { cache: 'no-store' })
         .then(function (r) {
-          return r.ok ? r.json() : Promise.resolve({});
+          return r.ok ? r.json() : {};
         })
         .catch(function () {
-          return Promise.resolve({});
+          return {};
         })
         .then(function (info) {
           info = info || {};
@@ -3530,9 +3530,9 @@
         }
 
         Promise.all([
-          fetch(_apiBase + 'api/v1/bridges.json').then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; }),
-          fetch(_apiBase + 'api/v1/unknowns.json').then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; }),
-          fetch(_apiBase + 'api/v1/meta.json').then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; })
+          fetch(_apiBase + 'api/v1/bridges.json').then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; }),
+          fetch(_apiBase + 'api/v1/unknowns.json').then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; }),
+          fetch(_apiBase + 'api/v1/meta.json').then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; })
         ]).then(function (results) {
           enrichAndRebuildIndex(results[0], results[1]);
         });
