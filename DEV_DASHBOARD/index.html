@@ -2778,14 +2778,10 @@
 <td>Surfacing high-leverage bridges / unknowns from graph metrics or maintainer-curated scores</td>
 <td>Needs a spec for what “smart” optimizes (connectivity, novelty, harvest rank) and whether results are static JSON or computed in CI.</td>
 </tr>
-<tr>
-<td><strong>Orphan / xref explorer</strong></td>
-<td>In-browser list of contribution targets</td>
-<td>Today use <strong><code>python scripts/find_orphan_unknowns.py</code></strong> and <strong><code>python -X utf8 scripts/build_graph.py --report-orphans</code></strong> (also exercised via <strong><code>tests/repo_smoke</code></strong>). A hub panel would likely consume a small generated JSON from those scripts rather than recomputing in the browser.</td>
-</tr>
 </tbody>
 </table>
-<p>When one of the above is implemented, promote it from this stub into the playbook table in § <strong>1) What changed? → What to refresh</strong> and link any new scripts from <strong><code>docs/DOC_MAP.md</code></strong>.</p>
+<p><strong>Shipped (thin slice):</strong> <strong>Orphan / xref hygiene</strong> — <a href="../dashboard/index.html"><code>dashboard/index.html</code></a> loads <strong><code>api/v1/orphan_xref_panel.json</code></strong> (cap ~100 rows). Regenerate with <strong><code>python scripts/export_orphan_xref_panel.py</code></strong> after catalog batches (also runs in <strong><code>build-graph.yml</code></strong> immediately after <strong><code>build_graph.py</code></strong>). Deeper CLI checks remain <strong><code>python scripts/find_orphan_unknowns.py</code></strong> and <strong><code>python -X utf8 scripts/build_graph.py --report-orphans</code></strong> (<strong><code>tests/repo_smoke</code></strong>).</p>
+<p>When <strong>smart recommendations</strong> ships, promote it from this stub into the playbook table in § <strong>1) What changed? → What to refresh</strong> and link any new scripts from <strong><code>docs/DOC_MAP.md</code></strong>.</p>
 <hr />
 <h2 id="contributor-hub-maintenance-playbook-methodical">Contributor hub maintenance playbook (methodical)<a class="headerlink" href="#contributor-hub-maintenance-playbook-methodical" title="Permanent link">&para;</a></h2>
 <p>Use this so <strong><code>dashboard/index.html</code></strong>, generated HTML, API JSON, and <strong>README headline metrics</strong> do not drift from the YAML catalog.</p>
@@ -2823,6 +2819,10 @@
 <td>Run <strong><code>python scripts/verify_dashboard_consistency.py</code></strong> before merge — it fails if numbers disagree with disk</td>
 </tr>
 <tr>
+<td><code>api/v1/orphan_xref_panel.json</code> (xref hygiene hub panel)</td>
+<td><code>python scripts/export_orphan_xref_panel.py</code> (runs in <strong><code>build-graph.yml</code></strong> after <code>build_graph.py</code>)</td>
+</tr>
+<tr>
 <td><code>docs/preprint/usdr_preprint.md</code></td>
 <td><code>python scripts/render_preprint_html.py --apply</code></td>
 </tr>
@@ -2841,6 +2841,7 @@
 <p>Run from the repo root when you are not relying solely on CI:</p>
 <div class="highlight"><pre><span></span><code>python<span class="w"> </span>scripts/validate_schemas.py
 python<span class="w"> </span>-X<span class="w"> </span>utf8<span class="w"> </span>scripts/build_graph.py
+python<span class="w"> </span>scripts/export_orphan_xref_panel.py
 python<span class="w"> </span>scripts/generate_api.py
 python<span class="w"> </span>scripts/update_dashboard_stats.py<span class="w"> </span>--apply
 python<span class="w"> </span>scripts/render_breakthrough_gaps_hub.py<span class="w"> </span>--apply

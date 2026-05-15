@@ -2667,7 +2667,7 @@
 
 <h1 id="guiding-documents-repository-behaviors">Guiding documents → repository behaviors<a class="headerlink" href="#guiding-documents-repository-behaviors" title="Permanent link">&para;</a></h1>
 <p>This map is the project traceability layer (delivered as part of <strong>Phase 0 — Foundation</strong>, now complete). When you change a guiding document, update the corresponding behaviors (rules, templates, or this map) in the same change.</p>
-<p><strong>Last updated:</strong> 2026-05-14 — <strong>DEV_DASHBOARD.md</strong> documents implemented hub Phase A (catalog search → graph focus → GitHub blob/raw); <strong><code>dashboard/index.html</code></strong> wires D3 zoom-to-node + GitHub deep links. Earlier: <strong>CONTRIBUTING.md</strong> local checks; <strong>bug / feature</strong> issue templates; <strong><code>tests/repo_smoke</code></strong> + <strong><code>validate-schemas.yml</code></strong>; <strong><code>OPERATING_RHYTHM.md</code></strong> dual-workflow notes; breakthrough gaps hub; roadmap § audit backlog; <strong>repo audit:</strong> <a href="../.planning/reports/USDR_FULL_AUDIT_2026-05.md">May 2026 full audit report</a>.</p>
+<p><strong>Last updated:</strong> 2026-05-15 — <strong><code>export_orphan_xref_panel.py</code></strong> + hub <strong>Xref hygiene</strong> panel (<code>api/v1/orphan_xref_panel.json</code>, <strong><code>build-graph.yml</code></strong> step). Earlier: <strong>DEV_DASHBOARD.md</strong> documents implemented hub Phase A (catalog search → graph focus → GitHub blob/raw); <strong><code>dashboard/index.html</code></strong> wires D3 zoom-to-node + GitHub deep links. Earlier: <strong>CONTRIBUTING.md</strong> local checks; <strong>bug / feature</strong> issue templates; <strong><code>tests/repo_smoke</code></strong> + <strong><code>validate-schemas.yml</code></strong>; <strong><code>OPERATING_RHYTHM.md</code></strong> dual-workflow notes; breakthrough gaps hub; roadmap § audit backlog; <strong>repo audit:</strong> <a href="../.planning/reports/USDR_FULL_AUDIT_2026-05.md">May 2026 full audit report</a>.</p>
 <h2 id="policy-documents">Policy documents<a class="headerlink" href="#policy-documents" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -2858,6 +2858,11 @@
 <td><code>scripts/build_graph.py</code></td>
 <td>Build <code>docs/knowledge_graph.json</code></td>
 <td>✅ (build-graph.yml)</td>
+</tr>
+<tr>
+<td><code>scripts/export_orphan_xref_panel.py</code></td>
+<td>Writes <strong><code>api/v1/orphan_xref_panel.json</code></strong> for the hub xref/orphan panel (YAML xref scan + filtered graph)</td>
+<td>✅ (build-graph.yml, after <code>build_graph.py</code>)</td>
 </tr>
 <tr>
 <td><code>scripts/generate_api.py</code></td>
