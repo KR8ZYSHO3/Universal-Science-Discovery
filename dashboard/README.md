@@ -37,7 +37,7 @@ See **[docs/DEV_DASHBOARD.md](../docs/DEV_DASHBOARD.md)** for the ordered checkl
 
 ## Publishing & privacy notes
 
-**GitHub Pages:** Pushes to `main` that touch `dashboard/**` or `docs/**` run [`.github/workflows/pages.yml`](../.github/workflows/pages.yml). The workflow writes **`deploy-info.json`** (gitignored locally) next to `index.html` with the deployed commit SHA and timestamp. The hub reads that file and compares it to **`main`** via the GitHub API so visitors see whether **https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/** is current.
+**GitHub Pages:** Pushes to `main` that touch `dashboard/**` or `docs/**` run [`.github/workflows/pages.yml`](../.github/workflows/pages.yml). The workflow writes **`deploy-info.json`** (gitignored locally) next to `index.html` with the deployed commit SHA and timestamp. The hub reads that file and compares it to **`main`** via the GitHub API so visitors see whether **https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/** is current. **Local `python -m http.server`:** `deploy-info.json` is usually **absent** (404 in the network panel is normal); the hub treats a missing file as an **empty manifest** and shows the local-preview banner instead of throwing.
 
 For other hosts, copy `dashboard/` to static hosting as needed. The main **policy docs site** may be built with MkDocs separately; this hub targets **developers exploring the repo**.
 
