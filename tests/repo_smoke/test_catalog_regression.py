@@ -1,7 +1,8 @@
 """Smoke tests for repo automation used as merge gates (see validate-schemas.yml).
 
 Includes catalog validation, domain page regression, dashboard stat consistency,
-and an informational ``build_graph.py --report-orphans`` run.
+an informational ``build_graph.py --report-orphans`` run, and a shape check for
+``api/v1/orphan_xref_panel.json``.
 
 Run from repo root::
 
@@ -10,6 +11,7 @@ Run from repo root::
 
 from __future__ import annotations
 
+import json
 import subprocess
 import sys
 from pathlib import Path
@@ -40,3 +42,17 @@ def test_verify_dashboard_consistency() -> None:
 def test_build_graph_report_orphans() -> None:
     """Ensures orphan xref reporter runs (does not fail on existing xref drift)."""
     _run_script("build_graph.py", "--report-orphans")
+
+
+def test_orphan_xref_panel_json() -> None:
+    """Committed hub panel JSON parses and matches the export contract."""
+    path = REPO_ROOT / "api" / "v1" / "orphan_xref_panel.json"
+    assert path.is_file(), "api/v1/orphan_xref_panel.json missing — run scripts/export_orphan_xref_panel.py"
+    data = json.loads(path.read_text(encoding="utf-8"))
+    assert "generated_at" in data and "source" in data and "items" in data
+    assert isinstance(data["items"], list)
+    for item in data["items"][:5]:
+        assert item.get("id")
+        assert item.get("kind") in ("missing_xref_target", "orphan_unknown")
+        assert item.get("reason")
+        assert item.get("github_search_url")
