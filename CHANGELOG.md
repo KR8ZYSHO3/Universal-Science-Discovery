@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added — Dashboard orphan / xref hygiene panel (2026-05-15)
+- **`scripts/export_orphan_xref_panel.py`:** writes **`api/v1/orphan_xref_panel.json`** (capped rows: missing graph targets from YAML xrefs + orphan unknowns when present) for the contributor hub.
+- **`dashboard/index.html`:** **Xref hygiene** nav + **Orphan and missing cross-reference targets** section (fetch JSON; GitHub search / blob links; reduced-motion-friendly loading).
+- **`build-graph.yml`:** runs the export script after **`build_graph.py`** so bot PRs refresh the JSON with the graph.
+- **`api/v1/meta.json`:** documents **`orphan_xref_panel`** endpoint; **`scripts/generate_api.py`** keeps the endpoint key when regenerating meta.
+- **Docs:** **`docs/DEV_DASHBOARD.md`**, **`docs/DOC_MAP.md`**, **`docs/REPOSITORY_MANIFEST.md`**, **`scripts/README.md`**, **`dashboard/README.md`** — refresh order and traceability.
+
 ### Added — Contributor hub Phase B (follow-up, 2026-05-14)
 - **`dashboard/index.html`:** Catalog snapshot footnote links **`docs/PATH_TO_SUCCESS.md`** next to **`ROADMAP.md`**. Knowledge-graph **zoom hint** switches copy for **coarse pointers** (touch). Graph loading label uses **`role="status"`** + **`aria-live="polite"`** while JSON hydrates.
 - **`docs/DEV_DASHBOARD.md`:** **Phase C** stub (smart recommendations + orphan/xref explorer) — planned only; points maintainers at existing CLI scripts until a spec exists.

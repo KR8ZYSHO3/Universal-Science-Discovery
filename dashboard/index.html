@@ -823,6 +823,70 @@
     ::-webkit-scrollbar-track { background: transparent; }
     ::-webkit-scrollbar-thumb { background: var(--border-h); border-radius: 999px; }
 
+    /* ── ORPHAN / XREF PANEL (read-only contributor targets) ─ */
+    .orphan-xref-panel {
+      max-width: min(1100px, 94vw);
+      margin: 0 auto;
+    }
+    .orphan-xref-foot {
+      font-size: .78rem;
+      color: var(--muted);
+      margin-top: .75rem;
+      font-family: var(--mono);
+    }
+    .orphan-xref-table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      background: var(--surface);
+      margin-top: 1rem;
+    }
+    .orphan-xref-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .84rem;
+    }
+    .orphan-xref-table th,
+    .orphan-xref-table td {
+      padding: .55rem .65rem;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+    .orphan-xref-table th {
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--muted);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .orphan-xref-table tr:last-child td { border-bottom: none; }
+    .orphan-xref-kind {
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .orphan-xref-actions { white-space: nowrap; }
+    .orphan-xref-actions a { margin-right: .5rem; }
+    .orphan-xref-status { min-height: 1.25rem; font-size: .82rem; color: var(--muted); margin-top: .5rem; }
+    .orphan-xref-status[aria-busy="true"] .orphan-xref-spinner {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border: 2px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      margin-right: .35rem;
+      vertical-align: -2px;
+      animation: kg-spin 0.9s linear infinite;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .orphan-xref-status[aria-busy="true"] .orphan-xref-spinner { animation: none; border-top-color: var(--border); }
+    }
+
     /* ── KNOWLEDGE GRAPH ────────────────────────────────────── */
     .graph-section {
       padding: clamp(3rem,6vw,5rem) clamp(1.25rem,4vw,3rem);
@@ -1474,6 +1538,7 @@
       <a href="domains/" class="nav-link">Browse domains</a>
       <a href="explainers/" class="nav-link">Explainers</a>
       <a href="#catalog-search">Search</a>
+      <a href="#orphan-xref-panel">Xref hygiene</a>
       <a href="#discovery-engines">Engines</a>
       <a href="#pioneers">Pioneers</a>
       <a href="#breakthrough-gaps">Breakthroughs</a>
@@ -1516,6 +1581,40 @@
       <p id="catalog-search-status" class="catalog-search-status" role="status" aria-live="polite"></p>
       <div id="search-results" class="search-results" aria-live="polite" aria-label="Search results"></div>
       <div id="search-count-note" class="search-count-note" hidden></div>
+    </section>
+
+    <!-- ═════════════════════════════════ ORPHAN / XREF TARGETS -->
+    <section id="orphan-xref-panel" class="aos">
+      <div class="orphan-xref-panel">
+        <span class="section-tag">Contributor hygiene</span>
+        <h2 class="section-title">Orphan and missing cross-reference targets</h2>
+        <p class="section-desc">
+          Read-only list built from the same catalog scan as the knowledge graph (not a scientific ranking).
+          Fixing stale IDs and missing links keeps the graph truthful for everyone.
+          Regenerate <code style="font-family:var(--mono);font-size:.84em;">api/v1/orphan_xref_panel.json</code> with
+          <code style="font-family:var(--mono);font-size:.84em;">python scripts/export_orphan_xref_panel.py</code>
+          after catalog edits — see <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/docs/DEV_DASHBOARD.md" target="_blank" rel="noopener">docs/DEV_DASHBOARD.md</a>.
+        </p>
+        <p id="orphan-xref-status" class="orphan-xref-status" role="status" aria-live="polite" aria-busy="true">
+          <span class="orphan-xref-spinner" aria-hidden="true"></span>Loading contribution targets…
+        </p>
+        <div id="orphan-xref-empty" class="section-desc" style="display:none;margin-top:.5rem;color:var(--muted);">
+          No rows in this export (graph is xref-clean for the capped sample, or JSON not found).
+        </div>
+        <div id="orphan-xref-table-wrap" class="orphan-xref-table-wrap" style="display:none;">
+          <table class="orphan-xref-table" aria-label="Orphan and missing cross-reference targets">
+            <thead>
+              <tr>
+                <th scope="col">Kind</th>
+                <th scope="col">Why</th>
+                <th scope="col">Links</th>
+              </tr>
+            </thead>
+            <tbody id="orphan-xref-tbody"></tbody>
+          </table>
+        </div>
+        <p id="orphan-xref-foot" class="orphan-xref-foot" style="display:none;"></p>
+      </div>
     </section>
 
     <!-- ══════════════════════════════════════ DISCOVERY ENGINES -->
@@ -2040,6 +2139,11 @@
           <code>GET /api/v1/bridge_proposals.json</code>
           <span>AI co-pilot bridge proposals ranked by novelty score</span>
           <span class="api-endpoint-badge">~6 KB</span>
+        </a>
+        <a href="../api/v1/orphan_xref_panel.json" class="api-endpoint" target="_blank" rel="noopener">
+          <code>GET /api/v1/orphan_xref_panel.json</code>
+          <span>Capped list of missing xref targets and disconnected unknowns for the hub panel (regenerate via export script)</span>
+          <span class="api-endpoint-badge">~40 KB</span>
         </a>
       </div>
     </section>
@@ -4324,6 +4428,112 @@
           attachPioneerCardListeners();
         }
       });
+  })();
+  </script>
+
+  <script>
+  /* Orphan / missing xref panel — static JSON (no heavy graph in browser) */
+  (function () {
+    var statusEl = document.getElementById('orphan-xref-status');
+    var emptyEl = document.getElementById('orphan-xref-empty');
+    var wrapEl = document.getElementById('orphan-xref-table-wrap');
+    var tbody = document.getElementById('orphan-xref-tbody');
+    var footEl = document.getElementById('orphan-xref-foot');
+    if (!statusEl || !tbody) return;
+
+    function apiBase() {
+      var loc = window.location.href;
+      if (loc.indexOf('github.io') !== -1) return 'https://kr8zysho3.github.io/Universal-Science-Discovery/';
+      if (loc.indexOf('/dashboard/') !== -1) return loc.replace(/dashboard\/.*$/, '');
+      return '../';
+    }
+    var paths = [
+      apiBase() + 'api/v1/orphan_xref_panel.json',
+      '../api/v1/orphan_xref_panel.json'
+    ];
+
+    function kindLabel(kind) {
+      if (kind === 'missing_xref_target') return 'Missing xref';
+      if (kind === 'orphan_unknown') return 'Orphan unknown';
+      return kind || '—';
+    }
+
+    function done(msg, busy) {
+      statusEl.textContent = msg || '';
+      statusEl.setAttribute('aria-busy', busy ? 'true' : 'false');
+    }
+
+    function tryFetch(i) {
+      if (i >= paths.length) {
+        done('Could not load orphan/xref panel JSON (offline or missing file).', false);
+        if (emptyEl) emptyEl.style.display = 'block';
+        return;
+      }
+      fetch(paths[i])
+        .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error(String(r.status))); })
+        .then(function (data) {
+          var items = (data && data.items) ? data.items : [];
+          done('', false);
+          if (!items.length) {
+            done('No rows in this export (capped list is empty for the current graph).', false);
+            if (emptyEl) emptyEl.style.display = 'block';
+            if (wrapEl) wrapEl.style.display = 'none';
+            if (footEl) footEl.style.display = 'none';
+            return;
+          }
+          if (emptyEl) emptyEl.style.display = 'none';
+          if (wrapEl) wrapEl.style.display = 'block';
+          tbody.textContent = '';
+          items.forEach(function (item) {
+            var tr = document.createElement('tr');
+            var tdKind = document.createElement('td');
+            var spanK = document.createElement('span');
+            spanK.className = 'orphan-xref-kind';
+            spanK.textContent = kindLabel(item.kind);
+            tdKind.appendChild(spanK);
+            if (item.ref_id) {
+              tdKind.appendChild(document.createElement('br'));
+              var code = document.createElement('code');
+              code.style.fontSize = '.78rem';
+              code.style.color = 'var(--teal)';
+              code.textContent = item.ref_id;
+              tdKind.appendChild(code);
+            }
+            var tdReason = document.createElement('td');
+            tdReason.textContent = item.reason || '';
+            var tdAct = document.createElement('td');
+            tdAct.className = 'orphan-xref-actions';
+            if (item.github_search_url) {
+              var aSearch = document.createElement('a');
+              aSearch.href = item.github_search_url;
+              aSearch.target = '_blank';
+              aSearch.rel = 'noopener';
+              aSearch.textContent = 'View on GitHub';
+              tdAct.appendChild(aSearch);
+            }
+            if (item.github_blob_url) {
+              if (tdAct.childNodes.length) tdAct.appendChild(document.createTextNode(' '));
+              var aBlob = document.createElement('a');
+              aBlob.href = item.github_blob_url;
+              aBlob.target = '_blank';
+              aBlob.rel = 'noopener';
+              aBlob.textContent = 'YAML blob';
+              tdAct.appendChild(aBlob);
+            }
+            tr.appendChild(tdKind);
+            tr.appendChild(tdReason);
+            tr.appendChild(tdAct);
+            tbody.appendChild(tr);
+          });
+          if (footEl && data.generated_at) {
+            footEl.style.display = 'block';
+            footEl.textContent = 'Generated: ' + data.generated_at
+              + (data.meta && data.meta.item_cap ? ' · capped at ' + data.meta.item_cap + ' rows' : '');
+          }
+        })
+        .catch(function () { tryFetch(i + 1); });
+    }
+    tryFetch(0);
   })();
   </script>
 

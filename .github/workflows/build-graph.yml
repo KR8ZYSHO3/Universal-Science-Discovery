@@ -36,6 +36,9 @@ jobs:
       - name: Rebuild knowledge graph
         run: python scripts/build_graph.py
 
+      - name: Export orphan xref panel JSON
+        run: python scripts/export_orphan_xref_panel.py
+
       - name: Find orphan unknowns
         run: python scripts/find_orphan_unknowns.py
 
@@ -76,6 +79,7 @@ jobs:
 
             - `docs/knowledge_graph.json`, `docs/orphan_unknowns.md`, `docs/bridge_proposals.json`
             - `docs/citation_index.json`, `docs/citation_index.md`
+            - `api/v1/orphan_xref_panel.json` (xref hygiene hub panel)
             - `dashboard/index.html`, `dashboard/domains/`
             - `api/v1/`
 

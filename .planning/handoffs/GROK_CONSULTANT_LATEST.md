@@ -7,6 +7,8 @@
 **Wave Factory** is stable and green.  
 Bounded content wave is deferred (documentation-only) until maintainer review of `drafts/`.
 
+**2026-05-15 — Orphan/xref hub thin slice:** branch **`feat/dashboard-orphan-explorer`** adds `scripts/export_orphan_xref_panel.py`, committed **`api/v1/orphan_xref_panel.json`**, hub **Xref hygiene** section, **`build-graph.yml`** export step, **`api/v1/meta.json`** endpoint key, docs + **`tests/repo_smoke`** shape test. CI bot PRs will refresh the JSON after catalog edits.
+
 ## Changes (recent agent work)
 - Phase A merged to main.
 - Phase B UX improvements + PATH_TO_SUCCESS checklist in `docs/`.
@@ -21,7 +23,7 @@ Bounded content wave is deferred (documentation-only) until maintainer review of
 ## Next steps
 - Merge Phase B.
 - Begin bounded content wave (review `drafts/` and promote high-quality entries).
-- Continue Dashboard Phase C (smart recommendations / orphan explorer) after Phase B.
+- Continue Dashboard Phase C (**smart recommendations**); orphan/xref **panel** is now a thin shipped slice (`export_orphan_xref_panel.py` + hub JSON).
 
 ## Catalog truth (reproducible)
 `python scripts/verify_dashboard_consistency.py` → **bridges=1123, unknowns=1408, hypotheses=1274, phenomena=10, graph_nodes=3857, graph_edges=4517**
