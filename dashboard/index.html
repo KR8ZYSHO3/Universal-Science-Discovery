@@ -3040,10 +3040,13 @@
 
       fetch('deploy-info.json', { cache: 'no-store' })
         .then(function (r) {
-          if (!r.ok) throw new Error('no deploy-info');
-          return r.json();
+          return r.ok ? r.json() : Promise.resolve({});
+        })
+        .catch(function () {
+          return Promise.resolve({});
         })
         .then(function (info) {
+          info = info || {};
           var deploySha = info.sha || '';
           var short = info.short_sha || (deploySha ? deploySha.slice(0, 7) : '?');
           var genAt = info.generated_at || '';
@@ -3097,7 +3100,21 @@
           }
 
           if (!deploySha) {
-            renderPartial();
+            if (isGHPages) {
+              show(
+                '<span class="pages-deploy-dot pages-deploy-dot-warn"></span>' +
+                  '<span><code>deploy-info.json</code> missing on this host — redeploy Pages from <code>main</code> or check <a href="https://github.com/' +
+                  REPO +
+                  '/actions" target="_blank" rel="noopener">Actions</a>.</span>',
+                'pages-deploy-unknown'
+              );
+            } else {
+              show(
+                '<span class="pages-deploy-dot pages-deploy-dot-muted"></span>' +
+                  '<span>Local preview — commit-vs-<code>main</code> freshness appears on the <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/" target="_blank" rel="noopener">hosted hub</a> after each Pages deploy.</span>',
+                'pages-deploy-local'
+              );
+            }
             return;
           }
 
@@ -3156,7 +3173,8 @@
       filtered.forEach(function (c) {
         var av  = c.author ? c.author.avatar_url : '';
         var who = c.author ? c.author.login : (c.commit.author ? c.commit.author.name : '?');
-        var msg = c.commit.message.split('\n')[0].substring(0, 80);
+        var rawMsg = c.commit && c.commit.message ? String(c.commit.message).split('\n')[0] : '';
+        var msg = rawMsg.length > 80 ? rawMsg.substring(0, 80) : rawMsg;
         var a   = document.createElement('a');
         a.className = 'commit-row';
         a.href = c.html_url; a.target = '_blank'; a.rel = 'noopener';
@@ -3485,14 +3503,16 @@
           if (bridgesData && bridgesData.items) {
             bridgesData.items.forEach(function (b) {
               if (catalogMap[b.id]) {
-                catalogMap[b.id].bridge_claim = (b.bridge_claim || '').substring(0, 400);
+                var bc = b.bridge_claim != null ? String(b.bridge_claim) : '';
+                catalogMap[b.id].bridge_claim = bc.substring(0, 400);
               }
             });
           }
           if (unknownsData && unknownsData.items) {
             unknownsData.items.forEach(function (u) {
               if (catalogMap[u.id]) {
-                catalogMap[u.id].description = (u.systematic_gaps || '').substring(0, 400);
+                var gaps = u.systematic_gaps != null ? String(u.systematic_gaps) : '';
+                catalogMap[u.id].description = gaps.substring(0, 400);
                 if (!catalogMap[u.id].domain && u.domain) {
                   catalogMap[u.id].domain = u.domain;
                 }
@@ -3511,7 +3531,8 @@
 
         Promise.all([
           fetch(_apiBase + 'api/v1/bridges.json').then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; }),
-          fetch(_apiBase + 'api/v1/unknowns.json').then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; })
+          fetch(_apiBase + 'api/v1/unknowns.json').then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; }),
+          fetch(_apiBase + 'api/v1/meta.json').then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; })
         ]).then(function (results) {
           enrichAndRebuildIndex(results[0], results[1]);
         });
@@ -4544,8 +4565,13 @@
     if (!counter) return;
     var apiUrl = '../api/v1/bridge_proposals.json';
     fetch(apiUrl)
-      .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+      .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (data) {
+        if (!data || !data.summary) {
+          document.getElementById('bpc-loading').textContent =
+            'AI co-pilot: pioneer seeds + breakthrough-gap bridges awaiting build.';
+          return;
+        }
         var summary = data.summary || {};
         var pioneer = summary.pioneer_seed_count != null ? summary.pioneer_seed_count : '?';
         var gap     = summary.breakthrough_gap_count != null ? summary.breakthrough_gap_count : '?';

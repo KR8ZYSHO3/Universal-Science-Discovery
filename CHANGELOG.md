@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed — Contributor hub (optional JSON + enrichment guards)
+- **`dashboard/index.html`:** **`deploy-info.json`** — treat **404** / parse errors as **empty `{}`** (no throw); **no SHA** shows correct **local vs GitHub Pages** copy instead of a misleading “could not reach GitHub API” line. **`systematic_gaps`** / **`bridge_claim`** coerced with **`String(...)`** before **`.substring`**. Activity feed guards missing **`commit.message`**. **`api/v1/meta.json`** fetched **optionally** (null on failure) with bridges/unknowns. **Bridge proposals** counter uses **non-throwing** fetch when **HTTP ≠ 200**.
+
 ### Added — Dashboard orphan / xref hygiene panel (2026-05-15)
 - **`scripts/export_orphan_xref_panel.py`:** writes **`api/v1/orphan_xref_panel.json`** (capped rows: missing graph targets from YAML xrefs + orphan unknowns when present) for the contributor hub.
 - **`dashboard/index.html`:** **Xref hygiene** nav + **Orphan and missing cross-reference targets** section (fetch JSON; GitHub search / blob links; reduced-motion-friendly loading).
