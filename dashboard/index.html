@@ -3030,7 +3030,8 @@
       }
 
       function loadDeployInfo() {
-        return fetch('../api/v1/meta.json', { cache: 'no-store' })
+        var metaUrl = '../api/v1/meta.json?_=' + Date.now();
+        return fetch(metaUrl, { cache: 'no-store' })
           .then(function (r) {
             return r.ok ? r.json() : {};
           })
@@ -3041,6 +3042,7 @@
             meta = meta || {};
             var info = meta.pages_deploy || {};
             if (info.sha) return info;
+            if (!isGHPages) return {};
             return fetch('deploy-info.json', { cache: 'no-store' })
               .then(function (r) {
                 return r.ok ? r.json() : {};
@@ -3142,7 +3144,9 @@
                 return;
               }
               var mainShort = mainSha.slice(0, 7);
-              if (deploySha === mainSha) renderMatch();
+              var deployNorm = deploySha.toLowerCase();
+              var mainNorm = mainSha.toLowerCase();
+              if (deployNorm === mainNorm || deployNorm.slice(0, 7) === mainNorm.slice(0, 7)) renderMatch();
               else renderBehind(mainShort);
             })
             .catch(function () {
@@ -3358,6 +3362,33 @@
     } else {
       document.querySelectorAll('.aos').forEach(function (el) { el.classList.add('in'); });
     }
+
+    /* Hash / nav jumps must reveal `.aos` targets (IO alone misses anchor scroll). */
+    function revealAosFromHash() {
+      var id = (location.hash || '').replace(/^#/, '');
+      if (!id) return;
+      var target = document.getElementById(id);
+      if (target) {
+        target.classList.add('in');
+        target.querySelectorAll('.aos').forEach(function (el) { el.classList.add('in'); });
+      }
+    }
+    window.addEventListener('hashchange', revealAosFromHash);
+    navLinks.forEach(function (a) {
+      var href = a.getAttribute('href');
+      if (!href || href.charAt(0) !== '#') return;
+      a.addEventListener('click', function () {
+        var sectionId = href.slice(1);
+        requestAnimationFrame(function () {
+          var el = document.getElementById(sectionId);
+          if (el) {
+            el.classList.add('in');
+            el.querySelectorAll('.aos').forEach(function (child) { child.classList.add('in'); });
+          }
+        });
+      });
+    });
+    revealAosFromHash();
 
   })();
 
