@@ -399,6 +399,52 @@
     .first-contrib-card .first-contrib-lead {
       font-size: .87rem; color: var(--muted); line-height: 1.55; margin-bottom: 1rem;
     }
+    .how-works-table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: var(--r-sm);
+      background: var(--bg-1);
+    }
+    .how-works-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .84rem;
+    }
+    .how-works-table th,
+    .how-works-table td {
+      padding: .55rem .65rem;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+    .how-works-table th {
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--muted);
+      font-weight: 600;
+      background: var(--surface);
+    }
+    .how-works-table tr:last-child td { border-bottom: none; }
+    .how-works-table td:first-child { font-weight: 600; color: var(--text); white-space: nowrap; }
+    .how-works-foot {
+      margin-top: .85rem;
+      font-size: .82rem;
+      color: var(--muted);
+    }
+    .how-works-foot a { color: var(--accent); }
+    .hero-contrib-hint {
+      font-size: .88rem;
+      margin: -1.35rem 0 1.75rem;
+      text-align: center;
+    }
+    .hero-contrib-hint a {
+      color: var(--accent);
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(79,156,249,.35);
+    }
+    .hero-contrib-hint a:hover { border-bottom-color: var(--accent); }
     .xref-hygiene-intro {
       margin: 0 0 1rem;
       padding: .95rem 1.1rem;
@@ -1487,6 +1533,8 @@
         <span class="pill">Git-native · Open source</span>
       </div>
 
+      <p class="hero-contrib-hint"><a href="#start">New contributor? Start here →</a></p>
+
       <div class="pages-deploy-banner aos" id="pages-deploy-banner" role="status" aria-live="polite" hidden></div>
 
       <p class="hero-lead">
@@ -1585,20 +1633,20 @@
       <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/" target="_blank" rel="noopener">GitHub Pages ↗</a>
     </p>
     <nav class="hub-nav" aria-label="Page sections">
-      <a href="#start">Start here</a>
+      <a href="#start" title="Onboarding path, tool map, and first contribution checklist">Start here</a>
       <a href="domains/" class="nav-link">Browse domains</a>
       <a href="explainers/" class="nav-link">Explainers</a>
-      <a href="#catalog-search">Search</a>
-      <a href="#orphan-xref-panel">Xref hygiene</a>
+      <a href="#catalog-search" title="Full-text search across unknowns, bridges, hypotheses, and phenomena">Search</a>
+      <a href="#orphan-xref-panel" title="Broken cross-reference targets you can fix in a pull request">Xref hygiene</a>
       <a href="#discovery-engines">Engines</a>
       <a href="#pioneers">Pioneers</a>
       <a href="#breakthrough-gaps">Breakthroughs</a>
       <a href="#ai-copilot">AI co-pilot</a>
       <a href="#developer-api">API</a>
-      <a href="#knowledge-graph">Knowledge graph</a>
+      <a href="#knowledge-graph" title="Interactive force-directed view of catalog relationships">Knowledge graph</a>
       <a href="#workstreams">Workstreams</a>
       <a href="#status">Status</a>
-      <a href="#contribute">Contribute</a>
+      <a href="#contribute" title="Where catalog folders live — edit YAML in a clone, not in this hub">Contribute</a>
       <a href="#project">Project</a>
       <a href="#policies">Policies</a>
       <a href="#reference">Reference</a>
@@ -1607,6 +1655,197 @@
   </div>
 
   <main>
+    <!-- ═══════════════════════════════════════════ START HERE -->
+    <section id="start">
+      <div>
+        <span class="section-tag">Onboarding</span>
+        <h2 class="section-title">New here? Follow this order</h2>
+        <p class="section-desc">
+          Same path as <a href="../CONTRIBUTING.md">CONTRIBUTING.md</a> and
+          <a href="../docs/ONBOARDING.md">docs/ONBOARDING.md</a>, laid out as steps.
+          Clone the repo so file links open directly in your editor.
+        </p>
+      </div>
+
+      <div class="first-contrib-card aos" aria-labelledby="how-works-heading">
+        <h3 id="how-works-heading">How this project works</h3>
+        <p class="first-contrib-lead">
+          Plain-language map of the tools you will touch — no scientific claims, just workflow.
+        </p>
+        <div class="how-works-table-wrap">
+          <table class="how-works-table" aria-label="Contributor tools and workflow">
+            <thead>
+              <tr>
+                <th scope="col">Tool</th>
+                <th scope="col">What it does</th>
+                <th scope="col">You use it to…</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Hub (this page)</td>
+                <td>Browse catalog, search, graph, hygiene list</td>
+                <td>Find a task; read only</td>
+              </tr>
+              <tr>
+                <td>Git + GitHub</td>
+                <td>Version control</td>
+                <td>Edit YAML; open PR</td>
+              </tr>
+              <tr>
+                <td><code>validate_schemas</code> + <code>repo_smoke</code></td>
+                <td>Local/CI checks</td>
+                <td>Confirm YAML valid before PR</td>
+              </tr>
+              <tr>
+                <td>build-graph bot PR</td>
+                <td>Auto refresh graph/API after merge</td>
+                <td>Merge when it appears</td>
+              </tr>
+              <tr>
+                <td>GitHub Pages</td>
+                <td>Hosted hub</td>
+                <td>Share link; green banner = site current</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="how-works-foot">
+          Deeper walkthrough:
+          <a href="../CONTRIBUTING.md">CONTRIBUTING.md</a> ·
+          <a href="../docs/DEV_DASHBOARD.md">docs/DEV_DASHBOARD.md</a>
+        </p>
+      </div>
+
+      <div class="first-contrib-card aos" aria-labelledby="first-contrib-heading">
+        <h3 id="first-contrib-heading">First contribution (five steps)</h3>
+        <p class="first-contrib-lead">
+          The hub <strong>browses</strong> and routes you to tasks; your PR edits YAML in a local clone.
+          Stream A walkthrough:
+          <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/docs/HAPPY_PATH_FIRST_RECORDS.md" target="_blank" rel="noopener">HAPPY_PATH_FIRST_RECORDS.md ↗</a>
+        </p>
+        <ol class="steps">
+          <li class="aos">
+            <span class="step-n" aria-hidden="true"></span>
+            <div class="step-b">
+              <strong>Fork and clone the repo</strong>
+              <p>Get a local copy so you can edit catalog files and run validation scripts.</p>
+              <div class="step-links">
+                <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery" target="_blank" rel="noopener">GitHub repo ↗</a>
+                <a class="lc" href="../CONTRIBUTING.md">CONTRIBUTING</a>
+              </div>
+            </div>
+          </li>
+          <li class="aos d1">
+            <span class="step-n" aria-hidden="true"></span>
+            <div class="step-b">
+              <strong>Pick a task</strong>
+              <p>Choose one entry path — all end in a pull request.</p>
+              <div class="step-links">
+                <a class="lc" href="#orphan-xref-panel">Hygiene (fix one xref)</a>
+                <a class="lc" href="../docs/HAPPY_PATH_FIRST_RECORDS.md">Stream A (unknown + hypothesis)</a>
+                <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/issues?q=is%3Aopen+label%3A%22good+first+issue%22" target="_blank" rel="noopener">Good first issues ↗</a>
+              </div>
+            </div>
+          </li>
+          <li class="aos d2">
+            <span class="step-n" aria-hidden="true"></span>
+            <div class="step-b">
+              <strong>Open the file you will edit</strong>
+              <p>Use the hygiene table, Stream A templates, or the issue’s file path.</p>
+              <div class="step-links">
+                <a class="lc" href="../templates/README.md">Templates</a>
+                <a class="lc" href="#orphan-xref-panel">Xref hygiene table</a>
+                <a class="lc" href="#contribute">Catalog folders</a>
+              </div>
+            </div>
+          </li>
+          <li class="aos d3">
+            <span class="step-n" aria-hidden="true"></span>
+            <div class="step-b">
+              <strong>Run checks before you push</strong>
+              <p>From the repo root:</p>
+              <p style="margin-top:.35rem;font-family:var(--mono);font-size:.8rem;color:var(--text);">
+                python scripts/validate_schemas.py<br>
+                python -m pytest tests/repo_smoke
+              </p>
+            </div>
+          </li>
+          <li class="aos d4">
+            <span class="step-n" aria-hidden="true"></span>
+            <div class="step-b">
+              <strong>Open a PR and merge when CI is green</strong>
+              <p>After your PR merges, watch for an optional <strong>graph rebuild bot PR</strong> and merge it if it appears (refreshes the knowledge graph JSON).</p>
+              <div class="step-links">
+                <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/pulls" target="_blank" rel="noopener">Pull requests ↗</a>
+              </div>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <ol class="steps">
+        <li class="aos">
+          <span class="step-n" aria-hidden="true"></span>
+          <div class="step-b">
+            <strong>Know what you're joining</strong>
+            <p>Vision, motivation, and why this infrastructure matters for science.</p>
+            <div class="step-links">
+              <a class="lc" href="../WHY_CONTRIBUTE.md">WHY_CONTRIBUTE</a>
+              <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/WHY_CONTRIBUTE.md" target="_blank" rel="noopener">GitHub ↗</a>
+            </div>
+          </div>
+        </li>
+        <li class="aos d1">
+          <span class="step-n" aria-hidden="true"></span>
+          <div class="step-b">
+            <strong>Scope and quality bar</strong>
+            <p>What lives here, what doesn't, and the rigor expected of every entry.</p>
+            <div class="step-links">
+              <a class="lc" href="../docs/VISION_AND_SCOPE.md">VISION_AND_SCOPE</a>
+              <a class="lc" href="../docs/QUALITY_BAR.md">QUALITY_BAR</a>
+              <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/docs/VISION_AND_SCOPE.md" target="_blank" rel="noopener">GitHub ↗</a>
+            </div>
+          </div>
+        </li>
+        <li class="aos d2">
+          <span class="step-n" aria-hidden="true"></span>
+          <div class="step-b">
+            <strong>Rigor: hypotheses vs. findings</strong>
+            <p>The evidence bar, claims discipline, and output conventions. Read before proposing any scientific claims.</p>
+            <div class="step-links">
+              <a class="lc" href="../docs/METHODOLOGY.md">METHODOLOGY</a>
+              <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/docs/METHODOLOGY.md" target="_blank" rel="noopener">GitHub ↗</a>
+            </div>
+          </div>
+        </li>
+        <li class="aos d3">
+          <span class="step-n" aria-hidden="true"></span>
+          <div class="step-b">
+            <strong>Integrity, data, and conduct</strong>
+            <p>Ethics policy, what data may be committed, and community norms.</p>
+            <div class="step-links">
+              <a class="lc" href="../docs/ETHICS_REPRODUCIBILITY_AND_DATA.md">Ethics &amp; data</a>
+              <a class="lc" href="../CODE_OF_CONDUCT.md">Code of Conduct</a>
+              <a class="lc" href="../LEGAL.md">LEGAL</a>
+            </div>
+          </div>
+        </li>
+        <li class="aos d4">
+          <span class="step-n" aria-hidden="true"></span>
+          <div class="step-b">
+            <strong>Make your first contribution</strong>
+            <p>Stream A: validate setup → add a <code>u-…</code> unknown → add a <code>h-…</code> hypothesis → open PR.</p>
+            <div class="step-links">
+              <a class="lc" href="../docs/HAPPY_PATH_FIRST_RECORDS.md">Happy path guide</a>
+              <a class="lc" href="../CONTRIBUTING.md">CONTRIBUTING</a>
+              <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/issues" target="_blank" rel="noopener">Open an issue ↗</a>
+            </div>
+          </div>
+        </li>
+      </ol>
+    </section>
+
     <!-- ═══════════════════════════════════════════ CATALOG SEARCH -->
     <section id="catalog-search">
       <div>
@@ -2263,147 +2502,6 @@
           </div>
         </div>
       </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════ START HERE -->
-    <section id="start">
-      <div>
-        <span class="section-tag">Onboarding</span>
-        <h2 class="section-title">New here? Follow this order</h2>
-        <p class="section-desc">
-          Same path as <a href="../CONTRIBUTING.md">CONTRIBUTING.md</a> and
-          <a href="../docs/ONBOARDING.md">docs/ONBOARDING.md</a>, laid out as steps.
-          Clone the repo so file links open directly in your editor.
-        </p>
-      </div>
-
-      <div class="first-contrib-card aos" aria-labelledby="first-contrib-heading">
-        <h3 id="first-contrib-heading">First contribution (five steps)</h3>
-        <p class="first-contrib-lead">
-          The hub <strong>browses</strong> and routes you to tasks; your PR edits YAML in a local clone.
-          Stream A walkthrough:
-          <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/docs/HAPPY_PATH_FIRST_RECORDS.md" target="_blank" rel="noopener">HAPPY_PATH_FIRST_RECORDS.md ↗</a>
-        </p>
-        <ol class="steps">
-          <li class="aos">
-            <span class="step-n" aria-hidden="true"></span>
-            <div class="step-b">
-              <strong>Fork and clone the repo</strong>
-              <p>Get a local copy so you can edit catalog files and run validation scripts.</p>
-              <div class="step-links">
-                <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery" target="_blank" rel="noopener">GitHub repo ↗</a>
-                <a class="lc" href="../CONTRIBUTING.md">CONTRIBUTING</a>
-              </div>
-            </div>
-          </li>
-          <li class="aos d1">
-            <span class="step-n" aria-hidden="true"></span>
-            <div class="step-b">
-              <strong>Pick a task</strong>
-              <p>Choose one entry path — all end in a pull request.</p>
-              <div class="step-links">
-                <a class="lc" href="#orphan-xref-panel">Hygiene (fix one xref)</a>
-                <a class="lc" href="../docs/HAPPY_PATH_FIRST_RECORDS.md">Stream A (unknown + hypothesis)</a>
-                <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/issues?q=is%3Aopen+label%3A%22good+first+issue%22" target="_blank" rel="noopener">Good first issues ↗</a>
-              </div>
-            </div>
-          </li>
-          <li class="aos d2">
-            <span class="step-n" aria-hidden="true"></span>
-            <div class="step-b">
-              <strong>Open the file you will edit</strong>
-              <p>Use the hygiene table, Stream A templates, or the issue’s file path.</p>
-              <div class="step-links">
-                <a class="lc" href="../templates/README.md">Templates</a>
-                <a class="lc" href="#orphan-xref-panel">Xref hygiene table</a>
-                <a class="lc" href="#contribute">Catalog folders</a>
-              </div>
-            </div>
-          </li>
-          <li class="aos d3">
-            <span class="step-n" aria-hidden="true"></span>
-            <div class="step-b">
-              <strong>Run checks before you push</strong>
-              <p>From the repo root:</p>
-              <p style="margin-top:.35rem;font-family:var(--mono);font-size:.8rem;color:var(--text);">
-                python scripts/validate_schemas.py<br>
-                python -m pytest tests/repo_smoke
-              </p>
-            </div>
-          </li>
-          <li class="aos d4">
-            <span class="step-n" aria-hidden="true"></span>
-            <div class="step-b">
-              <strong>Open a PR and merge when CI is green</strong>
-              <p>After your PR merges, watch for an optional <strong>graph rebuild bot PR</strong> and merge it if it appears (refreshes the knowledge graph JSON).</p>
-              <div class="step-links">
-                <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/pulls" target="_blank" rel="noopener">Pull requests ↗</a>
-              </div>
-            </div>
-          </li>
-        </ol>
-      </div>
-
-      <ol class="steps">
-        <li class="aos">
-          <span class="step-n" aria-hidden="true"></span>
-          <div class="step-b">
-            <strong>Know what you're joining</strong>
-            <p>Vision, motivation, and why this infrastructure matters for science.</p>
-            <div class="step-links">
-              <a class="lc" href="../WHY_CONTRIBUTE.md">WHY_CONTRIBUTE</a>
-              <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/WHY_CONTRIBUTE.md" target="_blank" rel="noopener">GitHub ↗</a>
-            </div>
-          </div>
-        </li>
-        <li class="aos d1">
-          <span class="step-n" aria-hidden="true"></span>
-          <div class="step-b">
-            <strong>Scope and quality bar</strong>
-            <p>What lives here, what doesn't, and the rigor expected of every entry.</p>
-            <div class="step-links">
-              <a class="lc" href="../docs/VISION_AND_SCOPE.md">VISION_AND_SCOPE</a>
-              <a class="lc" href="../docs/QUALITY_BAR.md">QUALITY_BAR</a>
-              <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/docs/VISION_AND_SCOPE.md" target="_blank" rel="noopener">GitHub ↗</a>
-            </div>
-          </div>
-        </li>
-        <li class="aos d2">
-          <span class="step-n" aria-hidden="true"></span>
-          <div class="step-b">
-            <strong>Rigor: hypotheses vs. findings</strong>
-            <p>The evidence bar, claims discipline, and output conventions. Read before proposing any scientific claims.</p>
-            <div class="step-links">
-              <a class="lc" href="../docs/METHODOLOGY.md">METHODOLOGY</a>
-              <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/docs/METHODOLOGY.md" target="_blank" rel="noopener">GitHub ↗</a>
-            </div>
-          </div>
-        </li>
-        <li class="aos d3">
-          <span class="step-n" aria-hidden="true"></span>
-          <div class="step-b">
-            <strong>Integrity, data, and conduct</strong>
-            <p>Ethics policy, what data may be committed, and community norms.</p>
-            <div class="step-links">
-              <a class="lc" href="../docs/ETHICS_REPRODUCIBILITY_AND_DATA.md">Ethics &amp; data</a>
-              <a class="lc" href="../CODE_OF_CONDUCT.md">Code of Conduct</a>
-              <a class="lc" href="../LEGAL.md">LEGAL</a>
-            </div>
-          </div>
-        </li>
-        <li class="aos d4">
-          <span class="step-n" aria-hidden="true"></span>
-          <div class="step-b">
-            <strong>Make your first contribution</strong>
-            <p>Stream A: validate setup → add a <code>u-…</code> unknown → add a <code>h-…</code> hypothesis → open PR.</p>
-            <div class="step-links">
-              <a class="lc" href="../docs/HAPPY_PATH_FIRST_RECORDS.md">Happy path guide</a>
-              <a class="lc" href="../CONTRIBUTING.md">CONTRIBUTING</a>
-              <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/issues" target="_blank" rel="noopener">Open an issue ↗</a>
-            </div>
-          </div>
-        </li>
-      </ol>
     </section>
 
     <!-- ══════════════════════════════════════════ WORKSTREAMS -->
