@@ -369,6 +369,51 @@
     .server-banner a { color: var(--accent); }
     .server-banner code { font-family: var(--mono); font-size: .83em; }
 
+    .hub-context-banner {
+      display: none;
+      max-width: min(1100px, 94vw);
+      margin: 0 auto .85rem;
+      padding: .5rem 1rem;
+      font-size: .78rem;
+      line-height: 1.45;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      border-radius: var(--r-sm);
+      background: var(--surface);
+      text-align: center;
+    }
+    .hub-context-banner.show { display: block; }
+    .hub-context-banner a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+    .hub-context-banner strong { color: var(--text); font-weight: 600; }
+
+    .first-contrib-card {
+      margin-bottom: 1.75rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 1.25rem 1.35rem 1.1rem;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .first-contrib-card h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: .35rem; }
+    .first-contrib-card .first-contrib-lead {
+      font-size: .87rem; color: var(--muted); line-height: 1.55; margin-bottom: 1rem;
+    }
+    .xref-hygiene-intro {
+      margin: 0 0 1rem;
+      padding: .95rem 1.1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      font-size: .87rem;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+    .xref-hygiene-intro strong { color: var(--text); }
+    .xref-hygiene-intro ol { margin: .55rem 0 0 1.15rem; padding: 0; }
+    .xref-hygiene-intro li { margin-bottom: .35rem; }
+    .xref-hygiene-intro a { color: var(--accent); }
+
     .scroll-hint {
       position: absolute; bottom: 1.75rem; left: 50%; transform: translateX(-50%);
       display: flex; flex-direction: column; align-items: center; gap: .35rem;
@@ -1533,6 +1578,12 @@
 
   <!-- ═══════════════════════════════════════════════ STICKY NAV -->
   <div class="hub-nav-wrap">
+    <p id="hub-context-banner" class="hub-context-banner" role="note" hidden>
+      <strong>Local preview.</strong> This page helps you <strong>browse</strong> the catalog and find tasks.
+      Real edits happen in a <strong>clone</strong>: change YAML, run checks, open a PR — then merge any follow-up graph bot PR.
+      Hosted copy:
+      <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/" target="_blank" rel="noopener">GitHub Pages ↗</a>
+    </p>
     <nav class="hub-nav" aria-label="Page sections">
       <a href="#start">Start here</a>
       <a href="domains/" class="nav-link">Browse domains</a>
@@ -1595,6 +1646,21 @@
           <code style="font-family:var(--mono);font-size:.84em;">python scripts/export_orphan_xref_panel.py</code>
           after catalog edits — see <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/docs/DEV_DASHBOARD.md" target="_blank" rel="noopener">docs/DEV_DASHBOARD.md</a>.
         </p>
+        <div class="xref-hygiene-intro aos">
+          <p>
+            <strong>Broken cross-reference</strong> means a YAML file points at an ID that does not exist (typo, renamed record, or missing target).
+            The graph cannot draw that link until the ID is fixed or the reference is removed.
+          </p>
+          <p><strong>Quick fix (three steps):</strong></p>
+          <ol>
+            <li>Pick a row below and open the source file (links in the table).</li>
+            <li>Correct the <code>related_*</code> ID in that YAML file so it matches a real catalog ID.</li>
+            <li>Open a PR → wait for CI green → merge → if a <strong>graph rebuild bot PR</strong> appears, merge that too.</li>
+          </ol>
+          <p style="margin:.65rem 0 0;font-size:.82rem;">
+            This table shows at most <strong>100 rows</strong> from the export — not every xref issue in the repo.
+          </p>
+        </div>
         <p id="orphan-xref-status" class="orphan-xref-status" role="status" aria-live="polite" aria-busy="true">
           <span class="orphan-xref-spinner" aria-hidden="true"></span>Loading contribution targets…
         </p>
@@ -2210,6 +2276,74 @@
           Clone the repo so file links open directly in your editor.
         </p>
       </div>
+
+      <div class="first-contrib-card aos" aria-labelledby="first-contrib-heading">
+        <h3 id="first-contrib-heading">First contribution (five steps)</h3>
+        <p class="first-contrib-lead">
+          The hub <strong>browses</strong> and routes you to tasks; your PR edits YAML in a local clone.
+          Stream A walkthrough:
+          <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/docs/HAPPY_PATH_FIRST_RECORDS.md" target="_blank" rel="noopener">HAPPY_PATH_FIRST_RECORDS.md ↗</a>
+        </p>
+        <ol class="steps">
+          <li class="aos">
+            <span class="step-n" aria-hidden="true"></span>
+            <div class="step-b">
+              <strong>Fork and clone the repo</strong>
+              <p>Get a local copy so you can edit catalog files and run validation scripts.</p>
+              <div class="step-links">
+                <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery" target="_blank" rel="noopener">GitHub repo ↗</a>
+                <a class="lc" href="../CONTRIBUTING.md">CONTRIBUTING</a>
+              </div>
+            </div>
+          </li>
+          <li class="aos d1">
+            <span class="step-n" aria-hidden="true"></span>
+            <div class="step-b">
+              <strong>Pick a task</strong>
+              <p>Choose one entry path — all end in a pull request.</p>
+              <div class="step-links">
+                <a class="lc" href="#orphan-xref-panel">Hygiene (fix one xref)</a>
+                <a class="lc" href="../docs/HAPPY_PATH_FIRST_RECORDS.md">Stream A (unknown + hypothesis)</a>
+                <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/issues?q=is%3Aopen+label%3A%22good+first+issue%22" target="_blank" rel="noopener">Good first issues ↗</a>
+              </div>
+            </div>
+          </li>
+          <li class="aos d2">
+            <span class="step-n" aria-hidden="true"></span>
+            <div class="step-b">
+              <strong>Open the file you will edit</strong>
+              <p>Use the hygiene table, Stream A templates, or the issue’s file path.</p>
+              <div class="step-links">
+                <a class="lc" href="../templates/README.md">Templates</a>
+                <a class="lc" href="#orphan-xref-panel">Xref hygiene table</a>
+                <a class="lc" href="#contribute">Catalog folders</a>
+              </div>
+            </div>
+          </li>
+          <li class="aos d3">
+            <span class="step-n" aria-hidden="true"></span>
+            <div class="step-b">
+              <strong>Run checks before you push</strong>
+              <p>From the repo root:</p>
+              <p style="margin-top:.35rem;font-family:var(--mono);font-size:.8rem;color:var(--text);">
+                python scripts/validate_schemas.py<br>
+                python -m pytest tests/repo_smoke
+              </p>
+            </div>
+          </li>
+          <li class="aos d4">
+            <span class="step-n" aria-hidden="true"></span>
+            <div class="step-b">
+              <strong>Open a PR and merge when CI is green</strong>
+              <p>After your PR merges, watch for an optional <strong>graph rebuild bot PR</strong> and merge it if it appears (refreshes the knowledge graph JSON).</p>
+              <div class="step-links">
+                <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/pulls" target="_blank" rel="noopener">Pull requests ↗</a>
+              </div>
+            </div>
+          </li>
+        </ol>
+      </div>
+
       <ol class="steps">
         <li class="aos">
           <span class="step-n" aria-hidden="true"></span>
@@ -2485,8 +2619,8 @@
         <span class="section-tag">Contribute</span>
         <h2 class="section-title">Where to add knowledge</h2>
         <p class="section-desc">
-          Start with <a href="../docs/HAPPY_PATH_FIRST_RECORDS.md">HAPPY_PATH_FIRST_RECORDS.md</a> —
-          the guided walk from zero to your first unknown + hypothesis PR.
+          This hub does not edit the catalog — it links to the folders and guides where you add YAML in your clone.
+          Start with <a href="../docs/HAPPY_PATH_FIRST_RECORDS.md">HAPPY_PATH_FIRST_RECORDS.md</a> for your first unknown + hypothesis PR.
         </p>
       </div>
 
@@ -2788,6 +2922,7 @@
     var RAW_BASE  = 'https://raw.githubusercontent.com/' + REPO + '/main';
     var isFile    = location.protocol === 'file:';
     var isGHPages = location.hostname === 'kr8zysho3.github.io';
+    var isLocalhost = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
 
     /* ── THEME ───────────────────────────────────────────────── */
     var root = document.documentElement;
@@ -2812,6 +2947,13 @@
       document.getElementById('live-label').textContent = 'Live dashboard';
     } else {
       document.getElementById('server-banner').classList.add('show');
+    }
+    if (isLocalhost) {
+      var ctxBanner = document.getElementById('hub-context-banner');
+      if (ctxBanner) {
+        ctxBanner.removeAttribute('hidden');
+        ctxBanner.classList.add('show');
+      }
     }
 
     /* ── PARTICLE CANVAS ─────────────────────────────────────── */
@@ -3363,15 +3505,17 @@
       document.querySelectorAll('.aos').forEach(function (el) { el.classList.add('in'); });
     }
 
-    /* Hash / nav jumps must reveal `.aos` targets (IO alone misses anchor scroll). */
+    /* Hash / nav jumps must reveal `.aos` in the target section (IO alone misses anchor scroll). */
+    function revealAosInScope(el) {
+      if (!el) return;
+      var scope = el.matches('section') ? el : (el.closest('section') || el);
+      if (scope.classList.contains('aos')) scope.classList.add('in');
+      scope.querySelectorAll('.aos').forEach(function (node) { node.classList.add('in'); });
+    }
     function revealAosFromHash() {
       var id = (location.hash || '').replace(/^#/, '');
       if (!id) return;
-      var target = document.getElementById(id);
-      if (target) {
-        target.classList.add('in');
-        target.querySelectorAll('.aos').forEach(function (el) { el.classList.add('in'); });
-      }
+      revealAosInScope(document.getElementById(id));
     }
     window.addEventListener('hashchange', revealAosFromHash);
     navLinks.forEach(function (a) {
@@ -3380,12 +3524,9 @@
       a.addEventListener('click', function () {
         var sectionId = href.slice(1);
         requestAnimationFrame(function () {
-          var el = document.getElementById(sectionId);
-          if (el) {
-            el.classList.add('in');
-            el.querySelectorAll('.aos').forEach(function (child) { child.classList.add('in'); });
-          }
+          revealAosInScope(document.getElementById(sectionId));
         });
+        setTimeout(function () { revealAosInScope(document.getElementById(sectionId)); }, 120);
       });
     });
     revealAosFromHash();
