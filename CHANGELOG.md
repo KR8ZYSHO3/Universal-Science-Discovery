@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed — GitHub Pages deploy freshness banner
 - **`.github/workflows/pages.yml`:** Patches **`api/v1/meta.json`** with a **`pages_deploy`** object (commit SHA, ref, timestamps) at deploy time; verifies artifact before upload; adds **`workflow_dispatch`** for manual redeploy. Still writes gitignored **`dashboard/deploy-info.json`** for backwards compatibility.
 - **`dashboard/index.html`:** Freshness banner reads **`pages_deploy`** from **`api/v1/meta.json`** first, then falls back to **`deploy-info.json`**.
+- **`dashboard/index.html`:** When hosted **`pages_deploy`** / **`deploy-info.json`** are missing, fall back to the public GitHub Actions **`pages.yml`** workflow runs API for deploy SHA before showing the yellow warning.
 
 ### Fixed — Contributor hub (optional JSON + enrichment guards)
 - **`dashboard/index.html`:** Optional JSON loads use **`r.ok ? r.json() : {}`** and **`.catch(function () { return {}; })`** for **`deploy-info.json`**, **`api/v1/meta.json`**, **`bridges.json`**, and **`unknowns.json`** so **404** / network errors do not reject the catalog hydration **`Promise.all`** chain.
