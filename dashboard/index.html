@@ -769,7 +769,7 @@
     .footer-links a { color: var(--muted); font-size: .82rem; }
     .footer-links a:hover { color: var(--accent); }
 
-    /* ── GitHub Pages freshness (deploy-info.json + main) ───── */
+    /* ── GitHub Pages freshness (pages_deploy + main) ───── */
     .pages-deploy-banner {
       display: none;
       margin: 1rem auto 0;
@@ -3016,7 +3016,7 @@
       });
     }
 
-    /* ── GitHub Pages freshness (deploy-info.json vs main) ───── */
+    /* ── GitHub Pages freshness (pages_deploy vs main) ───── */
     (function loadPagesDeployFreshness() {
       var el = document.getElementById('pages-deploy-banner');
       if (!el) return;
@@ -3029,6 +3029,28 @@
         requestAnimationFrame(function () { el.classList.add('in'); });
       }
 
+      function loadDeployInfo() {
+        return fetch('../api/v1/meta.json', { cache: 'no-store' })
+          .then(function (r) {
+            return r.ok ? r.json() : {};
+          })
+          .catch(function () {
+            return {};
+          })
+          .then(function (meta) {
+            meta = meta || {};
+            var info = meta.pages_deploy || {};
+            if (info.sha) return info;
+            return fetch('deploy-info.json', { cache: 'no-store' })
+              .then(function (r) {
+                return r.ok ? r.json() : {};
+              })
+              .catch(function () {
+                return {};
+              });
+          });
+      }
+
       if (isFile) {
         show(
           '<span class="pages-deploy-dot pages-deploy-dot-muted"></span>' +
@@ -3038,13 +3060,7 @@
         return;
       }
 
-      fetch('deploy-info.json', { cache: 'no-store' })
-        .then(function (r) {
-          return r.ok ? r.json() : {};
-        })
-        .catch(function () {
-          return {};
-        })
+      loadDeployInfo()
         .then(function (info) {
           info = info || {};
           var deploySha = info.sha || '';
@@ -3103,7 +3119,7 @@
             if (isGHPages) {
               show(
                 '<span class="pages-deploy-dot pages-deploy-dot-warn"></span>' +
-                  '<span><code>deploy-info.json</code> missing on this host — redeploy Pages from <code>main</code> or check <a href="https://github.com/' +
+                  '<span>Pages deploy metadata missing on this host — redeploy Pages from <code>main</code> or check <a href="https://github.com/' +
                   REPO +
                   '/actions" target="_blank" rel="noopener">Actions</a>.</span>',
                 'pages-deploy-unknown'
@@ -3137,7 +3153,7 @@
           if (isGHPages) {
             show(
               '<span class="pages-deploy-dot pages-deploy-dot-warn"></span>' +
-                '<span>Could not load <code>deploy-info.json</code> — redeploy Pages from <code>main</code> or check <a href="https://github.com/' +
+                '<span>Could not load Pages deploy metadata — redeploy Pages from <code>main</code> or check <a href="https://github.com/' +
                 REPO +
                 '/actions" target="_blank" rel="noopener">Actions</a>.</span>',
               'pages-deploy-unknown'
