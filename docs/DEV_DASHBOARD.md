@@ -45,7 +45,7 @@ Use this so **`dashboard/index.html`**, generated HTML, API JSON, and **README h
 | `docs/` or `mkdocs.yml` | `mkdocs build --strict` |
 | Milestone ring / `MS` JavaScript array in the hub | Align manually with **`ROADMAP.md`** Phase 1 — not auto-generated today |
 
-**GitHub Actions:** On `main`, **`build-graph.yml`** rebuilds the graph, regenerates **`api/v1/`**, runs **`update_dashboard_stats.py --apply`**, domain/breakthrough renderers as configured, and opens the PR path for catalog batches. **`pages.yml`** publishes the hub and writes **`dashboard/deploy-info.json`** for freshness. PRs still need locally consistent HTML if you touch **`dashboard/index.html`** without waiting for that bot loop.
+**GitHub Actions:** On `main`, **`build-graph.yml`** rebuilds the graph, regenerates **`api/v1/`**, runs **`update_dashboard_stats.py --apply`**, domain/breakthrough renderers as configured, and opens the PR path for catalog batches. **`pages.yml`** publishes the hub and patches **`api/v1/meta.json`** with **`pages_deploy`** (plus gitignored **`dashboard/deploy-info.json`**) so the freshness banner works on GitHub Pages. PRs still need locally consistent HTML if you touch **`dashboard/index.html`** without waiting for that bot loop.
 
 ### 2) Standard “catalog batch” command order (local)
 
