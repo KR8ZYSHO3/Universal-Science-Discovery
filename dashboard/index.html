@@ -3171,6 +3171,33 @@
         requestAnimationFrame(function () { el.classList.add('in'); });
       }
 
+      function loadDeployInfoFromActions() {
+        return fetch(
+          'https://api.github.com/repos/' + REPO + '/actions/workflows/pages.yml/runs?per_page=5',
+          { headers: { Accept: 'application/vnd.github+json' } }
+        )
+          .then(function (r) {
+            return r.ok ? r.json() : {};
+          })
+          .catch(function () {
+            return {};
+          })
+          .then(function (data) {
+            var runs = (data && data.workflow_runs) || [];
+            for (var i = 0; i < runs.length; i++) {
+              var run = runs[i];
+              if (run.conclusion === 'success' && run.head_sha) {
+                return {
+                  sha: run.head_sha,
+                  short_sha: run.head_sha.slice(0, 7),
+                  generated_at: run.updated_at || ''
+                };
+              }
+            }
+            return {};
+          });
+      }
+
       function loadDeployInfo() {
         var metaUrl = '../api/v1/meta.json?_=' + Date.now();
         return fetch(metaUrl, { cache: 'no-store' })
@@ -3191,6 +3218,16 @@
               })
               .catch(function () {
                 return {};
+              })
+              .then(function (fallback) {
+                fallback = fallback || {};
+                if (fallback.sha) return fallback;
+                show(
+                  '<span class="pages-deploy-dot pages-deploy-dot-muted"></span>' +
+                    '<span>Checking last Pages deploy via GitHub Actions…</span>',
+                  'pages-deploy-checking'
+                );
+                return loadDeployInfoFromActions();
               });
           });
       }
