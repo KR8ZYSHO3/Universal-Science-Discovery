@@ -7,6 +7,7 @@ on:
       - 'dashboard/**'
       - 'docs/**'
       - '.github/workflows/pages.yml'
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -20,7 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - name: Write Pages deploy metadata (dashboard/deploy-info.json)
+      - name: Write Pages deploy metadata
         env:
           GITHUB_SHA: ${{ github.sha }}
           GITHUB_REF: ${{ github.ref }}
@@ -53,12 +54,26 @@ jobs:
               "repository": repo,
           }
           os.makedirs("dashboard", exist_ok=True)
-          path = os.path.join("dashboard", "deploy-info.json")
-          with open(path, "w", encoding="utf-8") as f:
+          deploy_path = os.path.join("dashboard", "deploy-info.json")
+          with open(deploy_path, "w", encoding="utf-8") as f:
               json.dump(payload, f, indent=2)
               f.write("\n")
-          print("Wrote", path, flush=True)
+          print("Wrote", deploy_path, flush=True)
+
+          meta_path = os.path.join("api", "v1", "meta.json")
+          with open(meta_path, encoding="utf-8") as f:
+              meta = json.load(f)
+          meta["pages_deploy"] = payload
+          with open(meta_path, "w", encoding="utf-8") as f:
+              json.dump(meta, f, indent=2)
+              f.write("\n")
+          print("Patched", meta_path, "with pages_deploy", flush=True)
           PY
+
+      - name: Verify Pages deploy metadata
+        run: |
+          test -f dashboard/deploy-info.json
+          python3 -c "import json; m=json.load(open('api/v1/meta.json')); assert 'pages_deploy' in m and m['pages_deploy'].get('sha'), 'pages_deploy missing or empty in meta.json'"
 
       - uses: actions/configure-pages@v6
       - uses: actions/upload-pages-artifact@v5
