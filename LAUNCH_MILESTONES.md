@@ -64,9 +64,9 @@ All foundational artifacts from the five parallel workstreams are delivered and 
 | # | Milestone | Owner | Status | Notes |
 |---|-----------|-------|--------|-------|
 | E1 | Apply Numbers/Stats blocks to README + dashboard + outreach | Orchestrator + Brandon | **Partial complete** (README fully updated; dashboard hero + Launch Sprint banner + institutional CTA block + trust signals complete; outreach pending) | Highest leverage first step — dashboard now signals serious research infrastructure |
-| E2 | Post Early Stewards call (GitHub Discussion + social) | Brandon | Ready | Use Version 2 from Subagent E |
+| E2 | Post Early Stewards call (GitHub Discussion + social) | Brandon | In Progress (text finalized in docs/outreach/early_stewards_call.md, ready to post) | Use Version 2 from Subagent E + PR #267 ref |
 | E3 | Register `usdr.science` + complete DNS + GitHub Pages | Brandon | Ready | Full checklist in CUSTOM_DOMAIN_SETUP.md |
-| E4 | Publish "20-40 min" Contributor Guide + bulk-activate issues | Orchestrator | Ready | Guide already written |
+| E4 | Publish "20-40 min" Contributor Guide + bulk-activate issues | Orchestrator | In Progress (guide in PR; launch comments being added to top GFIs) | Guide already written |
 | E5 | Final preprint review + actual arXiv submission | Brandon | Ready (package complete) | Use ARXIV_SUBMISSION_GUIDE.md |
 | E6 | Fire coordinated outreach (Reddit / LinkedIn / X) | Brandon + Orchestrator | Ready | Calendar + posts delivered |
 | E7 | First 5+ external engagements + public thank-yous | Brandon | Not started | Success signal |
@@ -91,7 +91,7 @@ Full launch plan locked in `LAUNCH_PLAYBOOK.md` and `STRATEGIC_DIRECTIONS_2026.m
 | **M1: Numbers & Public Stats Refresh** | All public counts accurate and consistent across README, preprint, outreach, dashboard | Orchestrator + Subagent A | **Delivered** (artifacts + verification) | `LAUNCH_STATS_REFRESHED.md` + subagent output; fresh scripts run: schemas OK, 1,408 unknowns, 0 orphans |
 | **M2: Domain Live** | `usdr.science` (or equivalent) resolving with HTTPS + all links updated | Brandon | Not Started | `docs/CUSTOM_DOMAIN_SETUP.md` + DNS + GitHub Pages config |
 | **M3: Preprint Submission Package Delivered** | Full v1.2 preprint (Launch Edition), ARXIV_SUBMISSION_GUIDE.md (cover letter + detailed checklist + recommendations), concise SUBMISSION_CHECKLIST.md, "What's new" positioning block | Subagent D + Orchestrator | **Delivered** (ready for maintainer upload) | docs/preprint/usdr_preprint.md (v1.2), ARXIV_SUBMISSION_GUIDE.md, SUBMISSION_CHECKLIST.md |
-| **M4: Contributor Sprint Activated** | Top 8–12 good-first-issues polished + "20–40 min guide" published + labeled for launch | Orchestrator + Subagent B | In Progress | `docs/QUICK_START_LAUNCH_SPRINT.md` (shipped); updated issues |
+| **M4: Contributor Sprint Activated** | Top 8–12 good-first-issues polished + "20–40 min guide" published + labeled for launch | Orchestrator + Subagent B | In Progress (guide shipped in PR #267; bulk activation comments in progress on GFIs) | `docs/QUICK_START_LAUNCH_SPRINT.md` (shipped); updated issues |
 | **M5: Coordinated Public Push** | Reddit, LinkedIn, Twitter, targeted researcher outreach live | Orchestrator + Subagent C | Not Started | Full calendar + refreshed posts |
 | **M6: First External Signals** | ≥5 external engagements (issues claimed, PRs opened, or meaningful replies) | Brandon + community | Not Started | GitHub activity + thank-you posts |
 | **M7: Dashboard Launch Polish** | Hero/CTA updated for researchers, launch sprint visibility added, trust signals prominent, institutional framing live | Orchestrator + Subagent E | **Complete** (in PR #267: banner + dual-audience block + prospectus link + hero rewrite + link/nav CI fixes) | dashboard/index.html + mkdocs.yml + .markdown-link-check.json |

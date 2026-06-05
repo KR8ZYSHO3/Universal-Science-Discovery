@@ -20,7 +20,7 @@
 - [x] Update `docs/preprint/usdr_preprint.md` to v1.2 Launch Edition + full submission package (complete)
 - [ ] Create ready-to-post Stewards / Advisors call (complete — see docs/outreach/early_stewards_call.md)
 - [ ] Run full verification + commit batch
-- Status: **E1 COMPLETE: dashboard polish + all launch artifacts + full outreach refresh in PR #267 (with CI fixes for mkdocs + links). Ready for merge + stewards post.**
+- Status: **E1 COMPLETE (PR #267). E2 stewards post prep ready. E4 issue activation started (launch sprint comments added to top GFIs).**
 
 ### E2 — Post Early Stewards / Advisors Call (Ownership distribution)
 - [ ] Post Version 2 (GitHub Discussion) in the repo Discussions tab

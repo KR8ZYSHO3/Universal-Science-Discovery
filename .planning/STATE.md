@@ -9,10 +9,11 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 See [LAUNCH_PLAYBOOK.md](../LAUNCH_PLAYBOOK.md) for the full sequenced plan and [LAUNCH_MILESTONES.md](../LAUNCH_MILESTONES.md) for detailed 30/90/180-day checkpoints.
 
 **Current Launch Status:**
-- E1 (core stats + dashboard + artifacts + outreach refresh) landed in PR #267 with CI fixes (mkdocs nav + link checker).
-- Institutional prospectus + dashboard hero/CTA now live on the branch (ready for merge).
-- All 5 outreach files refreshed with June 2026 numbers (1,123 bridges / 1,408 unknowns / etc.).
-- Next: E2 stewards call post + E4 contributor activation.
+- E1 COMPLETE (PR #267 with dashboard polish, all launch artifacts, full outreach refresh, CI fixes).
+- Institutional materials and refreshed posts ready.
+- E2 stewards call text finalized.
+- E4 issue activation in progress (comments on top GFIs).
+- Trackers updated. Next: post stewards call, continue activations, domain prep.
 
 **30-Day Takeoff Checkpoints (see LAUNCH_MILESTONES.md for details):**
 - M1: Numbers & public stats refresh complete
@@ -22,11 +23,11 @@ See [LAUNCH_PLAYBOOK.md](../LAUNCH_PLAYBOOK.md) for the full sequenced plan and 
 - M5–M8: Outreach push, first external signals, dashboard polish, stewards seeds planted
 
 **Next 5 Launch Actions:**
-1. Post Early Stewards / Advisors call (GitHub Discussion) + share on social (E2).
-2. Activate the contributor guide + polish/activate good-first-issues (E4).
-3. Register `usdr.science` (or chosen domain) + DNS + update links (E3).
-4. Final preprint review + actual arXiv submission using the prepared package (E5).
-5. Execute coordinated outreach wave (Reddit, LinkedIn, X) using refreshed posts (E6).
+1. Post the Early Stewards call (copy from docs/outreach/early_stewards_call.md to GitHub Discussion) + share (E2).
+2. Bulk-activate top good-first-issues with launch sprint comments + promote the QUICK_START_LAUNCH_SPRINT.md (E4).
+3. Prep domain (usdr.science checklist from CUSTOM_DOMAIN_SETUP.md) (E3).
+4. Finalize preprint submission (E5).
+5. Fire outreach wave with refreshed posts (E6).
 
 **Recent Launch Ship (this update):** Pushed core launch artifacts + dashboard institutional polish to PR #267 (branch launch/june-2026-shipping). Includes INSTITUTIONAL_PARTNERSHIP_PROSPECTUS.md, LAUNCH_* planning files, QUICK_START_LAUNCH_SPRINT.md, early_stewards_call.md, full hero rewrite with Launch Sprint banner + researcher/institutional CTAs and value block, mkdocs nav updates, link checker config fixes. CI fixes for nav and markdown links in progress. Major step for institutional visibility.
 
