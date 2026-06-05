@@ -1,6 +1,6 @@
 # USDR Launch Execution Milestones — June 2026 Onward
 
-**Purpose:** This file tracks the public launch and early ownership transition as a first-class, visible milestone stream. It lives alongside (and feeds) the canonical [.planning/STATE.md](../.planning/STATE.md).
+**Purpose:** This file tracks the public launch and early ownership transition as a first-class, visible milestone stream. It lives alongside (and feeds) the canonical [.planning/STATE.md](.planning/STATE.md).
 
 **Philosophy (matching existing project discipline):**
 - Milestones are updated after meaningful progress (merged PRs, shipped artifacts, or major external signals).

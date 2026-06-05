@@ -4,15 +4,17 @@
 
 **The open-source knowledge engine for scientific unknowns and cross-domain discovery**
 
-[Bridges](cross-domain/)
-[Unknowns](unknowns-catalog/)
-[Hypotheses](hypotheses/)
-[Graph Nodes](docs/knowledge_graph.json)
-[Catalog & docs: CC BY 4.0](LICENSE)
-[Code & scripts: MIT](LICENSE-CODE)
-[CI](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/actions)
+[![Bridges](https://img.shields.io/badge/bridges-1123-6366f1?style=flat-square)](cross-domain/)
+[![Unknowns](https://img.shields.io/badge/unknowns-1408-22c55e?style=flat-square)](unknowns-catalog/)
+[![Hypotheses](https://img.shields.io/badge/hypotheses-1274-f59e0b?style=flat-square)](hypotheses/)
+[![Graph Nodes](https://img.shields.io/badge/graph_nodes-3857-ec4899?style=flat-square)](docs/knowledge_graph.json)
+[![License: CC BY 4.0](https://img.shields.io/badge/catalog-CC%20BY%204.0-blue?style=flat-square)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/code-MIT-green?style=flat-square)](LICENSE)
+[![CI](https://img.shields.io/github/actions/workflow/status/KR8ZYSHO3/Universal-Science-Discovery/validate.yml?style=flat-square&label=CI)](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/actions)
 
 **[Live Dashboard](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/) · [Knowledge Graph](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#knowledge-graph) · [Preprint](docs/preprint/usdr_preprint.md) · [Contribute**](CONTRIBUTING.md)
+
+> **🚀 June 2026 Launch Sprint** — 1,123 cross-domain bridges • 1,408 open unknowns • 1,274 hypotheses • 0 orphans • Automation live. First external contributors wanted.
 
 
 
@@ -44,10 +46,10 @@ A git-native, schema-validated, community-governed catalog of scientific unknown
 | **Cross-domain bridges**   | **1,123** | Mathematical connections between fields that rarely communicate |
 | **Open unknowns**          | **1,408** | Named, structured research gaps across 55+ disciplines          |
 | **Falsifiable hypotheses** | **1,274** | Testable claims linked to specific unknowns                     |
-| **Phenomenology records**  | **10**    | Pre-formal observations (`phenomenology/**/p-*.yaml`)           |
 | **Knowledge graph nodes**  | **3,857** | Interconnected across 4,517 edges (`docs/knowledge_graph.json`) |
 | **Pioneer profiles**       | **18**    | `pioneers/*.yaml` — lineage context for seeded bridges            |
 | **Breakthrough gaps**      | **24**    | `breakthrough-gaps/bg-*.yaml` — stewarded high-impact gaps      |
+| **Phenomenology records**  | **10**    | Pre-formal observations (`phenomenology/**/p-*.yaml`)           |
 | **Orphan unknowns**        | **0**     | `scripts/find_orphan_unknowns.py` — none disconnected in graph  |
 | **Schema errors**          | **0**     | All entries pass CI validation on every PR                      |
 

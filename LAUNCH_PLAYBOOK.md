@@ -167,14 +167,14 @@ This launch will **not** create new sources of complexity or drift.
 
 All launch progress is tracked using the project's existing canonical systems:
 
-- **Primary source of truth:** [.planning/STATE.md](../.planning/STATE.md) — every meaningful launch ship must get a concise entry (especially under the new "Launch Execution (June 2026+)" section).
-- **Dedicated launch tracker:** [LAUNCH_MILESTONES.md](../LAUNCH_MILESTONES.md) — 30/90/180-day checkpoints, current focus, blocked, and next actions (max 5). Update this in parallel with STATE.
+- **Primary source of truth:** [.planning/STATE.md](.planning/STATE.md) — every meaningful launch ship must get a concise entry (especially under the new "Launch Execution (June 2026+)" section).
+- **Dedicated launch tracker:** [LAUNCH_MILESTONES.md](LAUNCH_MILESTONES.md) — 30/90/180-day checkpoints, current focus, blocked, and next actions (max 5). Update this in parallel with STATE.
 - **Visual propagation:** After editing STATE.md, always run:
   ```bash
   python scripts/sync-dashboard-from-state.py
   ```
   This updates `canvases/Progress.canvas.tsx` (and by extension the embedded snapshot visible in Cursor and the contributor hub where relevant).
-- **Hub & dashboard honesty:** Use the existing maintainer playbook in [docs/DEV_DASHBOARD.md](../docs/DEV_DASHBOARD.md). Run `verify_dashboard_consistency.py` + relevant refresh scripts on any content that touches public counts or the hub.
+- **Hub & dashboard honesty:** Use the existing maintainer playbook in [docs/DEV_DASHBOARD.md](docs/DEV_DASHBOARD.md). Run `verify_dashboard_consistency.py` + relevant refresh scripts on any content that touches public counts or the hub.
 
 **Rule:** No major launch artifact ships without a corresponding update to STATE.md + LAUNCH_MILESTONES.md + running the sync script (when applicable).
 
