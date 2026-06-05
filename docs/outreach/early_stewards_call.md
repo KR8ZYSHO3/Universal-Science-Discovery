@@ -60,6 +60,7 @@ We will do rolling, lightweight selection. First cohort will be announced public
 This is one of the highest-leverage moments to get involved in open scientific discovery infrastructure. If you've ever thought "someone should build a proper system for tracking what we don't know," this is your chance to help actually build it.
 
 References:
+- Launch PR (#267) with dashboard institutional polish + prospectus + artifacts: https://github.com/KR8ZYSHO3/Universal-Science-Discovery/pull/267
 - LAUNCH_PLAYBOOK.md (current execution plan)
 - GOVERNANCE.md
 - CONTRIBUTING.md + docs/QUALITY_BAR.md
