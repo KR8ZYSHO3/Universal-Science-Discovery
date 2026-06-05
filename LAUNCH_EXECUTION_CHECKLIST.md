@@ -20,7 +20,7 @@
 - [x] Update `docs/preprint/usdr_preprint.md` to v1.2 Launch Edition + full submission package (complete)
 - [ ] Create ready-to-post Stewards / Advisors call (complete — see docs/outreach/early_stewards_call.md)
 - [ ] Run full verification + commit batch
-- Status: **E1 COMPLETE (PR #267). E2 stewards post prep ready. E4 issue activation started (launch sprint comments added to top GFIs).**
+- Status: **E1 COMPLETE (PR #267). E2 stewards post prep ready (text finalized). E4 issue activation in progress (comments added to 12+ GFIs).**
 
 ### E2 — Post Early Stewards / Advisors Call (Ownership distribution)
 - [ ] Post Version 2 (GitHub Discussion) in the repo Discussions tab
@@ -43,7 +43,7 @@
 
 ### E4 — Activate Contributor Pipeline
 - [ ] Publish `docs/QUICK_START_LAUNCH_SPRINT.md` (or integrate into CONTRIBUTING.md)
-- [ ] Bulk-apply improvements + activation comments to the Top 10–12 good-first-issues (prepared by Subagent B)
+- [x] Bulk-apply improvements + activation comments to the Top 10–12 good-first-issues (launch sprint comments added to #172,#171,#170,#169,#168,#167,#166,#165,#164,#54,#58,#60 etc.)
 - [ ] Add `launch-sprint` and `easy-win` labels
 - [ ] Update dashboard hero with direct link to the new guide + activated issues
 - Status: **Guide written, issues ranked + comments prepared**
