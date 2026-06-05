@@ -1,6 +1,6 @@
 # USDR Static JSON API
 
-Base URL: `https://kr8zysho3.github.io/Universal-Science-Discovery/api/v1/`
+Base URL: `https://usdr.science/api/v1/`
 
 ## Endpoints
 
@@ -18,7 +18,7 @@ Base URL: `https://kr8zysho3.github.io/Universal-Science-Discovery/api/v1/`
 
 ```javascript
 // Fetch all bridges
-const res = await fetch('https://kr8zysho3.github.io/Universal-Science-Discovery/api/v1/bridges.json');
+const res = await fetch('https://usdr.science/api/v1/bridges.json');
 const { count, items } = await res.json();
 console.log(`${count} bridges loaded`);
 
@@ -31,7 +31,7 @@ const physicsBiology = items.filter(b =>
 
 ```python
 import requests
-data = requests.get('https://kr8zysho3.github.io/Universal-Science-Discovery/api/v1/unknowns.json').json()
+data = requests.get('https://usdr.science/api/v1/unknowns.json').json()
 astronomy_unknowns = [u for u in data['items'] if u['domain'] == 'astronomy']
 ```
 

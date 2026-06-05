@@ -52,7 +52,7 @@ requests, and linked to primary literature.
 
 - **Contributing guide:** [CONTRIBUTING.md](../../CONTRIBUTING.md)
 - **Open issues:** https://github.com/KR8ZYSHO3/Universal-Science-Discovery/issues
-- **Live dashboard:** https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/
+- **Live dashboard:** https://usdr.science/dashboard/
 - **Browse the catalog:** https://github.com/KR8ZYSHO3/Universal-Science-Discovery/tree/main/unknowns-catalog
 
 ---
@@ -60,7 +60,7 @@ requests, and linked to primary literature.
 ## Contact
 
 - **GitHub:** https://github.com/KR8ZYSHO3/Universal-Science-Discovery
-- **Dashboard:** https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/
+- **Dashboard:** https://usdr.science/dashboard/
 
 ---
 

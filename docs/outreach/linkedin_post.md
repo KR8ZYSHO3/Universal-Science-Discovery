@@ -55,7 +55,7 @@ USDR is CC BY 4.0, hosted on GitHub with a public API and an interactive knowled
 If you work in science communication, research infrastructure, scientometrics, or computational science — or if you've ever discovered that your open question was already solved in a field you don't read — I'd be glad to connect.
 
 GitHub: https://github.com/KR8ZYSHO3/Universal-Science-Discovery
-Live knowledge graph + dashboard: https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/
+Live knowledge graph + dashboard: https://usdr.science/dashboard/
 
 What cross-domain bridge would you add first?
 

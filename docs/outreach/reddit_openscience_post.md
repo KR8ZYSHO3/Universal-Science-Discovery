@@ -47,7 +47,7 @@ In science: *when results are published, cross-domain translation becomes scarce
 - Use the JSON API to build something
 
 GitHub: https://github.com/KR8ZYSHO3/Universal-Science-Discovery
-Dashboard + knowledge graph: https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/
+Dashboard + knowledge graph: https://usdr.science/dashboard/
 CONTRIBUTING.md: in the repo root
 
 Happy to answer questions about the methodology, the schema design, or how the AI co-pilot proposes new bridges.

@@ -64,7 +64,7 @@ References:
 - LAUNCH_PLAYBOOK.md (current execution plan)
 - GOVERNANCE.md
 - CONTRIBUTING.md + docs/QUALITY_BAR.md
-- Live dashboard: https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/
+- Live dashboard: https://usdr.science/dashboard/
 
 Let's make the map of the unknown frontier real, together.
 

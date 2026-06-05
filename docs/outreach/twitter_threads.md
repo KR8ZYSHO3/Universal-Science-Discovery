@@ -90,7 +90,7 @@ Replace `[bracketed]` placeholders before posting. Keep each tweet ≤ 280 chara
 > 7/ We're cataloguing these bridges — all 49 of them — in an open-source knowledge graph.
 > Each bridge has a formal translation table: source concept → target concept →
 > mathematical object.
-> 👉 https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/
+> 👉 https://usdr.science/dashboard/
 > Help us find the next one.
 
 ---
@@ -142,4 +142,4 @@ Replace `[bracketed]` placeholders before posting. Keep each tweet ≤ 280 chara
 > 7/ This is infrastructure for the next generation of science.
 > Star the repo. Submit an unknown. Review a bridge.
 > 👉 https://github.com/KR8ZYSHO3/Universal-Science-Discovery
-> 🖥️ https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/
+> 🖥️ https://usdr.science/dashboard/

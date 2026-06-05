@@ -617,7 +617,7 @@ All catalog data, scripts, and the dashboard are available at
 <https://github.com/KR8ZYSHO3/Universal-Science-Discovery> under CC BY 4.0 (catalog)
 and MIT (code) licenses. The knowledge graph is published as a static JSON API at
 `api/v1/graph.json` and can be queried directly via GitHub Pages at
-<https://kr8zysho3.github.io/Universal-Science-Discovery/api/v1/graph.json>.
+<https://usdr.science/api/v1/graph.json> (github.io mirror: https://kr8zysho3.github.io/Universal-Science-Discovery/api/v1/graph.json).
 
 ---
 
