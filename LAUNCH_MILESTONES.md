@@ -94,7 +94,7 @@ Full launch plan locked in `LAUNCH_PLAYBOOK.md` and `STRATEGIC_DIRECTIONS_2026.m
 | **M4: Contributor Sprint Activated** | Top 8–12 good-first-issues polished + "20–40 min guide" published + labeled for launch | Orchestrator + Subagent B | In Progress | `docs/QUICK_START_LAUNCH_SPRINT.md` (shipped); updated issues |
 | **M5: Coordinated Public Push** | Reddit, LinkedIn, Twitter, targeted researcher outreach live | Orchestrator + Subagent C | Not Started | Full calendar + refreshed posts |
 | **M6: First External Signals** | ≥5 external engagements (issues claimed, PRs opened, or meaningful replies) | Brandon + community | Not Started | GitHub activity + thank-you posts |
-| **M7: Dashboard Launch Polish** | Hero/CTA updated for researchers, launch sprint visibility added, trust signals prominent, institutional framing live | Orchestrator + Subagent E | **Complete** (banner + dual-audience block + prospectus link + hero rewrite landed) | dashboard/index.html (hero + institutional-cta) |
+| **M7: Dashboard Launch Polish** | Hero/CTA updated for researchers, launch sprint visibility added, trust signals prominent, institutional framing live | Orchestrator + Subagent E | **Complete** (in PR #267: banner + dual-audience block + prospectus link + hero rewrite + link/nav CI fixes) | dashboard/index.html + mkdocs.yml + .markdown-link-check.json |
 | **M8: Early Ownership Seeds** | Stewards / Advisors invitation drafted and sent to first 5–8 candidates | Subagent E | In Progress | Stewards charter + personal notes |
 
 **Checkpoint (Day 10):** M1 + M4 + M7 at least partially shipped. Go/no-go on full public push timing.

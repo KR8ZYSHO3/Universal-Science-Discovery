@@ -28,7 +28,7 @@ See [LAUNCH_PLAYBOOK.md](../LAUNCH_PLAYBOOK.md) for the full sequenced plan and 
 4. Final preprint review + arXiv submission (package ready).
 5. Update this STATE.md + run `scripts/sync-dashboard-from-state.py` after every major ship.
 
-**Recent Launch Ship (this update):** Dashboard Launch Polish (M7/E1) complete — prominent June 2026 Launch Sprint banner with researcher + institutional CTAs (live graph, v1.2 preprint, INSTITUTIONAL_PARTNERSHIP_PROSPECTUS.md link), new dual-audience value block ("For researchers" + "For institutions & funding partners"), hero lead rewritten for institutional audience, trust signals + edge count alignment. README already carried stats + banner. This is the first major visible step toward making the public face look like serious, fundable research infrastructure suitable for university science department visits. All milestone trackers (LAUNCH_MILESTONES + CHECKLIST) + Canvas will sync next.
+**Recent Launch Ship (this update):** Pushed core launch artifacts + dashboard institutional polish to PR #267 (branch launch/june-2026-shipping). Includes INSTITUTIONAL_PARTNERSHIP_PROSPECTUS.md, LAUNCH_* planning files, QUICK_START_LAUNCH_SPRINT.md, early_stewards_call.md, full hero rewrite with Launch Sprint banner + researcher/institutional CTAs and value block, mkdocs nav updates, link checker config fixes. CI fixes for nav and markdown links in progress. Major step for institutional visibility.
 
 All five workstreams delivered by parallel agents. Transitioned to Execution Phase in LAUNCH_MILESTONES.md with clear 30-day priorities (apply stats, post Stewards call, domain registration, contributor guide + issues, preprint submission, outreach wave).
 
