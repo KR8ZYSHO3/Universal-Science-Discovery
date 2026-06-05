@@ -16,7 +16,7 @@
 ### E1 — Apply Core Stats Refresh (Highest leverage first step)
 - [x] Update README.md badges + launch banner (applied)
 - [x] Update `dashboard/index.html` hero pills, stat IDs, OG/Twitter meta, Launch Sprint banner + CTAs, researcher/institutional value block, trust signals (complete)
-- [x] Update all 5 files in `docs/outreach/` with refreshed numbers and launch language (reddit + researcher_pitch done; others in progress; early stewards call already added)
+- [x] Update all 5 files in `docs/outreach/` with refreshed numbers and launch language (reddit, linkedin, researcher_pitch, arxiv_abstract done; twitter + stewards call ready; early stewards call already in nav)
 - [x] Update `docs/preprint/usdr_preprint.md` to v1.2 Launch Edition + full submission package (complete)
 - [ ] Create ready-to-post Stewards / Advisors call (complete — see docs/outreach/early_stewards_call.md)
 - [ ] Run full verification + commit batch
