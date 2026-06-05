@@ -18,11 +18,11 @@ We introduce the Universal Science Discovery Repository (USDR), an open-source,
 version-controlled catalog of scientific unknowns, hypotheses, and cross-domain
 mathematical bridges. Unlike traditional literature databases that index what is known,
 USDR explicitly catalogs what remains unknown — structured as machine-readable YAML
-entries governed by formal schemas. The repository currently contains 603 entries across
-22 scientific domains, including 49 cross-domain bridges that formalise mathematical
-correspondences between fields that rarely communicate. We describe the schema design,
-the knowledge graph structure (603 nodes, 628 edges), and the AI co-pilot tooling that
-automatically surfaces novel bridge candidates by analysing domain connectivity gaps.
+entries governed by formal schemas. The repository currently contains 1,123 cross-domain
+bridges, 1,408 open unknowns (zero orphans), and 1,274 falsifiable hypotheses across 55+
+scientific domains. We describe the schema design, the reproducible 3,857-node / 4,517-edge
+knowledge graph, live automation (harvesters + Wave Factory), and tooling that surfaces
+novel bridge candidates by analysing domain connectivity gaps.
 USDR is designed as collaborative infrastructure: all entries are version-controlled,
 peer-reviewable via pull requests, and linked to primary literature. We discuss the
 epistemological rationale for explicitly tracking unknowns, the governance model for
