@@ -22,12 +22,15 @@ the same mathematics appears to govern both systems.
 
 ---
 
-## What We're Building
+## What We're Building (June 2026)
 
-- **603** structured catalog entries across **22** scientific domains
-- **49** cross-domain bridges with formal mathematical translations
-- A knowledge graph of **603 nodes** and **628 edges**
-- An AI co-pilot that proposes novel bridge candidates by analysing domain connectivity gaps
+- **3,857-node / 4,517-edge** knowledge graph (deterministic from YAML + graph build)
+- **1,123** cross-domain bridges with term-by-term mathematical translations + citations
+- **1,408** open unknowns (0 orphans) + **1,274** falsifiable hypotheses
+- **55+** disciplines represented
+- Live harvesters + Wave Factory automation (Mon/Thu cadence)
+- Strict schema validation + human review gates on every contribution
+- Public dashboard + API for exploration and contribution
 - Open source, git-native, CC-BY licensed — peer-reviewable via pull requests
 
 ---

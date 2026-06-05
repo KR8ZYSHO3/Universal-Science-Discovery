@@ -1,6 +1,6 @@
 # Reddit Post — r/OpenScience
 
-**Title:** We built an open catalog of cross-domain mathematical bridges to fight scientific knowledge overload — 135+ bridges, live knowledge graph, JSON API
+**Title:** We built an open catalog of 1,123 cross-domain mathematical bridges to map what science doesn't know yet — live knowledge graph, 1,408 unknowns, automation + strict validation
 
 ---
 
@@ -21,15 +21,16 @@ Not an analogy. A formal, machine-readable entry with:
 - A testable bridge claim
 - Linked open questions and hypotheses
 
-**What's in the catalog right now:**
-- 135+ cross-domain bridges (physics↔ecology, neuroscience↔statistics, economics↔information theory, quantum computing↔error correction, and 130+ more)
-- 570+ open unknowns across all major disciplines
-- 149+ active hypotheses
-- 10 breakthrough gap entries — world-reshaping technologies mapped to their specific missing cross-domain bridges
-- 5 pioneer entries (Tesla, Maxwell, Boltzmann, Noether, Shannon) with underappreciated work documented
-- 860+ node interactive knowledge graph
-- Static JSON API for programmatic access
-- GitHub Actions CI/CD validating every contribution
+**What's in the catalog right now (June 2026 Launch Sprint):**
+- **1,123** cross-domain bridges (physics↔ecology, neuroscience↔statistics, economics↔information theory, and 1,100+ more across 55+ disciplines)
+- **1,408** open unknowns across all major disciplines (0 orphans)
+- **1,274** active/falsifiable hypotheses
+- **24** breakthrough gap entries — high-impact open problems stewarded with missing cross-domain bridges mapped
+- **18** pioneer entries with lineage and underappreciated work documented
+- **3,857-node / 4,517-edge** interactive knowledge graph (deterministic, reproducible)
+- Live automation (OpenAlex + PubMed + Semantic Scholar harvesters + Wave Factory cadence)
+- Git-native + strict schema validation + GitHub Actions CI on every contribution
+- Public dashboard with search, D3 graph, xref hygiene, and domain browsers
 
 **Example bridge (percolation theory ↔ ecology):**
 The same equation that describes the threshold at which a random graph develops a giant connected component (p_c = 1/⟨k⟩ in network percolation) also predicts the habitat area threshold below which a species goes extinct. The math is identical. The fields never talked.
