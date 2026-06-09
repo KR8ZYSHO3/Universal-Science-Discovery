@@ -18,9 +18,9 @@
 - [x] Update `dashboard/index.html` hero pills, stat IDs, OG/Twitter meta, Launch Sprint banner + CTAs, researcher/institutional value block, trust signals (complete)
 - [x] Update all 5 files in `docs/outreach/` with refreshed numbers and launch language (all done: reddit, linkedin, researcher_pitch, arxiv_abstract, twitter_threads; early stewards call ready + in nav)
 - [x] Update `docs/preprint/usdr_preprint.md` to v1.2 Launch Edition + full submission package (complete)
-- [ ] Create ready-to-post Stewards / Advisors call (complete — see docs/outreach/early_stewards_call.md)
-- [ ] Run full verification + commit batch
-- Status: **E1 COMPLETE (PR #267, CI green). E2 stewards post prep ready. E3 domain prep started. E4 issue activation advanced (12+ GFIs). E5 preprint v1.2 + cover letter prepared (ready for user submission).**
+- [x] Create ready-to-post Stewards / Advisors call (complete — see docs/outreach/early_stewards_call.md; text ready with PR #267 refs)
+- [x] Run full verification + commit batch (schemas, smoke 5/5, mkdocs strict, dashboard sync applied; all pushed to launch branch)
+- Status: **E1 FULLY COMPLETE (PR #267 + hygiene PR #274, CI green after nav + dashboard fixes). Includes energy-harvesting integration (p/u/h/b entries + docs page per analysis). E2 stewards post prep ready. E3 domain prep started. E4 issue activation advanced (12+ GFIs). E5 preprint v1.2 + cover letter prepared.**
 
 ### E2 — Post Early Stewards / Advisors Call (Ownership distribution)
 - [ ] Post Version 2 (GitHub Discussion) in the repo Discussions tab

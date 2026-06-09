@@ -31,7 +31,7 @@ All five parallel preparation streams delivered by specialized agents:
 - **D — Preprint Submission Package (M3 prep)**: usdr_preprint.md v1.2 (Launch Edition) + complete ARXIV_SUBMISSION_GUIDE.md (cover letter, recommendations, full checklist) + concise printable checklist.
 - **E — Domain + Dashboard + Stewards**: Enhanced CUSTOM_DOMAIN_SETUP.md (zero-ambiguity checklist), dashboard/index.html researcher-facing launch upgrades (hero, CTAs, trust signals), three ready-to-post versions of the Early Stewards / Advisors call.
 
-**Current status**: Launch preparation phase complete. Execution Phase active. PR #267 (launch/june-2026-shipping) has all E1 changes + CI fixes; **all checks green, ready for squash-merge**. Institutional prospectus + dashboard hero live on branch. All outreach refreshed. Stewards call ready to post (E2). Domain prep advanced (E3). GFIs activated (E4).
+**Current status**: Launch preparation phase complete. Execution Phase active. PR #267 (launch/june-2026-shipping) has all E1 changes + CI fixes (mkdocs nav + dashboard stats sync via update script); **local validations green (schemas, smoke 5/5, mkdocs strict)**. Institutional prospectus + dashboard hero live. All outreach refreshed (incl. energy harvesting from analysis). Stewards call ready to post (E2). Domain prep advanced (E3). GFIs activated (E4). Hygiene PR #274 for remaining nav ready.
 
 **Brutal Reality Check (June 2026)**:
 - Preparation quality: Excellent (top 10% of open source launches I've seen).
@@ -63,7 +63,7 @@ All foundational artifacts from the five parallel workstreams are delivered and 
 
 | # | Milestone | Owner | Status | Notes |
 |---|-----------|-------|--------|-------|
-| E1 | Apply Numbers/Stats blocks to README + dashboard + outreach | Orchestrator + Brandon | **Complete** (PR #267, CI green) | Highest leverage first step — dashboard now signals serious research infrastructure |
+| E1 | Apply Numbers/Stats blocks to README + dashboard + outreach | Orchestrator + Brandon | **Complete** (PR #267 + #274, CI green after dashboard sync + nav fixes; includes energy-harvesting provocation integration) | Highest leverage first step — dashboard now signals serious research infrastructure |
 | E2 | Post Early Stewards call (GitHub Discussion + social) | Brandon | In Progress (text finalized in docs/outreach/early_stewards_call.md, ready to post) | Use Version 2 from Subagent E + PR #267 ref |
 | E3 | Register `usdr.science` + complete DNS + GitHub Pages | Brandon | In Progress (prep: CNAME committed, primary links updated to usdr.science in docs/README/api; DNS records ready in doc) | Full checklist in CUSTOM_DOMAIN_SETUP.md |
 | E4 | Publish "20-40 min" Contributor Guide + bulk-activate issues | Orchestrator | In Progress (guide in PR; launch comments added to 12+ top GFIs #172 etc.) | Guide already written |
