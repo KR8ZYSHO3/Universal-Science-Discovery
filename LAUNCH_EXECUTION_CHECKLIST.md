@@ -64,7 +64,7 @@
 - [ ] Use refreshed content from Subagent C
 - [ ] Daily engagement using the Response Playbook
 - [ ] Public contributor spotlights as first PRs/issues land
-- Status: **Calendar + all content ready**
+- Status: **Calendar + all content ready** (launch_posting_calendar.md added; posts refreshed)
 
 ---
 
