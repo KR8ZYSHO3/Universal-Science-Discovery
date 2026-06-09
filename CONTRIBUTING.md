@@ -26,8 +26,8 @@ See [WHY_CONTRIBUTE.md](WHY_CONTRIBUTE.md) for the full case, and [VISION_COMMUN
 
 Avoid duplicate unknowns and hypotheses:
 
-1. Open the hub locally or use the **[hosted dashboard](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/)** (same UI; needs JavaScript).
-2. Open **[Catalog search](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#catalog-search)** (“Search the knowledge catalog”) — or press **`/`** to focus the search box once it has loaded.
+1. Open the hub locally or use the **[hosted dashboard](https://usdr.science/dashboard/)** (same UI; needs JavaScript).
+2. Open **[Catalog search](https://usdr.science/dashboard/#catalog-search)** (“Search the knowledge catalog”) — or press **`/`** to focus the search box once it has loaded.
 3. Enter keywords from your topic (discipline, phenomenon, methods).
 4. Read overlapping entries; prefer **linking or extending** an existing YAML `id` over inventing a near-duplicate.
 

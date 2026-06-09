@@ -12,5 +12,5 @@ Open a [GitHub Issue](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/i
 using the Bug Report template.
 
 ## The dashboard isn't loading
-Try the direct GitHub Pages URL: https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/
+Try the direct GitHub Pages URL: https://usdr.science/dashboard/
 If the knowledge graph doesn't appear, wait 10-15 seconds for the 1000-node graph to load.

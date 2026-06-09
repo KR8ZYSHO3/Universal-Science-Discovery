@@ -149,7 +149,7 @@ We are currently in active development and early relationship-building mode.
 **Brandon Shoemaker**  
 Project Lead, Universal Science Discovery Repository  
 GitHub: KR8ZYSHO3/Universal-Science-Discovery  
-Live Dashboard: https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/
+Live Dashboard: https://usdr.science/dashboard/
 
 We are happy to schedule calls, host small demos, or visit campuses (starting with interested institutions in Ohio).
 
