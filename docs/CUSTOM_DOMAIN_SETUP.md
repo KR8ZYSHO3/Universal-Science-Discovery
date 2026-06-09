@@ -1,7 +1,9 @@
 # Custom Domain Setup
 
 ## Status
-CNAME file committed to repo root — points to `usdr.science`.
+CNAME file committed to repo root — points to `usdr.science` (on launch branch; will be on main after merge).
+
+**Action needed from maintainer:** Register domain + configure DNS + GitHub Pages settings (see steps below). Once live, usdr.science will be the primary (faster/more reliable than mirror in some regions once DNS/HTTPS enforced).
 
 ## To complete setup:
 1. Register `usdr.science` at Namecheap, Cloudflare, or Google Domains (~$12-15/year)
