@@ -1,14 +1,14 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark light" />
-  <title>USDR — Developer Dashboard</title>
+  <title>USDR — Map the Unknowns | Research Infrastructure</title>
 
   <!-- OpenGraph -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/">
+  <meta property="og:url" content="https://usdr.science/dashboard/">
   <meta property="og:title" content="Universal Science Discovery Repository — Map the Unknowns">
   <meta property="og:description" content="A version-controlled, AI-augmented knowledge engine tracking what humanity doesn't yet know. 1123 cross-domain bridges &#9658; 1408 open unknowns &#9658; 3857 knowledge graph nodes &#9658; Open source." >
   <meta property="og:image" content="https://opengraph.githubassets.com/1/KR8ZYSHO3/Universal-Science-Discovery">
@@ -25,7 +25,7 @@
   <!-- SEO -->
   <meta name="description" content="USDR tracks what science doesn't yet know — a version-controlled catalog of open unknowns, falsifiable hypotheses, and cross-domain mathematical bridges.">
   <meta name="keywords" content="open science, unknowns, hypotheses, cross-domain, knowledge graph, scientific discovery, open source">
-  <link rel="canonical" href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/">
+  <link rel="canonical" href="https://usdr.science/dashboard/">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -149,6 +149,30 @@
       border-bottom: 1px solid var(--border);
       position: relative; overflow: hidden;
     }
+
+    /* Launch Sprint Banner */
+    .launch-banner {
+      background: linear-gradient(135deg, rgba(16,185,129,0.15), rgba(52,211,153,0.08));
+      border: 1px solid #10b981;
+      border-radius: 16px;
+      padding: 1rem 1.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .launch-banner strong {
+      color: #a7f3d0;
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+    }
+
+    /* Institutional / researcher dual-audience CTA block (Launch Sprint) */
+    .institutional-cta {
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .institutional-cta:hover {
+      border-color: var(--border-h);
+    }
+
     .hero-inner { max-width: 1100px; width: 100%; margin: 0 auto; }
 
     .hero-meta {
@@ -323,6 +347,13 @@
     .hero-lead {
       color: var(--muted); font-size: clamp(1rem,1.8vw,1.13rem);
       max-width: 46rem; margin-bottom: 1.9rem; line-height: 1.68;
+    }
+
+    .hero-institutional {
+      font-size: 0.95rem;
+      color: #a7f3d0;
+      margin-bottom: 1.25rem;
+      font-weight: 500;
     }
 
     .pill-row { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 2.2rem; }
@@ -1500,10 +1531,21 @@
   <!-- ═══════════════════════════════════════════════════════ HERO -->
   <header class="hero">
     <div class="hero-inner">
+      <!-- Launch Sprint Banner: prominent for researchers + institutions -->
+      <div class="launch-banner" role="note" aria-label="June 2026 Launch Sprint">
+        <strong>🚀 June 2026 Launch Sprint — Now open to researchers &amp; institutions</strong><br>
+        <span style="font-size:.82rem;opacity:.95">1,1123 cross-domain bridges • 1,408 open unknowns • 1,274 hypotheses • 3,857-node graph • 0 orphans • Live Wave Factory automation. Git-native for auditability.</span>
+        <div style="margin-top:.55rem;display:flex;gap:.45rem;justify-content:center;flex-wrap:wrap;">
+          <a href="#knowledge-graph" style="display:inline-flex;align-items:center;padding:.32rem .85rem;border-radius:999px;border:1px solid #10b981;background:rgba(16,185,129,0.12);color:#a7f3d0;font-size:.78rem;font-weight:600;text-decoration:none;">Explore live graph</a>
+          <a href="../docs/preprint/usdr_preprint.md" style="display:inline-flex;align-items:center;padding:.32rem .85rem;border-radius:999px;border:1px solid rgba(167,243,208,0.4);background:transparent;color:#a7f3d0;font-size:.78rem;font-weight:600;text-decoration:none;">Read v1.2 preprint</a>
+          <a href="../INSTITUTIONAL_PARTNERSHIP_PROSPECTUS.md" style="display:inline-flex;align-items:center;padding:.32rem .85rem;border-radius:999px;border:1px solid rgba(167,243,208,0.4);background:transparent;color:#a7f3d0;font-size:.78rem;font-weight:600;text-decoration:none;">For institutions &amp; funders →</a>
+        </div>
+      </div>
+
       <div class="hero-meta">
         <div class="eyebrow">
           <span class="pulse-dot" id="live-dot" hidden aria-hidden="true"></span>
-          <span id="live-label">Universal Science Discovery</span>
+          <span id="live-label">Universal Science Discovery Repository</span>
         </div>
         <div class="hero-actions">
           <a class="btn-ghost" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery" target="_blank" rel="noopener" aria-label="View on GitHub">
@@ -1526,23 +1568,24 @@
         <span class="grad-b">Accelerate discovery.</span>
       </h1>
 
-      <div class="pill-row" aria-label="Highlights">
-        <span class="pill live"><span class="d"></span> Phase 1 · Discovery &amp; adoption</span>
-        <span class="pill">1123 cross-domain bridges</span>
-        <span class="pill">1408 unknowns · 1274 hypotheses · 10 pre-formal observations</span>
-        <span class="pill">Git-native · Open source</span>
+      <div class="hero-institutional">
+        Built for researchers, university research offices, libraries, and funding partners who need structured visibility into the open scientific frontier.
       </div>
 
-      <p class="hero-contrib-hint"><a href="#start">New contributor? Start here →</a></p>
+      <div class="pill-row" aria-label="Highlights">
+        <span class="pill live"><span class="d"></span> Phase 1 · Discovery &amp; adoption</span>
+        <span class="pill">1,1123 cross-domain bridges</span>
+        <span class="pill">1,408 open unknowns • 1,274 hypotheses • 0 orphans</span>
+        <span class="pill">3,857-node graph • Live automation • Git-native</span>
+      </div>
+
+      <p class="hero-contrib-hint"><a href="#start">Researchers &amp; contributors: Start here →</a></p>
 
       <div class="pages-deploy-banner aos" id="pages-deploy-banner" role="status" aria-live="polite" hidden></div>
 
       <p class="hero-lead">
-        The <strong>Universal Science Discovery Repository</strong> — a version-controlled, AI-augmented
-        knowledge engine for tracking what humanity <em>doesn't yet know</em>. Unknowns, hypotheses,
-        and cross-domain bridges live together with rigorous separation between what's established
-        and what we're still trying to falsify. No tunnel vision: every entry explicitly names the
-        fields that should be talking to each other but aren't.
+        The <strong>Universal Science Discovery Repository</strong> is open infrastructure for the scientific unknown.
+        A git-native, schema-validated catalog of 1,408 open research problems, 1,274 falsifiable hypotheses, and 1,123 cross-domain mathematical bridges — all connected in a reproducible 3,857-node knowledge graph. Built so researchers can find high-leverage open questions fast, institutions can spot interdisciplinary opportunities, and funders can see exactly where the frontier is moving.
       </p>
 
       <div class="discovery-callout" role="region" aria-label="Catalog discovery">
@@ -1614,7 +1657,24 @@
         From repo root: <code>python -m http.server 8765</code> — then open
         <a href="http://localhost:8765/dashboard/">localhost:8765/dashboard/</a>
         · or view the hosted version at
-        <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/" target="_blank" rel="noopener">GitHub Pages ↗</a>
+        <a href="https://usdr.science/dashboard/" target="_blank" rel="noopener">GitHub Pages ↗</a>
+      </div>
+
+      <!-- Dual-audience value block (researchers + institutions) -->
+      <div class="institutional-cta" style="margin:1.25rem auto 0;max-width:920px;padding:1rem 1.25rem;border-radius:var(--r-lg);border:1px solid var(--border-h);background:var(--surface);text-align:left;font-size:.9rem;line-height:1.5;">
+        <div style="display:flex;gap:1.25rem;flex-wrap:wrap;align-items:flex-start;">
+          <div style="flex:1 1 320px;min-width:280px;">
+            <strong style="color:var(--ok);">For researchers</strong><br>
+            Find genuinely open problems with literature context. Spot cross-domain bridges that can accelerate your work. Contribute a single well-scoped unknown or hypothesis in one focused PR.
+          </div>
+          <div style="flex:1 1 320px;min-width:280px;">
+            <strong style="color:#a7f3d0;">For institutions &amp; funding partners</strong><br>
+            Get structured visibility into the frontier your faculty and students are working near. Identify interdisciplinary opportunities before competitors. Low-risk, git-native, full governance already in place. See the <a href="../INSTITUTIONAL_PARTNERSHIP_PROSPECTUS.md" style="color:#a7f3d0;text-decoration:underline;">full partnership prospectus</a>.
+          </div>
+        </div>
+        <div style="margin-top:.65rem;font-size:.78rem;color:var(--muted);">
+          0 schema errors • 0 orphans • Every entry validated on every PR • Wave Factory cadence (Mon/Thu) • Full reproducibility via <code>build_graph.py</code>
+        </div>
       </div>
     </div>
 
@@ -1630,7 +1690,7 @@
       <strong>Local preview.</strong> This page helps you <strong>browse</strong> the catalog and find tasks.
       Real edits happen in a <strong>clone</strong>: change YAML, run checks, open a PR — then merge any follow-up graph bot PR.
       Hosted copy:
-      <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/" target="_blank" rel="noopener">GitHub Pages ↗</a>
+      <a href="https://usdr.science/dashboard/" target="_blank" rel="noopener">GitHub Pages ↗</a>
     </p>
     <nav class="hub-nav" aria-label="Page sections">
       <a href="#start" title="Onboarding path, tool map, and first contribution checklist">Start here</a>
@@ -3333,7 +3393,7 @@
       if (isFile) {
         show(
           '<span class="pages-deploy-dot pages-deploy-dot-muted"></span>' +
-            '<span>Serve with <code>python -m http.server</code> or open the <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/" target="_blank" rel="noopener">hosted hub</a> to see whether Pages matches <code>main</code>.</span>',
+            '<span>Serve with <code>python -m http.server</code> or open the <a href="https://usdr.science/dashboard/" target="_blank" rel="noopener">hosted hub</a> to see whether Pages matches <code>main</code>.</span>',
           'pages-deploy-local'
         );
         return;
@@ -3406,7 +3466,7 @@
             } else {
               show(
                 '<span class="pages-deploy-dot pages-deploy-dot-muted"></span>' +
-                  '<span>Local preview — commit-vs-<code>main</code> freshness appears on the <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/" target="_blank" rel="noopener">hosted hub</a> after each Pages deploy.</span>',
+                  '<span>Local preview — commit-vs-<code>main</code> freshness appears on the <a href="https://usdr.science/dashboard/" target="_blank" rel="noopener">hosted hub</a> after each Pages deploy.</span>',
                 'pages-deploy-local'
               );
             }
@@ -3442,7 +3502,7 @@
           } else {
             show(
               '<span class="pages-deploy-dot pages-deploy-dot-muted"></span>' +
-                '<span>Local preview — commit-vs-<code>main</code> freshness appears on the <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/" target="_blank" rel="noopener">hosted hub</a> after each Pages deploy.</span>',
+                '<span>Local preview — commit-vs-<code>main</code> freshness appears on the <a href="https://usdr.science/dashboard/" target="_blank" rel="noopener">hosted hub</a> after each Pages deploy.</span>',
               'pages-deploy-local'
             );
           }
@@ -3741,7 +3801,7 @@
           renderFallback('Run a local server to see the interactive graph:<br><code>python -m http.server 8765</code>');
         } else {
           renderFallback('Graph data is loading\u2026 if this persists, '
-            + '<a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/" '
+            + '<a href="https://usdr.science/dashboard/" '
             + 'style="color:var(--accent)" target="_blank" rel="noopener">try the GitHub Pages version</a>.');
         }
         return;
