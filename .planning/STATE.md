@@ -32,7 +32,9 @@ See [LAUNCH_PLAYBOOK.md](../LAUNCH_PLAYBOOK.md) for the full sequenced plan and 
 4. Finalize preprint submission (E5).
 5. Fire outreach wave with refreshed posts (E6).
 
-**Recent Launch Ship (this update):** Pushed core launch artifacts + dashboard institutional polish to PR #267 (branch launch/june-2026-shipping). Includes INSTITUTIONAL_PARTNERSHIP_PROSPECTUS.md, LAUNCH_* planning files, QUICK_START_LAUNCH_SPRINT.md, early_stewards_call.md, full hero rewrite with Launch Sprint banner + researcher/institutional CTAs and value block, mkdocs nav updates, link checker config fixes. CI fixes for nav and markdown links in progress. Major step for institutional visibility.
+**Recent Launch Ship (this update):** Pushed core launch artifacts + dashboard institutional polish to PR #267 (merged). Includes INSTITUTIONAL_PARTNERSHIP_PROSPECTUS.md, LAUNCH_* planning files, QUICK_START_LAUNCH_SPRINT.md, early_stewards_call.md, full hero rewrite with Launch Sprint banner + researcher/institutional CTAs and value block, mkdocs nav updates, link checker config fixes. CI fixes for nav and markdown links landed. Major step for institutional visibility.
+
+**Side task (wave factory bot):** Fixed proliferation of conflicting bot wave PRs (#266/#268/#269 etc causing ~486 merge conflicts on candidate JSONs). Root: per-run_id branches in harvest-openalex.yml. Now uses static `bot/wave-factory` (PR #271) so updates in-place. Added comments to old wave PRs. Dedup/collision logic in wave_factory.py + promote remains (skips exact ID/title matches, reports content collisions). Future scheduled runs will maintain one living wave PR.
 
 All five workstreams delivered by parallel agents. Transitioned to Execution Phase in LAUNCH_MILESTONES.md with clear 30-day priorities (apply stats, post Stewards call, domain registration, contributor guide + issues, preprint submission, outreach wave).
 
