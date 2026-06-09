@@ -68,7 +68,7 @@ All foundational artifacts from the five parallel workstreams are delivered and 
 | E3 | Register `usdr.science` + complete DNS + GitHub Pages | Brandon | In Progress (prep: CNAME committed, primary links updated to usdr.science in docs/README/api; DNS records ready in doc) | Full checklist in CUSTOM_DOMAIN_SETUP.md |
 | E4 | Publish "20-40 min" Contributor Guide + bulk-activate issues | Orchestrator | In Progress (guide in PR; launch comments added to 12+ top GFIs #172 etc.) | Guide already written |
 | E5 | Final preprint review + actual arXiv submission | Brandon | Ready (package complete) | Use ARXIV_SUBMISSION_GUIDE.md |
-| E6 | Fire coordinated outreach (Reddit / LinkedIn / X) | Brandon + Orchestrator | Ready | Calendar + posts delivered |
+| E6 | Fire coordinated outreach (Reddit / LinkedIn / X) | Brandon + Orchestrator | Ready (calendar + all posts in PR; waiting on merge) | Calendar + posts delivered (launch_posting_calendar.md) |
 | E7 | First 5+ external engagements + public thank-yous | Brandon | Not started | Success signal |
 
 Canvas and STATE.md will be updated after every major E-milestone ship.

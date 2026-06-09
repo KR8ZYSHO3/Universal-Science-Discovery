@@ -15,7 +15,8 @@ See [LAUNCH_PLAYBOOK.md](../LAUNCH_PLAYBOOK.md) for the full sequenced plan and 
 - E3 domain prep started (CNAME committed, primary links updated to usdr.science in PR #267; DNS list ready).
 - E4 issue activation advanced (launch sprint comments added to 12+ good-first-issues: #172,171,170,169,168,167,166,165,164,54,58,60...).
 - E5 preprint v1.2 + cover letter prepared (docs/preprint/).
-- Trackers updated + canvas synced. Next: post stewards call (E2), more activations + guide promotion (E4), complete domain (E3), submit preprint (E5), outreach wave (E6).
+- E6 outreach calendar + refreshed posts ready (docs/outreach/launch_posting_calendar.md).
+- Trackers updated + canvas synced. Next: post stewards call (E2), more activations (E4), domain (E3), submit preprint (E5), fire outreach wave (E6).
 
 **30-Day Takeoff Checkpoints (see LAUNCH_MILESTONES.md for details):**
 - M1: Numbers & public stats refresh complete
