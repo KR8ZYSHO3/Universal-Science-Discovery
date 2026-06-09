@@ -20,7 +20,7 @@
 - [x] Update `docs/preprint/usdr_preprint.md` to v1.2 Launch Edition + full submission package (complete)
 - [ ] Create ready-to-post Stewards / Advisors call (complete — see docs/outreach/early_stewards_call.md)
 - [ ] Run full verification + commit batch
-- Status: **E1 COMPLETE (PR #267, CI green). E2 stewards post prep ready. E3 domain prep started. E4 issue activation advanced (12+ GFIs). E5 preprint v1.2 + cover letter prepared.**
+- Status: **E1 COMPLETE (PR #267, CI green). E2 stewards post prep ready. E3 domain prep started. E4 issue activation advanced (12+ GFIs). E5 preprint v1.2 + cover letter prepared (ready for user submission).**
 
 ### E2 — Post Early Stewards / Advisors Call (Ownership distribution)
 - [ ] Post Version 2 (GitHub Discussion) in the repo Discussions tab
