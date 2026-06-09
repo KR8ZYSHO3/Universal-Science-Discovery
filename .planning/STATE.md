@@ -12,7 +12,7 @@ See [LAUNCH_PLAYBOOK.md](../LAUNCH_PLAYBOOK.md) for the full sequenced plan and 
 - E1 COMPLETE (PR #267 with dashboard polish, all launch artifacts, full outreach refresh, CI fixes). **CI green, ready to merge!**
 - Institutional materials and refreshed posts ready.
 - E2 stewards call text finalized (ready-to-post in docs/outreach/early_stewards_call.md; post to GitHub Discussions).
-- E3 domain prep started (CNAME committed, primary links updated to usdr.science in PR #267; DNS list ready).
+- E3 domain prep advanced (CNAME file now committed + pushed to launch branch; 18 source + 141 generated files updated to usdr.science; CUSTOM_DOMAIN_SETUP.md updated. User must: register domain if needed, set DNS A/CNAME at registrar, configure in GitHub Pages settings + Enforce HTTPS. Once live, usdr.science becomes primary (addresses slowness/lagginess of github.io mirror for the JS-heavy dashboard). Mirror remains functional fallback.
 - E4 issue activation advanced (launch sprint comments added to 12+ good-first-issues: #172,171,170,169,168,167,166,165,164,54,58,60...).
 - E5 preprint v1.2 + cover letter prepared (docs/preprint/).
 - E6 outreach calendar + refreshed posts ready (docs/outreach/launch_posting_calendar.md).
@@ -198,7 +198,7 @@ Comprehensive project audit following Waves 57-67 and OpenAlex Wave OA-1.
 - 2026-05-04 — **Cross-domain bridge system**: schemas/bridge.yaml, validate_schemas.py extended, 4 initial bridges (b-percolation-oncology, b-criticality-neuroscience, b-glymphatic-aging, b-lichen-astrobiology) (PR #11)
 - 2026-05-04 — **Hypotheses**: h-criticality-conscious-integration, h-glymphatic-amyloid-clearance-rate, h-adaptive-therapy-percolation-threshold, h-lichen-consortium-metabolic-coupling (PR #10)
 - 2026-05-04 — **arXiv q-bio harvest**: 4 unknowns seeded (u-brain-criticality-function, u-amyloid-progression-trajectory, u-tumor-containment-percolation, u-synthetic-lichen-biofabrication) (PR #9)
-- 2026-05-04 — GitHub Pages live + dashboard deployed at [kr8zysho3.github.io/…/dashboard/](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/)
+- 2026-05-04 — GitHub Pages live + dashboard deployed at [kr8zysho3.github.io/…/dashboard/](https://usdr.science/dashboard/)
 - 2026-05-03 — Contributor hub visual refresh, CI green, all docs wired.
 
 ## Catalog state (2026-05-10 — aligned with README + `docs/knowledge_graph.json` meta)
@@ -295,7 +295,7 @@ The repository remains above prior foundation targets; the knowledge graph meta 
 - **11 unknowns + 11 hypotheses** — seeded from 4 arXiv harvests.
 - **3 prompt templates** (literature synthesis, hypothesis comparison, falsification, bridge discovery).
 - **Developer dashboard** updated with bridge stat card and current counts.
-- **GitHub Pages** live at [kr8zysho3.github.io/Universal-Science-Discovery/](https://kr8zysho3.github.io/Universal-Science-Discovery/).
+- **GitHub Pages** live at [kr8zysho3.github.io/Universal-Science-Discovery/](https://usdr.science/).
 
 ## Blocked / needs human
 

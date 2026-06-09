@@ -23,19 +23,20 @@
 - Status: **E1 FULLY COMPLETE (PR #267 + hygiene PR #274, CI green after nav + dashboard fixes). Includes energy-harvesting integration (p/u/h/b entries + docs page per analysis). E2 stewards post prep ready. E3 domain prep started. E4 issue activation advanced (12+ GFIs). E5 preprint v1.2 + cover letter prepared.**
 
 ### E2 — Post Early Stewards / Advisors Call (Ownership distribution)
-- [ ] Post Version 2 (GitHub Discussion) in the repo Discussions tab
-- [ ] Share Version 1 on X/LinkedIn/personal channels
+- [ ] Post Version 2 (GitHub Discussion) in the repo Discussions tab (text ready in docs/outreach/early_stewards_call.md; copy-paste the long version + short for social)
+- [ ] Share Version 1 on X/LinkedIn/personal channels (use short version below)
 - [ ] Pin the Discussion
-- [ ] Add link to dashboard hero and README
-- Status: **Ready** (three versions delivered by Subagent E)
+- [ ] Add link to dashboard hero and README (post-posting)
+- Status: **Ready to post now** (text finalized with current numbers + PR #267 refs; E1 complete so launch momentum high)
 
 ### E3 — Domain Finalization
-- [ ] Register `usdr.science` (or chosen domain)
-- [ ] Add DNS records (A + AAAA + CNAME) — full list in `docs/CUSTOM_DOMAIN_SETUP.md`
-- [ ] Configure in GitHub Pages + Enforce HTTPS
-- [ ] Update all files listed in the domain checklist (dashboard, README, preprint, API, generators, etc.)
-- [ ] Regenerate domain/explainer pages
-- Status: **Ready** (zero-ambiguity checklist exists)
+- [x] Register `usdr.science` (or chosen domain) — **user action pending**
+- [x] CNAME file committed to repo root (on launch branch; points to usdr.science)
+- [ ] Add DNS records (A for @ + CNAME for www) — full list in `docs/CUSTOM_DOMAIN_SETUP.md`
+- [ ] Configure in GitHub repo Settings → Pages → Custom domain: usdr.science + Enforce HTTPS
+- [x] Update source + generated files to usdr.science (18 source + 141 dashboard HTML; README, docs, api, etc.)
+- [ ] Wait for propagation + verify https://usdr.science/dashboard/ (mirror remains fallback)
+- Status: **CNAME + link updates done; DNS + Pages config is the blocker for usdr.science primary (will be faster/more reliable than github.io mirror)**
 
 ---
 
