@@ -9,12 +9,12 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 See [LAUNCH_PLAYBOOK.md](../LAUNCH_PLAYBOOK.md) for the full sequenced plan and [LAUNCH_MILESTONES.md](../LAUNCH_MILESTONES.md) for detailed 30/90/180-day checkpoints.
 
 **Current Launch Status:**
-- E1 COMPLETE (PR #267 with dashboard polish, all launch artifacts, full outreach refresh, CI fixes).
+- E1 COMPLETE (PR #267 with dashboard polish, all launch artifacts, full outreach refresh, CI fixes). **CI green, ready to merge!**
 - Institutional materials and refreshed posts ready.
-- E2 stewards call text finalized (ready to post to Discussions).
+- E2 stewards call text finalized (ready-to-post in docs/outreach/early_stewards_call.md; post to GitHub Discussions).
 - E3 domain prep started (CNAME committed, primary links updated to usdr.science in PR #267; DNS list ready).
 - E4 issue activation advanced (launch sprint comments added to 12+ good-first-issues: #172,171,170,169,168,167,166,165,164,54,58,60...).
-- Trackers updated + canvas synced. Next: post stewards call (E2), more activations + guide promotion (E4), complete domain registration (E3).
+- Trackers updated + canvas synced. Next: post stewards call (E2), more activations + guide promotion (E4), complete domain (E3), preprint submit (E5).
 
 **30-Day Takeoff Checkpoints (see LAUNCH_MILESTONES.md for details):**
 - M1: Numbers & public stats refresh complete
