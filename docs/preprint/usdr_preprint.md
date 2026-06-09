@@ -2,7 +2,7 @@
 
 **Authors:** Brandon Shoemaker and Contributors (Universal Science Discovery Repository)
 
-**Version:** v1.1 — May 2026
+**Version:** v1.2 Launch Edition — June 2026
 
 **Suggested categories:** cs.DL (primary) · q-bio.QM · physics.soc-ph (cross-list)
 
