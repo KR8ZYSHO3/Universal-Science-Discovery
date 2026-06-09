@@ -1,6 +1,6 @@
 # USDR Citation Index
 
-**6536 total citations · 4367 unique references · 1021 cited in 2+ bridges**
+**6539 total citations · 4367 unique references · 1021 cited in 2+ bridges**
 
 ## Most Cross-Domain Papers
 
