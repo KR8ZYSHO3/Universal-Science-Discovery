@@ -19,7 +19,7 @@ version-controlled catalog of scientific unknowns, hypotheses, and cross-domain
 mathematical bridges. Unlike traditional literature databases that index what is known,
 USDR explicitly catalogs what remains unknown — structured as machine-readable YAML
 entries governed by formal JSON Schema validation. The repository currently contains
-**~4,850+** catalog entries across **55+** disciplines (see repository README metrics),
+**3,800+** schema-validated catalog entries across **55+** disciplines (see repository README metrics),
 including **1,124 cross-domain bridges** that formalise mathematical correspondences
 between fields that rarely communicate, **1,409** open unknowns, **1,275** falsifiable
 hypotheses, **18** pioneer profiles, and **24** breakthrough gap analyses (plus
