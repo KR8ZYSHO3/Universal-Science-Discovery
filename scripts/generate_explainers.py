@@ -22,10 +22,13 @@ from datetime import date
 ROOT = Path(__file__).parent.parent
 EXPLAINER_DIR = ROOT / "dashboard" / "explainers"
 CROSS_DOMAIN_DIR = ROOT / "cross-domain"
+PROTOCOLS_DIR = ROOT / "protocols-catalog"
+GITHUB_REPO = "KR8ZYSHO3/Universal-Science-Discovery"
 
 # Bridges to generate by default
 DEFAULT_BRIDGES = [
     "b-habitat-percolation-ecology",
+    "b-percolation-epidemiology",
     "b-kibble-zurek-morphogenesis",
     "b-bayesian-brain-predictive-processing",
     "b-replicator-equations-evolutionary-dynamics",
@@ -57,6 +60,31 @@ def load_bridge(bridge_id: str) -> dict:
     data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
     data["_source_path"] = str(path)
     return data
+
+
+def load_protocols_by_bridge() -> dict[str, list[dict]]:
+    """Index promoted Crosscheck protocols by source_bridge id."""
+    by_bridge: dict[str, list[dict]] = {}
+    if not PROTOCOLS_DIR.is_dir():
+        return by_bridge
+    for path in sorted(PROTOCOLS_DIR.rglob("*.yaml")):
+        try:
+            data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+        except Exception:
+            continue
+        bridge_id = data.get("source_bridge")
+        protocol_id = data.get("id")
+        if not bridge_id or not protocol_id:
+            continue
+        data["_catalog_path"] = str(path.relative_to(ROOT)).replace("\\", "/")
+        by_bridge.setdefault(bridge_id, []).append(data)
+    for protocols in by_bridge.values():
+        protocols.sort(key=lambda p: (p.get("pollination_index", 0), p.get("id", "")))
+    return by_bridge
+
+
+def protocols_for_bridge(bridge_id: str, protocols_index: dict[str, list[dict]]) -> list[dict]:
+    return protocols_index.get(bridge_id, [])
 
 
 # ── HTML helpers ─────────────────────────────────────────────────────────────
@@ -119,6 +147,54 @@ def format_cross_pollination(items: list[str]) -> str:
     return f"<ul class=\"opp-list\">{lis}</ul>"
 
 
+def format_crosscheck_protocols(protocols: list[dict]) -> str:
+    if not protocols:
+        return ""
+    cards = []
+    for proto in protocols:
+        pid = proto.get("id", "")
+        title = " ".join(str(proto.get("title", pid)).split())
+        status = proto.get("status", "draft")
+        tier = proto.get("feasibility_tier", "desktop")
+        prediction = " ".join(str(proto.get("falsifiable_prediction", "")).split())
+        if len(prediction) > 220:
+            prediction = prediction[:217] + "..."
+        repro = str(proto.get("repro_bundle", "")).strip().rstrip("/")
+        repro_href = f"../../{repro}/" if repro else ""
+        catalog_path = proto.get("_catalog_path", "")
+        yaml_href = (
+            f"https://github.com/{GITHUB_REPO}/blob/main/{h(catalog_path)}"
+            if catalog_path
+            else ""
+        )
+        run_link = (
+            f'<a class="crosscheck-link" href="{h(repro_href)}">Run repro bundle</a>'
+            if repro_href
+            else ""
+        )
+        yaml_link = (
+            f'<a class="crosscheck-link" href="{yaml_href}" target="_blank" rel="noopener">Protocol YAML</a>'
+            if yaml_href
+            else ""
+        )
+        links = " · ".join(link for link in (run_link, yaml_link) if link)
+        cards.append(
+            f"""<article class="crosscheck-card">
+  <div class="crosscheck-card-head">
+    <h3 class="crosscheck-title">{h(title)}</h3>
+    <div class="crosscheck-badges">
+      <span class="badge badge-crosscheck">{h(status.upper())}</span>
+      <span class="badge badge-tier">{h(tier)}</span>
+    </div>
+  </div>
+  <p class="crosscheck-prediction">{h(prediction)}</p>
+  <p class="crosscheck-meta">Protocol <code>{h(pid)}</code></p>
+  <p class="crosscheck-links">{links}</p>
+</article>"""
+        )
+    return "\n".join(cards)
+
+
 def status_badge(status: str) -> str:
     cls_map = {
         "established": "badge-established",
@@ -135,8 +211,9 @@ def fields_tags(fields: list[str]) -> str:
     return f'<div class="field-tags">{tags}</div>'
 
 
-def make_explainer_html(bridge: dict) -> str:
+def make_explainer_html(bridge: dict, protocols: list[dict] | None = None) -> str:
     bid = bridge.get("id", "unknown")
+    protocols = protocols or []
     title = bridge.get("title", bid).strip()
     status = bridge.get("status", "unknown")
     fields = bridge.get("fields", [])
@@ -173,6 +250,7 @@ def make_explainer_html(bridge: dict) -> str:
     table_html = format_translation_table(translation_table)
     refs_html = format_references(refs)
     opp_html = format_cross_pollination(cross_pollination)
+    crosscheck_html = format_crosscheck_protocols(protocols)
     badge = status_badge(status)
     ftags = fields_tags(fields)
 
@@ -403,6 +481,33 @@ def make_explainer_html(bridge: dict) -> str:
     .opp-list li, ul li {{ color: var(--text-dim); font-size: 0.9rem; }}
     code {{ font-family: var(--mono); font-size: 0.82rem; background: rgba(88,166,255,.12); color: var(--accent); padding: 0.1rem 0.4rem; border-radius: 4px; }}
 
+    /* ── Crosscheck protocols ─────────────────────────────────────────── */
+    .crosscheck-intro {{ color: var(--text-dim); font-size: 0.92rem; margin-bottom: 1rem; }}
+    .crosscheck-grid {{ display: flex; flex-direction: column; gap: 1rem; }}
+    .crosscheck-card {{
+      background: var(--bg-card);
+      border: 1px solid rgba(63,185,80,.28);
+      border-radius: var(--radius);
+      padding: 1rem 1.1rem;
+    }}
+    .crosscheck-card-head {{
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.55rem;
+    }}
+    .crosscheck-title {{ font-size: 0.98rem; font-weight: 600; line-height: 1.35; margin: 0; }}
+    .crosscheck-badges {{ display: flex; gap: 0.4rem; flex-wrap: wrap; }}
+    .badge-crosscheck {{ background: rgba(63,185,80,.18); color: #3fb950; border: 1px solid rgba(63,185,80,.35); }}
+    .badge-tier {{ background: rgba(210,168,255,.14); color: #d2a8ff; border: 1px solid rgba(210,168,255,.3); }}
+    .crosscheck-prediction {{ color: var(--text-dim); font-size: 0.88rem; margin: 0 0 0.55rem; }}
+    .crosscheck-meta {{ font-size: 0.78rem; color: var(--text-dim); margin: 0 0 0.35rem; }}
+    .crosscheck-links {{ font-size: 0.82rem; margin: 0; }}
+    .crosscheck-link {{ color: var(--accent2); text-decoration: none; }}
+    .crosscheck-link:hover {{ text-decoration: underline; }}
+
     /* ── Footer ───────────────────────────────────────────────────────── */
     .explainer-footer {{
       border-top: 1px solid var(--border);
@@ -483,6 +588,17 @@ def make_explainer_html(bridge: dict) -> str:
   {'''<section id="opportunities">
     <h2><span class="icon">🌱</span> Cross-Pollination Opportunities</h2>''' + opp_html + "</section>" if opp_html else ""}
 
+  <!-- Crosscheck protocols -->
+  {'''<section id="crosscheck">
+    <h2><span class="icon">🧪</span> Crosscheck — Prove This Bridge</h2>
+    <p class="crosscheck-intro">Runnable experiment protocols promoted from this bridge. USDR maps what connects; Crosscheck proves it.</p>
+    <div class="crosscheck-grid">''' + crosscheck_html + '''</div>
+    <p class="crosscheck-intro" style="margin-top:1rem;">
+      <a href="../../docs/CROSSCHECK.md" class="crosscheck-link">Crosscheck manifesto</a>
+      · Generate more drafts: <code>python scripts/generate_crosscheck.py --bridge ''' + h(bid) + ''' --write</code>
+    </p>
+  </section>''' if crosscheck_html else ""}
+
   <!-- Open Questions -->
   {'''<section id="open-questions">
     <h2><span class="icon">❓</span> Open Questions</h2>''' + open_questions_html + "</section>" if open_questions_html else ""}
@@ -510,13 +626,19 @@ def make_explainer_html(bridge: dict) -> str:
 
 # ── Index page ───────────────────────────────────────────────────────────────
 
-def make_index_html(generated: list[dict]) -> str:
+def make_index_html(generated: list[dict], protocols_index: dict[str, list[dict]]) -> str:
     cards = ""
     for b in generated:
         bid = b.get("id", "")
         title = b.get("title", bid).strip()
         short = title.split(".")[0].split("—")[0].strip()[:120]
         status = b.get("status", "unknown")
+        proto_count = len(protocols_index.get(bid, []))
+        crosscheck_note = (
+            f'<span class="crosscheck-pill">{proto_count} Crosscheck protocol{"s" if proto_count != 1 else ""}</span>'
+            if proto_count
+            else ""
+        )
         fields = b.get("fields", [])
         pair = " ↔ ".join(f.replace("-", " ").title() for f in fields[:2]) if fields else ""
         badge = status_badge(status)
@@ -524,7 +646,7 @@ def make_index_html(generated: list[dict]) -> str:
   <a class="expl-card" href="{h(bid)}.html">
     <div class="expl-pair">{h(pair)}</div>
     <div class="expl-title">{h(short)}</div>
-    {badge}
+    <div class="expl-badges">{badge}{crosscheck_note}</div>
   </a>"""
 
     return f"""<!DOCTYPE html>
@@ -553,6 +675,8 @@ def make_index_html(generated: list[dict]) -> str:
     .badge-proposed{{background:rgba(88,166,255,.18);color:#58a6ff;border:1px solid rgba(88,166,255,.35)}}
     .badge-contested{{background:rgba(227,179,65,.18);color:#e3b341;border:1px solid rgba(227,179,65,.35)}}
     .badge-stale{{background:rgba(139,148,158,.18);color:#8b949e;border:1px solid rgba(139,148,158,.35)}}
+    .expl-badges{{display:flex;flex-wrap:wrap;gap:.35rem;align-items:center}}
+    .crosscheck-pill{{display:inline-block;padding:.15rem .55rem;border-radius:20px;font-size:.65rem;font-weight:700;letter-spacing:.05em;background:rgba(63,185,80,.18);color:#3fb950;border:1px solid rgba(63,185,80,.35)}}
   </style>
 </head>
 <body>
@@ -576,6 +700,7 @@ def main():
     bridge_ids = sys.argv[1:] if len(sys.argv) > 1 else DEFAULT_BRIDGES
 
     EXPLAINER_DIR.mkdir(parents=True, exist_ok=True)
+    protocols_index = load_protocols_by_bridge()
 
     generated = []
     errors = []
@@ -584,17 +709,19 @@ def main():
         print(f"  Generating explainer for {bid} ...", end=" ", flush=True)
         try:
             bridge = load_bridge(bid)
-            html_content = make_explainer_html(bridge)
+            protocols = protocols_for_bridge(bid, protocols_index)
+            html_content = make_explainer_html(bridge, protocols)
             out = EXPLAINER_DIR / f"{bid}.html"
             out.write_text(html_content, encoding="utf-8")
-            print(f"-> {out.relative_to(ROOT)}")
+            proto_note = f" ({len(protocols)} Crosscheck)" if protocols else ""
+            print(f"-> {out.relative_to(ROOT)}{proto_note}")
             generated.append(bridge)
         except Exception as exc:
             print(f"ERROR: {exc}")
             errors.append((bid, str(exc)))
 
     # Write index
-    index_html = make_index_html(generated)
+    index_html = make_index_html(generated, protocols_index)
     index_path = EXPLAINER_DIR / "index.html"
     index_path.write_text(index_html, encoding="utf-8")
     print(f"  Index -> {index_path.relative_to(ROOT)}")
