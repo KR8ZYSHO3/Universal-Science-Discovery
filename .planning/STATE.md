@@ -14,7 +14,8 @@ See [LAUNCH_PLAYBOOK.md](../LAUNCH_PLAYBOOK.md) for the full sequenced plan and 
 - CI green, 0 open PRs, dashboard counts verified (1,124 / 1,409 / 1,275 / 3,861 / 4,522).
 - E2 **POSTED** — Early Stewards call live: [Discussion #286](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/discussions/286). Dashboard + README wired. **Pin + social share still needed.**
 - E3 domain prep started (CNAME committed; `usdr.science` DNS not live yet).
-- E4 issue activation advanced (12+ GFIs commented); dashboard hero now links Launch Sprint guide.
+- E4 **ACTIVE** — 12 launch-sprint GFIs labeled (`launch-sprint` + `easy-win` on #172–#167, #166, #165, #164, #54, #58, #60); hub links filtered issue list + sprint guide.
+- Dashboard **dark theme only** (PR #288) — light mode toggle removed.
 - E5 preprint v1.2 + cover letter prepared (docs/preprint/).
 - E6 outreach calendar + refreshed posts ready (docs/outreach/launch_posting_calendar.md).
 - **Next:** post stewards call (E2), domain DNS (E3), preprint submit (E5), outreach wave (E6).
@@ -27,11 +28,11 @@ See [LAUNCH_PLAYBOOK.md](../LAUNCH_PLAYBOOK.md) for the full sequenced plan and 
 - M5–M8: Outreach push, first external signals, dashboard polish, stewards seeds planted
 
 **Next 5 Launch Actions:**
-1. Post the Early Stewards call (copy from docs/outreach/early_stewards_call.md to GitHub Discussion) + share (E2).
-2. Bulk-activate top good-first-issues with launch sprint comments + promote the QUICK_START_LAUNCH_SPRINT.md (E4).
-3. Prep domain (usdr.science checklist from CUSTOM_DOMAIN_SETUP.md) (E3).
-4. Finalize preprint submission (E5).
-5. Fire outreach wave with refreshed posts (E6).
+1. Pin Early Stewards Discussion #286 + share short X/LinkedIn version (E2).
+2. Register `usdr.science` DNS per CUSTOM_DOMAIN_SETUP.md (E3).
+3. Finalize + submit preprint v1.2 (E5).
+4. Fire outreach wave with refreshed posts (E6).
+5. Spotlight first external contributor PR/issue as they land.
 
 **Recent Launch Ship (this update):** Pushed core launch artifacts + dashboard institutional polish to PR #267 (merged). Includes INSTITUTIONAL_PARTNERSHIP_PROSPECTUS.md, LAUNCH_* planning files, QUICK_START_LAUNCH_SPRINT.md, early_stewards_call.md, full hero rewrite with Launch Sprint banner + researcher/institutional CTAs and value block, mkdocs nav updates, link checker config fixes. CI fixes for nav and markdown links landed. Major step for institutional visibility.
 
