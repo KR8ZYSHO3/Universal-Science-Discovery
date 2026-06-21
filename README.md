@@ -4,17 +4,17 @@
 
 **The open-source knowledge engine for scientific unknowns and cross-domain discovery**
 
-[![Bridges](https://img.shields.io/badge/bridges-1123-6366f1?style=flat-square)](cross-domain/)
-[![Unknowns](https://img.shields.io/badge/unknowns-1408-22c55e?style=flat-square)](unknowns-catalog/)
-[![Hypotheses](https://img.shields.io/badge/hypotheses-1274-f59e0b?style=flat-square)](hypotheses/)
-[![Graph Nodes](https://img.shields.io/badge/graph_nodes-3857-ec4899?style=flat-square)](docs/knowledge_graph.json)
+[![Bridges](https://img.shields.io/badge/bridges-1124-6366f1?style=flat-square)](cross-domain/)
+[![Unknowns](https://img.shields.io/badge/unknowns-1409-22c55e?style=flat-square)](unknowns-catalog/)
+[![Hypotheses](https://img.shields.io/badge/hypotheses-1275-f59e0b?style=flat-square)](hypotheses/)
+[![Graph Nodes](https://img.shields.io/badge/graph_nodes-3861-ec4899?style=flat-square)](docs/knowledge_graph.json)
 [![License: CC BY 4.0](https://img.shields.io/badge/catalog-CC%20BY%204.0-blue?style=flat-square)](LICENSE)
 [![License: MIT](https://img.shields.io/badge/code-MIT-green?style=flat-square)](LICENSE)
 [![CI](https://img.shields.io/github/actions/workflow/status/KR8ZYSHO3/Universal-Science-Discovery/validate.yml?style=flat-square&label=CI)](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/actions)
 
 **[Live Dashboard](https://usdr.science/dashboard/) · [Knowledge Graph](https://usdr.science/dashboard/#knowledge-graph) · [Preprint](docs/preprint/usdr_preprint.md) · [Contribute**](CONTRIBUTING.md) (github.io mirror: https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/)
 
-> **🚀 June 2026 Launch Sprint** — 1,123 cross-domain bridges • 1,408 open unknowns • 1,274 hypotheses • 0 orphans • Automation live. First external contributors wanted.
+> **🚀 June 2026 Launch Sprint** — 1,124 cross-domain bridges • 1,409 open unknowns • 1,275 hypotheses • 0 orphans • Automation live. First external contributors wanted.
 
 
 
@@ -156,9 +156,9 @@ python scripts/build_graph.py
 ## Catalog Structure
 
 ```
-cross-domain/{domain-a}-{domain-b}/b-*.yaml   ← 1123 bridges
-unknowns-catalog/{domain}/u-*.yaml            ← 1408 unknowns
-hypotheses/active|validated|archived/h-*.yaml ← 1274 hypotheses
+cross-domain/{domain-a}-{domain-b}/b-*.yaml   ← 1124 bridges
+unknowns-catalog/{domain}/u-*.yaml            ← 1409 unknowns
+hypotheses/active|validated|archived/h-*.yaml ← 1275 hypotheses
 pioneers/pioneer-*.yaml                       ← 18 pioneer profiles
 breakthrough-gaps/bg-*.yaml                   ← 24 breakthrough gaps
 phenomenology/p-*.yaml                        ← pre-formal observations
