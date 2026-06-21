@@ -24,13 +24,13 @@
 
 ### E2 — Post Early Stewards / Advisors Call (Ownership distribution)
 - [x] Post Version 2 (GitHub Discussion) in the repo Discussions tab — [Discussion #286](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/discussions/286)
-- [ ] Share Version 1 on X/LinkedIn/personal channels
-- [ ] Pin the Discussion
+- [ ] Share Version 1 on X/LinkedIn/personal channels (copy in docs/outreach/LAUNCH_DAY_ACTIONS.md)
+- [ ] Pin the Discussion (manual — GitHub UI; see LAUNCH_DAY_ACTIONS.md)
 - [x] Add link to dashboard hero and README
 - Status: **Posted 2026-06-21** — pin + social share remaining
 
 ### E3 — Domain Finalization
-- [ ] Register `usdr.science` (or chosen domain)
+- [ ] Register `usdr.science` (or chosen domain) — **not registered yet** (DNS NXDOMAIN 2026-06-21)
 - [ ] Add DNS records (A + AAAA + CNAME) — full list in `docs/CUSTOM_DOMAIN_SETUP.md`
 - [ ] Configure in GitHub Pages + Enforce HTTPS
 - [ ] Update all files listed in the domain checklist (dashboard, README, preprint, API, generators, etc.)

@@ -18,7 +18,9 @@ See [LAUNCH_PLAYBOOK.md](../LAUNCH_PLAYBOOK.md) for the full sequenced plan and 
 - Dashboard **dark theme only** (PR #288) — light mode toggle removed.
 - E5 preprint v1.2 + cover letter prepared (docs/preprint/).
 - E6 outreach calendar + refreshed posts ready (docs/outreach/launch_posting_calendar.md).
-- **Next:** post stewards call (E2), domain DNS (E3), preprint submit (E5), outreach wave (E6).
+- **Crosscheck launch story** — habitat percolation FSS repro run (INCONCLUSIVE at quick-trial settings); docs/outreach/CROSSCHECK_LAUNCH_STORY.md; protocol `p-b-habitat-percolation-ecology-fss` → `executed`.
+- **Stewards charter** — docs/STEWARDS_CHARTER.md; human launch steps in docs/outreach/LAUNCH_DAY_ACTIONS.md.
+- **Next (human):** pin #286 + social share (E2), register usdr.science (E3), arXiv submit (E5), outreach wave led by Crosscheck story (E6).
 
 **30-Day Takeoff Checkpoints (see LAUNCH_MILESTONES.md for details):**
 - M1: Numbers & public stats refresh complete
