@@ -47,7 +47,9 @@ In science: *when results are published, cross-domain translation becomes scarce
 - Use the JSON API to build something
 
 GitHub: https://github.com/KR8ZYSHO3/Universal-Science-Discovery
-Dashboard + knowledge graph: https://usdr.science/dashboard/
+Dashboard + knowledge graph: https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/
+
+**Crosscheck demo:** https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/explainers/b-habitat-percolation-ecology.html#crosscheck · **Run repro:** https://kr8zysho3.github.io/Universal-Science-Discovery/repro/p-b-habitat-percolation-ecology-fss/index.html
 CONTRIBUTING.md: in the repo root
 
 Happy to answer questions about the methodology, the schema design, or how the AI co-pilot proposes new bridges.

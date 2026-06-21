@@ -18,6 +18,8 @@ We mapped a physics→ecology bridge in YAML, ran the Crosscheck protocol on a l
 
 **Explainer + demo:** [Habitat percolation explainer (Crosscheck section)](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/explainers/b-habitat-percolation-ecology.html#crosscheck)
 
+**Repro landing (GitHub Pages):** [p-b-habitat-percolation-ecology-fss/index.html](https://kr8zysho3.github.io/Universal-Science-Discovery/repro/p-b-habitat-percolation-ecology-fss/index.html)
+
 ---
 
 ## What we ran (2026-06-21)

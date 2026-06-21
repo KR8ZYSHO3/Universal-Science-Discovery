@@ -20,8 +20,9 @@ This folder contains the complete, ready-to-execute materials for the USDR publi
 
 ## Quick Start for Launch Day
 
-1. Update current entry counts and any new contributors in LAUNCH_STATS_2026-06.md.
-2. Copy the exact posts from the Outreach Package.
+1. **Fastest path:** copy-paste from **[READY_TO_POST.md](READY_TO_POST.md)** (Crosscheck-led posts, verified links, June 2026 counts).
+2. Update current entry counts and any new contributors in LAUNCH_STATS_2026-06.md.
+3. Long-form variants: Outreach Package + [reddit_openscience_post.md](reddit_openscience_post.md), [linkedin_post.md](linkedin_post.md).
 3. Use the stagger timing in the calendar (GitHub release first, then X, LinkedIn, Reddit, email).
 4. Reply to every comment/DM using the Response Playbook templates.
 5. Log engagement and conversions back into LAUNCH_STATS.

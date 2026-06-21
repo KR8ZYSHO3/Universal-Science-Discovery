@@ -49,7 +49,11 @@ Follow [ARXIV_SUBMISSION_GUIDE.md](../preprint/ARXIV_SUBMISSION_GUIDE.md) and [S
 | Reddit flagship | [reddit post in calendar package](launch_posting_calendar.md) | r/OpenScience — **update counts** to 1124/1409/1275 |
 | X thread | [twitter_threads.md](twitter_threads.md) | After Reddit |
 
-**Lead narrative:** Crosscheck demo, not catalog size. Link: [percolation explainer](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/explainers/b-habitat-percolation-ecology.html#crosscheck)
+**Lead narrative:** Crosscheck demo, not catalog size.
+
+- [percolation explainer](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/explainers/b-habitat-percolation-ecology.html#crosscheck)
+- [repro landing page](https://kr8zysho3.github.io/Universal-Science-Discovery/repro/p-b-habitat-percolation-ecology-fss/index.html) (fixed PR #291)
+- **Copy-paste posts:** [READY_TO_POST.md](READY_TO_POST.md)
 
 ---
 

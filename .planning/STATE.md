@@ -20,7 +20,9 @@ See [LAUNCH_PLAYBOOK.md](../LAUNCH_PLAYBOOK.md) for the full sequenced plan and 
 - E6 outreach calendar + refreshed posts ready (docs/outreach/launch_posting_calendar.md).
 - **Crosscheck launch story** — habitat percolation FSS repro run (INCONCLUSIVE at quick-trial settings); docs/outreach/CROSSCHECK_LAUNCH_STORY.md; protocol `p-b-habitat-percolation-ecology-fss` → `executed`.
 - **Stewards charter** — docs/STEWARDS_CHARTER.md; human launch steps in docs/outreach/LAUNCH_DAY_ACTIONS.md.
-- **Next (human):** pin #286 + social share (E2), register usdr.science (E3), arXiv submit (E5), outreach wave led by Crosscheck story (E6).
+- **Repro Pages fix** (PR #291) — Crosscheck repro bundles have `index.html` on GitHub Pages.
+- **Ready-to-post copy** — `docs/outreach/READY_TO_POST.md` (Crosscheck-led Reddit/X/LinkedIn/DM templates).
+- **Next (human):** pin #286 + paste from READY_TO_POST (E2/E6), register usdr.science (E3), arXiv submit (E5).
 
 **30-Day Takeoff Checkpoints (see LAUNCH_MILESTONES.md for details):**
 - M1: Numbers & public stats refresh complete
