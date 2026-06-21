@@ -12,7 +12,7 @@
 [![License: MIT](https://img.shields.io/badge/code-MIT-green?style=flat-square)](LICENSE)
 [![CI](https://img.shields.io/github/actions/workflow/status/KR8ZYSHO3/Universal-Science-Discovery/validate.yml?style=flat-square&label=CI)](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/actions)
 
-**[Live Dashboard](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/) · [Knowledge Graph](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#knowledge-graph) · [Crosscheck](docs/CROSSCHECK.md) · [Early Stewards](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/discussions/categories/announcements) · [Preprint](docs/preprint/usdr_preprint.md) · [Contribute](CONTRIBUTING.md)**
+**[Live Dashboard](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/) · [Knowledge Graph](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#knowledge-graph) · [Crosscheck](docs/CROSSCHECK.md) · [Early Stewards](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/discussions/286) · [Preprint](docs/preprint/usdr_preprint.md) · [Contribute](CONTRIBUTING.md)**
 
 > **🚀 June 2026 Launch Sprint** — 1,124 cross-domain bridges • 1,409 open unknowns • 1,275 hypotheses • 0 orphans • Automation live. First external contributors wanted.
 

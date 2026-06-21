@@ -64,7 +64,7 @@ All foundational artifacts from the five parallel workstreams are delivered and 
 | # | Milestone | Owner | Status | Notes |
 |---|-----------|-------|--------|-------|
 | E1 | Apply Numbers/Stats blocks to README + dashboard + outreach | Orchestrator + Brandon | **Complete** (PR #267, CI green) | Highest leverage first step — dashboard now signals serious research infrastructure |
-| E2 | Post Early Stewards call (GitHub Discussion + social) | Brandon | In Progress (text finalized in docs/outreach/early_stewards_call.md, ready to post) | Use Version 2 from Subagent E + PR #267 ref |
+| E2 | Post Early Stewards call (GitHub Discussion + social) | Brandon | Posted — [Discussion #286](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/discussions/286) | Pin + share short version on X/LinkedIn |
 | E3 | Register `usdr.science` + complete DNS + GitHub Pages | Brandon | In Progress (prep: CNAME committed, primary links updated to usdr.science in docs/README/api; DNS records ready in doc) | Full checklist in CUSTOM_DOMAIN_SETUP.md |
 | E4 | Publish "20-40 min" Contributor Guide + bulk-activate issues | Orchestrator | In Progress (guide in PR; launch comments added to 12+ top GFIs #172 etc.) | Guide already written |
 | E5 | Final preprint review + actual arXiv submission | Brandon | Ready (package complete) | Use ARXIV_SUBMISSION_GUIDE.md |

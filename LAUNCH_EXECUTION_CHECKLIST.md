@@ -23,11 +23,11 @@
 - Status: **E1 COMPLETE (PR #267, CI green). E2 stewards post prep ready. E3 domain prep started. E4 issue activation advanced (12+ GFIs). E5 preprint v1.2 + cover letter prepared (ready for user submission).**
 
 ### E2 — Post Early Stewards / Advisors Call (Ownership distribution)
-- [ ] Post Version 2 (GitHub Discussion) in the repo Discussions tab
+- [x] Post Version 2 (GitHub Discussion) in the repo Discussions tab — [Discussion #286](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/discussions/286)
 - [ ] Share Version 1 on X/LinkedIn/personal channels
 - [ ] Pin the Discussion
-- [ ] Add link to dashboard hero and README
-- Status: **Ready** (three versions delivered by Subagent E)
+- [x] Add link to dashboard hero and README
+- Status: **Posted 2026-06-21** — pin + social share remaining
 
 ### E3 — Domain Finalization
 - [ ] Register `usdr.science` (or chosen domain)

@@ -1,5 +1,7 @@
 # USDR Early Stewards / Advisors — Call for Interest (June 2026 Launch Sprint)
 
+**Live discussion:** https://github.com/KR8ZYSHO3/Universal-Science-Discovery/discussions/286
+
 **Ready-to-post version** (GitHub Discussion + LinkedIn / X)
 
 ---
