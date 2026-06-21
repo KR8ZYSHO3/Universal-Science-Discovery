@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="color-scheme" content="dark light" />
+  <meta name="color-scheme" content="dark" />
   <title>USDR — Map the Unknowns | Research Infrastructure</title>
 
   <!-- OpenGraph -->
@@ -65,32 +65,6 @@
       --r-lg:  20px;
       --nav-h: 54px;
     }
-    [data-theme="light"] {
-      --bg:            #f0f5fc;
-      --bg-1:          #ffffff;
-      --bg-2:          #f8faff;
-      --surface:       rgba(255,255,255,0.82);
-      --surface-solid: #ffffff;
-      --border:        rgba(37,99,235,0.11);
-      --border-h:      rgba(37,99,235,0.28);
-      --text:          #0d1929;
-      --muted:         #4b627e;
-      --accent:        #2563eb;
-      --teal:          #0891b2;
-      --violet:        #7c3aed;
-      --glow-a:        rgba(37,99,235,0.18);
-      --glow-t:        rgba(8,145,178,0.15);
-      --ok:            #059669;
-      --ok-bg:         rgba(5,150,105,0.08);
-      --ok-border:     rgba(5,150,105,0.22);
-      --warn:          #d97706;
-      --warn-bg:       rgba(217,119,6,0.08);
-      --warn-border:   rgba(217,119,6,0.22);
-      --danger:        #dc2626;
-      --danger-bg:     rgba(220,38,38,0.08);
-      --danger-border: rgba(220,38,38,0.22);
-    }
-
     /* ── RESET ──────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -99,7 +73,7 @@
       *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
       #kg-loading-spinner svg { animation: none !important; }
       .panel-body.loading::before { animation: none !important; }
-      [data-theme="dark"] .pulse-dot { animation: none !important; }
+      .pulse-dot { animation: none !important; }
       .search-result-card:hover { transform: none; }
       .steps li:hover { transform: none; }
     }
@@ -119,7 +93,7 @@
       position: fixed; inset: 0; z-index: -1;
       opacity: .55; pointer-events: none;
     }
-    [data-theme="light"] #particle-canvas { opacity: .22; }
+
 
     /* Ambient background radials */
     body::before {
@@ -194,7 +168,7 @@
       70%  { box-shadow: 0 0 0 8px rgba(34,211,184,0);  }
       100% { box-shadow: 0 0 0 0   rgba(34,211,184,0);  }
     }
-    [data-theme="light"] .pulse-dot { animation: none; }
+
 
     .hero-actions { display: flex; gap: .5rem; align-items: center; }
 
@@ -335,15 +309,6 @@
       background: linear-gradient(128deg, var(--accent) 0%, var(--teal) 100%);
       -webkit-background-clip: text; background-clip: text; color: transparent;
     }
-    [data-theme="light"] .grad-a {
-      background: linear-gradient(128deg, #0d1929 0%, #2563eb 52%, #3b82f6 100%);
-      -webkit-background-clip: text; background-clip: text;
-    }
-    [data-theme="light"] .grad-b {
-      background: linear-gradient(128deg, #2563eb 0%, #0891b2 100%);
-      -webkit-background-clip: text; background-clip: text;
-    }
-
     .hero-lead {
       color: var(--muted); font-size: clamp(1rem,1.8vw,1.13rem);
       max-width: 46rem; margin-bottom: 1.9rem; line-height: 1.68;
@@ -527,7 +492,7 @@
     }
     .hub-nav a:hover { color: var(--text); background: var(--surface); border-color: var(--border); }
     .hub-nav a.active { color: #fff; background: var(--accent); border-color: transparent; }
-    [data-theme="light"] .hub-nav a.active { color: #fff; }
+
 
     /* ── MAIN ───────────────────────────────────────────────── */
     main { max-width: 1200px; margin: 0 auto; padding: 0 clamp(1.25rem,4vw,3rem) 5rem; }
@@ -869,7 +834,7 @@
     .lbl-chip.danger { background: var(--danger-bg);   color: var(--danger); border: 1px solid var(--danger-border); }
     .lbl-chip.accent { background: rgba(79,156,249,.1); color: var(--accent); border: 1px solid rgba(79,156,249,.25); }
     .lbl-chip.muted  { background: var(--bg-1); color: var(--muted); border: 1px solid var(--border); }
-    [data-theme="light"] .lbl-chip.accent { background: rgba(37,99,235,.08); border-color: rgba(37,99,235,.2); }
+
 
     /* ── ANIMATE ON SCROLL ──────────────────────────────────── */
     .aos { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
@@ -1372,7 +1337,7 @@
       background: var(--accent); border-color: var(--accent);
       color: #fff; transform: translateY(-1px);
     }
-    [data-theme="light"] .domain-chip.active { color: #fff; }
+
     .activity-fallback { color: var(--accent); font-size: .88rem; }
 
     /* ── DISCOVERY ENGINES ──────────────────────────────────── */
@@ -1558,10 +1523,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
             Actions
           </a>
-          <button type="button" class="btn-icon" id="theme-toggle" aria-label="Toggle color theme">
-            <svg id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32 1.41-1.41"/></svg>
-            <svg id="icon-moon" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          </button>
+
         </div>
       </div>
 
@@ -3084,22 +3046,9 @@
     var isGHPages = location.hostname === 'kr8zysho3.github.io';
     var isLocalhost = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
 
-    /* ── THEME ───────────────────────────────────────────────── */
-    var root = document.documentElement;
-    var themeBtn = document.getElementById('theme-toggle');
-    function applyTheme(m) {
-      root.setAttribute('data-theme', m);
-      document.getElementById('icon-sun').style.display  = m === 'light' ? 'none' : '';
-      document.getElementById('icon-moon').style.display = m === 'light' ? ''     : 'none';
-    }
-    var stored; try { stored = localStorage.getItem('usdr-theme'); } catch(e) {}
-    if (!stored) { try { localStorage.setItem('usdr-theme', 'dark'); } catch(e) {} }
-    applyTheme(stored === 'light' || stored === 'dark' ? stored : 'dark');
-    themeBtn.addEventListener('click', function () {
-      var n = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-      applyTheme(n);
-      try { localStorage.setItem('usdr-theme', n); } catch(e) {}
-    });
+    /* ── THEME (dark only) ───────────────────────────────────── */
+    document.documentElement.setAttribute('data-theme', 'dark');
+    try { localStorage.setItem('usdr-theme', 'dark'); } catch(e) {}
 
     /* ── LIVE MODE ───────────────────────────────────────────── */
     if (!isFile) {
