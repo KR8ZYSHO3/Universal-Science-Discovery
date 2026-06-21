@@ -9,14 +9,15 @@ Authoritative checklist for humans and agents. Update after each merged PR.
 See [LAUNCH_PLAYBOOK.md](../LAUNCH_PLAYBOOK.md) for the full sequenced plan and [LAUNCH_MILESTONES.md](../LAUNCH_MILESTONES.md) for detailed 30/90/180-day checkpoints.
 
 **Current Launch Status:**
-- E1 COMPLETE (PR #267 with dashboard polish, all launch artifacts, full outreach refresh, CI fixes). **CI green, ready to merge!**
-- Institutional materials and refreshed posts ready.
-- E2 stewards call text finalized (ready-to-post in docs/outreach/early_stewards_call.md; post to GitHub Discussions).
-- E3 domain prep started (CNAME committed, primary links updated to usdr.science in PR #267; DNS list ready).
-- E4 issue activation advanced (launch sprint comments added to 12+ good-first-issues: #172,171,170,169,168,167,166,165,164,54,58,60...).
+- E1 COMPLETE — stats refresh, dashboard polish, outreach/preprint packages synced (PRs #267, #281–#283).
+- **Crosscheck Phase 2 COMPLETE** (PR #284 merged) — protocols linked from bridge explainer pages; 3 seed protocols live.
+- CI green, 0 open PRs, dashboard counts verified (1,124 / 1,409 / 1,275 / 3,861 / 4,522).
+- E2 stewards call ready (`docs/outreach/early_stewards_call.md`); dashboard + README now link to Announcements discussions — **post + pin still needed (human)**.
+- E3 domain prep started (CNAME committed; `usdr.science` DNS not live yet).
+- E4 issue activation advanced (12+ GFIs commented); dashboard hero now links Launch Sprint guide.
 - E5 preprint v1.2 + cover letter prepared (docs/preprint/).
 - E6 outreach calendar + refreshed posts ready (docs/outreach/launch_posting_calendar.md).
-- Trackers updated + canvas synced. Next: post stewards call (E2), more activations (E4), domain (E3), submit preprint (E5), fire outreach wave (E6).
+- **Next:** post stewards call (E2), domain DNS (E3), preprint submit (E5), outreach wave (E6).
 
 **30-Day Takeoff Checkpoints (see LAUNCH_MILESTONES.md for details):**
 - M1: Numbers & public stats refresh complete
