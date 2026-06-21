@@ -110,13 +110,13 @@ Structured findings and evidence: **[May 2026 full audit report](.planning/repor
 
 | Metric | Foundation target | Current (2026-05-10) | Status |
 |--------|---------------|----------------------|--------|
-| Cross-domain bridges | 500+ | **1,123** | ✅ Exceeded (next: ongoing catalog growth) |
-| Unknowns | 500+ | **1,408** | ✅ Exceeded |
-| Hypotheses | 300+ | **1,274** | ✅ Exceeded |
+| Cross-domain bridges | 500+ | **1,124** | ✅ Exceeded (next: ongoing catalog growth) |
+| Unknowns | 500+ | **1,409** | ✅ Exceeded |
+| Hypotheses | 300+ | **1,275** | ✅ Exceeded |
 | Pioneers | — | **18** | ✅ Growing |
 | Breakthrough gaps | — | **24** | Living catalog (`breakthrough-gaps/`) |
-| Knowledge graph nodes | 1,000+ | **3,857** | ✅ Exceeded |
-| Knowledge graph edges | — | **4,517** | — |
+| Knowledge graph nodes | 1,000+ | **3,861** | ✅ Exceeded |
+| Knowledge graph edges | — | **4,522** | — |
 | Scientific domains | 15+ | **55+** | ✅ Exceeded |
 | Orphan unknowns | 0 | **0** | ✅ Clean |
 | Schema errors | 0 | **0** | ✅ Clean |
@@ -148,9 +148,9 @@ Structured findings and evidence: **[May 2026 full audit report](.planning/repor
 | Foundation gate | Status |
 |---|---|
 | Seeded disciplines (Physics, Biology, CS, + more) | ✅ 55+ domains |
-| 500+ high-quality structured entries | ✅ 4,805+ total (1,123 bridges + 1,408 unknowns + 1,274 hypotheses + 10 phenomenology — see README; headline counts match `verify_dashboard_consistency.py` + graph meta) |
+| 500+ high-quality structured entries | ✅ 3,861+ total (1,124 bridges + 1,409 unknowns + 1,275 hypotheses + 11 phenomenology — see README; headline counts match `verify_dashboard_consistency.py` + graph meta) |
 | Core governance + legal framework | ✅ CC BY 4.0 + MIT, CONTRIBUTING.md, CODE_OF_CONDUCT.md |
-| Knowledge graph + search | ✅ 3,857 nodes, 4,517 edges; Lunr full-text search; D3.js visualization |
+| Knowledge graph + search | ✅ 3,861 nodes, 4,522 edges; Lunr full-text search; D3.js visualization |
 | Basic contributor infrastructure | ✅ Issue templates, PR template, GitHub Discussions |
 
 ### Phase 1 (Discovery) — still open

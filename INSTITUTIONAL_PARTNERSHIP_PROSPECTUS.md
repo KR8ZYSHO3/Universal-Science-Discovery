@@ -39,11 +39,11 @@ USDR directly addresses these institutional pain points.
 
 USDR is not a proposal — it is operational infrastructure:
 
-- **1,123+ rigorously structured cross-domain mathematical bridges** with term-by-term translation tables and literature references.
-- **1,408+ named open unknowns** across 55+ disciplines, all connected in a knowledge graph with zero orphans.
-- **1,274+ falsifiable hypotheses** linked to specific unknowns.
+- **1,124+ rigorously structured cross-domain mathematical bridges** with term-by-term translation tables and literature references.
+- **1,409+ named open unknowns** across 55+ disciplines, all connected in a knowledge graph with zero orphans.
+- **1,275+ falsifiable hypotheses** linked to specific unknowns.
 - Live automation (OpenAlex, PubMed, Semantic Scholar harvesters + Wave Factory for scalable, review-gated content generation).
-- Deterministic 3,857-node knowledge graph with full reproducibility.
+- Deterministic 3,861-node knowledge graph with full reproducibility.
 - Strong governance, ethics framework, and schema validation (100% pass rate on every contribution).
 - Preprint (v1.2 Launch Edition) ready for arXiv.
 - Public dashboard with interactive graph, search, and domain browsers.

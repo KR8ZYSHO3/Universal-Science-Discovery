@@ -24,9 +24,9 @@ the same mathematics appears to govern both systems.
 
 ## What We're Building (June 2026)
 
-- **3,857-node / 4,517-edge** knowledge graph (deterministic from YAML + graph build)
-- **1,123** cross-domain bridges with term-by-term mathematical translations + citations
-- **1,408** open unknowns (0 orphans) + **1,274** falsifiable hypotheses
+- **3,861-node / 4,522-edge** knowledge graph (deterministic from YAML + graph build)
+- **1,124** cross-domain bridges with term-by-term mathematical translations + citations
+- **1,409** open unknowns (0 orphans) + **1,275** falsifiable hypotheses
 - **55+** disciplines represented
 - Live harvesters + Wave Factory automation (Mon/Thu cadence)
 - Strict schema validation + human review gates on every contribution

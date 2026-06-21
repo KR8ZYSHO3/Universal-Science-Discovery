@@ -20,7 +20,7 @@
 ## Last Updated
 
 **2026-06-XX — Dashboard Launch Polish + Institutional Framing Complete (M7 / E1)**  
-Major public-facing upgrade to dashboard: prominent Launch Sprint banner with researcher + institutional CTAs (graph, preprint, prospectus), new dual-audience value block ("For researchers" + "For institutions & funding partners"), strengthened hero lead and institutional eyebrow, updated pills + trust signals, graph edge count alignment (4,517). This is the first visible step toward fundable institutional presence. OG/Twitter meta already carried launch numbers. Preparation artifacts (prospectus, etc.) now prominently surfaced.
+Major public-facing upgrade to dashboard: prominent Launch Sprint banner with researcher + institutional CTAs (graph, preprint, prospectus), new dual-audience value block ("For researchers" + "For institutions & funding partners"), strengthened hero lead and institutional eyebrow, updated pills + trust signals, graph edge count alignment (4,522). This is the first visible step toward fundable institutional presence. OG/Twitter meta already carried launch numbers. Preparation artifacts (prospectus, etc.) now prominently surfaced.
 
 **2026-06-XX — ALL LAUNCH PREPARATION WORKSTREAMS COMPLETE**  
 All five parallel preparation streams delivered by specialized agents:
@@ -88,7 +88,7 @@ Full launch plan locked in `LAUNCH_PLAYBOOK.md` and `STRATEGIC_DIRECTIONS_2026.m
 
 | Milestone | Target | Owner | Status | Artifacts / Links |
 |-----------|--------|-------|--------|-------------------|
-| **M1: Numbers & Public Stats Refresh** | All public counts accurate and consistent across README, preprint, outreach, dashboard | Orchestrator + Subagent A | **Delivered** (artifacts + verification) | `LAUNCH_STATS_REFRESHED.md` + subagent output; fresh scripts run: schemas OK, 1,408 unknowns, 0 orphans |
+| **M1: Numbers & Public Stats Refresh** | All public counts accurate and consistent across README, preprint, outreach, dashboard | Orchestrator + Subagent A | **Delivered** (artifacts + verification) | `LAUNCH_STATS_REFRESHED.md` + subagent output; fresh scripts run: schemas OK, 1,409 unknowns, 0 orphans |
 | **M2: Domain Live** | `usdr.science` (or equivalent) resolving with HTTPS + all links updated | Brandon | In Progress (CNAME + link updates in PR #267; user to complete registration/DNS) | `docs/CUSTOM_DOMAIN_SETUP.md` + DNS + GitHub Pages config |
 | **M3: Preprint Submission Package Delivered** | Full v1.2 preprint (Launch Edition), ARXIV_SUBMISSION_GUIDE.md (cover letter + detailed checklist + recommendations), concise SUBMISSION_CHECKLIST.md, "What's new" positioning block | Subagent D + Orchestrator | **Delivered** (ready for maintainer upload) | docs/preprint/usdr_preprint.md (v1.2), ARXIV_SUBMISSION_GUIDE.md, SUBMISSION_CHECKLIST.md |
 | **M4: Contributor Sprint Activated** | Top 8–12 good-first-issues polished + "20–40 min guide" published + labeled for launch | Orchestrator + Subagent B | In Progress (guide shipped in PR #267; bulk activation comments added to 12+ GFIs) | `docs/QUICK_START_LAUNCH_SPRINT.md` (shipped); updated issues |

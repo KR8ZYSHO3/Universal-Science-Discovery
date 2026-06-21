@@ -29,12 +29,12 @@ The **Universal Science Discovery Repository (USDR)** is an open-source, schema-
 - CI/CD validation on every pull request
 
 **What's in the catalog today (June 2026 Launch Sprint):**
-- **1,123** cross-domain bridges across physics, biology, economics, neuroscience, information theory, complex systems, and 50+ more disciplines
-- **1,408** structured open unknowns (0 orphans) — research gaps cataloged per discipline with suggested hypotheses
-- **1,274** active hypotheses with proposed experimental tests
+- **1,124** cross-domain bridges across physics, biology, economics, neuroscience, information theory, complex systems, and 50+ more disciplines
+- **1,409** structured open unknowns (0 orphans) — research gaps cataloged per discipline with suggested hypotheses
+- **1,275** active hypotheses with proposed experimental tests
 - **24** breakthrough gap entries mapping high-impact open problems to their specific missing cross-domain bridges
 - **18** pioneer entries with documented lineage
-- A **3,857-node / 4,517-edge** interactive knowledge graph (reproducible build) with public dashboard + JSON API
+- A **3,861-node / 4,522-edge** interactive knowledge graph (reproducible build) with public dashboard + JSON API
 - Live OpenAlex/PubMed/Semantic Scholar automation + Wave Factory (Mon/Thu content waves) + strict CI validation on every PR
 
 **The framing that clarified everything for us:**

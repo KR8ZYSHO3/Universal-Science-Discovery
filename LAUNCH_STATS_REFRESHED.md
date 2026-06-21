@@ -3,12 +3,12 @@
 **Source:** Completed subagent "Numbers & Stats Refresh Agent" (327s, 57 tool calls, full verification against scripts).
 
 **Authoritative numbers used (as provided for launch):**
-- Bridges: 1,123
-- Unknowns: 1,408
-- Hypotheses: 1,274
-- Graph: 3,857 nodes / 4,517 edges
+- Bridges: 1,124
+- Unknowns: 1,409
+- Hypotheses: 1,275
+- Graph: 3,861 nodes / 4,522 edges
 - 0 orphans, 0 schema errors
-- 18 pioneers, 24 breakthrough gaps, 10 phenomenology, 55+ domains
+- 18 pioneers, 24 breakthrough gaps, 11 phenomenology, 55+ domains
 
 **Note from agent:** Some on-disk counts were slightly lower at the time of the run (graph ~3,162 nodes in one inspection). Always re-verify with scripts before applying.
 
@@ -40,8 +40,8 @@ Key table (use exactly):
 
 | Metric                     | Count     | Notes |
 |----------------------------|-----------|-------|
-| **Cross-domain bridges**   | **1,123** | ... |
-| **Open unknowns**          | **1,408** | ... |
+| **Cross-domain bridges**   | **1,124** | ... |
+| **Open unknowns**          | **1,409** | ... |
 | etc.
 
 Badges HTML also provided in the output.
