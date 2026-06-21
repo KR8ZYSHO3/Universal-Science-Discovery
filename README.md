@@ -43,13 +43,13 @@ A git-native, schema-validated, community-governed catalog of scientific unknown
 
 | Metric                     | Count     | Notes                                                           |
 | -------------------------- | --------- | --------------------------------------------------------------- |
-| **Cross-domain bridges**   | **1,123** | Mathematical connections between fields that rarely communicate |
-| **Open unknowns**          | **1,408** | Named, structured research gaps across 55+ disciplines          |
-| **Falsifiable hypotheses** | **1,274** | Testable claims linked to specific unknowns                     |
-| **Knowledge graph nodes**  | **3,857** | Interconnected across 4,517 edges (`docs/knowledge_graph.json`) |
+| **Cross-domain bridges**   | **1,124** | Mathematical connections between fields that rarely communicate |
+| **Open unknowns**          | **1,409** | Named, structured research gaps across 55+ disciplines          |
+| **Falsifiable hypotheses** | **1,275** | Testable claims linked to specific unknowns                     |
+| **Knowledge graph nodes**  | **3,861** | Interconnected across 4,522 edges (`docs/knowledge_graph.json`) |
 | **Pioneer profiles**       | **18**    | `pioneers/*.yaml` — lineage context for seeded bridges            |
 | **Breakthrough gaps**      | **24**    | `breakthrough-gaps/bg-*.yaml` — stewarded high-impact gaps      |
-| **Phenomenology records**  | **10**    | Pre-formal observations (`phenomenology/**/p-*.yaml`)           |
+| **Phenomenology records**  | **11**    | Pre-formal observations (`phenomenology/**/p-*.yaml`)           |
 | **Orphan unknowns**        | **0**     | `scripts/find_orphan_unknowns.py` — none disconnected in graph  |
 | **Schema errors**          | **0**     | All entries pass CI validation on every PR                      |
 
