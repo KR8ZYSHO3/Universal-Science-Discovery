@@ -13,10 +13,10 @@ USDR Early Stewards / Advisors — Call for Interest (June 2026 Launch Sprint)
 We're preparing the public launch of the Universal Science Discovery Repository (USDR) — an open, git-native, version-controlled catalog of science's unknowns, cross-domain mathematical bridges, and falsifiable hypotheses.
 
 **Current scale (verified at launch):**
-- 1,123 cross-domain bridges across 55+ disciplines
-- 1,408 open unknowns (0 orphans maintained)
-- 1,274 testable hypotheses
-- 3,857-node / 4,517-edge interactive knowledge graph
+- 1,124 cross-domain bridges across 55+ disciplines
+- 1,409 open unknowns (0 orphans maintained)
+- 1,275 testable hypotheses
+- 3,861-node / 4,522-edge interactive knowledge graph
 - Live OpenAlex + PubMed + Semantic Scholar automation feeding the system
 - Preprint (v1.2 Launch Edition) ready for arXiv
 
@@ -72,7 +72,7 @@ Let's make the map of the unknown frontier real, together.
 
 **Short version for X / LinkedIn (copy-paste):**
 
-USDR (Universal Science Discovery Repository) is launching publicly this month — 1,123 cross-domain bridges, 1,408 open unknowns, live automation, 0 orphans, full schema validation.
+USDR (Universal Science Discovery Repository) is launching publicly this month — 1,124 cross-domain bridges, 1,409 open unknowns, live automation, 0 orphans, full schema validation.
 
 We're seeding the first cohort of **Early Stewards / Launch Advisors** (researchers who want light, high-signal involvement in shaping open cross-domain discovery infrastructure).
 

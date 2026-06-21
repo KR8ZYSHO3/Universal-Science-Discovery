@@ -41,7 +41,7 @@ Replace `[bracketed]` placeholders before posting. Keep each tweet ≤ 280 chara
 
 **Tweet 8 (CTA)**
 > 7/ We're building a version-controlled, open-source map of what humanity doesn't know yet.
-> 1,408 open questions. 55+ domains. 1,123 cross-domain bridges.
+> 1,409 open questions. 55+ domains. 1,124 cross-domain bridges.
 > It's called USDR — and it's on GitHub.
 > 👉 https://github.com/KR8ZYSHO3/Universal-Science-Discovery
 > Contribute your field's unknowns.
@@ -116,9 +116,9 @@ Replace `[bracketed]` placeholders before posting. Keep each tweet ≤ 280 chara
 
 **Tweet 4**
 > 3/ Right now the repository contains:
-> 📊 1,408 open unknowns across 55+ domains (0 orphans)
-> 🔗 1,123 cross-domain bridges with formal mathematical translations
-> 🕸️ A 3,857-node / 4,517-edge reproducible knowledge graph
+> 📊 1,409 open unknowns across 55+ domains (0 orphans)
+> 🔗 1,124 cross-domain bridges with formal mathematical translations
+> 🕸️ A 3,861-node / 4,522-edge reproducible knowledge graph
 
 **Tweet 5**
 > 4/ We built an AI co-pilot that analyses the graph and proposes novel bridge candidates

@@ -20,11 +20,11 @@ mathematical bridges. Unlike traditional literature databases that index what is
 USDR explicitly catalogs what remains unknown — structured as machine-readable YAML
 entries governed by formal JSON Schema validation. The repository currently contains
 **~4,850+** catalog entries across **55+** disciplines (see repository README metrics),
-including **1,123 cross-domain bridges** that formalise mathematical correspondences
-between fields that rarely communicate, **1,408** open unknowns, **1,274** falsifiable
+including **1,124 cross-domain bridges** that formalise mathematical correspondences
+between fields that rarely communicate, **1,409** open unknowns, **1,275** falsifiable
 hypotheses, **18** pioneer profiles, and **24** breakthrough gap analyses (plus
 phenomenology stubs under `phenomenology/`). We describe the schema design, the knowledge
-graph structure (**3,857** nodes, **4,517** edges, **0** orphan unknowns), and the AI
+graph structure (**3,861** nodes, **4,522** edges, **0** orphan unknowns), and the AI
 co-pilot tooling that automatically surfaces novel bridge candidates by analysing domain
 connectivity gaps.
 USDR is designed as collaborative infrastructure: all entries are version-controlled,
@@ -210,10 +210,10 @@ graph from all YAML entries by reading `id`, `type`, and cross-reference fields
 (`related_unknowns`, `related_bridges`, `related_hypotheses`, `unknowns_addressed`).
 The resulting graph is serialised to `docs/knowledge_graph.json` and contains:
 
-- **3,857 nodes** emitted by the builder (unknowns, hypotheses, bridges, pioneers,
+- **3,861 nodes** emitted by the builder (unknowns, hypotheses, bridges, pioneers,
   breakthrough gaps, phenomenology records, and supporting/auxiliary nodes — exact mix is
   defined by `scripts/build_graph.py`).
-- **4,517 edges** representing explicit cross-references between entries.
+- **4,522 edges** representing explicit cross-references between entries.
 
 Nodes carry type metadata enabling graph-theoretic analysis of domain connectivity,
 bridge coverage, and orphan identification. The graph is rebuilt on every CI run;
@@ -229,16 +229,16 @@ rebuilt deterministically from the source files.
 
 | Metric | Value |
 |--------|-------|
-| Catalog YAML rows (bridges + unknowns + hypotheses + pioneers + breakthrough gaps + phenomenology) | **~4,857** |
-| Unknowns | **1,408** |
-| Hypotheses | **1,274** |
-| Bridges | **1,123** |
+| Catalog YAML rows (bridges + unknowns + hypotheses + pioneers + breakthrough gaps + phenomenology) | **~3,861** |
+| Unknowns | **1,409** |
+| Hypotheses | **1,275** |
+| Bridges | **1,124** |
 | Pioneers | **18** |
 | Breakthrough gaps | **24** |
 | Phenomenology stubs | **10** |
 | Generated domain browse pages (`dashboard/domains/`) | **~249** |
-| Knowledge graph nodes | **3,857** |
-| Knowledge graph edges | **4,517** |
+| Knowledge graph nodes | **3,861** |
+| Knowledge graph edges | **4,522** |
 | Orphan unknowns | **0** |
 | Domain pairs evaluated for bridge gaps (tooling) | **700+** (approx.; run `propose_bridges.py`) |
 
@@ -549,7 +549,7 @@ universality class proofs is not in the standard reading list for conservation b
 
 ## 8. Current Status and Roadmap
 
-**8.1 Foundation (Phase 0) status.** As defined in the project roadmap, foundation infrastructure and seeding are complete; calendar-dependent adoption milestones are tracked under **Phase 1 — Discovery & adoption**. The repository continues to grow on `main` with regular contribution waves; headline counts are maintained in the root **`README.md`** (currently **1,123** bridges, **1,408** unknowns, **1,274** hypotheses, **3,857** graph nodes, **4,517** edges — all rebuilt from YAML in CI).
+**8.1 Foundation (Phase 0) status.** As defined in the project roadmap, foundation infrastructure and seeding are complete; calendar-dependent adoption milestones are tracked under **Phase 1 — Discovery & adoption**. The repository continues to grow on `main` with regular contribution waves; headline counts are maintained in the root **`README.md`** (currently **1,124** bridges, **1,409** unknowns, **1,275** hypotheses, **3,861** graph nodes, **4,522** edges — all rebuilt from YAML in CI).
 
 Governance infrastructure is live: schema validation CI, pull request templates,
 contribution guidelines, and the AI co-pilot tooling suite are operational. The

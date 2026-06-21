@@ -1,6 +1,6 @@
 # Reddit Post — r/OpenScience
 
-**Title:** We built an open catalog of 1,123 cross-domain mathematical bridges to map what science doesn't know yet — live knowledge graph, 1,408 unknowns, automation + strict validation
+**Title:** We built an open catalog of 1,124 cross-domain mathematical bridges to map what science doesn't know yet — live knowledge graph, 1,409 unknowns, automation + strict validation
 
 ---
 
@@ -22,12 +22,12 @@ Not an analogy. A formal, machine-readable entry with:
 - Linked open questions and hypotheses
 
 **What's in the catalog right now (June 2026 Launch Sprint):**
-- **1,123** cross-domain bridges (physics↔ecology, neuroscience↔statistics, economics↔information theory, and 1,100+ more across 55+ disciplines)
-- **1,408** open unknowns across all major disciplines (0 orphans)
-- **1,274** active/falsifiable hypotheses
+- **1,124** cross-domain bridges (physics↔ecology, neuroscience↔statistics, economics↔information theory, and 1,100+ more across 55+ disciplines)
+- **1,409** open unknowns across all major disciplines (0 orphans)
+- **1,275** active/falsifiable hypotheses
 - **24** breakthrough gap entries — high-impact open problems stewarded with missing cross-domain bridges mapped
 - **18** pioneer entries with lineage and underappreciated work documented
-- **3,857-node / 4,517-edge** interactive knowledge graph (deterministic, reproducible)
+- **3,861-node / 4,522-edge** interactive knowledge graph (deterministic, reproducible)
 - Live automation (OpenAlex + PubMed + Semantic Scholar harvesters + Wave Factory cadence)
 - Git-native + strict schema validation + GitHub Actions CI on every contribution
 - Public dashboard with search, D3 graph, xref hygiene, and domain browsers
