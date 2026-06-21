@@ -12,7 +12,7 @@ See [LAUNCH_PLAYBOOK.md](../LAUNCH_PLAYBOOK.md) for the full sequenced plan and 
 - E1 COMPLETE — stats refresh, dashboard polish, outreach/preprint packages synced (PRs #267, #281–#283).
 - **Crosscheck Phase 2 COMPLETE** (PR #284 merged) — protocols linked from bridge explainer pages; 3 seed protocols live.
 - CI green, 0 open PRs, dashboard counts verified (1,124 / 1,409 / 1,275 / 3,861 / 4,522).
-- E2 stewards call ready (`docs/outreach/early_stewards_call.md`); dashboard + README now link to Announcements discussions — **post + pin still needed (human)**.
+- E2 **POSTED** — Early Stewards call live: [Discussion #286](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/discussions/286). Dashboard + README wired. **Pin + social share still needed.**
 - E3 domain prep started (CNAME committed; `usdr.science` DNS not live yet).
 - E4 issue activation advanced (12+ GFIs commented); dashboard hero now links Launch Sprint guide.
 - E5 preprint v1.2 + cover letter prepared (docs/preprint/).
