@@ -9,8 +9,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added — Contributor hub journey UX
+- **`dashboard/index.html`:** **First contribution** five-step checklist at `#start` (clone → task pick → edit file → validate/pytest → PR + optional graph bot PR). **Xref hygiene** intro at `#orphan-xref-panel` (broken xref meaning, fix steps, 100-row cap). **`#contribute`** clarifies browse-only hub vs YAML in clone. **Local preview** banner on `localhost`; **`revealAosInScope`** reveals `.aos` for all in-page `#` nav targets.
+- **`docs/DEV_DASHBOARD.md`**, **`dashboard/README.md`:** document the contributor journey checklist.
+
+### Added — Contributor hub UX Phase 2
+- **`dashboard/index.html`:** **`#start`** is the first section in `<main>` (matches sticky nav order). **How this project works** tool table at `#start`. Sticky nav **`title`** tooltips on Start here, Search, Xref hygiene, Contribute, and Knowledge graph. Hero **New contributor? Start here →** link under pills.
+- **`docs/DEV_DASHBOARD.md`**, **`dashboard/README.md`:** Phase 2 scroll-order and tool-map note.
+
+### Fixed — GitHub Pages deploy freshness banner
+- **`.github/workflows/pages.yml`:** Patches **`api/v1/meta.json`** with a **`pages_deploy`** object (commit SHA, ref, timestamps) at deploy time; verifies artifact before upload; adds **`workflow_dispatch`** for manual redeploy. Still writes gitignored **`dashboard/deploy-info.json`** for backwards compatibility.
+- **`dashboard/index.html`:** Freshness banner reads **`pages_deploy`** from **`api/v1/meta.json`** first, then falls back to **`deploy-info.json`**.
+- **`dashboard/index.html`:** When hosted **`pages_deploy`** / **`deploy-info.json`** are missing, fall back to the public GitHub Actions **`pages.yml`** workflow runs API for deploy SHA before showing the yellow warning.
+
 ### Fixed — Contributor hub (optional JSON + enrichment guards)
-- **`dashboard/index.html`:** **`deploy-info.json`** — treat **404** / parse errors as **empty `{}`** (no throw); **no SHA** shows correct **local vs GitHub Pages** copy instead of a misleading “could not reach GitHub API” line. **`systematic_gaps`** / **`bridge_claim`** coerced with **`String(...)`** before **`.substring`**. Activity feed guards missing **`commit.message`**. **`api/v1/meta.json`** fetched **optionally** (null on failure) with bridges/unknowns. **Bridge proposals** counter uses **non-throwing** fetch when **HTTP ≠ 200**.
+- **`dashboard/index.html`:** Optional JSON loads use **`r.ok ? r.json() : {}`** and **`.catch(function () { return {}; })`** for **`deploy-info.json`**, **`api/v1/meta.json`**, **`bridges.json`**, and **`unknowns.json`** so **404** / network errors do not reject the catalog hydration **`Promise.all`** chain.
+- **`dashboard/index.html`:** **`deploy-info`** empty-SHA banners distinguish **GitHub Pages vs local**; **`bridge_claim` / `systematic_gaps`** use **`String(...)`** before **`.substring`**; activity feed guards missing **`commit.message`**; **bridge proposals** fetch tolerates **non-OK** HTTP.
 
 ### Added — Dashboard orphan / xref hygiene panel (2026-05-15)
 - **`scripts/export_orphan_xref_panel.py`:** writes **`api/v1/orphan_xref_panel.json`** (capped rows: missing graph targets from YAML xrefs + orphan unknowns when present) for the contributor hub.

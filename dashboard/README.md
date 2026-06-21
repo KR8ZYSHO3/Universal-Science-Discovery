@@ -10,6 +10,7 @@ This folder is part of the **git repository**. Anyone who **clones** USDR gets a
 - **Catalog search → graph:** Lunr + domain chips in **`dashboard/index.html`**; a short **status line** shows while the graph JSON and optional API metadata load; choosing a result scrolls to **Knowledge graph**, highlights the neighborhood, zooms toward the node (D3), and opens the YAML panel. **GitHub:** panel blob + raw links; each hit row includes **View YAML on GitHub** (repo-scoped filename search). The graph chrome shows **touch-oriented zoom hints** on coarse pointers (`hover: none` + `pointer: coarse`); the loading line exposes **`aria-live="polite"`** while D3 hydrates.
 - **Xref hygiene panel:** static **`api/v1/orphan_xref_panel.json`** (regenerate with **`python scripts/export_orphan_xref_panel.py`**) lists capped missing cross-references and disconnected unknowns — contributor tooling, not a scientific ranking.
 - **Strategic checklist:** the live snapshot footnote links **`docs/PATH_TO_SUCCESS.md`** (bounded content waves) next to **`ROADMAP.md`**.
+- **First contribution checklist:** at **`#start`** (first section in `<main>`), a **How this project works** tool table plus five-step card walks newcomers through clone → pick a task (xref hygiene, Stream A, or good-first issues) → edit YAML → run `python scripts/validate_schemas.py` and `python -m pytest tests/repo_smoke` → open a PR and merge any follow-up graph bot PR. The hub browses and routes; it does not edit catalog files.
 
 ## Run it locally
 
@@ -37,7 +38,7 @@ See **[docs/DEV_DASHBOARD.md](../docs/DEV_DASHBOARD.md)** for the ordered checkl
 
 ## Publishing & privacy notes
 
-**GitHub Pages:** Pushes to `main` that touch `dashboard/**` or `docs/**` run [`.github/workflows/pages.yml`](../.github/workflows/pages.yml). The workflow writes **`deploy-info.json`** (gitignored locally) next to `index.html` with the deployed commit SHA and timestamp. The hub reads that file and compares it to **`main`** via the GitHub API so visitors see whether **https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/** is current. **Local `python -m http.server`:** `deploy-info.json` is usually **absent** (404 in the network panel is normal); the hub treats a missing file as an **empty manifest** and shows the local-preview banner instead of throwing.
+**GitHub Pages:** Pushes to `main` that touch `dashboard/**` or `docs/**` run [`.github/workflows/pages.yml`](../.github/workflows/pages.yml). The workflow patches **`api/v1/meta.json`** with a **`pages_deploy`** block (commit SHA, ref, timestamps) in the Pages artifact and also writes gitignored **`deploy-info.json`** next to `index.html` for backwards compatibility. The hosted hub reads **`pages_deploy`** from **`meta.json`** (fallback: **`deploy-info.json`**) and compares the deploy SHA to **`main`** via the GitHub API so visitors see whether **https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/** is current. **Local `python -m http.server`:** neither field is present until you run a Pages deploy; the hub shows the local-preview banner instead of throwing.
 
 For other hosts, copy `dashboard/` to static hosting as needed. The main **policy docs site** may be built with MkDocs separately; this hub targets **developers exploring the repo**.
 

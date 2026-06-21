@@ -15,7 +15,7 @@ jobs:
     steps:
       # Full clone + token: create-pull-request pushes a new branch; shallow checkout
       # commonly surfaces as `git` exit 128 with peter-evans/create-pull-request.
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
@@ -89,16 +89,17 @@ jobs:
         uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          branch: bot/wave-factory-${{ github.run_id }}
+          branch: bot/wave-factory
           commit-message: "bot: stage wave factory batch [skip ci]"
           committer: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
           author: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
           title: "bot: wave factory staged bridge batch"
           body: |
             Automated Wave Factory run:
-            - refreshed candidate harvests
+            - refreshed candidate harvests (OpenAlex + PubMed + Semantic Scholar)
             - ranked and staged bridge/unknown/hypothesis triples in `drafts/wave_factory/`
             - validated staged records and canonical schemas
+            - This PR updates in place (fixed branch) to avoid duplicate/conflicting wave PRs.
           labels: |
             automation
             wave-factory

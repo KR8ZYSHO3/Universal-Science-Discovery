@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate USDR record YAML under hypotheses/, unknowns-catalog/, cross-domain/, phenomenology/, pioneers/, and breakthrough-gaps/."""
+"""Validate USDR record YAML under hypotheses/, unknowns-catalog/, cross-domain/, protocols-catalog/, phenomenology/, pioneers, and breakthrough-gaps/."""
 from __future__ import annotations
 
 import sys
@@ -28,6 +28,7 @@ def main() -> int:
     phenomenon_schema     = load_yaml(schemas / "phenomenon.yaml")
     pioneer_schema        = load_yaml(schemas / "pioneer.yaml")
     breakthrough_schema   = load_yaml(schemas / "breakthrough_gap.yaml")
+    protocol_schema       = load_yaml(schemas / "protocol.yaml")
 
     hypo_validator        = Draft202012Validator(hypothesis_schema)
     unk_validator         = Draft202012Validator(unknown_schema)
@@ -36,8 +37,10 @@ def main() -> int:
     # pioneer and breakthrough_gap schemas use draft-07 ($schema declaration)
     pioneer_validator     = Draft7Validator(pioneer_schema)
     breakthrough_validator = Draft7Validator(breakthrough_schema)
+    protocol_validator    = Draft202012Validator(protocol_schema)
 
     errors: list[str] = []
+    bridge_ids: set[str] = set()
 
     for path in sorted((root / "hypotheses").rglob("*.yaml")):
         inst = load_yaml(path)
@@ -53,9 +56,26 @@ def main() -> int:
 
     for path in sorted((root / "cross-domain").rglob("b-*.yaml")):
         inst = load_yaml(path)
+        if inst.get("id"):
+            bridge_ids.add(inst["id"])
         for err in bridge_validator.iter_errors(inst):
             loc = "/".join(str(p) for p in err.absolute_path) or "(root)"
             errors.append(f"{path.relative_to(root)} [{loc}]: {err.message}")
+
+    protocol_dir = root / "protocols-catalog"
+    protocol_count = 0
+    if protocol_dir.exists():
+        for path in sorted(protocol_dir.rglob("p-b-*.yaml")):
+            inst = load_yaml(path)
+            protocol_count += 1
+            for err in protocol_validator.iter_errors(inst):
+                loc = "/".join(str(p) for p in err.absolute_path) or "(root)"
+                errors.append(f"{path.relative_to(root)} [{loc}]: {err.message}")
+            src = inst.get("source_bridge")
+            if src and src not in bridge_ids:
+                errors.append(
+                    f"{path.relative_to(root)} [source_bridge]: unknown bridge id {src!r}"
+                )
 
     phenom_dir = root / "phenomenology"
     if phenom_dir.exists():
@@ -91,9 +111,10 @@ def main() -> int:
     pioneer_count  = len(list(pioneer_dir.glob("pioneer-*.yaml"))) if pioneer_dir.exists() else 0
     bg_count       = len(list(bg_dir.glob("bg-*.yaml"))) if bg_dir.exists() else 0
     print(
-        f"OK: all hypothesis, unknown-catalog, cross-domain bridge, "
+        f"OK: all hypothesis, unknown-catalog, cross-domain bridge, crosscheck protocol, "
         f"phenomenology, pioneer, and breakthrough-gap YAML files validate. "
-        f"({phenom_count} phenomenology entr{'y' if phenom_count == 1 else 'ies'}, "
+        f"({protocol_count} crosscheck protocol{'s' if protocol_count != 1 else ''}, "
+        f"{phenom_count} phenomenology entr{'y' if phenom_count == 1 else 'ies'}, "
         f"{pioneer_count} pioneer entr{'y' if pioneer_count == 1 else 'ies'}, "
         f"{bg_count} breakthrough-gap entr{'y' if bg_count == 1 else 'ies'})"
     )

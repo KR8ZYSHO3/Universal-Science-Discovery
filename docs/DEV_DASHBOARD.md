@@ -6,6 +6,10 @@ Human- and agent-editable checklist for **repository operations** — not scient
 
 For a **single web page** for **contributors**: ordered “start here” path, links to policies and to **`unknowns-catalog/`** / **`hypotheses/`**, plus maintainer **live** `STATE` + `ROADMAP` when served locally — use [`dashboard/index.html`](../dashboard/index.html). The page includes optional **light/dark** theme, sticky section nav with scroll highlight, and loads **Google Fonts** / **`marked`** / **lunr** / **d3** from CDNs when online — see [`dashboard/README.md`](../dashboard/README.md). From the repo root run `python -m http.server 8765`, then open [`dashboard/index.html`](../dashboard/index.html) (URL `http://localhost:8765/dashboard/`).
 
+**Contributor journey UX (hub):** `#start` ships a **First contribution** five-step checklist (fork/clone → hygiene / Stream A / good-first-issues → open file → `validate_schemas.py` + `repo_smoke` → PR + optional graph bot PR), with links to [`docs/HAPPY_PATH_FIRST_RECORDS.md`](HAPPY_PATH_FIRST_RECORDS.md). `#orphan-xref-panel` explains broken xrefs and the capped table. `#contribute` states the hub is browse-only. On **`localhost`**, a slim banner distinguishes local preview from the hosted hub; hash / nav jumps call **`revealAosInScope`** so `.aos` sections animate when deep-linking any in-page anchor.
+
+**Phase 2 (scroll order):** `#start` is the **first** `<main>` section so it matches sticky nav (“Start here” first). A **How this project works** table maps hub, Git, validation scripts, graph bot PR, and GitHub Pages; nav links carry one-line **`title`** tooltips; hero pills link **New contributor? Start here →**.
+
 The Cursor Canvas at [`canvases/Progress.canvas.tsx`](../canvases/Progress.canvas.tsx) is optional; the HTML hub is the main browser entry for people exploring the repo. **Agents:** `.cursor/rules/documentation-and-dashboard.mdc` (always on) requires keeping docs, CHANGELOG, STATE, and this hub aligned — especially at milestones — and spot-checking the hub after hub-affecting edits.
 
 ### Phase A hub flow — catalog search → graph focus → GitHub (implemented)
@@ -45,7 +49,7 @@ Use this so **`dashboard/index.html`**, generated HTML, API JSON, and **README h
 | `docs/` or `mkdocs.yml` | `mkdocs build --strict` |
 | Milestone ring / `MS` JavaScript array in the hub | Align manually with **`ROADMAP.md`** Phase 1 — not auto-generated today |
 
-**GitHub Actions:** On `main`, **`build-graph.yml`** rebuilds the graph, regenerates **`api/v1/`**, runs **`update_dashboard_stats.py --apply`**, domain/breakthrough renderers as configured, and opens the PR path for catalog batches. **`pages.yml`** publishes the hub and writes **`dashboard/deploy-info.json`** for freshness. PRs still need locally consistent HTML if you touch **`dashboard/index.html`** without waiting for that bot loop.
+**GitHub Actions:** On `main`, **`build-graph.yml`** rebuilds the graph, regenerates **`api/v1/`**, runs **`update_dashboard_stats.py --apply`**, domain/breakthrough renderers as configured, and opens the PR path for catalog batches. **`pages.yml`** publishes the hub and patches **`api/v1/meta.json`** with **`pages_deploy`** (plus gitignored **`dashboard/deploy-info.json`**) so the freshness banner works on GitHub Pages. PRs still need locally consistent HTML if you touch **`dashboard/index.html`** without waiting for that bot loop.
 
 ### 2) Standard “catalog batch” command order (local)
 

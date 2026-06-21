@@ -189,6 +189,71 @@ def replace_graph_section_desc(html: str) -> str:
     return result
 
 
+def _fmt_commas(n: int) -> str:
+    return f"{n:,}"
+
+
+def replace_hero_prose(
+    html: str,
+    bridges: int,
+    unknowns: int,
+    hypotheses: int,
+    graph_nodes: int,
+) -> str:
+    """Sync comma-formatted hero banner, pills, and lead paragraph with catalog counts."""
+    banner_pat = (
+        r'(<span style="font-size:\.82rem;opacity:\.95">)'
+        r'[\d,]+ cross-domain bridges • [\d,]+ open unknowns • [\d,]+ hypotheses • '
+        r'[\d,]+-node graph • 0 orphans • Live Wave Factory automation\. Git-native for auditability\.'
+        r'(</span>)'
+    )
+    banner_repl = (
+        rf"\g<1>{_fmt_commas(bridges)} cross-domain bridges • {_fmt_commas(unknowns)} open unknowns • "
+        rf"{_fmt_commas(hypotheses)} hypotheses • {_fmt_commas(graph_nodes)}-node graph • "
+        r"0 orphans • Live Wave Factory automation. Git-native for auditability.\g<2>"
+    )
+    html, n1 = re.subn(banner_pat, banner_repl, html, count=1)
+
+    pill_bridges_pat = r'(<span class="pill">)[\d,]+ cross-domain bridges(</span>)'
+    html, _ = re.subn(pill_bridges_pat, rf"\g<1>{_fmt_commas(bridges)} cross-domain bridges\g<2>", html, count=1)
+
+    pill_unk_hyp_pat = (
+        r'(<span class="pill">)[\d,]+ open unknowns • [\d,]+ hypotheses • 0 orphans(</span>)'
+    )
+    html, _ = re.subn(
+        pill_unk_hyp_pat,
+        rf"\g<1>{_fmt_commas(unknowns)} open unknowns • {_fmt_commas(hypotheses)} hypotheses • 0 orphans\g<2>",
+        html,
+        count=1,
+    )
+
+    pill_graph_pat = r'(<span class="pill">)[\d,]+-node graph • Live automation • Git-native(</span>)'
+    html, _ = re.subn(
+        pill_graph_pat,
+        rf"\g<1>{_fmt_commas(graph_nodes)}-node graph • Live automation • Git-native\g<2>",
+        html,
+        count=1,
+    )
+
+    lead_pat = (
+        r'A git-native, schema-validated catalog of [\d,]+ open research problems, '
+        r'[\d,]+ falsifiable hypotheses, and [\d,]+ cross-domain mathematical bridges — '
+        r'all connected in a reproducible [\d,]+-node knowledge graph\.'
+    )
+    lead_repl = (
+        f"A git-native, schema-validated catalog of {_fmt_commas(unknowns)} open research problems, "
+        f"{_fmt_commas(hypotheses)} falsifiable hypotheses, and {_fmt_commas(bridges)} cross-domain "
+        f"mathematical bridges — all connected in a reproducible {_fmt_commas(graph_nodes)}-node knowledge graph."
+    )
+    html, n2 = re.subn(lead_pat, lead_repl, html, count=1)
+
+    if n1 == 0:
+        print("  WARNING: launch banner summary not found in HTML", file=sys.stderr)
+    if n2 == 0:
+        print("  WARNING: hero-lead prose not found in HTML", file=sys.stderr)
+    return html
+
+
 def replace_pill_summary(html: str, unknowns: int, hypotheses: int, phenomena: int) -> str:
     """Replace 'N unknowns · N hypotheses · N pre-formal observation' in pill text."""
     # Match the pattern with any Unicode separator between numbers
@@ -245,6 +310,7 @@ def main() -> None:
         html = replace_api_hypothesis_blurb(html, hypotheses)
         html = replace_api_graph_blurb(html, g_nodes, g_edges)
         html = replace_graph_section_desc(html)
+        html = replace_hero_prose(html, bridges, unknowns, hypotheses, g_nodes)
     else:
         print(
             "  NOTE: docs/knowledge_graph.json missing or unreadable — "
