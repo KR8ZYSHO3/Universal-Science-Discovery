@@ -44,9 +44,9 @@
 ### E4 — Activate Contributor Pipeline
 - [x] Publish `docs/QUICK_START_LAUNCH_SPRINT.md` (or integrate into CONTRIBUTING.md) (sprint context + PR #267 link added)
 - [x] Bulk-apply improvements + activation comments to the Top 10–12 good-first-issues (launch sprint comments added to #172,#171,#170,#169,#168,#167,#166,#165,#164,#54,#58,#60 etc.)
-- [ ] Add `launch-sprint` and `easy-win` labels
-- [x] Update dashboard hero with direct link to the new guide + Crosscheck demo + Early Stewards CTA
-- Status: **Guide linked from dashboard; issue labels still pending**
+- [x] Add `launch-sprint` and `easy-win` labels (applied to #172–#167, #166, #165, #164, #54, #58, #60)
+- [x] Update dashboard hero with direct link to the new guide + Crosscheck demo + Early Stewards CTA + launch-sprint issue filter
+- Status: **E4 contributor pipeline active — 12 launch-sprint GFIs labeled and linked from hub**
 
 ### E5 — Preprint Submission
 - [ ] Final review of `docs/preprint/usdr_preprint.md` v1.2 (Launch Edition)
