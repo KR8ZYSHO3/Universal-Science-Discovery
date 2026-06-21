@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <title>Crosscheck repro — p-b-percolation-epidemiology-fss</title>
+  <style>
+    :root {
+      --bg: #060d1a; --text: #ddeeff; --muted: #6b8aac; --accent: #4f9cf9;
+      --teal: #22d3b8; --border: rgba(79,156,249,0.2); --mono: ui-monospace, monospace;
+    }
+    body { font-family: system-ui, sans-serif; background: var(--bg); color: var(--text);
+      line-height: 1.6; max-width: 46rem; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+    a { color: var(--accent); }
+    h1 { font-size: 1.35rem; margin-bottom: .25rem; }
+    .meta { color: var(--muted); font-size: .9rem; margin-bottom: 1.5rem; }
+    pre { background: #0b1527; border: 1px solid var(--border); border-radius: 10px;
+      padding: 1rem; overflow-x: auto; font-family: var(--mono); font-size: .85rem; }
+    .note { background: rgba(34,211,184,0.08); border: 1px solid rgba(34,211,184,0.25);
+      border-radius: 10px; padding: .85rem 1rem; font-size: .9rem; margin: 1.25rem 0; }
+    .links { display: flex; flex-wrap: wrap; gap: .65rem; margin-top: 1.5rem; font-size: .88rem; }
+    .pill { display: inline-block; padding: .2rem .55rem; border-radius: 999px;
+      border: 1px solid var(--border); color: var(--teal); font-size: .75rem; }
+  </style>
+</head>
+<body>
+  <p class="pill">USDR Crosscheck · desktop</p>
+  <h1>Finite-size epidemic threshold — does bond percolation on a random graph show threshold shift consistent with R_0^eff(N) = R_0^∞ + c * N^(-1/nu) at nu = 1?</h1>
+  <p class="meta">Protocol <code>p-b-percolation-epidemiology-fss</code> · bridge <code>b-percolation-epidemiology</code></p>
+  <p>On Erdős–Rényi graphs G(N, p), the bond percolation threshold p_c(N) shifts systematically with N as p_c(N) = p_c(∞) + c * N^(-1/nu) with nu ≈ 1 (mean-field universality class for random graphs).</p>
+  <div class="note">
+    This page is served on GitHub Pages for discovery. <strong>Run the repro on your machine</strong>
+    (clone the repo or download this folder) — the script is not executed in the browser.
+  </div>
+  <h2>Run locally</h2>
+  <pre>git clone https://github.com/KR8ZYSHO3/Universal-Science-Discovery.git
+cd Universal-Science-Discovery/repro/p-b-percolation-epidemiology-fss
+pip install -r requirements.txt
+python epidemic_percolation_fss.py</pre>
+  <p>Estimated runtime: 3–8 minutes on a modern laptop. Exit code <code>0</code> = prediction within tolerance;
+  <code>1</code> = falsified at stated precision.</p>
+  <div class="links">
+    <a href="README.md">README</a>
+    <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/tree/main/repro/p-b-percolation-epidemiology-fss">Source on GitHub</a>
+    <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/protocols-catalog/physics-epidemiology/p-b-percolation-epidemiology-fss.yaml">Protocol YAML</a>
+    <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/explainers/b-percolation-epidemiology.html#crosscheck">Bridge explainer</a>
+    <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/">USDR dashboard</a>
+  </div>
+</body>
+</html>

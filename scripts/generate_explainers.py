@@ -160,7 +160,7 @@ def format_crosscheck_protocols(protocols: list[dict]) -> str:
         if len(prediction) > 220:
             prediction = prediction[:217] + "..."
         repro = str(proto.get("repro_bundle", "")).strip().rstrip("/")
-        repro_href = f"../../{repro}/" if repro else ""
+        repro_href = f"../../{repro}/index.html" if repro else ""
         catalog_path = proto.get("_catalog_path", "")
         yaml_href = (
             f"https://github.com/{GITHUB_REPO}/blob/main/{h(catalog_path)}"
