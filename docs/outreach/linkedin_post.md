@@ -28,12 +28,14 @@ The **Universal Science Discovery Repository (USDR)** is an open-source, schema-
 - Linked open questions and testable hypotheses
 - CI/CD validation on every pull request
 
-**What's in the catalog today:**
-- 135+ cross-domain bridges across physics, biology, economics, neuroscience, information theory, and more
-- 570+ structured open unknowns — research gaps cataloged per discipline with suggested hypotheses
-- 149+ active hypotheses with proposed experimental tests
-- 11 breakthrough gap entries mapping world-reshaping technologies to their specific missing cross-domain bridges
-- An 860+ node interactive knowledge graph with a static JSON API for programmatic access
+**What's in the catalog today (June 2026 Launch Sprint):**
+- **1,123** cross-domain bridges across physics, biology, economics, neuroscience, information theory, complex systems, and 50+ more disciplines
+- **1,408** structured open unknowns (0 orphans) — research gaps cataloged per discipline with suggested hypotheses
+- **1,274** active hypotheses with proposed experimental tests
+- **24** breakthrough gap entries mapping high-impact open problems to their specific missing cross-domain bridges
+- **18** pioneer entries with documented lineage
+- A **3,857-node / 4,517-edge** interactive knowledge graph (reproducible build) with public dashboard + JSON API
+- Live OpenAlex/PubMed/Semantic Scholar automation + Wave Factory (Mon/Thu content waves) + strict CI validation on every PR
 
 **The framing that clarified everything for us:**
 
@@ -53,7 +55,7 @@ USDR is CC BY 4.0, hosted on GitHub with a public API and an interactive knowled
 If you work in science communication, research infrastructure, scientometrics, or computational science — or if you've ever discovered that your open question was already solved in a field you don't read — I'd be glad to connect.
 
 GitHub: https://github.com/KR8ZYSHO3/Universal-Science-Discovery
-Live knowledge graph + dashboard: https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/
+Live knowledge graph + dashboard: https://usdr.science/dashboard/
 
 What cross-domain bridge would you add first?
 

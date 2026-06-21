@@ -1,0 +1,35 @@
+id: p-b-habitat-percolation-ecology-cluster-exponent
+title: >
+  Cluster size distribution test — below p_c, does the finite cluster size
+  distribution follow a power law with exponent τ ≈ 187/91 for 2D site percolation?
+status: ready
+source_bridge: b-habitat-percolation-ecology
+source_hypothesis: h-habitat-percolation-critical-density
+source_unknown: u-habitat-fragmentation-threshold
+pollination_index: 1
+falsifiable_prediction: >
+  At occupancy p = 0.55 (below 2D site p_c ≈ 0.593), the cluster size distribution
+  n(s) ∝ s^(-τ) yields τ within 10% of the 2D percolation exponent 187/91 ≈ 2.054.
+null_hypothesis: >
+  The cluster size distribution is not power-law, or τ differs from 187/91 by more than 10%.
+translation_mapping:
+  - field_a_term: cluster size distribution (power law at p_c)
+    field_b_term: patch size distribution in fragmented landscapes at the extinction threshold
+  - field_a_term: site percolation threshold p_c
+    field_b_term: critical habitat coverage fraction
+experimental_design:
+  - Generate 128×128 site percolation configurations at fixed p = 0.55.
+  - Label connected components via union-find; histogram cluster sizes s ≥ 2.
+  - Fit log n(s) vs log s in the scaling range (exclude s < 4 and s > L/4).
+  - Compare fitted τ to 187/91; accept if relative error ≤ 10%.
+  - Repeat across 20 independent seeds; report mean τ and standard error.
+statistical_analysis_plan: >
+  Weighted least-squares on log-log bins; report τ, R², and whether 187/91 falls
+  within the 95% confidence interval.
+feasibility_tier: desktop
+repro_bundle: repro/p-b-habitat-percolation-ecology-cluster-exponent/
+estimated_runtime: 1–3 minutes on a modern laptop
+last_reviewed: "2026-06-21"
+references:
+  - doi: "10.1007/BF02275369"
+    note: With & Crist (1995) — percolation and animal movement in fragmented landscapes

@@ -41,7 +41,7 @@ Replace `[bracketed]` placeholders before posting. Keep each tweet ≤ 280 chara
 
 **Tweet 8 (CTA)**
 > 7/ We're building a version-controlled, open-source map of what humanity doesn't know yet.
-> 603 open questions. 22 domains. 49 cross-domain bridges.
+> 1,408 open questions. 55+ domains. 1,123 cross-domain bridges.
 > It's called USDR — and it's on GitHub.
 > 👉 https://github.com/KR8ZYSHO3/Universal-Science-Discovery
 > Contribute your field's unknowns.
@@ -90,7 +90,7 @@ Replace `[bracketed]` placeholders before posting. Keep each tweet ≤ 280 chara
 > 7/ We're cataloguing these bridges — all 49 of them — in an open-source knowledge graph.
 > Each bridge has a formal translation table: source concept → target concept →
 > mathematical object.
-> 👉 https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/
+> 👉 https://usdr.science/dashboard/
 > Help us find the next one.
 
 ---
@@ -116,9 +116,9 @@ Replace `[bracketed]` placeholders before posting. Keep each tweet ≤ 280 chara
 
 **Tweet 4**
 > 3/ Right now the repository contains:
-> 📊 603 structured entries across 22 scientific domains
-> 🔗 49 cross-domain bridges with formal mathematical translations
-> 🕸️ A knowledge graph of 603 nodes and 628 edges
+> 📊 1,408 open unknowns across 55+ domains (0 orphans)
+> 🔗 1,123 cross-domain bridges with formal mathematical translations
+> 🕸️ A 3,857-node / 4,517-edge reproducible knowledge graph
 
 **Tweet 5**
 > 4/ We built an AI co-pilot that analyses the graph and proposes novel bridge candidates
@@ -142,4 +142,4 @@ Replace `[bracketed]` placeholders before posting. Keep each tweet ≤ 280 chara
 > 7/ This is infrastructure for the next generation of science.
 > Star the repo. Submit an unknown. Review a bridge.
 > 👉 https://github.com/KR8ZYSHO3/Universal-Science-Discovery
-> 🖥️ https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/
+> 🖥️ https://usdr.science/dashboard/

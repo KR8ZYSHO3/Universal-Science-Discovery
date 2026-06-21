@@ -1,0 +1,101 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: https://usdr.local/schemas/protocol.schema.json
+title: USDR Crosscheck protocol entry
+description: >
+  Reproducible, falsifiable experiment protocol derived from a cross-domain bridge.
+  Store under protocols-catalog/ as YAML. Auto-drafts land in drafts/crosscheck/.
+type: object
+additionalProperties: false
+required:
+  - id
+  - title
+  - status
+  - source_bridge
+  - falsifiable_prediction
+  - experimental_design
+  - feasibility_tier
+properties:
+  id:
+    type: string
+    pattern: "^p-b-[a-z0-9.-]+$"
+    description: Stable ID, e.g. p-b-habitat-percolation-ecology-fss
+  title:
+    type: string
+    minLength: 12
+    maxLength: 500
+  status:
+    type: string
+    enum: [draft, ready, executed, confirmed, falsified]
+  source_bridge:
+    type: string
+    pattern: "^b-[a-z0-9.-]+$"
+    description: USDR bridge ID this protocol crosschecks
+  source_hypothesis:
+    type: string
+    pattern: "^h-[a-z0-9.-]+$"
+    description: Linked hypothesis ID (from bridge related_hypotheses)
+  source_unknown:
+    type: string
+    pattern: "^u-[a-z0-9.-]+$"
+    description: Linked unknown ID (from bridge related_unknowns)
+  pollination_index:
+    type: integer
+    minimum: 0
+    description: Index into bridge cross_pollination_opportunities that seeded this protocol
+  falsifiable_prediction:
+    type: string
+    minLength: 20
+    description: Specific measurable outcome that would support or refute the bridge mapping
+  null_hypothesis:
+    type: string
+    description: What we expect if the bridge mapping does not hold
+  translation_mapping:
+    type: array
+    description: Measurable variables in both fields (from bridge translation_table)
+    items:
+      type: object
+      additionalProperties: false
+      required: [field_a_term, field_b_term]
+      properties:
+        field_a_term:
+          type: string
+        field_b_term:
+          type: string
+        note:
+          type: string
+  experimental_design:
+    type: array
+    minItems: 3
+    items:
+      type: string
+    description: Ordered steps from data acquisition through decision rule
+  statistical_analysis_plan:
+    type: string
+    description: How results will be tested against the falsifiable prediction
+  feasibility_tier:
+    type: string
+    enum: [desktop, field, lab, hpc]
+  repro_bundle:
+    type: string
+    description: Relative path to runnable bundle under repro/
+  estimated_runtime:
+    type: string
+    description: Human-readable runtime estimate for the repro bundle
+  last_reviewed:
+    type: string
+    format: date
+  references:
+    type: array
+    items:
+      type: object
+      additionalProperties: false
+      properties:
+        doi:
+          type: string
+        arxiv:
+          type: string
+        url:
+          type: string
+          format: uri
+        note:
+          type: string

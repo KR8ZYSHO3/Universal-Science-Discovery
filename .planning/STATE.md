@@ -2,8 +2,49 @@
 
 Authoritative checklist for humans and agents. Update after each merged PR.
 
+## Launch Execution (June 2026+)
+
+**Primary focus:** Public launch + early ownership distribution while preserving quality and existing automation/governance rigor.
+
+See [LAUNCH_PLAYBOOK.md](../LAUNCH_PLAYBOOK.md) for the full sequenced plan and [LAUNCH_MILESTONES.md](../LAUNCH_MILESTONES.md) for detailed 30/90/180-day checkpoints.
+
+**Current Launch Status:**
+- E1 COMPLETE (PR #267 with dashboard polish, all launch artifacts, full outreach refresh, CI fixes). **CI green, ready to merge!**
+- Institutional materials and refreshed posts ready.
+- E2 stewards call text finalized (ready-to-post in docs/outreach/early_stewards_call.md; post to GitHub Discussions).
+- E3 domain prep started (CNAME committed, primary links updated to usdr.science in PR #267; DNS list ready).
+- E4 issue activation advanced (launch sprint comments added to 12+ good-first-issues: #172,171,170,169,168,167,166,165,164,54,58,60...).
+- E5 preprint v1.2 + cover letter prepared (docs/preprint/).
+- E6 outreach calendar + refreshed posts ready (docs/outreach/launch_posting_calendar.md).
+- Trackers updated + canvas synced. Next: post stewards call (E2), more activations (E4), domain (E3), submit preprint (E5), fire outreach wave (E6).
+
+**30-Day Takeoff Checkpoints (see LAUNCH_MILESTONES.md for details):**
+- M1: Numbers & public stats refresh complete
+- M2: Domain live
+- M3: Preprint submitted with DOI
+- M4: Contributor sprint activated (guide + polished good-first-issues)
+- M5–M8: Outreach push, first external signals, dashboard polish, stewards seeds planted
+
+**Next 5 Launch Actions:**
+1. Post the Early Stewards call (copy from docs/outreach/early_stewards_call.md to GitHub Discussion) + share (E2).
+2. Bulk-activate top good-first-issues with launch sprint comments + promote the QUICK_START_LAUNCH_SPRINT.md (E4).
+3. Prep domain (usdr.science checklist from CUSTOM_DOMAIN_SETUP.md) (E3).
+4. Finalize preprint submission (E5).
+5. Fire outreach wave with refreshed posts (E6).
+
+**Recent Launch Ship (this update):** Pushed core launch artifacts + dashboard institutional polish to PR #267 (merged). Includes INSTITUTIONAL_PARTNERSHIP_PROSPECTUS.md, LAUNCH_* planning files, QUICK_START_LAUNCH_SPRINT.md, early_stewards_call.md, full hero rewrite with Launch Sprint banner + researcher/institutional CTAs and value block, mkdocs nav updates, link checker config fixes. CI fixes for nav and markdown links landed. Major step for institutional visibility.
+
+**Side task (wave factory bot):** Fixed proliferation of conflicting bot wave PRs (#266/#268/#269 etc causing ~486 merge conflicts on candidate JSONs). Root: per-run_id branches in harvest-openalex.yml. Now uses static `bot/wave-factory` (PR #271) so updates in-place. Added comments to old wave PRs. Dedup/collision logic in wave_factory.py + promote remains (skips exact ID/title matches, reports content collisions). Future scheduled runs will maintain one living wave PR.
+
+All five workstreams delivered by parallel agents. Transitioned to Execution Phase in LAUNCH_MILESTONES.md with clear 30-day priorities (apply stats, post Stewards call, domain registration, contributor guide + issues, preprint submission, outreach wave).
+
+See LAUNCH_MILESTONES.md for the new Execution Phase table and priorities.
+
+---
+
 ## Last updated
 
+- 2026-06-XX — **Dashboard Launch Polish + Institutional Funding Readiness signal (M7/E1)** — Major hero rewrite on dashboard: 🚀 Launch Sprint banner (researcher + institutional CTAs to graph/preprint/prospectus), new dual-audience "For researchers / For institutions & funding partners" value block with trust signals (0 orphans, live automation, git-native), hero-institutional eyebrow + strengthened lead paragraph aimed at university research offices. README badges + launch banner already applied. All numbers aligned to 1,123 / 1,408 / 1,274 / 3,857 / 4,517. LAUNCH_MILESTONES + CHECKLIST updated; Canvas sync next. This advances the "when someone sees it, it looks genuinely impressive / fundable" goal for in-person institutional conversations.
 - 2026-05-14 — **Dashboard Phase B polish (stacked PR)** — **`origin/main`** now includes Phase A hub flow (**`e01d55a`**, #244). Phase B UX continues on **`feat/dashboard-ux-polish`** (rebased onto `main`; tip updates with each push). Hub: catalog snapshot foot links **`docs/PATH_TO_SUCCESS.md`**, knowledge-graph **touch zoom hint** + loading **`aria-live`**, maintainer playbook **Phase C stub** in **`docs/DEV_DASHBOARD.md`**. **Catalog / graph meta** (unchanged): **1,123** bridges, **1,408** unknowns, **1,274** hypotheses, **10** phenomena per `verify_dashboard_consistency.py`; **3,857** nodes, **4,517** edges in `docs/knowledge_graph.json` meta. **Content wave:** branch **`content/phase1-bounded-wave-1`** carries documentation-only deferral (**`gh` not authenticated** here; draft bridges need maintainer review before promotion) — see **`.planning/handoffs/GROK_CONSULTANT_LATEST.md`**.
 - 2026-05-10 — **Merged `publish/hub-pages-sync` → `main`** — Audit follow-ups, **`tests/repo_smoke`** / **`validate-schemas.yml`** pytest bundle, hub UX (breakthrough Alt-click search, Discovery Engines honesty), dual CI docs in **`OPERATING_RHYTHM.md`**. **Next:** keep README/ROADMAP/STATE counts aligned after catalog waves; optional strict orphan-xref CI once backlog is tractable.
 - 2026-05-10 — **Discovery Engines + orphan smoke** — Hub **Discovery Engines** cards no longer show fabricated unknown totals (spotlight bridge counts only). **`tests/repo_smoke`** runs **`build_graph.py --report-orphans`** (~8s) alongside schema/domain/dashboard checks.

@@ -1,16 +1,16 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark light" />
-  <title>USDR — Developer Dashboard</title>
+  <title>USDR — Map the Unknowns | Research Infrastructure</title>
 
   <!-- OpenGraph -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/">
+  <meta property="og:url" content="https://usdr.science/dashboard/">
   <meta property="og:title" content="Universal Science Discovery Repository — Map the Unknowns">
-  <meta property="og:description" content="A version-controlled, AI-augmented knowledge engine tracking what humanity doesn't yet know. 1123 cross-domain bridges &#9658; 1408 open unknowns &#9658; 3857 knowledge graph nodes &#9658; Open source." >
+  <meta property="og:description" content="A version-controlled, AI-augmented knowledge engine tracking what humanity doesn't yet know. 1124 cross-domain bridges &#9658; 1409 open unknowns &#9658; 3861 knowledge graph nodes &#9658; Open source." >
   <meta property="og:image" content="https://opengraph.githubassets.com/1/KR8ZYSHO3/Universal-Science-Discovery">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -19,13 +19,13 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Universal Science Discovery Repository">
-  <meta name="twitter:description" content="Map the unknowns. Accelerate discovery. 1123 cross-domain bridges, 1408 open unknowns, 3857 knowledge graph nodes. All open source.">
+  <meta name="twitter:description" content="Map the unknowns. Accelerate discovery. 1124 cross-domain bridges, 1409 open unknowns, 3861 knowledge graph nodes. All open source.">
   <meta name="twitter:image" content="https://opengraph.githubassets.com/1/KR8ZYSHO3/Universal-Science-Discovery">
 
   <!-- SEO -->
   <meta name="description" content="USDR tracks what science doesn't yet know — a version-controlled catalog of open unknowns, falsifiable hypotheses, and cross-domain mathematical bridges.">
   <meta name="keywords" content="open science, unknowns, hypotheses, cross-domain, knowledge graph, scientific discovery, open source">
-  <link rel="canonical" href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/">
+  <link rel="canonical" href="https://usdr.science/dashboard/">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -149,6 +149,30 @@
       border-bottom: 1px solid var(--border);
       position: relative; overflow: hidden;
     }
+
+    /* Launch Sprint Banner */
+    .launch-banner {
+      background: linear-gradient(135deg, rgba(16,185,129,0.15), rgba(52,211,153,0.08));
+      border: 1px solid #10b981;
+      border-radius: 16px;
+      padding: 1rem 1.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .launch-banner strong {
+      color: #a7f3d0;
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+    }
+
+    /* Institutional / researcher dual-audience CTA block (Launch Sprint) */
+    .institutional-cta {
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .institutional-cta:hover {
+      border-color: var(--border-h);
+    }
+
     .hero-inner { max-width: 1100px; width: 100%; margin: 0 auto; }
 
     .hero-meta {
@@ -325,6 +349,13 @@
       max-width: 46rem; margin-bottom: 1.9rem; line-height: 1.68;
     }
 
+    .hero-institutional {
+      font-size: 0.95rem;
+      color: #a7f3d0;
+      margin-bottom: 1.25rem;
+      font-weight: 500;
+    }
+
     .pill-row { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 2.2rem; }
     .pill {
       display: inline-flex; align-items: center; gap: .3rem;
@@ -368,6 +399,97 @@
     .server-banner.show { display: block; }
     .server-banner a { color: var(--accent); }
     .server-banner code { font-family: var(--mono); font-size: .83em; }
+
+    .hub-context-banner {
+      display: none;
+      max-width: min(1100px, 94vw);
+      margin: 0 auto .85rem;
+      padding: .5rem 1rem;
+      font-size: .78rem;
+      line-height: 1.45;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      border-radius: var(--r-sm);
+      background: var(--surface);
+      text-align: center;
+    }
+    .hub-context-banner.show { display: block; }
+    .hub-context-banner a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+    .hub-context-banner strong { color: var(--text); font-weight: 600; }
+
+    .first-contrib-card {
+      margin-bottom: 1.75rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 1.25rem 1.35rem 1.1rem;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .first-contrib-card h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: .35rem; }
+    .first-contrib-card .first-contrib-lead {
+      font-size: .87rem; color: var(--muted); line-height: 1.55; margin-bottom: 1rem;
+    }
+    .how-works-table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: var(--r-sm);
+      background: var(--bg-1);
+    }
+    .how-works-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .84rem;
+    }
+    .how-works-table th,
+    .how-works-table td {
+      padding: .55rem .65rem;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+    .how-works-table th {
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--muted);
+      font-weight: 600;
+      background: var(--surface);
+    }
+    .how-works-table tr:last-child td { border-bottom: none; }
+    .how-works-table td:first-child { font-weight: 600; color: var(--text); white-space: nowrap; }
+    .how-works-foot {
+      margin-top: .85rem;
+      font-size: .82rem;
+      color: var(--muted);
+    }
+    .how-works-foot a { color: var(--accent); }
+    .hero-contrib-hint {
+      font-size: .88rem;
+      margin: -1.35rem 0 1.75rem;
+      text-align: center;
+    }
+    .hero-contrib-hint a {
+      color: var(--accent);
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(79,156,249,.35);
+    }
+    .hero-contrib-hint a:hover { border-bottom-color: var(--accent); }
+    .xref-hygiene-intro {
+      margin: 0 0 1rem;
+      padding: .95rem 1.1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      font-size: .87rem;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+    .xref-hygiene-intro strong { color: var(--text); }
+    .xref-hygiene-intro ol { margin: .55rem 0 0 1.15rem; padding: 0; }
+    .xref-hygiene-intro li { margin-bottom: .35rem; }
+    .xref-hygiene-intro a { color: var(--accent); }
 
     .scroll-hint {
       position: absolute; bottom: 1.75rem; left: 50%; transform: translateX(-50%);
@@ -769,7 +891,7 @@
     .footer-links a { color: var(--muted); font-size: .82rem; }
     .footer-links a:hover { color: var(--accent); }
 
-    /* ── GitHub Pages freshness (deploy-info.json + main) ───── */
+    /* ── GitHub Pages freshness (pages_deploy + main) ───── */
     .pages-deploy-banner {
       display: none;
       margin: 1rem auto 0;
@@ -1409,10 +1531,21 @@
   <!-- ═══════════════════════════════════════════════════════ HERO -->
   <header class="hero">
     <div class="hero-inner">
+      <!-- Launch Sprint Banner: prominent for researchers + institutions -->
+      <div class="launch-banner" role="note" aria-label="June 2026 Launch Sprint">
+        <strong>🚀 June 2026 Launch Sprint — Now open to researchers &amp; institutions</strong><br>
+        <span style="font-size:.82rem;opacity:.95">1,124 cross-domain bridges • 1,409 open unknowns • 1,275 hypotheses • 3,861-node graph • 0 orphans • Live Wave Factory automation. Git-native for auditability.</span>
+        <div style="margin-top:.55rem;display:flex;gap:.45rem;justify-content:center;flex-wrap:wrap;">
+          <a href="#knowledge-graph" style="display:inline-flex;align-items:center;padding:.32rem .85rem;border-radius:999px;border:1px solid #10b981;background:rgba(16,185,129,0.12);color:#a7f3d0;font-size:.78rem;font-weight:600;text-decoration:none;">Explore live graph</a>
+          <a href="../docs/preprint/usdr_preprint.md" style="display:inline-flex;align-items:center;padding:.32rem .85rem;border-radius:999px;border:1px solid rgba(167,243,208,0.4);background:transparent;color:#a7f3d0;font-size:.78rem;font-weight:600;text-decoration:none;">Read v1.2 preprint</a>
+          <a href="../INSTITUTIONAL_PARTNERSHIP_PROSPECTUS.md" style="display:inline-flex;align-items:center;padding:.32rem .85rem;border-radius:999px;border:1px solid rgba(167,243,208,0.4);background:transparent;color:#a7f3d0;font-size:.78rem;font-weight:600;text-decoration:none;">For institutions &amp; funders →</a>
+        </div>
+      </div>
+
       <div class="hero-meta">
         <div class="eyebrow">
           <span class="pulse-dot" id="live-dot" hidden aria-hidden="true"></span>
-          <span id="live-label">Universal Science Discovery</span>
+          <span id="live-label">Universal Science Discovery Repository</span>
         </div>
         <div class="hero-actions">
           <a class="btn-ghost" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery" target="_blank" rel="noopener" aria-label="View on GitHub">
@@ -1435,21 +1568,24 @@
         <span class="grad-b">Accelerate discovery.</span>
       </h1>
 
+      <div class="hero-institutional">
+        Built for researchers, university research offices, libraries, and funding partners who need structured visibility into the open scientific frontier.
+      </div>
+
       <div class="pill-row" aria-label="Highlights">
         <span class="pill live"><span class="d"></span> Phase 1 · Discovery &amp; adoption</span>
-        <span class="pill">1123 cross-domain bridges</span>
-        <span class="pill">1408 unknowns · 1274 hypotheses · 10 pre-formal observations</span>
-        <span class="pill">Git-native · Open source</span>
+        <span class="pill">1,124 cross-domain bridges</span>
+        <span class="pill">1,409 open unknowns • 1,275 hypotheses • 0 orphans</span>
+        <span class="pill">3,861-node graph • Live automation • Git-native</span>
       </div>
+
+      <p class="hero-contrib-hint"><a href="#start">Researchers &amp; contributors: Start here →</a></p>
 
       <div class="pages-deploy-banner aos" id="pages-deploy-banner" role="status" aria-live="polite" hidden></div>
 
       <p class="hero-lead">
-        The <strong>Universal Science Discovery Repository</strong> — a version-controlled, AI-augmented
-        knowledge engine for tracking what humanity <em>doesn't yet know</em>. Unknowns, hypotheses,
-        and cross-domain bridges live together with rigorous separation between what's established
-        and what we're still trying to falsify. No tunnel vision: every entry explicitly names the
-        fields that should be talking to each other but aren't.
+        The <strong>Universal Science Discovery Repository</strong> is open infrastructure for the scientific unknown.
+        A git-native, schema-validated catalog of 1,409 open research problems, 1,275 falsifiable hypotheses, and 1,124 cross-domain mathematical bridges — all connected in a reproducible 3,861-node knowledge graph. Built so researchers can find high-leverage open questions fast, institutions can spot interdisciplinary opportunities, and funders can see exactly where the frontier is moving.
       </p>
 
       <div class="discovery-callout" role="region" aria-label="Catalog discovery">
@@ -1469,17 +1605,17 @@
       <div class="catalog-snapshot aos" role="region" aria-label="Catalog snapshot from YAML file counts and built graph meta">
         <div class="catalog-snapshot-label">Live catalog snapshot</div>
         <div class="catalog-snapshot-row">
-          <span class="catalog-snapshot-metric"><span class="catalog-snapshot-n"><span id="snap-bridges">1123</span></span><span class="catalog-snapshot-l">bridges</span></span>
+          <span class="catalog-snapshot-metric"><span class="catalog-snapshot-n"><span id="snap-bridges">1124</span></span><span class="catalog-snapshot-l">bridges</span></span>
           <span class="catalog-snapshot-sep" aria-hidden="true">·</span>
-          <span class="catalog-snapshot-metric"><span class="catalog-snapshot-n"><span id="snap-unknowns">1408</span></span><span class="catalog-snapshot-l">unknowns</span></span>
+          <span class="catalog-snapshot-metric"><span class="catalog-snapshot-n"><span id="snap-unknowns">1409</span></span><span class="catalog-snapshot-l">unknowns</span></span>
           <span class="catalog-snapshot-sep" aria-hidden="true">·</span>
-          <span class="catalog-snapshot-metric"><span class="catalog-snapshot-n"><span id="snap-hypotheses">1274</span></span><span class="catalog-snapshot-l">hypotheses</span></span>
+          <span class="catalog-snapshot-metric"><span class="catalog-snapshot-n"><span id="snap-hypotheses">1275</span></span><span class="catalog-snapshot-l">hypotheses</span></span>
           <span class="catalog-snapshot-sep" aria-hidden="true">·</span>
-          <span class="catalog-snapshot-metric"><span class="catalog-snapshot-n"><span id="snap-phenomena">10</span></span><span class="catalog-snapshot-l">phenomena</span></span>
+          <span class="catalog-snapshot-metric"><span class="catalog-snapshot-n"><span id="snap-phenomena">11</span></span><span class="catalog-snapshot-l">phenomena</span></span>
           <span class="catalog-snapshot-sep" aria-hidden="true">·</span>
-          <span class="catalog-snapshot-metric"><span class="catalog-snapshot-n"><span id="snap-graph-nodes">3857</span></span><span class="catalog-snapshot-l">graph nodes</span></span>
+          <span class="catalog-snapshot-metric"><span class="catalog-snapshot-n"><span id="snap-graph-nodes">3861</span></span><span class="catalog-snapshot-l">graph nodes</span></span>
           <span class="catalog-snapshot-sep" aria-hidden="true">·</span>
-          <span class="catalog-snapshot-metric"><span class="catalog-snapshot-n"><span id="snap-graph-edges">4517</span></span><span class="catalog-snapshot-l">graph edges</span></span>
+          <span class="catalog-snapshot-metric"><span class="catalog-snapshot-n"><span id="snap-graph-edges">4522</span></span><span class="catalog-snapshot-l">graph edges</span></span>
         </div>
         <p class="catalog-snapshot-foot">Updated by <code>python scripts/update_dashboard_stats.py --apply</code> (catalog globs + <code>docs/knowledge_graph.json</code> meta). Wave milestones stay in <a href="../ROADMAP.md">ROADMAP.md</a>; bounded PR-sized content batches and validation reminders are in <a href="../docs/PATH_TO_SUCCESS.md">docs/PATH_TO_SUCCESS.md</a>.</p>
       </div>
@@ -1495,23 +1631,23 @@
           <div class="lbl">Contributors</div>
         </div>
         <div class="stat-card">
-          <div class="n" id="stat-hyp">1274</div>
+          <div class="n" id="stat-hyp">1275</div>
           <div class="lbl">Active Hypotheses</div>
         </div>
         <div class="stat-card">
-          <div class="n" id="stat-unk">1408</div>
+          <div class="n" id="stat-unk">1409</div>
           <div class="lbl">Tracked Unknowns</div>
         </div>
         <div class="stat-card">
-          <div class="n" id="stat-bridges">1123</div>
+          <div class="n" id="stat-bridges">1124</div>
           <div class="lbl">Cross-domain Bridges</div>
         </div>
         <div class="stat-card">
-          <div class="n" id="stat-phenom">10</div>
+          <div class="n" id="stat-phenom">11</div>
           <div class="lbl">Pre-formal Observations</div>
         </div>
         <div class="stat-card">
-          <div class="n" id="stat-graph-edges">4517</div>
+          <div class="n" id="stat-graph-edges">4522</div>
           <div class="lbl">Knowledge Graph Edges</div>
         </div>
       </div>
@@ -1521,7 +1657,24 @@
         From repo root: <code>python -m http.server 8765</code> — then open
         <a href="http://localhost:8765/dashboard/">localhost:8765/dashboard/</a>
         · or view the hosted version at
-        <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/" target="_blank" rel="noopener">GitHub Pages ↗</a>
+        <a href="https://usdr.science/dashboard/" target="_blank" rel="noopener">GitHub Pages ↗</a>
+      </div>
+
+      <!-- Dual-audience value block (researchers + institutions) -->
+      <div class="institutional-cta" style="margin:1.25rem auto 0;max-width:920px;padding:1rem 1.25rem;border-radius:var(--r-lg);border:1px solid var(--border-h);background:var(--surface);text-align:left;font-size:.9rem;line-height:1.5;">
+        <div style="display:flex;gap:1.25rem;flex-wrap:wrap;align-items:flex-start;">
+          <div style="flex:1 1 320px;min-width:280px;">
+            <strong style="color:var(--ok);">For researchers</strong><br>
+            Find genuinely open problems with literature context. Spot cross-domain bridges that can accelerate your work. Contribute a single well-scoped unknown or hypothesis in one focused PR.
+          </div>
+          <div style="flex:1 1 320px;min-width:280px;">
+            <strong style="color:#a7f3d0;">For institutions &amp; funding partners</strong><br>
+            Get structured visibility into the frontier your faculty and students are working near. Identify interdisciplinary opportunities before competitors. Low-risk, git-native, full governance already in place. See the <a href="../INSTITUTIONAL_PARTNERSHIP_PROSPECTUS.md" style="color:#a7f3d0;text-decoration:underline;">full partnership prospectus</a>.
+          </div>
+        </div>
+        <div style="margin-top:.65rem;font-size:.78rem;color:var(--muted);">
+          0 schema errors • 0 orphans • Every entry validated on every PR • Wave Factory cadence (Mon/Thu) • Full reproducibility via <code>build_graph.py</code>
+        </div>
       </div>
     </div>
 
@@ -1533,21 +1686,27 @@
 
   <!-- ═══════════════════════════════════════════════ STICKY NAV -->
   <div class="hub-nav-wrap">
+    <p id="hub-context-banner" class="hub-context-banner" role="note" hidden>
+      <strong>Local preview.</strong> This page helps you <strong>browse</strong> the catalog and find tasks.
+      Real edits happen in a <strong>clone</strong>: change YAML, run checks, open a PR — then merge any follow-up graph bot PR.
+      Hosted copy:
+      <a href="https://usdr.science/dashboard/" target="_blank" rel="noopener">GitHub Pages ↗</a>
+    </p>
     <nav class="hub-nav" aria-label="Page sections">
-      <a href="#start">Start here</a>
+      <a href="#start" title="Onboarding path, tool map, and first contribution checklist">Start here</a>
       <a href="domains/" class="nav-link">Browse domains</a>
       <a href="explainers/" class="nav-link">Explainers</a>
-      <a href="#catalog-search">Search</a>
-      <a href="#orphan-xref-panel">Xref hygiene</a>
+      <a href="#catalog-search" title="Full-text search across unknowns, bridges, hypotheses, and phenomena">Search</a>
+      <a href="#orphan-xref-panel" title="Broken cross-reference targets you can fix in a pull request">Xref hygiene</a>
       <a href="#discovery-engines">Engines</a>
       <a href="#pioneers">Pioneers</a>
       <a href="#breakthrough-gaps">Breakthroughs</a>
       <a href="#ai-copilot">AI co-pilot</a>
       <a href="#developer-api">API</a>
-      <a href="#knowledge-graph">Knowledge graph</a>
+      <a href="#knowledge-graph" title="Interactive force-directed view of catalog relationships">Knowledge graph</a>
       <a href="#workstreams">Workstreams</a>
       <a href="#status">Status</a>
-      <a href="#contribute">Contribute</a>
+      <a href="#contribute" title="Where catalog folders live — edit YAML in a clone, not in this hub">Contribute</a>
       <a href="#project">Project</a>
       <a href="#policies">Policies</a>
       <a href="#reference">Reference</a>
@@ -1556,6 +1715,197 @@
   </div>
 
   <main>
+    <!-- ═══════════════════════════════════════════ START HERE -->
+    <section id="start">
+      <div>
+        <span class="section-tag">Onboarding</span>
+        <h2 class="section-title">New here? Follow this order</h2>
+        <p class="section-desc">
+          Same path as <a href="../CONTRIBUTING.md">CONTRIBUTING.md</a> and
+          <a href="../docs/ONBOARDING.md">docs/ONBOARDING.md</a>, laid out as steps.
+          Clone the repo so file links open directly in your editor.
+        </p>
+      </div>
+
+      <div class="first-contrib-card aos" aria-labelledby="how-works-heading">
+        <h3 id="how-works-heading">How this project works</h3>
+        <p class="first-contrib-lead">
+          Plain-language map of the tools you will touch — no scientific claims, just workflow.
+        </p>
+        <div class="how-works-table-wrap">
+          <table class="how-works-table" aria-label="Contributor tools and workflow">
+            <thead>
+              <tr>
+                <th scope="col">Tool</th>
+                <th scope="col">What it does</th>
+                <th scope="col">You use it to…</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Hub (this page)</td>
+                <td>Browse catalog, search, graph, hygiene list</td>
+                <td>Find a task; read only</td>
+              </tr>
+              <tr>
+                <td>Git + GitHub</td>
+                <td>Version control</td>
+                <td>Edit YAML; open PR</td>
+              </tr>
+              <tr>
+                <td><code>validate_schemas</code> + <code>repo_smoke</code></td>
+                <td>Local/CI checks</td>
+                <td>Confirm YAML valid before PR</td>
+              </tr>
+              <tr>
+                <td>build-graph bot PR</td>
+                <td>Auto refresh graph/API after merge</td>
+                <td>Merge when it appears</td>
+              </tr>
+              <tr>
+                <td>GitHub Pages</td>
+                <td>Hosted hub</td>
+                <td>Share link; green banner = site current</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="how-works-foot">
+          Deeper walkthrough:
+          <a href="../CONTRIBUTING.md">CONTRIBUTING.md</a> ·
+          <a href="../docs/DEV_DASHBOARD.md">docs/DEV_DASHBOARD.md</a>
+        </p>
+      </div>
+
+      <div class="first-contrib-card aos" aria-labelledby="first-contrib-heading">
+        <h3 id="first-contrib-heading">First contribution (five steps)</h3>
+        <p class="first-contrib-lead">
+          The hub <strong>browses</strong> and routes you to tasks; your PR edits YAML in a local clone.
+          Stream A walkthrough:
+          <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/docs/HAPPY_PATH_FIRST_RECORDS.md" target="_blank" rel="noopener">HAPPY_PATH_FIRST_RECORDS.md ↗</a>
+        </p>
+        <ol class="steps">
+          <li class="aos">
+            <span class="step-n" aria-hidden="true"></span>
+            <div class="step-b">
+              <strong>Fork and clone the repo</strong>
+              <p>Get a local copy so you can edit catalog files and run validation scripts.</p>
+              <div class="step-links">
+                <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery" target="_blank" rel="noopener">GitHub repo ↗</a>
+                <a class="lc" href="../CONTRIBUTING.md">CONTRIBUTING</a>
+              </div>
+            </div>
+          </li>
+          <li class="aos d1">
+            <span class="step-n" aria-hidden="true"></span>
+            <div class="step-b">
+              <strong>Pick a task</strong>
+              <p>Choose one entry path — all end in a pull request.</p>
+              <div class="step-links">
+                <a class="lc" href="#orphan-xref-panel">Hygiene (fix one xref)</a>
+                <a class="lc" href="../docs/HAPPY_PATH_FIRST_RECORDS.md">Stream A (unknown + hypothesis)</a>
+                <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/issues?q=is%3Aopen+label%3A%22good+first+issue%22" target="_blank" rel="noopener">Good first issues ↗</a>
+              </div>
+            </div>
+          </li>
+          <li class="aos d2">
+            <span class="step-n" aria-hidden="true"></span>
+            <div class="step-b">
+              <strong>Open the file you will edit</strong>
+              <p>Use the hygiene table, Stream A templates, or the issue’s file path.</p>
+              <div class="step-links">
+                <a class="lc" href="../templates/README.md">Templates</a>
+                <a class="lc" href="#orphan-xref-panel">Xref hygiene table</a>
+                <a class="lc" href="#contribute">Catalog folders</a>
+              </div>
+            </div>
+          </li>
+          <li class="aos d3">
+            <span class="step-n" aria-hidden="true"></span>
+            <div class="step-b">
+              <strong>Run checks before you push</strong>
+              <p>From the repo root:</p>
+              <p style="margin-top:.35rem;font-family:var(--mono);font-size:.8rem;color:var(--text);">
+                python scripts/validate_schemas.py<br>
+                python -m pytest tests/repo_smoke
+              </p>
+            </div>
+          </li>
+          <li class="aos d4">
+            <span class="step-n" aria-hidden="true"></span>
+            <div class="step-b">
+              <strong>Open a PR and merge when CI is green</strong>
+              <p>After your PR merges, watch for an optional <strong>graph rebuild bot PR</strong> and merge it if it appears (refreshes the knowledge graph JSON).</p>
+              <div class="step-links">
+                <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/pulls" target="_blank" rel="noopener">Pull requests ↗</a>
+              </div>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <ol class="steps">
+        <li class="aos">
+          <span class="step-n" aria-hidden="true"></span>
+          <div class="step-b">
+            <strong>Know what you're joining</strong>
+            <p>Vision, motivation, and why this infrastructure matters for science.</p>
+            <div class="step-links">
+              <a class="lc" href="../WHY_CONTRIBUTE.md">WHY_CONTRIBUTE</a>
+              <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/WHY_CONTRIBUTE.md" target="_blank" rel="noopener">GitHub ↗</a>
+            </div>
+          </div>
+        </li>
+        <li class="aos d1">
+          <span class="step-n" aria-hidden="true"></span>
+          <div class="step-b">
+            <strong>Scope and quality bar</strong>
+            <p>What lives here, what doesn't, and the rigor expected of every entry.</p>
+            <div class="step-links">
+              <a class="lc" href="../docs/VISION_AND_SCOPE.md">VISION_AND_SCOPE</a>
+              <a class="lc" href="../docs/QUALITY_BAR.md">QUALITY_BAR</a>
+              <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/docs/VISION_AND_SCOPE.md" target="_blank" rel="noopener">GitHub ↗</a>
+            </div>
+          </div>
+        </li>
+        <li class="aos d2">
+          <span class="step-n" aria-hidden="true"></span>
+          <div class="step-b">
+            <strong>Rigor: hypotheses vs. findings</strong>
+            <p>The evidence bar, claims discipline, and output conventions. Read before proposing any scientific claims.</p>
+            <div class="step-links">
+              <a class="lc" href="../docs/METHODOLOGY.md">METHODOLOGY</a>
+              <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/docs/METHODOLOGY.md" target="_blank" rel="noopener">GitHub ↗</a>
+            </div>
+          </div>
+        </li>
+        <li class="aos d3">
+          <span class="step-n" aria-hidden="true"></span>
+          <div class="step-b">
+            <strong>Integrity, data, and conduct</strong>
+            <p>Ethics policy, what data may be committed, and community norms.</p>
+            <div class="step-links">
+              <a class="lc" href="../docs/ETHICS_REPRODUCIBILITY_AND_DATA.md">Ethics &amp; data</a>
+              <a class="lc" href="../CODE_OF_CONDUCT.md">Code of Conduct</a>
+              <a class="lc" href="../LEGAL.md">LEGAL</a>
+            </div>
+          </div>
+        </li>
+        <li class="aos d4">
+          <span class="step-n" aria-hidden="true"></span>
+          <div class="step-b">
+            <strong>Make your first contribution</strong>
+            <p>Stream A: validate setup → add a <code>u-…</code> unknown → add a <code>h-…</code> hypothesis → open PR.</p>
+            <div class="step-links">
+              <a class="lc" href="../docs/HAPPY_PATH_FIRST_RECORDS.md">Happy path guide</a>
+              <a class="lc" href="../CONTRIBUTING.md">CONTRIBUTING</a>
+              <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/issues" target="_blank" rel="noopener">Open an issue ↗</a>
+            </div>
+          </div>
+        </li>
+      </ol>
+    </section>
+
     <!-- ═══════════════════════════════════════════ CATALOG SEARCH -->
     <section id="catalog-search">
       <div>
@@ -1595,6 +1945,21 @@
           <code style="font-family:var(--mono);font-size:.84em;">python scripts/export_orphan_xref_panel.py</code>
           after catalog edits — see <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/docs/DEV_DASHBOARD.md" target="_blank" rel="noopener">docs/DEV_DASHBOARD.md</a>.
         </p>
+        <div class="xref-hygiene-intro aos">
+          <p>
+            <strong>Broken cross-reference</strong> means a YAML file points at an ID that does not exist (typo, renamed record, or missing target).
+            The graph cannot draw that link until the ID is fixed or the reference is removed.
+          </p>
+          <p><strong>Quick fix (three steps):</strong></p>
+          <ol>
+            <li>Pick a row below and open the source file (links in the table).</li>
+            <li>Correct the <code>related_*</code> ID in that YAML file so it matches a real catalog ID.</li>
+            <li>Open a PR → wait for CI green → merge → if a <strong>graph rebuild bot PR</strong> appears, merge that too.</li>
+          </ol>
+          <p style="margin:.65rem 0 0;font-size:.82rem;">
+            This table shows at most <strong>100 rows</strong> from the export — not every xref issue in the repo.
+          </p>
+        </div>
         <p id="orphan-xref-status" class="orphan-xref-status" role="status" aria-live="polite" aria-busy="true">
           <span class="orphan-xref-spinner" aria-hidden="true"></span>Loading contribution targets…
         </p>
@@ -2107,17 +2472,17 @@
         </a>
         <a href="../api/v1/bridges.json" class="api-endpoint" target="_blank" rel="noopener">
           <code>GET /api/v1/bridges.json</code>
-          <span>All 1123 cross-domain bridges with translation tables and references</span>
+          <span>All 1124 cross-domain bridges with translation tables and references</span>
           <span class="api-endpoint-badge">~213 KB</span>
         </a>
         <a href="../api/v1/unknowns.json" class="api-endpoint" target="_blank" rel="noopener">
           <code>GET /api/v1/unknowns.json</code>
-          <span>All 1408 open unknowns with domain, status, and file path</span>
+          <span>All 1409 open unknowns with domain, status, and file path</span>
           <span class="api-endpoint-badge">~451 KB</span>
         </a>
         <a href="../api/v1/hypotheses.json" class="api-endpoint" target="_blank" rel="noopener">
           <code>GET /api/v1/hypotheses.json</code>
-          <span>All 1274 hypotheses with priority, impact score, and evidence links</span>
+          <span>All 1275 hypotheses with priority, impact score, and evidence links</span>
           <span class="api-endpoint-badge">~114 KB</span>
         </a>
         <a href="../api/v1/breakthrough_gaps.json" class="api-endpoint" target="_blank" rel="noopener">
@@ -2132,7 +2497,7 @@
         </a>
         <a href="../api/v1/graph.json" class="api-endpoint" target="_blank" rel="noopener">
           <code>GET /api/v1/graph.json</code>
-          <span>Full knowledge graph — 3857 nodes, 4517 edges (built from catalog YAML; mirrors docs/knowledge_graph.json)</span>
+          <span>Full knowledge graph — 3861 nodes, 4522 edges (built from catalog YAML; mirrors docs/knowledge_graph.json)</span>
           <span class="api-endpoint-badge">~578 KB</span>
         </a>
         <a href="../api/v1/bridge_proposals.json" class="api-endpoint" target="_blank" rel="noopener">
@@ -2157,8 +2522,8 @@
         Hover a node to inspect it. Click a node for full details. Drag to reposition. Scroll or pinch to zoom.
       </p>
       <div class="graph-stats-bar" id="kg-stats-bar">
-        <span id="kg-node-count">3857</span> nodes &nbsp;·&nbsp;
-        <span id="kg-edge-count">4517</span> edges<span id="kg-top-node"></span>
+        <span id="kg-node-count">3861</span> nodes &nbsp;·&nbsp;
+        <span id="kg-edge-count">4522</span> edges<span id="kg-top-node"></span>
       </div>
       <div class="graph-filters" role="group" aria-label="Node type filters">
         <button class="filter-btn active" data-type="bridge" style="--fc:#4f9cf9">● Bridges</button>
@@ -2197,79 +2562,6 @@
           </div>
         </div>
       </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════ START HERE -->
-    <section id="start">
-      <div>
-        <span class="section-tag">Onboarding</span>
-        <h2 class="section-title">New here? Follow this order</h2>
-        <p class="section-desc">
-          Same path as <a href="../CONTRIBUTING.md">CONTRIBUTING.md</a> and
-          <a href="../docs/ONBOARDING.md">docs/ONBOARDING.md</a>, laid out as steps.
-          Clone the repo so file links open directly in your editor.
-        </p>
-      </div>
-      <ol class="steps">
-        <li class="aos">
-          <span class="step-n" aria-hidden="true"></span>
-          <div class="step-b">
-            <strong>Know what you're joining</strong>
-            <p>Vision, motivation, and why this infrastructure matters for science.</p>
-            <div class="step-links">
-              <a class="lc" href="../WHY_CONTRIBUTE.md">WHY_CONTRIBUTE</a>
-              <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/WHY_CONTRIBUTE.md" target="_blank" rel="noopener">GitHub ↗</a>
-            </div>
-          </div>
-        </li>
-        <li class="aos d1">
-          <span class="step-n" aria-hidden="true"></span>
-          <div class="step-b">
-            <strong>Scope and quality bar</strong>
-            <p>What lives here, what doesn't, and the rigor expected of every entry.</p>
-            <div class="step-links">
-              <a class="lc" href="../docs/VISION_AND_SCOPE.md">VISION_AND_SCOPE</a>
-              <a class="lc" href="../docs/QUALITY_BAR.md">QUALITY_BAR</a>
-              <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/docs/VISION_AND_SCOPE.md" target="_blank" rel="noopener">GitHub ↗</a>
-            </div>
-          </div>
-        </li>
-        <li class="aos d2">
-          <span class="step-n" aria-hidden="true"></span>
-          <div class="step-b">
-            <strong>Rigor: hypotheses vs. findings</strong>
-            <p>The evidence bar, claims discipline, and output conventions. Read before proposing any scientific claims.</p>
-            <div class="step-links">
-              <a class="lc" href="../docs/METHODOLOGY.md">METHODOLOGY</a>
-              <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/docs/METHODOLOGY.md" target="_blank" rel="noopener">GitHub ↗</a>
-            </div>
-          </div>
-        </li>
-        <li class="aos d3">
-          <span class="step-n" aria-hidden="true"></span>
-          <div class="step-b">
-            <strong>Integrity, data, and conduct</strong>
-            <p>Ethics policy, what data may be committed, and community norms.</p>
-            <div class="step-links">
-              <a class="lc" href="../docs/ETHICS_REPRODUCIBILITY_AND_DATA.md">Ethics &amp; data</a>
-              <a class="lc" href="../CODE_OF_CONDUCT.md">Code of Conduct</a>
-              <a class="lc" href="../LEGAL.md">LEGAL</a>
-            </div>
-          </div>
-        </li>
-        <li class="aos d4">
-          <span class="step-n" aria-hidden="true"></span>
-          <div class="step-b">
-            <strong>Make your first contribution</strong>
-            <p>Stream A: validate setup → add a <code>u-…</code> unknown → add a <code>h-…</code> hypothesis → open PR.</p>
-            <div class="step-links">
-              <a class="lc" href="../docs/HAPPY_PATH_FIRST_RECORDS.md">Happy path guide</a>
-              <a class="lc" href="../CONTRIBUTING.md">CONTRIBUTING</a>
-              <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/issues" target="_blank" rel="noopener">Open an issue ↗</a>
-            </div>
-          </div>
-        </li>
-      </ol>
     </section>
 
     <!-- ══════════════════════════════════════════ WORKSTREAMS -->
@@ -2485,8 +2777,8 @@
         <span class="section-tag">Contribute</span>
         <h2 class="section-title">Where to add knowledge</h2>
         <p class="section-desc">
-          Start with <a href="../docs/HAPPY_PATH_FIRST_RECORDS.md">HAPPY_PATH_FIRST_RECORDS.md</a> —
-          the guided walk from zero to your first unknown + hypothesis PR.
+          This hub does not edit the catalog — it links to the folders and guides where you add YAML in your clone.
+          Start with <a href="../docs/HAPPY_PATH_FIRST_RECORDS.md">HAPPY_PATH_FIRST_RECORDS.md</a> for your first unknown + hypothesis PR.
         </p>
       </div>
 
@@ -2788,6 +3080,7 @@
     var RAW_BASE  = 'https://raw.githubusercontent.com/' + REPO + '/main';
     var isFile    = location.protocol === 'file:';
     var isGHPages = location.hostname === 'kr8zysho3.github.io';
+    var isLocalhost = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
 
     /* ── THEME ───────────────────────────────────────────────── */
     var root = document.documentElement;
@@ -2812,6 +3105,13 @@
       document.getElementById('live-label').textContent = 'Live dashboard';
     } else {
       document.getElementById('server-banner').classList.add('show');
+    }
+    if (isLocalhost) {
+      var ctxBanner = document.getElementById('hub-context-banner');
+      if (ctxBanner) {
+        ctxBanner.removeAttribute('hidden');
+        ctxBanner.classList.add('show');
+      }
     }
 
     /* ── PARTICLE CANVAS ─────────────────────────────────────── */
@@ -3016,7 +3316,7 @@
       });
     }
 
-    /* ── GitHub Pages freshness (deploy-info.json vs main) ───── */
+    /* ── GitHub Pages freshness (pages_deploy vs main) ───── */
     (function loadPagesDeployFreshness() {
       var el = document.getElementById('pages-deploy-banner');
       if (!el) return;
@@ -3029,22 +3329,77 @@
         requestAnimationFrame(function () { el.classList.add('in'); });
       }
 
+      function loadDeployInfoFromActions() {
+        return fetch(
+          'https://api.github.com/repos/' + REPO + '/actions/workflows/pages.yml/runs?per_page=5',
+          { headers: { Accept: 'application/vnd.github+json' } }
+        )
+          .then(function (r) {
+            return r.ok ? r.json() : {};
+          })
+          .catch(function () {
+            return {};
+          })
+          .then(function (data) {
+            var runs = (data && data.workflow_runs) || [];
+            for (var i = 0; i < runs.length; i++) {
+              var run = runs[i];
+              if (run.conclusion === 'success' && run.head_sha) {
+                return {
+                  sha: run.head_sha,
+                  short_sha: run.head_sha.slice(0, 7),
+                  generated_at: run.updated_at || ''
+                };
+              }
+            }
+            return {};
+          });
+      }
+
+      function loadDeployInfo() {
+        var metaUrl = '../api/v1/meta.json?_=' + Date.now();
+        return fetch(metaUrl, { cache: 'no-store' })
+          .then(function (r) {
+            return r.ok ? r.json() : {};
+          })
+          .catch(function () {
+            return {};
+          })
+          .then(function (meta) {
+            meta = meta || {};
+            var info = meta.pages_deploy || {};
+            if (info.sha) return info;
+            if (!isGHPages) return {};
+            return fetch('deploy-info.json', { cache: 'no-store' })
+              .then(function (r) {
+                return r.ok ? r.json() : {};
+              })
+              .catch(function () {
+                return {};
+              })
+              .then(function (fallback) {
+                fallback = fallback || {};
+                if (fallback.sha) return fallback;
+                show(
+                  '<span class="pages-deploy-dot pages-deploy-dot-muted"></span>' +
+                    '<span>Checking last Pages deploy via GitHub Actions…</span>',
+                  'pages-deploy-checking'
+                );
+                return loadDeployInfoFromActions();
+              });
+          });
+      }
+
       if (isFile) {
         show(
           '<span class="pages-deploy-dot pages-deploy-dot-muted"></span>' +
-            '<span>Serve with <code>python -m http.server</code> or open the <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/" target="_blank" rel="noopener">hosted hub</a> to see whether Pages matches <code>main</code>.</span>',
+            '<span>Serve with <code>python -m http.server</code> or open the <a href="https://usdr.science/dashboard/" target="_blank" rel="noopener">hosted hub</a> to see whether Pages matches <code>main</code>.</span>',
           'pages-deploy-local'
         );
         return;
       }
 
-      fetch('deploy-info.json', { cache: 'no-store' })
-        .then(function (r) {
-          return r.ok ? r.json() : Promise.resolve({});
-        })
-        .catch(function () {
-          return Promise.resolve({});
-        })
+      loadDeployInfo()
         .then(function (info) {
           info = info || {};
           var deploySha = info.sha || '';
@@ -3103,7 +3458,7 @@
             if (isGHPages) {
               show(
                 '<span class="pages-deploy-dot pages-deploy-dot-warn"></span>' +
-                  '<span><code>deploy-info.json</code> missing on this host — redeploy Pages from <code>main</code> or check <a href="https://github.com/' +
+                  '<span>Pages deploy metadata missing on this host — redeploy Pages from <code>main</code> or check <a href="https://github.com/' +
                   REPO +
                   '/actions" target="_blank" rel="noopener">Actions</a>.</span>',
                 'pages-deploy-unknown'
@@ -3111,7 +3466,7 @@
             } else {
               show(
                 '<span class="pages-deploy-dot pages-deploy-dot-muted"></span>' +
-                  '<span>Local preview — commit-vs-<code>main</code> freshness appears on the <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/" target="_blank" rel="noopener">hosted hub</a> after each Pages deploy.</span>',
+                  '<span>Local preview — commit-vs-<code>main</code> freshness appears on the <a href="https://usdr.science/dashboard/" target="_blank" rel="noopener">hosted hub</a> after each Pages deploy.</span>',
                 'pages-deploy-local'
               );
             }
@@ -3126,7 +3481,9 @@
                 return;
               }
               var mainShort = mainSha.slice(0, 7);
-              if (deploySha === mainSha) renderMatch();
+              var deployNorm = deploySha.toLowerCase();
+              var mainNorm = mainSha.toLowerCase();
+              if (deployNorm === mainNorm || deployNorm.slice(0, 7) === mainNorm.slice(0, 7)) renderMatch();
               else renderBehind(mainShort);
             })
             .catch(function () {
@@ -3137,7 +3494,7 @@
           if (isGHPages) {
             show(
               '<span class="pages-deploy-dot pages-deploy-dot-warn"></span>' +
-                '<span>Could not load <code>deploy-info.json</code> — redeploy Pages from <code>main</code> or check <a href="https://github.com/' +
+                '<span>Could not load Pages deploy metadata — redeploy Pages from <code>main</code> or check <a href="https://github.com/' +
                 REPO +
                 '/actions" target="_blank" rel="noopener">Actions</a>.</span>',
               'pages-deploy-unknown'
@@ -3145,7 +3502,7 @@
           } else {
             show(
               '<span class="pages-deploy-dot pages-deploy-dot-muted"></span>' +
-                '<span>Local preview — commit-vs-<code>main</code> freshness appears on the <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/" target="_blank" rel="noopener">hosted hub</a> after each Pages deploy.</span>',
+                '<span>Local preview — commit-vs-<code>main</code> freshness appears on the <a href="https://usdr.science/dashboard/" target="_blank" rel="noopener">hosted hub</a> after each Pages deploy.</span>',
               'pages-deploy-local'
             );
           }
@@ -3343,6 +3700,32 @@
       document.querySelectorAll('.aos').forEach(function (el) { el.classList.add('in'); });
     }
 
+    /* Hash / nav jumps must reveal `.aos` in the target section (IO alone misses anchor scroll). */
+    function revealAosInScope(el) {
+      if (!el) return;
+      var scope = el.matches('section') ? el : (el.closest('section') || el);
+      if (scope.classList.contains('aos')) scope.classList.add('in');
+      scope.querySelectorAll('.aos').forEach(function (node) { node.classList.add('in'); });
+    }
+    function revealAosFromHash() {
+      var id = (location.hash || '').replace(/^#/, '');
+      if (!id) return;
+      revealAosInScope(document.getElementById(id));
+    }
+    window.addEventListener('hashchange', revealAosFromHash);
+    navLinks.forEach(function (a) {
+      var href = a.getAttribute('href');
+      if (!href || href.charAt(0) !== '#') return;
+      a.addEventListener('click', function () {
+        var sectionId = href.slice(1);
+        requestAnimationFrame(function () {
+          revealAosInScope(document.getElementById(sectionId));
+        });
+        setTimeout(function () { revealAosInScope(document.getElementById(sectionId)); }, 120);
+      });
+    });
+    revealAosFromHash();
+
   })();
 
   /* ── KNOWLEDGE GRAPH (D3.js v7) ──────────────────────────── */
@@ -3418,7 +3801,7 @@
           renderFallback('Run a local server to see the interactive graph:<br><code>python -m http.server 8765</code>');
         } else {
           renderFallback('Graph data is loading\u2026 if this persists, '
-            + '<a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/" '
+            + '<a href="https://usdr.science/dashboard/" '
             + 'style="color:var(--accent)" target="_blank" rel="noopener">try the GitHub Pages version</a>.');
         }
         return;
@@ -3530,9 +3913,9 @@
         }
 
         Promise.all([
-          fetch(_apiBase + 'api/v1/bridges.json').then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; }),
-          fetch(_apiBase + 'api/v1/unknowns.json').then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; }),
-          fetch(_apiBase + 'api/v1/meta.json').then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; })
+          fetch(_apiBase + 'api/v1/bridges.json').then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; }),
+          fetch(_apiBase + 'api/v1/unknowns.json').then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; }),
+          fetch(_apiBase + 'api/v1/meta.json').then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; })
         ]).then(function (results) {
           enrichAndRebuildIndex(results[0], results[1]);
         });
