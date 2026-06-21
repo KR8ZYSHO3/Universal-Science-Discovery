@@ -29,6 +29,11 @@ def all_domain_slugs() -> list[str]:
     return sorted([d.name for d in (ROOT / "unknowns-catalog").iterdir() if d.is_dir()])
 
 
+def count_catalog_unknowns() -> int:
+    """Headline unknown count from YAML glob (matches update_dashboard_stats / verify_dashboard_consistency)."""
+    return len(list((ROOT / "unknowns-catalog").rglob("u-*.yaml")))
+
+
 def build_bridge_index() -> dict[str, list]:
     """Single pass over all bridge YAML: assign each bridge to every matching catalog domain."""
     global _BRIDGE_INDEX
@@ -311,7 +316,7 @@ def generate_index(domains_data, unique_bridge_yaml: int):
         for domain, unknowns, bridges in sorted(domains_data, key=lambda x: -x[1])
     ])
 
-    total_unknowns = sum(u for _, u, _ in domains_data)
+    total_unknowns = count_catalog_unknowns()
     index_html = f'''<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
