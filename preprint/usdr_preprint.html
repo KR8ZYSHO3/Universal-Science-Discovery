@@ -18,7 +18,7 @@
 <body>
 <h1 id="universal-science-discovery-repository-open-infrastructure-for-tracking-scientific-unknowns-and-cross-domain-mathematical-bridges">Universal Science Discovery Repository: Open Infrastructure for Tracking Scientific Unknowns and Cross-Domain Mathematical Bridges</h1>
 <p><strong>Authors:</strong> Brandon Shoemaker and Contributors (Universal Science Discovery Repository)</p>
-<p><strong>Version:</strong> v1.1 — May 2026</p>
+<p><strong>Version:</strong> v1.2 Launch Edition — June 2026</p>
 <p><strong>Suggested categories:</strong> cs.DL (primary) · q-bio.QM · physics.soc-ph (cross-list)</p>
 <p><strong>Repository:</strong> <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery">https://github.com/KR8ZYSHO3/Universal-Science-Discovery</a></p>
 <p><strong>License:</strong> CC BY 4.0</p>
@@ -30,11 +30,11 @@ mathematical bridges. Unlike traditional literature databases that index what is
 USDR explicitly catalogs what remains unknown — structured as machine-readable YAML
 entries governed by formal JSON Schema validation. The repository currently contains
 <strong>~4,850+</strong> catalog entries across <strong>55+</strong> disciplines (see repository README metrics),
-including <strong>1,123 cross-domain bridges</strong> that formalise mathematical correspondences
-between fields that rarely communicate, <strong>1,408</strong> open unknowns, <strong>1,274</strong> falsifiable
+including <strong>1,124 cross-domain bridges</strong> that formalise mathematical correspondences
+between fields that rarely communicate, <strong>1,409</strong> open unknowns, <strong>1,275</strong> falsifiable
 hypotheses, <strong>18</strong> pioneer profiles, and <strong>24</strong> breakthrough gap analyses (plus
 phenomenology stubs under <code>phenomenology/</code>). We describe the schema design, the knowledge
-graph structure (<strong>3,857</strong> nodes, <strong>4,517</strong> edges, <strong>0</strong> orphan unknowns), and the AI
+graph structure (<strong>3,861</strong> nodes, <strong>4,522</strong> edges, <strong>0</strong> orphan unknowns), and the AI
 co-pilot tooling that automatically surfaces novel bridge candidates by analysing domain
 connectivity gaps.
 USDR is designed as collaborative infrastructure: all entries are version-controlled,
@@ -199,10 +199,10 @@ graph from all YAML entries by reading <code>id</code>, <code>type</code>, and c
 (<code>related_unknowns</code>, <code>related_bridges</code>, <code>related_hypotheses</code>, <code>unknowns_addressed</code>).
 The resulting graph is serialised to <code>docs/knowledge_graph.json</code> and contains:</p>
 <ul>
-<li><strong>3,857 nodes</strong> emitted by the builder (unknowns, hypotheses, bridges, pioneers,
+<li><strong>3,861 nodes</strong> emitted by the builder (unknowns, hypotheses, bridges, pioneers,
   breakthrough gaps, phenomenology records, and supporting/auxiliary nodes — exact mix is
   defined by <code>scripts/build_graph.py</code>).</li>
-<li><strong>4,517 edges</strong> representing explicit cross-references between entries.</li>
+<li><strong>4,522 edges</strong> representing explicit cross-references between entries.</li>
 </ul>
 <p>Nodes carry type metadata enabling graph-theoretic analysis of domain connectivity,
 bridge coverage, and orphan identification. The graph is rebuilt on every CI run;
@@ -223,19 +223,19 @@ rebuilt deterministically from the source files.</p>
 <tbody>
 <tr>
 <td>Catalog YAML rows (bridges + unknowns + hypotheses + pioneers + breakthrough gaps + phenomenology)</td>
-<td><strong>~4,857</strong></td>
+<td><strong>~3,861</strong></td>
 </tr>
 <tr>
 <td>Unknowns</td>
-<td><strong>1,408</strong></td>
+<td><strong>1,409</strong></td>
 </tr>
 <tr>
 <td>Hypotheses</td>
-<td><strong>1,274</strong></td>
+<td><strong>1,275</strong></td>
 </tr>
 <tr>
 <td>Bridges</td>
-<td><strong>1,123</strong></td>
+<td><strong>1,124</strong></td>
 </tr>
 <tr>
 <td>Pioneers</td>
@@ -255,11 +255,11 @@ rebuilt deterministically from the source files.</p>
 </tr>
 <tr>
 <td>Knowledge graph nodes</td>
-<td><strong>3,857</strong></td>
+<td><strong>3,861</strong></td>
 </tr>
 <tr>
 <td>Knowledge graph edges</td>
-<td><strong>4,517</strong></td>
+<td><strong>4,522</strong></td>
 </tr>
 <tr>
 <td>Orphan unknowns</td>
@@ -563,7 +563,7 @@ condensed-matter physics literature that contains the exact exponents, FSS formu
 universality class proofs is not in the standard reading list for conservation biologists.</p>
 <hr />
 <h2 id="8-current-status-and-roadmap">8. Current Status and Roadmap</h2>
-<p><strong>8.1 Foundation (Phase 0) status.</strong> As defined in the project roadmap, foundation infrastructure and seeding are complete; calendar-dependent adoption milestones are tracked under <strong>Phase 1 — Discovery &amp; adoption</strong>. The repository continues to grow on <code>main</code> with regular contribution waves; headline counts are maintained in the root <strong><code>README.md</code></strong> (currently <strong>1,123</strong> bridges, <strong>1,408</strong> unknowns, <strong>1,274</strong> hypotheses, <strong>3,857</strong> graph nodes, <strong>4,517</strong> edges — all rebuilt from YAML in CI).</p>
+<p><strong>8.1 Foundation (Phase 0) status.</strong> As defined in the project roadmap, foundation infrastructure and seeding are complete; calendar-dependent adoption milestones are tracked under <strong>Phase 1 — Discovery &amp; adoption</strong>. The repository continues to grow on <code>main</code> with regular contribution waves; headline counts are maintained in the root <strong><code>README.md</code></strong> (currently <strong>1,124</strong> bridges, <strong>1,409</strong> unknowns, <strong>1,275</strong> hypotheses, <strong>3,861</strong> graph nodes, <strong>4,522</strong> edges — all rebuilt from YAML in CI).</p>
 <p>Governance infrastructure is live: schema validation CI, pull request templates,
 contribution guidelines, and the AI co-pilot tooling suite are operational. The
 contributor dashboard (<code>dashboard/index.html</code>) provides a guided entry point,
@@ -618,7 +618,7 @@ as invisible as it appears — it is simply not yet indexed.</p>
 <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery">https://github.com/KR8ZYSHO3/Universal-Science-Discovery</a> under CC BY 4.0 (catalog)
 and MIT (code) licenses. The knowledge graph is published as a static JSON API at
 <code>api/v1/graph.json</code> and can be queried directly via GitHub Pages at
-<a href="https://kr8zysho3.github.io/Universal-Science-Discovery/api/v1/graph.json">https://kr8zysho3.github.io/Universal-Science-Discovery/api/v1/graph.json</a>.</p>
+<a href="https://usdr.science/api/v1/graph.json">https://usdr.science/api/v1/graph.json</a> (github.io mirror: https://kr8zysho3.github.io/Universal-Science-Discovery/api/v1/graph.json).</p>
 <hr />
 <h2 id="references">References</h2>
 <p>[1] J.J. Hopfield. Neural networks and physical systems with emergent collective
