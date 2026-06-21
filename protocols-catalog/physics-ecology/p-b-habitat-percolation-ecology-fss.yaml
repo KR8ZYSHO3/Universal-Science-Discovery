@@ -1,0 +1,41 @@
+id: p-b-habitat-percolation-ecology-fss
+title: >
+  Finite-size scaling test — does the 2D site percolation threshold shift with
+  lattice area as p_c(L) = p_c(inf) + c * L^(-1/nu) with nu = 4/3?
+status: ready
+source_bridge: b-habitat-percolation-ecology
+source_hypothesis: h-habitat-percolation-critical-density
+source_unknown: u-habitat-fragmentation-threshold
+pollination_index: 0
+falsifiable_prediction: >
+  Monte Carlo estimates of the site percolation threshold on square lattices of
+  side L = 16, 32, 64, 128 show a systematic negative shift from p_c(inf) ≈ 0.5927
+  that scales as L^(-1/nu) with nu within 15% of the 2D percolation value 4/3.
+null_hypothesis: >
+  Threshold estimates are independent of lattice size (no finite-size scaling),
+  or the fitted exponent differs from 4/3 by more than 15%.
+translation_mapping:
+  - field_a_term: site percolation threshold p_c
+    field_b_term: critical habitat coverage fraction below which connectivity collapses
+  - field_a_term: finite-size scaling correction to p_c
+    field_b_term: threshold shift in smaller landscape patches vs continental-scale habitat
+  - field_a_term: universality class (2D percolation, nu=4/3)
+    field_b_term: spatial connectivity structure independent of landscape geometry
+experimental_design:
+  - Run site percolation Monte Carlo on L×L square lattices for L ∈ {16, 32, 64, 128}.
+  - For each L, estimate p_c using the crossing probability method (50% spanning threshold).
+  - Record (L, p_c_estimate) pairs and fit p_c(L) = p_c_inf + c * L^(-1/nu) via log-linear regression.
+  - Compare fitted nu to theoretical 4/3; accept if relative error ≤ 15%.
+  - Document random seed, trial count, and confidence intervals in repro output.
+statistical_analysis_plan: >
+  Log-linear fit of (p_c(L) - p_c_inf) vs L with fixed p_c_inf = 0.59274621;
+  report slope, R², and 95% CI on nu = -1/slope_exponent.
+feasibility_tier: desktop
+repro_bundle: repro/p-b-habitat-percolation-ecology-fss/
+estimated_runtime: 2–5 minutes on a modern laptop (configurable trials)
+last_reviewed: "2026-06-21"
+references:
+  - doi: "10.1007/BF02275266"
+    note: Gardner et al. (1987) — percolation applied to landscape ecology
+  - arxiv: "cond-mat/9212004"
+    note: Finite-size scaling in percolation
