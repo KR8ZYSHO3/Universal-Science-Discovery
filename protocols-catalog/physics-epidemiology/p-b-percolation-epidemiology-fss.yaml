@@ -1,0 +1,40 @@
+id: p-b-percolation-epidemiology-fss
+title: >
+  Finite-size epidemic threshold — does bond percolation on a random graph show
+  threshold shift consistent with R_0^eff(N) = R_0^∞ + c * N^(-1/nu) at nu = 1?
+status: ready
+source_bridge: b-percolation-epidemiology
+source_hypothesis: h-percolation-outbreak-threshold
+source_unknown: u-percolation-epidemic-fss
+pollination_index: 0
+falsifiable_prediction: >
+  On Erdős–Rényi graphs G(N, p), the bond percolation threshold p_c(N) shifts
+  systematically with N as p_c(N) = p_c(∞) + c * N^(-1/nu) with nu ≈ 1
+  (mean-field universality class for random graphs).
+null_hypothesis: >
+  Percolation threshold estimates are size-independent, or the fitted exponent
+  differs from nu = 1 by more than 25%.
+translation_mapping:
+  - field_a_term: bond percolation threshold p_c
+    field_b_term: epidemic threshold R_0 = 1 (herd immunity boundary)
+  - field_a_term: finite-size scaling (FSS) correction to p_c in N-node network
+    field_b_term: correction to R_0 threshold in finite population of size N
+  - field_a_term: universality class (mean-field percolation for random graphs)
+    field_b_term: contact network topology class (random mixing population)
+experimental_design:
+  - Build Erdős–Rényi graphs for N ∈ {200, 500, 1000, 2000, 5000} with mean degree ⟨k⟩ = 6.
+  - Estimate bond percolation threshold via bisection on p until giant component fraction crosses 50%.
+  - Fit p_c(N) = p_c(∞) + c * N^(-1/nu); compare nu to mean-field value 1.
+  - Accept if nu is within 25% of 1.0 (conservative for finite-graph noise).
+  - Record seeds and graph realizations per N.
+statistical_analysis_plan: >
+  Nonlinear least squares on p_c(N) vs N; bootstrap 95% CI on nu across 10 seeds per N.
+feasibility_tier: desktop
+repro_bundle: repro/p-b-percolation-epidemiology-fss/
+estimated_runtime: 3–8 minutes on a modern laptop
+last_reviewed: "2026-06-21"
+references:
+  - doi: "10.1103/PhysRevE.66.016128"
+    note: Newman (2002) — epidemic threshold = bond percolation threshold
+  - arxiv: "cond-mat/9212004"
+    note: Finite-size scaling toolkit

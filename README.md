@@ -117,6 +117,20 @@ python scripts/harvesters/promote_wave_factory_batch.py --stage drafts/wave_fact
 
 Drafts are intentionally staged (not auto-promoted) so human review remains the merge gate.
 
+### Crosscheck — prove the bridge
+
+Turn any USDR bridge into a reproducible, falsifiable experiment protocol. USDR maps what connects; **Crosscheck proves it.**
+
+```bash
+# Preview protocols from a bridge
+python scripts/generate_crosscheck.py --bridge b-habitat-percolation-ecology --dry-run
+
+# Run a seed protocol (2D percolation finite-size scaling)
+python repro/p-b-habitat-percolation-ecology-fss/simulate_percolation_fss.py
+```
+
+**[Crosscheck manifesto](docs/CROSSCHECK.md) · [Protocol catalog](protocols-catalog/)** — 3 seed protocols with desktop repro bundles.
+
 ---
 
 ## Quick Start
