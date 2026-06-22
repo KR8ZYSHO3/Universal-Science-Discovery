@@ -12,7 +12,7 @@ See [LAUNCH_PLAYBOOK.md](../LAUNCH_PLAYBOOK.md) for the full sequenced plan and 
 - E1 COMPLETE — stats refresh, dashboard polish, outreach/preprint packages synced (PRs #267, #281–#283).
 - **Crosscheck Phase 2 COMPLETE** (PR #284 merged) — protocols linked from bridge explainer pages; 3 seed protocols live.
 - CI green, 0 open PRs, dashboard counts verified (1,124 / 1,409 / 1,275 / 3,861 / 4,522).
-- E2 **POSTED** — Early Stewards call live: [Discussion #286](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/discussions/286). Dashboard + README wired. **Pin + social share still needed.**
+- E2 **POSTED** — Early Stewards call live: [Discussion #286](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/discussions/286). Pinned + LinkedIn Crosscheck post (2026-06-22).
 - E3 domain prep started (CNAME committed; `usdr.science` DNS not live yet).
 - E4 **ACTIVE** — 12 launch-sprint GFIs labeled (`launch-sprint` + `easy-win` on #172–#167, #166, #165, #164, #54, #58, #60); hub links filtered issue list + sprint guide.
 - Dashboard **dark theme only** (PR #288) — light mode toggle removed.
@@ -22,7 +22,8 @@ See [LAUNCH_PLAYBOOK.md](../LAUNCH_PLAYBOOK.md) for the full sequenced plan and 
 - **Stewards charter** — docs/STEWARDS_CHARTER.md; human launch steps in docs/outreach/LAUNCH_DAY_ACTIONS.md.
 - **Repro Pages fix** (PR #291) — Crosscheck repro bundles have `index.html` on GitHub Pages.
 - **Ready-to-post copy** — `docs/outreach/READY_TO_POST.md` (Crosscheck-led Reddit/X/LinkedIn/DM templates).
-- **Next (human):** pin #286 + paste from READY_TO_POST (E2/E6), register usdr.science (E3), arXiv submit (E5).
+- **In-browser Crosscheck** (PR #293) — one-click runner on stdlib repro landing pages; Python remains verification source of truth.
+- **Next (human):** LinkedIn §1b in-browser follow-up (optional), Reddit (E6), register usdr.science (E3), arXiv submit (E5), 5 personal DMs (E7).
 
 **30-Day Takeoff Checkpoints (see LAUNCH_MILESTONES.md for details):**
 - M1: Numbers & public stats refresh complete
@@ -32,11 +33,11 @@ See [LAUNCH_PLAYBOOK.md](../LAUNCH_PLAYBOOK.md) for the full sequenced plan and 
 - M5–M8: Outreach push, first external signals, dashboard polish, stewards seeds planted
 
 **Next 5 Launch Actions:**
-1. Pin Early Stewards Discussion #286 + share short X/LinkedIn version (E2).
-2. Register `usdr.science` DNS per CUSTOM_DOMAIN_SETUP.md (E3).
-3. Finalize + submit preprint v1.2 (E5).
-4. Fire outreach wave with refreshed posts (E6).
-5. Spotlight first external contributor PR/issue as they land.
+1. Post LinkedIn §1b in-browser Crosscheck follow-up (E6) — optional if first post already linked repro page.
+2. Reddit r/OpenScience post from READY_TO_POST §3 (E6).
+3. Register `usdr.science` DNS per CUSTOM_DOMAIN_SETUP.md (E3).
+4. Finalize + submit preprint v1.2 (E5).
+5. Send 5 personal DMs to cited authors (E7); spotlight first external contributor PR.
 
 **Recent Launch Ship (this update):** Pushed core launch artifacts + dashboard institutional polish to PR #267 (merged). Includes INSTITUTIONAL_PARTNERSHIP_PROSPECTUS.md, LAUNCH_* planning files, QUICK_START_LAUNCH_SPRINT.md, early_stewards_call.md, full hero rewrite with Launch Sprint banner + researcher/institutional CTAs and value block, mkdocs nav updates, link checker config fixes. CI fixes for nav and markdown links landed. Major step for institutional visibility.
 

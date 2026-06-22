@@ -19,6 +19,8 @@ import textwrap
 from pathlib import Path
 from datetime import date
 
+from crosscheck_browser import browser_runner_script
+
 ROOT = Path(__file__).parent.parent
 EXPLAINER_DIR = ROOT / "dashboard" / "explainers"
 CROSS_DOMAIN_DIR = ROOT / "cross-domain"
@@ -161,14 +163,19 @@ def format_crosscheck_protocols(protocols: list[dict]) -> str:
             prediction = prediction[:217] + "..."
         repro = str(proto.get("repro_bundle", "")).strip().rstrip("/")
         repro_href = f"../../{repro}/index.html" if repro else ""
+        bundle_dir = ROOT / repro if repro else None
+        in_browser = bool(
+            bundle_dir and browser_runner_script(bundle_dir, pid)
+        )
         catalog_path = proto.get("_catalog_path", "")
         yaml_href = (
             f"https://github.com/{GITHUB_REPO}/blob/main/{h(catalog_path)}"
             if catalog_path
             else ""
         )
+        run_label = "Run in browser" if in_browser else "Run repro bundle"
         run_link = (
-            f'<a class="crosscheck-link" href="{h(repro_href)}">Run repro bundle</a>'
+            f'<a class="crosscheck-link" href="{h(repro_href)}">{h(run_label)}</a>'
             if repro_href
             else ""
         )
