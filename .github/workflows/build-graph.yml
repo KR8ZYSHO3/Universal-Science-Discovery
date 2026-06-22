@@ -8,9 +8,15 @@ on:
       - 'unknowns-catalog/**'
       - 'hypotheses/**'
       - 'cross-domain/**'
+      - 'protocols-catalog/**'
       - 'phenomenology/**'
       - 'breakthrough-gaps/**'
       - 'scripts/render_breakthrough_gaps_hub.py'
+      - 'scripts/build_crosscheck.py'
+      - 'scripts/generate_repro_index_pages.py'
+      - 'scripts/render_crosscheck_hub.py'
+      - 'scripts/generate_explainers.py'
+      - 'scripts/crosscheck_browser.py'
 
 jobs:
   rebuild:
@@ -54,6 +60,9 @@ jobs:
       - name: Render breakthrough gaps hub section
         run: python scripts/render_breakthrough_gaps_hub.py --apply
 
+      - name: Regenerate Crosscheck artifacts
+        run: python scripts/build_crosscheck.py --apply
+
       - name: Generate static API
         run: python scripts/generate_api.py
 
@@ -80,7 +89,8 @@ jobs:
             - `docs/knowledge_graph.json`, `docs/orphan_unknowns.md`, `docs/bridge_proposals.json`
             - `docs/citation_index.json`, `docs/citation_index.md`
             - `api/v1/orphan_xref_panel.json` (xref hygiene hub panel)
-            - `dashboard/index.html`, `dashboard/domains/`
+            - `dashboard/index.html`, `dashboard/domains/`, `dashboard/explainers/`
+            - `repro/p-b-*/index.html` (Crosscheck landing pages)
             - `api/v1/`
 
             Direct push to `main` is blocked for `github-actions[bot]` under repository branch protection; this PR is the delivery path.
@@ -93,4 +103,6 @@ jobs:
             docs/citation_index.md
             dashboard/index.html
             dashboard/domains/**
+            dashboard/explainers/**
+            repro/p-b-*/index.html
             api/**
