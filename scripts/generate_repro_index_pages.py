@@ -13,6 +13,12 @@ REPO = "KR8ZYSHO3/Universal-Science-Discovery"
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG = ROOT / "protocols-catalog"
 
+# Protocol id -> in-browser runner script (stdlib repros only; no pip deps).
+BROWSER_RUNNERS: dict[str, str] = {
+    "p-b-habitat-percolation-ecology-fss": "simulate_percolation_fss.js",
+    "p-b-habitat-percolation-ecology-cluster-exponent": "cluster_size_exponent.js",
+}
+
 
 def load_protocols() -> list[dict]:
     protos: list[dict] = []
@@ -34,6 +40,44 @@ def script_name(bundle_dir: Path) -> str:
         if py.name != "__init__.py":
             return py.name
     return "run.py"
+
+
+def browser_runner(bundle_dir: Path, proto_id: str) -> str | None:
+    js_name = BROWSER_RUNNERS.get(proto_id)
+    if not js_name:
+        return None
+    if (bundle_dir / js_name).is_file():
+        return js_name
+    return None
+
+
+def runner_section(proto_id: str, runner_js: str) -> str:
+    e = html.escape
+    return f"""
+  <h2>Run Crosscheck in your browser</h2>
+  <div id=\"crosscheck-runner\" class=\"runner\" data-protocol=\"{e(proto_id)}\">
+    <p class=\"runner-lead\">One-click demo — same algorithm as the Python repro. Results stream live;
+    clone the repo for full-precision verification.</p>
+    <button type=\"button\" data-action=\"run\">Run Crosscheck</button>
+    <span class=\"result-badge\" data-role=\"result-badge\" hidden></span>
+    <div class=\"progress\" data-role=\"progress\" hidden><div class=\"progress-bar\" data-role=\"progress-bar\"></div></div>
+    <pre class=\"runner-output\" data-role=\"output\"></pre>
+  </div>
+  <script src=\"{e(runner_js)}\"></script>
+  <script src=\"../_shared/crosscheck-runner.js\"></script>
+"""
+
+
+def note_section(has_browser: bool) -> str:
+    if has_browser:
+        return """  <div class=\"note\">
+    <strong>Try the in-browser runner below</strong> for a live demo, or clone this folder for
+    the canonical Python repro (source of truth for verification).
+  </div>"""
+    return """  <div class=\"note\">
+    This page is served on GitHub Pages for discovery. <strong>Run the repro on your machine</strong>
+    (clone the repo or download this folder) — the script is not executed in the browser.
+  </div>"""
 
 
 def render_page(proto: dict) -> str:
@@ -60,7 +104,11 @@ def render_page(proto: dict) -> str:
         else dash
     )
 
+    runner_js = browser_runner(bundle_dir, pid)
+    has_browser = runner_js is not None
+
     e = html.escape
+    runner_html = runner_section(pid, runner_js) if has_browser else ""
     return f"""<!DOCTYPE html>
 <html lang=\"en\">
 <head>
@@ -77,6 +125,7 @@ def render_page(proto: dict) -> str:
       line-height: 1.6; max-width: 46rem; margin: 0 auto; padding: 2rem 1.25rem 4rem; }}
     a {{ color: var(--accent); }}
     h1 {{ font-size: 1.35rem; margin-bottom: .25rem; }}
+    h2 {{ font-size: 1.05rem; margin-top: 1.75rem; }}
     .meta {{ color: var(--muted); font-size: .9rem; margin-bottom: 1.5rem; }}
     pre {{ background: #0b1527; border: 1px solid var(--border); border-radius: 10px;
       padding: 1rem; overflow-x: auto; font-family: var(--mono); font-size: .85rem; }}
@@ -85,6 +134,20 @@ def render_page(proto: dict) -> str:
     .links {{ display: flex; flex-wrap: wrap; gap: .65rem; margin-top: 1.5rem; font-size: .88rem; }}
     .pill {{ display: inline-block; padding: .2rem .55rem; border-radius: 999px;
       border: 1px solid var(--border); color: var(--teal); font-size: .75rem; }}
+    .runner {{ margin: 1.25rem 0 1.75rem; }}
+    .runner-lead {{ color: var(--muted); font-size: .9rem; margin-bottom: .85rem; }}
+    .runner button {{ background: var(--accent); color: #04101f; border: none; border-radius: 8px;
+      padding: .55rem 1.1rem; font-weight: 600; font-size: .92rem; cursor: pointer; }}
+    .runner button:disabled {{ opacity: .55; cursor: wait; }}
+    .runner-output {{ min-height: 6rem; margin-top: .85rem; white-space: pre-wrap; }}
+    .progress {{ height: 4px; background: rgba(79,156,249,0.15); border-radius: 999px;
+      margin-top: .75rem; overflow: hidden; }}
+    .progress-bar {{ height: 100%; width: 0; background: var(--teal); transition: width .2s ease; }}
+    .result-badge {{ display: inline-block; margin-left: .65rem; padding: .15rem .5rem;
+      border-radius: 6px; font-size: .75rem; font-weight: 700; letter-spacing: .03em; }}
+    .result-badge.confirmed {{ background: rgba(34,211,184,0.2); color: var(--teal); }}
+    .result-badge.inconclusive {{ background: rgba(251,191,36,0.15); color: #fbbf24; }}
+    .result-badge.error {{ background: rgba(248,113,113,0.15); color: #f87171; }}
   </style>
 </head>
 <body>
@@ -92,10 +155,8 @@ def render_page(proto: dict) -> str:
   <h1>{e(title)}</h1>
   <p class=\"meta\">Protocol <code>{e(pid)}</code> · bridge <code>{e(bridge)}</code></p>
   <p>{e(pred)}</p>
-  <div class=\"note\">
-    This page is served on GitHub Pages for discovery. <strong>Run the repro on your machine</strong>
-    (clone the repo or download this folder) — the script is not executed in the browser.
-  </div>
+{note_section(has_browser)}
+{runner_html}
   <h2>Run locally</h2>
   <pre>git clone https://github.com/{REPO}.git
 cd Universal-Science-Discovery/{bundle}

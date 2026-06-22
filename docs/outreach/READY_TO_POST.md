@@ -33,6 +33,21 @@ Repo: https://github.com/KR8ZYSHO3/Universal-Science-Discovery
 
 ---
 
+## 1b. X / LinkedIn — in-browser Crosscheck follow-up (post after runner ships)
+
+```
+Update: Crosscheck now runs in your browser — no clone, no pip.
+
+Open the repro page, click "Run Crosscheck", watch Monte Carlo finite-size scaling stream live (~30–60s). Same algorithm as the Python repro; clone the repo for canonical verification.
+
+Try it: https://kr8zysho3.github.io/Universal-Science-Discovery/repro/p-b-habitat-percolation-ecology-fss/index.html
+Explainer: https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/explainers/b-habitat-percolation-ecology.html#crosscheck
+
+#OpenScience #ResearchInfrastructure
+```
+
+---
+
 ## 2. X / LinkedIn — Early Stewards (same day or next)
 
 From `early_stewards_call.md` — add Discussion link:
