@@ -85,8 +85,12 @@
   }
 
   function fitNu(sizes, pcs) {
+    const deltas = pcs.map((pc) => PC_INF - pc);
+    const signOk = deltas.every((d) => d > 0);
     const xs = sizes.map((L) => Math.log(L));
-    const ys = pcs.map((pc) => Math.log(Math.abs(pc - PC_INF) + 1e-9));
+    const ys = pcs.map((pc, i) =>
+      Math.log(signOk ? deltas[i] : Math.abs(pc - PC_INF) + 1e-9)
+    );
     const n = xs.length;
     const xMean = xs.reduce((a, b) => a + b, 0) / n;
     const yMean = ys.reduce((a, b) => a + b, 0) / n;
@@ -106,7 +110,7 @@
       ssTot += (ys[i] - yMean) ** 2;
     }
     const r2 = ssTot ? 1 - ssRes / ssTot : 0;
-    return { nu, r2 };
+    return { nu, r2, signOk };
   }
 
   async function runPercolationFss(emit) {
@@ -134,14 +138,20 @@
       });
     }
 
-    const { nu, r2 } = fitNu(SIZES, pcs);
+    const { nu, r2, signOk } = fitNu(SIZES, pcs);
     const relErr = Math.abs(nu - NU_THEORY) / NU_THEORY;
-    const passed = relErr <= NU_TOLERANCE;
+    const passed = signOk && relErr <= NU_TOLERANCE;
     const result = passed
       ? "CONFIRMED"
       : "INCONCLUSIVE (increase TRIALS_PER_P for higher precision)";
 
     emit({ type: "line", text: "" });
+    if (!signOk) {
+      emit({
+        type: "line",
+        text: "Sign check: p_c estimates crossed p_c(inf) — demo budget too low for FSS fit",
+      });
+    }
     emit({ type: "line", text: `Fitted nu = ${nu.toFixed(4)}  (R² = ${r2.toFixed(4)})` });
     emit({
       type: "line",
