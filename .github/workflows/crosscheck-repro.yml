@@ -26,8 +26,10 @@ jobs:
       - name: Install dependencies
         run: pip install networkx
 
-      - name: Habitat percolation FSS
-        run: python repro/p-b-habitat-percolation-ecology-fss/simulate_percolation_fss.py
+      - name: Habitat percolation FSS (expect CONFIRMED)
+        run: |
+          python repro/p-b-habitat-percolation-ecology-fss/simulate_percolation_fss.py | tee /tmp/fss.out
+          grep -q "RESULT: CONFIRMED" /tmp/fss.out
 
       - name: Cluster size exponent
         run: python repro/p-b-habitat-percolation-ecology-cluster-exponent/cluster_size_exponent.py
@@ -35,5 +37,7 @@ jobs:
       - name: Epidemic percolation FSS
         run: python repro/p-b-percolation-epidemiology-fss/epidemic_percolation_fss.py
 
-      - name: Ising social dynamics EWI
-        run: python repro/p-b-ising-social-dynamics-ewi/ising_critical_slowing.py
+      - name: Ising social dynamics EWI (expect CONFIRMED)
+        run: |
+          python repro/p-b-ising-social-dynamics-ewi/ising_critical_slowing.py | tee /tmp/ising.out
+          grep -q "RESULT: CONFIRMED" /tmp/ising.out

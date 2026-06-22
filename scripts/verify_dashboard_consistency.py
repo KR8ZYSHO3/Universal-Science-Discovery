@@ -24,6 +24,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 DASHBOARD = ROOT / "dashboard" / "index.html"
 GRAPH_JSON = ROOT / "docs" / "knowledge_graph.json"
+STALE_DASHBOARD_GRAPH = ROOT / "dashboard" / "knowledge_graph.json"
 
 
 def count_globs(rel_patterns: list[str]) -> int:
@@ -89,6 +90,14 @@ def expect_match(errors: list[str], label: str, expected: int, actual: int | Non
 def main() -> int:
     if not DASHBOARD.exists():
         print(f"ERROR: missing {DASHBOARD}", file=sys.stderr)
+        return 1
+
+    if STALE_DASHBOARD_GRAPH.exists():
+        print(
+            f"ERROR: remove stale {STALE_DASHBOARD_GRAPH.relative_to(ROOT)} — "
+            "dashboard loads api/v1/graph.json or docs/knowledge_graph.json only.",
+            file=sys.stderr,
+        )
         return 1
 
     html = DASHBOARD.read_text(encoding="utf-8")
