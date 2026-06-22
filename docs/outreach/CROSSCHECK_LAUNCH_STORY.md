@@ -18,11 +18,15 @@ We mapped a physics→ecology bridge in YAML, ran the Crosscheck protocol on a l
 
 **Explainer + demo:** [Habitat percolation explainer (Crosscheck section)](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/explainers/b-habitat-percolation-ecology.html#crosscheck)
 
-**Repro landing (GitHub Pages):** [p-b-habitat-percolation-ecology-fss/index.html](https://kr8zysho3.github.io/Universal-Science-Discovery/repro/p-b-habitat-percolation-ecology-fss/index.html)
+**Repro landing (GitHub Pages):** [p-b-habitat-percolation-ecology-fss/index.html](https://kr8zysho3.github.io/Universal-Science-Discovery/repro/p-b-habitat-percolation-ecology-fss/index.html) — click **Run Crosscheck** for in-browser demo (no clone).
 
 ---
 
 ## What we ran (2026-06-21)
+
+**In browser (2026-06-22):** open the repro landing page and click **Run Crosscheck** — same algorithm, streams live (~30–60s).
+
+**Local Python (verification):**
 
 ```bash
 pip install -r repro/p-b-habitat-percolation-ecology-fss/requirements.txt

@@ -75,8 +75,10 @@ Track replies in a private sheet.
 
 ## Done when
 
-- [ ] Discussion #286 pinned + shared on X/LinkedIn
+- [x] Discussion #286 pinned + shared on LinkedIn (2026-06-22)
 - [ ] `usdr.science` resolves with HTTPS
 - [ ] arXiv preprint submitted (ID recorded in STATE.md)
-- [ ] At least one public post live (Reddit or LinkedIn) with Crosscheck story
+- [x] At least one public post live (LinkedIn) with Crosscheck story
+- [ ] Reddit r/OpenScience post (READY_TO_POST §3)
+- [ ] LinkedIn §1b in-browser follow-up (optional)
 - [ ] 5 personal outreach messages sent

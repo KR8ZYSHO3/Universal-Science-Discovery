@@ -9,15 +9,11 @@ from pathlib import Path
 
 import yaml
 
+from crosscheck_browser import browser_runner_script
+
 REPO = "KR8ZYSHO3/Universal-Science-Discovery"
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG = ROOT / "protocols-catalog"
-
-# Protocol id -> in-browser runner script (stdlib repros only; no pip deps).
-BROWSER_RUNNERS: dict[str, str] = {
-    "p-b-habitat-percolation-ecology-fss": "simulate_percolation_fss.js",
-    "p-b-habitat-percolation-ecology-cluster-exponent": "cluster_size_exponent.js",
-}
 
 
 def load_protocols() -> list[dict]:
@@ -42,13 +38,7 @@ def script_name(bundle_dir: Path) -> str:
     return "run.py"
 
 
-def browser_runner(bundle_dir: Path, proto_id: str) -> str | None:
-    js_name = BROWSER_RUNNERS.get(proto_id)
-    if not js_name:
-        return None
-    if (bundle_dir / js_name).is_file():
-        return js_name
-    return None
+
 
 
 def runner_section(proto_id: str, runner_js: str) -> str:
@@ -104,7 +94,7 @@ def render_page(proto: dict) -> str:
         else dash
     )
 
-    runner_js = browser_runner(bundle_dir, pid)
+    runner_js = browser_runner_script(bundle_dir, pid)
     has_browser = runner_js is not None
 
     e = html.escape
