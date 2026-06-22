@@ -31,6 +31,7 @@ GITHUB_REPO = "KR8ZYSHO3/Universal-Science-Discovery"
 DEFAULT_BRIDGES = [
     "b-habitat-percolation-ecology",
     "b-percolation-epidemiology",
+    "b-ising-social-dynamics",
     "b-kibble-zurek-morphogenesis",
     "b-bayesian-brain-predictive-processing",
     "b-replicator-equations-evolutionary-dynamics",

@@ -7,6 +7,7 @@ from pathlib import Path
 BROWSER_RUNNERS: dict[str, str] = {
     "p-b-habitat-percolation-ecology-fss": "simulate_percolation_fss.js",
     "p-b-habitat-percolation-ecology-cluster-exponent": "cluster_size_exponent.js",
+    "p-b-ising-social-dynamics-ewi": "ising_critical_slowing.js",
 }
 
 

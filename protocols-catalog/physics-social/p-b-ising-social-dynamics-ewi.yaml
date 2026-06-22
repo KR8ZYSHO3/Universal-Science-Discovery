@@ -1,0 +1,48 @@
+id: p-b-ising-social-dynamics-ewi
+title: >
+  Early-warning indicator test — does 2D Ising magnetisation near T_c show
+  critical slowing down (rising variance and AR1) with susceptibility scaling
+  exponent γ within 25% of the 2D Ising value 7/4?
+status: executed
+source_bridge: b-ising-social-dynamics
+source_hypothesis: h-norm-cascade-ising-ew
+source_unknown: u-social-ising-universality
+pollination_index: 2
+falsifiable_prediction: >
+  Metropolis Monte Carlo on a 2D square Ising lattice at temperatures
+  T ∈ {2.65, 2.55, 2.45, 2.38, 2.33, 2.30} in the scaling regime above T_c ≈ 2.269
+  shows monotonically increasing magnetisation variance, AR1, and integrated
+  autocorrelation time as T → T_c, and a log-log fit of Var(M) vs |T − T_c|
+  yields γ within 25% of the 2D Ising susceptibility exponent 7/4.
+null_hypothesis: >
+  Variance and AR1 do not increase systematically toward T_c, or the fitted
+  susceptibility exponent differs from 7/4 by more than 25%.
+translation_mapping:
+  - field_a_term: critical fluctuations (diverging susceptibility χ ~ |T−T_c|^(−γ))
+    field_b_term: increasing opinion volatility near a social tipping point
+  - field_a_term: AR1 autocorrelation of magnetisation time series → 1 at T_c
+    field_b_term: AR1 of annual attitude-survey series rising before norm cascade
+  - field_a_term: Curie temperature T_c (second-order phase transition)
+    field_b_term: social tipping point (critical contrarianism / noise level)
+  - field_a_term: spontaneous magnetisation (order parameter M)
+    field_b_term: consensus fraction / polarisation in opinion dynamics
+experimental_design:
+  - Initialise a 48×48 2D Ising lattice with random ±1 spins; periodic boundaries; J=1.
+  - For each T in the scaling-regime grid above T_c, equilibrate with Metropolis sweeps (scaled up near T_c).
+  - Sample magnetisation M every 40 sweeps for 400 post-equilibration measurements.
+  - Compute Var(M), AR1, and integrated autocorrelation time tau_int at each T.
+  - Verify EWIs increase monotonically as T decreases toward T_c (tau_int is primary).
+  - Fit log Var(M) vs log |T − T_c| via linear regression; extract γ = −slope.
+  - Accept if γ is within 25% of 7/4 and both EWIs show monotonic increase.
+statistical_analysis_plan: >
+  Log-log linear regression of Var(M) vs |T − T_c|; report γ, R², monotonicity
+  checks on Var and AR1, and 95% bootstrap CI on γ from resampled time series.
+feasibility_tier: desktop
+repro_bundle: repro/p-b-ising-social-dynamics-ewi/
+estimated_runtime: 3–8 minutes on a modern laptop (configurable sweeps)
+last_reviewed: "2026-06-22"
+references:
+  - doi: "10.1103/RevModPhys.81.591"
+    note: Castellano et al. (2009) — statistical physics of social dynamics; Ising EWIs
+  - doi: "10.1038/s41562-018-0306-y"
+    note: Otto et al. (2020) — social tipping points; qualitative EWI analogy

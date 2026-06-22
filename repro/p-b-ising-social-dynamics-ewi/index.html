@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <title>Crosscheck repro — p-b-ising-social-dynamics-ewi</title>
+  <style>
+    :root {
+      --bg: #060d1a; --text: #ddeeff; --muted: #6b8aac; --accent: #4f9cf9;
+      --teal: #22d3b8; --border: rgba(79,156,249,0.2); --mono: ui-monospace, monospace;
+    }
+    body { font-family: system-ui, sans-serif; background: var(--bg); color: var(--text);
+      line-height: 1.6; max-width: 46rem; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+    a { color: var(--accent); }
+    h1 { font-size: 1.35rem; margin-bottom: .25rem; }
+    h2 { font-size: 1.05rem; margin-top: 1.75rem; }
+    .meta { color: var(--muted); font-size: .9rem; margin-bottom: 1.5rem; }
+    pre { background: #0b1527; border: 1px solid var(--border); border-radius: 10px;
+      padding: 1rem; overflow-x: auto; font-family: var(--mono); font-size: .85rem; }
+    .note { background: rgba(34,211,184,0.08); border: 1px solid rgba(34,211,184,0.25);
+      border-radius: 10px; padding: .85rem 1rem; font-size: .9rem; margin: 1.25rem 0; }
+    .links { display: flex; flex-wrap: wrap; gap: .65rem; margin-top: 1.5rem; font-size: .88rem; }
+    .pill { display: inline-block; padding: .2rem .55rem; border-radius: 999px;
+      border: 1px solid var(--border); color: var(--teal); font-size: .75rem; }
+    .runner { margin: 1.25rem 0 1.75rem; }
+    .runner-lead { color: var(--muted); font-size: .9rem; margin-bottom: .85rem; }
+    .runner button { background: var(--accent); color: #04101f; border: none; border-radius: 8px;
+      padding: .55rem 1.1rem; font-weight: 600; font-size: .92rem; cursor: pointer; }
+    .runner button:disabled { opacity: .55; cursor: wait; }
+    .runner-output { min-height: 6rem; margin-top: .85rem; white-space: pre-wrap; }
+    .progress { height: 4px; background: rgba(79,156,249,0.15); border-radius: 999px;
+      margin-top: .75rem; overflow: hidden; }
+    .progress-bar { height: 100%; width: 0; background: var(--teal); transition: width .2s ease; }
+    .result-badge { display: inline-block; margin-left: .65rem; padding: .15rem .5rem;
+      border-radius: 6px; font-size: .75rem; font-weight: 700; letter-spacing: .03em; }
+    .result-badge.confirmed { background: rgba(34,211,184,0.2); color: var(--teal); }
+    .result-badge.inconclusive { background: rgba(251,191,36,0.15); color: #fbbf24; }
+    .result-badge.error { background: rgba(248,113,113,0.15); color: #f87171; }
+    .colab-btn { display: inline-block; background: #f9ab00; color: #1a1200; font-weight: 600;
+      padding: .5rem 1rem; border-radius: 8px; text-decoration: none; font-size: .92rem; }
+    .colab-btn:hover { filter: brightness(1.05); }
+  </style>
+</head>
+<body>
+  <p class="pill">USDR Crosscheck · desktop</p>
+  <h1>Early-warning indicator test — does 2D Ising magnetisation near T_c show critical slowing down (rising variance and AR1) with susceptibility scaling exponent γ within 25% of the 2D Ising value 7/4?</h1>
+  <p class="meta">Protocol <code>p-b-ising-social-dynamics-ewi</code> · bridge <code>b-ising-social-dynamics</code></p>
+  <p>Metropolis Monte Carlo on a 2D square Ising lattice at temperatures T ∈ {2.65, 2.55, 2.45, 2.38, 2.33, 2.30} in the scaling regime above T_c ≈ 2.269 shows monotonically increasing magnetisation variance, AR1, and integrated autocorrelation time as T → T_c, and a log-log fit of Var(M) vs |T − T_c| yields γ within 25% of the 2D Ising susceptibility exponent 7/4.</p>
+  <div class="note">
+    <strong>Try the in-browser runner below</strong> for a live demo, or clone this folder for
+    the canonical Python repro (source of truth for verification).
+  </div>
+
+  <h2>Run Crosscheck in your browser</h2>
+  <div id="crosscheck-runner" class="runner" data-protocol="p-b-ising-social-dynamics-ewi">
+    <p class="runner-lead">One-click demo — same algorithm as the Python repro. Results stream live;
+    clone the repo for full-precision verification.</p>
+    <button type="button" data-action="run">Run Crosscheck</button>
+    <span class="result-badge" data-role="result-badge" hidden></span>
+    <div class="progress" data-role="progress" hidden><div class="progress-bar" data-role="progress-bar"></div></div>
+    <pre class="runner-output" data-role="output"></pre>
+  </div>
+  <script src="ising_critical_slowing.js"></script>
+  <script src="../_shared/crosscheck-runner.js"></script>
+
+
+  <h2>Run locally</h2>
+  <pre>git clone https://github.com/KR8ZYSHO3/Universal-Science-Discovery.git
+cd Universal-Science-Discovery/repro/p-b-ising-social-dynamics-ewi
+pip install -r requirements.txt
+python ising_critical_slowing.py</pre>
+  <p>Estimated runtime: 3–8 minutes on a modern laptop (configurable sweeps). Exit code <code>0</code> = prediction within tolerance;
+  <code>1</code> = falsified at stated precision.</p>
+  <div class="links">
+    <a href="README.md">README</a>
+    <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/tree/main/repro/p-b-ising-social-dynamics-ewi">Source on GitHub</a>
+    <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/protocols-catalog/physics-social/p-b-ising-social-dynamics-ewi.yaml">Protocol YAML</a>
+    <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/explainers/b-ising-social-dynamics.html#crosscheck">Bridge explainer</a>
+    <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/">USDR dashboard</a>
+  </div>
+</body>
+</html>
