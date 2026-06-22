@@ -19,7 +19,7 @@ import textwrap
 from pathlib import Path
 from datetime import date
 
-from crosscheck_browser import browser_runner_script
+from crosscheck_browser import browser_runner_script, colab_url
 
 ROOT = Path(__file__).parent.parent
 EXPLAINER_DIR = ROOT / "dashboard" / "explainers"
@@ -167,16 +167,25 @@ def format_crosscheck_protocols(protocols: list[dict]) -> str:
         in_browser = bool(
             bundle_dir and browser_runner_script(bundle_dir, pid)
         )
+        in_colab = bool(bundle_dir and colab_url(bundle_dir, pid))
         catalog_path = proto.get("_catalog_path", "")
         yaml_href = (
             f"https://github.com/{GITHUB_REPO}/blob/main/{h(catalog_path)}"
             if catalog_path
             else ""
         )
-        run_label = "Run in browser" if in_browser else "Run repro bundle"
+        if in_browser:
+            run_label = "Run in browser"
+            run_href = repro_href
+        elif in_colab:
+            run_label = "Open in Colab"
+            run_href = colab_url(bundle_dir, pid) or repro_href
+        else:
+            run_label = "Run repro bundle"
+            run_href = repro_href
         run_link = (
-            f'<a class="crosscheck-link" href="{h(repro_href)}">{h(run_label)}</a>'
-            if repro_href
+            f'<a class="crosscheck-link" href="{h(run_href)}">{h(run_label)}</a>'
+            if run_href
             else ""
         )
         yaml_link = (

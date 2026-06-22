@@ -47,7 +47,10 @@ python scripts/generate_crosscheck.py --bridge b-habitat-percolation-ecology --d
 # Write drafts for review
 python scripts/generate_crosscheck.py --bridge b-habitat-percolation-ecology --write
 
-# Run a seed protocol
+# Run a seed protocol (browser demo — no install)
+# https://kr8zysho3.github.io/Universal-Science-Discovery/repro/p-b-habitat-percolation-ecology-fss/index.html
+
+# Or local Python (verification)
 pip install -r repro/p-b-habitat-percolation-ecology-fss/requirements.txt
 python repro/p-b-habitat-percolation-ecology-fss/simulate_percolation_fss.py
 
@@ -65,7 +68,7 @@ Canonical protocols live in [`protocols-catalog/`](../protocols-catalog/). Seed 
 |----------|--------|------|
 | `p-b-habitat-percolation-ecology-fss` | Habitat fragmentation ↔ percolation | desktop |
 | `p-b-habitat-percolation-ecology-cluster-exponent` | Same bridge, cluster size distribution | desktop |
-| `p-b-percolation-epidemiology-fss` | Epidemic threshold ↔ bond percolation | desktop |
+| `p-b-percolation-epidemiology-fss` | Epidemic threshold ↔ bond percolation | desktop (Colab) |
 
 ---
 

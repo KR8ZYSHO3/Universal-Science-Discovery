@@ -9,7 +9,7 @@ from pathlib import Path
 
 import yaml
 
-from crosscheck_browser import browser_runner_script
+from crosscheck_browser import browser_runner_script, colab_url
 
 REPO = "KR8ZYSHO3/Universal-Science-Discovery"
 ROOT = Path(__file__).resolve().parents[1]
@@ -58,11 +58,25 @@ def runner_section(proto_id: str, runner_js: str) -> str:
 """
 
 
-def note_section(has_browser: bool) -> str:
+def colab_section(colab_href: str) -> str:
+    e = html.escape
+    return f"""
+  <h2>Run in Google Colab</h2>
+  <p class=\"runner-lead\">No local Python setup — opens a notebook that clones the repo and runs the repro.</p>
+  <p><a class=\"colab-btn\" href=\"{e(colab_href)}\" target=\"_blank\" rel=\"noopener\">Open in Colab</a></p>
+"""
+
+
+def note_section(has_browser: bool, has_colab: bool) -> str:
     if has_browser:
         return """  <div class=\"note\">
     <strong>Try the in-browser runner below</strong> for a live demo, or clone this folder for
     the canonical Python repro (source of truth for verification).
+  </div>"""
+    if has_colab:
+        return """  <div class=\"note\">
+    <strong>Open in Colab below</strong> for a one-click cloud run (requires networkx), or clone this
+    folder for the canonical Python repro.
   </div>"""
     return """  <div class=\"note\">
     This page is served on GitHub Pages for discovery. <strong>Run the repro on your machine</strong>
@@ -96,9 +110,12 @@ def render_page(proto: dict) -> str:
 
     runner_js = browser_runner_script(bundle_dir, pid)
     has_browser = runner_js is not None
+    colab_href = colab_url(bundle_dir, pid)
+    has_colab = colab_href is not None
 
     e = html.escape
     runner_html = runner_section(pid, runner_js) if has_browser else ""
+    colab_html = colab_section(colab_href) if has_colab and not has_browser else ""
     return f"""<!DOCTYPE html>
 <html lang=\"en\">
 <head>
@@ -138,6 +155,9 @@ def render_page(proto: dict) -> str:
     .result-badge.confirmed {{ background: rgba(34,211,184,0.2); color: var(--teal); }}
     .result-badge.inconclusive {{ background: rgba(251,191,36,0.15); color: #fbbf24; }}
     .result-badge.error {{ background: rgba(248,113,113,0.15); color: #f87171; }}
+    .colab-btn {{ display: inline-block; background: #f9ab00; color: #1a1200; font-weight: 600;
+      padding: .5rem 1rem; border-radius: 8px; text-decoration: none; font-size: .92rem; }}
+    .colab-btn:hover {{ filter: brightness(1.05); }}
   </style>
 </head>
 <body>
@@ -145,8 +165,9 @@ def render_page(proto: dict) -> str:
   <h1>{e(title)}</h1>
   <p class=\"meta\">Protocol <code>{e(pid)}</code> · bridge <code>{e(bridge)}</code></p>
   <p>{e(pred)}</p>
-{note_section(has_browser)}
+{note_section(has_browser, has_colab)}
 {runner_html}
+{colab_html}
   <h2>Run locally</h2>
   <pre>git clone https://github.com/{REPO}.git
 cd Universal-Science-Discovery/{bundle}

@@ -23,6 +23,7 @@ See [LAUNCH_PLAYBOOK.md](../LAUNCH_PLAYBOOK.md) for the full sequenced plan and 
 - **Repro Pages fix** (PR #291) — Crosscheck repro bundles have `index.html` on GitHub Pages.
 - **Ready-to-post copy** — `docs/outreach/READY_TO_POST.md` (Crosscheck-led Reddit/X/LinkedIn/DM templates).
 - **In-browser Crosscheck** (PR #293) — one-click runner on stdlib repro landing pages; Python remains verification source of truth.
+- **Crosscheck Phase 3** — all 3 seed protocols `executed`; dashboard Crosscheck hub; Colab path for networkx epidemiology repro.
 - **Next (human):** LinkedIn §1b in-browser follow-up (optional), Reddit (E6), register usdr.science (E3), arXiv submit (E5), 5 personal DMs (E7).
 
 **30-Day Takeoff Checkpoints (see LAUNCH_MILESTONES.md for details):**
