@@ -10,8 +10,8 @@ PC_INF = 0.59274621
 NU_THEORY = 4 / 3
 NU_TOLERANCE = 0.15
 SIZES = [16, 32, 64, 128]
-TRIALS_PER_P = 120
-P_GRID = 30
+TRIALS_PER_P = 350
+P_GRID = 32
 
 
 def neighbors(r: int, c: int, n: int) -> List[Tuple[int, int]]:
@@ -68,12 +68,17 @@ def estimate_pc(n: int, trials: int, seed: int) -> float:
     return (lo + hi) / 2
 
 
-def fit_nu(sizes: List[int], pcs: List[float]) -> Tuple[float, float]:
-    """Fit delta_p ~ L^(-1/nu) via log-log linear regression."""
+def fit_nu(sizes: List[int], pcs: List[float]) -> Tuple[float, float, bool]:
+    """Fit p_c(inf) - p_c(L) ~ L^(-1/nu) via log-log linear regression."""
     import math
 
+    deltas = [PC_INF - pc for pc in pcs]
+    sign_ok = all(d > 0 for d in deltas)
     xs = [math.log(L) for L in sizes]
-    ys = [math.log(abs(pc - PC_INF) + 1e-9) for pc in pcs]
+    ys = [
+        math.log(d if sign_ok else abs(pc - PC_INF) + 1e-9)
+        for d, pc in zip(deltas, pcs)
+    ]
     n = len(xs)
     x_mean = sum(xs) / n
     y_mean = sum(ys) / n
@@ -84,7 +89,7 @@ def fit_nu(sizes: List[int], pcs: List[float]) -> Tuple[float, float]:
     ss_res = sum((y - (y_mean + slope * (x - x_mean))) ** 2 for x, y in zip(xs, ys))
     ss_tot = sum((y - y_mean) ** 2 for y in ys)
     r2 = 1 - ss_res / ss_tot if ss_tot else 0.0
-    return nu, r2
+    return nu, r2, sign_ok
 
 
 def main() -> int:
@@ -98,11 +103,13 @@ def main() -> int:
         pcs.append(pc)
         print(f"  L={L:4d}  p_c_hat={pc:.5f}  delta={pc - PC_INF:+.5f}")
 
-    nu, r2 = fit_nu(SIZES, pcs)
+    nu, r2, sign_ok = fit_nu(SIZES, pcs)
     rel_err = abs(nu - NU_THEORY) / NU_THEORY
-    passed = rel_err <= NU_TOLERANCE
+    passed = sign_ok and rel_err <= NU_TOLERANCE
 
     print()
+    if not sign_ok:
+        print("Sign check: p_c estimates crossed p_c(inf) — increase TRIALS_PER_P")
     print(f"Fitted nu = {nu:.4f}  (R² = {r2:.4f})")
     print(f"Relative error vs 4/3 = {100 * rel_err:.1f}%  (tolerance {100 * NU_TOLERANCE:.0f}%)")
     print(f"RESULT: {'CONFIRMED' if passed else 'INCONCLUSIVE (increase TRIALS_PER_P for higher precision)'}")
