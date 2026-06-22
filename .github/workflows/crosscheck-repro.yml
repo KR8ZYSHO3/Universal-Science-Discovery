@@ -6,6 +6,11 @@ on:
     paths:
       - 'repro/**'
       - 'protocols-catalog/**'
+      - 'scripts/build_crosscheck.py'
+      - 'scripts/crosscheck_browser.py'
+      - 'scripts/generate_repro_index_pages.py'
+      - 'scripts/render_crosscheck_hub.py'
+      - 'scripts/generate_explainers.py'
 
 jobs:
   smoke:
@@ -29,3 +34,6 @@ jobs:
 
       - name: Epidemic percolation FSS
         run: python repro/p-b-percolation-epidemiology-fss/epidemic_percolation_fss.py
+
+      - name: Ising social dynamics EWI
+        run: python repro/p-b-ising-social-dynamics-ewi/ising_critical_slowing.py
