@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Statistical Physics ↔ Social Science: The Ising model of ferromagnetism describes opinion dynamics, social norm adoption, and political polarisation | USDR Explainer</title>
+  <meta name="description" content="The Ising model of ferromagnetism describes opinion dynamics, social norm adoption, and political polarisation"/>
+
+  <!-- Open Graph / social sharing -->
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="Statistical Physics ↔ Social Science: The Ising model of ferromagnetism describes opinion dynamics, social norm adoption, and political polarisation"/>
+  <meta property="og:description" content="The Ising model of ferromagnetism describes opinion dynamics, social norm adoption, and political polarisation"/>
+  <meta property="og:url" content="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/explainers/b-ising-social-dynamics.html"/>
+  <meta property="og:site_name" content="Universal Science Discovery Repository"/>
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:title" content="The Ising model of ferromagnetism describes opinion dynamics, social norm adoption, and political polarisation"/>
+  <meta name="twitter:description" content="The Ising model of ferromagnetism describes opinion dynamics, social norm adoption, and political polarisation"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"/>
+
+  <style>
+    /* ── Reset & tokens ───────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0d1117;
+      --bg-card:   #161b22;
+      --bg-hover:  #1c2230;
+      --border:    #30363d;
+      --text:      #e6edf3;
+      --text-dim:  #8b949e;
+      --accent:    #58a6ff;
+      --accent2:   #3fb950;
+      --accent3:   #f78166;
+      --accent4:   #d2a8ff;
+      --warn:      #e3b341;
+      --radius:    10px;
+      --font:      'Inter', system-ui, sans-serif;
+      --mono:      'JetBrains Mono', monospace;
+      --max-w:     860px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* ── Nav ──────────────────────────────────────────────────────────── */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13,17,23,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .topbar a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: opacity .15s;
+    }
+    .topbar a:hover { opacity: .75; }
+    .topbar-sep { color: var(--border); }
+    .topbar-title { color: var(--text-dim); font-size: 0.85rem; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+    /* ── Layout ───────────────────────────────────────────────────────── */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* ── Hero ─────────────────────────────────────────────────────────── */
+    .hero {
+      padding: 2.5rem 0 2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2.5rem;
+    }
+    .hero-domain {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+    .hero-title {
+      font-size: clamp(1.35rem, 3vw, 1.8rem);
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: center;
+    }
+
+    /* ── Badges ───────────────────────────────────────────────────────── */
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.65rem;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: .05em;
+    }
+    .badge-established { background: rgba(63,185,80,.18); color: var(--accent2); border: 1px solid rgba(63,185,80,.35); }
+    .badge-proposed    { background: rgba(88,166,255,.18); color: var(--accent);  border: 1px solid rgba(88,166,255,.35); }
+    .badge-contested   { background: rgba(227,179,65,.18); color: var(--warn);    border: 1px solid rgba(227,179,65,.35); }
+    .badge-stale       { background: rgba(139,148,158,.18);color: var(--text-dim);border: 1px solid rgba(139,148,158,.35); }
+
+    .field-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .field-tag {
+      background: rgba(88,166,255,.12);
+      color: var(--accent);
+      border: 1px solid rgba(88,166,255,.25);
+      padding: 0.15rem 0.55rem;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 500;
+    }
+
+    /* ── Sections ─────────────────────────────────────────────────────── */
+    section { margin-bottom: 2.5rem; }
+
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    h2 .icon { font-size: 1.1rem; }
+
+    p { color: var(--text-dim); margin-bottom: 0.8rem; }
+    p:last-child { margin-bottom: 0; }
+
+    /* ── Card ─────────────────────────────────────────────────────────── */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.5rem;
+    }
+
+    /* ── Key insight callout ──────────────────────────────────────────── */
+    .insight {
+      background: linear-gradient(135deg, rgba(88,166,255,.08) 0%, rgba(63,185,80,.06) 100%);
+      border: 1px solid rgba(88,166,255,.3);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.5rem;
+    }
+    .insight p { color: var(--text); }
+
+    /* ── Translation table ────────────────────────────────────────────── */
+    .table-wrap { overflow-x: auto; border-radius: var(--radius); }
+    .translation-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+    .translation-table thead tr {
+      background: rgba(88,166,255,.12);
+    }
+    .translation-table th {
+      padding: 0.7rem 1rem;
+      text-align: left;
+      font-weight: 600;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    .translation-table td {
+      padding: 0.65rem 1rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      vertical-align: top;
+    }
+    .translation-table tr:last-child td { border-bottom: none; }
+    .translation-table tr:nth-child(odd) { background: rgba(255,255,255,.02); }
+    .translation-table tr:hover { background: var(--bg-hover); }
+    .note-cell { color: var(--text-dim) !important; font-size: 0.82rem; }
+
+    /* ── References ───────────────────────────────────────────────────── */
+    .ref-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .ref-list li {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.6rem 0.9rem;
+      font-size: 0.84rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      align-items: center;
+    }
+    .ref-list a { color: var(--accent); text-decoration: none; }
+    .ref-list a:hover { text-decoration: underline; }
+    .ref-note { color: var(--text-dim); }
+
+    /* ── Open questions ───────────────────────────────────────────────── */
+    .opp-list, ul { padding-left: 1.3rem; display: flex; flex-direction: column; gap: 0.5rem; }
+    .opp-list li, ul li { color: var(--text-dim); font-size: 0.9rem; }
+    code { font-family: var(--mono); font-size: 0.82rem; background: rgba(88,166,255,.12); color: var(--accent); padding: 0.1rem 0.4rem; border-radius: 4px; }
+
+    /* ── Crosscheck protocols ─────────────────────────────────────────── */
+    .crosscheck-intro { color: var(--text-dim); font-size: 0.92rem; margin-bottom: 1rem; }
+    .crosscheck-grid { display: flex; flex-direction: column; gap: 1rem; }
+    .crosscheck-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(63,185,80,.28);
+      border-radius: var(--radius);
+      padding: 1rem 1.1rem;
+    }
+    .crosscheck-card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.55rem;
+    }
+    .crosscheck-title { font-size: 0.98rem; font-weight: 600; line-height: 1.35; margin: 0; }
+    .crosscheck-badges { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+    .badge-crosscheck { background: rgba(63,185,80,.18); color: #3fb950; border: 1px solid rgba(63,185,80,.35); }
+    .badge-tier { background: rgba(210,168,255,.14); color: #d2a8ff; border: 1px solid rgba(210,168,255,.3); }
+    .crosscheck-prediction { color: var(--text-dim); font-size: 0.88rem; margin: 0 0 0.55rem; }
+    .crosscheck-meta { font-size: 0.78rem; color: var(--text-dim); margin: 0 0 0.35rem; }
+    .crosscheck-links { font-size: 0.82rem; margin: 0; }
+    .crosscheck-link { color: var(--accent2); text-decoration: none; }
+    .crosscheck-link:hover { text-decoration: underline; }
+
+    /* ── Footer ───────────────────────────────────────────────────────── */
+    .explainer-footer {
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+      margin-top: 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+    .explainer-footer p { font-size: 0.8rem; color: var(--text-dim); margin: 0; }
+    .explainer-footer a { color: var(--accent); text-decoration: none; }
+
+    /* ── Responsive ───────────────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .container { padding: 1.5rem 1rem 3rem; }
+      .hero-title { font-size: 1.25rem; }
+      .translation-table th, .translation-table td { padding: 0.5rem 0.7rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="topbar">
+  <a href="../../dashboard/index.html">← Dashboard</a>
+  <span class="topbar-sep">|</span>
+  <a href="index.html">All Explainers</a>
+  <span class="topbar-sep">|</span>
+  <span class="topbar-title">The Ising model of ferromagnetism describes opinion dynamics, social norm adoption, and political polarisation</span>
+</nav>
+
+<div class="container">
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-domain">Statistical Physics ↔ Social Science</div>
+    <h1 class="hero-title">The Ising model of ferromagnetism describes opinion dynamics, social norm adoption, and political polarisation — social tipping points (climate action spreading, norm cascades, market crashes) are formal phase transitions in the Ising universality class, with measurable early-warning indicators derivable from statistical physics.</h1>
+    <div class="hero-meta">
+      <span class="badge badge-proposed">PROPOSED</span>
+      <div class="field-tags"><span class="field-tag">statistical-physics</span> <span class="field-tag">social-science</span> <span class="field-tag">complexity-science</span> <span class="field-tag">political-science</span> <span class="field-tag">behavioural-economics</span></div>
+    </div>
+  </header>
+
+  <!-- Overview -->
+  <section id="overview">
+    <h2><span class="icon">🔭</span> Overview</h2>
+    <div class="card">
+      <p>The Ising model (1920) places binary spins (+1/-1) on a lattice with ferromagnetic coupling J: spins prefer to align with neighbours. Below the Curie temperature T_c, the system spontaneously magnetises (all spins align — ferromagnetic phase). Above T_c, spins are disordered (paramagnetic phase). At T_c exactly, a second-order phase transition occurs with diverging correlation length, critical fluctuations, and universal exponents (nu=1, beta=1/8 for 2D Ising).
+In opinion dynamics, each person is a spin (+1 = pro-norm, -1 = anti-norm), social influence is the coupling J, and &quot;social temperature&quot; T is the level of individual contrarianism or external noise. The Voter Model, the majority-rule model, and the bounded-confidence model are all Ising universality class (or related universality classes) when formulated on mean-field or lattice networks.
+Empirical consequences that have never been tested rigorously: - Political polarisation -- the distribution of opinion poll margins in two-party
+  systems should follow the Ising order-parameter distribution near criticality —
+  broad, bimodal, with power-law tails.
+- Social tipping points -- rapid norm adoption (same-sex marriage acceptance,
+  smoking bans, face mask adoption) should show EWIs — rising variance and
+  spatial correlation in attitude surveys before the tipping point — identical
+  to Ising EWIs before T_c.
+- Market crashes -- financial market crashes are first-order-like Ising transitions
+  on heterogeneous trader networks. Sornette&#x27;s log-periodic power law (LPPL)
+  model is an Ising model with long-range interactions; it has predicted several
+  market crashes.
+- Echo chamber formation -- on social networks, echo chambers are magnetised
+  Ising domains — regions of locally aligned spins. The domain wall structure
+  and coarsening dynamics follow Ising coarsening (Allen-Cahn equation), with
+  domain size growing as t^(1/2) in the absence of external forcing.</p>
+    </div>
+  </section>
+
+  <!-- Mathematical Bridge -->
+  <section id="math-bridge">
+    <h2><span class="icon">⚙️</span> The Mathematical Bridge</h2>
+    <div class="insight">
+      <p>
+        This bridge connects <strong>Statistical Physics</strong>
+        and <strong>Social Science</strong>
+        through shared mathematical structure.
+         Status: Proposed connection.
+      </p>
+    </div>
+  </section>
+
+  <!-- Translation Table -->
+  <section id="translation">
+    <h2><span class="icon">↔️</span> Translation Table</h2>
+<div class="table-wrap">
+<table class="translation-table">
+  <thead>
+    <tr>
+      <th>Domain A Term</th>
+      <th>Domain B Term</th>
+      <th>Note</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr><td>Ising spin (+1/-1)</td><td>binary opinion or behaviour (adopts norm / does not adopt norm)</td><td class="note-cell">—</td></tr>
+<tr><td>ferromagnetic coupling J (spin-spin interaction strength)</td><td>social influence strength (peer pressure, network centrality)</td><td class="note-cell">—</td></tr>
+<tr><td>Curie temperature T_c (phase transition point)</td><td>social tipping point (critical level of social temperature / contrarianism)</td><td class="note-cell">—</td></tr>
+<tr><td>spontaneous magnetisation (order parameter M)</td><td>consensus / polarisation (fraction of population holding majority opinion)</td><td class="note-cell">—</td></tr>
+<tr><td>external magnetic field H</td><td>media influence, advertising, top-down policy, or individual authority figures</td><td class="note-cell">—</td></tr>
+<tr><td>critical fluctuations (diverging susceptibility chi ~ |T-T_c|^(-gamma))</td><td>increasing opinion volatility near social tipping point</td><td class="note-cell">—</td></tr>
+<tr><td>Ising domain wall</td><td>geographic or social network boundary between opinion communities (echo chamber boundary)</td><td class="note-cell">—</td></tr>
+<tr><td>Ising universality class (nu=1, beta=1/8, gamma=7/4 in 2D)</td><td>universal opinion dynamics exponents — predicted but never measured in empirical attitude data</td><td class="note-cell">—</td></tr>
+  </tbody>
+</table>
+</div></section>
+
+  <!-- Communication Gap -->
+  <section id="comm-gap">
+    <h2><span class="icon">🗺️</span> Why Hasn't This Been Unified?</h2>
+    <div class="card"><p>The Ising-voter model analogy has existed in statistical physics since Schelling (1971) and has been formalised by Galam (1990s), Sznajd (2000), and Castellano et al. (2009 Reviews of Modern Physics). Despite this, political science, sociology, and behavioural economics journals virtually never use universality classes, critical exponents, or bifurcation theory. The communication gap is mutual: physicists who work on social models rarely engage with empirical political science datasets or collaborate with survey researchers who hold the relevant data.</p></div>
+  </section>
+
+  <!-- Cross-pollination opportunities -->
+  <section id="opportunities">
+    <h2><span class="icon">🌱</span> Cross-Pollination Opportunities</h2><ul class="opp-list"><li>The climate-tipping-point bridge (b-tipping-points-phase-transitions) and this bridge are directly linked: climate action spreading is a social Ising transition (opinion norm cascade) coupled to a physical fold bifurcation (climate system tipping). The coupled social-physical tipping point system may have a lower effective threshold than either alone — social tipping can push the physical system past its fold before the physical forcing alone would do so. This cross-bridge interaction is unstudied.</li>
+<li>Echo chamber formation follows Ising domain coarsening (Allen-Cahn dynamics). The domain size grows as t^(1/2) in an unforced system. On social networks with algorithmic recommendation (external field proportional to local opinion), the coarsening should be *faster* than t^(1/2) — algorithms act like an effective ferromagnetic coupling that accelerates domain growth. This gives a specific, testable prediction for the rate of political polarisation increase attributable to algorithmic amplification, distinct from organic social dynamics.</li>
+<li>Sornette&#x27;s LPPL model (Ising with long-range interactions) has retrospectively predicted market crashes. Applying it prospectively requires identifying the universality class of financial markets. Real financial order books have specific degree distributions — importing the Ising-on-heterogeneous-networks literature (the same toolkit used in b-percolation-epidemiology) would give the exact phase diagram of a financial market as a function of trader coupling and heterogeneity, identifying the critical coupling K_c above which a crash is certain.</li>
+<li>Social tipping EWIs could be computed from publicly available survey data. ANES (American National Election Studies), Gallup polls, and Twitter/X sentiment datasets provide 40+ years of opinion time series. Computing AR1 and variance from these time series — exactly as Boers (2021) did for AMOC — would test whether social norms exhibit critical slowing down before tipping events.</li></ul></section>
+
+  <!-- Crosscheck protocols -->
+  <section id="crosscheck">
+    <h2><span class="icon">🧪</span> Crosscheck — Prove This Bridge</h2>
+    <p class="crosscheck-intro">Runnable experiment protocols promoted from this bridge. USDR maps what connects; Crosscheck proves it.</p>
+    <div class="crosscheck-grid"><article class="crosscheck-card">
+  <div class="crosscheck-card-head">
+    <h3 class="crosscheck-title">Early-warning indicator test — does 2D Ising magnetisation near T_c show critical slowing down (rising variance and AR1) with susceptibility scaling exponent γ within 25% of the 2D Ising value 7/4?</h3>
+    <div class="crosscheck-badges">
+      <span class="badge badge-crosscheck">EXECUTED</span>
+      <span class="badge badge-tier">desktop</span>
+    </div>
+  </div>
+  <p class="crosscheck-prediction">Metropolis Monte Carlo on a 2D square Ising lattice at temperatures T ∈ {2.65, 2.55, 2.45, 2.38, 2.33, 2.30} in the scaling regime above T_c ≈ 2.269 shows monotonically increasing magnetisation variance, AR1, and inte...</p>
+  <p class="crosscheck-meta">Protocol <code>p-b-ising-social-dynamics-ewi</code></p>
+  <p class="crosscheck-links"><a class="crosscheck-link" href="../../repro/p-b-ising-social-dynamics-ewi/index.html">Run in browser</a> · <a class="crosscheck-link" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/protocols-catalog/physics-social/p-b-ising-social-dynamics-ewi.yaml" target="_blank" rel="noopener">Protocol YAML</a></p>
+</article></div>
+    <p class="crosscheck-intro" style="margin-top:1rem;">
+      <a href="../../docs/CROSSCHECK.md" class="crosscheck-link">Crosscheck manifesto</a>
+      · Generate more drafts: <code>python scripts/generate_crosscheck.py --bridge b-ising-social-dynamics --write</code>
+    </p>
+  </section>
+
+  <!-- Open Questions -->
+  <section id="open-questions">
+    <h2><span class="icon">❓</span> Open Questions</h2><ul><li>Unknown: <code>u-social-ising-universality</code></li>
+<li>Hypothesis: <code>h-norm-cascade-ising-ew</code></li></ul></section>
+
+  <!-- References -->
+  <section id="references">
+    <h2><span class="icon">📚</span> References</h2>
+    <ul class="ref-list"><li><a href="https://doi.org/10.1103/RevModPhys.81.591" target="_blank" rel="noopener">DOI:10.1103/RevModPhys.81.591</a>&nbsp;·&nbsp;<span class="ref-note">Castellano, Fortunato, Loreto (2009) — comprehensive review of statistical physics of social dynamics; Ising universality in opinion models</span></li>
+<li><a href="https://doi.org/10.1140/epjb/e2008-00transition" target="_blank" rel="noopener">DOI:10.1140/epjb/e2008-00transition</a>&nbsp;·&nbsp;<span class="ref-note">Galam (2008) — sociophysics; majority-rule model as Ising transition</span></li>
+<li><a href="https://doi.org/10.1016/S0378-4371(00)00155-3" target="_blank" rel="noopener">DOI:10.1016/S0378-4371(00)00155-3</a>&nbsp;·&nbsp;<span class="ref-note">Sznajd-Weron &amp; Sznajd (2000) — opinion dynamics on lattice; Ising universality class</span></li>
+<li><a href="https://doi.org/10.1038/s41562-018-0306-y" target="_blank" rel="noopener">DOI:10.1038/s41562-018-0306-y</a>&nbsp;·&nbsp;<span class="ref-note">Otto et al. (2020) — social tipping points for climate action; qualitative; no bifurcation class assigned</span></li>
+<li><a href="https://doi.org/10.1073/pnas.0305937101" target="_blank" rel="noopener">DOI:10.1073/pnas.0305937101</a>&nbsp;·&nbsp;<span class="ref-note">Sornette &amp; Zhou (2006) — LPPL market crash model as Ising with long-range interactions</span></li></ul>
+  </section>
+
+  <!-- Footer -->
+  <footer class="explainer-footer">
+    <p>Bridge ID: <code>b-ising-social-dynamics</code> · Last reviewed: 2026-05-04</p>
+    <p>
+      <a href="../../dashboard/index.html">← Back to Dashboard</a> ·
+      <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery" target="_blank" rel="noopener">GitHub</a>
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>
