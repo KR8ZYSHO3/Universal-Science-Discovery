@@ -1,28 +1,33 @@
 # Consultant handoff (Grok) — latest
-**Brief for an external consultant. Factual snapshot only; no invented issue IDs.**
+**Brief for external consultant. GSD-active as of 2026-06-23.**
 
 ## Summary
-**Dashboard orphan / xref hygiene panel** is **merged** to `main` (PRs #250–#252): `export_orphan_xref_panel.py`, hub **Xref hygiene** section, `build-graph.yml` export step, committed `api/v1/orphan_xref_panel.json`.
 
-**Follow-up 404 hardening** is open on **`feat/dashboard-orphan-explorer`** as **PR #253** — optional JSON fetches (`deploy-info.json`, `api/v1/meta.json`, `bridges.json`, `unknowns.json`) return `{}` on 404/network failure so catalog hydration `Promise.all` does not reject locally or on Pages.
+**GSD planning bootstrapped** for milestone v1.1 Launch Execution. Phase 1 (Crosscheck credibility) closed retroactively. **Phase 2 (Launch outreach wave) is active** — ready for `/gsd-plan-phase 2`.
 
-**Phase B** UX polish merged (#249). Wave Factory stable; bounded content wave deferred until maintainer review of `drafts/`.
+Crosscheck scorecard: **3/4 CONFIRMED** (FSS, Ising EWI, cluster τ). Epidemic FSS deferred to Phase 5.
 
-## Changes (this branch vs `main`)
-- **`dashboard/index.html`:** `{}` fallbacks for optional JSON loads (was `null` for API trio).
-- **`CHANGELOG.md`:** Unreleased **Fixed — Contributor hub** bullets aligned to the above.
+## GSD position
+
+| Field | Value |
+|-------|-------|
+| Milestone | v1.1 Launch Execution |
+| Phase | 2 of 5 — Launch outreach wave |
+| Status | Ready to plan (CONTEXT.md exists) |
+| Next command | `/gsd-plan-phase 2` |
 
 ## Human follow-ups
-1. **Merge PR #253** — https://github.com/KR8ZYSHO3/Universal-Science-Discovery/pull/253 (mergeable, no conflicts).
-2. Review and merge latest Wave Factory bot PR (if open).
-3. Spot-check hub locally: `python -m http.server 8765` → `http://localhost:8765/dashboard/` (catalog search loads without console errors when API JSON is missing).
 
-## Next steps
-- Merge #253; delete or retarget `feat/dashboard-orphan-explorer` after merge.
-- Dashboard Phase C (**smart recommendations**) — orphan/xref panel is shipped; Phase C remains planned in `docs/DEV_DASHBOARD.md`.
-- Begin bounded content wave when maintainers approve `drafts/` promotion.
+1. **Approve Phase 2 plan** after agent runs `/gsd-plan-phase 2`
+2. **Post** Reddit + LinkedIn after copy refresh (Brandon — agents cannot post)
+3. **Register** `usdr.science` DNS (Phase 3, E3)
+4. **Submit** arXiv preprint v1.2 (Phase 3, E5)
 
-## Catalog truth (reproducible)
-`python scripts/verify_dashboard_consistency.py` → **bridges=1123, unknowns=1408, hypotheses=1274, phenomena=10, graph_nodes=3857, graph_edges=4517**
+## Blockers
 
-**Verification (2026-05-26):** `pytest tests/repo_smoke` 5 passed; `verify_dashboard_consistency.py` OK.
+- Outreach copy stale (INCONCLUSIVE narrative) — fixed in Phase 2 plan 02-01
+- `gh` CLI not authed locally — GitHub MCP works for PRs
+
+## Catalog truth
+
+Run `python scripts/verify_dashboard_consistency.py` for current counts.
