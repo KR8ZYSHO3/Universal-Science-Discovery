@@ -31,8 +31,10 @@ jobs:
           python repro/p-b-habitat-percolation-ecology-fss/simulate_percolation_fss.py | tee /tmp/fss.out
           grep -q "RESULT: CONFIRMED" /tmp/fss.out
 
-      - name: Cluster size exponent
-        run: python repro/p-b-habitat-percolation-ecology-cluster-exponent/cluster_size_exponent.py
+      - name: Cluster size exponent (expect CONFIRMED)
+        run: |
+          python repro/p-b-habitat-percolation-ecology-cluster-exponent/cluster_size_exponent.py | tee /tmp/cluster.out
+          grep -q "RESULT: CONFIRMED" /tmp/cluster.out
 
       - name: Epidemic percolation FSS
         run: python repro/p-b-percolation-epidemiology-fss/epidemic_percolation_fss.py

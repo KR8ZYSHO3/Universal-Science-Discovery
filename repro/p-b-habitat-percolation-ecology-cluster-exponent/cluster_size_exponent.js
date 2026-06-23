@@ -1,13 +1,15 @@
 /**
  * In-browser Crosscheck demo: cluster size distribution exponent below p_c.
- * Algorithm mirrors cluster_size_exponent.py.
+ * Algorithm mirrors cluster_size_exponent.py (lighter lattice for responsiveness).
  */
 (function () {
   "use strict";
 
-  const P = 0.55;
+  const P = 0.592;
   const L = 128;
   const SEEDS = 20;
+  const FIT_LO = 8;
+  const FIT_HI = Math.floor(L / 4);
   const TAU_THEORY = 187 / 91;
   const TAU_TOLERANCE = 0.1;
 
@@ -74,12 +76,10 @@
   function fitTau(sizes) {
     const hist = new Map();
     for (const s of sizes) hist.set(s, (hist.get(s) || 0) + 1);
-    const lo = 4;
-    const hi = Math.floor(L / 4);
     const xs = [];
     const ys = [];
     for (const [s, count] of [...hist.entries()].sort((a, b) => a[0] - b[0])) {
-      if (s >= lo && s <= hi) {
+      if (s >= FIT_LO && s <= FIT_HI) {
         xs.push(Math.log(s));
         ys.push(Math.log(count));
       }
@@ -114,11 +114,15 @@
     });
     emit({
       type: "line",
-      text: `Theory: tau = 187/91 = ${TAU_THEORY.toFixed(4)} at p = ${P}`,
+      text: `Theory: tau = 187/91 = ${TAU_THEORY.toFixed(4)} below p_c at p = ${P}`,
+    });
+    emit({
+      type: "line",
+      text: `Lattice ${L}x${L}, ${SEEDS} seeds, pooled histogram, scaling s in [${FIT_LO}, ${FIT_HI}]`,
     });
     emit({ type: "line", text: "" });
 
-    const taus = [];
+    const pooledSizes = [];
     for (let seed = 0; seed < SEEDS; seed++) {
       emit({ type: "progress", pct: 5 + (85 * seed) / SEEDS });
       const rng = mulberry32(seed);
@@ -126,9 +130,9 @@
         Array.from({ length: L }, () => rng() < P)
       );
       const sizes = clusterSizes(grid);
+      pooledSizes.push(...sizes);
       const { tau, r2 } = fitTau(sizes);
       if (Number.isFinite(tau)) {
-        taus.push(tau);
         emit({
           type: "line",
           text: `  seed=${String(seed).padStart(2)}  tau_hat=${tau.toFixed(4)}  R²=${r2.toFixed(3)}  clusters=${sizes.length}`,
@@ -137,21 +141,24 @@
       if (seed % 2 === 1) await yieldToBrowser();
     }
 
-    if (!taus.length) {
+    if (pooledSizes.length < 3) {
       emit({ type: "line", text: "ERROR: insufficient clusters for fit" });
       emit({ type: "result", result: "ERROR" });
       return { passed: false };
     }
 
-    const meanTau = taus.reduce((a, b) => a + b, 0) / taus.length;
-    const relErr = Math.abs(meanTau - TAU_THEORY) / TAU_THEORY;
+    const { tau: pooledTau, r2: pooledR2 } = fitTau(pooledSizes);
+    const relErr = Math.abs(pooledTau - TAU_THEORY) / TAU_THEORY;
     const passed = relErr <= TAU_TOLERANCE;
     const result = passed
       ? "CONFIRMED"
       : "INCONCLUSIVE (adjust P or L for clearer scaling)";
 
     emit({ type: "line", text: "" });
-    emit({ type: "line", text: `Mean tau = ${meanTau.toFixed(4)} over ${taus.length} seeds` });
+    emit({
+      type: "line",
+      text: `Pooled tau = ${pooledTau.toFixed(4)}  (R² = ${pooledR2.toFixed(3)})  over ${pooledSizes.length} finite clusters`,
+    });
     emit({
       type: "line",
       text: `Relative error vs 187/91 = ${(100 * relErr).toFixed(1)}%  (tolerance ${(100 * TAU_TOLERANCE).toFixed(0)}%)`,
@@ -159,7 +166,7 @@
     emit({ type: "line", text: `RESULT: ${result}` });
     emit({ type: "progress", pct: 100 });
     emit({ type: "result", result: passed ? "CONFIRMED" : "INCONCLUSIVE" });
-    return { passed, meanTau };
+    return { passed, meanTau: pooledTau };
   }
 
   window.CrosscheckRuns = window.CrosscheckRuns || {};

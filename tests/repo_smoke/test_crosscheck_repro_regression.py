@@ -54,3 +54,19 @@ def test_ising_ewi_fit_confirmed_on_reference_variances() -> None:
     assert mod.is_monotonic_increasing(taus)
     assert rel_err <= mod.GAMMA_TOLERANCE, f"gamma={gamma:.4f} err={100 * rel_err:.1f}%"
     assert r2 > 0.9
+
+
+def test_cluster_exponent_fit_confirmed_on_pooled_reference() -> None:
+    mod = _load_module(
+        "cluster_size_exponent",
+        REPO_ROOT
+        / "repro/p-b-habitat-percolation-ecology-cluster-exponent/cluster_size_exponent.py",
+    )
+    # Reference pooled histogram at P=0.59, L=256, SEEDS=20 (2026-06-23 CONFIRMED run).
+    sizes = mod.collect_pooled_sizes()
+    tau, r2 = mod.fit_tau(sizes)
+    rel_err = abs(tau - mod.TAU_THEORY) / mod.TAU_THEORY
+
+    assert len(sizes) > 10_000
+    assert rel_err <= mod.TAU_TOLERANCE, f"tau={tau:.4f} err={100 * rel_err:.1f}%"
+    assert r2 > 0.9

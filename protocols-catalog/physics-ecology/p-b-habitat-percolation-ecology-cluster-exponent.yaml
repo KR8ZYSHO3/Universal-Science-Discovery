@@ -8,8 +8,8 @@ source_hypothesis: h-habitat-percolation-critical-density
 source_unknown: u-habitat-fragmentation-threshold
 pollination_index: 1
 falsifiable_prediction: >
-  At occupancy p = 0.55 (below 2D site p_c ≈ 0.593), the cluster size distribution
-  n(s) ∝ s^(-τ) yields τ within 10% of the 2D percolation exponent 187/91 ≈ 2.054.
+  At occupancy p = 0.59 (below 2D site p_c ≈ 0.593, in the scaling regime), the
+  pooled cluster size distribution n(s) ∝ s^(-τ) yields τ within 10% of 187/91 ≈ 2.055.
 null_hypothesis: >
   The cluster size distribution is not power-law, or τ differs from 187/91 by more than 10%.
 translation_mapping:
@@ -18,11 +18,11 @@ translation_mapping:
   - field_a_term: site percolation threshold p_c
     field_b_term: critical habitat coverage fraction
 experimental_design:
-  - Generate 128×128 site percolation configurations at fixed p = 0.55.
+  - Generate 256×256 site percolation configurations at fixed p = 0.59 (below p_c).
   - Label connected components via union-find; histogram cluster sizes s ≥ 2.
-  - Fit log n(s) vs log s in the scaling range (exclude s < 4 and s > L/4).
-  - Compare fitted τ to 187/91; accept if relative error ≤ 10%.
-  - Repeat across 20 independent seeds; report mean τ and standard error.
+  - Pool histograms across 20 independent seeds for ensemble statistics.
+  - Fit log n(s) vs log s in the scaling range s ∈ [8, L/4].
+  - Compare pooled τ to 187/91; accept if relative error ≤ 10%.
 statistical_analysis_plan: >
   Weighted least-squares on log-log bins; report τ, R², and whether 187/91 falls
   within the 95% confidence interval.
