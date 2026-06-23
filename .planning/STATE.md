@@ -5,63 +5,54 @@
 See: `.planning/PROJECT.md` (updated 2026-06-23)
 
 **Core value:** Researchers can run falsifiable Crosscheck experiments in minutes.
-**Current focus:** Phase 2 — Launch outreach wave
+**Current focus:** Phase 2 — Epidemic FSS precision
 
-**Launch E-milestones (detail):** `LAUNCH_MILESTONES.md` · **Human playbook:** `LAUNCH_PLAYBOOK.md`
+**Parked:** v1.2 Launch (marketing) — `LAUNCH_PLAYBOOK.md` — owner not interested until dev milestone ships.
 
 ## Current Position
 
-Phase: 2 of 5 (Launch outreach wave)
+Phase: 2 of 5 (Epidemic FSS precision)
 Plan: 0 of 3 in current phase
 Status: Ready to plan
-Last activity: 2026-06-23 — GSD bootstrap; Phase 1 retroactively closed (#297–#302)
+Last activity: 2026-06-23 — Milestone reprioritized: development over marketing
 
-Progress: [████░░░░░░] 38% (3/8 plans complete)
+Progress: [████░░░░░░] 38% (3/11 plans complete)
 
 ## Performance Metrics
-
-**Velocity:**
-- Total plans completed: 3 (retroactive capture)
-- Average duration: n/a (pre-GSD work)
-- Total execution time: n/a
-
-**By Phase:**
 
 | Phase | Plans | Total | Status |
 |-------|-------|-------|--------|
 | 1 Crosscheck credibility | 3 | 3 | Complete |
-| 2 Launch outreach | 0 | 3 | Active |
+| 2 Epidemic FSS | 0 | 3 | **Active** |
 
 ## Accumulated Context
 
 ### Decisions
 
-- Crosscheck engineering before outreach copy refresh (3 CONFIRMED now shippable)
-- GSD activated 2026-06-23 — no more ad-hoc session routing
-- Human-only: DNS register, arXiv submit, Reddit/DM posting (Brandon)
-
-### Pending Todos
-
-None in `.planning/todos/pending/` yet. Use `/gsd-capture` for ideas.
+- **Development before marketing** (2026-06-23) — outreach/DNS/arXiv deferred to v1.2
+- GSD active — no ad-hoc implementation without a plan
+- Python canonical; browser demo tier
 
 ### Blockers/Concerns
 
-- `READY_TO_POST.md` still describes INCONCLUSIVE FSS — blocks credible outreach (Phase 2 plan 02-01)
-- `usdr.science` DNS not live — blocks stable URLs in posts (Phase 3)
-- `gh` CLI not authenticated locally — use GitHub MCP for PRs
+- Epidemic FSS: bond percolation on ER graphs, `networkx` dependency, wider ν tolerance (0.25) — needs precision sweep like habitat FSS
+
+### Pending Todos
+
+None in `.planning/todos/pending/`.
 
 ## Deferred Items
 
-| Category | Item | Status | Deferred At |
-|----------|------|--------|-------------|
-| Engineering | Epidemic FSS precision | Phase 5 | 2026-06-23 |
-| Content | Bounded drafts wave | Post-launch | LAUNCH_MILESTONES |
+| Category | Item | Milestone |
+|----------|------|-----------|
+| Marketing | Reddit, LinkedIn, outreach copy | v1.2 Launch |
+| Infrastructure | usdr.science DNS, arXiv | v1.2 Launch |
+| Engineering | Epidemic FSS | Phase 2 (active) |
 
 ## Session Continuity
 
 Last session: 2026-06-23
-Stopped at: GSD planning bootstrap complete; awaiting `/gsd-plan-phase 2`
+Stopped at: Milestone reprioritized; Phase 2 CONTEXT pending
 Resume file: None
 
----
-*GSD STATE.md — keep under 100 lines. Historical changelog archived in git history (pre-2026-06-23 STATE).*
+**Next command:** `/gsd-plan-phase 2`
