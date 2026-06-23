@@ -2,14 +2,17 @@
 """Crosscheck repro: cluster size distribution exponent below p_c."""
 from __future__ import annotations
 
+import math
 import random
 import sys
 from collections import Counter
 from typing import Dict, List, Tuple
 
-P = 0.55
-L = 128
+P = 0.59
+L = 256
 SEEDS = 20
+FIT_LO = 8
+FIT_HI = L // 4
 TAU_THEORY = 187 / 91
 TAU_TOLERANCE = 0.10
 
@@ -56,11 +59,14 @@ def cluster_sizes(grid: List[List[bool]]) -> List[int]:
     return [s for s in roots.values() if s >= 2]
 
 
-def fit_tau(sizes: List[int]) -> Tuple[float, float]:
-    import math
-
+def fit_tau(
+    sizes: List[int],
+    *,
+    lo: int = FIT_LO,
+    hi: int = FIT_HI,
+) -> Tuple[float, float]:
+    """OLS on log n(s) vs log s in the scaling window."""
     hist: Counter[int] = Counter(sizes)
-    lo, hi = 4, L // 4
     xs, ys = [], []
     for s, count in sorted(hist.items()):
         if lo <= s <= hi:
@@ -81,31 +87,47 @@ def fit_tau(sizes: List[int]) -> Tuple[float, float]:
     return tau, r2
 
 
+def collect_pooled_sizes(seeds: int = SEEDS, *, p: float = P, lattice: int = L) -> List[int]:
+    pooled: List[int] = []
+    for seed in range(seeds):
+        rng = random.Random(seed)
+        grid = [[rng.random() < p for _ in range(lattice)] for _ in range(lattice)]
+        pooled.extend(cluster_sizes(grid))
+    return pooled
+
+
 def main() -> int:
     print("Crosscheck: p-b-habitat-percolation-ecology-cluster-exponent")
-    print(f"Theory: tau = 187/91 = {TAU_THEORY:.4f} at p = {P}")
+    print(f"Theory: tau = 187/91 = {TAU_THEORY:.4f} below p_c at p = {P}")
+    print(f"Lattice {L}x{L}, {SEEDS} seeds, pooled histogram, scaling s in [{FIT_LO}, {FIT_HI}]")
     print()
 
-    taus: List[float] = []
+    pooled_sizes: List[int] = []
     for seed in range(SEEDS):
         rng = random.Random(seed)
         grid = [[rng.random() < P for _ in range(L)] for _ in range(L)]
         sizes = cluster_sizes(grid)
-        tau, r2 = fit_tau(sizes)
-        if tau == tau:
-            taus.append(tau)
-            print(f"  seed={seed:2d}  tau_hat={tau:.4f}  R²={r2:.3f}  clusters={len(sizes)}")
+        pooled_sizes.extend(sizes)
+        tau_seed, r2_seed = fit_tau(sizes)
+        if tau_seed == tau_seed:
+            print(
+                f"  seed={seed:2d}  tau_hat={tau_seed:.4f}  R²={r2_seed:.3f}  clusters={len(sizes)}"
+            )
 
-    if not taus:
+    if len(pooled_sizes) < 3:
         print("ERROR: insufficient clusters for fit")
         return 1
 
-    mean_tau = sum(taus) / len(taus)
-    rel_err = abs(mean_tau - TAU_THEORY) / TAU_THEORY
+    tau, r2 = fit_tau(pooled_sizes)
+    if tau != tau:
+        print("ERROR: pooled fit failed")
+        return 1
+
+    rel_err = abs(tau - TAU_THEORY) / TAU_THEORY
     passed = rel_err <= TAU_TOLERANCE
 
     print()
-    print(f"Mean tau = {mean_tau:.4f} over {len(taus)} seeds")
+    print(f"Pooled tau = {tau:.4f}  (R² = {r2:.3f})  over {len(pooled_sizes)} finite clusters")
     print(f"Relative error vs 187/91 = {100 * rel_err:.1f}%  (tolerance {100 * TAU_TOLERANCE:.0f}%)")
     print(f"RESULT: {'CONFIRMED' if passed else 'INCONCLUSIVE (adjust P or L for clearer scaling)'}")
     return 0
