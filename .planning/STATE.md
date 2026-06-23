@@ -5,7 +5,8 @@
 See: `.planning/PROJECT.md` (updated 2026-06-23)
 
 **Core value:** Researchers can run falsifiable Crosscheck experiments in minutes.
-**Current focus:** Phase 2 — Epidemic FSS precision
+**Ship bar:** Single-dev robust · workflows excellent · interface awesome (see PROJECT.md § Ship Bar).
+**Current focus:** Phase 2 — Epidemic FSS precision (must tie to WORK-01, not isolated tuning)
 
 **Parked:** v1.2 Launch (marketing) — `LAUNCH_PLAYBOOK.md` — owner not interested until dev milestone ships.
 
