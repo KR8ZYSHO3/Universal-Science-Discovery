@@ -14,8 +14,8 @@ See: `.planning/PROJECT.md` (updated 2026-06-23)
 
 Phase: 5 of 5 (Hub engineering) — complete
 Plan: 1 of 1 executed
-Status: Complete — 05-01 HUB-01
-Last activity: 2026-08-26 — 05-01 hub recommendations thin slice complete
+Status: Phase complete — orchestrator-verified (pytest 15/15)
+Last activity: 2026-08-26 — Phase 5 verified (spec + recommendations JSON + hub panel)
 
 Progress: [██████████] 100% (11/11 plans complete)
 
@@ -67,10 +67,10 @@ None in `.planning/todos/pending/`.
 ## Session Continuity
 
 Last session: 2026-08-26
-Stopped at: Completed 05-hub-engineering/05-01-PLAN.md
+Stopped at: Phase 5 executed and orchestrator-verified (pytest 15/15, HUB-01 closed)
 Resume file: None
-Duration (05-01 execute): 6 min
+Duration (05-01): 6 min
 
 Local note: previous checkout was stale `launch/june-2026-shipping`. June-pause catalog drafts (climate cascades + zeta) stashed as `june-2026-pause leftover launch docs and climate drafts`. Parked until after v1.1.
 
-**Next command:** `/gsd-verify-work 5` then `/gsd-complete-milestone`
+**Next command:** `/gsd-complete-milestone` (v1.1 Core Development is 11/11). Optional: `/gsd-verify-work 5` for hub click-through. v1.2 Launch remains parked.
