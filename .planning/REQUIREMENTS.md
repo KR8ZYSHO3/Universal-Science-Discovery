@@ -27,7 +27,7 @@
 
 ### Hub engineering
 
-- [ ] **HUB-01**: Smart-recommendations spec + static JSON prototype — Phase 5
+- [x] **HUB-01**: Smart-recommendations spec + static JSON prototype — Phase 5 (05-01: `docs/HUB_RECOMMENDATIONS.md` + `api/v1/recommendations.json` + hub `#recommendations`)
 
 ## v1.2 Requirements (Launch — deferred)
 
@@ -51,9 +51,9 @@
 | CROSS-07 | Phase 3 | Complete (03-02 parity matrix) |
 | TRUST-02 | Phase 4 | Complete (04-01 inventory pytest) |
 | TRUST-03 | Phase 4 | Complete (04-02 generate dry-run + GCC INCONCLUSIVE) |
-| HUB-01 | Phase 5 | Pending |
+| HUB-01 | Phase 5 | Complete (05-01 spec + JSON + hub panel) |
 
-**Coverage:** 11 v1.1 dev requirements · 10 complete · 1 pending (HUB-01)
+**Coverage:** 11 v1.1 dev requirements · 11 complete · 0 pending
 
 ---
-*Last updated: 2026-08-26 — TRUST-03 entry-point smokes closed in 04-02*
+*Last updated: 2026-08-26 — HUB-01 closed in 05-01*

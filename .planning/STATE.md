@@ -6,18 +6,18 @@ See: `.planning/PROJECT.md` (updated 2026-06-23)
 
 **Core value:** Researchers can run falsifiable Crosscheck experiments in minutes.
 **Ship bar:** Single-dev robust · workflows excellent · interface awesome (see PROJECT.md § Ship Bar).
-**Current focus:** Phase 5 hub engineering — 05-01 HUB-01 thin slice landed (spec + JSON + `#recommendations`; process metadata only, not a scientific finding)
+**Current focus:** Phase 5 hub engineering complete — 05-01 HUB-01 landed (spec + JSON + `#recommendations`; process metadata only, not a scientific finding)
 
 **Parked:** v1.2 Launch (marketing) — `LAUNCH_PLAYBOOK.md` — owner not interested until dev milestone ships.
 
 ## Current Position
 
-Phase: 5 of 5 (Hub engineering) — executing
-Plan: 0 of 1 executed
-Status: In progress — Wave 1 (05-01)
-Last activity: 2026-08-26 — 05-01 hub recommendations thin slice landed
+Phase: 5 of 5 (Hub engineering) — complete
+Plan: 1 of 1 executed
+Status: Complete — 05-01 HUB-01
+Last activity: 2026-08-26 — 05-01 hub recommendations thin slice complete
 
-Progress: [█████████░] 91% (10/11 plans complete; 1 planned)
+Progress: [██████████] 100% (11/11 plans complete)
 
 ## Performance Metrics
 
@@ -27,7 +27,7 @@ Progress: [█████████░] 91% (10/11 plans complete; 1 planned)
 | 2 Epidemic FSS | 3 | 3 | Complete |
 | 3 Crosscheck scale-up | 2 | 2 | Complete |
 | 4 CI & trust hardening | 2 | 2 | Complete |
-| 5 Hub engineering | 0 | 1 | Ready to execute |
+| 5 Hub engineering | 1 | 1 | Complete |
 
 ## Accumulated Context
 
@@ -46,6 +46,7 @@ Progress: [█████████░] 91% (10/11 plans complete; 1 planned)
 - CI & trust hardening (04-01): TRUST-02 closed — `test_crosscheck_confirmed_gates.py` pairs four CONFIRMED-capable seeds with four static greps; GCC not grepped CONFIRMED; `docs/CROSSCHECK.md` CONFIRMED-only policy; workflow YAML untouched
 - CI & trust hardening (04-02): TRUST-03 closed — `test_crosscheck_entry_points.py` generate `--bridge b-percolation-oncology --dry-run` (exit 0, `p-b-`) plus live GCC `RESULT: INCONCLUSIVE` / exit 0; epidemic freeze re-run not duplicated; no fifth CONFIRMED grep
 - Hub engineering (planned 2026-08-26): HUB-01 = spec `docs/HUB_RECOMMENDATIONS.md` (connectivity / harvest / curator; v1 computes undirected degree only) + `scripts/export_recommendations.py` → `api/v1/recommendations.json` (cap 25 bridges) + hub `#recommendations` fetch copied from orphan/xref panel; not a scientific ranking
+- Hub engineering (05-01, 2026-08-26): HUB-01 closed — dedicated spec; ranking `undirected_degree`; harvest/curator keys omitted on items; hub `#recommendations` uses `textContent` + github.com href allowlist; `generate_api.py` keeps `endpoints.recommendations`
 
 ### Blockers/Concerns
 
@@ -66,10 +67,10 @@ None in `.planning/todos/pending/`.
 ## Session Continuity
 
 Last session: 2026-08-26
-Stopped at: Phase 5 planned and checker-passed
+Stopped at: Completed 05-hub-engineering/05-01-PLAN.md
 Resume file: None
-Duration (plan-phase 5): research + patterns + 05-01 + checker
+Duration (05-01 execute): 6 min
 
 Local note: previous checkout was stale `launch/june-2026-shipping`. June-pause catalog drafts (climate cascades + zeta) stashed as `june-2026-pause leftover launch docs and climate drafts`. Parked until after v1.1.
 
-**Next command:** `/gsd-execute-phase 5`
+**Next command:** `/gsd-verify-work 5` then `/gsd-complete-milestone`

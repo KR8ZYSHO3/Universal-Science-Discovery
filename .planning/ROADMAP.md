@@ -16,7 +16,7 @@ Harden Crosscheck to 4/4 CONFIRMED, scale the protocol pipeline, expand CI/trust
 - [x] **Phase 2: Epidemic FSS precision** — 4th seed protocol CONFIRMED
 - [x] **Phase 3: Crosscheck scale-up** — generate/promote protocols + browser parity
 - [x] **Phase 4: CI & trust hardening** — smoke tests + CONFIRMED gates
-- [ ] **Phase 5: Hub engineering** — smart recommendations spec + prototype
+- [x] **Phase 5: Hub engineering** — smart recommendations spec + prototype
 
 ## Phase Details
 
@@ -96,11 +96,11 @@ Cross-cutting constraints:
 **Success Criteria**:
   1. Spec defines ranking signal (connectivity / harvest / curator score)
   2. `api/v1/` or hub section loads prototype JSON
-**Plans**: 1/1 planned (2026-08-26)
+**Plans**: 1/1 complete (2026-08-26)
 
 Plans:
 - **Wave 1**
-- [ ] 05-01: Spec + thin JSON slice in hub — `docs/HUB_RECOMMENDATIONS.md` + `api/v1/recommendations.json` + `#recommendations`
+- [x] 05-01: Spec + thin JSON slice in hub — `docs/HUB_RECOMMENDATIONS.md` + `api/v1/recommendations.json` + `#recommendations` — 2026-08-26
 
 Cross-cutting constraints:
 - v1 ranks bridges by undirected degree; harvest/curator are spec-only (D-02)
@@ -120,7 +120,7 @@ Outreach copy, Reddit/LinkedIn, `usdr.science`, arXiv, personal DMs — see `LAU
 | 2. Epidemic FSS precision | 3/3 | Complete | 2026-08-26 |
 | 3. Crosscheck scale-up | 2/2 | Complete | 2026-08-26 |
 | 4. CI & trust hardening | 2/2 | Complete | 2026-08-26 |
-| 5. Hub engineering | 0/1 | Ready to execute | — |
+| 5. Hub engineering | 1/1 | Complete | 2026-08-26 |
 
 ---
 *Reprioritized 2026-06-23. Repo vision: `ROADMAP.md` (root).*
