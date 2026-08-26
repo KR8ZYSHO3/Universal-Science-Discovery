@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added — Crosscheck entry-point smokes
+- **`tests/repo_smoke/test_crosscheck_entry_points.py`:** `generate_crosscheck.py --bridge b-percolation-oncology --dry-run` (exit 0, `p-b-` on stdout; no `--write`) and live `giant_component_fraction.py` (`RESULT: INCONCLUSIVE`, exit 0).
+
 ### Added — Crosscheck CONFIRMED-gate inventory
 - **`tests/repo_smoke/test_crosscheck_confirmed_gates.py`:** Text inventory of CONFIRMED-capable `repro/**/*.py` vs `.github/workflows/crosscheck-repro.yml` (four `grep -q "RESULT: CONFIRMED"` steps). GCC is INCONCLUSIVE-only and must not share a CONFIRMED grep step.
 - **`docs/CROSSCHECK.md`:** Run-mode parity CI column states CONFIRMED-only grep policy (four seeds grepped CONFIRMED; GCC must not be).
