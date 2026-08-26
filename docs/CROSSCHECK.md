@@ -84,7 +84,9 @@ Python is canonical; browser and Colab are demo tier.
 | `p-b-habitat-percolation-ecology-cluster-exponent` | `cluster_size_exponent.py` (`P=0.59`, `L=256`, `SEEDS=20`) | yes, `cluster_size_exponent.js` (`P=0.592`, `L=128`) | no | yes | stdout `RESULT:` on success; can `return 1` if too few clusters / NaN fit |
 | `p-b-ising-social-dynamics-ewi` | `ising_critical_slowing.py` (`LATTICE_SIZE=48`) | yes, `ising_critical_slowing.js` (`L=32`, lighter sweeps) | no | yes | stdout `RESULT:` token; Python `return 0` always |
 | `p-b-percolation-epidemiology-fss` | `epidemic_percolation_fss.py` (networkx; freeze `NU_THEORY=3.0`) | **no** (not in `BROWSER_RUNNERS`; D-09) | yes, `run_crosscheck.ipynb` | yes | stdout `RESULT:` token; Python `return 0` always |
-| `p-b-percolation-oncology-gcc` | `giant_component_fraction.py` (`L=32`, `TRIALS=8`) | **no** | **no** | **no** (Phase 4 TRUST-02) | stdout `RESULT: INCONCLUSIVE`; Python `return 0` always |
+| `p-b-percolation-oncology-gcc` | `giant_component_fraction.py` (`L=32`, `TRIALS=8`) | **no** | **no** | **no** | stdout `RESULT: INCONCLUSIVE`; Python `return 0` always |
+
+CONFIRMED-only grep policy: four seed scripts are grepped `RESULT: CONFIRMED` in `.github/workflows/crosscheck-repro.yml`. GCC always prints `RESULT: INCONCLUSIVE` and **must not** be grepped CONFIRMED. Pytest covers the GCC entry point (`tests/repo_smoke/`); `validate-schemas.yml` runs that bundle on every PR.
 
 ---
 
