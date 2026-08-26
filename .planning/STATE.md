@@ -6,25 +6,25 @@ See: `.planning/PROJECT.md` (updated 2026-06-23)
 
 **Core value:** Researchers can run falsifiable Crosscheck experiments in minutes.
 **Ship bar:** Single-dev robust · workflows excellent · interface awesome (see PROJECT.md § Ship Bar).
-**Current focus:** Phase 2 — Epidemic FSS precision (02-02 regression+CI done; 02-03 Colab/notebook next)
+**Current focus:** Phase 3 — Crosscheck scale-up (Phase 2 epidemic FSS catalog+Colab complete)
 
 **Parked:** v1.2 Launch (marketing) — `LAUNCH_PLAYBOOK.md` — owner not interested until dev milestone ships.
 
 ## Current Position
 
-Phase: 2 of 5 (Epidemic FSS precision)
-Plan: 2 of 3 in current phase (02-02 complete)
-Status: Ready to execute 02-03
-Last activity: 2026-08-26 — 02-02 freeze pytest + CI RESULT: CONFIRMED grep
+Phase: 2 of 5 (Epidemic FSS precision) — complete
+Plan: 3 of 3 in current phase (02-03 complete)
+Status: Ready to plan Phase 3
+Last activity: 2026-08-26 — 02-03 catalog YAML + Colab honesty; status confirmed
 
-Progress: [█████░░░░░] 45% (5/11 plans complete)
+Progress: [██████░░░░] 55% (6/11 plans complete)
 
 ## Performance Metrics
 
 | Phase | Plans | Total | Status |
 |-------|-------|-------|--------|
 | 1 Crosscheck credibility | 3 | 3 | Complete |
-| 2 Epidemic FSS | 2 | 3 | **Active** |
+| 2 Epidemic FSS | 3 | 3 | Complete |
 
 ## Accumulated Context
 
@@ -35,6 +35,7 @@ Progress: [█████░░░░░] 45% (5/11 plans complete)
 - Python canonical; browser demo tier
 - Epidemic FSS (02-01): PC_INF=1/6, NU_THEORY=3.0, S≥N^{-1/3}, SEEDS_PER_N=20, BOND_SAMPLES_PER_MID=8, NU_TOLERANCE=0.15; CONFIRMED ν=3.1475 (4.9%); freeze mean_pcs in 02-01-SUMMARY (do not invent)
 - Epidemic FSS (02-02): pytest pins freeze mean_pcs; CI greps RESULT: CONFIRMED; NU_THEORY asserted 3.0; no live MC in repo_smoke
+- Epidemic FSS (02-03): YAML/README/Colab match volume nu_bar=3, S≥N^{-1/3}, p_c(inf)=1/6, SEEDS_PER_N=20, NU_TOLERANCE=0.15; status confirmed; habitat/cluster/Ising left executed
 
 ### Blockers/Concerns
 
@@ -50,14 +51,14 @@ None in `.planning/todos/pending/`.
 |----------|------|-----------|
 | Marketing | Reddit, LinkedIn, outreach copy | v1.2 Launch |
 | Infrastructure | usdr.science DNS, arXiv | v1.2 Launch |
-| Engineering | Epidemic FSS | Phase 2 (active) |
+| Engineering | Epidemic FSS | Phase 2 (complete 2026-08-26) |
 
 ## Session Continuity
 
 Last session: 2026-08-26
-Stopped at: Completed 02-02-PLAN.md
+Stopped at: Completed 02-03-PLAN.md
 Resume file: None
 
 Local note: previous checkout was stale `launch/june-2026-shipping`. June-pause catalog drafts (climate cascades + zeta) stashed as `june-2026-pause leftover launch docs and climate drafts`. Parked until after v1.1.
 
-**Next command:** `/gsd-execute-phase 2` (continue 02-03)
+**Next command:** `/gsd-verify-work 2` then `/gsd-plan-phase 3`

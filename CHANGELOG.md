@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed — Epidemic FSS protocol catalog (volume nu_bar=3)
+- **`protocols-catalog/physics-epidemiology/p-b-percolation-epidemiology-fss.yaml`:** `status: confirmed`. Fit target is volume FSS **nu_bar = 3** with **p_c(inf)=1/6** and **S ≥ N^{-1/3}**; signed log-linear OLS (not NLS / not nu=1). Locked **SEEDS_PER_N=20**, **NU_TOLERANCE=15%**.
+- **`repro/p-b-percolation-epidemiology-fss/`:** README exit-code honesty (`Exit code 0 always`); Colab notebook still runs `python epidemic_percolation_fss.py`. Hub/index/explainer regenerated via `build_crosscheck.py --apply`.
+
 ### Added — Contributor hub journey UX
 - **`dashboard/index.html`:** **First contribution** five-step checklist at `#start` (clone → task pick → edit file → validate/pytest → PR + optional graph bot PR). **Xref hygiene** intro at `#orphan-xref-panel` (broken xref meaning, fix steps, 100-row cap). **`#contribute`** clarifies browse-only hub vs YAML in clone. **Local preview** banner on `localhost`; **`revealAosInScope`** reveals `.aos` for all in-page `#` nav targets.
 - **`docs/DEV_DASHBOARD.md`**, **`dashboard/README.md`:** document the contributor journey checklist.
