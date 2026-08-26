@@ -37,9 +37,16 @@ Harden Crosscheck to 4/4 CONFIRMED, scale the protocol pipeline, expand CI/trust
 **Plans**: TBD — run `/gsd-plan-phase 2`
 
 Plans:
+- **Wave 1**
 - [ ] 02-01: Parameter sweep + precision pass (SEEDS_PER_N, sizes, signed fit)
+- **Wave 2** *(blocked on Wave 1 completion)*
 - [ ] 02-02: Regression test + CI CONFIRMED gate
 - [ ] 02-03: Colab/notebook path verified or documented
+
+Cross-cutting constraints:
+- Epidemic stdout must contain `RESULT: CONFIRMED` (CROSS-04)
+- Fit target is volume FSS `NU_THEORY = 3.0`, never relabeled as 1 (D-03)
+- Frozen `mean_pcs` from 02-01-SUMMARY is the only legal pytest pin (D-07)
 
 ### Phase 3: Crosscheck scale-up
 **Goal**: Path from bridge YAML → promoted protocol → repro bundle is repeatable.

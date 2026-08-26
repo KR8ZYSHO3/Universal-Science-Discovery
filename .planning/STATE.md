@@ -14,8 +14,8 @@ See: `.planning/PROJECT.md` (updated 2026-06-23)
 
 Phase: 2 of 5 (Epidemic FSS precision)
 Plan: 0 of 3 in current phase
-Status: Ready to plan
-Last activity: 2026-06-23 — Milestone reprioritized: development over marketing
+Status: Ready to execute
+Last activity: 2026-08-26 — Phase 2 planned (methodology pass: ν̄=3, S≥N^{-1/3}); executing 02-01
 
 Progress: [████░░░░░░] 38% (3/11 plans complete)
 
@@ -52,8 +52,10 @@ None in `.planning/todos/pending/`.
 
 ## Session Continuity
 
-Last session: 2026-06-23
-Stopped at: Milestone reprioritized; Phase 2 CONTEXT pending
+Last session: 2026-08-26
+Stopped at: Phase 2 plans verified; executing 02-01
 Resume file: None
 
-**Next command:** `/gsd-plan-phase 2`
+Local note: previous checkout was stale `launch/june-2026-shipping`. June-pause catalog drafts (climate cascades + zeta) stashed as `june-2026-pause leftover launch docs and climate drafts`. Parked until after v1.1.
+
+**Next command:** `/gsd-plan-phase 2` (in progress)
