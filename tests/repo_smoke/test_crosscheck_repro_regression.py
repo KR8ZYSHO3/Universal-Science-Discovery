@@ -70,3 +70,27 @@ def test_cluster_exponent_fit_confirmed_on_pooled_reference() -> None:
     assert len(sizes) > 10_000
     assert rel_err <= mod.TAU_TOLERANCE, f"tau={tau:.4f} err={100 * rel_err:.1f}%"
     assert r2 > 0.9
+
+
+def test_epidemic_fss_fit_confirmed_on_reference_pcs() -> None:
+    mod = _load_module(
+        "epidemic_percolation_fss",
+        REPO_ROOT / "repro/p-b-percolation-epidemiology-fss/epidemic_percolation_fss.py",
+    )
+    # Reference mean p_c(N) at SEEDS_PER_N=20, SIZES including 5000
+    # (2026-08-26 CONFIRMED run; see 02-01-SUMMARY.md CONFIRMED_FREEZE).
+    pcs = [
+        0.16796109080314636,
+        0.16996005177497864,
+        0.16739705204963684,
+        0.1681748926639557,
+        0.16720572113990784,
+    ]
+    assert list(mod.SIZES) == [200, 500, 1000, 2000, 5000]
+    assert mod.NU_THEORY == 3.0
+    assert mod.PC_INF == 1.0 / mod.MEAN_DEGREE
+    nu, r2, sign_ok = mod.fit_nu(mod.SIZES, pcs)
+    rel_err = abs(nu - mod.NU_THEORY) / mod.NU_THEORY
+    assert sign_ok, "expected all p_c above p_c(inf) for signed ER FSS fit"
+    assert rel_err <= mod.NU_TOLERANCE, f"nu={nu:.4f} err={100 * rel_err:.1f}%"
+    assert r2 > 0.0

@@ -9,6 +9,31 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added — Hub recommendations thin slice (HUB-01)
+- **`docs/HUB_RECOMMENDATIONS.md`:** ranking spec (connectivity / harvest / curator); prototype computes undirected degree only. Contributor tooling, not a scientific ranking.
+- **`scripts/export_recommendations.py`:** writes **`api/v1/recommendations.json`** (≤25 bridges by undirected degree).
+- **`dashboard/index.html`:** `#recommendations` table fetch (clone of xref hygiene panel).
+- **`build-graph.yml`:** export step after orphan panel.
+- **`api/v1/meta.json`:** `endpoints.recommendations`; **`scripts/generate_api.py`** keeps the key.
+- **Docs:** **`docs/DEV_DASHBOARD.md`**, **`docs/DOC_MAP.md`**, **`docs/REPOSITORY_MANIFEST.md`**, **`scripts/README.md`**, **`dashboard/README.md`**, **`mkdocs.yml`** nav.
+
+### Added — Crosscheck entry-point smokes
+- **`tests/repo_smoke/test_crosscheck_entry_points.py`:** `generate_crosscheck.py --bridge b-percolation-oncology --dry-run` (exit 0, `p-b-` on stdout; no `--write`) and live `giant_component_fraction.py` (`RESULT: INCONCLUSIVE`, exit 0).
+
+### Added — Crosscheck CONFIRMED-gate inventory
+- **`tests/repo_smoke/test_crosscheck_confirmed_gates.py`:** Text inventory of CONFIRMED-capable `repro/**/*.py` vs `.github/workflows/crosscheck-repro.yml` (four `grep -q "RESULT: CONFIRMED"` steps). GCC is INCONCLUSIVE-only and must not share a CONFIRMED grep step.
+- **`docs/CROSSCHECK.md`:** Run-mode parity CI column states CONFIRMED-only grep policy (four seeds grepped CONFIRMED; GCC must not be).
+
+### Added — Crosscheck generate/promote path and run-mode parity
+- **`docs/CROSSCHECK.md`:** Happy-path generate is `python scripts/generate_crosscheck.py --bridge b-percolation-oncology --write` (drafts at `drafts/crosscheck/physics-oncology/`). Promote is manual copy + PR (no Crosscheck promote CLI). Catalog lists four CI-gated seeds plus **`p-b-percolation-oncology-gcc`** (status `ready`; local stdlib demo prints `RESULT: INCONCLUSIVE`). **Run-mode parity** table: Python is canonical; browser and Colab are demo tier.
+- **`dashboard/index.html`:** Static Crosscheck blurb links `docs/CROSSCHECK.md#run-mode-parity`. Hub grid regenerated via `build_crosscheck.py --apply` (fifth card for the oncology GCC protocol).
+- **Exit-code honesty:** `scripts/generate_repro_index_pages.py` and `repro/p-b-habitat-percolation-ecology-fss/README.md` now say exit code 0 always; inspect stdout for CONFIRMED vs INCONCLUSIVE (not exit 1 = falsified).
+- **`mkdocs.yml`:** Add `STEWARDS_CHARTER.md` and three outreach pages to nav so `mkdocs build --strict` no longer warns on omitted files.
+
+### Changed — Epidemic FSS protocol catalog (volume nu_bar=3)
+- **`protocols-catalog/physics-epidemiology/p-b-percolation-epidemiology-fss.yaml`:** `status: confirmed`. Fit target is volume FSS **nu_bar = 3** with **p_c(inf)=1/6** and **S ≥ N^{-1/3}**; signed log-linear OLS (not NLS / not nu=1). Locked **SEEDS_PER_N=20**, **NU_TOLERANCE=15%**.
+- **`repro/p-b-percolation-epidemiology-fss/`:** README exit-code honesty (`Exit code 0 always`); Colab notebook still runs `python epidemic_percolation_fss.py`. Hub/index/explainer regenerated via `build_crosscheck.py --apply`.
+
 ### Added — Contributor hub journey UX
 - **`dashboard/index.html`:** **First contribution** five-step checklist at `#start` (clone → task pick → edit file → validate/pytest → PR + optional graph bot PR). **Xref hygiene** intro at `#orphan-xref-panel` (broken xref meaning, fix steps, 100-row cap). **`#contribute`** clarifies browse-only hub vs YAML in clone. **Local preview** banner on `localhost`; **`revealAosInScope`** reveals `.aos` for all in-page `#` nav targets.
 - **`docs/DEV_DASHBOARD.md`**, **`dashboard/README.md`:** document the contributor journey checklist.

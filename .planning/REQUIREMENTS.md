@@ -11,23 +11,23 @@
 - [x] **CROSS-01**: Habitat percolation FSS CONFIRMED — Phase 1 (#298)
 - [x] **CROSS-02**: Ising EWI CONFIRMED — Phase 1 (#297)
 - [x] **CROSS-03**: Cluster exponent CONFIRMED — Phase 1 (#302)
-- [ ] **CROSS-04**: Epidemic FSS CONFIRMED — Phase 2
+- [x] **CROSS-04**: Epidemic FSS CONFIRMED — Phase 2 (02-01 stdout + 02-02 freeze pytest and CI grep + 02-03 catalog/Colab)
 - [x] **CROSS-05**: `build_crosscheck.py --check` in CI — Phase 1 (#299–#301)
 
 ### Crosscheck scale-up
 
-- [ ] **CROSS-06**: Second-bridge protocol drafts promoted or generated via `generate_crosscheck.py` — Phase 3
-- [ ] **CROSS-07**: Browser runner outputs documented vs Python canonical (parity matrix) — Phase 3
+- [x] **CROSS-06**: Second-bridge protocol drafts promoted or generated via `generate_crosscheck.py` — Phase 3 (03-01: `b-percolation-oncology` → `p-b-percolation-oncology-gcc`)
+- [x] **CROSS-07**: Browser runner outputs documented vs Python canonical (parity matrix) — Phase 3 (03-02: `docs/CROSSCHECK.md` Run-mode parity)
 
 ### Trust surfaces & CI
 
 - [x] **TRUST-01**: Stale dashboard graph removed — Phase 1 (#300)
-- [ ] **TRUST-02**: All CONFIRMED protocols gated in `crosscheck-repro.yml` — Phase 4
-- [ ] **TRUST-03**: Additional repo_smoke tests for epidemic + script entry points — Phase 4
+- [x] **TRUST-02**: All CONFIRMED protocols gated in `crosscheck-repro.yml` — Phase 4 (04-01 inventory pytest + four live greps)
+- [x] **TRUST-03**: Additional repo_smoke tests for epidemic + script entry points — Phase 4 (04-02 generate dry-run + GCC INCONCLUSIVE smokes; epidemic freeze re-run)
 
 ### Hub engineering
 
-- [ ] **HUB-01**: Smart-recommendations spec + static JSON prototype — Phase 5
+- [x] **HUB-01**: Smart-recommendations spec + static JSON prototype — Phase 5 (05-01: `docs/HUB_RECOMMENDATIONS.md` + `api/v1/recommendations.json` + hub `#recommendations`)
 
 ## v1.2 Requirements (Launch — deferred)
 
@@ -46,12 +46,14 @@
 | Requirement | Phase | Status |
 |-------------|-------|--------|
 | CROSS-01–03, CROSS-05, TRUST-01 | Phase 1 | Complete |
-| CROSS-04 | Phase 2 | Pending |
-| CROSS-06, CROSS-07 | Phase 3 | Pending |
-| TRUST-02, TRUST-03 | Phase 4 | Pending |
-| HUB-01 | Phase 5 | Pending |
+| CROSS-04 | Phase 2 | Complete (02-01/02-02/02-03) |
+| CROSS-06 | Phase 3 | Complete (03-01 generate/promote/repro) |
+| CROSS-07 | Phase 3 | Complete (03-02 parity matrix) |
+| TRUST-02 | Phase 4 | Complete (04-01 inventory pytest) |
+| TRUST-03 | Phase 4 | Complete (04-02 generate dry-run + GCC INCONCLUSIVE) |
+| HUB-01 | Phase 5 | Complete (05-01 spec + JSON + hub panel) |
 
-**Coverage:** 10 v1.1 dev requirements · 5 complete · 5 pending
+**Coverage:** 11 v1.1 dev requirements · 11 complete · 0 pending
 
 ---
-*Last updated: 2026-06-23 — marketing requirements moved to v1.2*
+*Last updated: 2026-08-26 — HUB-01 closed in 05-01*

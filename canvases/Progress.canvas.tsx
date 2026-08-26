@@ -21,24 +21,18 @@ import {
 
 // @sync-dashboard-begin
 const dashboardSnapshot = {
-  lastUpdated: "2026-06-XX — **Dashboard Launch Polish + Institutional Funding Readiness signal (M7/E1)** — Major hero rewrite on dashboard: 🚀 Launch Sprint banner (researcher + institutional CTAs to graph/preprint/prospectus), new dual-audience \"For researchers / For institutions & funding partners\" value block with trust signals (0 orphans, live automation, git-native), hero-institutional eyebrow + strengthened lead paragraph aimed at university research offices. README badges + launch banner already applied. All numbers aligned to 1,123 / 1,408 / 1,274 / 3,857 / 4,517. LAUNCH_MILESTONES + CHECKLIST updated; Canvas sync next. This advances the \"when someone sees it, it looks genuinely impressive / fundable\" goal for in-person institutional conversations.",
+  lastUpdated: "",
   currentFocus: [
-    "**Roadmap posture**: Foundation (**Phase 0**) is complete; discoverability + first contributors are **Phase 1** targets — not blockers for ongoing development.",
-    "**arXiv preprint**: `docs/preprint/usdr_preprint.md` is ready; next step is PDF conversion and submission to cs.DL (author: Brandon Shoemaker).",
-    "**Bridge count toward 1,000**: promote `drafts/bridges/` stubs; continue wave-based build.",
-    "**Dashboard graph reliability**: D3 interactive graph must load consistently on GitHub Pages.",
-    "**Contributor on-ramps**: good-first-issues, `docs/QUICK_START_CONTRIBUTING.md`.",
-    "**Community outreach**: Reddit r/OpenScience post ready at `docs/outreach/reddit_openscience_post.md`."
+    
   ],
   activeBranches: [
-    "`main` — default; all PRs squash-merged here; CI: validate-schemas + mkdocs + markdown-link-check.",
-    "Any active feature branch: `feat/...` — check GitHub Pull Requests tab."
+    
   ],
   shippedRecently: [
     
   ],
   blocked: [
-    "None."
+    
   ],
   nextActions: [
     

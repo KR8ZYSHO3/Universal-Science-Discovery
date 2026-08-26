@@ -1,0 +1,51 @@
+id: p-b-percolation-oncology-gcc
+title: >
+  Synthetic-lattice giant-component fraction as a percolation-derived
+  treatment-response metric
+status: ready
+source_bridge: b-percolation-oncology
+source_hypothesis: h-adaptive-therapy-percolation-threshold
+source_unknown: u-tumor-containment-percolation
+pollination_index: 1
+falsifiable_prediction: >
+  On an L=32 square site-percolation lattice, mean giant-component fraction
+  S(p) (largest cluster / L^2) and top-bottom spanning fraction are measurable
+  at occupancies p in {0.40, 0.50, 0.59, 0.70} with 8 trials per p. This is a
+  desktop stand-in for percolation-derived GCC as a treatment-response metric.
+  It does not ingest imaging and does not claim a clinical threshold.
+null_hypothesis: >
+  A thin synthetic L=32 occupancy sweep is not evidence that giant-component
+  fraction is a validated real-time oncology biomarker; small-L spanning vs a
+  0.5 threshold cannot confirm the tumor-vasculature mapping.
+translation_mapping:
+  - field_a_term: bond percolation probability
+    field_b_term: vessel patency under treatment pressure
+    note: Fraction of edges (vessel segments) still functional
+  - field_a_term: giant connected component
+    field_b_term: viable tumour vascular core
+    note: The dominant connected region supplying nutrients
+  - field_a_term: percolation threshold p_c
+    field_b_term: minimum viable vascular density
+    note: Critical fraction below which nutrient supply collapses
+experimental_design:
+  - Build L=32 site-percolation lattices at occupancies p in {0.40, 0.50, 0.59, 0.70} with TRIALS=8 per p using stdlib random.Random (no NetworkX, no imaging).
+  - For each realization, measure top-bottom spanning with habitat-style spans() and giant-component fraction as largest 4-neighbor cluster size / L^2.
+  - Print mean spanning fraction and mean giant fraction versus p; compare spanning fraction to a simple 0.5 crossing threshold as a qualitative check only.
+  - Do not fit finite-size scaling exponents; do not ingest DCE-MRI or any clinical data.
+  - "Print RESULT: INCONCLUSIVE because this is a synthetic lattice smoke, not a precision or clinical test. Process exit code is always 0."
+statistical_analysis_plan: >
+  Report mean spanning fraction and mean giant-component fraction versus
+  occupancy. No exponent fit and no CONFIRMED gate. Decision rule: always
+  INCONCLUSIVE at this budget (D-04). A future precision pass would be a
+  separate protocol.
+feasibility_tier: desktop
+repro_bundle: repro/p-b-percolation-oncology-gcc/
+estimated_runtime: a few seconds on a laptop (L=32, TRIALS=8)
+last_reviewed: "2026-08-26"
+references:
+  - arxiv: "2405.04242"
+    note: Harvested paper that seeded u-tumor-containment-percolation
+  - doi: "10.1038/s41559-017-0328-6"
+    note: Gatenby et al. — foundational adaptive-therapy clinical work
+  - doi: "10.1103/PhysRevLett.85.4626"
+    note: Callaway et al. — network robustness and percolation thresholds

@@ -129,7 +129,7 @@ python scripts/generate_crosscheck.py --bridge b-habitat-percolation-ecology --d
 python repro/p-b-habitat-percolation-ecology-fss/simulate_percolation_fss.py
 ```
 
-**[Crosscheck manifesto](docs/CROSSCHECK.md) · [Protocol catalog](protocols-catalog/)** — 3 seed protocols with desktop repro bundles.
+**[Crosscheck manifesto](docs/CROSSCHECK.md) · [Protocol catalog](protocols-catalog/) · [Run-mode parity](docs/CROSSCHECK.md#run-mode-parity)** — four CI-gated seed protocols plus the oncology GCC local demo (`p-b-percolation-oncology-gcc`; `RESULT: INCONCLUSIVE`; not a fifth CONFIRMED).
 
 ---
 

@@ -974,6 +974,64 @@
       .orphan-xref-status[aria-busy="true"] .orphan-xref-spinner { animation: none; border-top-color: var(--border); }
     }
 
+    /* ── RECOMMENDATIONS PANEL (contributor tooling, not a ranking) ─ */
+    .rec-panel {
+      max-width: min(1100px, 94vw);
+      margin: 0 auto;
+    }
+    .rec-foot {
+      font-size: .78rem;
+      color: var(--muted);
+      margin-top: .75rem;
+      font-family: var(--mono);
+    }
+    .rec-table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      background: var(--surface);
+      margin-top: 1rem;
+    }
+    .rec-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .84rem;
+    }
+    .rec-table th,
+    .rec-table td {
+      padding: .55rem .65rem;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+    .rec-table th {
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--muted);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .rec-table tr:last-child td { border-bottom: none; }
+    .rec-score { font-family: var(--mono); color: var(--teal); white-space: nowrap; }
+    .rec-actions { white-space: nowrap; }
+    .rec-actions a { margin-right: .5rem; }
+    .rec-status { min-height: 1.25rem; font-size: .82rem; color: var(--muted); margin-top: .5rem; }
+    .rec-status[aria-busy="true"] .rec-spinner {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border: 2px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      margin-right: .35rem;
+      vertical-align: -2px;
+      animation: kg-spin 0.9s linear infinite;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .rec-status[aria-busy="true"] .rec-spinner { animation: none; border-top-color: var(--border); }
+    }
+
     /* ── KNOWLEDGE GRAPH ────────────────────────────────────── */
     .graph-section {
       padding: clamp(3rem,6vw,5rem) clamp(1.25rem,4vw,3rem);
@@ -1664,6 +1722,7 @@
       <a href="#crosscheck" title="Runnable Crosscheck protocols with in-browser or Colab demos">Crosscheck</a>
       <a href="#catalog-search" title="Full-text search across unknowns, bridges, hypotheses, and phenomena">Search</a>
       <a href="#orphan-xref-panel" title="Broken cross-reference targets you can fix in a pull request">Xref hygiene</a>
+      <a href="#recommendations" title="Existing bridges ranked by catalog-graph degree — contributor tooling, not a scientific ranking">Recommendations</a>
       <a href="#discovery-engines">Engines</a>
       <a href="#pioneers">Pioneers</a>
       <a href="#breakthrough-gaps">Breakthroughs</a>
@@ -1881,6 +1940,7 @@
           USDR maps what connects; Crosscheck tests it. Each protocol links to a repro bundle —
           run in your browser, open in Colab, or clone for verification.
           <a href="../docs/CROSSCHECK.md">Crosscheck manifesto</a>
+          · <a href="../docs/CROSSCHECK.md#run-mode-parity">Run-mode parity</a>
         </p>
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin-top:1.25rem;">
@@ -1920,13 +1980,24 @@
         </article>
         <article class="crosscheck-hub-card" style="background:rgba(79,156,249,0.06);border:1px solid rgba(79,156,249,0.22);border-radius:12px;padding:1.15rem 1.25rem;">
           <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:.75rem;flex-wrap:wrap;margin-bottom:.55rem;">
-            <h3 style="margin:0;font-size:.95rem;line-height:1.35;font-weight:600;">Finite-size epidemic threshold — does bond percolation on a random graph show threshold shift consistent with R_0^eff(N…</h3>
-            <span style="background:rgba(34,211,184,0.2);color:#5eead4;padding:.15rem .55rem;border-radius:999px;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;">executed</span>
+            <h3 style="margin:0;font-size:.95rem;line-height:1.35;font-weight:600;">Finite-size epidemic threshold — does bond percolation p_c(N) on ER graphs shift as |p_c(N)-p_c(inf)| ~ N^(-1/nu_bar) w…</h3>
+            <span style="background:rgba(34,211,184,0.35);color:#2dd4bf;padding:.15rem .55rem;border-radius:999px;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;">confirmed</span>
           </div>
           <p style="margin:0 0 .65rem;font-size:.78rem;color:var(--muted);">Protocol <code style="font-size:.75rem;">p-b-percolation-epidemiology-fss</code> · desktop</p>
           <div style="display:flex;flex-wrap:wrap;gap:.5rem;font-size:.82rem;">
             <a href="https://colab.research.google.com/github/KR8ZYSHO3/Universal-Science-Discovery/blob/main/repro/p-b-percolation-epidemiology-fss/run_crosscheck.ipynb" style="color:var(--accent2);font-weight:600;">Open in Colab →</a>
             <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/explainers/b-percolation-epidemiology.html#crosscheck" style="color:var(--muted);">Bridge explainer</a>
+          </div>
+        </article>
+        <article class="crosscheck-hub-card" style="background:rgba(79,156,249,0.06);border:1px solid rgba(79,156,249,0.22);border-radius:12px;padding:1.15rem 1.25rem;">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:.75rem;flex-wrap:wrap;margin-bottom:.55rem;">
+            <h3 style="margin:0;font-size:.95rem;line-height:1.35;font-weight:600;">Synthetic-lattice giant-component fraction as a percolation-derived treatment-response metric</h3>
+            <span style="background:rgba(79,156,249,0.2);color:#93c5fd;padding:.15rem .55rem;border-radius:999px;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;">ready</span>
+          </div>
+          <p style="margin:0 0 .65rem;font-size:.78rem;color:var(--muted);">Protocol <code style="font-size:.75rem;">p-b-percolation-oncology-gcc</code> · desktop</p>
+          <div style="display:flex;flex-wrap:wrap;gap:.5rem;font-size:.82rem;">
+            <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/repro/p-b-percolation-oncology-gcc/index.html" style="color:var(--accent2);font-weight:600;">Run repro →</a>
+            <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/explainers/b-percolation-oncology.html#crosscheck" style="color:var(--muted);">Bridge explainer</a>
           </div>
         </article>
         <!-- @hub-crosscheck-grid-end -->
@@ -2006,6 +2077,39 @@
           </table>
         </div>
         <p id="orphan-xref-foot" class="orphan-xref-foot" style="display:none;"></p>
+      </div>
+    </section>
+
+    <section id="recommendations" class="aos">
+      <div class="rec-panel">
+        <span class="section-tag">Contributor tooling</span>
+        <h2 class="section-title">High-connectivity bridges</h2>
+        <p class="section-desc">
+          Read-only list of existing bridges ranked by undirected catalog-graph degree
+          (not a scientific ranking and not a CONFIRMED or INCONCLUSIVE Crosscheck outcome).
+          Higher degree means more catalog links — leverage for a contributor looking where to connect next.
+          Harvest rank and curator score are specified for a later phase and are not computed here.
+          See <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/docs/HUB_RECOMMENDATIONS.md" target="_blank" rel="noopener">docs/HUB_RECOMMENDATIONS.md</a>.
+        </p>
+        <p id="recommendations-status" class="rec-status" role="status" aria-live="polite" aria-busy="true">
+          <span class="rec-spinner" aria-hidden="true"></span>Loading recommendations…
+        </p>
+        <div id="recommendations-empty" class="section-desc" style="display:none;margin-top:.5rem;color:var(--muted);">
+          No rows in this export (or JSON not found).
+        </div>
+        <div id="recommendations-table-wrap" class="rec-table-wrap" style="display:none;">
+          <table class="rec-table" aria-label="High-connectivity bridges">
+            <thead>
+              <tr>
+                <th scope="col">Score</th>
+                <th scope="col">Bridge</th>
+                <th scope="col">Links</th>
+              </tr>
+            </thead>
+            <tbody id="recommendations-tbody"></tbody>
+          </table>
+        </div>
+        <p id="recommendations-foot" class="rec-foot" style="display:none;"></p>
       </div>
     </section>
 
@@ -2536,6 +2640,11 @@
           <code>GET /api/v1/orphan_xref_panel.json</code>
           <span>Capped list of missing xref targets and disconnected unknowns for the hub panel (regenerate via export script)</span>
           <span class="api-endpoint-badge">~40 KB</span>
+        </a>
+        <a href="../api/v1/recommendations.json" class="api-endpoint" target="_blank" rel="noopener">
+          <code>GET /api/v1/recommendations.json</code>
+          <span>Capped list of existing bridges ranked by undirected graph degree (contributor tooling; regenerate via export script)</span>
+          <span class="api-endpoint-badge">~8 KB</span>
         </a>
       </div>
     </section>
@@ -4945,6 +5054,110 @@
             footEl.style.display = 'block';
             footEl.textContent = 'Generated: ' + data.generated_at
               + (data.meta && data.meta.item_cap ? ' · capped at ' + data.meta.item_cap + ' rows' : '');
+          }
+        })
+        .catch(function () { tryFetch(i + 1); });
+    }
+    tryFetch(0);
+  })();
+  </script>
+
+  <script>
+  /* Recommendations panel — static JSON (no graph walk in browser) */
+  (function () {
+    var statusEl = document.getElementById('recommendations-status');
+    var emptyEl = document.getElementById('recommendations-empty');
+    var wrapEl = document.getElementById('recommendations-table-wrap');
+    var tbody = document.getElementById('recommendations-tbody');
+    var footEl = document.getElementById('recommendations-foot');
+    if (!statusEl || !tbody) return;
+
+    function apiBase() {
+      var loc = window.location.href;
+      if (loc.indexOf('github.io') !== -1) return 'https://kr8zysho3.github.io/Universal-Science-Discovery/';
+      if (loc.indexOf('/dashboard/') !== -1) return loc.replace(/dashboard\/.*$/, '');
+      return '../';
+    }
+    var paths = [
+      apiBase() + 'api/v1/recommendations.json',
+      '../api/v1/recommendations.json'
+    ];
+
+    function githubHref(url) {
+      return typeof url === 'string' && url.indexOf('https://github.com/') === 0;
+    }
+
+    function done(msg, busy) {
+      statusEl.textContent = msg || '';
+      statusEl.setAttribute('aria-busy', busy ? 'true' : 'false');
+    }
+
+    function tryFetch(i) {
+      if (i >= paths.length) {
+        done('Could not load recommendations JSON (offline or missing file).', false);
+        if (emptyEl) emptyEl.style.display = 'block';
+        return;
+      }
+      fetch(paths[i])
+        .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error(String(r.status))); })
+        .then(function (data) {
+          var items = (data && Array.isArray(data.items)) ? data.items : [];
+          done('', false);
+          if (!items.length) {
+            done('No rows in this export (or JSON not found).', false);
+            if (emptyEl) emptyEl.style.display = 'block';
+            if (wrapEl) wrapEl.style.display = 'none';
+            if (footEl) footEl.style.display = 'none';
+            return;
+          }
+          if (emptyEl) emptyEl.style.display = 'none';
+          if (wrapEl) wrapEl.style.display = 'block';
+          tbody.textContent = '';
+          items.forEach(function (item) {
+            if (!item || typeof item !== 'object') return;
+            var tr = document.createElement('tr');
+            var tdScore = document.createElement('td');
+            tdScore.className = 'rec-score';
+            tdScore.textContent = String(item.score);
+            var tdTitle = document.createElement('td');
+            tdTitle.textContent = item.title || item.id || '';
+            tdTitle.appendChild(document.createElement('br'));
+            var code = document.createElement('code');
+            code.style.fontSize = '.78rem';
+            code.style.color = 'var(--teal)';
+            code.textContent = item.id || '';
+            tdTitle.appendChild(code);
+            var tdAct = document.createElement('td');
+            tdAct.className = 'rec-actions';
+            if (githubHref(item.github_search_url)) {
+              var aSearch = document.createElement('a');
+              aSearch.href = item.github_search_url;
+              aSearch.target = '_blank';
+              aSearch.rel = 'noopener';
+              aSearch.textContent = 'View on GitHub';
+              tdAct.appendChild(aSearch);
+            }
+            if (githubHref(item.github_blob_url)) {
+              if (tdAct.childNodes.length) tdAct.appendChild(document.createTextNode(' '));
+              var aBlob = document.createElement('a');
+              aBlob.href = item.github_blob_url;
+              aBlob.target = '_blank';
+              aBlob.rel = 'noopener';
+              aBlob.textContent = 'YAML blob';
+              tdAct.appendChild(aBlob);
+            }
+            tr.appendChild(tdScore);
+            tr.appendChild(tdTitle);
+            tr.appendChild(tdAct);
+            tbody.appendChild(tr);
+          });
+          if (footEl) {
+            var ranking = data.ranking || 'undirected_degree';
+            var cap = (data.meta && data.meta.item_cap) ? String(data.meta.item_cap) : '';
+            footEl.style.display = 'block';
+            footEl.textContent = 'Generated: ' + (data.generated_at || '')
+              + ' · ranking=' + ranking
+              + (cap ? ' · capped at ' + cap + ' rows' : '');
           }
         })
         .catch(function () { tryFetch(i + 1); });

@@ -18,15 +18,11 @@ The Cursor Canvas at [`canvases/Progress.canvas.tsx`](../canvases/Progress.canva
 
 ### Phase C hub ideas (planned — not shipped)
 
-**Purpose:** capture the next UX layer after search → graph → GitHub without committing to a heavy client bundle prematurely.
-
-| Idea | Direction | Notes |
-|------|-----------|--------|
-| **Smart recommendations** | Surfacing high-leverage bridges / unknowns from graph metrics or maintainer-curated scores | Needs a spec for what “smart” optimizes (connectivity, novelty, harvest rank) and whether results are static JSON or computed in CI. |
+**Purpose:** capture the next UX layer after search → graph → GitHub without committing to a heavy client bundle prematurely. Harvest rank and curator score remain specified (not computed) in [`docs/HUB_RECOMMENDATIONS.md`](HUB_RECOMMENDATIONS.md).
 
 **Shipped (thin slice):** **Orphan / xref hygiene** — [`dashboard/index.html`](../dashboard/index.html) loads **`api/v1/orphan_xref_panel.json`** (cap ~100 rows). Regenerate with **`python scripts/export_orphan_xref_panel.py`** after catalog batches (also runs in **`build-graph.yml`** immediately after **`build_graph.py`**). Deeper CLI checks remain **`python scripts/find_orphan_unknowns.py`** and **`python -X utf8 scripts/build_graph.py --report-orphans`** (**`tests/repo_smoke`**).
 
-When **smart recommendations** ships, promote it from this stub into the playbook table in § **1) What changed? → What to refresh** and link any new scripts from **`docs/DOC_MAP.md`**.
+**Shipped (thin slice):** **Hub recommendations** — [`dashboard/index.html`](../dashboard/index.html) `#recommendations` loads **`api/v1/recommendations.json`** (≤25 existing bridges by undirected catalog-graph degree). Regenerate with **`python scripts/export_recommendations.py`** (also runs in **`build-graph.yml`** immediately after orphan export). Ranking spec: [`docs/HUB_RECOMMENDATIONS.md`](HUB_RECOMMENDATIONS.md). Harvest rank and curator score are specified and not computed. Contributor tooling, not a scientific ranking.
 
 ---
 
@@ -45,6 +41,7 @@ Use this so **`dashboard/index.html`**, generated HTML, API JSON, and **README h
 | `.planning/STATE.md` | `python scripts/sync-dashboard-from-state.py` (updates Canvas snapshot constants) |
 | `dashboard/index.html` hero pills / snapshot only (no YAML change) | Run **`python scripts/verify_dashboard_consistency.py`** before merge — it fails if numbers disagree with disk |
 | `api/v1/orphan_xref_panel.json` (xref hygiene hub panel) | `python scripts/export_orphan_xref_panel.py` (runs in **`build-graph.yml`** after `build_graph.py`) |
+| `api/v1/recommendations.json` (hub recommendations panel) | `python scripts/export_recommendations.py` (runs in **`build-graph.yml`** after orphan export) |
 | `docs/preprint/usdr_preprint.md` | `python scripts/render_preprint_html.py --apply` |
 | `docs/` or `mkdocs.yml` | `mkdocs build --strict` |
 | Milestone ring / `MS` JavaScript array in the hub | Align manually with **`ROADMAP.md`** Phase 1 — not auto-generated today |
@@ -59,6 +56,7 @@ Run from the repo root when you are not relying solely on CI:
 python scripts/validate_schemas.py
 python -X utf8 scripts/build_graph.py
 python scripts/export_orphan_xref_panel.py
+python scripts/export_recommendations.py
 python scripts/generate_api.py
 python scripts/update_dashboard_stats.py --apply
 python scripts/render_breakthrough_gaps_hub.py --apply
