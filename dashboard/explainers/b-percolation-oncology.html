@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Oncology ↔ Statistical Physics: Tumor vascular network fragmentation under adaptive therapy maps directly onto percolation-threshold transitions studied in statistical physics | USDR Explainer</title>
+  <meta name="description" content="Tumor vascular network fragmentation under adaptive therapy maps directly onto percolation-threshold transitions studied in statistical physics"/>
+
+  <!-- Open Graph / social sharing -->
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="Oncology ↔ Statistical Physics: Tumor vascular network fragmentation under adaptive therapy maps directly onto percolation-threshold transitions studied in statistical physics"/>
+  <meta property="og:description" content="Tumor vascular network fragmentation under adaptive therapy maps directly onto percolation-threshold transitions studied in statistical physics"/>
+  <meta property="og:url" content="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/explainers/b-percolation-oncology.html"/>
+  <meta property="og:site_name" content="Universal Science Discovery Repository"/>
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:title" content="Tumor vascular network fragmentation under adaptive therapy maps directly onto percolation-threshold transitions studied in statistical physics"/>
+  <meta name="twitter:description" content="Tumor vascular network fragmentation under adaptive therapy maps directly onto percolation-threshold transitions studied in statistical physics"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"/>
+
+  <style>
+    /* ── Reset & tokens ───────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0d1117;
+      --bg-card:   #161b22;
+      --bg-hover:  #1c2230;
+      --border:    #30363d;
+      --text:      #e6edf3;
+      --text-dim:  #8b949e;
+      --accent:    #58a6ff;
+      --accent2:   #3fb950;
+      --accent3:   #f78166;
+      --accent4:   #d2a8ff;
+      --warn:      #e3b341;
+      --radius:    10px;
+      --font:      'Inter', system-ui, sans-serif;
+      --mono:      'JetBrains Mono', monospace;
+      --max-w:     860px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* ── Nav ──────────────────────────────────────────────────────────── */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13,17,23,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .topbar a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: opacity .15s;
+    }
+    .topbar a:hover { opacity: .75; }
+    .topbar-sep { color: var(--border); }
+    .topbar-title { color: var(--text-dim); font-size: 0.85rem; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+    /* ── Layout ───────────────────────────────────────────────────────── */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* ── Hero ─────────────────────────────────────────────────────────── */
+    .hero {
+      padding: 2.5rem 0 2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2.5rem;
+    }
+    .hero-domain {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+    .hero-title {
+      font-size: clamp(1.35rem, 3vw, 1.8rem);
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: center;
+    }
+
+    /* ── Badges ───────────────────────────────────────────────────────── */
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.65rem;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: .05em;
+    }
+    .badge-established { background: rgba(63,185,80,.18); color: var(--accent2); border: 1px solid rgba(63,185,80,.35); }
+    .badge-proposed    { background: rgba(88,166,255,.18); color: var(--accent);  border: 1px solid rgba(88,166,255,.35); }
+    .badge-contested   { background: rgba(227,179,65,.18); color: var(--warn);    border: 1px solid rgba(227,179,65,.35); }
+    .badge-stale       { background: rgba(139,148,158,.18);color: var(--text-dim);border: 1px solid rgba(139,148,158,.35); }
+
+    .field-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .field-tag {
+      background: rgba(88,166,255,.12);
+      color: var(--accent);
+      border: 1px solid rgba(88,166,255,.25);
+      padding: 0.15rem 0.55rem;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 500;
+    }
+
+    /* ── Sections ─────────────────────────────────────────────────────── */
+    section { margin-bottom: 2.5rem; }
+
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    h2 .icon { font-size: 1.1rem; }
+
+    p { color: var(--text-dim); margin-bottom: 0.8rem; }
+    p:last-child { margin-bottom: 0; }
+
+    /* ── Card ─────────────────────────────────────────────────────────── */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.5rem;
+    }
+
+    /* ── Key insight callout ──────────────────────────────────────────── */
+    .insight {
+      background: linear-gradient(135deg, rgba(88,166,255,.08) 0%, rgba(63,185,80,.06) 100%);
+      border: 1px solid rgba(88,166,255,.3);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.5rem;
+    }
+    .insight p { color: var(--text); }
+
+    /* ── Translation table ────────────────────────────────────────────── */
+    .table-wrap { overflow-x: auto; border-radius: var(--radius); }
+    .translation-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+    .translation-table thead tr {
+      background: rgba(88,166,255,.12);
+    }
+    .translation-table th {
+      padding: 0.7rem 1rem;
+      text-align: left;
+      font-weight: 600;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    .translation-table td {
+      padding: 0.65rem 1rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      vertical-align: top;
+    }
+    .translation-table tr:last-child td { border-bottom: none; }
+    .translation-table tr:nth-child(odd) { background: rgba(255,255,255,.02); }
+    .translation-table tr:hover { background: var(--bg-hover); }
+    .note-cell { color: var(--text-dim) !important; font-size: 0.82rem; }
+
+    /* ── References ───────────────────────────────────────────────────── */
+    .ref-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .ref-list li {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.6rem 0.9rem;
+      font-size: 0.84rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      align-items: center;
+    }
+    .ref-list a { color: var(--accent); text-decoration: none; }
+    .ref-list a:hover { text-decoration: underline; }
+    .ref-note { color: var(--text-dim); }
+
+    /* ── Open questions ───────────────────────────────────────────────── */
+    .opp-list, ul { padding-left: 1.3rem; display: flex; flex-direction: column; gap: 0.5rem; }
+    .opp-list li, ul li { color: var(--text-dim); font-size: 0.9rem; }
+    code { font-family: var(--mono); font-size: 0.82rem; background: rgba(88,166,255,.12); color: var(--accent); padding: 0.1rem 0.4rem; border-radius: 4px; }
+
+    /* ── Crosscheck protocols ─────────────────────────────────────────── */
+    .crosscheck-intro { color: var(--text-dim); font-size: 0.92rem; margin-bottom: 1rem; }
+    .crosscheck-grid { display: flex; flex-direction: column; gap: 1rem; }
+    .crosscheck-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(63,185,80,.28);
+      border-radius: var(--radius);
+      padding: 1rem 1.1rem;
+    }
+    .crosscheck-card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.55rem;
+    }
+    .crosscheck-title { font-size: 0.98rem; font-weight: 600; line-height: 1.35; margin: 0; }
+    .crosscheck-badges { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+    .badge-crosscheck { background: rgba(63,185,80,.18); color: #3fb950; border: 1px solid rgba(63,185,80,.35); }
+    .badge-tier { background: rgba(210,168,255,.14); color: #d2a8ff; border: 1px solid rgba(210,168,255,.3); }
+    .crosscheck-prediction { color: var(--text-dim); font-size: 0.88rem; margin: 0 0 0.55rem; }
+    .crosscheck-meta { font-size: 0.78rem; color: var(--text-dim); margin: 0 0 0.35rem; }
+    .crosscheck-links { font-size: 0.82rem; margin: 0; }
+    .crosscheck-link { color: var(--accent2); text-decoration: none; }
+    .crosscheck-link:hover { text-decoration: underline; }
+
+    /* ── Footer ───────────────────────────────────────────────────────── */
+    .explainer-footer {
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+      margin-top: 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+    .explainer-footer p { font-size: 0.8rem; color: var(--text-dim); margin: 0; }
+    .explainer-footer a { color: var(--accent); text-decoration: none; }
+
+    /* ── Responsive ───────────────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .container { padding: 1.5rem 1rem 3rem; }
+      .hero-title { font-size: 1.25rem; }
+      .translation-table th, .translation-table td { padding: 0.5rem 0.7rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="topbar">
+  <a href="../../dashboard/index.html">← Dashboard</a>
+  <span class="topbar-sep">|</span>
+  <a href="index.html">All Explainers</a>
+  <span class="topbar-sep">|</span>
+  <span class="topbar-title">Tumor vascular network fragmentation under adaptive therapy maps directly onto percolation-threshold transitions studied in statistical physics</span>
+</nav>
+
+<div class="container">
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-domain">Oncology ↔ Statistical Physics</div>
+    <h1 class="hero-title">Tumor vascular network fragmentation under adaptive therapy maps directly onto percolation-threshold transitions studied in statistical physics.</h1>
+    <div class="hero-meta">
+      <span class="badge badge-proposed">PROPOSED</span>
+      <div class="field-tags"><span class="field-tag">oncology</span> <span class="field-tag">statistical-physics</span> <span class="field-tag">network-science</span></div>
+    </div>
+  </header>
+
+  <!-- Overview -->
+  <section id="overview">
+    <h2><span class="icon">🔭</span> Overview</h2>
+    <div class="card">
+      <p>When a tumor&#x27;s blood-supply network is disrupted below its percolation threshold, large-scale connectivity collapses and nutrient delivery fails — the same phase transition that physicists use to model connectivity in random graphs and porous media. Adaptive therapy (cycling drug doses to exploit competitive suppression) may be deliberately tuned to keep the network near — but just below — the percolation threshold, maximising tumor fragmentation while avoiding full drug-resistance selection. Neither oncologists nor physicists have yet jointly designed dosing schedules using percolation-threshold mathematics as the objective function.</p>
+    </div>
+  </section>
+
+  <!-- Mathematical Bridge -->
+  <section id="math-bridge">
+    <h2><span class="icon">⚙️</span> The Mathematical Bridge</h2>
+    <div class="insight">
+      <p>
+        This bridge connects <strong>Oncology</strong>
+        and <strong>Statistical Physics</strong>
+        through shared mathematical structure.
+         Status: Proposed connection.
+      </p>
+    </div>
+  </section>
+
+  <!-- Translation Table -->
+  <section id="translation">
+    <h2><span class="icon">↔️</span> Translation Table</h2>
+<div class="table-wrap">
+<table class="translation-table">
+  <thead>
+    <tr>
+      <th>Domain A Term</th>
+      <th>Domain B Term</th>
+      <th>Note</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr><td>bond percolation probability</td><td>vessel patency under treatment pressure</td><td class="note-cell">Fraction of edges (vessel segments) still functional</td></tr>
+<tr><td>giant connected component</td><td>viable tumour vascular core</td><td class="note-cell">The dominant connected region supplying nutrients</td></tr>
+<tr><td>percolation threshold p_c</td><td>minimum viable vascular density</td><td class="note-cell">Critical fraction below which nutrient supply collapses</td></tr>
+<tr><td>cluster size distribution</td><td>isolated tumour micro-regions</td><td class="note-cell">Disconnected fragments starved of blood supply</td></tr>
+<tr><td>renormalisation group</td><td>adaptive dosing schedule optimisation</td><td class="note-cell">Multi-scale description of how local drug actions aggregate to global effects</td></tr>
+  </tbody>
+</table>
+</div></section>
+
+  <!-- Communication Gap -->
+  <section id="comm-gap">
+    <h2><span class="icon">🗺️</span> Why Hasn't This Been Unified?</h2>
+    <div class="card"><p>Oncology journals rarely cite statistical-physics literature, and vice versa. Clinical trials measure tumour volume or survival endpoints, not topological graph metrics. The toolchains (MATLAB/Python network libraries vs. medical imaging suites) are largely siloed, and grant bodies do not routinely fund physics-oncology hybrids.</p></div>
+  </section>
+
+  <!-- Cross-pollination opportunities -->
+  <section id="opportunities">
+    <h2><span class="icon">🌱</span> Cross-Pollination Opportunities</h2><ul class="opp-list"><li>Oncologists provide longitudinal imaging (DCE-MRI vascular maps); physicists supply percolation models → joint threshold calibration</li>
+<li>Percolation-derived metrics (giant-component fraction) as a real-time treatment-response biomarker</li>
+<li>Adaptive dosing protocols derived from optimal percolation-threshold pursuit rather than empirical MTD</li></ul></section>
+
+  <!-- Crosscheck protocols -->
+  <section id="crosscheck">
+    <h2><span class="icon">🧪</span> Crosscheck — Prove This Bridge</h2>
+    <p class="crosscheck-intro">Runnable experiment protocols promoted from this bridge. USDR maps what connects; Crosscheck proves it.</p>
+    <div class="crosscheck-grid"><article class="crosscheck-card">
+  <div class="crosscheck-card-head">
+    <h3 class="crosscheck-title">Synthetic-lattice giant-component fraction as a percolation-derived treatment-response metric</h3>
+    <div class="crosscheck-badges">
+      <span class="badge badge-crosscheck">READY</span>
+      <span class="badge badge-tier">desktop</span>
+    </div>
+  </div>
+  <p class="crosscheck-prediction">On an L=32 square site-percolation lattice, mean giant-component fraction S(p) (largest cluster / L^2) and top-bottom spanning fraction are measurable at occupancies p in {0.40, 0.50, 0.59, 0.70} with 8 trials per p. ...</p>
+  <p class="crosscheck-meta">Protocol <code>p-b-percolation-oncology-gcc</code></p>
+  <p class="crosscheck-links"><a class="crosscheck-link" href="../../repro/p-b-percolation-oncology-gcc/index.html">Run repro bundle</a> · <a class="crosscheck-link" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/protocols-catalog/physics-oncology/p-b-percolation-oncology-gcc.yaml" target="_blank" rel="noopener">Protocol YAML</a></p>
+</article></div>
+    <p class="crosscheck-intro" style="margin-top:1rem;">
+      <a href="../../docs/CROSSCHECK.md" class="crosscheck-link">Crosscheck manifesto</a>
+      · Generate more drafts: <code>python scripts/generate_crosscheck.py --bridge b-percolation-oncology --write</code>
+    </p>
+  </section>
+
+  <!-- Open Questions -->
+  <section id="open-questions">
+    <h2><span class="icon">❓</span> Open Questions</h2><ul><li>Unknown: <code>u-tumor-containment-percolation</code></li>
+<li>Hypothesis: <code>h-adaptive-therapy-percolation-threshold</code></li></ul></section>
+
+  <!-- References -->
+  <section id="references">
+    <h2><span class="icon">📚</span> References</h2>
+    <ul class="ref-list"><li><a href="https://arxiv.org/abs/2405.04242" target="_blank" rel="noopener">arXiv:2405.04242</a>&nbsp;·&nbsp;<span class="ref-note">Harvested paper that seeded u-tumor-containment-percolation</span></li>
+<li><a href="https://doi.org/10.1038/s41559-017-0328-6" target="_blank" rel="noopener">DOI:10.1038/s41559-017-0328-6</a>&nbsp;·&nbsp;<span class="ref-note">Gatenby et al. — foundational adaptive-therapy clinical work</span></li>
+<li><a href="https://doi.org/10.1103/PhysRevLett.85.4626" target="_blank" rel="noopener">DOI:10.1103/PhysRevLett.85.4626</a>&nbsp;·&nbsp;<span class="ref-note">Callaway et al. — network robustness and percolation thresholds</span></li></ul>
+  </section>
+
+  <!-- Footer -->
+  <footer class="explainer-footer">
+    <p>Bridge ID: <code>b-percolation-oncology</code> · Last reviewed: 2026-05-04</p>
+    <p>
+      <a href="../../dashboard/index.html">← Back to Dashboard</a> ·
+      <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery" target="_blank" rel="noopener">GitHub</a>
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>

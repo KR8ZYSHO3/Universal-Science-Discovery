@@ -6,4 +6,4 @@ Crosschecks [`b-habitat-percolation-ecology`](../../cross-domain/physics-ecology
 python simulate_percolation_fss.py
 ```
 
-Exit code 0 = falsifiable prediction within tolerance; 1 = falsified.
+Exit code 0 always; inspect stdout for CONFIRMED vs INCONCLUSIVE.

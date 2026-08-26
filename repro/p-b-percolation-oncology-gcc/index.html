@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark" />
-  <title>Crosscheck repro — p-b-habitat-percolation-ecology-fss</title>
+  <title>Crosscheck repro — p-b-percolation-oncology-gcc</title>
   <style>
     :root {
       --bg: #060d1a; --text: #ddeeff; --muted: #6b8aac; --accent: #4f9cf9;
@@ -44,38 +44,26 @@
 </head>
 <body>
   <p class="pill">USDR Crosscheck · desktop</p>
-  <h1>Finite-size scaling test — does the 2D site percolation threshold shift with lattice area as p_c(L) = p_c(inf) + c * L^(-1/nu) with nu = 4/3?</h1>
-  <p class="meta">Protocol <code>p-b-habitat-percolation-ecology-fss</code> · bridge <code>b-habitat-percolation-ecology</code></p>
-  <p>Monte Carlo estimates of the site percolation threshold on square lattices of side L = 16, 32, 64, 128 show a systematic negative shift from p_c(inf) ≈ 0.5927 that scales as L^(-1/nu) with nu within 15% of the 2D percolation value 4/3.</p>
+  <h1>Synthetic-lattice giant-component fraction as a percolation-derived treatment-response metric</h1>
+  <p class="meta">Protocol <code>p-b-percolation-oncology-gcc</code> · bridge <code>b-percolation-oncology</code></p>
+  <p>On an L=32 square site-percolation lattice, mean giant-component fraction S(p) (largest cluster / L^2) and top-bottom spanning fraction are measurable at occupancies p in {0.40, 0.50, 0.59, 0.70} with 8 trials per p. This is a desktop stand-in for percolation-derived GCC as a treatment-response metric. It does not ingest imaging and does not claim a clinical threshold.</p>
   <div class="note">
-    <strong>Try the in-browser runner below</strong> for a live demo, or clone this folder for
-    the canonical Python repro (source of truth for verification).
+    This page is served on GitHub Pages for discovery. <strong>Run the repro on your machine</strong>
+    (clone the repo or download this folder) — the script is not executed in the browser.
   </div>
-
-  <h2>Run Crosscheck in your browser</h2>
-  <div id="crosscheck-runner" class="runner" data-protocol="p-b-habitat-percolation-ecology-fss">
-    <p class="runner-lead">One-click demo — same algorithm as the Python repro. Results stream live;
-    clone the repo for full-precision verification.</p>
-    <button type="button" data-action="run">Run Crosscheck</button>
-    <span class="result-badge" data-role="result-badge" hidden></span>
-    <div class="progress" data-role="progress" hidden><div class="progress-bar" data-role="progress-bar"></div></div>
-    <pre class="runner-output" data-role="output"></pre>
-  </div>
-  <script src="simulate_percolation_fss.js"></script>
-  <script src="../_shared/crosscheck-runner.js"></script>
 
 
   <h2>Run locally</h2>
   <pre>git clone https://github.com/KR8ZYSHO3/Universal-Science-Discovery.git
-cd Universal-Science-Discovery/repro/p-b-habitat-percolation-ecology-fss
+cd Universal-Science-Discovery/repro/p-b-percolation-oncology-gcc
 pip install -r requirements.txt
-python simulate_percolation_fss.py</pre>
-  <p>Estimated runtime: 4–8 minutes on a modern laptop (350 trials/p by default). Exit code is always <code>0</code>; inspect stdout for CONFIRMED vs INCONCLUSIVE.</p>
+python giant_component_fraction.py</pre>
+  <p>Estimated runtime: a few seconds on a laptop (L=32, TRIALS=8). Exit code is always <code>0</code>; inspect stdout for CONFIRMED vs INCONCLUSIVE.</p>
   <div class="links">
     <a href="README.md">README</a>
-    <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/tree/main/repro/p-b-habitat-percolation-ecology-fss">Source on GitHub</a>
-    <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/protocols-catalog/physics-ecology/p-b-habitat-percolation-ecology-fss.yaml">Protocol YAML</a>
-    <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/explainers/b-habitat-percolation-ecology.html#crosscheck">Bridge explainer</a>
+    <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/tree/main/repro/p-b-percolation-oncology-gcc">Source on GitHub</a>
+    <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/protocols-catalog/physics-oncology/p-b-percolation-oncology-gcc.yaml">Protocol YAML</a>
+    <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/explainers/b-percolation-oncology.html#crosscheck">Bridge explainer</a>
     <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/">USDR dashboard</a>
   </div>
 </body>

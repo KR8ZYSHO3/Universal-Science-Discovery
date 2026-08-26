@@ -173,8 +173,7 @@ def render_page(proto: dict) -> str:
 cd Universal-Science-Discovery/{bundle}
 pip install -r requirements.txt
 python {script}</pre>
-  <p>Estimated runtime: {e(str(runtime))}. Exit code <code>0</code> = prediction within tolerance;
-  <code>1</code> = falsified at stated precision.</p>
+  <p>Estimated runtime: {e(str(runtime))}. Exit code is always <code>0</code>; inspect stdout for CONFIRMED vs INCONCLUSIVE.</p>
   <div class=\"links\">
     <a href=\"README.md\">README</a>
     <a href=\"{e(gh_tree)}\">Source on GitHub</a>

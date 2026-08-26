@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added — Crosscheck generate/promote path and run-mode parity
+- **`docs/CROSSCHECK.md`:** Happy-path generate is `python scripts/generate_crosscheck.py --bridge b-percolation-oncology --write` (drafts at `drafts/crosscheck/physics-oncology/`). Promote is manual copy + PR (no Crosscheck promote CLI). Catalog lists four CI-gated seeds plus **`p-b-percolation-oncology-gcc`** (status `ready`; local stdlib demo prints `RESULT: INCONCLUSIVE`). **Run-mode parity** table: Python is canonical; browser and Colab are demo tier.
+- **`dashboard/index.html`:** Static Crosscheck blurb links `docs/CROSSCHECK.md#run-mode-parity`. Hub grid regenerated via `build_crosscheck.py --apply` (fifth card for the oncology GCC protocol).
+- **Exit-code honesty:** `scripts/generate_repro_index_pages.py` and `repro/p-b-habitat-percolation-ecology-fss/README.md` now say exit code 0 always; inspect stdout for CONFIRMED vs INCONCLUSIVE (not exit 1 = falsified).
+- **`mkdocs.yml`:** Add `STEWARDS_CHARTER.md` and three outreach pages to nav so `mkdocs build --strict` no longer warns on omitted files.
+
 ### Changed — Epidemic FSS protocol catalog (volume nu_bar=3)
 - **`protocols-catalog/physics-epidemiology/p-b-percolation-epidemiology-fss.yaml`:** `status: confirmed`. Fit target is volume FSS **nu_bar = 3** with **p_c(inf)=1/6** and **S ≥ N^{-1/3}**; signed log-linear OLS (not NLS / not nu=1). Locked **SEEDS_PER_N=20**, **NU_TOLERANCE=15%**.
 - **`repro/p-b-percolation-epidemiology-fss/`:** README exit-code honesty (`Exit code 0 always`); Colab notebook still runs `python epidemic_percolation_fss.py`. Hub/index/explainer regenerated via `build_crosscheck.py --apply`.

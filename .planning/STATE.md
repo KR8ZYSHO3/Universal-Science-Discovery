@@ -6,18 +6,18 @@ See: `.planning/PROJECT.md` (updated 2026-06-23)
 
 **Core value:** Researchers can run falsifiable Crosscheck experiments in minutes.
 **Ship bar:** Single-dev robust · workflows excellent · interface awesome (see PROJECT.md § Ship Bar).
-**Current focus:** Phase 3 — Crosscheck scale-up (03-01 complete; 03-02 parity matrix next)
+**Current focus:** Phase 4 next (CI & trust hardening) — CROSS-06/07 closed pending verify-work
 
 **Parked:** v1.2 Launch (marketing) — `LAUNCH_PLAYBOOK.md` — owner not interested until dev milestone ships.
 
 ## Current Position
 
-Phase: 3 of 5 (Crosscheck scale-up) — 03-01 complete
-Plan: 1 of 2 executed (03-02 remaining)
-Status: Ready to execute 03-02
-Last activity: 2026-08-26 — 03-01 generate/promote/repro for p-b-percolation-oncology-gcc
+Phase: 3 of 5 (Crosscheck scale-up) — 03-02 complete
+Plan: 2 of 2 executed
+Status: Phase 3 plan 02 complete; current focus Phase 4 next
+Last activity: 2026-08-26 — 03-02 parity matrix, exit-code honesty, hub --apply
 
-Progress: [███████░░░] 64% (7/11 plans complete)
+Progress: [████████░░] 73% (8/11 plans complete)
 
 ## Performance Metrics
 
@@ -25,7 +25,7 @@ Progress: [███████░░░] 64% (7/11 plans complete)
 |-------|-------|-------|--------|
 | 1 Crosscheck credibility | 3 | 3 | Complete |
 | 2 Epidemic FSS | 3 | 3 | Complete |
-| 3 Crosscheck scale-up | 1 | 2 | In progress |
+| 3 Crosscheck scale-up | 2 | 2 | Complete |
 
 ## Accumulated Context
 
@@ -39,6 +39,7 @@ Progress: [███████░░░] 64% (7/11 plans complete)
 - Epidemic FSS (02-03): YAML/README/Colab match volume nu_bar=3, S≥N^{-1/3}, p_c(inf)=1/6, SEEDS_PER_N=20, NU_TOLERANCE=0.15; status confirmed; habitat/cluster/Ising left executed
 - Crosscheck scale-up (03-01): generate path is `python scripts/generate_crosscheck.py --bridge b-percolation-oncology --write`; drafts/crosscheck/ gitignored; promote is human copy (no CLI); `p-b-percolation-oncology-gcc` status ready, pollination_index 1, never confirmed
 - Oncology GCC repro: L=32 TRIALS=8 stdlib lattice; always RESULT: INCONCLUSIVE and exit 0; no 5th CI CONFIRMED grep; epidemic NU_THEORY=3.0 untouched
+- Crosscheck scale-up (03-02): Run-mode parity section in `docs/CROSSCHECK.md` (Python canonical; browser/Colab demo tier); generate command and `drafts/crosscheck/physics-oncology/` documented; CROSS-06/07 closed pending verify-work
 
 ### Blockers/Concerns
 
@@ -59,9 +60,9 @@ None in `.planning/todos/pending/`.
 ## Session Continuity
 
 Last session: 2026-08-26
-Stopped at: Completed 03-01-PLAN.md
+Stopped at: Completed 03-02-PLAN.md
 Resume file: None
 
 Local note: previous checkout was stale `launch/june-2026-shipping`. June-pause catalog drafts (climate cascades + zeta) stashed as `june-2026-pause leftover launch docs and climate drafts`. Parked until after v1.1.
 
-**Next command:** execute 03-02 (parity matrix in docs/CROSSCHECK.md + hub --apply)
+**Next command:** execute Phase 4 (CI & trust hardening) after verify-work on 03-02
