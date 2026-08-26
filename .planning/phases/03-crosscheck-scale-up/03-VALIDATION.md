@@ -1,7 +1,7 @@
 ---
 phase: 3
 slug: crosscheck-scale-up
-status: draft
+status: approved
 nyquist_compliant: true
 wave_0_complete: true
 created: 2026-08-26
@@ -9,7 +9,7 @@ created: 2026-08-26
 
 # Phase 3 — Validation Strategy
 
-Existing pytest + `validate_schemas.py` + `build_crosscheck.py --check` cover Wave 0. No new test framework.
+Existing pytest + `validate_schemas.py` + `build_crosscheck.py --check` cover Wave 0.
 
 ## Test Infrastructure
 
@@ -28,16 +28,12 @@ Existing pytest + `validate_schemas.py` + `build_crosscheck.py --check` cover Wa
 
 ## Per-Task Verification Map
 
-Filled after plans land. Expected coverage:
-
-| Requirement | Automated |
-|-------------|-----------|
-| CROSS-06 generate | `generate_crosscheck.py --bridge b-percolation-oncology --dry-run` prints a protocol id |
-| CROSS-06 promote | catalog YAML exists, `status: ready`, `validate_schemas.py` |
-| CROSS-06 repro | script prints `RESULT:` and process returncode 0 |
-| CROSS-07 | `docs/CROSSCHECK.md` contains all four seed protocol ids in a table |
-| D-07 | epidemic `NU_THEORY = 3.0` unchanged |
-| D-03 | `crosscheck-repro.yml` still has exactly four CONFIRMED grep jobs |
+| Task ID | Plan | Wave | Requirement | Automated Command | File Exists |
+|---------|------|------|-------------|-------------------|-------------|
+| 03-01-01 | 01 | 1 | CROSS-06 | `validate_schemas.py` + assert generator draft path exists + catalog YAML `status: ready` | ✅ |
+| 03-01-02 | 01 | 1 | CROSS-06 | run `giant_component_fraction.py`; assert `RESULT: INCONCLUSIVE` and exit 0; four CI greps; `NU_THEORY = 3.0` | ✅ |
+| 03-02-01 | 02 | 2 | CROSS-07 | `docs/CROSSCHECK.md` asserts generate command + four seed ids + GCC id | ✅ |
+| 03-02-02 | 02 | 2 | CROSS-07 | `build_crosscheck.py --check`; `validate_schemas.py`; `mkdocs build --strict`; hub/index honesty | ✅ |
 
 ## Wave 0 Requirements
 
@@ -45,13 +41,14 @@ Existing infrastructure covers all phase requirements.
 
 ## Manual-Only Verifications
 
-None required. Hosted Pages/Colab are optional after merge.
+None required.
 
 ## Validation Sign-Off
 
-- [ ] All tasks have `<automated>` verify
+- [x] All tasks have `<automated>` verify
+- [x] Sampling continuity
 - [x] Wave 0 present
 - [x] No watch-mode
-- [ ] `nyquist_compliant: true` after plans land
+- [x] `nyquist_compliant: true`
 
-**Approval:** pending
+**Approval:** 2026-08-26 (post checker; 0 blockers)

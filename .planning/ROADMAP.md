@@ -55,11 +55,18 @@ Cross-cutting constraints:
 **Success Criteria**:
   1. `generate_crosscheck.py` run documented for ≥1 new bridge
   2. Parity doc: Python vs browser outcome tiers per protocol
-**Plans**: 2 plans
+**Plans**: 2 (planned 2026-08-26)
 
 Plans:
-- [ ] 03-01-PLAN.md — Generate + promote + stdlib repro for second bridge (wave 1)
-- [ ] 03-02-PLAN.md — Parity matrix + hub/docs + index honesty + `--apply` (wave 2)
+- **Wave 1**
+- [ ] 03-01: Generate + promote + stdlib repro for `b-percolation-oncology` (`p-b-percolation-oncology-gcc`)
+- **Wave 2** *(blocked on Wave 1 completion)*
+- [ ] 03-02: Browser/Colab parity matrix in `docs/CROSSCHECK.md` + hub + `--apply`
+
+Cross-cutting constraints:
+- Python is canonical; browser/Colab are demo tier (CROSS-07)
+- New oncology protocol prints `RESULT: INCONCLUSIVE` and is never `status: confirmed` (D-04/D-13/D-14)
+- Epidemic freeze `NU_THEORY = 3.0` is untouched (D-07)
 
 ### Phase 4: CI & trust hardening
 **Goal**: Regression coverage matches shipped Crosscheck surface area.
