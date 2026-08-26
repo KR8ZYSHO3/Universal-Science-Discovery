@@ -6,16 +6,16 @@ See: `.planning/PROJECT.md` (updated 2026-06-23)
 
 **Core value:** Researchers can run falsifiable Crosscheck experiments in minutes.
 **Ship bar:** Single-dev robust · workflows excellent · interface awesome (see PROJECT.md § Ship Bar).
-**Current focus:** Phase 3 — Crosscheck scale-up (Phase 2 epidemic FSS catalog+Colab complete)
+**Current focus:** Phase 3 — Crosscheck scale-up (03-01 / 03-02 PLAN.md written)
 
 **Parked:** v1.2 Launch (marketing) — `LAUNCH_PLAYBOOK.md` — owner not interested until dev milestone ships.
 
 ## Current Position
 
-Phase: 2 of 5 (Epidemic FSS precision) — complete
-Plan: 3 of 3 in current phase (02-03 complete)
-Status: Ready to plan Phase 3
-Last activity: 2026-08-26 — 02-03 catalog YAML + Colab honesty; status confirmed
+Phase: 3 of 5 (Crosscheck scale-up) — planned
+Plan: 0 of 2 executed (03-01, 03-02 PLAN.md ready)
+Status: Ready to execute Phase 3
+Last activity: 2026-08-26 — Phase 3 plans written (oncology GCC generate/promote + parity matrix)
 
 Progress: [██████░░░░] 55% (6/11 plans complete)
 
@@ -25,6 +25,7 @@ Progress: [██████░░░░] 55% (6/11 plans complete)
 |-------|-------|-------|--------|
 | 1 Crosscheck credibility | 3 | 3 | Complete |
 | 2 Epidemic FSS | 3 | 3 | Complete |
+| 3 Crosscheck scale-up | 0 | 2 | Planned |
 
 ## Accumulated Context
 
@@ -56,9 +57,9 @@ None in `.planning/todos/pending/`.
 ## Session Continuity
 
 Last session: 2026-08-26
-Stopped at: Phase 2 executed and orchestrator-verified (pytest 4/4, validate_schemas OK, build_crosscheck --check OK)
+Stopped at: Phase 3 planned (03-01 generate/promote/stdlib repro; 03-02 parity + --apply)
 Resume file: None
 
 Local note: previous checkout was stale `launch/june-2026-shipping`. June-pause catalog drafts (climate cascades + zeta) stashed as `june-2026-pause leftover launch docs and climate drafts`. Parked until after v1.1.
 
-**Next command:** `/gsd-verify-work 2` then `/gsd-plan-phase 3`
+**Next command:** `/gsd-execute-phase 3`

@@ -55,11 +55,11 @@ Cross-cutting constraints:
 **Success Criteria**:
   1. `generate_crosscheck.py` run documented for ≥1 new bridge
   2. Parity doc: Python vs browser outcome tiers per protocol
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 03-01: Generate + promote protocols for a second bridge
-- [ ] 03-02: Browser/Colab parity matrix + hub updates
+- [ ] 03-01-PLAN.md — Generate + promote + stdlib repro for second bridge (wave 1)
+- [ ] 03-02-PLAN.md — Parity matrix + hub/docs + index honesty + `--apply` (wave 2)
 
 ### Phase 4: CI & trust hardening
 **Goal**: Regression coverage matches shipped Crosscheck surface area.
