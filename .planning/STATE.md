@@ -6,7 +6,7 @@ See: `.planning/PROJECT.md` (updated 2026-06-23)
 
 **Core value:** Researchers can run falsifiable Crosscheck experiments in minutes.
 **Ship bar:** Single-dev robust · workflows excellent · interface awesome (see PROJECT.md § Ship Bar).
-**Current focus:** Phase 4 complete (CI & trust hardening) — 04-02 TRUST-03 complete; next verify-work then Phase 5
+**Current focus:** Phase 4 complete (CI & trust hardening) — TRUST-02/03 closed; next Phase 5 hub engineering
 
 **Parked:** v1.2 Launch (marketing) — `LAUNCH_PLAYBOOK.md` — owner not interested until dev milestone ships.
 
@@ -14,8 +14,8 @@ See: `.planning/PROJECT.md` (updated 2026-06-23)
 
 Phase: 4 of 5 (CI & trust hardening) — complete
 Plan: 2 of 2 executed
-Status: Phase complete — Wave 2 complete (04-02)
-Last activity: 2026-08-26 — 04-02 TRUST-03 entry-point smokes complete
+Status: Phase complete — orchestrator-verified (pytest 14/14)
+Last activity: 2026-08-26 — Phase 4 verified (inventory + entry-point smokes)
 
 Progress: [█████████░] 91% (10/11 plans complete; Phase 5 remaining)
 
@@ -64,10 +64,10 @@ None in `.planning/todos/pending/`.
 ## Session Continuity
 
 Last session: 2026-08-26
-Stopped at: Completed 04-02-PLAN.md
+Stopped at: Phase 4 executed and orchestrator-verified (pytest 14/14, four CONFIRMED greps, NU_THEORY=3.0)
 Resume file: None
-Duration (04-02): 2 min
+Duration (04-01): 6 min · Duration (04-02): 2 min
 
 Local note: previous checkout was stale `launch/june-2026-shipping`. June-pause catalog drafts (climate cascades + zeta) stashed as `june-2026-pause leftover launch docs and climate drafts`. Parked until after v1.1.
 
-**Next command:** `/gsd-verify-work 4` then `/gsd-plan-phase 5`
+**Next command:** `/gsd-plan-phase 5`
