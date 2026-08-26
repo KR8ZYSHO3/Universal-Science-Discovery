@@ -96,10 +96,17 @@ Cross-cutting constraints:
 **Success Criteria**:
   1. Spec defines ranking signal (connectivity / harvest / curator score)
   2. `api/v1/` or hub section loads prototype JSON
-**Plans**: TBD
+**Plans**: 1/1 planned (2026-08-26)
 
 Plans:
-- [ ] 05-01: Spec + thin JSON slice in hub
+- **Wave 1**
+- [ ] 05-01: Spec + thin JSON slice in hub — `docs/HUB_RECOMMENDATIONS.md` + `api/v1/recommendations.json` + `#recommendations`
+
+Cross-cutting constraints:
+- v1 ranks bridges by undirected degree; harvest/curator are spec-only (D-02)
+- Contributor tooling, not a scientific ranking (D-06)
+- Copy orphan/xref panel: Python exporter → committed JSON → hub `textContent` fetch (D-03/D-05)
+- No marketing, epidemic retune, or fabricated `RESULT: CONFIRMED` (D-10)
 
 ## Deferred: v1.2 Launch (not scheduled)
 
@@ -113,7 +120,7 @@ Outreach copy, Reddit/LinkedIn, `usdr.science`, arXiv, personal DMs — see `LAU
 | 2. Epidemic FSS precision | 3/3 | Complete | 2026-08-26 |
 | 3. Crosscheck scale-up | 2/2 | Complete | 2026-08-26 |
 | 4. CI & trust hardening | 2/2 | Complete | 2026-08-26 |
-| 5. Hub engineering | 0/1 | Not started | — |
+| 5. Hub engineering | 0/1 | Ready to execute | — |
 
 ---
 *Reprioritized 2026-06-23. Repo vision: `ROADMAP.md` (root).*

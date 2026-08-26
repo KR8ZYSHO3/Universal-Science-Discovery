@@ -6,18 +6,18 @@ See: `.planning/PROJECT.md` (updated 2026-06-23)
 
 **Core value:** Researchers can run falsifiable Crosscheck experiments in minutes.
 **Ship bar:** Single-dev robust · workflows excellent · interface awesome (see PROJECT.md § Ship Bar).
-**Current focus:** Phase 4 complete (CI & trust hardening) — TRUST-02/03 closed; next Phase 5 hub engineering
+**Current focus:** Phase 5 planned (Hub engineering) — ready to execute HUB-01
 
 **Parked:** v1.2 Launch (marketing) — `LAUNCH_PLAYBOOK.md` — owner not interested until dev milestone ships.
 
 ## Current Position
 
-Phase: 4 of 5 (CI & trust hardening) — complete
-Plan: 2 of 2 executed
-Status: Phase complete — orchestrator-verified (pytest 14/14)
-Last activity: 2026-08-26 — Phase 4 verified (inventory + entry-point smokes)
+Phase: 5 of 5 (Hub engineering) — planned
+Plan: 0 of 1 executed
+Status: Ready to execute
+Last activity: 2026-08-26 — Phase 5 planned (spec + recommendations JSON + hub fetch)
 
-Progress: [█████████░] 91% (10/11 plans complete; Phase 5 remaining)
+Progress: [█████████░] 91% (10/11 plans complete; 1 planned)
 
 ## Performance Metrics
 
@@ -27,6 +27,7 @@ Progress: [█████████░] 91% (10/11 plans complete; Phase 5 re
 | 2 Epidemic FSS | 3 | 3 | Complete |
 | 3 Crosscheck scale-up | 2 | 2 | Complete |
 | 4 CI & trust hardening | 2 | 2 | Complete |
+| 5 Hub engineering | 0 | 1 | Ready to execute |
 
 ## Accumulated Context
 
@@ -44,6 +45,7 @@ Progress: [█████████░] 91% (10/11 plans complete; Phase 5 re
 - CI & trust hardening (planned 2026-08-26): TRUST-02 = pytest text inventory of CONFIRMED-capable `repro/**/*.py` vs four static `crosscheck-repro.yml` greps (not YAML `status`; never `yaml.safe_load`); GCC pytest-only INCONCLUSIVE; TRUST-03 = generate `--bridge b-percolation-oncology --dry-run` + live GCC smoke; epidemic freeze `NU_THEORY = 3.0` untouched; sequential 04-01 then 04-02
 - CI & trust hardening (04-01): TRUST-02 closed — `test_crosscheck_confirmed_gates.py` pairs four CONFIRMED-capable seeds with four static greps; GCC not grepped CONFIRMED; `docs/CROSSCHECK.md` CONFIRMED-only policy; workflow YAML untouched
 - CI & trust hardening (04-02): TRUST-03 closed — `test_crosscheck_entry_points.py` generate `--bridge b-percolation-oncology --dry-run` (exit 0, `p-b-`) plus live GCC `RESULT: INCONCLUSIVE` / exit 0; epidemic freeze re-run not duplicated; no fifth CONFIRMED grep
+- Hub engineering (planned 2026-08-26): HUB-01 = spec `docs/HUB_RECOMMENDATIONS.md` (connectivity / harvest / curator; v1 computes undirected degree only) + `scripts/export_recommendations.py` → `api/v1/recommendations.json` (cap 25 bridges) + hub `#recommendations` fetch copied from orphan/xref panel; not a scientific ranking
 
 ### Blockers/Concerns
 
@@ -64,10 +66,10 @@ None in `.planning/todos/pending/`.
 ## Session Continuity
 
 Last session: 2026-08-26
-Stopped at: Phase 4 executed and orchestrator-verified (pytest 14/14, four CONFIRMED greps, NU_THEORY=3.0)
+Stopped at: Phase 5 planned and checker-passed
 Resume file: None
-Duration (04-01): 6 min · Duration (04-02): 2 min
+Duration (plan-phase 5): research + patterns + 05-01 + checker
 
 Local note: previous checkout was stale `launch/june-2026-shipping`. June-pause catalog drafts (climate cascades + zeta) stashed as `june-2026-pause leftover launch docs and climate drafts`. Parked until after v1.1.
 
-**Next command:** `/gsd-plan-phase 5`
+**Next command:** `/gsd-execute-phase 5`
