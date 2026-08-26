@@ -62,6 +62,7 @@ None in `.planning/todos/pending/`.
 Last session: 2026-08-26
 Stopped at: Completed 03-02-PLAN.md
 Resume file: None
+Duration (03-02): 4 min · 2 tasks · 16 files
 
 Local note: previous checkout was stale `launch/june-2026-shipping`. June-pause catalog drafts (climate cascades + zeta) stashed as `june-2026-pause leftover launch docs and climate drafts`. Parked until after v1.1.
 

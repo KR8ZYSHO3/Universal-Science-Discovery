@@ -14,7 +14,7 @@ Harden Crosscheck to 4/4 CONFIRMED, scale the protocol pipeline, expand CI/trust
 
 - [x] **Phase 1: Crosscheck credibility** — 3 CONFIRMED + drift gate
 - [x] **Phase 2: Epidemic FSS precision** — 4th seed protocol CONFIRMED
-- [ ] **Phase 3: Crosscheck scale-up** — generate/promote protocols + browser parity
+- [x] **Phase 3: Crosscheck scale-up** — generate/promote protocols + browser parity
 - [ ] **Phase 4: CI & trust hardening** — smoke tests + CONFIRMED gates
 - [ ] **Phase 5: Hub engineering** — smart recommendations spec + prototype
 
@@ -55,13 +55,13 @@ Cross-cutting constraints:
 **Success Criteria**:
   1. `generate_crosscheck.py` run documented for ≥1 new bridge
   2. Parity doc: Python vs browser outcome tiers per protocol
-**Plans**: 1/2 complete (2026-08-26)
+**Plans**: 2/2 complete (2026-08-26)
 
 Plans:
 - **Wave 1**
 - [x] 03-01: Generate + promote + stdlib repro for `b-percolation-oncology` (`p-b-percolation-oncology-gcc`) — INCONCLUSIVE 2026-08-26
 - **Wave 2**
-- [ ] 03-02: Browser/Colab parity matrix in `docs/CROSSCHECK.md` + hub + `--apply`
+- [x] 03-02: Browser/Colab parity matrix in `docs/CROSSCHECK.md` + hub + `--apply` — 2026-08-26
 
 Cross-cutting constraints:
 - Python is canonical; browser/Colab are demo tier (CROSS-07)
