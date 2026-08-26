@@ -1,59 +1,28 @@
-# Requirements: USDR Core Development (v1.1)
+# Requirements: USDR (post v1.1)
 
-**Defined:** 2026-06-23
-**Core Value:** Researchers can run falsifiable Crosscheck experiments in minutes.
-**Reprioritized:** 2026-06-23 — marketing deferred to v1.2 Launch.
+**Status:** No active GSD milestone. v1.1 is archived.
 
-## v1.1 Requirements (Core Development)
+v1.1 Core Development (11/11) → [milestones/v1.1-REQUIREMENTS.md](milestones/v1.1-REQUIREMENTS.md)
 
-### Crosscheck credibility
+## Next (not scheduled)
 
-- [x] **CROSS-01**: Habitat percolation FSS CONFIRMED — Phase 1 (#298)
-- [x] **CROSS-02**: Ising EWI CONFIRMED — Phase 1 (#297)
-- [x] **CROSS-03**: Cluster exponent CONFIRMED — Phase 1 (#302)
-- [x] **CROSS-04**: Epidemic FSS CONFIRMED — Phase 2 (02-01 stdout + 02-02 freeze pytest and CI grep + 02-03 catalog/Colab)
-- [x] **CROSS-05**: `build_crosscheck.py --check` in CI — Phase 1 (#299–#301)
+**v1.2 Launch** remains parked (outreach, DNS, arXiv). Do not treat LAUNCH-01–06 as active until `/gsd-new-milestone`.
 
-### Crosscheck scale-up
+Ship Bar leftovers (not v1.1 IDs; not a milestone yet):
 
-- [x] **CROSS-06**: Second-bridge protocol drafts promoted or generated via `generate_crosscheck.py` — Phase 3 (03-01: `b-percolation-oncology` → `p-b-percolation-oncology-gcc`)
-- [x] **CROSS-07**: Browser runner outputs documented vs Python canonical (parity matrix) — Phase 3 (03-02: `docs/CROSSCHECK.md` Run-mode parity)
+- **ROBUST-01** — maintainer playbook is one ordered command list
+- **WORK-01** — Crosscheck outcome → catalog/hub status
+- **WORK-02** — catalog batch runbook verified in one local pass
+- **UI-01** — hub first-visit audit
 
-### Trust surfaces & CI
-
-- [x] **TRUST-01**: Stale dashboard graph removed — Phase 1 (#300)
-- [x] **TRUST-02**: All CONFIRMED protocols gated in `crosscheck-repro.yml` — Phase 4 (04-01 inventory pytest + four live greps)
-- [x] **TRUST-03**: Additional repo_smoke tests for epidemic + script entry points — Phase 4 (04-02 generate dry-run + GCC INCONCLUSIVE smokes; epidemic freeze re-run)
-
-### Hub engineering
-
-- [x] **HUB-01**: Smart-recommendations spec + static JSON prototype — Phase 5 (05-01: `docs/HUB_RECOMMENDATIONS.md` + `api/v1/recommendations.json` + hub `#recommendations`)
-
-## v1.2 Requirements (Launch — deferred)
-
-- **LAUNCH-01** through **LAUNCH-06**: outreach, DNS, arXiv, DMs — see `LAUNCH_PLAYBOOK.md`
-- Parked until v1.1 Core Development milestone completes
-
-## Out of Scope
+## Out of Scope until owner reopens
 
 | Feature | Reason |
 |---------|--------|
-| Marketing posts | Owner: development first (2026-06-23) |
-| Catalog waves | After Crosscheck + trust surfaces |
-
-## Traceability
-
-| Requirement | Phase | Status |
-|-------------|-------|--------|
-| CROSS-01–03, CROSS-05, TRUST-01 | Phase 1 | Complete |
-| CROSS-04 | Phase 2 | Complete (02-01/02-02/02-03) |
-| CROSS-06 | Phase 3 | Complete (03-01 generate/promote/repro) |
-| CROSS-07 | Phase 3 | Complete (03-02 parity matrix) |
-| TRUST-02 | Phase 4 | Complete (04-01 inventory pytest) |
-| TRUST-03 | Phase 4 | Complete (04-02 generate dry-run + GCC INCONCLUSIVE) |
-| HUB-01 | Phase 5 | Complete (05-01 spec + JSON + hub panel) |
-
-**Coverage:** 11 v1.1 dev requirements · 11 complete · 0 pending
+| Marketing posts | v1.2 parked |
+| DNS / arXiv | v1.2 parked |
+| Catalog waves without review | Human gate sacred |
+| GSD artifacts as science | Process metadata only |
 
 ---
-*Last updated: 2026-08-26 — HUB-01 closed in 05-01*
+*Created 2026-08-26 at v1.1 close. Open a milestone before planning new phases.*

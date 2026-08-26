@@ -2,55 +2,45 @@
 
 ## Project Reference
 
-See: `.planning/PROJECT.md` (updated 2026-06-23)
+See: `.planning/PROJECT.md` (updated 2026-08-26 after v1.1)
 
 **Core value:** Researchers can run falsifiable Crosscheck experiments in minutes.
 **Ship bar:** Single-dev robust · workflows excellent · interface awesome (see PROJECT.md § Ship Bar).
-**Current focus:** Phase 5 hub engineering complete — 05-01 HUB-01 landed (spec + JSON + `#recommendations`; process metadata only, not a scientific finding)
+**Current focus:** v1.1 Core Development **shipped**. No active GSD milestone. v1.2 Launch parked.
 
-**Parked:** v1.2 Launch (marketing) — `LAUNCH_PLAYBOOK.md` — owner not interested until dev milestone ships.
+**Parked:** v1.2 Launch (marketing) — `LAUNCH_PLAYBOOK.md`
 
 ## Current Position
 
-Phase: 5 of 5 (Hub engineering) — complete
-Plan: 1 of 1 executed
-Status: Phase complete — orchestrator-verified (pytest 15/15)
-Last activity: 2026-08-26 — Phase 5 verified (spec + recommendations JSON + hub panel)
+Phase: — (v1.1 complete; next milestone not opened)
+Plan: —
+Status: Milestone v1.1 archived
+Last activity: 2026-08-26 — `/gsd-complete-milestone` v1.1
 
-Progress: [██████████] 100% (11/11 plans complete)
+Progress: v1.1 [██████████] 100% (11/11 plans)
 
 ## Performance Metrics
 
-| Phase | Plans | Total | Status |
-|-------|-------|-------|--------|
-| 1 Crosscheck credibility | 3 | 3 | Complete |
-| 2 Epidemic FSS | 3 | 3 | Complete |
-| 3 Crosscheck scale-up | 2 | 2 | Complete |
-| 4 CI & trust hardening | 2 | 2 | Complete |
-| 5 Hub engineering | 1 | 1 | Complete |
+| Milestone | Phases | Plans | Status |
+|-----------|--------|-------|--------|
+| v1.0 Foundation | repo Phase 0 | — | Complete |
+| v1.1 Core Development | 1–5 | 11 | Shipped 2026-08-26 (#308) |
 
 ## Accumulated Context
 
 ### Decisions
 
-- **Development before marketing** (2026-06-23) — outreach/DNS/arXiv deferred to v1.2
-- GSD active — no ad-hoc implementation without a plan
-- Python canonical; browser demo tier
-- Epidemic FSS (02-01): PC_INF=1/6, NU_THEORY=3.0, S≥N^{-1/3}, SEEDS_PER_N=20, BOND_SAMPLES_PER_MID=8, NU_TOLERANCE=0.15; CONFIRMED ν=3.1475 (4.9%); freeze mean_pcs in 02-01-SUMMARY (do not invent)
-- Epidemic FSS (02-02): pytest pins freeze mean_pcs; CI greps RESULT: CONFIRMED; NU_THEORY asserted 3.0; no live MC in repo_smoke
-- Epidemic FSS (02-03): YAML/README/Colab match volume nu_bar=3, S≥N^{-1/3}, p_c(inf)=1/6, SEEDS_PER_N=20, NU_TOLERANCE=0.15; status confirmed; habitat/cluster/Ising left executed
-- Crosscheck scale-up (03-01): generate path is `python scripts/generate_crosscheck.py --bridge b-percolation-oncology --write`; drafts/crosscheck/ gitignored; promote is human copy (no CLI); `p-b-percolation-oncology-gcc` status ready, pollination_index 1, never confirmed
-- Oncology GCC repro: L=32 TRIALS=8 stdlib lattice; always RESULT: INCONCLUSIVE and exit 0; no 5th CI CONFIRMED grep; epidemic NU_THEORY=3.0 untouched
-- Crosscheck scale-up (03-02): Run-mode parity section in `docs/CROSSCHECK.md` (Python canonical; browser/Colab demo tier); generate command and `drafts/crosscheck/physics-oncology/` documented; CROSS-06/07 closed pending verify-work
-- CI & trust hardening (planned 2026-08-26): TRUST-02 = pytest text inventory of CONFIRMED-capable `repro/**/*.py` vs four static `crosscheck-repro.yml` greps (not YAML `status`; never `yaml.safe_load`); GCC pytest-only INCONCLUSIVE; TRUST-03 = generate `--bridge b-percolation-oncology --dry-run` + live GCC smoke; epidemic freeze `NU_THEORY = 3.0` untouched; sequential 04-01 then 04-02
-- CI & trust hardening (04-01): TRUST-02 closed — `test_crosscheck_confirmed_gates.py` pairs four CONFIRMED-capable seeds with four static greps; GCC not grepped CONFIRMED; `docs/CROSSCHECK.md` CONFIRMED-only policy; workflow YAML untouched
-- CI & trust hardening (04-02): TRUST-03 closed — `test_crosscheck_entry_points.py` generate `--bridge b-percolation-oncology --dry-run` (exit 0, `p-b-`) plus live GCC `RESULT: INCONCLUSIVE` / exit 0; epidemic freeze re-run not duplicated; no fifth CONFIRMED grep
-- Hub engineering (planned 2026-08-26): HUB-01 = spec `docs/HUB_RECOMMENDATIONS.md` (connectivity / harvest / curator; v1 computes undirected degree only) + `scripts/export_recommendations.py` → `api/v1/recommendations.json` (cap 25 bridges) + hub `#recommendations` fetch copied from orphan/xref panel; not a scientific ranking
-- Hub engineering (05-01, 2026-08-26): HUB-01 closed — dedicated spec; ranking `undirected_degree`; harvest/curator keys omitted on items; hub `#recommendations` uses `textContent` + github.com href allowlist; `generate_api.py` keeps `endpoints.recommendations`
+- GSD progress lives **in this USDR repo** (`.planning/STATE.md`, `ROADMAP.md`, `REQUIREMENTS.md`, `phases/`). Not a separate GSD repository.
+- Development before marketing — v1.2 still parked after v1.1 close
+- Epidemic FSS: `NU_THEORY = 3.0`, freeze mean_pcs, do not shop R²
+- CONFIRMED CI gates use stdout tokens, not YAML `status`
+- Hub recommendations: undirected degree; not a scientific ranking
+- GitHub `main` PR-only; squash PR at big milestones
 
 ### Blockers/Concerns
 
-- Epidemic FSS 02-01 CONFIRMED and 02-02 pinned; full-grid R²=0.32 (N=200 non-monotonic). Do not shop a prettier freeze vector.
+- Epidemic freeze R²=0.32 (N=200 non-monotonic). Do not retune.
+- No `v1.1-MILESTONE-AUDIT.md` at close; 11/11 requirements used as coverage.
 
 ### Pending Todos
 
@@ -58,19 +48,21 @@ None in `.planning/todos/pending/`.
 
 ## Deferred Items
 
+Items acknowledged at milestone close 2026-08-26:
+
 | Category | Item | Milestone |
 |----------|------|-----------|
-| Marketing | Reddit, LinkedIn, outreach copy | v1.2 Launch |
-| Infrastructure | usdr.science DNS, arXiv | v1.2 Launch |
-| Engineering | Epidemic FSS | Phase 2 (complete 2026-08-26) |
+| Marketing | Reddit, LinkedIn, outreach copy | v1.2 Launch (parked) |
+| Infrastructure | usdr.science DNS, arXiv | v1.2 Launch (parked) |
+| Ship Bar | ROBUST-01, WORK-01, WORK-02, UI-01 | Unscheduled |
+| Engineering | Epidemic freeze R² | Do not retune |
+| Process | `/gsd-audit-milestone` skipped at v1.1 close | Optional later |
+| Hub | Harvest-rank / curator-score implementation | After HUB-01 spec |
 
 ## Session Continuity
 
 Last session: 2026-08-26
-Stopped at: Phase 5 executed and orchestrator-verified (pytest 15/15, HUB-01 closed)
+Stopped at: v1.1 archived; local `main` = `origin/main` (`cda2526`) plus pending archive commit
 Resume file: None
-Duration (05-01): 6 min
 
-Local note: previous checkout was stale `launch/june-2026-shipping`. June-pause catalog drafts (climate cascades + zeta) stashed as `june-2026-pause leftover launch docs and climate drafts`. Parked until after v1.1.
-
-**Next command:** `/gsd-complete-milestone` (v1.1 Core Development is 11/11). Optional: `/gsd-verify-work 5` for hub click-through. v1.2 Launch remains parked.
+**Next command:** `/gsd-new-milestone` when you want more GSD phases — or keep working ad-hoc against the Ship Bar. Do not start v1.2 Launch unless you reopen marketing.
