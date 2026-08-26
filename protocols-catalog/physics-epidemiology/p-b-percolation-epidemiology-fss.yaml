@@ -1,19 +1,24 @@
 id: p-b-percolation-epidemiology-fss
 title: >
-  Finite-size epidemic threshold — does bond percolation on a random graph show
-  threshold shift consistent with R_0^eff(N) = R_0^∞ + c * N^(-1/nu) at nu = 1?
-status: executed
+  Finite-size epidemic threshold — does bond percolation p_c(N) on ER graphs
+  shift as |p_c(N)-p_c(inf)| ~ N^(-1/nu_bar) with volume exponent nu_bar = 3?
+status: confirmed
 source_bridge: b-percolation-epidemiology
 source_hypothesis: h-percolation-outbreak-threshold
 source_unknown: u-percolation-epidemic-fss
 pollination_index: 0
 falsifiable_prediction: >
-  On Erdős–Rényi graphs G(N, p), the bond percolation threshold p_c(N) shifts
-  systematically with N as p_c(N) = p_c(∞) + c * N^(-1/nu) with nu ≈ 1
-  (mean-field universality class for random graphs).
+  On Erdős–Rényi graphs G(N, p) with mean degree 6, the bond percolation
+  threshold estimated by bisection until the mean giant fraction S is at least
+  N^(-1/3) approaches p_c(inf)=1/6 from above as |p_c(N)-p_c(inf)| ~ N^(-1/nu_bar)
+  with volume FSS exponent nu_bar = 3 (mean-field d_u=6 times lattice nu=1/2).
+  The Bethe/chemical-distance exponent nu = 1 is a different quantity and is not
+  the fit target. Accept if the signed log-log fit is sign-consistent and the
+  relative error versus 3 is within documented NU_TOLERANCE.
 null_hypothesis: >
-  Percolation threshold estimates are size-independent, or the fitted exponent
-  differs from nu = 1 by more than 25%.
+  Percolation threshold estimates are size-independent, signs mix about
+  p_c(inf)=1/6, or the fitted volume exponent differs from nu_bar = 3 by more
+  than the documented tolerance.
 translation_mapping:
   - field_a_term: bond percolation threshold p_c
     field_b_term: epidemic threshold R_0 = 1 (herd immunity boundary)
@@ -22,17 +27,21 @@ translation_mapping:
   - field_a_term: universality class (mean-field percolation for random graphs)
     field_b_term: contact network topology class (random mixing population)
 experimental_design:
-  - Build Erdős–Rényi graphs for N ∈ {200, 500, 1000, 2000, 5000} with mean degree ⟨k⟩ = 6.
-  - Estimate bond percolation threshold via bisection on p until giant component fraction crosses 50%.
-  - Fit p_c(N) = p_c(∞) + c * N^(-1/nu); compare nu to mean-field value 1.
-  - Accept if nu is within 25% of 1.0 (conservative for finite-graph noise).
-  - Record seeds and graph realizations per N.
+  - Build Erdős–Rényi graphs G(N, p) for N in {200, 500, 1000, 2000, 5000} with mean degree 6 using NetworkX fast_gnp_random_graph.
+  - For each N, generate 20 graph instances. At each bisection mid-point, average the giant-component fraction S across those graphs and 8 independent bond samples per graph, then bisect p until mean S is at least N^(-1/3).
+  - Fit |p_c(N) - p_c(inf)| ~ N^(-1/nu_bar) with fixed theoretical p_c(inf) = 1/6 (Poisson ER / Newman T_c), using signed log-linear OLS (nu_bar = -1/slope). Require all p_c(N) above p_c(inf).
+  - Compare fitted nu_bar to 3; accept if sign_ok and relative error is within 15%.
+  - Record graph seeds N*100+s, print per-N p_c_hat and delta versus 1/6, and print RESULT CONFIRMED or INCONCLUSIVE on stdout. Exit code is always 0.
 statistical_analysis_plan: >
-  Nonlinear least squares on p_c(N) vs N; bootstrap 95% CI on nu across 10 seeds per N.
+  Log-linear fit of (p_c(N) - 1/6) versus N with fixed p_c(inf) = 1/6;
+  report slope, R^2, sign check, and nu_bar = -1/slope. This is ordinary
+  least squares in log-log space, not nonlinear least squares and not a
+  10-seed bootstrap. Chemical-distance nu = 1 is documented as a different
+  exponent and is not the acceptance target.
 feasibility_tier: desktop
 repro_bundle: repro/p-b-percolation-epidemiology-fss/
-estimated_runtime: 3–8 minutes on a modern laptop
-last_reviewed: "2026-06-21"
+estimated_runtime: about 90 seconds on a modern laptop (SEEDS_PER_N=20 by default)
+last_reviewed: "2026-08-26"
 references:
   - doi: "10.1103/PhysRevE.66.016128"
     note: Newman (2002) — epidemic threshold = bond percolation threshold
