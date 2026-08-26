@@ -1,8 +1,8 @@
 """Smoke tests for repo automation used as merge gates (see validate-schemas.yml).
 
 Includes catalog validation, domain page regression, dashboard stat consistency,
-an informational ``build_graph.py --report-orphans`` run, and a shape check for
-``api/v1/orphan_xref_panel.json``.
+an informational ``build_graph.py --report-orphans`` run, and shape checks for
+``api/v1/orphan_xref_panel.json`` and ``api/v1/recommendations.json``.
 
 Run from repo root::
 
@@ -56,3 +56,30 @@ def test_orphan_xref_panel_json() -> None:
         assert item.get("kind") in ("missing_xref_target", "orphan_unknown")
         assert item.get("reason")
         assert item.get("github_search_url")
+
+
+def test_recommendations_json() -> None:
+    """Committed hub recommendations JSON parses and matches the export contract."""
+    path = REPO_ROOT / "api" / "v1" / "recommendations.json"
+    assert path.is_file(), "api/v1/recommendations.json missing — run scripts/export_recommendations.py"
+    data = json.loads(path.read_text(encoding="utf-8"))
+    for key in ("generated_at", "source", "ranking", "disclaimer", "items"):
+        assert key in data
+    assert data["ranking"] == "undirected_degree"
+    assert "not a scientific ranking" in data["disclaimer"]
+    assert isinstance(data["items"], list)
+    assert len(data["items"]) <= 25
+    for item in data["items"]:
+        assert str(item.get("id", "")).startswith("b-")
+        assert item.get("kind") == "bridge"
+        assert isinstance(item.get("score"), int) and not isinstance(item.get("score"), bool)
+        assert "harvest_rank" not in item
+        assert "curator_score" not in item
+        blob = item.get("github_blob_url")
+        search = item.get("github_search_url")
+        assert search or blob
+        for url in (blob, search):
+            if url:
+                assert str(url).startswith("https://github.com/")
+    meta = json.loads((REPO_ROOT / "api" / "v1" / "meta.json").read_text(encoding="utf-8"))
+    assert meta.get("endpoints", {}).get("recommendations") == "api/v1/recommendations.json"

@@ -12,6 +12,7 @@ Endpoints:
   api/v1/graph.json         — same as docs/knowledge_graph.json (symlink/copy)
   api/v1/bridge_proposals.json — co-pilot proposals
   api/v1/orphan_xref_panel.json — hub panel: missing xrefs + orphan unknowns (see export_orphan_xref_panel.py)
+  api/v1/recommendations.json — hub panel: high-degree bridges (see export_recommendations.py)
   api/v1/breakthrough_gaps.json — breakthrough gap summaries
 
 Usage:
@@ -147,7 +148,8 @@ def main():
             "breakthrough_gaps": "api/v1/breakthrough_gaps.json",
             "domains": "api/v1/domains.json",
             "graph": "api/v1/graph.json",
-            "orphan_xref_panel": "api/v1/orphan_xref_panel.json"
+            "orphan_xref_panel": "api/v1/orphan_xref_panel.json",
+            "recommendations": "api/v1/recommendations.json",
         }
     }
 
