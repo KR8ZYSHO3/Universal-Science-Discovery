@@ -75,11 +75,19 @@ Cross-cutting constraints:
 **Success Criteria**:
   1. All CONFIRMED protocols gated in crosscheck-repro workflow
   2. repo_smoke covers epidemic + any new script entry points
-**Plans**: TBD
+**Plans**: 2/2 planned (2026-08-26)
 
 Plans:
-- [ ] 04-01: Unified CONFIRMED gates in CI
-- [ ] 04-02: repo_smoke expansion
+- **Wave 1**
+- [ ] 04-01: Unified CONFIRMED gates in CI — text inventory pytest + CONFIRMED-only docs
+- **Wave 2** *(blocked on Wave 1 completion)*
+- [ ] 04-02: repo_smoke expansion — generate `--dry-run` + GCC INCONCLUSIVE smoke
+
+Cross-cutting constraints:
+- Gate stdout `RESULT: CONFIRMED`, not YAML `status` (D-01)
+- Keep the four live `crosscheck-repro.yml` greps; never grep GCC CONFIRMED (D-02/D-03)
+- Epidemic freeze `NU_THEORY = 3.0` is untouched; no live NetworkX in pytest (D-05/D-06)
+- No marketing, DNS, arXiv, or fabricated `RESULT: CONFIRMED` (D-12/D-13)
 
 ### Phase 5: Hub engineering
 **Goal**: Phase C smart-recommendations has a spec and static prototype.
@@ -103,8 +111,8 @@ Outreach copy, Reddit/LinkedIn, `usdr.science`, arXiv, personal DMs — see `LAU
 |-------|----------------|--------|-----------|
 | 1. Crosscheck credibility | 3/3 | Complete | 2026-06-23 |
 | 2. Epidemic FSS precision | 3/3 | Complete | 2026-08-26 |
-| 3. Crosscheck scale-up | 1/2 | In progress | — |
-| 4. CI & trust hardening | 0/2 | Not started | — |
+| 3. Crosscheck scale-up | 2/2 | Complete | 2026-08-26 |
+| 4. CI & trust hardening | 0/2 | Ready to execute | — |
 | 5. Hub engineering | 0/1 | Not started | — |
 
 ---

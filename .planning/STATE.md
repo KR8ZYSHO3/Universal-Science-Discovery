@@ -6,18 +6,18 @@ See: `.planning/PROJECT.md` (updated 2026-06-23)
 
 **Core value:** Researchers can run falsifiable Crosscheck experiments in minutes.
 **Ship bar:** Single-dev robust · workflows excellent · interface awesome (see PROJECT.md § Ship Bar).
-**Current focus:** Phase 4 next (CI & trust hardening) — CROSS-06/07 closed pending verify-work
+**Current focus:** Phase 4 planned (CI & trust hardening) — ready to execute TRUST-02/03
 
 **Parked:** v1.2 Launch (marketing) — `LAUNCH_PLAYBOOK.md` — owner not interested until dev milestone ships.
 
 ## Current Position
 
-Phase: 3 of 5 (Crosscheck scale-up) — 03-02 complete
-Plan: 2 of 2 executed
-Status: Phase 3 plan 02 complete; current focus Phase 4 next
-Last activity: 2026-08-26 — 03-02 parity matrix, exit-code honesty, hub --apply
+Phase: 4 of 5 (CI & trust hardening) — planned
+Plan: 0 of 2 executed
+Status: Ready to execute
+Last activity: 2026-08-26 — Phase 4 planned (04-01 inventory gates, 04-02 entry-point smokes)
 
-Progress: [████████░░] 73% (8/11 plans complete)
+Progress: [████████░░] 73% (8/11 plans complete; 2 planned)
 
 ## Performance Metrics
 
@@ -26,6 +26,7 @@ Progress: [████████░░] 73% (8/11 plans complete)
 | 1 Crosscheck credibility | 3 | 3 | Complete |
 | 2 Epidemic FSS | 3 | 3 | Complete |
 | 3 Crosscheck scale-up | 2 | 2 | Complete |
+| 4 CI & trust hardening | 0 | 2 | Ready to execute |
 
 ## Accumulated Context
 
@@ -40,6 +41,7 @@ Progress: [████████░░] 73% (8/11 plans complete)
 - Crosscheck scale-up (03-01): generate path is `python scripts/generate_crosscheck.py --bridge b-percolation-oncology --write`; drafts/crosscheck/ gitignored; promote is human copy (no CLI); `p-b-percolation-oncology-gcc` status ready, pollination_index 1, never confirmed
 - Oncology GCC repro: L=32 TRIALS=8 stdlib lattice; always RESULT: INCONCLUSIVE and exit 0; no 5th CI CONFIRMED grep; epidemic NU_THEORY=3.0 untouched
 - Crosscheck scale-up (03-02): Run-mode parity section in `docs/CROSSCHECK.md` (Python canonical; browser/Colab demo tier); generate command and `drafts/crosscheck/physics-oncology/` documented; CROSS-06/07 closed pending verify-work
+- CI & trust hardening (planned 2026-08-26): TRUST-02 = pytest text inventory of CONFIRMED-capable `repro/**/*.py` vs four static `crosscheck-repro.yml` greps (not YAML `status`; never `yaml.safe_load`); GCC pytest-only INCONCLUSIVE; TRUST-03 = generate `--bridge b-percolation-oncology --dry-run` + live GCC smoke; epidemic freeze `NU_THEORY = 3.0` untouched; sequential 04-01 then 04-02
 
 ### Blockers/Concerns
 
@@ -60,10 +62,10 @@ None in `.planning/todos/pending/`.
 ## Session Continuity
 
 Last session: 2026-08-26
-Stopped at: Phase 3 executed and orchestrator-verified (pytest 10/10, validate_schemas 5 protocols, --check OK)
+Stopped at: Phase 4 planned and checker-passed (1 revision: 04-01 task 2 verify command)
 Resume file: None
-Duration (03-02): 4 min · 2 tasks · 16 files
+Duration (plan-phase 4): research + patterns + 2 plans + checker
 
 Local note: previous checkout was stale `launch/june-2026-shipping`. June-pause catalog drafts (climate cascades + zeta) stashed as `june-2026-pause leftover launch docs and climate drafts`. Parked until after v1.1.
 
-**Next command:** `/gsd-plan-phase 4`
+**Next command:** `/gsd-execute-phase 4`
