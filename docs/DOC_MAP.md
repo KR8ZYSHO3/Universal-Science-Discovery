@@ -2,7 +2,7 @@
 
 This map is the project traceability layer (delivered as part of **Phase 0 — Foundation**, now complete). When you change a guiding document, update the corresponding behaviors (rules, templates, or this map) in the same change.
 
-**Last updated:** 2026-05-15 — **`export_orphan_xref_panel.py`** + hub **Xref hygiene** panel (`api/v1/orphan_xref_panel.json`, **`build-graph.yml`** step). Earlier: **DEV_DASHBOARD.md** documents implemented hub Phase A (catalog search → graph focus → GitHub blob/raw); **`dashboard/index.html`** wires D3 zoom-to-node + GitHub deep links. Earlier: **CONTRIBUTING.md** local checks; **bug / feature** issue templates; **`tests/repo_smoke`** + **`validate-schemas.yml`**; **`OPERATING_RHYTHM.md`** dual-workflow notes; breakthrough gaps hub; roadmap § audit backlog; **repo audit:** [May 2026 full audit report](../.planning/reports/USDR_FULL_AUDIT_2026-05.md).
+**Last updated:** 2026-08-26 — **`export_recommendations.py`** + hub **`#recommendations`** panel (`api/v1/recommendations.json`, **`build-graph.yml`** after orphan export). Spec: **`HUB_RECOMMENDATIONS.md`**. Earlier: **`export_orphan_xref_panel.py`** + hub **Xref hygiene** panel (`api/v1/orphan_xref_panel.json`, **`build-graph.yml`** step). Earlier: **DEV_DASHBOARD.md** documents implemented hub Phase A (catalog search → graph focus → GitHub blob/raw); **`dashboard/index.html`** wires D3 zoom-to-node + GitHub deep links. Earlier: **CONTRIBUTING.md** local checks; **bug / feature** issue templates; **`tests/repo_smoke`** + **`validate-schemas.yml`**; **`OPERATING_RHYTHM.md`** dual-workflow notes; breakthrough gaps hub; roadmap § audit backlog; **repo audit:** [May 2026 full audit report](../.planning/reports/USDR_FULL_AUDIT_2026-05.md).
 
 ## Policy documents
 
@@ -29,6 +29,7 @@ This map is the project traceability layer (delivered as part of **Phase 0 — F
 | [GSD_INTEGRATION.md](GSD_INTEGRATION.md) | Optional get-shit-done / spec-driven workflows in Cursor | Boundaries vs [METHODOLOGY.md](METHODOLOGY.md), [DATA_PLAN.md](DATA_PLAN.md), [LEGAL.md](../LEGAL.md); does not replace contributor onboarding |
 | [PATH_TO_SUCCESS.md](PATH_TO_SUCCESS.md) | Strategic roadmap: discoverability, community growth, long-term sustainability | arXiv preprint submission; outreach; custom domain; external contributor recruitment |
 | [BREAKTHROUGH_GAPS.md](BREAKTHROUGH_GAPS.md) | Stewardship + phase-plan tie-in for `breakthrough-gaps/bg-*.yaml` | `render_breakthrough_gaps_hub.py`; `generate_api.py`; `schemas/breakthrough_gap.yaml`; [ROADMAP.md](../ROADMAP.md) integrated priorities |
+| [HUB_RECOMMENDATIONS.md](HUB_RECOMMENDATIONS.md) | Contributor-hub recommendations ranking (connectivity / harvest / curator); prototype computes undirected degree only | `export_recommendations.py`; `api/v1/recommendations.json`; hub `#recommendations`; not a scientific ranking |
 | [CODE_AUDIT.md](CODE_AUDIT.md) | Python script audit findings and fix history | Script quality standards; HIGH severity issues fixed; MEDIUM/LOW backlog |
 
 ## Catalog types and schemas
@@ -49,6 +50,7 @@ This map is the project traceability layer (delivered as part of **Phase 0 — F
 | `scripts/validate_schemas.py` | Validate all catalog YAML against JSON Schema | ✅ (`validate-schemas.yml` via **`pytest tests/repo_smoke`**; also **`validate.yml`** on path-filtered PRs) |
 | `scripts/build_graph.py` | Build `docs/knowledge_graph.json` | ✅ (build-graph.yml) |
 | `scripts/export_orphan_xref_panel.py` | Writes **`api/v1/orphan_xref_panel.json`** for the hub xref/orphan panel (YAML xref scan + filtered graph) | ✅ (build-graph.yml, after `build_graph.py`) |
+| `scripts/export_recommendations.py` | Writes **`api/v1/recommendations.json`** for the hub recommendations panel (undirected degree, bridges only) | ✅ (build-graph.yml, after orphan export) |
 | `scripts/generate_api.py` | Generate static JSON API under `api/v1/` | ✅ (build-graph.yml) |
 | `scripts/update_dashboard_stats.py` | Patch stat counters, hero **catalog snapshot** spans (`snap-*`, between `DASHBOARD_CATALOG_SNAPSHOT_*` markers), social meta, API blurbs, and graph placeholders in `dashboard/index.html` (reads `docs/knowledge_graph.json` meta for nodes/edges, with array-length fallback) | ✅ (build-graph.yml) |
 | `scripts/verify_dashboard_consistency.py` | Fail CI if `snap-*` / key `stat-*` / hero pill counts disagree with YAML catalog + `docs/knowledge_graph.json` | ✅ (validate-schemas.yml) |

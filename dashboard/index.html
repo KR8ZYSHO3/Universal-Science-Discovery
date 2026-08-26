@@ -974,6 +974,64 @@
       .orphan-xref-status[aria-busy="true"] .orphan-xref-spinner { animation: none; border-top-color: var(--border); }
     }
 
+    /* ── RECOMMENDATIONS PANEL (contributor tooling, not a ranking) ─ */
+    .rec-panel {
+      max-width: min(1100px, 94vw);
+      margin: 0 auto;
+    }
+    .rec-foot {
+      font-size: .78rem;
+      color: var(--muted);
+      margin-top: .75rem;
+      font-family: var(--mono);
+    }
+    .rec-table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      background: var(--surface);
+      margin-top: 1rem;
+    }
+    .rec-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .84rem;
+    }
+    .rec-table th,
+    .rec-table td {
+      padding: .55rem .65rem;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+    .rec-table th {
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--muted);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .rec-table tr:last-child td { border-bottom: none; }
+    .rec-score { font-family: var(--mono); color: var(--teal); white-space: nowrap; }
+    .rec-actions { white-space: nowrap; }
+    .rec-actions a { margin-right: .5rem; }
+    .rec-status { min-height: 1.25rem; font-size: .82rem; color: var(--muted); margin-top: .5rem; }
+    .rec-status[aria-busy="true"] .rec-spinner {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border: 2px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      margin-right: .35rem;
+      vertical-align: -2px;
+      animation: kg-spin 0.9s linear infinite;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .rec-status[aria-busy="true"] .rec-spinner { animation: none; border-top-color: var(--border); }
+    }
+
     /* ── KNOWLEDGE GRAPH ────────────────────────────────────── */
     .graph-section {
       padding: clamp(3rem,6vw,5rem) clamp(1.25rem,4vw,3rem);
@@ -1664,6 +1722,7 @@
       <a href="#crosscheck" title="Runnable Crosscheck protocols with in-browser or Colab demos">Crosscheck</a>
       <a href="#catalog-search" title="Full-text search across unknowns, bridges, hypotheses, and phenomena">Search</a>
       <a href="#orphan-xref-panel" title="Broken cross-reference targets you can fix in a pull request">Xref hygiene</a>
+      <a href="#recommendations" title="Existing bridges ranked by catalog-graph degree — contributor tooling, not a scientific ranking">Recommendations</a>
       <a href="#discovery-engines">Engines</a>
       <a href="#pioneers">Pioneers</a>
       <a href="#breakthrough-gaps">Breakthroughs</a>
@@ -2018,6 +2077,39 @@
           </table>
         </div>
         <p id="orphan-xref-foot" class="orphan-xref-foot" style="display:none;"></p>
+      </div>
+    </section>
+
+    <section id="recommendations" class="aos">
+      <div class="rec-panel">
+        <span class="section-tag">Contributor tooling</span>
+        <h2 class="section-title">High-connectivity bridges</h2>
+        <p class="section-desc">
+          Read-only list of existing bridges ranked by undirected catalog-graph degree
+          (not a scientific ranking and not a CONFIRMED or INCONCLUSIVE Crosscheck outcome).
+          Higher degree means more catalog links — leverage for a contributor looking where to connect next.
+          Harvest rank and curator score are specified for a later phase and are not computed here.
+          See <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/docs/HUB_RECOMMENDATIONS.md" target="_blank" rel="noopener">docs/HUB_RECOMMENDATIONS.md</a>.
+        </p>
+        <p id="recommendations-status" class="rec-status" role="status" aria-live="polite" aria-busy="true">
+          <span class="rec-spinner" aria-hidden="true"></span>Loading recommendations…
+        </p>
+        <div id="recommendations-empty" class="section-desc" style="display:none;margin-top:.5rem;color:var(--muted);">
+          No rows in this export (or JSON not found).
+        </div>
+        <div id="recommendations-table-wrap" class="rec-table-wrap" style="display:none;">
+          <table class="rec-table" aria-label="High-connectivity bridges">
+            <thead>
+              <tr>
+                <th scope="col">Score</th>
+                <th scope="col">Bridge</th>
+                <th scope="col">Links</th>
+              </tr>
+            </thead>
+            <tbody id="recommendations-tbody"></tbody>
+          </table>
+        </div>
+        <p id="recommendations-foot" class="rec-foot" style="display:none;"></p>
       </div>
     </section>
 
@@ -2548,6 +2640,11 @@
           <code>GET /api/v1/orphan_xref_panel.json</code>
           <span>Capped list of missing xref targets and disconnected unknowns for the hub panel (regenerate via export script)</span>
           <span class="api-endpoint-badge">~40 KB</span>
+        </a>
+        <a href="../api/v1/recommendations.json" class="api-endpoint" target="_blank" rel="noopener">
+          <code>GET /api/v1/recommendations.json</code>
+          <span>Capped list of existing bridges ranked by undirected graph degree (contributor tooling; regenerate via export script)</span>
+          <span class="api-endpoint-badge">~8 KB</span>
         </a>
       </div>
     </section>
@@ -4957,6 +5054,110 @@
             footEl.style.display = 'block';
             footEl.textContent = 'Generated: ' + data.generated_at
               + (data.meta && data.meta.item_cap ? ' · capped at ' + data.meta.item_cap + ' rows' : '');
+          }
+        })
+        .catch(function () { tryFetch(i + 1); });
+    }
+    tryFetch(0);
+  })();
+  </script>
+
+  <script>
+  /* Recommendations panel — static JSON (no graph walk in browser) */
+  (function () {
+    var statusEl = document.getElementById('recommendations-status');
+    var emptyEl = document.getElementById('recommendations-empty');
+    var wrapEl = document.getElementById('recommendations-table-wrap');
+    var tbody = document.getElementById('recommendations-tbody');
+    var footEl = document.getElementById('recommendations-foot');
+    if (!statusEl || !tbody) return;
+
+    function apiBase() {
+      var loc = window.location.href;
+      if (loc.indexOf('github.io') !== -1) return 'https://kr8zysho3.github.io/Universal-Science-Discovery/';
+      if (loc.indexOf('/dashboard/') !== -1) return loc.replace(/dashboard\/.*$/, '');
+      return '../';
+    }
+    var paths = [
+      apiBase() + 'api/v1/recommendations.json',
+      '../api/v1/recommendations.json'
+    ];
+
+    function githubHref(url) {
+      return typeof url === 'string' && url.indexOf('https://github.com/') === 0;
+    }
+
+    function done(msg, busy) {
+      statusEl.textContent = msg || '';
+      statusEl.setAttribute('aria-busy', busy ? 'true' : 'false');
+    }
+
+    function tryFetch(i) {
+      if (i >= paths.length) {
+        done('Could not load recommendations JSON (offline or missing file).', false);
+        if (emptyEl) emptyEl.style.display = 'block';
+        return;
+      }
+      fetch(paths[i])
+        .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error(String(r.status))); })
+        .then(function (data) {
+          var items = (data && Array.isArray(data.items)) ? data.items : [];
+          done('', false);
+          if (!items.length) {
+            done('No rows in this export (or JSON not found).', false);
+            if (emptyEl) emptyEl.style.display = 'block';
+            if (wrapEl) wrapEl.style.display = 'none';
+            if (footEl) footEl.style.display = 'none';
+            return;
+          }
+          if (emptyEl) emptyEl.style.display = 'none';
+          if (wrapEl) wrapEl.style.display = 'block';
+          tbody.textContent = '';
+          items.forEach(function (item) {
+            if (!item || typeof item !== 'object') return;
+            var tr = document.createElement('tr');
+            var tdScore = document.createElement('td');
+            tdScore.className = 'rec-score';
+            tdScore.textContent = String(item.score);
+            var tdTitle = document.createElement('td');
+            tdTitle.textContent = item.title || item.id || '';
+            tdTitle.appendChild(document.createElement('br'));
+            var code = document.createElement('code');
+            code.style.fontSize = '.78rem';
+            code.style.color = 'var(--teal)';
+            code.textContent = item.id || '';
+            tdTitle.appendChild(code);
+            var tdAct = document.createElement('td');
+            tdAct.className = 'rec-actions';
+            if (githubHref(item.github_search_url)) {
+              var aSearch = document.createElement('a');
+              aSearch.href = item.github_search_url;
+              aSearch.target = '_blank';
+              aSearch.rel = 'noopener';
+              aSearch.textContent = 'View on GitHub';
+              tdAct.appendChild(aSearch);
+            }
+            if (githubHref(item.github_blob_url)) {
+              if (tdAct.childNodes.length) tdAct.appendChild(document.createTextNode(' '));
+              var aBlob = document.createElement('a');
+              aBlob.href = item.github_blob_url;
+              aBlob.target = '_blank';
+              aBlob.rel = 'noopener';
+              aBlob.textContent = 'YAML blob';
+              tdAct.appendChild(aBlob);
+            }
+            tr.appendChild(tdScore);
+            tr.appendChild(tdTitle);
+            tr.appendChild(tdAct);
+            tbody.appendChild(tr);
+          });
+          if (footEl) {
+            var ranking = data.ranking || 'undirected_degree';
+            var cap = (data.meta && data.meta.item_cap) ? String(data.meta.item_cap) : '';
+            footEl.style.display = 'block';
+            footEl.textContent = 'Generated: ' + (data.generated_at || '')
+              + ' · ranking=' + ranking
+              + (cap ? ' · capped at ' + cap + ' rows' : '');
           }
         })
         .catch(function () { tryFetch(i + 1); });

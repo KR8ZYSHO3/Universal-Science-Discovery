@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added — Hub recommendations thin slice (HUB-01)
+- **`docs/HUB_RECOMMENDATIONS.md`:** ranking spec (connectivity / harvest / curator); prototype computes undirected degree only. Contributor tooling, not a scientific ranking.
+- **`scripts/export_recommendations.py`:** writes **`api/v1/recommendations.json`** (≤25 bridges by undirected degree).
+- **`dashboard/index.html`:** `#recommendations` table fetch (clone of xref hygiene panel).
+- **`build-graph.yml`:** export step after orphan panel.
+- **`api/v1/meta.json`:** `endpoints.recommendations`; **`scripts/generate_api.py`** keeps the key.
+- **Docs:** **`docs/DEV_DASHBOARD.md`**, **`docs/DOC_MAP.md`**, **`docs/REPOSITORY_MANIFEST.md`**, **`scripts/README.md`**, **`dashboard/README.md`**, **`mkdocs.yml`** nav.
+
 ### Added — Crosscheck entry-point smokes
 - **`tests/repo_smoke/test_crosscheck_entry_points.py`:** `generate_crosscheck.py --bridge b-percolation-oncology --dry-run` (exit 0, `p-b-` on stdout; no `--write`) and live `giant_component_fraction.py` (`RESULT: INCONCLUSIVE`, exit 0).
 
