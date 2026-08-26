@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added — Crosscheck CONFIRMED-gate inventory
+- **`tests/repo_smoke/test_crosscheck_confirmed_gates.py`:** Text inventory of CONFIRMED-capable `repro/**/*.py` vs `.github/workflows/crosscheck-repro.yml` (four `grep -q "RESULT: CONFIRMED"` steps). GCC is INCONCLUSIVE-only and must not share a CONFIRMED grep step.
+- **`docs/CROSSCHECK.md`:** Run-mode parity CI column states CONFIRMED-only grep policy (four seeds grepped CONFIRMED; GCC must not be).
+
 ### Added — Crosscheck generate/promote path and run-mode parity
 - **`docs/CROSSCHECK.md`:** Happy-path generate is `python scripts/generate_crosscheck.py --bridge b-percolation-oncology --write` (drafts at `drafts/crosscheck/physics-oncology/`). Promote is manual copy + PR (no Crosscheck promote CLI). Catalog lists four CI-gated seeds plus **`p-b-percolation-oncology-gcc`** (status `ready`; local stdlib demo prints `RESULT: INCONCLUSIVE`). **Run-mode parity** table: Python is canonical; browser and Colab are demo tier.
 - **`dashboard/index.html`:** Static Crosscheck blurb links `docs/CROSSCHECK.md#run-mode-parity`. Hub grid regenerated via `build_crosscheck.py --apply` (fifth card for the oncology GCC protocol).
