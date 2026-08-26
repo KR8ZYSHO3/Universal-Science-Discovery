@@ -75,11 +75,11 @@ Cross-cutting constraints:
 **Success Criteria**:
   1. All CONFIRMED protocols gated in crosscheck-repro workflow
   2. repo_smoke covers epidemic + any new script entry points
-**Plans**: 2/2 planned (2026-08-26)
+**Plans**: 1/2 complete (2026-08-26)
 
 Plans:
 - **Wave 1**
-- [ ] 04-01: Unified CONFIRMED gates in CI — text inventory pytest + CONFIRMED-only docs
+- [x] 04-01: Unified CONFIRMED gates in CI — text inventory pytest + CONFIRMED-only docs — 2026-08-26
 - **Wave 2** *(blocked on Wave 1 completion)*
 - [ ] 04-02: repo_smoke expansion — generate `--dry-run` + GCC INCONCLUSIVE smoke
 
@@ -112,7 +112,7 @@ Outreach copy, Reddit/LinkedIn, `usdr.science`, arXiv, personal DMs — see `LAU
 | 1. Crosscheck credibility | 3/3 | Complete | 2026-06-23 |
 | 2. Epidemic FSS precision | 3/3 | Complete | 2026-08-26 |
 | 3. Crosscheck scale-up | 2/2 | Complete | 2026-08-26 |
-| 4. CI & trust hardening | 0/2 | Ready to execute | — |
+| 4. CI & trust hardening | 1/2 | In Progress | — |
 | 5. Hub engineering | 0/1 | Not started | — |
 
 ---

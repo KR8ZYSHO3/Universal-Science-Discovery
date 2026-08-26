@@ -22,7 +22,7 @@
 ### Trust surfaces & CI
 
 - [x] **TRUST-01**: Stale dashboard graph removed — Phase 1 (#300)
-- [ ] **TRUST-02**: All CONFIRMED protocols gated in `crosscheck-repro.yml` — Phase 4
+- [x] **TRUST-02**: All CONFIRMED protocols gated in `crosscheck-repro.yml` — Phase 4 (04-01 inventory pytest + four live greps)
 - [ ] **TRUST-03**: Additional repo_smoke tests for epidemic + script entry points — Phase 4
 
 ### Hub engineering
@@ -49,10 +49,11 @@
 | CROSS-04 | Phase 2 | Complete (02-01/02-02/02-03) |
 | CROSS-06 | Phase 3 | Complete (03-01 generate/promote/repro) |
 | CROSS-07 | Phase 3 | Complete (03-02 parity matrix) |
-| TRUST-02, TRUST-03 | Phase 4 | Pending |
+| TRUST-02 | Phase 4 | Complete (04-01 inventory pytest) |
+| TRUST-03 | Phase 4 | Pending |
 | HUB-01 | Phase 5 | Pending |
 
-**Coverage:** 10 v1.1 dev requirements · 8 complete · 2 pending
+**Coverage:** 10 v1.1 dev requirements · 9 complete · 1 pending
 
 ---
-*Last updated: 2026-08-26 — CROSS-07 run-mode parity closed in 03-02*
+*Last updated: 2026-08-26 — TRUST-02 CONFIRMED-gate inventory closed in 04-01*

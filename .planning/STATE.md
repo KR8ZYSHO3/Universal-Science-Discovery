@@ -6,18 +6,18 @@ See: `.planning/PROJECT.md` (updated 2026-06-23)
 
 **Core value:** Researchers can run falsifiable Crosscheck experiments in minutes.
 **Ship bar:** Single-dev robust · workflows excellent · interface awesome (see PROJECT.md § Ship Bar).
-**Current focus:** Phase 4 planned (CI & trust hardening) — ready to execute TRUST-02/03
+**Current focus:** Phase 4 in progress (CI & trust hardening) — 04-01 TRUST-02 complete; next 04-02 TRUST-03
 
 **Parked:** v1.2 Launch (marketing) — `LAUNCH_PLAYBOOK.md` — owner not interested until dev milestone ships.
 
 ## Current Position
 
-Phase: 4 of 5 (CI & trust hardening) — planned
-Plan: 0 of 2 executed
-Status: Ready to execute
-Last activity: 2026-08-26 — Phase 4 planned (04-01 inventory gates, 04-02 entry-point smokes)
+Phase: 4 of 5 (CI & trust hardening) — executing
+Plan: 1 of 2 executed
+Status: In progress — Wave 1 complete (04-01)
+Last activity: 2026-08-26 — 04-01 TRUST-02 inventory complete
 
-Progress: [████████░░] 73% (8/11 plans complete; 2 planned)
+Progress: [█████████░] 82% (9/11 plans complete; 1 remaining in phase 4)
 
 ## Performance Metrics
 
@@ -26,7 +26,7 @@ Progress: [████████░░] 73% (8/11 plans complete; 2 planned)
 | 1 Crosscheck credibility | 3 | 3 | Complete |
 | 2 Epidemic FSS | 3 | 3 | Complete |
 | 3 Crosscheck scale-up | 2 | 2 | Complete |
-| 4 CI & trust hardening | 0 | 2 | Ready to execute |
+| 4 CI & trust hardening | 1 | 2 | In progress |
 
 ## Accumulated Context
 
@@ -42,6 +42,7 @@ Progress: [████████░░] 73% (8/11 plans complete; 2 planned)
 - Oncology GCC repro: L=32 TRIALS=8 stdlib lattice; always RESULT: INCONCLUSIVE and exit 0; no 5th CI CONFIRMED grep; epidemic NU_THEORY=3.0 untouched
 - Crosscheck scale-up (03-02): Run-mode parity section in `docs/CROSSCHECK.md` (Python canonical; browser/Colab demo tier); generate command and `drafts/crosscheck/physics-oncology/` documented; CROSS-06/07 closed pending verify-work
 - CI & trust hardening (planned 2026-08-26): TRUST-02 = pytest text inventory of CONFIRMED-capable `repro/**/*.py` vs four static `crosscheck-repro.yml` greps (not YAML `status`; never `yaml.safe_load`); GCC pytest-only INCONCLUSIVE; TRUST-03 = generate `--bridge b-percolation-oncology --dry-run` + live GCC smoke; epidemic freeze `NU_THEORY = 3.0` untouched; sequential 04-01 then 04-02
+- CI & trust hardening (04-01): TRUST-02 closed — `test_crosscheck_confirmed_gates.py` pairs four CONFIRMED-capable seeds with four static greps; GCC not grepped CONFIRMED; `docs/CROSSCHECK.md` CONFIRMED-only policy; workflow YAML untouched
 
 ### Blockers/Concerns
 
@@ -62,9 +63,9 @@ None in `.planning/todos/pending/`.
 ## Session Continuity
 
 Last session: 2026-08-26
-Stopped at: Phase 4 planned and checker-passed (1 revision: 04-01 task 2 verify command)
+Stopped at: Completed 04-01-PLAN.md
 Resume file: None
-Duration (plan-phase 4): research + patterns + 2 plans + checker
+Duration (04-01): 6 min
 
 Local note: previous checkout was stale `launch/june-2026-shipping`. June-pause catalog drafts (climate cascades + zeta) stashed as `june-2026-pause leftover launch docs and climate drafts`. Parked until after v1.1.
 
