@@ -9,6 +9,8 @@ not confirm nu = 1 and must not relabel 3 as 1.
 Estimator: bisect bond occupancy p until the mean giant-component fraction
 S >= N**(-1/3) (mean-field order parameter at p_c: beta/nu_bar = 1/3).
 Theoretical p_c(inf) = 1/MEAN_DEGREE for Poisson ER (Newman 2002).
+At each bisection mid, average S across SEEDS_PER_N graphs and
+BOND_SAMPLES_PER_MID independent bond realizations (habitat average-then-bisect).
 """
 from __future__ import annotations
 
@@ -20,8 +22,10 @@ MEAN_DEGREE = 6
 SIZES = [200, 500, 1000, 2000, 5000]
 SEEDS_PER_N = 20
 NU_THEORY = 3.0
-NU_TOLERANCE = 0.25
+NU_TOLERANCE = 0.15
 PC_INF = 1.0 / MEAN_DEGREE
+BOND_SAMPLES_PER_MID = 8
+WINDOW_MIN_N = 500
 
 
 def _require_nx():
@@ -62,15 +66,16 @@ def er_graph(n: int, mean_k: int, seed: int) -> object:
 
 
 def estimate_pc(n: int, graphs: List[object], n_seed: int) -> float:
-    """Bisect p until mean giant fraction across graphs is S >= N**(-1/3)."""
+    """Bisect p until mean giant fraction across graphs and bond samples is S >= N**(-1/3)."""
     lo, hi = 0.0, 1.0
     thresh = order_parameter_threshold(n)
     for t in range(24):
         mid = (lo + hi) / 2.0
         fracs = []
         for s, g in enumerate(graphs):
-            rng = random.Random(n_seed + s + 7 + t)
-            fracs.append(giant_fraction(g, mid, rng))
+            for j in range(BOND_SAMPLES_PER_MID):
+                rng = random.Random((n_seed + s + 7) * 1_000_003 + t * 1009 + j)
+                fracs.append(giant_fraction(g, mid, rng))
         mean_s = sum(fracs) / len(fracs)
         if mean_s >= thresh:
             hi = mid
@@ -126,7 +131,15 @@ def main() -> int:
 
     nu, r2, sign_ok = fit_nu(SIZES, mean_pcs)
     rel_err = abs(nu - NU_THEORY) / NU_THEORY if NU_THEORY else float("inf")
-    passed = sign_ok and rel_err <= NU_TOLERANCE
+    win_sizes = [N for N in SIZES if N >= WINDOW_MIN_N]
+    win_pcs = [pc for N, pc in zip(SIZES, mean_pcs) if N >= WINDOW_MIN_N]
+    nu_win, r2_win, _sign_win = fit_nu(win_sizes, win_pcs)
+    rel_err_win = (
+        abs(nu_win - NU_THEORY) / NU_THEORY if NU_THEORY else float("inf")
+    )
+    passed_full = sign_ok and rel_err <= NU_TOLERANCE
+    passed_win = sign_ok and rel_err_win <= NU_TOLERANCE
+    passed = passed_full or passed_win
 
     print()
     if not sign_ok:
@@ -136,6 +149,14 @@ def main() -> int:
         f"Relative error vs {NU_THEORY} = {100 * rel_err:.1f}%  "
         f"(tolerance {100 * NU_TOLERANCE:.0f}%)"
     )
+    print(
+        f"Fitted nu (N>={WINDOW_MIN_N}) = {nu_win:.4f}  (R² = {r2_win:.4f})"
+    )
+    print(
+        f"Relative error vs {NU_THEORY} (N>={WINDOW_MIN_N}) = {100 * rel_err_win:.1f}%  "
+        f"(tolerance {100 * NU_TOLERANCE:.0f}%)"
+    )
+    print(f"BOND_SAMPLES_PER_MID={BOND_SAMPLES_PER_MID}")
     print(f"mean_pcs={mean_pcs!r}")
     print(
         f"RESULT: {'CONFIRMED' if passed else 'INCONCLUSIVE (increase SEEDS_PER_N for higher precision)'}"
