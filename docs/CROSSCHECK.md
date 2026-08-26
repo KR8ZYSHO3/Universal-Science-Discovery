@@ -41,11 +41,11 @@ Same governance as Wave Factory: automation proposes, humans merge.
 ## Quick start
 
 ```bash
-# Preview protocols from a bridge
+# Preview protocols from a single bridge (dry-run; any one bridge is fine)
 python scripts/generate_crosscheck.py --bridge b-habitat-percolation-ecology --dry-run
 
-# Write drafts for review
-python scripts/generate_crosscheck.py --bridge b-habitat-percolation-ecology --write
+# Happy-path write (do not use --all — too noisy)
+python scripts/generate_crosscheck.py --bridge b-percolation-oncology --write
 
 # Run a seed protocol (browser demo — no install)
 # https://kr8zysho3.github.io/Universal-Science-Discovery/repro/p-b-habitat-percolation-ecology-fss/index.html
@@ -58,6 +58,8 @@ python repro/p-b-habitat-percolation-ecology-fss/simulate_percolation_fss.py
 python scripts/validate_schemas.py
 ```
 
+Drafts land at `drafts/crosscheck/<parent of the bridge YAML relative to cross-domain/>/<protocol_id>.yaml`. For the command above that is `drafts/crosscheck/physics-oncology/p-b-percolation-oncology-*.yaml` (opportunity 1 raw id `p-b-percolation-oncology-percolation-derived-metrics-giant-compon`). Do not use `--all` as the documented happy path.
+
 ---
 
 ## Protocol catalog
@@ -66,15 +68,33 @@ Canonical protocols live in [`protocols-catalog/`](../protocols-catalog/). Seed 
 
 | Protocol | Bridge | Tier |
 |----------|--------|------|
-| `p-b-habitat-percolation-ecology-fss` | Habitat fragmentation ↔ percolation | desktop |
-| `p-b-habitat-percolation-ecology-cluster-exponent` | Same bridge, cluster size distribution | desktop |
-| `p-b-percolation-epidemiology-fss` | Epidemic threshold ↔ bond percolation | desktop (Colab) |
+| `p-b-habitat-percolation-ecology-fss` | Habitat fragmentation ↔ percolation | desktop (browser demo) |
+| `p-b-habitat-percolation-ecology-cluster-exponent` | Same bridge, cluster size distribution | desktop (browser demo) |
+| `p-b-ising-social-dynamics-ewi` | Ising ↔ social dynamics EWI | desktop (browser demo) |
+| `p-b-percolation-epidemiology-fss` | Epidemic threshold ↔ bond percolation | desktop (Colab demo) |
+| `p-b-percolation-oncology-gcc` | Tumor vasculature ↔ percolation GCC | desktop (local Python; INCONCLUSIVE) |
+
+## Run-mode parity
+
+Python is canonical; browser and Colab are demo tier.
+
+| protocol id | Python canonical | browser JS | Colab | CI grep CONFIRMED | RESULT contract |
+|-------------|--------------|------------|-------|-------------------|-----------------|
+| `p-b-habitat-percolation-ecology-fss` | `simulate_percolation_fss.py` (L∈{16,32,64,128}, `TRIALS_PER_P=350`) | yes, `simulate_percolation_fss.js` (same L, `TRIALS_PER_P=120`) | no | yes | stdout `RESULT:` token; Python `return 0` always |
+| `p-b-habitat-percolation-ecology-cluster-exponent` | `cluster_size_exponent.py` (`P=0.59`, `L=256`, `SEEDS=20`) | yes, `cluster_size_exponent.js` (`P=0.592`, `L=128`) | no | yes | stdout `RESULT:` on success; can `return 1` if too few clusters / NaN fit |
+| `p-b-ising-social-dynamics-ewi` | `ising_critical_slowing.py` (`LATTICE_SIZE=48`) | yes, `ising_critical_slowing.js` (`L=32`, lighter sweeps) | no | yes | stdout `RESULT:` token; Python `return 0` always |
+| `p-b-percolation-epidemiology-fss` | `epidemic_percolation_fss.py` (networkx; freeze `NU_THEORY=3.0`) | **no** (not in `BROWSER_RUNNERS`; D-09) | yes, `run_crosscheck.ipynb` | yes | stdout `RESULT:` token; Python `return 0` always |
+| `p-b-percolation-oncology-gcc` | `giant_component_fraction.py` (`L=32`, `TRIALS=8`) | **no** | **no** | **no** (Phase 4 TRUST-02) | stdout `RESULT: INCONCLUSIVE`; Python `return 0` always |
 
 ---
 
 ## Contributing a protocol
 
-**Without code** — promote a draft from `drafts/crosscheck/` after filling in `experimental_design` and `falsifiable_prediction`.
+Fill `null_hypothesis`, `statistical_analysis_plan`, and an honest `experimental_design` (not generator TODOs and not a `[DRAFT]` title). Then **manual copy + PR** into `protocols-catalog/<same parent as the bridge>/`. There is **no** Crosscheck promote CLI. Do not run `promote_wave_factory_batch.py` on protocols.
+
+- Set `status: ready` (never `confirmed` unless a local run printed `RESULT: CONFIRMED`).
+- Set `repro_bundle: repro/<protocol-id>/`.
+- Then `python scripts/validate_schemas.py`.
 
 **With code** — add a `repro/{protocol-id}/` bundle:
 
@@ -84,8 +104,6 @@ repro/p-b-your-protocol-id/
 ├── requirements.txt
 └── your_script.py
 ```
-
-Set `repro_bundle` in the protocol YAML to `repro/p-b-your-protocol-id/`.
 
 See [`schemas/protocol.yaml`](../schemas/protocol.yaml) for the full schema.
 
@@ -112,6 +130,8 @@ Crosscheck does not replace bridges or hypotheses — it **operationalizes** the
 | **Phase 2** | Protocol links on bridge explainer pages in the dashboard |
 | **Phase 3** | Execution results YAML fed back to hypothesis validation |
 | **Phase 4** | Unified percolation toolkit across ecology, epidemiology, oncology bridges |
+
+Those Phase 3 / Phase 4 rows are **not** GSD Phase 3. GSD Phase 3 is generate/promote plus this parity matrix. Do not implement results-YAML feedback or a unified percolation toolkit here (deferred).
 
 ---
 
