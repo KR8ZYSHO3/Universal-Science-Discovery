@@ -55,12 +55,12 @@ Cross-cutting constraints:
 **Success Criteria**:
   1. `generate_crosscheck.py` run documented for ≥1 new bridge
   2. Parity doc: Python vs browser outcome tiers per protocol
-**Plans**: 2 (planned 2026-08-26)
+**Plans**: 1/2 complete (2026-08-26)
 
 Plans:
 - **Wave 1**
-- [ ] 03-01: Generate + promote + stdlib repro for `b-percolation-oncology` (`p-b-percolation-oncology-gcc`)
-- **Wave 2** *(blocked on Wave 1 completion)*
+- [x] 03-01: Generate + promote + stdlib repro for `b-percolation-oncology` (`p-b-percolation-oncology-gcc`) — INCONCLUSIVE 2026-08-26
+- **Wave 2**
 - [ ] 03-02: Browser/Colab parity matrix in `docs/CROSSCHECK.md` + hub + `--apply`
 
 Cross-cutting constraints:
@@ -103,7 +103,7 @@ Outreach copy, Reddit/LinkedIn, `usdr.science`, arXiv, personal DMs — see `LAU
 |-------|----------------|--------|-----------|
 | 1. Crosscheck credibility | 3/3 | Complete | 2026-06-23 |
 | 2. Epidemic FSS precision | 3/3 | Complete | 2026-08-26 |
-| 3. Crosscheck scale-up | 0/2 | Not started | — |
+| 3. Crosscheck scale-up | 1/2 | In progress | — |
 | 4. CI & trust hardening | 0/2 | Not started | — |
 | 5. Hub engineering | 0/1 | Not started | — |
 

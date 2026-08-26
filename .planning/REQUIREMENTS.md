@@ -16,7 +16,7 @@
 
 ### Crosscheck scale-up
 
-- [ ] **CROSS-06**: Second-bridge protocol drafts promoted or generated via `generate_crosscheck.py` — Phase 3
+- [x] **CROSS-06**: Second-bridge protocol drafts promoted or generated via `generate_crosscheck.py` — Phase 3 (03-01: `b-percolation-oncology` → `p-b-percolation-oncology-gcc`)
 - [ ] **CROSS-07**: Browser runner outputs documented vs Python canonical (parity matrix) — Phase 3
 
 ### Trust surfaces & CI
@@ -47,11 +47,12 @@
 |-------------|-------|--------|
 | CROSS-01–03, CROSS-05, TRUST-01 | Phase 1 | Complete |
 | CROSS-04 | Phase 2 | Complete (02-01/02-02/02-03) |
-| CROSS-06, CROSS-07 | Phase 3 | Pending |
+| CROSS-06 | Phase 3 | Complete (03-01 generate/promote/repro) |
+| CROSS-07 | Phase 3 | Pending (03-02) |
 | TRUST-02, TRUST-03 | Phase 4 | Pending |
 | HUB-01 | Phase 5 | Pending |
 
-**Coverage:** 10 v1.1 dev requirements · 6 complete · 4 pending
+**Coverage:** 10 v1.1 dev requirements · 7 complete · 3 pending
 
 ---
-*Last updated: 2026-08-26 — CROSS-04 catalog/Colab closed in 02-03*
+*Last updated: 2026-08-26 — CROSS-06 generate/promote/repro closed in 03-01*
