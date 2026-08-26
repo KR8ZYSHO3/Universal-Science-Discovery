@@ -18,14 +18,14 @@
         <link rel="prev" href="../UAT_INGEST/">
       
       
-        <link rel="next" href="../GSD_INTEGRATION/">
+        <link rel="next" href="../HUB_RECOMMENDATIONS/">
       
       
         
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -540,6 +540,34 @@
     
   
     Collaboration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../STEWARDS_CHARTER/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stewards charter
   
 
     
@@ -1081,6 +1109,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HUB_RECOMMENDATIONS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hub recommendations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -2503,6 +2559,90 @@
   
   
     <li class="md-nav__item">
+      <a href="../outreach/CROSSCHECK_LAUNCH_STORY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Crosscheck launch story
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../outreach/LAUNCH_DAY_ACTIONS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Launch day actions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../outreach/READY_TO_POST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ready to post
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../outreach/early_stewards_call/" class="md-nav__link">
         
   
@@ -3043,25 +3183,9 @@
 <h3 id="phase-a-hub-flow-catalog-search-graph-focus-github-implemented">Phase A hub flow — catalog search → graph focus → GitHub (implemented)<a class="headerlink" href="#phase-a-hub-flow-catalog-search-graph-focus-github-implemented" title="Permanent link">&para;</a></h3>
 <p><strong>Shipped in hub JS (<code>dashboard/index.html</code>):</strong> choosing a <strong>catalog search</strong> hit scrolls to <strong>Knowledge graph</strong>, <strong>highlights</strong> the node neighborhood, <strong>zoom/pans</strong> (D3) toward that node when layout coordinates exist, and opens the <strong>detail panel</strong> (YAML preview via raw GitHub). Each result card includes <strong>View YAML on GitHub</strong> (repo-scoped code search by filename). The node panel offers <strong>blob</strong> and <strong>raw</strong> links built from <code>GITHUB_REPO_OWNER</code> / <code>GITHUB_REPO_NAME</code> / <code>GITHUB_DEFAULT_BRANCH</code>. Prefer verifying behavior with a local server: <code>python -m http.server 8765</code> → <code>http://localhost:8765/dashboard/</code>. Large refactors should still land on a short-lived branch (for example <strong><code>feat/dashboard-search-graph-flow</code></strong>) with the same smoke check.</p>
 <h3 id="phase-c-hub-ideas-planned-not-shipped">Phase C hub ideas (planned — not shipped)<a class="headerlink" href="#phase-c-hub-ideas-planned-not-shipped" title="Permanent link">&para;</a></h3>
-<p><strong>Purpose:</strong> capture the next UX layer after search → graph → GitHub without committing to a heavy client bundle prematurely.</p>
-<table>
-<thead>
-<tr>
-<th>Idea</th>
-<th>Direction</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Smart recommendations</strong></td>
-<td>Surfacing high-leverage bridges / unknowns from graph metrics or maintainer-curated scores</td>
-<td>Needs a spec for what “smart” optimizes (connectivity, novelty, harvest rank) and whether results are static JSON or computed in CI.</td>
-</tr>
-</tbody>
-</table>
+<p><strong>Purpose:</strong> capture the next UX layer after search → graph → GitHub without committing to a heavy client bundle prematurely. Harvest rank and curator score remain specified (not computed) in <a href="../HUB_RECOMMENDATIONS/"><code>docs/HUB_RECOMMENDATIONS.md</code></a>.</p>
 <p><strong>Shipped (thin slice):</strong> <strong>Orphan / xref hygiene</strong> — <a href="../dashboard/index.html"><code>dashboard/index.html</code></a> loads <strong><code>api/v1/orphan_xref_panel.json</code></strong> (cap ~100 rows). Regenerate with <strong><code>python scripts/export_orphan_xref_panel.py</code></strong> after catalog batches (also runs in <strong><code>build-graph.yml</code></strong> immediately after <strong><code>build_graph.py</code></strong>). Deeper CLI checks remain <strong><code>python scripts/find_orphan_unknowns.py</code></strong> and <strong><code>python -X utf8 scripts/build_graph.py --report-orphans</code></strong> (<strong><code>tests/repo_smoke</code></strong>).</p>
-<p>When <strong>smart recommendations</strong> ships, promote it from this stub into the playbook table in § <strong>1) What changed? → What to refresh</strong> and link any new scripts from <strong><code>docs/DOC_MAP.md</code></strong>.</p>
+<p><strong>Shipped (thin slice):</strong> <strong>Hub recommendations</strong> — <a href="../dashboard/index.html"><code>dashboard/index.html</code></a> <code>#recommendations</code> loads <strong><code>api/v1/recommendations.json</code></strong> (≤25 existing bridges by undirected catalog-graph degree). Regenerate with <strong><code>python scripts/export_recommendations.py</code></strong> (also runs in <strong><code>build-graph.yml</code></strong> immediately after orphan export). Ranking spec: <a href="../HUB_RECOMMENDATIONS/"><code>docs/HUB_RECOMMENDATIONS.md</code></a>. Harvest rank and curator score are specified and not computed. Contributor tooling, not a scientific ranking.</p>
 <hr />
 <h2 id="contributor-hub-maintenance-playbook-methodical">Contributor hub maintenance playbook (methodical)<a class="headerlink" href="#contributor-hub-maintenance-playbook-methodical" title="Permanent link">&para;</a></h2>
 <p>Use this so <strong><code>dashboard/index.html</code></strong>, generated HTML, API JSON, and <strong>README headline metrics</strong> do not drift from the YAML catalog.</p>
@@ -3103,6 +3227,10 @@
 <td><code>python scripts/export_orphan_xref_panel.py</code> (runs in <strong><code>build-graph.yml</code></strong> after <code>build_graph.py</code>)</td>
 </tr>
 <tr>
+<td><code>api/v1/recommendations.json</code> (hub recommendations panel)</td>
+<td><code>python scripts/export_recommendations.py</code> (runs in <strong><code>build-graph.yml</code></strong> after orphan export)</td>
+</tr>
+<tr>
 <td><code>docs/preprint/usdr_preprint.md</code></td>
 <td><code>python scripts/render_preprint_html.py --apply</code></td>
 </tr>
@@ -3122,6 +3250,7 @@
 <div class="highlight"><pre><span></span><code>python<span class="w"> </span>scripts/validate_schemas.py
 python<span class="w"> </span>-X<span class="w"> </span>utf8<span class="w"> </span>scripts/build_graph.py
 python<span class="w"> </span>scripts/export_orphan_xref_panel.py
+python<span class="w"> </span>scripts/export_recommendations.py
 python<span class="w"> </span>scripts/generate_api.py
 python<span class="w"> </span>scripts/update_dashboard_stats.py<span class="w"> </span>--apply
 python<span class="w"> </span>scripts/render_breakthrough_gaps_hub.py<span class="w"> </span>--apply
@@ -3230,7 +3359,7 @@ python<span class="w"> </span>scripts/verify_dashboard_consistency.py
       <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "search.suggest", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

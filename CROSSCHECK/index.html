@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -560,6 +560,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../STEWARDS_CHARTER/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stewards charter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../SOLVING_UNKNOWNS/" class="md-nav__link">
         
   
@@ -922,6 +950,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../HUB_RECOMMENDATIONS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hub recommendations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../GSD_INTEGRATION/" class="md-nav__link">
         
   
@@ -1185,6 +1241,17 @@
     <span class="md-ellipsis">
       
         Protocol catalog
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-mode-parity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run-mode parity
       
     </span>
   </a>
@@ -2469,6 +2536,90 @@
   
   
     <li class="md-nav__item">
+      <a href="../outreach/CROSSCHECK_LAUNCH_STORY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Crosscheck launch story
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../outreach/LAUNCH_DAY_ACTIONS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Launch day actions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../outreach/READY_TO_POST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ready to post
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../outreach/early_stewards_call/" class="md-nav__link">
         
   
@@ -2902,6 +3053,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#run-mode-parity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run-mode parity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#contributing-a-protocol" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2994,19 +3156,23 @@
 <p>Same governance as Wave Factory: automation proposes, humans merge.</p>
 <hr />
 <h2 id="quick-start">Quick start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="c1"># Preview protocols from a bridge</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Preview protocols from a single bridge (dry-run; any one bridge is fine)</span>
 python<span class="w"> </span>scripts/generate_crosscheck.py<span class="w"> </span>--bridge<span class="w"> </span>b-habitat-percolation-ecology<span class="w"> </span>--dry-run
 
-<span class="c1"># Write drafts for review</span>
-python<span class="w"> </span>scripts/generate_crosscheck.py<span class="w"> </span>--bridge<span class="w"> </span>b-habitat-percolation-ecology<span class="w"> </span>--write
+<span class="c1"># Happy-path write (do not use --all — too noisy)</span>
+python<span class="w"> </span>scripts/generate_crosscheck.py<span class="w"> </span>--bridge<span class="w"> </span>b-percolation-oncology<span class="w"> </span>--write
 
-<span class="c1"># Run a seed protocol</span>
+<span class="c1"># Run a seed protocol (browser demo — no install)</span>
+<span class="c1"># https://kr8zysho3.github.io/Universal-Science-Discovery/repro/p-b-habitat-percolation-ecology-fss/index.html</span>
+
+<span class="c1"># Or local Python (verification)</span>
 pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>repro/p-b-habitat-percolation-ecology-fss/requirements.txt
 python<span class="w"> </span>repro/p-b-habitat-percolation-ecology-fss/simulate_percolation_fss.py
 
 <span class="c1"># Validate all protocols</span>
 python<span class="w"> </span>scripts/validate_schemas.py
 </code></pre></div>
+<p>Drafts land at <code>drafts/crosscheck/&lt;parent of the bridge YAML relative to cross-domain/&gt;/&lt;protocol_id&gt;.yaml</code>. For the command above that is <code>drafts/crosscheck/physics-oncology/p-b-percolation-oncology-*.yaml</code> (opportunity 1 raw id <code>p-b-percolation-oncology-percolation-derived-metrics-giant-compon</code>). Do not use <code>--all</code> as the documented happy path.</p>
 <hr />
 <h2 id="protocol-catalog">Protocol catalog<a class="headerlink" href="#protocol-catalog" title="Permanent link">&para;</a></h2>
 <p>Canonical protocols live in <a href="../protocols-catalog/"><code>protocols-catalog/</code></a>. Seed examples:</p>
@@ -3022,30 +3188,101 @@ python<span class="w"> </span>scripts/validate_schemas.py
 <tr>
 <td><code>p-b-habitat-percolation-ecology-fss</code></td>
 <td>Habitat fragmentation ↔ percolation</td>
-<td>desktop</td>
+<td>desktop (browser demo)</td>
 </tr>
 <tr>
 <td><code>p-b-habitat-percolation-ecology-cluster-exponent</code></td>
 <td>Same bridge, cluster size distribution</td>
-<td>desktop</td>
+<td>desktop (browser demo)</td>
+</tr>
+<tr>
+<td><code>p-b-ising-social-dynamics-ewi</code></td>
+<td>Ising ↔ social dynamics EWI</td>
+<td>desktop (browser demo)</td>
 </tr>
 <tr>
 <td><code>p-b-percolation-epidemiology-fss</code></td>
 <td>Epidemic threshold ↔ bond percolation</td>
-<td>desktop</td>
+<td>desktop (Colab demo)</td>
+</tr>
+<tr>
+<td><code>p-b-percolation-oncology-gcc</code></td>
+<td>Tumor vasculature ↔ percolation GCC</td>
+<td>desktop (local Python; INCONCLUSIVE)</td>
 </tr>
 </tbody>
 </table>
+<h2 id="run-mode-parity">Run-mode parity<a class="headerlink" href="#run-mode-parity" title="Permanent link">&para;</a></h2>
+<p>Python is canonical; browser and Colab are demo tier.</p>
+<table>
+<thead>
+<tr>
+<th>protocol id</th>
+<th>Python canonical</th>
+<th>browser JS</th>
+<th>Colab</th>
+<th>CI grep CONFIRMED</th>
+<th>RESULT contract</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>p-b-habitat-percolation-ecology-fss</code></td>
+<td><code>simulate_percolation_fss.py</code> (L∈{16,32,64,128}, <code>TRIALS_PER_P=350</code>)</td>
+<td>yes, <code>simulate_percolation_fss.js</code> (same L, <code>TRIALS_PER_P=120</code>)</td>
+<td>no</td>
+<td>yes</td>
+<td>stdout <code>RESULT:</code> token; Python <code>return 0</code> always</td>
+</tr>
+<tr>
+<td><code>p-b-habitat-percolation-ecology-cluster-exponent</code></td>
+<td><code>cluster_size_exponent.py</code> (<code>P=0.59</code>, <code>L=256</code>, <code>SEEDS=20</code>)</td>
+<td>yes, <code>cluster_size_exponent.js</code> (<code>P=0.592</code>, <code>L=128</code>)</td>
+<td>no</td>
+<td>yes</td>
+<td>stdout <code>RESULT:</code> on success; can <code>return 1</code> if too few clusters / NaN fit</td>
+</tr>
+<tr>
+<td><code>p-b-ising-social-dynamics-ewi</code></td>
+<td><code>ising_critical_slowing.py</code> (<code>LATTICE_SIZE=48</code>)</td>
+<td>yes, <code>ising_critical_slowing.js</code> (<code>L=32</code>, lighter sweeps)</td>
+<td>no</td>
+<td>yes</td>
+<td>stdout <code>RESULT:</code> token; Python <code>return 0</code> always</td>
+</tr>
+<tr>
+<td><code>p-b-percolation-epidemiology-fss</code></td>
+<td><code>epidemic_percolation_fss.py</code> (networkx; freeze <code>NU_THEORY=3.0</code>)</td>
+<td><strong>no</strong> (not in <code>BROWSER_RUNNERS</code>; D-09)</td>
+<td>yes, <code>run_crosscheck.ipynb</code></td>
+<td>yes</td>
+<td>stdout <code>RESULT:</code> token; Python <code>return 0</code> always</td>
+</tr>
+<tr>
+<td><code>p-b-percolation-oncology-gcc</code></td>
+<td><code>giant_component_fraction.py</code> (<code>L=32</code>, <code>TRIALS=8</code>)</td>
+<td><strong>no</strong></td>
+<td><strong>no</strong></td>
+<td><strong>no</strong></td>
+<td>stdout <code>RESULT: INCONCLUSIVE</code>; Python <code>return 0</code> always</td>
+</tr>
+</tbody>
+</table>
+<p>CONFIRMED-only grep policy: four seed scripts are grepped <code>RESULT: CONFIRMED</code> in <code>.github/workflows/crosscheck-repro.yml</code>. GCC always prints <code>RESULT: INCONCLUSIVE</code> and <strong>must not</strong> be grepped CONFIRMED. Pytest covers the GCC entry point (<code>tests/repo_smoke/</code>); <code>validate-schemas.yml</code> runs that bundle on every PR.</p>
 <hr />
 <h2 id="contributing-a-protocol">Contributing a protocol<a class="headerlink" href="#contributing-a-protocol" title="Permanent link">&para;</a></h2>
-<p><strong>Without code</strong> — promote a draft from <code>drafts/crosscheck/</code> after filling in <code>experimental_design</code> and <code>falsifiable_prediction</code>.</p>
+<p>Fill <code>null_hypothesis</code>, <code>statistical_analysis_plan</code>, and an honest <code>experimental_design</code> (not generator TODOs and not a <code>[DRAFT]</code> title). Then <strong>manual copy + PR</strong> into <code>protocols-catalog/&lt;same parent as the bridge&gt;/</code>. There is <strong>no</strong> Crosscheck promote CLI. Do not run <code>promote_wave_factory_batch.py</code> on protocols.</p>
+<ul>
+<li>Set <code>status: ready</code> (never <code>confirmed</code> unless a local run printed <code>RESULT: CONFIRMED</code>).</li>
+<li>Set <code>repro_bundle: repro/&lt;protocol-id&gt;/</code>.</li>
+<li>Then <code>python scripts/validate_schemas.py</code>.</li>
+</ul>
 <p><strong>With code</strong> — add a <code>repro/{protocol-id}/</code> bundle:</p>
 <div class="highlight"><pre><span></span><code>repro/p-b-your-protocol-id/
 ├── README.md
 ├── requirements.txt
 └── your_script.py
 </code></pre></div>
-<p>Set <code>repro_bundle</code> in the protocol YAML to <code>repro/p-b-your-protocol-id/</code>.</p>
 <p>See <a href="../schemas/protocol.yaml"><code>schemas/protocol.yaml</code></a> for the full schema.</p>
 <hr />
 <h2 id="relationship-to-usdr">Relationship to USDR<a class="headerlink" href="#relationship-to-usdr" title="Permanent link">&para;</a></h2>
@@ -3104,6 +3341,7 @@ python<span class="w"> </span>scripts/validate_schemas.py
 </tr>
 </tbody>
 </table>
+<p>Those Phase 3 / Phase 4 rows are <strong>not</strong> GSD Phase 3. GSD Phase 3 is generate/promote plus this parity matrix. Do not implement results-YAML feedback or a unified percolation toolkit here (deferred).</p>
 <hr />
 <h2 id="citation">Citation<a class="headerlink" href="#citation" title="Permanent link">&para;</a></h2>
 <p>If you use Crosscheck protocols in research, cite USDR and note the protocol ID:</p>
@@ -3162,7 +3400,7 @@ python<span class="w"> </span>scripts/validate_schemas.py
       <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "search.suggest", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>
