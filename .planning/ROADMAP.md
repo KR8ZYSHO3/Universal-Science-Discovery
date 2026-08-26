@@ -15,7 +15,7 @@ Harden Crosscheck to 4/4 CONFIRMED, scale the protocol pipeline, expand CI/trust
 - [x] **Phase 1: Crosscheck credibility** — 3 CONFIRMED + drift gate
 - [x] **Phase 2: Epidemic FSS precision** — 4th seed protocol CONFIRMED
 - [x] **Phase 3: Crosscheck scale-up** — generate/promote protocols + browser parity
-- [ ] **Phase 4: CI & trust hardening** — smoke tests + CONFIRMED gates
+- [x] **Phase 4: CI & trust hardening** — smoke tests + CONFIRMED gates
 - [ ] **Phase 5: Hub engineering** — smart recommendations spec + prototype
 
 ## Phase Details
@@ -75,13 +75,13 @@ Cross-cutting constraints:
 **Success Criteria**:
   1. All CONFIRMED protocols gated in crosscheck-repro workflow
   2. repo_smoke covers epidemic + any new script entry points
-**Plans**: 1/2 complete (2026-08-26)
+**Plans**: 2/2 complete (2026-08-26)
 
 Plans:
 - **Wave 1**
 - [x] 04-01: Unified CONFIRMED gates in CI — text inventory pytest + CONFIRMED-only docs — 2026-08-26
-- **Wave 2** *(blocked on Wave 1 completion)*
-- [ ] 04-02: repo_smoke expansion — generate `--dry-run` + GCC INCONCLUSIVE smoke
+- **Wave 2**
+- [x] 04-02: repo_smoke expansion — generate `--dry-run` + GCC INCONCLUSIVE smoke — 2026-08-26
 
 Cross-cutting constraints:
 - Gate stdout `RESULT: CONFIRMED`, not YAML `status` (D-01)
@@ -112,7 +112,7 @@ Outreach copy, Reddit/LinkedIn, `usdr.science`, arXiv, personal DMs — see `LAU
 | 1. Crosscheck credibility | 3/3 | Complete | 2026-06-23 |
 | 2. Epidemic FSS precision | 3/3 | Complete | 2026-08-26 |
 | 3. Crosscheck scale-up | 2/2 | Complete | 2026-08-26 |
-| 4. CI & trust hardening | 1/2 | In Progress | — |
+| 4. CI & trust hardening | 2/2 | Complete | 2026-08-26 |
 | 5. Hub engineering | 0/1 | Not started | — |
 
 ---

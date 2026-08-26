@@ -23,7 +23,7 @@
 
 - [x] **TRUST-01**: Stale dashboard graph removed — Phase 1 (#300)
 - [x] **TRUST-02**: All CONFIRMED protocols gated in `crosscheck-repro.yml` — Phase 4 (04-01 inventory pytest + four live greps)
-- [ ] **TRUST-03**: Additional repo_smoke tests for epidemic + script entry points — Phase 4
+- [x] **TRUST-03**: Additional repo_smoke tests for epidemic + script entry points — Phase 4 (04-02 generate dry-run + GCC INCONCLUSIVE smokes; epidemic freeze re-run)
 
 ### Hub engineering
 
@@ -50,10 +50,10 @@
 | CROSS-06 | Phase 3 | Complete (03-01 generate/promote/repro) |
 | CROSS-07 | Phase 3 | Complete (03-02 parity matrix) |
 | TRUST-02 | Phase 4 | Complete (04-01 inventory pytest) |
-| TRUST-03 | Phase 4 | Pending |
+| TRUST-03 | Phase 4 | Complete (04-02 generate dry-run + GCC INCONCLUSIVE) |
 | HUB-01 | Phase 5 | Pending |
 
-**Coverage:** 10 v1.1 dev requirements · 9 complete · 1 pending
+**Coverage:** 11 v1.1 dev requirements · 10 complete · 1 pending (HUB-01)
 
 ---
-*Last updated: 2026-08-26 — TRUST-02 CONFIRMED-gate inventory closed in 04-01*
+*Last updated: 2026-08-26 — TRUST-03 entry-point smokes closed in 04-02*
