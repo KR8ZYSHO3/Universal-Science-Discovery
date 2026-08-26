@@ -38,7 +38,7 @@ Harden Crosscheck to 4/4 CONFIRMED, scale the protocol pipeline, expand CI/trust
 
 Plans:
 - **Wave 1**
-- [ ] 02-01: Parameter sweep + precision pass (SEEDS_PER_N, sizes, signed fit)
+- [x] 02-01: Parameter sweep + precision pass (SEEDS_PER_N, sizes, signed fit) — CONFIRMED 2026-08-26
 - **Wave 2** *(blocked on Wave 1 completion)*
 - [ ] 02-02: Regression test + CI CONFIRMED gate
 - [ ] 02-03: Colab/notebook path verified or documented

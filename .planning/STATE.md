@@ -13,18 +13,18 @@ See: `.planning/PROJECT.md` (updated 2026-06-23)
 ## Current Position
 
 Phase: 2 of 5 (Epidemic FSS precision)
-Plan: 0 of 3 in current phase
-Status: Ready to execute
-Last activity: 2026-08-26 — Phase 2 planned (methodology pass: ν̄=3, S≥N^{-1/3}); executing 02-01
+Plan: 1 of 3 in current phase (02-01 complete)
+Status: Ready to execute 02-02
+Last activity: 2026-08-26 — 02-01 CONFIRMED (ν̄=3.1475, SEEDS=20, BOND_SAMPLES=8); freeze in 02-01-SUMMARY
 
-Progress: [████░░░░░░] 38% (3/11 plans complete)
+Progress: [████░░░░░░] 36% (4/11 plans complete)
 
 ## Performance Metrics
 
 | Phase | Plans | Total | Status |
 |-------|-------|-------|--------|
 | 1 Crosscheck credibility | 3 | 3 | Complete |
-| 2 Epidemic FSS | 0 | 3 | **Active** |
+| 2 Epidemic FSS | 1 | 3 | **Active** |
 
 ## Accumulated Context
 
@@ -33,10 +33,11 @@ Progress: [████░░░░░░] 38% (3/11 plans complete)
 - **Development before marketing** (2026-06-23) — outreach/DNS/arXiv deferred to v1.2
 - GSD active — no ad-hoc implementation without a plan
 - Python canonical; browser demo tier
+- Epidemic FSS (02-01): PC_INF=1/6, NU_THEORY=3.0, S≥N^{-1/3}, SEEDS_PER_N=20, BOND_SAMPLES_PER_MID=8, NU_TOLERANCE=0.15; CONFIRMED ν=3.1475 (4.9%); freeze mean_pcs in 02-01-SUMMARY (do not invent)
 
 ### Blockers/Concerns
 
-- Epidemic FSS: bond percolation on ER graphs, `networkx` dependency, wider ν tolerance (0.25) — needs precision sweep like habitat FSS
+- Epidemic FSS 02-01 CONFIRMED; 02-02 must pin SUMMARY mean_pcs (no live MC). Full-grid R²=0.32; N≥500 window did not pass.
 
 ### Pending Todos
 
@@ -53,9 +54,9 @@ None in `.planning/todos/pending/`.
 ## Session Continuity
 
 Last session: 2026-08-26
-Stopped at: Phase 2 plans verified; executing 02-01
+Stopped at: Completed 02-01-PLAN.md (RESULT: CONFIRMED)
 Resume file: None
 
 Local note: previous checkout was stale `launch/june-2026-shipping`. June-pause catalog drafts (climate cascades + zeta) stashed as `june-2026-pause leftover launch docs and climate drafts`. Parked until after v1.1.
 
-**Next command:** `/gsd-plan-phase 2` (in progress)
+**Next command:** `/gsd-execute-phase 2` (continue 02-02)
