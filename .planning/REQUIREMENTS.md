@@ -11,7 +11,7 @@
 - [x] **CROSS-01**: Habitat percolation FSS CONFIRMED — Phase 1 (#298)
 - [x] **CROSS-02**: Ising EWI CONFIRMED — Phase 1 (#297)
 - [x] **CROSS-03**: Cluster exponent CONFIRMED — Phase 1 (#302)
-- [ ] **CROSS-04**: Epidemic FSS CONFIRMED — Phase 2
+- [x] **CROSS-04**: Epidemic FSS CONFIRMED — Phase 2 (02-01 stdout + 02-02 freeze pytest and CI grep)
 - [x] **CROSS-05**: `build_crosscheck.py --check` in CI — Phase 1 (#299–#301)
 
 ### Crosscheck scale-up
@@ -46,12 +46,12 @@
 | Requirement | Phase | Status |
 |-------------|-------|--------|
 | CROSS-01–03, CROSS-05, TRUST-01 | Phase 1 | Complete |
-| CROSS-04 | Phase 2 | Pending |
+| CROSS-04 | Phase 2 | Complete (02-01/02-02; 02-03 Colab remaining) |
 | CROSS-06, CROSS-07 | Phase 3 | Pending |
 | TRUST-02, TRUST-03 | Phase 4 | Pending |
 | HUB-01 | Phase 5 | Pending |
 
-**Coverage:** 10 v1.1 dev requirements · 5 complete · 5 pending
+**Coverage:** 10 v1.1 dev requirements · 6 complete · 4 pending
 
 ---
-*Last updated: 2026-06-23 — marketing requirements moved to v1.2*
+*Last updated: 2026-08-26 — CROSS-04 marked complete after 02-02*
