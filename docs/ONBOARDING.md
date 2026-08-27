@@ -1,6 +1,6 @@
 # Onboarding
 
-**Not the first page.** How to *use* USDR is [USE.md](USE.md) (Look / Add / Run). This page is a **maintainer policy tour** (~30 minutes) after you already picked a door.
+**Not the first page.** How to *use* USDR is [USE.md](USE.md). This page is a policy tour after you already picked a door.
 
 ## 0. Optional — visual map (2 min)
 

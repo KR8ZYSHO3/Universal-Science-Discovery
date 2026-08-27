@@ -2,7 +2,7 @@
 
 This map is the project traceability layer (delivered as part of **Phase 0 — Foundation**, now complete). When you change a guiding document, update the corresponding behaviors (rules, templates, or this map) in the same change.
 
-**Last updated:** 2026-08-26 — **`USE.md`** is the utilization flow (Look / Add / Run). Product path remains repo-root **`ROADMAP.md`**. **`PATH_TO_SUCCESS.md`** is catalog-wave ops only. Hub `#status` ring tracks v1.3 items. **repo audit:** [May 2026 full audit report](../.planning/reports/USDR_FULL_AUDIT_2026-05.md).
+**Last updated:** 2026-08-27 — **`USE.md`** is the utilization flow (try it / add a question / keep it honest). Front door uses researcher language. Product path remains repo-root **`ROADMAP.md`**. **repo audit:** [May 2026 full audit report](../.planning/reports/USDR_FULL_AUDIT_2026-05.md).
 
 ## Policy documents
 
@@ -16,7 +16,7 @@ This map is the project traceability layer (delivered as part of **Phase 0 — F
 | [COLLABORATION_AND_REVIEWS.md](COLLABORATION_AND_REVIEWS.md) | Contributions, review expectations | [CONTRIBUTING.md](../CONTRIBUTING.md) (local checks, PR branch naming, `good first issue` path); [`.github/pull_request_template.md`](../.github/pull_request_template.md); [`.github/ISSUE_TEMPLATE/bug_report.yml`](../.github/ISSUE_TEMPLATE/bug_report.yml) + [`.github/ISSUE_TEMPLATE/feature_request.md`](../.github/ISSUE_TEMPLATE/feature_request.md); branch protection notes in [OPERATING_RHYTHM.md](OPERATING_RHYTHM.md) |
 | [OPERATING_RHYTHM.md](OPERATING_RHYTHM.md) | Cadence, versioning, when to sync rules/CI; milestone doc + contributor hub | Doc/CI updates; release/tag policy; CHANGELOG, `dashboard/index.html`, `http://localhost:8765/dashboard/` check per `.cursor/rules/documentation-and-dashboard.mdc` |
 | [REPOSITORY_MANIFEST.md](REPOSITORY_MANIFEST.md) | Per-path roles and governing docs | Keeping structure auditable; updates when paths change |
-| [USE.md](USE.md) | **Utilization flow** (Look / Add / Run). Wins if another “start here” disagrees | Hub `#start` door cards; figures: [what-usdr-is.svg](figures/what-usdr-is.svg), [use-three-doors.svg](figures/use-three-doors.svg) |
+| [USE.md](USE.md) | **Utilization flow** (try it / add a question / keep it honest). Wins if another “start here” disagrees | Hub `#start` door cards; figures: [what-usdr-is.svg](figures/what-usdr-is.svg), [use-three-doors.svg](figures/use-three-doors.svg) |
 | [ONBOARDING.md](ONBOARDING.md) | Maintainer policy tour (not the first page) | Points to all core policies and work directories |
 | [HAPPY_PATH_FIRST_RECORDS.md](HAPPY_PATH_FIRST_RECORDS.md) | Stream A: first unknown + hypothesis YAML → PR | [CONTRIBUTING.md](../CONTRIBUTING.md); [schemas/README.md](../schemas/README.md); [templates/README.md](../templates/README.md); CI validates via `scripts/validate_schemas.py` |
 | [LABELS_AND_MILESTONES.md](LABELS_AND_MILESTONES.md) | GitHub triage vocabulary | Aligns with [COLLABORATION_AND_REVIEWS.md](COLLABORATION_AND_REVIEWS.md); issue templates |

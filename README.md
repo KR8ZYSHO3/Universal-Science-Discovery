@@ -12,9 +12,9 @@
 [![License: MIT](https://img.shields.io/badge/code-MIT-green?style=flat-square)](LICENSE)
 [![CI](https://img.shields.io/github/actions/workflow/status/KR8ZYSHO3/Universal-Science-Discovery/validate.yml?style=flat-square&label=CI)](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/actions)
 
-**[Hub](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#start) · [Look (run one Crosscheck)](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#crosscheck) · [How to use](docs/USE.md)**
+**[Open the catalog](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#start) · [Try an experiment](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#crosscheck) · [How to use](docs/USE.md)**
 
-> **v1.1 shipped** (PR #308). **Now:** university-ready robustness — [ROADMAP.md](ROADMAP.md). Public launch (outreach, DNS, arXiv submit) is **parked**.
+> Building until a researcher in the room can use it. Public launch is parked — [ROADMAP.md](ROADMAP.md).
 
 
 
@@ -171,21 +171,21 @@ api/v1/                                       ← static JSON API
 
 ---
 
-## How to use this repo
+## How to use this catalog
 
-**One flow, three doors** — [docs/USE.md](docs/USE.md):
+[docs/USE.md](docs/USE.md) — plain language.
 
-![What USDR is: catalog, hub, Crosscheck](docs/figures/what-usdr-is.svg)
+![What USDR is](docs/figures/what-usdr-is.svg)
 
-![Look, Add, Run](docs/figures/use-three-doors.svg)
+![Try it, add a question, keep it honest](docs/figures/use-three-doors.svg)
 
-1. **Look** — open the [hub](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/), search, run one [Crosscheck](docs/CROSSCHECK.md) in the browser.
-2. **Add** — one YAML file → `python scripts/validate_schemas.py` → PR. Detail: [docs/HAPPY_PATH_FIRST_RECORDS.md](docs/HAPPY_PATH_FIRST_RECORDS.md).
-3. **Run** — clone and follow the ordered maintainer list (v1.3). Until that playbook lands: [docs/DEV_DASHBOARD.md](docs/DEV_DASHBOARD.md).
+1. **Try it** — open the [site](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/), run one experiment in the browser.
+2. **Add a question** — one open problem from your field, then send it for review. Detail: [docs/HAPPY_PATH_FIRST_RECORDS.md](docs/HAPPY_PATH_FIRST_RECORDS.md).
+3. **Keep it honest** — only if you operate the site. [docs/DEV_DASHBOARD.md](docs/DEV_DASHBOARD.md).
 
 ## Contributing
 
-The simplest contribution is a new **unknown** — a named, structured research gap in your field. No code required, just YAML.
+The simplest contribution is a new **unknown** — a named research gap in your field. No code required.
 
 ```yaml
 id: u-your-unknown-id

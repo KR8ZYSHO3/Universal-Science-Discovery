@@ -1,6 +1,6 @@
 # Happy path — your first unknown & hypothesis
 
-**Door 2 detail** of [USE.md](USE.md) (Look / Add / Run). **Stream A:** single track from **clone → valid YAML → pull request**, with no detours. Read [METHODOLOGY.md](METHODOLOGY.md) for how claims, hypotheses, and evidence relate; [LEGAL.md](../LEGAL.md) for what you may link (metadata, DOIs, open URLs — not paywalled full text).
+**Add-a-question detail** of [USE.md](USE.md). This page is the computer path (copy the catalog → one record → send for review). Read [METHODOLOGY.md](METHODOLOGY.md) for how claims, hypotheses, and evidence relate; [LEGAL.md](../LEGAL.md) for what you may link (metadata, DOIs, open URLs — not paywalled full text).
 
 ## 0) One-time setup
 

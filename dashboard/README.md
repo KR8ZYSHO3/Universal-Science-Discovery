@@ -10,8 +10,8 @@ This folder is part of the **git repository**. Anyone who **clones** USDR gets a
 - **Catalog search → graph:** Lunr + domain chips in **`dashboard/index.html`**; a short **status line** shows while the graph JSON and optional API metadata load; choosing a result scrolls to **Knowledge graph**, highlights the neighborhood, zooms toward the node (D3), and opens the YAML panel. **GitHub:** panel blob + raw links; each hit row includes **View YAML on GitHub** (repo-scoped filename search). The graph chrome shows **touch-oriented zoom hints** on coarse pointers (`hover: none` + `pointer: coarse`); the loading line exposes **`aria-live="polite"`** while D3 hydrates.
 - **Xref hygiene panel:** static **`api/v1/orphan_xref_panel.json`** (regenerate with **`python scripts/export_orphan_xref_panel.py`**) lists capped missing cross-references and disconnected unknowns — contributor tooling, not a scientific ranking.
 - **Recommendations panel:** static **`api/v1/recommendations.json`** (regenerate with **`python scripts/export_recommendations.py`**) lists ≤25 existing bridges by undirected graph degree — contributor tooling, not a scientific ranking and not a Crosscheck outcome.
-- **Strategic path:** repo-root **`ROADMAP.md`** (canonical). **How to use:** **`docs/USE.md`** (Look / Add / Run). **`docs/PATH_TO_SUCCESS.md`** is the catalog-wave checklist only.
-- **First contribution:** **`#start`** is three clickable doors (Look / Add / Run) plus SVG infographics in **`docs/figures/`**. YAML steps and the policy tour sit in `<details>`. The hub browses and routes; it does not edit catalog files.
+- **Strategic path:** repo-root **`ROADMAP.md`** (canonical). **How to use:** **`docs/USE.md`**. **`docs/PATH_TO_SUCCESS.md`** is the catalog-wave checklist only.
+- **First screen:** three doors in researcher language (try an experiment / add a question / keep it honest). GitHub jargon stays out of the hero. Add-steps sit in `<details>`. The site browses; it does not edit catalog files.
 
 ## Run it locally
 
