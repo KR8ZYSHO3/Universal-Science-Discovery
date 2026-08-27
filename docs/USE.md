@@ -1,49 +1,50 @@
 # How to use USDR
 
-**One flow. Three doors.** If another “start here” page disagrees with this file, this file wins for *how to use the repo*. Product path (what we build next) is still [ROADMAP.md](../ROADMAP.md).
+Pick **one**. You do not need the rest of the docs first.
 
-Pick **one** door. Do not read the rest of the documentation first.
+![What this catalog is](figures/what-usdr-is.svg)
 
-![Catalog in git, hub as a view, Crosscheck as a runnable experiment](figures/what-usdr-is.svg)
+![Three ways in](figures/use-three-doors.svg)
 
-![Three doors: Look, Add, Run](figures/use-three-doors.svg)
+| | Who | What to do | Stop when |
+|--|-----|------------|-----------|
+| **1. Try it** | Anyone, no account | Open the [site](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#start). Click **Try an experiment**. Search your field after. | You have seen a live test. |
+| **2. Add a question** | You have one gap from your field | Write **one** open question, hypothesis, *or* bridge. Check it. Send it for review. | Detail: [first records guide](HAPPY_PATH_FIRST_RECORDS.md) |
+| **3. Keep it honest** | You operate this site | Keep the numbers on the site matching the catalog files. | Detail: [operator checklist](DEV_DASHBOARD.md) |
 
-| Door | You are… | Do this | Then stop |
-|------|----------|---------|-----------|
-| **1. Look** | A researcher in the room (no git) | Open the [hub](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#start). Click **Run one experiment**. Search your field after. | You have seen a live Crosscheck. |
-| **2. Add** | Willing to edit one YAML file | Search first (same hub). Copy one seed file. Edit **one** unknown *or* hypothesis *or* bridge. `python scripts/validate_schemas.py`. Open a PR. | Detail: [HAPPY_PATH_FIRST_RECORDS.md](HAPPY_PATH_FIRST_RECORDS.md) |
-| **3. Run** | Operating a clone (student / maintainer) | Clone. One ordered command list (v1.3 **ROBUST-01**). Hub numbers must match git. | Detail: [DEV_DASHBOARD.md](DEV_DASHBOARD.md) until the single playbook lands |
+## Try it
 
-## Look
+No account. Open the [site](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#start) and click **Try an experiment**. That jumps to a [browser test](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#crosscheck) (we call these Crosscheck). Then search your field if you want.
 
-No clone. Open the [hub](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#start) and click **Run one experiment** (jumps to [Crosscheck](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#crosscheck)). Then search your field if you want.
+## Add a question
 
-## Add
+On the site, click **Add an open question**. Records are short structured notes. On GitHub, sending one for review is a “pull request” — a person reads it before it joins the catalog.
 
-One YAML file. On the hub, click **Add** (opens the five steps) or follow [HAPPY_PATH_FIRST_RECORDS.md](HAPPY_PATH_FIRST_RECORDS.md).
+## Keep the catalog honest
 
-## Run
+Only if you run this site. Until a single operator list ships, use the [operator checklist](DEV_DASHBOARD.md).
 
-Clone, then the ordered maintainer list. Until **ROBUST-01** ships, use [DEV_DASHBOARD.md](DEV_DASHBOARD.md) § catalog-batch command order.
+## Words we avoid on the front door
 
-## What not to do
-
-- Do not start at launch sprint, outreach, or arXiv docs (parked).
-- Do not read ONBOARDING, PATH_TO_SUCCESS, and INTERFACE before using a door.
-- Do not add a catalog wave, a Crosscheck protocol, *and* a hub redesign in one sitting.
-- Do not treat hub recommendations or xref lists as scientific rankings.
+| Instead of | We say |
+|------------|--------|
+| clone / fork / repo | get a copy of the catalog / this project |
+| YAML | a record (the file format is a later detail) |
+| PR / pull request | send it for review |
+| CI is green | checks passed |
+| git-native | the catalog files are the source |
+| xref hygiene | fix a broken link |
+| maintainer | someone who operates the site |
 
 ## Where the long docs sit
 
 | Need | File |
 |------|------|
 | What we build next | [ROADMAP.md](../ROADMAP.md) |
-| First YAML records (Door 2 detail) | [HAPPY_PATH_FIRST_RECORDS.md](HAPPY_PATH_FIRST_RECORDS.md) |
-| Crosscheck generate / promote / run | [CROSSCHECK.md](CROSSCHECK.md) |
-| Policy (claims vs speculation) | [METHODOLOGY.md](METHODOLOGY.md), [VISION_AND_SCOPE.md](VISION_AND_SCOPE.md) |
-| Maintainer catalog batch | [DEV_DASHBOARD.md](DEV_DASHBOARD.md), [PATH_TO_SUCCESS.md](PATH_TO_SUCCESS.md) |
-| Full contribution types | [CONTRIBUTING.md](../CONTRIBUTING.md) |
-| Maintainer policy tour | [ONBOARDING.md](ONBOARDING.md) |
-| These pictures | [figures/what-usdr-is.svg](figures/what-usdr-is.svg), [figures/use-three-doors.svg](figures/use-three-doors.svg) |
+| First records (step-by-step) | [HAPPY_PATH_FIRST_RECORDS.md](HAPPY_PATH_FIRST_RECORDS.md) |
+| How the tests work | [CROSSCHECK.md](CROSSCHECK.md) |
+| Claims vs speculation | [METHODOLOGY.md](METHODOLOGY.md), [VISION_AND_SCOPE.md](VISION_AND_SCOPE.md) |
+| Operator checklist | [DEV_DASHBOARD.md](DEV_DASHBOARD.md) |
+| Full contributor guide | [CONTRIBUTING.md](../CONTRIBUTING.md) |
 
-v1.3 makes Door 1 honest (UI-01, WORK-01) and Door 3 a single list (ROBUST-01, WORK-02). This page is the flow those phases must keep simple.
+This page is how a visitor should hear the project. GitHub words belong in the contributor guide, not on the first screen.

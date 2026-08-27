@@ -218,19 +218,21 @@ def replace_hero_prose(
     html, _ = re.subn(pill_bridges_pat, rf"\g<1>{_fmt_commas(bridges)} cross-domain bridges\g<2>", html, count=1)
 
     pill_unk_hyp_pat = (
-        r'(<span class="pill">)[\d,]+ open unknowns • [\d,]+ hypotheses • 0 orphans(</span>)'
+        r'(<span class="pill">)[\d,]+ open unknowns • [\d,]+ hypotheses(?: • 0 orphans)?(</span>)'
     )
     html, _ = re.subn(
         pill_unk_hyp_pat,
-        rf"\g<1>{_fmt_commas(unknowns)} open unknowns • {_fmt_commas(hypotheses)} hypotheses • 0 orphans\g<2>",
+        rf"\g<1>{_fmt_commas(unknowns)} open unknowns • {_fmt_commas(hypotheses)} hypotheses\g<2>",
         html,
         count=1,
     )
 
-    pill_graph_pat = r'(<span class="pill">)[\d,]+-node graph • Live automation • Git-native(</span>)'
+    pill_graph_pat = (
+        r'(<span class="pill">)[\d,]+(?:-node graph • Live automation • Git-native| linked records on the map)(</span>)'
+    )
     html, _ = re.subn(
         pill_graph_pat,
-        rf"\g<1>{_fmt_commas(graph_nodes)}-node graph • Live automation • Git-native\g<2>",
+        rf"\g<1>{_fmt_commas(graph_nodes)} linked records on the map\g<2>",
         html,
         count=1,
     )

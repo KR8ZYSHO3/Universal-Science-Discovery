@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed — Researcher language on the front door
+- Hub doors: **Try an experiment** / **Add an open question** / **Keep the catalog honest**. Dropped YAML, PR, clone, CI, git-native, xref, maintainer from the first screen.
+- Add-steps and `docs/USE.md` say “record,” “send for review,” “operate the site.” GitHub words stay in the contributor guide.
+
 ### Changed — First screen is the three doors
 - Hub **hero** is one sentence + three doors (Look = run one Crosscheck). Launch brochure, funder CTA, 21-item nav, and duplicate stats are gone from the first screen.
 - Nav is Start · Crosscheck · Search · Graph · Add · Contribute. README header matches.

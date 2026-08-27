@@ -27,7 +27,7 @@ This is not another database. Git is the source of truth. The hub is a view of g
 
 **Goal:** One person can run the repo honestly; a first visit to the hub holds up; Crosscheck is a closed loop; **the flow is three doors, not eight start-here docs.**
 
-Utilization model: [`docs/USE.md`](docs/USE.md) — **Look** (hub + one Crosscheck) · **Add** (one YAML → PR) · **Run** (one command list).
+Utilization model: [`docs/USE.md`](docs/USE.md) — **Try it** · **Add a question** · **Keep it honest**. Plain language on the front door; GitHub words stay in the contributor guide.
 
 | ID | Work | Why a researcher cares |
 |----|------|------------------------|
