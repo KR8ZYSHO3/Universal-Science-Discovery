@@ -12,7 +12,7 @@
 [![License: MIT](https://img.shields.io/badge/code-MIT-green?style=flat-square)](LICENSE)
 [![CI](https://img.shields.io/github/actions/workflow/status/KR8ZYSHO3/Universal-Science-Discovery/validate.yml?style=flat-square&label=CI)](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/actions)
 
-**[Live Dashboard](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/) · [Knowledge Graph](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#knowledge-graph) · [Crosscheck](docs/CROSSCHECK.md) · [Early Stewards](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/discussions/286) · [Preprint](docs/preprint/usdr_preprint.md) · [Contribute](CONTRIBUTING.md)**
+**[Hub](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#start) · [Look (run one Crosscheck)](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#crosscheck) · [How to use](docs/USE.md)**
 
 > **v1.1 shipped** (PR #308). **Now:** university-ready robustness — [ROADMAP.md](ROADMAP.md). Public launch (outreach, DNS, arXiv submit) is **parked**.
 

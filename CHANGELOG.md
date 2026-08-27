@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed — First screen is the three doors
+- Hub **hero** is one sentence + three doors (Look = run one Crosscheck). Launch brochure, funder CTA, 21-item nav, and duplicate stats are gone from the first screen.
+- Nav is Start · Crosscheck · Search · Graph · Add · Contribute. README header matches.
+
 ### Changed — Simple utilization flow (Look / Add / Run)
 - **`docs/USE.md`:** the only “how to use this repo” page — three doors (Look on the hub, Add one YAML, Run one command list). Other start-here docs defer to it.
 - **Infographics (SVG, exact labels):** [`docs/figures/what-usdr-is.svg`](docs/figures/what-usdr-is.svg) (catalog → hub → Crosscheck) and [`docs/figures/use-three-doors.svg`](docs/figures/use-three-doors.svg) (Look / Add / Run). Drawn as SVG so the words cannot drift.
