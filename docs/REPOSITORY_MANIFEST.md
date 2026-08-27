@@ -42,6 +42,8 @@ Exhaustive index of **tracked** paths (excluding `.git`), what each is for, and 
 | [docs/ONBOARDING.md](ONBOARDING.md) | Guide | First-hour navigation | — |
 | [docs/SOLVING_UNKNOWNS.md](SOLVING_UNKNOWNS.md) | Guide | Status ladder and evidence bar for resolving catalog unknowns | [DOC_MAP.md](DOC_MAP.md), [METHODOLOGY.md](METHODOLOGY.md); orphan checks via `scripts/build_graph.py --report-orphans` |
 | [docs/BREAKTHROUGH_GAPS.md](BREAKTHROUGH_GAPS.md) | Guide | Breakthrough-gap steward checklist; ties to roadmap priorities | [breakthrough-gaps/README.md](../breakthrough-gaps/README.md), [ROADMAP.md](../ROADMAP.md) |
+| [docs/USE.md](USE.md) | Guide | Utilization flow (Look / Add / Run) | [ROADMAP.md](../ROADMAP.md), hub `#start` |
+| [docs/figures/](figures/) | Asset | SVG infographics (`what-usdr-is.svg`, `use-three-doors.svg`) | [USE.md](USE.md) |
 | [docs/HAPPY_PATH_FIRST_RECORDS.md](HAPPY_PATH_FIRST_RECORDS.md) | Guide | Stream A happy path: first unknown + hypothesis YAML → PR | [CONTRIBUTING.md](../CONTRIBUTING.md), [METHODOLOGY.md](METHODOLOGY.md), [LEGAL.md](../LEGAL.md), [schemas/unknown.yaml](../schemas/unknown.yaml), [schemas/hypothesis.yaml](../schemas/hypothesis.yaml) |
 | [docs/GSD_INTEGRATION.md](GSD_INTEGRATION.md) | Guide | Optional GSD (get-shit-done / spec-driven) boundaries for maintainers | [METHODOLOGY.md](METHODOLOGY.md), [DATA_PLAN.md](DATA_PLAN.md), [LEGAL.md](../LEGAL.md), [DEV_DASHBOARD.md](DEV_DASHBOARD.md) |
 | [docs/UAT_INGEST.md](UAT_INGEST.md) | Guide | Manual UAT for `usdr-ingest` CLI | [DATA_PLAN.md](DATA_PLAN.md), [LEGAL.md](../LEGAL.md), [packages/ingest/pyproject.toml](../packages/ingest/pyproject.toml) |

@@ -76,6 +76,7 @@
       .pulse-dot { animation: none !important; }
       .search-result-card:hover { transform: none; }
       .steps li:hover { transform: none; }
+      a.door-card:hover { transform: none; }
     }
     body {
       font-family: var(--font);
@@ -429,6 +430,91 @@
       color: var(--muted);
     }
     .how-works-foot a { color: var(--accent); }
+    .usdr-flow-img {
+      width: 100%;
+      max-width: 960px;
+      height: auto;
+      display: block;
+      margin: 0 auto 1.1rem;
+      border-radius: var(--r);
+      border: 1px solid var(--border);
+    }
+    .door-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin: 0 0 1.1rem;
+    }
+    a.door-card {
+      display: flex;
+      flex-direction: column;
+      gap: .45rem;
+      padding: 1.15rem 1.2rem 1.05rem;
+      background: var(--bg-1);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      color: var(--text);
+      text-decoration: none;
+      min-height: 11.5rem;
+      transition: border-color .18s, transform .18s, box-shadow .18s;
+    }
+    a.door-card:hover {
+      text-decoration: none;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,.28);
+    }
+    a.door-card:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+    a.door-card.door-look { border-color: rgba(79,156,249,.4); }
+    a.door-card.door-look:hover { border-color: var(--accent); }
+    a.door-card.door-add { border-color: rgba(34,211,184,.4); }
+    a.door-card.door-add:hover { border-color: var(--teal); }
+    a.door-card.door-run { border-color: rgba(167,139,250,.4); }
+    a.door-card.door-run:hover { border-color: var(--violet); }
+    .door-kicker {
+      font-size: .68rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .door-title { font-size: 1.45rem; font-weight: 700; line-height: 1.15; }
+    a.door-look .door-title { color: var(--accent); }
+    a.door-add .door-title { color: var(--teal); }
+    a.door-run .door-title { color: var(--violet); }
+    .door-blurb { font-size: .88rem; color: var(--muted); line-height: 1.45; flex: 1; }
+    .door-cta { font-size: .82rem; font-weight: 600; }
+    a.door-look .door-cta { color: var(--accent); }
+    a.door-add .door-cta { color: var(--teal); }
+    a.door-run .door-cta { color: var(--violet); }
+    .start-details {
+      margin-bottom: 1rem;
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      background: var(--surface);
+      padding: .35rem 1.1rem .9rem;
+    }
+    .start-details > summary {
+      cursor: pointer;
+      font-weight: 600;
+      padding: .75rem 0 .45rem;
+      color: var(--text);
+      list-style: none;
+    }
+    .start-details .first-contrib-lead {
+      font-size: .87rem; color: var(--muted); line-height: 1.55; margin-bottom: 1rem;
+    }
+    .start-details > summary::-webkit-details-marker { display: none; }
+    .start-details > summary::before {
+      content: "▸ ";
+      color: var(--muted);
+    }
+    .start-details[open] > summary::before { content: "▾ "; }
+    @media (max-width: 800px) {
+      .door-grid { grid-template-columns: 1fr; }
+    }
     .hero-contrib-hint {
       font-size: .88rem;
       margin: -1.35rem 0 1.75rem;
@@ -1554,17 +1640,15 @@
   <!-- ═══════════════════════════════════════════════════════ HERO -->
   <header class="hero">
     <div class="hero-inner">
-      <!-- Launch Sprint Banner: prominent for researchers + institutions -->
-      <div class="launch-banner" role="note" aria-label="June 2026 Launch Sprint">
-        <strong>🚀 June 2026 Launch Sprint — Now open to researchers &amp; institutions</strong><br>
-        <span style="font-size:.82rem;opacity:.95">1,124 cross-domain bridges • 1,409 open unknowns • 1,275 hypotheses • 3,861-node graph • 0 orphans • Live Wave Factory automation. Git-native for auditability.</span>
+      <!-- Product-path banner: v1.3 university-ready; public launch parked -->
+      <div class="launch-banner" role="note" aria-label="University-ready robustness">
+        <strong>v1.1 shipped · now building university-ready robustness</strong><br>
+        <span style="font-size:.82rem;opacity:.95">Git-native catalog · Crosscheck · knowledge graph. Public launch (outreach, domain, arXiv submit) is parked — see ROADMAP.md.</span>
         <div style="margin-top:.55rem;display:flex;gap:.45rem;justify-content:center;flex-wrap:wrap;">
-          <a href="#knowledge-graph" style="display:inline-flex;align-items:center;padding:.32rem .85rem;border-radius:999px;border:1px solid #10b981;background:rgba(16,185,129,0.12);color:#a7f3d0;font-size:.78rem;font-weight:600;text-decoration:none;">Explore live graph</a>
-          <a href="../docs/preprint/usdr_preprint.md" style="display:inline-flex;align-items:center;padding:.32rem .85rem;border-radius:999px;border:1px solid rgba(167,243,208,0.4);background:transparent;color:#a7f3d0;font-size:.78rem;font-weight:600;text-decoration:none;">Read v1.2 preprint</a>
-          <a href="../INSTITUTIONAL_PARTNERSHIP_PROSPECTUS.md" style="display:inline-flex;align-items:center;padding:.32rem .85rem;border-radius:999px;border:1px solid rgba(167,243,208,0.4);background:transparent;color:#a7f3d0;font-size:.78rem;font-weight:600;text-decoration:none;">For institutions &amp; funders →</a>
-          <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/discussions/286" style="display:inline-flex;align-items:center;padding:.32rem .85rem;border-radius:999px;border:1px solid rgba(167,243,208,0.4);background:transparent;color:#a7f3d0;font-size:.78rem;font-weight:600;text-decoration:none;">Early Stewards call →</a>
+          <a href="#start" style="display:inline-flex;align-items:center;padding:.32rem .85rem;border-radius:999px;border:1px solid #10b981;background:rgba(16,185,129,0.12);color:#a7f3d0;font-size:.78rem;font-weight:600;text-decoration:none;">Start here</a>
+          <a href="#knowledge-graph" style="display:inline-flex;align-items:center;padding:.32rem .85rem;border-radius:999px;border:1px solid rgba(167,243,208,0.4);background:transparent;color:#a7f3d0;font-size:.78rem;font-weight:600;text-decoration:none;">Explore live graph</a>
           <a href="../repro/p-b-habitat-percolation-ecology-fss/index.html" style="display:inline-flex;align-items:center;padding:.32rem .85rem;border-radius:999px;border:1px solid rgba(16,185,129,0.55);background:rgba(16,185,129,0.18);color:#a7f3d0;font-size:.78rem;font-weight:600;text-decoration:none;">Run Crosscheck in browser →</a>
-          <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/issues?q=is:issue+is:open+label:launch-sprint" style="display:inline-flex;align-items:center;padding:.32rem .85rem;border-radius:999px;border:1px solid rgba(167,243,208,0.4);background:transparent;color:#a7f3d0;font-size:.78rem;font-weight:600;text-decoration:none;">Launch Sprint issues →</a>
+          <a href="../ROADMAP.md" style="display:inline-flex;align-items:center;padding:.32rem .85rem;border-radius:999px;border:1px solid rgba(167,243,208,0.4);background:transparent;color:#a7f3d0;font-size:.78rem;font-weight:600;text-decoration:none;">Product path →</a>
         </div>
       </div>
 
@@ -1596,13 +1680,13 @@
       </div>
 
       <div class="pill-row" aria-label="Highlights">
-        <span class="pill live"><span class="d"></span> Phase 1 · Discovery &amp; adoption</span>
+        <span class="pill live"><span class="d"></span> v1.3 · University-ready</span>
         <span class="pill">1,124 cross-domain bridges</span>
         <span class="pill">1,409 open unknowns • 1,275 hypotheses • 0 orphans</span>
         <span class="pill">3,861-node graph • Live automation • Git-native</span>
       </div>
 
-      <p class="hero-contrib-hint"><a href="#start">Researchers &amp; contributors: Start here →</a> · <a href="../docs/QUICK_START_LAUNCH_SPRINT.md">Launch Sprint guide</a> · <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/issues?q=is:issue+is:open+label:launch-sprint">12 easy-win issues →</a></p>
+      <p class="hero-contrib-hint"><a href="#start">Researchers &amp; contributors: Start here →</a> · <a href="../ROADMAP.md">Product path (ROADMAP.md)</a> · <a href="../docs/QUICK_START_CONTRIBUTING.md">First contribution</a></p>
 
       <div class="pages-deploy-banner aos" id="pages-deploy-banner" role="status" aria-live="polite" hidden></div>
 
@@ -1640,7 +1724,7 @@
           <span class="catalog-snapshot-sep" aria-hidden="true">·</span>
           <span class="catalog-snapshot-metric"><span class="catalog-snapshot-n"><span id="snap-graph-edges">4522</span></span><span class="catalog-snapshot-l">graph edges</span></span>
         </div>
-        <p class="catalog-snapshot-foot">Updated by <code>python scripts/update_dashboard_stats.py --apply</code> (catalog globs + <code>docs/knowledge_graph.json</code> meta). Wave milestones stay in <a href="../ROADMAP.md">ROADMAP.md</a>; bounded PR-sized content batches and validation reminders are in <a href="../docs/PATH_TO_SUCCESS.md">docs/PATH_TO_SUCCESS.md</a>.</p>
+        <p class="catalog-snapshot-foot">Updated by <code>python scripts/update_dashboard_stats.py --apply</code> (catalog globs + <code>docs/knowledge_graph.json</code> meta). Product path: <a href="../ROADMAP.md">ROADMAP.md</a>. Catalog-wave checklist: <a href="../docs/PATH_TO_SUCCESS.md">docs/PATH_TO_SUCCESS.md</a>.</p>
       </div>
       <!-- DASHBOARD_CATALOG_SNAPSHOT_END -->
 
@@ -1744,70 +1828,47 @@
     <section id="start">
       <div>
         <span class="section-tag">Onboarding</span>
-        <h2 class="section-title">New here? Follow this order</h2>
+        <h2 class="section-title">New here? Pick one door</h2>
         <p class="section-desc">
-          Same path as <a href="../CONTRIBUTING.md">CONTRIBUTING.md</a> and
-          <a href="../docs/ONBOARDING.md">docs/ONBOARDING.md</a>, laid out as steps.
-          Clone the repo so file links open directly in your editor.
+          Catalog in git → this hub is a view → Crosscheck runs an experiment.
+          Click a door. Full text: <a href="../docs/USE.md">docs/USE.md</a>.
         </p>
       </div>
 
-      <div class="first-contrib-card aos" aria-labelledby="how-works-heading">
-        <h3 id="how-works-heading">How this project works</h3>
-        <p class="first-contrib-lead">
-          Plain-language map of the tools you will touch — no scientific claims, just workflow.
-        </p>
-        <div class="how-works-table-wrap">
-          <table class="how-works-table" aria-label="Contributor tools and workflow">
-            <thead>
-              <tr>
-                <th scope="col">Tool</th>
-                <th scope="col">What it does</th>
-                <th scope="col">You use it to…</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Hub (this page)</td>
-                <td>Browse catalog, search, graph, hygiene list</td>
-                <td>Find a task; read only</td>
-              </tr>
-              <tr>
-                <td>Git + GitHub</td>
-                <td>Version control</td>
-                <td>Edit YAML; open PR</td>
-              </tr>
-              <tr>
-                <td><code>validate_schemas</code> + <code>repo_smoke</code></td>
-                <td>Local/CI checks</td>
-                <td>Confirm YAML valid before PR</td>
-              </tr>
-              <tr>
-                <td>build-graph bot PR</td>
-                <td>Auto refresh graph/API after merge</td>
-                <td>Merge when it appears</td>
-              </tr>
-              <tr>
-                <td>GitHub Pages</td>
-                <td>Hosted hub</td>
-                <td>Share link; green banner = site current</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="how-works-foot">
-          Deeper walkthrough:
-          <a href="../CONTRIBUTING.md">CONTRIBUTING.md</a> ·
-          <a href="../docs/DEV_DASHBOARD.md">docs/DEV_DASHBOARD.md</a>
-        </p>
-      </div>
+      <img class="usdr-flow-img aos" src="../docs/figures/what-usdr-is.svg" width="960" height="200" alt="Catalog YAML in git, hub search and graph as a view of git, Crosscheck runs an experiment with RESULT CONFIRMED or INCONCLUSIVE." />
 
-      <div class="first-contrib-card aos" aria-labelledby="first-contrib-heading">
-        <h3 id="first-contrib-heading">First contribution (five steps)</h3>
+      <div class="door-grid" role="list">
+        <a class="door-card door-look aos" role="listitem" href="#catalog-search">
+          <span class="door-kicker">Door 1</span>
+          <span class="door-title">Look</span>
+          <span class="door-blurb">Search your field, click a graph node, run one Crosscheck in the browser. No git.</span>
+          <span class="door-cta">Search the catalog →</span>
+        </a>
+        <a class="door-card door-add aos d1" role="listitem" href="#door-add">
+          <span class="door-kicker">Door 2</span>
+          <span class="door-title">Add</span>
+          <span class="door-blurb">One YAML file, one validation, one PR. Unknown, hypothesis, or bridge — not all three.</span>
+          <span class="door-cta">YAML steps →</span>
+        </a>
+        <a class="door-card door-run aos d2" role="listitem" href="../docs/USE.md#run">
+          <span class="door-kicker">Door 3</span>
+          <span class="door-title">Run</span>
+          <span class="door-blurb">Clone, follow the ordered commands, confirm hub numbers match git.</span>
+          <span class="door-cta">Maintainer path →</span>
+        </a>
+      </div>
+      <p class="how-works-foot" style="margin-bottom:1.25rem;">
+        Picture of the three doors: <a href="../docs/figures/use-three-doors.svg">use-three-doors.svg</a>
+        · <a href="../CONTRIBUTING.md">CONTRIBUTING.md</a>
+        · <a href="../docs/DEV_DASHBOARD.md">DEV_DASHBOARD.md</a>
+      </p>
+
+      <details class="start-details aos" id="door-add">
+        <summary id="first-contrib-heading">Door 2 — Add (five YAML steps)</summary>
         <p class="first-contrib-lead">
-          The hub <strong>browses</strong> and routes you to tasks; your PR edits YAML in a local clone.
-          Stream A walkthrough:
-          <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/docs/HAPPY_PATH_FIRST_RECORDS.md" target="_blank" rel="noopener">HAPPY_PATH_FIRST_RECORDS.md ↗</a>
+          The hub <strong>browses</strong>; your PR edits YAML in a local clone.
+          Walkthrough:
+          <a href="../docs/HAPPY_PATH_FIRST_RECORDS.md">HAPPY_PATH_FIRST_RECORDS.md</a>
         </p>
         <ol class="steps">
           <li class="aos">
@@ -1867,8 +1928,10 @@
             </div>
           </li>
         </ol>
-      </div>
+      </details>
 
+      <details class="start-details aos">
+        <summary>Policy tour (optional — after you picked a door)</summary>
       <ol class="steps">
         <li class="aos">
           <span class="step-n" aria-hidden="true"></span>
@@ -1916,19 +1979,8 @@
             </div>
           </div>
         </li>
-        <li class="aos d4">
-          <span class="step-n" aria-hidden="true"></span>
-          <div class="step-b">
-            <strong>Make your first contribution</strong>
-            <p>Stream A: validate setup → add a <code>u-…</code> unknown → add a <code>h-…</code> hypothesis → open PR.</p>
-            <div class="step-links">
-              <a class="lc" href="../docs/HAPPY_PATH_FIRST_RECORDS.md">Happy path guide</a>
-              <a class="lc" href="../CONTRIBUTING.md">CONTRIBUTING</a>
-              <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/issues" target="_blank" rel="noopener">Open an issue ↗</a>
-            </div>
-          </div>
-        </li>
       </ol>
+      </details>
     </section>
 
     <!-- ═══════════════════════════════════════════ CROSSCHECK -->
@@ -2782,7 +2834,7 @@
         </div>
 
         <div class="ws-card aos d2" style="--wc:rgba(167,139,250,.07);--wb:rgba(167,139,250,.28);">
-          <div class="ws-area" style="color:var(--violet)">Engineering · Phase 1</div>
+          <div class="ws-area" style="color:var(--violet)">Engineering</div>
           <div class="ws-name">🕸️ Knowledge Graph</div>
           <div class="ws-desc">Build graph layer from YAML entries. RDF/JSON-LD export, NetworkX or Neo4j. Coordinate before starting.</div>
           <div class="ws-tags"><span class="ws-tag">area:knowledge-graph</span><span class="ws-tag">difficulty:advanced</span></div>
@@ -2840,8 +2892,8 @@
     <section id="status">
       <div>
         <span class="section-tag">Project Status</span>
-        <h2 class="section-title">Phase 1 — Discovery &amp; adoption (2026–2027)</h2>
-        <p class="section-desc"><strong>Phase 0 — Foundation</strong> is complete (governance, schemas, CI, catalog seed, graph, hub). Below are calendar- and community-dependent milestones; development and catalog growth continue in parallel.</p>
+        <h2 class="section-title">University-ready robustness (v1.3)</h2>
+        <p class="section-desc"><strong>Foundation</strong> and <strong>v1.1 Core Development</strong> are shipped. Public launch (outreach, DNS, arXiv submit) is parked. Below is the current engineering slice — see <a href="../ROADMAP.md">ROADMAP.md</a>.</p>
       </div>
 
       <div class="status-top">
@@ -2856,25 +2908,29 @@
           </div>
           <div class="phase0-shipped" role="status">
             <span class="phase0-shipped-badge">Phase 0</span>
-            <span class="phase0-shipped-txt">Foundation complete — governance, schemas, CI, catalog seed, graph, hub (see <a href="../ROADMAP.md">ROADMAP.md</a>).</span>
+            <span class="phase0-shipped-txt">Foundation complete — governance, schemas, CI, catalog seed, graph, hub.</span>
+          </div>
+          <div class="phase0-shipped" role="status">
+            <span class="phase0-shipped-badge">v1.1</span>
+            <span class="phase0-shipped-txt">Core Development shipped (PR #308) — 4/4 seed Crosscheck CONFIRMED, generate/promote path, hub recommendations.</span>
           </div>
           <div class="ring-row">
-            <div class="ring-wrap" role="img" aria-label="Phase 1 milestones: share fully completed only (in-progress items do not increase the ring)">
+            <div class="ring-wrap" role="img" aria-label="v1.3 university-ready items: share fully completed only">
               <svg width="88" height="88" viewBox="0 0 88 88" aria-hidden="true">
                 <circle class="ring-bg" cx="44" cy="44" r="37"/>
                 <circle class="ring-fill" id="ring-fill" cx="44" cy="44" r="37"/>
               </svg>
               <div class="ring-label">
                 <span class="ring-pct" id="ring-pct">0%</span>
-                <span class="ring-sub">Phase 1</span>
+                <span class="ring-sub">v1.3</span>
               </div>
             </div>
             <div class="ring-text">
-              <h3 id="ms-summary">0 / 7 Phase 1 milestones complete</h3>
-              <p>Ring = completed Phase 1 items only. In-progress items still appear in the checklist below.</p>
+              <h3 id="ms-summary">0 / 4 v1.3 items complete</h3>
+              <p>Ring = completed v1.3 items only. Parked launch work is not on this list.</p>
             </div>
           </div>
-          <ul class="m-list" id="m-list" aria-label="Phase 1 discovery milestones"></ul>
+          <ul class="m-list" id="m-list" aria-label="v1.3 university-ready items"></ul>
         </div>
 
         <!-- Activity feed -->
@@ -3362,27 +3418,23 @@
       }
     })();
 
-    /* ── PHASE 1 (DISCOVERY & ADOPTION) MILESTONES ───────────── */
-    /* Phase 0 foundation milestones are complete; see ROADMAP.md */
-    /* Order matches ROADMAP.md § Phase 1 — Discovery & adoption */
+    /* ── v1.3 UNIVERSITY-READY ITEMS (see root ROADMAP.md) ───── */
+    /* Foundation + v1.1 shipped; public launch parked — not in this list */
     var MS = [
-      { done: false, prog: true,  t: 'arXiv preprint submitted with a citable DOI' },
-      { done: false, prog: false, t: 'Coordinated public launch + researcher-facing outreach' },
-      { done: false, prog: false, t: 'Custom domain + stable public URLs (credibility)' },
-      { done: false, prog: true,  t: 'Stream A first-contributor happy path validated (HAPPY_PATH_FIRST_RECORDS.md)' },
-      { done: false, prog: false, t: 'First 50 contributors (incl. domain experts)' },
-      { done: false, prog: false, t: 'First Unknowns Hackathon (virtual)' },
-      { done: false, prog: false, t: 'First external citation or equivalent academic signal' },
+      { done: false, prog: false, t: 'WORK-01: Crosscheck RESULT writes through to catalog/hub' },
+      { done: false, prog: false, t: 'UI-01: Hub first-visit audit (counts, links, Crosscheck)' },
+      { done: false, prog: false, t: 'ROBUST-01: One ordered maintainer command list' },
+      { done: false, prog: false, t: 'WORK-02: Catalog batch = one documented local run' },
     ];
 
     (function renderMS() {
       var done = MS.filter(function(m){ return m.done; }).length;
       var prog = MS.filter(function(m){ return m.prog; }).length;
-      /* Ring: strict Phase 1 completion — done:true only (no partial credit for prog) */
+      /* Ring: strict v1.3 completion — done:true only (no partial credit for prog) */
       var pct  = MS.length ? Math.round(Math.min(100, done / MS.length * 100)) : 0;
       document.getElementById('ring-pct').textContent   = pct + '%';
       document.getElementById('ms-summary').textContent =
-        done + ' / ' + MS.length + ' Phase 1 milestones complete · ' + prog + ' in progress';
+        done + ' / ' + MS.length + ' v1.3 items complete · ' + prog + ' in progress';
       setTimeout(function () {
         document.getElementById('ring-fill').style.strokeDashoffset = 232.5 - (232.5 * pct / 100);
       }, 500);
@@ -3833,7 +3885,9 @@
     function revealAosFromHash() {
       var id = (location.hash || '').replace(/^#/, '');
       if (!id) return;
-      revealAosInScope(document.getElementById(id));
+      var target = document.getElementById(id);
+      if (target && target.tagName === 'DETAILS') target.open = true;
+      revealAosInScope(target);
     }
     window.addEventListener('hashchange', revealAosFromHash);
     navLinks.forEach(function (a) {

@@ -1,6 +1,8 @@
 # USDR Launch Execution Checklist — Execution Phase (June 2026+)
 
-**Purpose:** This is the living, checkable execution checklist for the public launch and early ownership transition. It turns the milestones in `LAUNCH_MILESTONES.md` into actionable, prioritized tasks.
+> **PARKED (2026-06-23, reaffirmed 2026-08-26).** Do not run remaining outreach/DNS/arXiv-submit items. Canonical path: [ROADMAP.md](ROADMAP.md).
+
+**Purpose:** Historical checklist for the public launch and early ownership transition. It turns the milestones in `LAUNCH_MILESTONES.md` into tasks — **when launch is un-parked**.
 
 **How to use:**
 - Update the Status column as you go.

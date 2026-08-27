@@ -1,5 +1,7 @@
 # USDR Strategic Directions — June 2026
 
+> **Historical options memo (June 2026).** Not the product path. Canonical “what now” is [ROADMAP.md](ROADMAP.md). Public launch / Path A outreach is **parked**. Do not execute Reddit, LinkedIn, DMs, or domain work from this file.
+
 **Context for this document**  
 You (the founder/maintainer) have:
 - Very high personal capacity right now (15–30+ hrs/week for the next 3–6 months).

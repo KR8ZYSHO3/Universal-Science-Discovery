@@ -1,5 +1,7 @@
 # Reddit Post — r/OpenScience
 
+> **PARKED.** Do not post. Canonical path: [ROADMAP.md](../../ROADMAP.md). Public launch is parked.
+
 **Title:** We built an open catalog of 1,124 cross-domain mathematical bridges to map what science doesn't know yet — live knowledge graph, 1,409 unknowns, automation + strict validation
 
 ---

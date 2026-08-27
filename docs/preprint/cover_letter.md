@@ -1,5 +1,7 @@
 arXiv Cover Letter (cs.DL primary)
 
+> **PARKED.** Do not send. arXiv upload waits until public launch is un-parked. Canonical path: [ROADMAP.md](../../ROADMAP.md).
+
 Dear arXiv moderators,
 
 Please find attached the preprint "Universal Science Discovery Repository: Open Infrastructure for Tracking Scientific Unknowns and Cross-Domain Mathematical Bridges" (v1.2 Launch Edition).

@@ -1,126 +1,113 @@
-# Roadmap: USDR — Milestone v1.1 Core Development
+# Roadmap: USDR
+
+**This is the GSD execution list**, not the product strategy. Canonical product path: [../ROADMAP.md](../ROADMAP.md).
 
 ## Milestones
 
-- ✅ **v1.0 Foundation** — repo `ROADMAP.md` Phase 0
-- 🚧 **v1.1 Core Development** — Phases 1–5 (active)
-- 📋 **v1.2 Launch** — outreach, DNS, arXiv, traction (**deferred** — not active)
-
-## Overview
-
-Harden Crosscheck to 4/4 CONFIRMED, scale the protocol pipeline, expand CI/trust surfaces, then spec hub recommendations. **No marketing work** in this milestone.
+- ✅ **v1.0 Foundation** — repo Phase 0
+- ✅ **v1.1 Core Development** — GSD Phases 1–5 (shipped 2026-08-26, PR #308)
+- 🔒 **v1.2 Launch** — outreach, DNS, arXiv, traction (**parked**)
+- 🚧 **v1.3 University-ready robustness** — GSD Phases 6–9 (**active**)
 
 ## Phases
 
-- [x] **Phase 1: Crosscheck credibility** — 3 CONFIRMED + drift gate
-- [x] **Phase 2: Epidemic FSS precision** — 4th seed protocol CONFIRMED
-- [x] **Phase 3: Crosscheck scale-up** — generate/promote protocols + browser parity
-- [x] **Phase 4: CI & trust hardening** — smoke tests + CONFIRMED gates
-- [x] **Phase 5: Hub engineering** — smart recommendations spec + prototype
+<details>
+<summary>✅ v1.1 Core Development (Phases 1–5) — SHIPPED 2026-08-26</summary>
+
+- [x] Phase 1: Crosscheck credibility (3/3 plans) — 2026-06-23
+- [x] Phase 2: Epidemic FSS precision (3/3 plans) — 2026-08-26
+- [x] Phase 3: Crosscheck scale-up (2/2 plans) — 2026-08-26
+- [x] Phase 4: CI & trust hardening (2/2 plans) — 2026-08-26
+- [x] Phase 5: Hub engineering (1/1 plan) — 2026-08-26
+
+Full archive: [milestones/v1.1-ROADMAP.md](milestones/v1.1-ROADMAP.md)
+
+</details>
+
+### 🚧 v1.3 University-ready robustness (active)
+
+- [ ] **Phase 6: Crosscheck closed loop** — RESULT writes through to catalog/hub
+- [ ] **Phase 7: Hub first-visit + simple flow** — three doors on the hub; counts, links, Crosscheck, no broken loads
+- [ ] **Phase 8: Maintainer command list** — one ordered playbook
+- [ ] **Phase 9: Catalog batch runbook** — one documented local run
+
+### 🔒 v1.2 Launch (parked)
+
+Outreach copy, Reddit/LinkedIn, `usdr.science`, arXiv submit, personal DMs — see `LAUNCH_PLAYBOOK.md`. **Owner parked 2026-06-23; reaffirmed 2026-08-26.** Do not schedule GSD phases until the owner reopens this milestone.
 
 ## Phase Details
 
-### Phase 1: Crosscheck credibility
-**Goal**: Crosscheck reproducible; CI prevents artifact drift.
-**Depends on**: Nothing
-**Requirements**: CROSS-01, CROSS-02, CROSS-03, CROSS-05, TRUST-01
-**Plans**: 3/3 complete (#297–#302)
+### Phase 6: Crosscheck closed loop
 
-### Phase 2: Epidemic FSS precision
-**Goal**: All 4 seed protocols CONFIRMED in CI.
-**Depends on**: Phase 1
-**Requirements**: CROSS-04
-**Success Criteria**:
-  1. `epidemic_percolation_fss.py` prints `RESULT: CONFIRMED`
-  2. Fixed-input regression test for epidemic ν fit
-  3. `crosscheck-repro.yml` greps CONFIRMED for epidemic
-**Plans**: 3/3 complete (2026-08-26)
+**Goal**: A researcher who runs a protocol sees the same RESULT on catalog/hub surfaces, without fabricating CONFIRMED.
+**Depends on**: v1.1 (shipped)
+**Requirements**: WORK-01
+**Success Criteria** (what must be TRUE):
+  1. A documented command (or short sequence) applies a protocol's stdout RESULT token to catalog YAML and hub Crosscheck cards
+  2. Honest INCONCLUSIVE / pending states remain visible; no path invents CONFIRMED
+  3. Existing CI CONFIRMED-gate inventory still fail-closes on the four seeds
+**Plans**: TBD (plan-phase)
 
 Plans:
-- **Wave 1**
-- [x] 02-01: Parameter sweep + precision pass (SEEDS_PER_N, sizes, signed fit) — CONFIRMED 2026-08-26
-- **Wave 2**
-- [x] 02-02: Regression test + CI CONFIRMED gate — freeze pytest + CI grep 2026-08-26
-- [x] 02-03: Colab/notebook path verified or documented — YAML status confirmed, nu_bar=3 2026-08-26
+- [ ] 06-01: RESULT write-through path (catalog + hub) with honesty tests
 
-Cross-cutting constraints:
-- Epidemic stdout must contain `RESULT: CONFIRMED` (CROSS-04)
-- Fit target is volume FSS `NU_THEORY = 3.0`, never relabeled as 1 (D-03)
-- Frozen `mean_pcs` from 02-01-SUMMARY is the only legal pytest pin (D-07)
+### Phase 7: Hub first-visit + simple flow
 
-### Phase 3: Crosscheck scale-up
-**Goal**: Path from bridge YAML → promoted protocol → repro bundle is repeatable.
-**Depends on**: Phase 2
-**Requirements**: CROSS-06, CROSS-07
-**Success Criteria**:
-  1. `generate_crosscheck.py` run documented for ≥1 new bridge
-  2. Parity doc: Python vs browser outcome tiers per protocol
-**Plans**: 2/2 complete (2026-08-26)
+**Goal**: A first visit to the hub holds up, and the only choice is Look / Add / Run.
+**Depends on**: Phase 6 (closed loop should be visible on the hub)
+**Requirements**: FLOW-01, UI-01
+**Success Criteria** (what must be TRUE):
+  1. Hub `#start` and [docs/USE.md](../docs/USE.md) show the same three doors
+  2. Hero/snapshot counts match git (`verify_dashboard_consistency.py`)
+  3. Crosscheck entry points from the hub reach documented runners without 404s
+  4. First-visit paths (start, search, graph, Crosscheck, recommendations) load without broken JS/CSS
+  5. Recommendations remain labeled contributor tooling, not science
+**Plans**: TBD (plan-phase)
 
 Plans:
-- **Wave 1**
-- [x] 03-01: Generate + promote + stdlib repro for `b-percolation-oncology` (`p-b-percolation-oncology-gcc`) — INCONCLUSIVE 2026-08-26
-- **Wave 2**
-- [x] 03-02: Browser/Colab parity matrix in `docs/CROSSCHECK.md` + hub + `--apply` — 2026-08-26
+- [ ] 07-01: Three-door `#start` + first-visit audit against Pages hub and local server
 
-Cross-cutting constraints:
-- Python is canonical; browser/Colab are demo tier (CROSS-07)
-- New oncology protocol prints `RESULT: INCONCLUSIVE` and is never `status: confirmed` (D-04/D-13/D-14)
-- Epidemic freeze `NU_THEORY = 3.0` is untouched (D-07)
+### Phase 8: Maintainer command list
 
-### Phase 4: CI & trust hardening
-**Goal**: Regression coverage matches shipped Crosscheck surface area.
-**Depends on**: Phase 2
-**Requirements**: TRUST-02, TRUST-03
-**Success Criteria**:
-  1. All CONFIRMED protocols gated in crosscheck-repro workflow
-  2. repo_smoke covers epidemic + any new script entry points
-**Plans**: 2/2 complete (2026-08-26)
+**Goal**: A student can operate the repo without tribal knowledge.
+**Depends on**: Phase 7
+**Requirements**: ROBUST-01
+**Success Criteria** (what must be TRUE):
+  1. One document lists clone → validate → graph/hub preview → Crosscheck in order (Door 3 of [docs/USE.md](../docs/USE.md))
+  2. Each command has a skip condition or succeeds on a clean clone
+  3. The list does not require marketing, DNS, or arXiv steps
+**Plans**: TBD (plan-phase)
 
 Plans:
-- **Wave 1**
-- [x] 04-01: Unified CONFIRMED gates in CI — text inventory pytest + CONFIRMED-only docs — 2026-08-26
-- **Wave 2**
-- [x] 04-02: repo_smoke expansion — generate `--dry-run` + GCC INCONCLUSIVE smoke — 2026-08-26
+- [ ] 08-01: Ordered maintainer playbook (single list, verified)
 
-Cross-cutting constraints:
-- Gate stdout `RESULT: CONFIRMED`, not YAML `status` (D-01)
-- Keep the four live `crosscheck-repro.yml` greps; never grep GCC CONFIRMED (D-02/D-03)
-- Epidemic freeze `NU_THEORY = 3.0` is untouched; no live NetworkX in pytest (D-05/D-06)
-- No marketing, DNS, arXiv, or fabricated `RESULT: CONFIRMED` (D-12/D-13)
+### Phase 9: Catalog batch runbook
 
-### Phase 5: Hub engineering
-**Goal**: Phase C smart-recommendations has a spec and static prototype.
-**Depends on**: Phase 4
-**Requirements**: HUB-01
-**Success Criteria**:
-  1. Spec defines ranking signal (connectivity / harvest / curator score)
-  2. `api/v1/` or hub section loads prototype JSON
-**Plans**: 1/1 complete (2026-08-26)
+**Goal**: A catalog batch is one documented local run, not a scavenger hunt.
+**Depends on**: Phase 8
+**Requirements**: WORK-02
+**Success Criteria** (what must be TRUE):
+  1. One runbook covers YAML add → validate → graph → dashboard consistency → PR-sized change
+  2. Wave Factory / bot PR steps stay in the ops checklist (`docs/PATH_TO_SUCCESS.md`) without becoming a second strategy
+  3. Human review gate remains required; no silent bulk commits
+**Plans**: TBD (plan-phase)
 
 Plans:
-- **Wave 1**
-- [x] 05-01: Spec + thin JSON slice in hub — `docs/HUB_RECOMMENDATIONS.md` + `api/v1/recommendations.json` + `#recommendations` — 2026-08-26
-
-Cross-cutting constraints:
-- v1 ranks bridges by undirected degree; harvest/curator are spec-only (D-02)
-- Contributor tooling, not a scientific ranking (D-06)
-- Copy orphan/xref panel: Python exporter → committed JSON → hub `textContent` fetch (D-03/D-05)
-- No marketing, epidemic retune, or fabricated `RESULT: CONFIRMED` (D-10)
-
-## Deferred: v1.2 Launch (not scheduled)
-
-Outreach copy, Reddit/LinkedIn, `usdr.science`, arXiv, personal DMs — see `LAUNCH_PLAYBOOK.md`. **Owner parked 2026-06-23.**
+- [ ] 09-01: Catalog-batch local runbook verified end-to-end
 
 ## Progress
 
-| Phase | Plans Complete | Status | Completed |
-|-------|----------------|--------|-----------|
-| 1. Crosscheck credibility | 3/3 | Complete | 2026-06-23 |
-| 2. Epidemic FSS precision | 3/3 | Complete | 2026-08-26 |
-| 3. Crosscheck scale-up | 2/2 | Complete | 2026-08-26 |
-| 4. CI & trust hardening | 2/2 | Complete | 2026-08-26 |
-| 5. Hub engineering | 1/1 | Complete | 2026-08-26 |
+| Phase | Milestone | Plans Complete | Status | Completed |
+|-------|-----------|----------------|--------|-----------|
+| 1. Crosscheck credibility | v1.1 | 3/3 | Complete | 2026-06-23 |
+| 2. Epidemic FSS precision | v1.1 | 3/3 | Complete | 2026-08-26 |
+| 3. Crosscheck scale-up | v1.1 | 3/3 | Complete | 2026-08-26 |
+| 4. CI & trust hardening | v1.1 | 2/2 | Complete | 2026-08-26 |
+| 5. Hub engineering | v1.1 | 1/1 | Complete | 2026-08-26 |
+| 6. Crosscheck closed loop | v1.3 | 0/1 | Not started | — |
+| 7. Hub first-visit + simple flow | v1.3 | 0/1 | Not started | — |
+| 8. Maintainer command list | v1.3 | 0/1 | Not started | — |
+| 9. Catalog batch runbook | v1.3 | 0/1 | Not started | — |
 
 ---
-*Reprioritized 2026-06-23. Repo vision: `ROADMAP.md` (root).*
+*v1.3 opened 2026-08-26. Phase numbering continues from v1.1 (last phase 5 → start at 6). Product path: `ROADMAP.md` (root).*

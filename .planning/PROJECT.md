@@ -2,96 +2,123 @@
 
 ## What This Is
 
-USDR is open, git-native scientific infrastructure: a version-controlled catalog of unknowns, hypotheses, and cross-domain bridges, with a live knowledge graph, contributor hub, and **Crosscheck** — runnable repro protocols that falsify bridge claims. **Current focus: core development** — make Crosscheck and trust surfaces robust before any marketing push.
+USDR is open, git-native scientific infrastructure: a version-controlled catalog of unknowns, hypotheses, and cross-domain bridges, with a live knowledge graph, contributor hub, and **Crosscheck** — runnable repro protocols that falsify bridge claims.
+
+**v1.1 Core Development shipped 2026-08-26** (PR #308). **Current milestone: v1.3 University-ready robustness.** **v1.2 Launch is parked.** Product path: repo-root `ROADMAP.md`.
 
 ## Core Value
 
 Researchers can discover what's *not yet known*, see credible cross-domain connections, and **run a falsifiable experiment in minutes** — not just read another database.
 
-## Ship Bar (owner constraint — gates all plans)
+## Current State (after v1.1)
+
+- 4/4 seed Crosscheck protocols print `RESULT: CONFIRMED` in CI (habitat FSS, cluster τ, Ising EWI, epidemic volume FSS ν̄=3)
+- Generate → human-promote → repro path proven (`p-b-percolation-oncology-gcc`, always INCONCLUSIVE)
+- `tests/repo_smoke` covers CONFIRMED-gate inventory, generate `--dry-run`, GCC, epidemic freeze
+- Hub `#recommendations` fetches `api/v1/recommendations.json` (undirected degree; contributor tooling, not science)
+- GitHub `main` is PR-protected; batch a PR at milestones
+
+## Ship Bar (still the quality bar — not a GSD phase list)
 
 > **No more engineering for its own sake, and no marketing, until USDR is very robust for a single developer, every maintainer workflow runs excellently end-to-end, and the project interface is refined and truly awesome.**
 
-This is the bar for v1.1 completion — not "one more CONFIRMED protocol" or "green CI" in isolation. Pushing further is intentional; "good enough" is when the three pillars below are honestly met.
+v1.1 closed the GSD requirement IDs. The three pillars are **not** fully claimed as met:
 
-### Pillar 1 — Single-developer robustness
+| Pillar | Honest status after v1.1 |
+|--------|--------------------------|
+| Single-dev robustness | Stronger (smoke + generate path + CONFIRMED inventory). ROBUST-01 playbook still a leftover |
+| Workflows excellent | Crosscheck loop still does not feed stdout RESULT back into catalog YAML (WORK-01) |
+| Interface awesome | Recommendations panel shipped as a thin slice; UI-01 first-visit audit not run |
 
-One person (Brandon) can operate the full repo without tribal knowledge or fragile manual steps.
+## Current Milestone: v1.3 University-ready robustness
 
-- Catalog change → validate → graph → dashboard/API → Pages deploy: documented, scripted, CI-backed
-- Crosscheck change → repro → hub/explainers → drift check: one command path (`build_crosscheck.py`)
-- Bot PRs (graph, waves) predictable — no 400-merge-conflict surprises
-- `pytest tests/repo_smoke` + schema validation = confidence before merge
+**Goal:** One person can run the repo honestly; a first visit to the hub holds up; Crosscheck is a closed loop; the flow is three doors (Look / Add / Run).
 
-### Pillar 2 — Workflows work excellently
+**Target features:**
+- Three-door utilization ([docs/USE.md](../docs/USE.md)) on the hub (FLOW-01)
+- Crosscheck `RESULT:` writes through to catalog/hub status (WORK-01)
+- Hub first-visit audit: counts, links, Crosscheck, no broken loads (UI-01)
+- One ordered maintainer command list (ROBUST-01)
+- Catalog batch = one documented local run (WORK-02)
 
-Each loop completes reliably, with clear failure modes and recovery — not "works on my machine."
-
-| Workflow | Done when |
-|----------|-----------|
-| **Crosscheck** | Bridge → protocol → repro → outcome → reflected in catalog/hub |
-| **Catalog batch** | YAML → graph → stats → domain pages → hub consistent |
-| **Contributor** | Happy path documented; first PR path tested |
-| **Maintainer** | STATE, CHANGELOG, dashboard sync cadence is routine |
-
-### Pillar 3 — Interface truly awesome
-
-The contributor hub (`dashboard/`) is the product face — fast, coherent, trustworthy, impressive to a serious researcher (and eventually an institution) on first visit.
-
-- Numbers and links match git; no stale subgraphs or console errors on load
-- Crosscheck runnable in-browser without friction
-- Navigation, search → graph → GitHub flow feels intentional, not assembled
-- Phase C+ (recommendations, polish) judged against *awesome*, not "shipped a panel"
+**Not in v1.3:** Reddit, LinkedIn, DMs, hackathon, custom domain, arXiv **upload**.
 
 ## Requirements
 
 ### Validated
 
-- ✓ Schema-backed catalog at scale (1,100+ bridges, 1,400+ unknowns) — Phase 0
-- ✓ Knowledge graph + dashboard + GitHub Pages — Phase 0
-- ✓ Crosscheck hub with in-browser runners — PRs #291–#293
-- ✓ 3 of 4 seed Crosscheck protocols **CONFIRMED** (FSS ν, Ising γ, cluster τ) — PRs #297–#302
-- ✓ Core Crosscheck drift gate (`build_crosscheck.py --check`) — PRs #299–#301
+- ✓ Schema-backed catalog at scale — v1.0
+- ✓ Knowledge graph + dashboard + GitHub Pages — v1.0
+- ✓ Crosscheck hub with in-browser runners — v1.0 (#291–#293)
+- ✓ Habitat FSS, Ising EWI, cluster τ CONFIRMED — v1.1 Phase 1
+- ✓ Epidemic FSS CONFIRMED (volume ν̄=3) — v1.1 Phase 2
+- ✓ Crosscheck drift gate (`build_crosscheck.py --check`) — v1.0 / v1.1 TRUST-01
+- ✓ Generate/promote second-bridge path — v1.1 CROSS-06
+- ✓ Python vs browser/Colab parity documented — v1.1 CROSS-07
+- ✓ CONFIRMED protocols gated in CI inventory — v1.1 TRUST-02
+- ✓ repo_smoke for epidemic + generate + GCC — v1.1 TRUST-03
+- ✓ Hub recommendations spec + static JSON — v1.1 HUB-01
 
-### Active (must advance a pillar — see Ship Bar)
+### Active
 
-- [ ] **ROBUST-01**: Maintainer playbook is one ordered command list; smoke tests cover all critical scripts
-- [ ] **WORK-01**: Crosscheck full loop closed (outcome → catalog/hub status, not just stdout)
-- [ ] **WORK-02**: Catalog batch workflow documented + verified in one local runbook
-- [ ] **UI-01**: Hub passes "first visit" audit (consistency, Crosscheck UX, no broken loads)
-- [ ] **CROSS-04**: Epidemic FSS CONFIRMED — only if it unblocks WORK-01, not as a standalone trophy
+- [ ] **FLOW-01**: A newcomer can pick Look, Add, or Run from docs/USE.md and hub `#start` without a stack of strategy docs
+- [ ] **WORK-01**: After a documented Crosscheck run, catalog YAML and hub Crosscheck surfaces show the same RESULT token the protocol printed (or an explicit pending/apply state), without fabricating CONFIRMED
+- [ ] **UI-01**: A first visit to the hub shows git-consistent counts, working Crosscheck links, and no broken first-visit loads
+- [ ] **ROBUST-01**: A new maintainer can operate the repo from one ordered command list
+- [ ] **WORK-02**: A catalog batch can be completed as one documented local run
 
-### Out of Scope (this milestone)
+### Out of Scope (until owner reopens)
 
-- **Marketing / outreach** — Reddit, LinkedIn, DM waves, launch copy refresh — deferred to **v1.2 Launch** (owner decision 2026-06-23)
-- **arXiv submit, usdr.science DNS** — deferred to v1.2 Launch
-- New catalog waves without maintainer review — human gate sacred
-- GSD artifacts as scientific evidence — process metadata only
+- **Marketing / outreach** — v1.2 Launch parked (2026-06-23)
+- **arXiv, usdr.science DNS** — v1.2 Launch parked
+- New catalog waves without maintainer review
+- GSD artifacts as scientific evidence
 
 ## Context
 
-- Crosscheck scorecard: habitat FSS ✓, cluster exponent ✓, Ising EWI ✓, **epidemic FSS ✗** (bond percolation on ER graphs, `networkx`, Colab path).
-- Core pipeline robustness landed (#299–#301); next bottleneck is **4/4 CONFIRMED** and **scaling protocols beyond 4 seeds**.
-- Repo tracks B–D (trust surfaces, breakthrough gaps, catalog depth) in root `ROADMAP.md` — GSD phases align with Track B + Crosscheck depth first.
-- Launch prep artifacts exist (`LAUNCH_PLAYBOOK.md`, outreach copy) but **explicitly parked** until development milestone completes.
+- Crosscheck scorecard: habitat FSS ✓, cluster exponent ✓, Ising EWI ✓, epidemic FSS ✓ (volume ν̄=3; freeze R²=0.32 — do not retune)
+- Hub recommendations: connectivity only; harvest/curator specified, not computed
+- GSD lives **in this repository** (`.planning/`). There is no separate GSD progress repo.
 
 ## Constraints
 
 - **Governance**: METHODOLOGY.md, LEGAL.md, schema CI on every PR
 - **Truth surfaces**: dashboard/hub must match git (`verify_dashboard_consistency.py`)
-- **Python = canonical**; browser/Colab = demo tier with documented lighter budgets
-- **No marketing work** in v1.1 GSD phases unless owner reopens v1.2
+- **Python = canonical**; browser/Colab = demo tier
+- **No marketing** unless owner reopens v1.2
+- **`main` is PR-only** — push feature branches; squash at milestones
 
 ## Key Decisions
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| GSD planning activated 2026-06-23 | Ad-hoc session drift | ✓ Good |
-| **Development before marketing** | Substantial engineering remains; outreach premature | — Pending (2026-06-23) |
-| Pooled histogram + p≈p_c for cluster τ | Per-seed fits at p=0.55 biased low | ✓ Good |
-| Python = canonical; browser = demo | CI locks Python fits | ✓ Good |
-| Launch/outreach → v1.2 milestone | User directive: not interested in marketing now | — Pending |
-| **Ship Bar** (3 pillars) | Single-dev robust + excellent workflows + awesome UI before ship/market | — Pending (2026-06-23) |
+| GSD planning in this repo | Ad-hoc session drift | ✓ Good — `.planning/` is the progress system |
+| Development before marketing | Outreach premature | ✓ v1.1 shipped without marketing |
+| Epidemic volume ν̄=3 not ν=1 | Honest FSS | ✓ CONFIRMED; freeze pinned |
+| Python canonical; browser demo | CI locks Python | ✓ Good |
+| CONFIRMED gates = stdout | YAML `status` is not the token | ✓ TRUST-02 |
+| Recommendations ≠ science | Degree is contributor leverage | ✓ HUB-01 |
+| PR at milestones | `main` protected | ✓ #308 |
+| **Ship Bar** | Quality bar beyond GSD IDs | — Still the bar; v1.3 is the remaining work |
+| **Root ROADMAP.md is the only product path** | PATH_TO_SUCCESS / launch docs were a second strategy | ✓ 2026-08-26 |
+| **v1.3 before v1.2 Launch** | Product must impress in the room before outreach | — Pending |
+
+## Evolution
+
+This document evolves at phase transitions and milestone boundaries.
+
+**After each phase transition** (via `/gsd-transition`):
+1. Requirements invalidated? → Move to Out of Scope with reason
+2. Requirements validated? → Move to Validated with phase reference
+3. New requirements emerged? → Add to Active
+4. Decisions to log? → Add to Key Decisions
+5. "What This Is" still accurate? → Update if drifted
+
+**After each milestone** (via `/gsd-complete-milestone`):
+1. Full review of all sections
+2. Core Value check — still the right priority?
+3. Audit Out of Scope — reasons still valid?
+4. Update Context with current state
 
 ---
-*Last updated: 2026-06-23 — Ship Bar locked as plan gate for all GSD phases*
+*Last updated: 2026-08-26 after opening v1.3*

@@ -1,5 +1,7 @@
 # USDR Institutional Partnership Prospectus
 
+> **PARKED with public launch.** Do not send this to universities or funders until the owner un-parks outreach. Canonical path: [ROADMAP.md](ROADMAP.md) (university-ready robustness first).
+
 **Universal Science Discovery Repository**  
 *Open Infrastructure for Tracking Scientific Unknowns and Cross-Domain Mathematical Bridges*
 

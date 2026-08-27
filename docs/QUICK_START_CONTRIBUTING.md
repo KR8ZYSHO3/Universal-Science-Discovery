@@ -1,5 +1,7 @@
 # Quick Start: Your First USDR Contribution
 
+**Door 2 shortcut.** Canonical flow is [USE.md](USE.md). YAML detail: [HAPPY_PATH_FIRST_RECORDS.md](HAPPY_PATH_FIRST_RECORDS.md). This page is extra examples, not a second start-here.
+
 **Goal:** Make your first contribution in under 30 minutes.
 
 ## What you need

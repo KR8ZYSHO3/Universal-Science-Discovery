@@ -10,6 +10,8 @@ See [WHY_CONTRIBUTE.md](WHY_CONTRIBUTE.md) for the full case, and [VISION_COMMUN
 
 ---
 
+**Utilization front door:** [docs/USE.md](docs/USE.md) — Look (hub) · Add (this file + happy path) · Run (maintainer list). This page is **Door 2 detail**, not a second strategy.
+
 ## Quick Start (5 minutes)
 
 1. **Fork → clone** this repository
@@ -247,10 +249,10 @@ If checks fail, fix locally first — a PR with failing CI will not be merged.
 
 ## Community
 
-GitHub Issues and Discussions are the primary coordination channel during **Phase 1 — Discovery & adoption**. Discord/forum will be announced when ready.
+GitHub Issues and Discussions are the primary coordination channel. Discord/forum will be announced if a public community channel is opened (parked with launch).
 
 ---
 
 ## Recognition
 
-All contributors whose PRs are merged are listed in [CONTRIBUTORS.md](CONTRIBUTORS.md). Maintainers add contributors manually during Phase 1; **Phase 2 — Momentum** will automate this via a GitHub Action once scale warrants it.
+All contributors whose PRs are merged are listed in [CONTRIBUTORS.md](CONTRIBUTORS.md). Maintainers add names manually for now; automation can wait until volume warrants it.

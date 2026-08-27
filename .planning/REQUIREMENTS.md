@@ -1,59 +1,72 @@
-# Requirements: USDR Core Development (v1.1)
+# Requirements: USDR v1.3 University-ready robustness
 
-**Defined:** 2026-06-23
+**Defined:** 2026-08-26
 **Core Value:** Researchers can run falsifiable Crosscheck experiments in minutes.
-**Reprioritized:** 2026-06-23 — marketing deferred to v1.2 Launch.
 
-## v1.1 Requirements (Core Development)
+v1.1 Core Development (11/11) → [milestones/v1.1-REQUIREMENTS.md](milestones/v1.1-REQUIREMENTS.md)
 
-### Crosscheck credibility
+Product path (not this file): repo-root [ROADMAP.md](../ROADMAP.md). This file is the GSD requirement list for **v1.3 only**.
 
-- [x] **CROSS-01**: Habitat percolation FSS CONFIRMED — Phase 1 (#298)
-- [x] **CROSS-02**: Ising EWI CONFIRMED — Phase 1 (#297)
-- [x] **CROSS-03**: Cluster exponent CONFIRMED — Phase 1 (#302)
-- [x] **CROSS-04**: Epidemic FSS CONFIRMED — Phase 2 (02-01 stdout + 02-02 freeze pytest and CI grep + 02-03 catalog/Colab)
-- [x] **CROSS-05**: `build_crosscheck.py --check` in CI — Phase 1 (#299–#301)
+## v1.3 Requirements
 
-### Crosscheck scale-up
+### Closed loop
 
-- [x] **CROSS-06**: Second-bridge protocol drafts promoted or generated via `generate_crosscheck.py` — Phase 3 (03-01: `b-percolation-oncology` → `p-b-percolation-oncology-gcc`)
-- [x] **CROSS-07**: Browser runner outputs documented vs Python canonical (parity matrix) — Phase 3 (03-02: `docs/CROSSCHECK.md` Run-mode parity)
+- [ ] **WORK-01**: After a documented Crosscheck run, catalog YAML and hub Crosscheck surfaces show the same RESULT token the protocol printed (or an explicit pending/apply state), without fabricating CONFIRMED
 
-### Trust surfaces & CI
+### Simple flow
 
-- [x] **TRUST-01**: Stale dashboard graph removed — Phase 1 (#300)
-- [x] **TRUST-02**: All CONFIRMED protocols gated in `crosscheck-repro.yml` — Phase 4 (04-01 inventory pytest + four live greps)
-- [x] **TRUST-03**: Additional repo_smoke tests for epidemic + script entry points — Phase 4 (04-02 generate dry-run + GCC INCONCLUSIVE smokes; epidemic freeze re-run)
+- [ ] **FLOW-01**: A newcomer can pick Look, Add, or Run from [docs/USE.md](../docs/USE.md) and the hub `#start` section without reading a stack of strategy docs
 
-### Hub engineering
+### Hub first visit
 
-- [x] **HUB-01**: Smart-recommendations spec + static JSON prototype — Phase 5 (05-01: `docs/HUB_RECOMMENDATIONS.md` + `api/v1/recommendations.json` + hub `#recommendations`)
+- [ ] **UI-01**: A first visit to the hub shows git-consistent counts, working Crosscheck links, and no broken first-visit loads
 
-## v1.2 Requirements (Launch — deferred)
+### Maintainer ops
 
-- **LAUNCH-01** through **LAUNCH-06**: outreach, DNS, arXiv, DMs — see `LAUNCH_PLAYBOOK.md`
-- Parked until v1.1 Core Development milestone completes
+- [ ] **ROBUST-01**: A new maintainer can operate the repo from one ordered command list (clone → validate → graph/hub preview → Crosscheck)
+- [ ] **WORK-02**: A catalog batch can be completed as one documented local run (validate → graph → consistency → PR-sized change)
+
+## Future Requirements
+
+Deferred; not in v1.3 phases.
+
+### Launch (v1.2 — parked)
+
+- **LAUNCH-01**: arXiv preprint submitted with a citable DOI
+- **LAUNCH-02**: Coordinated public launch + researcher-facing outreach
+- **LAUNCH-03**: Custom domain (`usdr.science` or equivalent)
+
+### Hub ranking (after HUB-01 spec)
+
+- **HUB-02**: Harvest-rank implementation (specified, not computed)
+- **HUB-03**: Curator-score implementation (specified, not computed)
 
 ## Out of Scope
 
 | Feature | Reason |
 |---------|--------|
-| Marketing posts | Owner: development first (2026-06-23) |
-| Catalog waves | After Crosscheck + trust surfaces |
+| Marketing posts (Reddit, LinkedIn, DMs) | v1.2 parked until the product impresses in the room |
+| DNS / arXiv **upload** | v1.2 parked; DOI is for later, not a substitute for finishing the product |
+| Catalog waves without review | Human gate sacred |
+| GSD artifacts as science | Process metadata only |
+| Fake `RESULT: CONFIRMED` | Honesty constraint |
+| Epidemic FSS retune | Freeze `NU_THEORY=3.0`; R²=0.32 is not a defect to shop |
 
 ## Traceability
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| CROSS-01–03, CROSS-05, TRUST-01 | Phase 1 | Complete |
-| CROSS-04 | Phase 2 | Complete (02-01/02-02/02-03) |
-| CROSS-06 | Phase 3 | Complete (03-01 generate/promote/repro) |
-| CROSS-07 | Phase 3 | Complete (03-02 parity matrix) |
-| TRUST-02 | Phase 4 | Complete (04-01 inventory pytest) |
-| TRUST-03 | Phase 4 | Complete (04-02 generate dry-run + GCC INCONCLUSIVE) |
-| HUB-01 | Phase 5 | Complete (05-01 spec + JSON + hub panel) |
+| WORK-01 | Phase 6 | Pending |
+| FLOW-01 | Phase 7 | Pending |
+| UI-01 | Phase 7 | Pending |
+| ROBUST-01 | Phase 8 | Pending |
+| WORK-02 | Phase 9 | Pending |
 
-**Coverage:** 11 v1.1 dev requirements · 11 complete · 0 pending
+**Coverage:**
+- v1.3 requirements: 5 total
+- Mapped to phases: 5
+- Unmapped: 0 ✓
 
 ---
-*Last updated: 2026-08-26 — HUB-01 closed in 05-01*
+*Requirements defined: 2026-08-26*
+*Last updated: 2026-08-26 after opening v1.3*
