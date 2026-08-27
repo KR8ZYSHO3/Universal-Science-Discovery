@@ -2,7 +2,7 @@
 
 **Purpose:** `breakthrough-gaps/bg-*.yaml` entries name **world-scale outcomes** that are plausible but blocked by specific cross-domain gaps. They complement bridges (`cross-domain/b-*.yaml`) by answering “what macro breakthrough does this catalog infrastructure ultimately serve?”
 
-This doc ties the breakthrough-gap program to **Phase-plan priorities** alongside discovery/adoption and hub fidelity ([ROADMAP.md](../ROADMAP.md) § Integrated development priorities).
+This doc ties the breakthrough-gap program to engineering **track C** on the product path ([ROADMAP.md](../ROADMAP.md) § Engineering tracks). Discovery/adoption outreach is parked.
 
 ---
 

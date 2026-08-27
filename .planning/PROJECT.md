@@ -4,7 +4,7 @@
 
 USDR is open, git-native scientific infrastructure: a version-controlled catalog of unknowns, hypotheses, and cross-domain bridges, with a live knowledge graph, contributor hub, and **Crosscheck** — runnable repro protocols that falsify bridge claims.
 
-**v1.1 Core Development shipped 2026-08-26** (PR #308). Current GSD status: no active milestone. **v1.2 Launch is parked.**
+**v1.1 Core Development shipped 2026-08-26** (PR #308). **Current milestone: v1.3 University-ready robustness.** **v1.2 Launch is parked.** Product path: repo-root `ROADMAP.md`.
 
 ## Core Value
 
@@ -30,13 +30,18 @@ v1.1 closed the GSD requirement IDs. The three pillars are **not** fully claimed
 | Workflows excellent | Crosscheck loop still does not feed stdout RESULT back into catalog YAML (WORK-01) |
 | Interface awesome | Recommendations panel shipped as a thin slice; UI-01 first-visit audit not run |
 
-### Next Milestone Goals
+## Current Milestone: v1.3 University-ready robustness
 
-**Not opened.** Options when the owner is ready:
+**Goal:** One person can run the repo honestly; a first visit to the hub holds up; Crosscheck is a closed loop; the flow is three doors (Look / Add / Run).
 
-1. `/gsd-new-milestone` for remaining Ship Bar work (ROBUST-01, WORK-01, WORK-02, UI-01)
-2. `/gsd-new-milestone` for **v1.2 Launch** only if marketing is un-parked
-3. Keep parking and only open a PR at the next real milestone
+**Target features:**
+- Three-door utilization ([docs/USE.md](../docs/USE.md)) on the hub (FLOW-01)
+- Crosscheck `RESULT:` writes through to catalog/hub status (WORK-01)
+- Hub first-visit audit: counts, links, Crosscheck, no broken loads (UI-01)
+- One ordered maintainer command list (ROBUST-01)
+- Catalog batch = one documented local run (WORK-02)
+
+**Not in v1.3:** Reddit, LinkedIn, DMs, hackathon, custom domain, arXiv **upload**.
 
 ## Requirements
 
@@ -56,12 +61,11 @@ v1.1 closed the GSD requirement IDs. The three pillars are **not** fully claimed
 
 ### Active
 
-None scheduled. Leftovers (not a milestone until `/gsd-new-milestone`):
-
-- [ ] **ROBUST-01**: Maintainer playbook is one ordered command list
-- [ ] **WORK-01**: Crosscheck outcome → catalog/hub status
-- [ ] **WORK-02**: Catalog batch workflow verified in one local runbook
-- [ ] **UI-01**: Hub first-visit audit
+- [ ] **FLOW-01**: A newcomer can pick Look, Add, or Run from docs/USE.md and hub `#start` without a stack of strategy docs
+- [ ] **WORK-01**: After a documented Crosscheck run, catalog YAML and hub Crosscheck surfaces show the same RESULT token the protocol printed (or an explicit pending/apply state), without fabricating CONFIRMED
+- [ ] **UI-01**: A first visit to the hub shows git-consistent counts, working Crosscheck links, and no broken first-visit loads
+- [ ] **ROBUST-01**: A new maintainer can operate the repo from one ordered command list
+- [ ] **WORK-02**: A catalog batch can be completed as one documented local run
 
 ### Out of Scope (until owner reopens)
 
@@ -95,7 +99,26 @@ None scheduled. Leftovers (not a milestone until `/gsd-new-milestone`):
 | CONFIRMED gates = stdout | YAML `status` is not the token | ✓ TRUST-02 |
 | Recommendations ≠ science | Degree is contributor leverage | ✓ HUB-01 |
 | PR at milestones | `main` protected | ✓ #308 |
-| **Ship Bar** | Quality bar beyond GSD IDs | — Still the bar; not fully claimed |
+| **Ship Bar** | Quality bar beyond GSD IDs | — Still the bar; v1.3 is the remaining work |
+| **Root ROADMAP.md is the only product path** | PATH_TO_SUCCESS / launch docs were a second strategy | ✓ 2026-08-26 |
+| **v1.3 before v1.2 Launch** | Product must impress in the room before outreach | — Pending |
+
+## Evolution
+
+This document evolves at phase transitions and milestone boundaries.
+
+**After each phase transition** (via `/gsd-transition`):
+1. Requirements invalidated? → Move to Out of Scope with reason
+2. Requirements validated? → Move to Validated with phase reference
+3. New requirements emerged? → Add to Active
+4. Decisions to log? → Add to Key Decisions
+5. "What This Is" still accurate? → Update if drifted
+
+**After each milestone** (via `/gsd-complete-milestone`):
+1. Full review of all sections
+2. Core Value check — still the right priority?
+3. Audit Out of Scope — reasons still valid?
+4. Update Context with current state
 
 ---
-*Last updated: 2026-08-26 after v1.1 milestone*
+*Last updated: 2026-08-26 after opening v1.3*

@@ -8,9 +8,9 @@ Traceability: **which file defines what**, so governance and outreach stay align
 | [universal-science-discovery-repo-blueprint.md](universal-science-discovery-repo-blueprint.md) | Vision, principles, proposed tree, MVP, tooling — **canonical build plan** |
 | [WHY_CONTRIBUTE.md](WHY_CONTRIBUTE.md) | Recruitment narrative, early-contributor value proposition |
 | [VISION_COMMUNICATION.md](VISION_COMMUNICATION.md) | External communication: pitches, audiences, handling pushback |
-| [INTERFACE.md](INTERFACE.md) | **Future** UX/static site/Discovery OS plan — phased in [ROADMAP.md](ROADMAP.md) (“Interface development”) |
+| [INTERFACE.md](INTERFACE.md) | UX / Discovery OS **appendix**. Product path is [ROADMAP.md](ROADMAP.md). Custom domain parked. |
 | [ARCHITECTURE.md](ARCHITECTURE.md) | System design and components |
-| [ROADMAP.md](ROADMAP.md) | Phasing and delivery priorities |
+| [ROADMAP.md](ROADMAP.md) | **Only product path** (now / shipped / parked / later). GSD execution list: `.planning/ROADMAP.md` |
 | [GOVERNANCE.md](GOVERNANCE.md) | Decision-making, roles |
 | [ETHICS.md](ETHICS.md) | Ethical constraints on content and process |
 | [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) | Community conduct |

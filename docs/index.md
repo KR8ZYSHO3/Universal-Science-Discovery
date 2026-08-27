@@ -4,10 +4,13 @@
 
 For the full project overview and repository layout, see the [README on GitHub](https://github.com/KR8ZYSHO3/Universal-Science-Discovery).
 
+**Product path (only one):** [ROADMAP.md](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/ROADMAP.md). This MkDocs site is policy and ops. [PATH_TO_SUCCESS.md](PATH_TO_SUCCESS.md) is the catalog-wave checklist, not a second strategy.
+
 ## Start here
 
+- **[How to use USDR](USE.md)** — Look / Add / Run (one flow, with pictures)
 - **[Catalog search & graph](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#catalog-search)** — full-text search over bridges, unknowns, and hypotheses; interactive graph on the same page (JavaScript; or open [`dashboard/index.html`](../dashboard/index.html) locally per [dashboard README](../dashboard/README.md)).
-- [Onboarding](ONBOARDING.md)
+- [Onboarding](ONBOARDING.md) (maintainer policy tour — not the first page)
 - **[Happy path — first unknown & hypothesis (Stream A)](HAPPY_PATH_FIRST_RECORDS.md)**
 - **[Quality bar — avoid sloppy structure & reviews](QUALITY_BAR.md)**
 - [Vision & scope](VISION_AND_SCOPE.md) and [Methodology](METHODOLOGY.md)

@@ -1,5 +1,7 @@
 # LinkedIn Post
 
+> **PARKED.** Do not post. Canonical path: [ROADMAP.md](../../ROADMAP.md). Public launch is parked.
+
 **Target audience:** Researchers, data scientists, science communicators, open-science advocates
 
 ---

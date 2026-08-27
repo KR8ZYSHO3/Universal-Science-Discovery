@@ -9,6 +9,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed — Simple utilization flow (Look / Add / Run)
+- **`docs/USE.md`:** the only “how to use this repo” page — three doors (Look on the hub, Add one YAML, Run one command list). Other start-here docs defer to it.
+- **Infographics (SVG, exact labels):** [`docs/figures/what-usdr-is.svg`](docs/figures/what-usdr-is.svg) (catalog → hub → Crosscheck) and [`docs/figures/use-three-doors.svg`](docs/figures/use-three-doors.svg) (Look / Add / Run). Drawn as SVG so the words cannot drift.
+- Hub `#start`: three clickable door cards, pictures above the fold; YAML steps and policy tour folded into `<details>`.
+- **`FLOW-01`** on GSD v1.3 Phase 7 (with UI-01).
+- Pointers: **`README.md`**, **`CONTRIBUTING.md`**, **`docs/ONBOARDING.md`**, **`docs/HAPPY_PATH_FIRST_RECORDS.md`**, **`docs/QUALITY_BAR.md`**, **`docs/index.md`**, **`mkdocs.yml`**.
+
+### Changed — Single product path (root ROADMAP.md)
+- **`ROADMAP.md`** is the only product-path document: **Now** = v1.3 university-ready (WORK-01, UI-01, ROBUST-01, WORK-02); **Shipped** = Foundation + v1.1; **Parked** = v1.2 public launch; **Later** = 2027–2035. If another strategy file disagrees, this file wins.
+- **`docs/PATH_TO_SUCCESS.md`** demoted to catalog-wave ops checklist (May 2026 outreach/arXiv-this-week stack parked).
+- Parked banners: **`LAUNCH_PLAYBOOK.md`**, **`LAUNCH_MILESTONES.md`**, **`LAUNCH_EXECUTION_CHECKLIST.md`**, **`STRATEGIC_DIRECTIONS_2026.md`**, **`docs/QUICK_START_LAUNCH_SPRINT.md`**.
+- **`INTERFACE.md`** marked UX appendix; alignment table maps to Now / Parked / Later (not “Phase 1 Discovery is active”).
+- Front doors updated: **`README.md`** roadmap table, **`dashboard/index.html`** hero banner/pill + `#status` ring (`MS` = v1.3 items, not arXiv/outreach), **`.cursor/rules/usdr-key-documents.mdc`**, **`AGENTS.md`**, **`docs/index.md`**, **`docs/ONBOARDING.md`**, **`docs/DOC_MAP.md`**, **`DOC_MAP.md`**, **`CONTRIBUTING.md`**.
+- Outreach drafts (`docs/outreach/` including folder README, prospectus, preprint header + cover letter) marked **parked / not submitted**.
+- GSD **v1.3 University-ready robustness** opened in `.planning/` (phases 6–9). **v1.2 Launch stays parked.** No arXiv submit, DNS, or outreach in this change.
+
 ### Added — Hub recommendations thin slice (HUB-01)
 - **`docs/HUB_RECOMMENDATIONS.md`:** ranking spec (connectivity / harvest / curator); prototype computes undirected degree only. Contributor tooling, not a scientific ranking.
 - **`scripts/export_recommendations.py`:** writes **`api/v1/recommendations.json`** (≤25 bridges by undirected degree).

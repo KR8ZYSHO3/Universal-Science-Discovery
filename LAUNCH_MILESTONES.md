@@ -1,6 +1,8 @@
 # USDR Launch Execution Milestones — June 2026 Onward
 
-**Purpose:** This file tracks the public launch and early ownership transition as a first-class, visible milestone stream. It lives alongside (and feeds) the canonical [.planning/STATE.md](.planning/STATE.md).
+> **PARKED (2026-06-23, reaffirmed 2026-08-26).** Do not treat this file as current work. Canonical path: [ROADMAP.md](ROADMAP.md) (**University-ready robustness**). Public launch stays in [LAUNCH_PLAYBOOK.md](LAUNCH_PLAYBOOK.md) until the owner un-parks it.
+
+**Purpose:** Historical tracker for the public launch and early ownership transition. It used to feed [.planning/STATE.md](.planning/STATE.md); GSD state is now v1.3 engineering, not this list.
 
 **Philosophy (matching existing project discipline):**
 - Milestones are updated after meaningful progress (merged PRs, shipped artifacts, or major external signals).

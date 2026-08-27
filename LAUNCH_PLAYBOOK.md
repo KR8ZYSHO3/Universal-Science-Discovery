@@ -1,7 +1,9 @@
 # USDR Launch Playbook — 30-Day Takeoff Sequence (June 2026)
 
-**Owner:** Brandon Shoemaker (primary driver, high capacity window open)
-**Goal:** Make USDR findable, citable, and attractive to the first wave of serious external contributors.
+> **PARKED (2026-06-23, reaffirmed 2026-08-26).** Do not run this sequence until the owner un-parks public launch. Canonical “what now” is [ROADMAP.md](ROADMAP.md) (**University-ready robustness**). arXiv submit stays here as a future DOI step, not current engineering.
+
+**Owner:** Brandon Shoemaker
+**Goal (when un-parked):** Make USDR findable, citable, and attractive to the first wave of serious external contributors.
 **Primary Vector:** Launch + Early Ownership (as defined in STRATEGIC_DIRECTIONS_2026.md)
 **Secondary Parallel:** Begin light community ownership scaffolding so the project doesn't stay 100% founder-dependent.
 

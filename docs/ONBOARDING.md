@@ -1,6 +1,6 @@
 # Onboarding
 
-Path through the repository in **~30 minutes** for a new collaborator or maintainer.
+**Not the first page.** How to *use* USDR is [USE.md](USE.md) (Look / Add / Run). This page is a **maintainer policy tour** (~30 minutes) after you already picked a door.
 
 ## 0. Optional — visual map (2 min)
 
@@ -28,7 +28,7 @@ Read [COLLABORATION_AND_REVIEWS.md](COLLABORATION_AND_REVIEWS.md) and [CONTRIBUT
 
 ## 4. Traceability (5 min)
 
-Open [DOC_MAP.md](DOC_MAP.md) and scan [REPOSITORY_MANIFEST.md](REPOSITORY_MANIFEST.md). These explain **which file enforces which policy**.
+Open [DOC_MAP.md](DOC_MAP.md) and scan [REPOSITORY_MANIFEST.md](REPOSITORY_MANIFEST.md). These explain **which file enforces which policy**. Product path is repo-root [ROADMAP.md](../ROADMAP.md) — not PATH_TO_SUCCESS or the launch playbook.
 
 ## 5. Tooling (5 min)
 

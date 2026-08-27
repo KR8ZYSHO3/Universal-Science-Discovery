@@ -1,8 +1,10 @@
 # USDR Interface Program
 
+> **Not the product roadmap.** Product path and “what we do now” live in [ROADMAP.md](ROADMAP.md). This file is the **UX / Discovery OS appendix**. Custom domain (P1.1) is parked with public launch. v1.3 university-ready work is hub *trust* on the existing Pages site, not a new app.
+
 ## Purpose
 
-This document is the canonical plan for UX, static site, and the future "Discovery OS" interface.
+This document is the plan for UX, static site, and the future "Discovery OS" interface.
 The interface is always a **view** of the repository — git remains the source of truth.
 
 Interface development runs as a **separate workstream** from discipline content; we do not block
@@ -143,10 +145,11 @@ content growth on UI polish, and we do not sacrifice content quality for UI feat
 
 Cross-reference [ROADMAP.md](ROADMAP.md) **project phases** with **this file’s** interface-program phases (the headings “Phase 1/2/3” below mean *interface* phases, not the roadmap).
 
-| USDR roadmap phase ([ROADMAP.md](ROADMAP.md)) | Interface deliverable (this document) |
+| USDR product path ([ROADMAP.md](ROADMAP.md)) | Interface deliverable (this document) |
 |---|---|
-| Phase 0 — Foundation | Static dashboard, domain pages, API, knowledge graph — **COMPLETE** (“Current State”) |
-| Phase 1 — Discovery & adoption | Credibility + outreach; optional early steps toward custom domain / landing polish |
-| Phase 2 — Momentum | **Interface Phase 1:** Trust & Accessibility — custom domain, submission portal, semantic search, entry permalinks |
-| Phase 3 — Acceleration | **Interface Phase 2:** Interactive Discovery |
-| Phase 4 — Transformation | **Interface Phase 3:** Discovery OS |
+| Foundation (shipped) | Static dashboard, domain pages, API, knowledge graph — **COMPLETE** (“Current State”) |
+| University-ready (v1.3, now) | Trust surfaces on the **existing** Pages hub (counts, Crosscheck, no broken loads). No custom domain yet |
+| Parked public launch (v1.2) | P1.1 custom domain + launch polish — do not run until un-parked |
+| Later — Momentum+ | **Interface Phase 1:** Trust & Accessibility (portal, semantic search, permalinks) |
+| Later — Acceleration | **Interface Phase 2:** Interactive Discovery |
+| Later — Transformation | **Interface Phase 3:** Discovery OS |

@@ -1,6 +1,8 @@
 # Outreach & Launch Materials
 
-This folder contains the complete, ready-to-execute materials for the USDR public launch (v0.5.0, targeted mid-2026).
+> **PARKED (2026-06-23, reaffirmed 2026-08-26).** Do not post, DM, or schedule anything in this folder. Canonical path: [ROADMAP.md](../../ROADMAP.md). These files are drafts for when the owner un-parks public launch.
+
+This folder contains draft materials for the USDR public launch (originally targeted mid-2026).
 
 ## Primary Deliverable
 

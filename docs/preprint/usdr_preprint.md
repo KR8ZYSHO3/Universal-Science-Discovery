@@ -4,6 +4,8 @@
 
 **Version:** v1.2 Launch Edition — June 2026
 
+> **Not submitted.** arXiv upload is parked with public launch. Canonical path: [ROADMAP.md](../../ROADMAP.md). This file stays as the draft for when the owner un-parks DOI work.
+
 **Suggested categories:** cs.DL (primary) · q-bio.QM · physics.soc-ph (cross-list)
 
 **Repository:** <https://github.com/KR8ZYSHO3/Universal-Science-Discovery>

@@ -19,7 +19,7 @@
 - Timeline: GSD v1.1 locked 2026-06-23 → ship 2026-08-26
 - Git: `#305` / `#304` planning lock → `#308` (`cda2526`)
 
-**What's next:** v1.2 Launch (outreach, DNS, arXiv) remains **parked**. Ship Bar items ROBUST-01 / WORK-01 / WORK-02 / UI-01 are not a scheduled GSD milestone until the owner opens one. Progress continues via GSD in this repo (`.planning/`).
+**What's next:** **v1.3 University-ready robustness** (phases 6–9: WORK-01, UI-01, ROBUST-01, WORK-02). v1.2 Launch remains **parked**. Product path: repo-root `ROADMAP.md`.
 
 **Known deferred items at close:** 0 open GSD todos. Parked launch + Ship Bar leftovers (see STATE.md Deferred Items). No `v1.1-MILESTONE-AUDIT.md`.
 

@@ -32,7 +32,8 @@ USDR fails when structure looks serious but **records, evidence, and review** dr
 
 ### 3) Stable “happy path”
 
-- **[HAPPY_PATH_FIRST_RECORDS.md](HAPPY_PATH_FIRST_RECORDS.md)** is the **single** narrative for first records. Parallel work (Stream B, C, …) should not fork competing instructions; update the happy path when schemas or seed examples change.
+- **[USE.md](USE.md)** is the **single utilization flow** (Look / Add / Run). Do not add another “start here” that competes with it.
+- **[HAPPY_PATH_FIRST_RECORDS.md](HAPPY_PATH_FIRST_RECORDS.md)** is the **single** narrative for Door 2 (first records). Parallel work (Stream B, C, …) should not fork competing instructions; update the happy path when schemas or seed examples change.
 
 ### 4) Gold-standard exemplars (Stream B mental model)
 

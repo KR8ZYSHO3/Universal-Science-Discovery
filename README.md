@@ -14,7 +14,7 @@
 
 **[Live Dashboard](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/) · [Knowledge Graph](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#knowledge-graph) · [Crosscheck](docs/CROSSCHECK.md) · [Early Stewards](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/discussions/286) · [Preprint](docs/preprint/usdr_preprint.md) · [Contribute](CONTRIBUTING.md)**
 
-> **🚀 June 2026 Launch Sprint** — 1,124 cross-domain bridges • 1,409 open unknowns • 1,275 hypotheses • 0 orphans • Automation live. First external contributors wanted.
+> **v1.1 shipped** (PR #308). **Now:** university-ready robustness — [ROADMAP.md](ROADMAP.md). Public launch (outreach, DNS, arXiv submit) is **parked**.
 
 
 
@@ -171,6 +171,18 @@ api/v1/                                       ← static JSON API
 
 ---
 
+## How to use this repo
+
+**One flow, three doors** — [docs/USE.md](docs/USE.md):
+
+![What USDR is: catalog, hub, Crosscheck](docs/figures/what-usdr-is.svg)
+
+![Look, Add, Run](docs/figures/use-three-doors.svg)
+
+1. **Look** — open the [hub](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/), search, run one [Crosscheck](docs/CROSSCHECK.md) in the browser.
+2. **Add** — one YAML file → `python scripts/validate_schemas.py` → PR. Detail: [docs/HAPPY_PATH_FIRST_RECORDS.md](docs/HAPPY_PATH_FIRST_RECORDS.md).
+3. **Run** — clone and follow the ordered maintainer list (v1.3). Until that playbook lands: [docs/DEV_DASHBOARD.md](docs/DEV_DASHBOARD.md).
+
 ## Contributing
 
 The simplest contribution is a new **unknown** — a named, structured research gap in your field. No code required, just YAML.
@@ -196,13 +208,15 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for full instructions and [docs/QUICK_STA
 ## Roadmap
 
 
-| Phase                                        | Timeline  | Goal                                                                                       |
-| -------------------------------------------- | --------- | ------------------------------------------------------------------------------------------ |
-| **Phase 0: Foundation** *(complete)*         | 2026      | Governance · schemas · CI · seeded catalog · knowledge graph · contributor hub · automation |
-| **Phase 1: Discovery & adoption** *(active)* | 2026–2027 | arXiv DOI · public launch & outreach · first contributors · hackathon · custom domain       |
-| **Phase 2: Momentum**                        | 2027–2028 | 10,000+ entries · institutional partners · AI co-pilot · 500 contributors              |
-| **Phase 3: Acceleration**                    | 2029–2031 | 100,000+ entries · autonomous discovery agents · global research labs                      |
-| **Phase 4: Transformation**                  | 2032–2035 | The default interface through which researchers interact with the open frontier of science |
+| Stage | Status | Goal |
+| ----- | ------ | ---- |
+| **Phase 0: Foundation** | Complete | Governance · schemas · CI · seeded catalog · knowledge graph · contributor hub |
+| **v1.1 Core Development** | Shipped 2026-08-26 | 4/4 seed Crosscheck CONFIRMED · generate/promote path · CI trust · hub recommendations |
+| **v1.3 University-ready** | **Now** | Closed-loop Crosscheck · hub first-visit · one maintainer command list · catalog-batch runbook |
+| **v1.2 Public launch** | Parked | arXiv submit · outreach · custom domain — [LAUNCH_PLAYBOOK.md](LAUNCH_PLAYBOOK.md) |
+| **Later (2027–2035)** | After the product is the argument | Institutional partners · citeable papers · richer interface |
+
+Canonical path: **[ROADMAP.md](ROADMAP.md)**. GSD execution list: [`.planning/ROADMAP.md`](.planning/ROADMAP.md).
 
 
 ---

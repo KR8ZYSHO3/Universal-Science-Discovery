@@ -2,7 +2,7 @@
 
 [GSD / get-shit-done](https://github.com/gsd-build/get-shit-done) is an optional **spec-driven workflow** for Cursor and similar environments: discuss → plan → execute phases with tracked artifacts (often under `.planning/`). USDR does **not** require GSD for contributors; this page is for maintainers who already use GSD and want alignment with repository policy.
 
-**Maintainer status (2026-06-23):** GSD is **active** for **v1.1 Core Development** (Crosscheck + trust surfaces). Marketing/outreach is deferred to **v1.2 Launch**. See `.planning/PROJECT.md`, `.planning/ROADMAP.md`, `.planning/STATE.md`. Repo-root `ROADMAP.md` remains the long-range vision; `.planning/ROADMAP.md` is the execution phase list.
+**Maintainer status (2026-08-26):** GSD is **active** in **this repo** (`.planning/`). **v1.1** shipped (PR #308). **v1.3** is university-ready robustness. **v1.2 Launch** (marketing, DNS, arXiv *submit*) stays parked. Repo-root [`ROADMAP.md`](../ROADMAP.md) is the **only product path**. `.planning/ROADMAP.md` is the GSD **execution** phase list for the current milestone — not a second strategy.
 
 ## Boundaries
 

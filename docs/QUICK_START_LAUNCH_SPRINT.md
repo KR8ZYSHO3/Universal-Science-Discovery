@@ -1,6 +1,8 @@
 # USDR Launch Sprint — Make Your First Contribution in 20–40 Minutes
 
-**Welcome to the June 2026 Launch Sprint.** You're about to make a real, reviewable contribution to one of the most ambitious open science infrastructure projects in progress.
+> **Parked campaign name (June 2026).** The 20–40 minute contribution path below is still valid. The “Launch Sprint” framing is **not** current work — product path: [ROADMAP.md](../ROADMAP.md). Prefer [QUICK_START_CONTRIBUTING.md](QUICK_START_CONTRIBUTING.md) for newcomers.
+
+**Welcome.** You're about to make a real, reviewable contribution.
 
 USDR (Universal Science Discovery Repository) is a version-controlled, schema-validated catalog of **what science doesn't know yet** — open unknowns, testable hypotheses, and rigorous cross-domain mathematical bridges. (See launch PR #267 for the current institutional + dashboard push: https://github.com/KR8ZYSHO3/Universal-Science-Discovery/pull/267)
 
