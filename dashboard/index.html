@@ -118,9 +118,9 @@
 
     /* ── HERO ───────────────────────────────────────────────── */
     .hero {
-      min-height: 92vh;
-      display: flex; flex-direction: column; justify-content: center;
-      padding: clamp(4rem,8vh,7rem) clamp(1.5rem,5vw,4rem) clamp(3rem,5vh,5rem);
+      min-height: 0;
+      display: flex; flex-direction: column; justify-content: flex-start;
+      padding: clamp(1.5rem,4vh,3rem) clamp(1.5rem,5vw,4rem) clamp(1.5rem,3vh,2.5rem);
       border-bottom: 1px solid var(--border);
       position: relative; overflow: hidden;
     }
@@ -439,11 +439,17 @@
       border-radius: var(--r);
       border: 1px solid var(--border);
     }
+    .ci-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+    }
     .door-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1rem;
-      margin: 0 0 1.1rem;
+      margin: 1.1rem 0 0;
     }
     a.door-card {
       display: flex;
@@ -986,7 +992,7 @@
 
     /* ── RESPONSIVE ─────────────────────────────────────────── */
     @media (max-width: 640px) {
-      .hero { min-height: 80vh; }
+      .hero { min-height: 0; }
       .stat-deck { grid-template-columns: repeat(2, 1fr); }
       .steps::before { display: none; }
     }
@@ -1640,73 +1646,34 @@
   <!-- ═══════════════════════════════════════════════════════ HERO -->
   <header class="hero">
     <div class="hero-inner">
-      <!-- Product-path banner: v1.3 university-ready; public launch parked -->
-      <div class="launch-banner" role="note" aria-label="University-ready robustness">
-        <strong>v1.1 shipped · now building university-ready robustness</strong><br>
-        <span style="font-size:.82rem;opacity:.95">Git-native catalog · Crosscheck · knowledge graph. Public launch (outreach, domain, arXiv submit) is parked — see ROADMAP.md.</span>
-        <div style="margin-top:.55rem;display:flex;gap:.45rem;justify-content:center;flex-wrap:wrap;">
-          <a href="#start" style="display:inline-flex;align-items:center;padding:.32rem .85rem;border-radius:999px;border:1px solid #10b981;background:rgba(16,185,129,0.12);color:#a7f3d0;font-size:.78rem;font-weight:600;text-decoration:none;">Start here</a>
-          <a href="#knowledge-graph" style="display:inline-flex;align-items:center;padding:.32rem .85rem;border-radius:999px;border:1px solid rgba(167,243,208,0.4);background:transparent;color:#a7f3d0;font-size:.78rem;font-weight:600;text-decoration:none;">Explore live graph</a>
-          <a href="../repro/p-b-habitat-percolation-ecology-fss/index.html" style="display:inline-flex;align-items:center;padding:.32rem .85rem;border-radius:999px;border:1px solid rgba(16,185,129,0.55);background:rgba(16,185,129,0.18);color:#a7f3d0;font-size:.78rem;font-weight:600;text-decoration:none;">Run Crosscheck in browser →</a>
-          <a href="../ROADMAP.md" style="display:inline-flex;align-items:center;padding:.32rem .85rem;border-radius:999px;border:1px solid rgba(167,243,208,0.4);background:transparent;color:#a7f3d0;font-size:.78rem;font-weight:600;text-decoration:none;">Product path →</a>
-        </div>
-      </div>
-
       <div class="hero-meta">
         <div class="eyebrow">
           <span class="pulse-dot" id="live-dot" hidden aria-hidden="true"></span>
-          <span id="live-label">Universal Science Discovery Repository</span>
+          <span id="live-label">USDR</span>
         </div>
         <div class="hero-actions">
           <a class="btn-ghost" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery" target="_blank" rel="noopener" aria-label="View on GitHub">
             <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
             GitHub
           </a>
-          <a class="btn-ghost" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/actions" target="_blank" rel="noopener" aria-label="View CI Actions">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-            Actions
-          </a>
-
         </div>
       </div>
 
       <h1>
-        <span class="grad-a">Map the unknowns.</span><br>
-        <span class="grad-b">Accelerate discovery.</span>
+        <span class="grad-a">Map the unknowns.</span>
       </h1>
-
-      <div class="hero-institutional">
-        Built for researchers, university research offices, libraries, and funding partners who need structured visibility into the open scientific frontier.
-      </div>
+      <p class="hero-lead">
+        Open questions, cross-domain bridges, and one experiment you can run in the browser.
+        Pick one thing:
+      </p>
 
       <div class="pill-row" aria-label="Highlights">
-        <span class="pill live"><span class="d"></span> v1.3 · University-ready</span>
         <span class="pill">1,124 cross-domain bridges</span>
         <span class="pill">1,409 open unknowns • 1,275 hypotheses • 0 orphans</span>
         <span class="pill">3,861-node graph • Live automation • Git-native</span>
       </div>
 
-      <p class="hero-contrib-hint"><a href="#start">Researchers &amp; contributors: Start here →</a> · <a href="../ROADMAP.md">Product path (ROADMAP.md)</a> · <a href="../docs/QUICK_START_CONTRIBUTING.md">First contribution</a></p>
-
       <div class="pages-deploy-banner aos" id="pages-deploy-banner" role="status" aria-live="polite" hidden></div>
-
-      <p class="hero-lead">
-        The <strong>Universal Science Discovery Repository</strong> is open infrastructure for the scientific unknown.
-        A git-native, schema-validated catalog of 1,409 open research problems, 1,275 falsifiable hypotheses, and 1,124 cross-domain mathematical bridges — all connected in a reproducible 3,861-node knowledge graph. Built so researchers can find high-leverage open questions fast, institutions can spot interdisciplinary opportunities, and funders can see exactly where the frontier is moving.
-      </p>
-
-      <div class="discovery-callout" role="region" aria-label="Catalog discovery">
-        <p>
-          <strong>Find entries:</strong> full-text search (titles and claims), filter by domain chip,
-          then explore the <a href="#knowledge-graph">interactive knowledge graph</a>.
-          Press <kbd style="font-family:var(--mono);font-size:.78em;background:var(--bg-1);border:1px solid var(--border);border-radius:4px;padding:.1rem .35rem;">/</kbd> anywhere to focus search after you scroll to it.
-        </p>
-        <p class="discovery-callout-actions">
-          <a href="#catalog-search">Jump to catalog search</a>
-          <a href="domains/" class="discovery-secondary">Browse domains</a>
-          <a href="#knowledge-graph" class="discovery-secondary">Knowledge graph</a>
-        </p>
-      </div>
 
       <!-- DASHBOARD_CATALOG_SNAPSHOT_BEGIN -->
       <div class="catalog-snapshot aos" role="region" aria-label="Catalog snapshot from YAML file counts and built graph meta">
@@ -1724,11 +1691,32 @@
           <span class="catalog-snapshot-sep" aria-hidden="true">·</span>
           <span class="catalog-snapshot-metric"><span class="catalog-snapshot-n"><span id="snap-graph-edges">4522</span></span><span class="catalog-snapshot-l">graph edges</span></span>
         </div>
-        <p class="catalog-snapshot-foot">Updated by <code>python scripts/update_dashboard_stats.py --apply</code> (catalog globs + <code>docs/knowledge_graph.json</code> meta). Product path: <a href="../ROADMAP.md">ROADMAP.md</a>. Catalog-wave checklist: <a href="../docs/PATH_TO_SUCCESS.md">docs/PATH_TO_SUCCESS.md</a>.</p>
+        <p class="catalog-snapshot-foot">Counts from git. How to use: <a href="../docs/USE.md">docs/USE.md</a>.</p>
       </div>
       <!-- DASHBOARD_CATALOG_SNAPSHOT_END -->
 
-      <div class="stat-deck" aria-label="Repository statistics">
+      <div class="door-grid" id="start" role="list">
+        <a class="door-card door-look aos" role="listitem" href="#crosscheck">
+          <span class="door-kicker">1 · Look</span>
+          <span class="door-title">Run one experiment</span>
+          <span class="door-blurb">Open a Crosscheck in the browser. Then search your field. No git.</span>
+          <span class="door-cta">Crosscheck →</span>
+        </a>
+        <a class="door-card door-add aos d1" role="listitem" href="#door-add">
+          <span class="door-kicker">2 · Add</span>
+          <span class="door-title">One YAML, one PR</span>
+          <span class="door-blurb">An unknown, a hypothesis, or a bridge — not all three.</span>
+          <span class="door-cta">Steps →</span>
+        </a>
+        <a class="door-card door-run aos d2" role="listitem" href="../docs/USE.md#run">
+          <span class="door-kicker">3 · Run</span>
+          <span class="door-title">Operate a clone</span>
+          <span class="door-blurb">Only if you are maintaining the repo. Hub numbers must match git.</span>
+          <span class="door-cta">Maintainer path →</span>
+        </a>
+      </div>
+
+      <div class="stat-deck ci-only" aria-hidden="true">
         <div class="stat-card">
           <div class="n dim" id="stat-stars">—</div>
           <div class="lbl">GitHub Stars</div>
@@ -1760,34 +1748,11 @@
       </div>
 
       <div id="server-banner" class="server-banner" role="status">
-        <strong>Heads up:</strong> Live panels need a local server.
-        From repo root: <code>python -m http.server 8765</code> — then open
-        <a href="http://localhost:8765/dashboard/">localhost:8765/dashboard/</a>
-        · or view the hosted version at
-        <a href="https://usdr.science/dashboard/" target="_blank" rel="noopener">GitHub Pages ↗</a>
+        <strong>Local file:</strong> serve from the repo root with
+        <code>python -m http.server 8765</code>
+        or use the
+        <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/">hosted hub</a>.
       </div>
-
-      <!-- Dual-audience value block (researchers + institutions) -->
-      <div class="institutional-cta" style="margin:1.25rem auto 0;max-width:920px;padding:1rem 1.25rem;border-radius:var(--r-lg);border:1px solid var(--border-h);background:var(--surface);text-align:left;font-size:.9rem;line-height:1.5;">
-        <div style="display:flex;gap:1.25rem;flex-wrap:wrap;align-items:flex-start;">
-          <div style="flex:1 1 320px;min-width:280px;">
-            <strong style="color:var(--ok);">For researchers</strong><br>
-            Find genuinely open problems with literature context. Spot cross-domain bridges that can accelerate your work. Contribute a single well-scoped unknown or hypothesis in one focused PR.
-          </div>
-          <div style="flex:1 1 320px;min-width:280px;">
-            <strong style="color:#a7f3d0;">For institutions &amp; funding partners</strong><br>
-            Get structured visibility into the frontier your faculty and students are working near. Identify interdisciplinary opportunities before competitors. Low-risk, git-native, full governance already in place. See the <a href="../INSTITUTIONAL_PARTNERSHIP_PROSPECTUS.md" style="color:#a7f3d0;text-decoration:underline;">full partnership prospectus</a>.
-          </div>
-        </div>
-        <div style="margin-top:.65rem;font-size:.78rem;color:var(--muted);">
-          0 schema errors • 0 orphans • Every entry validated on every PR • Wave Factory cadence (Mon/Thu) • Full reproducibility via <code>build_graph.py</code>
-        </div>
-      </div>
-    </div>
-
-    <div class="scroll-hint" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
-      Explore
     </div>
   </header>
 
@@ -1797,72 +1762,20 @@
       <strong>Local preview.</strong> This page helps you <strong>browse</strong> the catalog and find tasks.
       Real edits happen in a <strong>clone</strong>: change YAML, run checks, open a PR — then merge any follow-up graph bot PR.
       Hosted copy:
-      <a href="https://usdr.science/dashboard/" target="_blank" rel="noopener">GitHub Pages ↗</a>
+      <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/" target="_blank" rel="noopener">GitHub Pages ↗</a>
     </p>
     <nav class="hub-nav" aria-label="Page sections">
-      <a href="#start" title="Onboarding path, tool map, and first contribution checklist">Start here</a>
-      <a href="domains/" class="nav-link">Browse domains</a>
-      <a href="explainers/" class="nav-link">Explainers</a>
-      <a href="#crosscheck" title="Runnable Crosscheck protocols with in-browser or Colab demos">Crosscheck</a>
-      <a href="#catalog-search" title="Full-text search across unknowns, bridges, hypotheses, and phenomena">Search</a>
-      <a href="#orphan-xref-panel" title="Broken cross-reference targets you can fix in a pull request">Xref hygiene</a>
-      <a href="#recommendations" title="Existing bridges ranked by catalog-graph degree — contributor tooling, not a scientific ranking">Recommendations</a>
-      <a href="#discovery-engines">Engines</a>
-      <a href="#pioneers">Pioneers</a>
-      <a href="#breakthrough-gaps">Breakthroughs</a>
-      <a href="#ai-copilot">AI co-pilot</a>
-      <a href="#developer-api">API</a>
-      <a href="#knowledge-graph" title="Interactive force-directed view of catalog relationships">Knowledge graph</a>
-      <a href="#workstreams">Workstreams</a>
-      <a href="#status">Status</a>
-      <a href="#contribute" title="Where catalog folders live — edit YAML in a clone, not in this hub">Contribute</a>
-      <a href="#project">Project</a>
-      <a href="#policies">Policies</a>
-      <a href="#reference">Reference</a>
-      <a href="#maintainers">Maintainers</a>
+      <a href="#start">Start</a>
+      <a href="#crosscheck">Look · Crosscheck</a>
+      <a href="#catalog-search">Search</a>
+      <a href="#knowledge-graph">Graph</a>
+      <a href="#door-add">Add</a>
+      <a href="#contribute">Contribute</a>
     </nav>
   </div>
 
   <main>
-    <!-- ═══════════════════════════════════════════ START HERE -->
-    <section id="start">
-      <div>
-        <span class="section-tag">Onboarding</span>
-        <h2 class="section-title">New here? Pick one door</h2>
-        <p class="section-desc">
-          Catalog in git → this hub is a view → Crosscheck runs an experiment.
-          Click a door. Full text: <a href="../docs/USE.md">docs/USE.md</a>.
-        </p>
-      </div>
-
-      <img class="usdr-flow-img aos" src="../docs/figures/what-usdr-is.svg" width="960" height="200" alt="Catalog YAML in git, hub search and graph as a view of git, Crosscheck runs an experiment with RESULT CONFIRMED or INCONCLUSIVE." />
-
-      <div class="door-grid" role="list">
-        <a class="door-card door-look aos" role="listitem" href="#catalog-search">
-          <span class="door-kicker">Door 1</span>
-          <span class="door-title">Look</span>
-          <span class="door-blurb">Search your field, click a graph node, run one Crosscheck in the browser. No git.</span>
-          <span class="door-cta">Search the catalog →</span>
-        </a>
-        <a class="door-card door-add aos d1" role="listitem" href="#door-add">
-          <span class="door-kicker">Door 2</span>
-          <span class="door-title">Add</span>
-          <span class="door-blurb">One YAML file, one validation, one PR. Unknown, hypothesis, or bridge — not all three.</span>
-          <span class="door-cta">YAML steps →</span>
-        </a>
-        <a class="door-card door-run aos d2" role="listitem" href="../docs/USE.md#run">
-          <span class="door-kicker">Door 3</span>
-          <span class="door-title">Run</span>
-          <span class="door-blurb">Clone, follow the ordered commands, confirm hub numbers match git.</span>
-          <span class="door-cta">Maintainer path →</span>
-        </a>
-      </div>
-      <p class="how-works-foot" style="margin-bottom:1.25rem;">
-        Picture of the three doors: <a href="../docs/figures/use-three-doors.svg">use-three-doors.svg</a>
-        · <a href="../CONTRIBUTING.md">CONTRIBUTING.md</a>
-        · <a href="../docs/DEV_DASHBOARD.md">DEV_DASHBOARD.md</a>
-      </p>
-
+    <section aria-label="Add a record">
       <details class="start-details aos" id="door-add">
         <summary id="first-contrib-heading">Door 2 — Add (five YAML steps)</summary>
         <p class="first-contrib-lead">

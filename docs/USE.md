@@ -10,13 +10,13 @@ Pick **one** door. Do not read the rest of the documentation first.
 
 | Door | You are… | Do this | Then stop |
 |------|----------|---------|-----------|
-| **1. Look** | A researcher in the room (no git) | Open the [hub](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/). Search your field. Click a graph node. Run **one** [Crosscheck](CROSSCHECK.md) in the browser. | You have seen the catalog, a bridge, and a live experiment. |
+| **1. Look** | A researcher in the room (no git) | Open the [hub](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#start). Click **Run one experiment**. Search your field after. | You have seen a live Crosscheck. |
 | **2. Add** | Willing to edit one YAML file | Search first (same hub). Copy one seed file. Edit **one** unknown *or* hypothesis *or* bridge. `python scripts/validate_schemas.py`. Open a PR. | Detail: [HAPPY_PATH_FIRST_RECORDS.md](HAPPY_PATH_FIRST_RECORDS.md) |
 | **3. Run** | Operating a clone (student / maintainer) | Clone. One ordered command list (v1.3 **ROBUST-01**). Hub numbers must match git. | Detail: [DEV_DASHBOARD.md](DEV_DASHBOARD.md) until the single playbook lands |
 
 ## Look
 
-No clone. Open the [hub `#start`](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#start) and click **Look**, or go straight to [catalog search](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#catalog-search).
+No clone. Open the [hub](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#start) and click **Run one experiment** (jumps to [Crosscheck](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#crosscheck)). Then search your field if you want.
 
 ## Add
 
