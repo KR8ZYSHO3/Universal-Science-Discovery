@@ -447,9 +447,10 @@
     }
     .door-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 1rem;
       margin: 1.1rem 0 0;
+      max-width: 52rem;
     }
     a.door-card {
       display: flex;
@@ -520,6 +521,83 @@
     .start-details[open] > summary::before { content: "▾ "; }
     @media (max-width: 800px) {
       .door-grid { grid-template-columns: 1fr; }
+    }
+    .example-walk {
+      margin: 1.15rem 0 0;
+      padding: 1.15rem 1.25rem 1.05rem;
+      background: var(--bg-1);
+      border: 1px solid var(--border-h);
+      border-radius: var(--r);
+      text-align: left;
+      max-width: 52rem;
+    }
+    .example-walk h2 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin: 0 0 .35rem;
+    }
+    .example-walk .example-kicker {
+      font-size: .68rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      font-weight: 600;
+      margin-bottom: .25rem;
+    }
+    .example-walk p { font-size: .92rem; color: var(--muted); line-height: 1.5; margin: 0 0 .75rem; }
+    .example-walk ol {
+      margin: 0 0 1rem;
+      padding-left: 1.2rem;
+      color: var(--text);
+      font-size: .9rem;
+      line-height: 1.5;
+    }
+    .example-walk li { margin: .25rem 0; }
+    .example-walk strong { color: var(--text); }
+    .example-actions { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .example-actions a {
+      display: inline-flex;
+      align-items: center;
+      padding: .4rem .9rem;
+      border-radius: 999px;
+      font-size: .84rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .example-actions a.primary {
+      background: rgba(34,211,184,.16);
+      border: 1px solid var(--teal);
+      color: var(--teal);
+    }
+    .example-actions a.secondary {
+      border: 1px solid var(--border-h);
+      color: var(--accent);
+    }
+    .word-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: .75rem;
+      margin: 1.1rem 0 0;
+      text-align: left;
+      max-width: 52rem;
+    }
+    .word-strip div {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-sm);
+      padding: .7rem .8rem;
+    }
+    .word-strip dt {
+      font-size: .72rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: .25rem;
+    }
+    .word-strip dd { font-size: .8rem; color: var(--muted); line-height: 1.4; margin: 0; }
+    @media (max-width: 800px) {
+      .word-strip { grid-template-columns: 1fr 1fr; }
     }
     .hero-contrib-hint {
       font-size: .88rem;
@@ -1663,14 +1741,27 @@
         <span class="grad-a">Map the unknowns.</span>
       </h1>
       <p class="hero-lead">
-        A catalog of what science does not know yet — and tests you can run on the connections.
-        Pick one:
+        Science already catalogs what is known. This project catalogs what is <em>not</em> known —
+        and lets you run a test on a claimed link between two fields.
       </p>
 
-      <div class="pill-row" aria-label="Highlights">
-        <span class="pill">1,124 cross-domain bridges</span>
-        <span class="pill">1,409 open unknowns • 1,275 hypotheses</span>
-        <span class="pill">3,861 linked records on the map</span>
+      <div class="example-walk aos" id="example">
+        <div class="example-kicker">Start here · one example · ~90 seconds</div>
+        <h2>Habitat loss and percolation are the same math</h2>
+        <p>
+          In ecology, a landscape can fall into isolated patches. In physics, a grid can lose a giant connected cluster.
+          USDR treats that as one claim, then lets you test it.
+        </p>
+        <ol>
+          <li>The claim is a <strong>bridge</strong>: ecology ↔ physics.</li>
+          <li>A <strong>test</strong> checks whether the math actually behaves that way.</li>
+          <li>You run the test in the browser. No account.</li>
+        </ol>
+        <div class="example-actions">
+          <a class="primary" href="../repro/p-b-habitat-percolation-ecology-fss/index.html">Run this test →</a>
+          <a class="secondary" href="explainers/b-habitat-percolation-ecology.html">Read the claim</a>
+          <a class="secondary" href="#crosscheck">More tests</a>
+        </div>
       </div>
 
       <div class="pages-deploy-banner aos" id="pages-deploy-banner" role="status" aria-live="polite" hidden></div>
@@ -1696,24 +1787,44 @@
       <!-- DASHBOARD_CATALOG_SNAPSHOT_END -->
 
       <div class="door-grid" id="start" role="list">
-        <a class="door-card door-look aos" role="listitem" href="#crosscheck">
-          <span class="door-kicker">1 · Try it</span>
-          <span class="door-title">Try an experiment</span>
-          <span class="door-blurb">Click a test and run it in the browser. Then search your field. No account needed.</span>
-          <span class="door-cta">Open a test →</span>
+        <a class="door-card door-look aos" role="listitem" href="#example">
+          <span class="door-kicker">Now you</span>
+          <span class="door-title">Try that example</span>
+          <span class="door-blurb">Run the habitat test above. Then search your own field. No account.</span>
+          <span class="door-cta">Back to the example →</span>
         </a>
         <a class="door-card door-add aos d1" role="listitem" href="#door-add">
-          <span class="door-kicker">2 · Add</span>
-          <span class="door-title">Add an open question</span>
-          <span class="door-blurb">Name one gap, one hypothesis, or one bridge from your field. Send it for review.</span>
+          <span class="door-kicker">Then</span>
+          <span class="door-title">Add your open question</span>
+          <span class="door-blurb">One gap from your field. Send it for review. A person reads it first.</span>
           <span class="door-cta">How to add →</span>
         </a>
-        <a class="door-card door-run aos d2" role="listitem" href="../docs/USE.md#keep-the-catalog-honest">
-          <span class="door-kicker">3 · Keep it honest</span>
-          <span class="door-title">Keep the catalog honest</span>
-          <span class="door-blurb">Only if you operate this site. Numbers here must match the catalog files.</span>
-          <span class="door-cta">For operators →</span>
-        </a>
+      </div>
+      <p class="how-works-foot">If you run this site, not visiting: <a href="../docs/USE.md#keep-the-catalog-honest">keep the catalog honest</a>.</p>
+
+      <dl class="word-strip aos" aria-label="Four words this project uses">
+        <div>
+          <dt>Unknown</dt>
+          <dd>A named open question science cannot yet answer.</dd>
+        </div>
+        <div>
+          <dt>Bridge</dt>
+          <dd>A claim that two fields share the same math.</dd>
+        </div>
+        <div>
+          <dt>Test</dt>
+          <dd>A check you can run on a bridge. We also call this Crosscheck.</dd>
+        </div>
+        <div>
+          <dt>Record</dt>
+          <dd>One catalog entry. You add one at a time.</dd>
+        </div>
+      </dl>
+
+      <div class="pill-row" aria-label="Highlights">
+        <span class="pill">1,124 cross-domain bridges</span>
+        <span class="pill">1,409 open unknowns • 1,275 hypotheses</span>
+        <span class="pill">3,861 linked records on the map</span>
       </div>
 
       <div class="stat-deck ci-only" aria-hidden="true">
@@ -1765,8 +1876,8 @@
       <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/" target="_blank" rel="noopener">GitHub Pages ↗</a>
     </p>
     <nav class="hub-nav" aria-label="Page sections">
-      <a href="#start">Start</a>
-      <a href="#crosscheck">Try a test</a>
+      <a href="#example">This example</a>
+      <a href="#crosscheck">More tests</a>
       <a href="#catalog-search">Search</a>
       <a href="#knowledge-graph">Map</a>
       <a href="#door-add">Add a question</a>
@@ -1896,13 +2007,12 @@
     <!-- ═══════════════════════════════════════════ CROSSCHECK -->
     <section id="crosscheck">
       <div>
-        <span class="section-tag">Crosscheck</span>
-        <h2 class="section-title">Prove the bridge — runnable protocols</h2>
+        <span class="section-tag">Tests</span>
+        <h2 class="section-title">More tests of bridges</h2>
         <p class="section-desc">
-          USDR maps what connects; Crosscheck tests it. Each protocol links to a repro bundle —
-          run in your browser, open in Colab, or clone for verification.
-          <a href="../docs/CROSSCHECK.md">Crosscheck manifesto</a>
-          · <a href="../docs/CROSSCHECK.md#run-mode-parity">Run-mode parity</a>
+          Start with the habitat example at the top. These are other checks of other claims.
+          A test in the browser is enough for a first visit.
+          <a href="../docs/CROSSCHECK.md">How tests work</a>
         </p>
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin-top:1.25rem;">

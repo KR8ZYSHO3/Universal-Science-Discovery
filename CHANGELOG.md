@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed — One example is the first visit
+- Hub hero leads with a 90-second **habitat / percolation** walkthrough (bridge → test → run in browser). Four-word glossary (unknown, bridge, test, record). Operator path is a footnote, not a third door.
+- Tests section says “more tests of bridges,” not protocol jargon, for a first visit.
+
 ### Changed — Researcher language on the front door
 - Hub doors: **Try an experiment** / **Add an open question** / **Keep the catalog honest**. Dropped YAML, PR, clone, CI, git-native, xref, maintainer from the first screen.
 - Add-steps and `docs/USE.md` say “record,” “send for review,” “operate the site.” GitHub words stay in the contributor guide.

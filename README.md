@@ -179,7 +179,7 @@ api/v1/                                       ← static JSON API
 
 ![Try it, add a question, keep it honest](docs/figures/use-three-doors.svg)
 
-1. **Try it** — open the [site](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/), run one experiment in the browser.
+1. **One example** — habitat loss ↔ percolation. [Run the test](https://kr8zysho3.github.io/Universal-Science-Discovery/repro/p-b-habitat-percolation-ecology-fss/index.html) (~90 seconds). That *is* the product.
 2. **Add a question** — one open problem from your field, then send it for review. Detail: [docs/HAPPY_PATH_FIRST_RECORDS.md](docs/HAPPY_PATH_FIRST_RECORDS.md).
 3. **Keep it honest** — only if you operate the site. [docs/DEV_DASHBOARD.md](docs/DEV_DASHBOARD.md).
 
