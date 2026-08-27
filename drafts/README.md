@@ -7,6 +7,7 @@ Files in this directory are **AI-generated stubs awaiting human expert review**.
 | Subdirectory | Contents |
 |---|---|
 | `bridges/` | Draft bridge YAML stubs produced by `scripts/propose_bridges.py --draft-yaml` |
+| `crew-reports/` | Night-crew briefing (`LATEST.md`). Operations, not findings. [`docs/CREW.md`](../docs/CREW.md) |
 
 ## Bridge drafts (`bridges/`)
 

@@ -73,6 +73,8 @@ Then update **README** metrics table if totals moved, **CHANGELOG** (Unreleased)
 - [ ] Served hub sanity check: `python -m http.server 8765` → open **`/dashboard/`**, confirm sections load and links you touched work.
 - [ ] If `docs/` changed: `mkdocs build --strict`.
 
+**Night crew (twice weekly or `workflow_dispatch`):** `python scripts/run_crew.py` — see [`docs/CREW.md`](CREW.md). Does not promote into the catalog.
+
 ### 4) Automation reference
 
 | Script | Role |

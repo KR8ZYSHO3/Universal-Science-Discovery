@@ -71,6 +71,8 @@ python scripts/harvesters/promote_wave_factory_batch.py --stage drafts/wave_fact
 python scripts/harvesters/promote_wave_factory_batch.py --stage drafts/wave_factory --apply
 ```
 
+The twice-weekly GitHub cadence now calls [`scripts/run_crew.py`](../scripts/run_crew.py) after harvest. That script **never** passes `--apply` to this promoter. See [`docs/CREW.md`](CREW.md).
+
 ## Safety notes
 
 - Wave Factory output is **candidate material**, not findings.
