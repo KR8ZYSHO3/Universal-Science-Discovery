@@ -87,6 +87,7 @@ Recent work surfaced cross-cutting needs (dashboard truthfulness, CI visibility,
 | **B — Trust surfaces** | Anything a newcomer sees must match git | `dashboard/index.html` + `update_dashboard_stats.py`; `dashboard/domains/` + `generate_domain_pages.py` + `verify_domain_pages.py`; CI panel in hub; `mkdocs build --strict` after doc edits |
 | **C — Breakthrough gaps** | World-scale problems ↔ blocking bridges | `breakthrough-gaps/*.yaml`, hub grid via `render_breakthrough_gaps_hub.py`, API `api/v1/breakthrough_gaps.json`, steward guide `docs/BREAKTHROUGH_GAPS.md` |
 | **D — Catalog depth** | Waves, stubs, harvesters | `cross-domain/`, `drafts/`, OpenAlex cadence, graph rebuild |
+| **E — Discovery instruments** | Researcher-facing tools on the graph (not factory plumbing) | **Pathfinder** (DISC-01), **Impact router** (DISC-02), **Priority unknowns** (DISC-03); complements factory harvesters |
 
 **Rule of thumb:** merge-worthy batches that touch **content visible on the hub** should ship **regenerated dashboard fragments + docs** in the same PR or an immediate follow-up (see `.cursor/rules/documentation-and-dashboard.mdc`).
 

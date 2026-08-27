@@ -45,6 +45,42 @@ EDGE_FIELDS: list[tuple[str, str]] = [
 ]
 
 
+def load_protocol_evidence_tiers() -> dict[str, str]:
+    """Map bridge IDs to evidence tier from Crosscheck protocol catalog."""
+    catalog = ROOT / "protocols-catalog"
+    bridge_status: dict[str, str] = {}
+    if not catalog.is_dir():
+        return {}
+
+    rank = {
+        "confirmed": 4,
+        "falsified": 3,
+        "inconclusive": 2,
+        "executed": 2,
+        "ready": 1,
+        "draft": 0,
+    }
+    for path in sorted(catalog.rglob("p-b-*.yaml")):
+        data = load_yaml(path)
+        if data is None:
+            continue
+        bridge = str(data.get("source_bridge", "")).strip()
+        status = str(data.get("status", "")).strip()
+        if not bridge.startswith("b-") or not status:
+            continue
+        prev = bridge_status.get(bridge)
+        if prev is None or rank.get(status, -1) > rank.get(prev, -1):
+            bridge_status[bridge] = status
+
+    tiers: dict[str, str] = {}
+    for bridge, status in bridge_status.items():
+        if status in ("confirmed", "falsified"):
+            tiers[bridge] = "proven"
+        else:
+            tiers[bridge] = "protocol"
+    return tiers
+
+
 def load_yaml(path: Path) -> dict | None:
     try:
         with path.open(encoding="utf-8") as fh:
@@ -99,6 +135,7 @@ def build_nodes_and_raw_edges() -> tuple[list[dict], list[dict]]:
     nodes: list[dict] = []
     edges: list[dict] = []
     seen_edges: set[tuple[str, str, str]] = set()
+    evidence_tiers = load_protocol_evidence_tiers()
 
     for path, entry_type in iter_yaml_files():
         data = load_yaml(path)
@@ -121,6 +158,7 @@ def build_nodes_and_raw_edges() -> tuple[list[dict], list[dict]]:
         if entry_type == "bridge":
             node["fields"] = data.get("fields", [])
             node["color"] = "blue"
+            node["evidence_tier"] = evidence_tiers.get(entry_id, "theoretical")
         elif entry_type in ("unknown", "phenomenon"):
             node["fields"] = data.get("disciplines", [])
             node["color"] = "gray"

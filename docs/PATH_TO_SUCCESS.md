@@ -85,6 +85,7 @@ Bridge count is no longer the only bottleneck — automation handles continuous 
 3. **Breakthrough gaps maturity** — steward `breakthrough-gaps/bg-*.yaml`: accurate TRL, blocking gaps, **`required_bridges`** mapped to real `b-*` IDs; hub cards generated from YAML ([BREAKTHROUGH_GAPS.md](BREAKTHROUGH_GAPS.md)).
 4. **Catalog depth** — promote `drafts/bridges/` stubs; waves; harvesters; graph rebuild cadence.
 5. **Dashboard reliability** — D3 interactive graph must load on GitHub Pages consistently.
+6. **Discovery instruments (Track E)** — **Pathfinder** (DISC-01): shortest path between domains on `knowledge_graph.json`; spec `.planning/specs/PATHFINDER.md`; accelerates `INTERFACE.md` P2.3.
 
 ---
 

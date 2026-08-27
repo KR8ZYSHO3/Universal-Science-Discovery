@@ -223,6 +223,17 @@
       transition: transform .15s, border-color .15s;
     }
     .discovery-callout-actions a:hover { transform: translateY(-1px); border-color: var(--border-h); }
+    .impact-callout {
+      margin: 1.15rem auto 0;
+      max-width: 720px;
+      padding: 1rem 1.2rem;
+      border-radius: var(--r);
+      border: 1px solid rgba(16,185,129,0.35);
+      background: color-mix(in srgb, #10b981 8%, transparent);
+      text-align: center;
+    }
+    .impact-callout p { margin: 0; font-size: 0.95rem; color: var(--text); line-height: 1.55; }
+
     .discovery-callout-actions a.discovery-secondary {
       border-color: var(--border);
       background: var(--surface);
@@ -1008,6 +1019,137 @@
       .kg-zoom-hint { font-size: .68rem; max-width: 9rem; text-align: right; line-height: 1.35; }
     }
     @keyframes kg-spin { to { transform: rotate(360deg); } }
+    .pathfinder-bar {
+      display: flex; flex-wrap: wrap; gap: 0.55rem 0.75rem; align-items: center;
+      margin: 0 0 1rem; padding: 0.85rem 1rem;
+      border: 1px solid rgba(79,156,249,0.28); border-radius: var(--r);
+      background: rgba(79,156,249,0.06);
+    }
+    .pf-label { font-size: 0.78rem; color: var(--muted); display: inline-flex; align-items: center; gap: 0.35rem; }
+    .pf-label input {
+      width: min(12rem, 42vw); padding: 0.35rem 0.55rem; border-radius: 8px;
+      border: 1px solid var(--border); background: var(--bg-1); color: var(--text);
+      font-family: var(--mono); font-size: 0.78rem;
+    }
+    .pf-find-btn {
+      padding: 0.38rem 0.9rem; border-radius: 999px; border: 1px solid rgba(79,156,249,0.45);
+      background: rgba(79,156,249,0.15); color: #93c5fd; font-size: 0.78rem; font-weight: 600;
+      cursor: pointer; font-family: var(--font);
+    }
+    .pf-find-btn:hover { border-color: var(--accent); color: var(--text); }
+    .pf-status { font-size: 0.75rem; color: var(--muted); flex: 1 1 100%; }
+    .pf-results { margin: 0 0 1rem; }
+    .pf-path-block { margin-bottom: 0.65rem; padding: 0.65rem 0.85rem; border-radius: var(--r-sm); border: 1px solid var(--border); background: var(--surface); }
+    .pf-path-title { font-size: 0.72rem; color: var(--muted); margin: 0 0 0.45rem; font-family: var(--mono); }
+    .pf-hop-row { display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center; }
+    .pf-hop {
+      display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.2rem 0.55rem;
+      border-radius: 999px; border: 1px solid var(--border); background: var(--bg-1);
+      font-size: 0.72rem; font-family: var(--mono); cursor: pointer; color: var(--text);
+      max-width: 100%;
+    }
+    .pf-hop:hover { border-color: var(--accent); }
+    .pf-hop-type-bridge { border-color: rgba(79,156,249,0.35); }
+    .pf-hop-tier { font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: #5eead4; }
+    .pf-hop-arrow { color: var(--muted); font-size: 0.7rem; user-select: none; }
+    #impact-router { scroll-margin-top: calc(var(--nav-h) + 1rem); }
+    .impact-router-panel { max-width: 1100px; margin: 0 auto; }
+    .ir-filters {
+      display: flex; flex-wrap: wrap; gap: 0.45rem 0.55rem; align-items: center;
+      margin: 1rem 0 0.75rem;
+    }
+    .ir-filter-btn {
+      padding: 0.32rem 0.75rem; border-radius: 999px; border: 1px solid var(--border);
+      background: var(--bg-1); color: var(--muted); font-size: 0.76rem; cursor: pointer;
+      font-family: var(--font);
+    }
+    .ir-filter-btn:hover { border-color: var(--accent); color: var(--text); }
+    .ir-filter-btn.active {
+      border-color: rgba(99,102,241,0.55); background: rgba(99,102,241,0.14); color: #c4b5fd;
+    }
+    .ir-missing-toggle {
+      display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.76rem;
+      color: var(--muted); cursor: pointer; user-select: none;
+    }
+    .ir-search {
+      flex: 1 1 12rem; min-width: 10rem; max-width: 18rem;
+      padding: 0.35rem 0.6rem; border-radius: 8px; border: 1px solid var(--border);
+      background: var(--bg-1); color: var(--text); font-size: 0.78rem; font-family: var(--mono);
+    }
+    .ir-summary {
+      display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0 0 0.85rem;
+    }
+    .ir-chip {
+      font-size: 0.72rem; padding: 0.18rem 0.55rem; border-radius: 999px;
+      border: 1px solid var(--border); background: var(--bg-1); color: var(--muted);
+      font-family: var(--mono);
+    }
+    .ir-chip strong { color: var(--text); font-weight: 600; }
+    .ir-table-wrap {
+      overflow-x: auto; border: 1px solid var(--border); border-radius: var(--r);
+      background: var(--surface);
+    }
+    .ir-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+    .ir-table th, .ir-table td {
+      padding: 0.55rem 0.7rem; text-align: left; border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .ir-table th {
+      font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em;
+      color: var(--muted); background: var(--bg-2); position: sticky; top: 0;
+    }
+    .ir-table tr:last-child td { border-bottom: none; }
+    .ir-table tr:hover td { background: rgba(99,102,241,0.04); }
+    .ir-priority {
+      display: inline-block; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.04em;
+      text-transform: uppercase; padding: 0.12rem 0.45rem; border-radius: 999px;
+    }
+    .ir-priority-critical { background: rgba(239,68,68,0.18); color: #fca5a5; }
+    .ir-priority-high { background: rgba(249,115,22,0.18); color: #fdba74; }
+    .ir-priority-normal { background: rgba(148,163,184,0.15); color: #cbd5e1; }
+    .ir-bridge-id { font-family: var(--mono); font-size: 0.76rem; color: var(--teal); word-break: break-all; }
+    .ir-source-name { color: var(--text); font-size: 0.8rem; line-height: 1.4; }
+    .ir-source-kind { font-size: 0.68rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+    .ir-status-built { color: #5eead4; font-size: 0.72rem; font-weight: 600; }
+    .ir-status-missing { color: #fca5a5; font-size: 0.72rem; font-weight: 600; }
+    .ir-actions { white-space: nowrap; }
+    .ir-actions button, .ir-actions a {
+      display: inline-block; margin: 0 0.35rem 0.25rem 0; padding: 0.15rem 0.45rem;
+      border-radius: 6px; border: 1px solid var(--border); background: var(--bg-1);
+      color: var(--accent); font-size: 0.72rem; text-decoration: none; cursor: pointer;
+      font-family: var(--font);
+    }
+    .ir-actions button:hover, .ir-actions a:hover { border-color: var(--accent); color: var(--text); }
+    .ir-foot { margin-top: 0.65rem; font-size: 0.78rem; color: var(--muted); }
+    .gap-hub-card.ir-gap-highlight {
+      outline: 2px solid rgba(99,102,241,0.75); outline-offset: 3px;
+      transform: translateY(-2px) !important;
+    }
+    #orphan-unknowns-panel { scroll-margin-top: calc(var(--nav-h) + 1rem); }
+    .ou-panel { max-width: 1100px; margin: 0 auto; }
+    .ou-stats {
+      display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 1rem 0 0.75rem;
+    }
+    .ou-stat-chip {
+      font-size: 0.72rem; padding: 0.2rem 0.6rem; border-radius: 999px;
+      border: 1px solid var(--border); background: var(--bg-1); color: var(--muted);
+      font-family: var(--mono);
+    }
+    .ou-stat-chip strong { color: var(--text); }
+    .ou-stat-chip.ou-stat-good {
+      border-color: rgba(16,185,129,0.35); background: rgba(16,185,129,0.1); color: #6ee7b7;
+    }
+    .ou-stat-chip.ou-stat-good strong { color: #a7f3d0; }
+    .ou-search {
+      width: min(18rem, 100%); padding: 0.35rem 0.6rem; border-radius: 8px;
+      border: 1px solid var(--border); background: var(--bg-1); color: var(--text);
+      font-size: 0.78rem; font-family: var(--mono); margin-bottom: 0.75rem;
+    }
+    .ou-empty-good {
+      margin-top: 0.5rem; padding: 0.85rem 1rem; border-radius: var(--r);
+      border: 1px solid rgba(16,185,129,0.28); background: rgba(16,185,129,0.08);
+      color: #a7f3d0; font-size: 0.88rem; line-height: 1.5;
+    }
     #kg-svg { width: 100%; height: 100%; display: block; }
     .kg-links line { stroke-opacity: 1; }
     #kg-legend {
@@ -1166,6 +1308,15 @@
     .panel-status.status-proposed { color: var(--accent);  border-color: rgba(79,156,249,.3);  background: rgba(79,156,249,.07); }
     .panel-status.status-active   { color: var(--ok);     border-color: var(--ok-border);     background: var(--ok-bg); }
     .panel-status.status-speculative { color: var(--violet); border-color: rgba(167,139,250,.3); background: rgba(167,139,250,.07); }
+    .panel-evidence-tier {
+      display: inline-block; margin: 0.35rem 0 0.75rem;
+      padding: 0.15rem 0.55rem; border-radius: 999px;
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+      border: 1px solid var(--border);
+    }
+    .panel-evidence-tier.tier-proven { color: #5eead4; border-color: rgba(45,212,191,.35); background: rgba(34,211,184,.12); }
+    .panel-evidence-tier.tier-protocol { color: #93c5fd; border-color: rgba(79,156,249,.3); background: rgba(79,156,249,.08); }
+    .panel-evidence-tier.tier-theoretical { color: var(--muted); border-color: var(--border); background: rgba(148,163,184,.08); }
     .translation-table {
       width: 100%; border-collapse: collapse; font-size: .75rem;
     }
@@ -1497,16 +1648,17 @@
   <header class="hero">
     <div class="hero-inner">
       <!-- Launch Sprint Banner: prominent for researchers + institutions -->
-      <div class="launch-banner" role="note" aria-label="June 2026 Launch Sprint">
-        <strong>🚀 June 2026 Launch Sprint — Now open to researchers &amp; institutions</strong><br>
-        <span style="font-size:.82rem;opacity:.95">1,124 cross-domain bridges • 1,409 open unknowns • 1,275 hypotheses • 3,861-node graph • 0 orphans • Live Wave Factory automation. Git-native for auditability.</span>
+      <div class="launch-banner" role="note" aria-label="Crosscheck proof loop">
+        <strong>4 Crosscheck protocols CONFIRMED — falsifiable bridge tests you can run in minutes</strong><br>
+        <span style="font-size:.82rem;opacity:.95">Breakthrough gaps → cross-domain bridges → runnable Crosscheck → catalog outcome. Git-native for auditability.</span>
         <div style="margin-top:.55rem;display:flex;gap:.45rem;justify-content:center;flex-wrap:wrap;">
-          <a href="#knowledge-graph" style="display:inline-flex;align-items:center;padding:.32rem .85rem;border-radius:999px;border:1px solid #10b981;background:rgba(16,185,129,0.12);color:#a7f3d0;font-size:.78rem;font-weight:600;text-decoration:none;">Explore live graph</a>
+          <a href="#crosscheck" style="display:inline-flex;align-items:center;padding:.32rem .85rem;border-radius:999px;border:1px solid #10b981;background:rgba(16,185,129,0.18);color:#a7f3d0;font-size:.78rem;font-weight:600;text-decoration:none;">Run Crosscheck →</a>
+          <a href="#breakthrough-gaps" style="display:inline-flex;align-items:center;padding:.32rem .85rem;border-radius:999px;border:1px solid #10b981;background:rgba(16,185,129,0.12);color:#a7f3d0;font-size:.78rem;font-weight:600;text-decoration:none;">Breakthrough gaps →</a>
+          <a href="#impact-router" style="display:inline-flex;align-items:center;padding:.32rem .85rem;border-radius:999px;border:1px solid #6366f1;background:rgba(99,102,241,0.14);color:#c4b5fd;font-size:.78rem;font-weight:600;text-decoration:none;">Impact router →</a>
+          <a href="#orphan-unknowns-panel" style="display:inline-flex;align-items:center;padding:.32rem .85rem;border-radius:999px;border:1px solid #6366f1;background:rgba(99,102,241,0.1);color:#c4b5fd;font-size:.78rem;font-weight:600;text-decoration:none;">Priority unknowns →</a>
+          <a href="#knowledge-graph" style="display:inline-flex;align-items:center;padding:.32rem .85rem;border-radius:999px;border:1px solid #10b981;background:rgba(16,185,129,0.12);color:#a7f3d0;font-size:.78rem;font-weight:600;text-decoration:none;">Knowledge graph →</a>
           <a href="../docs/preprint/usdr_preprint.md" style="display:inline-flex;align-items:center;padding:.32rem .85rem;border-radius:999px;border:1px solid rgba(167,243,208,0.4);background:transparent;color:#a7f3d0;font-size:.78rem;font-weight:600;text-decoration:none;">Read v1.2 preprint</a>
-          <a href="../INSTITUTIONAL_PARTNERSHIP_PROSPECTUS.md" style="display:inline-flex;align-items:center;padding:.32rem .85rem;border-radius:999px;border:1px solid rgba(167,243,208,0.4);background:transparent;color:#a7f3d0;font-size:.78rem;font-weight:600;text-decoration:none;">For institutions &amp; funders →</a>
           <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/discussions/286" style="display:inline-flex;align-items:center;padding:.32rem .85rem;border-radius:999px;border:1px solid rgba(167,243,208,0.4);background:transparent;color:#a7f3d0;font-size:.78rem;font-weight:600;text-decoration:none;">Early Stewards call →</a>
-          <a href="../repro/p-b-habitat-percolation-ecology-fss/index.html" style="display:inline-flex;align-items:center;padding:.32rem .85rem;border-radius:999px;border:1px solid rgba(16,185,129,0.55);background:rgba(16,185,129,0.18);color:#a7f3d0;font-size:.78rem;font-weight:600;text-decoration:none;">Run Crosscheck in browser →</a>
-          <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/issues?q=is:issue+is:open+label:launch-sprint" style="display:inline-flex;align-items:center;padding:.32rem .85rem;border-radius:999px;border:1px solid rgba(167,243,208,0.4);background:transparent;color:#a7f3d0;font-size:.78rem;font-weight:600;text-decoration:none;">Launch Sprint issues →</a>
         </div>
       </div>
 
@@ -1550,8 +1702,18 @@
 
       <p class="hero-lead">
         The <strong>Universal Science Discovery Repository</strong> is open infrastructure for the scientific unknown.
+        USDR maps what blocks progress; <strong>Crosscheck</strong> tests whether the map is right.
         A git-native, schema-validated catalog of 1,409 open research problems, 1,275 falsifiable hypotheses, and 1,124 cross-domain mathematical bridges — all connected in a reproducible 3,861-node knowledge graph. Built so researchers can find high-leverage open questions fast, institutions can spot interdisciplinary opportunities, and funders can see exactly where the frontier is moving.
       </p>
+
+      <div class="impact-callout" role="region" aria-label="Discovery impact loop">
+        <p><strong>From gap to proof:</strong>
+          <a href="#breakthrough-gaps">Breakthrough gaps</a> name what blocks progress →
+          <a href="#impact-router">Impact router</a> ranks what to build →
+          <a href="#orphan-unknowns-panel">Priority unknowns</a> surfaces contribution targets →
+          <a href="#knowledge-graph">Pathfinder</a> finds cross-domain paths →
+          <a href="#crosscheck">Crosscheck</a> runs falsifiable repros → outcomes flow back into the catalog and knowledge graph.</p>
+      </div>
 
       <div class="discovery-callout" role="region" aria-label="Catalog discovery">
         <p>
@@ -1561,6 +1723,8 @@
         </p>
         <p class="discovery-callout-actions">
           <a href="#catalog-search">Jump to catalog search</a>
+          <a href="#impact-router" class="discovery-secondary">Impact router</a>
+          <a href="#orphan-unknowns-panel" class="discovery-secondary">Priority unknowns</a>
           <a href="domains/" class="discovery-secondary">Browse domains</a>
           <a href="#knowledge-graph" class="discovery-secondary">Knowledge graph</a>
         </p>
@@ -1667,6 +1831,8 @@
       <a href="#discovery-engines">Engines</a>
       <a href="#pioneers">Pioneers</a>
       <a href="#breakthrough-gaps">Breakthroughs</a>
+      <a href="#impact-router" title="Browse AI-ranked bridge proposals — gaps, pioneer seeds, domain pairs">Impact router</a>
+      <a href="#orphan-unknowns-panel" title="Unknowns with no bridge or hypothesis edge yet">Priority unknowns</a>
       <a href="#ai-copilot">AI co-pilot</a>
       <a href="#developer-api">API</a>
       <a href="#knowledge-graph" title="Interactive force-directed view of catalog relationships">Knowledge graph</a>
@@ -1710,8 +1876,13 @@
             <tbody>
               <tr>
                 <td>Hub (this page)</td>
-                <td>Browse catalog, search, graph, hygiene list</td>
+                <td>Browse catalog, search, graph, discovery instruments</td>
                 <td>Find a task; read only</td>
+              </tr>
+              <tr>
+                <td>Discovery instruments</td>
+                <td>Impact router, priority unknowns, pathfinder, Crosscheck</td>
+                <td>Rank bridges to build; run proof protocols</td>
               </tr>
               <tr>
                 <td>Git + GitHub</td>
@@ -1768,6 +1939,8 @@
               <strong>Pick a task</strong>
               <p>Choose one entry path — all end in a pull request.</p>
               <div class="step-links">
+                <a class="lc" href="#impact-router">Impact router (build a bridge)</a>
+                <a class="lc" href="#orphan-unknowns-panel">Priority unknowns</a>
                 <a class="lc" href="#orphan-xref-panel">Hygiene (fix one xref)</a>
                 <a class="lc" href="../docs/HAPPY_PATH_FIRST_RECORDS.md">Stream A (unknown + hypothesis)</a>
                 <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/issues?q=is%3Aopen+label%3A%22good+first+issue%22" target="_blank" rel="noopener">Good first issues ↗</a>
@@ -1888,9 +2061,10 @@
         <article class="crosscheck-hub-card" style="background:rgba(79,156,249,0.06);border:1px solid rgba(79,156,249,0.22);border-radius:12px;padding:1.15rem 1.25rem;">
           <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:.75rem;flex-wrap:wrap;margin-bottom:.55rem;">
             <h3 style="margin:0;font-size:.95rem;line-height:1.35;font-weight:600;">Cluster size distribution test — below p_c, does the finite cluster size distribution follow a power law with exponent…</h3>
-            <span style="background:rgba(34,211,184,0.2);color:#5eead4;padding:.15rem .55rem;border-radius:999px;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;">executed</span>
+            <span style="background:rgba(34,211,184,0.35);color:#2dd4bf;padding:.15rem .55rem;border-radius:999px;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;">confirmed</span>
           </div>
           <p style="margin:0 0 .65rem;font-size:.78rem;color:var(--muted);">Protocol <code style="font-size:.75rem;">p-b-habitat-percolation-ecology-cluster-exponent</code> · desktop</p>
+          <p style="margin:0 0 .65rem;font-size:.78rem;color:var(--muted);">CONFIRMED · ±4.9% · R²=0.969 · τ=1.95 vs 187/91≈2.055</p>
           <div style="display:flex;flex-wrap:wrap;gap:.5rem;font-size:.82rem;">
             <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/repro/p-b-habitat-percolation-ecology-cluster-exponent/index.html" style="color:var(--accent2);font-weight:600;">Run in browser →</a>
             <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/explainers/b-habitat-percolation-ecology.html#crosscheck" style="color:var(--muted);">Bridge explainer</a>
@@ -1899,9 +2073,10 @@
         <article class="crosscheck-hub-card" style="background:rgba(79,156,249,0.06);border:1px solid rgba(79,156,249,0.22);border-radius:12px;padding:1.15rem 1.25rem;">
           <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:.75rem;flex-wrap:wrap;margin-bottom:.55rem;">
             <h3 style="margin:0;font-size:.95rem;line-height:1.35;font-weight:600;">Finite-size scaling test — does the 2D site percolation threshold shift with lattice area as p_c(L) = p_c(inf) + c * L^…</h3>
-            <span style="background:rgba(34,211,184,0.2);color:#5eead4;padding:.15rem .55rem;border-radius:999px;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;">executed</span>
+            <span style="background:rgba(34,211,184,0.35);color:#2dd4bf;padding:.15rem .55rem;border-radius:999px;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;">confirmed</span>
           </div>
           <p style="margin:0 0 .65rem;font-size:.78rem;color:var(--muted);">Protocol <code style="font-size:.75rem;">p-b-habitat-percolation-ecology-fss</code> · desktop</p>
+          <p style="margin:0 0 .65rem;font-size:.78rem;color:var(--muted);">CONFIRMED · ±7.4% · R²=0.198 · ν=1.23 vs 2D percolation ν=4/3</p>
           <div style="display:flex;flex-wrap:wrap;gap:.5rem;font-size:.82rem;">
             <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/repro/p-b-habitat-percolation-ecology-fss/index.html" style="color:var(--accent2);font-weight:600;">Run in browser →</a>
             <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/explainers/b-habitat-percolation-ecology.html#crosscheck" style="color:var(--muted);">Bridge explainer</a>
@@ -1910,9 +2085,10 @@
         <article class="crosscheck-hub-card" style="background:rgba(79,156,249,0.06);border:1px solid rgba(79,156,249,0.22);border-radius:12px;padding:1.15rem 1.25rem;">
           <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:.75rem;flex-wrap:wrap;margin-bottom:.55rem;">
             <h3 style="margin:0;font-size:.95rem;line-height:1.35;font-weight:600;">Early-warning indicator test — does 2D Ising magnetisation near T_c show critical slowing down (rising variance and AR1…</h3>
-            <span style="background:rgba(34,211,184,0.2);color:#5eead4;padding:.15rem .55rem;border-radius:999px;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;">executed</span>
+            <span style="background:rgba(34,211,184,0.35);color:#2dd4bf;padding:.15rem .55rem;border-radius:999px;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;">confirmed</span>
           </div>
           <p style="margin:0 0 .65rem;font-size:.78rem;color:var(--muted);">Protocol <code style="font-size:.75rem;">p-b-ising-social-dynamics-ewi</code> · desktop</p>
+          <p style="margin:0 0 .65rem;font-size:.78rem;color:var(--muted);">CONFIRMED · ±17.9% · R²=0.988 · γ=1.44 vs 2D Ising γ=7/4</p>
           <div style="display:flex;flex-wrap:wrap;gap:.5rem;font-size:.82rem;">
             <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/repro/p-b-ising-social-dynamics-ewi/index.html" style="color:var(--accent2);font-weight:600;">Run in browser →</a>
             <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/explainers/b-ising-social-dynamics.html#crosscheck" style="color:var(--muted);">Bridge explainer</a>
@@ -1921,9 +2097,10 @@
         <article class="crosscheck-hub-card" style="background:rgba(79,156,249,0.06);border:1px solid rgba(79,156,249,0.22);border-radius:12px;padding:1.15rem 1.25rem;">
           <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:.75rem;flex-wrap:wrap;margin-bottom:.55rem;">
             <h3 style="margin:0;font-size:.95rem;line-height:1.35;font-weight:600;">Finite-size epidemic threshold — does bond percolation on a random graph show threshold shift consistent with R_0^eff(N…</h3>
-            <span style="background:rgba(34,211,184,0.2);color:#5eead4;padding:.15rem .55rem;border-radius:999px;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;">executed</span>
+            <span style="background:rgba(34,211,184,0.35);color:#2dd4bf;padding:.15rem .55rem;border-radius:999px;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;">confirmed</span>
           </div>
           <p style="margin:0 0 .65rem;font-size:.78rem;color:var(--muted);">Protocol <code style="font-size:.75rem;">p-b-percolation-epidemiology-fss</code> · desktop</p>
+          <p style="margin:0 0 .65rem;font-size:.78rem;color:var(--muted);">CONFIRMED · ±20.0% · R²=0.972 · ν=0.80 vs mean-field ν=1.0 (GIANT_FRAC_TARGET=0.145)</p>
           <div style="display:flex;flex-wrap:wrap;gap:.5rem;font-size:.82rem;">
             <a href="https://colab.research.google.com/github/KR8ZYSHO3/Universal-Science-Discovery/blob/main/repro/p-b-percolation-epidemiology-fss/run_crosscheck.ipynb" style="color:var(--accent2);font-weight:600;">Open in Colab →</a>
             <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/explainers/b-percolation-epidemiology.html#crosscheck" style="color:var(--muted);">Bridge explainer</a>
@@ -2414,15 +2591,100 @@
       </div>
     </section>
 
+    <!-- ═══════════════════════════════════════ IMPACT ROUTER (DISC-02) -->
+    <section id="impact-router" class="aos">
+      <div class="impact-router-panel">
+        <span class="section-tag">Discovery instrument</span>
+        <h2 class="section-title">Impact router — what to build next</h2>
+        <p class="section-desc">
+          Ranked bridge proposals from <code style="font-family:var(--mono);font-size:.84em;">propose_bridges.py</code>:
+          pioneer seeds, breakthrough-gap blockers, and high-unknown domain pairs.
+          Jump to the graph, a breakthrough gap card, or pathfinder — or open the bridge on GitHub to contribute.
+        </p>
+        <div class="ir-filters" role="group" aria-label="Filter bridge proposals">
+          <button type="button" class="ir-filter-btn active" data-ir-source="all">All sources</button>
+          <button type="button" class="ir-filter-btn" data-ir-source="breakthrough_gap">Breakthrough gaps</button>
+          <button type="button" class="ir-filter-btn" data-ir-source="pioneer_seed">Pioneer seeds</button>
+          <button type="button" class="ir-filter-btn" data-ir-source="domain_gap">Domain pairs</button>
+          <label class="ir-missing-toggle">
+            <input type="checkbox" id="ir-missing-only" checked> Missing only
+          </label>
+          <input type="search" id="ir-search" class="ir-search" placeholder="Filter by bridge or source…" autocomplete="off" spellcheck="false" aria-label="Search proposals">
+        </div>
+        <div id="ir-summary" class="ir-summary" aria-live="polite"></div>
+        <p id="ir-status" class="orphan-xref-status" role="status" aria-live="polite" aria-busy="true">
+          <span class="orphan-xref-spinner" aria-hidden="true"></span>Loading impact router…
+        </p>
+        <div id="ir-empty" class="section-desc" style="display:none;margin-top:.5rem;color:var(--muted);">
+          No proposals match the current filters.
+        </div>
+        <div id="ir-table-wrap" class="ir-table-wrap" style="display:none;">
+          <table class="ir-table" aria-label="Bridge proposals ranked by impact">
+            <thead>
+              <tr>
+                <th scope="col">Priority</th>
+                <th scope="col">Bridge</th>
+                <th scope="col">Source</th>
+                <th scope="col">Status</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="ir-tbody"></tbody>
+          </table>
+        </div>
+        <p id="ir-foot" class="ir-foot" style="display:none;"></p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════ ORPHAN UNKNOWNS (DISC-03) -->
+    <section id="orphan-unknowns-panel" class="aos">
+      <div class="ou-panel">
+        <span class="section-tag">Discovery instrument</span>
+        <h2 class="section-title">Priority unknowns — contribution targets</h2>
+        <p class="section-desc">
+          Unknowns in the knowledge graph with <strong>no edge</strong> to a bridge or hypothesis yet.
+          Different from <a href="#orphan-xref-panel">xref hygiene</a> (broken YAML links).
+          Regenerate <code style="font-family:var(--mono);font-size:.84em;">api/v1/orphan_unknowns_panel.json</code>
+          with <code style="font-family:var(--mono);font-size:.84em;">python scripts/export_orphan_unknowns_panel.py</code>.
+        </p>
+        <div id="ou-stats" class="ou-stats" aria-live="polite"></div>
+        <input type="search" id="ou-search" class="ou-search" placeholder="Filter by ID, title, or field…" autocomplete="off" spellcheck="false" aria-label="Search orphan unknowns" hidden>
+        <p id="ou-status" class="orphan-xref-status" role="status" aria-live="polite" aria-busy="true">
+          <span class="orphan-xref-spinner" aria-hidden="true"></span>Loading priority unknowns…
+        </p>
+        <div id="ou-empty-good" class="ou-empty-good" style="display:none;">
+          All unknowns are connected — every unknown in the graph has at least one bridge or hypothesis edge.
+          Use <a href="#impact-router" style="color:#6ee7b7;">Impact router</a> for the next highest-leverage bridges to build.
+        </div>
+        <div id="ou-empty-filter" class="section-desc" style="display:none;margin-top:.5rem;color:var(--muted);">
+          No rows match your search filter.
+        </div>
+        <div id="ou-table-wrap" class="ir-table-wrap" style="display:none;">
+          <table class="ir-table" aria-label="Orphan unknown contribution targets">
+            <thead>
+              <tr>
+                <th scope="col">Unknown</th>
+                <th scope="col">Fields</th>
+                <th scope="col">Why</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="ou-tbody"></tbody>
+          </table>
+        </div>
+        <p id="ou-foot" class="ir-foot" style="display:none;"></p>
+      </div>
+    </section>
+
     <!-- ════════════════════════════════════════════ AI CO-PILOT -->
     <section id="ai-copilot">
       <div>
         <span class="section-tag">AI Co-pilot</span>
         <h2 class="section-title">Automated knowledge-graph analysis</h2>
         <p class="section-desc">
-          Three scripts that continuously mine the knowledge graph — surfacing gaps,
-          proposing novel cross-domain connections, and flagging low-quality entries
-          for human review.
+          Automated pipelines and hub instruments that continuously mine the knowledge graph —
+          surfacing gaps, proposing novel cross-domain connections, and flagging low-quality
+          entries for human review.
         </p>
         <!-- live bridge proposal counter -->
         <div id="bridge-proposal-counter" style="
@@ -2444,21 +2706,21 @@
           <h3>Bridge Proposals</h3>
           <p>Domain pairs with high unknown density and no existing bridge — the most
           fertile candidates for the next cross-domain discovery.</p>
-          <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/docs/bridge_proposals.json"
-             class="copilot-link" target="_blank" rel="noopener">View proposals ↗</a>
+          <a href="#impact-router"
+             class="copilot-link">Open impact router →</a>
         </div>
         <div class="copilot-card">
           <span class="copilot-icon">🎯</span>
           <h3>Priority Targets</h3>
           <p>Unknowns with no hypothesis or bridge edge — the highest-impact contribution
           opportunities in the graph today.</p>
-          <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/docs/orphan_unknowns.md"
-             class="copilot-link" target="_blank" rel="noopener">View targets ↗</a>
+          <a href="#orphan-unknowns-panel"
+             class="copilot-link">Open priority unknowns →</a>
         </div>
         <div class="copilot-card">
           <span class="copilot-icon">✅</span>
           <h3>Quality Audit</h3>
-          <p>Automated quality checks across all 401 catalog entries — errors, warnings,
+          <p>Automated quality checks across 3,800+ catalog YAML entries — errors, warnings,
           and improvement opportunities surfaced automatically.</p>
           <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/docs/quality_report.md"
              class="copilot-link" target="_blank" rel="noopener">View audit ↗</a>
@@ -2537,6 +2799,11 @@
           <span>Capped list of missing xref targets and disconnected unknowns for the hub panel (regenerate via export script)</span>
           <span class="api-endpoint-badge">~40 KB</span>
         </a>
+        <a href="../api/v1/orphan_unknowns_panel.json" class="api-endpoint" target="_blank" rel="noopener">
+          <code>GET /api/v1/orphan_unknowns_panel.json</code>
+          <span>Priority unknowns panel — orphan scan with contribution targets (regenerate via export script)</span>
+          <span class="api-endpoint-badge">~1 KB</span>
+        </a>
       </div>
     </section>
 
@@ -2546,7 +2813,7 @@
       <h2 class="section-title">Cross-domain connection map</h2>
       <p class="section-desc">
         Force-directed graph of the full catalog — bridges, unknowns, hypotheses, and phenomena (counts update live when the JSON loads).
-        Hover a node to inspect it. Click a node for full details. Drag to reposition. Scroll or pinch to zoom.
+        Use <strong>Pathfinder</strong> to find the shortest connection between two domains. Hover a node to inspect it. Click a node for full details.
       </p>
       <div class="graph-stats-bar" id="kg-stats-bar">
         <span id="kg-node-count">3861</span> nodes &nbsp;·&nbsp;
@@ -2558,6 +2825,18 @@
         <button class="filter-btn active" data-type="hypothesis" style="--fc:#22d3b8">● Hypotheses</button>
         <button class="filter-btn active" data-type="phenomenon" style="--fc:#a78bfa">● Phenomena</button>
       </div>
+      <div class="pathfinder-bar" id="pathfinder-bar" role="search" aria-label="Find shortest path between domains">
+        <label class="pf-label">From
+          <input id="pf-from" list="pf-domains" placeholder="statistical-physics" autocomplete="off" spellcheck="false">
+        </label>
+        <label class="pf-label">To
+          <input id="pf-to" list="pf-domains" placeholder="conservation-biology" autocomplete="off" spellcheck="false">
+        </label>
+        <button type="button" id="pf-find" class="pf-find-btn">Find path</button>
+        <span id="pf-status" class="pf-status" role="status" aria-live="polite"></span>
+      </div>
+      <datalist id="pf-domains"></datalist>
+      <div id="pf-results" class="pf-results" hidden></div>
       <div id="graph-container">
         <div id="kg-loading-spinner" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;z-index:5;pointer-events:none;">
           <svg width="40" height="40" viewBox="0 0 40 40" fill="none" style="animation:kg-spin 1s linear infinite;" aria-hidden="true">
@@ -4172,6 +4451,166 @@
         var nodeMap = {};
         nodes.forEach(function (n) { nodeMap[n.id] = n; });
 
+        /* ── PATHFINDER (DISC-01) ───────────────────────────── */
+        var pathHighlightIds = null;
+        var pathEdgeKeys = null;
+        var openNodeById = function () {};
+
+        function pfNormalizeDomain(label) {
+          return String(label || '').trim().toLowerCase().replace(/\s+/g, '-').replace(/_/g, '-');
+        }
+
+        function pfNodeHasDomain(node, domain) {
+          var needle = pfNormalizeDomain(domain);
+          var fields = node.fields || [];
+          for (var i = 0; i < fields.length; i++) {
+            if (pfNormalizeDomain(fields[i]) === needle) return true;
+          }
+          return false;
+        }
+
+        function pfEdgeKey(a, b) {
+          return a < b ? a + '\0' + b : b + '\0' + a;
+        }
+
+        function pfDomainEndpoints(fromDomain, toDomain) {
+          var starts = {};
+          var ends = {};
+          nodes.forEach(function (n) {
+            var inFrom = pfNodeHasDomain(n, fromDomain);
+            var inTo = pfNodeHasDomain(n, toDomain);
+            if (inFrom && !inTo) starts[n.id] = true;
+            if (inTo && !inFrom) ends[n.id] = true;
+          });
+          return { starts: starts, ends: ends };
+        }
+
+        function pfPathScore(path) {
+          var bridges = 0;
+          path.forEach(function (nid) {
+            if (nodeMap[nid] && nodeMap[nid].type === 'bridge') bridges++;
+          });
+          return bridges * 1000 - path.length;
+        }
+
+        function pfBfsPaths(startMap, endMap, blockedEdges, maxPaths) {
+          blockedEdges = blockedEdges || {};
+          maxPaths = maxPaths || 3;
+          var paths = [];
+          var blocked = Object.assign({}, blockedEdges);
+
+          for (var attempt = 0; attempt < maxPaths; attempt++) {
+            var dist = {};
+            var parent = {};
+            var queue = [];
+            Object.keys(startMap).forEach(function (sid) {
+              dist[sid] = 0;
+              parent[sid] = null;
+              queue.push(sid);
+            });
+
+            var bestDist = null;
+            var candidates = [];
+
+            for (var qi = 0; qi < queue.length; qi++) {
+              var nodeId = queue[qi];
+              var depth = dist[nodeId];
+              if (bestDist !== null && depth > bestDist) continue;
+
+              if (endMap[nodeId]) {
+                if (bestDist === null || depth < bestDist) {
+                  bestDist = depth;
+                  candidates = [nodeId];
+                } else if (depth === bestDist) {
+                  candidates.push(nodeId);
+                }
+                continue;
+              }
+
+              var neighbors = adj[nodeId] || [];
+              for (var ni = 0; ni < neighbors.length; ni++) {
+                var nb = neighbors[ni];
+                if (blocked[pfEdgeKey(nodeId, nb)]) continue;
+                if (dist[nb] === undefined) {
+                  dist[nb] = depth + 1;
+                  parent[nb] = nodeId;
+                  queue.push(nb);
+                }
+              }
+            }
+
+            if (!candidates.length || bestDist === null) break;
+
+            candidates.sort(function (a, b) {
+              function recon(end) {
+                var p = [];
+                var cur = end;
+                while (cur !== null && cur !== undefined) {
+                  p.push(cur);
+                  cur = parent[cur];
+                }
+                return p.reverse();
+              }
+              return pfPathScore(recon(b)) - pfPathScore(recon(a));
+            });
+
+            var endId = candidates[0];
+            var path = [];
+            var cur = endId;
+            while (cur !== null && cur !== undefined) {
+              path.push(cur);
+              cur = parent[cur];
+            }
+            path.reverse();
+
+            var dup = false;
+            for (var pi = 0; pi < paths.length; pi++) {
+              if (paths[pi].join('|') === path.join('|')) { dup = true; break; }
+            }
+            if (dup) break;
+            paths.push(path);
+            for (var hi = 0; hi < path.length - 1; hi++) {
+              blocked[pfEdgeKey(path[hi], path[hi + 1])] = true;
+            }
+          }
+          return paths;
+        }
+
+        var adj = {};
+        edges.forEach(function (e) {
+          var s = typeof e.source === 'object' ? e.source.id : e.source;
+          var t = typeof e.target === 'object' ? e.target.id : e.target;
+          if (!adj[s]) adj[s] = [];
+          if (!adj[t]) adj[t] = [];
+          adj[s].push(t);
+          adj[t].push(s);
+        });
+
+        function pfFindByDomain(fromDomain, toDomain) {
+          var ep = pfDomainEndpoints(fromDomain, toDomain);
+          if (!Object.keys(ep.starts).length || !Object.keys(ep.ends).length) return [];
+          return pfBfsPaths(ep.starts, ep.ends, {}, 3);
+        }
+
+        var pfDomainsList = document.getElementById('pf-domains');
+        if (pfDomainsList) {
+          var pfDomainCounts = {};
+          nodes.forEach(function (n) {
+            if (n.type !== 'bridge') return;
+            (n.fields || []).forEach(function (f) {
+              var d = pfNormalizeDomain(f);
+              if (d) pfDomainCounts[d] = (pfDomainCounts[d] || 0) + 1;
+            });
+          });
+          Object.keys(pfDomainCounts)
+            .sort(function (a, b) { return pfDomainCounts[b] - pfDomainCounts[a] || a.localeCompare(b); })
+            .forEach(function (d) {
+              var opt = document.createElement('option');
+              opt.value = d;
+              pfDomainsList.appendChild(opt);
+            });
+        }
+
         /* stats bar */
         var nc = (data.meta && data.meta.node_count) ? data.meta.node_count : nodes.length;
         var ec = (data.meta && data.meta.edge_count)  ? data.meta.edge_count  : edges.length;
@@ -4298,8 +4737,39 @@
           });
         }
 
+        function highlightPath(pathIds) {
+          pathHighlightIds = {};
+          pathIds.forEach(function (id) { pathHighlightIds[id] = true; });
+          pathEdgeKeys = {};
+          for (var i = 0; i < pathIds.length - 1; i++) {
+            pathEdgeKeys[pfEdgeKey(pathIds[i], pathIds[i + 1])] = true;
+          }
+          focusNodeId = pathIds[0] || null;
+
+          node.style('opacity', function (d) {
+            if (!activeTypes.has(d.type)) return 0.05;
+            return pathHighlightIds[d.id] ? 1 : 0.07;
+          }).style('pointer-events', function (d) {
+            return activeTypes.has(d.type) ? 'all' : 'none';
+          });
+
+          link.style('opacity', function (d) {
+            var src = typeof d.source === 'object' ? d.source.id : d.source;
+            var tgt = typeof d.target === 'object' ? d.target.id : d.target;
+            return pathEdgeKeys[pfEdgeKey(src, tgt)] ? 0.95 : 0.04;
+          });
+
+          node.attr('stroke', function (d) {
+            return pathHighlightIds[d.id] ? '#fff' : 'rgba(255,255,255,0.14)';
+          }).attr('stroke-width', function (d) {
+            return pathHighlightIds[d.id] ? 2.5 : 1;
+          });
+        }
+
         function resetHighlight() {
           focusNodeId = null;
+          pathHighlightIds = null;
+          pathEdgeKeys = null;
           applyFilterOpacity();
         }
 
@@ -4468,6 +4938,11 @@
             html += '<span class="panel-status ' + statusClass + '">' + esc(fields.status) + '</span>';
           }
 
+          if (type === 'bridge' && d.evidence_tier) {
+            var tierLabel = { proven: 'Proven (Crosscheck)', protocol: 'Protocol drafted', theoretical: 'Theoretical mapping' };
+            html += '<span class="panel-evidence-tier tier-' + esc(d.evidence_tier) + '">' + esc(tierLabel[d.evidence_tier] || d.evidence_tier) + '</span>';
+          }
+
           if (fields.question) {
             html += '<p class="panel-section-label">Question</p>';
             html += '<p class="panel-claim">' + esc(fields.question.slice(0, 300) + (fields.question.length > 300 ? '…' : '')) + '</p>';
@@ -4584,6 +5059,107 @@
             }
           });
         });
+
+        openNodeById = function (nodeId) {
+          var d = nodeMap[nodeId];
+          if (!d) return;
+          svg.selectAll('circle').classed('selected', function (n) { return n.id === nodeId; });
+          highlightNeighborhood(nodeId);
+          focusGraphCamera(nodeId);
+          openPanel(d);
+          contentEl.innerHTML = '<div class="panel-loading">Loading…</div>';
+          var type = d.id.startsWith('b-') ? 'bridge'
+                   : d.id.startsWith('u-') ? 'unknown'
+                   : d.id.startsWith('h-') ? 'hypothesis'
+                   : 'phenomenon';
+          loadNodeDetails(d.id, type).then(function (result) {
+            if (result) {
+              var fields = parseYamlFields(result.text);
+              renderPanel(d, fields, result.path, edges);
+            }
+          });
+        };
+
+        function pfRenderResults(paths, fromD, toD) {
+          var resultsEl = document.getElementById('pf-results');
+          var statusEl = document.getElementById('pf-status');
+          if (!resultsEl) return;
+          if (!paths.length) {
+            resultsEl.hidden = true;
+            resultsEl.innerHTML = '';
+            if (statusEl) statusEl.textContent = 'No path found between those domains.';
+            return;
+          }
+          resultsEl.hidden = false;
+          if (statusEl) {
+            statusEl.textContent = paths.length + ' path' + (paths.length > 1 ? 's' : '')
+              + ' · shortest ' + paths[0].length + ' hops (' + fromD + ' → ' + toD + ')';
+          }
+          var html = '';
+          paths.forEach(function (path, pidx) {
+            html += '<div class="pf-path-block" data-path-index="' + pidx + '">';
+            html += '<p class="pf-path-title">Path ' + (pidx + 1) + ' · ' + path.length + ' nodes</p>';
+            html += '<div class="pf-hop-row">';
+            path.forEach(function (nid, hidx) {
+              if (hidx > 0) html += '<span class="pf-hop-arrow" aria-hidden="true">→</span>';
+              var n = nodeMap[nid] || {};
+              var cls = 'pf-hop' + (n.type === 'bridge' ? ' pf-hop-type-bridge' : '');
+              var tier = n.evidence_tier ? '<span class="pf-hop-tier">' + esc(n.evidence_tier) + '</span>' : '';
+              html += '<button type="button" class="' + cls + '" data-node-id="' + esc(nid) + '" title="' + esc(nid) + '">'
+                + esc(nid) + tier + '</button>';
+            });
+            html += '</div></div>';
+          });
+          resultsEl.innerHTML = html;
+          resultsEl.querySelectorAll('.pf-hop').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+              var nid = btn.getAttribute('data-node-id');
+              if (nid) openNodeById(nid);
+            });
+          });
+          highlightPath(paths[0]);
+          if (paths[0][0]) focusGraphCamera(paths[0][0]);
+        }
+
+        var pfFindBtn = document.getElementById('pf-find');
+        if (pfFindBtn) {
+          pfFindBtn.addEventListener('click', function () {
+            var fromInput = document.getElementById('pf-from');
+            var toInput = document.getElementById('pf-to');
+            var fromD = pfNormalizeDomain(fromInput && fromInput.value);
+            var toD = pfNormalizeDomain(toInput && toInput.value);
+            if (!fromD || !toD) {
+              var statusEl = document.getElementById('pf-status');
+              if (statusEl) statusEl.textContent = 'Enter both domains.';
+              return;
+            }
+            if (fromD === toD) {
+              var statusEl2 = document.getElementById('pf-status');
+              if (statusEl2) statusEl2.textContent = 'Choose two different domains.';
+              return;
+            }
+            var paths = pfFindByDomain(fromD, toD);
+            pfRenderResults(paths, fromD, toD);
+          });
+        }
+
+        window.usdrOpenNodeById = function (nodeId) {
+          var kg = document.getElementById('knowledge-graph');
+          if (kg) kg.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          openNodeById(nodeId);
+        };
+        window.usdrPathfinderFind = function (fromD, toD) {
+          var pfFrom = document.getElementById('pf-from');
+          var pfTo = document.getElementById('pf-to');
+          var fromNorm = pfNormalizeDomain(fromD);
+          var toNorm = pfNormalizeDomain(toD);
+          if (pfFrom) pfFrom.value = fromD;
+          if (pfTo) pfTo.value = toD;
+          var kg = document.getElementById('knowledge-graph');
+          if (kg) kg.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          var paths = pfFindByDomain(fromNorm, toNorm);
+          pfRenderResults(paths, fromNorm, toNorm);
+        };
 
         /* tooltip */
         node
@@ -4946,6 +5522,397 @@
             footEl.textContent = 'Generated: ' + data.generated_at
               + (data.meta && data.meta.item_cap ? ' · capped at ' + data.meta.item_cap + ' rows' : '');
           }
+        })
+        .catch(function () { tryFetch(i + 1); });
+    }
+    tryFetch(0);
+  })();
+  </script>
+
+  <script>
+  /* Orphan unknowns panel (DISC-03) — priority contribution targets */
+  (function () {
+    var statusEl = document.getElementById('ou-status');
+    var statsEl = document.getElementById('ou-stats');
+    var searchInput = document.getElementById('ou-search');
+    var emptyGood = document.getElementById('ou-empty-good');
+    var emptyFilter = document.getElementById('ou-empty-filter');
+    var wrapEl = document.getElementById('ou-table-wrap');
+    var tbody = document.getElementById('ou-tbody');
+    var footEl = document.getElementById('ou-foot');
+    if (!statusEl || !tbody) return;
+
+    var allItems = [];
+    var panelMeta = {};
+
+    function apiBase() {
+      var loc = window.location.href;
+      if (loc.indexOf('github.io') !== -1) return 'https://kr8zysho3.github.io/Universal-Science-Discovery/';
+      if (loc.indexOf('/dashboard/') !== -1) return loc.replace(/dashboard\/.*$/, '');
+      return '../';
+    }
+    var paths = [
+      apiBase() + 'api/v1/orphan_unknowns_panel.json',
+      '../api/v1/orphan_unknowns_panel.json'
+    ];
+
+    function esc(s) {
+      return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function done(msg, busy) {
+      statusEl.textContent = msg || '';
+      statusEl.setAttribute('aria-busy', busy ? 'true' : 'false');
+    }
+
+    function renderStats(meta) {
+      if (!statsEl || !meta) return;
+      var orphan = meta.orphan_count != null ? meta.orphan_count : '?';
+      var total = meta.total_unknowns != null ? meta.total_unknowns : '?';
+      var connected = meta.connected_unknowns != null ? meta.connected_unknowns : '?';
+      var goodCls = orphan === 0 ? ' ou-stat-good' : '';
+      statsEl.innerHTML =
+        '<span class="ou-stat-chip' + goodCls + '"><strong>' + orphan + '</strong> orphan unknowns</span>'
+        + '<span class="ou-stat-chip"><strong>' + connected + '</strong> connected</span>'
+        + '<span class="ou-stat-chip"><strong>' + total + '</strong> total unknowns</span>';
+    }
+
+    function filteredItems() {
+      var q = (searchInput && searchInput.value || '').trim().toLowerCase();
+      if (!q) return allItems;
+      return allItems.filter(function (item) {
+        var fields = (item.fields || []).join(' ');
+        var hay = (item.id + ' ' + (item.title || '') + ' ' + fields).toLowerCase();
+        return hay.indexOf(q) !== -1;
+      });
+    }
+
+    function addAction(td, label, handler) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.textContent = label;
+      btn.addEventListener('click', handler);
+      td.appendChild(btn);
+    }
+
+    function addLink(td, label, href) {
+      var a = document.createElement('a');
+      a.href = href;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.textContent = label;
+      td.appendChild(a);
+    }
+
+    function renderTable() {
+      var items = filteredItems();
+      done('', false);
+      if (!allItems.length) {
+        if (emptyGood) emptyGood.style.display = 'block';
+        if (emptyFilter) emptyFilter.style.display = 'none';
+        if (wrapEl) wrapEl.style.display = 'none';
+        if (searchInput) searchInput.hidden = true;
+        if (footEl && panelMeta.generated_at) {
+          footEl.style.display = 'block';
+          footEl.textContent = 'Generated: ' + panelMeta.generated_at;
+        }
+        return;
+      }
+      if (emptyGood) emptyGood.style.display = 'none';
+      if (searchInput) searchInput.hidden = false;
+      if (!items.length) {
+        if (emptyFilter) emptyFilter.style.display = 'block';
+        if (wrapEl) wrapEl.style.display = 'none';
+        return;
+      }
+      if (emptyFilter) emptyFilter.style.display = 'none';
+      if (wrapEl) wrapEl.style.display = 'block';
+      tbody.textContent = '';
+      items.forEach(function (item) {
+        var tr = document.createElement('tr');
+        var tdId = document.createElement('td');
+        tdId.innerHTML = '<div class="ir-bridge-id">' + esc(item.id) + '</div>'
+          + '<div class="ir-source-name">' + esc(item.title || '—') + '</div>';
+        var tdFields = document.createElement('td');
+        tdFields.textContent = (item.fields && item.fields.length)
+          ? item.fields.join(', ') : '—';
+        var tdWhy = document.createElement('td');
+        tdWhy.textContent = item.reason || '';
+        var tdAct = document.createElement('td');
+        tdAct.className = 'ir-actions';
+        if (typeof window.usdrOpenNodeById === 'function') {
+          addAction(tdAct, 'Graph', function () { window.usdrOpenNodeById(item.id); });
+        }
+        if (typeof window.usdrApplyCatalogSearch === 'function') {
+          addAction(tdAct, 'Search', function () {
+            window.usdrApplyCatalogSearch(item.title || item.id);
+          });
+        }
+        if (item.github_blob_url) {
+          addLink(tdAct, 'YAML', item.github_blob_url);
+        } else if (item.github_search_url) {
+          addLink(tdAct, 'GitHub', item.github_search_url);
+        }
+        tr.appendChild(tdId);
+        tr.appendChild(tdFields);
+        tr.appendChild(tdWhy);
+        tr.appendChild(tdAct);
+        tbody.appendChild(tr);
+      });
+      if (footEl) {
+        footEl.style.display = 'block';
+        var cap = panelMeta.item_cap ? ' · capped at ' + panelMeta.item_cap : '';
+        var gen = panelMeta.generated_at ? ' · generated ' + panelMeta.generated_at : '';
+        footEl.textContent = 'Regenerate: python scripts/export_orphan_unknowns_panel.py' + gen + cap;
+      }
+    }
+
+    if (searchInput) searchInput.addEventListener('input', renderTable);
+
+    function tryFetch(i) {
+      if (i >= paths.length) {
+        done('Could not load orphan unknowns panel JSON (offline or missing file).', false);
+        return;
+      }
+      fetch(paths[i])
+        .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error(String(r.status))); })
+        .then(function (data) {
+          allItems = (data && data.items) ? data.items : [];
+          panelMeta = data.meta || {};
+          panelMeta.generated_at = data.generated_at || '';
+          panelMeta.item_cap = data.meta && data.meta.item_cap;
+          renderStats(panelMeta);
+          renderTable();
+        })
+        .catch(function () { tryFetch(i + 1); });
+    }
+    tryFetch(0);
+  })();
+  </script>
+
+  <script>
+  /* Impact router (DISC-02) — interactive bridge proposals panel */
+  (function () {
+    var statusEl = document.getElementById('ir-status');
+    var summaryEl = document.getElementById('ir-summary');
+    var emptyEl = document.getElementById('ir-empty');
+    var wrapEl = document.getElementById('ir-table-wrap');
+    var tbody = document.getElementById('ir-tbody');
+    var footEl = document.getElementById('ir-foot');
+    var missingCb = document.getElementById('ir-missing-only');
+    var searchInput = document.getElementById('ir-search');
+    if (!statusEl || !tbody) return;
+
+    var IR_CAP = 50;
+    var IR_OWNER = 'KR8ZYSHO3';
+    var IR_REPO = 'Universal-Science-Discovery';
+    var IR_BRANCH = 'main';
+    var allProposals = [];
+    var sourceFilter = 'all';
+
+    function apiBase() {
+      var loc = window.location.href;
+      if (loc.indexOf('github.io') !== -1) return 'https://kr8zysho3.github.io/Universal-Science-Discovery/';
+      if (loc.indexOf('/dashboard/') !== -1) return loc.replace(/dashboard\/.*$/, '');
+      return '../';
+    }
+    var paths = [
+      apiBase() + 'api/v1/bridge_proposals.json',
+      '../api/v1/bridge_proposals.json'
+    ];
+
+    function esc(s) {
+      return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function githubSearch(bridgeId) {
+      return 'https://github.com/' + IR_OWNER + '/' + IR_REPO
+        + '/search?q=' + encodeURIComponent('filename:' + bridgeId + '.yaml') + '&type=code';
+    }
+
+    function priorityRank(p) {
+      if (p === 'critical') return 0;
+      if (p === 'high') return 1;
+      return 2;
+    }
+
+    function sourceLabel(src) {
+      if (src === 'breakthrough_gap') return 'Breakthrough gap';
+      if (src === 'pioneer_seed') return 'Pioneer seed';
+      if (src === 'domain_gap') return 'Domain pair';
+      return src || '—';
+    }
+
+    function parseGapId(detail) {
+      if (!detail || detail.indexOf('breakthrough_gap:') !== 0) return '';
+      return detail.slice('breakthrough_gap:'.length);
+    }
+
+    function parseDomainPair(detail) {
+      if (!detail || detail.indexOf('domains:') !== 0) return null;
+      var parts = detail.slice('domains:'.length).split('+');
+      if (parts.length < 2) return null;
+      return { from: parts[0], to: parts[1] };
+    }
+
+    function scrollToGap(gapId) {
+      if (!gapId) return;
+      var card = document.querySelector('a.gap-hub-card[href*="' + gapId + '"]');
+      if (card) {
+        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        card.classList.add('ir-gap-highlight');
+        setTimeout(function () { card.classList.remove('ir-gap-highlight'); }, 2800);
+      } else {
+        var sec = document.getElementById('breakthrough-gaps');
+        if (sec) sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    function done(msg, busy) {
+      statusEl.textContent = msg || '';
+      statusEl.setAttribute('aria-busy', busy ? 'true' : 'false');
+    }
+
+    function filteredProposals() {
+      var q = (searchInput && searchInput.value || '').trim().toLowerCase();
+      var missingOnly = missingCb ? missingCb.checked : false;
+      return allProposals.filter(function (p) {
+        if (sourceFilter !== 'all' && p.source !== sourceFilter) return false;
+        if (missingOnly && p.exists) return false;
+        if (!q) return true;
+        var hay = (p.bridge_id + ' ' + (p.source_name || '') + ' ' + (p.description || '')).toLowerCase();
+        return hay.indexOf(q) !== -1;
+      }).sort(function (a, b) {
+        if (a.exists !== b.exists) return a.exists ? 1 : -1;
+        var pr = priorityRank(a.priority) - priorityRank(b.priority);
+        if (pr !== 0) return pr;
+        return String(a.bridge_id).localeCompare(String(b.bridge_id));
+      });
+    }
+
+    function renderSummary(filtered, total) {
+      if (!summaryEl) return;
+      var missing = filtered.filter(function (p) { return !p.exists; }).length;
+      summaryEl.innerHTML =
+        '<span class="ir-chip"><strong>' + filtered.length + '</strong> shown</span>'
+        + '<span class="ir-chip"><strong>' + missing + '</strong> missing</span>'
+        + '<span class="ir-chip"><strong>' + total + '</strong> total in export</span>';
+    }
+
+    function addAction(td, label, handler) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.textContent = label;
+      btn.addEventListener('click', handler);
+      td.appendChild(btn);
+    }
+
+    function addLink(td, label, href) {
+      var a = document.createElement('a');
+      a.href = href;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.textContent = label;
+      td.appendChild(a);
+    }
+
+    function renderTable() {
+      var filtered = filteredProposals();
+      renderSummary(filtered, allProposals.length);
+      done('', false);
+      if (!filtered.length) {
+        if (emptyEl) emptyEl.style.display = 'block';
+        if (wrapEl) wrapEl.style.display = 'none';
+        if (footEl) footEl.style.display = 'none';
+        return;
+      }
+      if (emptyEl) emptyEl.style.display = 'none';
+      if (wrapEl) wrapEl.style.display = 'block';
+      tbody.textContent = '';
+      var shown = filtered.slice(0, IR_CAP);
+      shown.forEach(function (p) {
+        var tr = document.createElement('tr');
+        var tdPri = document.createElement('td');
+        var spanP = document.createElement('span');
+        spanP.className = 'ir-priority ir-priority-' + (p.priority || 'normal');
+        spanP.textContent = p.priority || 'normal';
+        tdPri.appendChild(spanP);
+
+        var tdBridge = document.createElement('td');
+        tdBridge.innerHTML = '<div class="ir-bridge-id">' + esc(p.bridge_id) + '</div>';
+
+        var tdSource = document.createElement('td');
+        tdSource.innerHTML = '<div class="ir-source-kind">' + esc(sourceLabel(p.source)) + '</div>'
+          + '<div class="ir-source-name">' + esc(p.source_name || '—') + '</div>';
+
+        var tdStatus = document.createElement('td');
+        tdStatus.innerHTML = p.exists
+          ? '<span class="ir-status-built">Built</span>'
+          : '<span class="ir-status-missing">Missing</span>';
+
+        var tdAct = document.createElement('td');
+        tdAct.className = 'ir-actions';
+        if (p.exists && typeof window.usdrOpenNodeById === 'function') {
+          addAction(tdAct, 'Graph', function () { window.usdrOpenNodeById(p.bridge_id); });
+        }
+        if (p.source === 'breakthrough_gap') {
+          var gapId = parseGapId(p.source_detail);
+          if (gapId) {
+            addAction(tdAct, 'Gap card', function () { scrollToGap(gapId); });
+          }
+        }
+        if (p.source === 'domain_gap') {
+          var pair = parseDomainPair(p.source_detail);
+          if (pair && typeof window.usdrPathfinderFind === 'function') {
+            addAction(tdAct, 'Find path', function () {
+              window.usdrPathfinderFind(pair.from, pair.to);
+            });
+          }
+        }
+        addLink(tdAct, 'GitHub', githubSearch(p.bridge_id));
+
+        tr.appendChild(tdPri);
+        tr.appendChild(tdBridge);
+        tr.appendChild(tdSource);
+        tr.appendChild(tdStatus);
+        tr.appendChild(tdAct);
+        tbody.appendChild(tr);
+      });
+      if (footEl) {
+        footEl.style.display = 'block';
+        var extra = filtered.length > IR_CAP ? ' · showing first ' + IR_CAP + ' of ' + filtered.length : '';
+        var gen = footEl.dataset.generated ? ' · generated ' + footEl.dataset.generated : '';
+        footEl.textContent = 'Regenerate: python scripts/propose_bridges.py' + gen + extra;
+      }
+    }
+
+    document.querySelectorAll('.ir-filter-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        document.querySelectorAll('.ir-filter-btn').forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        sourceFilter = btn.getAttribute('data-ir-source') || 'all';
+        renderTable();
+      });
+    });
+    if (missingCb) missingCb.addEventListener('change', renderTable);
+    if (searchInput) searchInput.addEventListener('input', renderTable);
+
+    function tryFetch(i) {
+      if (i >= paths.length) {
+        done('Could not load bridge proposals JSON (offline or missing file).', false);
+        if (emptyEl) emptyEl.style.display = 'block';
+        return;
+      }
+      fetch(paths[i])
+        .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error(String(r.status))); })
+        .then(function (data) {
+          allProposals = (data && data.proposals) ? data.proposals : [];
+          if (footEl && data.generated) {
+            footEl.dataset.generated = data.generated;
+          }
+          renderTable();
         })
         .catch(function () { tryFetch(i + 1); });
     }

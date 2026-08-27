@@ -25,7 +25,7 @@ properties:
     maxLength: 500
   status:
     type: string
-    enum: [draft, ready, executed, confirmed, falsified]
+    enum: [draft, ready, executed, confirmed, inconclusive, falsified]
   source_bridge:
     type: string
     pattern: "^b-[a-z0-9.-]+$"
@@ -84,6 +84,30 @@ properties:
   last_reviewed:
     type: string
     format: date
+  crosscheck_outcome:
+    type: object
+    additionalProperties: false
+    description: >
+      Latest reproducible run outcome for this protocol (feeds hub badges and bridge evidence_tier).
+    properties:
+      result:
+        type: string
+        enum: [confirmed, inconclusive, falsified]
+      last_run:
+        type: string
+        format: date
+      relative_error:
+        type: number
+        minimum: 0
+        maximum: 1
+        description: Relative error vs theoretical target (e.g. exponent tolerance)
+      r_squared:
+        type: number
+        minimum: 0
+        maximum: 1
+      note:
+        type: string
+        maxLength: 500
   references:
     type: array
     items:

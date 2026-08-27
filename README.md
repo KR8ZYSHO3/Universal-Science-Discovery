@@ -77,6 +77,18 @@ A USDR bridge is not a metaphor. It requires a **term-by-term mathematical mappi
 
 The conservation biology literature has used percolation as a simulation tool since 1987. The exact analytical machinery — finite-size scaling, critical exponents, universality class proofs — has not crossed over. **That gap is what USDR makes explicit and actionable.**
 
+### Bridge evidence tiers
+
+Bridge nodes in `docs/knowledge_graph.json` carry an `evidence_tier` set by `scripts/build_graph.py` from Crosscheck protocol status:
+
+| Tier | Meaning |
+| ---- | ------- |
+| **proven** | A Crosscheck protocol for this bridge is `confirmed` or `falsified` — reproducible outcome recorded in `protocols-catalog/` |
+| **protocol** | A runnable Crosscheck protocol exists but has not reached a final outcome yet |
+| **theoretical** | Mathematical mapping only — no Crosscheck protocol promoted yet |
+
+The knowledge graph panel on the live dashboard shows the tier when you click a bridge node.
+
 ---
 
 ## Discovery Engine

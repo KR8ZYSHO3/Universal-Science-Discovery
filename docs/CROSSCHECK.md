@@ -102,6 +102,8 @@ See [`schemas/protocol.yaml`](../schemas/protocol.yaml) for the full schema.
 
 Crosscheck does not replace bridges or hypotheses — it **operationalizes** them.
 
+**Find how domains connect:** use the hub knowledge-graph pathfinder (`statistical-physics` → `conservation-biology`) or `python scripts/graph_pathfinder.py --from <domain> --to <domain>` on `docs/knowledge_graph.json`.
+
 ---
 
 ## Roadmap

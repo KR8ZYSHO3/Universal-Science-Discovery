@@ -55,11 +55,32 @@ def status_style(status: str) -> tuple[str, str]:
     styles = {
         "executed": ("rgba(34,211,184,0.2)", "#5eead4"),
         "confirmed": ("rgba(34,211,184,0.35)", "#2dd4bf"),
+        "inconclusive": ("rgba(251,191,36,0.2)", "#fcd34d"),
         "falsified": ("rgba(248,113,113,0.2)", "#fca5a5"),
         "ready": ("rgba(79,156,249,0.2)", "#93c5fd"),
         "draft": ("rgba(148,163,184,0.15)", "#94a3b8"),
     }
     return styles.get(status, styles["draft"])
+
+
+def outcome_summary(proto: dict) -> str:
+    outcome = proto.get("crosscheck_outcome")
+    if not isinstance(outcome, dict):
+        return ""
+    parts: list[str] = []
+    result = str(outcome.get("result", "")).strip()
+    if result:
+        parts.append(result.upper())
+    rel_err = outcome.get("relative_error")
+    if isinstance(rel_err, (int, float)):
+        parts.append(f"±{100 * rel_err:.1f}%")
+    r2 = outcome.get("r_squared")
+    if isinstance(r2, (int, float)):
+        parts.append(f"R²={r2:.3f}")
+    note = str(outcome.get("note", "")).strip()
+    if note:
+        parts.append(note)
+    return " · ".join(parts)
 
 
 def run_link(proto: dict) -> tuple[str, str]:
@@ -86,6 +107,12 @@ def render_cards(protos: list[dict]) -> str:
         tier = html.escape(str(proto.get("feasibility_tier", "desktop")))
         bg, fg = status_style(status)
         run_href, run_label = run_link(proto)
+        outcome = outcome_summary(proto)
+        outcome_html = (
+            f'\n          <p style="margin:0 0 .65rem;font-size:.78rem;color:var(--muted);">{html.escape(outcome)}</p>'
+            if outcome
+            else ""
+        )
         explainer = (
             f"{PAGES}/dashboard/explainers/{html.escape(bridge)}.html#crosscheck"
             if bridge
@@ -97,7 +124,7 @@ def render_cards(protos: list[dict]) -> str:
             <h3 style="margin:0;font-size:.95rem;line-height:1.35;font-weight:600;">{title}</h3>
             <span style="background:{bg};color:{fg};padding:.15rem .55rem;border-radius:999px;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;">{html.escape(status)}</span>
           </div>
-          <p style="margin:0 0 .65rem;font-size:.78rem;color:var(--muted);">Protocol <code style="font-size:.75rem;">{html.escape(pid)}</code> · {tier}</p>
+          <p style="margin:0 0 .65rem;font-size:.78rem;color:var(--muted);">Protocol <code style="font-size:.75rem;">{html.escape(pid)}</code> · {tier}</p>{outcome_html}
           <div style="display:flex;flex-wrap:wrap;gap:.5rem;font-size:.82rem;">
             <a href="{html.escape(run_href)}" style="color:var(--accent2);font-weight:600;">{html.escape(run_label)} →</a>
             <a href="{explainer}" style="color:var(--muted);">Bridge explainer</a>

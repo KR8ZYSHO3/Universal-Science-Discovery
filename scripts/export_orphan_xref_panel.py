@@ -80,46 +80,11 @@ def collect_missing_xref_targets() -> dict[str, dict]:
     return agg
 
 
-def _unknown_yaml_path(node_id: str) -> str | None:
-    matches = list((ROOT / "unknowns-catalog").rglob(f"{node_id}.yaml"))
-    if not matches:
-        return None
-    return matches[0].relative_to(ROOT).as_posix()
-
-
 def collect_orphan_unknowns() -> list[dict]:
-    """Unknown nodes with no incident edge in the **filtered** graph (same as find_orphan_unknowns)."""
-    kg_path = ROOT / "docs" / "knowledge_graph.json"
-    if not kg_path.exists():
-        return []
-    graph = json.loads(kg_path.read_text(encoding="utf-8"))
-    nodes: list[dict] = graph.get("nodes") or []
-    edges: list[dict] = graph.get("edges") or []
-    connected: set[str] = set()
-    for edge in edges:
-        s, t = edge.get("source"), edge.get("target")
-        sid = s if isinstance(s, str) else (s or {}).get("id", "")
-        tid = t if isinstance(t, str) else (t or {}).get("id", "")
-        if sid:
-            connected.add(sid)
-        if tid:
-            connected.add(tid)
-    out: list[dict] = []
-    for n in nodes:
-        if n.get("type") != "unknown":
-            continue
-        nid = n.get("id", "")
-        if not nid or nid in connected:
-            continue
-        ypath = _unknown_yaml_path(nid)
-        out.append(
-            {
-                "node": n,
-                "yaml_path": ypath,
-            }
-        )
-    out.sort(key=lambda x: x["node"]["id"])
-    return out
+    """Unknown nodes with no incident edge (delegates to find_orphan_unknowns)."""
+    from find_orphan_unknowns import collect_orphan_unknown_rows
+
+    return collect_orphan_unknown_rows()
 
 
 def build_items() -> list[dict]:

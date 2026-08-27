@@ -88,12 +88,15 @@ content growth on UI polish, and we do not sacrifice content quality for UI feat
 - **Technology**: Existing `usdr-ingest` + NLP pipeline
 - **Effort**: 2-4 weeks | **Impact**: High
 
-### P2.3 — Cross-domain Discovery Engine
+### P2.3 — Cross-domain Discovery Engine (Pathfinder)
+
+> **Accelerated (2026-06-23):** v1 spec and active requirement **DISC-01** — see [`.planning/specs/PATHFINDER.md`](.planning/specs/PATHFINDER.md) and `ROADMAP.md` Track E. Full Interface Phase 2 scope remains; v1 ships CLI + minimal hub UI first.
+
 - Interactive "what connects [domain A] to [domain B]?" query
 - Path-finding in the knowledge graph (shortest bridge path)
-- Visualize all bridges between two selected domains
-- **Technology**: D3.js + graph algorithms on existing JSON
-- **Effort**: 2 weeks | **Impact**: High
+- Visualize all bridges between two selected domains; show `evidence_tier` on bridge hops
+- **Technology**: BFS on `docs/knowledge_graph.json`; D3 highlight in hub
+- **Effort**: ~1 week (v1) | **Impact**: High
 
 ### P2.4 — Collaborative Annotation
 - Comment threads on individual entries (GitHub Discussions integration)

@@ -13,7 +13,7 @@ Harden Crosscheck to 4/4 CONFIRMED, scale the protocol pipeline, expand CI/trust
 ## Phases
 
 - [x] **Phase 1: Crosscheck credibility** — 3 CONFIRMED + drift gate
-- [ ] **Phase 2: Epidemic FSS precision** — 4th seed protocol CONFIRMED
+- [x] **Phase 2: Epidemic FSS precision** — 4th seed protocol CONFIRMED
 - [ ] **Phase 3: Crosscheck scale-up** — generate/promote protocols + browser parity
 - [ ] **Phase 4: CI & trust hardening** — smoke tests + CONFIRMED gates
 - [ ] **Phase 5: Hub engineering** — smart recommendations spec + prototype
@@ -34,12 +34,16 @@ Harden Crosscheck to 4/4 CONFIRMED, scale the protocol pipeline, expand CI/trust
   1. `epidemic_percolation_fss.py` prints `RESULT: CONFIRMED`
   2. Fixed-input regression test for epidemic ν fit
   3. `crosscheck-repro.yml` greps CONFIRMED for epidemic
-**Plans**: TBD — run `/gsd-plan-phase 2`
+**Plans**: 3 plans in 2 waves (planned 2026-06-23)
 
 Plans:
-- [ ] 02-01: Parameter sweep + precision pass (SEEDS_PER_N, sizes, signed fit)
-- [ ] 02-02: Regression test + CI CONFIRMED gate
-- [ ] 02-03: Colab/notebook path verified or documented
+- [ ] 02-01: Parameter sweep + precision pass (averaged bisection, signed fit, PC_INF=1/k) — **Wave 1**
+- [ ] 02-02: Regression test + CI CONFIRMED gate — **Wave 2** *(blocked on 02-01)*
+- [ ] 02-03: Colab/notebook path verified or documented — **Wave 2** *(blocked on 02-01)*
+
+**Cross-cutting constraints:**
+- `epidemic_percolation_fss.py` prints `RESULT: CONFIRMED` at locked defaults
+- CI `crosscheck-repro.yml` greps CONFIRMED for epidemic (all 3 plans)
 
 ### Phase 3: Crosscheck scale-up
 **Goal**: Path from bridge YAML → promoted protocol → repro bundle is repeatable.
@@ -67,17 +71,20 @@ Plans:
 - [ ] 04-01: Unified CONFIRMED gates in CI
 - [ ] 04-02: repo_smoke expansion
 
-### Phase 5: Hub engineering
-**Goal**: Phase C smart-recommendations has a spec and static prototype.
-**Depends on**: Phase 4
-**Requirements**: HUB-01
+### Phase 5: Hub engineering + discovery instruments
+**Goal**: Hub delivers goal-directed discovery (pathfinder) and recommendation prototype.
+**Depends on**: Phase 4 (soft — pathfinder can start after Phase 2)
+**Requirements**: HUB-01, DISC-01
 **Success Criteria**:
-  1. Spec defines ranking signal (connectivity / harvest / curator score)
-  2. `api/v1/` or hub section loads prototype JSON
+  1. `graph_pathfinder.py` + smoke test for known domain pair
+  2. Hub knowledge-graph section: domain pickers → path → graph highlight
+  3. (Optional) Spec defines ranking signal for smart recommendations JSON slice
 **Plans**: TBD
 
 Plans:
-- [ ] 05-01: Spec + thin JSON slice in hub
+- [x] 05-01: Pathfinder CLI + smoke test (`.planning/specs/PATHFINDER.md`)
+- [x] 05-02: Hub pathfinder UI wired to graph panel
+- [ ] 05-03: Smart-recommendations spec + thin JSON slice (HUB-01)
 
 ## Deferred: v1.2 Launch (not scheduled)
 
@@ -88,10 +95,10 @@ Outreach copy, Reddit/LinkedIn, `usdr.science`, arXiv, personal DMs — see `LAU
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Crosscheck credibility | 3/3 | Complete | 2026-06-23 |
-| 2. Epidemic FSS precision | 0/3 | **Active** | — |
+| 2. Epidemic FSS precision | 3/3 | Complete | 2026-06-23 |
 | 3. Crosscheck scale-up | 0/2 | Not started | — |
 | 4. CI & trust hardening | 0/2 | Not started | — |
-| 5. Hub engineering | 0/1 | Not started | — |
+| 5. Hub engineering | 2/3 | In progress | 2026-06-23 (pathfinder) |
 
 ---
 *Reprioritized 2026-06-23. Repo vision: `ROADMAP.md` (root).*

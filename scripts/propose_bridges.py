@@ -13,6 +13,7 @@ Usage:
 """
 import json
 import argparse
+from datetime import date
 from pathlib import Path
 from collections import defaultdict
 from itertools import combinations
@@ -303,7 +304,7 @@ def main() -> dict:
     print("=" * 65 + "\n")
 
     output = {
-        "generated": "2026-05-06",
+        "generated": date.today().isoformat(),
         "total_proposals": len(deduped),
         "summary": {
             "critical_count": critical_count,

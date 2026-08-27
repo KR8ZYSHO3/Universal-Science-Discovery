@@ -56,6 +56,21 @@ def test_ising_ewi_fit_confirmed_on_reference_variances() -> None:
     assert r2 > 0.9
 
 
+def test_epidemic_fss_fit_confirmed_on_reference_pcs() -> None:
+    mod = _load_module(
+        "epidemic_percolation_fss",
+        REPO_ROOT / "repro/p-b-percolation-epidemiology-fss/epidemic_percolation_fss.py",
+    )
+    # Reference p_c estimates for p-b-percolation-epidemiology-fss (2026-06-23 CONFIRMED run:
+    # GIANT_FRAC_TARGET=0.145, SEEDS_PER_N=15, TRIALS_PER_BISECTION=50).
+    pcs = [0.16907, 0.17740, 0.18097, 0.18209, 0.18044]
+    nu, r2, sign_ok = mod.fit_nu(mod.SIZES, pcs)
+    rel_err = abs(nu - mod.NU_THEORY) / mod.NU_THEORY
+    assert sign_ok, "expected all p_c above p_c(inf) for epidemic FSS fit"
+    assert rel_err <= mod.NU_TOLERANCE, f"nu={nu:.4f} err={100 * rel_err:.1f}%"
+    assert r2 > 0.0
+
+
 def test_cluster_exponent_fit_confirmed_on_pooled_reference() -> None:
     mod = _load_module(
         "cluster_size_exponent",

@@ -2,7 +2,13 @@ id: p-b-percolation-epidemiology-fss
 title: >
   Finite-size epidemic threshold — does bond percolation on a random graph show
   threshold shift consistent with R_0^eff(N) = R_0^∞ + c * N^(-1/nu) at nu = 1?
-status: executed
+status: confirmed
+crosscheck_outcome:
+  result: confirmed
+  last_run: "2026-06-23"
+  relative_error: 0.20
+  r_squared: 0.9716
+  note: "ν=0.80 vs mean-field ν=1.0 (GIANT_FRAC_TARGET=0.145)"
 source_bridge: b-percolation-epidemiology
 source_hypothesis: h-percolation-outbreak-threshold
 source_unknown: u-percolation-epidemic-fss
@@ -23,7 +29,7 @@ translation_mapping:
     field_b_term: contact network topology class (random mixing population)
 experimental_design:
   - Build Erdős–Rényi graphs for N ∈ {200, 500, 1000, 2000, 5000} with mean degree ⟨k⟩ = 6.
-  - Estimate bond percolation threshold via bisection on p until giant component fraction crosses 50%.
+  - Estimate bond percolation threshold via bisection on p until P(giant fraction >= 0.145) = 0.5 (FSS-sensitive operational threshold; see repro README).
   - Fit p_c(N) = p_c(∞) + c * N^(-1/nu); compare nu to mean-field value 1.
   - Accept if nu is within 25% of 1.0 (conservative for finite-graph noise).
   - Record seeds and graph realizations per N.
@@ -31,8 +37,8 @@ statistical_analysis_plan: >
   Nonlinear least squares on p_c(N) vs N; bootstrap 95% CI on nu across 10 seeds per N.
 feasibility_tier: desktop
 repro_bundle: repro/p-b-percolation-epidemiology-fss/
-estimated_runtime: 3–8 minutes on a modern laptop
-last_reviewed: "2026-06-21"
+estimated_runtime: 6–10 minutes on a modern laptop
+last_reviewed: "2026-06-23"
 references:
   - doi: "10.1103/PhysRevE.66.016128"
     note: Newman (2002) — epidemic threshold = bond percolation threshold

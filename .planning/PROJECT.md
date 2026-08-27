@@ -6,7 +6,7 @@ USDR is open, git-native scientific infrastructure: a version-controlled catalog
 
 ## Core Value
 
-Researchers can discover what's *not yet known*, see credible cross-domain connections, and **run a falsifiable experiment in minutes** — not just read another database.
+Researchers can discover what's *not yet known*, see credible cross-domain connections, and **run a falsifiable Crosscheck experiment in minutes** — with outcomes reflected in the catalog, hub, and knowledge graph — not just read another database.
 
 ## Ship Bar (owner constraint — gates all plans)
 
@@ -31,6 +31,7 @@ Each loop completes reliably, with clear failure modes and recovery — not "wor
 |----------|-----------|
 | **Crosscheck** | Bridge → protocol → repro → outcome → reflected in catalog/hub |
 | **Catalog batch** | YAML → graph → stats → domain pages → hub consistent |
+| **Pathfinder** | Two domains → shortest graph path → highlight + evidence tier per hop |
 | **Contributor** | Happy path documented; first PR path tested |
 | **Maintainer** | STATE, CHANGELOG, dashboard sync cadence is routine |
 
@@ -50,16 +51,18 @@ The contributor hub (`dashboard/`) is the product face — fast, coherent, trust
 - ✓ Schema-backed catalog at scale (1,100+ bridges, 1,400+ unknowns) — Phase 0
 - ✓ Knowledge graph + dashboard + GitHub Pages — Phase 0
 - ✓ Crosscheck hub with in-browser runners — PRs #291–#293
-- ✓ 3 of 4 seed Crosscheck protocols **CONFIRMED** (FSS ν, Ising γ, cluster τ) — PRs #297–#302
+- ✓ 4 of 4 seed Crosscheck protocols **CONFIRMED** (habitat FSS ν, cluster τ, Ising γ, epidemic FSS ν) — Phase 2
 - ✓ Core Crosscheck drift gate (`build_crosscheck.py --check`) — PRs #299–#301
+- ✓ **WORK-01**: Crosscheck outcome loop closed (`crosscheck_outcome` in protocol YAML → hub badges → `evidence_tier` on bridge nodes)
 
 ### Active (must advance a pillar — see Ship Bar)
 
 - [ ] **ROBUST-01**: Maintainer playbook is one ordered command list; smoke tests cover all critical scripts
-- [ ] **WORK-01**: Crosscheck full loop closed (outcome → catalog/hub status, not just stdout)
 - [ ] **WORK-02**: Catalog batch workflow documented + verified in one local runbook
-- [ ] **UI-01**: Hub passes "first visit" audit (consistency, Crosscheck UX, no broken loads)
-- [ ] **CROSS-04**: Epidemic FSS CONFIRMED — only if it unblocks WORK-01, not as a standalone trophy
+- ✓ **UI-01**: Hub passes "first visit" audit (consistency, Crosscheck UX, no broken loads)
+- ✓ **DISC-01**: Graph pathfinder — CLI + hub domain path UI (spec: `.planning/specs/PATHFINDER.md`)
+- ✓ **DISC-02**: Impact router — `propose_bridges.py` + hub `#impact-router` (filter, graph/gap/pathfinder actions)
+- ✓ **DISC-03**: Priority unknowns panel — `export_orphan_unknowns_panel.py` + hub `#orphan-unknowns-panel`
 
 ### Out of Scope (this milestone)
 
@@ -70,9 +73,10 @@ The contributor hub (`dashboard/`) is the product face — fast, coherent, trust
 
 ## Context
 
-- Crosscheck scorecard: habitat FSS ✓, cluster exponent ✓, Ising EWI ✓, **epidemic FSS ✗** (bond percolation on ER graphs, `networkx`, Colab path).
-- Core pipeline robustness landed (#299–#301); next bottleneck is **4/4 CONFIRMED** and **scaling protocols beyond 4 seeds**.
-- Repo tracks B–D (trust surfaces, breakthrough gaps, catalog depth) in root `ROADMAP.md` — GSD phases align with Track B + Crosscheck depth first.
+- Crosscheck scorecard: habitat FSS ✓, cluster exponent ✓, Ising EWI ✓, epidemic FSS ✓ — **4/4 CONFIRMED**.
+- Outcome loop: protocol `status` + `crosscheck_outcome` → hub cards → bridge `evidence_tier` in knowledge graph.
+- Next bottleneck: scaling protocols beyond 4 seeds (Phase 3), smart recommendations (HUB-01 / 05-03).
+- Repo tracks A–E in root `ROADMAP.md` — GSD Phase 5 instruments (pathfinder, impact router, priority unknowns) shipped; UI-01 polish complete.
 - Launch prep artifacts exist (`LAUNCH_PLAYBOOK.md`, outreach copy) but **explicitly parked** until development milestone completes.
 
 ## Constraints
@@ -92,6 +96,7 @@ The contributor hub (`dashboard/`) is the product face — fast, coherent, trust
 | Python = canonical; browser = demo | CI locks Python fits | ✓ Good |
 | Launch/outreach → v1.2 milestone | User directive: not interested in marketing now | — Pending |
 | **Ship Bar** (3 pillars) | Single-dev robust + excellent workflows + awesome UI before ship/market | — Pending (2026-06-23) |
+| **Pathfinder spec** (DISC-01) | Pull INTERFACE P2.3 into v1.1 instruments | ✓ Good (2026-06-23) |
 
 ---
-*Last updated: 2026-06-23 — Ship Bar locked as plan gate for all GSD phases*
+*Last updated: 2026-06-24 — DISC-03 priority unknowns panel shipped*
