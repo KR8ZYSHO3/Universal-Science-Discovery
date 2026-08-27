@@ -4,6 +4,8 @@
 
 Universal Science Discovery is a disciplined home for cross-domain scientific exploration: hypotheses, evidence, methods, and reproducible artifacts live together with clear separation between **what we believe**, **what we have shown**, and **what we are trying to falsify**.
 
+The developer’s signed account of *why* this exists (science, not policy; reuse as the impact) is [WHY.md](WHY.md).
+
 ## In scope
 
 - Documented hypotheses, methods, protocols, and analysis notes.

@@ -29,7 +29,9 @@ jobs:
       - name: Habitat percolation FSS (expect CONFIRMED)
         run: |
           python repro/p-b-habitat-percolation-ecology-fss/simulate_percolation_fss.py | tee /tmp/fss.out
+          python repro/p-b-habitat-percolation-ecology-fss/simulate_percolation_fss.py --seed 123 | tee /tmp/fss-seed123.out
           grep -q "RESULT: CONFIRMED" /tmp/fss.out
+          python -c "import pathlib,sys; t=pathlib.Path('/tmp/fss-seed123.out').read_text(encoding='utf-8'); sys.exit(0 if 'RESULT: CONFIRMED' in t else 1)"
 
       - name: Cluster size exponent (expect CONFIRMED)
         run: |

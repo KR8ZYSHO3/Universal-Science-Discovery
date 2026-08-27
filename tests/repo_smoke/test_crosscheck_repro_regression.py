@@ -19,18 +19,85 @@ def _load_module(name: str, path: Path):
     return mod
 
 
-def test_percolation_fss_fit_confirmed_on_reference_pcs() -> None:
+def test_percolation_fss_protocol_contract_is_frozen() -> None:
     mod = _load_module(
         "simulate_percolation_fss",
         REPO_ROOT / "repro/p-b-habitat-percolation-ecology-fss/simulate_percolation_fss.py",
     )
-    # Reference p_c estimates at TRIALS_PER_P=350, seed=42 (2026-06-22 CONFIRMED run).
-    pcs = [0.59080, 0.59059, 0.59268, 0.59179]
-    nu, r2, sign_ok = mod.fit_nu(mod.SIZES, pcs)
-    rel_err = abs(nu - mod.NU_THEORY) / mod.NU_THEORY
-    assert sign_ok, "expected all p_c below p_c(inf) for signed FSS fit"
-    assert rel_err <= mod.NU_TOLERANCE, f"nu={nu:.4f} err={100 * rel_err:.1f}%"
-    assert r2 > 0.0
+    assert mod.ESTIMATOR_ID == "mean-first-either-wrap"
+    assert "first wrapping in either direction" in mod.ESTIMATOR_SENTENCE
+    assert list(mod.FIT_SIZES) == [32, 64, 128, 256]
+    assert list(mod.DIAGNOSTIC_SIZES) == [16]
+    assert mod.N_SAMPLES == 400
+    assert mod.SEED == 42
+    assert mod.SECOND_SEED == 123
+    assert mod.NU_TOLERANCE == 0.15
+    assert mod.R2_MIN == 0.85
+
+
+def test_percolation_fss_browser_js_cannot_emit_confirmed() -> None:
+    js = (
+        REPO_ROOT
+        / "repro/p-b-habitat-percolation-ecology-fss/simulate_percolation_fss.js"
+    ).read_text(encoding="utf-8")
+    assert "mean-first-either-wrap" in js
+    assert "must not emit CONFIRMED" in js
+    assert 'result: "INCONCLUSIVE"' in js
+    assert "RESULT: INCONCLUSIVE" in js
+    assert 'result: "CONFIRMED"' not in js
+    assert "passed ? \"CONFIRMED\"" not in js
+    assert "passed ? 'CONFIRMED'" not in js
+
+
+def test_percolation_fss_weighted_fit_recovers_nu_on_synthetic_shift() -> None:
+    """CONFIRMED requires estimator + L set + weighted Fit A + 15% on nu, not R²>0."""
+    mod = _load_module(
+        "simulate_percolation_fss",
+        REPO_ROOT / "repro/p-b-habitat-percolation-ecology-fss/simulate_percolation_fss.py",
+    )
+    assert mod.ESTIMATOR_ID == "mean-first-either-wrap"
+    sizes = list(mod.FIT_SIZES)
+    assert sizes == [32, 64, 128, 256]
+    c_true = -0.45
+    pcs = [mod.PC_INF + c_true * (L ** (-1.0 / mod.NU_THEORY)) for L in sizes]
+    ses = [1e-5] * len(sizes)
+    fit = mod.fit_a(sizes, pcs, ses)  # weighted; not log|Δp|
+    assert fit["rel_err"] <= mod.NU_TOLERANCE, (
+        f"nu={fit['nu']:.4f} err={100 * fit['rel_err']:.1f}%"
+    )
+    assert fit["r2"] >= mod.R2_MIN
+    assert abs(fit["c"]) > 2.0 * fit["se_c"]
+    assert mod.classify(fit, pcs, ses) == "CONFIRMED"
+
+
+def test_percolation_fss_legacy_demo_is_inconclusive() -> None:
+    """Old open-Π=0.5 four-point snapshot must not pass the new protocol."""
+    mod = _load_module(
+        "simulate_percolation_fss",
+        REPO_ROOT / "repro/p-b-habitat-percolation-ecology-fss/simulate_percolation_fss.py",
+    )
+    # Browser demo quoted in the protocol bug report (120 trials/p, noisy bisection).
+    sizes = [16, 32, 64, 128]
+    pcs = [0.59139, 0.58444, 0.59272, 0.59055]
+    ses = [0.01, 0.01, 0.01, 0.01]
+    fit = mod.fit_a(sizes, pcs, ses)
+    assert mod.classify(fit, pcs, ses) == "INCONCLUSIVE"
+    # June 2026 Python "CONFIRMED" snapshot: L=64 sits on p_c(∞); r2 gate was > 0.
+    legacy = list(mod.LEGACY_REFERENCE_PCS)
+    legacy_fit = mod.fit_a(sizes, legacy, ses)
+    assert mod.classify(legacy_fit, legacy, ses) == "INCONCLUSIVE"
+
+
+def test_percolation_fss_first_wrap_occurs_before_full_occupation() -> None:
+    import random
+
+    mod = _load_module(
+        "simulate_percolation_fss",
+        REPO_ROOT / "repro/p-b-habitat-percolation-ecology-fss/simulate_percolation_fss.py",
+    )
+    rng = random.Random(0)
+    p = mod.first_wrap_either(8, rng)
+    assert 0.0 < p < 1.0
 
 
 def test_ising_ewi_fit_confirmed_on_reference_variances() -> None:

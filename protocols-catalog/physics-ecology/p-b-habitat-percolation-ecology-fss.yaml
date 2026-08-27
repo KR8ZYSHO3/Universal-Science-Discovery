@@ -8,12 +8,18 @@ source_hypothesis: h-habitat-percolation-critical-density
 source_unknown: u-habitat-fragmentation-threshold
 pollination_index: 0
 falsifiable_prediction: >
-  Monte Carlo estimates of the site percolation threshold on square lattices of
-  side L = 16, 32, 64, 128 show a systematic negative shift from p_c(inf) ≈ 0.5927
-  that scales as L^(-1/nu) with nu within 15% of the 2D percolation value 4/3.
+  2D site percolation, periodic 4-neighbor square lattice, Newman–Ziff;
+  p_c(L) is the mean occupation fraction at first wrapping in either
+  direction. That observable obeys p_c(L) = p_c(inf) + c L^(-1/nu) with
+  p_c(inf) = 0.59274621. A weighted fit on L ∈ {32, 64, 128, 256} recovers
+  nu within 15% of 4/3, with reported SE(nu) inside that tolerance.
+  Sign of c is not assumed. L=16 is diagnostic only. The in-browser runner
+  is a smoke test and cannot confirm nu. Do not treat torus c as a
+  park-design constant.
 null_hypothesis: >
-  Threshold estimates are independent of lattice size (no finite-size scaling),
-  or the fitted exponent differs from 4/3 by more than 15%.
+  Threshold estimates are independent of lattice size (c consistent with 0),
+  or a powered fit disagrees with nu = 4/3 by more than 15%.
+  Underpowered runs are INCONCLUSIVE, not evidence against percolation.
 translation_mapping:
   - field_a_term: site percolation threshold p_c
     field_b_term: critical habitat coverage fraction below which connectivity collapses
@@ -22,20 +28,50 @@ translation_mapping:
   - field_a_term: universality class (2D percolation, nu=4/3)
     field_b_term: spatial connectivity structure independent of landscape geometry
 experimental_design:
-  - Run site percolation Monte Carlo on L×L square lattices for L ∈ {16, 32, 64, 128}.
-  - For each L, estimate p_c using the crossing probability method (50% spanning threshold).
-  - Record (L, p_c_estimate) pairs and fit p_c(L) = p_c_inf + c * L^(-1/nu) via log-linear regression.
-  - Compare fitted nu to theoretical 4/3; accept if relative error ≤ 15%.
-  - Document random seed, trial count, and confidence intervals in repro output.
+  - >
+      Run 2D site percolation on L×L squares, 4-neighbor, periodic boundary
+      conditions, L in {16, 32, 64, 128, 256}.
+  - >
+      For each L, use Newman–Ziff union-find. Frozen estimator id
+      mean-first-either-wrap: p_c(L) is the mean occupation fraction at first
+      wrapping in either direction (not one-direction wrap, not both-axes wrap).
+      SE is the sample standard error of that first-wrap occupation across
+      Newman–Ziff sequences, not a binomial SE on an open-boundary spanning
+      probability. Do not use open-boundary top-bottom spanning probability = 0.5
+      (Cardy crossing tends to 1/2 at p_c(inf), so the leading L^{-1/nu}
+      amplitude vanishes). Switching to horizontal-only wrap changes c and
+      requires a new fit.
+  - >
+      Fit p_c(L) = p_c(inf) + c L^{-1/nu} on L in {32, 64, 128, 256} only,
+      weighted by SE. Fit A fixes p_c(inf) and fits c and nu. Fit B fixes
+      nu=4/3 and fits c. Do not take abs(delta) if signs mix. L=32 is kept;
+      it still carries O(L^{-1}) analytic junk. Tighter than about 10% on nu
+      needs a second correction term or dropping L=32. Do not loosen the 15%
+      gate to chase a prettier nu.
+  - >
+      CONFIRMED if Fit A has nu within 15% of 4/3, SE(nu) at most 15% of 4/3,
+      |c| > 2 SE(c), R² at least 0.85, and |p_c(L)-p_c(inf)| shrinks with L
+      within 2 sigma. INCONCLUSIVE means underpowered. FALSIFIED means powered
+      disagreement. Browser JS uses L in {16,32,48,64} and 48 samples/L and
+      must print INCONCLUSIVE.
+  - >
+      Document seed, sample count, wall-clock, and a power estimate (samples/L
+      so SE(nu) meets the 15% tolerance).
 statistical_analysis_plan: >
-  Log-linear fit of (p_c(L) - p_c_inf) vs L with fixed p_c_inf = 0.59274621;
-  report slope, R², and 95% CI on nu = -1/slope_exponent.
+  Weighted least squares of (p_c(L) - 0.59274621) vs L^{-1/nu}. Fit A scans nu
+  and takes the chi² minimum; SE(nu) from the chi²+1 contour. Fit B fixes
+  nu=4/3. Width sigma(p_span) ~ L^{-1/nu} is a sanity check, not the pass
+  criterion. INCONCLUSIVE is first-class (underpowered), not "theory false".
 feasibility_tier: desktop
 repro_bundle: repro/p-b-habitat-percolation-ecology-fss/
-estimated_runtime: 4–8 minutes on a modern laptop (350 trials/p by default)
-last_reviewed: "2026-06-21"
+estimated_runtime: >
+  ~15–40 s on a laptop at 400 Newman–Ziff samples/L (canonical). Browser smoke
+  test ~10–30 s and cannot confirm nu.
+last_reviewed: "2026-08-27"
 references:
   - doi: "10.1007/BF02275266"
     note: Gardner et al. (1987) — percolation applied to landscape ecology
   - arxiv: "cond-mat/9212004"
     note: Finite-size scaling in percolation
+  - doi: "10.1103/PhysRevLett.85.4104"
+    note: Newman–Ziff union-find percolation algorithm

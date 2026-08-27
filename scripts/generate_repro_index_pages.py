@@ -41,13 +41,26 @@ def script_name(bundle_dir: Path) -> str:
 
 
 
+def runner_lead(proto_id: str) -> str:
+    if proto_id == "p-b-habitat-percolation-ecology-fss":
+        return (
+            "In-browser smoke test (smaller L, 48 samples). It cannot confirm ν and "
+            "must print INCONCLUSIVE — that means the demo is small, not that "
+            "percolation is wrong. Python is the exponent measurement."
+        )
+    return (
+        "One-click demo — cheaper trial budget than the Python repro. Results stream live; "
+        "clone the repo for full-precision verification."
+    )
+
+
 def runner_section(proto_id: str, runner_js: str) -> str:
     e = html.escape
+    lead = e(runner_lead(proto_id))
     return f"""
   <h2>Run Crosscheck in your browser</h2>
   <div id=\"crosscheck-runner\" class=\"runner\" data-protocol=\"{e(proto_id)}\">
-    <p class=\"runner-lead\">One-click demo — same algorithm as the Python repro. Results stream live;
-    clone the repo for full-precision verification.</p>
+    <p class=\"runner-lead\">{lead}</p>
     <button type=\"button\" data-action=\"run\">Run Crosscheck</button>
     <span class=\"result-badge\" data-role=\"result-badge\" hidden></span>
     <div class=\"progress\" data-role=\"progress\" hidden><div class=\"progress-bar\" data-role=\"progress-bar\"></div></div>
@@ -93,7 +106,7 @@ def render_page(proto: dict) -> str:
     script = script_name(bundle_dir)
     catalog_path = proto["_catalog_path"]
     tier = proto.get("feasibility_tier", "desktop")
-    runtime = proto.get("estimated_runtime", "a few minutes")
+    runtime = " ".join(str(proto.get("estimated_runtime", "a few minutes")).split()).rstrip(".")
     pred = " ".join(str(proto.get("falsifiable_prediction", "")).split())
     if len(pred) > 400:
         pred = pred[:397] + "..."
