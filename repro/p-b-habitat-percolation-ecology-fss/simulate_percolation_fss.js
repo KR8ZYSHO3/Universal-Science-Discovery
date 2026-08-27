@@ -1,9 +1,12 @@
 /**
  * In-browser Crosscheck *smoke test* for 2D site percolation FSS.
  *
- * Same named estimator as simulate_percolation_fss.py (Newman–Ziff, periodic,
- * mean occupation at first either-direction wrapping) but a cheap L set and
- * sample count. This runner must not emit CONFIRMED: it is underpowered for ν.
+ * 2D site percolation, periodic 4-neighbor square lattice, Newman–Ziff; p_c(L)
+ * is the mean occupation fraction at first wrapping in either direction.
+ *
+ * Same frozen estimator id as simulate_percolation_fss.py
+ * (mean-first-either-wrap) but a cheap L set and sample count. This runner
+ * must not emit CONFIRMED: it is underpowered for ν.
  */
 (function () {
   "use strict";
@@ -13,6 +16,9 @@
   const SIZES = [16, 32, 48, 64];
   const N_SAMPLES = 48;
   const SEED = 42;
+  const ESTIMATOR_ID = "mean-first-either-wrap";
+  const ESTIMATOR_SENTENCE =
+    "2D site percolation, periodic 4-neighbor square lattice, Newman–Ziff; p_c(L) is the mean occupation fraction at first wrapping in either direction.";
 
   function mulberry32(seed) {
     return function () {
@@ -115,13 +121,14 @@
       type: "line",
       text: "Crosscheck: p-b-habitat-percolation-ecology-fss (in-browser SMOKE TEST)",
     });
+    emit({ type: "line", text: ESTIMATOR_SENTENCE });
     emit({
       type: "line",
-      text: "Lattice: L×L square | 4-neighbor | periodic BC | Newman–Ziff",
+      text: `Estimator id: ${ESTIMATOR_ID} (do not switch to horizontal-only wrap without refitting c)`,
     });
     emit({
       type: "line",
-      text: "Estimator: mean occupation at first either-direction wrapping",
+      text: "SE: sample SE of first-wrap occupation across NZ sequences (not binomial open-Π SE)",
     });
     emit({
       type: "line",

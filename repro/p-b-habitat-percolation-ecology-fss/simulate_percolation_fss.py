@@ -1,19 +1,32 @@
 #!/usr/bin/env python3
 """Crosscheck repro: 2D site percolation finite-size scaling of p_c(L).
 
+2D site percolation, periodic 4-neighbor square lattice, Newman–Ziff; p_c(L)
+is the mean occupation fraction at first wrapping in either direction.
+
 Lattice:        L × L square
 Neighborhood:   4-neighbor (von Neumann)
 Boundary:       periodic (torus)
 Spanning rule:  wrapping in either direction (horizontal or vertical)
 Algorithm:      Newman–Ziff union-find (one occupation sequence per sample)
-Estimator:      p_c(L) = mean occupation fraction at first wrapping
-                (named: mean first either-wrap). SE = sample SE of the mean.
+Estimator id:   mean-first-either-wrap
+Estimator:      p_c(L) = mean occupation fraction at first wrapping in either
+                direction (not one-direction wrap, not both-axes wrap).
+SE:             sample standard error of the first-wrap occupation across
+                Newman–Ziff sequences (σ/√N_SAMPLES). Not a binomial SE on an
+                open-boundary spanning probability.
+
+Do not silently switch to horizontal-only wrap: that changes c and requires a
+new fit. Do not take abs(Δp) in a log-log fit as the canonical exponent path.
 
 Theory:  p_c(∞) = 0.59274621,  ν = 4/3
 Model:   p_c(L) = p_c(∞) + c L^{-1/ν}
 
 Fit L ∈ {32, 64, 128, 256}. L=16 is printed as a diagnostic (corrections-to-
-scaling) and is not used in the exponent fit.
+scaling) and is not used in the exponent fit. L=32 is kept in the fit; it still
+carries O(L^{-1}) analytic junk. Tighter than ~10% on ν needs a second
+correction term or dropping L=32. Do not loosen NU_TOLERANCE=0.15 to chase a
+prettier ν.
 
 This protocol measures the finite-size *shift* of an effective threshold, not
 a generic spanning-probability demo. Open-boundary Π_TB = 0.5 is the wrong
@@ -49,6 +62,13 @@ FIT_SIZES = [32, 64, 128, 256]
 DIAGNOSTIC_SIZES = [16]
 N_SAMPLES = 400
 SEED = 42
+SECOND_SEED = 123  # extra CI seed; not a substitute for SEED=42
+# Frozen observable. Changing this id (e.g. to one-direction wrap) invalidates c.
+ESTIMATOR_ID = "mean-first-either-wrap"
+ESTIMATOR_SENTENCE = (
+    "2D site percolation, periodic 4-neighbor square lattice, Newman–Ziff; "
+    "p_c(L) is the mean occupation fraction at first wrapping in either direction."
+)
 
 # Legacy (pre-fix) demo / DFS-bisection numbers, kept for the power note.
 LEGACY_DEMO_TRIALS_PER_P = 120
@@ -118,7 +138,11 @@ def first_wrap_either(L: int, rng: random.Random) -> float:
 
 
 def sample_pc(L: int, n_samples: int, rng: random.Random) -> Tuple[List[float], float, float, float]:
-    """Return (samples, mean, SE of mean, stdev)."""
+    """Return (samples, mean, SE of mean, stdev).
+
+    SE is the sample standard error of first-wrap occupation across Newman–Ziff
+    sequences, not a binomial SE on an open-boundary spanning probability.
+    """
     ps = [first_wrap_either(L, rng) for _ in range(n_samples)]
     mean = sum(ps) / n_samples
     var = sum((p - mean) ** 2 for p in ps) / (n_samples - 1) if n_samples > 1 else 0.0
@@ -308,12 +332,13 @@ def main(argv: Sequence[str] | None = None) -> int:
     t0 = time.perf_counter()
 
     print("Crosscheck: p-b-habitat-percolation-ecology-fss")
-    print("Lattice: L×L square | neighborhood: 4-neighbor | BC: periodic")
-    print("Estimator: mean occupation at first either-direction wrapping")
-    print("Algorithm: Newman–Ziff union-find")
+    print(ESTIMATOR_SENTENCE)
+    print(f"Estimator id: {ESTIMATOR_ID}  (do not switch to horizontal-only wrap without refitting c)")
+    print("SE: sample SE of first-wrap occupation across NZ sequences (not binomial open-Π SE)")
     print(f"Theory: p_c(inf)={PC_INF}, nu={NU_THEORY:.4f}")
     print(f"Params: L in {all_sizes}, N_SAMPLES={n_samples}, seed={seed}")
     print(f"Fit uses L={FIT_SIZES}; L={DIAGNOSTIC_SIZES} diagnostic only")
+    print("Corrections: L=32 kept; tighter than ~10% on nu needs a 2nd term or drop L=32")
     print()
     print(legacy_power_note())
     print()

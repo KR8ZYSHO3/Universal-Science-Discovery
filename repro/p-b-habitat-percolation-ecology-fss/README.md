@@ -6,13 +6,21 @@ Crosschecks [`b-habitat-percolation-ecology`](../../cross-domain/physics-ecology
 python simulate_percolation_fss.py
 ```
 
-Canonical defaults: Newman–Ziff union-find, periodic \(L\times L\) square, 4-neighbor, \(p_c(L)\) = mean occupation at first wrapping in either direction, \(L\in\{32,64,128,256\}\) in the exponent fit (400 samples per \(L\)). Exit code 0 always; inspect stdout for `RESULT: CONFIRMED` / `INCONCLUSIVE` / `FALSIFIED`.
+Frozen observable: **2D site percolation, periodic 4-neighbor square lattice, Newman–Ziff; \(p_c(L)\) is the mean occupation fraction at first wrapping in either direction.** Estimator id `mean-first-either-wrap`. SE is the sample standard error of that first-wrap occupation across Newman–Ziff sequences, not a binomial SE on an open-boundary spanning probability. Switching to horizontal-only wrap changes \(c\) and needs a new fit.
 
-The in-browser page is a **smoke test** (smaller \(L\), 48 samples). It must print `INCONCLUSIVE`. That means the demo is underpowered, not that percolation is wrong.
+Canonical defaults: \(L\in\{32,64,128,256\}\) in the exponent fit (400 samples per \(L\); \(L=16\) diagnostic). \(L=32\) is kept; tighter than ~10% on \(\nu\) needs a second correction term or dropping \(L=32\). Do not loosen the 15% gate. Exit code 0 always; inspect stdout for `RESULT: CONFIRMED` / `INCONCLUSIVE` / `FALSIFIED`.
+
+The in-browser page is a **smoke test** (smaller \(L\), 48 samples). It must print `INCONCLUSIVE`. That means the demo is underpowered, not that percolation is wrong. The browser must not emit `CONFIRMED` and does not recover \(\nu\).
+
+| | Browser smoke | Canonical Python |
+|--|--|--|
+| \(L\) | 16, 32, 48, 64 | 16 diagnostic + **32, 64, 128, 256** fit |
+| Samples | 48 | 400 Newman–Ziff sequences/\(L\) |
+| Can emit CONFIRMED? | **No** | Yes, if the weighted fit recovers \(\nu\) within 15% of \(4/3\) |
 
 ## What this means for habitat maps
 
-A habitat map of finite area is not the infinite lattice of textbooks. The occupancy at which a connected path first wraps the map — the coverage where patches join into one spanning landscape — shifts with map size as \(L^{-3/4}\) in two dimensions. Smaller reserves therefore have a different connectivity threshold than a continental grid of the same habitat fraction. This test checks that shift, not whether percolation “exists.”
+Finite landscapes have a shifted, blurred connectivity threshold; the shift scales as \(L^{-1/\nu}\) for this class of models. Periodic first-wrap is the physics check, not a park-design constant (do not take torus \(c\) as a reserve-sizing number). Real landscapes have open edges. This test checks the finite-size shift, not whether percolation “exists.”
 
 ## Why the old 120-trial demo was INCONCLUSIVE
 
