@@ -33,3 +33,26 @@ def test_run_crew_skip_harvest_skip_scout_writes_briefing() -> None:
     assert "never `--apply`" in body or "never `--apply`" in (proc.stdout or "")
     assert "Foreman" in body or "crew briefing" in body.lower()
     assert "--apply" not in cmd
+
+
+def test_crew_ship_allowlist_mailbox_only() -> None:
+    import importlib.util
+
+    path = REPO_ROOT / "scripts" / "crew_ship.py"
+    spec = importlib.util.spec_from_file_location("crew_ship", path)
+    assert spec and spec.loader
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    ok, _ = mod.shippable(
+        [
+            "drafts/openalex_candidates.json",
+            "drafts/crew-reports/LATEST.md",
+        ]
+    )
+    assert ok
+    bad, reason = mod.shippable(["cross-domain/physics-ecology/b-habitat-percolation-ecology.yaml"])
+    assert not bad
+    assert "science path" in reason
+    bad2, reason2 = mod.shippable(["repro/p-b-habitat-percolation-ecology-fss/simulate_percolation_fss.py"])
+    assert not bad2
+    assert "science path" in reason2

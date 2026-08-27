@@ -1,6 +1,6 @@
 # Night crew — agents on a clock
 
-A small set of jobs that run while you sleep. They **propose**. They do not promote science.
+A small set of jobs that run while you sleep. They **propose**, they **open a PR**, and they **ship that PR** when it is only the mailbox (harvest JSON + briefing). They do not promote science into the catalog.
 
 This is not a chatbot left open. The clock is GitHub Actions (Monday + Thursday 06:00 UTC, or **Actions → Wave Factory Cadence → Run workflow**). Locally:
 
@@ -24,12 +24,16 @@ python scripts/run_crew.py
 | **Auditor** | `validate_schemas.py`, promote **dry-run**, `audit_quality.py` | `--apply` promotion |
 | **Tester** | Checks Crosscheck *contracts* (habitat JS cannot emit CONFIRMED) | Run the habitat Monte Carlo; rewrite `RESULT:` |
 | **Foreman** | Writes [`drafts/crew-reports/LATEST.md`](../drafts/crew-reports/LATEST.md) | Treat the briefing as evidence |
+| **Shipper** | Opens the bot PR and squash-merges it **if and only if** files are harvest JSON + `drafts/crew-reports/` | Merge `cross-domain/`, unknowns, hypotheses, repro, or schemas |
 
 ## Mailbox
 
-- Briefing file: `drafts/crew-reports/LATEST.md` (this *is* committed if the bot PR opens).
-- Staged YAML: regenerate locally from the candidate JSON on that PR; it is not in git.
-- Cadence workflow: [`.github/workflows/harvest-openalex.yml`](../.github/workflows/harvest-openalex.yml) — still **no push to `main`**.
+- Briefing file: `drafts/crew-reports/LATEST.md` (landed on `main` when the Shipper can merge).
+- Staged YAML: regenerate locally from the candidate JSON; it is not in git. Artifact on the Actions run.
+- Cadence workflow: [`.github/workflows/harvest-openalex.yml`](../.github/workflows/harvest-openalex.yml).
+- Allowlist lives in [`scripts/crew_ship.py`](../scripts/crew_ship.py). If GitHub branch protection blocks the Actions token from merging, the PR stays open — that is still a shipped *request*. Enable “Allow GitHub Actions to create and approve pull requests” if you want the merge to complete unattended.
+
+Catalog science still needs a human: `promote_wave_factory_batch.py --apply` after you edit the translation table.
 
 ## While you are at the keyboard
 

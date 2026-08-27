@@ -92,7 +92,7 @@ The cadence workflow (`.github/workflows/harvest-openalex.yml`) runs twice weekl
 1. Harvests fresh candidates from OpenAlex, PubMed, and Semantic Scholar (one flaky API does not abort the job)
 2. Runs **`python scripts/run_crew.py --skip-harvest`** (Scout + Auditor + Tester contracts + Foreman briefing)
 3. Uploads gitignored `drafts/wave_factory/` as an Actions artifact
-4. Opens/updates a bot PR with candidate JSON + `drafts/crew-reports/LATEST.md` (no direct push to `main`, no `--apply` promote)
+4. Opens a bot PR with candidate JSON + `drafts/crew-reports/LATEST.md`, then **Shipper** squash-merges it if the file list is allowlisted (mailbox only). No `--apply` promote. Catalog YAML is never auto-merged.
 
 This is the **night crew**. See [`docs/CREW.md`](CREW.md). Candidates are not findings.
 

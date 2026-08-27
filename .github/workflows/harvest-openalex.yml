@@ -77,15 +77,16 @@ jobs:
           fi
 
       - name: Create PR for harvest JSON + crew briefing
+        id: cpr
         if: success() && steps.stage.outputs.changes != '0'
         uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: bot/wave-factory
-          commit-message: "bot: crew briefing and harvest candidates [skip ci]"
+          commit-message: "bot: crew briefing and harvest candidates"
           committer: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
           author: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
-          title: "bot: night crew briefing (do not treat as findings)"
+          title: "bot: night crew briefing (mailbox — not findings)"
           body: |
             Night crew run (Foreman). **Not a scientific result. Do not merge as confirmed bridges.**
 
@@ -106,3 +107,11 @@ jobs:
             drafts/pubmed_candidates.json
             drafts/semantic_scholar_candidates.json
             drafts/crew-reports/LATEST.md
+
+      - name: Ship mailbox PR (allowlist only)
+        if: success() && steps.cpr.outputs.pull-request-number != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python scripts/crew_ship.py --pr "${{ steps.cpr.outputs.pull-request-number }}"
+          echo "Shipper: allowlisted harvest JSON + briefing. Catalog science is never auto-merged." >> "$GITHUB_STEP_SUMMARY"

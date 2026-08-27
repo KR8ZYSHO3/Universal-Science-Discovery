@@ -2,7 +2,7 @@
 
 Place reproducible automation here (Python, R, Julia, shell, and so on).
 
-- **Night crew (never promotes):** `python scripts/run_crew.py` — harvest (opt) → Wave Factory scout → schema/quality audit → Crosscheck *contracts* → `drafts/crew-reports/LATEST.md`. Docs: [`docs/CREW.md`](../docs/CREW.md).
+- **Night crew (never promotes science):** `python scripts/run_crew.py` — harvest (opt) → Wave Factory scout → schema/quality audit → Crosscheck *contracts* → `drafts/crew-reports/LATEST.md`. **Ship mailbox PR:** `python scripts/crew_ship.py --pr N`. Docs: [`docs/CREW.md`](../docs/CREW.md).
 - **Record validation:** `python scripts/validate_schemas.py` (see [requirements-validate.txt](requirements-validate.txt); also runs in GitHub Actions).
 - **CI parity (local):** `python -m pytest tests/repo_smoke -v` — runs `validate_schemas.py`, `verify_domain_pages.py`, `verify_dashboard_consistency.py`, and **`build_graph.py --report-orphans`** (same bundle as **`validate-schemas.yml`**). Requires **`pytest`** (installed in that workflow; not listed in `requirements-validate.txt`).
 - **Contributor hub stats:** `python scripts/update_dashboard_stats.py --apply` — patches `dashboard/index.html` catalog counters, hero **live snapshot** row (`snap-bridges`, `snap-unknowns`, etc.), social meta, and (when `docs/knowledge_graph.json` exists) graph node/edge placeholders and API blurbs. Typical order: `validate_schemas` → `build_graph.py` → `update_dashboard_stats.py --apply`.
