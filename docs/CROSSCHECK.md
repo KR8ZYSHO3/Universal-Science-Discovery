@@ -68,7 +68,7 @@ Canonical protocols live in [`protocols-catalog/`](../protocols-catalog/). Seed 
 
 | Protocol | Bridge | Tier |
 |----------|--------|------|
-| `p-b-habitat-percolation-ecology-fss` | Habitat fragmentation ↔ percolation | desktop (browser demo) |
+| `p-b-habitat-percolation-ecology-fss` | Habitat fragmentation ↔ percolation | desktop (browser smoke; Python canonical) |
 | `p-b-habitat-percolation-ecology-cluster-exponent` | Same bridge, cluster size distribution | desktop (browser demo) |
 | `p-b-ising-social-dynamics-ewi` | Ising ↔ social dynamics EWI | desktop (browser demo) |
 | `p-b-percolation-epidemiology-fss` | Epidemic threshold ↔ bond percolation | desktop (Colab demo) |
@@ -80,7 +80,7 @@ Python is canonical; browser and Colab are demo tier.
 
 | protocol id | Python canonical | browser JS | Colab | CI grep CONFIRMED | RESULT contract |
 |-------------|--------------|------------|-------|-------------------|-----------------|
-| `p-b-habitat-percolation-ecology-fss` | `simulate_percolation_fss.py` (L∈{16,32,64,128}, `TRIALS_PER_P=350`) | yes, `simulate_percolation_fss.js` (same L, `TRIALS_PER_P=120`) | no | yes | stdout `RESULT:` token; Python `return 0` always |
+| `p-b-habitat-percolation-ecology-fss` | `simulate_percolation_fss.py` (Newman–Ziff; L∈{32,64,128,256} in the fit, `N_SAMPLES=400`; L=16 diagnostic) | yes, smoke only (`L∈{16,32,48,64}`, 48 samples; **must not** emit CONFIRMED) | no | yes | stdout `RESULT:` token (`CONFIRMED` / `INCONCLUSIVE` / `FALSIFIED`); Python `return 0` always. `INCONCLUSIVE` = underpowered, not “percolation is wrong.” |
 | `p-b-habitat-percolation-ecology-cluster-exponent` | `cluster_size_exponent.py` (`P=0.59`, `L=256`, `SEEDS=20`) | yes, `cluster_size_exponent.js` (`P=0.592`, `L=128`) | no | yes | stdout `RESULT:` on success; can `return 1` if too few clusters / NaN fit |
 | `p-b-ising-social-dynamics-ewi` | `ising_critical_slowing.py` (`LATTICE_SIZE=48`) | yes, `ising_critical_slowing.js` (`L=32`, lighter sweeps) | no | yes | stdout `RESULT:` token; Python `return 0` always |
 | `p-b-percolation-epidemiology-fss` | `epidemic_percolation_fss.py` (networkx; freeze `NU_THEORY=3.0`) | **no** (not in `BROWSER_RUNNERS`; D-09) | yes, `run_crosscheck.ipynb` | yes | stdout `RESULT:` token; Python `return 0` always |

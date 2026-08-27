@@ -46,7 +46,7 @@
   <p class="pill">USDR Crosscheck · desktop</p>
   <h1>Finite-size scaling test — does the 2D site percolation threshold shift with lattice area as p_c(L) = p_c(inf) + c * L^(-1/nu) with nu = 4/3?</h1>
   <p class="meta">Protocol <code>p-b-habitat-percolation-ecology-fss</code> · bridge <code>b-habitat-percolation-ecology</code></p>
-  <p>Monte Carlo estimates of the site percolation threshold on square lattices of side L = 16, 32, 64, 128 show a systematic negative shift from p_c(inf) ≈ 0.5927 that scales as L^(-1/nu) with nu within 15% of the 2D percolation value 4/3.</p>
+  <p>On an L×L square (4-neighbor, periodic), the mean occupation at first either-direction wrapping obeys p_c(L) = p_c(inf) + c L^(-1/nu) with p_c(inf) = 0.59274621. A weighted fit on L ∈ {32, 64, 128, 256} recovers nu within 15% of 4/3, with reported SE(nu) inside that tolerance. Sign of c is not assumed. L=16 is diagnostic only. The in-browser runner is a smoke test and cannot confirm nu.</p>
   <div class="note">
     <strong>Try the in-browser runner below</strong> for a live demo, or clone this folder for
     the canonical Python repro (source of truth for verification).
@@ -54,8 +54,7 @@
 
   <h2>Run Crosscheck in your browser</h2>
   <div id="crosscheck-runner" class="runner" data-protocol="p-b-habitat-percolation-ecology-fss">
-    <p class="runner-lead">One-click demo — same algorithm as the Python repro. Results stream live;
-    clone the repo for full-precision verification.</p>
+    <p class="runner-lead">In-browser smoke test (smaller L, 48 samples). It cannot confirm ν and must print INCONCLUSIVE — that means the demo is small, not that percolation is wrong. Python is the exponent measurement.</p>
     <button type="button" data-action="run">Run Crosscheck</button>
     <span class="result-badge" data-role="result-badge" hidden></span>
     <div class="progress" data-role="progress" hidden><div class="progress-bar" data-role="progress-bar"></div></div>
@@ -70,7 +69,7 @@
 cd Universal-Science-Discovery/repro/p-b-habitat-percolation-ecology-fss
 pip install -r requirements.txt
 python simulate_percolation_fss.py</pre>
-  <p>Estimated runtime: 4–8 minutes on a modern laptop (350 trials/p by default). Exit code is always <code>0</code>; inspect stdout for CONFIRMED vs INCONCLUSIVE.</p>
+  <p>Estimated runtime: ~15–40 s on a laptop at 400 Newman–Ziff samples/L (canonical). Browser smoke test ~10–30 s and cannot confirm nu. Exit code is always <code>0</code>; inspect stdout for CONFIRMED vs INCONCLUSIVE.</p>
   <div class="links">
     <a href="README.md">README</a>
     <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/tree/main/repro/p-b-habitat-percolation-ecology-fss">Source on GitHub</a>

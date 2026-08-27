@@ -19,18 +19,50 @@ def _load_module(name: str, path: Path):
     return mod
 
 
-def test_percolation_fss_fit_confirmed_on_reference_pcs() -> None:
+def test_percolation_fss_weighted_fit_recovers_nu_on_synthetic_shift() -> None:
     mod = _load_module(
         "simulate_percolation_fss",
         REPO_ROOT / "repro/p-b-habitat-percolation-ecology-fss/simulate_percolation_fss.py",
     )
-    # Reference p_c estimates at TRIALS_PER_P=350, seed=42 (2026-06-22 CONFIRMED run).
-    pcs = [0.59080, 0.59059, 0.59268, 0.59179]
-    nu, r2, sign_ok = mod.fit_nu(mod.SIZES, pcs)
-    rel_err = abs(nu - mod.NU_THEORY) / mod.NU_THEORY
-    assert sign_ok, "expected all p_c below p_c(inf) for signed FSS fit"
-    assert rel_err <= mod.NU_TOLERANCE, f"nu={nu:.4f} err={100 * rel_err:.1f}%"
-    assert r2 > 0.0
+    sizes = list(mod.FIT_SIZES)
+    c_true = -0.45
+    pcs = [mod.PC_INF + c_true * (L ** (-1.0 / mod.NU_THEORY)) for L in sizes]
+    ses = [1e-5] * len(sizes)
+    fit = mod.fit_a(sizes, pcs, ses)
+    assert fit["rel_err"] < 0.05, f"nu={fit['nu']:.4f} err={100 * fit['rel_err']:.1f}%"
+    assert fit["r2"] > 0.99
+    assert fit["c"] < 0
+    assert mod.classify(fit, pcs, ses) == "CONFIRMED"
+
+
+def test_percolation_fss_legacy_demo_is_inconclusive() -> None:
+    """Old open-Π=0.5 four-point snapshot must not pass the new protocol."""
+    mod = _load_module(
+        "simulate_percolation_fss",
+        REPO_ROOT / "repro/p-b-habitat-percolation-ecology-fss/simulate_percolation_fss.py",
+    )
+    # Browser demo quoted in the protocol bug report (120 trials/p, noisy bisection).
+    sizes = [16, 32, 64, 128]
+    pcs = [0.59139, 0.58444, 0.59272, 0.59055]
+    ses = [0.01, 0.01, 0.01, 0.01]
+    fit = mod.fit_a(sizes, pcs, ses)
+    assert mod.classify(fit, pcs, ses) == "INCONCLUSIVE"
+    # June 2026 Python "CONFIRMED" snapshot: L=64 sits on p_c(∞); r2 gate was > 0.
+    legacy = list(mod.LEGACY_REFERENCE_PCS)
+    legacy_fit = mod.fit_a(sizes, legacy, ses)
+    assert mod.classify(legacy_fit, legacy, ses) == "INCONCLUSIVE"
+
+
+def test_percolation_fss_first_wrap_occurs_before_full_occupation() -> None:
+    import random
+
+    mod = _load_module(
+        "simulate_percolation_fss",
+        REPO_ROOT / "repro/p-b-habitat-percolation-ecology-fss/simulate_percolation_fss.py",
+    )
+    rng = random.Random(0)
+    p = mod.first_wrap_either(8, rng)
+    assert 0.0 < p < 1.0
 
 
 def test_ising_ewi_fit_confirmed_on_reference_variances() -> None:

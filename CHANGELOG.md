@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed — Habitat FSS Crosscheck (`p-b-habitat-percolation-ecology-fss`)
+- The 2D site-percolation law \(p_c(L)=p_c(\infty)+c L^{-1/\nu}\) with \(\nu=4/3\) was never in doubt. The **verification protocol** was: open-boundary \(\Pi_{\mathrm{TB}}=0.5\) has vanishing leading \(L^{-1/\nu}\) amplitude (Cardy), 120-trial noisy bisection, \(\log|\Delta p|\) vs \(\log L\) with sign flips, and writeups that claimed “\(\nu\) within 15%” while the live demo printed `INCONCLUSIVE`.
+- Canonical Python is now Newman–Ziff, periodic 4-neighbor, **mean occupation at first either-direction wrapping**, weighted Fit A/B on \(L\in\{32,64,128,256\}\) with error bars and a power analysis. Browser JS is a labeled smoke test and **cannot emit CONFIRMED**.
+- `INCONCLUSIVE` means underpowered, not “percolation is wrong.” Protocol YAML, README, hub example, and `docs/CROSSCHECK.md` no longer advertise a 15% \(\nu\) pass the runner does not produce.
+
 ### Changed — One example is the first visit
 - Hub hero leads with a 90-second **habitat / percolation** walkthrough (bridge → test → run in browser). Four-word glossary (unknown, bridge, test, record). Operator path is a footnote, not a third door.
 - Tests section says “more tests of bridges,” not protocol jargon, for a first visit.

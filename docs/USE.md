@@ -2,7 +2,7 @@
 
 Do this first, before any other page:
 
-**One example.** Habitat loss in ecology and percolation in physics are claimed to be the same math. USDR stores that claim, then lets you [run the test in the browser](https://kr8zysho3.github.io/Universal-Science-Discovery/repro/p-b-habitat-percolation-ecology-fss/index.html) (~90 seconds, no account). That is the whole product: an open connection, plus a test.
+**One example.** Habitat loss in ecology and percolation in physics are claimed to be the same math. USDR stores that claim, then lets you [run the test in the browser](https://kr8zysho3.github.io/Universal-Science-Discovery/repro/p-b-habitat-percolation-ecology-fss/index.html) (about a minute, no account). The browser run is a short look: if it says INCONCLUSIVE, the demo is small, not that the physics is wrong. The full exponent check is the Python command in that folder. That is the whole product: an open connection, plus a test.
 
 Then pick **one** of the two doors on the [site](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#start). You do not need the rest of the docs first.
 
