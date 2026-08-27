@@ -1768,6 +1768,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../CREW/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Night crew
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../HYPOTHESIS_GENERATION/" class="md-nav__link">
         
   
@@ -3414,16 +3442,14 @@
 </ul>
 <hr />
 <h2 id="automated-harvest-wave-factory-pipeline">Automated Harvest + Wave Factory Pipeline<a class="headerlink" href="#automated-harvest-wave-factory-pipeline" title="Permanent link">&para;</a></h2>
-<p>The cadence workflow (<code>.github/workflows/harvest-openalex.yml</code>) runs twice weekly (Monday + Thursday, 6am UTC):</p>
+<p>The cadence workflow (<code>.github/workflows/harvest-openalex.yml</code>) runs twice weekly (Monday + Thursday, 6am UTC), or on <strong>workflow_dispatch</strong>:</p>
 <ol>
-<li>Harvests fresh candidates from OpenAlex, PubMed, and Semantic Scholar</li>
-<li>Runs <code>wave_factory.py</code> dry-run for ranking visibility</li>
-<li>Stages a batch into <code>drafts/wave_factory/</code></li>
-<li>Runs <code>promote_wave_factory_batch.py</code> in dry-run validation mode</li>
-<li>Runs schema validation (<code>python scripts/validate_schemas.py</code>)</li>
-<li>Opens/updates an automation PR with staged artifacts (no direct push to protected branches)</li>
+<li>Harvests fresh candidates from OpenAlex, PubMed, and Semantic Scholar (one flaky API does not abort the job)</li>
+<li>Runs <strong><code>python scripts/run_crew.py --skip-harvest</code></strong> (Scout + Auditor + Tester contracts + Foreman briefing)</li>
+<li>Uploads gitignored <code>drafts/wave_factory/</code> as an Actions artifact</li>
+<li>Opens a bot PR with candidate JSON + <code>drafts/crew-reports/LATEST.md</code>, then <strong>Shipper</strong> squash-merges it if the file list is allowlisted (mailbox only). No <code>--apply</code> promote. Catalog YAML is never auto-merged.</li>
 </ol>
-<p>This creates a continuous pipeline: literature → ranked candidates → staged triples → reviewed promotion.</p>
+<p>This is the <strong>night crew</strong>. See <a href="../CREW/"><code>docs/CREW.md</code></a>. Candidates are not findings.</p>
 <p>Wave Factory can also be run locally:</p>
 <div class="highlight"><pre><span></span><code>python<span class="w"> </span>scripts/harvesters/wave_factory.py<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--top<span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="se">\</span>
