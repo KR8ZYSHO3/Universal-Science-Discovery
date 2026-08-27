@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added — Night crew (propose, ship mailbox, never promote science)
+- **`scripts/run_crew.py`:** Harvester (opt) → Wave Factory scout → schema/quality audit → Crosscheck contract checks → `drafts/crew-reports/LATEST.md`. Never passes `--apply` to promotion.
+- **`scripts/crew_ship.py`:** squash-merges the bot PR only if files are harvest JSON + `drafts/crew-reports/`. Catalog / repro / schemas are refused.
+- **`.github/workflows/harvest-openalex.yml`:** after harvest, runs the crew, uploads gitignored `drafts/wave_factory/` as an artifact, opens then ships the mailbox PR. Harvest API flakes `continue-on-error`.
+- **`docs/CREW.md`:** roles, mailbox, what the crew must not do. Branch protection may still leave the mailbox PR open; that is still a shipped request.
+
 ### Added — Developer note (why this exists)
 - **[`docs/WHY.md`](docs/WHY.md)** and hub page **[`dashboard/why.html`](dashboard/why.html):** first-person note from Brandon Shoemaker. The project is science, not policy; the catalog is not the impact, reuse is; tests that can fail are the transmission belt. Linked from the hub example, README, USE.md, and the docs index.
 

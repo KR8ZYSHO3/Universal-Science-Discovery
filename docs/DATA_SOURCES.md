@@ -87,16 +87,14 @@ GET https://api.openalex.org/works?filter=concepts.id:C12345|C67890&per-page=50
 
 ## Automated Harvest + Wave Factory Pipeline
 
-The cadence workflow (`.github/workflows/harvest-openalex.yml`) runs twice weekly (Monday + Thursday, 6am UTC):
+The cadence workflow (`.github/workflows/harvest-openalex.yml`) runs twice weekly (Monday + Thursday, 6am UTC), or on **workflow_dispatch**:
 
-1. Harvests fresh candidates from OpenAlex, PubMed, and Semantic Scholar
-2. Runs `wave_factory.py` dry-run for ranking visibility
-3. Stages a batch into `drafts/wave_factory/`
-4. Runs `promote_wave_factory_batch.py` in dry-run validation mode
-5. Runs schema validation (`python scripts/validate_schemas.py`)
-6. Opens/updates an automation PR with staged artifacts (no direct push to protected branches)
+1. Harvests fresh candidates from OpenAlex, PubMed, and Semantic Scholar (one flaky API does not abort the job)
+2. Runs **`python scripts/run_crew.py --skip-harvest`** (Scout + Auditor + Tester contracts + Foreman briefing)
+3. Uploads gitignored `drafts/wave_factory/` as an Actions artifact
+4. Opens a bot PR with candidate JSON + `drafts/crew-reports/LATEST.md`, then **Shipper** squash-merges it if the file list is allowlisted (mailbox only). No `--apply` promote. Catalog YAML is never auto-merged.
 
-This creates a continuous pipeline: literature → ranked candidates → staged triples → reviewed promotion.
+This is the **night crew**. See [`docs/CREW.md`](CREW.md). Candidates are not findings.
 
 Wave Factory can also be run locally:
 

@@ -1,9 +1,13 @@
-name: Wave Factory Cadence
+name: Night Crew
 
 on:
   schedule:
     - cron: "0 6 * * 1,4" # Monday + Thursday 06:00 UTC
   workflow_dispatch:
+
+concurrency:
+  group: night-crew
+  cancel-in-progress: true
 
 jobs:
   wave-factory:
@@ -11,6 +15,7 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
+      issues: write
 
     steps:
       # Full clone + token: create-pull-request pushes a new branch; shallow checkout
@@ -28,7 +33,16 @@ jobs:
       - name: Install dependencies
         run: pip install pyyaml jsonschema
 
+      - name: Ensure PR labels exist
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh label create automation --color 0E8A16 --description "Bot / cadence" 2>/dev/null || true
+          gh label create wave-factory --color 1D76DB --description "Wave Factory harvest" 2>/dev/null || true
+          gh label create crew --color 5319E7 --description "Night crew mailbox" 2>/dev/null || true
+
       - name: Harvest OpenAlex candidates
+        continue-on-error: true
         run: |
           python scripts/harvesters/harvest_openalex.py \
             --bridge-scan \
@@ -36,6 +50,7 @@ jobs:
             --output drafts/openalex_candidates.json
 
       - name: Harvest PubMed candidates
+        continue-on-error: true
         run: |
           python scripts/harvesters/harvest_pubmed.py \
             --bridge-scan \
@@ -43,68 +58,73 @@ jobs:
             --output drafts/pubmed_candidates.json
 
       - name: Harvest Semantic Scholar candidates
+        continue-on-error: true
         run: |
           python scripts/harvesters/harvest_semantic_scholar.py \
             --bridge-scan \
             --top 20 \
             --output drafts/semantic_scholar_candidates.json
 
-      - name: Wave Factory ranking dry-run
+      - name: Night crew (scout, audit, brief — never promote)
         run: |
-          python scripts/harvesters/wave_factory.py \
-            --top 30 \
-            --min-citations 50 \
-            --sources openalex,pubmed,semantic_scholar \
-            --dry-run
+          python scripts/run_crew.py --skip-harvest --top 30 --min-citations 50
+          if [ -f drafts/crew-reports/LATEST.md ]; then
+            cat drafts/crew-reports/LATEST.md >> "$GITHUB_STEP_SUMMARY"
+          fi
 
-      - name: Stage Wave Factory batch
-        run: |
-          python scripts/harvesters/wave_factory.py \
-            --top 30 \
-            --min-citations 50 \
-            --sources openalex,pubmed,semantic_scholar \
-            --output drafts/wave_factory
+      - name: Upload gitignored Wave Factory stage
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: wave-factory-stage
+          path: drafts/wave_factory/
+          if-no-files-found: ignore
 
-      - name: Validate staged batch (dry-run promotion)
-        run: |
-          python scripts/harvesters/promote_wave_factory_batch.py \
-            --stage drafts/wave_factory
-
-      - name: Validate canonical schemas
-        run: python scripts/validate_schemas.py
-
-      - name: Detect Wave Factory output changes
+      - name: Detect crew output changes
         id: stage
         run: |
-          # Pure detection using ls-files — never triggers git add or gitignore errors
-          if git ls-files --modified --others --exclude-standard | grep -E '^(drafts/openalex_candidates\.json|drafts/pubmed_candidates\.json|drafts/semantic_scholar_candidates\.json|drafts/wave_factory/)' > /dev/null; then
+          if git ls-files --modified --others --exclude-standard | grep -E '^(drafts/openalex_candidates\.json|drafts/pubmed_candidates\.json|drafts/semantic_scholar_candidates\.json|drafts/crew-reports/)' > /dev/null; then
             echo "changes=1" >> "$GITHUB_OUTPUT"
           else
             echo "changes=0" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Create PR for staged outputs
+      - name: Create PR for harvest JSON + crew briefing
+        id: cpr
         if: success() && steps.stage.outputs.changes != '0'
-        # v7 required for reliable bot PR creation on ubuntu-24.04
         uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: bot/wave-factory
-          commit-message: "bot: stage wave factory batch [skip ci]"
+          commit-message: "bot: crew briefing and harvest candidates"
           committer: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
           author: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
-          title: "bot: wave factory staged bridge batch"
+          title: "bot: night crew briefing (mailbox — not findings)"
           body: |
-            Automated Wave Factory run:
-            - refreshed candidate harvests (OpenAlex + PubMed + Semantic Scholar)
-            - ranked and staged bridge/unknown/hypothesis triples in `drafts/wave_factory/`
-            - validated staged records and canonical schemas
-            - This PR updates in place (fixed branch) to avoid duplicate/conflicting wave PRs.
+            Night crew run (Foreman). **Not a scientific result. Do not merge as confirmed bridges.**
+
+            - Harvested OpenAlex + PubMed + Semantic Scholar (candidate JSON)
+            - Scout staged triples in gitignored `drafts/wave_factory/` (artifact on this job)
+            - Auditor: schema validate + promote **dry-run** (never `--apply`)
+            - Tester: Crosscheck contracts only (no Monte Carlo)
+            - Briefing: `drafts/crew-reports/LATEST.md`
+
+            Review the briefing. Promote only by hand after editing translation tables.
           labels: |
             automation
             wave-factory
+            crew
           delete-branch: false
           add-paths: |
             drafts/openalex_candidates.json
             drafts/pubmed_candidates.json
             drafts/semantic_scholar_candidates.json
+            drafts/crew-reports/LATEST.md
+
+      - name: Ship mailbox PR (allowlist only)
+        if: success() && steps.cpr.outputs.pull-request-number != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python scripts/crew_ship.py --pr "${{ steps.cpr.outputs.pull-request-number }}"
+          echo "Shipper: allowlisted harvest JSON + briefing. Catalog science is never auto-merged." >> "$GITHUB_STEP_SUMMARY"
