@@ -1,6 +1,6 @@
 # USDR crew briefing
 
-Generated **2026-08-27 17:29 UTC**. Foreman only; not a scientific result.
+Generated **2026-08-27 17:36 UTC**. Foreman only; not a scientific result.
 
 **Do not promote this run to `cross-domain/`, `unknowns-catalog/`, or `hypotheses/` without a human.**
 Wave Factory output stays in gitignored `drafts/wave_factory/`.
@@ -31,8 +31,8 @@ Flags: skip_harvest=True, skip_scout=True
 
 ## Tester (contracts only — no live exponent run)
 
-- habitat JS cannot emit CONFIRMED: **NO — fix**
-- habitat Python either-wrap estimator present: **NO — check**
+- habitat JS cannot emit CONFIRMED: **yes**
+- habitat Python either-wrap estimator present: **yes**
 - Crosscheck CI workflow present: **yes**
 - live Crosscheck Monte Carlo is **not** this crew's job (too long; human/CI).
 

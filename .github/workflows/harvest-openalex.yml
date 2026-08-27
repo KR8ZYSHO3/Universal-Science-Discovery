@@ -1,9 +1,13 @@
-name: Wave Factory Cadence
+name: Night Crew
 
 on:
   schedule:
     - cron: "0 6 * * 1,4" # Monday + Thursday 06:00 UTC
   workflow_dispatch:
+
+concurrency:
+  group: night-crew
+  cancel-in-progress: true
 
 jobs:
   wave-factory:
@@ -11,6 +15,7 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
+      issues: write
 
     steps:
       # Full clone + token: create-pull-request pushes a new branch; shallow checkout
@@ -27,6 +32,14 @@ jobs:
 
       - name: Install dependencies
         run: pip install pyyaml jsonschema
+
+      - name: Ensure PR labels exist
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh label create automation --color 0E8A16 --description "Bot / cadence" 2>/dev/null || true
+          gh label create wave-factory --color 1D76DB --description "Wave Factory harvest" 2>/dev/null || true
+          gh label create crew --color 5319E7 --description "Night crew mailbox" 2>/dev/null || true
 
       - name: Harvest OpenAlex candidates
         continue-on-error: true

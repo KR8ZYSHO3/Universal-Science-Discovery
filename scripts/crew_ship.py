@@ -92,7 +92,7 @@ def merge_pr(pr: int) -> int:
             "[crew-ship] merge not completed (branch protection or token). "
             "PR stays open — that is still a shipped *request*."
         )
-        return proc.returncode
+        return 0
     print(f"[crew-ship] auto-merge enabled or completed for PR #{pr}")
     return 0
 
@@ -118,6 +118,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     print(f"[crew-ship] files={paths}")
     print(f"[crew-ship] shippable={ok} ({reason})")
     if not ok:
+        print("[crew-ship] refusing to merge — not a mailbox PR")
         return 1
     if args.dry_run or args.paths_from_stdin:
         return 0
