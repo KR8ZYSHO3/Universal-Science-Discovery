@@ -44,6 +44,7 @@ Only if you run this site. Until a single operator list ships, use the [operator
 
 | Need | File |
 |------|------|
+| Why the developer is building this | [WHY.md](WHY.md) |
 | What we build next | [ROADMAP.md](../ROADMAP.md) |
 | First records (step-by-step) | [HAPPY_PATH_FIRST_RECORDS.md](HAPPY_PATH_FIRST_RECORDS.md) |
 | How the tests work | [CROSSCHECK.md](CROSSCHECK.md) |

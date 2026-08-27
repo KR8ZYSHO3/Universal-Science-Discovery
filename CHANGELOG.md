@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added — Developer note (why this exists)
+- **[`docs/WHY.md`](docs/WHY.md)** and hub page **[`dashboard/why.html`](dashboard/why.html):** first-person note from Brandon Shoemaker. The project is science, not policy; the catalog is not the impact, reuse is; tests that can fail are the transmission belt. Linked from the hub example, README, USE.md, and the docs index.
+
 ### Fixed — Habitat FSS Crosscheck (`p-b-habitat-percolation-ecology-fss`)
 - The 2D site-percolation law \(p_c(L)=p_c(\infty)+c L^{-1/\nu}\) with \(\nu=4/3\) was never in doubt. The **verification protocol** was: open-boundary \(\Pi_{\mathrm{TB}}=0.5\) has vanishing leading \(L^{-1/\nu}\) amplitude (Cardy), 120-trial noisy bisection, \(\log|\Delta p|\) vs \(\log L\) with sign flips, and writeups that claimed “\(\nu\) within 15%” while the live demo printed `INCONCLUSIVE`.
 - Canonical Python is now Newman–Ziff, periodic 4-neighbor, **mean occupation at first either-direction wrapping**, weighted Fit A/B on \(L\in\{32,64,128,256\}\) with error bars and a power analysis. Browser JS is a labeled smoke test and **cannot emit CONFIRMED**.

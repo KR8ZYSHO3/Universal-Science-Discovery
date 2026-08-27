@@ -12,7 +12,7 @@
 [![License: MIT](https://img.shields.io/badge/code-MIT-green?style=flat-square)](LICENSE)
 [![CI](https://img.shields.io/github/actions/workflow/status/KR8ZYSHO3/Universal-Science-Discovery/validate.yml?style=flat-square&label=CI)](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/actions)
 
-**[Open the catalog](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#start) · [Try an experiment](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#crosscheck) · [How to use](docs/USE.md)**
+**[Open the catalog](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#start) · [Try an experiment](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#crosscheck) · [How to use](docs/USE.md) · [Why I am building this](docs/WHY.md)**
 
 > Building until a researcher in the room can use it. Public launch is parked — [ROADMAP.md](ROADMAP.md).
 
@@ -32,7 +32,7 @@ This means:
 - Two fields independently study the same mathematical phenomenon for decades without recognizing the connection
 - The most important questions in science are the hardest to find
 
-**USDR is built to fix this.**
+**USDR is built to fix this.** The developer’s own account of *why* — including how this is about science, not policy, and how reuse (not the catalog itself) is the impact — is in [docs/WHY.md](docs/WHY.md).
 
 ---
 
