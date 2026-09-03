@@ -1,6 +1,6 @@
 # USDR crew briefing
 
-Generated **2026-08-31 12:19 UTC**. Foreman only; not a scientific result.
+Generated **2026-09-03 10:29 UTC**. Foreman only; not a scientific result.
 
 **Do not promote this run to `cross-domain/`, `unknowns-catalog/`, or `hypotheses/` without a human.**
 Wave Factory output stays in gitignored `drafts/wave_factory/`.
