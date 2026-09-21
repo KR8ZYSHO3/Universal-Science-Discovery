@@ -1737,9 +1737,36 @@
       .api-endpoint { flex-wrap: wrap; gap: .5rem; }
       .api-endpoint-badge { display: none; }
     }
+
+    /* First visit: one job. Builder chrome stays in the DOM for operators. */
+    body.visitor-first #workstreams,
+    body.visitor-first #developer-api,
+    body.visitor-first #recommendations,
+    body.visitor-first #contribute,
+    body.visitor-first .pill-row,
+    body.visitor-first .stat-deck,
+    body.visitor-first .extra-stat {
+      display: none !important;
+    }
+    .builder-reveal {
+      display: none;
+      margin: 2rem auto 3rem;
+      text-align: center;
+    }
+    body.visitor-first .builder-reveal { display: block; }
+    .builder-reveal button {
+      font: 600 .88rem var(--font);
+      color: var(--muted);
+      background: transparent;
+      border: 1px dashed var(--border);
+      border-radius: 999px;
+      padding: .45rem 1rem;
+      cursor: pointer;
+    }
+    .builder-reveal button:hover { color: var(--text); border-color: var(--accent); }
   </style>
 </head>
-<body>
+<body class="visitor-first">
   <!-- Particle canvas (fixed, full-screen) -->
   <canvas id="particle-canvas" aria-hidden="true"></canvas>
 
@@ -1765,36 +1792,33 @@
         <span class="grad-a">Map the unknowns.</span>
       </h1>
       <p class="hero-lead">
-        Science already catalogs what is known. This project catalogs what is <em>not</em> known —
-        and lets you run a test on a claimed link between two fields.
+        Science already lists what it knows. This lists what it does <em>not</em> —
+        and lets you click one test. That is the whole product.
       </p>
 
       <div class="example-walk aos" id="example">
-        <div class="example-kicker">Start here · one example · ~90 seconds</div>
+        <div class="example-kicker">Do this first · about a minute · no account</div>
         <h2>Habitat loss and percolation are the same math</h2>
         <p>
-          In ecology, a landscape can fall into isolated patches. In physics, a grid can lose a giant connected cluster.
-          USDR treats that as one claim, then lets you test it.
-          Finite landscapes have a shifted, blurred connectivity threshold; the shift scales as L<sup>−1/ν</sup> for this class of models.
-          The in-browser run is a short look. If it says INCONCLUSIVE, the demo is small — not that the physics is wrong, and it does not recover ν.
+          In ecology, a landscape can fall into isolated patches. In physics, a grid can lose its giant connected cluster.
+          This project stores that claim and lets you run a check. One button.
         </p>
         <ol>
-          <li>The claim is a <strong>bridge</strong>: ecology ↔ physics.</li>
-          <li>A <strong>test</strong> checks whether the math actually behaves that way.</li>
-          <li>You run the test in the browser. No account.</li>
+          <li>A <strong>claim</strong> that two fields share the same math.</li>
+          <li>A <strong>test</strong> you can run in the browser.</li>
+          <li>If the short demo says INCONCLUSIVE, it is small — not that the idea is false.</li>
         </ol>
         <div class="example-actions">
           <a class="primary" href="../repro/p-b-habitat-percolation-ecology-fss/index.html">Run this test →</a>
           <a class="secondary" href="explainers/b-habitat-percolation-ecology.html">Read the claim</a>
-          <a class="secondary" href="#crosscheck">More tests</a>
-          <a class="secondary" href="why.html">Why I built this</a>
+          <a class="secondary" href="#pathfinder">See how two fields connect</a>
         </div>
       </div>
 
       <section class="aos" id="frontier" aria-label="Open questions arriving">
-        <div class="example-kicker">Frontier · open questions in the catalog</div>
-        <h2 class="section-title" style="font-size:1.15rem;margin:.2rem 0 .4rem">Unsolvables, live</h2>
-        <p class="section-desc" style="margin:0">The night crew lands harvested gaps. This rail is a slice of what is still unknown. Click through to the map.</p>
+        <div class="example-kicker">Then look around</div>
+        <h2 class="section-title" style="font-size:1.15rem;margin:.2rem 0 .4rem">More open questions</h2>
+        <p class="section-desc" style="margin:0">A slice of what is still unknown. You do not need to add anything to look.</p>
         <div class="frontier-rail" id="frontier-rail"></div>
       </section>
 
@@ -1802,35 +1826,41 @@
 
       <!-- DASHBOARD_CATALOG_SNAPSHOT_BEGIN -->
       <div class="catalog-snapshot aos" role="region" aria-label="Catalog snapshot from YAML file counts and built graph meta">
-        <div class="catalog-snapshot-label">Live catalog snapshot</div>
+        <div class="catalog-snapshot-label">What is in here</div>
         <div class="catalog-snapshot-row">
-          <span class="catalog-snapshot-metric"><span class="catalog-snapshot-n"><span id="snap-bridges">1124</span></span><span class="catalog-snapshot-l">bridges</span></span>
+          <span class="catalog-snapshot-metric"><span class="catalog-snapshot-n"><span id="snap-unknowns">1409</span></span><span class="catalog-snapshot-l">open questions</span></span>
           <span class="catalog-snapshot-sep" aria-hidden="true">·</span>
-          <span class="catalog-snapshot-metric"><span class="catalog-snapshot-n"><span id="snap-unknowns">1409</span></span><span class="catalog-snapshot-l">unknowns</span></span>
+          <span class="catalog-snapshot-metric"><span class="catalog-snapshot-n"><span id="snap-bridges">1124</span></span><span class="catalog-snapshot-l">claimed links</span></span>
           <span class="catalog-snapshot-sep" aria-hidden="true">·</span>
-          <span class="catalog-snapshot-metric"><span class="catalog-snapshot-n"><span id="snap-hypotheses">1275</span></span><span class="catalog-snapshot-l">hypotheses</span></span>
-          <span class="catalog-snapshot-sep" aria-hidden="true">·</span>
-          <span class="catalog-snapshot-metric"><span class="catalog-snapshot-n"><span id="snap-phenomena">11</span></span><span class="catalog-snapshot-l">phenomena</span></span>
-          <span class="catalog-snapshot-sep" aria-hidden="true">·</span>
-          <span class="catalog-snapshot-metric"><span class="catalog-snapshot-n"><span id="snap-graph-nodes">3861</span></span><span class="catalog-snapshot-l">graph nodes</span></span>
-          <span class="catalog-snapshot-sep" aria-hidden="true">·</span>
-          <span class="catalog-snapshot-metric"><span class="catalog-snapshot-n"><span id="snap-graph-edges">4522</span></span><span class="catalog-snapshot-l">graph edges</span></span>
+          <span class="catalog-snapshot-metric"><span class="catalog-snapshot-n"><span id="snap-hypotheses">1275</span></span><span class="catalog-snapshot-l">testable ideas</span></span>
+          <span class="catalog-snapshot-sep extra-stat" aria-hidden="true">·</span>
+          <span class="catalog-snapshot-metric extra-stat"><span class="catalog-snapshot-n"><span id="snap-phenomena">11</span></span><span class="catalog-snapshot-l">early notes</span></span>
+          <span class="catalog-snapshot-sep extra-stat" aria-hidden="true">·</span>
+          <span class="catalog-snapshot-metric extra-stat"><span class="catalog-snapshot-n"><span id="snap-graph-nodes">3861</span></span><span class="catalog-snapshot-l">graph nodes</span></span>
+          <span class="catalog-snapshot-sep extra-stat" aria-hidden="true">·</span>
+          <span class="catalog-snapshot-metric extra-stat"><span class="catalog-snapshot-n"><span id="snap-graph-edges">4522</span></span><span class="catalog-snapshot-l">graph edges</span></span>
         </div>
-        <p class="catalog-snapshot-foot">How to use this catalog: <a href="../docs/USE.md">plain-language guide</a>.</p>
+        <p class="catalog-snapshot-foot">Stuck? <a href="../docs/USE.md">How to use this</a> · <a href="why.html">Why it exists</a></p>
       </div>
       <!-- DASHBOARD_CATALOG_SNAPSHOT_END -->
 
       <div class="door-grid" id="start" role="list">
-        <a class="door-card door-look aos" role="listitem" href="#example">
-          <span class="door-kicker">Now you</span>
-          <span class="door-title">Try that example</span>
-          <span class="door-blurb">Run the habitat test above. Then search your own field. No account.</span>
-          <span class="door-cta">Back to the example →</span>
+        <a class="door-card door-look aos" role="listitem" href="../repro/p-b-habitat-percolation-ecology-fss/index.html">
+          <span class="door-kicker">1</span>
+          <span class="door-title">Run the test</span>
+          <span class="door-blurb">Same as the big button above. No account.</span>
+          <span class="door-cta">Open the test →</span>
         </a>
-        <a class="door-card door-add aos d1" role="listitem" href="#door-add">
-          <span class="door-kicker">Then</span>
-          <span class="door-title">Add your open question</span>
-          <span class="door-blurb">One gap from your field. Send it for review. A person reads it first.</span>
+        <a class="door-card door-add aos d1" role="listitem" href="#pathfinder">
+          <span class="door-kicker">2</span>
+          <span class="door-title">See how two fields connect</span>
+          <span class="door-blurb">Pick two fields. The map shows a real path.</span>
+          <span class="door-cta">Open the map →</span>
+        </a>
+        <a class="door-card aos d2" role="listitem" href="#door-add">
+          <span class="door-kicker">3</span>
+          <span class="door-title">Add an open question</span>
+          <span class="door-blurb">Only if you have one. A person reads it first.</span>
           <span class="door-cta">How to add →</span>
         </a>
       </div>
@@ -1910,12 +1940,11 @@
       <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/" target="_blank" rel="noopener">GitHub Pages ↗</a>
     </p>
     <nav class="hub-nav" aria-label="Page sections">
-      <a href="#example">This example</a>
-      <a href="#crosscheck">More tests</a>
+      <a href="#example">Example</a>
+      <a href="#pathfinder">Connect fields</a>
       <a href="#catalog-search">Search</a>
-      <a href="#pathfinder">How fields connect</a>
-      <a href="#knowledge-graph">Map</a>
-      <a href="#door-add">Add a question</a>
+      <a href="#crosscheck">More tests</a>
+      <a href="#door-add">Add</a>
     </nav>
   </div>
 
@@ -2815,6 +2844,10 @@
         </div>
       </div>
     </section>
+
+    <p class="builder-reveal">
+      <button type="button" id="show-builder-tools">Show builder tools (API, workstreams, GitHub)</button>
+    </p>
 
     <!-- ══════════════════════════════════════════ WORKSTREAMS -->
     <section id="workstreams">
@@ -5455,6 +5488,14 @@
         document.getElementById('bpc-loading').textContent =
           'AI co-pilot: pioneer seeds + breakthrough-gap bridges awaiting build.';
       });
+  })();
+
+  (function () {
+    var btn = document.getElementById('show-builder-tools');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      document.body.classList.remove('visitor-first');
+    });
   })();
 
   (function loadFrontier() {

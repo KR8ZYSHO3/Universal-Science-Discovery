@@ -71,6 +71,8 @@ def test_hub_has_pathfinder_and_frontier_rail() -> None:
     assert 'id="pathfinder"' in html
     assert 'id="pf-go"' in html
     assert 'id="frontier-rail"' in html
+    assert "visitor-first" in html
+    assert "show-builder-tools" in html
     frontier = REPO_ROOT / "api" / "v1" / "frontier.json"
     assert frontier.is_file()
     import json
