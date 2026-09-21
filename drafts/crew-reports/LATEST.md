@@ -1,6 +1,6 @@
 # USDR crew briefing
 
-Generated **2026-09-17 10:45 UTC**. Foreman only; not a scientific result.
+Generated **2026-09-21 11:36 UTC**. Foreman only; not a scientific result.
 
 **Do not promote this run to `cross-domain/`, `unknowns-catalog/`, or `hypotheses/` without a human.**
 Wave Factory output stays in gitignored `drafts/wave_factory/`.
@@ -19,7 +19,7 @@ Flags: skip_harvest=True, skip_scout=False
   `  [25] b-openalex-information-theory-evolutionary-biology-mega7-molecular-evolu score=0.685 (c=0.87, r=0.60, n=0.17)`
   `  [26] b-openalex-outcome-game-theory-evolutionary-biology-mega7-molecular-evol score=0.685 (c=0.87, r=0.60, n=0.17)`
   `  [27] b-openalex-renormalization-group-machine-learning-very-deep-convolutiona score=0.683 (c=0.91, r=0.52, n=0.17)`
-  `  [28] b-openalex-statistical-mechanics-finance-reflecting-on-reflexive-them score=0.681 (c=0.80, r=0.72, n=0.17)`
+  `  [28] b-openalex-statistical-mechanics-finance-reflecting-on-reflexive-them score=0.682 (c=0.80, r=0.72, n=0.17)`
   `  [29] b-openalex-renormalization-group-machine-learning-going-deeper-with-conv score=0.674 (c=0.87, r=0.56, n=0.17)`
   `  [30] b-openalex-information-theory-evolutionary-biology-lmertest-package-test score=0.669 (c=0.82, r=0.64, n=0.17)`
   `[wave-factory] Wrote 90 YAML files under drafts/wave_factory`
