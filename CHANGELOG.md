@@ -22,7 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added — Unknown miner (grow unsolvables, not auto-bridges)
 - **`scripts/harvesters/mine_unknowns.py`:** stages `u-*.yaml` from harvest JSON only when the paper uses gap language (remains unknown, open problem, …). Dedupes on DOI/title.
 - **`scripts/harvesters/promote_unknowns.py`:** copies staged unknowns into `unknowns-catalog/`. Default dry-run. Never moves bridges.
-- Night crew Foreman runs the miner and a promote **dry-run**. Human still `--apply` after a skim.
+- Night crew on GitHub passes `--land-unknowns` and ships `u-gap-*` YAML. You do not run promote. Bridges still not auto-merged.
 
 ### Added — Backlog scout (idle job)
 - **`scripts/backlog_scout.py`:** finds v1.3 gaps, missing `last_run_result`, hub 404s, orphan unknowns. Opens up to 5 GitHub issues (`scout` + `status:needs-owner`). Writes `drafts/crew-reports/SCOUT.md`. Never promotes science.

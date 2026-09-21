@@ -67,7 +67,7 @@ jobs:
 
       - name: Night crew (scout, audit, brief — never promote)
         run: |
-          python scripts/run_crew.py --skip-harvest --top 30 --min-citations 50
+          python scripts/run_crew.py --skip-harvest --land-unknowns --top 30 --min-citations 50
           if [ -f drafts/crew-reports/LATEST.md ]; then
             cat drafts/crew-reports/LATEST.md >> "$GITHUB_STEP_SUMMARY"
           fi
@@ -83,7 +83,7 @@ jobs:
       - name: Detect crew output changes
         id: stage
         run: |
-          if git ls-files --modified --others --exclude-standard | grep -E '^(drafts/openalex_candidates\.json|drafts/pubmed_candidates\.json|drafts/semantic_scholar_candidates\.json|drafts/crew-reports/)' > /dev/null; then
+          if git ls-files --modified --others --exclude-standard | grep -E '^(drafts/openalex_candidates\.json|drafts/pubmed_candidates\.json|drafts/semantic_scholar_candidates\.json|drafts/crew-reports/|unknowns-catalog/.*/u-gap-)' > /dev/null; then
             echo "changes=1" >> "$GITHUB_OUTPUT"
           else
             echo "changes=0" >> "$GITHUB_OUTPUT"
@@ -99,17 +99,15 @@ jobs:
           commit-message: "bot: crew briefing and harvest candidates"
           committer: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
           author: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
-          title: "bot: night crew briefing (mailbox — not findings)"
+          title: "bot: night crew — briefing + harvested unsolvables"
           body: |
-            Night crew run (Foreman). **Not a scientific result. Do not merge as confirmed bridges.**
+            Night crew. **You do not need to run commands.**
 
-            - Harvested OpenAlex + PubMed + Semantic Scholar (candidate JSON)
-            - Scout staged triples in gitignored `drafts/wave_factory/` (artifact on this job)
-            - Auditor: schema validate + promote **dry-run** (never `--apply`)
-            - Tester: Crosscheck contracts only (no Monte Carlo)
-            - Briefing: `drafts/crew-reports/LATEST.md`
+            - Harvest JSON + briefing (`LATEST.md`)
+            - New `u-gap-*` unknowns auto-landed (stated gaps only)
+            - Wave Factory **bridges** are still staged, not merged
 
-            Review the briefing. Promote only by hand after editing translation tables.
+            Bridges stay human. Unsolvables grow on the clock.
           labels: |
             automation
             wave-factory
@@ -120,6 +118,7 @@ jobs:
             drafts/pubmed_candidates.json
             drafts/semantic_scholar_candidates.json
             drafts/crew-reports/LATEST.md
+            unknowns-catalog
 
       - name: Ship mailbox PR (allowlist only)
         if: success() && steps.cpr.outputs.pull-request-number != ''
@@ -127,4 +126,4 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python scripts/crew_ship.py --pr "${{ steps.cpr.outputs.pull-request-number }}"
-          echo "Shipper: allowlisted harvest JSON + briefing. Catalog science is never auto-merged." >> "$GITHUB_STEP_SUMMARY"
+          echo "Shipper: mailbox + u-gap- unknowns. Bridges still not auto-merged." >> "$GITHUB_STEP_SUMMARY"
