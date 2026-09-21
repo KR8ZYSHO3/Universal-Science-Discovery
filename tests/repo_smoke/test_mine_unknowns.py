@@ -49,8 +49,7 @@ def test_promote_unknowns_script_has_apply_but_crew_does_not_pass_it() -> None:
     crew = (REPO_ROOT / "scripts" / "run_crew.py").read_text(encoding="utf-8")
     assert "mine_unknowns.py" in crew
     assert "promote_unknowns.py" in crew
-    assert '"--apply"' not in crew
-    assert "'--apply'" not in crew
+    assert "--land-unknowns" in crew
     promote = (REPO_ROOT / "scripts" / "harvesters" / "promote_unknowns.py").read_text(
         encoding="utf-8"
     )

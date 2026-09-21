@@ -9,12 +9,13 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 CREW = REPO_ROOT / "scripts" / "run_crew.py"
 
 
-def test_run_crew_script_never_calls_promote_apply() -> None:
+def test_run_crew_script_never_applies_wave_factory() -> None:
     text = CREW.read_text(encoding="utf-8")
     assert "promote_wave_factory_batch.py" in text
-    assert '"--apply"' not in text
-    assert "'--apply'" not in text
+    wf = text.split("promote_wave_factory_batch.py", 1)[1][:500]
+    assert "--apply" not in wf
     assert "demand RESULT: CONFIRMED" in text
+    assert "--land-unknowns" in text
 
 
 def test_run_crew_skip_harvest_skip_scout_writes_briefing() -> None:
@@ -29,9 +30,8 @@ def test_run_crew_skip_harvest_skip_scout_writes_briefing() -> None:
     latest = REPO_ROOT / "drafts" / "crew-reports" / "LATEST.md"
     assert latest.is_file()
     body = latest.read_text(encoding="utf-8")
-    assert "Do not promote" in body
-    assert "never `--apply`" in body or "never `--apply`" in (proc.stdout or "")
     assert "Foreman" in body or "crew briefing" in body.lower()
+    assert "not auto-promoted" in body or "bridges" in body.lower()
     assert "--apply" not in cmd
 
 
@@ -47,9 +47,12 @@ def test_crew_ship_allowlist_mailbox_only() -> None:
         [
             "drafts/openalex_candidates.json",
             "drafts/crew-reports/LATEST.md",
+            "unknowns-catalog/biophysics/u-gap-example-deadbeef.yaml",
         ]
     )
     assert ok
+    hand, why = mod.shippable(["unknowns-catalog/physics/u-habitat-fragmentation.yaml"])
+    assert not hand
     bad, reason = mod.shippable(["cross-domain/physics-ecology/b-habitat-percolation-ecology.yaml"])
     assert not bad
     assert "science path" in reason

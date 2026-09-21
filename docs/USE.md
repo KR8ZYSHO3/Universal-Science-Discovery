@@ -14,7 +14,7 @@ Then pick **one** of the two doors on the [site](https://kr8zysho3.github.io/Uni
 |--|-----|------------|-----------|
 | **1. Try it** | Anyone, no account | Open the [site](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#start). Click **Try an experiment**. Search your field after. | You have seen a live test. |
 | **2. Add a question** | You have one gap from your field | Write **one** open question, hypothesis, *or* bridge. Check it. Send it for review. | Detail: [first records guide](HAPPY_PATH_FIRST_RECORDS.md) |
-| **3. Keep it honest** | You operate this site | Keep the numbers on the site matching the catalog files. | Detail: [operator checklist](DEV_DASHBOARD.md) |
+| **3. Keep it honest** | You operate this site | Keep the numbers on the site matching the catalog files. The night crew adds harvested open questions by itself — you do not run YAML. | Detail: [operator checklist](DEV_DASHBOARD.md) |
 
 ## Try it
 

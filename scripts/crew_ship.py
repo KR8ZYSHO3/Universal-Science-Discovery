@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
-"""Ship a night-crew mailbox PR — harvest JSON + briefing only.
+"""Ship a night-crew PR: mailbox + harvested unsolvables (u-gap-* only).
 
-The video-style loop *opens and merges* PRs. In this repo that is allowed only
-for operations files. Catalog science (bridges, unknowns, hypotheses, repro
-RESULT gates) is never auto-merged.
+Bridges, hypotheses, hand-written unknowns, repro, and schemas never auto-merge.
 
 Usage:
   python scripts/crew_ship.py --pr 314
@@ -40,17 +38,29 @@ FORBIDDEN_PREFIXES = (
 )
 
 
+def is_harvested_unknown(path: str) -> bool:
+    p = path.replace("\\", "/").lstrip("/")
+    name = p.rsplit("/", 1)[-1]
+    return (
+        p.startswith("unknowns-catalog/")
+        and name.startswith("u-gap-")
+        and name.endswith(".yaml")
+    )
+
+
 def shippable(paths: Iterable[str]) -> Tuple[bool, str]:
     cleaned = [p.replace("\\", "/").lstrip("/") for p in paths if p.strip()]
     if not cleaned:
         return False, "no files on the PR"
     for p in cleaned:
+        if is_harvested_unknown(p):
+            continue
         if any(p == f or p.startswith(f) for f in FORBIDDEN_PREFIXES):
             return False, f"refusing science path: {p}"
         allowed = p in ALLOW_EXACT or any(p.startswith(pref) for pref in ALLOW_PREFIXES)
         if not allowed:
             return False, f"not on ship allowlist: {p}"
-    return True, "allowlist only (mailbox)"
+    return True, "allowlist (mailbox + u-gap- unknowns)"
 
 
 def gh_pr_files(pr: int) -> List[str]:
