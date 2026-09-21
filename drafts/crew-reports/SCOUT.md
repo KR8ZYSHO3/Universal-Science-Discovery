@@ -1,8 +1,8 @@
 # Backlog scout
 
-Generated **2026-09-21 19:05 UTC**. Operations only — not a scientific result.
+Generated **2026-09-21 19:07 UTC**. Operations only — not a scientific result.
 
-Findings: **4**. New issues this run (cap 5): 0.
+Findings: **4**. New issues this run (cap 5): 4.
 
 Agents: pick `status:needs-owner` issues first, then this list, then ROADMAP.md.
 Do not promote Wave Factory. Do not invent CONFIRMED.
@@ -52,3 +52,10 @@ WORK-01 write-through is missing on:
 Run the canonical Python, then:
 `python scripts/apply_crosscheck_result.py --protocol ID --from-stdout run.txt --apply --refresh-hub`
 Do not set `status: confirmed` from this bot.
+
+## Opened this run
+
+- https://github.com/KR8ZYSHO3/Universal-Science-Discovery/issues/326
+- https://github.com/KR8ZYSHO3/Universal-Science-Discovery/issues/327
+- https://github.com/KR8ZYSHO3/Universal-Science-Discovery/issues/328
+- https://github.com/KR8ZYSHO3/Universal-Science-Discovery/issues/329
