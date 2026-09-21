@@ -2,6 +2,7 @@
 
 Place reproducible automation here (Python, R, Julia, shell, and so on).
 
+- **Unknown miner:** `python scripts/harvesters/mine_unknowns.py` then `python scripts/harvesters/promote_unknowns.py` (dry-run) / `--apply` (unknowns only).
 - **Backlog scout (idle job):** `python scripts/backlog_scout.py` — issues, not catalog. `--open-issues` with `gh`. Docs: [`docs/CREW.md`](../docs/CREW.md).
 - **Night crew (never promotes science):** `python scripts/run_crew.py` — harvest (opt) → Wave Factory scout → schema/quality audit → Crosscheck *contracts* → `drafts/crew-reports/LATEST.md`. **Ship mailbox PR:** `python scripts/crew_ship.py --pr N`. Docs: [`docs/CREW.md`](../docs/CREW.md).
 - **Record validation:** `python scripts/validate_schemas.py` (see [requirements-validate.txt](requirements-validate.txt); also runs in GitHub Actions).

@@ -26,6 +26,9 @@ python scripts/run_crew.py
 | **Foreman** | Writes [`drafts/crew-reports/LATEST.md`](../drafts/crew-reports/LATEST.md) | Treat the briefing as evidence |
 | **Shipper** | Opens the bot PR and squash-merges it **if and only if** files are harvest JSON + `drafts/crew-reports/` | Merge `cross-domain/`, unknowns, hypotheses, repro, or schemas |
 | **Backlog scout** | If the queue is thin, scan ROADMAP gaps, missing last-run badges, hub 404s, orphans; open GitHub issues (cap 5); write `drafts/crew-reports/SCOUT.md` | Invent bridges; `--apply` promote; set `status: confirmed` |
+| **Unknown miner** | From harvest JSON, stage `u-*.yaml` only when title/abstract uses gap language (`drafts/unknowns_harvest/`) | Auto-promote bridges; treat harvested gaps as expert-curated |
+
+Unsolvables grow with `python scripts/harvesters/promote_unknowns.py --apply` after you skim the briefing. Bridges still use Wave Factory + a human translation table.
 
 Idle rule: pick `status:needs-owner` issues first, then `SCOUT.md`, then ROADMAP.md. Do not generate catalog YAML because you are bored.
 

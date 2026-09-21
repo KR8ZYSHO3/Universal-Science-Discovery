@@ -121,6 +121,43 @@ def scout(top: int, min_citations: int) -> List[str]:
     return lines
 
 
+def mine_unknowns_section() -> List[str]:
+    """Stated-gap unsolvables. Does not promote. Bridges stay human-gated."""
+    lines = ["## Unknown miner (unsolvables from gap language)", ""]
+    argv = [
+        sys.executable,
+        str(ROOT / "scripts/harvesters/mine_unknowns.py"),
+        "--top",
+        "15",
+        "--output",
+        "drafts/unknowns_harvest",
+    ]
+    code, out = run_cmd(argv, timeout=120)
+    n = len(list((ROOT / "drafts/unknowns_harvest").rglob("u-*.yaml"))) if (
+        ROOT / "drafts/unknowns_harvest"
+    ).exists() else 0
+    lines.append(f"- mine_unknowns exit **{code}**  staged unknowns={n}")
+    lines.append(
+        "- Promote **unknowns only** after a skim: "
+        "`python scripts/harvesters/promote_unknowns.py --apply`"
+    )
+    lines.append("- Do **not** promote Wave Factory bridges from this path.")
+    for t in (out.strip().splitlines()[:12] if out.strip() else []):
+        lines.append(f"  `{t[:200]}`")
+    code_p, out_p = run_cmd(
+        [
+            sys.executable,
+            str(ROOT / "scripts/harvesters/promote_unknowns.py"),
+        ],
+        timeout=60,
+    )
+    lines.append(f"- promote_unknowns dry-run exit **{code_p}** (never `--apply` here)")
+    for t in (out_p.strip().splitlines()[-4:] if out_p.strip() else []):
+        lines.append(f"  `{t[:200]}`")
+    lines.append("")
+    return lines
+
+
 def auditor() -> List[str]:
     lines = ["## Auditor", ""]
     code_s, out_s = run_cmd(
@@ -230,6 +267,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         sections.extend(scout(args.top, args.min_citations))
     else:
         sections.extend(["## Scout (Wave Factory)", "", "- skipped (`--skip-scout`)", ""])
+    sections.extend(mine_unknowns_section())
     sections.extend(auditor())
     sections.extend(tester_contracts())
     path = write_report(sections, args.skip_harvest, args.skip_scout)

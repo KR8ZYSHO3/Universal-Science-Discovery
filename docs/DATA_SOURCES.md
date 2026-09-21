@@ -96,6 +96,8 @@ The cadence workflow (`.github/workflows/harvest-openalex.yml`) runs twice weekl
 
 This is the **night crew**. See [`docs/CREW.md`](CREW.md). Candidates are not findings.
 
+**Unsolvables:** `python scripts/harvesters/mine_unknowns.py` reads the same harvest JSON and stages `drafts/unknowns_harvest/` only when the paper uses gap language. Promote with `python scripts/harvesters/promote_unknowns.py --apply` (unknowns only — not bridges).
+
 Wave Factory can also be run locally:
 
 ```bash
