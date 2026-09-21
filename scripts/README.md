@@ -2,6 +2,7 @@
 
 Place reproducible automation here (Python, R, Julia, shell, and so on).
 
+- **Frontier rail:** `python scripts/export_frontier.py` → `api/v1/frontier.json`
 - **Unknown miner:** `python scripts/harvesters/mine_unknowns.py` then `python scripts/harvesters/promote_unknowns.py` (dry-run) / `--apply` (unknowns only).
 - **Backlog scout (idle job):** `python scripts/backlog_scout.py` — issues, not catalog. `--open-issues` with `gh`. Docs: [`docs/CREW.md`](../docs/CREW.md).
 - **Crosscheck RESULT write-through:** `python scripts/apply_crosscheck_result.py --protocol p-b-… --from-stdout run.txt --apply --refresh-hub` — records `last_run_result` on YAML + hub; never sets `status: confirmed`.
