@@ -25,10 +25,16 @@ python scripts/run_crew.py
 | **Tester** | Checks Crosscheck *contracts* (habitat JS cannot emit CONFIRMED) | Run the habitat Monte Carlo; rewrite `RESULT:` |
 | **Foreman** | Writes [`drafts/crew-reports/LATEST.md`](../drafts/crew-reports/LATEST.md) | Treat the briefing as evidence |
 | **Shipper** | Opens the bot PR and squash-merges it **if and only if** files are harvest JSON + `drafts/crew-reports/` | Merge `cross-domain/`, unknowns, hypotheses, repro, or schemas |
+| **Backlog scout** | If the queue is thin, scan ROADMAP gaps, missing last-run badges, hub 404s, orphans; open GitHub issues (cap 5); write `drafts/crew-reports/SCOUT.md` | Invent bridges; `--apply` promote; set `status: confirmed` |
+
+Idle rule: pick `status:needs-owner` issues first, then `SCOUT.md`, then ROADMAP.md. Do not generate catalog YAML because you are bored.
+
+Clock: daily 07:00 UTC, workflow **Backlog Scout** (`.github/workflows/backlog-scout.yml`). Locally: `python scripts/backlog_scout.py` (add `--open-issues` only with `gh` auth).
 
 ## Mailbox
 
 - Briefing file: `drafts/crew-reports/LATEST.md` (landed on `main` when the Shipper can merge).
+- Idle digest: `drafts/crew-reports/SCOUT.md` + GitHub issues labeled `scout`.
 - Staged YAML: regenerate locally from the candidate JSON; it is not in git. Artifact on the Actions run.
 - Cadence workflow: [`.github/workflows/harvest-openalex.yml`](../.github/workflows/harvest-openalex.yml).
 - Allowlist lives in [`scripts/crew_ship.py`](../scripts/crew_ship.py). If GitHub branch protection blocks the Actions token from merging, the PR stays open — that is still a shipped *request*. Enable “Allow GitHub Actions to create and approve pull requests” if you want the merge to complete unattended.

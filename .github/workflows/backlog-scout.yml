@@ -1,0 +1,86 @@
+name: Backlog Scout
+
+on:
+  schedule:
+    - cron: "0 7 * * *" # daily 07:00 UTC
+  workflow_dispatch:
+
+concurrency:
+  group: backlog-scout
+  cancel-in-progress: true
+
+jobs:
+  scout:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install pyyaml jsonschema
+
+      - name: Ensure labels
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh label create scout --color 5319E7 --description "Backlog scout finding" 2>/dev/null || true
+          gh label create crew --color 5319E7 --description "Night crew / scout" 2>/dev/null || true
+          gh label create "status:needs-owner" --color FBCA04 --description "Up for grabs" 2>/dev/null || true
+
+      - name: Scan and open issues
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python scripts/backlog_scout.py --open-issues --max-open 5
+          cat drafts/crew-reports/SCOUT.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Detect scout report changes
+        id: stage
+        run: |
+          if git ls-files --modified --others --exclude-standard | grep -E '^drafts/crew-reports/SCOUT.md$' > /dev/null; then
+            echo "changes=1" >> "$GITHUB_OUTPUT"
+          else
+            echo "changes=0" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: PR scout digest
+        id: cpr
+        if: success() && steps.stage.outputs.changes != '0'
+        uses: peter-evans/create-pull-request@v8
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: bot/backlog-scout
+          commit-message: "bot: backlog scout digest"
+          committer: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+          author: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+          title: "bot: backlog scout digest (not findings)"
+          body: |
+            Idle-job digest from `scripts/backlog_scout.py`.
+
+            Issues were opened (capped) with `scout` + `status:needs-owner`.
+            **Do not treat this PR as science.** Mailbox only (`drafts/crew-reports/SCOUT.md`).
+          labels: |
+            automation
+            scout
+            crew
+          delete-branch: false
+          add-paths: |
+            drafts/crew-reports/SCOUT.md
+
+      - name: Ship mailbox PR
+        if: success() && steps.cpr.outputs.pull-request-number != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/crew_ship.py --pr "${{ steps.cpr.outputs.pull-request-number }}"
