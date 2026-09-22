@@ -11,7 +11,7 @@ This folder is part of the **git repository**. Anyone who **clones** USDR gets a
 - **Xref hygiene panel:** static **`api/v1/orphan_xref_panel.json`** (regenerate with **`python scripts/export_orphan_xref_panel.py`**) lists capped missing cross-references and disconnected unknowns — contributor tooling, not a scientific ranking.
 - **Recommendations panel:** static **`api/v1/recommendations.json`** (regenerate with **`python scripts/export_recommendations.py`**) lists ≤25 existing bridges by undirected graph degree — contributor tooling, not a scientific ranking and not a Crosscheck outcome.
 - **Strategic path:** repo-root **`ROADMAP.md`** (canonical). **How to use:** **`docs/USE.md`**. **`docs/PATH_TO_SUCCESS.md`** is the catalog-wave checklist only.
-- **First screen:** three doors in researcher language (try an experiment / add a question / keep it honest). GitHub jargon stays out of the hero. Add-steps sit in `<details>`. The site browses; it does not edit catalog files.
+- **First screen:** three doors matching [docs/USE.md](../docs/USE.md): **Run the test** / **See how two fields connect** / **Add an open question**. Operator “keep it honest” is a footnote. GitHub jargon stays out of the hero. The site browses; it does not edit catalog files.
 
 ## Run it locally
 
