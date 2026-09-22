@@ -2356,6 +2356,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../explainers/neuroscience-physics-bridges/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Neuroscience × physics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -3235,7 +3263,7 @@
 <li><strong>Generate</strong> — <code>generate_crosscheck.py</code> reads a bridge and drafts one protocol per <code>cross_pollination_opportunity</code>.</li>
 <li><strong>Review</strong> — drafts stay in <code>drafts/crosscheck/</code> until a human promotes them to <code>protocols-catalog/</code> via PR.</li>
 <li><strong>Run</strong> — each promoted protocol has a <code>repro_bundle</code> with a self-contained script.</li>
-<li><strong>Report</strong> — update protocol <code>status</code> to <code>executed</code>, <code>confirmed</code>, or <code>falsified</code> based on results.</li>
+<li><strong>Report</strong> — capture stdout with <code>python scripts/apply_crosscheck_result.py --protocol &lt;id&gt; --from-stdout run.txt --apply --refresh-hub</code>. That writes <code>last_run_result</code> (CONFIRMED / INCONCLUSIVE / FALSIFIED) onto the protocol YAML and the hub card. It does <strong>not</strong> set <code>status: confirmed</code>; that stays a human promotion.</li>
 </ol>
 <p>Same governance as Wave Factory: automation proposes, humans merge.</p>
 <hr />
@@ -3357,7 +3385,8 @@ python<span class="w"> </span>scripts/validate_schemas.py
 <h2 id="contributing-a-protocol">Contributing a protocol<a class="headerlink" href="#contributing-a-protocol" title="Permanent link">&para;</a></h2>
 <p>Fill <code>null_hypothesis</code>, <code>statistical_analysis_plan</code>, and an honest <code>experimental_design</code> (not generator TODOs and not a <code>[DRAFT]</code> title). Then <strong>manual copy + PR</strong> into <code>protocols-catalog/&lt;same parent as the bridge&gt;/</code>. There is <strong>no</strong> Crosscheck promote CLI. Do not run <code>promote_wave_factory_batch.py</code> on protocols.</p>
 <ul>
-<li>Set <code>status: ready</code> (never <code>confirmed</code> unless a local run printed <code>RESULT: CONFIRMED</code>).</li>
+<li>Set <code>status: ready</code> (never <code>confirmed</code> unless a human promotes after a local run printed <code>RESULT: CONFIRMED</code>).</li>
+<li>After a run: <code>python scripts/apply_crosscheck_result.py --protocol p-b-… --from-stdout run.txt --apply --refresh-hub</code> so the hub shows <strong>last run</strong>, including honest INCONCLUSIVE.</li>
 <li>Set <code>repro_bundle: repro/&lt;protocol-id&gt;/</code>.</li>
 <li>Then <code>python scripts/validate_schemas.py</code>.</li>
 </ul>

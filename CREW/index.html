@@ -2301,6 +2301,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../explainers/neuroscience-physics-bridges/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Neuroscience × physics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -3153,11 +3181,25 @@ python<span class="w"> </span>scripts/run_crew.py
 <td>Opens the bot PR and squash-merges it <strong>if and only if</strong> files are harvest JSON + <code>drafts/crew-reports/</code></td>
 <td>Merge <code>cross-domain/</code>, unknowns, hypotheses, repro, or schemas</td>
 </tr>
+<tr>
+<td><strong>Backlog scout</strong></td>
+<td>If the queue is thin, scan ROADMAP gaps, missing last-run badges, hub 404s, orphans; open GitHub issues (cap 5); write <code>drafts/crew-reports/SCOUT.md</code></td>
+<td>Invent bridges; <code>--apply</code> promote; set <code>status: confirmed</code></td>
+</tr>
+<tr>
+<td><strong>Unknown miner</strong></td>
+<td>From harvest JSON, stage <code>u-*.yaml</code> only when title/abstract uses gap language (<code>drafts/unknowns_harvest/</code>)</td>
+<td>Auto-promote bridges; treat harvested gaps as expert-curated</td>
+</tr>
 </tbody>
 </table>
+<p>Unsolvables grow with <code>python scripts/harvesters/promote_unknowns.py --apply</code> after you skim the briefing. Bridges still use Wave Factory + a human translation table.</p>
+<p>Idle rule: pick <code>status:needs-owner</code> issues first, then <code>SCOUT.md</code>, then ROADMAP.md. Do not generate catalog YAML because you are bored.</p>
+<p>Clock: daily 07:00 UTC, workflow <strong>Backlog Scout</strong> (<code>.github/workflows/backlog-scout.yml</code>). Locally: <code>python scripts/backlog_scout.py</code> (add <code>--open-issues</code> only with <code>gh</code> auth).</p>
 <h2 id="mailbox">Mailbox<a class="headerlink" href="#mailbox" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Briefing file: <code>drafts/crew-reports/LATEST.md</code> (landed on <code>main</code> when the Shipper can merge).</li>
+<li>Idle digest: <code>drafts/crew-reports/SCOUT.md</code> + GitHub issues labeled <code>scout</code>.</li>
 <li>Staged YAML: regenerate locally from the candidate JSON; it is not in git. Artifact on the Actions run.</li>
 <li>Cadence workflow: <a href="../.github/workflows/harvest-openalex.yml"><code>.github/workflows/harvest-openalex.yml</code></a>.</li>
 <li>Allowlist lives in <a href="../scripts/crew_ship.py"><code>scripts/crew_ship.py</code></a>. If GitHub branch protection blocks the Actions token from merging, the PR stays open — that is still a shipped <em>request</em>. Enable “Allow GitHub Actions to create and approve pull requests” if you want the merge to complete unattended.</li>
