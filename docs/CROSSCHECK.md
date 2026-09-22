@@ -32,7 +32,7 @@ flowchart LR
 1. **Generate** — `generate_crosscheck.py` reads a bridge and drafts one protocol per `cross_pollination_opportunity`.
 2. **Review** — drafts stay in `drafts/crosscheck/` until a human promotes them to `protocols-catalog/` via PR.
 3. **Run** — each promoted protocol has a `repro_bundle` with a self-contained script.
-4. **Report** — update protocol `status` to `executed`, `confirmed`, or `falsified` based on results.
+4. **Report** — capture stdout with `python scripts/apply_crosscheck_result.py --protocol <id> --from-stdout run.txt --apply --refresh-hub`. That writes `last_run_result` (CONFIRMED / INCONCLUSIVE / FALSIFIED) onto the protocol YAML and the hub card. It does **not** set `status: confirmed`; that stays a human promotion.
 
 Same governance as Wave Factory: automation proposes, humans merge.
 
@@ -94,7 +94,8 @@ CONFIRMED-only grep policy: four seed scripts are grepped `RESULT: CONFIRMED` in
 
 Fill `null_hypothesis`, `statistical_analysis_plan`, and an honest `experimental_design` (not generator TODOs and not a `[DRAFT]` title). Then **manual copy + PR** into `protocols-catalog/<same parent as the bridge>/`. There is **no** Crosscheck promote CLI. Do not run `promote_wave_factory_batch.py` on protocols.
 
-- Set `status: ready` (never `confirmed` unless a local run printed `RESULT: CONFIRMED`).
+- Set `status: ready` (never `confirmed` unless a human promotes after a local run printed `RESULT: CONFIRMED`).
+- After a run: `python scripts/apply_crosscheck_result.py --protocol p-b-… --from-stdout run.txt --apply --refresh-hub` so the hub shows **last run**, including honest INCONCLUSIVE.
 - Set `repro_bundle: repro/<protocol-id>/`.
 - Then `python scripts/validate_schemas.py`.
 

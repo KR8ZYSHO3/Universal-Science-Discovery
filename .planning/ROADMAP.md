@@ -49,7 +49,7 @@ Outreach copy, Reddit/LinkedIn, `usdr.science`, arXiv submit, personal DMs — s
 **Plans**: TBD (plan-phase)
 
 Plans:
-- [ ] 06-01: RESULT write-through path (catalog + hub) with honesty tests
+- [x] 06-01: RESULT write-through path (catalog + hub) with honesty tests (`scripts/apply_crosscheck_result.py`)
 
 ### Phase 7: Hub first-visit + simple flow
 

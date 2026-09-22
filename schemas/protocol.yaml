@@ -84,6 +84,20 @@ properties:
   last_reviewed:
     type: string
     format: date
+  last_run_result:
+    type: string
+    enum: [CONFIRMED, INCONCLUSIVE, FALSIFIED]
+    description: >
+      Last captured stdout RESULT token from the canonical Python repro.
+      Independent of YAML status. status: confirmed is still a human promotion.
+      INCONCLUSIVE is underpowered or smoke, not "theory false".
+  last_run_at:
+    type: string
+    format: date
+    description: UTC date the last_run_result was recorded
+  last_run_note:
+    type: string
+    description: Optional one-line note (e.g. seed, N_SAMPLES, smoke vs canonical)
   references:
     type: array
     items:

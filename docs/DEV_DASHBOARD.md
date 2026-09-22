@@ -75,6 +75,8 @@ Then update **README** metrics table if totals moved, **CHANGELOG** (Unreleased)
 
 **Night crew (twice weekly or `workflow_dispatch`):** `python scripts/run_crew.py` — see [`docs/CREW.md`](CREW.md). Does not promote into the catalog.
 
+**After a Crosscheck run:** capture stdout, then `python scripts/apply_crosscheck_result.py --protocol <id> --from-stdout run.txt --apply --refresh-hub` so the hub last-run badge matches git. Does not invent CONFIRMED.
+
 ### 4) Automation reference
 
 | Script | Role |
