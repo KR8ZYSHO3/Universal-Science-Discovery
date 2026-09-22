@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added — One operator command list (ROBUST-01)
+- **[docs/OPERATE.md](docs/OPERATE.md):** clone → local hub → validate → numbers → optional graph → Crosscheck write-through. Skip conditions on every step. No DNS/arXiv/outreach.
+
 ### Changed — Hub navigation is destinations, not a long scroll
 - Fixed top bar: **USDR / Map / Look up / Add / More**, plus Search (`/`). Hash routes `#/`, `#/map`, `#/search`, `#/add`, `#/more`. Old `#pathfinder` / `#start` still land on the right view.
 - Home is the example and three doors. The map is its own screen (pathfinder first). Operator chrome stays behind More → Show builder tools.
