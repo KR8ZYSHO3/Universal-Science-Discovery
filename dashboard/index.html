@@ -10,7 +10,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://usdr.science/dashboard/">
   <meta property="og:title" content="Universal Science Discovery Repository — Map the Unknowns">
-  <meta property="og:description" content="A version-controlled, AI-augmented knowledge engine tracking what humanity doesn't yet know. 1124 cross-domain bridges &#9658; 1409 open unknowns &#9658; 3861 knowledge graph nodes &#9658; Open source." >
+  <meta property="og:description" content="A version-controlled, AI-augmented knowledge engine tracking what humanity doesn't yet know. 1124 cross-domain bridges &#9658; 1411 open unknowns &#9658; 3861 knowledge graph nodes &#9658; Open source." >
   <meta property="og:image" content="https://opengraph.githubassets.com/1/KR8ZYSHO3/Universal-Science-Discovery">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -19,7 +19,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Universal Science Discovery Repository">
-  <meta name="twitter:description" content="Map the unknowns. Accelerate discovery. 1124 cross-domain bridges, 1409 open unknowns, 3861 knowledge graph nodes. All open source.">
+  <meta name="twitter:description" content="Map the unknowns. Accelerate discovery. 1124 cross-domain bridges, 1411 open unknowns, 3861 knowledge graph nodes. All open source.">
   <meta name="twitter:image" content="https://opengraph.githubassets.com/1/KR8ZYSHO3/Universal-Science-Discovery">
 
   <!-- SEO -->
@@ -1308,6 +1308,30 @@
     .filter-btn:not(.active) { opacity: 0.4; }
     .filter-btn:focus-visible { outline: 2px solid var(--fc); outline-offset: 2px; }
 
+    .pathfinder {
+      margin: 0 0 1.1rem;
+      padding: 1rem 1.1rem;
+      border: 1px solid var(--border-h);
+      border-radius: var(--r);
+      background: rgba(79,156,249,0.06);
+    }
+    .pathfinder-row { display: flex; flex-wrap: wrap; gap: .6rem; align-items: end; }
+    .pathfinder label { display: flex; flex-direction: column; gap: .25rem; font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+    .pathfinder select, .pathfinder button {
+      font: 500 .88rem/1.2 var(--font); color: var(--text);
+      background: var(--bg-2); border: 1px solid var(--border); border-radius: 8px; padding: .45rem .65rem;
+    }
+    .pathfinder button { cursor: pointer; background: var(--accent); color: #061018; font-weight: 700; border-color: transparent; }
+    .pathfinder button:hover { filter: brightness(1.08); }
+    .pathfinder-out { margin-top: .75rem; font-size: .86rem; color: var(--text); }
+    .pathfinder-hop { display: inline-flex; align-items: center; gap: .35rem; margin: .2rem .25rem .2rem 0; padding: .2rem .5rem; border-radius: 999px; border: 1px solid var(--border); background: var(--bg-1); cursor: pointer; font-size: .78rem; }
+    .pathfinder-hop[data-type="bridge"] { border-color: rgba(79,156,249,.45); }
+    .pathfinder-hop[data-type="unknown"] { border-color: rgba(249,115,22,.45); }
+    .frontier-rail { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: .75rem; margin-top: 1rem; }
+    .frontier-card { padding: .85rem 1rem; border: 1px solid var(--border); border-radius: 12px; background: rgba(249,115,22,.06); }
+    .frontier-card h3 { font-size: .88rem; line-height: 1.35; margin: 0 0 .35rem; }
+    .frontier-card p { margin: 0; font-size: .75rem; color: var(--muted); }
+
     /* ── EDGE TYPE LEGEND ──────────────────────────────────── */
     .edge-legend {
       position: absolute; bottom: 1.2rem; right: 1.2rem;
@@ -1713,9 +1737,36 @@
       .api-endpoint { flex-wrap: wrap; gap: .5rem; }
       .api-endpoint-badge { display: none; }
     }
+
+    /* First visit: one job. Builder chrome stays in the DOM for operators. */
+    body.visitor-first #workstreams,
+    body.visitor-first #developer-api,
+    body.visitor-first #recommendations,
+    body.visitor-first #contribute,
+    body.visitor-first .pill-row,
+    body.visitor-first .stat-deck,
+    body.visitor-first .extra-stat {
+      display: none !important;
+    }
+    .builder-reveal {
+      display: none;
+      margin: 2rem auto 3rem;
+      text-align: center;
+    }
+    body.visitor-first .builder-reveal { display: block; }
+    .builder-reveal button {
+      font: 600 .88rem var(--font);
+      color: var(--muted);
+      background: transparent;
+      border: 1px dashed var(--border);
+      border-radius: 999px;
+      padding: .45rem 1rem;
+      cursor: pointer;
+    }
+    .builder-reveal button:hover { color: var(--text); border-color: var(--accent); }
   </style>
 </head>
-<body>
+<body class="visitor-first">
   <!-- Particle canvas (fixed, full-screen) -->
   <canvas id="particle-canvas" aria-hidden="true"></canvas>
 
@@ -1741,65 +1792,75 @@
         <span class="grad-a">Map the unknowns.</span>
       </h1>
       <p class="hero-lead">
-        Science already catalogs what is known. This project catalogs what is <em>not</em> known —
-        and lets you run a test on a claimed link between two fields.
+        Science already lists what it knows. This lists what it does <em>not</em> —
+        and lets you click one test. That is the whole product.
       </p>
 
       <div class="example-walk aos" id="example">
-        <div class="example-kicker">Start here · one example · ~90 seconds</div>
+        <div class="example-kicker">Do this first · about a minute · no account</div>
         <h2>Habitat loss and percolation are the same math</h2>
         <p>
-          In ecology, a landscape can fall into isolated patches. In physics, a grid can lose a giant connected cluster.
-          USDR treats that as one claim, then lets you test it.
-          Finite landscapes have a shifted, blurred connectivity threshold; the shift scales as L<sup>−1/ν</sup> for this class of models.
-          The in-browser run is a short look. If it says INCONCLUSIVE, the demo is small — not that the physics is wrong, and it does not recover ν.
+          In ecology, a landscape can fall into isolated patches. In physics, a grid can lose its giant connected cluster.
+          This project stores that claim and lets you run a check. One button.
         </p>
         <ol>
-          <li>The claim is a <strong>bridge</strong>: ecology ↔ physics.</li>
-          <li>A <strong>test</strong> checks whether the math actually behaves that way.</li>
-          <li>You run the test in the browser. No account.</li>
+          <li>A <strong>claim</strong> that two fields share the same math.</li>
+          <li>A <strong>test</strong> you can run in the browser.</li>
+          <li>If the short demo says INCONCLUSIVE, it is small — not that the idea is false.</li>
         </ol>
         <div class="example-actions">
           <a class="primary" href="../repro/p-b-habitat-percolation-ecology-fss/index.html">Run this test →</a>
           <a class="secondary" href="explainers/b-habitat-percolation-ecology.html">Read the claim</a>
-          <a class="secondary" href="#crosscheck">More tests</a>
-          <a class="secondary" href="why.html">Why I built this</a>
+          <a class="secondary" href="#pathfinder">See how two fields connect</a>
         </div>
       </div>
+
+      <section class="aos" id="frontier" aria-label="Open questions arriving">
+        <div class="example-kicker">Then look around</div>
+        <h2 class="section-title" style="font-size:1.15rem;margin:.2rem 0 .4rem">More open questions</h2>
+        <p class="section-desc" style="margin:0">A slice of what is still unknown. You do not need to add anything to look.</p>
+        <div class="frontier-rail" id="frontier-rail"></div>
+      </section>
 
       <div class="pages-deploy-banner aos" id="pages-deploy-banner" role="status" aria-live="polite" hidden></div>
 
       <!-- DASHBOARD_CATALOG_SNAPSHOT_BEGIN -->
       <div class="catalog-snapshot aos" role="region" aria-label="Catalog snapshot from YAML file counts and built graph meta">
-        <div class="catalog-snapshot-label">Live catalog snapshot</div>
+        <div class="catalog-snapshot-label">What is in here</div>
         <div class="catalog-snapshot-row">
-          <span class="catalog-snapshot-metric"><span class="catalog-snapshot-n"><span id="snap-bridges">1124</span></span><span class="catalog-snapshot-l">bridges</span></span>
+          <span class="catalog-snapshot-metric"><span class="catalog-snapshot-n"><span id="snap-unknowns">1411</span></span><span class="catalog-snapshot-l">open questions</span></span>
           <span class="catalog-snapshot-sep" aria-hidden="true">·</span>
-          <span class="catalog-snapshot-metric"><span class="catalog-snapshot-n"><span id="snap-unknowns">1409</span></span><span class="catalog-snapshot-l">unknowns</span></span>
+          <span class="catalog-snapshot-metric"><span class="catalog-snapshot-n"><span id="snap-bridges">1124</span></span><span class="catalog-snapshot-l">claimed links</span></span>
           <span class="catalog-snapshot-sep" aria-hidden="true">·</span>
-          <span class="catalog-snapshot-metric"><span class="catalog-snapshot-n"><span id="snap-hypotheses">1275</span></span><span class="catalog-snapshot-l">hypotheses</span></span>
-          <span class="catalog-snapshot-sep" aria-hidden="true">·</span>
-          <span class="catalog-snapshot-metric"><span class="catalog-snapshot-n"><span id="snap-phenomena">11</span></span><span class="catalog-snapshot-l">phenomena</span></span>
-          <span class="catalog-snapshot-sep" aria-hidden="true">·</span>
-          <span class="catalog-snapshot-metric"><span class="catalog-snapshot-n"><span id="snap-graph-nodes">3861</span></span><span class="catalog-snapshot-l">graph nodes</span></span>
-          <span class="catalog-snapshot-sep" aria-hidden="true">·</span>
-          <span class="catalog-snapshot-metric"><span class="catalog-snapshot-n"><span id="snap-graph-edges">4522</span></span><span class="catalog-snapshot-l">graph edges</span></span>
+          <span class="catalog-snapshot-metric"><span class="catalog-snapshot-n"><span id="snap-hypotheses">1275</span></span><span class="catalog-snapshot-l">testable ideas</span></span>
+          <span class="catalog-snapshot-sep extra-stat" aria-hidden="true">·</span>
+          <span class="catalog-snapshot-metric extra-stat"><span class="catalog-snapshot-n"><span id="snap-phenomena">11</span></span><span class="catalog-snapshot-l">early notes</span></span>
+          <span class="catalog-snapshot-sep extra-stat" aria-hidden="true">·</span>
+          <span class="catalog-snapshot-metric extra-stat"><span class="catalog-snapshot-n"><span id="snap-graph-nodes">3861</span></span><span class="catalog-snapshot-l">graph nodes</span></span>
+          <span class="catalog-snapshot-sep extra-stat" aria-hidden="true">·</span>
+          <span class="catalog-snapshot-metric extra-stat"><span class="catalog-snapshot-n"><span id="snap-graph-edges">4522</span></span><span class="catalog-snapshot-l">graph edges</span></span>
         </div>
-        <p class="catalog-snapshot-foot">How to use this catalog: <a href="../docs/USE.md">plain-language guide</a>.</p>
+        <p class="catalog-snapshot-foot">Stuck? <a href="../docs/USE.md">How to use this</a> · <a href="why.html">Why it exists</a></p>
       </div>
       <!-- DASHBOARD_CATALOG_SNAPSHOT_END -->
 
       <div class="door-grid" id="start" role="list">
-        <a class="door-card door-look aos" role="listitem" href="#example">
-          <span class="door-kicker">Now you</span>
-          <span class="door-title">Try that example</span>
-          <span class="door-blurb">Run the habitat test above. Then search your own field. No account.</span>
-          <span class="door-cta">Back to the example →</span>
+        <a class="door-card door-look aos" role="listitem" href="../repro/p-b-habitat-percolation-ecology-fss/index.html">
+          <span class="door-kicker">1</span>
+          <span class="door-title">Run the test</span>
+          <span class="door-blurb">Same as the big button above. No account.</span>
+          <span class="door-cta">Open the test →</span>
         </a>
-        <a class="door-card door-add aos d1" role="listitem" href="#door-add">
-          <span class="door-kicker">Then</span>
-          <span class="door-title">Add your open question</span>
-          <span class="door-blurb">One gap from your field. Send it for review. A person reads it first.</span>
+        <a class="door-card door-add aos d1" role="listitem" href="#pathfinder">
+          <span class="door-kicker">2</span>
+          <span class="door-title">See how two fields connect</span>
+          <span class="door-blurb">Pick two fields. The map shows a real path.</span>
+          <span class="door-cta">Open the map →</span>
+        </a>
+        <a class="door-card aos d2" role="listitem" href="#door-add">
+          <span class="door-kicker">3</span>
+          <span class="door-title">Add an open question</span>
+          <span class="door-blurb">Only if you have one. A person reads it first.</span>
           <span class="door-cta">How to add →</span>
         </a>
       </div>
@@ -1826,7 +1887,7 @@
 
       <div class="pill-row" aria-label="Highlights">
         <span class="pill">1,124 cross-domain bridges</span>
-        <span class="pill">1,409 open unknowns • 1,275 hypotheses</span>
+        <span class="pill">1,411 open unknowns • 1,275 hypotheses</span>
         <span class="pill">3,861 linked records on the map</span>
       </div>
 
@@ -1844,7 +1905,7 @@
           <div class="lbl">Active Hypotheses</div>
         </div>
         <div class="stat-card">
-          <div class="n" id="stat-unk">1409</div>
+          <div class="n" id="stat-unk">1411</div>
           <div class="lbl">Tracked Unknowns</div>
         </div>
         <div class="stat-card">
@@ -1879,11 +1940,11 @@
       <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/" target="_blank" rel="noopener">GitHub Pages ↗</a>
     </p>
     <nav class="hub-nav" aria-label="Page sections">
-      <a href="#example">This example</a>
-      <a href="#crosscheck">More tests</a>
+      <a href="#example">Example</a>
+      <a href="#pathfinder">Connect fields</a>
       <a href="#catalog-search">Search</a>
-      <a href="#knowledge-graph">Map</a>
-      <a href="#door-add">Add a question</a>
+      <a href="#crosscheck">More tests</a>
+      <a href="#door-add">Add</a>
     </nav>
   </div>
 
@@ -2683,7 +2744,7 @@
         </a>
         <a href="../api/v1/unknowns.json" class="api-endpoint" target="_blank" rel="noopener">
           <code>GET /api/v1/unknowns.json</code>
-          <span>All 1409 open unknowns with domain, status, and file path</span>
+          <span>All 1411 open unknowns with domain, status, and file path</span>
           <span class="api-endpoint-badge">~451 KB</span>
         </a>
         <a href="../api/v1/hypotheses.json" class="api-endpoint" target="_blank" rel="noopener">
@@ -2732,6 +2793,15 @@
         Force-directed graph of the full catalog — bridges, unknowns, hypotheses, and phenomena (counts update live when the JSON loads).
         Hover a node to inspect it. Click a node for full details. Drag to reposition. Scroll or pinch to zoom.
       </p>
+      <div class="pathfinder" id="pathfinder">
+        <p class="section-desc" style="margin:0 0 .75rem">Ask how two fields connect. The graph answers with a shortest path through real catalog nodes — not a vibe.</p>
+        <div class="pathfinder-row">
+          <label>From <select id="pf-from"></select></label>
+          <label>To <select id="pf-to"></select></label>
+          <button type="button" id="pf-go">Find how they connect</button>
+        </div>
+        <div class="pathfinder-out" id="pf-out" role="status"></div>
+      </div>
       <div class="graph-stats-bar" id="kg-stats-bar">
         <span id="kg-node-count">3861</span> nodes &nbsp;·&nbsp;
         <span id="kg-edge-count">4522</span> edges<span id="kg-top-node"></span>
@@ -2774,6 +2844,10 @@
         </div>
       </div>
     </section>
+
+    <p class="builder-reveal">
+      <button type="button" id="show-builder-tools">Show builder tools (API, workstreams, GitHub)</button>
+    </p>
 
     <!-- ══════════════════════════════════════════ WORKSTREAMS -->
     <section id="workstreams">
@@ -4489,6 +4563,147 @@
           applyFilterOpacity();
         }
 
+        function highlightPath(ids) {
+          var set = {};
+          (ids || []).forEach(function (id) { set[id] = true; });
+          node.style('opacity', function (d) {
+            if (!activeTypes.has(d.type)) return 0.05;
+            return set[d.id] ? 1 : 0.08;
+          });
+          link.style('opacity', function (d) {
+            var src = typeof d.source === 'object' ? d.source.id : d.source;
+            var tgt = typeof d.target === 'object' ? d.target.id : d.target;
+            return set[src] && set[tgt] ? 0.9 : 0.04;
+          });
+          node.attr('stroke', function (d) {
+            return set[d.id] ? '#fff' : 'rgba(255,255,255,0.14)';
+          }).attr('stroke-width', function (d) {
+            return set[d.id] ? 2.2 : 1;
+          });
+          if (ids && ids[0]) focusNodeId = ids[0];
+        }
+
+        (function wirePathfinder() {
+          var fromEl = document.getElementById('pf-from');
+          var toEl = document.getElementById('pf-to');
+          var goEl = document.getElementById('pf-go');
+          var outEl = document.getElementById('pf-out');
+          if (!fromEl || !toEl || !goEl || !outEl) return;
+
+          function norm(s) {
+            return String(s || '').trim().toLowerCase().replace(/\s+/g, '-').replace(/_/g, '-');
+          }
+          function hasDomain(n, domain) {
+            var needle = norm(domain);
+            var fields = n.fields || n.disciplines || [];
+            if (!Array.isArray(fields)) fields = [fields];
+            for (var i = 0; i < fields.length; i++) {
+              if (fields[i] && norm(fields[i]) === needle) return true;
+            }
+            return false;
+          }
+          var domainSet = {};
+          nodes.forEach(function (n) {
+            if (n.type !== 'bridge') return;
+            (n.fields || []).forEach(function (f) {
+              if (f) domainSet[norm(f)] = true;
+            });
+          });
+          var domains = Object.keys(domainSet).sort();
+          domains.forEach(function (d) {
+            var o1 = document.createElement('option');
+            o1.value = d; o1.textContent = d;
+            fromEl.appendChild(o1);
+            var o2 = document.createElement('option');
+            o2.value = d; o2.textContent = d;
+            toEl.appendChild(o2);
+          });
+          if (domains.indexOf('statistical-physics') >= 0) fromEl.value = 'statistical-physics';
+          if (domains.indexOf('conservation-biology') >= 0) toEl.value = 'conservation-biology';
+
+          var adj = {};
+          edges.forEach(function (e) {
+            var s = typeof e.source === 'object' ? e.source.id : e.source;
+            var t = typeof e.target === 'object' ? e.target.id : e.target;
+            if (!adj[s]) adj[s] = [];
+            if (!adj[t]) adj[t] = [];
+            adj[s].push(t);
+            adj[t].push(s);
+          });
+
+          function shortest(starts, ends) {
+            var dist = {};
+            var parent = {};
+            var q = [];
+            starts.forEach(function (id) { dist[id] = 0; parent[id] = null; q.push(id); });
+            var best = null;
+            var qi = 0;
+            while (qi < q.length) {
+              var cur = q[qi++];
+              if (ends[cur]) { best = cur; break; }
+              (adj[cur] || []).forEach(function (nb) {
+                if (dist[nb] === undefined) {
+                  dist[nb] = dist[cur] + 1;
+                  parent[nb] = cur;
+                  q.push(nb);
+                }
+              });
+            }
+            if (!best) return [];
+            var path = [];
+            for (var x = best; x; x = parent[x]) path.push(x);
+            path.reverse();
+            return path;
+          }
+
+          goEl.addEventListener('click', function () {
+            var a = fromEl.value;
+            var b = toEl.value;
+            if (!a || !b || a === b) {
+              outEl.textContent = 'Pick two different fields.';
+              return;
+            }
+            var starts = [];
+            var ends = {};
+            nodes.forEach(function (n) {
+              var inf = hasDomain(n, a);
+              var int = hasDomain(n, b);
+              if (inf && !int) starts.push(n.id);
+              if (int && !inf) ends[n.id] = true;
+            });
+            var path = shortest(starts, ends);
+            if (!path.length) {
+              outEl.textContent = 'No path in the catalog yet. That is a missing bridge, not a vibe.';
+              return;
+            }
+            highlightPath(path);
+            var graphSection = document.getElementById('knowledge-graph');
+            if (graphSection && graphSection.scrollIntoView) {
+              graphSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            outEl.innerHTML = '';
+            path.forEach(function (id, i) {
+              var n = nodeMap[id] || { id: id, type: 'unknown', title: id };
+              var hop = document.createElement('button');
+              hop.type = 'button';
+              hop.className = 'pathfinder-hop';
+              hop.setAttribute('data-type', n.type || '');
+              hop.textContent = (i + 1) + '. ' + (n.title || id).slice(0, 72);
+              hop.addEventListener('click', function () {
+                highlightNeighborhood(id);
+                openPanel(n);
+              });
+              outEl.appendChild(hop);
+              if (i < path.length - 1) {
+                var arrow = document.createElement('span');
+                arrow.textContent = ' → ';
+                arrow.style.color = 'var(--muted)';
+                outEl.appendChild(arrow);
+              }
+            });
+          });
+        })();
+
         document.querySelectorAll('.filter-btn').forEach(function (btn) {
           btn.addEventListener('click', function () {
             var type = btn.dataset.type;
@@ -5273,6 +5488,42 @@
         document.getElementById('bpc-loading').textContent =
           'AI co-pilot: pioneer seeds + breakthrough-gap bridges awaiting build.';
       });
+  })();
+
+  (function () {
+    var btn = document.getElementById('show-builder-tools');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      document.body.classList.remove('visitor-first');
+    });
+  })();
+
+  (function loadFrontier() {
+    var rail = document.getElementById('frontier-rail');
+    if (!rail) return;
+    var _base = window.location.href.replace(/\/[^\/]*$/, '/').replace(/\/dashboard\/$/, '/');
+    var paths = [_base + 'api/v1/frontier.json', '../api/v1/frontier.json'];
+    function paint(items) {
+      rail.innerHTML = '';
+      (items || []).forEach(function (it) {
+        var a = document.createElement('a');
+        a.className = 'frontier-card';
+        a.href = '#knowledge-graph';
+        a.innerHTML = '<h3></h3><p></p>';
+        a.querySelector('h3').textContent = it.title || it.id;
+        a.querySelector('p').textContent = (it.harvested ? 'harvested · ' : '') + (it.domain || '') + ' · ' + it.id;
+        rail.appendChild(a);
+      });
+    }
+    (function next(ps) {
+      if (!ps.length) {
+        rail.innerHTML = '<p class="section-desc">Frontier list not generated yet. Run <code>python scripts/export_frontier.py</code>.</p>';
+        return;
+      }
+      fetch(ps[0]).then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+        .then(function (data) { paint(data.items || []); })
+        .catch(function () { next(ps.slice(1)); });
+    })(paths);
   })();
   </script>
 </body>
