@@ -25,7 +25,7 @@ Need: Python 3.11 or 3.12, and `pip install pyyaml jsonschema networkx` once.
 python -m http.server 8765
 ```
 
-Open [http://localhost:8765/dashboard/](http://localhost:8765/dashboard/). You should see **USDR · Map · Look up · Add · More**. Hosted copy: [the live hub](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/).
+Open [http://localhost:8765/dashboard/](http://localhost:8765/dashboard/). You should see **USDR · Map · Search · Add · More**. Hosted copy: [the live hub](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/). Map is full screen.
 
 ## 3. Check the catalog
 

@@ -28,6 +28,16 @@ def test_use_md_and_hub_share_door_titles() -> None:
     assert "Try an experiment" not in figure
 
 
+def test_visitor_add_copy_avoids_yaml_git() -> None:
+    hub = (REPO_ROOT / "dashboard" / "index.html").read_text(encoding="utf-8")
+    start = hub.find('id="first-contrib-heading"')
+    end = hub.find("Policy tour")
+    assert start != -1 and end > start
+    chunk = hub[start:end].lower()
+    for word in ("yaml", "pull request", "clone", "fork", "ci "):
+        assert word not in chunk, f"visitor Add view still says {word!r}"
+
+
 def test_hub_destination_nav() -> None:
     hub = (REPO_ROOT / "dashboard" / "index.html").read_text(encoding="utf-8")
     for token in (
