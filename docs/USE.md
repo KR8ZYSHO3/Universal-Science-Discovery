@@ -6,9 +6,11 @@ Do this first, before any other page:
 
 Then pick **one** of the three doors on the [site](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#start). You do not need the rest of the docs first.
 
-![What this catalog is](figures/what-usdr-is.svg)
+[![What you are looking at](figures/what-usdr-is.svg)](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/)
 
-![Three ways in](figures/use-three-doors.svg)
+[Open questions](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#/search) · [Map](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#/map) · [Run this test](https://kr8zysho3.github.io/Universal-Science-Discovery/repro/p-b-habitat-percolation-ecology-fss/index.html)
+
+[![Three ways in](figures/use-three-doors.svg)](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#start)
 
 | | Who | What to do | Stop when |
 |--|-----|------------|-----------|

@@ -23,9 +23,11 @@ Building until a researcher in the room can use it. Public launch is parked — 
 
 Plain language: [docs/USE.md](docs/USE.md). If you operate the site: [docs/OPERATE.md](docs/OPERATE.md).
 
-![What USDR is](docs/figures/what-usdr-is.svg)
+[![What you are looking at](docs/figures/what-usdr-is.svg)](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/)
 
-![Run the test, see how two fields connect, add an open question](docs/figures/use-three-doors.svg)
+[Open questions](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#/search) · [Map](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#/map) · [Run this test](https://kr8zysho3.github.io/Universal-Science-Discovery/repro/p-b-habitat-percolation-ecology-fss/index.html)
+
+[![Run the test, see how two fields connect, add an open question](docs/figures/use-three-doors.svg)](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#start)
 
 ---
 

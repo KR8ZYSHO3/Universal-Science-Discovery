@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed — “What you are looking at” was a dead picture
+- The figure is a diagram, not a page. The picture now links to the hub; the three boxes (when the SVG is opened) and the line under it go to Search, Map, and the habitat test.
+
 ### Changed — Full-screen map and researcher copy
 - Hub **Map** fills the window under the top bar (pathfinder strip + graph). Footer hidden on Map.
 - Bar says **Search** (not Look up). Legend: claimed links / open questions / testable ideas.
