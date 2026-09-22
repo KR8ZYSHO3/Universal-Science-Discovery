@@ -28,6 +28,27 @@ def test_use_md_and_hub_share_door_titles() -> None:
     assert "Try an experiment" not in figure
 
 
+def test_hub_destination_nav() -> None:
+    hub = (REPO_ROOT / "dashboard" / "index.html").read_text(encoding="utf-8")
+    for token in (
+        'data-view="home"',
+        'data-view-link="map"',
+        'href="#/map"',
+        'href="#/search"',
+        'href="#/add"',
+        'data-hub-view="map"',
+        'id="pathfinder"',
+        'id="hub-search-launch"',
+    ):
+        assert token in hub, f"hub missing {token!r}"
+    assert hub.count('class="hub-nav-wrap"') == 1 or hub.count("class=\"hub-nav-wrap\"") >= 1
+    assert 'id="pathfinder"' in hub
+    # Map is not the first paint; home is.
+    home_at = hub.find('data-hub-view="home"')
+    map_at = hub.find('data-hub-view="map"')
+    assert 0 <= home_at < map_at
+
+
 def test_habitat_first_test_landing_exists() -> None:
     landing = (
         REPO_ROOT
