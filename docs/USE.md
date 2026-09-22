@@ -24,7 +24,7 @@ No account. Open the [site](https://kr8zysho3.github.io/Universal-Science-Discov
 
 ## See how two fields connect
 
-On the [site](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#pathfinder), pick two fields (default physics → conservation). The path is from the catalog graph, not a guess.
+On the [site](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#/map), pick two fields (default physics → conservation). The path is from the catalog graph, not a guess. The top bar **Map** is the same place.
 
 ## Add an open question
 

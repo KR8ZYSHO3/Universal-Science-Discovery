@@ -662,6 +662,52 @@
     }
     .hub-nav a:hover { color: var(--text); background: var(--surface); border-color: var(--border); }
     .hub-nav a.active { color: #fff; background: var(--accent); border-color: transparent; }
+    .hub-wordmark {
+      font-weight: 700; letter-spacing: .08em; font-size: .82rem !important;
+      color: var(--text) !important; margin-right: .4rem;
+    }
+    .hub-wordmark.active { background: transparent !important; color: var(--accent) !important; border-color: var(--border) !important; }
+    .hub-search-launch {
+      margin-left: auto;
+      font: 600 .78rem var(--font);
+      color: var(--text);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: .36rem .9rem;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .hub-search-launch:hover { border-color: var(--accent); color: var(--accent); }
+    .hub-search-launch kbd {
+      font-family: var(--mono); font-size: .68em; margin-left: .35rem;
+      opacity: .65; font-weight: 500;
+    }
+
+    /* Destinations: one view at a time. Sections stay in the DOM for scripts. */
+    body { padding-top: var(--nav-h); }
+    .hub-nav-wrap {
+      position: fixed; top: 0; left: 0; right: 0;
+    }
+    [data-hub-view] { display: none !important; }
+    body[data-view="home"] header.hero[data-hub-view="home"] { display: flex !important; }
+    body[data-view="map"] [data-hub-view="map"],
+    body[data-view="search"] [data-hub-view="search"],
+    body[data-view="add"] [data-hub-view="add"],
+    body[data-view="more"] [data-hub-view="more"] { display: block !important; }
+    body[data-view="more"]:not(.visitor-first) [data-hub-view="builder"] { display: block !important; }
+    body[data-view="home"] main { padding: 0; min-height: 0; }
+    body[data-view="map"] main { max-width: none; padding-left: clamp(1rem,3vw,2rem); padding-right: clamp(1rem,3vw,2rem); }
+    body[data-view="map"] #knowledge-graph { padding-top: 1.1rem; min-height: calc(100vh - var(--nav-h) - 1rem); }
+    body[data-view="map"] #graph-container { height: min(72vh, 820px); }
+    body.visitor-first .hero-actions,
+    body.visitor-first #orphan-xref-panel,
+    body.visitor-first #ai-copilot,
+    body.visitor-first #status,
+    body.visitor-first #project,
+    body.visitor-first #policies,
+    body.visitor-first #reference,
+    body.visitor-first #maintainers { display: none !important; }
 
 
     /* ── MAIN ───────────────────────────────────────────────── */
@@ -1753,7 +1799,6 @@
       margin: 2rem auto 3rem;
       text-align: center;
     }
-    body.visitor-first .builder-reveal { display: block; }
     .builder-reveal button {
       font: 600 .88rem var(--font);
       color: var(--muted);
@@ -1766,14 +1811,31 @@
     .builder-reveal button:hover { color: var(--text); border-color: var(--accent); }
   </style>
 </head>
-<body class="visitor-first">
+<body class="visitor-first" data-view="home">
   <!-- Particle canvas (fixed, full-screen) -->
   <canvas id="particle-canvas" aria-hidden="true"></canvas>
 
-  <a class="skip" href="#start">Skip to content</a>
+  <a class="skip" href="#/">Skip to content</a>
+
+  <div class="hub-nav-wrap">
+    <p id="hub-context-banner" class="hub-context-banner" role="note" hidden>
+      <strong>Local preview.</strong> This page is for browsing.
+      To add a record, edit a file in a copy of the catalog and send it for review.
+      Hosted copy:
+      <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/" target="_blank" rel="noopener">GitHub Pages ↗</a>
+    </p>
+    <nav class="hub-nav" aria-label="Hub destinations">
+      <a href="#/" class="hub-wordmark" data-view-link="home">USDR</a>
+      <a href="#/map" data-view-link="map">Map</a>
+      <a href="#/search" data-view-link="search">Look up</a>
+      <a href="#/add" data-view-link="add">Add</a>
+      <a href="#/more" data-view-link="more">More</a>
+      <button type="button" class="hub-search-launch" id="hub-search-launch">Search <kbd>/</kbd></button>
+    </nav>
+  </div>
 
   <!-- ═══════════════════════════════════════════════════════ HERO -->
-  <header class="hero">
+  <header class="hero" data-hub-view="home">
     <div class="hero-inner">
       <div class="hero-meta">
         <div class="eyebrow">
@@ -1811,7 +1873,7 @@
         <div class="example-actions">
           <a class="primary" href="../repro/p-b-habitat-percolation-ecology-fss/index.html">Run this test →</a>
           <a class="secondary" href="explainers/b-habitat-percolation-ecology.html">Read the claim</a>
-          <a class="secondary" href="#pathfinder">See how two fields connect</a>
+          <a class="secondary" href="#/map">See how two fields connect</a>
         </div>
       </div>
 
@@ -1851,13 +1913,13 @@
           <span class="door-blurb">Same as the big button above. No account.</span>
           <span class="door-cta">Open the test →</span>
         </a>
-        <a class="door-card door-add aos d1" role="listitem" href="#pathfinder">
+        <a class="door-card door-add aos d1" role="listitem" href="#/map">
           <span class="door-kicker">2</span>
           <span class="door-title">See how two fields connect</span>
           <span class="door-blurb">Pick two fields. The map shows a real path.</span>
           <span class="door-cta">Open the map →</span>
         </a>
-        <a class="door-card aos d2" role="listitem" href="#door-add">
+        <a class="door-card aos d2" role="listitem" href="#/add">
           <span class="door-kicker">3</span>
           <span class="door-title">Add an open question</span>
           <span class="door-blurb">Only if you have one. A person reads it first.</span>
@@ -1931,25 +1993,8 @@
     </div>
   </header>
 
-  <!-- ═══════════════════════════════════════════════ STICKY NAV -->
-  <div class="hub-nav-wrap">
-    <p id="hub-context-banner" class="hub-context-banner" role="note" hidden>
-      <strong>Local preview.</strong> This page is for browsing.
-      To add a record, edit a file in a copy of the catalog and send it for review.
-      Hosted copy:
-      <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/" target="_blank" rel="noopener">GitHub Pages ↗</a>
-    </p>
-    <nav class="hub-nav" aria-label="Page sections">
-      <a href="#example">Example</a>
-      <a href="#pathfinder">Connect fields</a>
-      <a href="#catalog-search">Search</a>
-      <a href="#crosscheck">More tests</a>
-      <a href="#door-add">Add</a>
-    </nav>
-  </div>
-
   <main>
-    <section aria-label="Add a record">
+    <section aria-label="Add a record" data-hub-view="add">
       <details class="start-details aos" id="door-add">
         <summary id="first-contrib-heading">Add an open question (five steps)</summary>
         <p class="first-contrib-lead">
@@ -2069,7 +2114,7 @@
     </section>
 
     <!-- ═══════════════════════════════════════════ CROSSCHECK -->
-    <section id="crosscheck">
+    <section id="crosscheck" data-hub-view="more">
       <div>
         <span class="section-tag">Tests</span>
         <h2 class="section-title">More tests of bridges</h2>
@@ -2141,7 +2186,7 @@
     </section>
 
     <!-- ═══════════════════════════════════════════ CATALOG SEARCH -->
-    <section id="catalog-search">
+    <section id="catalog-search" data-hub-view="search">
       <div>
         <span class="section-tag">Catalog</span>
         <h2 class="section-title">Search the knowledge catalog</h2>
@@ -2168,7 +2213,7 @@
     </section>
 
     <!-- ═════════════════════════════════ ORPHAN / XREF TARGETS -->
-    <section id="orphan-xref-panel" class="aos">
+    <section id="orphan-xref-panel" class="aos" data-hub-view="builder">
       <div class="orphan-xref-panel">
         <span class="section-tag">Contributor hygiene</span>
         <h2 class="section-title">Orphan and missing cross-reference targets</h2>
@@ -2216,7 +2261,7 @@
       </div>
     </section>
 
-    <section id="recommendations" class="aos">
+    <section id="recommendations" class="aos" data-hub-view="builder">
       <div class="rec-panel">
         <span class="section-tag">Contributor tooling</span>
         <h2 class="section-title">High-connectivity bridges</h2>
@@ -2250,7 +2295,7 @@
     </section>
 
     <!-- ══════════════════════════════════════ DISCOVERY ENGINES -->
-    <section id="discovery-engines">
+    <section id="discovery-engines" data-hub-view="more">
       <div>
         <span class="section-tag">Discovery Engines</span>
         <h2 class="section-title">Curated cross-domain engines</h2>
@@ -2265,7 +2310,7 @@
     </section>
 
     <!-- ══════════════════════════════════════════════ PIONEERS -->
-    <section id="pioneers" style="padding:4rem 2rem; background: rgba(255,255,255,0.02);">
+    <section id="pioneers" data-hub-view="more" style="padding:4rem 2rem; background: rgba(255,255,255,0.02);">
       <h2 style="text-align:center; font-size:2rem; margin-bottom:0.5rem;">Scientific Pioneers</h2>
       <p style="text-align:center; color:#94a3b8; margin-bottom:2rem;">
         Foundational scientists whose work seeds cross-domain bridges — including underappreciated contributions ripe for rediscovery.
@@ -2353,7 +2398,7 @@
     </section>
 
     <!-- ══════════════════════════════════════ BREAKTHROUGH GAPS -->
-    <section id="breakthrough-gaps" style="padding:4rem 2rem;">
+    <section id="breakthrough-gaps" data-hub-view="more" style="padding:4rem 2rem;">
       <h2 style="text-align:center; font-size:2rem; margin-bottom:0.5rem;">Breakthrough Gaps</h2>
       <p style="text-align:center; color:#94a3b8; margin-bottom:2rem;">
         World-reshaping breakthroughs stalled by cross-domain knowledge gaps. Cards below are generated from the
@@ -2655,7 +2700,7 @@
     </section>
 
     <!-- ════════════════════════════════════════════ AI CO-PILOT -->
-    <section id="ai-copilot">
+    <section id="ai-copilot" data-hub-view="builder">
       <div>
         <span class="section-tag">AI Co-pilot</span>
         <h2 class="section-title">Automated knowledge-graph analysis</h2>
@@ -2722,7 +2767,7 @@
     </section>
 
     <!-- ═══════════════════════════════════════ DEVELOPER API -->
-    <section id="developer-api">
+    <section id="developer-api" data-hub-view="builder">
       <div>
         <span class="section-tag">Developer API</span>
         <h2 class="section-title">Static JSON endpoints</h2>
@@ -2786,7 +2831,7 @@
     </section>
 
     <!-- ════════════════════════════════════════ KNOWLEDGE GRAPH -->
-    <section class="graph-section" id="knowledge-graph" aria-label="Knowledge graph">
+    <section class="graph-section" id="knowledge-graph" data-hub-view="map" aria-label="Knowledge graph">
       <span class="section-tag">Knowledge Graph</span>
       <h2 class="section-title">Cross-domain connection map</h2>
       <p class="section-desc">
@@ -2845,12 +2890,12 @@
       </div>
     </section>
 
-    <p class="builder-reveal">
+    <p class="builder-reveal" data-hub-view="more">
       <button type="button" id="show-builder-tools">Show builder tools (API, workstreams, GitHub)</button>
     </p>
 
     <!-- ══════════════════════════════════════════ WORKSTREAMS -->
-    <section id="workstreams">
+    <section id="workstreams" data-hub-view="builder">
       <div>
         <span class="section-tag">Development</span>
         <h2 class="section-title">Pick a workstream, own it</h2>
@@ -2986,7 +3031,7 @@
     </section>
 
     <!-- ═══════════════════════════════════════════════ STATUS -->
-    <section id="status">
+    <section id="status" data-hub-view="builder">
       <div>
         <span class="section-tag">Project Status</span>
         <h2 class="section-title">University-ready robustness (v1.3)</h2>
@@ -3061,7 +3106,7 @@
     </section>
 
     <!-- ═══════════════════════════════════════════ CONTRIBUTE -->
-    <section id="contribute">
+    <section id="contribute" data-hub-view="builder">
       <div>
         <span class="section-tag">Contribute</span>
         <h2 class="section-title">Where to add knowledge</h2>
@@ -3180,7 +3225,7 @@
     </section>
 
     <!-- ═══════════════════════════════════════════════ PROJECT -->
-    <section id="project">
+    <section id="project" data-hub-view="builder">
       <div>
         <span class="section-tag">Project</span>
         <h2 class="section-title">Understand the architecture</h2>
@@ -3223,7 +3268,7 @@
     </section>
 
     <!-- ═══════════════════════════════════════════════ POLICIES -->
-    <section id="policies">
+    <section id="policies" data-hub-view="builder">
       <div>
         <span class="section-tag">Policies &amp; Governance</span>
         <h2 class="section-title">Trust, licensing, and how we run it</h2>
@@ -3276,7 +3321,7 @@
     </section>
 
     <!-- ═══════════════════════════════════════════════ REFERENCE -->
-    <section id="reference">
+    <section id="reference" data-hub-view="builder">
       <div>
         <span class="section-tag">Reference</span>
         <h2 class="section-title">Maps &amp; traceability</h2>
@@ -3318,7 +3363,7 @@
     </section>
 
     <!-- ═══════════════════════════════════════════ MAINTAINERS -->
-    <section id="maintainers">
+    <section id="maintainers" data-hub-view="builder">
       <div>
         <span class="section-tag">Maintainers</span>
         <h2 class="section-title">Live checklist &amp; roadmap</h2>
@@ -3938,27 +3983,60 @@
       });
     }
 
-    /* ── SCROLL SPY ──────────────────────────────────────────── */
-    var navLinks = [].slice.call(document.querySelectorAll('.hub-nav a'));
-    var sections = navLinks.map(function (a) { var h = a.getAttribute('href'); return h && h.startsWith('#') ? document.querySelector(h) : null; }).filter(Boolean);
-    var navWrap  = document.querySelector('.hub-nav-wrap');
-    var spyTick  = null;
-    function updateSpy() {
-      var y = (window.scrollY || 0) + (navWrap ? navWrap.offsetHeight : 54) + 32;
-      var active = sections[0] ? sections[0].id : '';
-      for (var i = sections.length - 1; i >= 0; i--) {
-        if (sections[i].offsetTop <= y) { active = sections[i].id; break; }
-      }
-      navLinks.forEach(function (a) {
-        a.classList.toggle('active', a.getAttribute('href') === '#' + active);
-      });
+    /* ── DESTINATION VIEWS ───────────────────────────────────── */
+    var VIEW_ALIASES = {
+      '': 'home', '/': 'home', '/home': 'home',
+      'example': 'home', 'start': 'home', 'frontier': 'home',
+      '/map': 'map', 'map': 'map', 'pathfinder': 'map', 'knowledge-graph': 'map',
+      '/search': 'search', 'search': 'search', 'catalog-search': 'search',
+      '/add': 'add', 'add': 'add', 'door-add': 'add',
+      '/more': 'more', 'more': 'more', 'crosscheck': 'more',
+      'pioneers': 'more', 'breakthrough-gaps': 'more', 'discovery-engines': 'more',
+      'workstreams': 'more', 'contribute': 'more', 'developer-api': 'more',
+      'recommendations': 'more', 'orphan-xref-panel': 'more',
+      'status': 'more', 'project': 'more', 'policies': 'more',
+      'reference': 'more', 'maintainers': 'more', 'ai-copilot': 'more'
+    };
+    function currentViewFromHash() {
+      var raw = (location.hash || '').replace(/^#/, '');
+      if (VIEW_ALIASES.hasOwnProperty(raw)) return VIEW_ALIASES[raw];
+      var top = raw.split('?')[0];
+      if (VIEW_ALIASES.hasOwnProperty(top)) return VIEW_ALIASES[top];
+      return 'home';
     }
-    window.addEventListener('scroll', function () {
-      if (spyTick) cancelAnimationFrame(spyTick);
-      spyTick = requestAnimationFrame(updateSpy);
-    }, { passive: true });
-    window.addEventListener('resize', updateSpy, { passive: true });
-    updateSpy();
+    function applyHubView(view, opts) {
+      opts = opts || {};
+      document.body.setAttribute('data-view', view);
+      document.querySelectorAll('.hub-nav a[data-view-link]').forEach(function (a) {
+        a.classList.toggle('active', a.getAttribute('data-view-link') === view);
+      });
+      if (view === 'add') {
+        var addDetails = document.getElementById('door-add');
+        if (addDetails && addDetails.tagName === 'DETAILS') addDetails.open = true;
+      }
+      if (typeof revealAosInScope === 'function') {
+        document.querySelectorAll('[data-hub-view="' + view + '"]').forEach(revealAosInScope);
+      }
+      if (view === 'map' && typeof window.usdrResizeGraph === 'function') {
+        requestAnimationFrame(window.usdrResizeGraph);
+        setTimeout(window.usdrResizeGraph, 120);
+      }
+      if (view === 'search' && opts.focusSearch) {
+        var inp = document.getElementById('catalog-search-input');
+        if (inp) { inp.focus(); inp.select(); }
+      }
+      if (!opts.keepScroll) window.scrollTo(0, 0);
+    }
+    window.usdrApplyHubView = applyHubView;
+    window.usdrGoView = function (view, opts) {
+      var next = '#/' + (view === 'home' ? '' : view);
+      if (location.hash === next || (view === 'home' && (location.hash === '' || location.hash === '#'))) {
+        applyHubView(view, opts);
+        return;
+      }
+      location.hash = next;
+    };
+    var navLinks = [].slice.call(document.querySelectorAll('.hub-nav a'));
 
     /* ── ANIMATE ON SCROLL ───────────────────────────────────── */
     if ('IntersectionObserver' in window) {
@@ -3986,7 +4064,17 @@
       if (target && target.tagName === 'DETAILS') target.open = true;
       revealAosInScope(target);
     }
-    window.addEventListener('hashchange', revealAosFromHash);
+    window.addEventListener('hashchange', function () {
+      applyHubView(currentViewFromHash(), { focusSearch: currentViewFromHash() === 'search' });
+      revealAosFromHash();
+    });
+    applyHubView(currentViewFromHash());
+    var searchLaunch = document.getElementById('hub-search-launch');
+    if (searchLaunch) {
+      searchLaunch.addEventListener('click', function () {
+        window.usdrGoView('search', { focusSearch: true });
+      });
+    }
     navLinks.forEach(function (a) {
       var href = a.getAttribute('href');
       if (!href || href.charAt(0) !== '#') return;
@@ -4362,11 +4450,13 @@
 
         /* Scroll to graph and open detail panel for a node from search results */
         function highlightNode(nodeId) {
+          if (typeof window.usdrGoView === 'function') window.usdrGoView('map');
           var graphSection = document.getElementById('knowledge-graph');
           if (graphSection) graphSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-          /* Use a small delay so the scroll completes before the panel opens */
+          /* Delay so the map view is visible and the graph can size. */
           setTimeout(function () {
+            if (typeof window.usdrResizeGraph === 'function') window.usdrResizeGraph();
             var d = nodeMap ? nodeMap[nodeId] : null;
             if (!d) {
               d = { id: nodeId, type: nodeId.startsWith('b-') ? 'bridge' : nodeId.startsWith('u-') ? 'unknown' : 'hypothesis', title: nodeId };
@@ -4391,16 +4481,18 @@
           }, 350);
         }
 
-        /* keyboard shortcut: / focuses search */
+        /* keyboard shortcut: / opens Look up */
         document.addEventListener('keydown', function (e) {
           if (e.key === '/' && document.activeElement !== inputEl &&
               !['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)) {
             e.preventDefault();
-            if (inputEl) { inputEl.focus(); inputEl.select(); }
+            if (typeof window.usdrGoView === 'function') window.usdrGoView('search', { focusSearch: true });
+            setTimeout(function () { if (inputEl) { inputEl.focus(); inputEl.select(); } }, 40);
           }
         });
 
         window.usdrApplyCatalogSearch = function (q) {
+          if (typeof window.usdrGoView === 'function') window.usdrGoView('search', { focusSearch: true });
           if (!inputEl) return;
           inputEl.value = q || '';
           doSearch(inputEl.value);
@@ -4476,6 +4568,21 @@
           .force('charge',    d3.forceManyBody().strength(-200))
           .force('center',    d3.forceCenter(w / 2, h / 2))
           .force('collision', d3.forceCollide().radius(function (d) { return nodeR(d) + 3; }));
+
+        window.usdrResizeGraph = function () {
+          var box = svgEl.parentElement;
+          var w2 = (box && box.clientWidth) || svgEl.clientWidth || 0;
+          var h2 = (box && box.clientHeight) || svgEl.clientHeight || 0;
+          if (w2 < 40 || h2 < 40) return;
+          sim.force('center', d3.forceCenter(w2 / 2, h2 / 2));
+          sim.alpha(0.18).restart();
+        };
+        window.addEventListener('resize', function () {
+          if (document.body.getAttribute('data-view') === 'map') window.usdrResizeGraph();
+        });
+        if (document.body.getAttribute('data-view') === 'map') {
+          requestAnimationFrame(window.usdrResizeGraph);
+        }
 
         /* edges */
         var link = g.append('g').attr('class', 'kg-links')
@@ -5495,6 +5602,7 @@
     if (!btn) return;
     btn.addEventListener('click', function () {
       document.body.classList.remove('visitor-first');
+      if (typeof window.usdrGoView === 'function') window.usdrGoView('more');
     });
   })();
 
@@ -5508,7 +5616,7 @@
       (items || []).forEach(function (it) {
         var a = document.createElement('a');
         a.className = 'frontier-card';
-        a.href = '#knowledge-graph';
+        a.href = '#/map';
         a.innerHTML = '<h3></h3><p></p>';
         a.querySelector('h3').textContent = it.title || it.id;
         a.querySelector('p').textContent = (it.harvested ? 'harvested · ' : '') + (it.domain || '') + ' · ' + it.id;

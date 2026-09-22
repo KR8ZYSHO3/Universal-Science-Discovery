@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed — Hub navigation is destinations, not a long scroll
+- Fixed top bar: **USDR / Map / Look up / Add / More**, plus Search (`/`). Hash routes `#/`, `#/map`, `#/search`, `#/add`, `#/more`. Old `#pathfinder` / `#start` still land on the right view.
+- Home is the example and three doors. The map is its own screen (pathfinder first). Operator chrome stays behind More → Show builder tools.
+
 ### Changed — First-visit doors match the hub (FLOW-01)
 - Hub, [docs/USE.md](docs/USE.md), and the three-door figure now use the same labels: **Run the test** · **See how two fields connect** · **Add an open question**. Operator “keep it honest” stays a footnote.
 
