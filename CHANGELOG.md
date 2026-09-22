@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed — First visit is one job
+- Hub default `visitor-first`: one example, one test button, three plain doors, snapshot as “open questions / claimed links.” Builder tools (API, workstreams, GitHub stats) stay off-screen until “Show builder tools.”
+
+### Added — Hub pathfinder + frontier rail
+- Knowledge-graph section: pick two fields, get a shortest path through real catalog nodes, hops highlight on the map.
+- First-visit **Unsolvables, live** rail from `api/v1/frontier.json` (`python scripts/export_frontier.py`). Harvested `u-gap-*` unknowns surface first.
+
 ### Added — Unknown miner (grow unsolvables, not auto-bridges)
 - **`scripts/harvesters/mine_unknowns.py`:** stages `u-*.yaml` from harvest JSON only when the paper uses gap language (remains unknown, open problem, …). Dedupes on DOI/title.
 - **`scripts/harvesters/promote_unknowns.py`:** copies staged unknowns into `unknowns-catalog/`. Default dry-run. Never moves bridges.

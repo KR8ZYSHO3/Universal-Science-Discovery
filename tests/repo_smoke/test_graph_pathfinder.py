@@ -66,6 +66,21 @@ def test_cli_domain_query_exits_zero() -> None:
     assert "Pathfinder:" in proc.stdout
 
 
+def test_hub_has_pathfinder_and_frontier_rail() -> None:
+    html = (REPO_ROOT / "dashboard" / "index.html").read_text(encoding="utf-8")
+    assert 'id="pathfinder"' in html
+    assert 'id="pf-go"' in html
+    assert 'id="frontier-rail"' in html
+    assert "visitor-first" in html
+    assert "show-builder-tools" in html
+    frontier = REPO_ROOT / "api" / "v1" / "frontier.json"
+    assert frontier.is_file()
+    import json
+
+    data = json.loads(frontier.read_text(encoding="utf-8"))
+    assert data.get("items")
+
+
 def test_cli_unknown_domain_exits_one() -> None:
     proc = subprocess.run(
         [sys.executable, str(SCRIPT), "--from", "not-a-real-domain-xyz", "--to", "ecology"],

@@ -2,9 +2,9 @@
 
 Do this first, before any other page:
 
-**One example.** Habitat loss in ecology and percolation in physics are claimed to be the same math. USDR stores that claim, then lets you [run the test in the browser](https://kr8zysho3.github.io/Universal-Science-Discovery/repro/p-b-habitat-percolation-ecology-fss/index.html) (about a minute, no account). Finite landscapes have a shifted, blurred connectivity threshold; the shift scales as \(L^{-1/\nu}\) for this class of models. The browser run is a short look: if it says INCONCLUSIVE, the demo is small, not that the physics is wrong, and it does not recover \(\nu\). The full exponent check is the Python command in that folder. That is the whole product: an open connection, plus a test.
+**One example.** Open the [site](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#example). Click **Run this test**. That is the product. Everything else is optional.
 
-Then pick **one** of the two doors on the [site](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#start). You do not need the rest of the docs first.
+Then pick **one** of the two doors on the [site](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#start). You do not need the rest of the docs first. On the same page: **How fields connect** (pathfinder) and a live rail of open questions.
 
 ![What this catalog is](figures/what-usdr-is.svg)
 
