@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed — First-visit doors match the hub (FLOW-01)
+- Hub, [docs/USE.md](docs/USE.md), and the three-door figure now use the same labels: **Run the test** · **See how two fields connect** · **Add an open question**. Operator “keep it honest” stays a footnote.
+
 ### Fixed — Graph rebuild explainer generator (Python 3.11)
 - **`scripts/generate_explainers.py`:** optional HTML sections are built before the page f-string. A `Hasn\'t` escape inside `{...}` is a SyntaxError on 3.11 (graph rebuild), allowed on 3.12.
 

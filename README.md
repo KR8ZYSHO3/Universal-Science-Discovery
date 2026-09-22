@@ -5,14 +5,14 @@
 **The open-source knowledge engine for scientific unknowns and cross-domain discovery**
 
 [![Bridges](https://img.shields.io/badge/bridges-1124-6366f1?style=flat-square)](cross-domain/)
-[![Unknowns](https://img.shields.io/badge/unknowns-1409-22c55e?style=flat-square)](unknowns-catalog/)
+[![Unknowns](https://img.shields.io/badge/unknowns-1411-22c55e?style=flat-square)](unknowns-catalog/)
 [![Hypotheses](https://img.shields.io/badge/hypotheses-1275-f59e0b?style=flat-square)](hypotheses/)
-[![Graph Nodes](https://img.shields.io/badge/graph_nodes-3861-ec4899?style=flat-square)](docs/knowledge_graph.json)
+[![Graph Nodes](https://img.shields.io/badge/graph_nodes-3863-ec4899?style=flat-square)](docs/knowledge_graph.json)
 [![License: CC BY 4.0](https://img.shields.io/badge/catalog-CC%20BY%204.0-blue?style=flat-square)](LICENSE)
 [![License: MIT](https://img.shields.io/badge/code-MIT-green?style=flat-square)](LICENSE)
 [![CI](https://img.shields.io/github/actions/workflow/status/KR8ZYSHO3/Universal-Science-Discovery/validate.yml?style=flat-square&label=CI)](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/actions)
 
-**[Open the catalog](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#start) · [Try an experiment](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#crosscheck) · [How to use](docs/USE.md) · [Why I am building this](docs/WHY.md)**
+**[Open the catalog](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#start) · [Run this test](https://kr8zysho3.github.io/Universal-Science-Discovery/repro/p-b-habitat-percolation-ecology-fss/index.html) · [How to use](docs/USE.md) · [Why I am building this](docs/WHY.md)**
 
 > Building until a researcher in the room can use it. Public launch is parked — [ROADMAP.md](ROADMAP.md).
 

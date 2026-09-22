@@ -4,7 +4,7 @@ Do this first, before any other page:
 
 **One example.** Open the [site](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#example). Click **Run this test**. That is the product. Everything else is optional.
 
-Then pick **one** of the two doors on the [site](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#start). You do not need the rest of the docs first. On the same page: **How fields connect** (pathfinder) and a live rail of open questions.
+Then pick **one** of the three doors on the [site](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#start). You do not need the rest of the docs first.
 
 ![What this catalog is](figures/what-usdr-is.svg)
 
@@ -12,21 +12,27 @@ Then pick **one** of the two doors on the [site](https://kr8zysho3.github.io/Uni
 
 | | Who | What to do | Stop when |
 |--|-----|------------|-----------|
-| **1. Try it** | Anyone, no account | Open the [site](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#start). Click **Try an experiment**. Search your field after. | You have seen a live test. |
-| **2. Add a question** | You have one gap from your field | Write **one** open question, hypothesis, *or* bridge. Check it. Send it for review. | Detail: [first records guide](HAPPY_PATH_FIRST_RECORDS.md) |
-| **3. Keep it honest** | You operate this site | Keep the numbers on the site matching the catalog files. The night crew adds harvested open questions by itself — you do not run YAML. | Detail: [operator checklist](DEV_DASHBOARD.md) |
+| **1. Run the test** | Anyone, no account | Open the [site](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#start). Click **Run the test** (same as **Run this test**). | You have seen a live test. |
+| **2. See how two fields connect** | Anyone, no account | On the same page, pick two fields. The map shows a real path through the catalog. | You have seen a path. |
+| **3. Add an open question** | You have one gap from your field | Write **one** open question, hypothesis, *or* claimed link. Check it. Send it for review. | Detail: [first records guide](HAPPY_PATH_FIRST_RECORDS.md) |
 
-## Try it
+If you **operate** this site, not visiting: [keep the catalog honest](#keep-the-catalog-honest). Night crew adds harvested open questions by itself.
 
-No account. Open the [site](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#start) and click **Try an experiment**. That jumps to a [browser test](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#crosscheck) (we call these Crosscheck). Then search your field if you want.
+## Run the test
 
-## Add a question
+No account. Open the [site](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#example) and click **Run this test**. That opens the habitat / percolation check in the browser. If it says INCONCLUSIVE, the demo is small — not that the idea is false.
 
-On the site, click **Add an open question**. Records are short structured notes. On GitHub, sending one for review is a “pull request” — a person reads it before it joins the catalog.
+## See how two fields connect
+
+On the [site](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#pathfinder), pick two fields (default physics → conservation). The path is from the catalog graph, not a guess.
+
+## Add an open question
+
+On the site, click **Add an open question**. Records are short structured notes. Sending one for review means a person reads it before it joins the catalog.
 
 ## Keep the catalog honest
 
-Only if you run this site. Until a single operator list ships, use the [operator checklist](DEV_DASHBOARD.md).
+Only if you run this site. Until a single operator list ships, use the [operator checklist](DEV_DASHBOARD.md). The night crew adds harvested open questions by itself — you do not run YAML.
 
 ## Words we avoid on the front door
 

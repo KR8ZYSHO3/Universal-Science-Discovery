@@ -26,8 +26,8 @@ Full archive: [milestones/v1.1-ROADMAP.md](milestones/v1.1-ROADMAP.md)
 
 ### 🚧 v1.3 University-ready robustness (active)
 
-- [ ] **Phase 6: Crosscheck closed loop** — RESULT writes through to catalog/hub
-- [ ] **Phase 7: Hub first-visit + simple flow** — three doors on the hub; counts, links, Crosscheck, no broken loads
+- [x] **Phase 6: Crosscheck closed loop** — RESULT writes through to catalog/hub
+- [x] **Phase 7: Hub first-visit + simple flow** — three doors on the hub; counts, links, Crosscheck, no broken loads
 - [ ] **Phase 8: Maintainer command list** — one ordered playbook
 - [ ] **Phase 9: Catalog batch runbook** — one documented local run
 
@@ -65,7 +65,7 @@ Plans:
 **Plans**: TBD (plan-phase)
 
 Plans:
-- [ ] 07-01: Three-door `#start` + first-visit audit against Pages hub and local server
+- [x] 07-01: Three-door `#start` + first-visit audit against Pages hub and local server
 
 ### Phase 8: Maintainer command list
 
@@ -104,8 +104,8 @@ Plans:
 | 3. Crosscheck scale-up | v1.1 | 3/3 | Complete | 2026-08-26 |
 | 4. CI & trust hardening | v1.1 | 2/2 | Complete | 2026-08-26 |
 | 5. Hub engineering | v1.1 | 1/1 | Complete | 2026-08-26 |
-| 6. Crosscheck closed loop | v1.3 | 0/1 | Not started | — |
-| 7. Hub first-visit + simple flow | v1.3 | 0/1 | Not started | — |
+| 6. Crosscheck closed loop | v1.3 | 1/1 | Complete | 2026-09-22 |
+| 7. Hub first-visit + simple flow | v1.3 | 1/1 | Complete | 2026-09-22 |
 | 8. Maintainer command list | v1.3 | 0/1 | Not started | — |
 | 9. Catalog batch runbook | v1.3 | 0/1 | Not started | — |
 
