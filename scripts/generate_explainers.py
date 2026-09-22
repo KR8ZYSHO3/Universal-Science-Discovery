@@ -273,6 +273,54 @@ def make_explainer_html(bridge: dict, protocols: list[dict] | None = None) -> st
 
     og_description = short_title[:160]
 
+    # Build optional sections outside the page f-string. Python 3.11 (graph
+    # rebuild) rejects a backslash inside an f-string expression (Hasn\'t).
+    translation_section = (
+        '<section id="translation">\n'
+        '    <h2><span class="icon">↔️</span> Translation Table</h2>'
+        + table_html
+        + "</section>"
+        if table_html
+        else ""
+    )
+    comm_gap_section = (
+        '<section id="comm-gap">\n'
+        "    <h2><span class=\"icon\">🗺️</span> Why Hasn't This Been Unified?</h2>\n"
+        f'    <div class="card"><p>{h(communication_gap)}</p></div>\n'
+        "  </section>"
+        if communication_gap
+        else ""
+    )
+    opportunities_section = (
+        '<section id="opportunities">\n'
+        '    <h2><span class="icon">🌱</span> Cross-Pollination Opportunities</h2>'
+        + opp_html
+        + "</section>"
+        if opp_html
+        else ""
+    )
+    crosscheck_section = (
+        '<section id="crosscheck">\n'
+        '    <h2><span class="icon">🧪</span> Crosscheck — Prove This Bridge</h2>\n'
+        '    <p class="crosscheck-intro">Runnable experiment protocols promoted from this bridge. USDR maps what connects; Crosscheck proves it.</p>\n'
+        f'    <div class="crosscheck-grid">{crosscheck_html}</div>\n'
+        '    <p class="crosscheck-intro" style="margin-top:1rem;">\n'
+        '      <a href="../../docs/CROSSCHECK.md" class="crosscheck-link">Crosscheck manifesto</a>\n'
+        f"      · Generate more drafts: <code>python scripts/generate_crosscheck.py --bridge {h(bid)} --write</code>\n"
+        "    </p>\n"
+        "  </section>"
+        if crosscheck_html
+        else ""
+    )
+    open_questions_section = (
+        '<section id="open-questions">\n'
+        '    <h2><span class="icon">❓</span> Open Questions</h2>'
+        + open_questions_html
+        + "</section>"
+        if open_questions_html
+        else ""
+    )
+
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -592,33 +640,19 @@ def make_explainer_html(bridge: dict, protocols: list[dict] | None = None) -> st
   </section>
 
   <!-- Translation Table -->
-  {'''<section id="translation">
-    <h2><span class="icon">↔️</span> Translation Table</h2>''' + table_html + "</section>" if table_html else ""}
+  {translation_section}
 
   <!-- Communication Gap -->
-  {'''<section id="comm-gap">
-    <h2><span class="icon">🗺️</span> Why Hasn\'t This Been Unified?</h2>
-    <div class="card"><p>''' + h(communication_gap) + '''</p></div>
-  </section>''' if communication_gap else ""}
+  {comm_gap_section}
 
   <!-- Cross-pollination opportunities -->
-  {'''<section id="opportunities">
-    <h2><span class="icon">🌱</span> Cross-Pollination Opportunities</h2>''' + opp_html + "</section>" if opp_html else ""}
+  {opportunities_section}
 
   <!-- Crosscheck protocols -->
-  {'''<section id="crosscheck">
-    <h2><span class="icon">🧪</span> Crosscheck — Prove This Bridge</h2>
-    <p class="crosscheck-intro">Runnable experiment protocols promoted from this bridge. USDR maps what connects; Crosscheck proves it.</p>
-    <div class="crosscheck-grid">''' + crosscheck_html + '''</div>
-    <p class="crosscheck-intro" style="margin-top:1rem;">
-      <a href="../../docs/CROSSCHECK.md" class="crosscheck-link">Crosscheck manifesto</a>
-      · Generate more drafts: <code>python scripts/generate_crosscheck.py --bridge ''' + h(bid) + ''' --write</code>
-    </p>
-  </section>''' if crosscheck_html else ""}
+  {crosscheck_section}
 
   <!-- Open Questions -->
-  {'''<section id="open-questions">
-    <h2><span class="icon">❓</span> Open Questions</h2>''' + open_questions_html + "</section>" if open_questions_html else ""}
+  {open_questions_section}
 
   <!-- References -->
   <section id="references">
