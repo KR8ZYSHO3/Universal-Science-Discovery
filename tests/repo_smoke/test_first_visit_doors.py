@@ -59,6 +59,18 @@ def test_hub_destination_nav() -> None:
     assert 0 <= home_at < map_at
 
 
+def test_what_you_are_looking_at_figure_links_out() -> None:
+    fig = (REPO_ROOT / "docs" / "figures" / "what-usdr-is.svg").read_text(
+        encoding="utf-8"
+    )
+    assert "What you are looking at" in fig
+    assert "dashboard/#/map" in fig
+    assert "dashboard/#/search" in fig
+    assert "p-b-habitat-percolation-ecology-fss" in fig
+    readme = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
+    assert "](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/)" in readme
+
+
 def test_habitat_first_test_landing_exists() -> None:
     landing = (
         REPO_ROOT
