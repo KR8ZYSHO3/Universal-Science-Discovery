@@ -58,6 +58,9 @@ def status_style(status: str) -> tuple[str, str]:
         "falsified": ("rgba(248,113,113,0.2)", "#fca5a5"),
         "ready": ("rgba(79,156,249,0.2)", "#93c5fd"),
         "draft": ("rgba(148,163,184,0.15)", "#94a3b8"),
+        "CONFIRMED": ("rgba(34,211,184,0.35)", "#2dd4bf"),
+        "INCONCLUSIVE": ("rgba(251,191,36,0.22)", "#fbbf24"),
+        "FALSIFIED": ("rgba(248,113,113,0.2)", "#fca5a5"),
     }
     return styles.get(status, styles["draft"])
 
@@ -82,6 +85,7 @@ def render_cards(protos: list[dict]) -> str:
         pid = proto["id"]
         title = html.escape(short_title(str(proto.get("title", pid))))
         status = str(proto.get("status", "draft"))
+        last_run = str(proto.get("last_run_result") or "").strip()
         bridge = str(proto.get("source_bridge", ""))
         tier = html.escape(str(proto.get("feasibility_tier", "desktop")))
         bg, fg = status_style(status)
@@ -91,11 +95,24 @@ def render_cards(protos: list[dict]) -> str:
             if bridge
             else f"{PAGES}/dashboard/"
         )
+        badges = (
+            f'<span style="background:{bg};color:{fg};padding:.15rem .55rem;border-radius:999px;'
+            f'font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;">'
+            f"{html.escape(status)}</span>"
+        )
+        if last_run:
+            lbg, lfg = status_style(last_run)
+            badges += (
+                f' <span style="background:{lbg};color:{lfg};padding:.15rem .55rem;border-radius:999px;'
+                f'font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;" '
+                f'title="Last captured stdout RESULT (not a human status promotion)">'
+                f"last run: {html.escape(last_run)}</span>"
+            )
         lines.append(
             f"""        <article class="crosscheck-hub-card" style="background:rgba(79,156,249,0.06);border:1px solid rgba(79,156,249,0.22);border-radius:12px;padding:1.15rem 1.25rem;">
           <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:.75rem;flex-wrap:wrap;margin-bottom:.55rem;">
             <h3 style="margin:0;font-size:.95rem;line-height:1.35;font-weight:600;">{title}</h3>
-            <span style="background:{bg};color:{fg};padding:.15rem .55rem;border-radius:999px;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;">{html.escape(status)}</span>
+            <span style="display:flex;flex-wrap:wrap;gap:.35rem;">{badges}</span>
           </div>
           <p style="margin:0 0 .65rem;font-size:.78rem;color:var(--muted);">Protocol <code style="font-size:.75rem;">{html.escape(pid)}</code> · {tier}</p>
           <div style="display:flex;flex-wrap:wrap;gap:.5rem;font-size:.82rem;">

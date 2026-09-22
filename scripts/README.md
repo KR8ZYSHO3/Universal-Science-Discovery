@@ -4,6 +4,7 @@ Place reproducible automation here (Python, R, Julia, shell, and so on).
 
 - **Unknown miner:** `python scripts/harvesters/mine_unknowns.py` then `python scripts/harvesters/promote_unknowns.py` (dry-run) / `--apply` (unknowns only).
 - **Backlog scout (idle job):** `python scripts/backlog_scout.py` — issues, not catalog. `--open-issues` with `gh`. Docs: [`docs/CREW.md`](../docs/CREW.md).
+- **Crosscheck RESULT write-through:** `python scripts/apply_crosscheck_result.py --protocol p-b-… --from-stdout run.txt --apply --refresh-hub` — records `last_run_result` on YAML + hub; never sets `status: confirmed`.
 - **Night crew (never promotes science):** `python scripts/run_crew.py` — harvest (opt) → Wave Factory scout → schema/quality audit → Crosscheck *contracts* → `drafts/crew-reports/LATEST.md`. **Ship mailbox PR:** `python scripts/crew_ship.py --pr N`. Docs: [`docs/CREW.md`](../docs/CREW.md).
 - **Record validation:** `python scripts/validate_schemas.py` (see [requirements-validate.txt](requirements-validate.txt); also runs in GitHub Actions).
 - **CI parity (local):** `python -m pytest tests/repo_smoke -v` — runs `validate_schemas.py`, `verify_domain_pages.py`, `verify_dashboard_consistency.py`, and **`build_graph.py --report-orphans`** (same bundle as **`validate-schemas.yml`**). Requires **`pytest`** (installed in that workflow; not listed in `requirements-validate.txt`).

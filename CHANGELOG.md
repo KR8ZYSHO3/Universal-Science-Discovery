@@ -18,6 +18,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **`scripts/backlog_scout.py`:** finds v1.3 gaps, missing `last_run_result`, hub 404s, orphan unknowns. Opens up to 5 GitHub issues (`scout` + `status:needs-owner`). Writes `drafts/crew-reports/SCOUT.md`. Never promotes science.
 - **`.github/workflows/backlog-scout.yml`:** daily 07:00 UTC + `workflow_dispatch`. Ships the digest via the mailbox allowlist.
 
+### Added — Crosscheck RESULT write-through (WORK-01)
+- **`scripts/apply_crosscheck_result.py`:** records stdout `RESULT:` onto protocol YAML as `last_run_result` / `last_run_at`. Does not set `status: confirmed`.
+- Hub Crosscheck cards show a **last run** badge (including honest INCONCLUSIVE). Refresh with `render_crosscheck_hub.py --apply`.
+
 ### Added — Night crew (propose, ship mailbox, never promote science)
 - **`scripts/run_crew.py`:** Harvester (opt) → Wave Factory scout → schema/quality audit → Crosscheck contract checks → `drafts/crew-reports/LATEST.md`. Never passes `--apply` to promotion.
 - **`scripts/crew_ship.py`:** squash-merges the bot PR only if files are harvest JSON + `drafts/crew-reports/`. Catalog / repro / schemas are refused.
