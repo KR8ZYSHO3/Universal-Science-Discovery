@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed — Graph rebuild explainer generator (Python 3.11)
+- **`scripts/generate_explainers.py`:** optional HTML sections are built before the page f-string. A `Hasn\'t` escape inside `{...}` is a SyntaxError on 3.11 (graph rebuild), allowed on 3.12.
+
 ### Changed — First visit is one job
 - Hub default `visitor-first`: one example, one test button, three plain doors, snapshot as “open questions / claimed links.” Builder tools (API, workstreams, GitHub stats) stay off-screen until “Show builder tools.”
 
