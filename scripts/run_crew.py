@@ -121,9 +121,13 @@ def scout(top: int, min_citations: int) -> List[str]:
     return lines
 
 
-def mine_unknowns_section() -> List[str]:
-    """Stated-gap unsolvables. Does not promote. Bridges stay human-gated."""
-    lines = ["## Unknown miner (unsolvables from gap language)", ""]
+def mine_unknowns_section(land: bool) -> List[str]:
+    """Stated-gap unsolvables. Bridges stay human-gated.
+
+    When land=True (GitHub Night Crew), copy u-gap-* into unknowns-catalog.
+    You do not run YAML commands.
+    """
+    lines = ["## Unknown miner (unsolvables — you do not need to do this)", ""]
     argv = [
         sys.executable,
         str(ROOT / "scripts/harvesters/mine_unknowns.py"),
@@ -137,11 +141,6 @@ def mine_unknowns_section() -> List[str]:
         ROOT / "drafts/unknowns_harvest"
     ).exists() else 0
     lines.append(f"- mine_unknowns exit **{code}**  staged unknowns={n}")
-    lines.append(
-        "- Promote **unknowns only** after a skim: "
-        "`python scripts/harvesters/promote_unknowns.py --apply`"
-    )
-    lines.append("- Do **not** promote Wave Factory bridges from this path.")
     for t in (out.strip().splitlines()[:12] if out.strip() else []):
         lines.append(f"  `{t[:200]}`")
     code_p, out_p = run_cmd(
@@ -151,9 +150,28 @@ def mine_unknowns_section() -> List[str]:
         ],
         timeout=60,
     )
-    lines.append(f"- promote_unknowns dry-run exit **{code_p}** (never `--apply` here)")
+    lines.append(f"- promote_unknowns dry-run exit **{code_p}**")
     for t in (out_p.strip().splitlines()[-4:] if out_p.strip() else []):
         lines.append(f"  `{t[:200]}`")
+    if land and code_p == 0:
+        code_a, out_a = run_cmd(
+            [
+                sys.executable,
+                str(ROOT / "scripts/harvesters/promote_unknowns.py"),
+                "--apply",
+            ],
+            timeout=60,
+        )
+        lines.append(
+            f"- auto-landed harvested unsolvables exit **{code_a}** "
+            "(u-gap-* only; no bridges)"
+        )
+        for t in (out_a.strip().splitlines()[-6:] if out_a.strip() else []):
+            lines.append(f"  `{t[:200]}`")
+        lines.append("- You do not need to run promote. The clock did it.")
+    else:
+        lines.append("- land skipped (local/default). GitHub Night Crew passes --land-unknowns.")
+    lines.append("- Wave Factory **bridges** are still not auto-promoted.")
     lines.append("")
     return lines
 
@@ -253,6 +271,11 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     p.add_argument("--skip-scout", action="store_true", help="Skip Wave Factory (offline audit+brief)")
     p.add_argument("--top", type=int, default=30)
     p.add_argument("--min-citations", type=int, default=50)
+    p.add_argument(
+        "--land-unknowns",
+        action="store_true",
+        help="Copy mined u-gap-* into unknowns-catalog (GitHub Night Crew only)",
+    )
     return p.parse_args(argv)
 
 
@@ -267,7 +290,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         sections.extend(scout(args.top, args.min_citations))
     else:
         sections.extend(["## Scout (Wave Factory)", "", "- skipped (`--skip-scout`)", ""])
-    sections.extend(mine_unknowns_section())
+    sections.extend(mine_unknowns_section(args.land_unknowns))
     sections.extend(auditor())
     sections.extend(tester_contracts())
     path = write_report(sections, args.skip_harvest, args.skip_scout)

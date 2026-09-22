@@ -28,7 +28,7 @@ python scripts/run_crew.py
 | **Backlog scout** | If the queue is thin, scan ROADMAP gaps, missing last-run badges, hub 404s, orphans; open GitHub issues (cap 5); write `drafts/crew-reports/SCOUT.md` | Invent bridges; `--apply` promote; set `status: confirmed` |
 | **Unknown miner** | From harvest JSON, stage `u-*.yaml` only when title/abstract uses gap language (`drafts/unknowns_harvest/`) | Auto-promote bridges; treat harvested gaps as expert-curated |
 
-Unsolvables grow with `python scripts/harvesters/promote_unknowns.py --apply` after you skim the briefing. Bridges still use Wave Factory + a human translation table.
+You do not need to know `--apply`. GitHub Night Crew lands `u-gap-*` unsolvables on a clock. Bridges still wait for a human.
 
 Idle rule: pick `status:needs-owner` issues first, then `SCOUT.md`, then ROADMAP.md. Do not generate catalog YAML because you are bored.
 
