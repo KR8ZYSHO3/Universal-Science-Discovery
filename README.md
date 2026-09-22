@@ -1,67 +1,65 @@
+# Map the unknowns
 
+Science is excellent at recording what is *known*. It barely records what is *not*.
 
-# Universal Science Discovery Repository
+This catalog names open questions, claimed links between fields, and tests you can run. No account.
 
-**The open-source knowledge engine for scientific unknowns and cross-domain discovery**
+**[Open the catalog](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/) · [Run this test](https://kr8zysho3.github.io/Universal-Science-Discovery/repro/p-b-habitat-percolation-ecology-fss/index.html) · [See how two fields connect](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#/map) · [How to use](docs/USE.md) · [Why](docs/WHY.md)**
 
-[![Bridges](https://img.shields.io/badge/bridges-1124-6366f1?style=flat-square)](cross-domain/)
-[![Unknowns](https://img.shields.io/badge/unknowns-1411-22c55e?style=flat-square)](unknowns-catalog/)
-[![Hypotheses](https://img.shields.io/badge/hypotheses-1275-f59e0b?style=flat-square)](hypotheses/)
-[![Graph Nodes](https://img.shields.io/badge/graph_nodes-3863-ec4899?style=flat-square)](docs/knowledge_graph.json)
+[![Claimed links](https://img.shields.io/badge/claimed_links-1124-6366f1?style=flat-square)](cross-domain/)
+[![Open questions](https://img.shields.io/badge/open_questions-1411-22c55e?style=flat-square)](unknowns-catalog/)
+[![Testable ideas](https://img.shields.io/badge/testable_ideas-1275-f59e0b?style=flat-square)](hypotheses/)
 [![License: CC BY 4.0](https://img.shields.io/badge/catalog-CC%20BY%204.0-blue?style=flat-square)](LICENSE)
-[![License: MIT](https://img.shields.io/badge/code-MIT-green?style=flat-square)](LICENSE)
-[![CI](https://img.shields.io/github/actions/workflow/status/KR8ZYSHO3/Universal-Science-Discovery/validate.yml?style=flat-square&label=CI)](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/actions)
 
-**[Open the catalog](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/#start) · [Run this test](https://kr8zysho3.github.io/Universal-Science-Discovery/repro/p-b-habitat-percolation-ecology-fss/index.html) · [How to use](docs/USE.md) · [Why I am building this](docs/WHY.md)**
-
-> Building until a researcher in the room can use it. Public launch is parked — [ROADMAP.md](ROADMAP.md).
-
-
+Building until a researcher in the room can use it. Public launch is parked — [ROADMAP.md](ROADMAP.md).
 
 ---
 
-## The Problem
+## Start here
 
-Science has extraordinary infrastructure for recording what is *known* — 200M+ indexed papers, citation graphs, semantic search. It has almost no infrastructure for recording what is *unknown*.
+1. **Run this test** — habitat loss and percolation are the same math. In the browser. If it says INCONCLUSIVE, the demo is small, not that the idea is false.
+2. **Map** — pick two fields. The path is from this catalog, not a guess.
+3. **Add an open question** — only if you have one. A person reads it first.
 
-The frontier of human knowledge — the open problems, the cross-domain connections that haven't been made, the experiments that haven't been run — exists only in review article background sections, grant application paragraphs, and the informal knowledge of domain experts. It is not indexed. It is not version-controlled. It is not findable.
+Plain language: [docs/USE.md](docs/USE.md). If you operate the site: [docs/OPERATE.md](docs/OPERATE.md).
 
-This means:
+![What USDR is](docs/figures/what-usdr-is.svg)
 
-- A graduate student entering a field invests years to understand which problems are genuinely open
-- Two fields independently study the same mathematical phenomenon for decades without recognizing the connection
-- The most important questions in science are the hardest to find
-
-**USDR is built to fix this.** The developer’s own account of *why* — including how this is about science, not policy, and how reuse (not the catalog itself) is the impact — is in [docs/WHY.md](docs/WHY.md).
+![Run the test, see how two fields connect, add an open question](docs/figures/use-three-doors.svg)
 
 ---
 
-## What We've Built
+## The problem
 
-A git-native, schema-validated, community-governed catalog of scientific unknowns, hypotheses, and cross-domain mathematical bridges — currently containing:
+The open problems, the unmade connections, the unrun experiments live in review-article asides, grant paragraphs, and people’s heads. They are not findable.
 
+- A student spends years learning which questions are actually open.
+- Two fields study the same math for decades without noticing.
+- The most important questions are the hardest to search.
 
-| Metric                     | Count     | Notes                                                           |
-| -------------------------- | --------- | --------------------------------------------------------------- |
-| **Cross-domain bridges**   | **1,124** | Mathematical connections between fields that rarely communicate |
-| **Open unknowns**          | **1,409** | Named, structured research gaps across 55+ disciplines          |
-| **Falsifiable hypotheses** | **1,275** | Testable claims linked to specific unknowns                     |
-| **Knowledge graph nodes**  | **3,861** | Interconnected across 4,522 edges (`docs/knowledge_graph.json`) |
-| **Pioneer profiles**       | **18**    | `pioneers/*.yaml` — lineage context for seeded bridges            |
-| **Breakthrough gaps**      | **24**    | `breakthrough-gaps/bg-*.yaml` — stewarded high-impact gaps      |
-| **Phenomenology records**  | **11**    | Pre-formal observations (`phenomenology/**/p-*.yaml`)           |
-| **Orphan unknowns**        | **0**     | `scripts/find_orphan_unknowns.py` — none disconnected in graph  |
-| **Schema errors**          | **0**     | All entries pass CI validation on every PR                      |
-
-*Headline catalog totals (bridges, unknowns, hypotheses, phenomenology) and graph node/edge counts are checked by **`python scripts/verify_dashboard_consistency.py`** against YAML globs and `docs/knowledge_graph.json` meta.*
-
-Entries are YAML and schema-validated in CI; bridges and many records cite primary literature (DOIs/arXiv where applicable — see per-record `references`). The knowledge graph is rebuilt deterministically from source files on every push.
+**USDR is built to fix that.** Why — science, reuse, not policy — is in [docs/WHY.md](docs/WHY.md).
 
 ---
 
-## What Makes a Bridge
+## What is in here
 
-A USDR bridge is not a metaphor. It requires a **term-by-term mathematical mapping** between two fields — the same differential equation, order parameter, or information-theoretic quantity governing phenomena in both domains.
+| What                         | Count     | In one sentence                                                 |
+| ---------------------------- | --------- | --------------------------------------------------------------- |
+| **Claimed links**            | **1,124** | Two fields share the same math                                  |
+| **Open questions**           | **1,411** | Named research gaps                                             |
+| **Testable ideas**           | **1,275** | Claims you can try to falsify                                   |
+| **Records on the map**       | **3,863** | Linked by 4,522 connections                                     |
+| **Pioneer notes**            | **18**    | Lineage for seeded links                                        |
+| **Breakthrough gaps**        | **24**    | High-impact stalls                                              |
+| **Early notes**              | **11**    | Pre-formal observations                                         |
+
+A claimed link is not a metaphor. It needs a term-by-term mapping — the same equation, order parameter, or information quantity in both fields.
+
+---
+
+## What a claimed link is
+
+A claimed link is not a metaphor. It requires a **term-by-term mathematical mapping** between two fields — the same differential equation, order parameter, or information-theoretic quantity governing phenomena in both domains.
 
 **Example: Percolation Theory ↔ Ecological Fragmentation**
 
@@ -79,113 +77,24 @@ The conservation biology literature has used percolation as a simulation tool si
 
 ---
 
-## Discovery Engine
+## Tests (Crosscheck)
 
-USDR ships tooling that turns the knowledge graph into an active bridge-discovery system:
+USDR maps what connects; a **test** tries to prove or break that claim. Four seed tests are gated on every change. A short browser demo may say INCONCLUSIVE because it is small — that is not a finding.
 
-```bash
-# Find cross-domain papers from OpenAlex (250M+ papers)
-python scripts/harvesters/harvest_openalex.py --bridge-scan
-
-# Find the highest-priority domain pairs with no bridge yet
-python scripts/propose_bridges.py --top 15
-
-# Find unknowns with no connections — prime contribution targets
-python scripts/find_orphan_unknowns.py
-
-# Audit catalog quality
-python scripts/audit_quality.py
-```
-
-The `harvest_openalex.py` script queries OpenAlex for papers that cite **two specific concept domains simultaneously** — the core primitive for automated bridge discovery at scale. PubMed and Semantic Scholar harvesters are also included.
-
-### Wave Factory mode
-
-Wave Factory mode converts harvested candidates into schema-safe draft triples at scale:
-
-```bash
-# Stage ranked bridge + unknown + hypothesis drafts
-python scripts/harvesters/wave_factory.py \
-  --top 30 \
-  --min-citations 50 \
-  --sources openalex,pubmed,semantic_scholar \
-  --output drafts/wave_factory
-
-# Validate staged records before promotion
-python scripts/harvesters/promote_wave_factory_batch.py --stage drafts/wave_factory
-```
-
-Drafts are intentionally staged (not auto-promoted) so human review remains the merge gate.
-
-### Crosscheck — prove the bridge
-
-Turn any USDR bridge into a reproducible, falsifiable experiment protocol. USDR maps what connects; **Crosscheck proves it.**
-
-```bash
-# Preview protocols from a bridge
-python scripts/generate_crosscheck.py --bridge b-habitat-percolation-ecology --dry-run
-
-# Run a seed protocol (2D percolation finite-size scaling)
-python repro/p-b-habitat-percolation-ecology-fss/simulate_percolation_fss.py
-```
-
-**[Crosscheck manifesto](docs/CROSSCHECK.md) · [Protocol catalog](protocols-catalog/) · [Run-mode parity](docs/CROSSCHECK.md#run-mode-parity)** — four CI-gated seed protocols plus the oncology GCC local demo (`p-b-percolation-oncology-gcc`; `RESULT: INCONCLUSIVE`; not a fifth CONFIRMED).
+**[How tests work](docs/CROSSCHECK.md)** · [Run the habitat test](https://kr8zysho3.github.io/Universal-Science-Discovery/repro/p-b-habitat-percolation-ecology-fss/index.html)
 
 ---
 
-## Quick Start
+## Add an open question
 
-```bash
-git clone https://github.com/KR8ZYSHO3/Universal-Science-Discovery.git
-cd Universal-Science-Discovery
+The simplest contribution is a named research gap from your field. No programming required. A person reads it before it joins the catalog.
 
-# View the live dashboard locally (path: dashboard/index.html — URL in dashboard/README.md)
-python -m http.server 8765
+Walkthrough: [docs/HAPPY_PATH_FIRST_RECORDS.md](docs/HAPPY_PATH_FIRST_RECORDS.md) · [CONTRIBUTING.md](CONTRIBUTING.md)
 
-# Validate the entire catalog
-pip install pyyaml jsonschema
-python scripts/validate_schemas.py
+<details>
+<summary>Record format (only when you add one)</summary>
 
-# Rebuild the knowledge graph
-pip install pyyaml networkx
-python scripts/build_graph.py
-```
-
----
-
-## Catalog Structure
-
-```
-cross-domain/{domain-a}-{domain-b}/b-*.yaml   ← 1124 bridges
-unknowns-catalog/{domain}/u-*.yaml            ← 1409 unknowns
-hypotheses/active|validated|archived/h-*.yaml ← 1275 hypotheses
-pioneers/pioneer-*.yaml                       ← 18 pioneer profiles
-breakthrough-gaps/bg-*.yaml                   ← 24 breakthrough gaps
-phenomenology/p-*.yaml                        ← pre-formal observations
-schemas/                                      ← JSON Schema definitions
-scripts/                                      ← tooling and harvesters
-scripts/harvesters/                           ← OpenAlex, PubMed, Semantic Scholar
-dashboard/                                    ← interactive D3 dashboard
-api/v1/                                       ← static JSON API
-```
-
----
-
-## How to use this catalog
-
-[docs/USE.md](docs/USE.md) — plain language.
-
-![What USDR is](docs/figures/what-usdr-is.svg)
-
-![Try it, add a question, keep it honest](docs/figures/use-three-doors.svg)
-
-1. **One example** — habitat loss ↔ percolation. [Run the test](https://kr8zysho3.github.io/Universal-Science-Discovery/repro/p-b-habitat-percolation-ecology-fss/index.html) (browser smoke test; INCONCLUSIVE there means the demo is small, not that the physics is wrong). That *is* the product.
-2. **Add a question** — one open problem from your field, then send it for review. Detail: [docs/HAPPY_PATH_FIRST_RECORDS.md](docs/HAPPY_PATH_FIRST_RECORDS.md).
-3. **Keep it honest** — only if you operate the site. [docs/DEV_DASHBOARD.md](docs/DEV_DASHBOARD.md).
-
-## Contributing
-
-The simplest contribution is a new **unknown** — a named research gap in your field. No code required.
+Records are short structured notes. Copy a similar file and change the title, summary, and a paper that marks the edge of what is known.
 
 ```yaml
 id: u-your-unknown-id
@@ -199,9 +108,42 @@ references:
     note: "Paper that defines the boundary of current knowledge"
 ```
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for full instructions and [docs/QUICK_START_CONTRIBUTING.md](docs/QUICK_START_CONTRIBUTING.md) for a 30-minute first-contribution guide.
+</details>
 
-**Open issues labeled `[good first issue](https://github.com/KR8ZYSHO3/Universal-Science-Discovery/issues?q=is%3Aopen+label%3A%22good+first+issue%22)`** include bridge stubs, domain unknowns, and documentation tasks across 8 scientific domains.
+---
+
+## If you operate or build on this
+
+One ordered list: [docs/OPERATE.md](docs/OPERATE.md). Long appendix: [docs/DEV_DASHBOARD.md](docs/DEV_DASHBOARD.md).
+
+<details>
+<summary>Local preview and checks</summary>
+
+```bash
+git clone https://github.com/KR8ZYSHO3/Universal-Science-Discovery.git
+cd Universal-Science-Discovery
+python -m http.server 8765
+# then open http://localhost:8765/dashboard/
+
+pip install pyyaml jsonschema networkx
+python scripts/validate_schemas.py
+```
+
+</details>
+
+<details>
+<summary>Harvest and draft tools (not auto-merged)</summary>
+
+Drafts stay staged. A human still promotes bridges.
+
+```bash
+python scripts/harvesters/harvest_openalex.py --bridge-scan
+python scripts/propose_bridges.py --top 15
+python scripts/find_orphan_unknowns.py
+python scripts/harvesters/wave_factory.py --top 30 --min-citations 50 --output drafts/wave_factory
+```
+
+</details>
 
 ---
 
@@ -244,7 +186,7 @@ A preprint is available at [docs/preprint/usdr_preprint.md](docs/preprint/usdr_p
 
 ## License
 
-- **Catalog content** (YAML entries, documentation): [CC BY 4.0](LICENSE)
-- **Code** (scripts, dashboard, CI): [MIT](LICENSE)
+- **Catalog content** (records and documentation): [CC BY 4.0](LICENSE)
+- **Code** (scripts, site, checks): [MIT](LICENSE)
 
 © 2026 Brandon Shoemaker and USDR Contributors

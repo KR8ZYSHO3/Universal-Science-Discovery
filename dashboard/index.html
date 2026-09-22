@@ -697,9 +697,46 @@
     body[data-view="more"] [data-hub-view="more"] { display: block !important; }
     body[data-view="more"]:not(.visitor-first) [data-hub-view="builder"] { display: block !important; }
     body[data-view="home"] main { padding: 0; min-height: 0; }
-    body[data-view="map"] main { max-width: none; padding-left: clamp(1rem,3vw,2rem); padding-right: clamp(1rem,3vw,2rem); }
-    body[data-view="map"] #knowledge-graph { padding-top: 1.1rem; min-height: calc(100vh - var(--nav-h) - 1rem); }
-    body[data-view="map"] #graph-container { height: min(72vh, 820px); }
+    body[data-view="map"] { overflow: hidden; }
+    body[data-view="map"] footer { display: none; }
+    body[data-view="map"] main {
+      max-width: none;
+      padding: 0;
+      height: calc(100vh - var(--nav-h));
+    }
+    body[data-view="map"] #knowledge-graph {
+      display: flex !important;
+      flex-direction: column;
+      height: 100%;
+      min-height: 0;
+      padding: 0;
+      border-bottom: none;
+    }
+    body[data-view="map"] #knowledge-graph > .section-tag,
+    body[data-view="map"] #knowledge-graph > .section-title,
+    body[data-view="map"] #knowledge-graph > .section-desc { display: none; }
+    body[data-view="map"] .pathfinder {
+      flex: 0 0 auto;
+      margin: 0;
+      border-radius: 0;
+      border-left: none;
+      border-right: none;
+      padding: .7rem clamp(1rem, 3vw, 1.5rem) .75rem;
+    }
+    body[data-view="map"] .graph-stats-bar,
+    body[data-view="map"] .graph-filters {
+      flex: 0 0 auto;
+      margin: .35rem clamp(1rem, 3vw, 1.5rem);
+    }
+    body[data-view="map"] #graph-container {
+      flex: 1 1 auto;
+      height: auto !important;
+      min-height: 0;
+      border-radius: 0;
+      border-left: none;
+      border-right: none;
+      border-bottom: none;
+    }
     body.visitor-first .hero-actions,
     body.visitor-first #orphan-xref-panel,
     body.visitor-first #ai-copilot,
@@ -1822,12 +1859,12 @@
       <strong>Local preview.</strong> This page is for browsing.
       To add a record, edit a file in a copy of the catalog and send it for review.
       Hosted copy:
-      <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/" target="_blank" rel="noopener">GitHub Pages ↗</a>
+      <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/" target="_blank" rel="noopener">live site ↗</a>
     </p>
     <nav class="hub-nav" aria-label="Hub destinations">
       <a href="#/" class="hub-wordmark" data-view-link="home">USDR</a>
       <a href="#/map" data-view-link="map">Map</a>
-      <a href="#/search" data-view-link="search">Look up</a>
+      <a href="#/search" data-view-link="search">Search</a>
       <a href="#/add" data-view-link="add">Add</a>
       <a href="#/more" data-view-link="more">More</a>
       <button type="button" class="hub-search-launch" id="hub-search-launch">Search <kbd>/</kbd></button>
@@ -1887,7 +1924,7 @@
       <div class="pages-deploy-banner aos" id="pages-deploy-banner" role="status" aria-live="polite" hidden></div>
 
       <!-- DASHBOARD_CATALOG_SNAPSHOT_BEGIN -->
-      <div class="catalog-snapshot aos" role="region" aria-label="Catalog snapshot from YAML file counts and built graph meta">
+      <div class="catalog-snapshot aos" role="region" aria-label="What is in this catalog">
         <div class="catalog-snapshot-label">What is in here</div>
         <div class="catalog-snapshot-row">
           <span class="catalog-snapshot-metric"><span class="catalog-snapshot-n"><span id="snap-unknowns">1411</span></span><span class="catalog-snapshot-l">open questions</span></span>
@@ -1995,10 +2032,10 @@
 
   <main>
     <section aria-label="Add a record" data-hub-view="add">
-      <details class="start-details aos" id="door-add">
-        <summary id="first-contrib-heading">Add an open question (five steps)</summary>
+      <details class="start-details aos" id="door-add" open>
+        <summary id="first-contrib-heading">Add an open question</summary>
         <p class="first-contrib-lead">
-          This site is for browsing. To add a record, you edit one file in a copy of the catalog, then send it for review.
+          This site is for looking. To add something, you write one short record and a person reads it before it joins the catalog.
           Longer walkthrough:
           <a href="../docs/HAPPY_PATH_FIRST_RECORDS.md">first records guide</a>.
         </p>
@@ -2007,10 +2044,10 @@
             <span class="step-n" aria-hidden="true"></span>
             <div class="step-b">
               <strong>Get a copy of the catalog</strong>
-              <p>Download the project so you can edit one record on your computer.</p>
+              <p>Download the project so you can add one record on your computer. You do not need to know Git — the project page has a green <strong>Code</strong> button, then <strong>Download ZIP</strong>.</p>
               <div class="step-links">
                 <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery" target="_blank" rel="noopener">Open the project ↗</a>
-                <a class="lc" href="../CONTRIBUTING.md">Full contributor guide</a>
+                <a class="lc" href="../docs/HAPPY_PATH_FIRST_RECORDS.md">First records guide</a>
               </div>
             </div>
           </li>
@@ -2018,10 +2055,9 @@
             <span class="step-n" aria-hidden="true"></span>
             <div class="step-b">
               <strong>Pick one thing to add</strong>
-              <p>An open question, a testable hypothesis, or a cross-domain bridge — not all three at once.</p>
+              <p>An open question, a testable idea, or a claimed link between two fields — not all three at once.</p>
               <div class="step-links">
-                <a class="lc" href="#orphan-xref-panel">Fix a broken link</a>
-                <a class="lc" href="../docs/HAPPY_PATH_FIRST_RECORDS.md">Write a new unknown</a>
+                <a class="lc" href="../docs/HAPPY_PATH_FIRST_RECORDS.md">Write a new open question</a>
                 <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/issues?q=is%3Aopen+label%3A%22good+first+issue%22" target="_blank" rel="noopener">Starter tasks ↗</a>
               </div>
             </div>
@@ -2030,28 +2066,24 @@
             <span class="step-n" aria-hidden="true"></span>
             <div class="step-b">
               <strong>Edit that one record</strong>
-              <p>Copy a similar file and change the title, summary, and references. Records are short structured notes (YAML).</p>
+              <p>Copy a similar file and change the title, summary, and references. Records are short structured notes. The file format is a later detail.</p>
               <div class="step-links">
                 <a class="lc" href="../templates/README.md">Templates</a>
-                <a class="lc" href="#contribute">Where files live</a>
               </div>
             </div>
           </li>
           <li class="aos d3">
             <span class="step-n" aria-hidden="true"></span>
             <div class="step-b">
-              <strong>Check your record</strong>
-              <p>From the project folder, run:</p>
-              <p style="margin-top:.35rem;font-family:var(--mono);font-size:.8rem;color:var(--text);">
-                python scripts/validate_schemas.py
-              </p>
+              <strong>You can skip the local check</strong>
+              <p>Automated checks run when you send it. If you already operate this site, the local check is on the <a href="../docs/OPERATE.md">operator list</a>.</p>
             </div>
           </li>
           <li class="aos d4">
             <span class="step-n" aria-hidden="true"></span>
             <div class="step-b">
               <strong>Send it for review</strong>
-              <p>On GitHub that is a pull request. A person reads it before it joins the catalog.</p>
+              <p>A person reads it before it joins the catalog. On the project site that is “Open a review.”</p>
               <div class="step-links">
                 <a class="gh" href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/pulls" target="_blank" rel="noopener">Open a review ↗</a>
               </div>
@@ -2403,7 +2435,7 @@
       <p style="text-align:center; color:#94a3b8; margin-bottom:2rem;">
         World-reshaping breakthroughs stalled by cross-domain knowledge gaps. Cards below are generated from the
         <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/tree/main/breakthrough-gaps" style="color:#93c5fd;text-decoration:underline;" target="_blank" rel="noopener">breakthrough-gaps</a>
-        catalog (same YAML CI validates). <strong>Click</strong> a card to open the source YAML on GitHub; <strong>Alt-click</strong> (Option-click on macOS) jumps to <a href="#catalog-search" style="color:#93c5fd;text-decoration:underline;">Catalog search</a> with a prefilled query.
+        catalog. <strong>Click</strong> a card to open that record; <strong>Alt-click</strong> (Option-click on macOS) jumps to <a href="#/search" style="color:#93c5fd;text-decoration:underline;">Search</a> with that title.
       </p>
       <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; max-width:1100px; margin:0 auto;">
         <!-- @hub-breakthrough-gaps-grid-begin -->
@@ -2832,14 +2864,13 @@
 
     <!-- ════════════════════════════════════════ KNOWLEDGE GRAPH -->
     <section class="graph-section" id="knowledge-graph" data-hub-view="map" aria-label="Knowledge graph">
-      <span class="section-tag">Knowledge Graph</span>
-      <h2 class="section-title">Cross-domain connection map</h2>
+      <span class="section-tag">Map</span>
+      <h2 class="section-title">How fields connect</h2>
       <p class="section-desc">
-        Force-directed graph of the full catalog — bridges, unknowns, hypotheses, and phenomena (counts update live when the JSON loads).
-        Hover a node to inspect it. Click a node for full details. Drag to reposition. Scroll or pinch to zoom.
+        Pick two fields. The map shows a real path through this catalog — not a guess.
       </p>
       <div class="pathfinder" id="pathfinder">
-        <p class="section-desc" style="margin:0 0 .75rem">Ask how two fields connect. The graph answers with a shortest path through real catalog nodes — not a vibe.</p>
+        <p class="section-desc" style="margin:0 0 .75rem">Ask how two fields connect. The map answers with a shortest path through real catalog records.</p>
         <div class="pathfinder-row">
           <label>From <select id="pf-from"></select></label>
           <label>To <select id="pf-to"></select></label>
@@ -2848,14 +2879,14 @@
         <div class="pathfinder-out" id="pf-out" role="status"></div>
       </div>
       <div class="graph-stats-bar" id="kg-stats-bar">
-        <span id="kg-node-count">3863</span> nodes &nbsp;·&nbsp;
-        <span id="kg-edge-count">4522</span> edges<span id="kg-top-node"></span>
+        <span id="kg-node-count">3863</span> records &nbsp;·&nbsp;
+        <span id="kg-edge-count">4522</span> connections<span id="kg-top-node"></span>
       </div>
       <div class="graph-filters" role="group" aria-label="Node type filters">
-        <button class="filter-btn active" data-type="bridge" style="--fc:#4f9cf9">● Bridges</button>
-        <button class="filter-btn active" data-type="unknown" style="--fc:#f97316">● Unknowns</button>
-        <button class="filter-btn active" data-type="hypothesis" style="--fc:#22d3b8">● Hypotheses</button>
-        <button class="filter-btn active" data-type="phenomenon" style="--fc:#a78bfa">● Phenomena</button>
+        <button class="filter-btn active" data-type="bridge" style="--fc:#4f9cf9">● Claimed links</button>
+        <button class="filter-btn active" data-type="unknown" style="--fc:#f97316">● Open questions</button>
+        <button class="filter-btn active" data-type="hypothesis" style="--fc:#22d3b8">● Testable ideas</button>
+        <button class="filter-btn active" data-type="phenomenon" style="--fc:#a78bfa">● Early notes</button>
       </div>
       <div id="graph-container">
         <div id="kg-loading-spinner" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;z-index:5;pointer-events:none;">
@@ -2863,21 +2894,21 @@
             <circle cx="20" cy="20" r="16" stroke="rgba(79,156,249,0.2)" stroke-width="4"/>
             <path d="M20 4a16 16 0 0 1 16 16" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/>
           </svg>
-          <span id="kg-loading-label" style="color:var(--muted);font-size:.82rem;font-family:var(--mono)" role="status" aria-live="polite">Loading knowledge graph…</span>
+          <span id="kg-loading-label" style="color:var(--muted);font-size:.82rem;font-family:var(--mono)" role="status" aria-live="polite">Loading the map…</span>
         </div>
         <svg id="kg-svg" aria-label="Knowledge graph force-directed visualization"></svg>
         <div id="kg-legend">
-          <div class="kg-legend-item"><div class="kg-legend-dot" style="background:#4f9cf9"></div>Bridge</div>
-          <div class="kg-legend-item"><div class="kg-legend-dot" style="background:#f97316"></div>Unknown</div>
-          <div class="kg-legend-item"><div class="kg-legend-dot" style="background:#22d3b8"></div>Hypothesis</div>
-          <div class="kg-legend-item"><div class="kg-legend-dot" style="background:#a78bfa"></div>Phenomenon</div>
+          <div class="kg-legend-item"><div class="kg-legend-dot" style="background:#4f9cf9"></div>Claimed link</div>
+          <div class="kg-legend-item"><div class="kg-legend-dot" style="background:#f97316"></div>Open question</div>
+          <div class="kg-legend-item"><div class="kg-legend-dot" style="background:#22d3b8"></div>Testable idea</div>
+          <div class="kg-legend-item"><div class="kg-legend-dot" style="background:#a78bfa"></div>Early note</div>
         </div>
         <div class="edge-legend" aria-label="Edge relation types">
           <div class="edge-legend-title">Connections</div>
-          <div class="edge-item"><span class="edge-swatch" style="background:#4f9cf9"></span>addresses_unknown</div>
-          <div class="edge-item"><span class="edge-swatch" style="background:#22d3b8"></span>suggests_hypothesis</div>
-          <div class="edge-item"><span class="edge-swatch" style="background:#f97316"></span>related_bridge</div>
-          <div class="edge-item"><span class="edge-swatch" style="background:#a78bfa"></span>cross_pollination</div>
+          <div class="edge-item"><span class="edge-swatch" style="background:#4f9cf9"></span>answers a question</div>
+          <div class="edge-item"><span class="edge-swatch" style="background:#22d3b8"></span>suggests a testable idea</div>
+          <div class="edge-item"><span class="edge-swatch" style="background:#f97316"></span>related claim</div>
+          <div class="edge-item"><span class="edge-swatch" style="background:#a78bfa"></span>shared math</div>
         </div>
         <div class="kg-zoom-hint" aria-hidden="true"><span class="kg-zoom-hint-desktop">scroll to zoom · drag to pan · click node for details</span><span class="kg-zoom-hint-touch">pinch to zoom · drag to pan · tap node for details</span></div>
         <div id="kg-tooltip" class="kg-tooltip hidden"></div>
@@ -3395,11 +3426,11 @@
   </main>
 
   <footer>
-    <div><code>dashboard/</code> lives in git — ship tweaks with the same PR as related docs. Scientific claims belong in catalog YAML and reviewed content, not here.</div>
+    <div>A catalog of what science does not yet know. Claims live in reviewed records, not in this page’s chrome.</div>
     <div class="footer-links">
-      <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery" target="_blank" rel="noopener">GitHub</a>
-      <a href="../docs/ONBOARDING.md">Onboarding</a>
-      <a href="../CHANGELOG.md">Changelog</a>
+      <a href="why.html">Why</a>
+      <a href="../docs/USE.md">How to use</a>
+      <a href="../docs/OPERATE.md">Operate</a>
       <a href="../LEGAL.md">Legal</a>
       <a href="../CODE_OF_CONDUCT.md">Code of Conduct</a>
     </div>
@@ -4347,7 +4378,7 @@
         var selectedSearchId = null;
 
         function typeLabel(t) {
-          return { bridge:'Bridge', unknown:'Unknown', hypothesis:'Hypothesis', phenomenon:'Phenomenon' }[t] || t;
+          return { bridge:'Claimed link', unknown:'Open question', hypothesis:'Testable idea', phenomenon:'Early note' }[t] || t;
         }
 
         function showSearchPlaceholder() {
@@ -4389,7 +4420,7 @@
               '</div>' +
               (snip ? '<div class="result-snippet">' + esc(snip) + '</div>' : '') +
               '<div class="result-actions">' +
-                '<a class="result-gh-yaml" href="' + ghSearch + '" target="_blank" rel="noopener" title="GitHub code search in this repo for this catalog filename">View YAML on GitHub ↗</a>' +
+                '<a class="result-gh-yaml" href="' + ghSearch + '" target="_blank" rel="noopener" title="Open this catalog record">Open this record ↗</a>' +
               '</div>';
             card.addEventListener('click', function (e) {
               if (e.target.closest('a.result-gh-yaml')) return;
@@ -4401,8 +4432,8 @@
           });
           if (countNoteEl) {
             countNoteEl.textContent = (total > results.length)
-              ? 'Showing ' + results.length + ' of ' + total + ' matches \u2014 powered by Lunr.js'
-              : total + ' match' + (total === 1 ? '' : 'es') + ' \u2014 powered by Lunr.js';
+              ? 'Showing ' + results.length + ' of ' + total + ' matches'
+              : total + ' match' + (total === 1 ? '' : 'es');
             countNoteEl.hidden = false;
           }
         }
@@ -4481,7 +4512,7 @@
           }, 350);
         }
 
-        /* keyboard shortcut: / opens Look up */
+        /* keyboard shortcut: / opens Search */
         document.addEventListener('keydown', function (e) {
           if (e.key === '/' && document.activeElement !== inputEl &&
               !['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)) {
@@ -5023,8 +5054,8 @@
           var ghBlob = githubBlobUrl(path);
           var ghRaw = githubRawUrl(path);
           html += '<div class="panel-gh-row">';
-          html += '<a href="' + ghBlob + '" class="panel-github-link" target="_blank" rel="noopener">View YAML on GitHub ↗</a>';
-          html += '<a href="' + ghRaw + '" class="panel-github-link" target="_blank" rel="noopener">Raw file ↗</a>';
+          html += '<a href="' + ghBlob + '" class="panel-github-link" target="_blank" rel="noopener">Open this record ↗</a>';
+          html += '<a href="' + ghRaw + '" class="panel-github-link" target="_blank" rel="noopener">Plain text ↗</a>';
           html += '</div>';
 
           contentEl.innerHTML = html;

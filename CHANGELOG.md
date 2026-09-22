@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed — Full-screen map and researcher copy
+- Hub **Map** fills the window under the top bar (pathfinder strip + graph). Footer hidden on Map.
+- Bar says **Search** (not Look up). Legend: claimed links / open questions / testable ideas.
+- Add, search, footer, and GitHub README lead with researcher language. YAML and Git stay behind “if you add one” / operator list.
+
 ### Added — One operator command list (ROBUST-01)
 - **[docs/OPERATE.md](docs/OPERATE.md):** clone → local hub → validate → numbers → optional graph → Crosscheck write-through. Skip conditions on every step. No DNS/arXiv/outreach.
 
