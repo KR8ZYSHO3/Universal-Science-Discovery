@@ -32,7 +32,7 @@ On the site, click **Add an open question**. Records are short structured notes.
 
 ## Keep the catalog honest
 
-Only if you run this site. Until a single operator list ships, use the [operator checklist](DEV_DASHBOARD.md). The night crew adds harvested open questions by itself — you do not run YAML.
+Only if you run this site. Follow the one list: [Operate this catalog](OPERATE.md). Longer appendix: [DEV_DASHBOARD.md](DEV_DASHBOARD.md). The night crew adds harvested open questions by itself — you do not run YAML.
 
 ## Words we avoid on the front door
 
@@ -55,7 +55,8 @@ Only if you run this site. Until a single operator list ships, use the [operator
 | First records (step-by-step) | [HAPPY_PATH_FIRST_RECORDS.md](HAPPY_PATH_FIRST_RECORDS.md) |
 | How the tests work | [CROSSCHECK.md](CROSSCHECK.md) |
 | Claims vs speculation | [METHODOLOGY.md](METHODOLOGY.md), [VISION_AND_SCOPE.md](VISION_AND_SCOPE.md) |
-| Operator checklist | [DEV_DASHBOARD.md](DEV_DASHBOARD.md) |
+| Operator command list | [OPERATE.md](OPERATE.md) |
+| Operator checklist (long) | [DEV_DASHBOARD.md](DEV_DASHBOARD.md) |
 | Full contributor guide | [CONTRIBUTING.md](../CONTRIBUTING.md) |
 
 This page is how a visitor should hear the project. GitHub words belong in the contributor guide, not on the first screen.

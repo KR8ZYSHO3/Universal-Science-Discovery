@@ -1,5 +1,7 @@
 # Developer dashboard (USDR meta)
 
+**Start with the short list:** [OPERATE.md](OPERATE.md). This page is the long appendix.
+
 Human- and agent-editable checklist for **repository operations** — not scientific output. Canonical narrative status lives in [.planning/STATE.md](../.planning/STATE.md) at the repo root.
 
 ## HTML dashboard (browser)
