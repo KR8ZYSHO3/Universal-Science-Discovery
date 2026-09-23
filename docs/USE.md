@@ -34,7 +34,7 @@ On the site, click **Add an open question**. Records are short structured notes.
 
 ## Keep the catalog honest
 
-Only if you run this site. Follow the one list: [Operate this catalog](OPERATE.md). Longer appendix: [DEV_DASHBOARD.md](DEV_DASHBOARD.md). The night crew adds harvested open questions by itself — you do not run YAML.
+Only if you run this site. Follow the one list: [Operate this catalog](OPERATE.md). Adding a record: [catalog batch](CATALOG_BATCH.md). Longer appendix: [DEV_DASHBOARD.md](DEV_DASHBOARD.md). The night crew adds harvested open questions by itself — you do not run YAML.
 
 ## Words we avoid on the front door
 

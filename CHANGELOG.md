@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added — Catalog batch is one local run (WORK-02)
+- **[docs/CATALOG_BATCH.md](docs/CATALOG_BATCH.md):** write a record → validate → rebuild the map → hub numbers → one review. Does not set `status: confirmed`. Wave Factory stays in [PATH_TO_SUCCESS.md](docs/PATH_TO_SUCCESS.md).
+
 ### Fixed — “What you are looking at” was a dead picture
 - The figure is a diagram, not a page. The picture now links to the hub; the three boxes (when the SVG is opened) and the line under it go to Search, Map, and the habitat test.
 

@@ -18,6 +18,7 @@ This map is the project traceability layer (delivered as part of **Phase 0 — F
 | [REPOSITORY_MANIFEST.md](REPOSITORY_MANIFEST.md) | Per-path roles and governing docs | Keeping structure auditable; updates when paths change |
 | [USE.md](USE.md) | **Utilization flow** (try it / add a question / keep it honest). Wins if another “start here” disagrees | Hub `#start` door cards; figures: [what-usdr-is.svg](figures/what-usdr-is.svg), [use-three-doors.svg](figures/use-three-doors.svg) |
 | [OPERATE.md](OPERATE.md) | One ordered operator list (ROBUST-01) | clone → hub preview → validate → optional graph → Crosscheck write-through; skip conditions; no launch steps |
+| [CATALOG_BATCH.md](CATALOG_BATCH.md) | One local catalog batch (WORK-02) | YAML add → validate → graph → dashboard consistency → one reviewed change. Wave Factory stays in [PATH_TO_SUCCESS.md](PATH_TO_SUCCESS.md) |
 | [WHY.md](WHY.md) | First-person developer note: science, reuse, second-order impact on life. Not a protocol. | Hub [`dashboard/why.html`](../dashboard/why.html); README and USE.md links |
 | [ONBOARDING.md](ONBOARDING.md) | Maintainer policy tour (not the first page) | Points to all core policies and work directories |
 | [HAPPY_PATH_FIRST_RECORDS.md](HAPPY_PATH_FIRST_RECORDS.md) | Stream A: first unknown + hypothesis YAML → PR | [CONTRIBUTING.md](../CONTRIBUTING.md); [schemas/README.md](../schemas/README.md); [templates/README.md](../templates/README.md); CI validates via `scripts/validate_schemas.py` |

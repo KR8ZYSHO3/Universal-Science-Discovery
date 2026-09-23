@@ -31,6 +31,23 @@ def test_operate_md_scripts_exist() -> None:
         assert path.is_file(), f"OPERATE.md cites missing {path}"
 
 
+def test_catalog_batch_is_one_run() -> None:
+    text = (REPO_ROOT / "docs" / "CATALOG_BATCH.md").read_text(encoding="utf-8")
+    for needle in (
+        "python scripts/validate_schemas.py",
+        "python -X utf8 scripts/build_graph.py",
+        "python scripts/update_dashboard_stats.py --apply",
+        "python scripts/verify_dashboard_consistency.py",
+        "status: confirmed",
+        "PATH_TO_SUCCESS.md",
+    ):
+        assert needle in text
+    before, _, _after = text.lower().partition("## do not")
+    for word in ("arxiv", "reddit", "linkedin"):
+        assert word not in before
+    assert "Do not push straight to `main`" in text
+
+
 def test_use_md_points_at_operate() -> None:
     use = (REPO_ROOT / "docs" / "USE.md").read_text(encoding="utf-8")
     assert "OPERATE.md" in use

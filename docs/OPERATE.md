@@ -4,7 +4,7 @@ One ordered list. Stop when the step’s skip condition is true.
 
 This is **not** science. It does not confirm bridges. It does not add records. Night Crew already lands harvested open questions (`u-gap-*`) on GitHub; you do not run YAML for that.
 
-Visitor path stays [USE.md](USE.md). Longer ops appendix: [DEV_DASHBOARD.md](DEV_DASHBOARD.md). Catalog waves: [PATH_TO_SUCCESS.md](PATH_TO_SUCCESS.md).
+Visitor path stays [USE.md](USE.md). Longer ops appendix: [DEV_DASHBOARD.md](DEV_DASHBOARD.md). **Adding a record:** [CATALOG_BATCH.md](CATALOG_BATCH.md). Harvested waves: [PATH_TO_SUCCESS.md](PATH_TO_SUCCESS.md).
 
 ## 1. Get a copy
 
@@ -47,17 +47,11 @@ python scripts/verify_dashboard_consistency.py
 
 Must exit 0.
 
-## 5. After you change catalog YAML
+## 5. After you change catalog records
 
-**Skip if** you did not add or edit unknowns / hypotheses / bridges / phenomenology.
+**Skip if** you did not add or edit unknowns, hypotheses, bridges, or phenomenology.
 
-```bash
-python -X utf8 scripts/build_graph.py
-python scripts/update_dashboard_stats.py --apply
-python scripts/verify_dashboard_consistency.py
-```
-
-On GitHub, the graph rebuild bot opens a follow-up change for generated hub files. Merge that when checks pass. Do not push generated dumps as silent bulk commits.
+Follow [CATALOG_BATCH.md](CATALOG_BATCH.md) (validate → map → hub numbers → one review). Do not push generated map files as a silent second commit.
 
 ## 6. After you run a test (Crosscheck)
 

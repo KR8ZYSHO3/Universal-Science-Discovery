@@ -44,7 +44,11 @@ You should see: `OK: all hypothesis and unknown-catalog YAML files validate.` If
 
 Use [templates/hypothesis-pr-template.md](../templates/hypothesis-pr-template.md) in your PR description.
 
-## 3) Open the PR
+## 3) Check, map, then open the review
+
+Command order (validate → map → hub numbers → one review): [CATALOG_BATCH.md](CATALOG_BATCH.md). Do not push to `main`.
+
+## 4) Open the PR
 
 1. Branch from default (e.g. `main` when you have it).
 2. Commit **both** files (or unknown-only first if you prefer two small PRs).

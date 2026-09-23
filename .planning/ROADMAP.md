@@ -29,7 +29,7 @@ Full archive: [milestones/v1.1-ROADMAP.md](milestones/v1.1-ROADMAP.md)
 - [x] **Phase 6: Crosscheck closed loop** — RESULT writes through to catalog/hub
 - [x] **Phase 7: Hub first-visit + simple flow** — three doors on the hub; counts, links, Crosscheck, no broken loads
 - [x] **Phase 8: Maintainer command list** — one ordered playbook
-- [ ] **Phase 9: Catalog batch runbook** — one documented local run
+- [x] **Phase 9: Catalog batch runbook** — one documented local run
 
 ### 🔒 v1.2 Launch (parked)
 
@@ -93,7 +93,7 @@ Plans:
 **Plans**: TBD (plan-phase)
 
 Plans:
-- [ ] 09-01: Catalog-batch local runbook verified end-to-end
+- [x] 09-01: Catalog-batch local runbook verified end-to-end
 
 ## Progress
 
@@ -107,7 +107,7 @@ Plans:
 | 6. Crosscheck closed loop | v1.3 | 1/1 | Complete | 2026-09-22 |
 | 7. Hub first-visit + simple flow | v1.3 | 1/1 | Complete | 2026-09-22 |
 | 8. Maintainer command list | v1.3 | 1/1 | Complete | 2026-09-22 |
-| 9. Catalog batch runbook | v1.3 | 0/1 | Not started | — |
+| 9. Catalog batch runbook | v1.3 | 1/1 | Complete | 2026-09-23 |
 
 ---
 *v1.3 opened 2026-08-26. Phase numbering continues from v1.1 (last phase 5 → start at 6). Product path: `ROADMAP.md` (root).*
