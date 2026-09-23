@@ -1,8 +1,8 @@
 # Backlog scout
 
-Generated **2026-09-22 12:14 UTC**. Operations only — not a scientific result.
+Generated **2026-09-23 12:28 UTC**. Operations only — not a scientific result.
 
-Findings: **3**. New issues this run (cap 5): 0.
+Findings: **4**. New issues this run (cap 5): 1.
 
 Agents: pick `status:needs-owner` issues first, then this list, then ROADMAP.md.
 Do not promote Wave Factory. Do not invent CONFIRMED.
@@ -41,3 +41,18 @@ WORK-01 write-through is missing on:
 Run the canonical Python, then:
 `python scripts/apply_crosscheck_result.py --protocol ID --from-stdout run.txt --apply --refresh-hub`
 Do not set `status: confirmed` from this bot.
+
+## 2 orphan unknowns in the knowledge graph
+
+`usdr-scout:fingerprint=5756d9b8fa6d` · orphans · normal
+
+Unknowns with no bridge/hypothesis edge. Prime contribution targets, not auto-generated bridges.
+
+- `u-gap-improved-survival-with-ipilimumab-in-pat-f8b52b71`
+- `u-gap-lifetime-prevalence-and-age-of-onset-dis-e040267e`
+
+`python scripts/find_orphan_unknowns.py`
+
+## Opened this run
+
+- https://github.com/KR8ZYSHO3/Universal-Science-Discovery/issues/343
