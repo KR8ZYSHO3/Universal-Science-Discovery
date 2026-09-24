@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed — Habitat check shows the landscape filling
+- The primary test draws the real Newman–Ziff steps: patches turn on, same-colored clusters join, and a wrap around the landscape is the measured threshold. The 400-sample fit is unchanged.
+
+### Fixed — Map page scrolls
+- The scroll wheel was zooming the graph, so the rest of the map never moved into view. The wheel now scrolls the page. Zoom is + and −.
+
 ### Fixed — Map shows the whole graph
 - Zoom-out was capped, so most records sat outside the window. The map now fits every record into the page when it finishes loading. **See the whole map** does that again after you zoom.
 
