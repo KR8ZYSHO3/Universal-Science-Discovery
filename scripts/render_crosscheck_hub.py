@@ -20,7 +20,7 @@ from pathlib import Path
 
 import yaml
 
-from crosscheck_browser import browser_runner_script, colab_url, run_mode
+from crosscheck_browser import browser_runner_script, colab_url, run_mode, visitor_title
 
 ROOT = Path(__file__).resolve().parent.parent
 DASHBOARD_HTML = ROOT / "dashboard" / "index.html"
@@ -83,7 +83,7 @@ def render_cards(protos: list[dict]) -> str:
     lines: list[str] = []
     for proto in sorted(protos, key=lambda p: p.get("id", "")):
         pid = proto["id"]
-        title = html.escape(short_title(str(proto.get("title", pid))))
+        title = html.escape(short_title(visitor_title(pid, str(proto.get("title", pid)))))
         status = str(proto.get("status", "draft"))
         last_run = str(proto.get("last_run_result") or "").strip()
         bridge = str(proto.get("source_bridge", ""))

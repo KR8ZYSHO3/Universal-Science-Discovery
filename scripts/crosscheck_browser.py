@@ -3,6 +3,21 @@ from __future__ import annotations
 
 from pathlib import Path
 
+# Visitor-facing question. The catalog title stays the scientific name.
+VISITOR_TITLES: dict[str, str] = {
+    "p-b-habitat-percolation-ecology-fss": (
+        "Does a smaller landscape break apart at a different point than a huge one?"
+    ),
+}
+
+
+def visitor_title(proto_id: str, title: str) -> str:
+    plain = VISITOR_TITLES.get(proto_id)
+    if plain:
+        return plain
+    return " ".join(str(title).split())
+
+
 # Protocol id -> JS filename in repro bundle (stdlib repros only).
 BROWSER_RUNNERS: dict[str, str] = {
     "p-b-habitat-percolation-ecology-fss": "simulate_percolation_fss.js",

@@ -63,14 +63,33 @@
     .swatch.c2 { background: rgb(0,158,115); }
     .swatch.c3 { background: rgb(213,94,0); }
     .swatch.gold { background: rgb(245,193,108); }
+    .swatch.teal { background: #22d3b8; }
+    body.habitat-demo h1 { font-size: 1.7rem; line-height: 1.25; max-width: 22em; }
+    .formula { color: var(--muted); font-family: var(--mono); font-size: .82rem; margin: 0 0 1rem; }
+    .perc-evidence-title { margin: 1.35rem 0 .25rem; }
+    .perc-chart-caption { color: var(--text); font-size: .95rem; margin: 0 0 .45rem; }
+    .perc-legend { list-style: none; display: flex; flex-wrap: wrap; gap: .35rem 1rem; padding: 0; margin: 0 0 .55rem; font-size: .86rem; color: var(--muted); }
+    .perc-legend li { display: flex; align-items: center; gap: .4rem; }
+    .perc-conclusion { margin: 1rem 0 1.25rem; border-radius: 14px; padding: 1rem 1.15rem 1.05rem; border: 1px solid var(--border); background: rgba(79,156,249,0.08); }
+    .perc-conclusion-title { font-size: 1.28rem; font-weight: 700; margin: 0 0 .45rem; line-height: 1.35; }
+    .perc-conclusion-body { margin: 0; font-size: 1rem; }
+    .perc-conclusion.confirmed { border-color: rgba(34,211,184,.6); background: rgba(34,211,184,.12); }
+    .perc-conclusion.inconclusive { border-color: rgba(251,191,36,.55); background: rgba(251,191,36,.1); }
+    .perc-conclusion.falsified { border-color: rgba(248,113,113,.55); background: rgba(248,113,113,.1); }
+    .result-badge.falsified { background: rgba(248,113,113,0.15); color: #f87171; }
 
   </style>
 </head>
 <body class="habitat-demo">
   <p class="pill">USDR Crosscheck · desktop</p>
-  <h1>Finite-size scaling test — does the 2D site percolation threshold shift with lattice area as p_c(L) = p_c(inf) + c * L^(-1/nu) with nu = 4/3?</h1>
+  <h1>Does a smaller landscape break apart at a different point than a huge one?</h1>
   <p class="meta">Protocol <code>p-b-habitat-percolation-ecology-fss</code> · bridge <code>b-habitat-percolation-ecology</code></p>
-  <p>2D site percolation, periodic 4-neighbor square lattice, Newman–Ziff; p_c(L) is the mean occupation fraction at first wrapping in either direction. That observable obeys p_c(L) = p_c(inf) + c L^(-1/nu) with p_c(inf) = 0.59274621. A weighted fit on L ∈ {32, 64, 128, 256} recovers nu within 15% of 4/3, with reported SE(nu) inside that tolerance. Sign of c is not assumed. L=16 is diagnostic only (...</p>
+  <p class="formula">The check is whether that breaking point follows p_c(L) = p_c(∞) + c × L^(−1/ν), with ν within 15% of 4/3.</p>
+  <p>Fill a grid until one habitat wraps all the way around. That filled percent is the breaking point for that width. A huge landscape breaks near 59.3%. A smaller one should break somewhere else, and the gap should shrink in a known way as the width grows.</p>
+  <div id="perc-conclusion" class="perc-conclusion pending" role="status" aria-live="polite">
+    <p class="perc-conclusion-title">The conclusion appears here after the four widths are measured.</p>
+    <p class="perc-conclusion-body">This run writes that sentence from the dots on the chart.</p>
+  </div>
   <div class="note">
     <strong>Try the in-browser runner below</strong> for a live demo, or clone this folder for
     the canonical Python repro (source of truth for verification).
@@ -96,7 +115,14 @@
         <p class="perc-meter-label">Filled fraction. The gold tick is 59.27%.</p>
       </div>
     </div>
-    <canvas id="perc-chart" class="perc-chart" aria-label="Measured threshold versus landscape size"></canvas>
+    <h2 class="perc-evidence-title">The evidence</h2>
+    <p class="perc-chart-caption">Each dot is the average breaking point from 400 runs at that width. The number on the dot is the filled percent where the habitat wrapped. The gold dashed line is 59.3%, where a huge landscape breaks. When the run finishes, the teal line is the curve fitted to these dots.</p>
+    <ul class="perc-legend">
+      <li><span class="swatch c1"></span> Measured breaking point</li>
+      <li><span class="swatch gold"></span> Huge landscape, 59.3%</li>
+      <li><span class="swatch teal"></span> Fitted curve</li>
+    </ul>
+    <canvas id="perc-chart" class="perc-chart" aria-label="Chart of breaking point versus landscape width. Each dot is 400 runs."></canvas>
   </section>
 
   <div id="crosscheck-runner" class="runner" data-protocol="p-b-habitat-percolation-ecology-fss">

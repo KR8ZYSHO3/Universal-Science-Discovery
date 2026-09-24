@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed — Habitat question states a conclusion from the chart
+- The habitat page asks whether a smaller landscape breaks apart at a different point than a huge one. The chart's dots are the evidence (400 runs at each width). The sentence under the question is written from that fit: yes, not decided, or no for this run. The 15% rule is unchanged, and the answer is not filled in ahead of time.
+
 ### Fixed — Backlog scout no longer reopens shipped v1.3 items.
 - UI-01, ROBUST-01, and WORK-02 hints now point at the files that shipped, so a missing path is not treated as still open.
 
