@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed — Map shows the whole graph
+- Zoom-out was capped, so most records sat outside the window. The map now fits every record into the page when it finishes loading. **See the whole map** does that again after you zoom.
+
 ### Fixed — Habitat browser test no longer presets INCONCLUSIVE
 - The in-browser habitat check runs lattices 32, 64, 128, and 256 with 400 samples each and the same 15% fit as Python. The result is that fit. The 15% gate is unchanged.
 
