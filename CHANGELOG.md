@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed — Habitat picture is a slow loop, and colors are explained
+- The picture is one real landscape, 48 patches wide, slowed to about 15 seconds, then repeated. Colors only name connected habitats. Gold is the habitat that wrapped. They are not a data scale. The chart is still 400 runs at each size. Browser decimals will not match Python because the random generators differ. The model and the 15% rule are the same.
+
 ### Changed — Habitat check shows the landscape filling
 - The primary test draws the real Newman–Ziff steps: patches turn on, same-colored clusters join, and a wrap around the landscape is the measured threshold. The 400-sample fit is unchanged.
 

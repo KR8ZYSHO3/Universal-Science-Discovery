@@ -55,6 +55,14 @@
     .perc-meter-mark { position: absolute; top: -3px; bottom: -3px; left: 59.27%; width: 2px; background: #fbbf24; }
     .perc-meter-label { color: var(--muted); font-size: .78rem; margin-top: .35rem; }
     .perc-chart { width: 100%; height: 250px; margin-top: 1rem; background: #070f1e; border: 1px solid var(--border); border-radius: 12px; }
+    .perc-key { list-style: none; padding: 0; margin: .4rem 0 .8rem; font-size: .86rem; color: var(--muted); }
+    .perc-key li { display: flex; align-items: center; gap: .4rem; margin: .28rem 0; }
+    .swatch { width: 14px; height: 14px; border-radius: 3px; display: inline-block; flex: 0 0 auto; }
+    .swatch.dark { background: #081020; border: 1px solid rgba(107,138,172,.5); }
+    .swatch.c1 { background: rgb(0,114,178); }
+    .swatch.c2 { background: rgb(0,158,115); }
+    .swatch.c3 { background: rgb(213,94,0); }
+    .swatch.gold { background: rgb(245,193,108); }
 
   </style>
 </head>
@@ -77,7 +85,12 @@
       </div>
       <div class="perc-copy">
         <h2>What you are watching</h2>
-        <p id="perc-story">Each cell is a patch of habitat. Empty patches are dark. Filled patches that touch on a side share a color: one connected habitat. The grid is a torus — leave the right edge and you enter the left — so we can ask whether one habitat reaches all the way around. Patches turn on in random order. We stop at the first wrap. That filled fraction is one measurement of the threshold for this landscape size. Repeating it, and doing it at several sizes, is how the exponent is measured. The line at 59.27% is the threshold of an infinite landscape. A smaller landscape stops somewhere else. That shift is what the fit uses.</p>
+        <p id="perc-story">Press Run. One real landscape fills over about 15 seconds, then starts over. Each color is a label for one connected habitat, so you can tell them apart. The color is not height, density, or quality. Gold, at the end, is only the habitat that wrapped around the landscape. Dark cells are empty. This picture is not the average, and it is not a photograph of a real park.</p>
+        <ul class="perc-key">
+          <li><span class="swatch dark"></span> Empty patch</li>
+          <li><span class="swatch c1"></span><span class="swatch c2"></span><span class="swatch c3"></span> Connected habitats. The color is only a name.</li>
+          <li><span class="swatch gold"></span> The habitat that wrapped around</li>
+        </ul>
         <p id="perc-readout" class="perc-readout">Waiting.</p>
         <div class="perc-meter" aria-hidden="true"><div id="perc-meter-fill"></div><span class="perc-meter-mark" title="Infinite-landscape threshold"></span></div>
         <p class="perc-meter-label">Filled fraction. The gold tick is 59.27%.</p>
@@ -87,7 +100,7 @@
   </section>
 
   <div id="crosscheck-runner" class="runner" data-protocol="p-b-habitat-percolation-ecology-fss">
-    <p class="runner-lead">Press Run. You will see one landscape fill at each size, using the real Newman–Ziff steps. Then the same check repeats 400 times at widths 32, 64, 128, and 256 and fits the exponent. The result is that fit. It is not preset.</p>
+    <p class="runner-lead">Press Run. One landscape, 48 patches wide, fills over about 15 seconds and then repeats. Colors name connected habitats. They are not a measurement. The chart is 400 real runs at each size. The result is that fit, not a preset.</p>
     <button type="button" data-action="run">Run Crosscheck</button>
     <span class="result-badge" data-role="result-badge" hidden></span>
     <div class="progress" data-role="progress" hidden><div class="progress-bar" data-role="progress-bar"></div></div>

@@ -113,16 +113,23 @@
     return typeof document !== "undefined" ? document.getElementById(id) : null;
   }
 
-  function hslToRgb(h, s, l) {
-    s /= 100;
-    l /= 100;
-    const a = s * Math.min(l, 1 - l);
-    const f = (n) => {
-      const k = (n + h / 30) % 12;
-      return l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
-    };
-    return [Math.round(f(0) * 255), Math.round(f(8) * 255), Math.round(f(4) * 255)];
-  }
+  /* Qualitative labels only. Not a scale of height, density, or quality.
+     More habitats exist than colors, so a color can repeat. */
+  const CLUSTER_COLORS = [
+    [0, 114, 178],
+    [0, 158, 115],
+    [213, 94, 0],
+    [204, 121, 167],
+    [86, 180, 233],
+    [230, 159, 0],
+    [140, 90, 180],
+    [166, 206, 227],
+  ];
+  const WRAP_COLOR = [245, 193, 108];
+  const VISUAL_L = 48;
+  const VISUAL_MS = 15000;
+  const VISUAL_TARGET_P = 0.62;
+  let visualGeneration = 0;
 
   function paintLattice(frame) {
     const canvas = stageEl("perc-lattice");
@@ -148,7 +155,7 @@
       }
       const root = rootOf[i];
       const hot = highlight !== -1 && root === highlight;
-      const rgb = hslToRgb((root * 47) % 360, hot ? 95 : 62, hot ? 64 : 46);
+      const rgb = hot ? WRAP_COLOR : CLUSTER_COLORS[Math.abs(root) % CLUSTER_COLORS.length];
       data[o] = rgb[0];
       data[o + 1] = rgb[1];
       data[o + 2] = rgb[2];
@@ -240,7 +247,7 @@
     return rootOf;
   }
 
-  async function firstWrapEitherAnimated(L, rng, onFrame) {
+  async function firstWrapEitherAnimated(L, rng, onFrame, onSlice) {
     const n = L * L;
     const parent = new Int32Array(n);
     const dx = new Int32Array(n);
@@ -264,28 +271,28 @@
     const order = new Int32Array(n);
     for (let i = 0; i < n; i++) order[i] = i;
     shuffle(order, rng);
-    const stride = Math.max(1, Math.floor(n / 80));
     let wrapH = false;
     let wrapV = false;
     let highlightRoot = -1;
+    const started = performance.now();
 
     async function show(k, done) {
       const rootOf = rootsNow(n, occupied, find);
-      if (done) highlightRoot = rootOf[order[k - 1]];
+      if (done) highlightRoot = rootOf[order[Math.max(0, k - 1)]];
       const p = k / n;
       let story;
       if (done && (wrapH || wrapV)) {
         story =
-          "One connected habitat just reached around the whole landscape (" +
+          "Gold is the one habitat that reached around this landscape (" +
           (wrapH && wrapV ? "left–right and up–down" : wrapH ? "left–right" : "up–down") +
-          "). The filled fraction at this moment is one sample of the threshold for a landscape of width " +
-          L + ". The edges are joined on purpose: leaving the right side enters the left. That is how this measurement defines “spans the landscape.”";
-      } else if (p < 0.35) {
+          "). Gold is not a score. The other colors are only names so you can tell habitats apart. This picture is one real run, about 15 seconds, then it starts over. It is not the average, and it is not a map of a real place.";
+      } else if (p < 0.3) {
         story =
-          "Patches are turned on in random order. Four neighbors count as connected: up, down, left, right. Same-colored patches are one habitat an animal could cross.";
+          "Each color is one connected habitat: patches that touch up, down, left, or right. The color is a label, not a measurement. Dark cells are still empty. This landscape is " +
+          L + " patches wide, slowed so the filling takes about 15 seconds.";
       } else {
         story =
-          "Clusters are merging. We keep going until one habitat wraps the torus. The known threshold for an infinite landscape is 59.27% filled. A finite landscape stops at a slightly different fraction.";
+          "Habitats merge when they touch. There are more habitats than colors, so a color can repeat. That does not mean they are the same habitat. The gold tick on the meter is 59.27%, the threshold of an infinite landscape. This finite landscape stops when one habitat wraps around.";
       }
       onFrame({
         L, k, n, occupied, rootOf, wrapH, wrapV, p, highlightRoot, story,
@@ -293,43 +300,55 @@
       await new Promise((resolve) => requestAnimationFrame(resolve));
     }
 
-    for (let k = 0; k < n; k++) {
-      const s = order[k];
-      occupied[s] = 1;
-      const r = (s / L) | 0;
-      const c = s - r * L;
-      const bonds = [
-        [(r - 1 + L) % L, c, -1, 0],
-        [(r + 1) % L, c, 1, 0],
-        [r, (c - 1 + L) % L, 0, -1],
-        [r, (c + 1) % L, 0, 1],
-      ];
-      for (const [nr, nc, by, bx] of bonds) {
-        const t = nr * L + nc;
-        if (!occupied[t]) continue;
-        const rs = find(s);
-        const rt = find(t);
-        if (rs === rt) {
-          const wx = dx[s] + bx - dx[t];
-          const wy = dy[s] + by - dy[t];
-          if (wx !== 0) wrapH = true;
-          if (wy !== 0) wrapV = true;
-        } else if (rank[rs] < rank[rt]) {
-          parent[rs] = rt;
-          dx[rs] = dx[t] - bx - dx[s];
-          dy[rs] = dy[t] - by - dy[s];
-        } else {
-          parent[rt] = rs;
-          dx[rt] = dx[s] + bx - dx[t];
-          dy[rt] = dy[s] + by - dy[t];
-          if (rank[rs] === rank[rt]) rank[rs] += 1;
+    let k = 0;
+    while (k < n && !(wrapH || wrapV)) {
+      const elapsed = performance.now() - started;
+      const wantP = Math.min(1, (elapsed / VISUAL_MS) * VISUAL_TARGET_P);
+      let wantK = Math.floor(wantP * n);
+      if (wantK <= k) wantK = k + 1;
+      while (k < wantK && k < n && !(wrapH || wrapV)) {
+        const s = order[k];
+        k += 1;
+        occupied[s] = 1;
+        const r = (s / L) | 0;
+        const c = s - r * L;
+        const bonds = [
+          [(r - 1 + L) % L, c, -1, 0],
+          [(r + 1) % L, c, 1, 0],
+          [r, (c - 1 + L) % L, 0, -1],
+          [r, (c + 1) % L, 0, 1],
+        ];
+        for (const [nr, nc, by, bx] of bonds) {
+          const t = nr * L + nc;
+          if (!occupied[t]) continue;
+          const rs = find(s);
+          const rt = find(t);
+          if (rs === rt) {
+            const wx = dx[s] + bx - dx[t];
+            const wy = dy[s] + by - dy[t];
+            if (wx !== 0) wrapH = true;
+            if (wy !== 0) wrapV = true;
+          } else if (rank[rs] < rank[rt]) {
+            parent[rs] = rt;
+            dx[rs] = dx[t] - bx - dx[s];
+            dy[rs] = dy[t] - by - dy[s];
+          } else {
+            parent[rt] = rs;
+            dx[rt] = dx[s] + bx - dx[t];
+            dy[rt] = dy[s] + by - dy[t];
+            if (rank[rs] === rank[rt]) rank[rs] += 1;
+          }
         }
       }
-      const done = wrapH || wrapV;
-      if (onFrame && (k % stride === 0 || done)) await show(k + 1, done);
-      if (done) return (k + 1) / n;
+      await show(k, wrapH || wrapV);
+      if (onSlice) onSlice();
     }
-    return 1.0;
+    const holdUntil = performance.now() + 1800;
+    while (performance.now() < holdUntil) {
+      await show(k, true);
+      if (onSlice) onSlice();
+    }
+    return k / n;
   }
 
   function meanSe(ps) {
@@ -469,34 +488,78 @@
       type: "line",
       text: `Params: L in [${FIT_SIZES.join(", ")}], samples/L=${N_SAMPLES}, seed=${SEED}. Result is the fit, not a preset.`,
     });
+    emit({
+      type: "line",
+      text: "Picture: one landscape, width " + VISUAL_L + ", about 15 seconds, then it loops. Colors name habitats. They are not a data scale. The chart is 400 runs at each fit size, same rules, not the picture.",
+    });
+    emit({
+      type: "line",
+      text: "Browser random numbers are mulberry32. Python uses a different generator, so the decimals will not match Python. The model and the 15% rule are the same. This is a percolation model, not a photograph of a real park.",
+    });
     emit({ type: "line", text: "" });
 
     const rng = mulberry32(SEED);
     const rows = [];
     const total = FIT_SIZES.length * N_SAMPLES;
-    let done = 0;
-    for (let i = 0; i < FIT_SIZES.length; i++) {
-      const L = FIT_SIZES[i];
-      const ps = [];
-      const show = stageEl("perc-lattice");
-      for (let t = 0; t < N_SAMPLES; t++) {
-        if (t === 0 && show) {
-          const story = stageEl("perc-story");
-          if (story) {
-            story.textContent =
-              "Watching one landscape of width " + L + ". The other " +
-              (N_SAMPLES - 1) + " at this size are the same measurement, without the picture, so the average is real.";
-          }
-          ps.push(await firstWrapEitherAnimated(L, rng, paintLattice));
-        } else {
-          ps.push(firstWrapEither(L, rng));
-        }
-        done += 1;
-        if (t % 2 === 1) {
-          emit({ type: "progress", pct: Math.round((100 * done) / total) });
-          await yieldToBrowser();
-        }
+    let doneCount = 0;
+    let sizeIndex = 0;
+    let sampleIndex = 0;
+    let ps = [];
+    let finished = false;
+    let finalResult = null;
+
+    function finishMeasure() {
+      if (finished) return;
+      finished = true;
+      const pcs = rows.map((row) => row.mean);
+      const ses = rows.map((row) => row.se);
+      const fit = fitA(FIT_SIZES, pcs, ses);
+      const result = classify(fit, pcs, ses);
+      paintChart(rows, fit);
+      finalResult = { passed: result === "CONFIRMED", result, fit, rows };
+      emit({ type: "line", text: "" });
+      emit({
+        type: "line",
+        text:
+          `Fit A  nu = ${fit.nu.toFixed(4)} ± ${fit.seNu.toFixed(4)}   ` +
+          `c = ${fit.c >= 0 ? "+" : ""}${fit.c.toFixed(4)} ± ${fit.seC.toFixed(4)}`,
+      });
+      emit({
+        type: "line",
+        text:
+          `  R² = ${fit.r2.toFixed(4)}   rel err vs 4/3 = ${(100 * fit.relErr).toFixed(1)}%  (tolerance 15%)`,
+      });
+      if (result === "INCONCLUSIVE") {
+        emit({
+          type: "line",
+          text: "INCONCLUSIVE means this run is underpowered or the fit is unstable. It is not a claim that percolation has the wrong exponent.",
+        });
+      } else if (result === "FALSIFIED") {
+        emit({
+          type: "line",
+          text: "FALSIFIED means this run's fit disagrees with nu=4/3 past the gate. That is a protocol failure, not a disproof of percolation.",
+        });
+      } else {
+        emit({
+          type: "line",
+          text: "CONFIRMED means this run's weighted fit recovered nu within 15% of 4/3, with a tight enough error bar.",
+        });
       }
+      emit({ type: "line", text: `RESULT: ${result}` });
+      emit({ type: "progress", pct: 100 });
+      emit({ type: "result", result });
+    }
+
+    function stepMeasure() {
+      if (finished) return;
+      const L = FIT_SIZES[sizeIndex];
+      ps.push(firstWrapEither(L, rng));
+      sampleIndex += 1;
+      doneCount += 1;
+      if (doneCount % 8 === 0) {
+        emit({ type: "progress", pct: Math.round((100 * doneCount) / total) });
+      }
+      if (sampleIndex < N_SAMPLES) return;
       const { mean, se, sigma } = meanSe(ps);
       const delta = mean - PC_INF;
       const sign = delta >= 0 ? "+" : "";
@@ -508,46 +571,32 @@
       });
       rows.push({ L, mean, se, sigma });
       paintChart(rows, null);
+      ps = [];
+      sampleIndex = 0;
+      sizeIndex += 1;
+      if (sizeIndex >= FIT_SIZES.length) finishMeasure();
     }
 
-    const pcs = rows.map((row) => row.mean);
-    const ses = rows.map((row) => row.se);
-    const fit = fitA(FIT_SIZES, pcs, ses);
-    const result = classify(fit, pcs, ses);
-    paintChart(rows, fit);
-
-    emit({ type: "line", text: "" });
-    emit({
-      type: "line",
-      text:
-        `Fit A  nu = ${fit.nu.toFixed(4)} ± ${fit.seNu.toFixed(4)}   ` +
-        `c = ${fit.c >= 0 ? "+" : ""}${fit.c.toFixed(4)} ± ${fit.seC.toFixed(4)}`,
+    const gen = ++visualGeneration;
+    const slice = () => {
+      const end = performance.now() + 6;
+      while (!finished && performance.now() < end) stepMeasure();
+    };
+    const visual = (async () => {
+      let seed = 7;
+      while (gen === visualGeneration) {
+        await firstWrapEitherAnimated(VISUAL_L, mulberry32(seed++), paintLattice, slice);
+      }
+    })();
+    await new Promise((resolve) => {
+      const wait = () => {
+        if (finished || gen !== visualGeneration) resolve();
+        else setTimeout(wait, 250);
+      };
+      wait();
     });
-    emit({
-      type: "line",
-      text:
-        `  R² = ${fit.r2.toFixed(4)}   rel err vs 4/3 = ${(100 * fit.relErr).toFixed(1)}%  (tolerance 15%)`,
-    });
-    if (result === "INCONCLUSIVE") {
-      emit({
-        type: "line",
-        text: "INCONCLUSIVE means this run is underpowered or the fit is unstable. It is not a claim that percolation has the wrong exponent.",
-      });
-    } else if (result === "FALSIFIED") {
-      emit({
-        type: "line",
-        text: "FALSIFIED means this run's fit disagrees with nu=4/3 past the gate. That is a protocol failure, not a disproof of percolation.",
-      });
-    } else {
-      emit({
-        type: "line",
-        text: "CONFIRMED means this run's weighted fit recovered nu within 15% of 4/3, with a tight enough error bar.",
-      });
-    }
-    emit({ type: "line", text: `RESULT: ${result}` });
-    emit({ type: "progress", pct: 100 });
-    emit({ type: "result", result });
-    return { passed: result === "CONFIRMED", result, fit, rows };
+    void visual;
+    return finalResult;
   }
 
   const root = typeof window !== "undefined" ? window : globalThis;
