@@ -44,9 +44,9 @@ def script_name(bundle_dir: Path) -> str:
 def runner_lead(proto_id: str) -> str:
     if proto_id == "p-b-habitat-percolation-ecology-fss":
         return (
-            "Same lattices and the same 15% fit as the full check (L = 32, 64, 128, 256, "
-            "400 samples each). This can take a few minutes. The result is computed. "
-            "INCONCLUSIVE means the fit was too noisy, not that the claim was preset to fail."
+            "Press Run. You will see one landscape fill at each size, using the real "
+            "Newman–Ziff steps. Then the same check repeats 400 times at widths 32, 64, "
+            "128, and 256 and fits the exponent. The result is that fit. It is not preset."
         )
     return (
         "One-click demo — cheaper trial budget than the Python repro. Results stream live; "
@@ -54,11 +54,54 @@ def runner_lead(proto_id: str) -> str:
     )
 
 
+def habitat_stage() -> str:
+    return """
+  <section class=\"perc-stage\" id=\"perc-stage\">
+    <div class=\"perc-grid\">
+      <div class=\"lattice-wrap\">
+        <canvas id=\"perc-lattice\" width=\"64\" height=\"64\" aria-label=\"Habitat patches filling a landscape\"></canvas>
+      </div>
+      <div class=\"perc-copy\">
+        <h2>What you are watching</h2>
+        <p id=\"perc-story\">Each cell is a patch of habitat. Empty patches are dark. Filled patches that touch on a side share a color: one connected habitat. The grid is a torus — leave the right edge and you enter the left — so we can ask whether one habitat reaches all the way around. Patches turn on in random order. We stop at the first wrap. That filled fraction is one measurement of the threshold for this landscape size. Repeating it, and doing it at several sizes, is how the exponent is measured. The line at 59.27% is the threshold of an infinite landscape. A smaller landscape stops somewhere else. That shift is what the fit uses.</p>
+        <p id=\"perc-readout\" class=\"perc-readout\">Waiting.</p>
+        <div class=\"perc-meter\" aria-hidden=\"true\"><div id=\"perc-meter-fill\"></div><span class=\"perc-meter-mark\" title=\"Infinite-landscape threshold\"></span></div>
+        <p class=\"perc-meter-label">Filled fraction. The gold tick is 59.27%.</p>
+      </div>
+    </div>
+    <canvas id=\"perc-chart\" class=\"perc-chart\" aria-label=\"Measured threshold versus landscape size\"></canvas>
+  </section>
+"""
+
+
+def habitat_css() -> str:
+    return """
+    body.habitat-demo { max-width: 72rem; }
+    .perc-stage { margin: 1.25rem 0 0.5rem; }
+    .perc-grid { display: grid; grid-template-columns: minmax(240px, 1.1fr) minmax(260px, 0.9fr); gap: 1.25rem; align-items: start; }
+    @media (max-width: 800px) { .perc-grid { grid-template-columns: 1fr; } }
+    .lattice-wrap { background: #070f1e; border: 1px solid rgba(79,156,249,0.35); border-radius: 16px; padding: .6rem; box-shadow: 0 0 0 1px rgba(34,211,184,0.05), 0 20px 60px rgba(0,0,0,.35); }
+    #perc-stage.is-wrapped .lattice-wrap { box-shadow: 0 0 0 2px #fbbf24, 0 0 40px rgba(251,191,36,.35); }
+    #perc-lattice { width: 100%; height: auto; image-rendering: pixelated; display: block; border-radius: 8px; background: #081020; }
+    .perc-copy h2 { margin-top: 0; }
+    #perc-story { font-size: .95rem; }
+    .perc-readout { font-family: var(--mono); color: var(--teal); min-height: 1.4rem; }
+    .perc-meter { position: relative; height: 10px; border-radius: 999px; background: #101a2e; border: 1px solid var(--border); overflow: hidden; }
+    #perc-meter-fill { height: 100%; width: 0; background: linear-gradient(90deg, #1d4ed8, #22d3b8); }
+    .perc-meter-mark { position: absolute; top: -3px; bottom: -3px; left: 59.27%; width: 2px; background: #fbbf24; }
+    .perc-meter-label { color: var(--muted); font-size: .78rem; margin-top: .35rem; }
+    .perc-chart { width: 100%; height: 250px; margin-top: 1rem; background: #070f1e; border: 1px solid var(--border); border-radius: 12px; }
+"""
+
+
 def runner_section(proto_id: str, runner_js: str) -> str:
     e = html.escape
     lead = e(runner_lead(proto_id))
+    stage = habitat_stage() if proto_id == "p-b-habitat-percolation-ecology-fss" else ""
+    heading = "Run the check" if stage else "Run Crosscheck in your browser"
+    stage_html = "\n" + stage if stage else ""
     return f"""
-  <h2>Run Crosscheck in your browser</h2>
+  <h2>{heading}</h2>{stage_html}
   <div id=\"crosscheck-runner\" class=\"runner\" data-protocol=\"{e(proto_id)}\">
     <p class=\"runner-lead\">{lead}</p>
     <button type=\"button\" data-action=\"run\">Run Crosscheck</button>
@@ -127,8 +170,11 @@ def render_page(proto: dict) -> str:
     has_colab = colab_href is not None
 
     e = html.escape
+    habitat = pid == "p-b-habitat-percolation-ecology-fss"
     runner_html = runner_section(pid, runner_js) if has_browser else ""
     colab_html = colab_section(colab_href) if has_colab and not has_browser else ""
+    extra_css = habitat_css() if habitat else ""
+    body_tag = '<body class="habitat-demo">' if habitat else "<body>"
     return f"""<!DOCTYPE html>
 <html lang=\"en\">
 <head>
@@ -170,10 +216,10 @@ def render_page(proto: dict) -> str:
     .result-badge.error {{ background: rgba(248,113,113,0.15); color: #f87171; }}
     .colab-btn {{ display: inline-block; background: #f9ab00; color: #1a1200; font-weight: 600;
       padding: .5rem 1rem; border-radius: 8px; text-decoration: none; font-size: .92rem; }}
-    .colab-btn:hover {{ filter: brightness(1.05); }}
+    .colab-btn:hover {{ filter: brightness(1.05); }}{extra_css}
   </style>
 </head>
-<body>
+{body_tag}
   <p class=\"pill\">USDR Crosscheck · {e(tier)}</p>
   <h1>{e(title)}</h1>
   <p class=\"meta\">Protocol <code>{e(pid)}</code> · bridge <code>{e(bridge)}</code></p>

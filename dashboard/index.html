@@ -697,19 +697,19 @@
     body[data-view="more"] [data-hub-view="more"] { display: block !important; }
     body[data-view="more"]:not(.visitor-first) [data-hub-view="builder"] { display: block !important; }
     body[data-view="home"] main { padding: 0; min-height: 0; }
-    body[data-view="map"] { overflow-x: hidden; overflow-y: auto; }
+    body[data-view="map"] { overflow-x: hidden; overflow-y: visible; height: auto; }
     body[data-view="map"] footer { display: none; }
     body[data-view="map"] main {
       max-width: none;
-      padding: 0 0 1.5rem;
+      padding: 0 0 2rem;
       height: auto;
-      min-height: calc(100vh - var(--nav-h));
+      min-height: 0;
     }
     body[data-view="map"] #knowledge-graph {
       display: flex !important;
       flex-direction: column;
       height: auto;
-      min-height: calc(100vh - var(--nav-h));
+      min-height: 0;
       padding: 0;
       border-bottom: none;
     }
@@ -730,9 +730,10 @@
       margin: .35rem clamp(1rem, 3vw, 1.5rem);
     }
     body[data-view="map"] #graph-container {
-      flex: 1 1 auto;
-      height: calc(100vh - var(--nav-h) - 13rem) !important;
-      min-height: 70vh;
+      flex: 0 0 auto;
+      height: 100vh !important;
+      min-height: 100vh;
+      touch-action: pan-y;
       border-radius: 0;
       border-left: none;
       border-right: none;
@@ -1321,6 +1322,15 @@
     }
     @keyframes kg-spin { to { transform: rotate(360deg); } }
     #kg-svg { width: 100%; height: 100%; display: block; }
+    .kg-zoom-controls {
+      position: absolute; top: .65rem; right: .65rem; z-index: 6;
+      display: flex; flex-direction: column; gap: .35rem;
+    }
+    .kg-zoom-controls button {
+      width: 36px; height: 36px; border-radius: 8px; cursor: pointer;
+      border: 1px solid var(--border); background: var(--surface-solid, #0b1527);
+      color: var(--text); font-size: 1.15rem; line-height: 1;
+    }
     .kg-links line { stroke-opacity: 1; }
     #kg-legend {
       position: absolute; bottom: 1.2rem; left: 1.2rem;
@@ -1906,7 +1916,7 @@
         <ol>
           <li>A <strong>claim</strong> that two fields share the same math.</li>
           <li>A <strong>test</strong> you can run in the browser.</li>
-          <li>The button runs the real lattices and the real fit. <strong>INCONCLUSIVE</strong> means that run was too noisy. It is not a preset failure, and it is not proof the fields disagree.</li>
+          <li>The button shows habitat patches filling a landscape, then repeats the real measurement. <strong>INCONCLUSIVE</strong> means that run was too noisy. It is not a preset failure.</li>
         </ol>
         <div class="example-actions">
           <a class="primary" href="../repro/p-b-habitat-percolation-ecology-fss/index.html">Run this test →</a>
@@ -2912,7 +2922,11 @@
           <div class="edge-item"><span class="edge-swatch" style="background:#f97316"></span>related claim</div>
           <div class="edge-item"><span class="edge-swatch" style="background:#a78bfa"></span>shared math</div>
         </div>
-        <div class="kg-zoom-hint" aria-hidden="true"><span class="kg-zoom-hint-desktop">scroll to zoom · drag to move · See the whole map fits everything</span><span class="kg-zoom-hint-touch">pinch to zoom · drag to move</span></div>
+        <div class="kg-zoom-controls" aria-label="Map zoom">
+          <button type="button" id="kg-zoom-in" aria-label="Zoom in">+</button>
+          <button type="button" id="kg-zoom-out" aria-label="Zoom out">−</button>
+        </div>
+        <div class="kg-zoom-hint" aria-hidden="true"><span class="kg-zoom-hint-desktop">scroll the page · drag to move · + and − to zoom</span><span class="kg-zoom-hint-touch">scroll the page · pinch to zoom</span></div>
         <div id="kg-tooltip" class="kg-tooltip hidden"></div>
         <div id="node-detail-panel" class="node-panel hidden" role="dialog" aria-label="Node details" aria-modal="false">
           <button class="panel-close" id="panel-close" aria-label="Close panel">✕</button>
@@ -4590,10 +4604,22 @@
         /* zoom + pan (behavior stored for programmatic focus from catalog search) */
         var zoomBehavior = d3.zoom()
           .scaleExtent([0.002, 8])
+          .filter(function (event) {
+            /* Wheel scrolls the page. Zoom is the + / − buttons, pinch, or drag. */
+            if (event.type === 'wheel') return false;
+            return !event.button;
+          })
           .on('zoom', function (event) {
             g.attr('transform', event.transform);
           });
         svg.call(zoomBehavior);
+        function zoomBy(factor) {
+          svg.transition().duration(180).call(zoomBehavior.scaleBy, factor);
+        }
+        var zoomIn = document.getElementById('kg-zoom-in');
+        var zoomOut = document.getElementById('kg-zoom-out');
+        if (zoomIn) zoomIn.addEventListener('click', function () { zoomBy(1.35); });
+        if (zoomOut) zoomOut.addEventListener('click', function () { zoomBy(1 / 1.35); });
         function fitWholeMap() {
           var minX = Infinity;
           var maxX = -Infinity;

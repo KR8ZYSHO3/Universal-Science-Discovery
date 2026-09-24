@@ -109,6 +109,229 @@
     return 1.0;
   }
 
+  function stageEl(id) {
+    return typeof document !== "undefined" ? document.getElementById(id) : null;
+  }
+
+  function hslToRgb(h, s, l) {
+    s /= 100;
+    l /= 100;
+    const a = s * Math.min(l, 1 - l);
+    const f = (n) => {
+      const k = (n + h / 30) % 12;
+      return l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
+    };
+    return [Math.round(f(0) * 255), Math.round(f(8) * 255), Math.round(f(4) * 255)];
+  }
+
+  function paintLattice(frame) {
+    const canvas = stageEl("perc-lattice");
+    if (!canvas) return;
+    const L = frame.L;
+    const n = frame.n;
+    canvas.width = L;
+    canvas.height = L;
+    const ctx = canvas.getContext("2d", { alpha: false });
+    const img = ctx.createImageData(L, L);
+    const data = img.data;
+    const occupied = frame.occupied;
+    const rootOf = frame.rootOf;
+    const highlight = frame.highlightRoot;
+    for (let i = 0; i < n; i++) {
+      const o = i * 4;
+      if (!occupied[i]) {
+        data[o] = 8;
+        data[o + 1] = 16;
+        data[o + 2] = 32;
+        data[o + 3] = 255;
+        continue;
+      }
+      const root = rootOf[i];
+      const hot = highlight !== -1 && root === highlight;
+      const rgb = hslToRgb((root * 47) % 360, hot ? 95 : 62, hot ? 64 : 46);
+      data[o] = rgb[0];
+      data[o + 1] = rgb[1];
+      data[o + 2] = rgb[2];
+      data[o + 3] = 255;
+    }
+    ctx.putImageData(img, 0, 0);
+    const wrap = stageEl("perc-stage");
+    if (wrap) wrap.classList.toggle("is-wrapped", frame.wrapH || frame.wrapV);
+    const meter = stageEl("perc-meter-fill");
+    if (meter) meter.style.width = Math.min(100, frame.p * 100) + "%";
+    const readout = stageEl("perc-readout");
+    if (readout) {
+      const dir = frame.wrapH && frame.wrapV ? "both directions" : frame.wrapH ? "left–right" : frame.wrapV ? "up–down" : "not yet";
+      readout.textContent =
+        "L = " + L + "   filled " + (100 * frame.p).toFixed(2) + "%   wrap: " + dir;
+    }
+    const story = stageEl("perc-story");
+    if (story) story.textContent = frame.story;
+  }
+
+  function paintChart(rows, fit) {
+    const canvas = stageEl("perc-chart");
+    if (!canvas || !rows.length) return;
+    const cssW = canvas.clientWidth || 720;
+    const cssH = 250;
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = Math.floor(cssW * dpr);
+    canvas.height = Math.floor(cssH * dpr);
+    const ctx = canvas.getContext("2d");
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, cssW, cssH);
+    const padL = 54;
+    const padR = 16;
+    const padT = 18;
+    const padB = 36;
+    const y0 = 0.55;
+    const y1 = 0.66;
+    const xOf = (i) => padL + ((cssW - padL - padR) * i) / Math.max(1, rows.length - 1);
+    const yOf = (p) => padT + ((cssH - padT - padB) * (y1 - p)) / (y1 - y0);
+    ctx.strokeStyle = "rgba(107,138,172,0.45)";
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(padL, padT);
+    ctx.lineTo(padL, cssH - padB);
+    ctx.lineTo(cssW - padR, cssH - padB);
+    ctx.stroke();
+    ctx.strokeStyle = "rgba(251,191,36,0.85)";
+    ctx.setLineDash([4, 4]);
+    ctx.beginPath();
+    ctx.moveTo(padL, yOf(PC_INF));
+    ctx.lineTo(cssW - padR, yOf(PC_INF));
+    ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = "#fbbf24";
+    ctx.font = "12px ui-monospace, monospace";
+    ctx.fillText("infinite landscape  0.5927", padL + 8, yOf(PC_INF) - 6);
+    if (fit) {
+      ctx.strokeStyle = "#22d3b8";
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      rows.forEach((row, i) => {
+        const y = PC_INF + fit.c * row.L ** (-1 / fit.nu);
+        const x = xOf(i);
+        if (i === 0) ctx.moveTo(x, yOf(y));
+        else ctx.lineTo(x, yOf(y));
+      });
+      ctx.stroke();
+    }
+    rows.forEach((row, i) => {
+      const x = xOf(i);
+      const y = yOf(row.mean);
+      ctx.strokeStyle = "#4f9cf9";
+      ctx.beginPath();
+      ctx.moveTo(x, yOf(row.mean - row.se));
+      ctx.lineTo(x, yOf(row.mean + row.se));
+      ctx.stroke();
+      ctx.fillStyle = "#4f9cf9";
+      ctx.beginPath();
+      ctx.arc(x, y, 5, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = "#6b8aac";
+      ctx.fillText("L=" + row.L, x - 14, cssH - 14);
+    });
+  }
+
+  function rootsNow(n, occupied, find) {
+    const rootOf = new Int32Array(n);
+    for (let i = 0; i < n; i++) rootOf[i] = occupied[i] ? find(i) : -1;
+    return rootOf;
+  }
+
+  async function firstWrapEitherAnimated(L, rng, onFrame) {
+    const n = L * L;
+    const parent = new Int32Array(n);
+    const dx = new Int32Array(n);
+    const dy = new Int32Array(n);
+    const rank = new Int32Array(n);
+    const occupied = new Uint8Array(n);
+    for (let i = 0; i < n; i++) parent[i] = i;
+
+    function find(x) {
+      if (parent[x] !== x) {
+        const orig = parent[x];
+        const root = find(orig);
+        dx[x] += dx[orig];
+        dy[x] += dy[orig];
+        parent[x] = root;
+        return root;
+      }
+      return x;
+    }
+
+    const order = new Int32Array(n);
+    for (let i = 0; i < n; i++) order[i] = i;
+    shuffle(order, rng);
+    const stride = Math.max(1, Math.floor(n / 80));
+    let wrapH = false;
+    let wrapV = false;
+    let highlightRoot = -1;
+
+    async function show(k, done) {
+      const rootOf = rootsNow(n, occupied, find);
+      if (done) highlightRoot = rootOf[order[k - 1]];
+      const p = k / n;
+      let story;
+      if (done && (wrapH || wrapV)) {
+        story =
+          "One connected habitat just reached around the whole landscape (" +
+          (wrapH && wrapV ? "left–right and up–down" : wrapH ? "left–right" : "up–down") +
+          "). The filled fraction at this moment is one sample of the threshold for a landscape of width " +
+          L + ". The edges are joined on purpose: leaving the right side enters the left. That is how this measurement defines “spans the landscape.”";
+      } else if (p < 0.35) {
+        story =
+          "Patches are turned on in random order. Four neighbors count as connected: up, down, left, right. Same-colored patches are one habitat an animal could cross.";
+      } else {
+        story =
+          "Clusters are merging. We keep going until one habitat wraps the torus. The known threshold for an infinite landscape is 59.27% filled. A finite landscape stops at a slightly different fraction.";
+      }
+      onFrame({
+        L, k, n, occupied, rootOf, wrapH, wrapV, p, highlightRoot, story,
+      });
+      await new Promise((resolve) => requestAnimationFrame(resolve));
+    }
+
+    for (let k = 0; k < n; k++) {
+      const s = order[k];
+      occupied[s] = 1;
+      const r = (s / L) | 0;
+      const c = s - r * L;
+      const bonds = [
+        [(r - 1 + L) % L, c, -1, 0],
+        [(r + 1) % L, c, 1, 0],
+        [r, (c - 1 + L) % L, 0, -1],
+        [r, (c + 1) % L, 0, 1],
+      ];
+      for (const [nr, nc, by, bx] of bonds) {
+        const t = nr * L + nc;
+        if (!occupied[t]) continue;
+        const rs = find(s);
+        const rt = find(t);
+        if (rs === rt) {
+          const wx = dx[s] + bx - dx[t];
+          const wy = dy[s] + by - dy[t];
+          if (wx !== 0) wrapH = true;
+          if (wy !== 0) wrapV = true;
+        } else if (rank[rs] < rank[rt]) {
+          parent[rs] = rt;
+          dx[rs] = dx[t] - bx - dx[s];
+          dy[rs] = dy[t] - by - dy[s];
+        } else {
+          parent[rt] = rs;
+          dx[rt] = dx[s] + bx - dx[t];
+          dy[rt] = dy[s] + by - dy[t];
+          if (rank[rs] === rank[rt]) rank[rs] += 1;
+        }
+      }
+      const done = wrapH || wrapV;
+      if (onFrame && (k % stride === 0 || done)) await show(k + 1, done);
+      if (done) return (k + 1) / n;
+    }
+    return 1.0;
+  }
+
   function meanSe(ps) {
     const m = ps.length;
     const mean = ps.reduce((a, b) => a + b, 0) / m;
@@ -255,8 +478,19 @@
     for (let i = 0; i < FIT_SIZES.length; i++) {
       const L = FIT_SIZES[i];
       const ps = [];
+      const show = stageEl("perc-lattice");
       for (let t = 0; t < N_SAMPLES; t++) {
-        ps.push(firstWrapEither(L, rng));
+        if (t === 0 && show) {
+          const story = stageEl("perc-story");
+          if (story) {
+            story.textContent =
+              "Watching one landscape of width " + L + ". The other " +
+              (N_SAMPLES - 1) + " at this size are the same measurement, without the picture, so the average is real.";
+          }
+          ps.push(await firstWrapEitherAnimated(L, rng, paintLattice));
+        } else {
+          ps.push(firstWrapEither(L, rng));
+        }
         done += 1;
         if (t % 2 === 1) {
           emit({ type: "progress", pct: Math.round((100 * done) / total) });
@@ -273,12 +507,14 @@
           `delta=${sign}${delta.toFixed(5)}  sigma=${sigma.toFixed(5)}`,
       });
       rows.push({ L, mean, se, sigma });
+      paintChart(rows, null);
     }
 
     const pcs = rows.map((row) => row.mean);
     const ses = rows.map((row) => row.se);
     const fit = fitA(FIT_SIZES, pcs, ses);
     const result = classify(fit, pcs, ses);
+    paintChart(rows, fit);
 
     emit({ type: "line", text: "" });
     emit({
