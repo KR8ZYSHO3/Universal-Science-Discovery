@@ -1,8 +1,8 @@
 # Backlog scout
 
-Generated **2026-09-23 12:28 UTC**. Operations only — not a scientific result.
+Generated **2026-09-24 12:27 UTC**. Operations only — not a scientific result.
 
-Findings: **4**. New issues this run (cap 5): 1.
+Findings: **4**. New issues this run (cap 5): 0.
 
 Agents: pick `status:needs-owner` issues first, then this list, then ROADMAP.md.
 Do not promote Wave Factory. Do not invent CONFIRMED.
@@ -52,7 +52,3 @@ Unknowns with no bridge/hypothesis edge. Prime contribution targets, not auto-ge
 - `u-gap-lifetime-prevalence-and-age-of-onset-dis-e040267e`
 
 `python scripts/find_orphan_unknowns.py`
-
-## Opened this run
-
-- https://github.com/KR8ZYSHO3/Universal-Science-Discovery/issues/343
