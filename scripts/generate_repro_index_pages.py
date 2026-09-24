@@ -44,9 +44,9 @@ def script_name(bundle_dir: Path) -> str:
 def runner_lead(proto_id: str) -> str:
     if proto_id == "p-b-habitat-percolation-ecology-fss":
         return (
-            "In-browser smoke test (smaller L, 48 samples). It cannot confirm ν and "
-            "must print INCONCLUSIVE — that means the demo is small, not that "
-            "percolation is wrong. Python is the exponent measurement."
+            "Same lattices and the same 15% fit as the full check (L = 32, 64, 128, 256, "
+            "400 samples each). This can take a few minutes. The result is computed. "
+            "INCONCLUSIVE means the fit was too noisy, not that the claim was preset to fail."
         )
     return (
         "One-click demo — cheaper trial budget than the Python repro. Results stream live; "

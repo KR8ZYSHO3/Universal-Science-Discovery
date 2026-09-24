@@ -35,18 +35,20 @@ def test_percolation_fss_protocol_contract_is_frozen() -> None:
     assert mod.R2_MIN == 0.85
 
 
-def test_percolation_fss_browser_js_cannot_emit_confirmed() -> None:
+def test_percolation_fss_browser_js_fits_instead_of_preset_result() -> None:
     js = (
         REPO_ROOT
         / "repro/p-b-habitat-percolation-ecology-fss/simulate_percolation_fss.js"
     ).read_text(encoding="utf-8")
     assert "mean-first-either-wrap" in js
-    assert "must not emit CONFIRMED" in js
-    assert 'result: "INCONCLUSIVE"' in js
-    assert "RESULT: INCONCLUSIVE" in js
+    assert "const FIT_SIZES = [32, 64, 128, 256]" in js
+    assert "const N_SAMPLES = 400" in js
+    assert "const NU_TOLERANCE = 0.15" in js
+    assert "function classify(" in js
+    assert "RESULT: ${result}" in js
+    assert "browser smoke test; cannot confirm" not in js
+    assert 'result: "INCONCLUSIVE"' not in js
     assert 'result: "CONFIRMED"' not in js
-    assert "passed ? \"CONFIRMED\"" not in js
-    assert "passed ? 'CONFIRMED'" not in js
 
 
 def test_percolation_fss_weighted_fit_recovers_nu_on_synthetic_shift() -> None:

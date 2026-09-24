@@ -13,9 +13,9 @@ falsifiable_prediction: >
   direction. That observable obeys p_c(L) = p_c(inf) + c L^(-1/nu) with
   p_c(inf) = 0.59274621. A weighted fit on L ∈ {32, 64, 128, 256} recovers
   nu within 15% of 4/3, with reported SE(nu) inside that tolerance.
-  Sign of c is not assumed. L=16 is diagnostic only. The in-browser runner
-  is a smoke test and cannot confirm nu. Do not treat torus c as a
-  park-design constant.
+  Sign of c is not assumed. L=16 is diagnostic only (Python). The in-browser
+  runner uses the same fit lattices, 400 samples, and 15% gate, and reports
+  that fit. Do not treat torus c as a park-design constant.
 null_hypothesis: >
   Threshold estimates are independent of lattice size (c consistent with 0),
   or a powered fit disagrees with nu = 4/3 by more than 15%.
@@ -52,8 +52,8 @@ experimental_design:
       CONFIRMED if Fit A has nu within 15% of 4/3, SE(nu) at most 15% of 4/3,
       |c| > 2 SE(c), R² at least 0.85, and |p_c(L)-p_c(inf)| shrinks with L
       within 2 sigma. INCONCLUSIVE means underpowered. FALSIFIED means powered
-      disagreement. Browser JS uses L in {16,32,48,64} and 48 samples/L and
-      must print INCONCLUSIVE.
+      disagreement. The browser runner uses the same fit lattices, 400
+      samples/L, and 15% gate, and must not preset the result.
   - >
       Document seed, sample count, wall-clock, and a power estimate (samples/L
       so SE(nu) meets the 15% tolerance).
@@ -65,8 +65,8 @@ statistical_analysis_plan: >
 feasibility_tier: desktop
 repro_bundle: repro/p-b-habitat-percolation-ecology-fss/
 estimated_runtime: >
-  ~15–40 s on a laptop at 400 Newman–Ziff samples/L (canonical). Browser smoke
-  test ~10–30 s and cannot confirm nu.
+  ~15–40 s in Python, or a few minutes in the browser, at 400 Newman–Ziff
+  samples/L. Both report the fit. Neither presets the result.
 last_reviewed: "2026-08-27"
 references:
   - doi: "10.1007/BF02275266"

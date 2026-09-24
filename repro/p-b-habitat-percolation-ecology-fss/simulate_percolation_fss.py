@@ -41,7 +41,8 @@ Pass / fail / inconclusive (stdout RESULT token; exit code is always 0):
                 Not a claim that percolation theory is wrong.
   FALSIFIED     powered, and ν is more than 15% from 4/3 with 4/3 outside 2σ
 
-The in-browser JS runner is a smoke test and must not emit CONFIRMED.
+The in-browser JS runner uses the same fit sizes, sample count, and 15% gate.
+Its RESULT is that fit. It must not print a preset verdict.
 
 CI greps stdout for RESULT: CONFIRMED on a powered run.
 """
@@ -407,7 +408,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     print()
     extra = {
         "CONFIRMED": "",
-        "INCONCLUSIVE": " (increase --samples; demo JS cannot confirm nu)",
+        "INCONCLUSIVE": " (underpowered or unstable fit; not a preset failure)",
         "FALSIFIED": " (powered disagreement with nu=4/3 for this estimator)",
     }[result]
     print(f"RESULT: {result}{extra}")

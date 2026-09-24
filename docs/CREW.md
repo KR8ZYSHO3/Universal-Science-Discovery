@@ -22,7 +22,7 @@ python scripts/run_crew.py
 | **Harvester** | OpenAlex / PubMed / Semantic Scholar metadata | Store full papers; invent DOIs |
 | **Scout** | Wave Factory ranks and stages triples in `drafts/wave_factory/` (gitignored) | Write into `cross-domain/` or mark a bridge confirmed |
 | **Auditor** | `validate_schemas.py`, promote **dry-run**, `audit_quality.py` | `--apply` promotion |
-| **Tester** | Checks Crosscheck *contracts* (habitat JS cannot emit CONFIRMED) | Run the habitat Monte Carlo; rewrite `RESULT:` |
+| **Tester** | Checks Crosscheck *contracts* (habitat JS fits ν; does not preset a result) | Run the habitat Monte Carlo; rewrite `RESULT:` |
 | **Foreman** | Writes [`drafts/crew-reports/LATEST.md`](../drafts/crew-reports/LATEST.md) | Treat the briefing as evidence |
 | **Shipper** | Opens the bot PR and squash-merges it **if and only if** files are harvest JSON + `drafts/crew-reports/` | Merge `cross-domain/`, unknowns, hypotheses, repro, or schemas |
 | **Backlog scout** | If the queue is thin, scan ROADMAP gaps, missing last-run badges, hub 404s, orphans; open GitHub issues (cap 5); write `drafts/crew-reports/SCOUT.md` | Invent bridges; `--apply` promote; set `status: confirmed` |
