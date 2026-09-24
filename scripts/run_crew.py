@@ -218,9 +218,16 @@ def tester_contracts() -> List[str]:
     py = ROOT / "repro/p-b-habitat-percolation-ecology-fss/simulate_percolation_fss.py"
     js_txt = js.read_text(encoding="utf-8") if js.is_file() else ""
     py_txt = py.read_text(encoding="utf-8") if py.is_file() else ""
-    js_ok = 'result: "INCONCLUSIVE"' in js_txt and 'result: "CONFIRMED"' not in js_txt
+    js_ok = (
+        "const FIT_SIZES = [32, 64, 128, 256]" in js_txt
+        and "const N_SAMPLES = 400" in js_txt
+        and "function classify(" in js_txt
+        and "RESULT: ${result}" in js_txt
+        and 'result: "INCONCLUSIVE"' not in js_txt
+        and 'result: "CONFIRMED"' not in js_txt
+    )
     py_ok = "mean-first-either-wrap" in py_txt or "first wrapping in either direction" in py_txt
-    lines.append(f"- habitat JS cannot emit CONFIRMED: **{'yes' if js_ok else 'NO — fix'}**")
+    lines.append(f"- habitat JS reports the fit (not a preset result): **{'yes' if js_ok else 'NO — fix'}**")
     lines.append(f"- habitat Python either-wrap estimator present: **{'yes' if py_ok else 'NO — check'}**")
     workflow = ROOT / ".github/workflows/crosscheck-repro.yml"
     wf = workflow.read_text(encoding="utf-8") if workflow.is_file() else ""

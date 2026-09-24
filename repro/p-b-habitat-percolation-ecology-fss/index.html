@@ -54,7 +54,7 @@
 
   <h2>Run Crosscheck in your browser</h2>
   <div id="crosscheck-runner" class="runner" data-protocol="p-b-habitat-percolation-ecology-fss">
-    <p class="runner-lead">In-browser smoke test (smaller L, 48 samples). It cannot confirm ν and must print INCONCLUSIVE — that means the demo is small, not that percolation is wrong. Python is the exponent measurement.</p>
+    <p class="runner-lead">This runs the real check in the browser: lattices 32, 64, 128, and 256, 400 samples each, then the same 15% fit. It can take a few minutes. The result is whatever that fit returns. It is not preset.</p>
     <button type="button" data-action="run">Run Crosscheck</button>
     <span class="result-badge" data-role="result-badge" hidden></span>
     <div class="progress" data-role="progress" hidden><div class="progress-bar" data-role="progress-bar"></div></div>
@@ -69,7 +69,7 @@
 cd Universal-Science-Discovery/repro/p-b-habitat-percolation-ecology-fss
 pip install -r requirements.txt
 python simulate_percolation_fss.py</pre>
-  <p>Estimated runtime: ~15–40 s on a laptop at 400 Newman–Ziff samples/L (canonical). Browser smoke test ~10–30 s and cannot confirm nu. Exit code is always <code>0</code>; inspect stdout for CONFIRMED vs INCONCLUSIVE.</p>
+  <p>Estimated runtime: a few minutes in the browser, or ~15–40 s in Python, at 400 Newman–Ziff samples per lattice. The result is CONFIRMED, INCONCLUSIVE, or FALSIFIED from the fit. Nothing is hardcoded.</p>
   <div class="links">
     <a href="README.md">README</a>
     <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/tree/main/repro/p-b-habitat-percolation-ecology-fss">Source on GitHub</a>

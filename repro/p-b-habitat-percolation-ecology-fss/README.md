@@ -10,13 +10,13 @@ Frozen observable: **2D site percolation, periodic 4-neighbor square lattice, Ne
 
 Canonical defaults: \(L\in\{32,64,128,256\}\) in the exponent fit (400 samples per \(L\); \(L=16\) diagnostic). \(L=32\) is kept; tighter than ~10% on \(\nu\) needs a second correction term or dropping \(L=32\). Do not loosen the 15% gate. Exit code 0 always; inspect stdout for `RESULT: CONFIRMED` / `INCONCLUSIVE` / `FALSIFIED`.
 
-The in-browser page is a **smoke test** (smaller \(L\), 48 samples). It must print `INCONCLUSIVE`. That means the demo is underpowered, not that percolation is wrong. The browser must not emit `CONFIRMED` and does not recover \(\nu\).
+The in-browser page runs the **same fit** as Python: \(L\in\{32,64,128,256\}\), 400 Newman–Ziff samples per \(L\), 15% gate. The result is computed. It is not preset. A few minutes in the browser is normal.
 
-| | Browser smoke | Canonical Python |
+| | Browser | Python |
 |--|--|--|
-| \(L\) | 16, 32, 48, 64 | 16 diagnostic + **32, 64, 128, 256** fit |
-| Samples | 48 | 400 Newman–Ziff sequences/\(L\) |
-| Can emit CONFIRMED? | **No** | Yes, if the weighted fit recovers \(\nu\) within 15% of \(4/3\) |
+| \(L\) in the fit | **32, 64, 128, 256** | 16 diagnostic + **32, 64, 128, 256** |
+| Samples | 400 | 400 Newman–Ziff sequences/\(L\) |
+| Result | Whatever Fit A returns | Whatever Fit A returns |
 
 ## What this means for habitat maps
 

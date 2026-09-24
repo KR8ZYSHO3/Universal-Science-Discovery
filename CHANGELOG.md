@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed — Habitat browser test no longer presets INCONCLUSIVE
+- The in-browser habitat check runs lattices 32, 64, 128, and 256 with 400 samples each and the same 15% fit as Python. The result is that fit. The 15% gate is unchanged.
+
 ### Added — Catalog batch is one local run (WORK-02)
 - **[docs/CATALOG_BATCH.md](docs/CATALOG_BATCH.md):** write a record → validate → rebuild the map → hub numbers → one review. Does not set `status: confirmed`. Wave Factory stays in [PATH_TO_SUCCESS.md](docs/PATH_TO_SUCCESS.md).
 

@@ -1,20 +1,22 @@
 /**
- * In-browser Crosscheck *smoke test* for 2D site percolation FSS.
+ * In-browser Crosscheck for 2D site percolation finite-size scaling.
  *
- * 2D site percolation, periodic 4-neighbor square lattice, Newman–Ziff; p_c(L)
- * is the mean occupation fraction at first wrapping in either direction.
+ * Same estimator, lattices, sample count, and 15% gate as
+ * simulate_percolation_fss.py. The RESULT line is the weighted fit.
+ * It is not preset.
  *
- * Same frozen estimator id as simulate_percolation_fss.py
- * (mean-first-either-wrap) but a cheap L set and sample count. This runner
- * must not emit CONFIRMED: it is underpowered for ν.
+ * Estimator id: mean-first-either-wrap
+ * p_c(L) = mean occupation fraction at first wrapping in either direction.
  */
 (function () {
   "use strict";
 
   const PC_INF = 0.59274621;
   const NU_THEORY = 4 / 3;
-  const SIZES = [16, 32, 48, 64];
-  const N_SAMPLES = 48;
+  const NU_TOLERANCE = 0.15;
+  const R2_MIN = 0.85;
+  const FIT_SIZES = [32, 64, 128, 256];
+  const N_SAMPLES = 400;
   const SEED = 42;
   const ESTIMATOR_ID = "mean-first-either-wrap";
   const ESTIMATOR_SENTENCE =
@@ -116,10 +118,120 @@
     return { mean, se: sigma / Math.sqrt(m), sigma };
   }
 
+  function wlsThroughOrigin(x, y, se) {
+    const w = se.map((s) => (s > 0 ? 1 / (s * s) : 0));
+    let den = 0;
+    let num = 0;
+    for (let i = 0; i < x.length; i++) {
+      den += w[i] * x[i] * x[i];
+      num += w[i] * x[i] * y[i];
+    }
+    if (den <= 0) return { c: 0, seC: Infinity, chi2: Infinity, r2: 0 };
+    const c = num / den;
+    const seC = Math.sqrt(1 / den);
+    let chi2 = 0;
+    let ssRes = 0;
+    let ySum = 0;
+    for (const yi of y) ySum += yi;
+    const yMean = ySum / y.length;
+    let ssTot = 0;
+    for (let i = 0; i < x.length; i++) {
+      const ri = y[i] - c * x[i];
+      chi2 += w[i] * ri * ri;
+      ssRes += ri * ri;
+      const d = y[i] - yMean;
+      ssTot += d * d;
+    }
+    return { c, seC, chi2, r2: ssTot ? 1 - ssRes / ssTot : 0 };
+  }
+
+  function seNuFromChi2(chi2Of, nuHat, chi2Min) {
+    const target = chi2Min + 1;
+    let left = chi2Of[0][0];
+    let right = chi2Of[chi2Of.length - 1][0];
+    let prevNu = chi2Of[0][0];
+    let prevChi = chi2Of[0][1];
+    let foundLeft = false;
+    let foundRight = false;
+    for (let i = 1; i < chi2Of.length; i++) {
+      const nu = chi2Of[i][0];
+      const chi2 = chi2Of[i][1];
+      if (!foundLeft && prevNu <= nuHat && prevChi >= target && target > chi2) {
+        const denom = prevChi - chi2;
+        const frac = denom ? (prevChi - target) / denom : 0;
+        left = prevNu + frac * (nu - prevNu);
+        foundLeft = true;
+      }
+      if (!foundRight && prevNu >= nuHat && prevChi < target && target <= chi2) {
+        const denom = chi2 - prevChi;
+        const frac = denom ? (target - prevChi) / denom : 0;
+        right = prevNu + frac * (nu - prevNu);
+        foundRight = true;
+      }
+      prevNu = nu;
+      prevChi = chi2;
+    }
+    return Math.max(nuHat - left, right - nuHat);
+  }
+
+  function fitA(sizes, pcs, ses) {
+    const y = pcs.map((pc) => pc - PC_INF);
+    const chi2Of = [];
+    let best = null;
+    for (let i = 0; i <= (2.5 - 0.5) / 0.002; i++) {
+      const nu = 0.5 + i * 0.002;
+      const x = sizes.map((L) => L ** (-1 / nu));
+      const fit = wlsThroughOrigin(x, y, ses);
+      chi2Of.push([nu, fit.chi2]);
+      if (!best || fit.chi2 < best.chi2) {
+        best = { chi2: fit.chi2, nu, c: fit.c, seC: fit.seC, r2: fit.r2 };
+      }
+    }
+    const seNu = seNuFromChi2(chi2Of, best.nu, best.chi2);
+    return {
+      nu: best.nu,
+      seNu,
+      c: best.c,
+      seC: best.seC,
+      chi2: best.chi2,
+      r2: best.r2,
+      relErr: Math.abs(best.nu - NU_THEORY) / NU_THEORY,
+    };
+  }
+
+  function sameSignDeltas(pcs) {
+    const deltas = pcs.map((pc) => pc - PC_INF);
+    if (deltas.some((d) => d === 0)) return false;
+    const signs = deltas.map((d) => d > 0);
+    return signs.every(Boolean) || signs.every((s) => !s);
+  }
+
+  function approachesPc(sizes, pcs, ses) {
+    const absD = pcs.map((pc) => Math.abs(pc - PC_INF));
+    for (let i = 0; i < sizes.length - 1; i++) {
+      const slack = 2 * (ses[i] + ses[i + 1]);
+      if (absD[i + 1] > absD[i] + slack) return false;
+    }
+    return true;
+  }
+
+  function classify(fit, pcs, ses) {
+    const powered = fit.seNu <= NU_TOLERANCE * NU_THEORY;
+    const r2Ok = fit.r2 >= R2_MIN;
+    const slopeSig = Math.abs(fit.c) > 2 * fit.seC;
+    const within = fit.relErr <= NU_TOLERANCE;
+    const signOk = sameSignDeltas(pcs);
+    const mono = pcs.length === FIT_SIZES.length ? approachesPc(FIT_SIZES, pcs, ses) : signOk;
+    if (!signOk || !powered || !slopeSig || !r2Ok) return "INCONCLUSIVE";
+    if (within && mono) return "CONFIRMED";
+    if (!within && Math.abs(fit.nu - NU_THEORY) > 2 * fit.seNu) return "FALSIFIED";
+    return "INCONCLUSIVE";
+  }
+
   async function runPercolationFss(emit) {
     emit({
       type: "line",
-      text: "Crosscheck: p-b-habitat-percolation-ecology-fss (in-browser SMOKE TEST)",
+      text: "Crosscheck: p-b-habitat-percolation-ecology-fss",
     });
     emit({ type: "line", text: ESTIMATOR_SENTENCE });
     emit({
@@ -128,27 +240,28 @@
     });
     emit({
       type: "line",
-      text: "SE: sample SE of first-wrap occupation across NZ sequences (not binomial open-Π SE)",
+      text: `Theory: p_c(inf)=${PC_INF}, nu=${NU_THEORY.toFixed(4)}. Gate: 15% on nu, R² ≥ ${R2_MIN}.`,
     });
     emit({
       type: "line",
-      text: `Theory: p_c(inf)=${PC_INF}, nu=${NU_THEORY.toFixed(4)}`,
-    });
-    emit({
-      type: "line",
-      text: `Smoke params: L in [${SIZES.join(", ")}], samples/L=${N_SAMPLES} — cannot confirm nu`,
+      text: `Params: L in [${FIT_SIZES.join(", ")}], samples/L=${N_SAMPLES}, seed=${SEED}. Result is the fit, not a preset.`,
     });
     emit({ type: "line", text: "" });
 
     const rng = mulberry32(SEED);
     const rows = [];
-    for (let i = 0; i < SIZES.length; i++) {
-      const L = SIZES[i];
-      emit({ type: "progress", pct: 5 + (85 * i) / SIZES.length });
+    const total = FIT_SIZES.length * N_SAMPLES;
+    let done = 0;
+    for (let i = 0; i < FIT_SIZES.length; i++) {
+      const L = FIT_SIZES[i];
       const ps = [];
       for (let t = 0; t < N_SAMPLES; t++) {
         ps.push(firstWrapEither(L, rng));
-        if (t % 4 === 3) await yieldToBrowser();
+        done += 1;
+        if (t % 2 === 1) {
+          emit({ type: "progress", pct: Math.round((100 * done) / total) });
+          await yieldToBrowser();
+        }
       }
       const { mean, se, sigma } = meanSe(ps);
       const delta = mean - PC_INF;
@@ -159,44 +272,49 @@
           `  L=${String(L).padStart(4)}  p_c_hat=${mean.toFixed(5)} ± ${se.toFixed(5)}  ` +
           `delta=${sign}${delta.toFixed(5)}  sigma=${sigma.toFixed(5)}`,
       });
-      rows.push({ L, mean, se, delta });
+      rows.push({ L, mean, se, sigma });
     }
+
+    const pcs = rows.map((row) => row.mean);
+    const ses = rows.map((row) => row.se);
+    const fit = fitA(FIT_SIZES, pcs, ses);
+    const result = classify(fit, pcs, ses);
 
     emit({ type: "line", text: "" });
     emit({
       type: "line",
       text:
-        "This browser run is a smoke test. INCONCLUSIVE here means the demo is " +
-        "too small to measure ν — not that percolation is wrong.",
+        `Fit A  nu = ${fit.nu.toFixed(4)} ± ${fit.seNu.toFixed(4)}   ` +
+        `c = ${fit.c >= 0 ? "+" : ""}${fit.c.toFixed(4)} ± ${fit.seC.toFixed(4)}`,
     });
     emit({
       type: "line",
       text:
-        "Canonical measurement: python simulate_percolation_fss.py  " +
-        "(L=32,64,128,256, 400 Newman–Ziff samples/L, weighted fit).",
+        `  R² = ${fit.r2.toFixed(4)}   rel err vs 4/3 = ${(100 * fit.relErr).toFixed(1)}%  (tolerance 15%)`,
     });
-    const approaching = rows.every((row, idx) => {
-      if (idx === 0) return true;
-      return Math.abs(row.delta) <= Math.abs(rows[idx - 1].delta) + 2 * (row.se + rows[idx - 1].se);
-    });
-    if (approaching) {
+    if (result === "INCONCLUSIVE") {
       emit({
         type: "line",
-        text:
-          "Smoke check: |p_c(L) − p_c(∞)| shrinks as L grows (within error bars). " +
-          "That is the habitat-area shift this test is about.",
+        text: "INCONCLUSIVE means this run is underpowered or the fit is unstable. It is not a claim that percolation has the wrong exponent.",
+      });
+    } else if (result === "FALSIFIED") {
+      emit({
+        type: "line",
+        text: "FALSIFIED means this run's fit disagrees with nu=4/3 past the gate. That is a protocol failure, not a disproof of percolation.",
+      });
+    } else {
+      emit({
+        type: "line",
+        text: "CONFIRMED means this run's weighted fit recovered nu within 15% of 4/3, with a tight enough error bar.",
       });
     }
-    emit({ type: "line", text: "" });
-    emit({
-      type: "line",
-      text: "RESULT: INCONCLUSIVE (browser smoke test; cannot confirm nu)",
-    });
+    emit({ type: "line", text: `RESULT: ${result}` });
     emit({ type: "progress", pct: 100 });
-    emit({ type: "result", result: "INCONCLUSIVE" });
-    return { passed: false, smoke: true, rows };
+    emit({ type: "result", result });
+    return { passed: result === "CONFIRMED", result, fit, rows };
   }
 
-  window.CrosscheckRuns = window.CrosscheckRuns || {};
-  window.CrosscheckRuns["p-b-habitat-percolation-ecology-fss"] = runPercolationFss;
+  const root = typeof window !== "undefined" ? window : globalThis;
+  root.CrosscheckRuns = root.CrosscheckRuns || {};
+  root.CrosscheckRuns["p-b-habitat-percolation-ecology-fss"] = runPercolationFss;
 })();

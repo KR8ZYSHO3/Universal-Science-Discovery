@@ -120,14 +120,15 @@ def scan_protocol_contracts() -> List[Finding]:
     js = ROOT / "repro/p-b-habitat-percolation-ecology-fss/simulate_percolation_fss.js"
     if js.is_file():
         txt = js.read_text(encoding="utf-8")
-        if 'result: "CONFIRMED"' in txt:
+        if "RESULT: INCONCLUSIVE (browser smoke" in txt or 'result: "INCONCLUSIVE"' in txt:
             out.append(
                 Finding(
                     kind="honesty",
-                    title="Habitat browser demo can emit CONFIRMED (must not)",
+                    title="Habitat browser test presets INCONCLUSIVE",
                     body=(
-                        "`simulate_percolation_fss.js` contains `result: \"CONFIRMED\"`. "
-                        "Smoke test must print INCONCLUSIVE only."
+                        "`simulate_percolation_fss.js` still prints a fixed INCONCLUSIVE. "
+                        "The browser run must use the same fit as the Python check and "
+                        "report that result."
                     ),
                     severity="high",
                 )
