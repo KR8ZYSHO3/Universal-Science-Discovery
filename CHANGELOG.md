@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed — Habitat question states a conclusion from the chart
+- The habitat page asks whether a smaller landscape breaks apart at a different point than a huge one. The chart's dots are the evidence (400 runs at each width). The sentence under the question is written from that fit: yes, not decided, or no for this run. The 15% rule is unchanged, and the answer is not filled in ahead of time.
+
 ### Changed — Habitat picture is a slow loop, and colors are explained
 - The picture is one real landscape, 48 patches wide, slowed to about 15 seconds, then repeated. Colors only name connected habitats. Gold is the habitat that wrapped. They are not a data scale. The chart is still 400 runs at each size. Browser decimals will not match Python because the random generators differ. The model and the 15% rule are the same.
 

@@ -9,7 +9,7 @@ from pathlib import Path
 
 import yaml
 
-from crosscheck_browser import browser_runner_script, colab_url
+from crosscheck_browser import browser_runner_script, colab_url, visitor_title
 
 REPO = "KR8ZYSHO3/Universal-Science-Discovery"
 ROOT = Path(__file__).resolve().parents[1]
@@ -74,7 +74,14 @@ def habitat_stage() -> str:
         <p class=\"perc-meter-label">Filled fraction. The gold tick is 59.27%.</p>
       </div>
     </div>
-    <canvas id=\"perc-chart\" class=\"perc-chart\" aria-label=\"Measured threshold versus landscape size\"></canvas>
+    <h2 class=\"perc-evidence-title\">The evidence</h2>
+    <p class=\"perc-chart-caption\">Each dot is the average breaking point from 400 runs at that width. The number on the dot is the filled percent where the habitat wrapped. The gold dashed line is 59.3%, where a huge landscape breaks. When the run finishes, the teal line is the curve fitted to these dots.</p>
+    <ul class=\"perc-legend\">
+      <li><span class=\"swatch c1\"></span> Measured breaking point</li>
+      <li><span class=\"swatch gold\"></span> Huge landscape, 59.3%</li>
+      <li><span class=\"swatch teal\"></span> Fitted curve</li>
+    </ul>
+    <canvas id=\"perc-chart\" class=\"perc-chart\" aria-label=\"Chart of breaking point versus landscape width. Each dot is 400 runs.\"></canvas>
   </section>
 """
 
@@ -104,6 +111,20 @@ def habitat_css() -> str:
     .swatch.c2 { background: rgb(0,158,115); }
     .swatch.c3 { background: rgb(213,94,0); }
     .swatch.gold { background: rgb(245,193,108); }
+    .swatch.teal { background: #22d3b8; }
+    body.habitat-demo h1 { font-size: 1.7rem; line-height: 1.25; max-width: 22em; }
+    .formula { color: var(--muted); font-family: var(--mono); font-size: .82rem; margin: 0 0 1rem; }
+    .perc-evidence-title { margin: 1.35rem 0 .25rem; }
+    .perc-chart-caption { color: var(--text); font-size: .95rem; margin: 0 0 .45rem; }
+    .perc-legend { list-style: none; display: flex; flex-wrap: wrap; gap: .35rem 1rem; padding: 0; margin: 0 0 .55rem; font-size: .86rem; color: var(--muted); }
+    .perc-legend li { display: flex; align-items: center; gap: .4rem; }
+    .perc-conclusion { margin: 1rem 0 1.25rem; border-radius: 14px; padding: 1rem 1.15rem 1.05rem; border: 1px solid var(--border); background: rgba(79,156,249,0.08); }
+    .perc-conclusion-title { font-size: 1.28rem; font-weight: 700; margin: 0 0 .45rem; line-height: 1.35; }
+    .perc-conclusion-body { margin: 0; font-size: 1rem; }
+    .perc-conclusion.confirmed { border-color: rgba(34,211,184,.6); background: rgba(34,211,184,.12); }
+    .perc-conclusion.inconclusive { border-color: rgba(251,191,36,.55); background: rgba(251,191,36,.1); }
+    .perc-conclusion.falsified { border-color: rgba(248,113,113,.55); background: rgba(248,113,113,.1); }
+    .result-badge.falsified { background: rgba(248,113,113,0.15); color: #f87171; }
 """
 
 
@@ -155,7 +176,7 @@ def note_section(has_browser: bool, has_colab: bool) -> str:
 
 def render_page(proto: dict) -> str:
     pid = proto["id"]
-    title = " ".join(str(proto.get("title", pid)).split())
+    title = visitor_title(pid, str(proto.get("title", pid)))
     bridge = proto.get("source_bridge", "")
     bundle = str(proto.get("repro_bundle", "")).strip().rstrip("/")
     bundle_dir: Path = proto["_bundle_dir"]
@@ -184,6 +205,24 @@ def render_page(proto: dict) -> str:
 
     e = html.escape
     habitat = pid == "p-b-habitat-percolation-ecology-fss"
+    formula_html = ""
+    conclusion_html = ""
+    if habitat:
+        pred = (
+            "Fill a grid until one habitat wraps all the way around. "
+            "That filled percent is the breaking point for that width. "
+            "A huge landscape breaks near 59.3%. A smaller one should break somewhere else, "
+            "and the gap should shrink in a known way as the width grows."
+        )
+        formula_html = (
+            "  <p class=\"formula\">The check is whether that breaking point follows "
+            "p_c(L) = p_c(∞) + c × L^(−1/ν), with ν within 15% of 4/3.</p>\n"
+        )
+        conclusion_html = """  <div id=\"perc-conclusion\" class=\"perc-conclusion pending\" role=\"status\" aria-live=\"polite\">
+    <p class=\"perc-conclusion-title\">The conclusion appears here after the four widths are measured.</p>
+    <p class=\"perc-conclusion-body\">This run writes that sentence from the dots on the chart.</p>
+  </div>
+"""
     runner_html = runner_section(pid, runner_js) if has_browser else ""
     colab_html = colab_section(colab_href) if has_colab and not has_browser else ""
     extra_css = habitat_css() if habitat else ""
@@ -236,8 +275,8 @@ def render_page(proto: dict) -> str:
   <p class=\"pill\">USDR Crosscheck · {e(tier)}</p>
   <h1>{e(title)}</h1>
   <p class=\"meta\">Protocol <code>{e(pid)}</code> · bridge <code>{e(bridge)}</code></p>
-  <p>{e(pred)}</p>
-{note_section(has_browser, has_colab)}
+{formula_html}  <p>{e(pred)}</p>
+{conclusion_html}{note_section(has_browser, has_colab)}
 {runner_html}
 {colab_html}
   <h2>Run locally</h2>

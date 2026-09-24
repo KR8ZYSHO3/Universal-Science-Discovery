@@ -46,9 +46,69 @@ def test_percolation_fss_browser_js_fits_instead_of_preset_result() -> None:
     assert "const NU_TOLERANCE = 0.15" in js
     assert "function classify(" in js
     assert "RESULT: ${result}" in js
+    assert "function conclusionCopy(" in js
+    assert "function evidenceSentence(" in js
     assert "browser smoke test; cannot confirm" not in js
     assert 'result: "INCONCLUSIVE"' not in js
     assert 'result: "CONFIRMED"' not in js
+    page = (
+        REPO_ROOT / "repro/p-b-habitat-percolation-ecology-fss/index.html"
+    ).read_text(encoding="utf-8")
+    assert "Does a smaller landscape break apart at a different point than a huge one?" in page
+    assert 'id="perc-conclusion"' in page
+    assert 'class="perc-evidence-title"' in page or "perc-evidence-title" in page
+    assert "Finite-size scaling test — does the 2D site percolation threshold" not in page
+
+
+def test_habitat_conclusion_is_computed_from_the_rows() -> None:
+    """Yes / no / not decided must follow the fit, and the percents must be the dots."""
+    import shutil
+    import subprocess
+
+    node = shutil.which("node")
+    if node is None:
+        return
+    js_path = REPO_ROOT / "repro/p-b-habitat-percolation-ecology-fss/simulate_percolation_fss.js"
+    script = r"""
+const fs = require("fs");
+const vm = require("vm");
+const code = fs.readFileSync(process.env.HABITAT_JS, "utf8");
+const sandbox = { console, setTimeout, clearTimeout };
+sandbox.window = sandbox;
+sandbox.globalThis = sandbox;
+vm.createContext(sandbox);
+vm.runInContext(code, sandbox);
+const copy = sandbox.CrosscheckRuns.habitatConclusion;
+const rows = [
+  { L: 32, mean: 0.64, se: 0.001 },
+  { L: 256, mean: 0.598, se: 0.001 },
+];
+const fit = { nu: 1.3, relErr: Math.abs(1.3 - 4 / 3) / (4 / 3) };
+const yes = copy("CONFIRMED", fit, rows);
+const no = copy("FALSIFIED", fit, rows);
+const mid = copy("INCONCLUSIVE", fit, rows);
+if (!yes.title.startsWith("Yes.")) throw new Error("confirmed title: " + yes.title);
+if (no.title.startsWith("Yes.")) throw new Error("falsified said yes");
+if (mid.title.startsWith("Yes.")) throw new Error("inconclusive said yes");
+if (!yes.body.includes("Width 32 stopped at 64.0% filled.")) throw new Error(yes.body);
+if (!yes.body.includes("Width 256 stopped at 59.8% filled.")) throw new Error(yes.body);
+if (!yes.body.includes("closer to 59.3%")) throw new Error(yes.body);
+const far = copy("INCONCLUSIVE", fit, [
+  { L: 32, mean: 0.60, se: 0.001 },
+  { L: 256, mean: 0.66, se: 0.001 },
+]);
+if (!far.body.includes("farther from 59.3%")) throw new Error(far.body);
+if (yes.kind !== "confirmed" || no.kind !== "falsified" || mid.kind !== "inconclusive") {
+  throw new Error("kinds " + yes.kind + " " + no.kind + " " + mid.kind);
+}
+"""
+    proc = subprocess.run(
+        [node, "-e", script],
+        capture_output=True,
+        text=True,
+        env={**dict(**{k: v for k, v in __import__("os").environ.items()}), "HABITAT_JS": str(js_path)},
+    )
+    assert proc.returncode == 0, proc.stdout + proc.stderr
 
 
 def test_percolation_fss_weighted_fit_recovers_nu_on_synthetic_shift() -> None:

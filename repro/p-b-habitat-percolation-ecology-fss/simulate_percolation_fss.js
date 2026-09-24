@@ -178,7 +178,7 @@
 
   function paintChart(rows, fit) {
     const canvas = stageEl("perc-chart");
-    if (!canvas || !rows.length) return;
+    if (!canvas) return;
     const cssW = canvas.clientWidth || 720;
     const cssH = 250;
     const dpr = window.devicePixelRatio || 1;
@@ -187,32 +187,57 @@
     const ctx = canvas.getContext("2d");
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.clearRect(0, 0, cssW, cssH);
-    const padL = 54;
+    const padL = 58;
     const padR = 16;
-    const padT = 18;
-    const padB = 36;
-    const y0 = 0.55;
-    const y1 = 0.66;
-    const xOf = (i) => padL + ((cssW - padL - padR) * i) / Math.max(1, rows.length - 1);
-    const yOf = (p) => padT + ((cssH - padT - padB) * (y1 - p)) / (y1 - y0);
-    ctx.strokeStyle = "rgba(107,138,172,0.45)";
+    const padT = 22;
+    const padB = 34;
+    const slots = rows.length ? rows : FIT_SIZES.map((L) => ({ L: L, mean: null, se: 0 }));
+    const vals = [PC_INF];
+    slots.forEach((row) => {
+      if (row.mean == null) return;
+      vals.push(row.mean - (row.se || 0), row.mean + (row.se || 0));
+      if (fit) vals.push(PC_INF + fit.c * row.L ** (-1 / fit.nu));
+    });
+    let yLo = 0.55;
+    let yHi = 0.66;
+    if (rows.length) {
+      yLo = vals[0];
+      yHi = vals[0];
+      for (let i = 1; i < vals.length; i++) {
+        if (vals[i] < yLo) yLo = vals[i];
+        if (vals[i] > yHi) yHi = vals[i];
+      }
+      const span = Math.max(0.02, yHi - yLo);
+      yLo -= span * 0.28;
+      yHi += span * 0.35;
+    }
+    const xOf = (i) => padL + ((cssW - padL - padR) * i) / Math.max(1, slots.length - 1);
+    const yOf = (p) => padT + ((cssH - padT - padB) * (yHi - p)) / (yHi - yLo);
+    ctx.strokeStyle = "rgba(107,138,172,0.35)";
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(padL, padT);
     ctx.lineTo(padL, cssH - padB);
     ctx.lineTo(cssW - padR, cssH - padB);
     ctx.stroke();
-    ctx.strokeStyle = "rgba(251,191,36,0.85)";
-    ctx.setLineDash([4, 4]);
+    ctx.fillStyle = "#6b8aac";
+    ctx.font = "11px ui-monospace, monospace";
+    ctx.textAlign = "right";
+    [yLo, PC_INF, yHi].forEach((p) => {
+      let y = yOf(p) + 4;
+      if (y < 12) y = 12;
+      if (y > cssH - padB - 4) y = cssH - padB - 4;
+      ctx.fillText((100 * p).toFixed(1) + "%", padL - 6, y);
+    });
+    ctx.textAlign = "center";
+    ctx.strokeStyle = "rgba(251,191,36,0.9)";
+    ctx.setLineDash([5, 4]);
     ctx.beginPath();
     ctx.moveTo(padL, yOf(PC_INF));
     ctx.lineTo(cssW - padR, yOf(PC_INF));
     ctx.stroke();
     ctx.setLineDash([]);
-    ctx.fillStyle = "#fbbf24";
-    ctx.font = "12px ui-monospace, monospace";
-    ctx.fillText("infinite landscape  0.5927", padL + 8, yOf(PC_INF) - 6);
-    if (fit) {
+    if (fit && rows.length) {
       ctx.strokeStyle = "#22d3b8";
       ctx.lineWidth = 2;
       ctx.beginPath();
@@ -224,21 +249,102 @@
       });
       ctx.stroke();
     }
-    rows.forEach((row, i) => {
+    slots.forEach((row, i) => {
       const x = xOf(i);
+      const atStart = i === 0;
+      const atEnd = i === slots.length - 1;
+      ctx.textAlign = atStart ? "left" : atEnd ? "right" : "center";
+      const labelX = atStart ? x + 8 : atEnd ? x - 8 : x;
+      ctx.fillStyle = "#9fb6cc";
+      ctx.font = "12px ui-monospace, monospace";
+      ctx.fillText(String(row.L), x, cssH - 12);
+      if (row.mean == null) return;
       const y = yOf(row.mean);
       ctx.strokeStyle = "#4f9cf9";
+      ctx.lineWidth = 1.5;
       ctx.beginPath();
       ctx.moveTo(x, yOf(row.mean - row.se));
       ctx.lineTo(x, yOf(row.mean + row.se));
       ctx.stroke();
       ctx.fillStyle = "#4f9cf9";
       ctx.beginPath();
-      ctx.arc(x, y, 5, 0, Math.PI * 2);
+      ctx.arc(x, y, 5.5, 0, Math.PI * 2);
       ctx.fill();
-      ctx.fillStyle = "#6b8aac";
-      ctx.fillText("L=" + row.L, x - 14, cssH - 14);
+      ctx.fillStyle = "#f4f8ff";
+      ctx.font = "12px ui-monospace, monospace";
+      const label = (100 * row.mean).toFixed(1) + "%";
+      const labelY = y - 12 < padT + 8 ? y + 16 : y - 10;
+      ctx.fillText(label, labelX, labelY);
     });
+    ctx.textAlign = "left";
+  }
+
+  function evidenceSentence(rows) {
+    if (!rows.length) return "";
+    const bits = rows.map((row) => {
+      return "Width " + row.L + " stopped at " + (100 * row.mean).toFixed(1) + "% filled.";
+    });
+    let move = "";
+    if (rows.length > 1) {
+      const first = rows[0];
+      const last = rows[rows.length - 1];
+      const closer = Math.abs(last.mean - PC_INF) < Math.abs(first.mean - PC_INF);
+      move = closer
+        ? " The wider landscape is closer to 59.3%."
+        : " In this run the wider landscape is farther from 59.3%.";
+    }
+    return bits.join(" ") + move;
+  }
+
+  function conclusionCopy(result, fit, rows) {
+    const evidence = evidenceSentence(rows);
+    const away = (100 * fit.relErr).toFixed(1);
+    const nuLine =
+      " This run measured ν = " + fit.nu.toFixed(2) +
+      ", which is " + away + "% away from 4/3. The rule allows 15%.";
+    if (result === "CONFIRMED") {
+      return {
+        kind: "confirmed",
+        title: "Yes. A smaller landscape breaks apart at a different filled fraction, and that difference follows the predicted curve.",
+        body: evidence + nuLine + " The dots are the evidence.",
+      };
+    }
+    if (result === "FALSIFIED") {
+      return {
+        kind: "falsified",
+        title: "No. In this run the breaking points miss the predicted curve.",
+        body: evidence + nuLine + " The fit is tight enough to disagree. One missed run fails this check. It does not throw out percolation.",
+      };
+    }
+    return {
+      kind: "inconclusive",
+      title: "Not decided. This run is too noisy to say yes or no.",
+      body: evidence + nuLine + " The dots are still the measurements from this run. A noisy run stays undecided.",
+    };
+  }
+
+  function setConclusion(kind, title, body) {
+    const el = stageEl("perc-conclusion");
+    if (!el) return;
+    el.className = "perc-conclusion " + kind;
+    el.replaceChildren();
+    const heading = document.createElement("p");
+    heading.className = "perc-conclusion-title";
+    heading.textContent = title;
+    const copy = document.createElement("p");
+    copy.className = "perc-conclusion-body";
+    copy.textContent = body;
+    el.appendChild(heading);
+    el.appendChild(copy);
+  }
+
+  function writePartial(rows) {
+    const left = FIT_SIZES.length - rows.length;
+    setConclusion(
+      "pending",
+      "Still measuring.",
+      evidenceSentence(rows) + " The answer waits for all four widths. " + left + " still to come."
+    );
   }
 
   function rootsNow(n, occupied, find) {
@@ -497,6 +603,11 @@
       text: "Browser random numbers are mulberry32. Python uses a different generator, so the decimals will not match Python. The model and the 15% rule are the same. This is a percolation model, not a photograph of a real park.",
     });
     emit({ type: "line", text: "" });
+    setConclusion(
+      "pending",
+      "Measuring.",
+      "Four widths, 400 runs each. The conclusion is written when those dots are in."
+    );
 
     const rng = mulberry32(SEED);
     const rows = [];
@@ -516,6 +627,8 @@
       const fit = fitA(FIT_SIZES, pcs, ses);
       const result = classify(fit, pcs, ses);
       paintChart(rows, fit);
+      const plain = conclusionCopy(result, fit, rows);
+      setConclusion(plain.kind, plain.title, plain.body);
       finalResult = { passed: result === "CONFIRMED", result, fit, rows };
       emit({ type: "line", text: "" });
       emit({
@@ -571,6 +684,7 @@
       });
       rows.push({ L, mean, se, sigma });
       paintChart(rows, null);
+      writePartial(rows);
       ps = [];
       sampleIndex = 0;
       sizeIndex += 1;
@@ -602,4 +716,6 @@
   const root = typeof window !== "undefined" ? window : globalThis;
   root.CrosscheckRuns = root.CrosscheckRuns || {};
   root.CrosscheckRuns["p-b-habitat-percolation-ecology-fss"] = runPercolationFss;
+  root.CrosscheckRuns.habitatConclusion = conclusionCopy;
+  if (stageEl("perc-chart")) paintChart([], null);
 })();
