@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed — Map scroll and habitat demo wording
+- Map view scrolls. Wheel moves the map; Ctrl+scroll zooms. **See the whole map** fits every record in view.
+- The habitat browser button still ends INCONCLUSIVE on purpose. The page now says that is a small demo, not a failed claim.
+
 ### Added — Catalog batch is one local run (WORK-02)
 - **[docs/CATALOG_BATCH.md](docs/CATALOG_BATCH.md):** write a record → validate → rebuild the map → hub numbers → one review. Does not set `status: confirmed`. Wave Factory stays in [PATH_TO_SUCCESS.md](docs/PATH_TO_SUCCESS.md).
 

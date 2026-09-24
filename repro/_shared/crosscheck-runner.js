@@ -55,7 +55,12 @@
           setProgress(evt.pct);
         }
         if (evt.type === "result" && evt.result) {
-          setBadge(evt.result);
+          if (evt.result === "INCONCLUSIVE" && /smoke test|too small to measure/i.test(lines.join("\n"))) {
+            setBadge("INCONCLUSIVE");
+            badge.textContent = "INCONCLUSIVE · small demo";
+          } else {
+            setBadge(evt.result);
+          }
         }
       };
 
