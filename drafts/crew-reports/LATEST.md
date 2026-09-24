@@ -1,6 +1,6 @@
 # USDR crew briefing
 
-Generated **2026-09-21 11:36 UTC**. Foreman only; not a scientific result.
+Generated **2026-09-24 10:52 UTC**. Foreman only; not a scientific result.
 
 **Do not promote this run to `cross-domain/`, `unknowns-catalog/`, or `hypotheses/` without a human.**
 Wave Factory output stays in gitignored `drafts/wave_factory/`.
@@ -18,12 +18,26 @@ Flags: skip_harvest=True, skip_scout=False
 - these are **candidates**, not findings. Human review before promote.
   `  [25] b-openalex-information-theory-evolutionary-biology-mega7-molecular-evolu score=0.685 (c=0.87, r=0.60, n=0.17)`
   `  [26] b-openalex-outcome-game-theory-evolutionary-biology-mega7-molecular-evol score=0.685 (c=0.87, r=0.60, n=0.17)`
-  `  [27] b-openalex-renormalization-group-machine-learning-very-deep-convolutiona score=0.683 (c=0.91, r=0.52, n=0.17)`
+  `  [27] b-openalex-renormalization-group-machine-learning-very-deep-convolutiona score=0.682 (c=0.91, r=0.52, n=0.17)`
   `  [28] b-openalex-statistical-mechanics-finance-reflecting-on-reflexive-them score=0.682 (c=0.80, r=0.72, n=0.17)`
   `  [29] b-openalex-renormalization-group-machine-learning-going-deeper-with-conv score=0.674 (c=0.87, r=0.56, n=0.17)`
   `  [30] b-openalex-information-theory-evolutionary-biology-lmertest-package-test score=0.669 (c=0.82, r=0.64, n=0.17)`
   `[wave-factory] Wrote 90 YAML files under drafts/wave_factory`
   `[wave-factory] Source mix: openalex=30`
+
+## Unknown miner (unsolvables — you do not need to do this)
+
+- mine_unknowns exit **0**  staged unknowns=0
+  `[mine-unknowns] scanned=463 gap-hits=0 (deduped)`
+  `[mine-unknowns] staged under drafts/unknowns_harvest`
+  `Promote unknowns only: python scripts/harvesters/promote_unknowns.py --apply`
+  `Do not promote bridges from this path.`
+- promote_unknowns dry-run exit **0**
+  `[promote-unknowns] no stage dir /home/runner/work/Universal-Science-Discovery/Universal-Science-Discovery/drafts/unknowns_harvest`
+- auto-landed harvested unsolvables exit **0** (u-gap-* only; no bridges)
+  `[promote-unknowns] no stage dir /home/runner/work/Universal-Science-Discovery/Universal-Science-Discovery/drafts/unknowns_harvest`
+- You do not need to run promote. The clock did it.
+- Wave Factory **bridges** are still not auto-promoted.
 
 ## Auditor
 
@@ -36,7 +50,7 @@ Flags: skip_harvest=True, skip_scout=False
   `Quality Audit Results:`
   `  ERRORS:   0`
   `  WARNINGS: 0`
-  `  INFO:     42`
+  `  INFO:     44`
   `Report written to /home/runner/work/Universal-Science-Discovery/Universal-Science-Discovery/drafts/crew-reports/quality.md`
 
 ## Tester (contracts only — no live exponent run)
