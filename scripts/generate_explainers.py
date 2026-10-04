@@ -19,7 +19,7 @@ import textwrap
 from pathlib import Path
 from datetime import date
 
-from crosscheck_browser import browser_runner_script, colab_url
+from crosscheck_browser import browser_runner_script, colab_url, visitor_title
 
 ROOT = Path(__file__).parent.parent
 EXPLAINER_DIR = ROOT / "dashboard" / "explainers"
@@ -156,7 +156,7 @@ def format_crosscheck_protocols(protocols: list[dict]) -> str:
     cards = []
     for proto in protocols:
         pid = proto.get("id", "")
-        title = " ".join(str(proto.get("title", pid)).split())
+        title = visitor_title(pid, str(proto.get("title", pid)))
         status = proto.get("status", "draft")
         tier = proto.get("feasibility_tier", "desktop")
         prediction = " ".join(str(proto.get("falsifiable_prediction", "")).split())
