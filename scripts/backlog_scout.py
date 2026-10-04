@@ -31,9 +31,9 @@ MARKER = "usdr-scout:fingerprint="
 V13 = (
     ("FLOW-01", "Hub and docs present the three doors", "docs/USE.md"),
     ("WORK-01", "Crosscheck RESULT writes through", "scripts/apply_crosscheck_result.py"),
-    ("UI-01", "Hub first-visit audit (counts, links, no broken loads)", None),
-    ("ROBUST-01", "One ordered maintainer command list", None),
-    ("WORK-02", "Catalog batch = one documented local run", "docs/DEV_DASHBOARD.md"),
+    ("UI-01", "Hub first-visit audit (counts, links, no broken loads)", "tests/repo_smoke/test_first_visit_doors.py"),
+    ("ROBUST-01", "One ordered maintainer command list", "docs/OPERATE.md"),
+    ("WORK-02", "Catalog batch = one documented local run", "docs/CATALOG_BATCH.md"),
 )
 
 
