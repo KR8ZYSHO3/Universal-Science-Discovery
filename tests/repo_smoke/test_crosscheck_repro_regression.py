@@ -46,7 +46,6 @@ def test_percolation_fss_browser_js_fits_instead_of_preset_result() -> None:
     assert "const NU_TOLERANCE = 0.15" in js
     assert "function classify(" in js
     assert "RESULT: ${result}" in js
-    assert "function startHabitatPreview(" in js
     assert "browser smoke test; cannot confirm" not in js
     assert 'result: "INCONCLUSIVE"' not in js
     assert 'result: "CONFIRMED"' not in js
@@ -164,3 +163,11 @@ def test_epidemic_fss_fit_confirmed_on_reference_pcs() -> None:
     assert sign_ok, "expected all p_c above p_c(inf) for signed ER FSS fit"
     assert rel_err <= mod.NU_TOLERANCE, f"nu={nu:.4f} err={100 * rel_err:.1f}%"
     assert r2 > 0.0
+
+
+def test_habitat_home_preview_uses_the_real_painter() -> None:
+    js = (
+        REPO_ROOT
+        / "repro/p-b-habitat-percolation-ecology-fss/simulate_percolation_fss.js"
+    ).read_text(encoding="utf-8")
+    assert "function startHabitatPreview(" in js
