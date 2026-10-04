@@ -9,6 +9,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed — The front door shows the landscape filling
+- Home opens on one real landscape, the same filling rules as the habitat test. Colors name habitats. Gold is the one that wraps. The picture is not the 400-run average. Leaving home stops it.
+
+### Changed — Habitat question states a conclusion from the chart
+- The habitat page asks whether a smaller landscape breaks apart at a different point than a huge one. The chart's dots are the evidence (400 runs at each width). The sentence under the question is written from that fit: yes, not decided, or no for this run. The 15% rule is unchanged, and the answer is not filled in ahead of time.
+
+- Changed — Four Crosscheck cards record the Python run. Status is unchanged.
+
+- Changed — GitHub Agents tab has three on-demand helpers (dev fixer, Crosscheck clerk, page editor). They are not a second Night Crew.
+
 ### Fixed — Backlog scout no longer reopens shipped v1.3 items.
 - UI-01, ROBUST-01, and WORK-02 hints now point at the files that shipped, so a missing path is not treated as still open.
 
