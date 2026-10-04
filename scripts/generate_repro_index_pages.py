@@ -44,14 +44,53 @@ def script_name(bundle_dir: Path) -> str:
 def runner_lead(proto_id: str) -> str:
     if proto_id == "p-b-habitat-percolation-ecology-fss":
         return (
-            "Press Run. One landscape, 48 patches wide, fills over about 15 seconds and then repeats. "
-            "Colors name connected habitats. They are not a measurement. The chart is 400 real runs "
-            "at each size. The result is that fit, not a preset."
+            "Run the check measures four widths, 400 times each. "
+            "The sentence below is written from that fit."
         )
     return (
         "One-click demo — cheaper trial budget than the Python repro. Results stream live; "
         "clone the repo for full-precision verification."
     )
+
+
+def habitat_grid() -> str:
+    return """
+  <section class="perc-stage" id="perc-stage">
+    <div class="lattice-wrap">
+      <canvas id="perc-lattice" width="64" height="64" aria-label="Habitat patches filling a landscape"></canvas>
+    </div>
+  </section>
+"""
+
+
+def habitat_copy() -> str:
+    return """
+    <div class="perc-copy">
+      <h2>What you are watching</h2>
+      <p id="perc-story">Each color is one connected habitat: patches that touch up, down, left, or right. The color is a label, not a measurement. Dark cells are empty. This picture is one landscape, not the average.</p>
+      <ul class="perc-key">
+        <li><span class="swatch dark"></span> Empty patch</li>
+        <li><span class="swatch c1"></span><span class="swatch c2"></span><span class="swatch c3"></span> Connected habitats. The color is only a name.</li>
+        <li><span class="swatch gold"></span> The habitat that wrapped around</li>
+      </ul>
+      <p id="perc-readout" class="perc-readout">Waiting.</p>
+      <div class="perc-meter" aria-hidden="true"><div id="perc-meter-fill"></div><span class="perc-meter-mark" title="Infinite-landscape threshold"></span></div>
+      <p class="perc-meter-label">Filled fraction. The gold tick is 59.27%.</p>
+    </div>
+"""
+
+
+def habitat_evidence() -> str:
+    return """
+    <h2 class="perc-evidence-title">The evidence</h2>
+    <p class="perc-chart-caption">Each dot is the average breaking point from 400 runs at that width. The number on the dot is the filled percent where the habitat wrapped. The gold dashed line is 59.3%, where a huge landscape breaks. When the run finishes, the teal line is the curve fitted to these dots.</p>
+    <ul class="perc-legend">
+      <li><span class="swatch c1"></span> Measured breaking point</li>
+      <li><span class="swatch gold"></span> Huge landscape, 59.3%</li>
+      <li><span class="swatch teal"></span> Fitted curve</li>
+    </ul>
+    <canvas id="perc-chart" class="perc-chart" aria-label="Chart of breaking point versus landscape width. Each dot is 400 runs."></canvas>
+"""
 
 
 def habitat_stage() -> str:
@@ -89,10 +128,11 @@ def habitat_stage() -> str:
 def habitat_css() -> str:
     return """
     body.habitat-demo { max-width: 72rem; }
-    .perc-stage { margin: 1.25rem 0 0.5rem; }
-    .perc-grid { display: grid; grid-template-columns: minmax(240px, 1.1fr) minmax(260px, 0.9fr); gap: 1.25rem; align-items: start; }
-    @media (max-width: 800px) { .perc-grid { grid-template-columns: 1fr; } }
-    .lattice-wrap { background: #070f1e; border: 1px solid rgba(79,156,249,0.35); border-radius: 16px; padding: .6rem; box-shadow: 0 0 0 1px rgba(34,211,184,0.05), 0 20px 60px rgba(0,0,0,.35); }
+    .perc-stage { margin: 0; }
+    .perc-layout { display: grid; grid-template-columns: minmax(220px, 26rem) minmax(260px, 1fr); gap: 1.25rem; align-items: start; }
+    @media (max-width: 800px) { .perc-layout { grid-template-columns: 1fr; } }
+    .lattice-wrap { max-width: 26rem; background: #070f1e; border: 1px solid rgba(79,156,249,0.35); border-radius: 16px; padding: .6rem; box-shadow: 0 0 0 1px rgba(34,211,184,0.05), 0 20px 60px rgba(0,0,0,.35); }
+    body.habitat-demo .runner { margin: 0; }
     #perc-stage.is-wrapped .lattice-wrap { box-shadow: 0 0 0 2px #fbbf24, 0 0 40px rgba(251,191,36,.35); }
     #perc-lattice { width: 100%; height: auto; image-rendering: pixelated; display: block; border-radius: 8px; background: #081020; }
     .perc-copy h2 { margin-top: 0; }
@@ -125,6 +165,14 @@ def habitat_css() -> str:
     .perc-conclusion.inconclusive { border-color: rgba(251,191,36,.55); background: rgba(251,191,36,.1); }
     .perc-conclusion.falsified { border-color: rgba(248,113,113,.55); background: rgba(248,113,113,.1); }
     .result-badge.falsified { background: rgba(248,113,113,0.15); color: #f87171; }
+    .back-link { margin: 0 0 .85rem; font-size: .9rem; }
+    .back-link a { color: var(--muted); text-decoration: none; }
+    .back-link a:hover { color: var(--accent); }
+    .lede { font-size: 1.05rem; max-width: 40rem; margin-top: .35rem; }
+    body.habitat-demo .runner button { font-size: 1.05rem; padding: .8rem 1.35rem; border-radius: 10px; }
+    .run-log, .lab-note { margin-top: 1.15rem; border: 1px solid var(--border); border-radius: 12px; padding: .75rem 1rem 1rem; background: rgba(79,156,249,0.05); }
+    .run-log summary, .lab-note summary { cursor: pointer; font-weight: 600; }
+    body.habitat-demo .runner-output { min-height: 0; max-height: 18rem; overflow: auto; }
 """
 
 
@@ -174,6 +222,117 @@ def note_section(has_browser: bool, has_colab: bool) -> str:
   </div>"""
 
 
+def render_habitat_page(
+    *,
+    title: str,
+    pred: str,
+    pid: str,
+    bridge: str,
+    bundle: str,
+    script: str,
+    runtime: str,
+    gh_tree: str,
+    gh_yaml: str,
+    explainer: str,
+    dash: str,
+    runner_js: str,
+) -> str:
+    """First screen for the habitat test: the question, a live landscape, and Run.
+
+    Record ids and the computer commands stay below that. The conclusion box
+    is filled by the browser fit, not by this template.
+    """
+    e = html.escape
+    lead = e(runner_lead(pid))
+    css = """
+    :root {
+      --bg: #060d1a; --text: #ddeeff; --muted: #6b8aac; --accent: #4f9cf9;
+      --teal: #22d3b8; --border: rgba(79,156,249,0.2); --mono: ui-monospace, monospace;
+    }
+    body { font-family: system-ui, sans-serif; background: var(--bg); color: var(--text);
+      line-height: 1.6; max-width: 46rem; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+    a { color: var(--accent); }
+    h1 { font-size: 1.35rem; margin-bottom: .25rem; }
+    h2 { font-size: 1.05rem; margin-top: 1.75rem; }
+    .meta { color: var(--muted); font-size: .9rem; margin-bottom: 1.5rem; }
+    pre { background: #0b1527; border: 1px solid var(--border); border-radius: 10px;
+      padding: 1rem; overflow-x: auto; font-family: var(--mono); font-size: .85rem; }
+    .links { display: flex; flex-wrap: wrap; gap: .65rem; margin-top: 1.5rem; font-size: .88rem; }
+    .runner { margin: 1.25rem 0 1.75rem; }
+    .runner-lead { color: var(--muted); font-size: .9rem; margin: .85rem 0 0; }
+    .runner button { background: var(--accent); color: #04101f; border: none; border-radius: 8px;
+      padding: .55rem 1.1rem; font-weight: 600; font-size: .92rem; cursor: pointer; }
+    .runner button:disabled { opacity: .55; cursor: wait; }
+    .runner-output { min-height: 6rem; margin-top: .85rem; white-space: pre-wrap; }
+    .progress { height: 4px; background: rgba(79,156,249,0.15); border-radius: 999px;
+      margin-top: .75rem; overflow: hidden; }
+    .progress-bar { height: 100%; width: 0; background: var(--teal); transition: width .2s ease; }
+    .result-badge { display: inline-block; margin-left: .65rem; padding: .15rem .5rem;
+      border-radius: 6px; font-size: .75rem; font-weight: 700; letter-spacing: .03em; }
+    .result-badge.confirmed { background: rgba(34,211,184,0.2); color: var(--teal); }
+    .result-badge.inconclusive { background: rgba(251,191,36,0.15); color: #fbbf24; }
+    .result-badge.error { background: rgba(248,113,113,0.15); color: #f87171; }
+""" + habitat_css()
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <title>{e(title)}</title>
+  <style>
+{css}
+  </style>
+</head>
+<body class="habitat-demo">
+  <p class="back-link"><a href="../../dashboard/#/">Back to the start</a></p>
+  <h1>{e(title)}</h1>
+  <p class="lede">{e(pred)}</p>
+  <div class="perc-layout">
+{habitat_grid()}
+    <div class="perc-side">
+      <div id="crosscheck-runner" class="runner" data-protocol="{e(pid)}">
+        <button type="button" data-action="run">Run the check</button>
+        <span class="result-badge" data-role="result-badge" hidden></span>
+        <div class="progress" data-role="progress" hidden><div class="progress-bar" data-role="progress-bar"></div></div>
+        <p class="runner-lead">{lead}</p>
+{habitat_copy()}
+        <div id="perc-conclusion" class="perc-conclusion pending" role="status" aria-live="polite">
+          <p class="perc-conclusion-title">The conclusion appears here after the four widths are measured.</p>
+          <p class="perc-conclusion-body">This run writes that sentence from the dots on the chart.</p>
+        </div>
+        <details class="run-log">
+          <summary>Numbers from this run</summary>
+          <pre class="runner-output" data-role="output"></pre>
+        </details>
+      </div>
+    </div>
+  </div>
+{habitat_evidence()}
+  <script src="{e(runner_js)}"></script>
+  <script src="../_shared/crosscheck-runner.js"></script>
+  <details class="lab-note">
+    <summary>Run the same check on your computer</summary>
+    <p class="formula">The check is whether that breaking point follows p_c(L) = p_c(∞) + c × L^(−1/ν), with ν within 15% of 4/3.</p>
+    <p class="meta">Record <code>{e(pid)}</code> · link <code>{e(bridge)}</code></p>
+    <pre>git clone https://github.com/{REPO}.git
+cd Universal-Science-Discovery/{e(bundle)}
+pip install -r requirements.txt
+python {e(script)}</pre>
+    <p>Estimated runtime: {e(runtime)}.</p>
+    <div class="links">
+      <a href="README.md">Notes in this folder</a>
+      <a href="{e(gh_tree)}">This folder online</a>
+      <a href="{e(gh_yaml)}">The written record</a>
+      <a href="{e(explainer)}">How the two fields connect</a>
+      <a href="{e(dash)}">Back to the catalog</a>
+    </div>
+  </details>
+</body>
+</html>
+"""
+
+
 def render_page(proto: dict) -> str:
     pid = proto["id"]
     title = visitor_title(pid, str(proto.get("title", pid)))
@@ -214,6 +373,21 @@ def render_page(proto: dict) -> str:
             "A huge landscape breaks near 59.3%. A smaller one should break somewhere else, "
             "and the gap should shrink in a known way as the width grows."
         )
+        if runner_js:
+            return render_habitat_page(
+                title=title,
+                pred=pred,
+                pid=pid,
+                bridge=str(bridge),
+                bundle=bundle,
+                script=script,
+                runtime=runtime,
+                gh_tree=gh_tree,
+                gh_yaml=gh_yaml,
+                explainer=explainer,
+                dash=dash,
+                runner_js=runner_js,
+            )
         formula_html = (
             "  <p class=\"formula\">The check is whether that breaking point follows "
             "p_c(L) = p_c(∞) + c × L^(−1/ν), with ν within 15% of 4/3.</p>\n"

@@ -9,6 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed — The habitat test opens already running
+- The page behind "Run this test" fills a landscape as soon as it opens. Run the check sits with that picture. The conclusion is still written from four widths, 400 runs each, and it is not filled in ahead of time. Record ids and the computer commands sit under "Run the same check on your computer".
+- The line under the button no longer retells the picture. It says the check measures four widths, 400 times each, and writes the sentence from that fit.
+
+### Changed — Search and the map stay in plain words
+- A search result says "Show on the map" and opens that record there. The side panel uses the same words as search, and connected records use their titles. Open questions on the home page name the field, not a file id.
+- Field names stay on one row under the search box. Typing tucks that row away so the matches sit on the first screen. Before you type, a few open questions are already listed. A result's title stays readable on a phone.
+- Opening a record shows its title at once. The rest of the write-up fills in when it arrives. The busiest record on the map is named by its title.
+
 ### Changed — The front door shows the landscape filling
 - Home opens on one real landscape, the same filling rules as the habitat test. Colors name habitats. Gold is the one that wraps. The picture is not the 400-run average. Leaving home stops it.
 
