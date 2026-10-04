@@ -51,3 +51,7 @@ Grok **workflows** (`parallel` agents) are for one session: several reviewers at
 ## Why this stays small
 
 Reuse of math only helps if identities are real. A larger unverified catalog is noise. The crew exists to surface candidates and catch honesty bugs (writeup vs runner), not to invent a golden age overnight.
+
+## On-demand agents
+
+The GitHub Agents tab profiles in `.github/agents/` are dev-fixer, crosscheck-clerk, and page-editor. They are not Night Crew. They do not run on the Monday/Thursday clock, do not promote bridges, and do not set status confirmed. Night Crew remains harvest-openalex.yml.

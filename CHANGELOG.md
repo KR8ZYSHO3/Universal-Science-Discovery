@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Changed — GitHub Agents tab has three on-demand helpers (dev fixer, Crosscheck clerk, page editor). They are not a second Night Crew.
+
 ### Fixed — Backlog scout no longer reopens shipped v1.3 items.
 - UI-01, ROBUST-01, and WORK-02 hints now point at the files that shipped, so a missing path is not treated as still open.
 
