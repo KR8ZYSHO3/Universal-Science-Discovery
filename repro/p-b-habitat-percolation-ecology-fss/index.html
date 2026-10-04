@@ -4,8 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark" />
-  <title>Crosscheck repro — p-b-habitat-percolation-ecology-fss</title>
+  <title>Does a smaller landscape break apart at a different point than a huge one?</title>
   <style>
+
     :root {
       --bg: #060d1a; --text: #ddeeff; --muted: #6b8aac; --accent: #4f9cf9;
       --teal: #22d3b8; --border: rgba(79,156,249,0.2); --mono: ui-monospace, monospace;
@@ -18,13 +19,9 @@
     .meta { color: var(--muted); font-size: .9rem; margin-bottom: 1.5rem; }
     pre { background: #0b1527; border: 1px solid var(--border); border-radius: 10px;
       padding: 1rem; overflow-x: auto; font-family: var(--mono); font-size: .85rem; }
-    .note { background: rgba(34,211,184,0.08); border: 1px solid rgba(34,211,184,0.25);
-      border-radius: 10px; padding: .85rem 1rem; font-size: .9rem; margin: 1.25rem 0; }
     .links { display: flex; flex-wrap: wrap; gap: .65rem; margin-top: 1.5rem; font-size: .88rem; }
-    .pill { display: inline-block; padding: .2rem .55rem; border-radius: 999px;
-      border: 1px solid var(--border); color: var(--teal); font-size: .75rem; }
     .runner { margin: 1.25rem 0 1.75rem; }
-    .runner-lead { color: var(--muted); font-size: .9rem; margin-bottom: .85rem; }
+    .runner-lead { color: var(--muted); font-size: .9rem; margin: .85rem 0 0; }
     .runner button { background: var(--accent); color: #04101f; border: none; border-radius: 8px;
       padding: .55rem 1.1rem; font-weight: 600; font-size: .92rem; cursor: pointer; }
     .runner button:disabled { opacity: .55; cursor: wait; }
@@ -37,14 +34,13 @@
     .result-badge.confirmed { background: rgba(34,211,184,0.2); color: var(--teal); }
     .result-badge.inconclusive { background: rgba(251,191,36,0.15); color: #fbbf24; }
     .result-badge.error { background: rgba(248,113,113,0.15); color: #f87171; }
-    .colab-btn { display: inline-block; background: #f9ab00; color: #1a1200; font-weight: 600;
-      padding: .5rem 1rem; border-radius: 8px; text-decoration: none; font-size: .92rem; }
-    .colab-btn:hover { filter: brightness(1.05); }
+
     body.habitat-demo { max-width: 72rem; }
-    .perc-stage { margin: 1.25rem 0 0.5rem; }
-    .perc-grid { display: grid; grid-template-columns: minmax(240px, 1.1fr) minmax(260px, 0.9fr); gap: 1.25rem; align-items: start; }
-    @media (max-width: 800px) { .perc-grid { grid-template-columns: 1fr; } }
-    .lattice-wrap { background: #070f1e; border: 1px solid rgba(79,156,249,0.35); border-radius: 16px; padding: .6rem; box-shadow: 0 0 0 1px rgba(34,211,184,0.05), 0 20px 60px rgba(0,0,0,.35); }
+    .perc-stage { margin: 0; }
+    .perc-layout { display: grid; grid-template-columns: minmax(220px, 26rem) minmax(260px, 1fr); gap: 1.25rem; align-items: start; }
+    @media (max-width: 800px) { .perc-layout { grid-template-columns: 1fr; } }
+    .lattice-wrap { max-width: 26rem; background: #070f1e; border: 1px solid rgba(79,156,249,0.35); border-radius: 16px; padding: .6rem; box-shadow: 0 0 0 1px rgba(34,211,184,0.05), 0 20px 60px rgba(0,0,0,.35); }
+    body.habitat-demo .runner { margin: 0; }
     #perc-stage.is-wrapped .lattice-wrap { box-shadow: 0 0 0 2px #fbbf24, 0 0 40px rgba(251,191,36,.35); }
     #perc-lattice { width: 100%; height: auto; image-rendering: pixelated; display: block; border-radius: 8px; background: #081020; }
     .perc-copy h2 { margin-top: 0; }
@@ -77,44 +73,61 @@
     .perc-conclusion.inconclusive { border-color: rgba(251,191,36,.55); background: rgba(251,191,36,.1); }
     .perc-conclusion.falsified { border-color: rgba(248,113,113,.55); background: rgba(248,113,113,.1); }
     .result-badge.falsified { background: rgba(248,113,113,0.15); color: #f87171; }
+    .back-link { margin: 0 0 .85rem; font-size: .9rem; }
+    .back-link a { color: var(--muted); text-decoration: none; }
+    .back-link a:hover { color: var(--accent); }
+    .lede { font-size: 1.05rem; max-width: 40rem; margin-top: .35rem; }
+    body.habitat-demo .runner button { font-size: 1.05rem; padding: .8rem 1.35rem; border-radius: 10px; }
+    .run-log, .lab-note { margin-top: 1.15rem; border: 1px solid var(--border); border-radius: 12px; padding: .75rem 1rem 1rem; background: rgba(79,156,249,0.05); }
+    .run-log summary, .lab-note summary { cursor: pointer; font-weight: 600; }
+    body.habitat-demo .runner-output { min-height: 0; max-height: 18rem; overflow: auto; }
 
   </style>
 </head>
 <body class="habitat-demo">
-  <p class="pill">USDR Crosscheck · desktop</p>
+  <p class="back-link"><a href="../../dashboard/#/">Back to the start</a></p>
   <h1>Does a smaller landscape break apart at a different point than a huge one?</h1>
-  <p class="meta">Protocol <code>p-b-habitat-percolation-ecology-fss</code> · bridge <code>b-habitat-percolation-ecology</code></p>
-  <p class="formula">The check is whether that breaking point follows p_c(L) = p_c(∞) + c × L^(−1/ν), with ν within 15% of 4/3.</p>
-  <p>Fill a grid until one habitat wraps all the way around. That filled percent is the breaking point for that width. A huge landscape breaks near 59.3%. A smaller one should break somewhere else, and the gap should shrink in a known way as the width grows.</p>
-  <div id="perc-conclusion" class="perc-conclusion pending" role="status" aria-live="polite">
-    <p class="perc-conclusion-title">The conclusion appears here after the four widths are measured.</p>
-    <p class="perc-conclusion-body">This run writes that sentence from the dots on the chart.</p>
-  </div>
-  <div class="note">
-    <strong>Try the in-browser runner below</strong> for a live demo, or clone this folder for
-    the canonical Python repro (source of truth for verification).
-  </div>
-
-  <h2>Run the check</h2>
+  <p class="lede">Fill a grid until one habitat wraps all the way around. That filled percent is the breaking point for that width. A huge landscape breaks near 59.3%. A smaller one should break somewhere else, and the gap should shrink in a known way as the width grows.</p>
+  <div class="perc-layout">
 
   <section class="perc-stage" id="perc-stage">
-    <div class="perc-grid">
-      <div class="lattice-wrap">
-        <canvas id="perc-lattice" width="64" height="64" aria-label="Habitat patches filling a landscape"></canvas>
-      </div>
-      <div class="perc-copy">
-        <h2>What you are watching</h2>
-        <p id="perc-story">Press Run. One real landscape fills over about 15 seconds, then starts over. Each color is a label for one connected habitat, so you can tell them apart. The color is not height, density, or quality. Gold, at the end, is only the habitat that wrapped around the landscape. Dark cells are empty. This picture is not the average, and it is not a photograph of a real park.</p>
-        <ul class="perc-key">
-          <li><span class="swatch dark"></span> Empty patch</li>
-          <li><span class="swatch c1"></span><span class="swatch c2"></span><span class="swatch c3"></span> Connected habitats. The color is only a name.</li>
-          <li><span class="swatch gold"></span> The habitat that wrapped around</li>
-        </ul>
-        <p id="perc-readout" class="perc-readout">Waiting.</p>
-        <div class="perc-meter" aria-hidden="true"><div id="perc-meter-fill"></div><span class="perc-meter-mark" title="Infinite-landscape threshold"></span></div>
-        <p class="perc-meter-label">Filled fraction. The gold tick is 59.27%.</p>
+    <div class="lattice-wrap">
+      <canvas id="perc-lattice" width="64" height="64" aria-label="Habitat patches filling a landscape"></canvas>
+    </div>
+  </section>
+
+    <div class="perc-side">
+      <div id="crosscheck-runner" class="runner" data-protocol="p-b-habitat-percolation-ecology-fss">
+        <button type="button" data-action="run">Run the check</button>
+        <span class="result-badge" data-role="result-badge" hidden></span>
+        <div class="progress" data-role="progress" hidden><div class="progress-bar" data-role="progress-bar"></div></div>
+        <p class="runner-lead">Run the check measures four widths, 400 times each. The sentence below is written from that fit.</p>
+
+    <div class="perc-copy">
+      <h2>What you are watching</h2>
+      <p id="perc-story">Each color is one connected habitat: patches that touch up, down, left, or right. The color is a label, not a measurement. Dark cells are empty. This picture is one landscape, not the average.</p>
+      <ul class="perc-key">
+        <li><span class="swatch dark"></span> Empty patch</li>
+        <li><span class="swatch c1"></span><span class="swatch c2"></span><span class="swatch c3"></span> Connected habitats. The color is only a name.</li>
+        <li><span class="swatch gold"></span> The habitat that wrapped around</li>
+      </ul>
+      <p id="perc-readout" class="perc-readout">Waiting.</p>
+      <div class="perc-meter" aria-hidden="true"><div id="perc-meter-fill"></div><span class="perc-meter-mark" title="Infinite-landscape threshold"></span></div>
+      <p class="perc-meter-label">Filled fraction. The gold tick is 59.27%.</p>
+    </div>
+
+        <div id="perc-conclusion" class="perc-conclusion pending" role="status" aria-live="polite">
+          <p class="perc-conclusion-title">The conclusion appears here after the four widths are measured.</p>
+          <p class="perc-conclusion-body">This run writes that sentence from the dots on the chart.</p>
+        </div>
+        <details class="run-log">
+          <summary>Numbers from this run</summary>
+          <pre class="runner-output" data-role="output"></pre>
+        </details>
       </div>
     </div>
+  </div>
+
     <h2 class="perc-evidence-title">The evidence</h2>
     <p class="perc-chart-caption">Each dot is the average breaking point from 400 runs at that width. The number on the dot is the filled percent where the habitat wrapped. The gold dashed line is 59.3%, where a huge landscape breaks. When the run finishes, the teal line is the curve fitted to these dots.</p>
     <ul class="perc-legend">
@@ -123,31 +136,25 @@
       <li><span class="swatch teal"></span> Fitted curve</li>
     </ul>
     <canvas id="perc-chart" class="perc-chart" aria-label="Chart of breaking point versus landscape width. Each dot is 400 runs."></canvas>
-  </section>
 
-  <div id="crosscheck-runner" class="runner" data-protocol="p-b-habitat-percolation-ecology-fss">
-    <p class="runner-lead">Press Run. One landscape, 48 patches wide, fills over about 15 seconds and then repeats. Colors name connected habitats. They are not a measurement. The chart is 400 real runs at each size. The result is that fit, not a preset.</p>
-    <button type="button" data-action="run">Run Crosscheck</button>
-    <span class="result-badge" data-role="result-badge" hidden></span>
-    <div class="progress" data-role="progress" hidden><div class="progress-bar" data-role="progress-bar"></div></div>
-    <pre class="runner-output" data-role="output"></pre>
-  </div>
   <script src="simulate_percolation_fss.js"></script>
   <script src="../_shared/crosscheck-runner.js"></script>
-
-
-  <h2>Run locally</h2>
-  <pre>git clone https://github.com/KR8ZYSHO3/Universal-Science-Discovery.git
+  <details class="lab-note">
+    <summary>Run the same check on your computer</summary>
+    <p class="formula">The check is whether that breaking point follows p_c(L) = p_c(∞) + c × L^(−1/ν), with ν within 15% of 4/3.</p>
+    <p class="meta">Record <code>p-b-habitat-percolation-ecology-fss</code> · link <code>b-habitat-percolation-ecology</code></p>
+    <pre>git clone https://github.com/KR8ZYSHO3/Universal-Science-Discovery.git
 cd Universal-Science-Discovery/repro/p-b-habitat-percolation-ecology-fss
 pip install -r requirements.txt
 python simulate_percolation_fss.py</pre>
-  <p>Estimated runtime: ~15–40 s in Python, or a few minutes in the browser, at 400 Newman–Ziff samples/L. Both report the fit. Neither presets the result. Exit code is always <code>0</code>; inspect stdout for CONFIRMED vs INCONCLUSIVE.</p>
-  <div class="links">
-    <a href="README.md">README</a>
-    <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/tree/main/repro/p-b-habitat-percolation-ecology-fss">Source on GitHub</a>
-    <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/protocols-catalog/physics-ecology/p-b-habitat-percolation-ecology-fss.yaml">Protocol YAML</a>
-    <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/explainers/b-habitat-percolation-ecology.html#crosscheck">Bridge explainer</a>
-    <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/">USDR dashboard</a>
-  </div>
+    <p>Estimated runtime: ~15–40 s in Python, or a few minutes in the browser, at 400 Newman–Ziff samples/L. Both report the fit. Neither presets the result.</p>
+    <div class="links">
+      <a href="README.md">Notes in this folder</a>
+      <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/tree/main/repro/p-b-habitat-percolation-ecology-fss">This folder online</a>
+      <a href="https://github.com/KR8ZYSHO3/Universal-Science-Discovery/blob/main/protocols-catalog/physics-ecology/p-b-habitat-percolation-ecology-fss.yaml">The written record</a>
+      <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/explainers/b-habitat-percolation-ecology.html#crosscheck">How the two fields connect</a>
+      <a href="https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/">Back to the catalog</a>
+    </div>
+  </details>
 </body>
 </html>

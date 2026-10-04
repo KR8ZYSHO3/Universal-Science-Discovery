@@ -1671,6 +1671,9 @@
       margin-top: .4rem;
       display: flex; flex-wrap: wrap; gap: .55rem; align-items: center;
     }
+    .result-open {
+      font-size: .78rem; font-weight: 600; color: var(--accent);
+    }
     .result-gh-yaml {
       font-size: .72rem; font-weight: 600; font-family: var(--font);
       color: var(--accent); text-decoration: none !important;
@@ -1687,12 +1690,16 @@
     .type-hypothesis { background: rgba(34,211,184,.15);  color: #22d3b8;  border: 1px solid rgba(34,211,184,.3); }
     .type-phenomenon { background: rgba(167,139,250,.15); color: #a78bfa;  border: 1px solid rgba(167,139,250,.3); }
     .result-title {
-      flex: 1; font-size: .88rem; font-weight: 500; line-height: 1.3;
-      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      flex: 1 1 12rem; min-width: 12rem;
+      font-size: .88rem; font-weight: 500; line-height: 1.35;
     }
     .result-domain {
       font-size: .72rem; color: var(--muted); font-family: var(--mono);
-      white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 160px;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 11rem;
+    }
+    @media (max-width: 640px) {
+      .search-result-card .result-row { flex-wrap: wrap; align-items: flex-start; }
+      .result-domain { flex-basis: 100%; max-width: none; }
     }
     .search-placeholder-msg {
       color: var(--muted); font-size: .9rem; padding: .5rem 0;
@@ -1725,10 +1732,16 @@
     }
 
     /* ── DOMAIN FILTER CHIPS ────────────────────────────────── */
+    /* One scrolling row. A wrapping wall pushed results off the first screen. */
     .domain-chips {
-      display: flex; flex-wrap: wrap; gap: .38rem;
-      margin-top: .75rem; max-width: 620px;
+      display: flex; flex-wrap: nowrap; gap: .38rem;
+      margin-top: .65rem; max-width: min(40rem, 100%);
+      overflow-x: auto; overscroll-behavior-x: contain;
+      scrollbar-width: thin; padding-bottom: .2rem;
     }
+    .domain-chips[hidden] { display: none !important; }
+    body[data-view="search"] #catalog-search { padding-top: 1.15rem; }
+    body[data-view="search"] #catalog-search .section-desc { margin-bottom: .9rem; }
     .domain-chip {
       display: inline-flex; align-items: center;
       height: 28px; padding: 0 .75rem;
@@ -2059,7 +2072,7 @@
         </div>
         <div>
           <dt>Test</dt>
-          <dd>A check you can run on a bridge. We also call this Crosscheck.</dd>
+          <dd>A check you can run on a claimed link. One button, in the browser.</dd>
         </div>
         <div>
           <dt>Record</dt>
@@ -2306,7 +2319,7 @@
         <span class="section-tag">Catalog</span>
         <h2 class="section-title">Search the knowledge catalog</h2>
         <p class="section-desc">
-          Real-time filter across all unknowns, bridges, hypotheses, and phenomena loaded from the knowledge graph.
+          Search open questions, claimed links, and testable ideas.
           Press <kbd style="font-family:var(--mono);font-size:.78em;background:var(--bg-1);border:1px solid var(--border);border-radius:4px;padding:.1rem .35rem;">/</kbd> to focus.
         </p>
       </div>
@@ -2323,8 +2336,8 @@
       </div>
       <div id="domain-chips" class="domain-chips" aria-label="Filter by domain" role="group"></div>
       <p id="catalog-search-status" class="catalog-search-status" role="status" aria-live="polite"></p>
-      <div id="search-results" class="search-results" aria-live="polite" aria-label="Search results"></div>
       <div id="search-count-note" class="search-count-note" hidden></div>
+      <div id="search-results" class="search-results" aria-live="polite" aria-label="Search results"></div>
     </section>
 
     <!-- ═════════════════════════════════ ORPHAN / XREF TARGETS -->
@@ -4425,9 +4438,10 @@
           searchIndex = Object.values(catalogMap);
           lunrIndex   = buildLunrIndex(searchIndex);
           if (inputEl) {
-            inputEl.placeholder = 'Search ' + searchIndex.length + ' entries \u2014 titles, claims, domains\u2026';
+            inputEl.placeholder = 'Search ' + searchIndex.length + ' entries \u2014 open questions, claimed links, testable ideas\u2026';
           }
           if (inputEl && inputEl.value.trim()) doSearch(inputEl.value);
+          else showSearchPlaceholder();
           setCatalogSearchStatus('');
           if (inputEl) inputEl.setAttribute('aria-busy', 'false');
         }
@@ -4442,7 +4456,7 @@
 
         /* Build a basic index immediately from graph data while API loads */
         lunrIndex = buildLunrIndex(searchIndex);
-        setCatalogSearchStatus('Loading bridge and unknown metadata for richer search\u2026');
+        setCatalogSearchStatus('Loading the rest of the catalog\u2026');
 
         var inputEl      = document.getElementById('catalog-search-input');
         var resultsEl    = document.getElementById('search-results');
@@ -4451,7 +4465,7 @@
         var activeDomain = 'all';
 
         if (inputEl) {
-          inputEl.placeholder = 'Search ' + searchIndex.length + ' entries \u2014 unknowns, bridges, hypotheses\u2026';
+          inputEl.placeholder = 'Search ' + searchIndex.length + ' entries \u2014 open questions, claimed links, testable ideas\u2026';
         }
 
         /* ── BUILD DOMAIN CHIPS ──────────────────────────────── */
@@ -4502,6 +4516,12 @@
 
         buildDomainChips();
 
+        function syncDomainChips() {
+          if (!chipsEl) return;
+          var typing = !!(inputEl && inputEl.value.trim());
+          chipsEl.hidden = typing;
+        }
+
         var lastSearchResults = [];
         var lastSearchTotal = 0;
         var selectedSearchId = null;
@@ -4511,9 +4531,24 @@
         }
 
         function showSearchPlaceholder() {
-          if (resultsEl) resultsEl.innerHTML = '';
-          if (countNoteEl) countNoteEl.hidden = true;
           selectedSearchId = null;
+          var starters = searchIndex.filter(function (n) {
+            return String(n.type || '').toLowerCase() === 'unknown' && n.title;
+          }).slice(0, 5);
+          if (!resultsEl || !starters.length) {
+            if (resultsEl) resultsEl.innerHTML = '';
+            if (countNoteEl) countNoteEl.hidden = true;
+            lastSearchResults = [];
+            lastSearchTotal = 0;
+            return;
+          }
+          lastSearchResults = starters;
+          lastSearchTotal = starters.length;
+          renderSearchResults(
+            starters,
+            starters.length,
+            'A few open questions. Type to search the rest.'
+          );
         }
 
         function snippet(text, maxLen) {
@@ -4522,7 +4557,7 @@
           return text.length > maxLen ? text.substring(0, maxLen) + '\u2026' : text;
         }
 
-        function renderSearchResults(results, total) {
+        function renderSearchResults(results, total, note) {
           if (!resultsEl) return;
           resultsEl.innerHTML = '';
           if (results.length === 0) {
@@ -4541,6 +4576,9 @@
             var snip = snippet(desc, 160);
             card.classList.toggle('search-result-card--active', selectedSearchId === n.id);
             var ghSearch = githubFilenameSearchUrl(n.id);
+            var recordLink = document.body.classList.contains('visitor-first')
+              ? ''
+              : '<a class="result-gh-yaml" href="' + ghSearch + '" target="_blank" rel="noopener" title="Open this catalog record">Open this record ↗</a>';
             card.innerHTML =
               '<div class="result-row">' +
                 '<span class="type-badge type-' + t + '">' + typeLabel(t) + '</span>' +
@@ -4549,7 +4587,8 @@
               '</div>' +
               (snip ? '<div class="result-snippet">' + esc(snip) + '</div>' : '') +
               '<div class="result-actions">' +
-                '<a class="result-gh-yaml" href="' + ghSearch + '" target="_blank" rel="noopener" title="Open this catalog record">Open this record ↗</a>' +
+                '<span class="result-open">Show on the map</span>' +
+                recordLink +
               '</div>';
             card.addEventListener('click', function (e) {
               if (e.target.closest('a.result-gh-yaml')) return;
@@ -4560,9 +4599,9 @@
             resultsEl.appendChild(card);
           });
           if (countNoteEl) {
-            countNoteEl.textContent = (total > results.length)
+            countNoteEl.textContent = note || ((total > results.length)
               ? 'Showing ' + results.length + ' of ' + total + ' matches'
-              : total + ' match' + (total === 1 ? '' : 'es');
+              : total + ' match' + (total === 1 ? '' : 'es'));
             countNoteEl.hidden = false;
           }
         }
@@ -4603,19 +4642,25 @@
         if (inputEl) {
           var debounceTimer;
           inputEl.addEventListener('input', function () {
+            syncDomainChips();
             clearTimeout(debounceTimer);
             debounceTimer = setTimeout(function () { doSearch(inputEl.value); }, 80);
           });
         }
 
+        syncDomainChips();
+        showSearchPlaceholder();
+
         /* Scroll to graph and open detail panel for a node from search results */
         function highlightNode(nodeId) {
+          var token = ++panelRequest;
           if (typeof window.usdrGoView === 'function') window.usdrGoView('map');
           var graphSection = document.getElementById('knowledge-graph');
           if (graphSection) graphSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
           /* Delay so the map view is visible and the graph can size. */
           setTimeout(function () {
+            if (token !== panelRequest) return;
             if (typeof window.usdrResizeGraph === 'function') window.usdrResizeGraph();
             var d = nodeMap ? nodeMap[nodeId] : null;
             if (!d) {
@@ -4625,21 +4670,27 @@
             if (typeof focusGraphCamera === 'function') focusGraphCamera(nodeId);
             if (typeof openPanel === 'function') {
               openPanel(d);
-              if (contentEl) contentEl.innerHTML = '<div class="panel-loading">Loading\u2026</div>';
+              renderPanel(d, {}, '', edges);
               var type = d.id.startsWith('b-') ? 'bridge' : d.id.startsWith('u-') ? 'unknown' : d.id.startsWith('h-') ? 'hypothesis' : 'phenomenon';
               if (typeof loadNodeDetails === 'function') {
                 loadNodeDetails(d.id, type).then(function (result) {
+                  if (token !== panelRequest) return;
                   if (result && typeof parseYamlFields === 'function' && typeof renderPanel === 'function') {
                     var fields = parseYamlFields(result.text);
                     renderPanel(d, fields, result.path, edges);
                   } else if (contentEl) {
-                    contentEl.innerHTML = '<p class="panel-id">' + esc(d.id) + '</p><p class="panel-title">' + esc(d.title || d.id) + '</p>';
+                    var visitorNow = document.body.classList.contains('visitor-first');
+                    contentEl.innerHTML =
+                      (visitorNow ? '' : '<p class="panel-id">' + esc(d.id) + '</p>') +
+                      '<p class="panel-title">' + esc(d.title || d.id) + '</p>';
                   }
                 });
               }
             }
           }, 350);
         }
+
+        window.usdrShowRecord = highlightNode;
 
         /* keyboard shortcut: / opens Search */
         document.addEventListener('keydown', function (e) {
@@ -4703,8 +4754,13 @@
         var topId = Object.keys(deg).sort(function (a, b) { return deg[b] - deg[a]; })[0];
         var topNode = nodes.find(function (n) { return n.id === topId; });
         if (topNode && document.getElementById('kg-top-node')) {
+          var topName = topNode.id;
+          if (document.body.classList.contains('visitor-first')) {
+            topName = (topNode.title || topNode.id).replace(/\n/g, ' ').trim();
+            if (topName.length > 72) topName = topName.slice(0, 72) + '\u2026';
+          }
           document.getElementById('kg-top-node').innerHTML =
-            ' &nbsp;·&nbsp; top: <span>' + topNode.id + '</span> (' + deg[topId] + ')';
+            ' &nbsp;·&nbsp; top: <span>' + esc(topName) + '</span> (' + deg[topId] + ')';
         }
 
         /* svg setup */
@@ -5060,9 +5116,10 @@
         var panelEl   = document.getElementById('node-detail-panel');
         var contentEl = document.getElementById('panel-content');
         var closeBtn  = document.getElementById('panel-close');
+        var panelRequest = 0;
 
         var TYPE_EMOJI = { bridge: '🔵', unknown: '🟠', hypothesis: '🟢', phenomenon: '🟣' };
-        var TYPE_LABEL = { bridge: 'Bridge', unknown: 'Unknown', hypothesis: 'Hypothesis', phenomenon: 'Phenomenon' };
+        var TYPE_LABEL = { bridge: 'Claimed link', unknown: 'Open question', hypothesis: 'Testable idea', phenomenon: 'Early note' };
 
         /* build candidate file paths for a given node id + type */
         function getFilePaths(nodeId, type) {
@@ -5180,6 +5237,13 @@
           return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
         }
 
+        function linkedLabel(id) {
+          var n = (typeof nodeMap !== 'undefined' && nodeMap) ? nodeMap[id] : null;
+          var t = n && n.title ? String(n.title).replace(/\n/g, ' ').trim() : '';
+          if (!t || t === id) return 'Linked record';
+          return t.length > 90 ? t.slice(0, 90) + '\u2026' : t;
+        }
+
         function renderPanel(d, fields, path, edges) {
           var type = (d.type || 'unknown').toLowerCase();
           var emoji = TYPE_EMOJI[type] || '⚪';
@@ -5197,9 +5261,10 @@
             if (t === nodeId && !connectedIds.includes(s)) connectedIds.push(s);
           });
 
+          var visitor = document.body.classList.contains('visitor-first');
           var html = '';
           html += '<span class="panel-type-badge type-' + type + '">' + emoji + ' ' + esc(label) + '</span>';
-          html += '<p class="panel-id">' + esc(nodeId) + '</p>';
+          if (!visitor) html += '<p class="panel-id">' + esc(nodeId) + '</p>';
           html += '<p class="panel-title">' + esc(displayTitle) + '</p>';
 
           if (fields.status) {
@@ -5213,13 +5278,13 @@
           }
 
           if (fields.bridge_claim) {
-            html += '<p class="panel-section-label">Bridge Claim</p>';
+            html += '<p class="panel-section-label">The claim</p>';
             var claimText = fields.bridge_claim.slice(0, 300) + (fields.bridge_claim.length > 300 ? '…' : '');
             html += '<p class="panel-claim">' + esc(claimText) + '</p>';
           }
 
           if (fields.translation_table && fields.translation_table.length) {
-            html += '<p class="panel-section-label">Translation Table</p>';
+            html += '<p class="panel-section-label">Same idea, two names</p>';
             html += '<table class="translation-table"><thead><tr><th>Source</th><th>Target</th></tr></thead><tbody>';
             fields.translation_table.forEach(function (row) {
               html += '<tr><td>' + esc(row.source) + '</td><td>' + esc(row.target) + '</td></tr>';
@@ -5229,10 +5294,10 @@
 
           /* connected nodes from edge list */
           if (connectedIds.length) {
-            html += '<p class="panel-section-label">Connected Nodes</p>';
+            html += '<p class="panel-section-label">Connected</p>';
             html += '<ul class="panel-connected-list">';
             connectedIds.slice(0, 8).forEach(function (id) {
-              html += '<li title="' + esc(id) + '">' + esc(id) + '</li>';
+              html += '<li title="' + esc(id) + '">' + esc(linkedLabel(id)) + '</li>';
             });
             if (connectedIds.length > 8) {
               html += '<li style="color:var(--muted);font-size:.72rem">+ ' + (connectedIds.length - 8) + ' more…</li>';
@@ -5242,21 +5307,23 @@
             /* fall back to YAML related_ fields */
             var related = [].concat(fields.related_unknowns || [], fields.related_hypotheses || [], fields.related_bridges || []);
             if (related.length) {
-              html += '<p class="panel-section-label">Related Entries</p>';
+              html += '<p class="panel-section-label">Related</p>';
               html += '<ul class="panel-connected-list">';
               related.slice(0, 6).forEach(function (id) {
-                html += '<li title="' + esc(id) + '">' + esc(id) + '</li>';
+                html += '<li title="' + esc(id) + '">' + esc(linkedLabel(id)) + '</li>';
               });
               html += '</ul>';
             }
           }
 
-          var ghBlob = githubBlobUrl(path);
-          var ghRaw = githubRawUrl(path);
-          html += '<div class="panel-gh-row">';
-          html += '<a href="' + ghBlob + '" class="panel-github-link" target="_blank" rel="noopener">Open this record ↗</a>';
-          html += '<a href="' + ghRaw + '" class="panel-github-link" target="_blank" rel="noopener">Plain text ↗</a>';
-          html += '</div>';
+          if (!visitor && path) {
+            var ghBlob = githubBlobUrl(path);
+            var ghRaw = githubRawUrl(path);
+            html += '<div class="panel-gh-row">';
+            html += '<a href="' + ghBlob + '" class="panel-github-link" target="_blank" rel="noopener">Open this record ↗</a>';
+            html += '<a href="' + ghRaw + '" class="panel-github-link" target="_blank" rel="noopener">Plain text ↗</a>';
+            html += '</div>';
+          }
 
           contentEl.innerHTML = html;
         }
@@ -5296,13 +5363,14 @@
         /* node click */
         node.on('click', function (event, d) {
           event.stopPropagation();
+          var token = ++panelRequest;
 
           svg.selectAll('circle').classed('selected', function (n) { return n.id === d.id; });
           highlightNeighborhood(d.id);
           focusGraphCamera(d.id);
 
           openPanel(d);
-          contentEl.innerHTML = '<div class="panel-loading">Loading…</div>';
+          renderPanel(d, {}, '', edges);
 
           var type = d.id.startsWith('b-') ? 'bridge'
                    : d.id.startsWith('u-') ? 'unknown'
@@ -5310,16 +5378,18 @@
                    : 'phenomenon';
 
           loadNodeDetails(d.id, type).then(function (result) {
+            if (token !== panelRequest) return;
             if (result) {
               var fields = parseYamlFields(result.text);
               renderPanel(d, fields, result.path, edges);
             } else {
+              var visitor = document.body.classList.contains('visitor-first');
               contentEl.innerHTML =
                 '<span class="panel-type-badge type-' + type + '">' + (TYPE_EMOJI[type] || '⚪') + ' ' + esc(TYPE_LABEL[type] || type) + '</span>' +
-                '<p class="panel-id">' + esc(d.id) + '</p>' +
+                (visitor ? '' : '<p class="panel-id">' + esc(d.id) + '</p>') +
                 '<p class="panel-title">' + esc(d.title || d.id) + '</p>' +
-                '<p style="color:var(--muted);font-size:.8rem;margin-top:.5rem">Full details not available in preview mode.</p>' +
-                '<a href="' + githubRepoBase() + '/search?q=' + encodeURIComponent(d.id) + '" class="panel-github-link" target="_blank" rel="noopener">Search on GitHub ↗</a>';
+                '<p style="color:var(--muted);font-size:.8rem;margin-top:.5rem">The full write-up is not in this preview.</p>' +
+                (visitor ? '' : '<a href="' + githubRepoBase() + '/search?q=' + encodeURIComponent(d.id) + '" class="panel-github-link" target="_blank" rel="noopener">Search on GitHub ↗</a>');
             }
           });
         });
@@ -5327,14 +5397,15 @@
         /* tooltip */
         node
           .on('mousemove', function (event, d) {
-            var typeLabel = (d.type || 'unknown');
-            typeLabel = typeLabel.charAt(0).toUpperCase() + typeLabel.slice(1);
+            var typeKey = (d.type || 'unknown').toLowerCase();
+            var typeName = TYPE_LABEL[typeKey] || typeKey;
             var rawTitle = (d.title || d.id).replace(/\n/g, ' ');
             var title = rawTitle.length > 130 ? rawTitle.slice(0, 130) + '\u2026' : rawTitle;
-            var inner = '<strong>' + typeLabel + '</strong><br>'
-              + '<span style="font-size:.78rem;word-break:break-word;">' + d.id + '</span>';
-            if (title && title !== d.id) {
-              inner += '<br><span style="color:var(--muted);font-size:.74rem;line-height:1.4;">' + title + '</span>';
+            var visitorTip = document.body.classList.contains('visitor-first');
+            var inner = '<strong>' + esc(title) + '</strong><br>'
+              + '<span style="color:var(--muted);font-size:.74rem;line-height:1.4;">' + esc(typeName) + '</span>';
+            if (!visitorTip) {
+              inner += '<br><span style="font-size:.78rem;word-break:break-word;">' + esc(d.id) + '</span>';
             }
             tipEl.innerHTML = inner;
             tipEl.classList.remove('hidden');
@@ -5850,7 +5921,12 @@
         a.href = '#/map';
         a.innerHTML = '<h3></h3><p></p>';
         a.querySelector('h3').textContent = it.title || it.id;
-        a.querySelector('p').textContent = (it.harvested ? 'harvested · ' : '') + (it.domain || '') + ' · ' + it.id;
+        a.querySelector('p').textContent = it.domain || '';
+        a.addEventListener('click', function (ev) {
+          if (typeof window.usdrShowRecord !== 'function') return;
+          ev.preventDefault();
+          window.usdrShowRecord(it.id);
+        });
         rail.appendChild(a);
       });
     }

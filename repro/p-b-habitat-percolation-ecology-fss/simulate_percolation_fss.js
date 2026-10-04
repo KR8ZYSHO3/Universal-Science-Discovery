@@ -162,22 +162,23 @@
       data[o + 3] = 255;
     }
     ctx.putImageData(img, 0, 0);
+    const onPage = !target || target.id === "perc-lattice";
     if (target) {
       const box = canvas.parentElement;
       if (box) box.classList.toggle("is-wrapped", frame.wrapH || frame.wrapV);
     }
     const wrap = stageEl("perc-stage");
-    if (wrap && !target) wrap.classList.toggle("is-wrapped", frame.wrapH || frame.wrapV);
+    if (wrap && onPage) wrap.classList.toggle("is-wrapped", frame.wrapH || frame.wrapV);
     const meter = stageEl("perc-meter-fill");
-    if (meter && !target) meter.style.width = Math.min(100, frame.p * 100) + "%";
+    if (meter && onPage) meter.style.width = Math.min(100, frame.p * 100) + "%";
     const readout = stageEl("perc-readout");
-    if (readout && !target) {
-      const dir = frame.wrapH && frame.wrapV ? "both directions" : frame.wrapH ? "left–right" : frame.wrapV ? "up–down" : "not yet";
+    if (readout && onPage) {
+      const dir = frame.wrapH && frame.wrapV ? "both ways" : frame.wrapH ? "left–right" : frame.wrapV ? "up–down" : "not yet";
       readout.textContent =
-        "L = " + L + "   filled " + (100 * frame.p).toFixed(2) + "%   wrap: " + dir;
+        L + " patches wide · " + (100 * frame.p).toFixed(2) + "% filled · wrap " + dir;
     }
     const story = stageEl("perc-story");
-    if (story && !target) story.textContent = frame.story;
+    if (story && onPage) story.textContent = frame.story;
   }
 
   function paintChart(rows, fit) {
@@ -588,7 +589,11 @@
     return "INCONCLUSIVE";
   }
 
+  let stopPagePreview = function () {};
+
   async function runPercolationFss(emit) {
+    stopPagePreview();
+    stopPagePreview = function () {};
     emit({
       type: "line",
       text: "Crosscheck: p-b-habitat-percolation-ecology-fss",
@@ -759,4 +764,9 @@
   }
 
   root.CrosscheckRuns.startHabitatPreview = startHabitatPreview;
+
+  const pageLattice = stageEl("perc-lattice");
+  if (pageLattice) {
+    stopPagePreview = startHabitatPreview(pageLattice, stageEl("perc-story"));
+  }
 })();
