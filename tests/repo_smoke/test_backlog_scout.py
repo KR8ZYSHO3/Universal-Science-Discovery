@@ -39,8 +39,14 @@ def test_scout_collects_findings_and_writes_report(tmp_path: Path) -> None:
     assert "invent CONFIRMED" in report
 
 
-def test_v13_ui01_is_a_finding_until_audit_exists() -> None:
+def test_shipped_v13_items_are_not_findings() -> None:
     mod = _load()
     titles = [f.title for f in mod.scan_v13_gaps()]
-    assert any(t.startswith("UI-01") for t in titles)
-    assert any(t.startswith("ROBUST-01") for t in titles)
+    shipped = ("FLOW-01", "WORK-01", "UI-01", "ROBUST-01", "WORK-02")
+    for rid in shipped:
+        assert not any(t.startswith(rid) for t in titles)
+    hints = {rid: hint for rid, _blurb, hint in mod.V13}
+    for rid in shipped:
+        hint = hints[rid]
+        assert hint
+        assert (REPO_ROOT / hint).is_file()
