@@ -529,7 +529,39 @@
       border: 1px solid var(--border-h);
       border-radius: var(--r);
       text-align: left;
-      max-width: 52rem;
+      max-width: 68rem;
+    }
+    .home-showcase {
+      display: grid;
+      grid-template-columns: minmax(220px, 1.05fr) minmax(240px, .95fr);
+      gap: 1rem 1.35rem;
+      align-items: center;
+    }
+    .home-landscape { min-width: 0; }
+    #home-lattice {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1;
+      max-height: min(440px, 62vw);
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+      display: block;
+      border-radius: 10px;
+      background: #081020;
+      box-shadow: 0 0 0 1px rgba(255,255,255,.06);
+    }
+    .home-landscape.is-wrapped #home-lattice {
+      box-shadow: 0 0 0 2px #fbbf24, 0 0 36px rgba(251,191,36,.32);
+    }
+    .example-walk .home-landscape-caption {
+      margin: .55rem 0 0;
+      font-size: .84rem;
+      line-height: 1.45;
+      color: var(--muted);
+    }
+    @media (max-width: 800px) {
+      .home-showcase { grid-template-columns: 1fr; }
+      #home-lattice { max-height: 78vw; }
     }
     .example-walk h2 {
       font-size: 1.05rem;
@@ -1907,21 +1939,29 @@
       </p>
 
       <div class="example-walk aos" id="example">
-        <div class="example-kicker">Do this first · a few minutes · no account</div>
-        <h2>Habitat loss and percolation are the same math</h2>
-        <p>
-          In ecology, a landscape can fall into isolated patches. In physics, a grid can lose its giant connected cluster.
-          This project stores that claim and lets you run a check. One button.
-        </p>
-        <ol>
-          <li>A <strong>claim</strong> that two fields share the same math.</li>
-          <li>A <strong>test</strong> you can run in the browser.</li>
-          <li>The button shows habitat patches filling a landscape, then repeats the real measurement. <strong>INCONCLUSIVE</strong> means that run was too noisy. It is not a preset failure.</li>
-        </ol>
-        <div class="example-actions">
-          <a class="primary" href="../repro/p-b-habitat-percolation-ecology-fss/index.html">Run this test →</a>
-          <a class="secondary" href="explainers/b-habitat-percolation-ecology.html">Read the claim</a>
-          <a class="secondary" href="#/map">See how two fields connect</a>
+        <div class="home-showcase">
+          <div class="home-landscape" id="home-landscape">
+            <canvas id="home-lattice" width="48" height="48" aria-label="A landscape filling until one habitat wraps around the edges"></canvas>
+            <p class="home-landscape-caption" id="home-landscape-caption">A landscape filling in. Each color is a habitat. Gold is the one that wraps around the edges.</p>
+          </div>
+          <div>
+            <div class="example-kicker">Do this first · a few minutes · no account</div>
+            <h2>Habitat loss and percolation are the same math</h2>
+            <p>
+              In ecology, a landscape can fall into isolated patches. In physics, a grid can lose its giant connected cluster.
+              This project stores that claim and lets you run a check. One button.
+            </p>
+            <ol>
+              <li>A <strong>claim</strong> that two fields share the same math.</li>
+              <li>A <strong>test</strong> you can run in the browser.</li>
+              <li>The picture is one landscape, not the average. The button runs four widths, 400 times each, and reports that fit.</li>
+            </ol>
+            <div class="example-actions">
+              <a class="primary" href="../repro/p-b-habitat-percolation-ecology-fss/index.html">Run this test →</a>
+              <a class="secondary" href="explainers/b-habitat-percolation-ecology.html">Read the claim</a>
+              <a class="secondary" href="#/map">See how two fields connect</a>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -4073,6 +4113,38 @@
         if (inp) { inp.focus(); inp.select(); }
       }
       if (!opts.keepScroll) window.scrollTo(0, 0);
+      ensureHomeLandscape(view === 'home');
+    }
+    var homeLandscapeStop = null;
+    var homeLandscapeLoading = false;
+    function ensureHomeLandscape(on) {
+      var canvas = document.getElementById('home-lattice');
+      if (!canvas) return;
+      if (!on) {
+        if (homeLandscapeStop) { homeLandscapeStop(); homeLandscapeStop = null; }
+        return;
+      }
+      if (homeLandscapeStop) return;
+      function begin() {
+        if (document.body.getAttribute('data-view') !== 'home') return;
+        if (!window.CrosscheckRuns || !window.CrosscheckRuns.startHabitatPreview) return;
+        if (homeLandscapeStop) return;
+        homeLandscapeStop = window.CrosscheckRuns.startHabitatPreview(
+          canvas,
+          document.getElementById('home-landscape-caption')
+        );
+      }
+      if (window.CrosscheckRuns && window.CrosscheckRuns.startHabitatPreview) {
+        begin();
+        return;
+      }
+      if (homeLandscapeLoading) return;
+      homeLandscapeLoading = true;
+      var s = document.createElement('script');
+      s.src = '../repro/p-b-habitat-percolation-ecology-fss/simulate_percolation_fss.js';
+      s.onload = function () { homeLandscapeLoading = false; begin(); };
+      s.onerror = function () { homeLandscapeLoading = false; };
+      document.body.appendChild(s);
     }
     window.usdrApplyHubView = applyHubView;
     window.usdrGoView = function (view, opts) {

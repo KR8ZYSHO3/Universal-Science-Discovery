@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed — The front door shows the landscape filling
+- Home opens on one real landscape, the same filling rules as the habitat test. Colors name habitats. Gold is the one that wraps. The picture is not the 400-run average. Leaving home stops it.
+
 ### Fixed — Backlog scout no longer reopens shipped v1.3 items.
 - UI-01, ROBUST-01, and WORK-02 hints now point at the files that shipped, so a missing path is not treated as still open.
 

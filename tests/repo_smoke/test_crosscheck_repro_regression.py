@@ -46,6 +46,7 @@ def test_percolation_fss_browser_js_fits_instead_of_preset_result() -> None:
     assert "const NU_TOLERANCE = 0.15" in js
     assert "function classify(" in js
     assert "RESULT: ${result}" in js
+    assert "function startHabitatPreview(" in js
     assert "browser smoke test; cannot confirm" not in js
     assert 'result: "INCONCLUSIVE"' not in js
     assert 'result: "CONFIRMED"' not in js

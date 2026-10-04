@@ -131,8 +131,8 @@
   const VISUAL_TARGET_P = 0.62;
   let visualGeneration = 0;
 
-  function paintLattice(frame) {
-    const canvas = stageEl("perc-lattice");
+  function paintLattice(frame, target) {
+    const canvas = target || stageEl("perc-lattice");
     if (!canvas) return;
     const L = frame.L;
     const n = frame.n;
@@ -162,18 +162,22 @@
       data[o + 3] = 255;
     }
     ctx.putImageData(img, 0, 0);
+    if (target) {
+      const box = canvas.parentElement;
+      if (box) box.classList.toggle("is-wrapped", frame.wrapH || frame.wrapV);
+    }
     const wrap = stageEl("perc-stage");
-    if (wrap) wrap.classList.toggle("is-wrapped", frame.wrapH || frame.wrapV);
+    if (wrap && !target) wrap.classList.toggle("is-wrapped", frame.wrapH || frame.wrapV);
     const meter = stageEl("perc-meter-fill");
-    if (meter) meter.style.width = Math.min(100, frame.p * 100) + "%";
+    if (meter && !target) meter.style.width = Math.min(100, frame.p * 100) + "%";
     const readout = stageEl("perc-readout");
-    if (readout) {
+    if (readout && !target) {
       const dir = frame.wrapH && frame.wrapV ? "both directions" : frame.wrapH ? "left–right" : frame.wrapV ? "up–down" : "not yet";
       readout.textContent =
         "L = " + L + "   filled " + (100 * frame.p).toFixed(2) + "%   wrap: " + dir;
     }
     const story = stageEl("perc-story");
-    if (story) story.textContent = frame.story;
+    if (story && !target) story.textContent = frame.story;
   }
 
   function paintChart(rows, fit) {
@@ -247,7 +251,7 @@
     return rootOf;
   }
 
-  async function firstWrapEitherAnimated(L, rng, onFrame, onSlice) {
+  async function firstWrapEitherAnimated(L, rng, onFrame, onSlice, pace) {
     const n = L * L;
     const parent = new Int32Array(n);
     const dx = new Int32Array(n);
@@ -300,10 +304,13 @@
       await new Promise((resolve) => requestAnimationFrame(resolve));
     }
 
+    const budget = pace && pace.ms ? pace.ms : VISUAL_MS;
+    const holdMs = pace && pace.holdMs != null ? pace.holdMs : 1800;
     let k = 0;
     while (k < n && !(wrapH || wrapV)) {
+      if (pace && pace.alive && !pace.alive()) return k / n;
       const elapsed = performance.now() - started;
-      const wantP = Math.min(1, (elapsed / VISUAL_MS) * VISUAL_TARGET_P);
+      const wantP = Math.min(1, (elapsed / budget) * VISUAL_TARGET_P);
       let wantK = Math.floor(wantP * n);
       if (wantK <= k) wantK = k + 1;
       while (k < wantK && k < n && !(wrapH || wrapV)) {
@@ -343,10 +350,15 @@
       await show(k, wrapH || wrapV);
       if (onSlice) onSlice();
     }
-    const holdUntil = performance.now() + 1800;
-    while (performance.now() < holdUntil) {
+    if (holdMs > 0) {
+      const holdUntil = performance.now() + holdMs;
+      while (performance.now() < holdUntil) {
+        if (pace && pace.alive && !pace.alive()) return k / n;
+        await show(k, true);
+        if (onSlice) onSlice();
+      }
+    } else if (wrapH || wrapV) {
       await show(k, true);
-      if (onSlice) onSlice();
     }
     return k / n;
   }
@@ -602,4 +614,33 @@
   const root = typeof window !== "undefined" ? window : globalThis;
   root.CrosscheckRuns = root.CrosscheckRuns || {};
   root.CrosscheckRuns["p-b-habitat-percolation-ecology-fss"] = runPercolationFss;
+
+  function startHabitatPreview(canvas, caption) {
+    if (!canvas || typeof canvas.getContext !== "function") return function () {};
+    let alive = true;
+    const reduced =
+      typeof matchMedia === "function" &&
+      matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const paint = (frame) => {
+      if (!alive) return;
+      paintLattice(frame, canvas);
+      if (caption) caption.textContent = frame.story;
+    };
+    const pace = {
+      ms: reduced ? 1 : VISUAL_MS,
+      holdMs: reduced ? 0 : 1800,
+      alive: () => alive,
+    };
+    (async () => {
+      let seed = 11;
+      do {
+        await firstWrapEitherAnimated(VISUAL_L, mulberry32(seed++), paint, null, pace);
+      } while (alive && !reduced);
+    })();
+    return function stopHabitatPreview() {
+      alive = false;
+    };
+  }
+
+  root.CrosscheckRuns.startHabitatPreview = startHabitatPreview;
 })();

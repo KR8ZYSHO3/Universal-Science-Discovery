@@ -81,3 +81,5 @@ def test_habitat_first_test_landing_exists() -> None:
     assert landing.is_file()
     hub = (REPO_ROOT / "dashboard" / "index.html").read_text(encoding="utf-8")
     assert "p-b-habitat-percolation-ecology-fss/index.html" in hub
+    assert 'id="home-lattice"' in hub
+    assert "startHabitatPreview" in hub
