@@ -1,6 +1,6 @@
 # USDR crew briefing
 
-Generated **2026-10-01 12:10 UTC**. Foreman only; not a scientific result.
+Generated **2026-10-05 13:12 UTC**. Foreman only; not a scientific result.
 
 **Do not promote this run to `cross-domain/`, `unknowns-catalog/`, or `hypotheses/` without a human.**
 Wave Factory output stays in gitignored `drafts/wave_factory/`.
@@ -20,8 +20,8 @@ Flags: skip_harvest=True, skip_scout=False
   `  [26] b-openalex-network-theory-epidemiology-cancer-statistics-2019 score=0.686 (c=0.81, r=0.72, n=0.17)`
   `  [27] b-openalex-information-theory-evolutionary-biology-mega7-molecular-evolu score=0.685 (c=0.87, r=0.60, n=0.17)`
   `  [28] b-openalex-outcome-game-theory-evolutionary-biology-mega7-molecular-evol score=0.685 (c=0.87, r=0.60, n=0.17)`
-  `  [29] b-openalex-renormalization-group-machine-learning-very-deep-convolutiona score=0.682 (c=0.91, r=0.52, n=0.17)`
-  `  [30] b-openalex-statistical-mechanics-finance-reflecting-on-reflexive-them score=0.682 (c=0.80, r=0.72, n=0.17)`
+  `  [29] b-openalex-statistical-mechanics-finance-reflecting-on-reflexive-them score=0.682 (c=0.80, r=0.72, n=0.17)`
+  `  [30] b-openalex-renormalization-group-machine-learning-very-deep-convolutiona score=0.682 (c=0.91, r=0.52, n=0.17)`
   `[wave-factory] Wrote 90 YAML files under drafts/wave_factory`
   `[wave-factory] Source mix: openalex=30`
 
