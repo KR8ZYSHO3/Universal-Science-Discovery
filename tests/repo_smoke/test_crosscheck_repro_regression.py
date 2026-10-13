@@ -58,6 +58,15 @@ def test_percolation_fss_browser_js_fits_instead_of_preset_result() -> None:
     assert 'id="perc-conclusion"' in page
     assert 'class="perc-evidence-title"' in page or "perc-evidence-title" in page
     assert "Finite-size scaling test — does the 2D site percolation threshold" not in page
+    assert 'data-action="run">Run the check<' in page
+    assert "USDR Crosscheck" not in page
+    assert "Run the same check on your computer" in page
+    assert page.index("Run the check") < page.index("The evidence")
+    assert page.index("The evidence") < page.index("git clone")
+    assert "startHabitatPreview(pageLattice" in js
+    assert "stopPagePreview()" in js
+    assert "Press Run." not in page
+    assert "400 times each" in page
 
 
 def test_habitat_conclusion_is_computed_from_the_rows() -> None:

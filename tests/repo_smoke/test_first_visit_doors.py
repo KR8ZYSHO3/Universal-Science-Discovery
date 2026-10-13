@@ -71,6 +71,25 @@ def test_what_you_are_looking_at_figure_links_out() -> None:
     assert "](https://kr8zysho3.github.io/Universal-Science-Discovery/dashboard/)" in readme
 
 
+def test_visitor_search_stays_on_the_map() -> None:
+    hub = (REPO_ROOT / "dashboard" / "index.html").read_text(encoding="utf-8")
+    assert "Show on the map" in hub
+    assert "We also call this Crosscheck" not in hub
+    assert "Search open questions, claimed links, and testable ideas." in hub
+    assert "window.usdrShowRecord = highlightNode" in hub
+    assert "bridge: 'Claimed link'" in hub
+    assert "unknown: 'Open question'" in hub
+    assert "harvested · " not in hub
+    assert "classList.contains('visitor-first')" in hub
+    assert "flex-wrap: nowrap" in hub
+    assert "chipsEl.hidden = typing" in hub
+    assert "A few open questions. Type to search the rest." in hub
+    assert "titles, claims, domains" not in hub
+    assert "min-width: 12rem" in hub
+    assert "renderPanel(d, {}, '', edges)" in hub
+    assert "topNode.title || topNode.id" in hub
+
+
 def test_habitat_first_test_landing_exists() -> None:
     landing = (
         REPO_ROOT
