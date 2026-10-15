@@ -1,6 +1,6 @@
 # USDR crew briefing
 
-Generated **2026-10-12 14:03 UTC**. Foreman only; not a scientific result.
+Generated **2026-10-15 10:39 UTC**. Foreman only; not a scientific result.
 
 **Do not promote this run to `cross-domain/`, `unknowns-catalog/`, or `hypotheses/` without a human.**
 Wave Factory output stays in gitignored `drafts/wave_factory/`.
@@ -27,21 +27,15 @@ Flags: skip_harvest=True, skip_scout=False
 
 ## Unknown miner (unsolvables — you do not need to do this)
 
-- mine_unknowns exit **0**  staged unknowns=1
-  `[mine-unknowns] scanned=484 gap-hits=1 (deduped)`
-  `  u-gap-stochastic-dissipative-least-action-fram-a71249ca  Stochastic-dissipative least-action framework for self-organizing biol`
+- mine_unknowns exit **0**  staged unknowns=0
+  `[mine-unknowns] scanned=504 gap-hits=0 (deduped)`
   `[mine-unknowns] staged under drafts/unknowns_harvest`
   `Promote unknowns only: python scripts/harvesters/promote_unknowns.py --apply`
   `Do not promote bridges from this path.`
 - promote_unknowns dry-run exit **0**
-  `[promote-unknowns] OK. planned unknowns=1`
-  `Bridges are not in this command. Wave Factory still needs a human.`
-  `[promote-unknowns] dry-run. Pass --apply to copy into unknowns-catalog/.`
+  `[promote-unknowns] no stage dir /home/runner/work/Universal-Science-Discovery/Universal-Science-Discovery/drafts/unknowns_harvest`
 - auto-landed harvested unsolvables exit **0** (u-gap-* only; no bridges)
-  `[promote-unknowns] OK. planned unknowns=1`
-  `Bridges are not in this command. Wave Factory still needs a human.`
-  `  + unknowns-catalog/physics-biology/u-gap-stochastic-dissipative-least-action-fram-a71249ca.yaml`
-  `[promote-unknowns] copied 1 unknowns`
+  `[promote-unknowns] no stage dir /home/runner/work/Universal-Science-Discovery/Universal-Science-Discovery/drafts/unknowns_harvest`
 - You do not need to run promote. The clock did it.
 - Wave Factory **bridges** are still not auto-promoted.
 
