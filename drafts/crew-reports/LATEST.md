@@ -1,6 +1,6 @@
 # USDR crew briefing
 
-Generated **2026-10-15 10:39 UTC**. Foreman only; not a scientific result.
+Generated **2026-10-19 11:43 UTC**. Foreman only; not a scientific result.
 
 **Do not promote this run to `cross-domain/`, `unknowns-catalog/`, or `hypotheses/` without a human.**
 Wave Factory output stays in gitignored `drafts/wave_factory/`.
@@ -16,26 +16,34 @@ Flags: skip_harvest=True, skip_scout=False
 - wave_factory exit **0**
 - staged (gitignored): bridges=30, unknowns=30, hypotheses=30
 - these are **candidates**, not findings. Human review before promote.
-  `  [25] b-openalex-renormalization-group-machine-learning-adam-a-method-for-stoc score=0.686 (c=0.92, r=0.52, n=0.17)`
-  `  [26] b-openalex-network-theory-epidemiology-cancer-statistics-2019 score=0.685 (c=0.81, r=0.72, n=0.17)`
-  `  [27] b-openalex-information-theory-evolutionary-biology-mega7-molecular-evolu score=0.684 (c=0.87, r=0.60, n=0.17)`
-  `  [28] b-openalex-outcome-game-theory-evolutionary-biology-mega7-molecular-evol score=0.684 (c=0.87, r=0.60, n=0.17)`
-  `  [29] b-openalex-statistical-mechanics-finance-reflecting-on-reflexive-them score=0.683 (c=0.80, r=0.72, n=0.17)`
-  `  [30] b-openalex-renormalization-group-machine-learning-very-deep-convolutiona score=0.682 (c=0.91, r=0.52, n=0.17)`
+  `  [25] b-openalex-renormalization-group-machine-learning-xgboost score=0.690 (c=0.88, r=0.60, n=0.17)`
+  `  [26] b-openalex-renormalization-group-machine-learning-you-only-look-once-uni score=0.690 (c=0.88, r=0.60, n=0.17)`
+  `  [27] b-openalex-renormalization-group-machine-learning-very-deep-convolutiona score=0.689 (c=0.92, r=0.52, n=0.17)`
+  `  [28] b-openalex-network-theory-epidemiology-cancer-statistics-2019 score=0.683 (c=0.80, r=0.72, n=0.17)`
+  `  [29] b-openalex-information-theory-evolutionary-biology-mega7-molecular-evolu score=0.682 (c=0.86, r=0.60, n=0.17)`
+  `  [30] b-openalex-outcome-game-theory-evolutionary-biology-mega7-molecular-evol score=0.682 (c=0.86, r=0.60, n=0.17)`
   `[wave-factory] Wrote 90 YAML files under drafts/wave_factory`
   `[wave-factory] Source mix: openalex=30`
 
 ## Unknown miner (unsolvables — you do not need to do this)
 
-- mine_unknowns exit **0**  staged unknowns=0
-  `[mine-unknowns] scanned=504 gap-hits=0 (deduped)`
+- mine_unknowns exit **0**  staged unknowns=2
+  `[mine-unknowns] scanned=524 gap-hits=2 (deduped)`
+  `  u-gap-fine-tuned-programming-of-placenta-troph-a8572782  Fine-tuned programming of placenta trophoblast determines optimal mate`
+  `  u-gap-disentangling-leaf-microbiome-interactio-fbb6d847  Disentangling leaf-microbiome interactions in Arabidopsis thaliana by `
   `[mine-unknowns] staged under drafts/unknowns_harvest`
   `Promote unknowns only: python scripts/harvesters/promote_unknowns.py --apply`
   `Do not promote bridges from this path.`
 - promote_unknowns dry-run exit **0**
-  `[promote-unknowns] no stage dir /home/runner/work/Universal-Science-Discovery/Universal-Science-Discovery/drafts/unknowns_harvest`
+  `[promote-unknowns] OK. planned unknowns=2`
+  `Bridges are not in this command. Wave Factory still needs a human.`
+  `[promote-unknowns] dry-run. Pass --apply to copy into unknowns-catalog/.`
 - auto-landed harvested unsolvables exit **0** (u-gap-* only; no bridges)
-  `[promote-unknowns] no stage dir /home/runner/work/Universal-Science-Discovery/Universal-Science-Discovery/drafts/unknowns_harvest`
+  `[promote-unknowns] OK. planned unknowns=2`
+  `Bridges are not in this command. Wave Factory still needs a human.`
+  `  + unknowns-catalog/mathematics-biology/u-gap-fine-tuned-programming-of-placenta-troph-a8572782.yaml`
+  `  + unknowns-catalog/mathematics-ecology/u-gap-disentangling-leaf-microbiome-interactio-fbb6d847.yaml`
+  `[promote-unknowns] copied 2 unknowns`
 - You do not need to run promote. The clock did it.
 - Wave Factory **bridges** are still not auto-promoted.
 
@@ -50,7 +58,7 @@ Flags: skip_harvest=True, skip_scout=False
   `Quality Audit Results:`
   `  ERRORS:   0`
   `  WARNINGS: 0`
-  `  INFO:     45`
+  `  INFO:     47`
   `Report written to /home/runner/work/Universal-Science-Discovery/Universal-Science-Discovery/drafts/crew-reports/quality.md`
 
 ## Tester (contracts only — no live exponent run)
