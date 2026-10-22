@@ -1,6 +1,6 @@
 # USDR crew briefing
 
-Generated **2026-10-19 11:43 UTC**. Foreman only; not a scientific result.
+Generated **2026-10-22 10:56 UTC**. Foreman only; not a scientific result.
 
 **Do not promote this run to `cross-domain/`, `unknowns-catalog/`, or `hypotheses/` without a human.**
 Wave Factory output stays in gitignored `drafts/wave_factory/`.
@@ -27,23 +27,15 @@ Flags: skip_harvest=True, skip_scout=False
 
 ## Unknown miner (unsolvables — you do not need to do this)
 
-- mine_unknowns exit **0**  staged unknowns=2
-  `[mine-unknowns] scanned=524 gap-hits=2 (deduped)`
-  `  u-gap-fine-tuned-programming-of-placenta-troph-a8572782  Fine-tuned programming of placenta trophoblast determines optimal mate`
-  `  u-gap-disentangling-leaf-microbiome-interactio-fbb6d847  Disentangling leaf-microbiome interactions in Arabidopsis thaliana by `
+- mine_unknowns exit **0**  staged unknowns=0
+  `[mine-unknowns] scanned=464 gap-hits=0 (deduped)`
   `[mine-unknowns] staged under drafts/unknowns_harvest`
   `Promote unknowns only: python scripts/harvesters/promote_unknowns.py --apply`
   `Do not promote bridges from this path.`
 - promote_unknowns dry-run exit **0**
-  `[promote-unknowns] OK. planned unknowns=2`
-  `Bridges are not in this command. Wave Factory still needs a human.`
-  `[promote-unknowns] dry-run. Pass --apply to copy into unknowns-catalog/.`
+  `[promote-unknowns] no stage dir /home/runner/work/Universal-Science-Discovery/Universal-Science-Discovery/drafts/unknowns_harvest`
 - auto-landed harvested unsolvables exit **0** (u-gap-* only; no bridges)
-  `[promote-unknowns] OK. planned unknowns=2`
-  `Bridges are not in this command. Wave Factory still needs a human.`
-  `  + unknowns-catalog/mathematics-biology/u-gap-fine-tuned-programming-of-placenta-troph-a8572782.yaml`
-  `  + unknowns-catalog/mathematics-ecology/u-gap-disentangling-leaf-microbiome-interactio-fbb6d847.yaml`
-  `[promote-unknowns] copied 2 unknowns`
+  `[promote-unknowns] no stage dir /home/runner/work/Universal-Science-Discovery/Universal-Science-Discovery/drafts/unknowns_harvest`
 - You do not need to run promote. The clock did it.
 - Wave Factory **bridges** are still not auto-promoted.
 
