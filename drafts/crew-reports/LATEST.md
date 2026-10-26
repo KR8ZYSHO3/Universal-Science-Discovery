@@ -1,6 +1,6 @@
 # USDR crew briefing
 
-Generated **2026-10-22 10:56 UTC**. Foreman only; not a scientific result.
+Generated **2026-10-26 12:00 UTC**. Foreman only; not a scientific result.
 
 **Do not promote this run to `cross-domain/`, `unknowns-catalog/`, or `hypotheses/` without a human.**
 Wave Factory output stays in gitignored `drafts/wave_factory/`.
@@ -16,7 +16,7 @@ Flags: skip_harvest=True, skip_scout=False
 - wave_factory exit **0**
 - staged (gitignored): bridges=30, unknowns=30, hypotheses=30
 - these are **candidates**, not findings. Human review before promote.
-  `  [25] b-openalex-renormalization-group-machine-learning-xgboost score=0.690 (c=0.88, r=0.60, n=0.17)`
+  `  [25] b-openalex-renormalization-group-machine-learning-xgboost score=0.691 (c=0.88, r=0.60, n=0.17)`
   `  [26] b-openalex-renormalization-group-machine-learning-you-only-look-once-uni score=0.690 (c=0.88, r=0.60, n=0.17)`
   `  [27] b-openalex-renormalization-group-machine-learning-very-deep-convolutiona score=0.689 (c=0.92, r=0.52, n=0.17)`
   `  [28] b-openalex-network-theory-epidemiology-cancer-statistics-2019 score=0.683 (c=0.80, r=0.72, n=0.17)`
@@ -28,7 +28,7 @@ Flags: skip_harvest=True, skip_scout=False
 ## Unknown miner (unsolvables — you do not need to do this)
 
 - mine_unknowns exit **0**  staged unknowns=0
-  `[mine-unknowns] scanned=464 gap-hits=0 (deduped)`
+  `[mine-unknowns] scanned=484 gap-hits=0 (deduped)`
   `[mine-unknowns] staged under drafts/unknowns_harvest`
   `Promote unknowns only: python scripts/harvesters/promote_unknowns.py --apply`
   `Do not promote bridges from this path.`
