@@ -1,6 +1,6 @@
 # Backlog scout
 
-Generated **2026-11-07 13:40 UTC**. Operations only — not a scientific result.
+Generated **2026-11-08 13:58 UTC**. Operations only — not a scientific result.
 
 Findings: **1**. New issues this run (cap 5): 0.
 
