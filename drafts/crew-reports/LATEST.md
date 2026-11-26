@@ -1,6 +1,6 @@
 # USDR crew briefing
 
-Generated **2026-11-23 16:59 UTC**. Foreman only; not a scientific result.
+Generated **2026-11-26 16:08 UTC**. Foreman only; not a scientific result.
 
 **Do not promote this run to `cross-domain/`, `unknowns-catalog/`, or `hypotheses/` without a human.**
 Wave Factory output stays in gitignored `drafts/wave_factory/`.
@@ -16,19 +16,19 @@ Flags: skip_harvest=True, skip_scout=False
 - wave_factory exit **0**
 - staged (gitignored): bridges=30, unknowns=30, hypotheses=30
 - these are **candidates**, not findings. Human review before promote.
-  `  [25] b-openalex-dimension-graph-theory-immunology-sars-cov-2-cell-entry-depen score=0.691 (c=0.79, r=0.76, n=0.17)`
-  `  [26] b-openalex-information-theory-evolutionary-biology-moderated-estimation- score=0.688 (c=0.92, r=0.52, n=0.17)`
-  `  [27] b-openalex-outcome-game-theory-evolutionary-biology-moderated-estimation score=0.688 (c=0.92, r=0.52, n=0.17)`
-  `  [28] b-openalex-network-theory-epidemiology-cancer-statistics-2019 score=0.682 (c=0.80, r=0.72, n=0.17)`
-  `  [29] b-openalex-information-theory-evolutionary-biology-mega7-molecular-evolu score=0.678 (c=0.86, r=0.60, n=0.17)`
-  `  [30] b-openalex-outcome-game-theory-evolutionary-biology-mega7-molecular-evol score=0.678 (c=0.86, r=0.60, n=0.17)`
+  `  [25] b-openalex-outcome-game-theory-evolutionary-biology-mega6-molecular-evol score=0.647 (c=0.87, r=0.48, n=0.17)`
+  `  [26] b-openalex-network-theory-epidemiology-cancer-statistics-2016 score=0.643 (c=0.79, r=0.60, n=0.17)`
+  `  [27] b-openalex-information-theory-evolutionary-biology-mega5-molecular-evolu score=0.622 (c=0.87, r=0.40, n=0.17)`
+  `  [28] b-openalex-outcome-game-theory-evolutionary-biology-mega5-molecular-evol score=0.622 (c=0.87, r=0.40, n=0.17)`
+  `  [29] b-openalex-network-theory-epidemiology-cancer-statistics-2015 score=0.619 (c=0.77, r=0.56, n=0.17)`
+  `  [30] b-openalex-information-theory-evolutionary-biology-effect-of-the-damping score=0.607 (c=0.84, r=0.40, n=0.17)`
   `[wave-factory] Wrote 90 YAML files under drafts/wave_factory`
   `[wave-factory] Source mix: openalex=30`
 
 ## Unknown miner (unsolvables — you do not need to do this)
 
 - mine_unknowns exit **0**  staged unknowns=0
-  `[mine-unknowns] scanned=464 gap-hits=0 (deduped)`
+  `[mine-unknowns] scanned=364 gap-hits=0 (deduped)`
   `[mine-unknowns] staged under drafts/unknowns_harvest`
   `Promote unknowns only: python scripts/harvesters/promote_unknowns.py --apply`
   `Do not promote bridges from this path.`
